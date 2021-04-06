@@ -573,6 +573,110 @@ public class DowntimesApi {
     return new APIlistDowntimesRequest();
   }
 
+  private ApiResponse<List<Downtime>> listMonitorDowntimesWithHttpInfo(Long monitorId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'monitorId' is set
+    if (monitorId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'monitorId' when calling listMonitorDowntimes");
+    }
+
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/monitor/{monitor_id}/downtimes"
+            .replaceAll("\\{" + "monitor_id" + "\\}", apiClient.escapeString(monitorId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listMonitorDowntimes");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    GenericType<List<Downtime>> localVarReturnType = new GenericType<List<Downtime>>() {};
+
+    return apiClient.invokeAPI(
+        "DowntimesApi.listMonitorDowntimes",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  public class APIlistMonitorDowntimesRequest {
+    private Long monitorId;
+
+    private APIlistMonitorDowntimesRequest(Long monitorId) {
+      this.monitorId = monitorId;
+    }
+
+    /**
+     * Execute listMonitorDowntimes request
+     *
+     * @return List&lt;Downtime&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Monitor Not Found error </td><td>  -  </td></tr>
+     * </table>
+     */
+    public List<Downtime> execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute listMonitorDowntimes request with HTTP info returned
+     *
+     * @return ApiResponse&lt;List&lt;Downtime&gt;&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Monitor Not Found error </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<List<Downtime>> executeWithHttpInfo() throws ApiException {
+      return listMonitorDowntimesWithHttpInfo(monitorId);
+    }
+  }
+
+  /**
+   * Get all downtimes for a monitor Get all downtimes for the specified monitor
+   *
+   * @param monitorId The id of the monitor (required)
+   * @return listMonitorDowntimesRequest
+   * @throws ApiException if fails to make API call
+   */
+  public APIlistMonitorDowntimesRequest listMonitorDowntimes(Long monitorId) throws ApiException {
+    return new APIlistMonitorDowntimesRequest(monitorId);
+  }
+
   private ApiResponse<Downtime> updateDowntimeWithHttpInfo(Long downtimeId, Downtime body)
       throws ApiException {
     Object localVarPostBody = body;
