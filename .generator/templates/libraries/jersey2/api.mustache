@@ -87,12 +87,12 @@ public class {{classname}} {
    * @throws ApiException if fails to make API call
    {{#responses.0}}
    * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        {{#responses}}
-       <tr><td> {{code}} </td><td> {{message}} </td><td> {{#headers}} * {{baseName}} - {{description}} <br> {{/headers}}{{^headers.0}} - {{/headers.0}} </td></tr>
+   *       <tr><td> {{code}} </td><td> {{message}} </td><td> {{#headers}} * {{baseName}} - {{description}} <br> {{/headers}}{{^headers.0}} - {{/headers.0}} </td></tr>
        {{/responses}}
-     </table>
+   *     </table>
    {{/responses.0}}
    {{#isDeprecated}}
    * @deprecated
@@ -125,12 +125,12 @@ public class {{classname}} {
    * @throws ApiException if fails to make API call
    {{#responses.0}}
    * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        {{#responses}}
-       <tr><td> {{code}} </td><td> {{message}} </td><td> {{#headers}} * {{baseName}} - {{description}} <br> {{/headers}}{{^headers.0}} - {{/headers.0}} </td></tr>
+   *       <tr><td> {{code}} </td><td> {{message}} </td><td> {{#headers}} * {{baseName}} - {{description}} <br> {{/headers}}{{^headers.0}} - {{/headers.0}} </td></tr>
        {{/responses}}
-     </table>
+   *     </table>
    {{/responses.0}}
    {{#isDeprecated}}
    * @deprecated
@@ -166,12 +166,12 @@ public class {{classname}} {
    * @throws ApiException if fails to make API call
    {{#responses.0}}
    * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   * <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        {{#responses}}
-       <tr><td> {{code}} </td><td> {{message}} </td><td> {{#headers}} * {{baseName}} - {{description}} <br> {{/headers}}{{^headers.0}} - {{/headers.0}} </td></tr>
+   *       <tr><td> {{code}} </td><td> {{message}} </td><td> {{#headers}} * {{baseName}} - {{description}} <br> {{/headers}}{{^headers.0}} - {{/headers.0}} </td></tr>
        {{/responses}}
-     </table>
+   *     </table>
    {{/responses.0}}
    {{#isDeprecated}}
    * @deprecated
