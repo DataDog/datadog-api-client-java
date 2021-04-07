@@ -886,7 +886,7 @@ Name | Type | Description  | Notes
 
 ## getBrowserTest
 
-> SyntheticsTestDetails getBrowserTest(publicId).execute();
+> SyntheticsBrowserTest getBrowserTest(publicId).execute();
 
 Get a test configuration (browser)
 
@@ -912,7 +912,7 @@ public class Example {
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
         String publicId = "publicId_example"; // String | The public ID of the test to get details from.
         try {
-            SyntheticsTestDetails result = apiInstance.getBrowserTest(publicId)
+            SyntheticsBrowserTest result = apiInstance.getBrowserTest(publicId)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -935,7 +935,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SyntheticsTestDetails**](SyntheticsTestDetails.md)
+[**SyntheticsBrowserTest**](SyntheticsBrowserTest.md)
 
 ### Authorization
 

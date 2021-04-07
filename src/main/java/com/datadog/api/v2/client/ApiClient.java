@@ -103,6 +103,23 @@ public class ApiClient extends JavaTimeFormatter {
                               "https",
                               new HashSet<String>()));
                     }
+                  }),
+              new ServerConfiguration(
+                  "https://{subdomain}.{site}",
+                  "No description provided",
+                  new HashMap<String, ServerVariable>() {
+                    {
+                      put(
+                          "site",
+                          new ServerVariable(
+                              "Any Datadog deployment.", "datadoghq.com", new HashSet<String>()));
+                      put(
+                          "subdomain",
+                          new ServerVariable(
+                              "The subdomain where the API is deployed.",
+                              "api",
+                              new HashSet<String>()));
+                    }
                   })));
   protected Integer serverIndex = 0;
   protected Map<String, String> serverVariables = null;

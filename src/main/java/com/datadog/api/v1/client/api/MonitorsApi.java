@@ -291,10 +291,10 @@ public class MonitorsApi {
    * **&#x60;check&#x60;** name of the check, e.g. &#x60;datadog.agent.up&#x60; -
    * **&#x60;tags&#x60;** one or more quoted tags (comma-separated), or \&quot;*\&quot;. e.g.:
    * &#x60;.over(\&quot;env:prod\&quot;, \&quot;role:db\&quot;)&#x60; - **&#x60;count&#x60;** must
-   * be at &gt;&#x3D; your max threshold (defined in the &#x60;options&#x60;). e.g. if you want to
-   * notify on 1 critical, 3 ok and 2 warn statuses count should be 3. It is limited to 100. **Event
-   * Alert Query** Example: &#x60;events(&#39;sources:nagios status:error,warning priority:normal
-   * tags: \&quot;string
+   * be at greater than or equal to your max threshold (defined in the &#x60;options&#x60;). It is
+   * limited to 100. For example, if you&#39;ve specified to notify on 1 critical, 3 ok, and 2 warn
+   * statuses, &#x60;count&#x60; should be 3. **Event Alert Query** Example:
+   * &#x60;events(&#39;sources:nagios status:error,warning priority:normal tags: \&quot;string
    * query\&quot;&#39;).rollup(\&quot;count\&quot;).last(\&quot;1h\&quot;)\&quot;&#x60; -
    * **&#x60;event&#x60;**, the event query string: - **&#x60;string_query&#x60;** free text query
    * to match against event title and text. - **&#x60;sources&#x60;** event sources
