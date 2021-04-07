@@ -55,7 +55,7 @@ public class ClientSteps {
             m -> {
               return "";
             }));
-    world.context.put("unique_lower_alnum", world.context.get("unique_alnum").toLowerCase());
+    world.context.put("unique_lower_alnum", (String)(world.context.get("unique_alnum")).toLowerCase());
     world.context.put("now_ts", world.now.toEpochSecond());
     world.context.put("now_iso", world.now.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME));
     world.context.put("hour_later_ts", world.now.plusHours(1).toEpochSecond());
