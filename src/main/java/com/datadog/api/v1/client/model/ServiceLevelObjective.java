@@ -318,7 +318,7 @@ public class ServiceLevelObjective {
    * @return name
    */
   @ApiModelProperty(
-      example = "",
+      example = "Custom Metric SLO",
       required = true,
       value = "The name of the service level objective object.")
   @JsonProperty(JSON_PROPERTY_NAME)
@@ -405,7 +405,8 @@ public class ServiceLevelObjective {
    * @return thresholds
    */
   @ApiModelProperty(
-      example = "[]",
+      example =
+          "[{\"target\":95,\"timeframe\":\"7d\"},{\"target\":95,\"timeframe\":\"30d\",\"warning\":97}]",
       required = true,
       value =
           "The thresholds (timeframes and associated targets) for this service level objective"
