@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**listActiveMetrics**](MetricsApi.md#listActiveMetrics) | **GET** /api/v1/metrics | Get active metrics list
 [**listMetrics**](MetricsApi.md#listMetrics) | **GET** /api/v1/search | Search metrics
 [**queryMetrics**](MetricsApi.md#queryMetrics) | **GET** /api/v1/query | Query timeseries points
+[**submitMetrics**](MetricsApi.md#submitMetrics) | **POST** /api/v1/series | Submit metrics
 [**updateMetricMetadata**](MetricsApi.md#updateMetricMetadata) | **PUT** /api/v1/metrics/{metric_name} | Edit metric metadata
 
 
@@ -301,6 +302,88 @@ Name | Type | Description  | Notes
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
 | **403** | Forbidden |  -  |
+
+
+## submitMetrics
+
+> IntakePayloadAccepted submitMetrics().body(body).execute();
+
+Submit metrics
+
+The metrics end-point allows you to post time-series data that can be graphed on Datadog’s dashboards.
+The maximum payload size is 3.2 megabytes (3200000). Compressed payloads must have a decompressed size of up to 62 megabytes (62914560).
+
+If you’re submitting metrics directly to the Datadog API without using DogStatsD, expect
+
+- 64 bits for the timestamp
+- 32 bits for the value
+- 20 bytes for the metric names
+- 50 bytes for the timeseries
+- The full payload is approximately ~ 100 bytes. However, with the DogStatsD API,
+compression is applied, which reduces the payload size.
+
+### Example
+
+```java
+// Import classes:
+import java.util.*;
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.Configuration;
+import com.datadog.api.v1.client.auth.*;
+import com.datadog.api.v1.client.model.*;
+import com.datadog.api.v1.client.api.MetricsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+        MetricsApi apiInstance = new MetricsApi(defaultClient);
+        MetricsPayload body = new MetricsPayload(); // MetricsPayload | 
+        try {
+            IntakePayloadAccepted result = apiInstance.submitMetrics()
+                .body(body)
+                .execute();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MetricsApi#submitMetrics");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**MetricsPayload**](MetricsPayload.md)|  |
+
+### Return type
+
+[**IntakePayloadAccepted**](IntakePayloadAccepted.md)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **202** | Payload accepted |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication error |  -  |
+| **408** | Request timeout |  -  |
+| **413** | Payload too large |  -  |
 
 
 ## updateMetricMetadata

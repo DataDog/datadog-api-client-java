@@ -255,8 +255,8 @@ public class Example {
 
         IncidentServicesApi apiInstance = new IncidentServicesApi(defaultClient);
         IncidentRelatedObject include = IncidentRelatedObject.fromValue("users"); // IncidentRelatedObject | Specifies which types of related objects should be included in the response.
-        Long pageSize = 10l; // Long | Size for a given page.
-        Long pageOffset = 0l; // Long | Specific offset to use as the beginning of the returned page.
+        Long pageSize = 10L; // Long | Size for a given page.
+        Long pageOffset = 0L; // Long | Specific offset to use as the beginning of the returned page.
         String filter = "ExampleServiceName"; // String | A search query that filters services by name.
         try {
             IncidentServicesResponse result = apiInstance.listIncidentServices()
@@ -283,8 +283,8 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **include** | **IncidentRelatedObject**| Specifies which types of related objects should be included in the response. | [optional] [enum: users]
- **pageSize** | **Long**| Size for a given page. | [optional] [default to 10l]
- **pageOffset** | **Long**| Specific offset to use as the beginning of the returned page. | [optional] [default to 0l]
+ **pageSize** | **Long**| Size for a given page. | [optional] [default to 10]
+ **pageOffset** | **Long**| Specific offset to use as the beginning of the returned page. | [optional] [default to 0]
  **filter** | **String**| A search query that filters services by name. | [optional]
 
 ### Return type

@@ -874,7 +874,7 @@ public class RolesApi {
     /**
      * Set pageSize
      *
-     * @param pageSize Size for a given page. (optional, default to 10l)
+     * @param pageSize Size for a given page. (optional, default to 10)
      * @return APIlistRoleUsersRequest
      */
     public APIlistRoleUsersRequest pageSize(Long pageSize) {
@@ -885,7 +885,7 @@ public class RolesApi {
     /**
      * Set pageNumber
      *
-     * @param pageNumber Specific page number to return. (optional, default to 0l)
+     * @param pageNumber Specific page number to return. (optional, default to 0)
      * @return APIlistRoleUsersRequest
      */
     public APIlistRoleUsersRequest pageNumber(Long pageNumber) {
@@ -899,7 +899,7 @@ public class RolesApi {
      * @param sort User attribute to order results by. Sort order is **ascending** by default. Sort
      *     order is **descending** if the field is prefixed by a negative sign, for example
      *     &#x60;sort&#x3D;-name&#x60;. Options: &#x60;name&#x60;, &#x60;email&#x60;,
-     *     &#x60;status&#x60;. (optional, default to &quot;name&quot;)
+     *     &#x60;status&#x60;. (optional, default to name)
      * @return APIlistRoleUsersRequest
      */
     public APIlistRoleUsersRequest sort(String sort) {
@@ -1023,7 +1023,7 @@ public class RolesApi {
     /**
      * Set pageSize
      *
-     * @param pageSize Size for a given page. (optional, default to 10l)
+     * @param pageSize Size for a given page. (optional, default to 10)
      * @return APIlistRolesRequest
      */
     public APIlistRolesRequest pageSize(Long pageSize) {
@@ -1034,7 +1034,7 @@ public class RolesApi {
     /**
      * Set pageNumber
      *
-     * @param pageNumber Specific page number to return. (optional, default to 0l)
+     * @param pageNumber Specific page number to return. (optional, default to 0)
      * @return APIlistRolesRequest
      */
     public APIlistRolesRequest pageNumber(Long pageNumber) {
@@ -1047,7 +1047,7 @@ public class RolesApi {
      *
      * @param sort Sort roles depending on the given field. Sort order is **ascending** by default.
      *     Sort order is **descending** if the field is prefixed by a negative sign, for example:
-     *     &#x60;sort&#x3D;-name&#x60;. (optional, default to name)
+     *     &#x60;sort&#x3D;-name&#x60;. (optional)
      * @return APIlistRolesRequest
      */
     public APIlistRolesRequest sort(RolesSort sort) {
