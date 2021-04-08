@@ -50,7 +50,7 @@ public class ServiceLevelObjectiveQuery {
    * @return denominator
    */
   @ApiModelProperty(
-      example = "",
+      example = "sum:my.custom.metric{*}.as_count()",
       required = true,
       value = "A Datadog metric query for total (valid) events.")
   @JsonProperty(JSON_PROPERTY_DENOMINATOR)
@@ -74,7 +74,7 @@ public class ServiceLevelObjectiveQuery {
    * @return numerator
    */
   @ApiModelProperty(
-      example = "",
+      example = "sum:my.custom.metric{type:good}.as_count()",
       required = true,
       value = "A Datadog metric query for good events.")
   @JsonProperty(JSON_PROPERTY_NUMERATOR)
