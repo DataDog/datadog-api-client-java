@@ -30,12 +30,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
         "A service level objective object includes a service level indicator, thresholds for one"
             + " or more timeframes, and metadata (`name`, `description`, `tags`, etc.).")
 @JsonPropertyOrder({
-  ServiceLevelObjectiveRequest.JSON_PROPERTY_CREATED_AT,
-  ServiceLevelObjectiveRequest.JSON_PROPERTY_CREATOR,
   ServiceLevelObjectiveRequest.JSON_PROPERTY_DESCRIPTION,
   ServiceLevelObjectiveRequest.JSON_PROPERTY_GROUPS,
-  ServiceLevelObjectiveRequest.JSON_PROPERTY_ID,
-  ServiceLevelObjectiveRequest.JSON_PROPERTY_MODIFIED_AT,
   ServiceLevelObjectiveRequest.JSON_PROPERTY_MONITOR_IDS,
   ServiceLevelObjectiveRequest.JSON_PROPERTY_NAME,
   ServiceLevelObjectiveRequest.JSON_PROPERTY_QUERY,
@@ -45,23 +41,11 @@ import org.openapitools.jackson.nullable.JsonNullable;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ServiceLevelObjectiveRequest {
-  public static final String JSON_PROPERTY_CREATED_AT = "created_at";
-  private Long createdAt;
-
-  public static final String JSON_PROPERTY_CREATOR = "creator";
-  private Creator creator;
-
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private JsonNullable<String> description = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_GROUPS = "groups";
   private List<String> groups = null;
-
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
-
-  public static final String JSON_PROPERTY_MODIFIED_AT = "modified_at";
-  private Long modifiedAt;
 
   public static final String JSON_PROPERTY_MONITOR_IDS = "monitor_ids";
   private List<Long> monitorIds = null;
@@ -80,44 +64,6 @@ public class ServiceLevelObjectiveRequest {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private SLOType type;
-
-  /**
-   * Creation timestamp (UNIX time in seconds) Always included in service level objective responses.
-   *
-   * @return createdAt
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Creation timestamp (UNIX time in seconds)  Always included in service level objective"
-              + " responses.")
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getCreatedAt() {
-    return createdAt;
-  }
-
-  public ServiceLevelObjectiveRequest creator(Creator creator) {
-    this.creator = creator;
-    return this;
-  }
-
-  /**
-   * Get creator
-   *
-   * @return creator
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_CREATOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Creator getCreator() {
-    return creator;
-  }
-
-  public void setCreator(Creator creator) {
-    this.creator = creator;
-  }
 
   public ServiceLevelObjectiveRequest description(String description) {
     this.description = JsonNullable.<String>of(description);
@@ -195,40 +141,6 @@ public class ServiceLevelObjectiveRequest {
     this.groups = groups;
   }
 
-  /**
-   * A unique identifier for the service level objective object. Always included in service level
-   * objective responses.
-   *
-   * @return id
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "A unique identifier for the service level objective object.  Always included in service"
-              + " level objective responses.")
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
-    return id;
-  }
-
-  /**
-   * Modification timestamp (UNIX time in seconds) Always included in service level objective
-   * responses.
-   *
-   * @return modifiedAt
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Modification timestamp (UNIX time in seconds)  Always included in service level"
-              + " objective responses.")
-  @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getModifiedAt() {
-    return modifiedAt;
-  }
-
   public ServiceLevelObjectiveRequest monitorIds(List<Long> monitorIds) {
     this.monitorIds = monitorIds;
     return this;
@@ -274,7 +186,7 @@ public class ServiceLevelObjectiveRequest {
    * @return name
    */
   @ApiModelProperty(
-      example = "",
+      example = "Custom Metric SLO",
       required = true,
       value = "The name of the service level objective object.")
   @JsonProperty(JSON_PROPERTY_NAME)
@@ -361,7 +273,8 @@ public class ServiceLevelObjectiveRequest {
    * @return thresholds
    */
   @ApiModelProperty(
-      example = "[]",
+      example =
+          "[{\"target\":95,\"timeframe\":\"7d\"},{\"target\":95,\"timeframe\":\"30d\",\"warning\":97}]",
       required = true,
       value =
           "The thresholds (timeframes and associated targets) for this service level objective"
@@ -407,12 +320,8 @@ public class ServiceLevelObjectiveRequest {
       return false;
     }
     ServiceLevelObjectiveRequest serviceLevelObjectiveRequest = (ServiceLevelObjectiveRequest) o;
-    return Objects.equals(this.createdAt, serviceLevelObjectiveRequest.createdAt)
-        && Objects.equals(this.creator, serviceLevelObjectiveRequest.creator)
-        && Objects.equals(this.description, serviceLevelObjectiveRequest.description)
+    return Objects.equals(this.description, serviceLevelObjectiveRequest.description)
         && Objects.equals(this.groups, serviceLevelObjectiveRequest.groups)
-        && Objects.equals(this.id, serviceLevelObjectiveRequest.id)
-        && Objects.equals(this.modifiedAt, serviceLevelObjectiveRequest.modifiedAt)
         && Objects.equals(this.monitorIds, serviceLevelObjectiveRequest.monitorIds)
         && Objects.equals(this.name, serviceLevelObjectiveRequest.name)
         && Objects.equals(this.query, serviceLevelObjectiveRequest.query)
@@ -423,31 +332,15 @@ public class ServiceLevelObjectiveRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        createdAt,
-        creator,
-        description,
-        groups,
-        id,
-        modifiedAt,
-        monitorIds,
-        name,
-        query,
-        tags,
-        thresholds,
-        type);
+    return Objects.hash(description, groups, monitorIds, name, query, tags, thresholds, type);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ServiceLevelObjectiveRequest {\n");
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    groups: ").append(toIndentedString(groups)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    monitorIds: ").append(toIndentedString(monitorIds)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
