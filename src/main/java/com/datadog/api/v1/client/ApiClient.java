@@ -369,6 +369,72 @@ public class ApiClient extends JavaTimeFormatter {
                                       new HashSet<String>()));
                             }
                           }))));
+          put(
+              "LogsApi.submitLog",
+              new ArrayList<ServerConfiguration>(
+                  Arrays.asList(
+                      new ServerConfiguration(
+                          "https://{subdomain}.{site}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "site",
+                                  new ServerVariable(
+                                      "The regional site for our customers.",
+                                      "datadoghq.com",
+                                      new HashSet<String>(
+                                          Arrays.asList(
+                                              "datadoghq.com",
+                                              "us3.datadoghq.com",
+                                              "datadoghq.eu",
+                                              "ddog-gov.com"))));
+                              put(
+                                  "subdomain",
+                                  new ServerVariable(
+                                      "The subdomain where the API is deployed.",
+                                      "http-intake.logs",
+                                      new HashSet<String>()));
+                            }
+                          }),
+                      new ServerConfiguration(
+                          "{protocol}://{name}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "name",
+                                  new ServerVariable(
+                                      "Full site DNS name.",
+                                      "http-intake.logs.datadoghq.com",
+                                      new HashSet<String>()));
+                              put(
+                                  "protocol",
+                                  new ServerVariable(
+                                      "The protocol for accessing the API.",
+                                      "https",
+                                      new HashSet<String>()));
+                            }
+                          }),
+                      new ServerConfiguration(
+                          "https://{subdomain}.{site}",
+                          "No description provided",
+                          new HashMap<String, ServerVariable>() {
+                            {
+                              put(
+                                  "site",
+                                  new ServerVariable(
+                                      "Any Datadog deployment.",
+                                      "datadoghq.com",
+                                      new HashSet<String>()));
+                              put(
+                                  "subdomain",
+                                  new ServerVariable(
+                                      "The subdomain where the API is deployed.",
+                                      "http-intake.logs",
+                                      new HashSet<String>()));
+                            }
+                          }))));
         }
       };
   protected Map<String, Integer> operationServerIndex = new HashMap<String, Integer>();
