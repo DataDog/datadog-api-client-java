@@ -245,8 +245,8 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
-        Long pageSize = 10l; // Long | Size for a given page.
-        Long pageNumber = 0l; // Long | Specific page number to return.
+        Long pageSize = 10L; // Long | Size for a given page.
+        Long pageNumber = 0L; // Long | Specific page number to return.
         try {
             SecurityMonitoringListRulesResponse result = apiInstance.listSecurityMonitoringRules()
                 .pageSize(pageSize)
@@ -269,8 +269,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageSize** | **Long**| Size for a given page. | [optional] [default to 10l]
- **pageNumber** | **Long**| Specific page number to return. | [optional] [default to 0l]
+ **pageSize** | **Long**| Size for a given page. | [optional] [default to 10]
+ **pageNumber** | **Long**| Specific page number to return. | [optional] [default to 0]
 
 ### Return type
 
