@@ -884,7 +884,7 @@ public class KeyManagementApi {
     /**
      * Set pageSize
      *
-     * @param pageSize Size for a given page. (optional, default to 10l)
+     * @param pageSize Size for a given page. (optional, default to 10)
      * @return APIlistAPIKeysRequest
      */
     public APIlistAPIKeysRequest pageSize(Long pageSize) {
@@ -895,7 +895,7 @@ public class KeyManagementApi {
     /**
      * Set pageNumber
      *
-     * @param pageNumber Specific page number to return. (optional, default to 0l)
+     * @param pageNumber Specific page number to return. (optional, default to 0)
      * @return APIlistAPIKeysRequest
      */
     public APIlistAPIKeysRequest pageNumber(Long pageNumber) {
@@ -907,8 +907,7 @@ public class KeyManagementApi {
      * Set sort
      *
      * @param sort API key attribute used to sort results. Sort order is ascending by default. In
-     *     order to specify a descending sort, prefix the attribute with a minus sign. (optional,
-     *     default to name)
+     *     order to specify a descending sort, prefix the attribute with a minus sign. (optional)
      * @return APIlistAPIKeysRequest
      */
     public APIlistAPIKeysRequest sort(APIKeysSort sort) {
@@ -1114,7 +1113,7 @@ public class KeyManagementApi {
     /**
      * Set pageSize
      *
-     * @param pageSize Size for a given page. (optional, default to 10l)
+     * @param pageSize Size for a given page. (optional, default to 10)
      * @return APIlistApplicationKeysRequest
      */
     public APIlistApplicationKeysRequest pageSize(Long pageSize) {
@@ -1125,7 +1124,7 @@ public class KeyManagementApi {
     /**
      * Set pageNumber
      *
-     * @param pageNumber Specific page number to return. (optional, default to 0l)
+     * @param pageNumber Specific page number to return. (optional, default to 0)
      * @return APIlistApplicationKeysRequest
      */
     public APIlistApplicationKeysRequest pageNumber(Long pageNumber) {
@@ -1138,7 +1137,7 @@ public class KeyManagementApi {
      *
      * @param sort Application key attribute used to sort results. Sort order is ascending by
      *     default. In order to specify a descending sort, prefix the attribute with a minus sign.
-     *     (optional, default to name)
+     *     (optional)
      * @return APIlistApplicationKeysRequest
      */
     public APIlistApplicationKeysRequest sort(ApplicationKeysSort sort) {
@@ -1301,7 +1300,7 @@ public class KeyManagementApi {
     /**
      * Set pageSize
      *
-     * @param pageSize Size for a given page. (optional, default to 10l)
+     * @param pageSize Size for a given page. (optional, default to 10)
      * @return APIlistCurrentUserApplicationKeysRequest
      */
     public APIlistCurrentUserApplicationKeysRequest pageSize(Long pageSize) {
@@ -1312,7 +1311,7 @@ public class KeyManagementApi {
     /**
      * Set pageNumber
      *
-     * @param pageNumber Specific page number to return. (optional, default to 0l)
+     * @param pageNumber Specific page number to return. (optional, default to 0)
      * @return APIlistCurrentUserApplicationKeysRequest
      */
     public APIlistCurrentUserApplicationKeysRequest pageNumber(Long pageNumber) {
@@ -1325,7 +1324,7 @@ public class KeyManagementApi {
      *
      * @param sort Application key attribute used to sort results. Sort order is ascending by
      *     default. In order to specify a descending sort, prefix the attribute with a minus sign.
-     *     (optional, default to name)
+     *     (optional)
      * @return APIlistCurrentUserApplicationKeysRequest
      */
     public APIlistCurrentUserApplicationKeysRequest sort(ApplicationKeysSort sort) {

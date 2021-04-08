@@ -289,7 +289,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **filterConfigured** | **Boolean**| Filter metrics that have configured tags. | [optional]
  **filterTagsConfigured** | **String**| Filter tag configurations by configured tags. | [optional]
- **filterMetricType** | **MetricTagConfigurationMetricTypes**| Filter tag configurations by metric type. | [optional] [default to gauge] [enum: gauge, count, distribution]
+ **filterMetricType** | **MetricTagConfigurationMetricTypes**| Filter tag configurations by metric type. | [optional] [enum: gauge, count, distribution]
  **filterIncludePercentiles** | **Boolean**| Filter distributions with additional percentile aggregations enabled or disabled. | [optional]
  **filterTags** | **String**| Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters. | [optional]
  **windowSeconds** | **Long**| The number of seconds of look back (from now) to apply to a filter[tag] query. Defaults value is 3600 (1 hour), maximum value is 172,800 (2 days). | [optional]

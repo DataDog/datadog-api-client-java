@@ -530,8 +530,8 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
-        Long pageSize = 10l; // Long | Size for a given page.
-        Long pageNumber = 0l; // Long | Specific page number to return.
+        Long pageSize = 10L; // Long | Size for a given page.
+        Long pageNumber = 0L; // Long | Specific page number to return.
         APIKeysSort sort = APIKeysSort.fromValue("created_at"); // APIKeysSort | API key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
         String filter = "filter_example"; // String | Filter API keys by the specified string.
         String filterCreatedAtStart = "2020-11-24T18:46:21+00:00"; // String | Only include API keys created on or after the specified date.
@@ -568,9 +568,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageSize** | **Long**| Size for a given page. | [optional] [default to 10l]
- **pageNumber** | **Long**| Specific page number to return. | [optional] [default to 0l]
- **sort** | **APIKeysSort**| API key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign. | [optional] [default to name] [enum: created_at, -created_at, last4, -last4, modified_at, -modified_at, name, -name]
+ **pageSize** | **Long**| Size for a given page. | [optional] [default to 10]
+ **pageNumber** | **Long**| Specific page number to return. | [optional] [default to 0]
+ **sort** | **APIKeysSort**| API key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign. | [optional] [enum: created_at, -created_at, last4, -last4, modified_at, -modified_at, name, -name]
  **filter** | **String**| Filter API keys by the specified string. | [optional]
  **filterCreatedAtStart** | **String**| Only include API keys created on or after the specified date. | [optional]
  **filterCreatedAtEnd** | **String**| Only include API keys created on or before the specified date. | [optional]
@@ -624,8 +624,8 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
-        Long pageSize = 10l; // Long | Size for a given page.
-        Long pageNumber = 0l; // Long | Specific page number to return.
+        Long pageSize = 10L; // Long | Size for a given page.
+        Long pageNumber = 0L; // Long | Specific page number to return.
         ApplicationKeysSort sort = ApplicationKeysSort.fromValue("created_at"); // ApplicationKeysSort | Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
         String filter = "filter_example"; // String | Filter application keys by the specified string.
         String filterCreatedAtStart = "2020-11-24T18:46:21+00:00"; // String | Only include application keys created on or after the specified date.
@@ -656,9 +656,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageSize** | **Long**| Size for a given page. | [optional] [default to 10l]
- **pageNumber** | **Long**| Specific page number to return. | [optional] [default to 0l]
- **sort** | **ApplicationKeysSort**| Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign. | [optional] [default to name] [enum: created_at, -created_at, last4, -last4, name, -name]
+ **pageSize** | **Long**| Size for a given page. | [optional] [default to 10]
+ **pageNumber** | **Long**| Specific page number to return. | [optional] [default to 0]
+ **sort** | **ApplicationKeysSort**| Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign. | [optional] [enum: created_at, -created_at, last4, -last4, name, -name]
  **filter** | **String**| Filter application keys by the specified string. | [optional]
  **filterCreatedAtStart** | **String**| Only include application keys created on or after the specified date. | [optional]
  **filterCreatedAtEnd** | **String**| Only include application keys created on or before the specified date. | [optional]
@@ -710,8 +710,8 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
-        Long pageSize = 10l; // Long | Size for a given page.
-        Long pageNumber = 0l; // Long | Specific page number to return.
+        Long pageSize = 10L; // Long | Size for a given page.
+        Long pageNumber = 0L; // Long | Specific page number to return.
         ApplicationKeysSort sort = ApplicationKeysSort.fromValue("created_at"); // ApplicationKeysSort | Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
         String filter = "filter_example"; // String | Filter application keys by the specified string.
         String filterCreatedAtStart = "2020-11-24T18:46:21+00:00"; // String | Only include application keys created on or after the specified date.
@@ -742,9 +742,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageSize** | **Long**| Size for a given page. | [optional] [default to 10l]
- **pageNumber** | **Long**| Specific page number to return. | [optional] [default to 0l]
- **sort** | **ApplicationKeysSort**| Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign. | [optional] [default to name] [enum: created_at, -created_at, last4, -last4, name, -name]
+ **pageSize** | **Long**| Size for a given page. | [optional] [default to 10]
+ **pageNumber** | **Long**| Specific page number to return. | [optional] [default to 0]
+ **sort** | **ApplicationKeysSort**| Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign. | [optional] [enum: created_at, -created_at, last4, -last4, name, -name]
  **filter** | **String**| Filter application keys by the specified string. | [optional]
  **filterCreatedAtStart** | **String**| Only include application keys created on or after the specified date. | [optional]
  **filterCreatedAtEnd** | **String**| Only include application keys created on or before the specified date. | [optional]

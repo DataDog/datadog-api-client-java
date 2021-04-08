@@ -158,7 +158,7 @@ public class UsageMeteringApi {
     /**
      * Set sortDir
      *
-     * @param sortDir The direction to sort by: &#x60;[desc, asc]&#x60;. (optional, default to desc)
+     * @param sortDir The direction to sort by: &#x60;[desc, asc]&#x60;. (optional)
      * @return APIgetDailyCustomReportsRequest
      */
     public APIgetDailyCustomReportsRequest sortDir(UsageSortDirection sortDir) {
@@ -170,7 +170,7 @@ public class UsageMeteringApi {
      * Set sort
      *
      * @param sort The field to sort by: &#x60;[computed_on, size, start_date, end_date]&#x60;.
-     *     (optional, default to start_date)
+     *     (optional)
      * @return APIgetDailyCustomReportsRequest
      */
     public APIgetDailyCustomReportsRequest sort(UsageSort sort) {
@@ -568,7 +568,7 @@ public class UsageMeteringApi {
     /**
      * Set sortDir
      *
-     * @param sortDir The direction to sort by: &#x60;[desc, asc]&#x60;. (optional, default to desc)
+     * @param sortDir The direction to sort by: &#x60;[desc, asc]&#x60;. (optional)
      * @return APIgetMonthlyCustomReportsRequest
      */
     public APIgetMonthlyCustomReportsRequest sortDir(UsageSortDirection sortDir) {
@@ -580,7 +580,7 @@ public class UsageMeteringApi {
      * Set sort
      *
      * @param sort The field to sort by: &#x60;[computed_on, size, start_date, end_date]&#x60;.
-     *     (optional, default to start_date)
+     *     (optional)
      * @return APIgetMonthlyCustomReportsRequest
      */
     public APIgetMonthlyCustomReportsRequest sort(UsageSort sort) {
@@ -1248,8 +1248,7 @@ public class UsageMeteringApi {
     /**
      * Set sortDirection
      *
-     * @param sortDirection The direction to sort by: &#x60;[desc, asc]&#x60;. (optional, default to
-     *     desc)
+     * @param sortDirection The direction to sort by: &#x60;[desc, asc]&#x60;. (optional)
      * @return APIgetUsageAttributionRequest
      */
     public APIgetUsageAttributionRequest sortDirection(UsageSortDirection sortDirection) {
@@ -1260,7 +1259,7 @@ public class UsageMeteringApi {
     /**
      * Set sortName
      *
-     * @param sortName The field to sort by. (optional, default to custom_timeseries_usage)
+     * @param sortName The field to sort by. (optional)
      * @return APIgetUsageAttributionRequest
      */
     public APIgetUsageAttributionRequest sortName(UsageAttributionSort sortName) {

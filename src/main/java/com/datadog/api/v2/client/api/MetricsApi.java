@@ -509,8 +509,7 @@ public class MetricsApi {
     /**
      * Set filterMetricType
      *
-     * @param filterMetricType Filter tag configurations by metric type. (optional, default to
-     *     gauge)
+     * @param filterMetricType Filter tag configurations by metric type. (optional)
      * @return APIlistTagConfigurationsRequest
      */
     public APIlistTagConfigurationsRequest filterMetricType(

@@ -5,6 +5,8 @@ import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.ApiResponse;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.Pair;
+import com.datadog.api.v1.client.model.EventCreateRequest;
+import com.datadog.api.v1.client.model.EventCreateResponse;
 import com.datadog.api.v1.client.model.EventListResponse;
 import com.datadog.api.v1.client.model.EventPriority;
 import com.datadog.api.v1.client.model.EventResponse;
@@ -42,6 +44,113 @@ public class EventsApi {
    */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
+  }
+
+  private ApiResponse<EventCreateResponse> createEventWithHttpInfo(EventCreateRequest body)
+      throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling createEvent");
+    }
+
+    // create path and map variables
+    String localVarPath = "/api/v1/events";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "createEvent");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {"application/json"};
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth"};
+
+    GenericType<EventCreateResponse> localVarReturnType = new GenericType<EventCreateResponse>() {};
+
+    return apiClient.invokeAPI(
+        "EventsApi.createEvent",
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  public class APIcreateEventRequest {
+    private EventCreateRequest body;
+
+    private APIcreateEventRequest() {}
+
+    /**
+     * Set body
+     *
+     * @param body Event request object (required)
+     * @return APIcreateEventRequest
+     */
+    public APIcreateEventRequest body(EventCreateRequest body) {
+      this.body = body;
+      return this;
+    }
+
+    /**
+     * Execute createEvent request
+     *
+     * @return EventCreateResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 202 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * </table>
+     */
+    public EventCreateResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute createEvent request with HTTP info returned
+     *
+     * @return ApiResponse&lt;EventCreateResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 202 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<EventCreateResponse> executeWithHttpInfo() throws ApiException {
+      return createEventWithHttpInfo(body);
+    }
+  }
+
+  /**
+   * Post an event This endpoint allows you to post events to the stream. Tag them, set priority and
+   * event aggregate them with other events.
+   *
+   * @return createEventRequest
+   * @throws ApiException if fails to make API call
+   */
+  public APIcreateEventRequest createEvent() throws ApiException {
+    return new APIcreateEventRequest();
   }
 
   private ApiResponse<EventResponse> getEventWithHttpInfo(Long eventId) throws ApiException {
