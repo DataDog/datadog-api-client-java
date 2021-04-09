@@ -15,25 +15,74 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /** An updated geomap widget. */
 @ApiModel(description = "An updated geomap widget.")
 @JsonPropertyOrder({
+  GeomapWidgetRequest.JSON_PROPERTY_FORMULAS,
   GeomapWidgetRequest.JSON_PROPERTY_LOG_QUERY,
   GeomapWidgetRequest.JSON_PROPERTY_Q,
-  GeomapWidgetRequest.JSON_PROPERTY_RUM_QUERY
+  GeomapWidgetRequest.JSON_PROPERTY_QUERIES,
+  GeomapWidgetRequest.JSON_PROPERTY_RESPONSE_FORMAT,
+  GeomapWidgetRequest.JSON_PROPERTY_RUM_QUERY,
+  GeomapWidgetRequest.JSON_PROPERTY_SECURITY_QUERY
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GeomapWidgetRequest {
+  public static final String JSON_PROPERTY_FORMULAS = "formulas";
+  private List<WidgetFormula> formulas = null;
+
   public static final String JSON_PROPERTY_LOG_QUERY = "log_query";
   private LogQueryDefinition logQuery;
 
   public static final String JSON_PROPERTY_Q = "q";
   private String q;
 
+  public static final String JSON_PROPERTY_QUERIES = "queries";
+  private List<FormulaAndFunctionQueryDefinition> queries = null;
+
+  public static final String JSON_PROPERTY_RESPONSE_FORMAT = "response_format";
+  private FormulaAndFunctionResponseFormat responseFormat;
+
   public static final String JSON_PROPERTY_RUM_QUERY = "rum_query";
   private LogQueryDefinition rumQuery;
+
+  public static final String JSON_PROPERTY_SECURITY_QUERY = "security_query";
+  private LogQueryDefinition securityQuery;
+
+  public GeomapWidgetRequest formulas(List<WidgetFormula> formulas) {
+    this.formulas = formulas;
+    return this;
+  }
+
+  public GeomapWidgetRequest addFormulasItem(WidgetFormula formulasItem) {
+    if (this.formulas == null) {
+      this.formulas = new ArrayList<>();
+    }
+    this.formulas.add(formulasItem);
+    return this;
+  }
+
+  /**
+   * List of formulas that operate on queries. **This feature is currently in beta.**
+   *
+   * @return formulas
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value = "List of formulas that operate on queries. **This feature is currently in beta.**")
+  @JsonProperty(JSON_PROPERTY_FORMULAS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<WidgetFormula> getFormulas() {
+    return formulas;
+  }
+
+  public void setFormulas(List<WidgetFormula> formulas) {
+    this.formulas = formulas;
+  }
 
   public GeomapWidgetRequest logQuery(LogQueryDefinition logQuery) {
     this.logQuery = logQuery;
@@ -79,6 +128,62 @@ public class GeomapWidgetRequest {
     this.q = q;
   }
 
+  public GeomapWidgetRequest queries(List<FormulaAndFunctionQueryDefinition> queries) {
+    this.queries = queries;
+    return this;
+  }
+
+  public GeomapWidgetRequest addQueriesItem(FormulaAndFunctionQueryDefinition queriesItem) {
+    if (this.queries == null) {
+      this.queries = new ArrayList<>();
+    }
+    this.queries.add(queriesItem);
+    return this;
+  }
+
+  /**
+   * List of queries that can be returned directly or used in formulas. **This feature is currently
+   * in beta.**
+   *
+   * @return queries
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "List of queries that can be returned directly or used in formulas. **This feature is"
+              + " currently in beta.**")
+  @JsonProperty(JSON_PROPERTY_QUERIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<FormulaAndFunctionQueryDefinition> getQueries() {
+    return queries;
+  }
+
+  public void setQueries(List<FormulaAndFunctionQueryDefinition> queries) {
+    this.queries = queries;
+  }
+
+  public GeomapWidgetRequest responseFormat(FormulaAndFunctionResponseFormat responseFormat) {
+    this.responseFormat = responseFormat;
+    return this;
+  }
+
+  /**
+   * Get responseFormat
+   *
+   * @return responseFormat
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_RESPONSE_FORMAT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public FormulaAndFunctionResponseFormat getResponseFormat() {
+    return responseFormat;
+  }
+
+  public void setResponseFormat(FormulaAndFunctionResponseFormat responseFormat) {
+    this.responseFormat = responseFormat;
+  }
+
   public GeomapWidgetRequest rumQuery(LogQueryDefinition rumQuery) {
     this.rumQuery = rumQuery;
     return this;
@@ -101,6 +206,28 @@ public class GeomapWidgetRequest {
     this.rumQuery = rumQuery;
   }
 
+  public GeomapWidgetRequest securityQuery(LogQueryDefinition securityQuery) {
+    this.securityQuery = securityQuery;
+    return this;
+  }
+
+  /**
+   * Get securityQuery
+   *
+   * @return securityQuery
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SECURITY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogQueryDefinition getSecurityQuery() {
+    return securityQuery;
+  }
+
+  public void setSecurityQuery(LogQueryDefinition securityQuery) {
+    this.securityQuery = securityQuery;
+  }
+
   /** Return true if this GeomapWidgetRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -111,23 +238,31 @@ public class GeomapWidgetRequest {
       return false;
     }
     GeomapWidgetRequest geomapWidgetRequest = (GeomapWidgetRequest) o;
-    return Objects.equals(this.logQuery, geomapWidgetRequest.logQuery)
+    return Objects.equals(this.formulas, geomapWidgetRequest.formulas)
+        && Objects.equals(this.logQuery, geomapWidgetRequest.logQuery)
         && Objects.equals(this.q, geomapWidgetRequest.q)
-        && Objects.equals(this.rumQuery, geomapWidgetRequest.rumQuery);
+        && Objects.equals(this.queries, geomapWidgetRequest.queries)
+        && Objects.equals(this.responseFormat, geomapWidgetRequest.responseFormat)
+        && Objects.equals(this.rumQuery, geomapWidgetRequest.rumQuery)
+        && Objects.equals(this.securityQuery, geomapWidgetRequest.securityQuery);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(logQuery, q, rumQuery);
+    return Objects.hash(formulas, logQuery, q, queries, responseFormat, rumQuery, securityQuery);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GeomapWidgetRequest {\n");
+    sb.append("    formulas: ").append(toIndentedString(formulas)).append("\n");
     sb.append("    logQuery: ").append(toIndentedString(logQuery)).append("\n");
     sb.append("    q: ").append(toIndentedString(q)).append("\n");
+    sb.append("    queries: ").append(toIndentedString(queries)).append("\n");
+    sb.append("    responseFormat: ").append(toIndentedString(responseFormat)).append("\n");
     sb.append("    rumQuery: ").append(toIndentedString(rumQuery)).append("\n");
+    sb.append("    securityQuery: ").append(toIndentedString(securityQuery)).append("\n");
     sb.append("}");
     return sb.toString();
   }
