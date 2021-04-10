@@ -360,20 +360,8 @@ public class World {
   }
 
   public String getUniqueEntityName() {
-    // NOTE: some endpoints have limits on certain fields (e.g. Roles V2 names can
-    // only be 55 chars long),
-    // so we need to keep this short
-
-    String result = String.format("java-%s-%d", getName().substring(0, 20), now.toEpochSecond());
-    // In case this is used in URL, make sure we replace potential slash
-    return result;
-  }
-
-  public String getUniqueEntityName(int maxLen) {
-    String result = getUniqueEntityName();
-    if (result.length() > maxLen) {
-      result = result.substring(0, maxLen);
-    }
+    String prefix = TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE) ? "Test-Java" : "Test";
+    String result = String.format("%s-%s-%d", prefix, getName(), now.toEpochSecond());
     return result;
   }
 

@@ -1,10 +1,10 @@
 [{
-  "id" : "c0e7cf7b-1d41-4bfd-9650-d0779b82e8b1",
+  "id" : "b8dcbf6f-8f6e-40ac-aa20-036899c68a7f",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v2/metrics",
     "queryStringParameters" : {
-      "filter[tags]" : [ "javaListtagconfigurati1616604576" ]
+      "filter[tags]" : [ "TestListtagconfigurationswithatagfilterreturnsSuccessresponse1618083821" ]
     },
     "headers" : {
       "Accept" : [ "application/json" ],
@@ -25,18 +25,18 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Wed, 24 Mar 2021 16:49:40 GMT" ],
+      "Date" : [ "Sat, 10 Apr 2021 19:43:41 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "11" ],
       "Connection" : [ "keep-alive" ],
       "pragma" : [ "no-cache" ],
       "cache-control" : [ "no-cache" ],
-      "x-dd-version" : [ "35.4165979" ],
+      "x-dd-version" : [ "35.4281284" ],
       "x-ratelimit-limit" : [ "50" ],
       "x-ratelimit-period" : [ "60" ],
-      "x-ratelimit-reset" : [ "20" ],
-      "x-ratelimit-remaining" : [ "49" ],
-      "x-dd-debug" : [ "Wjq53IVIwnB4SiR238oOYgHFMq/ZYP0LQ/Dv8C2fFLBwTje/dWJHu6pI6vIOK1zG" ],
+      "x-ratelimit-reset" : [ "19" ],
+      "x-ratelimit-remaining" : [ "36" ],
+      "x-dd-debug" : [ "fIO2C4qGDheGHy4YbS+r3a3CXbh4cbRo7roILOimQyiHGjQdOat0cIpWCkupM1uX" ],
       "x-content-type-options" : [ "nosniff" ],
       "strict-transport-security" : [ "max-age=15724800;" ],
       "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],

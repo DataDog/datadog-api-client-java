@@ -1,5 +1,5 @@
 [{
-  "id" : "82c46019-2001-48b9-963b-bbc646c00e29",
+  "id" : "0b043c09-cc3c-41c9-acd1-c05d392b796f",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v2/roles",
@@ -13,7 +13,7 @@
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"data\":{\"attributes\":{\"name\":\"java-Get_all_users_of_a_r-1608034776\"},\"type\":\"roles\"}}"
+      "json" : "{\"data\":{\"attributes\":{\"name\":\"Test-Get_all_users_of_a_role_returns_OK_response-1618083833\"},\"type\":\"roles\"}}"
     }
   },
   "times" : {
@@ -26,33 +26,28 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Tue, 15 Dec 2020 12:19:37 GMT" ],
+      "Date" : [ "Sat, 10 Apr 2021 19:43:53 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
-      "Vary" : [ "Accept-Encoding" ],
-      "Pragma" : [ "no-cache" ],
-      "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 22-Dec-2020 12:19:37 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.3543155" ],
-      "X-RateLimit-Limit" : [ "500" ],
-      "X-RateLimit-Period" : [ "60" ],
-      "X-RateLimit-Reset" : [ "23" ],
-      "X-RateLimit-Remaining" : [ "470" ],
-      "X-DD-Debug" : [ "5x0PMB2EV7ostoQ8Atq4xA2+Yg42JuDoghGuHR/nVEOXOx15i0lNYfIS41IGAJpz" ],
-      "DD-POOL" : [ "dogweb" ],
-      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "X-Frame-Options" : [ "SAMEORIGIN" ],
-      "X-Content-Type-Options" : [ "nosniff" ],
-      "Strict-Transport-Security" : [ "max-age=15724800;" ],
-      "content-length" : [ "404" ]
+      "vary" : [ "Accept-Encoding" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "x-dd-version" : [ "35.4281284" ],
+      "x-ratelimit-limit" : [ "500" ],
+      "x-ratelimit-period" : [ "60" ],
+      "x-ratelimit-reset" : [ "7" ],
+      "x-ratelimit-remaining" : [ "488" ],
+      "x-dd-debug" : [ "tpRCH6w417YjBovRJ8VmtuXmNONVYiRp2c8d2AxjPdGBn8PCtgG4vAztrx3qUZAN" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ],
+      "content-length" : [ "494" ]
     },
-    "cookies" : {
-      "DD-PSHARD" : "233"
-    },
-    "body" : "{\"data\":{\"type\":\"roles\",\"id\":\"cc6270c4-3ecf-11eb-8999-4f3d0dbe816d\",\"attributes\":{\"name\":\"java-Get_all_users_of_a_r-1608034776\",\"created_at\":\"2020-12-15T12:19:37.307514+00:00\",\"modified_at\":\"2020-12-15T12:19:37.307514+00:00\"},\"relationships\":{\"permissions\":{\"data\":[{\"type\":\"permissions\",\"id\":\"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2\"},{\"type\":\"permissions\",\"id\":\"4441648c-d8b1-11e9-a77a-1b899a04b304\"}]}}}}"
+    "body" : "{\"data\":{\"type\":\"roles\",\"id\":\"14b1ff14-9a35-11eb-9d0d-da7ad0900002\",\"attributes\":{\"name\":\"Test-Get_all_users_of_a_role_returns_OK_response-1618083833\",\"created_at\":\"2021-04-10T19:43:53.607863+00:00\",\"modified_at\":\"2021-04-10T19:43:53.607863+00:00\"},\"relationships\":{\"permissions\":{\"data\":[{\"type\":\"permissions\",\"id\":\"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2\"},{\"type\":\"permissions\",\"id\":\"4441648c-d8b1-11e9-a77a-1b899a04b304\"},{\"type\":\"permissions\",\"id\":\"417ba636-2dce-11eb-84c0-6bce5b0d9de0\"}]}}}}"
   }
 }, {
-  "id" : "d6d08bc1-aca9-44a4-a25f-59358c3ffe8b",
+  "id" : "da976489-4f80-4153-bf4e-0ebf28f2af64",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v2/users",
@@ -66,7 +61,7 @@
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"data\":{\"attributes\":{\"email\":\"java-Get_all_users_of_a_r-1608034776@datadoghq.com\"},\"type\":\"users\"}}"
+      "json" : "{\"data\":{\"attributes\":{\"email\":\"Test-Get_all_users_of_a_role_returns_OK_response-1618083833@datadoghq.com\",\"title\":\"user title\"},\"type\":\"users\"}}"
     }
   },
   "times" : {
@@ -79,31 +74,26 @@
     "statusCode" : 201,
     "reasonPhrase" : "Created",
     "headers" : {
-      "Date" : [ "Tue, 15 Dec 2020 12:19:37 GMT" ],
+      "Date" : [ "Sat, 10 Apr 2021 19:43:54 GMT" ],
       "Content-Type" : [ "application/json" ],
-      "Content-Length" : [ "587" ],
+      "Content-Length" : [ "690" ],
       "Connection" : [ "keep-alive" ],
-      "Pragma" : [ "no-cache" ],
-      "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 22-Dec-2020 12:19:37 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.3543155" ],
-      "X-DD-Debug" : [ "1P9wTBqAbIBgrelvLhZC6yMU4dh3hoPJxqgVxGKRZAP7KGr8YPkzxcmHF9q0g7sB" ],
-      "DD-POOL" : [ "dogweb" ],
-      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "X-Frame-Options" : [ "SAMEORIGIN" ],
-      "X-Content-Type-Options" : [ "nosniff" ],
-      "Strict-Transport-Security" : [ "max-age=15724800;" ]
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "x-dd-version" : [ "35.4281284" ],
+      "x-dd-debug" : [ "/L+SFFO+m1pPY+hRCpk5325fvfrNl0KmiquUNJolBN/5hu3HIwflqjZSbJ6NxDFG" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ]
     },
-    "cookies" : {
-      "DD-PSHARD" : "233"
-    },
-    "body" : "{\"data\":{\"type\":\"users\",\"id\":\"ccb5f000-3ecf-11eb-8999-874f623ad8d2\",\"attributes\":{\"name\":null,\"handle\":\"java-get_all_users_of_a_r-1608034776@datadoghq.com\",\"created_at\":\"2020-12-15T12:19:37.853725+00:00\",\"email\":\"java-get_all_users_of_a_r-1608034776@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/f572f31502c05e23961fb331d591f207?s=48&d=retro\",\"title\":null,\"verified\":false,\"service_account\":false,\"disabled\":false,\"allowed_login_methods\":[],\"status\":\"Pending\"},\"relationships\":{\"roles\":{\"data\":[]},\"org\":{\"data\":{\"type\":\"orgs\",\"id\":\"4dee724d-00cc-11ea-a77b-570c9d03c6c5\"}}}}}"
+    "body" : "{\"data\":{\"type\":\"users\",\"id\":\"14fb7522-9a35-11eb-9d0d-da7ad0900002\",\"attributes\":{\"name\":null,\"handle\":\"test-get_all_users_of_a_role_returns_ok_response-1618083833@datadoghq.com\",\"created_at\":\"2021-04-10T19:43:54.088331+00:00\",\"modified_at\":\"2021-04-10T19:43:54.131312+00:00\",\"email\":\"test-get_all_users_of_a_role_returns_ok_response-1618083833@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/91598f15049e9f70328edc080e69d843?s=48&d=retro\",\"title\":\"user title\",\"verified\":false,\"service_account\":false,\"disabled\":false,\"allowed_login_methods\":[],\"status\":\"Pending\"},\"relationships\":{\"roles\":{\"data\":[]},\"org\":{\"data\":{\"type\":\"orgs\",\"id\":\"4dee724d-00cc-11ea-a77b-570c9d03c6c5\"}}}}}"
   }
 }, {
-  "id" : "4f9d93fd-411e-424e-bf67-3da0b33c6bde",
+  "id" : "8e3e07c1-b769-4007-ad9e-988778c0e85a",
   "httpRequest" : {
     "method" : "POST",
-    "path" : "/api/v2/roles/cc6270c4-3ecf-11eb-8999-4f3d0dbe816d/users",
+    "path" : "/api/v2/roles/14b1ff14-9a35-11eb-9d0d-da7ad0900002/users",
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "Get_all_users_of_a_role_returns_OK_response" ],
@@ -114,7 +104,7 @@
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"data\":{\"id\":\"ccb5f000-3ecf-11eb-8999-874f623ad8d2\",\"type\":\"users\"}}"
+      "json" : "{\"data\":{\"id\":\"14fb7522-9a35-11eb-9d0d-da7ad0900002\",\"type\":\"users\"}}"
     }
   },
   "times" : {
@@ -127,36 +117,31 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Tue, 15 Dec 2020 12:19:38 GMT" ],
+      "Date" : [ "Sat, 10 Apr 2021 19:43:54 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
-      "Vary" : [ "Accept-Encoding" ],
-      "Pragma" : [ "no-cache" ],
-      "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 22-Dec-2020 12:19:38 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.3543155" ],
-      "X-RateLimit-Limit" : [ "500" ],
-      "X-RateLimit-Period" : [ "60" ],
-      "X-RateLimit-Reset" : [ "22" ],
-      "X-RateLimit-Remaining" : [ "469" ],
-      "X-DD-Debug" : [ "8uM7lo6fgdRC0R8G89u29ss3GmR5rKsxJfYvyjSE9oa+oPL40dVup+1mn/0Ku0bY" ],
-      "DD-POOL" : [ "dogweb" ],
-      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "X-Frame-Options" : [ "SAMEORIGIN" ],
-      "X-Content-Type-Options" : [ "nosniff" ],
-      "Strict-Transport-Security" : [ "max-age=15724800;" ],
-      "content-length" : [ "683" ]
+      "vary" : [ "Accept-Encoding" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "x-dd-version" : [ "35.4281284" ],
+      "x-ratelimit-limit" : [ "500" ],
+      "x-ratelimit-period" : [ "60" ],
+      "x-ratelimit-reset" : [ "6" ],
+      "x-ratelimit-remaining" : [ "487" ],
+      "x-dd-debug" : [ "25u1gDlL724DHllbjFT4BhOLorBTilh+aah2uWAUEjFC/+rjczJdiyWrV/HwLwe/" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ],
+      "content-length" : [ "786" ]
     },
-    "cookies" : {
-      "DD-PSHARD" : "233"
-    },
-    "body" : "{\"meta\":{\"page\":{\"total_count\":1}},\"data\":[{\"type\":\"users\",\"id\":\"ccb5f000-3ecf-11eb-8999-874f623ad8d2\",\"attributes\":{\"name\":null,\"handle\":\"java-get_all_users_of_a_r-1608034776@datadoghq.com\",\"created_at\":\"2020-12-15T12:19:37.853725+00:00\",\"email\":\"java-get_all_users_of_a_r-1608034776@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/f572f31502c05e23961fb331d591f207?s=48&d=retro\",\"title\":null,\"verified\":false,\"service_account\":false,\"disabled\":false,\"allowed_login_methods\":[],\"status\":\"Pending\"},\"relationships\":{\"roles\":{\"data\":[{\"type\":\"roles\",\"id\":\"cc6270c4-3ecf-11eb-8999-4f3d0dbe816d\"}]},\"org\":{\"data\":{\"type\":\"orgs\",\"id\":\"4dee724d-00cc-11ea-a77b-570c9d03c6c5\"}}}}]}"
+    "body" : "{\"meta\":{\"page\":{\"total_count\":1}},\"data\":[{\"type\":\"users\",\"id\":\"14fb7522-9a35-11eb-9d0d-da7ad0900002\",\"attributes\":{\"name\":null,\"handle\":\"test-get_all_users_of_a_role_returns_ok_response-1618083833@datadoghq.com\",\"created_at\":\"2021-04-10T19:43:54.088331+00:00\",\"modified_at\":\"2021-04-10T19:43:54.131312+00:00\",\"email\":\"test-get_all_users_of_a_role_returns_ok_response-1618083833@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/91598f15049e9f70328edc080e69d843?s=48&d=retro\",\"title\":\"user title\",\"verified\":false,\"service_account\":false,\"disabled\":false,\"allowed_login_methods\":[],\"status\":\"Pending\"},\"relationships\":{\"roles\":{\"data\":[{\"type\":\"roles\",\"id\":\"14b1ff14-9a35-11eb-9d0d-da7ad0900002\"}]},\"org\":{\"data\":{\"type\":\"orgs\",\"id\":\"4dee724d-00cc-11ea-a77b-570c9d03c6c5\"}}}}]}"
   }
 }, {
-  "id" : "ce816623-2a17-4043-8419-81c9ce5c6bc6",
+  "id" : "035b9c83-b76b-4007-837c-52a693e0dff0",
   "httpRequest" : {
     "method" : "GET",
-    "path" : "/api/v2/roles/cc6270c4-3ecf-11eb-8999-4f3d0dbe816d/users",
+    "path" : "/api/v2/roles/14b1ff14-9a35-11eb-9d0d-da7ad0900002/users",
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "Get_all_users_of_a_role_returns_OK_response" ],
@@ -176,36 +161,31 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Tue, 15 Dec 2020 12:19:39 GMT" ],
+      "Date" : [ "Sat, 10 Apr 2021 19:43:55 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
-      "Vary" : [ "Accept-Encoding" ],
-      "Pragma" : [ "no-cache" ],
-      "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 22-Dec-2020 12:19:38 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.3543155" ],
-      "X-RateLimit-Limit" : [ "500" ],
-      "X-RateLimit-Period" : [ "60" ],
-      "X-RateLimit-Reset" : [ "22" ],
-      "X-RateLimit-Remaining" : [ "468" ],
-      "X-DD-Debug" : [ "lFrksZMz0TAfmkfXqA+joIhqff9XI0eK5d8n7wOVd6ze5TT6MYngm1maZRo2uB6a" ],
-      "DD-POOL" : [ "dogweb" ],
-      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "X-Frame-Options" : [ "SAMEORIGIN" ],
-      "X-Content-Type-Options" : [ "nosniff" ],
-      "Strict-Transport-Security" : [ "max-age=15724800;" ],
-      "content-length" : [ "8929" ]
+      "vary" : [ "Accept-Encoding" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "x-dd-version" : [ "35.4281284" ],
+      "x-ratelimit-limit" : [ "500" ],
+      "x-ratelimit-period" : [ "60" ],
+      "x-ratelimit-reset" : [ "5" ],
+      "x-ratelimit-remaining" : [ "486" ],
+      "x-dd-debug" : [ "fIO2C4qGDheGHy4YbS+r3a3CXbh4cbRo7roILOimQyiHGjQdOat0cIpWCkupM1uX" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ],
+      "content-length" : [ "1310" ]
     },
-    "cookies" : {
-      "DD-PSHARD" : "233"
-    },
-    "body" : "{\"included\":[{\"type\":\"permissions\",\"id\":\"d90f6832-d3d8-11e9-a77a-bf8a2607f864\",\"attributes\":{\"name\":\"dashboards_public_share\",\"display_name\":\"Dashboards Share\",\"description\":\"The ability to share dashboards externally.\",\"created\":\"2019-09-10T14:39:51.967094+00:00\",\"group_name\":\"Dashboards\",\"display_type\":\"other\",\"restricted\":false}},{\"type\":\"permissions\",\"id\":\"d90f6831-d3d8-11e9-a77a-4fd230ddbc6a\",\"attributes\":{\"name\":\"dashboards_write\",\"display_name\":\"Dashboards\",\"description\":\"The ability to create and change dashboards.\",\"created\":\"2019-09-10T14:39:51.962944+00:00\",\"group_name\":\"Dashboards\",\"display_type\":\"write\",\"restricted\":false}},{\"type\":\"permissions\",\"id\":\"6f66600e-dd12-11e8-9e55-7f30fbb45e73\",\"attributes\":{\"name\":\"logs_live_tail\",\"display_name\":\"Logs Live Tail Access\",\"description\":\"The ability to view the live tail feed for all log indexes, even if otherwise specifically restricted.\",\"created\":\"2018-10-31T13:39:48.292879+00:00\",\"group_name\":\"Logs\",\"display_type\":\"read\",\"restricted\":false}},{\"type\":\"permissions\",\"id\":\"07c3c146-f7f8-11ea-acf6-0bd62b9ae60e\",\"attributes\":{\"name\":\"logs_write_historical_view\",\"display_name\":\"Logs Historical View\",\"description\":\"The capability to rehydrate logs from Archives.\",\"created\":\"2020-09-16T08:38:44.242076+00:00\",\"group_name\":\"Logs\",\"display_type\":\"write\",\"restricted\":false}},{\"type\":\"permissions\",\"id\":\"984d2f00-d3b4-11e8-a200-bb47109e9987\",\"attributes\":{\"name\":\"standard\",\"display_name\":\"Standard Access\",\"description\":\"This permission gives you the ability to view and edit components in your Datadog organization that do not have explicitly defined permissions. This includes APM, Events, and other non-Account Management functionality.\",\"created\":\"2018-10-19T15:35:23.756736+00:00\",\"group_name\":\"General\",\"display_type\":\"other\",\"restricted\":false}},{\"type\":\"permissions\",\"id\":\"62cc036c-dd12-11e8-9e54-db9995643092\",\"attributes\":{\"name\":\"logs_modify_indexes\",\"display_name\":\"Logs Modify Indexes\",\"description\":\"The ability to read and modify all indexes in your account. This includes the ability to grant the Logs Read Index Data and Logs Write Exclusion Filter permission to other roles, for some or all indexes. This permission also grants global Log Index Read and Log Exclusion Filter Write implicitly.\",\"created\":\"2018-10-31T13:39:27.148615+00:00\",\"group_name\":\"Logs\",\"display_type\":\"other\",\"restricted\":false}},{\"type\":\"permissions\",\"id\":\"7314eb20-aa58-11ea-95e2-6fb6e4a451d5\",\"attributes\":{\"name\":\"security_monitoring_rules_read\",\"display_name\":\"Detection Rules\",\"description\":\"The ability to read Detection rules.\",\"created\":\"2020-06-09T13:52:25.279909+00:00\",\"group_name\":\"Security Monitoring\",\"display_type\":\"read\",\"restricted\":false}},{\"type\":\"permissions\",\"id\":\"4d87d5f8-d8b1-11e9-a77a-eb9c8350d04f\",\"attributes\":{\"name\":\"monitors_downtime\",\"display_name\":\"Monitors Manage Downtimes\",\"description\":\"The ability to set downtimes for your organization. A user with this permission can suppress alerts from any monitor using a downtime, even if they do not have permission to edit those monitors explicitly.\",\"created\":\"2019-09-16T18:39:23.306702+00:00\",\"group_name\":\"Monitors\",\"display_type\":\"other\",\"restricted\":false}},{\"type\":\"permissions\",\"id\":\"5e605652-dd12-11e8-9e53-375565b8970e\",\"attributes\":{\"name\":\"logs_read_index_data\",\"display_name\":\"Logs Read Index Data\",\"description\":\"The ability to read all or some log indexes. Can be granted in a limited capacity per index from the Logs interface or APIs. If granted via the Roles interface or API the permission has global scope.\",\"created\":\"2018-10-31T13:39:19.727450+00:00\",\"group_name\":\"Logs\",\"display_type\":\"read\",\"restricted\":false}},{\"type\":\"permissions\",\"id\":\"9ac1d8cc-e707-11ea-aa2d-73d37e989a9d\",\"attributes\":{\"name\":\"user_access_invite\",\"display_name\":\"Invite User\",\"description\":\"Allows users to invite other users to your organization.\",\"created\":\"2020-08-25T19:17:23.539701+00:00\",\"group_name\":\"User Access\",\"display_type\":\"other\",\"restricted\":false}},{\"type\":\"permissions\",\"id\":\"fcac2ad8-2843-11eb-8315-0fe47949d625\",\"attributes\":{\"name\":\"integrations_api\",\"display_name\":\"Integrations API Access\",\"description\":\"The ability to use the Integrations APIs to configure Integrations that the user has access to. This permission does not restrict or grant access to Integrations.\",\"created\":\"2020-11-16T19:43:23.198568+00:00\",\"group_name\":\"Integrations\",\"display_type\":\"other\",\"restricted\":false}},{\"type\":\"permissions\",\"id\":\"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2\",\"attributes\":{\"name\":\"dashboards_read\",\"display_name\":\"Dashboards\",\"description\":\"The ability to view dashboards.\",\"created\":\"2019-09-10T14:39:51.955175+00:00\",\"group_name\":\"Dashboards\",\"display_type\":\"read\",\"restricted\":true}},{\"type\":\"permissions\",\"id\":\"4441648c-d8b1-11e9-a77a-1b899a04b304\",\"attributes\":{\"name\":\"monitors_read\",\"display_name\":\"Monitors\",\"description\":\"The ability to view monitors.\",\"created\":\"2019-09-16T18:39:07.744297+00:00\",\"group_name\":\"Monitors\",\"display_type\":\"read\",\"restricted\":true}},{\"type\":\"permissions\",\"id\":\"811ac4ca-dd12-11e8-9e57-676a7f0beef9\",\"attributes\":{\"name\":\"logs_write_pipelines\",\"display_name\":\"Logs Write Pipelines\",\"description\":\"The ability to add and change log pipeline configurations, including the ability to grant the Logs Write Processors permission to other roles, for some or all pipelines. This permission also grants global Log Processor Write implicitly.\",\"created\":\"2018-10-31T13:40:17.996379+00:00\",\"group_name\":\"Logs\",\"display_type\":\"other\",\"restricted\":false}},{\"type\":\"permissions\",\"id\":\"b382b982-8535-11ea-93de-2bf1bdf20798\",\"attributes\":{\"name\":\"logs_read_archives\",\"display_name\":\"Logs Archives\",\"description\":\"The ability to read logs archives location and use it for rehydration.\",\"created\":\"2020-04-23T07:40:27.966133+00:00\",\"group_name\":\"Logs\",\"display_type\":\"read\",\"restricted\":false}},{\"type\":\"roles\",\"id\":\"cc6270c4-3ecf-11eb-8999-4f3d0dbe816d\",\"attributes\":{\"name\":\"java-Get_all_users_of_a_r-1608034776\",\"created_at\":\"2020-12-15T12:19:37.307514+00:00\",\"modified_at\":\"2020-12-15T12:19:37.307514+00:00\"},\"relationships\":{\"permissions\":{\"data\":[{\"type\":\"permissions\",\"id\":\"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2\"},{\"type\":\"permissions\",\"id\":\"4441648c-d8b1-11e9-a77a-1b899a04b304\"}]}}},{\"type\":\"permissions\",\"id\":\"7b516476-aa58-11ea-95e2-93718cd56369\",\"attributes\":{\"name\":\"security_monitoring_rules_write\",\"display_name\":\"Detection Rules\",\"description\":\"The ability to create and edit Detection rules.\",\"created\":\"2020-06-09T13:52:39.099413+00:00\",\"group_name\":\"Security Monitoring\",\"display_type\":\"write\",\"restricted\":false}},{\"type\":\"permissions\",\"id\":\"80de1ec0-aa58-11ea-95e2-aff381626d5d\",\"attributes\":{\"name\":\"security_monitoring_signals_read\",\"display_name\":\"Security Signals\",\"description\":\"The ability to view Security signals.\",\"created\":\"2020-06-09T13:52:48.410398+00:00\",\"group_name\":\"Security Monitoring\",\"display_type\":\"read\",\"restricted\":false}},{\"type\":\"permissions\",\"id\":\"979df720-aed7-11e9-99c6-a7eb8373165a\",\"attributes\":{\"name\":\"logs_generate_metrics\",\"display_name\":\"Log Generate Metrics\",\"description\":\"The ability to create custom metrics from logs.\",\"created\":\"2019-07-25T12:27:39.640758+00:00\",\"group_name\":\"Logs\",\"display_type\":\"other\",\"restricted\":false}},{\"type\":\"permissions\",\"id\":\"1af86ce4-7823-11ea-93dc-d7cad1b1c6cb\",\"attributes\":{\"name\":\"logs_read_data\",\"display_name\":\"Logs Read Data\",\"description\":\"The ability to read log data. Can be restricted with restriction queries.\",\"created\":\"2020-04-06T16:24:35.989108+00:00\",\"group_name\":\"Logs\",\"display_type\":\"read\",\"restricted\":false}},{\"type\":\"permissions\",\"id\":\"48ef71ea-d8b1-11e9-a77a-93f408470ad0\",\"attributes\":{\"name\":\"monitors_write\",\"display_name\":\"Monitors\",\"description\":\"The ability to change, mute, and delete individual monitors.\",\"created\":\"2019-09-16T18:39:15.597109+00:00\",\"group_name\":\"Monitors\",\"display_type\":\"write\",\"restricted\":false}},{\"type\":\"permissions\",\"id\":\"6ba32d22-0e1a-11eb-ba44-bf9a5aafaa39\",\"attributes\":{\"name\":\"logs_write_facets\",\"display_name\":\"Logs Facets\",\"description\":\"The capability to create or edit logs facets.\",\"created\":\"2020-10-14T12:40:20.271908+00:00\",\"group_name\":\"Logs\",\"display_type\":\"write\",\"restricted\":false}}],\"meta\":{\"page\":{\"total_filtered_count\":1,\"total_count\":1}},\"data\":[{\"type\":\"users\",\"id\":\"ccb5f000-3ecf-11eb-8999-874f623ad8d2\",\"attributes\":{\"name\":null,\"handle\":\"java-get_all_users_of_a_r-1608034776@datadoghq.com\",\"created_at\":\"2020-12-15T12:19:37.853725+00:00\",\"email\":\"java-get_all_users_of_a_r-1608034776@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/f572f31502c05e23961fb331d591f207?s=48&d=retro\",\"title\":null,\"verified\":false,\"service_account\":false,\"disabled\":false,\"allowed_login_methods\":[],\"status\":\"Pending\"},\"relationships\":{\"roles\":{\"data\":[{\"type\":\"roles\",\"id\":\"cc6270c4-3ecf-11eb-8999-4f3d0dbe816d\"}]},\"org\":{\"data\":{\"type\":\"orgs\",\"id\":\"4dee724d-00cc-11ea-a77b-570c9d03c6c5\"}}}}]}"
+    "body" : "{\"included\":[{\"type\":\"roles\",\"id\":\"14b1ff14-9a35-11eb-9d0d-da7ad0900002\",\"attributes\":{\"name\":\"Test-Get_all_users_of_a_role_returns_OK_response-1618083833\",\"created_at\":\"2021-04-10T19:43:53.607863+00:00\",\"modified_at\":\"2021-04-10T19:43:53.607863+00:00\"},\"relationships\":{\"permissions\":{\"data\":[{\"type\":\"permissions\",\"id\":\"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2\"},{\"type\":\"permissions\",\"id\":\"4441648c-d8b1-11e9-a77a-1b899a04b304\"},{\"type\":\"permissions\",\"id\":\"417ba636-2dce-11eb-84c0-6bce5b0d9de0\"}]}}}],\"meta\":{\"page\":{\"total_filtered_count\":1,\"total_count\":1}},\"data\":[{\"type\":\"users\",\"id\":\"14fb7522-9a35-11eb-9d0d-da7ad0900002\",\"attributes\":{\"name\":null,\"handle\":\"test-get_all_users_of_a_role_returns_ok_response-1618083833@datadoghq.com\",\"created_at\":\"2021-04-10T19:43:54.088331+00:00\",\"modified_at\":\"2021-04-10T19:43:54.131312+00:00\",\"email\":\"test-get_all_users_of_a_role_returns_ok_response-1618083833@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/91598f15049e9f70328edc080e69d843?s=48&d=retro\",\"title\":\"user title\",\"verified\":false,\"service_account\":false,\"disabled\":false,\"allowed_login_methods\":[],\"status\":\"Pending\"},\"relationships\":{\"roles\":{\"data\":[{\"type\":\"roles\",\"id\":\"14b1ff14-9a35-11eb-9d0d-da7ad0900002\"}]},\"org\":{\"data\":{\"type\":\"orgs\",\"id\":\"4dee724d-00cc-11ea-a77b-570c9d03c6c5\"}}}}]}"
   }
 }, {
-  "id" : "4e41c6ca-1699-4b8b-ac64-a0df20bad47b",
+  "id" : "318e2450-549b-48eb-bff4-0a825c066e40",
   "httpRequest" : {
     "method" : "DELETE",
-    "path" : "/api/v2/users/ccb5f000-3ecf-11eb-8999-874f623ad8d2",
+    "path" : "/api/v2/users/14fb7522-9a35-11eb-9d0d-da7ad0900002",
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "Get_all_users_of_a_role_returns_OK_response" ],
@@ -225,30 +205,25 @@
     "statusCode" : 204,
     "reasonPhrase" : "No Content",
     "headers" : {
-      "Date" : [ "Tue, 15 Dec 2020 12:19:39 GMT" ],
+      "Date" : [ "Sat, 10 Apr 2021 19:43:55 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "0" ],
       "Connection" : [ "keep-alive" ],
-      "Pragma" : [ "no-cache" ],
-      "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 22-Dec-2020 12:19:39 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.3543155" ],
-      "X-DD-Debug" : [ "KcNcHUGB08YdugVH3r9bPpps+kNHA5hdt/i0HnHlCpX4wCTIXYMJnhyM7E+8Tni0" ],
-      "DD-POOL" : [ "dogweb" ],
-      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "X-Frame-Options" : [ "SAMEORIGIN" ],
-      "X-Content-Type-Options" : [ "nosniff" ],
-      "Strict-Transport-Security" : [ "max-age=15724800;" ]
-    },
-    "cookies" : {
-      "DD-PSHARD" : "233"
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "x-dd-version" : [ "35.4281284" ],
+      "x-dd-debug" : [ "twvpGlmuom5y6A0pjGtXzTf554cmwJgTcCZ71fK4H/RDi+v5ehBK0zQiRcTJQG5C" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ]
     }
   }
 }, {
-  "id" : "516c8b6f-fd06-4aae-9a58-68b6576be301",
+  "id" : "4fe98375-6e13-48b1-9203-ad202d87889f",
   "httpRequest" : {
     "method" : "DELETE",
-    "path" : "/api/v2/roles/cc6270c4-3ecf-11eb-8999-4f3d0dbe816d",
+    "path" : "/api/v2/roles/14b1ff14-9a35-11eb-9d0d-da7ad0900002",
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "Get_all_users_of_a_role_returns_OK_response" ],
@@ -268,27 +243,22 @@
     "statusCode" : 204,
     "reasonPhrase" : "No Content",
     "headers" : {
-      "Date" : [ "Tue, 15 Dec 2020 12:19:40 GMT" ],
+      "Date" : [ "Sat, 10 Apr 2021 19:43:56 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "0" ],
       "Connection" : [ "keep-alive" ],
-      "Pragma" : [ "no-cache" ],
-      "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 22-Dec-2020 12:19:40 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.3543155" ],
-      "X-RateLimit-Limit" : [ "500" ],
-      "X-RateLimit-Period" : [ "60" ],
-      "X-RateLimit-Reset" : [ "20" ],
-      "X-RateLimit-Remaining" : [ "467" ],
-      "X-DD-Debug" : [ "7QEcyEeiQNfV/0gu5JIpTHXljtLMqyFtDSs67sHgArYEiV5BVrC9iQFEWV1cGojK" ],
-      "DD-POOL" : [ "dogweb" ],
-      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "X-Frame-Options" : [ "SAMEORIGIN" ],
-      "X-Content-Type-Options" : [ "nosniff" ],
-      "Strict-Transport-Security" : [ "max-age=15724800;" ]
-    },
-    "cookies" : {
-      "DD-PSHARD" : "233"
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "x-dd-version" : [ "35.4281284" ],
+      "x-ratelimit-limit" : [ "500" ],
+      "x-ratelimit-period" : [ "60" ],
+      "x-ratelimit-reset" : [ "4" ],
+      "x-ratelimit-remaining" : [ "485" ],
+      "x-dd-debug" : [ "B1nwy/pPNqX+q4pQT22cdp1QCexE35IF8qwSHy0Nf7IW0Y881qtn4tXN1lpmzaKc" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ]
     }
   }
 }]
