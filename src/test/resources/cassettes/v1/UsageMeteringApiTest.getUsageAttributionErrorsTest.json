@@ -1,17 +1,16 @@
 [{
-  "id" : "50136420-54ae-4419-9e70-3ffaad16c233",
+  "id" : "1039b5d0-b32d-499a-9835-71466d05c418",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/usage/attribution",
     "queryStringParameters" : {
-      "start_month" : [ "2020-09-01T00:00:00Z" ],
+      "start_month" : [ "2021-02-01T00:00:00Z" ],
       "fields" : [ "*" ]
     },
     "headers" : {
       "Accept" : [ "application/json;datetime-format=rfc3339" ],
       "JAVA-TEST-NAME" : [ "getUsageAttributionErrorsTest" ],
       "DD-OPERATION-ID" : [ "getUsageAttribution" ],
-      "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
     "keepAlive" : false,
@@ -27,12 +26,12 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Wed, 18 Nov 2020 18:38:05 GMT" ],
+      "Date" : [ "Mon, 12 Apr 2021 15:14:10 GMT" ],
       "Content-Type" : [ "application/json" ],
+      "Content-Length" : [ "170" ],
       "Connection" : [ "keep-alive" ],
-      "Cache-Control" : [ "no-cache" ],
-      "Via" : [ "1.1 haproxy" ],
-      "content-length" : [ "170" ]
+      "cache-control" : [ "no-cache" ],
+      "via" : [ "haproxy" ]
     },
     "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
   }

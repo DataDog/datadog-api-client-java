@@ -1,17 +1,16 @@
 [{
-  "id" : "6d6b5e7c-30de-4fe5-9557-9e31e0acd8f5",
+  "id" : "8241e57b-5d50-4241-a7ad-3db5d2552b2e",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/usage/synthetics",
     "queryStringParameters" : {
-      "start_hr" : [ "2020-08-01T12:00:00Z" ],
-      "end_hr" : [ "2020-08-01T13:00:00Z" ]
+      "start_hr" : [ "2021-03-01T12:00:00Z" ],
+      "end_hr" : [ "2021-03-01T13:00:00Z" ]
     },
     "headers" : {
       "Accept" : [ "application/json;datetime-format=rfc3339" ],
       "JAVA-TEST-NAME" : [ "getUsageSyntheticsTest" ],
       "DD-OPERATION-ID" : [ "getUsageSynthetics" ],
-      "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
     "keepAlive" : false,
@@ -27,29 +26,24 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Mon, 28 Sep 2020 13:35:53 GMT" ],
+      "Date" : [ "Mon, 12 Apr 2021 15:14:30 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
-      "Vary" : [ "Accept-Encoding" ],
-      "Pragma" : [ "no-cache" ],
-      "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Mon, 05-Oct-2020 13:35:53 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.3101592" ],
-      "X-RateLimit-Limit" : [ "400" ],
-      "X-RateLimit-Period" : [ "3600" ],
-      "X-RateLimit-Reset" : [ "1447" ],
-      "X-RateLimit-Remaining" : [ "292" ],
-      "X-DD-Debug" : [ "BOSuDBM1n3UepeXn5sEfoi/YIqhtz+1PUEBQ/ObJiWdcVxvlSUQTEKftVTEFMtJ8" ],
-      "DD-POOL" : [ "dogweb" ],
-      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "X-Frame-Options" : [ "SAMEORIGIN" ],
-      "X-Content-Type-Options" : [ "nosniff" ],
-      "Strict-Transport-Security" : [ "max-age=15724800;" ],
-      "content-length" : [ "72" ]
+      "vary" : [ "Accept-Encoding" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "x-dd-version" : [ "35.4290125" ],
+      "x-ratelimit-limit" : [ "400" ],
+      "x-ratelimit-period" : [ "3600" ],
+      "x-ratelimit-reset" : [ "2730" ],
+      "x-ratelimit-remaining" : [ "246" ],
+      "x-dd-debug" : [ "Um4CoU685QqAscnxhS5BD+goWu2yX1Jd4zCfGzSsEvPPIm1qURZaF8dlLl/OEY4I" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ],
+      "content-length" : [ "71" ]
     },
-    "cookies" : {
-      "DD-PSHARD" : "233"
-    },
-    "body" : "{\"usage\":[{\"hour\":\"2020-08-01T12:00:00+00:00\",\"check_calls_count\":277}]}"
+    "body" : "{\"usage\":[{\"hour\":\"2021-03-01T12:00:00+00:00\",\"check_calls_count\":13}]}"
   }
 }]

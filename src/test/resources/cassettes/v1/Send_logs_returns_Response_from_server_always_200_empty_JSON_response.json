@@ -1,5 +1,5 @@
 [{
-  "id" : "465bddd1-c03c-4397-9f32-9896d26cabbc",
+  "id" : "a7cbfa85-a3eb-41fc-9d8c-e27bc3268976",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/v1/input",
@@ -13,7 +13,7 @@
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "[{\"message\":\"java-Send_logs_returns_Re-1615199423\",\"tags\":\"host:javaSendlogsreturnsRe1615199423\"}]"
+      "json" : "[{\"message\":\"Test-Send_logs_returns_Response_from_server_always_200_empty_JSON_response-1618083764\",\"tags\":\"host:TestSendlogsreturnsResponsefromserveralways200emptyJSONresponse1618083764\"}]"
     }
   },
   "times" : {
@@ -26,7 +26,7 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Mon, 08 Mar 2021 10:30:26 GMT" ],
+      "Date" : [ "Sat, 10 Apr 2021 19:42:45 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "2" ],
       "Connection" : [ "keep-alive" ]

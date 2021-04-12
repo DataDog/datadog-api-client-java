@@ -1,5 +1,5 @@
 [{
-  "id" : "bef20c81-49fd-4566-a38e-69da4185a9e6",
+  "id" : "d6b36c92-83fb-4207-9cb3-0f08554296a9",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/monitor/12345",
@@ -22,7 +22,7 @@
     "statusCode" : 404,
     "reasonPhrase" : "Not Found",
     "headers" : {
-      "Date" : [ "Wed, 06 Jan 2021 23:47:20 GMT" ],
+      "Date" : [ "Sat, 10 Apr 2021 19:42:46 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "vary" : [ "Accept-Encoding" ],
@@ -30,15 +30,15 @@
       "cache-control" : [ "no-cache" ],
       "x-ratelimit-limit" : [ "3000" ],
       "x-ratelimit-period" : [ "10" ],
-      "x-ratelimit-reset" : [ "10" ],
+      "x-ratelimit-reset" : [ "4" ],
       "x-ratelimit-remaining" : [ "2999" ],
-      "x-dd-version" : [ "35.3654104" ],
+      "x-dd-version" : [ "35.4281284" ],
       "x-content-type-options" : [ "nosniff" ],
       "strict-transport-security" : [ "max-age=15724800;" ],
       "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "x-frame-options" : [ "SAMEORIGIN" ],
-      "content-length" : [ "32" ]
+      "content-length" : [ "33" ]
     },
-    "body" : "{\"errors\":[\"Monitor not found\"]}"
+    "body" : "{\"errors\": [\"Monitor not found\"]}"
   }
 }]

@@ -1,8 +1,8 @@
 [{
-  "id" : "ad5ae5d0-900e-49f9-9a6a-41b8e82d3989",
+  "id" : "ff47399e-d909-45f7-8c59-b67cfce846f7",
   "httpRequest" : {
     "method" : "POST",
-    "path" : "/api/v2/metrics/javaListtagconfigurati1614797992/tags",
+    "path" : "/api/v2/metrics/TestListtagconfigurationbynamereturnsSuccessresponse1618083812/tags",
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "List_tag_configuration_by_name_returns_Success_response" ],
@@ -13,7 +13,7 @@
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"data\":{\"attributes\":{\"include_percentiles\":false,\"metric_type\":\"distribution\",\"tags\":[\"app\",\"datacenter\",\"javaListtagconfigurati1614797992\"]},\"id\":\"javaListtagconfigurati1614797992\",\"type\":\"manage_tags\"}}"
+      "json" : "{\"data\":{\"attributes\":{\"include_percentiles\":false,\"metric_type\":\"distribution\",\"tags\":[\"app\",\"datacenter\",\"TestListtagconfigurationbynamereturnsSuccessresponse1618083812\"]},\"id\":\"TestListtagconfigurationbynamereturnsSuccessresponse1618083812\",\"type\":\"manage_tags\"}}"
     }
   },
   "times" : {
@@ -26,30 +26,30 @@
     "statusCode" : 201,
     "reasonPhrase" : "Created",
     "headers" : {
-      "Date" : [ "Wed, 03 Mar 2021 18:59:53 GMT" ],
+      "Date" : [ "Sat, 10 Apr 2021 19:43:33 GMT" ],
       "Content-Type" : [ "application/json" ],
-      "Content-Length" : [ "302" ],
+      "Content-Length" : [ "362" ],
       "Connection" : [ "keep-alive" ],
       "pragma" : [ "no-cache" ],
       "cache-control" : [ "no-cache" ],
-      "x-dd-version" : [ "35.4022232" ],
+      "x-dd-version" : [ "35.4281284" ],
       "x-ratelimit-limit" : [ "50" ],
       "x-ratelimit-period" : [ "60" ],
-      "x-ratelimit-reset" : [ "7" ],
-      "x-ratelimit-remaining" : [ "39" ],
-      "x-dd-debug" : [ "F5gm0Rce1/Abr9/0Fw8HAqWfiz0FdiH8er/AXnN6lOn3L6KyGgbsLCwgPlob1No8" ],
+      "x-ratelimit-reset" : [ "27" ],
+      "x-ratelimit-remaining" : [ "42" ],
+      "x-dd-debug" : [ "nLnnBNvlCFDECRnZvzDb0z4sAO35G+IMidcAs8vrCKyjvsKWE8Yd9S3n6OjZ1qRN" ],
       "x-content-type-options" : [ "nosniff" ],
       "strict-transport-security" : [ "max-age=15724800;" ],
       "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "x-frame-options" : [ "SAMEORIGIN" ]
     },
-    "body" : "{\"data\":{\"type\":\"manage_tags\",\"id\":\"javaListtagconfigurati1614797992\",\"attributes\":{\"tags\":[\"datacenter\",\"app\",\"javaListtagconfigurati1614797992\"],\"include_percentiles\":false,\"created_at\":\"2021-03-03T18:59:53.059709+00:00\",\"updated_at\":\"2021-03-03T18:59:53.059709+00:00\",\"metric_type\":\"distribution\"}}}"
+    "body" : "{\"data\":{\"type\":\"manage_tags\",\"id\":\"TestListtagconfigurationbynamereturnsSuccessresponse1618083812\",\"attributes\":{\"tags\":[\"datacenter\",\"app\",\"TestListtagconfigurationbynamereturnsSuccessresponse1618083812\"],\"include_percentiles\":false,\"created_at\":\"2021-04-10T19:43:33.284352+00:00\",\"updated_at\":\"2021-04-10T19:43:33.284352+00:00\",\"metric_type\":\"distribution\"}}}"
   }
 }, {
-  "id" : "112a8658-a40d-4ce4-b5b0-85764b7fe775",
+  "id" : "69440e72-eac6-4299-b2d5-449e83917bee",
   "httpRequest" : {
     "method" : "GET",
-    "path" : "/api/v2/metrics/javaListtagconfigurati1614797992/tags",
+    "path" : "/api/v2/metrics/TestListtagconfigurationbynamereturnsSuccessresponse1618083812/tags",
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "List_tag_configuration_by_name_returns_Success_response" ],
@@ -69,31 +69,31 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Wed, 03 Mar 2021 18:59:53 GMT" ],
+      "Date" : [ "Sat, 10 Apr 2021 19:43:33 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "vary" : [ "Accept-Encoding" ],
       "pragma" : [ "no-cache" ],
       "cache-control" : [ "no-cache" ],
-      "x-dd-version" : [ "35.4022232" ],
+      "x-dd-version" : [ "35.4281284" ],
       "x-ratelimit-limit" : [ "50" ],
       "x-ratelimit-period" : [ "60" ],
-      "x-ratelimit-reset" : [ "7" ],
-      "x-ratelimit-remaining" : [ "38" ],
-      "x-dd-debug" : [ "Wjq53IVIwnB4SiR238oOYgHFMq/ZYP0LQ/Dv8C2fFLBwTje/dWJHu6pI6vIOK1zG" ],
+      "x-ratelimit-reset" : [ "27" ],
+      "x-ratelimit-remaining" : [ "41" ],
+      "x-dd-debug" : [ "dPySkcOzIZtKyMKDAAzuysY3gNGGj6RtYogGuSb76E8mPvoqzREyRp6lPYm91hQU" ],
       "x-content-type-options" : [ "nosniff" ],
       "strict-transport-security" : [ "max-age=15724800;" ],
       "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "x-frame-options" : [ "SAMEORIGIN" ],
-      "content-length" : [ "302" ]
+      "content-length" : [ "362" ]
     },
-    "body" : "{\"data\":{\"type\":\"manage_tags\",\"id\":\"javaListtagconfigurati1614797992\",\"attributes\":{\"tags\":[\"datacenter\",\"app\",\"javaListtagconfigurati1614797992\"],\"include_percentiles\":false,\"created_at\":\"2021-03-03T18:59:53.059709+00:00\",\"updated_at\":\"2021-03-03T18:59:53.059709+00:00\",\"metric_type\":\"distribution\"}}}"
+    "body" : "{\"data\":{\"type\":\"manage_tags\",\"id\":\"TestListtagconfigurationbynamereturnsSuccessresponse1618083812\",\"attributes\":{\"tags\":[\"datacenter\",\"app\",\"TestListtagconfigurationbynamereturnsSuccessresponse1618083812\"],\"include_percentiles\":false,\"created_at\":\"2021-04-10T19:43:33.284352+00:00\",\"updated_at\":\"2021-04-10T19:43:33.284352+00:00\",\"metric_type\":\"distribution\"}}}"
   }
 }, {
-  "id" : "242ab861-83ad-4407-a8e2-0b24e18591a9",
+  "id" : "450a2f9c-41b2-4d77-9b53-c7de1228ccab",
   "httpRequest" : {
     "method" : "DELETE",
-    "path" : "/api/v2/metrics/javaListtagconfigurati1614797992/tags",
+    "path" : "/api/v2/metrics/TestListtagconfigurationbynamereturnsSuccessresponse1618083812/tags",
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "List_tag_configuration_by_name_returns_Success_response" ],
@@ -113,18 +113,18 @@
     "statusCode" : 204,
     "reasonPhrase" : "No Content",
     "headers" : {
-      "Date" : [ "Wed, 03 Mar 2021 18:59:53 GMT" ],
+      "Date" : [ "Sat, 10 Apr 2021 19:43:34 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "0" ],
       "Connection" : [ "keep-alive" ],
       "pragma" : [ "no-cache" ],
       "cache-control" : [ "no-cache" ],
-      "x-dd-version" : [ "35.4022232" ],
+      "x-dd-version" : [ "35.4281284" ],
       "x-ratelimit-limit" : [ "50" ],
       "x-ratelimit-period" : [ "60" ],
-      "x-ratelimit-reset" : [ "7" ],
-      "x-ratelimit-remaining" : [ "37" ],
-      "x-dd-debug" : [ "L3ULR3HwCWYmEqCWGz2Yob3chcH4pjowBacBXkncP7o+/uPqKt9yGEYf/g1AJPzQ" ],
+      "x-ratelimit-reset" : [ "26" ],
+      "x-ratelimit-remaining" : [ "40" ],
+      "x-dd-debug" : [ "PhosSd3Ch1B6B0DXI71steKUi7XhPDttnPiIP1NdXTw0VJNWpoUnYyBmODS5ne3q" ],
       "x-content-type-options" : [ "nosniff" ],
       "strict-transport-security" : [ "max-age=15724800;" ],
       "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],

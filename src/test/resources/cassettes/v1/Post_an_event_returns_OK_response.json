@@ -1,5 +1,5 @@
 [{
-  "id" : "e839126c-c2eb-4374-8415-89e4219a666a",
+  "id" : "625d28f4-ba75-4002-96d3-cc65d767ee41",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/events",
@@ -13,7 +13,7 @@
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"tags\":[\"test:javaPostaneventreturn1615927742\"],\"text\":\"A text message.\",\"title\":\"java-Post_an_event_return-1615927742\"}"
+      "json" : "{\"tags\":[\"test:TestPostaneventreturnsOKresponse1618083763\"],\"text\":\"A text message.\",\"title\":\"Test-Post_an_event_returns_OK_response-1618083763\"}"
     }
   },
   "times" : {
@@ -26,15 +26,15 @@
     "statusCode" : 202,
     "reasonPhrase" : "Accepted",
     "headers" : {
-      "Date" : [ "Tue, 16 Mar 2021 20:49:05 GMT" ],
+      "Date" : [ "Sat, 10 Apr 2021 19:42:43 GMT" ],
       "Content-Type" : [ "application/json" ],
-      "Content-Length" : [ "320" ],
+      "Content-Length" : [ "344" ],
       "Connection" : [ "keep-alive" ],
       "x-content-type-options" : [ "nosniff" ],
       "strict-transport-security" : [ "max-age=15724800;" ],
       "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "x-frame-options" : [ "SAMEORIGIN" ]
     },
-    "body" : "{\"status\":\"ok\",\"event\":{\"id\":5899957641355396670,\"title\":\"java-Post_an_event_return-1615927742\",\"text\":\"A text message.\",\"date_happened\":1615927745,\"handle\":null,\"priority\":null,\"related_event_id\":null,\"tags\":[\"test:javaPostaneventreturn1615927742\"],\"url\":\"https://app.datadoghq.com/event/event?id=5899957641355396670\"}}"
+    "body" : "{\"status\":\"ok\",\"event\":{\"id\":5936129629410621481,\"title\":\"Test-Post_an_event_returns_OK_response-1618083763\",\"text\":\"A text message.\",\"date_happened\":1618083763,\"handle\":null,\"priority\":null,\"related_event_id\":null,\"tags\":[\"test:TestPostaneventreturnsOKresponse1618083763\"],\"url\":\"https://app.datadoghq.com/event/event?id=5936129629410621481\"}}"
   }
 }]
