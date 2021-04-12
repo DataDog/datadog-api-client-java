@@ -1,0 +1,25 @@
+stages:
+  - create_key
+
+variables:
+  REGISTRY: 486234852809.dkr.ecr.us-east-1.amazonaws.com
+
+# This job creates the GPG key
+create_key:
+  stage: create_key
+  when: manual
+
+  tags:
+    - "runner:docker"
+    - "size:large"
+
+  image: $REGISTRY/ci/agent-key-management-tools/gpg:1
+  variables:
+    PROJECT_NAME: "datadog-api-client-java"
+    EXPORT_TO_KEYSERVER: "false"
+  script:
+    - /create.sh
+  artifacts:
+    expire_in: 13 mos
+    paths:
+      - ./pubkeys/
