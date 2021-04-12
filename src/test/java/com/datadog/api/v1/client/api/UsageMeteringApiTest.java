@@ -105,21 +105,24 @@ public class UsageMeteringApiTest extends V1ApiTest {
   @Test
   public void getUsageAnalyzedLogsTest() throws ApiException {
     UsageAnalyzedLogsResponse response =
-        api.getUsageAnalyzedLogs(startHr, new UsageMeteringApi.GetUsageAnalyzedLogsOptionalParameters().endHr(endHr));
+        api.getUsageAnalyzedLogs(
+            startHr, new UsageMeteringApi.GetUsageAnalyzedLogsOptionalParameters().endHr(endHr));
     assertNotNull(response.getUsage());
   }
 
   @Test
   public void getUsageFargateTest() throws ApiException {
     UsageFargateResponse response =
-        api.getUsageFargate(startHr, new UsageMeteringApi.GetUsageFargateOptionalParameters().endHr(endHr));
+        api.getUsageFargate(
+            startHr, new UsageMeteringApi.GetUsageFargateOptionalParameters().endHr(endHr));
     assertNotNull(response.getUsage());
   }
 
   @Test
   public void getUsageRumSessionsTest() throws ApiException {
     UsageRumSessionsResponse response =
-        api.getUsageRumSessions(startHr, new UsageMeteringApi.GetUsageRumSessionsOptionalParameters().endHr(endHr));
+        api.getUsageRumSessions(
+            startHr, new UsageMeteringApi.GetUsageRumSessionsOptionalParameters().endHr(endHr));
     assertNotNull(response.getUsage());
   }
 
@@ -127,28 +130,34 @@ public class UsageMeteringApiTest extends V1ApiTest {
   public void getUsageMobileRumSessionsTest() throws ApiException {
     UsageRumSessionsResponse response =
         api.getUsageRumSessions(
-            startHr, new UsageMeteringApi.GetUsageRumSessionsOptionalParameters().endHr(endHr).type("mobile"));
+            startHr,
+            new UsageMeteringApi.GetUsageRumSessionsOptionalParameters()
+                .endHr(endHr)
+                .type("mobile"));
     assertNotNull(response.getUsage());
   }
 
   @Test
   public void getUsageHostsTest() throws ApiException {
     UsageHostsResponse response =
-        api.getUsageHosts(startHr, new UsageMeteringApi.GetUsageHostsOptionalParameters().endHr(endHr));
+        api.getUsageHosts(
+            startHr, new UsageMeteringApi.GetUsageHostsOptionalParameters().endHr(endHr));
     assertNotNull(response.getUsage());
   }
 
   @Test
   public void getUsageProfilingTest() throws ApiException {
     UsageProfilingResponse response =
-        api.getUsageProfiling(startHr, new UsageMeteringApi.GetUsageProfilingOptionalParameters().endHr(endHr));
+        api.getUsageProfiling(
+            startHr, new UsageMeteringApi.GetUsageProfilingOptionalParameters().endHr(endHr));
     assertNotNull(response.getUsage());
   }
 
   @Test
   public void getUsageLogsTest() throws ApiException {
     UsageLogsResponse response =
-        api.getUsageLogs(startHr, new UsageMeteringApi.GetUsageLogsOptionalParameters().endHr(endHr));
+        api.getUsageLogs(
+            startHr, new UsageMeteringApi.GetUsageLogsOptionalParameters().endHr(endHr));
     assertNotNull(response.getUsage());
   }
 
@@ -156,42 +165,50 @@ public class UsageMeteringApiTest extends V1ApiTest {
   public void getUsageLogsByIndexTest() throws ApiException {
     UsageLogsByIndexResponse response =
         api.getUsageLogsByIndex(
-            startHr, new UsageMeteringApi.GetUsageLogsByIndexOptionalParameters().endHr(endHr).indexName(null));
+            startHr,
+            new UsageMeteringApi.GetUsageLogsByIndexOptionalParameters()
+                .endHr(endHr)
+                .indexName(null));
     assertNotNull(response.getUsage());
   }
 
   @Test
   public void getUsageNetworkFlowsTest() throws ApiException {
     UsageNetworkFlowsResponse response =
-        api.getUsageNetworkFlows(startHr, new UsageMeteringApi.GetUsageNetworkFlowsOptionalParameters().endHr(endHr));
+        api.getUsageNetworkFlows(
+            startHr, new UsageMeteringApi.GetUsageNetworkFlowsOptionalParameters().endHr(endHr));
     assertNotNull(response.getUsage());
   }
 
   @Test
   public void getUsageNetworkHostsTest() throws ApiException {
     UsageNetworkHostsResponse response =
-        api.getUsageNetworkHosts(startHr, new UsageMeteringApi.GetUsageNetworkHostsOptionalParameters().endHr(endHr));
+        api.getUsageNetworkHosts(
+            startHr, new UsageMeteringApi.GetUsageNetworkHostsOptionalParameters().endHr(endHr));
     assertNotNull(response.getUsage());
   }
 
   @Test
   public void getUsageSNMPTest() throws ApiException {
     UsageSNMPResponse response =
-        api.getUsageSNMP(startHr, new UsageMeteringApi.GetUsageSNMPOptionalParameters().endHr(endHr));
+        api.getUsageSNMP(
+            startHr, new UsageMeteringApi.GetUsageSNMPOptionalParameters().endHr(endHr));
     assertNotNull(response.getUsage());
   }
 
   @Test
   public void getUsageIngestedSpansTest() throws ApiException {
     UsageIngestedSpansResponse response =
-        api.getIngestedSpans(startHr, new UsageMeteringApi.GetIngestedSpansOptionalParameters().endHr(endHr));
+        api.getIngestedSpans(
+            startHr, new UsageMeteringApi.GetIngestedSpansOptionalParameters().endHr(endHr));
     assertNotNull(response.getUsage());
   }
 
   @Test
   public void getUsageIncidentManagementTest() throws ApiException {
     UsageIncidentManagementResponse response =
-        api.getIncidentManagement(startHr, new UsageMeteringApi.GetIncidentManagementOptionalParameters().endHr(endHr));
+        api.getIncidentManagement(
+            startHr, new UsageMeteringApi.GetIncidentManagementOptionalParameters().endHr(endHr));
     assertNotNull(response.getUsage());
   }
 
@@ -397,14 +414,16 @@ public class UsageMeteringApiTest extends V1ApiTest {
   @Test
   public void getUsageSyntheticsTest() throws ApiException {
     UsageSyntheticsResponse response =
-        api.getUsageSynthetics(startHr, new UsageMeteringApi.GetUsageSyntheticsOptionalParameters().endHr(endHr));
+        api.getUsageSynthetics(
+            startHr, new UsageMeteringApi.GetUsageSyntheticsOptionalParameters().endHr(endHr));
     assertNotNull(response.getUsage());
   }
 
   @Test
   public void getUsageSyntheticsAPITest() throws ApiException {
     UsageSyntheticsAPIResponse response =
-        api.getUsageSyntheticsAPI(startHr, new UsageMeteringApi.GetUsageSyntheticsAPIOptionalParameters().endHr(endHr));
+        api.getUsageSyntheticsAPI(
+            startHr, new UsageMeteringApi.GetUsageSyntheticsAPIOptionalParameters().endHr(endHr));
     assertNotNull(response.getUsage());
   }
 
@@ -412,14 +431,16 @@ public class UsageMeteringApiTest extends V1ApiTest {
   public void getUsageSyntheticsBrowserTest() throws ApiException {
     UsageSyntheticsBrowserResponse response =
         api.getUsageSyntheticsBrowser(
-            startHr, new UsageMeteringApi.GetUsageSyntheticsBrowserOptionalParameters().endHr(endHr));
+            startHr,
+            new UsageMeteringApi.GetUsageSyntheticsBrowserOptionalParameters().endHr(endHr));
     assertNotNull(response.getUsage());
   }
 
   @Test
   public void getUsageTimeseriesTest() throws ApiException {
     UsageTimeseriesResponse response =
-        api.getUsageTimeseries(startHr, new UsageMeteringApi.GetUsageTimeseriesOptionalParameters().endHr(endHr));
+        api.getUsageTimeseries(
+            startHr, new UsageMeteringApi.GetUsageTimeseriesOptionalParameters().endHr(endHr));
     assertNotNull(response.getUsage());
   }
 
@@ -427,21 +448,24 @@ public class UsageMeteringApiTest extends V1ApiTest {
   public void getUsageTopAvgMetricsTest() throws ApiException {
     // List<String> names = null;
     UsageTopAvgMetricsResponse response =
-        api.getUsageTopAvgMetrics(new UsageMeteringApi.GetUsageTopAvgMetricsOptionalParameters().month(startMonth));
+        api.getUsageTopAvgMetrics(
+            new UsageMeteringApi.GetUsageTopAvgMetricsOptionalParameters().month(startMonth));
     assertNotNull(response.getUsage());
   }
 
   @Test
   public void getUsageIndexedSpansTest() throws ApiException {
     UsageIndexedSpansResponse response =
-        api.getUsageIndexedSpans(startHr, new UsageMeteringApi.GetUsageIndexedSpansOptionalParameters().endHr(endHr));
+        api.getUsageIndexedSpans(
+            startHr, new UsageMeteringApi.GetUsageIndexedSpansOptionalParameters().endHr(endHr));
     assertNotNull(response.getUsage());
   }
 
   @Test
   public void getUsageLambdaTest() throws ApiException {
     UsageLambdaResponse response =
-        api.getUsageLambda(startHr, new UsageMeteringApi.GetUsageLambdaOptionalParameters().endHr(endHr));
+        api.getUsageLambda(
+            startHr, new UsageMeteringApi.GetUsageLambdaOptionalParameters().endHr(endHr));
     assertNotNull(response.getUsage());
   }
 
@@ -583,7 +607,8 @@ public class UsageMeteringApiTest extends V1ApiTest {
   @Test
   public void getUsageTopAvgMetricsErrorsTest() throws IOException {
     try {
-      api.getUsageTopAvgMetrics(new UsageMeteringApi.GetUsageTopAvgMetricsOptionalParameters().month(pastStartMonth));
+      api.getUsageTopAvgMetrics(
+          new UsageMeteringApi.GetUsageTopAvgMetricsOptionalParameters().month(pastStartMonth));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -742,7 +767,10 @@ public class UsageMeteringApiTest extends V1ApiTest {
 
     try {
       api.getUsageRumSessions(
-          startHr, new UsageMeteringApi.GetUsageRumSessionsOptionalParameters().endHr(endHr).type("invalid"));
+          startHr,
+          new UsageMeteringApi.GetUsageRumSessionsOptionalParameters()
+              .endHr(endHr)
+              .type("invalid"));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());

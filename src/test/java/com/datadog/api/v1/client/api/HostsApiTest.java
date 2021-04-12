@@ -166,7 +166,8 @@ public class HostsApiTest extends V1ApiTest {
             .willReturn(
                 okJson(TestUtils.getFixture("v1/client/api/hosts_fixtures/host_totals.json"))));
 
-    HostTotals actual = unitAPI.getHostTotals(new HostsApi.GetHostTotalsOptionalParameters().from(123L));
+    HostTotals actual =
+        unitAPI.getHostTotals(new HostsApi.GetHostTotalsOptionalParameters().from(123L));
     assertEquals(20L, actual.getTotalActive().longValue());
     assertEquals(10L, actual.getTotalUp().longValue());
   }
@@ -230,7 +231,8 @@ public class HostsApiTest extends V1ApiTest {
   @Test
   public void hostsGetTotalsErrorsTest() throws IOException {
     try {
-      api.getHostTotals(new HostsApi.GetHostTotalsOptionalParameters().from(now.toEpochSecond() + 60));
+      api.getHostTotals(
+          new HostsApi.GetHostTotalsOptionalParameters().from(now.toEpochSecond() + 60));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -239,7 +241,8 @@ public class HostsApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.getHostTotals(new HostsApi.GetHostTotalsOptionalParameters().from(now.toEpochSecond() + 60));
+      fakeAuthApi.getHostTotals(
+          new HostsApi.GetHostTotalsOptionalParameters().from(now.toEpochSecond() + 60));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());

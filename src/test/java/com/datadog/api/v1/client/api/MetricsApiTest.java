@@ -173,7 +173,8 @@ public class MetricsApiTest extends V1ApiTest {
             .withQueryParam("host", equalTo("host"))
             .willReturn(okJson(expectedJSON)));
     MetricsListResponse r =
-       api.listActiveMetrics(1L, new MetricsApi.ListActiveMetricsOptionalParameters().host("host"));
+        unitApi.listActiveMetrics(
+            1L, new MetricsApi.ListActiveMetricsOptionalParameters().host("host"));
 
     assertEquals(expected, r);
   }

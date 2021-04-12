@@ -112,7 +112,9 @@ public class SecurityMonitoringApiTest extends V2APITest {
     long pageSize = 1L;
     SecurityMonitoringListRulesResponse getCountResponse =
         api.listSecurityMonitoringRules(
-            new SecurityMonitoringApi.ListSecurityMonitoringRulesOptionalParameters().pageSize(pageSize).pageNumber(0L));
+            new SecurityMonitoringApi.ListSecurityMonitoringRulesOptionalParameters()
+                .pageSize(pageSize)
+                .pageNumber(0L));
     long ruleCount = getCountResponse.getMeta().getPage().getTotalCount();
     assertTrue(ruleCount > 5);
     assertEquals(
@@ -123,7 +125,8 @@ public class SecurityMonitoringApiTest extends V2APITest {
     // created rules are in all rules
     SecurityMonitoringListRulesResponse getAllRules =
         api.listSecurityMonitoringRules(
-            new SecurityMonitoringApi.ListSecurityMonitoringRulesOptionalParameters().pageSize(ruleCount));
+            new SecurityMonitoringApi.ListSecurityMonitoringRulesOptionalParameters()
+                .pageSize(ruleCount));
     // this could be flaky if another test is run at the same time
     // assertEquals(ruleCount, getAllRules.getData().size());
     Set<String> ids =
@@ -139,11 +142,15 @@ public class SecurityMonitoringApiTest extends V2APITest {
     // paging
     SecurityMonitoringListRulesResponse firstPage =
         api.listSecurityMonitoringRules(
-            new SecurityMonitoringApi.ListSecurityMonitoringRulesOptionalParameters().pageSize(2L).pageNumber(0L));
+            new SecurityMonitoringApi.ListSecurityMonitoringRulesOptionalParameters()
+                .pageSize(2L)
+                .pageNumber(0L));
     assertEquals(2, firstPage.getData().size());
     SecurityMonitoringListRulesResponse secondPage =
         api.listSecurityMonitoringRules(
-            new SecurityMonitoringApi.ListSecurityMonitoringRulesOptionalParameters().pageSize(2L).pageNumber(1L));
+            new SecurityMonitoringApi.ListSecurityMonitoringRulesOptionalParameters()
+                .pageSize(2L)
+                .pageNumber(1L));
     assertEquals(2, secondPage.getData().size());
 
     Set<String> firstPageIds =
@@ -215,7 +222,8 @@ public class SecurityMonitoringApiTest extends V2APITest {
           try {
             SecurityMonitoringSignalsListResponse response =
                 api.searchSecurityMonitoringSignals(
-                    new SecurityMonitoringApi.SearchSecurityMonitoringSignalsOptionalParameters().body(bothSignalsRequest));
+                    new SecurityMonitoringApi.SearchSecurityMonitoringSignalsOptionalParameters()
+                        .body(bothSignalsRequest));
             return response.getData() != null && response.getData().size() == 2;
           } catch (ApiException ignored) {
             return false;
@@ -317,7 +325,8 @@ public class SecurityMonitoringApiTest extends V2APITest {
           }
         });
     String cursor = pageOneResponse.get().getMeta().getPage().getAfter();
-    assertTrue(pageOneResponse.get().getLinks().getNext().contains(URLEncoder.encode(cursor, "UTF-8")));
+    assertTrue(
+        pageOneResponse.get().getLinks().getNext().contains(URLEncoder.encode(cursor, "UTF-8")));
     assertNotEquals(
         pageOneResponse.get().getData().get(0).getId(),
         pageTwoResponse.get().getData().get(0).getId());
@@ -449,7 +458,8 @@ public class SecurityMonitoringApiTest extends V2APITest {
           }
         });
     String cursor = pageOneResponse.get().getMeta().getPage().getAfter();
-    assertTrue(pageOneResponse.get().getLinks().getNext().contains(URLEncoder.encode(cursor, "UTF-8")));
+    assertTrue(
+        pageOneResponse.get().getLinks().getNext().contains(URLEncoder.encode(cursor, "UTF-8")));
     assertNotEquals(
         pageOneResponse.get().getData().get(0).getId(),
         pageTwoResponse.get().getData().get(0).getId());

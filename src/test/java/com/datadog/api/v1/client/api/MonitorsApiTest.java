@@ -150,7 +150,9 @@ public class MonitorsApiTest extends V1ApiTest {
     deleteMonitors.add(monitorId);
 
     // test getting monitor
-    obtained = api.getMonitor(monitorId, new MonitorsApi.GetMonitorOptionalParameters().groupStates("all"));
+    obtained =
+        api.getMonitor(
+            monitorId, new MonitorsApi.GetMonitorOptionalParameters().groupStates("all"));
     assertEquals(testingMonitorName, obtained.getName());
     assertEquals(testingMonitorType, obtained.getType());
     assertEquals(testingMonitorQuery, obtained.getQuery());
@@ -286,7 +288,8 @@ public class MonitorsApiTest extends V1ApiTest {
   @Test
   public void monitorsListErrorsTest() throws IOException {
     try {
-      api.listMonitors(new MonitorsApi.ListMonitorsOptionalParameters().groupStates("notagroupstate"));
+      api.listMonitors(
+          new MonitorsApi.ListMonitorsOptionalParameters().groupStates("notagroupstate"));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -295,7 +298,8 @@ public class MonitorsApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.listMonitors(new MonitorsApi.ListMonitorsOptionalParameters().groupStates("notagroupstate"));
+      fakeAuthApi.listMonitors(
+          new MonitorsApi.ListMonitorsOptionalParameters().groupStates("notagroupstate"));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -386,7 +390,8 @@ public class MonitorsApiTest extends V1ApiTest {
     updateMonitor.setType(MonitorType.COMPOSITE);
 
     try {
-      api.getMonitor(monitorId, new MonitorsApi.GetMonitorOptionalParameters().groupStates("notagroupstate"));
+      api.getMonitor(
+          monitorId, new MonitorsApi.GetMonitorOptionalParameters().groupStates("notagroupstate"));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -396,7 +401,8 @@ public class MonitorsApiTest extends V1ApiTest {
 
     try {
       fakeAuthApi.getMonitor(
-          Long.valueOf(1234), new MonitorsApi.GetMonitorOptionalParameters().groupStates("notagroupstate"));
+          Long.valueOf(1234),
+          new MonitorsApi.GetMonitorOptionalParameters().groupStates("notagroupstate"));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -405,7 +411,9 @@ public class MonitorsApiTest extends V1ApiTest {
     }
 
     try {
-      api.getMonitor(Long.valueOf(1234), new MonitorsApi.GetMonitorOptionalParameters().groupStates("notagroupstate"));
+      api.getMonitor(
+          Long.valueOf(1234),
+          new MonitorsApi.GetMonitorOptionalParameters().groupStates("notagroupstate"));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());

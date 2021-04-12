@@ -294,7 +294,8 @@ public class LogsApiTest extends V2APITest {
     assertEquals(1, pageOneResponse.get().getData().size());
 
     String cursor = pageOneResponse.get().getMeta().getPage().getAfter();
-    assertTrue(pageOneResponse.get().getLinks().getNext().contains(URLEncoder.encode(cursor, "UTF-8")));
+    assertTrue(
+        pageOneResponse.get().getLinks().getNext().contains(URLEncoder.encode(cursor, "UTF-8")));
 
     AtomicReference<LogsListResponse> pageTwoResponse = new AtomicReference<>();
     TestUtils.retry(

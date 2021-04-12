@@ -64,7 +64,9 @@ public class SnapshotsApiTest extends V1ApiTest {
     // Try to create a snapshot with a graph_def
     response =
         api.getGraphSnapshot(
-            start, end, new SnapshotsApi.GetGraphSnapshotOptionalParameters().graphDef(graphDef).title(title));
+            start,
+            end,
+            new SnapshotsApi.GetGraphSnapshotOptionalParameters().graphDef(graphDef).title(title));
     assertEquals(graphDef, response.getGraphDef());
     assertNotEquals("", response.getSnapshotUrl());
   }
@@ -76,7 +78,9 @@ public class SnapshotsApiTest extends V1ApiTest {
 
     try {
       api.getGraphSnapshot(
-          null, end, new SnapshotsApi.GetGraphSnapshotOptionalParameters().metricQuery(metricQuery));
+          null,
+          end,
+          new SnapshotsApi.GetGraphSnapshotOptionalParameters().metricQuery(metricQuery));
     } catch (ApiException e) {
       assertTrue(e.getMessage().contains("Missing the required parameter 'start"));
     }
@@ -89,7 +93,9 @@ public class SnapshotsApiTest extends V1ApiTest {
 
     try {
       api.getGraphSnapshot(
-          start, null, new SnapshotsApi.GetGraphSnapshotOptionalParameters().metricQuery(metricQuery));
+          start,
+          null,
+          new SnapshotsApi.GetGraphSnapshotOptionalParameters().metricQuery(metricQuery));
     } catch (ApiException e) {
       assertTrue(e.getMessage().contains("Missing the required parameter 'end"));
     }

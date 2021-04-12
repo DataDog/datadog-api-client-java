@@ -291,7 +291,8 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.listSLOs(new ServiceLevelObjectivesApi.ListSLOsOptionalParameters().ids("id1,id2"));
+      fakeAuthApi.listSLOs(
+          new ServiceLevelObjectivesApi.ListSLOsOptionalParameters().ids("id1,id2"));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());

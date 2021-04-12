@@ -109,7 +109,8 @@ public class TagsApiTest extends V1ApiTest {
     assertEquals(hostTags.getTags(), getTagsResp.getTags());
 
     // Test getting tags for an unknown source
-    getTagsResp = api.getHostTags(hostname, new TagsApi.GetHostTagsOptionalParameters().source("users"));
+    getTagsResp =
+        api.getHostTags(hostname, new TagsApi.GetHostTagsOptionalParameters().source("users"));
     assertEquals(0, getTagsResp.getTags().size());
 
     // wait for host to appear
@@ -129,7 +130,8 @@ public class TagsApiTest extends V1ApiTest {
         });
 
     // Confirm we don't receive tags under an unknown source
-    TagToHosts hostTagsResp = api.listHostTags(new TagsApi.ListHostTagsOptionalParameters().source("users"));
+    TagToHosts hostTagsResp =
+        api.listHostTags(new TagsApi.ListHostTagsOptionalParameters().source("users"));
     assertThat(hostTagsResp.getTags().keySet(), not(hasItem(commonHostTag)));
 
     // Update host tags
@@ -138,7 +140,9 @@ public class TagsApiTest extends V1ApiTest {
     updatedHostTags.addTagsItem("toto:tata");
     HostTags updateTagsResp =
         api.updateHostTags(
-            hostname, updatedHostTags, new TagsApi.UpdateHostTagsOptionalParameters().source("datadog"));
+            hostname,
+            updatedHostTags,
+            new TagsApi.UpdateHostTagsOptionalParameters().source("datadog"));
     assertEquals(updatedHostTags.getTags(), updateTagsResp.getTags());
     assertEquals(hostname, updateTagsResp.getHost());
 
