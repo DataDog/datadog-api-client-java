@@ -360,8 +360,13 @@ public class World {
   }
 
   public String getUniqueEntityName() {
+    String name = getName();
+    if (name.length() > 100) {
+      name = name.substring(0, 100);
+    }
+
     String prefix = TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE) ? "Test-Java" : "Test";
-    String result = String.format("%s-%s-%d", prefix, getName(), now.toEpochSecond());
+    String result = String.format("%s-%s-%d", prefix, name, now.toEpochSecond());
     return result;
   }
 
