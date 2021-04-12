@@ -16,7 +16,7 @@ create_key:
   image: $REGISTRY/ci/agent-key-management-tools/gpg:1
   variables:
     PROJECT_NAME: "datadog-api-client-java"
-    EXPORT_TO_KEYSERVER: "false"
+    EXPORT_TO_KEYSERVER: "true"
   script:
     - /create.sh
   artifacts:
