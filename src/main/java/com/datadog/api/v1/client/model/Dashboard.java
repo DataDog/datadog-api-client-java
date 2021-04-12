@@ -40,6 +40,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   Dashboard.JSON_PROPERTY_LAYOUT_TYPE,
   Dashboard.JSON_PROPERTY_MODIFIED_AT,
   Dashboard.JSON_PROPERTY_NOTIFY_LIST,
+  Dashboard.JSON_PROPERTY_REFLOW_TYPE,
   Dashboard.JSON_PROPERTY_TEMPLATE_VARIABLE_PRESETS,
   Dashboard.JSON_PROPERTY_TEMPLATE_VARIABLES,
   Dashboard.JSON_PROPERTY_TITLE,
@@ -71,6 +72,9 @@ public class Dashboard {
 
   public static final String JSON_PROPERTY_NOTIFY_LIST = "notify_list";
   private JsonNullable<List<String>> notifyList = JsonNullable.<List<String>>undefined();
+
+  public static final String JSON_PROPERTY_REFLOW_TYPE = "reflow_type";
+  private DashboardReflowType reflowType;
 
   public static final String JSON_PROPERTY_TEMPLATE_VARIABLE_PRESETS = "template_variable_presets";
   private JsonNullable<List<DashboardTemplateVariablePreset>> templateVariablePresets =
@@ -266,6 +270,28 @@ public class Dashboard {
     this.notifyList = JsonNullable.<List<String>>of(notifyList);
   }
 
+  public Dashboard reflowType(DashboardReflowType reflowType) {
+    this.reflowType = reflowType;
+    return this;
+  }
+
+  /**
+   * Get reflowType
+   *
+   * @return reflowType
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_REFLOW_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public DashboardReflowType getReflowType() {
+    return reflowType;
+  }
+
+  public void setReflowType(DashboardReflowType reflowType) {
+    this.reflowType = reflowType;
+  }
+
   public Dashboard templateVariablePresets(
       List<DashboardTemplateVariablePreset> templateVariablePresets) {
     this.templateVariablePresets =
@@ -447,6 +473,7 @@ public class Dashboard {
         && Objects.equals(this.layoutType, dashboard.layoutType)
         && Objects.equals(this.modifiedAt, dashboard.modifiedAt)
         && Objects.equals(this.notifyList, dashboard.notifyList)
+        && Objects.equals(this.reflowType, dashboard.reflowType)
         && Objects.equals(this.templateVariablePresets, dashboard.templateVariablePresets)
         && Objects.equals(this.templateVariables, dashboard.templateVariables)
         && Objects.equals(this.title, dashboard.title)
@@ -465,6 +492,7 @@ public class Dashboard {
         layoutType,
         modifiedAt,
         notifyList,
+        reflowType,
         templateVariablePresets,
         templateVariables,
         title,
@@ -484,6 +512,7 @@ public class Dashboard {
     sb.append("    layoutType: ").append(toIndentedString(layoutType)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    notifyList: ").append(toIndentedString(notifyList)).append("\n");
+    sb.append("    reflowType: ").append(toIndentedString(reflowType)).append("\n");
     sb.append("    templateVariablePresets: ")
         .append(toIndentedString(templateVariablePresets))
         .append("\n");

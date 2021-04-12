@@ -5,10 +5,10 @@ All URIs are relative to *https://api.datadoghq.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#createSLOCorrection) | **POST** /api/v1/slo/correction | Create an SLO correction
-[**deleteSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#deleteSLOCorrection) | **DELETE** /api/v1/slo/correction/{slo_correction_id} | Delete an SLO Correction
+[**deleteSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#deleteSLOCorrection) | **DELETE** /api/v1/slo/correction/{slo_correction_id} | Delete an SLO correction
 [**getSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#getSLOCorrection) | **GET** /api/v1/slo/correction/{slo_correction_id} | Get an SLO correction for an SLO
 [**listSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#listSLOCorrection) | **GET** /api/v1/slo/correction | Get all SLO corrections
-[**updateSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#updateSLOCorrection) | **PATCH** /api/v1/slo/correction/{slo_correction_id} | Update an SLO Correction
+[**updateSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#updateSLOCorrection) | **PATCH** /api/v1/slo/correction/{slo_correction_id} | Update an SLO correction
 
 
 
@@ -86,9 +86,9 @@ Name | Type | Description  | Notes
 
 > deleteSLOCorrection(sloCorrectionId).execute();
 
-Delete an SLO Correction
+Delete an SLO correction
 
-Permanently delete the specified SLO Correction object
+Permanently delete the specified SLO correction object
 
 ### Example
 
@@ -156,7 +156,7 @@ null (empty response body)
 
 Get an SLO correction for an SLO
 
-Get an SLO Correction
+Get an SLO correction
 
 ### Example
 
@@ -225,7 +225,7 @@ Name | Type | Description  | Notes
 
 Get all SLO corrections
 
-Get all Service Level Objective Corrections
+Get all Service Level Objective corrections
 
 ### Example
 
@@ -287,7 +287,7 @@ This endpoint does not need any parameter.
 
 > SLOCorrectionResponse updateSLOCorrection(sloCorrectionId).body(body).execute();
 
-Update an SLO Correction
+Update an SLO correction
 
 Update the specified SLO correction object object
 
