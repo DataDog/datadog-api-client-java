@@ -613,7 +613,7 @@ public class ServiceLevelObjectivesApi {
   }
 
   private ApiResponse<SLOHistoryResponse> getSLOHistoryWithHttpInfo(
-      String sloId, Long fromTs, Long toTs) throws ApiException {
+      String sloId, Long fromTs, Long toTs, Double target) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'sloId' is set
@@ -647,6 +647,7 @@ public class ServiceLevelObjectivesApi {
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "from_ts", fromTs));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "to_ts", toTs));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "target", target));
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getSLOHistory");
@@ -682,6 +683,7 @@ public class ServiceLevelObjectivesApi {
     private String sloId;
     private Long fromTs;
     private Long toTs;
+    private Double target;
 
     private APIgetSLOHistoryRequest(String sloId) {
       this.sloId = sloId;
@@ -707,6 +709,18 @@ public class ServiceLevelObjectivesApi {
      */
     public APIgetSLOHistoryRequest toTs(Long toTs) {
       this.toTs = toTs;
+      return this;
+    }
+
+    /**
+     * Set target
+     *
+     * @param target The SLO target. If &#x60;target&#x60; is passed in, the response will include
+     *     the error budget that remains. (optional)
+     * @return APIgetSLOHistoryRequest
+     */
+    public APIgetSLOHistoryRequest target(Double target) {
+      this.target = target;
       return this;
     }
 
@@ -743,7 +757,7 @@ public class ServiceLevelObjectivesApi {
      * </table>
      */
     public ApiResponse<SLOHistoryResponse> executeWithHttpInfo() throws ApiException {
-      return getSLOHistoryWithHttpInfo(sloId, fromTs, toTs);
+      return getSLOHistoryWithHttpInfo(sloId, fromTs, toTs, target);
     }
   }
 
