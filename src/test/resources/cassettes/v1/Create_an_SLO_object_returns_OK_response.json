@@ -1,0 +1,91 @@
+[{
+  "id" : "cf997589-4470-4a51-b994-1489402870cc",
+  "httpRequest" : {
+    "method" : "POST",
+    "path" : "/api/v1/slo",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "Create_an_SLO_object_returns_OK_response" ],
+      "DD-OPERATION-ID" : [ "createSLO" ],
+      "Content-Type" : [ "application/json" ]
+    },
+    "keepAlive" : false,
+    "secure" : true,
+    "body" : {
+      "type" : "JSON",
+      "json" : "{\"description\":\"string\",\"groups\":[\"env:test\",\"role:mysql\"],\"monitor_ids\":[],\"name\":\"java-Create_an_SLO_object-1617715454\",\"query\":{\"denominator\":\"sum:httpservice.hits{!code:3xx}.as_count()\",\"numerator\":\"sum:httpservice.hits{code:2xx}.as_count()\"},\"tags\":[\"env:prod\",\"app:core\"],\"thresholds\":[{\"target\":95.0,\"target_display\":\"95.0\",\"timeframe\":\"7d\",\"warning\":98.0,\"warning_display\":\"98.0\"}],\"type\":\"metric\"}"
+    }
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 200,
+    "reasonPhrase" : "OK",
+    "headers" : {
+      "Date" : [ "Tue, 06 Apr 2021 13:24:15 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "keep-alive" ],
+      "vary" : [ "Accept-Encoding" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "x-dd-version" : [ "35.4246135" ],
+      "x-ratelimit-limit" : [ "500" ],
+      "x-ratelimit-period" : [ "60" ],
+      "x-ratelimit-reset" : [ "45" ],
+      "x-ratelimit-remaining" : [ "498" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ],
+      "content-length" : [ "655" ]
+    },
+    "body" : "{\"data\":[{\"description\":\"string\",\"monitor_tags\":[],\"creator\":{\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\",\"email\":\"team-intg-tools-libs@datadoghq.com\"},\"thresholds\":[{\"warning\":98.0,\"warning_display\":\"98.\",\"target\":95.0,\"target_display\":\"95.\",\"timeframe\":\"7d\"}],\"groups\":[\"env:test\",\"role:mysql\"],\"type_id\":1,\"query\":{\"denominator\":\"sum:httpservice.hits{!code:3xx}.as_count()\",\"numerator\":\"sum:httpservice.hits{code:2xx}.as_count()\"},\"id\":\"878c12eba6f85ec5aa03b42d33a10385\",\"name\":\"java-Create_an_SLO_object-1617715454\",\"created_at\":1617715455,\"tags\":[\"app:core\",\"env:prod\"],\"modified_at\":1617715455,\"type\":\"metric\"}],\"error\":null}"
+  }
+}, {
+  "id" : "99e2af79-e4e4-4e67-88e7-fd6ad0b3490c",
+  "httpRequest" : {
+    "method" : "DELETE",
+    "path" : "/api/v1/slo/878c12eba6f85ec5aa03b42d33a10385",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "Create_an_SLO_object_returns_OK_response" ],
+      "DD-OPERATION-ID" : [ "deleteSLO" ],
+      "Content-Type" : [ "application/json" ]
+    },
+    "keepAlive" : false,
+    "secure" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 200,
+    "reasonPhrase" : "OK",
+    "headers" : {
+      "Date" : [ "Tue, 06 Apr 2021 13:24:15 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "keep-alive" ],
+      "vary" : [ "Accept-Encoding" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "x-dd-version" : [ "35.4246135" ],
+      "x-ratelimit-limit" : [ "3000" ],
+      "x-ratelimit-period" : [ "10" ],
+      "x-ratelimit-reset" : [ "5" ],
+      "x-ratelimit-remaining" : [ "2999" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ],
+      "content-length" : [ "58" ]
+    },
+    "body" : "{\"data\":[\"878c12eba6f85ec5aa03b42d33a10385\"],\"error\":null}"
+  }
+}]
