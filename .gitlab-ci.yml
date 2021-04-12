@@ -1,5 +1,5 @@
 stages:
-  - deploy
+  - deploy_to_sonatype
   - create_key
 
 variables:
@@ -7,25 +7,38 @@ variables:
 
 # From the tagged repo, stage the final artifact
 # We've already run tests through the CI when creating the changelog and tag, skip them here
-deploy:
-  stage: deploy
+deploy_to_sonatype:
+  stage: deploy_to_sonatype
   tags: [ "runner:docker", "size:large" ]
   image: maven:3.6.3-jdk-8-slim
   when: manual
-  # TODO Remove "when: manual" and make this trigger on tags once its been tested
-  #rules:
-  #  - if: $CI_COMMIT_TAG
   script:
-    - export SONATYPE_PASS=$(aws ssm get-parameter --region us-east-1 --name ci.datadog-api-client-java.sonatype_password --with-decryption --query "Parameter.Value" --out text)
-    # TODO Set SONATYPE_USER
-    # - export SONATYPE_USER=
-    - export GPG_PASSPHRASE=$(aws ssm get-parameter --region us-east-1 --name ci.datadog-api-client-java.gpg_passphrase --with-decryption --query "Parameter.Value" --out text)
-    # Import GPG Key
-    - GPG_KEY=$(aws ssm get-parameter --region us-east-1 --name ci.datadog-api-client-java.gpg_private_key --with-decryption --query "Parameter.Value" --out text)
+    # Ensure we don't print commands being run to the logs during credential
+    # operations
+    - set +x
+
+    - echo "Installing AWSCLI..."
+    - apt update
+    - apt install -y python3 python3-pip
+    - python3 -m pip install awscli
+
+    - echo "Fetching Sonatype user..."
+    - export SONATYPE_USER=$(aws ssm get-parameter --region us-east-1 --name ci.datadog-api-client-java.publishing.sonatype_username --with-decryption --query "Parameter.Value" --out text)
+
+    - echo "Fetching Sonatype password..."
+    - export SONATYPE_PASS=$(aws ssm get-parameter --region us-east-1 --name ci.datadog-api-client-java.publishing.sonatype_password --with-decryption --query "Parameter.Value" --out text)
+
+    - echo "Fetching signing key password..."
+    - export GPG_PASSPHRASE=$(aws ssm get-parameter --region us-east-1 --name ci.datadog-api-client-java.signing.gpg_passphrase --with-decryption --query "Parameter.Value" --out text)
+
+    - echo "Fetching signing key..."
+    - GPG_KEY=$(aws ssm get-parameter --region us-east-1 --name ci.datadog-api-client-java.signing.gpg_private_key --with-decryption --query "Parameter.Value" --out text)
     - printf -- "$GPG_KEY" | gpg --import --batch
-    # Perform the release
-    - mvn -DskipTests -Darguments=-DskipTests -DdryRun=true --settings settings.xml clean deploy
-  - create_key
+
+    - set -x
+
+    - echo "Building release..."
+    - mvn -DskipTests -Darguments=-DskipTests -DdryRun=true --settings ./settings.xml clean deploy
 
 
 # This job creates the GPG key
