@@ -1,5 +1,5 @@
 [{
-  "id" : "851e4f61-1cba-4c7a-b433-7ff8fb5204a5",
+  "id" : "abb9d179-2792-4b90-817f-829741a6c37b",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/monthly_custom_reports",
@@ -7,7 +7,6 @@
       "Accept" : [ "application/json;datetime-format=rfc3339" ],
       "JAVA-TEST-NAME" : [ "getMonthlyCustomReportsTest" ],
       "DD-OPERATION-ID" : [ "getMonthlyCustomReports" ],
-      "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
     "keepAlive" : false,
@@ -23,25 +22,20 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Mon, 28 Sep 2020 13:35:36 GMT" ],
+      "Date" : [ "Mon, 12 Apr 2021 15:14:15 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
-      "Vary" : [ "Accept-Encoding" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Mon, 05-Oct-2020 13:35:36 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.3101592" ],
-      "Cache-Control" : [ "max-age=300" ],
-      "Expires" : [ "Mon, 28 Sep 2020 13:40:36 GMT" ],
-      "X-DD-Debug" : [ "ZAO2HSre7ZPjEDEDs2eiS5SdSwvcDrV7s715bRHaf9vcdw9h8cuMOU6gRpmzdfcX" ],
-      "DD-POOL" : [ "dogweb_wallace" ],
-      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "X-Frame-Options" : [ "SAMEORIGIN" ],
-      "X-Content-Type-Options" : [ "nosniff" ],
-      "Strict-Transport-Security" : [ "max-age=15724800;" ],
-      "content-length" : [ "398" ]
+      "vary" : [ "Accept-Encoding" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "x-dd-version" : [ "35.4290125" ],
+      "x-dd-debug" : [ "tTVv4aSy24IlFw8jtOOjMmgw7lg3eptV1DhMa2wm3qfQekExFHZoNNDWhCwSvCIX" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ],
+      "content-length" : [ "1631" ]
     },
-    "cookies" : {
-      "DD-PSHARD" : "233"
-    },
-    "body" : "{\"meta\":{\"page\":{\"total_count\":2}},\"data\":[{\"type\":\"reports\",\"id\":\"2020-08-01\",\"attributes\":{\"tags\":[\"project\"],\"start_date\":\"2020-08-01\",\"end_date\":\"2020-09-01\",\"size\":346966,\"computed_on\":\"2020-09-01T17:02:30+00:00\"}},{\"type\":\"reports\",\"id\":\"2020-07-15\",\"attributes\":{\"tags\":[\"project\"],\"start_date\":\"2020-07-15\",\"end_date\":\"2020-08-01\",\"size\":189933,\"computed_on\":\"2020-08-01T17:25:00+00:00\"}}]}"
+    "body" : "{\"meta\":{\"page\":{\"total_count\":9}},\"data\":[{\"type\":\"reports\",\"id\":\"2021-03-01\",\"attributes\":{\"tags\":[\"project\"],\"start_date\":\"2021-03-01\",\"end_date\":\"2021-04-01\",\"size\":33516,\"computed_on\":\"2021-04-02T05:00:58+00:00\"}},{\"type\":\"reports\",\"id\":\"2021-02-01\",\"attributes\":{\"tags\":[\"project\"],\"start_date\":\"2021-02-01\",\"end_date\":\"2021-03-01\",\"size\":35757,\"computed_on\":\"2021-03-02T15:37:35+00:00\"}},{\"type\":\"reports\",\"id\":\"2021-01-01\",\"attributes\":{\"tags\":[\"project\"],\"start_date\":\"2021-01-01\",\"end_date\":\"2021-02-01\",\"size\":24212,\"computed_on\":\"2021-02-01T17:08:40+00:00\"}},{\"type\":\"reports\",\"id\":\"2020-12-01\",\"attributes\":{\"tags\":[\"project\"],\"start_date\":\"2020-12-01\",\"end_date\":\"2021-01-01\",\"size\":33282,\"computed_on\":\"2021-01-01T15:55:41+00:00\"}},{\"type\":\"reports\",\"id\":\"2020-11-01\",\"attributes\":{\"tags\":[\"project\"],\"start_date\":\"2020-11-01\",\"end_date\":\"2020-12-01\",\"size\":22299,\"computed_on\":\"2020-12-07T23:47:00+00:00\"}},{\"type\":\"reports\",\"id\":\"2020-10-01\",\"attributes\":{\"tags\":[\"project\"],\"start_date\":\"2020-10-01\",\"end_date\":\"2020-11-01\",\"size\":11920,\"computed_on\":\"2020-12-07T23:43:28+00:00\"}},{\"type\":\"reports\",\"id\":\"2020-09-01\",\"attributes\":{\"tags\":[\"project\"],\"start_date\":\"2020-09-01\",\"end_date\":\"2020-10-01\",\"size\":212363,\"computed_on\":\"2020-10-03T02:00:02+00:00\"}},{\"type\":\"reports\",\"id\":\"2020-08-01\",\"attributes\":{\"tags\":[\"project\"],\"start_date\":\"2020-08-01\",\"end_date\":\"2020-09-01\",\"size\":346966,\"computed_on\":\"2020-09-01T17:02:30+00:00\"}},{\"type\":\"reports\",\"id\":\"2020-07-15\",\"attributes\":{\"tags\":[\"project\"],\"start_date\":\"2020-07-15\",\"end_date\":\"2020-08-01\",\"size\":189933,\"computed_on\":\"2020-08-01T17:25:00+00:00\"}}]}"
   }
 }]
