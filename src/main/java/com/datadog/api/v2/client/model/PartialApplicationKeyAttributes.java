@@ -8,27 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Attributes of a partial application key.
- */
+/** Attributes of a partial application key. */
 @ApiModel(description = "Attributes of a partial application key.")
 @JsonPropertyOrder({
   PartialApplicationKeyAttributes.JSON_PROPERTY_CREATED_AT,
@@ -46,66 +35,59 @@ public class PartialApplicationKeyAttributes {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-
-   /**
+  /**
    * Creation date of the application key.
+   *
    * @return createdAt
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2020-11-23T10:00:00.000Z", value = "Creation date of the application key.")
+  @ApiModelProperty(
+      example = "2020-11-23T10:00:00.000Z",
+      value = "Creation date of the application key.")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCreatedAt() {
     return createdAt;
   }
 
-
-
-
-   /**
+  /**
    * The last four characters of the application key.
+   *
    * @return last4
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(example = "abcd", value = "The last four characters of the application key.")
   @JsonProperty(JSON_PROPERTY_LAST4)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLast4() {
     return last4;
   }
-
-
-
 
   public PartialApplicationKeyAttributes name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Name of the application key.
+   *
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Application Key for submitting metrics", value = "Name of the application key.")
+  @ApiModelProperty(
+      example = "Application Key for submitting metrics",
+      value = "Name of the application key.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getName() {
     return name;
   }
-
 
   public void setName(String name) {
     this.name = name;
   }
 
-
-  /**
-   * Return true if this PartialApplicationKeyAttributes object is equal to o.
-   */
+  /** Return true if this PartialApplicationKeyAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -114,10 +96,11 @@ public class PartialApplicationKeyAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PartialApplicationKeyAttributes partialApplicationKeyAttributes = (PartialApplicationKeyAttributes) o;
-    return Objects.equals(this.createdAt, partialApplicationKeyAttributes.createdAt) &&
-        Objects.equals(this.last4, partialApplicationKeyAttributes.last4) &&
-        Objects.equals(this.name, partialApplicationKeyAttributes.name);
+    PartialApplicationKeyAttributes partialApplicationKeyAttributes =
+        (PartialApplicationKeyAttributes) o;
+    return Objects.equals(this.createdAt, partialApplicationKeyAttributes.createdAt)
+        && Objects.equals(this.last4, partialApplicationKeyAttributes.last4)
+        && Objects.equals(this.name, partialApplicationKeyAttributes.name);
   }
 
   @Override
@@ -137,8 +120,7 @@ public class PartialApplicationKeyAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -146,6 +128,4 @@ public class PartialApplicationKeyAttributes {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

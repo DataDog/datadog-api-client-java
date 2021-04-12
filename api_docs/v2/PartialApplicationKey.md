@@ -3,6 +3,7 @@
 # PartialApplicationKey
 
 Partial Datadog application key.
+
 ## Properties
 
 Name | Type | Description | Notes

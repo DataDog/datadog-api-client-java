@@ -8,27 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * The layout for a widget on a free dashboard.
- */
+/** The layout for a widget on a free dashboard. */
 @ApiModel(description = "The layout for a widget on a free dashboard.")
 @JsonPropertyOrder({
   WidgetLayout.JSON_PROPERTY_HEIGHT,
@@ -50,106 +39,108 @@ public class WidgetLayout {
   public static final String JSON_PROPERTY_Y = "y";
   private Long y;
 
-
   public WidgetLayout height(Long height) {
     this.height = height;
     return this;
   }
 
-   /**
-   * The height of the widget. Should be a non-negative integer.
-   * minimum: 0
+  /**
+   * The height of the widget. Should be a non-negative integer. minimum: 0
+   *
    * @return height
-  **/
-  @ApiModelProperty(example = "0", required = true, value = "The height of the widget. Should be a non-negative integer.")
+   */
+  @ApiModelProperty(
+      example = "0",
+      required = true,
+      value = "The height of the widget. Should be a non-negative integer.")
   @JsonProperty(JSON_PROPERTY_HEIGHT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Long getHeight() {
     return height;
   }
 
-
   public void setHeight(Long height) {
     this.height = height;
   }
-
 
   public WidgetLayout width(Long width) {
     this.width = width;
     return this;
   }
 
-   /**
-   * The width of the widget. Should be a non-negative integer.
-   * minimum: 0
+  /**
+   * The width of the widget. Should be a non-negative integer. minimum: 0
+   *
    * @return width
-  **/
-  @ApiModelProperty(example = "0", required = true, value = "The width of the widget. Should be a non-negative integer.")
+   */
+  @ApiModelProperty(
+      example = "0",
+      required = true,
+      value = "The width of the widget. Should be a non-negative integer.")
   @JsonProperty(JSON_PROPERTY_WIDTH)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Long getWidth() {
     return width;
   }
 
-
   public void setWidth(Long width) {
     this.width = width;
   }
-
 
   public WidgetLayout x(Long x) {
     this.x = x;
     return this;
   }
 
-   /**
+  /**
    * The position of the widget on the x (horizontal) axis. Should be a non-negative integer.
    * minimum: 0
+   *
    * @return x
-  **/
-  @ApiModelProperty(example = "0", required = true, value = "The position of the widget on the x (horizontal) axis. Should be a non-negative integer.")
+   */
+  @ApiModelProperty(
+      example = "0",
+      required = true,
+      value =
+          "The position of the widget on the x (horizontal) axis. Should be a non-negative"
+              + " integer.")
   @JsonProperty(JSON_PROPERTY_X)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Long getX() {
     return x;
   }
 
-
   public void setX(Long x) {
     this.x = x;
   }
-
 
   public WidgetLayout y(Long y) {
     this.y = y;
     return this;
   }
 
-   /**
-   * The position of the widget on the y (vertical) axis. Should be a non-negative integer.
-   * minimum: 0
+  /**
+   * The position of the widget on the y (vertical) axis. Should be a non-negative integer. minimum:
+   * 0
+   *
    * @return y
-  **/
-  @ApiModelProperty(example = "0", required = true, value = "The position of the widget on the y (vertical) axis. Should be a non-negative integer.")
+   */
+  @ApiModelProperty(
+      example = "0",
+      required = true,
+      value =
+          "The position of the widget on the y (vertical) axis. Should be a non-negative integer.")
   @JsonProperty(JSON_PROPERTY_Y)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Long getY() {
     return y;
   }
-
 
   public void setY(Long y) {
     this.y = y;
   }
 
-
-  /**
-   * Return true if this WidgetLayout object is equal to o.
-   */
+  /** Return true if this WidgetLayout object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -159,10 +150,10 @@ public class WidgetLayout {
       return false;
     }
     WidgetLayout widgetLayout = (WidgetLayout) o;
-    return Objects.equals(this.height, widgetLayout.height) &&
-        Objects.equals(this.width, widgetLayout.width) &&
-        Objects.equals(this.x, widgetLayout.x) &&
-        Objects.equals(this.y, widgetLayout.y);
+    return Objects.equals(this.height, widgetLayout.height)
+        && Objects.equals(this.width, widgetLayout.width)
+        && Objects.equals(this.x, widgetLayout.x)
+        && Objects.equals(this.y, widgetLayout.y);
   }
 
   @Override
@@ -183,8 +174,7 @@ public class WidgetLayout {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -192,6 +182,4 @@ public class WidgetLayout {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

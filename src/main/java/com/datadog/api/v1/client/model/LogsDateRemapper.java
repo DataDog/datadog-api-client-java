@@ -8,31 +8,40 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.LogsDateRemapperType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
-
+import java.util.Objects;
 
 /**
- * As Datadog receives logs, it timestamps them using the value(s) from any of these default attributes.    - &#x60;timestamp&#x60;   - &#x60;date&#x60;   - &#x60;_timestamp&#x60;   - &#x60;Timestamp&#x60;   - &#x60;eventTime&#x60;   - &#x60;published_date&#x60;    If your logs put their dates in an attribute not in this list,   use the log date Remapper Processor to define their date attribute as the official log timestamp.   The recognized date formats are ISO8601, UNIX (the milliseconds EPOCH format), and RFC3164.    **Note:** If your logs don’t contain any of the default attributes   and you haven’t defined your own date attribute, Datadog timestamps   the logs with the date it received them.    If multiple log date remapper processors can be applied to a given log,   only the first one (according to the pipelines order) is taken into account.
+ * As Datadog receives logs, it timestamps them using the value(s) from any of these default
+ * attributes. - &#x60;timestamp&#x60; - &#x60;date&#x60; - &#x60;_timestamp&#x60; -
+ * &#x60;Timestamp&#x60; - &#x60;eventTime&#x60; - &#x60;published_date&#x60; If your logs put their
+ * dates in an attribute not in this list, use the log date Remapper Processor to define their date
+ * attribute as the official log timestamp. The recognized date formats are ISO8601, UNIX (the
+ * milliseconds EPOCH format), and RFC3164. **Note:** If your logs don’t contain any of the default
+ * attributes and you haven’t defined your own date attribute, Datadog timestamps the logs with the
+ * date it received them. If multiple log date remapper processors can be applied to a given log,
+ * only the first one (according to the pipelines order) is taken into account.
  */
-@ApiModel(description = "As Datadog receives logs, it timestamps them using the value(s) from any of these default attributes.    - `timestamp`   - `date`   - `_timestamp`   - `Timestamp`   - `eventTime`   - `published_date`    If your logs put their dates in an attribute not in this list,   use the log date Remapper Processor to define their date attribute as the official log timestamp.   The recognized date formats are ISO8601, UNIX (the milliseconds EPOCH format), and RFC3164.    **Note:** If your logs don’t contain any of the default attributes   and you haven’t defined your own date attribute, Datadog timestamps   the logs with the date it received them.    If multiple log date remapper processors can be applied to a given log,   only the first one (according to the pipelines order) is taken into account.")
+@ApiModel(
+    description =
+        "As Datadog receives logs, it timestamps them using the value(s) from any of these default"
+            + " attributes.    - `timestamp`   - `date`   - `_timestamp`   - `Timestamp`   -"
+            + " `eventTime`   - `published_date`    If your logs put their dates in an attribute"
+            + " not in this list,   use the log date Remapper Processor to define their date"
+            + " attribute as the official log timestamp.   The recognized date formats are"
+            + " ISO8601, UNIX (the milliseconds EPOCH format), and RFC3164.    **Note:** If your"
+            + " logs don’t contain any of the default attributes   and you haven’t defined your"
+            + " own date attribute, Datadog timestamps   the logs with the date it received them. "
+            + "   If multiple log date remapper processors can be applied to a given log,   only"
+            + " the first one (according to the pipelines order) is taken into account.")
 @JsonPropertyOrder({
   LogsDateRemapper.JSON_PROPERTY_IS_ENABLED,
   LogsDateRemapper.JSON_PROPERTY_NAME,
@@ -53,54 +62,49 @@ public class LogsDateRemapper {
   public static final String JSON_PROPERTY_TYPE = "type";
   private LogsDateRemapperType type = LogsDateRemapperType.DATE_REMAPPER;
 
-
   public LogsDateRemapper isEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
     return this;
   }
 
-   /**
+  /**
    * Whether or not the processor is enabled.
+   *
    * @return isEnabled
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Whether or not the processor is enabled.")
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getIsEnabled() {
     return isEnabled;
   }
 
-
   public void setIsEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
   }
-
 
   public LogsDateRemapper name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Name of the processor.
+   *
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Name of the processor.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getName() {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
-
 
   public LogsDateRemapper sources(List<String> sources) {
     this.sources = sources;
@@ -112,50 +116,47 @@ public class LogsDateRemapper {
     return this;
   }
 
-   /**
+  /**
    * Array of source attributes.
+   *
    * @return sources
-  **/
-  @ApiModelProperty(example = "[\"web\",\"gateway\"]", required = true, value = "Array of source attributes.")
+   */
+  @ApiModelProperty(
+      example = "[\"web\",\"gateway\"]",
+      required = true,
+      value = "Array of source attributes.")
   @JsonProperty(JSON_PROPERTY_SOURCES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public List<String> getSources() {
     return sources;
   }
 
-
   public void setSources(List<String> sources) {
     this.sources = sources;
   }
-
 
   public LogsDateRemapper type(LogsDateRemapperType type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
+   *
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public LogsDateRemapperType getType() {
     return type;
   }
-
 
   public void setType(LogsDateRemapperType type) {
     this.type = type;
   }
 
-
-  /**
-   * Return true if this LogsDateRemapper object is equal to o.
-   */
+  /** Return true if this LogsDateRemapper object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -165,10 +166,10 @@ public class LogsDateRemapper {
       return false;
     }
     LogsDateRemapper logsDateRemapper = (LogsDateRemapper) o;
-    return Objects.equals(this.isEnabled, logsDateRemapper.isEnabled) &&
-        Objects.equals(this.name, logsDateRemapper.name) &&
-        Objects.equals(this.sources, logsDateRemapper.sources) &&
-        Objects.equals(this.type, logsDateRemapper.type);
+    return Objects.equals(this.isEnabled, logsDateRemapper.isEnabled)
+        && Objects.equals(this.name, logsDateRemapper.name)
+        && Objects.equals(this.sources, logsDateRemapper.sources)
+        && Objects.equals(this.type, logsDateRemapper.type);
   }
 
   @Override
@@ -189,8 +190,7 @@ public class LogsDateRemapper {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -198,6 +198,4 @@ public class LogsDateRemapper {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

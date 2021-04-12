@@ -8,28 +8,15 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
-
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * Time-ascending &#x60;asc&#x60; or time-descending &#x60;desc&#x60;results.
- */
+/** Time-ascending &#x60;asc&#x60; or time-descending &#x60;desc&#x60;results. */
 public enum LogsSort {
-  
   TIME_ASCENDING("asc"),
-  
+
   TIME_DESCENDING("desc");
 
   private String value;
@@ -58,4 +45,3 @@ public enum LogsSort {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

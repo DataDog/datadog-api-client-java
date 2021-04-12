@@ -8,26 +8,14 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
 
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * Type of the Markdown timeline cell.
- */
+/** Type of the Markdown timeline cell. */
 public enum IncidentTimelineCellMarkdownContentType {
-  
   MARKDOWN("markdown");
 
   private String value;
@@ -48,7 +36,8 @@ public enum IncidentTimelineCellMarkdownContentType {
 
   @JsonCreator
   public static IncidentTimelineCellMarkdownContentType fromValue(String value) {
-    for (IncidentTimelineCellMarkdownContentType b : IncidentTimelineCellMarkdownContentType.values()) {
+    for (IncidentTimelineCellMarkdownContentType b :
+        IncidentTimelineCellMarkdownContentType.values()) {
       if (b.value.equals(value)) {
         return b;
       }
@@ -56,4 +45,3 @@ public enum IncidentTimelineCellMarkdownContentType {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

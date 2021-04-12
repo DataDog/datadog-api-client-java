@@ -38,18 +38,6 @@ import com.datadog.api.v2.client.api.MetricsApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        // Configure the Datadog site to send API calls to
-        HashMap<String, String> serverVariables = new HashMap<String, String>();
-        String site = System.getenv("DD_SITE");
-        if (site != null) {
-            serverVariables.put("site", site);
-            defaultClient.setServerVariables(serverVariables);
-        }
-        // Configure API key authorization: 
-        HashMap<String, String> secrets = new HashMap<String, String>();
-        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
-        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
-        defaultClient.configureApiKeys(secrets);
 
         MetricsApi apiInstance = new MetricsApi(defaultClient);
         String metricName = "dist.http.endpoint.request"; // String | The name of the metric.
@@ -125,18 +113,6 @@ import com.datadog.api.v2.client.api.MetricsApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        // Configure the Datadog site to send API calls to
-        HashMap<String, String> serverVariables = new HashMap<String, String>();
-        String site = System.getenv("DD_SITE");
-        if (site != null) {
-            serverVariables.put("site", site);
-            defaultClient.setServerVariables(serverVariables);
-        }
-        // Configure API key authorization: 
-        HashMap<String, String> secrets = new HashMap<String, String>();
-        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
-        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
-        defaultClient.configureApiKeys(secrets);
 
         MetricsApi apiInstance = new MetricsApi(defaultClient);
         String metricName = "dist.http.endpoint.request"; // String | The name of the metric.
@@ -206,18 +182,6 @@ import com.datadog.api.v2.client.api.MetricsApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        // Configure the Datadog site to send API calls to
-        HashMap<String, String> serverVariables = new HashMap<String, String>();
-        String site = System.getenv("DD_SITE");
-        if (site != null) {
-            serverVariables.put("site", site);
-            defaultClient.setServerVariables(serverVariables);
-        }
-        // Configure API key authorization: 
-        HashMap<String, String> secrets = new HashMap<String, String>();
-        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
-        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
-        defaultClient.configureApiKeys(secrets);
 
         MetricsApi apiInstance = new MetricsApi(defaultClient);
         String metricName = "dist.http.endpoint.request"; // String | The name of the metric.
@@ -267,7 +231,7 @@ Name | Type | Description  | Notes
 
 ## listTagConfigurations
 
-> MetricsAndMetricTagConfigurationsResponse listTagConfigurations().filterConfigured(filterConfigured).filterTagsConfigured(filterTagsConfigured).filterMetricType(filterMetricType).filterIncludePercentiles(filterIncludePercentiles).execute();
+> MetricsAndMetricTagConfigurationsResponse listTagConfigurations().filterConfigured(filterConfigured).filterTagsConfigured(filterTagsConfigured).filterMetricType(filterMetricType).filterIncludePercentiles(filterIncludePercentiles).filterTags(filterTags).windowSeconds(windowSeconds).execute();
 
 List tag configurations
 
@@ -289,30 +253,22 @@ import com.datadog.api.v2.client.api.MetricsApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        // Configure the Datadog site to send API calls to
-        HashMap<String, String> serverVariables = new HashMap<String, String>();
-        String site = System.getenv("DD_SITE");
-        if (site != null) {
-            serverVariables.put("site", site);
-            defaultClient.setServerVariables(serverVariables);
-        }
-        // Configure API key authorization: 
-        HashMap<String, String> secrets = new HashMap<String, String>();
-        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
-        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
-        defaultClient.configureApiKeys(secrets);
 
         MetricsApi apiInstance = new MetricsApi(defaultClient);
         Boolean filterConfigured = true; // Boolean | Filter metrics that have configured tags.
         String filterTagsConfigured = "app"; // String | Filter tag configurations by configured tags.
         MetricTagConfigurationMetricTypes filterMetricType = MetricTagConfigurationMetricTypes.fromValue("gauge"); // MetricTagConfigurationMetricTypes | Filter tag configurations by metric type.
         Boolean filterIncludePercentiles = true; // Boolean | Filter distributions with additional percentile aggregations enabled or disabled.
+        String filterTags = "env IN (staging,test) AND service:web"; // String | Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters.
+        Long windowSeconds = 3600L; // Long | The number of seconds of look back (from now) to apply to a filter[tag] query. Defaults value is 3600 (1 hour), maximum value is 172,800 (2 days).
         try {
             MetricsAndMetricTagConfigurationsResponse result = apiInstance.listTagConfigurations()
                 .filterConfigured(filterConfigured)
                 .filterTagsConfigured(filterTagsConfigured)
                 .filterMetricType(filterMetricType)
                 .filterIncludePercentiles(filterIncludePercentiles)
+                .filterTags(filterTags)
+                .windowSeconds(windowSeconds)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -333,8 +289,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **filterConfigured** | **Boolean**| Filter metrics that have configured tags. | [optional]
  **filterTagsConfigured** | **String**| Filter tag configurations by configured tags. | [optional]
- **filterMetricType** | **MetricTagConfigurationMetricTypes**| Filter tag configurations by metric type. | [optional] [default to gauge] [enum: gauge, count, distribution]
+ **filterMetricType** | **MetricTagConfigurationMetricTypes**| Filter tag configurations by metric type. | [optional] [enum: gauge, count, distribution]
  **filterIncludePercentiles** | **Boolean**| Filter distributions with additional percentile aggregations enabled or disabled. | [optional]
+ **filterTags** | **String**| Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters. | [optional]
+ **windowSeconds** | **Long**| The number of seconds of look back (from now) to apply to a filter[tag] query. Defaults value is 3600 (1 hour), maximum value is 172,800 (2 days). | [optional]
 
 ### Return type
 
@@ -381,18 +339,6 @@ import com.datadog.api.v2.client.api.MetricsApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        // Configure the Datadog site to send API calls to
-        HashMap<String, String> serverVariables = new HashMap<String, String>();
-        String site = System.getenv("DD_SITE");
-        if (site != null) {
-            serverVariables.put("site", site);
-            defaultClient.setServerVariables(serverVariables);
-        }
-        // Configure API key authorization: 
-        HashMap<String, String> secrets = new HashMap<String, String>();
-        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
-        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
-        defaultClient.configureApiKeys(secrets);
 
         MetricsApi apiInstance = new MetricsApi(defaultClient);
         String metricName = "dist.http.endpoint.request"; // String | The name of the metric.
@@ -450,7 +396,7 @@ List distinct metric volumes by metric name
 View distinct metrics volumes for the given metric name.
 
 Custom distribution metrics will return both ingested and indexed custom metric volumes.
-For Metrics without Limits beta customers, all metrics will return both ingested/indexed volumes.
+For Metrics without Limits&trade; beta customers, all metrics will return both ingested/indexed volumes.
 Custom metrics generated in-app from other products will return `null` for ingested volumes.
 
 ### Example
@@ -468,18 +414,6 @@ import com.datadog.api.v2.client.api.MetricsApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        // Configure the Datadog site to send API calls to
-        HashMap<String, String> serverVariables = new HashMap<String, String>();
-        String site = System.getenv("DD_SITE");
-        if (site != null) {
-            serverVariables.put("site", site);
-            defaultClient.setServerVariables(serverVariables);
-        }
-        // Configure API key authorization: 
-        HashMap<String, String> secrets = new HashMap<String, String>();
-        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
-        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
-        defaultClient.configureApiKeys(secrets);
 
         MetricsApi apiInstance = new MetricsApi(defaultClient);
         String metricName = "dist.http.endpoint.request"; // String | The name of the metric.
@@ -552,18 +486,6 @@ import com.datadog.api.v2.client.api.MetricsApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        // Configure the Datadog site to send API calls to
-        HashMap<String, String> serverVariables = new HashMap<String, String>();
-        String site = System.getenv("DD_SITE");
-        if (site != null) {
-            serverVariables.put("site", site);
-            defaultClient.setServerVariables(serverVariables);
-        }
-        // Configure API key authorization: 
-        HashMap<String, String> secrets = new HashMap<String, String>();
-        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
-        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
-        defaultClient.configureApiKeys(secrets);
 
         MetricsApi apiInstance = new MetricsApi(defaultClient);
         String metricName = "dist.http.endpoint.request"; // String | The name of the metric.

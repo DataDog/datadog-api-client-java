@@ -8,32 +8,21 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.MetricTagConfigurationMetricTypes;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Object containing the definition of a metric tag configuration attributes.
- */
-@ApiModel(description = "Object containing the definition of a metric tag configuration attributes.")
+/** Object containing the definition of a metric tag configuration attributes. */
+@ApiModel(
+    description = "Object containing the definition of a metric tag configuration attributes.")
 @JsonPropertyOrder({
   MetricTagConfigurationAttributes.JSON_PROPERTY_CREATED_AT,
   MetricTagConfigurationAttributes.JSON_PROPERTY_INCLUDE_PERCENTILES,
@@ -58,102 +47,102 @@ public class MetricTagConfigurationAttributes {
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
 
-
   public MetricTagConfigurationAttributes createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
     return this;
   }
 
-   /**
+  /**
    * Timestamp when the tag configuration was created.
+   *
    * @return createdAt
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2020-03-31T09:48:37.463835Z", value = "Timestamp when the tag configuration was created.")
+  @ApiModelProperty(
+      example = "2020-03-31T09:48:37.463835Z",
+      value = "Timestamp when the tag configuration was created.")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
 
-
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
   }
-
 
   public MetricTagConfigurationAttributes includePercentiles(Boolean includePercentiles) {
     this.includePercentiles = includePercentiles;
     return this;
   }
 
-   /**
-   * Toggle to turn on/off percentile aggregations for distribution metrics. Only present when the &#x60;metric_type&#x60; is &#x60;distribution&#x60;.
+  /**
+   * Toggle to turn on/off percentile aggregations for distribution metrics. Only present when the
+   * &#x60;metric_type&#x60; is &#x60;distribution&#x60;.
+   *
    * @return includePercentiles
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "Toggle to turn on/off percentile aggregations for distribution metrics. Only present when the `metric_type` is `distribution`.")
+  @ApiModelProperty(
+      example = "true",
+      value =
+          "Toggle to turn on/off percentile aggregations for distribution metrics. Only present"
+              + " when the `metric_type` is `distribution`.")
   @JsonProperty(JSON_PROPERTY_INCLUDE_PERCENTILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getIncludePercentiles() {
     return includePercentiles;
   }
 
-
   public void setIncludePercentiles(Boolean includePercentiles) {
     this.includePercentiles = includePercentiles;
   }
-
 
   public MetricTagConfigurationAttributes metricType(MetricTagConfigurationMetricTypes metricType) {
     this.metricType = metricType;
     return this;
   }
 
-   /**
+  /**
    * Get metricType
+   *
    * @return metricType
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_METRIC_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public MetricTagConfigurationMetricTypes getMetricType() {
     return metricType;
   }
 
-
   public void setMetricType(MetricTagConfigurationMetricTypes metricType) {
     this.metricType = metricType;
   }
-
 
   public MetricTagConfigurationAttributes modifiedAt(OffsetDateTime modifiedAt) {
     this.modifiedAt = modifiedAt;
     return this;
   }
 
-   /**
+  /**
    * Timestamp when the tag configuration was last modified.
+   *
    * @return modifiedAt
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2020-03-31T09:48:37.463835Z", value = "Timestamp when the tag configuration was last modified.")
+  @ApiModelProperty(
+      example = "2020-03-31T09:48:37.463835Z",
+      value = "Timestamp when the tag configuration was last modified.")
   @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getModifiedAt() {
     return modifiedAt;
   }
 
-
   public void setModifiedAt(OffsetDateTime modifiedAt) {
     this.modifiedAt = modifiedAt;
   }
-
 
   public MetricTagConfigurationAttributes tags(List<String> tags) {
     this.tags = tags;
@@ -168,28 +157,26 @@ public class MetricTagConfigurationAttributes {
     return this;
   }
 
-   /**
+  /**
    * List of tag keys on which to group.
+   *
    * @return tags
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "[\"app\",\"datacenter\"]", value = "List of tag keys on which to group.")
+  @ApiModelProperty(
+      example = "[\"app\",\"datacenter\"]",
+      value = "List of tag keys on which to group.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getTags() {
     return tags;
   }
-
 
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
 
-
-  /**
-   * Return true if this MetricTagConfigurationAttributes object is equal to o.
-   */
+  /** Return true if this MetricTagConfigurationAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -198,12 +185,14 @@ public class MetricTagConfigurationAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MetricTagConfigurationAttributes metricTagConfigurationAttributes = (MetricTagConfigurationAttributes) o;
-    return Objects.equals(this.createdAt, metricTagConfigurationAttributes.createdAt) &&
-        Objects.equals(this.includePercentiles, metricTagConfigurationAttributes.includePercentiles) &&
-        Objects.equals(this.metricType, metricTagConfigurationAttributes.metricType) &&
-        Objects.equals(this.modifiedAt, metricTagConfigurationAttributes.modifiedAt) &&
-        Objects.equals(this.tags, metricTagConfigurationAttributes.tags);
+    MetricTagConfigurationAttributes metricTagConfigurationAttributes =
+        (MetricTagConfigurationAttributes) o;
+    return Objects.equals(this.createdAt, metricTagConfigurationAttributes.createdAt)
+        && Objects.equals(
+            this.includePercentiles, metricTagConfigurationAttributes.includePercentiles)
+        && Objects.equals(this.metricType, metricTagConfigurationAttributes.metricType)
+        && Objects.equals(this.modifiedAt, metricTagConfigurationAttributes.modifiedAt)
+        && Objects.equals(this.tags, metricTagConfigurationAttributes.tags);
   }
 
   @Override
@@ -225,8 +214,7 @@ public class MetricTagConfigurationAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -234,6 +222,4 @@ public class MetricTagConfigurationAttributes {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

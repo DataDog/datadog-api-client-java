@@ -3,6 +3,7 @@
 # UsageAttributionResponse
 
 Response containing the Usage Summary by tag(s).
+
 ## Properties
 
 Name | Type | Description | Notes

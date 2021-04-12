@@ -3,6 +3,7 @@
 # SecurityMonitoringRuleCaseCreate
 
 Case when signal is generated.
+
 ## Properties
 
 Name | Type | Description | Notes

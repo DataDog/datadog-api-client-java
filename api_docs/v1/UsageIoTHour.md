@@ -3,6 +3,7 @@
 # UsageIoTHour
 
 IoT usage for a given organization for a given hour.
+
 ## Properties
 
 Name | Type | Description | Notes

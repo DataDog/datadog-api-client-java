@@ -3,6 +3,7 @@
 # SyntheticsTestOptionsRetry
 
 Object describing the retry strategy to apply to a Synthetic test.
+
 ## Properties
 
 Name | Type | Description | Notes

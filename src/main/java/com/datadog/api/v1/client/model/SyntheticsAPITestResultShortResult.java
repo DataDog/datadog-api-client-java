@@ -8,65 +8,74 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.SyntheticsTiming;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Result of the last API test run.
- */
+/** Result of the last API test run. */
 @ApiModel(description = "Result of the last API test run.")
 @JsonPropertyOrder({
+  SyntheticsAPITestResultShortResult.JSON_PROPERTY_PASSED,
   SyntheticsAPITestResultShortResult.JSON_PROPERTY_TIMINGS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsAPITestResultShortResult {
+  public static final String JSON_PROPERTY_PASSED = "passed";
+  private Boolean passed;
+
   public static final String JSON_PROPERTY_TIMINGS = "timings";
   private SyntheticsTiming timings;
 
+  public SyntheticsAPITestResultShortResult passed(Boolean passed) {
+    this.passed = passed;
+    return this;
+  }
+
+  /**
+   * Describes if the test run has passed or failed.
+   *
+   * @return passed
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Describes if the test run has passed or failed.")
+  @JsonProperty(JSON_PROPERTY_PASSED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getPassed() {
+    return passed;
+  }
+
+  public void setPassed(Boolean passed) {
+    this.passed = passed;
+  }
 
   public SyntheticsAPITestResultShortResult timings(SyntheticsTiming timings) {
     this.timings = timings;
     return this;
   }
 
-   /**
+  /**
    * Get timings
+   *
    * @return timings
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TIMINGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SyntheticsTiming getTimings() {
     return timings;
   }
-
 
   public void setTimings(SyntheticsTiming timings) {
     this.timings = timings;
   }
 
-
-  /**
-   * Return true if this SyntheticsAPITestResultShort_result object is equal to o.
-   */
+  /** Return true if this SyntheticsAPITestResultShort_result object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -75,27 +84,29 @@ public class SyntheticsAPITestResultShortResult {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsAPITestResultShortResult syntheticsAPITestResultShortResult = (SyntheticsAPITestResultShortResult) o;
-    return Objects.equals(this.timings, syntheticsAPITestResultShortResult.timings);
+    SyntheticsAPITestResultShortResult syntheticsAPITestResultShortResult =
+        (SyntheticsAPITestResultShortResult) o;
+    return Objects.equals(this.passed, syntheticsAPITestResultShortResult.passed)
+        && Objects.equals(this.timings, syntheticsAPITestResultShortResult.timings);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(timings);
+    return Objects.hash(passed, timings);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SyntheticsAPITestResultShortResult {\n");
+    sb.append("    passed: ").append(toIndentedString(passed)).append("\n");
     sb.append("    timings: ").append(toIndentedString(timings)).append("\n");
     sb.append("}");
     return sb.toString();
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -103,6 +114,4 @@ public class SyntheticsAPITestResultShortResult {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

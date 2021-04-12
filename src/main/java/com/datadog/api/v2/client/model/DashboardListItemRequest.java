@@ -8,28 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.DashboardType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * A dashboard within a list.
- */
+/** A dashboard within a list. */
 @ApiModel(description = "A dashboard within a list.")
 @JsonPropertyOrder({
   DashboardListItemRequest.JSON_PROPERTY_ID,
@@ -43,56 +31,49 @@ public class DashboardListItemRequest {
   public static final String JSON_PROPERTY_TYPE = "type";
   private DashboardType type;
 
-
   public DashboardListItemRequest id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * ID of the dashboard.
+   *
    * @return id
-  **/
+   */
   @ApiModelProperty(example = "q5j-nti-fv6", required = true, value = "ID of the dashboard.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getId() {
     return id;
   }
 
-
   public void setId(String id) {
     this.id = id;
   }
-
 
   public DashboardListItemRequest type(DashboardType type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
+   *
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public DashboardType getType() {
     return type;
   }
-
 
   public void setType(DashboardType type) {
     this.type = type;
   }
 
-
-  /**
-   * Return true if this DashboardListItemRequest object is equal to o.
-   */
+  /** Return true if this DashboardListItemRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -102,8 +83,8 @@ public class DashboardListItemRequest {
       return false;
     }
     DashboardListItemRequest dashboardListItemRequest = (DashboardListItemRequest) o;
-    return Objects.equals(this.id, dashboardListItemRequest.id) &&
-        Objects.equals(this.type, dashboardListItemRequest.type);
+    return Objects.equals(this.id, dashboardListItemRequest.id)
+        && Objects.equals(this.type, dashboardListItemRequest.type);
   }
 
   @Override
@@ -122,8 +103,7 @@ public class DashboardListItemRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -131,6 +111,4 @@ public class DashboardListItemRequest {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

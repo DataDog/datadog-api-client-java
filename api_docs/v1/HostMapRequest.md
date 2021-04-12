@@ -3,6 +3,7 @@
 # HostMapRequest
 
 Updated host map.
+
 ## Properties
 
 Name | Type | Description | Notes

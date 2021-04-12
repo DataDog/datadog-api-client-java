@@ -3,6 +3,7 @@
 # RoleCreateRequest
 
 Create a role.
+
 ## Properties
 
 Name | Type | Description | Notes

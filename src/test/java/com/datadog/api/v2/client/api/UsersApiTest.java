@@ -8,143 +8,140 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.api;
 
+import static org.junit.Assert.*;
 
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.model.*;
-import org.glassfish.jersey.message.internal.MessageBodyProviderNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.junit.Assert.*;
-
-/**
- * API tests for UsersApi
- */
+/** API tests for UsersApi */
 public class UsersApiTest extends V2APITest {
 
-    private static UsersApi api = new UsersApi();
-    private final String testingUserTitle = "Big boss";
-    private ArrayList<String> disableUsers = null;
+  private static UsersApi api = new UsersApi();
+  private final String testingUserTitle = "Big boss";
+  private ArrayList<String> disableUsers = null;
 
-    @Override
-    public String getTracingEndpoint() {
-        return "users";
-    }
+  @Override
+  public String getTracingEndpoint() {
+    return "users";
+  }
 
-    @BeforeClass
-    public static void initApi() {
-        api = new UsersApi(generalApiClient);
-    }
+  @BeforeClass
+  public static void initApi() {
+    api = new UsersApi(generalApiClient);
+  }
 
-    @Before
-    public void resetDisableUsers() {
-        disableUsers = new ArrayList<String>();
-    }
+  @Before
+  public void resetDisableUsers() {
+    disableUsers = new ArrayList<String>();
+  }
 
-    @After
-    public void disableUsers() throws ApiException {
-        if (disableUsers != null) {
-            for (String id : disableUsers) {
-                UserResponse urp = api.getUser(id).execute();
-                if (!urp.getData().getAttributes().getDisabled()) {
-                    api.disableUser(id).execute();
-                }
-            }
+  @After
+  public void disableUsers() throws ApiException {
+    if (disableUsers != null) {
+      for (String id : disableUsers) {
+        UserResponse urp = api.getUser(id).execute();
+        if (!urp.getData().getAttributes().getDisabled()) {
+          api.disableUser(id).execute();
         }
+      }
     }
+  }
 
-    @Test
-    public void userLifecycleTest() throws ApiException {
-        // TODO: test roles, permissions when we can
-        // first, test creating a user
-        final String testingUserName = getUniqueEntityName().toLowerCase();
-        final String testingUserHandle = testingUserName + "@datadoghq.com";
-        UserCreateAttributes uca = new UserCreateAttributes()
-                .email(testingUserHandle)
-                .name(testingUserName)
-                .title(testingUserTitle);
-        UserCreateData ucd = new UserCreateData().attributes(uca);
-        UserCreateRequest ucr = new UserCreateRequest().data(ucd);
-        UserResponse ur = api.createUser().body(ucr).execute();
-        String uid = ur.getData().getId();
-        disableUsers.add(uid);
+  @Test
+  public void userLifecycleTest() throws ApiException {
+    // TODO: test roles, permissions when we can
+    // first, test creating a user
+    final String testingUserName = getUniqueEntityName().toLowerCase();
+    final String testingUserHandle = testingUserName + "@datadoghq.com";
+    UserCreateAttributes uca =
+        new UserCreateAttributes()
+            .email(testingUserHandle)
+            .name(testingUserName)
+            .title(testingUserTitle);
+    UserCreateData ucd = new UserCreateData().attributes(uca);
+    UserCreateRequest ucr = new UserCreateRequest().data(ucd);
+    UserResponse ur = api.createUser().body(ucr).execute();
+    String uid = ur.getData().getId();
+    disableUsers.add(uid);
 
-        assertEquals(testingUserHandle, ur.getData().getAttributes().getEmail());
-        assertEquals(testingUserName, ur.getData().getAttributes().getName());
-        assertEquals(testingUserTitle, ur.getData().getAttributes().getTitle());
+    assertEquals(testingUserHandle, ur.getData().getAttributes().getEmail());
+    assertEquals(testingUserName, ur.getData().getAttributes().getName());
+    assertEquals(testingUserTitle, ur.getData().getAttributes().getTitle());
 
-        // now, test updating it
-        UserUpdateAttributes uua = new UserUpdateAttributes().disabled(false).name("Joe Doe");
-        UserUpdateData uud = new UserUpdateData().attributes(uua).id(uid);
-        UserUpdateRequest uur = new UserUpdateRequest().data(uud);
+    // now, test updating it
+    UserUpdateAttributes uua = new UserUpdateAttributes().disabled(false).name("Joe Doe");
+    UserUpdateData uud = new UserUpdateData().attributes(uua).id(uid);
+    UserUpdateRequest uur = new UserUpdateRequest().data(uud);
 
-        // empty response payload, if the call doesn't raise an exception, we're ok
-        api.updateUser(uid).body(uur).execute();
+    // empty response payload, if the call doesn't raise an exception, we're ok
+    api.updateUser(uid).body(uur).execute();
 
-        // now, test getting it
-        UserResponse urp = api.getUser(uid).execute();
-        assertEquals(testingUserHandle, urp.getData().getAttributes().getEmail());
-        assertEquals("Joe Doe", urp.getData().getAttributes().getName());
-        assertFalse(urp.getData().getAttributes().getDisabled());
+    // now, test getting it
+    UserResponse urp = api.getUser(uid).execute();
+    assertEquals(testingUserHandle, urp.getData().getAttributes().getEmail());
+    assertEquals("Joe Doe", urp.getData().getAttributes().getName());
+    assertFalse(urp.getData().getAttributes().getDisabled());
 
-        // now, test disabling it
-        // no response payload; we're ok it it didn't throw exception
-        api.disableUser(uid).execute();
+    // now, test disabling it
+    // no response payload; we're ok it it didn't throw exception
+    api.disableUser(uid).execute();
 
-        // now, test filtering for it in the list call
-        UsersResponse usrp = api
-                .listUsers()
-                .filter(testingUserHandle)
-                .pageSize(1L)
-                .pageNumber(0L)
-                .sortDir(QuerySortOrder.ASC)
-                .execute();
-        assertEquals(1, usrp.getData().size());
-        assertEquals(testingUserHandle.toLowerCase(), usrp.getData().get(0).getAttributes().getHandle());
-        assertTrue(usrp.getMeta().getPage().getTotalCount() >= 1L);
-        assertTrue(usrp.getMeta().getPage().getTotalFilteredCount() >= 1L);
+    // now, test filtering for it in the list call
+    UsersResponse usrp =
+        api.listUsers()
+            .filter(testingUserHandle)
+            .pageSize(1L)
+            .pageNumber(0L)
+            .sortDir(QuerySortOrder.ASC)
+            .execute();
+    assertEquals(1, usrp.getData().size());
+    assertEquals(
+        testingUserHandle.toLowerCase(), usrp.getData().get(0).getAttributes().getHandle());
+    assertTrue(usrp.getMeta().getPage().getTotalCount() >= 1L);
+    assertTrue(usrp.getMeta().getPage().getTotalFilteredCount() >= 1L);
 
-        // NOTE: to test getting a user organization, we'd need to have a "whoami" API endpoint
-        // to get the UUID of the current user, but there's no such stable endpoint right now
-        // (a user can only get organization for itself, never for a different user)
-    }
+    // NOTE: to test getting a user organization, we'd need to have a "whoami" API endpoint
+    // to get the UUID of the current user, but there's no such stable endpoint right now
+    // (a user can only get organization for itself, never for a different user)
+  }
 
-    @Test
-    public void userInvitationTest() throws ApiException {
-        final String testingUserName = getUniqueEntityName().toLowerCase();
-        final String testingUserHandle = testingUserName + "@datadoghq.com";
-        UserCreateAttributes uca = new UserCreateAttributes()
-                .email(testingUserHandle)
-                .name(testingUserName)
-                .title(testingUserTitle);
-        UserCreateData ucd = new UserCreateData().attributes(uca);
-        UserCreateRequest ucr = new UserCreateRequest().data(ucd);
-        UserResponse ur = api.createUser().body(ucr).execute();
-        String id = ur.getData().getId();
-        disableUsers.add(id);
+  @Test
+  public void userInvitationTest() throws ApiException {
+    final String testingUserName = getUniqueEntityName().toLowerCase();
+    final String testingUserHandle = testingUserName + "@datadoghq.com";
+    UserCreateAttributes uca =
+        new UserCreateAttributes()
+            .email(testingUserHandle)
+            .name(testingUserName)
+            .title(testingUserTitle);
+    UserCreateData ucd = new UserCreateData().attributes(uca);
+    UserCreateRequest ucr = new UserCreateRequest().data(ucd);
+    UserResponse ur = api.createUser().body(ucr).execute();
+    String id = ur.getData().getId();
+    disableUsers.add(id);
 
-        // first, create the user invitation
-        RelationshipToUserData rtud = new RelationshipToUserData().id(id);
-        RelationshipToUser rtu = new RelationshipToUser().data(rtud);
-        UserInvitationRelationships uir = new UserInvitationRelationships().user(rtu);
-        UserInvitationData uid = new UserInvitationData().relationships(uir);
-        List<UserInvitationData> luid = new ArrayList<>();
-        luid.add(uid);
-        UserInvitationsRequest uireq = new UserInvitationsRequest().data(luid);
+    // first, create the user invitation
+    RelationshipToUserData rtud = new RelationshipToUserData().id(id);
+    RelationshipToUser rtu = new RelationshipToUser().data(rtud);
+    UserInvitationRelationships uir = new UserInvitationRelationships().user(rtu);
+    UserInvitationData uid = new UserInvitationData().relationships(uir);
+    List<UserInvitationData> luid = new ArrayList<>();
+    luid.add(uid);
+    UserInvitationsRequest uireq = new UserInvitationsRequest().data(luid);
 
-        UserInvitationsResponse resp = api.sendInvitations().body(uireq).execute();
-        String respId = resp.getData().get(0).getId();
+    UserInvitationsResponse resp = api.sendInvitations().body(uireq).execute();
+    String respId = resp.getData().get(0).getId();
 
-        // now, test getting the invitation
-        UserInvitationResponse oneresp = api.getInvitation(respId).execute();
-        assertEquals(respId, oneresp.getData().getId());
-    }
+    // now, test getting the invitation
+    UserInvitationResponse oneresp = api.getInvitation(respId).execute();
+    assertEquals(respId, oneresp.getData().getId());
+  }
 }

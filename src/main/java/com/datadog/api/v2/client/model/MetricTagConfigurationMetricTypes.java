@@ -8,30 +8,18 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
 
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * The metric&#39;s type.
- */
+/** The metric&#39;s type. */
 public enum MetricTagConfigurationMetricTypes {
-  
   GAUGE("gauge"),
-  
+
   COUNT("count"),
-  
+
   DISTRIBUTION("distribution");
 
   private String value;
@@ -60,4 +48,3 @@ public enum MetricTagConfigurationMetricTypes {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

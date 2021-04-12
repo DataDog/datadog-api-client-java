@@ -3,6 +3,7 @@
 # SyntheticsDevice
 
 Object describing the device used to perform the Synthetic test.
+
 ## Properties
 
 Name | Type | Description | Notes

@@ -6,7 +6,6 @@
 
 package com.datadog.api.v2.client.api;
 
-
 import static java.util.Collections.emptyMap;
 
 import com.datadog.api.RecordingMode;
@@ -26,105 +25,116 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 
 public abstract class V2APITest extends TestUtils.APITest {
-    protected static ApiClient generalApiClient;
-    protected static ApiClient generalApiUnitTestClient;
+  protected static ApiClient generalApiClient;
+  protected static ApiClient generalApiUnitTestClient;
 
-    @BeforeClass
-    public static void initGeneralApiClient() {
-        generalApiClient = new ApiClient();
+  @BeforeClass
+  public static void initGeneralApiClient() {
+    generalApiClient = new ApiClient();
 
-        // Configure authorization
-        HashMap<String, String> secrets = new HashMap<>();
-        secrets.put("apiKeyAuth", TEST_API_KEY);
-        secrets.put("appKeyAuth", TEST_APP_KEY);
-        generalApiClient.configureApiKeys(secrets);
-        generalApiClient.setServerIndex(0);
+    // Configure authorization
+    HashMap<String, String> secrets = new HashMap<>();
+    secrets.put("apiKeyAuth", TEST_API_KEY);
+    secrets.put("appKeyAuth", TEST_APP_KEY);
+    generalApiClient.configureApiKeys(secrets);
+    generalApiClient.setServerIndex(0);
 
-        // Set debugging based on env
-        generalApiClient.setDebugging("true".equals(System.getenv("DEBUG")));
+    // Set debugging based on env
+    generalApiClient.setDebugging("true".equals(System.getenv("DEBUG")));
 
-        // Set proxy to the mockServer for recording
-        if (!TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {
-            if (!TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
-                ClientConfig config = (ClientConfig) generalApiClient.getHttpClient().getConfiguration();
-                config.connectorProvider(new HttpUrlConnectorProvider().connectionFactory(new TestUtils.MockServerProxyConnectionFactory()));
-            }
-        } else {
-            // Set base path to the mock server for replaying
-            generalApiClient.setBasePath("https://" + TestUtils.MOCKSERVER_HOST + ":" + TestUtils.MOCKSERVER_PORT);
-            generalApiClient.setServerIndex(null);
+    // Set proxy to the mockServer for recording
+    if (!TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {
+      if (!TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
+        ClientConfig config = (ClientConfig) generalApiClient.getHttpClient().getConfiguration();
+        config.connectorProvider(
+            new HttpUrlConnectorProvider()
+                .connectionFactory(new TestUtils.MockServerProxyConnectionFactory()));
+      } else {
+        String site = System.getenv("DD_TEST_SITE");
+        if (site != null) {
+          HashMap<String, String> serverVariables = new HashMap<String, String>();
+          serverVariables.put("site", site);
+          generalApiClient.setServerIndex(2);
+          generalApiClient.setServerVariables(serverVariables);
         }
+      }
+    } else {
+      // Set base path to the mock server for replaying
+      generalApiClient.setBasePath(
+          "https://" + TestUtils.MOCKSERVER_HOST + ":" + TestUtils.MOCKSERVER_PORT);
+      generalApiClient.setServerIndex(null);
     }
+  }
 
-    @BeforeClass
-    public static void initGeneralApiUnitTestClient() {
-        generalApiUnitTestClient = new ApiClient();
-        generalApiUnitTestClient.setBasePath(String.format("http://localhost:%d", WIREMOCK_PORT));
-        // Disable templated servers
-        generalApiUnitTestClient.setServerIndex(null);
+  @BeforeClass
+  public static void initGeneralApiUnitTestClient() {
+    generalApiUnitTestClient = new ApiClient();
+    generalApiUnitTestClient.setBasePath(String.format("http://localhost:%d", WIREMOCK_PORT));
+    // Disable templated servers
+    generalApiUnitTestClient.setServerIndex(null);
 
-        // Configure authorization with fake keys
-        HashMap<String, String> secrets = new HashMap<>();
-        secrets.put("apiKeyAuth", TEST_API_KEY_NAME);
-        secrets.put("appKeyAuth", TEST_APP_KEY_NAME);
-        generalApiUnitTestClient.configureApiKeys(secrets);
+    // Configure authorization with fake keys
+    HashMap<String, String> secrets = new HashMap<>();
+    secrets.put("apiKeyAuth", TEST_API_KEY_NAME);
+    secrets.put("appKeyAuth", TEST_APP_KEY_NAME);
+    generalApiUnitTestClient.configureApiKeys(secrets);
+  }
+
+  @BeforeClass
+  public static void setVersion() {
+    version = "v2";
+  }
+
+  @Before
+  public void setTestNameHeader() {
+    // these headers help mockserver properly identify the request in the huge all-in-one cassette
+    generalApiClient.addDefaultHeader("JAVA-TEST-NAME", name.getMethodName());
+  }
+
+  public String testDomain() throws MalformedURLException {
+    String basePath = generalApiClient.getBasePath();
+    String host = new URL(basePath).getHost();
+
+    // naïvely assume the TLD does not contain periods
+    Pattern domainPattern = Pattern.compile(".*?([^.]+\\.[\\w]+)$");
+    Matcher matcher = domainPattern.matcher(host);
+    if (matcher.find()) {
+      return matcher.group(1);
     }
+    return null;
+  }
 
-    @BeforeClass
-    public static void setVersion() {
-        version = "v2";
+  public <T> ApiResponse<T> sendRequest(
+      String method, String url, Object payload, GenericType<T> responseType) throws ApiException {
+    String originalBasePath = generalApiClient.getBasePath();
+    Integer originalServerIndex = generalApiClient.getServerIndex();
+    if (url.startsWith("https://")) {
+      // if we got full URL, ensure that invokeAPI method doesn't use builtin operation servers
+      // but rather falls back to basePath, which is empty => we'll get precisely the URL we want as
+      // result
+      generalApiClient.setBasePath("");
+      generalApiClient.setServerIndex(null);
     }
-
-    @Before
-    public void setTestNameHeader() {
-        // these headers help mockserver properly identify the request in the huge all-in-one cassette
-        generalApiClient.addDefaultHeader("JAVA-TEST-NAME", name.getMethodName());
+    try {
+      return generalApiClient.invokeAPI(
+          "",
+          url,
+          method,
+          null,
+          payload,
+          emptyMap(),
+          emptyMap(),
+          emptyMap(),
+          "application/json",
+          "application/json",
+          new String[] {"apiKeyAuth", "appKeyAuth"},
+          responseType,
+          false);
+    } catch (Exception e) {
+      throw e;
+    } finally {
+      generalApiClient.setBasePath(originalBasePath);
+      generalApiClient.setServerIndex(originalServerIndex);
     }
-
-    public String testDomain() throws MalformedURLException {
-        String basePath = generalApiClient.getBasePath();
-        String host = new URL(basePath).getHost();
-
-        // naïvely assume the TLD does not contain periods
-        Pattern domainPattern = Pattern.compile(".*?([^.]+\\.[\\w]+)$");
-        Matcher matcher = domainPattern.matcher(host);
-        if (matcher.find()) {
-            return matcher.group(1);
-        }
-        return null;
-    }
-
-
-    public <T> ApiResponse<T> sendRequest(String method, String url, Object payload, GenericType<T> responseType) throws ApiException {
-        String originalBasePath = generalApiClient.getBasePath();
-        Integer originalServerIndex = generalApiClient.getServerIndex();
-        if (url.startsWith("https://")) {
-            // if we got full URL, ensure that invokeAPI method doesn't use builtin operation servers
-            // but rather falls back to basePath, which is empty => we'll get precisely the URL we want as result
-            generalApiClient.setBasePath("");
-            generalApiClient.setServerIndex(null);
-        }
-        try {
-            return generalApiClient.invokeAPI(
-                    "",
-                    url,
-                    method,
-                    null,
-                    payload,
-                    emptyMap(),
-                    emptyMap(),
-                    emptyMap(),
-                    "application/json",
-                    "application/json",
-                    new String[]{"apiKeyAuth", "appKeyAuth"},
-                    responseType,
-                    false
-            );
-        } catch (Exception e) {
-            throw e;
-        } finally {
-            generalApiClient.setBasePath(originalBasePath);
-            generalApiClient.setServerIndex(originalServerIndex);
-        }
-    }
+  }
 }

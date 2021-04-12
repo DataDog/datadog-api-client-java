@@ -8,28 +8,17 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Number of Fargate tasks run and hourly usage.
- */
+/** Number of Fargate tasks run and hourly usage. */
 @ApiModel(description = "Number of Fargate tasks run and hourly usage.")
 @JsonPropertyOrder({
   UsageFargateHour.JSON_PROPERTY_HOUR,
@@ -43,58 +32,51 @@ public class UsageFargateHour {
   public static final String JSON_PROPERTY_TASKS_COUNT = "tasks_count";
   private Long tasksCount;
 
-
   public UsageFargateHour hour(OffsetDateTime hour) {
     this.hour = hour;
     return this;
   }
 
-   /**
+  /**
    * The hour for the usage.
+   *
    * @return hour
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The hour for the usage.")
   @JsonProperty(JSON_PROPERTY_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getHour() {
     return hour;
   }
 
-
   public void setHour(OffsetDateTime hour) {
     this.hour = hour;
   }
-
 
   public UsageFargateHour tasksCount(Long tasksCount) {
     this.tasksCount = tasksCount;
     return this;
   }
 
-   /**
+  /**
    * The number of Fargate tasks run.
+   *
    * @return tasksCount
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The number of Fargate tasks run.")
   @JsonProperty(JSON_PROPERTY_TASKS_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getTasksCount() {
     return tasksCount;
   }
-
 
   public void setTasksCount(Long tasksCount) {
     this.tasksCount = tasksCount;
   }
 
-
-  /**
-   * Return true if this UsageFargateHour object is equal to o.
-   */
+  /** Return true if this UsageFargateHour object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -104,8 +86,8 @@ public class UsageFargateHour {
       return false;
     }
     UsageFargateHour usageFargateHour = (UsageFargateHour) o;
-    return Objects.equals(this.hour, usageFargateHour.hour) &&
-        Objects.equals(this.tasksCount, usageFargateHour.tasksCount);
+    return Objects.equals(this.hour, usageFargateHour.hour)
+        && Objects.equals(this.tasksCount, usageFargateHour.tasksCount);
   }
 
   @Override
@@ -124,8 +106,7 @@ public class UsageFargateHour {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -133,6 +114,4 @@ public class UsageFargateHour {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

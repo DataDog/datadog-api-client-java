@@ -1,25 +1,21 @@
 package com.datadog.api.v1.client.api;
 
-import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.ApiResponse;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.Pair;
-
-import javax.ws.rs.core.GenericType;
-
-import com.datadog.api.v1.client.model.APIErrorResponse;
 import com.datadog.api.v1.client.model.AWSAccount;
 import com.datadog.api.v1.client.model.AWSAccountCreateResponse;
 import com.datadog.api.v1.client.model.AWSAccountListResponse;
 import com.datadog.api.v1.client.model.AWSTagFilterCreateRequest;
 import com.datadog.api.v1.client.model.AWSTagFilterDeleteRequest;
 import com.datadog.api.v1.client.model.AWSTagFilterListResponse;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AwsIntegrationApi {
@@ -51,15 +47,16 @@ public class AwsIntegrationApi {
     this.apiClient = apiClient;
   }
 
-
-private ApiResponse<AWSAccountCreateResponse> createAWSAccountWithHttpInfo(AWSAccount body) throws ApiException {
+  private ApiResponse<AWSAccountCreateResponse> createAWSAccountWithHttpInfo(AWSAccount body)
+      throws ApiException {
     Object localVarPostBody = body;
-    
+
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling createAWSAccount");
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createAWSAccount");
     }
-    
+
     // create path and map variables
     String localVarPath = "/api/v1/integration/aws";
 
@@ -69,40 +66,44 @@ private ApiResponse<AWSAccountCreateResponse> createAWSAccountWithHttpInfo(AWSAc
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "createAWSAccount");
 
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
+    final String[] localVarAccepts = {"application/json"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
+    final String[] localVarContentTypes = {"application/json"};
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
 
-    GenericType<AWSAccountCreateResponse> localVarReturnType = new GenericType<AWSAccountCreateResponse>() {};
+    GenericType<AWSAccountCreateResponse> localVarReturnType =
+        new GenericType<AWSAccountCreateResponse>() {};
 
-    return apiClient.invokeAPI("AwsIntegrationApi.createAWSAccount", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "AwsIntegrationApi.createAWSAccount",
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
   }
 
   public class APIcreateAWSAccountRequest {
     private AWSAccount body;
 
-    private APIcreateAWSAccountRequest() {
-    }
+    private APIcreateAWSAccountRequest() {}
 
     /**
      * Set body
+     *
      * @param body AWS Request Object (required)
      * @return APIcreateAWSAccountRequest
      */
@@ -113,36 +114,35 @@ private ApiResponse<AWSAccountCreateResponse> createAWSAccountWithHttpInfo(AWSAc
 
     /**
      * Execute createAWSAccount request
+     *
      * @return AWSAccountCreateResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-         <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
-       </table>
-     
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
+     * </table>
      */
-    
     public AWSAccountCreateResponse execute() throws ApiException {
       return this.executeWithHttpInfo().getData();
     }
 
     /**
      * Execute createAWSAccount request with HTTP info returned
+     *
      * @return ApiResponse&lt;AWSAccountCreateResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-         <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
-       </table>
-
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<AWSAccountCreateResponse> executeWithHttpInfo() throws ApiException {
       return createAWSAccountWithHttpInfo(body);
@@ -150,25 +150,28 @@ private ApiResponse<AWSAccountCreateResponse> createAWSAccountWithHttpInfo(AWSAc
   }
 
   /**
-   * Create an AWS integration
-   * Create a Datadog-Amazon Web Services integration. Using the &#x60;POST&#x60; method updates your integration configuration by adding your new configuration to the existing one in your Datadog organization. A unique AWS Account ID for role based authentication.
+   * Create an AWS integration Create a Datadog-Amazon Web Services integration. Using the
+   * &#x60;POST&#x60; method updates your integration configuration by adding your new configuration
+   * to the existing one in your Datadog organization. A unique AWS Account ID for role based
+   * authentication.
+   *
    * @return createAWSAccountRequest
    * @throws ApiException if fails to make API call
-   
-   
    */
   public APIcreateAWSAccountRequest createAWSAccount() throws ApiException {
     return new APIcreateAWSAccountRequest();
   }
 
-private ApiResponse<Object> createAWSTagFilterWithHttpInfo(AWSTagFilterCreateRequest body) throws ApiException {
+  private ApiResponse<Object> createAWSTagFilterWithHttpInfo(AWSTagFilterCreateRequest body)
+      throws ApiException {
     Object localVarPostBody = body;
-    
+
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling createAWSTagFilter");
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createAWSTagFilter");
     }
-    
+
     // create path and map variables
     String localVarPath = "/api/v1/integration/aws/filtering";
 
@@ -178,41 +181,48 @@ private ApiResponse<Object> createAWSTagFilterWithHttpInfo(AWSTagFilterCreateReq
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "createAWSTagFilter");
 
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
+    final String[] localVarAccepts = {"application/json"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
+    final String[] localVarContentTypes = {"application/json"};
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
 
     GenericType<Object> localVarReturnType = new GenericType<Object>() {};
 
-    return apiClient.invokeAPI("AwsIntegrationApi.createAWSTagFilter", localVarPath, "POST", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "AwsIntegrationApi.createAWSTagFilter",
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
   }
 
   public class APIcreateAWSTagFilterRequest {
     private AWSTagFilterCreateRequest body;
 
-    private APIcreateAWSTagFilterRequest() {
-    }
+    private APIcreateAWSTagFilterRequest() {}
 
     /**
      * Set body
-     * @param body Set an AWS tag filter using an &#x60;aws_account_identifier&#x60;, &#x60;namespace&#x60;, and filtering string. Namespace options are &#x60;application_elb&#x60;, &#x60;elb&#x60;, &#x60;lambda&#x60;, &#x60;network_elb&#x60;, &#x60;rds&#x60;, &#x60;sqs&#x60;, and &#x60;custom&#x60;. (required)
+     *
+     * @param body Set an AWS tag filter using an &#x60;aws_account_identifier&#x60;,
+     *     &#x60;namespace&#x60;, and filtering string. Namespace options are
+     *     &#x60;application_elb&#x60;, &#x60;elb&#x60;, &#x60;lambda&#x60;,
+     *     &#x60;network_elb&#x60;, &#x60;rds&#x60;, &#x60;sqs&#x60;, and &#x60;custom&#x60;.
+     *     (required)
      * @return APIcreateAWSTagFilterRequest
      */
     public APIcreateAWSTagFilterRequest body(AWSTagFilterCreateRequest body) {
@@ -222,34 +232,33 @@ private ApiResponse<Object> createAWSTagFilterWithHttpInfo(AWSTagFilterCreateReq
 
     /**
      * Execute createAWSTagFilter request
+     *
      * @return Object
      * @throws ApiException if fails to make API call
      * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-       </table>
-     
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+     * </table>
      */
-    
     public Object execute() throws ApiException {
       return this.executeWithHttpInfo().getData();
     }
 
     /**
      * Execute createAWSTagFilter request with HTTP info returned
+     *
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-       </table>
-
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
       return createAWSTagFilterWithHttpInfo(body);
@@ -257,25 +266,25 @@ private ApiResponse<Object> createAWSTagFilterWithHttpInfo(AWSTagFilterCreateReq
   }
 
   /**
-   * Set an AWS tag filter
-   * Set an AWS tag filter.
+   * Set an AWS tag filter Set an AWS tag filter.
+   *
    * @return createAWSTagFilterRequest
    * @throws ApiException if fails to make API call
-   
-   
    */
   public APIcreateAWSTagFilterRequest createAWSTagFilter() throws ApiException {
     return new APIcreateAWSTagFilterRequest();
   }
 
-private ApiResponse<AWSAccountCreateResponse> createNewAWSExternalIDWithHttpInfo(AWSAccount body) throws ApiException {
+  private ApiResponse<AWSAccountCreateResponse> createNewAWSExternalIDWithHttpInfo(AWSAccount body)
+      throws ApiException {
     Object localVarPostBody = body;
-    
+
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling createNewAWSExternalID");
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createNewAWSExternalID");
     }
-    
+
     // create path and map variables
     String localVarPath = "/api/v1/integration/aws/generate_new_external_id";
 
@@ -285,41 +294,48 @@ private ApiResponse<AWSAccountCreateResponse> createNewAWSExternalIDWithHttpInfo
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "createNewAWSExternalID");
 
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
+    final String[] localVarAccepts = {"application/json"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
+    final String[] localVarContentTypes = {"application/json"};
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
 
-    GenericType<AWSAccountCreateResponse> localVarReturnType = new GenericType<AWSAccountCreateResponse>() {};
+    GenericType<AWSAccountCreateResponse> localVarReturnType =
+        new GenericType<AWSAccountCreateResponse>() {};
 
-    return apiClient.invokeAPI("AwsIntegrationApi.createNewAWSExternalID", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "AwsIntegrationApi.createNewAWSExternalID",
+        localVarPath,
+        "PUT",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
   }
 
   public class APIcreateNewAWSExternalIDRequest {
     private AWSAccount body;
 
-    private APIcreateNewAWSExternalIDRequest() {
-    }
+    private APIcreateNewAWSExternalIDRequest() {}
 
     /**
      * Set body
-     * @param body Your Datadog role delegation name. For more information about your AWS account Role name, see the [Datadog AWS integration configuration info](https://github.com/DataDog/documentation/blob/master/integrations/amazon_web_services/#installation). (required)
+     *
+     * @param body Your Datadog role delegation name. For more information about your AWS account
+     *     Role name, see the [Datadog AWS integration configuration
+     *     info](https://github.com/DataDog/documentation/blob/master/integrations/amazon_web_services/#installation).
+     *     (required)
      * @return APIcreateNewAWSExternalIDRequest
      */
     public APIcreateNewAWSExternalIDRequest body(AWSAccount body) {
@@ -329,34 +345,33 @@ private ApiResponse<AWSAccountCreateResponse> createNewAWSExternalIDWithHttpInfo
 
     /**
      * Execute createNewAWSExternalID request
+     *
      * @return AWSAccountCreateResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-       </table>
-     
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+     * </table>
      */
-    
     public AWSAccountCreateResponse execute() throws ApiException {
       return this.executeWithHttpInfo().getData();
     }
 
     /**
      * Execute createNewAWSExternalID request with HTTP info returned
+     *
      * @return ApiResponse&lt;AWSAccountCreateResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-       </table>
-
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<AWSAccountCreateResponse> executeWithHttpInfo() throws ApiException {
       return createNewAWSExternalIDWithHttpInfo(body);
@@ -364,25 +379,25 @@ private ApiResponse<AWSAccountCreateResponse> createNewAWSExternalIDWithHttpInfo
   }
 
   /**
-   * Generate a new external ID
-   * Generate a new AWS external ID for a given AWS account ID and role name pair.
+   * Generate a new external ID Generate a new AWS external ID for a given AWS account ID and role
+   * name pair.
+   *
    * @return createNewAWSExternalIDRequest
    * @throws ApiException if fails to make API call
-   
-   
    */
   public APIcreateNewAWSExternalIDRequest createNewAWSExternalID() throws ApiException {
     return new APIcreateNewAWSExternalIDRequest();
   }
 
-private ApiResponse<Object> deleteAWSAccountWithHttpInfo(AWSAccount body) throws ApiException {
+  private ApiResponse<Object> deleteAWSAccountWithHttpInfo(AWSAccount body) throws ApiException {
     Object localVarPostBody = body;
-    
+
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling deleteAWSAccount");
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling deleteAWSAccount");
     }
-    
+
     // create path and map variables
     String localVarPath = "/api/v1/integration/aws";
 
@@ -392,40 +407,43 @@ private ApiResponse<Object> deleteAWSAccountWithHttpInfo(AWSAccount body) throws
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "deleteAWSAccount");
 
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
+    final String[] localVarAccepts = {"application/json"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
+    final String[] localVarContentTypes = {"application/json"};
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
 
     GenericType<Object> localVarReturnType = new GenericType<Object>() {};
 
-    return apiClient.invokeAPI("AwsIntegrationApi.deleteAWSAccount", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "AwsIntegrationApi.deleteAWSAccount",
+        localVarPath,
+        "DELETE",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
   }
 
   public class APIdeleteAWSAccountRequest {
     private AWSAccount body;
 
-    private APIdeleteAWSAccountRequest() {
-    }
+    private APIdeleteAWSAccountRequest() {}
 
     /**
      * Set body
+     *
      * @param body AWS request object (required)
      * @return APIdeleteAWSAccountRequest
      */
@@ -436,36 +454,35 @@ private ApiResponse<Object> deleteAWSAccountWithHttpInfo(AWSAccount body) throws
 
     /**
      * Execute deleteAWSAccount request
+     *
      * @return Object
      * @throws ApiException if fails to make API call
      * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-         <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
-       </table>
-     
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
+     * </table>
      */
-    
     public Object execute() throws ApiException {
       return this.executeWithHttpInfo().getData();
     }
 
     /**
      * Execute deleteAWSAccount request with HTTP info returned
+     *
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-         <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
-       </table>
-
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
       return deleteAWSAccountWithHttpInfo(body);
@@ -473,25 +490,26 @@ private ApiResponse<Object> deleteAWSAccountWithHttpInfo(AWSAccount body) throws
   }
 
   /**
-   * Delete an AWS integration
-   * Delete a Datadog-AWS integration matching the specified &#x60;account_id&#x60; and &#x60;role_name parameters&#x60;.
+   * Delete an AWS integration Delete a Datadog-AWS integration matching the specified
+   * &#x60;account_id&#x60; and &#x60;role_name parameters&#x60;.
+   *
    * @return deleteAWSAccountRequest
    * @throws ApiException if fails to make API call
-   
-   
    */
   public APIdeleteAWSAccountRequest deleteAWSAccount() throws ApiException {
     return new APIdeleteAWSAccountRequest();
   }
 
-private ApiResponse<Object> deleteAWSTagFilterWithHttpInfo(AWSTagFilterDeleteRequest body) throws ApiException {
+  private ApiResponse<Object> deleteAWSTagFilterWithHttpInfo(AWSTagFilterDeleteRequest body)
+      throws ApiException {
     Object localVarPostBody = body;
-    
+
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling deleteAWSTagFilter");
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling deleteAWSTagFilter");
     }
-    
+
     // create path and map variables
     String localVarPath = "/api/v1/integration/aws/filtering";
 
@@ -501,41 +519,45 @@ private ApiResponse<Object> deleteAWSTagFilterWithHttpInfo(AWSTagFilterDeleteReq
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "deleteAWSTagFilter");
 
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
+    final String[] localVarAccepts = {"application/json"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
+    final String[] localVarContentTypes = {"application/json"};
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
 
     GenericType<Object> localVarReturnType = new GenericType<Object>() {};
 
-    return apiClient.invokeAPI("AwsIntegrationApi.deleteAWSTagFilter", localVarPath, "DELETE", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "AwsIntegrationApi.deleteAWSTagFilter",
+        localVarPath,
+        "DELETE",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
   }
 
   public class APIdeleteAWSTagFilterRequest {
     private AWSTagFilterDeleteRequest body;
 
-    private APIdeleteAWSTagFilterRequest() {
-    }
+    private APIdeleteAWSTagFilterRequest() {}
 
     /**
      * Set body
-     * @param body Delete a tag filtering entry for a given AWS account and &#x60;dd-aws&#x60; namespace. (required)
+     *
+     * @param body Delete a tag filtering entry for a given AWS account and &#x60;dd-aws&#x60;
+     *     namespace. (required)
      * @return APIdeleteAWSTagFilterRequest
      */
     public APIdeleteAWSTagFilterRequest body(AWSTagFilterDeleteRequest body) {
@@ -545,34 +567,33 @@ private ApiResponse<Object> deleteAWSTagFilterWithHttpInfo(AWSTagFilterDeleteReq
 
     /**
      * Execute deleteAWSTagFilter request
+     *
      * @return Object
      * @throws ApiException if fails to make API call
      * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-       </table>
-     
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+     * </table>
      */
-    
     public Object execute() throws ApiException {
       return this.executeWithHttpInfo().getData();
     }
 
     /**
      * Execute deleteAWSTagFilter request with HTTP info returned
+     *
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-       </table>
-
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
       return deleteAWSTagFilterWithHttpInfo(body);
@@ -580,20 +601,19 @@ private ApiResponse<Object> deleteAWSTagFilterWithHttpInfo(AWSTagFilterDeleteReq
   }
 
   /**
-   * Delete a tag filtering entry
-   * Delete a tag filtering entry.
+   * Delete a tag filtering entry Delete a tag filtering entry.
+   *
    * @return deleteAWSTagFilterRequest
    * @throws ApiException if fails to make API call
-   
-   
    */
   public APIdeleteAWSTagFilterRequest deleteAWSTagFilter() throws ApiException {
     return new APIdeleteAWSTagFilterRequest();
   }
 
-private ApiResponse<AWSAccountListResponse> listAWSAccountsWithHttpInfo(String accountId, String roleName, String accessKeyId) throws ApiException {
+  private ApiResponse<AWSAccountListResponse> listAWSAccountsWithHttpInfo(
+      String accountId, String roleName, String accessKeyId) throws ApiException {
     Object localVarPostBody = null;
-    
+
     // create path and map variables
     String localVarPath = "/api/v1/integration/aws";
 
@@ -610,26 +630,32 @@ private ApiResponse<AWSAccountListResponse> listAWSAccountsWithHttpInfo(String a
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "listAWSAccounts");
 
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
+    final String[] localVarAccepts = {"application/json"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
-    final String[] localVarContentTypes = {
-      
-    };
+    final String[] localVarContentTypes = {};
+
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
 
-    GenericType<AWSAccountListResponse> localVarReturnType = new GenericType<AWSAccountListResponse>() {};
+    GenericType<AWSAccountListResponse> localVarReturnType =
+        new GenericType<AWSAccountListResponse>() {};
 
-    return apiClient.invokeAPI("AwsIntegrationApi.listAWSAccounts", localVarPath, "GET", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "AwsIntegrationApi.listAWSAccounts",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
   }
 
   public class APIlistAWSAccountsRequest {
@@ -637,12 +663,13 @@ private ApiResponse<AWSAccountListResponse> listAWSAccountsWithHttpInfo(String a
     private String roleName;
     private String accessKeyId;
 
-    private APIlistAWSAccountsRequest() {
-    }
+    private APIlistAWSAccountsRequest() {}
 
     /**
      * Set accountId
-     * @param accountId Only return AWS accounts that matches this &#x60;account_id&#x60;. (optional)
+     *
+     * @param accountId Only return AWS accounts that matches this &#x60;account_id&#x60;.
+     *     (optional)
      * @return APIlistAWSAccountsRequest
      */
     public APIlistAWSAccountsRequest accountId(String accountId) {
@@ -652,6 +679,7 @@ private ApiResponse<AWSAccountListResponse> listAWSAccountsWithHttpInfo(String a
 
     /**
      * Set roleName
+     *
      * @param roleName Only return AWS accounts that matches this role_name. (optional)
      * @return APIlistAWSAccountsRequest
      */
@@ -662,7 +690,9 @@ private ApiResponse<AWSAccountListResponse> listAWSAccountsWithHttpInfo(String a
 
     /**
      * Set accessKeyId
-     * @param accessKeyId Only return AWS accounts that matches this &#x60;access_key_id&#x60;. (optional)
+     *
+     * @param accessKeyId Only return AWS accounts that matches this &#x60;access_key_id&#x60;.
+     *     (optional)
      * @return APIlistAWSAccountsRequest
      */
     public APIlistAWSAccountsRequest accessKeyId(String accessKeyId) {
@@ -672,34 +702,33 @@ private ApiResponse<AWSAccountListResponse> listAWSAccountsWithHttpInfo(String a
 
     /**
      * Execute listAWSAccounts request
+     *
      * @return AWSAccountListResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-       </table>
-     
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+     * </table>
      */
-    
     public AWSAccountListResponse execute() throws ApiException {
       return this.executeWithHttpInfo().getData();
     }
 
     /**
      * Execute listAWSAccounts request with HTTP info returned
+     *
      * @return ApiResponse&lt;AWSAccountListResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-       </table>
-
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<AWSAccountListResponse> executeWithHttpInfo() throws ApiException {
       return listAWSAccountsWithHttpInfo(accountId, roleName, accessKeyId);
@@ -707,25 +736,26 @@ private ApiResponse<AWSAccountListResponse> listAWSAccountsWithHttpInfo(String a
   }
 
   /**
-   * List all AWS integrations
-   * List all Datadog-AWS integrations available in your Datadog organization.
+   * List all AWS integrations List all Datadog-AWS integrations available in your Datadog
+   * organization.
+   *
    * @return listAWSAccountsRequest
    * @throws ApiException if fails to make API call
-   
-   
    */
   public APIlistAWSAccountsRequest listAWSAccounts() throws ApiException {
     return new APIlistAWSAccountsRequest();
   }
 
-private ApiResponse<AWSTagFilterListResponse> listAWSTagFiltersWithHttpInfo(String accountId) throws ApiException {
+  private ApiResponse<AWSTagFilterListResponse> listAWSTagFiltersWithHttpInfo(String accountId)
+      throws ApiException {
     Object localVarPostBody = null;
-    
+
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
-      throw new ApiException(400, "Missing the required parameter 'accountId' when calling listAWSTagFilters");
+      throw new ApiException(
+          400, "Missing the required parameter 'accountId' when calling listAWSTagFilters");
     }
-    
+
     // create path and map variables
     String localVarPath = "/api/v1/integration/aws/filtering";
 
@@ -740,36 +770,42 @@ private ApiResponse<AWSTagFilterListResponse> listAWSTagFiltersWithHttpInfo(Stri
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "listAWSTagFilters");
 
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
+    final String[] localVarAccepts = {"application/json"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
-    final String[] localVarContentTypes = {
-      
-    };
+    final String[] localVarContentTypes = {};
+
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
 
-    GenericType<AWSTagFilterListResponse> localVarReturnType = new GenericType<AWSTagFilterListResponse>() {};
+    GenericType<AWSTagFilterListResponse> localVarReturnType =
+        new GenericType<AWSTagFilterListResponse>() {};
 
-    return apiClient.invokeAPI("AwsIntegrationApi.listAWSTagFilters", localVarPath, "GET", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "AwsIntegrationApi.listAWSTagFilters",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
   }
 
   public class APIlistAWSTagFiltersRequest {
     private String accountId;
 
-    private APIlistAWSTagFiltersRequest() {
-    }
+    private APIlistAWSTagFiltersRequest() {}
 
     /**
      * Set accountId
+     *
      * @param accountId Only return AWS filters that matches this &#x60;account_id&#x60;. (required)
      * @return APIlistAWSTagFiltersRequest
      */
@@ -780,34 +816,33 @@ private ApiResponse<AWSTagFilterListResponse> listAWSTagFiltersWithHttpInfo(Stri
 
     /**
      * Execute listAWSTagFilters request
+     *
      * @return AWSTagFilterListResponse
      * @throws ApiException if fails to make API call
      * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-       </table>
-     
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+     * </table>
      */
-    
     public AWSTagFilterListResponse execute() throws ApiException {
       return this.executeWithHttpInfo().getData();
     }
 
     /**
      * Execute listAWSTagFilters request with HTTP info returned
+     *
      * @return ApiResponse&lt;AWSTagFilterListResponse&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-       </table>
-
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<AWSTagFilterListResponse> executeWithHttpInfo() throws ApiException {
       return listAWSTagFiltersWithHttpInfo(accountId);
@@ -815,20 +850,18 @@ private ApiResponse<AWSTagFilterListResponse> listAWSTagFiltersWithHttpInfo(Stri
   }
 
   /**
-   * Get all AWS tag filters
-   * Get all AWS tag filters.
+   * Get all AWS tag filters Get all AWS tag filters.
+   *
    * @return listAWSTagFiltersRequest
    * @throws ApiException if fails to make API call
-   
-   
    */
   public APIlistAWSTagFiltersRequest listAWSTagFilters() throws ApiException {
     return new APIlistAWSTagFiltersRequest();
   }
 
-private ApiResponse<List<String>> listAvailableAWSNamespacesWithHttpInfo() throws ApiException {
+  private ApiResponse<List<String>> listAvailableAWSNamespacesWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
-    
+
     // create path and map variables
     String localVarPath = "/api/v1/integration/aws/available_namespace_rules";
 
@@ -838,65 +871,67 @@ private ApiResponse<List<String>> listAvailableAWSNamespacesWithHttpInfo() throw
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "listAvailableAWSNamespaces");
 
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
+    final String[] localVarAccepts = {"application/json"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
-    final String[] localVarContentTypes = {
-      
-    };
+    final String[] localVarContentTypes = {};
+
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
 
     GenericType<List<String>> localVarReturnType = new GenericType<List<String>>() {};
 
-    return apiClient.invokeAPI("AwsIntegrationApi.listAvailableAWSNamespaces", localVarPath, "GET", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "AwsIntegrationApi.listAvailableAWSNamespaces",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
   }
 
   public class APIlistAvailableAWSNamespacesRequest {
 
-    private APIlistAvailableAWSNamespacesRequest() {
-    }
+    private APIlistAvailableAWSNamespacesRequest() {}
 
     /**
      * Execute listAvailableAWSNamespaces request
+     *
      * @return List&lt;String&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-       </table>
-     
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+     * </table>
      */
-    
     public List<String> execute() throws ApiException {
       return this.executeWithHttpInfo().getData();
     }
 
     /**
      * Execute listAvailableAWSNamespaces request with HTTP info returned
+     *
      * @return ApiResponse&lt;List&lt;String&gt;&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-       </table>
-
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<List<String>> executeWithHttpInfo() throws ApiException {
       return listAvailableAWSNamespacesWithHttpInfo();
@@ -904,25 +939,26 @@ private ApiResponse<List<String>> listAvailableAWSNamespacesWithHttpInfo() throw
   }
 
   /**
-   * List namespace rules
-   * List all namespace rules for a given Datadog-AWS integration. This endpoint takes no arguments.
+   * List namespace rules List all namespace rules for a given Datadog-AWS integration. This
+   * endpoint takes no arguments.
+   *
    * @return listAvailableAWSNamespacesRequest
    * @throws ApiException if fails to make API call
-   
-   
    */
   public APIlistAvailableAWSNamespacesRequest listAvailableAWSNamespaces() throws ApiException {
     return new APIlistAvailableAWSNamespacesRequest();
   }
 
-private ApiResponse<Object> updateAWSAccountWithHttpInfo(AWSAccount body, String accountId, String roleName, String accessKeyId) throws ApiException {
+  private ApiResponse<Object> updateAWSAccountWithHttpInfo(
+      AWSAccount body, String accountId, String roleName, String accessKeyId) throws ApiException {
     Object localVarPostBody = body;
-    
+
     // verify the required parameter 'body' is set
     if (body == null) {
-      throw new ApiException(400, "Missing the required parameter 'body' when calling updateAWSAccount");
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateAWSAccount");
     }
-    
+
     // create path and map variables
     String localVarPath = "/api/v1/integration/aws";
 
@@ -939,26 +975,30 @@ private ApiResponse<Object> updateAWSAccountWithHttpInfo(AWSAccount body, String
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "updateAWSAccount");
 
-    
-    
-    
-    final String[] localVarAccepts = {
-      "application/json"
-    };
+    final String[] localVarAccepts = {"application/json"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
-    final String[] localVarContentTypes = {
-      "application/json"
-    };
+    final String[] localVarContentTypes = {"application/json"};
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] { "apiKeyAuth", "appKeyAuth" };
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
 
     GenericType<Object> localVarReturnType = new GenericType<Object>() {};
 
-    return apiClient.invokeAPI("AwsIntegrationApi.updateAWSAccount", localVarPath, "PUT", localVarQueryParams, localVarPostBody,
-                               localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
+    return apiClient.invokeAPI(
+        "AwsIntegrationApi.updateAWSAccount",
+        localVarPath,
+        "PUT",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
   }
 
   public class APIupdateAWSAccountRequest {
@@ -967,11 +1007,11 @@ private ApiResponse<Object> updateAWSAccountWithHttpInfo(AWSAccount body, String
     private String roleName;
     private String accessKeyId;
 
-    private APIupdateAWSAccountRequest() {
-    }
+    private APIupdateAWSAccountRequest() {}
 
     /**
      * Set body
+     *
      * @param body AWS request object (required)
      * @return APIupdateAWSAccountRequest
      */
@@ -982,7 +1022,9 @@ private ApiResponse<Object> updateAWSAccountWithHttpInfo(AWSAccount body, String
 
     /**
      * Set accountId
-     * @param accountId Only return AWS accounts that matches this &#x60;account_id&#x60;. (optional)
+     *
+     * @param accountId Only return AWS accounts that matches this &#x60;account_id&#x60;.
+     *     (optional)
      * @return APIupdateAWSAccountRequest
      */
     public APIupdateAWSAccountRequest accountId(String accountId) {
@@ -992,7 +1034,9 @@ private ApiResponse<Object> updateAWSAccountWithHttpInfo(AWSAccount body, String
 
     /**
      * Set roleName
-     * @param roleName Only return AWS accounts that match this &#x60;role_name&#x60;. Required if &#x60;account_id&#x60; is specified. (optional)
+     *
+     * @param roleName Only return AWS accounts that match this &#x60;role_name&#x60;. Required if
+     *     &#x60;account_id&#x60; is specified. (optional)
      * @return APIupdateAWSAccountRequest
      */
     public APIupdateAWSAccountRequest roleName(String roleName) {
@@ -1002,7 +1046,9 @@ private ApiResponse<Object> updateAWSAccountWithHttpInfo(AWSAccount body, String
 
     /**
      * Set accessKeyId
-     * @param accessKeyId Only return AWS accounts that matches this &#x60;access_key_id&#x60;. Required if none of the other two options are specified. (optional)
+     *
+     * @param accessKeyId Only return AWS accounts that matches this &#x60;access_key_id&#x60;.
+     *     Required if none of the other two options are specified. (optional)
      * @return APIupdateAWSAccountRequest
      */
     public APIupdateAWSAccountRequest accessKeyId(String accessKeyId) {
@@ -1012,36 +1058,35 @@ private ApiResponse<Object> updateAWSAccountWithHttpInfo(AWSAccount body, String
 
     /**
      * Execute updateAWSAccount request
+     *
      * @return Object
      * @throws ApiException if fails to make API call
      * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-         <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
-       </table>
-     
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
+     * </table>
      */
-    
     public Object execute() throws ApiException {
       return this.executeWithHttpInfo().getData();
     }
 
     /**
      * Execute updateAWSAccount request with HTTP info returned
+     *
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException if fails to make API call
      * @http.response.details
-       <table summary="Response Details" border="1">
-         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-         <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-         <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-         <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
-       </table>
-
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
+     * </table>
      */
     public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
       return updateAWSAccountWithHttpInfo(body, accountId, roleName, accessKeyId);
@@ -1049,12 +1094,10 @@ private ApiResponse<Object> updateAWSAccountWithHttpInfo(AWSAccount body, String
   }
 
   /**
-   * Update an AWS integration
-   * Update a Datadog-Amazon Web Services integration.
+   * Update an AWS integration Update a Datadog-Amazon Web Services integration.
+   *
    * @return updateAWSAccountRequest
    * @throws ApiException if fails to make API call
-   
-   
    */
   public APIupdateAWSAccountRequest updateAWSAccount() throws ApiException {
     return new APIupdateAWSAccountRequest();

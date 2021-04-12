@@ -3,6 +3,7 @@
 # OrganizationSubscription
 
 Subscription definition.
+
 ## Properties
 
 Name | Type | Description | Notes

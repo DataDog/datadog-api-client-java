@@ -8,34 +8,18 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.SyntheticsBrowserTestConfig;
-import com.datadog.api.v1.client.model.SyntheticsBrowserTestType;
-import com.datadog.api.v1.client.model.SyntheticsStep;
-import com.datadog.api.v1.client.model.SyntheticsTestOptions;
-import com.datadog.api.v1.client.model.SyntheticsTestPauseStatus;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Object containing details about a Synthetic browser test.
- */
+/** Object containing details about a Synthetic browser test. */
 @ApiModel(description = "Object containing details about a Synthetic browser test.")
 @JsonPropertyOrder({
   SyntheticsBrowserTest.JSON_PROPERTY_CONFIG,
@@ -85,30 +69,27 @@ public class SyntheticsBrowserTest {
   public static final String JSON_PROPERTY_TYPE = "type";
   private SyntheticsBrowserTestType type = SyntheticsBrowserTestType.BROWSER;
 
-
   public SyntheticsBrowserTest config(SyntheticsBrowserTestConfig config) {
     this.config = config;
     return this;
   }
 
-   /**
+  /**
    * Get config
+   *
    * @return config
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CONFIG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SyntheticsBrowserTestConfig getConfig() {
     return config;
   }
 
-
   public void setConfig(SyntheticsBrowserTestConfig config) {
     this.config = config;
   }
-
 
   public SyntheticsBrowserTest locations(List<String> locations) {
     this.locations = locations;
@@ -123,168 +104,158 @@ public class SyntheticsBrowserTest {
     return this;
   }
 
-   /**
+  /**
    * Array of locations used to run the test.
+   *
    * @return locations
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Array of locations used to run the test.")
   @JsonProperty(JSON_PROPERTY_LOCATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getLocations() {
     return locations;
   }
 
-
   public void setLocations(List<String> locations) {
     this.locations = locations;
   }
-
 
   public SyntheticsBrowserTest message(String message) {
     this.message = message;
     return this;
   }
 
-   /**
-   * Notification message associated with the test.
+  /**
+   * Notification message associated with the test. Message can either be text or an empty string.
+   *
    * @return message
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Notification message associated with the test.")
+   */
+  @ApiModelProperty(
+      example = "",
+      required = true,
+      value =
+          "Notification message associated with the test. Message can either be text or an empty"
+              + " string.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getMessage() {
     return message;
   }
 
-
   public void setMessage(String message) {
     this.message = message;
   }
-
 
   public SyntheticsBrowserTest monitorId(Long monitorId) {
     this.monitorId = monitorId;
     return this;
   }
 
-   /**
+  /**
    * The associated monitor ID.
+   *
    * @return monitorId
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The associated monitor ID.")
   @JsonProperty(JSON_PROPERTY_MONITOR_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getMonitorId() {
     return monitorId;
   }
 
-
   public void setMonitorId(Long monitorId) {
     this.monitorId = monitorId;
   }
-
 
   public SyntheticsBrowserTest name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Name of the test.
+   *
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Name of the test.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getName() {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
-
 
   public SyntheticsBrowserTest options(SyntheticsTestOptions options) {
     this.options = options;
     return this;
   }
 
-   /**
+  /**
    * Get options
+   *
    * @return options
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SyntheticsTestOptions getOptions() {
     return options;
   }
 
-
   public void setOptions(SyntheticsTestOptions options) {
     this.options = options;
   }
-
 
   public SyntheticsBrowserTest publicId(String publicId) {
     this.publicId = publicId;
     return this;
   }
 
-   /**
+  /**
    * The public ID of the test.
+   *
    * @return publicId
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The public ID of the test.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPublicId() {
     return publicId;
   }
 
-
   public void setPublicId(String publicId) {
     this.publicId = publicId;
   }
-
 
   public SyntheticsBrowserTest status(SyntheticsTestPauseStatus status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * Get status
+   *
    * @return status
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SyntheticsTestPauseStatus getStatus() {
     return status;
   }
 
-
   public void setStatus(SyntheticsTestPauseStatus status) {
     this.status = status;
   }
-
 
   public SyntheticsBrowserTest steps(List<SyntheticsStep> steps) {
     this.steps = steps;
@@ -299,24 +270,22 @@ public class SyntheticsBrowserTest {
     return this;
   }
 
-   /**
+  /**
    * The steps of the test.
+   *
    * @return steps
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The steps of the test.")
   @JsonProperty(JSON_PROPERTY_STEPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<SyntheticsStep> getSteps() {
     return steps;
   }
 
-
   public void setSteps(List<SyntheticsStep> steps) {
     this.steps = steps;
   }
-
 
   public SyntheticsBrowserTest tags(List<String> tags) {
     this.tags = tags;
@@ -331,52 +300,46 @@ public class SyntheticsBrowserTest {
     return this;
   }
 
-   /**
+  /**
    * Array of tags attached to the test.
+   *
    * @return tags
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Array of tags attached to the test.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getTags() {
     return tags;
   }
 
-
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
-
 
   public SyntheticsBrowserTest type(SyntheticsBrowserTestType type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
+   *
    * @return type
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SyntheticsBrowserTestType getType() {
     return type;
   }
-
 
   public void setType(SyntheticsBrowserTestType type) {
     this.type = type;
   }
 
-
-  /**
-   * Return true if this SyntheticsBrowserTest object is equal to o.
-   */
+  /** Return true if this SyntheticsBrowserTest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -386,22 +349,23 @@ public class SyntheticsBrowserTest {
       return false;
     }
     SyntheticsBrowserTest syntheticsBrowserTest = (SyntheticsBrowserTest) o;
-    return Objects.equals(this.config, syntheticsBrowserTest.config) &&
-        Objects.equals(this.locations, syntheticsBrowserTest.locations) &&
-        Objects.equals(this.message, syntheticsBrowserTest.message) &&
-        Objects.equals(this.monitorId, syntheticsBrowserTest.monitorId) &&
-        Objects.equals(this.name, syntheticsBrowserTest.name) &&
-        Objects.equals(this.options, syntheticsBrowserTest.options) &&
-        Objects.equals(this.publicId, syntheticsBrowserTest.publicId) &&
-        Objects.equals(this.status, syntheticsBrowserTest.status) &&
-        Objects.equals(this.steps, syntheticsBrowserTest.steps) &&
-        Objects.equals(this.tags, syntheticsBrowserTest.tags) &&
-        Objects.equals(this.type, syntheticsBrowserTest.type);
+    return Objects.equals(this.config, syntheticsBrowserTest.config)
+        && Objects.equals(this.locations, syntheticsBrowserTest.locations)
+        && Objects.equals(this.message, syntheticsBrowserTest.message)
+        && Objects.equals(this.monitorId, syntheticsBrowserTest.monitorId)
+        && Objects.equals(this.name, syntheticsBrowserTest.name)
+        && Objects.equals(this.options, syntheticsBrowserTest.options)
+        && Objects.equals(this.publicId, syntheticsBrowserTest.publicId)
+        && Objects.equals(this.status, syntheticsBrowserTest.status)
+        && Objects.equals(this.steps, syntheticsBrowserTest.steps)
+        && Objects.equals(this.tags, syntheticsBrowserTest.tags)
+        && Objects.equals(this.type, syntheticsBrowserTest.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(config, locations, message, monitorId, name, options, publicId, status, steps, tags, type);
+    return Objects.hash(
+        config, locations, message, monitorId, name, options, publicId, status, steps, tags, type);
   }
 
   @Override
@@ -424,8 +388,7 @@ public class SyntheticsBrowserTest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -433,6 +396,4 @@ public class SyntheticsBrowserTest {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

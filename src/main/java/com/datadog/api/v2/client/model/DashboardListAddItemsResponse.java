@@ -8,46 +8,33 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.DashboardListItemResponse;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Response containing a list of added dashboards.
- */
+/** Response containing a list of added dashboards. */
 @ApiModel(description = "Response containing a list of added dashboards.")
-@JsonPropertyOrder({
-  DashboardListAddItemsResponse.JSON_PROPERTY_ADDED_DASHBOARDS_TO_LIST
-})
+@JsonPropertyOrder({DashboardListAddItemsResponse.JSON_PROPERTY_ADDED_DASHBOARDS_TO_LIST})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DashboardListAddItemsResponse {
   public static final String JSON_PROPERTY_ADDED_DASHBOARDS_TO_LIST = "added_dashboards_to_list";
   private List<DashboardListItemResponse> addedDashboardsToList = null;
 
-
-  public DashboardListAddItemsResponse addedDashboardsToList(List<DashboardListItemResponse> addedDashboardsToList) {
+  public DashboardListAddItemsResponse addedDashboardsToList(
+      List<DashboardListItemResponse> addedDashboardsToList) {
     this.addedDashboardsToList = addedDashboardsToList;
     return this;
   }
 
-  public DashboardListAddItemsResponse addAddedDashboardsToListItem(DashboardListItemResponse addedDashboardsToListItem) {
+  public DashboardListAddItemsResponse addAddedDashboardsToListItem(
+      DashboardListItemResponse addedDashboardsToListItem) {
     if (this.addedDashboardsToList == null) {
       this.addedDashboardsToList = new ArrayList<>();
     }
@@ -55,28 +42,24 @@ public class DashboardListAddItemsResponse {
     return this;
   }
 
-   /**
+  /**
    * List of dashboards added to the dashboard list.
+   *
    * @return addedDashboardsToList
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "List of dashboards added to the dashboard list.")
   @JsonProperty(JSON_PROPERTY_ADDED_DASHBOARDS_TO_LIST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<DashboardListItemResponse> getAddedDashboardsToList() {
     return addedDashboardsToList;
   }
-
 
   public void setAddedDashboardsToList(List<DashboardListItemResponse> addedDashboardsToList) {
     this.addedDashboardsToList = addedDashboardsToList;
   }
 
-
-  /**
-   * Return true if this DashboardListAddItemsResponse object is equal to o.
-   */
+  /** Return true if this DashboardListAddItemsResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -86,7 +69,8 @@ public class DashboardListAddItemsResponse {
       return false;
     }
     DashboardListAddItemsResponse dashboardListAddItemsResponse = (DashboardListAddItemsResponse) o;
-    return Objects.equals(this.addedDashboardsToList, dashboardListAddItemsResponse.addedDashboardsToList);
+    return Objects.equals(
+        this.addedDashboardsToList, dashboardListAddItemsResponse.addedDashboardsToList);
   }
 
   @Override
@@ -98,14 +82,15 @@ public class DashboardListAddItemsResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DashboardListAddItemsResponse {\n");
-    sb.append("    addedDashboardsToList: ").append(toIndentedString(addedDashboardsToList)).append("\n");
+    sb.append("    addedDashboardsToList: ")
+        .append(toIndentedString(addedDashboardsToList))
+        .append("\n");
     sb.append("}");
     return sb.toString();
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -113,6 +98,4 @@ public class DashboardListAddItemsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

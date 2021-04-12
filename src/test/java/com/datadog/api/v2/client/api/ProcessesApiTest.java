@@ -8,55 +8,40 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.api;
 
 import com.datadog.api.v2.client.*;
 import com.datadog.api.v2.client.auth.*;
-import com.datadog.api.v2.client.model.APIErrorResponse;
-import com.datadog.api.v2.client.model.ProcessSummariesResponse;
-import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-/**
- * API tests for ProcessesApi
- */
+/** API tests for ProcessesApi */
 public class ProcessesApiTest {
 
-    private final ProcessesApi api = new ProcessesApi();
+  private final ProcessesApi api = new ProcessesApi();
 
-    /**
-     * Get all processes
-     *
-     * Get all processes for your organization.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void listProcessesTest() throws ApiException {
-        //String search = null;
-        //String tags = null;
-        //Long from = null;
-        //Long to = null;
-        //Integer pageLimit = null;
-        //String pageCursor = null;
-        //ProcessSummariesResponse response = api.listProcesses()
-        //        .search(search)
-        //        .tags(tags)
-        //        .from(from)
-        //        .to(to)
-        //        .pageLimit(pageLimit)
-        //        .pageCursor(pageCursor)
-        //        .execute();
-        // TODO: test validations
-    }
-
+  /**
+   * Get all processes
+   *
+   * <p>Get all processes for your organization.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void listProcessesTest() throws ApiException {
+    // String search = null;
+    // String tags = null;
+    // Long from = null;
+    // Long to = null;
+    // Integer pageLimit = null;
+    // String pageCursor = null;
+    // ProcessSummariesResponse response = api.listProcesses()
+    //        .search(search)
+    //        .tags(tags)
+    //        .from(from)
+    //        .to(to)
+    //        .pageLimit(pageLimit)
+    //        .pageCursor(pageCursor)
+    //        .execute();
+    // TODO: test validations
+  }
 }

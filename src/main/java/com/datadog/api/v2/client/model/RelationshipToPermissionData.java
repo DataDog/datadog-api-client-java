@@ -8,28 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.PermissionsType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Relationship to permission object.
- */
+/** Relationship to permission object. */
 @ApiModel(description = "Relationship to permission object.")
 @JsonPropertyOrder({
   RelationshipToPermissionData.JSON_PROPERTY_ID,
@@ -43,58 +31,51 @@ public class RelationshipToPermissionData {
   public static final String JSON_PROPERTY_TYPE = "type";
   private PermissionsType type = PermissionsType.PERMISSIONS;
 
-
   public RelationshipToPermissionData id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * ID of the permission.
+   *
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "ID of the permission.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
   public void setId(String id) {
     this.id = id;
   }
-
 
   public RelationshipToPermissionData type(PermissionsType type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
+   *
    * @return type
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public PermissionsType getType() {
     return type;
   }
-
 
   public void setType(PermissionsType type) {
     this.type = type;
   }
 
-
-  /**
-   * Return true if this RelationshipToPermissionData object is equal to o.
-   */
+  /** Return true if this RelationshipToPermissionData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -104,8 +85,8 @@ public class RelationshipToPermissionData {
       return false;
     }
     RelationshipToPermissionData relationshipToPermissionData = (RelationshipToPermissionData) o;
-    return Objects.equals(this.id, relationshipToPermissionData.id) &&
-        Objects.equals(this.type, relationshipToPermissionData.type);
+    return Objects.equals(this.id, relationshipToPermissionData.id)
+        && Objects.equals(this.type, relationshipToPermissionData.type);
   }
 
   @Override
@@ -124,8 +105,7 @@ public class RelationshipToPermissionData {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -133,6 +113,4 @@ public class RelationshipToPermissionData {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

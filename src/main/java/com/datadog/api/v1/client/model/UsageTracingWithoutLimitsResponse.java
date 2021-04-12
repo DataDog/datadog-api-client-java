@@ -8,39 +8,27 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.UsageTracingWithoutLimitsHour;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Response containing the tracing without limits usage for each hour for a given organization.
- */
-@ApiModel(description = "Response containing the tracing without limits usage for each hour for a given organization.")
-@JsonPropertyOrder({
-  UsageTracingWithoutLimitsResponse.JSON_PROPERTY_USAGE
-})
+/** Response containing the tracing without limits usage for each hour for a given organization. */
+@ApiModel(
+    description =
+        "Response containing the tracing without limits usage for each hour for a given"
+            + " organization.")
+@JsonPropertyOrder({UsageTracingWithoutLimitsResponse.JSON_PROPERTY_USAGE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageTracingWithoutLimitsResponse {
   public static final String JSON_PROPERTY_USAGE = "usage";
   private List<UsageTracingWithoutLimitsHour> usage = null;
-
 
   public UsageTracingWithoutLimitsResponse usage(List<UsageTracingWithoutLimitsHour> usage) {
     this.usage = usage;
@@ -55,28 +43,24 @@ public class UsageTracingWithoutLimitsResponse {
     return this;
   }
 
-   /**
+  /**
    * Get hourly usage for tracing without limits.
+   *
    * @return usage
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Get hourly usage for tracing without limits.")
   @JsonProperty(JSON_PROPERTY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<UsageTracingWithoutLimitsHour> getUsage() {
     return usage;
   }
-
 
   public void setUsage(List<UsageTracingWithoutLimitsHour> usage) {
     this.usage = usage;
   }
 
-
-  /**
-   * Return true if this UsageTracingWithoutLimitsResponse object is equal to o.
-   */
+  /** Return true if this UsageTracingWithoutLimitsResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -85,7 +69,8 @@ public class UsageTracingWithoutLimitsResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UsageTracingWithoutLimitsResponse usageTracingWithoutLimitsResponse = (UsageTracingWithoutLimitsResponse) o;
+    UsageTracingWithoutLimitsResponse usageTracingWithoutLimitsResponse =
+        (UsageTracingWithoutLimitsResponse) o;
     return Objects.equals(this.usage, usageTracingWithoutLimitsResponse.usage);
   }
 
@@ -104,8 +89,7 @@ public class UsageTracingWithoutLimitsResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -113,6 +97,4 @@ public class UsageTracingWithoutLimitsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

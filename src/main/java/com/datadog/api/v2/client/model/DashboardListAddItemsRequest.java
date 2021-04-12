@@ -8,39 +8,24 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.DashboardListItemRequest;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Request containing a list of dashboards to add.
- */
+/** Request containing a list of dashboards to add. */
 @ApiModel(description = "Request containing a list of dashboards to add.")
-@JsonPropertyOrder({
-  DashboardListAddItemsRequest.JSON_PROPERTY_DASHBOARDS
-})
+@JsonPropertyOrder({DashboardListAddItemsRequest.JSON_PROPERTY_DASHBOARDS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DashboardListAddItemsRequest {
   public static final String JSON_PROPERTY_DASHBOARDS = "dashboards";
   private List<DashboardListItemRequest> dashboards = null;
-
 
   public DashboardListAddItemsRequest dashboards(List<DashboardListItemRequest> dashboards) {
     this.dashboards = dashboards;
@@ -55,28 +40,24 @@ public class DashboardListAddItemsRequest {
     return this;
   }
 
-   /**
+  /**
    * List of dashboards to add the dashboard list.
+   *
    * @return dashboards
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "List of dashboards to add the dashboard list.")
   @JsonProperty(JSON_PROPERTY_DASHBOARDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<DashboardListItemRequest> getDashboards() {
     return dashboards;
   }
-
 
   public void setDashboards(List<DashboardListItemRequest> dashboards) {
     this.dashboards = dashboards;
   }
 
-
-  /**
-   * Return true if this DashboardListAddItemsRequest object is equal to o.
-   */
+  /** Return true if this DashboardListAddItemsRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -104,8 +85,7 @@ public class DashboardListAddItemsRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -113,6 +93,4 @@ public class DashboardListAddItemsRequest {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

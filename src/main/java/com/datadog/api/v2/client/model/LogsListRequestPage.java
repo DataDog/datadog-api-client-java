@@ -8,27 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Paging attributes for listing logs.
- */
+/** Paging attributes for listing logs. */
 @ApiModel(description = "Paging attributes for listing logs.")
 @JsonPropertyOrder({
   LogsListRequestPage.JSON_PROPERTY_CURSOR,
@@ -42,59 +31,54 @@ public class LogsListRequestPage {
   public static final String JSON_PROPERTY_LIMIT = "limit";
   private Integer limit = 10;
 
-
   public LogsListRequestPage cursor(String cursor) {
     this.cursor = cursor;
     return this;
   }
 
-   /**
+  /**
    * List following results with a cursor provided in the previous query.
+   *
    * @return cursor
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ==", value = "List following results with a cursor provided in the previous query.")
+  @ApiModelProperty(
+      example =
+          "eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ==",
+      value = "List following results with a cursor provided in the previous query.")
   @JsonProperty(JSON_PROPERTY_CURSOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCursor() {
     return cursor;
   }
 
-
   public void setCursor(String cursor) {
     this.cursor = cursor;
   }
-
 
   public LogsListRequestPage limit(Integer limit) {
     this.limit = limit;
     return this;
   }
 
-   /**
-   * Maximum number of logs in the response.
-   * maximum: 1000
+  /**
+   * Maximum number of logs in the response. maximum: 1000
+   *
    * @return limit
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(example = "25", value = "Maximum number of logs in the response.")
   @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getLimit() {
     return limit;
   }
-
 
   public void setLimit(Integer limit) {
     this.limit = limit;
   }
 
-
-  /**
-   * Return true if this LogsListRequest_page object is equal to o.
-   */
+  /** Return true if this LogsListRequest_page object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -104,8 +88,8 @@ public class LogsListRequestPage {
       return false;
     }
     LogsListRequestPage logsListRequestPage = (LogsListRequestPage) o;
-    return Objects.equals(this.cursor, logsListRequestPage.cursor) &&
-        Objects.equals(this.limit, logsListRequestPage.limit);
+    return Objects.equals(this.cursor, logsListRequestPage.cursor)
+        && Objects.equals(this.limit, logsListRequestPage.limit);
   }
 
   @Override
@@ -124,8 +108,7 @@ public class LogsListRequestPage {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -133,6 +116,4 @@ public class LogsListRequestPage {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

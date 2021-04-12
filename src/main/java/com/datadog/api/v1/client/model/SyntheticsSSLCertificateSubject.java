@@ -8,27 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Object describing the SSL certificate used for the test.
- */
+/** Object describing the SSL certificate used for the test. */
 @ApiModel(description = "Object describing the SSL certificate used for the test.")
 @JsonPropertyOrder({
   SyntheticsSSLCertificateSubject.JSON_PROPERTY_C,
@@ -62,178 +51,161 @@ public class SyntheticsSSLCertificateSubject {
   public static final String JSON_PROPERTY_ALT_NAME = "altName";
   private String altName;
 
-
   public SyntheticsSSLCertificateSubject C(String C) {
     this.C = C;
     return this;
   }
 
-   /**
+  /**
    * Country Name associated with the certificate.
+   *
    * @return C
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Country Name associated with the certificate.")
   @JsonProperty(JSON_PROPERTY_C)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getC() {
     return C;
   }
 
-
   public void setC(String C) {
     this.C = C;
   }
-
 
   public SyntheticsSSLCertificateSubject CN(String CN) {
     this.CN = CN;
     return this;
   }
 
-   /**
+  /**
    * Common Name that associated with the certificate.
+   *
    * @return CN
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Common Name that associated with the certificate.")
   @JsonProperty(JSON_PROPERTY_C_N)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCN() {
     return CN;
   }
 
-
   public void setCN(String CN) {
     this.CN = CN;
   }
-
 
   public SyntheticsSSLCertificateSubject L(String L) {
     this.L = L;
     return this;
   }
 
-   /**
+  /**
    * Locality associated with the certificate.
+   *
    * @return L
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Locality associated with the certificate.")
   @JsonProperty(JSON_PROPERTY_L)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getL() {
     return L;
   }
 
-
   public void setL(String L) {
     this.L = L;
   }
-
 
   public SyntheticsSSLCertificateSubject O(String O) {
     this.O = O;
     return this;
   }
 
-   /**
+  /**
    * Organization associated with the certificate.
+   *
    * @return O
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Organization associated with the certificate.")
   @JsonProperty(JSON_PROPERTY_O)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getO() {
     return O;
   }
 
-
   public void setO(String O) {
     this.O = O;
   }
-
 
   public SyntheticsSSLCertificateSubject OU(String OU) {
     this.OU = OU;
     return this;
   }
 
-   /**
+  /**
    * Organizational Unit associated with the certificate.
+   *
    * @return OU
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Organizational Unit associated with the certificate.")
   @JsonProperty(JSON_PROPERTY_O_U)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getOU() {
     return OU;
   }
 
-
   public void setOU(String OU) {
     this.OU = OU;
   }
-
 
   public SyntheticsSSLCertificateSubject ST(String ST) {
     this.ST = ST;
     return this;
   }
 
-   /**
+  /**
    * State Or Province Name associated with the certificate.
+   *
    * @return ST
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "State Or Province Name associated with the certificate.")
   @JsonProperty(JSON_PROPERTY_S_T)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getST() {
     return ST;
   }
 
-
   public void setST(String ST) {
     this.ST = ST;
   }
-
 
   public SyntheticsSSLCertificateSubject altName(String altName) {
     this.altName = altName;
     return this;
   }
 
-   /**
+  /**
    * Subject Alternative Name associated with the certificate.
+   *
    * @return altName
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Subject Alternative Name associated with the certificate.")
   @JsonProperty(JSON_PROPERTY_ALT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAltName() {
     return altName;
   }
-
 
   public void setAltName(String altName) {
     this.altName = altName;
   }
 
-
-  /**
-   * Return true if this SyntheticsSSLCertificate_subject object is equal to o.
-   */
+  /** Return true if this SyntheticsSSLCertificate_subject object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -242,14 +214,15 @@ public class SyntheticsSSLCertificateSubject {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsSSLCertificateSubject syntheticsSSLCertificateSubject = (SyntheticsSSLCertificateSubject) o;
-    return Objects.equals(this.C, syntheticsSSLCertificateSubject.C) &&
-        Objects.equals(this.CN, syntheticsSSLCertificateSubject.CN) &&
-        Objects.equals(this.L, syntheticsSSLCertificateSubject.L) &&
-        Objects.equals(this.O, syntheticsSSLCertificateSubject.O) &&
-        Objects.equals(this.OU, syntheticsSSLCertificateSubject.OU) &&
-        Objects.equals(this.ST, syntheticsSSLCertificateSubject.ST) &&
-        Objects.equals(this.altName, syntheticsSSLCertificateSubject.altName);
+    SyntheticsSSLCertificateSubject syntheticsSSLCertificateSubject =
+        (SyntheticsSSLCertificateSubject) o;
+    return Objects.equals(this.C, syntheticsSSLCertificateSubject.C)
+        && Objects.equals(this.CN, syntheticsSSLCertificateSubject.CN)
+        && Objects.equals(this.L, syntheticsSSLCertificateSubject.L)
+        && Objects.equals(this.O, syntheticsSSLCertificateSubject.O)
+        && Objects.equals(this.OU, syntheticsSSLCertificateSubject.OU)
+        && Objects.equals(this.ST, syntheticsSSLCertificateSubject.ST)
+        && Objects.equals(this.altName, syntheticsSSLCertificateSubject.altName);
   }
 
   @Override
@@ -273,8 +246,7 @@ public class SyntheticsSSLCertificateSubject {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -282,6 +254,4 @@ public class SyntheticsSSLCertificateSubject {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

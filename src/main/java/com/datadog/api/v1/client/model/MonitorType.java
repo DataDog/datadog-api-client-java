@@ -8,48 +8,38 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
-
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * The type of the monitor. For more information about &#x60;type&#x60;, see the [monitor options](https://docs.datadoghq.com/monitors/guide/monitor_api_options/) docs.
+ * The type of the monitor. For more information about &#x60;type&#x60;, see the [monitor
+ * options](https://docs.datadoghq.com/monitors/guide/monitor_api_options/) docs.
  */
 public enum MonitorType {
-  
   COMPOSITE("composite"),
-  
+
   EVENT_ALERT("event alert"),
-  
+
   LOG_ALERT("log alert"),
-  
+
   METRIC_ALERT("metric alert"),
-  
+
   PROCESS_ALERT("process alert"),
-  
+
   QUERY_ALERT("query alert"),
-  
+
   RUM_ALERT("rum alert"),
-  
+
   SERVICE_CHECK("service check"),
-  
+
   SYNTHETICS_ALERT("synthetics alert"),
-  
+
   TRACE_ANALYTICS_ALERT("trace-analytics alert"),
-  
+
   SLO_ALERT("slo alert"),
-  
+
   EVENT_V2_ALERT("event-v2 alert");
 
   private String value;
@@ -78,4 +68,3 @@ public enum MonitorType {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

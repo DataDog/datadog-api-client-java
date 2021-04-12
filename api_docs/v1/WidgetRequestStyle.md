@@ -3,6 +3,7 @@
 # WidgetRequestStyle
 
 Define request widget style.
+
 ## Properties
 
 Name | Type | Description | Notes

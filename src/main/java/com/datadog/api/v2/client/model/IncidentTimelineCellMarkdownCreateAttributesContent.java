@@ -8,60 +8,46 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * The Markdown timeline cell contents.
- */
+/** The Markdown timeline cell contents. */
 @ApiModel(description = "The Markdown timeline cell contents.")
-@JsonPropertyOrder({
-  IncidentTimelineCellMarkdownCreateAttributesContent.JSON_PROPERTY_CONTENT
-})
+@JsonPropertyOrder({IncidentTimelineCellMarkdownCreateAttributesContent.JSON_PROPERTY_CONTENT})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IncidentTimelineCellMarkdownCreateAttributesContent {
   public static final String JSON_PROPERTY_CONTENT = "content";
   private String content;
-
 
   public IncidentTimelineCellMarkdownCreateAttributesContent content(String content) {
     this.content = content;
     return this;
   }
 
-   /**
+  /**
    * The Markdown content of the cell.
+   *
    * @return content
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "An example timeline cell message.", value = "The Markdown content of the cell.")
+  @ApiModelProperty(
+      example = "An example timeline cell message.",
+      value = "The Markdown content of the cell.")
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getContent() {
     return content;
   }
 
-
   public void setContent(String content) {
     this.content = content;
   }
-
 
   /**
    * Return true if this IncidentTimelineCellMarkdownCreateAttributes_content object is equal to o.
@@ -74,8 +60,11 @@ public class IncidentTimelineCellMarkdownCreateAttributesContent {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IncidentTimelineCellMarkdownCreateAttributesContent incidentTimelineCellMarkdownCreateAttributesContent = (IncidentTimelineCellMarkdownCreateAttributesContent) o;
-    return Objects.equals(this.content, incidentTimelineCellMarkdownCreateAttributesContent.content);
+    IncidentTimelineCellMarkdownCreateAttributesContent
+        incidentTimelineCellMarkdownCreateAttributesContent =
+            (IncidentTimelineCellMarkdownCreateAttributesContent) o;
+    return Objects.equals(
+        this.content, incidentTimelineCellMarkdownCreateAttributesContent.content);
   }
 
   @Override
@@ -93,8 +82,7 @@ public class IncidentTimelineCellMarkdownCreateAttributesContent {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -102,6 +90,4 @@ public class IncidentTimelineCellMarkdownCreateAttributesContent {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

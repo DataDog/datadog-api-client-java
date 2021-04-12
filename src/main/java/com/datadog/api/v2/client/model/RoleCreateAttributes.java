@@ -8,28 +8,17 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Attributes of the created role.
- */
+/** Attributes of the created role. */
 @ApiModel(description = "Attributes of the created role.")
 @JsonPropertyOrder({
   RoleCreateAttributes.JSON_PROPERTY_CREATED_AT,
@@ -47,65 +36,54 @@ public class RoleCreateAttributes {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-
-   /**
+  /**
    * Creation time of the role.
+   *
    * @return createdAt
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Creation time of the role.")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
 
-
-
-
-   /**
+  /**
    * Time of last role modification.
+   *
    * @return modifiedAt
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Time of last role modification.")
   @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getModifiedAt() {
     return modifiedAt;
   }
-
-
-
 
   public RoleCreateAttributes name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Name of the role.
+   *
    * @return name
-  **/
+   */
   @ApiModelProperty(example = "developers", required = true, value = "Name of the role.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getName() {
     return name;
   }
-
 
   public void setName(String name) {
     this.name = name;
   }
 
-
-  /**
-   * Return true if this RoleCreateAttributes object is equal to o.
-   */
+  /** Return true if this RoleCreateAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -115,9 +93,9 @@ public class RoleCreateAttributes {
       return false;
     }
     RoleCreateAttributes roleCreateAttributes = (RoleCreateAttributes) o;
-    return Objects.equals(this.createdAt, roleCreateAttributes.createdAt) &&
-        Objects.equals(this.modifiedAt, roleCreateAttributes.modifiedAt) &&
-        Objects.equals(this.name, roleCreateAttributes.name);
+    return Objects.equals(this.createdAt, roleCreateAttributes.createdAt)
+        && Objects.equals(this.modifiedAt, roleCreateAttributes.modifiedAt)
+        && Objects.equals(this.name, roleCreateAttributes.name);
   }
 
   @Override
@@ -137,8 +115,7 @@ public class RoleCreateAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -146,6 +123,4 @@ public class RoleCreateAttributes {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

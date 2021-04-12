@@ -3,6 +3,7 @@
 # UsageSummaryDateOrg
 
 Global hourly report of all data billed by Datadog for a given organization.
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -15,12 +16,15 @@ Name | Type | Description | Notes
 **awsLambdaInvocationsSum** | **Long** | Shows the sum of all AWS Lambda invocations over all hours in the current date for the given org. |  [optional]
 **azureAppServiceTop99p** | **Long** | Shows the 99th percentile of all Azure app services over all hours in the current date for the given org. |  [optional]
 **billableIngestedBytesSum** | **Long** | Shows the sum of all log bytes ingested over all hours in the current date for the given org. |  [optional]
+**complianceContainerAggSum** | **Object** | Shows the sum of all compliance containers over all hours in the current date for the given org. |  [optional]
+**complianceHostAggSum** | **Long** | Shows the sum of all compliance hosts over all hours in the current date for the given org. |  [optional]
 **containerAvg** | **Long** | Shows the average of all distinct containers over all hours in the current date for the given org. |  [optional]
 **containerHwm** | **Long** | Shows the high-water mark of all distinct containers over all hours in the current date for the given org. |  [optional]
 **customTsAvg** | **Long** | Shows the average number of distinct custom metrics over all hours in the current date for the given org. |  [optional]
 **fargateTasksCountAvg** | **Long** | The average task count for Fargate. |  [optional]
 **fargateTasksCountHwm** | **Long** | Shows the high-water mark of all Fargate tasks over all hours in the current date for the given org. |  [optional]
 **gcpHostTop99p** | **Long** | Shows the 99th percentile of all GCP hosts over all hours in the current date for the given org. |  [optional]
+**herokuHostTop99p** | **Long** | Shows the 99th percentile of all Heroku dynos over all hours in the current date for the given org. |  [optional]
 **id** | **String** | The organization id. |  [optional]
 **incidentManagementMonthlyActiveUsersHwm** | **Long** | Shows the high-water mark of incident management monthly active users over all hours in the current date for the given org. |  [optional]
 **indexedEventsCountSum** | **Long** | Shows the sum of all log events indexed over all hours in the current date for the given org. |  [optional]
@@ -34,6 +38,7 @@ Name | Type | Description | Notes
 **name** | **String** | The organization name. |  [optional]
 **netflowIndexedEventsCountSum** | **Long** | Shows the sum of all Network flows indexed over all hours in the current date for the given org. |  [optional]
 **npmHostTop99p** | **Long** | Shows the 99th percentile of all distinct Networks hosts over all hours in the current date for the given org. |  [optional]
+**opentelemetryHostTop99p** | **Long** | Shows the 99th percentile of all hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current date for the given org. |  [optional]
 **profilingHostTop99p** | **Long** | Shows the 99th percentile of all profiled hosts over all hours in the current date for the given org. |  [optional]
 **publicId** | **String** | The organization public id. |  [optional]
 **rumSessionCountSum** | **Long** | Shows the sum of all browser RUM Sessions over all hours in the current date for the given org. |  [optional]

@@ -3,6 +3,7 @@
 # RelationshipToOrganizations
 
 Relationship to organizations.
+
 ## Properties
 
 Name | Type | Description | Notes

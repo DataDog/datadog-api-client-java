@@ -8,32 +8,22 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
-
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * The timeframe of the threshold associated with this error or \&quot;all\&quot; if all thresholds are affected.
+ * The timeframe of the threshold associated with this error or \&quot;all\&quot; if all thresholds
+ * are affected.
  */
 public enum SLOErrorTimeframe {
-  
   SEVEN_DAYS("7d"),
-  
+
   THIRTY_DAYS("30d"),
-  
+
   NINETY_DAYS("90d"),
-  
+
   ALL("all");
 
   private String value;
@@ -62,4 +52,3 @@ public enum SLOErrorTimeframe {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

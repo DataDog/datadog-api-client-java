@@ -8,39 +8,24 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.UsageHostHour;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Host usage response.
- */
+/** Host usage response. */
 @ApiModel(description = "Host usage response.")
-@JsonPropertyOrder({
-  UsageHostsResponse.JSON_PROPERTY_USAGE
-})
+@JsonPropertyOrder({UsageHostsResponse.JSON_PROPERTY_USAGE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageHostsResponse {
   public static final String JSON_PROPERTY_USAGE = "usage";
   private List<UsageHostHour> usage = null;
-
 
   public UsageHostsResponse usage(List<UsageHostHour> usage) {
     this.usage = usage;
@@ -55,28 +40,24 @@ public class UsageHostsResponse {
     return this;
   }
 
-   /**
+  /**
    * An array of objects related to host usage.
+   *
    * @return usage
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "An array of objects related to host usage.")
   @JsonProperty(JSON_PROPERTY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<UsageHostHour> getUsage() {
     return usage;
   }
-
 
   public void setUsage(List<UsageHostHour> usage) {
     this.usage = usage;
   }
 
-
-  /**
-   * Return true if this UsageHostsResponse object is equal to o.
-   */
+  /** Return true if this UsageHostsResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -104,8 +85,7 @@ public class UsageHostsResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -113,6 +93,4 @@ public class UsageHostsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

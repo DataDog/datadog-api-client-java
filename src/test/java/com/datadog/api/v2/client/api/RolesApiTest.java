@@ -8,243 +8,233 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.api;
 
-
-import com.datadog.api.v2.client.ApiException;
-import com.datadog.api.v2.client.model.APIErrorResponse;
-import com.datadog.api.v2.client.model.*;
-import org.junit.*;
 import static org.junit.Assert.*;
 
+import com.datadog.api.v2.client.ApiException;
+import com.datadog.api.v2.client.model.*;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import org.junit.*;
 
-/**
- * API tests for RolesApi
- */
+/** API tests for RolesApi */
 public class RolesApiTest extends V2APITest {
 
-    private static RolesApi api;
-    private static UsersApi usersApi;
-    private ArrayList<String> disableUsers = null;
-    private ArrayList<String> deleteRoles = null;
-    private final String testingUserName = "Test Datadog Client Java";
-    private final String testingUserTitle = "Big boss";
+  private static RolesApi api;
+  private static UsersApi usersApi;
+  private ArrayList<String> disableUsers = null;
+  private ArrayList<String> deleteRoles = null;
+  private final String testingUserName = "Test Datadog Client Java";
+  private final String testingUserTitle = "Big boss";
 
-    @Override
-    public String getTracingEndpoint() {
-        return "roles";
-    }
+  @Override
+  public String getTracingEndpoint() {
+    return "roles";
+  }
 
-    @BeforeClass
-    public static void initApi() {
-        api = new RolesApi(generalApiClient);
-        usersApi = new UsersApi(generalApiClient);
-    }
+  @BeforeClass
+  public static void initApi() {
+    api = new RolesApi(generalApiClient);
+    usersApi = new UsersApi(generalApiClient);
+  }
 
-    @Before
-    public void resetResources() {
-        deleteRoles = new ArrayList<String>();
-        disableUsers = new ArrayList<String>();
-    }
+  @Before
+  public void resetResources() {
+    deleteRoles = new ArrayList<String>();
+    disableUsers = new ArrayList<String>();
+  }
 
-    @After
-    public void deleteRoles() {
-        if (deleteRoles != null) {
-            for (String id: deleteRoles) {
-                try {
-                    api.deleteRole(id).execute();
-                } catch (ApiException e) {
-                    System.err.println("Role was already deleted: " + id);
-                }
-            }
+  @After
+  public void deleteRoles() {
+    if (deleteRoles != null) {
+      for (String id : deleteRoles) {
+        try {
+          api.deleteRole(id).execute();
+        } catch (ApiException e) {
+          System.err.println("Role was already deleted: " + id);
         }
+      }
     }
+  }
 
-    @After
-    public void disableUsers() throws ApiException {
-        if (disableUsers != null) {
-            for (String id: disableUsers) {
-                UserResponse urp = usersApi.getUser(id).execute();
-                if (!urp.getData().getAttributes().getDisabled()) {
-                    usersApi.disableUser(id).execute();
-                }
-            }
+  @After
+  public void disableUsers() throws ApiException {
+    if (disableUsers != null) {
+      for (String id : disableUsers) {
+        UserResponse urp = usersApi.getUser(id).execute();
+        if (!urp.getData().getAttributes().getDisabled()) {
+          usersApi.disableUser(id).execute();
         }
+      }
     }
+  }
 
-    @Test
-    public void testRoleLifecycle() throws ApiException {
-        final String testingRoleName = getUniqueEntityName();
-        RoleCreateAttributes rca = new RoleCreateAttributes()
-                .name(testingRoleName);
-        RoleCreateData rcd = new RoleCreateData().attributes(rca);
-        RoleCreateRequest rcr = new RoleCreateRequest().data(rcd);
+  @Test
+  public void testRoleLifecycle() throws ApiException {
+    final String testingRoleName = getUniqueEntityName();
+    RoleCreateAttributes rca = new RoleCreateAttributes().name(testingRoleName);
+    RoleCreateData rcd = new RoleCreateData().attributes(rca);
+    RoleCreateRequest rcr = new RoleCreateRequest().data(rcd);
 
-        // first, test creating a role
-        RoleCreateResponse rr = api.createRole().body(rcr).execute();
-        String rid = rr.getData().getId();
-        deleteRoles.add(rid);
+    // first, test creating a role
+    RoleCreateResponse rr = api.createRole().body(rcr).execute();
+    String rid = rr.getData().getId();
+    deleteRoles.add(rid);
 
-        assertEquals(testingRoleName, rr.getData().getAttributes().getName());
+    assertEquals(testingRoleName, rr.getData().getAttributes().getName());
 
-        // now, test updating it
-        String updatedRoleName = testingRoleName + "-updated";
-        RoleUpdateAttributes rua = new RoleUpdateAttributes()
-                .name(updatedRoleName);
-        RoleUpdateData rud = new RoleUpdateData().attributes(rua).id(rid);
-        RoleUpdateRequest rur = new RoleUpdateRequest().data(rud);
+    // now, test updating it
+    String updatedRoleName = testingRoleName + "-updated";
+    RoleUpdateAttributes rua = new RoleUpdateAttributes().name(updatedRoleName);
+    RoleUpdateData rud = new RoleUpdateData().attributes(rua).id(rid);
+    RoleUpdateRequest rur = new RoleUpdateRequest().data(rud);
 
-        RoleUpdateResponse urr = api.updateRole(rid).body(rur).execute();
-        assertEquals(updatedRoleName, urr.getData().getAttributes().getName());
+    RoleUpdateResponse urr = api.updateRole(rid).body(rur).execute();
+    assertEquals(updatedRoleName, urr.getData().getAttributes().getName());
 
-        // now, test getting it
-        RoleResponse grr = api.getRole(rid).execute();
-        assertEquals(updatedRoleName, grr.getData().getAttributes().getName());
+    // now, test getting it
+    RoleResponse grr = api.getRole(rid).execute();
+    assertEquals(updatedRoleName, grr.getData().getAttributes().getName());
 
-        // now, test filtering for it in the list call
-        RolesResponse rsr = api.listRoles()
-                .filter(updatedRoleName)
-                .pageSize(1L)
-                .pageNumber(0L)
-                .sort(RolesSort.MODIFIED_AT_DESCENDING)
-                .execute();
-        assertEquals(1, rsr.getData().size());
-        assertEquals(updatedRoleName, rsr.getData().get(0).getAttributes().getName());
-        assertTrue(rsr.getMeta().getPage().getTotalCount() >= 1);
-        assertTrue(rsr.getMeta().getPage().getTotalFilteredCount() >= 1);
+    // now, test filtering for it in the list call
+    RolesResponse rsr =
+        api.listRoles()
+            .filter(updatedRoleName)
+            .pageSize(1L)
+            .pageNumber(0L)
+            .sort(RolesSort.MODIFIED_AT_DESCENDING)
+            .execute();
+    assertEquals(1, rsr.getData().size());
+    assertEquals(updatedRoleName, rsr.getData().get(0).getAttributes().getName());
+    assertTrue(rsr.getMeta().getPage().getTotalCount() >= 1);
+    assertTrue(rsr.getMeta().getPage().getTotalFilteredCount() >= 1);
 
-        // now, test deleting it
-        // no response payload
-        api.deleteRole(rid);
+    // now, test deleting it
+    // no response payload
+    api.deleteRole(rid);
+  }
+
+  @Test
+  public void testRolePermissionsLifecycle() throws ApiException {
+    final String testingRoleName = getUniqueEntityName();
+    RoleCreateAttributes rca = new RoleCreateAttributes().name(testingRoleName);
+    RoleCreateData rcd = new RoleCreateData().attributes(rca);
+    RoleCreateRequest rcr = new RoleCreateRequest().data(rcd);
+
+    // first, create a role
+    RoleCreateResponse rr = api.createRole().body(rcr).execute();
+    String rid = rr.getData().getId();
+    deleteRoles.add(rid);
+
+    // find a permission
+    PermissionsResponse permissions = api.listPermissions().execute();
+    assertTrue(permissions.getData().size() > 0);
+
+    Permission permission = permissions.getData().get(0);
+    String pid = permission.getId();
+
+    // add a permission to the role
+    RelationshipToPermissionData rtpd = new RelationshipToPermissionData().id(pid);
+    RelationshipToPermission rtp = new RelationshipToPermission().data(rtpd);
+
+    PermissionsResponse crrtps = api.addPermissionToRole(rid).body(rtp).execute();
+    boolean found = false;
+    for (Permission p : crrtps.getData()) {
+      if (pid.equals(p.getId())) {
+        found = true;
+        break;
+      }
     }
+    assertTrue(found);
 
-    @Test
-    public void testRolePermissionsLifecycle() throws ApiException {
-        final String testingRoleName = getUniqueEntityName();
-        RoleCreateAttributes rca = new RoleCreateAttributes()
-                .name(testingRoleName);
-        RoleCreateData rcd = new RoleCreateData().attributes(rca);
-        RoleCreateRequest rcr = new RoleCreateRequest().data(rcd);
-
-        // first, create a role
-        RoleCreateResponse rr = api.createRole().body(rcr).execute();
-        String rid = rr.getData().getId();
-        deleteRoles.add(rid);
-
-        // find a permission
-        PermissionsResponse permissions = api.listPermissions().execute();
-        assertTrue(permissions.getData().size() > 0);
-
-        Permission permission = permissions.getData().get(0);
-        String pid = permission.getId();
-
-        // add a permission to the role
-        RelationshipToPermissionData rtpd = new RelationshipToPermissionData().id(pid);
-        RelationshipToPermission rtp = new RelationshipToPermission().data(rtpd);
-
-        PermissionsResponse crrtps = api.addPermissionToRole(rid).body(rtp).execute();
-        boolean found = false;
-        for (Permission p : crrtps.getData()) {
-            if (pid.equals(p.getId())) {
-                found = true;
-                break;
-            }
-        }
-        assertTrue(found);
-
-        // get all permissions for the role
-        PermissionsResponse lrrtps = api.listRolePermissions(rid).execute();
-        found = false;
-        for (Permission p : lrrtps.getData()) {
-            if (pid.equals(p.getId())) {
-                found = true;
-                break;
-            }
-        }
-        assertTrue(found);
-
-        // remove the permission from the role
-        PermissionsResponse drrtps = api.removePermissionFromRole(rid).body(rtp).execute();
-        found = false;
-        for (Permission p : drrtps.getData()) {
-            if (pid.equals(p.getId())) {
-                found = true;
-                break;
-            }
-        }
-        assertFalse(found);
+    // get all permissions for the role
+    PermissionsResponse lrrtps = api.listRolePermissions(rid).execute();
+    found = false;
+    for (Permission p : lrrtps.getData()) {
+      if (pid.equals(p.getId())) {
+        found = true;
+        break;
+      }
     }
+    assertTrue(found);
 
-    @Test
-    public void testRoleUsersLifecycle() throws ApiException {
-        final String testingRoleName = getUniqueEntityName();
-        RoleCreateAttributes rca = new RoleCreateAttributes()
-                .name(testingRoleName);
-        RoleCreateData rcd = new RoleCreateData().attributes(rca);
-        RoleCreateRequest rcp = new RoleCreateRequest().data(rcd);
-
-        // first, create a role
-        RoleCreateResponse rr = api.createRole().body(rcp).execute();
-        String rid = rr.getData().getId();
-        deleteRoles.add(rid);
-
-        // create a user
-        final String testingUserHandle = getUniqueEntityName() + "@datadoghq.com";
-        UserCreateAttributes uca = new UserCreateAttributes()
-                .email(testingUserHandle)
-                .name(testingUserName)
-                .title(testingUserTitle);
-        UserCreateData ucd = new UserCreateData().attributes(uca);
-        UserCreateRequest ucr = new UserCreateRequest().data(ucd);
-        UserResponse ur = usersApi.createUser().body(ucr).execute();
-        String uid = ur.getData().getId();
-        disableUsers.add(uid);
-
-        // add a user to the role
-        RelationshipToUserData rtud = new RelationshipToUserData().id(uid);
-        RelationshipToUser rtu = new RelationshipToUser().data(rtud);
-
-        UsersResponse crrtus = api.addUserToRole(rid).body(rtu).execute();
-        boolean found = false;
-        for (User u : crrtus.getData()) {
-            if (uid.equals(u.getId())) {
-                found = true;
-                break;
-            }
-        }
-        assertTrue(found);
-
-        // get all users for the role
-        UsersResponse lrrtus = api.listRoleUsers(rid).execute();
-        found = false;
-        for (User u : lrrtus.getData()) {
-            if (uid.equals(u.getId())) {
-                found = true;
-                break;
-            }
-        }
-        assertTrue(found);
-
-        // remove the permission from the role
-        UsersResponse drrtus = api.removeUserFromRole(rid).body(rtu).execute();
-        found = false;
-        for (User u : drrtus.getData()) {
-            if (uid.equals(u.getId())) {
-                found = true;
-                break;
-            }
-        }
-        assertFalse(found);
+    // remove the permission from the role
+    PermissionsResponse drrtps = api.removePermissionFromRole(rid).body(rtp).execute();
+    found = false;
+    for (Permission p : drrtps.getData()) {
+      if (pid.equals(p.getId())) {
+        found = true;
+        break;
+      }
     }
+    assertFalse(found);
+  }
 
-    @Test
-    public void listPermissionsTest() throws ApiException {
-        PermissionsResponse psr = api.listPermissions().execute();
-        assertTrue(psr.getData().size() > 0);
+  @Test
+  public void testRoleUsersLifecycle() throws ApiException {
+    final String testingRoleName = getUniqueEntityName();
+    RoleCreateAttributes rca = new RoleCreateAttributes().name(testingRoleName);
+    RoleCreateData rcd = new RoleCreateData().attributes(rca);
+    RoleCreateRequest rcp = new RoleCreateRequest().data(rcd);
+
+    // first, create a role
+    RoleCreateResponse rr = api.createRole().body(rcp).execute();
+    String rid = rr.getData().getId();
+    deleteRoles.add(rid);
+
+    // create a user
+    final String testingUserHandle = getUniqueEntityName() + "@datadoghq.com";
+    UserCreateAttributes uca =
+        new UserCreateAttributes()
+            .email(testingUserHandle)
+            .name(testingUserName)
+            .title(testingUserTitle);
+    UserCreateData ucd = new UserCreateData().attributes(uca);
+    UserCreateRequest ucr = new UserCreateRequest().data(ucd);
+    UserResponse ur = usersApi.createUser().body(ucr).execute();
+    String uid = ur.getData().getId();
+    disableUsers.add(uid);
+
+    // add a user to the role
+    RelationshipToUserData rtud = new RelationshipToUserData().id(uid);
+    RelationshipToUser rtu = new RelationshipToUser().data(rtud);
+
+    UsersResponse crrtus = api.addUserToRole(rid).body(rtu).execute();
+    boolean found = false;
+    for (User u : crrtus.getData()) {
+      if (uid.equals(u.getId())) {
+        found = true;
+        break;
+      }
     }
+    assertTrue(found);
+
+    // get all users for the role
+    UsersResponse lrrtus = api.listRoleUsers(rid).execute();
+    found = false;
+    for (User u : lrrtus.getData()) {
+      if (uid.equals(u.getId())) {
+        found = true;
+        break;
+      }
+    }
+    assertTrue(found);
+
+    // remove the permission from the role
+    UsersResponse drrtus = api.removeUserFromRole(rid).body(rtu).execute();
+    found = false;
+    for (User u : drrtus.getData()) {
+      if (uid.equals(u.getId())) {
+        found = true;
+        break;
+      }
+    }
+    assertFalse(found);
+  }
+
+  @Test
+  public void listPermissionsTest() throws ApiException {
+    PermissionsResponse psr = api.listPermissions().execute();
+    assertTrue(psr.getData().size() > 0);
+  }
 }

@@ -3,6 +3,7 @@
 # UsersResponse
 
 Response containing information about multiple users.
+
 ## Properties
 
 Name | Type | Description | Notes
