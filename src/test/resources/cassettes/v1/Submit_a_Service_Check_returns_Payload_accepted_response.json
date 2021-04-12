@@ -1,5 +1,5 @@
 [{
-  "id" : "654a0304-6bad-43cb-a46b-a3e688d55a1f",
+  "id" : "bebf1c69-3179-4327-89ec-21af2b9f44fa",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/check_run",
@@ -13,7 +13,7 @@
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "[{\"check\":\"app.ok\",\"host_name\":\"host\",\"status\":0,\"tags\":[\"test:javaSubmitaServiceChe1614932905\"]}]"
+      "json" : "[{\"check\":\"app.ok\",\"host_name\":\"host\",\"status\":0,\"tags\":[\"test:TestSubmitaServiceCheckreturnsPayloadacceptedresponse1618083766\"]}]"
     }
   },
   "times" : {
@@ -26,7 +26,7 @@
     "statusCode" : 202,
     "reasonPhrase" : "Accepted",
     "headers" : {
-      "Date" : [ "Fri, 05 Mar 2021 08:28:26 GMT" ],
+      "Date" : [ "Sat, 10 Apr 2021 19:42:47 GMT" ],
       "Content-Type" : [ "text/json" ],
       "Content-Length" : [ "16" ],
       "Connection" : [ "keep-alive" ],

@@ -1,8 +1,8 @@
 [{
-  "id" : "46812d27-b1fe-4632-a449-5876a782681f",
+  "id" : "5007520b-4800-42f4-a653-c7b580cccbec",
   "httpRequest" : {
     "method" : "POST",
-    "path" : "/api/v2/metrics/javaDeleteatagconfigu1614797990/tags",
+    "path" : "/api/v2/metrics/TestDeleteatagconfigurationreturnsNoContentresponse1618083809/tags",
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "Delete_a_tag_configuration_returns_No_Content_response" ],
@@ -13,7 +13,7 @@
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"data\":{\"attributes\":{\"include_percentiles\":false,\"metric_type\":\"distribution\",\"tags\":[\"app\",\"datacenter\",\"javaDeleteatagconfigu1614797990\"]},\"id\":\"javaDeleteatagconfigu1614797990\",\"type\":\"manage_tags\"}}"
+      "json" : "{\"data\":{\"attributes\":{\"include_percentiles\":false,\"metric_type\":\"distribution\",\"tags\":[\"app\",\"datacenter\",\"TestDeleteatagconfigurationreturnsNoContentresponse1618083809\"]},\"id\":\"TestDeleteatagconfigurationreturnsNoContentresponse1618083809\",\"type\":\"manage_tags\"}}"
     }
   },
   "times" : {
@@ -26,30 +26,30 @@
     "statusCode" : 201,
     "reasonPhrase" : "Created",
     "headers" : {
-      "Date" : [ "Wed, 03 Mar 2021 18:59:51 GMT" ],
+      "Date" : [ "Sat, 10 Apr 2021 19:43:30 GMT" ],
       "Content-Type" : [ "application/json" ],
-      "Content-Length" : [ "300" ],
+      "Content-Length" : [ "360" ],
       "Connection" : [ "keep-alive" ],
       "pragma" : [ "no-cache" ],
       "cache-control" : [ "no-cache" ],
-      "x-dd-version" : [ "35.4022232" ],
+      "x-dd-version" : [ "35.4281284" ],
       "x-ratelimit-limit" : [ "50" ],
       "x-ratelimit-period" : [ "60" ],
-      "x-ratelimit-reset" : [ "9" ],
-      "x-ratelimit-remaining" : [ "44" ],
-      "x-dd-debug" : [ "Um4CoU685QqAscnxhS5BD+goWu2yX1Jd4zCfGzSsEvPPIm1qURZaF8dlLl/OEY4I" ],
+      "x-ratelimit-reset" : [ "30" ],
+      "x-ratelimit-remaining" : [ "47" ],
+      "x-dd-debug" : [ "dPySkcOzIZtKyMKDAAzuysY3gNGGj6RtYogGuSb76E8mPvoqzREyRp6lPYm91hQU" ],
       "x-content-type-options" : [ "nosniff" ],
       "strict-transport-security" : [ "max-age=15724800;" ],
       "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "x-frame-options" : [ "SAMEORIGIN" ]
     },
-    "body" : "{\"data\":{\"type\":\"manage_tags\",\"id\":\"javaDeleteatagconfigu1614797990\",\"attributes\":{\"tags\":[\"datacenter\",\"app\",\"javaDeleteatagconfigu1614797990\"],\"include_percentiles\":false,\"created_at\":\"2021-03-03T18:59:51.054333+00:00\",\"updated_at\":\"2021-03-03T18:59:51.054333+00:00\",\"metric_type\":\"distribution\"}}}"
+    "body" : "{\"data\":{\"type\":\"manage_tags\",\"id\":\"TestDeleteatagconfigurationreturnsNoContentresponse1618083809\",\"attributes\":{\"tags\":[\"TestDeleteatagconfigurationreturnsNoContentresponse1618083809\",\"app\",\"datacenter\"],\"include_percentiles\":false,\"created_at\":\"2021-04-10T19:43:30.298567+00:00\",\"updated_at\":\"2021-04-10T19:43:30.298567+00:00\",\"metric_type\":\"distribution\"}}}"
   }
 }, {
-  "id" : "069e8305-1fc8-41e2-9c32-b10991b45dc8",
+  "id" : "a393cd45-3de4-4270-a41e-b9bfd5c6e3f3",
   "httpRequest" : {
     "method" : "DELETE",
-    "path" : "/api/v2/metrics/javaDeleteatagconfigu1614797990/tags",
+    "path" : "/api/v2/metrics/TestDeleteatagconfigurationreturnsNoContentresponse1618083809/tags",
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "Delete_a_tag_configuration_returns_No_Content_response" ],
@@ -69,18 +69,18 @@
     "statusCode" : 204,
     "reasonPhrase" : "No Content",
     "headers" : {
-      "Date" : [ "Wed, 03 Mar 2021 18:59:51 GMT" ],
+      "Date" : [ "Sat, 10 Apr 2021 19:43:30 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "0" ],
       "Connection" : [ "keep-alive" ],
       "pragma" : [ "no-cache" ],
       "cache-control" : [ "no-cache" ],
-      "x-dd-version" : [ "35.4022232" ],
+      "x-dd-version" : [ "35.4281284" ],
       "x-ratelimit-limit" : [ "50" ],
       "x-ratelimit-period" : [ "60" ],
-      "x-ratelimit-reset" : [ "9" ],
-      "x-ratelimit-remaining" : [ "43" ],
-      "x-dd-debug" : [ "l8RQo2maZqJf6GFThBbKNE6dvthz6njusVtau3dPXJWL2RLFoN81H+BLPB/1xgs1" ],
+      "x-ratelimit-reset" : [ "30" ],
+      "x-ratelimit-remaining" : [ "46" ],
+      "x-dd-debug" : [ "l4HFlaRP3QwYSqoGKhzbYfv7zgkK63HIRR7YkyVYZspq0lGjjTBwoK8V/alf+XYt" ],
       "x-content-type-options" : [ "nosniff" ],
       "strict-transport-security" : [ "max-age=15724800;" ],
       "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
@@ -88,10 +88,10 @@
     }
   }
 }, {
-  "id" : "8e58ef47-1548-4427-abff-92db3b90bc8e",
+  "id" : "6f840540-2b2d-4acb-8743-25ff1fd89575",
   "httpRequest" : {
     "method" : "DELETE",
-    "path" : "/api/v2/metrics/javaDeleteatagconfigu1614797990/tags",
+    "path" : "/api/v2/metrics/TestDeleteatagconfigurationreturnsNoContentresponse1618083809/tags",
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "Delete_a_tag_configuration_returns_No_Content_response" ],
@@ -111,7 +111,7 @@
     "statusCode" : 404,
     "reasonPhrase" : "Not Found",
     "headers" : {
-      "Date" : [ "Wed, 03 Mar 2021 18:59:51 GMT" ],
+      "Date" : [ "Sat, 10 Apr 2021 19:43:31 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "vary" : [ "Accept-Encoding" ],
@@ -119,15 +119,15 @@
       "cache-control" : [ "no-cache" ],
       "x-ratelimit-limit" : [ "50" ],
       "x-ratelimit-period" : [ "60" ],
-      "x-ratelimit-reset" : [ "9" ],
-      "x-ratelimit-remaining" : [ "42" ],
-      "x-dd-version" : [ "35.4022232" ],
+      "x-ratelimit-reset" : [ "29" ],
+      "x-ratelimit-remaining" : [ "45" ],
+      "x-dd-version" : [ "35.4281284" ],
       "x-content-type-options" : [ "nosniff" ],
       "strict-transport-security" : [ "max-age=15724800;" ],
       "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "x-frame-options" : [ "SAMEORIGIN" ],
-      "content-length" : [ "57" ]
+      "content-length" : [ "87" ]
     },
-    "body" : "{\"errors\": [\"javaDeleteatagconfigu1614797990 not found\"]}"
+    "body" : "{\"errors\": [\"TestDeleteatagconfigurationreturnsNoContentresponse1618083809 not found\"]}"
   }
 }]

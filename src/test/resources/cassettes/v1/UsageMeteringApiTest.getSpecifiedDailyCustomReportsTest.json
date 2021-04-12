@@ -1,13 +1,12 @@
 [{
-  "id" : "b2017b21-ad4b-4e59-a536-63220c6f31a8",
+  "id" : "12df213e-1ace-481e-a58c-a4ec87e8facd",
   "httpRequest" : {
     "method" : "GET",
-    "path" : "/api/v1/daily_custom_reports/2020-09-27",
+    "path" : "/api/v1/daily_custom_reports/2021-04-11",
     "headers" : {
       "Accept" : [ "application/json;datetime-format=rfc3339" ],
       "JAVA-TEST-NAME" : [ "getSpecifiedDailyCustomReportsTest" ],
       "DD-OPERATION-ID" : [ "getSpecifiedDailyCustomReports" ],
-      "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
     "keepAlive" : false,
@@ -20,23 +19,23 @@
     "unlimited" : true
   },
   "httpResponse" : {
-    "statusCode" : 404,
-    "reasonPhrase" : "Not Found",
+    "statusCode" : 200,
+    "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Mon, 28 Sep 2020 13:36:04 GMT" ],
+      "Date" : [ "Mon, 12 Apr 2021 15:14:34 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
-      "Vary" : [ "Accept-Encoding" ],
-      "Pragma" : [ "no-cache" ],
-      "Cache-Control" : [ "no-cache" ],
-      "X-DD-VERSION" : [ "35.3101592" ],
-      "DD-POOL" : [ "dogweb_wallace" ],
-      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "X-Frame-Options" : [ "SAMEORIGIN" ],
-      "X-Content-Type-Options" : [ "nosniff" ],
-      "Strict-Transport-Security" : [ "max-age=15724800;" ],
-      "content-length" : [ "26" ]
+      "vary" : [ "Accept-Encoding" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "x-dd-version" : [ "35.4290125" ],
+      "x-dd-debug" : [ "ZrpK0iZ3z6G9rRQ4Xdad+E2q8ts0/vn3lpkWYLV8Xt3/HusPoRHeJdSO6vBq670u" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ],
+      "content-length" : [ "1325" ]
     },
-    "body" : "{\"errors\": [\" not found\"]}"
+    "body" : "{\"meta\":{\"page\":{\"total_count\":1}},\"data\":{\"type\":\"reports\",\"id\":\"2021-04-11\",\"attributes\":{\"tags\":[\"project\"],\"start_date\":\"2021-04-11\",\"end_date\":\"2021-04-11\",\"size\":9471,\"computed_on\":\"2021-04-12T11:26:06+00:00\",\"location\":\"https://dd-michelada-custom-reporting-prod.s3.amazonaws.com/subscription_job_zipper/1.0/2021/04/11/1/550/daily_report_2021-04-11.zip?AWSAccessKeyId=ASIAWYLNJGWWA42GXT7Q&Signature=VvPP%2Bt3FVZaw4KFKJc1mwzfm%2BDs%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEGgaCXVzLWVhc3QtMSJGMEQCIDXZNr%2BR17wuWgFqimw1Hq3i0Uca5%2FDarPFQBjH77cmFAiAVDwQDmjmjcW0r0plA%2FcHpRR5XZ%2FbbNA4sDTl6OIdLRSq0AgjA%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAAaDDQ2NDYyMjUzMjAxMiIMdpA7wOGsiAs%2FgmtLKogCHdIYr7gpb%2BgweAYUc0VeTe5FJs6riu5VZW2VhlYKbRBJY%2B2EiWEfm3o3YwwdH08RCPBvYC5P3qSz1ZFCha2ukofIvBAoRQnBeqwXyglKKSXqzPaqwxdPuBvm%2BselIeAPn8Qvf%2FcEIgPA2wcsDGq%2FvWGdc9oqKx2AbrwUFG9UvN7u%2Bo1h7Dn42pcSFuvXCHJkY4KP%2Bw0O%2BZek1MCeDbqTq6u6CmvPcrwrew0AB4evxexDmDNszuTyFYIdMydtMHYtW33KdhIfwd9q5ztZFdhMfdJTzod6AQgiAzDe%2BuX6ptiwTlAhnYcV%2FXBNBuD5y04NoEJlojedTqkZMlCPCVocgMZRWIOh5%2F90MNrH0YMGOp4BX3VJMr3ZRinXyKp4OtCCo%2BPUVxKJr0dOabbTPHOTk6TlrBg5Ke%2F6c3MSfss7jFpVZB%2BgQgB1nmsLVDVrxhSVrX5xwdTTxt4NrBZhwsOs9%2BCPkQDlhyslXyXWAjnVw2rqNRWgQ91jeITuJ%2FbB89LQU0rlrerlRVGwojE2HXdyasnYeIivAG%2F%2FG6Li6g1%2Fh0K1hlqofo3SEzAZ%2F1Uyqdg%3D&Expires=1618240774\"}}}"
   }
 }]
