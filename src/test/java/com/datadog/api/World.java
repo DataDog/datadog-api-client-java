@@ -161,10 +161,10 @@ public class World {
       }
     }
     for (Class c : apiClass.getClasses()) {
-      if (c.getName().endsWith(methodName + "Parameters")) {
+      if (c.getName().endsWith(methodName + "OptionalParameters")) {
         requestParametersClass = c;
         try {
-          requestParameters = c.getConstructor(apiClass).newInstance(api);
+          requestParameters = c.getConstructor().newInstance();
         } catch (Exception e) {
           throw new RuntimeException(e);
         }
@@ -275,9 +275,9 @@ public class World {
     Class<?> givenParametersClass = null;
     Object parameters = null;
     for (Class c : givenAPIClass.getClasses()) {
-      if (c.getName().endsWith(step.operationId + "Parameters")) {
+      if (c.getName().endsWith(step.operationId + "OptionalParameters")) {
         givenParametersClass = c;
-        parameters = givenParametersClass.getConstructor(givenAPIClass).newInstance(givenAPI);
+        parameters = givenParametersClass.getConstructor().newInstance();
         break;
       }
     }
@@ -313,8 +313,7 @@ public class World {
     try {
       givenResponse = givenOperation.invoke(givenAPI, givenParametersArray.toArray());
     } catch (Exception e) {
-      throw new RuntimeException(
-          e + " #" + givenParametersArray.get(0) + " #" + givenParametersArray.size());
+      throw new RuntimeException(e);
     }
     Method dataMethod = givenResponseClass.getMethod("getData");
     Object data = dataMethod.invoke(givenResponse);

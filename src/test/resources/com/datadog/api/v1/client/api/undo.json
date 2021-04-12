@@ -79,12 +79,6 @@
       "type": "idempotent"
     }
   },
-  "SubmitServiceCheck": {
-    "tag": "Service Checks",
-    "undo": {
-      "type": "safe"
-    }
-  },
   "GetDailyCustomReports": {
     "tag": "Usage Metering",
     "undo": {
@@ -210,12 +204,6 @@
     }
   },
   "ListEvents": {
-    "tag": "Events",
-    "undo": {
-      "type": "safe"
-    }
-  },
-  "CreateEvent": {
     "tag": "Events",
     "undo": {
       "type": "safe"
@@ -696,12 +684,6 @@
     }
   },
   "ListMetrics": {
-    "tag": "Metrics",
-    "undo": {
-      "type": "safe"
-    }
-  },
-  "SubmitMetrics": {
     "tag": "Metrics",
     "undo": {
       "type": "safe"
@@ -1211,12 +1193,6 @@
   },
   "Validate": {
     "tag": "Authentication",
-    "undo": {
-      "type": "safe"
-    }
-  },
-  "SubmitLog": {
-    "tag": "Logs",
     "undo": {
       "type": "safe"
     }

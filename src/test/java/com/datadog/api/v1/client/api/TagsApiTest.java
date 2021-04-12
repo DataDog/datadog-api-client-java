@@ -97,7 +97,7 @@ public class TagsApiTest extends V1ApiTest {
     hostTags.addTagsItem(commonHostTag);
     HostTags addTagsResp =
         api.createHostTags(
-            hostname, hostTags, api.new CreateHostTagsParameters().source("datadog"));
+            hostname, hostTags, new TagsApi.CreateHostTagsOptionalParameters().source("datadog"));
 
     // Confirm we can add host tags
     assertEquals(hostname, addTagsResp.getHost());
@@ -105,11 +105,11 @@ public class TagsApiTest extends V1ApiTest {
 
     // Confirm we can get host tags
     HostTags getTagsResp =
-        api.getHostTags(hostname, api.new GetHostTagsParameters().source("datadog"));
+        api.getHostTags(hostname, new TagsApi.GetHostTagsOptionalParameters().source("datadog"));
     assertEquals(hostTags.getTags(), getTagsResp.getTags());
 
     // Test getting tags for an unknown source
-    getTagsResp = api.getHostTags(hostname, api.new GetHostTagsParameters().source("users"));
+    getTagsResp = api.getHostTags(hostname, new TagsApi.GetHostTagsOptionalParameters().source("users"));
     assertEquals(0, getTagsResp.getTags().size());
 
     // wait for host to appear
@@ -120,7 +120,7 @@ public class TagsApiTest extends V1ApiTest {
           MetricsListResponse metrics;
           try {
             TagToHosts hostTagsResp =
-                api.listHostTags(api.new ListHostTagsParameters().source("datadog"));
+                api.listHostTags(new TagsApi.ListHostTagsOptionalParameters().source("datadog"));
             return hostTagsResp.getTags().containsKey(commonHostTag);
           } catch (ApiException e) {
             System.out.println(String.format("Error getting list of host tags: %s", e));
@@ -129,7 +129,7 @@ public class TagsApiTest extends V1ApiTest {
         });
 
     // Confirm we don't receive tags under an unknown source
-    TagToHosts hostTagsResp = api.listHostTags(api.new ListHostTagsParameters().source("users"));
+    TagToHosts hostTagsResp = api.listHostTags(new TagsApi.ListHostTagsOptionalParameters().source("users"));
     assertThat(hostTagsResp.getTags().keySet(), not(hasItem(commonHostTag)));
 
     // Update host tags
@@ -138,18 +138,18 @@ public class TagsApiTest extends V1ApiTest {
     updatedHostTags.addTagsItem("toto:tata");
     HostTags updateTagsResp =
         api.updateHostTags(
-            hostname, updatedHostTags, api.new UpdateHostTagsParameters().source("datadog"));
+            hostname, updatedHostTags, new TagsApi.UpdateHostTagsOptionalParameters().source("datadog"));
     assertEquals(updatedHostTags.getTags(), updateTagsResp.getTags());
     assertEquals(hostname, updateTagsResp.getHost());
 
     // Remove tags
-    api.deleteHostTags(hostname, api.new DeleteHostTagsParameters().source("datadog"));
+    api.deleteHostTags(hostname, new TagsApi.DeleteHostTagsOptionalParameters().source("datadog"));
   }
 
   @Test
   public void listTagsErrorsTest() throws IOException {
     try {
-      fakeAuthApi.listHostTags(fakeAuthApi.new ListHostTagsParameters().source("nosource"));
+      fakeAuthApi.listHostTags(new TagsApi.ListHostTagsOptionalParameters().source("nosource"));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -158,7 +158,7 @@ public class TagsApiTest extends V1ApiTest {
     }
 
     try {
-      api.listHostTags(api.new ListHostTagsParameters().source("nosource"));
+      api.listHostTags(new TagsApi.ListHostTagsOptionalParameters().source("nosource"));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());

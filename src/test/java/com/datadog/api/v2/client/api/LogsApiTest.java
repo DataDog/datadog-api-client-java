@@ -111,7 +111,7 @@ public class LogsApiTest extends V2APITest {
         () -> {
           try {
             LogsListResponse response =
-                api.listLogs(api.new ListLogsParameters().body(bothMessagesRequest));
+                api.listLogs(new LogsApi.ListLogsOptionalParameters().body(bothMessagesRequest));
             return response.getData() != null && response.getData().size() == 2;
           } catch (ApiException ignored) {
             return false;
@@ -128,7 +128,7 @@ public class LogsApiTest extends V2APITest {
             // Sort works correctly
             responseAscending.set(
                 api.listLogs(
-                    api.new ListLogsParameters()
+                    new LogsApi.ListLogsOptionalParameters()
                         .body(
                             new LogsListRequest()
                                 .filter(allLogsFilter)
@@ -156,7 +156,7 @@ public class LogsApiTest extends V2APITest {
           try {
             responseDescending.set(
                 api.listLogs(
-                    api.new ListLogsParameters()
+                    new LogsApi.ListLogsOptionalParameters()
                         .body(
                             new LogsListRequest()
                                 .filter(allLogsFilter)
@@ -179,7 +179,7 @@ public class LogsApiTest extends V2APITest {
     // Paging
     LogsListResponse pageOneResponse =
         api.listLogs(
-            api.new ListLogsParameters()
+            new LogsApi.ListLogsOptionalParameters()
                 .body(
                     new LogsListRequest()
                         .filter(allLogsFilter)
@@ -187,11 +187,11 @@ public class LogsApiTest extends V2APITest {
     assertEquals(1, pageOneResponse.getData().size());
 
     String cursor = pageOneResponse.getMeta().getPage().getAfter();
-    assertTrue(pageOneResponse.getLinks().getNext().contains(URLEncoder.encode(cursor)));
+    assertTrue(pageOneResponse.getLinks().getNext().contains(URLEncoder.encode(cursor, "UTF-8")));
 
     LogsListResponse pageTwoResponse =
         api.listLogs(
-            api.new ListLogsParameters()
+            new LogsApi.ListLogsOptionalParameters()
                 .body(
                     new LogsListRequest()
                         .filter(allLogsFilter)
@@ -220,7 +220,7 @@ public class LogsApiTest extends V2APITest {
             // Sort works correctly
             responseAscending.set(
                 api.listLogsGet(
-                    api.new ListLogsGetParameters()
+                    new LogsApi.ListLogsGetOptionalParameters()
                         .filterQuery(suffix)
                         .filterFrom(now.minus(Duration.ofHours(1)))
                         .filterTo(now.plus(Duration.ofHours(1)))
@@ -250,7 +250,7 @@ public class LogsApiTest extends V2APITest {
             // Sort works correctly
             responseDescending.set(
                 api.listLogsGet(
-                    api.new ListLogsGetParameters()
+                    new LogsApi.ListLogsGetOptionalParameters()
                         .filterQuery(suffix)
                         .filterFrom(now.minus(Duration.ofHours(1)))
                         .filterTo(now.plus(Duration.ofHours(1)))
@@ -279,7 +279,7 @@ public class LogsApiTest extends V2APITest {
           try {
             pageOneResponse.set(
                 api.listLogsGet(
-                    api.new ListLogsGetParameters()
+                    new LogsApi.ListLogsGetOptionalParameters()
                         .filterQuery(suffix)
                         .filterFrom(now.minus(Duration.ofHours(1)))
                         .filterTo(now.plus(Duration.ofHours(1)))
@@ -294,7 +294,7 @@ public class LogsApiTest extends V2APITest {
     assertEquals(1, pageOneResponse.get().getData().size());
 
     String cursor = pageOneResponse.get().getMeta().getPage().getAfter();
-    assertTrue(pageOneResponse.get().getLinks().getNext().contains(URLEncoder.encode(cursor)));
+    assertTrue(pageOneResponse.get().getLinks().getNext().contains(URLEncoder.encode(cursor, "UTF-8")));
 
     AtomicReference<LogsListResponse> pageTwoResponse = new AtomicReference<>();
     TestUtils.retry(
@@ -304,7 +304,7 @@ public class LogsApiTest extends V2APITest {
           try {
             pageTwoResponse.set(
                 api.listLogsGet(
-                    api.new ListLogsGetParameters()
+                    new LogsApi.ListLogsGetOptionalParameters()
                         .filterQuery(suffix)
                         .filterFrom(now.minus(Duration.ofHours(1)))
                         .filterTo(now.plus(Duration.ofHours(1)))

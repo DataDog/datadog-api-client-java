@@ -99,7 +99,7 @@ public class RolesApiTest extends V2APITest {
     // now, test filtering for it in the list call
     RolesResponse rsr =
         api.listRoles(
-            api.new ListRolesParameters()
+            new RolesApi.ListRolesOptionalParameters()
                 .filter(updatedRoleName)
                 .pageSize(1L)
                 .pageNumber(0L)

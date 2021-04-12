@@ -97,7 +97,7 @@ public class UsersApiTest extends V2APITest {
     // now, test filtering for it in the list call
     UsersResponse usrp =
         api.listUsers(
-            api.new ListUsersParameters()
+            new UsersApi.ListUsersOptionalParameters()
                 .filter(testingUserHandle)
                 .pageSize(1L)
                 .pageNumber(0L)

@@ -53,7 +53,7 @@ public class SnapshotsApiTest extends V1ApiTest {
         api.getGraphSnapshot(
             start,
             end,
-            api.new GetGraphSnapshotParameters()
+            new SnapshotsApi.GetGraphSnapshotOptionalParameters()
                 .metricQuery(metricQuery)
                 .title(title)
                 .eventQuery(eventQuery));
@@ -64,7 +64,7 @@ public class SnapshotsApiTest extends V1ApiTest {
     // Try to create a snapshot with a graph_def
     response =
         api.getGraphSnapshot(
-            start, end, api.new GetGraphSnapshotParameters().graphDef(graphDef).title(title));
+            start, end, new SnapshotsApi.GetGraphSnapshotOptionalParameters().graphDef(graphDef).title(title));
     assertEquals(graphDef, response.getGraphDef());
     assertNotEquals("", response.getSnapshotUrl());
   }
@@ -76,7 +76,7 @@ public class SnapshotsApiTest extends V1ApiTest {
 
     try {
       api.getGraphSnapshot(
-          null, end, api.new GetGraphSnapshotParameters().metricQuery(metricQuery));
+          null, end, new SnapshotsApi.GetGraphSnapshotOptionalParameters().metricQuery(metricQuery));
     } catch (ApiException e) {
       assertTrue(e.getMessage().contains("Missing the required parameter 'start"));
     }
@@ -89,7 +89,7 @@ public class SnapshotsApiTest extends V1ApiTest {
 
     try {
       api.getGraphSnapshot(
-          start, null, api.new GetGraphSnapshotParameters().metricQuery(metricQuery));
+          start, null, new SnapshotsApi.GetGraphSnapshotOptionalParameters().metricQuery(metricQuery));
     } catch (ApiException e) {
       assertTrue(e.getMessage().contains("Missing the required parameter 'end"));
     }
@@ -98,7 +98,7 @@ public class SnapshotsApiTest extends V1ApiTest {
   @Test
   public void getGraphErrors() throws IOException {
     try {
-      api.getGraphSnapshot(new Long(345), new Long(123));
+      api.getGraphSnapshot(Long.valueOf(345), Long.valueOf(123));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -107,7 +107,7 @@ public class SnapshotsApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.getGraphSnapshot(new Long(345), new Long(123));
+      fakeAuthApi.getGraphSnapshot(Long.valueOf(345), Long.valueOf(123));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());

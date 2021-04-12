@@ -112,7 +112,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
     long pageSize = 1L;
     SecurityMonitoringListRulesResponse getCountResponse =
         api.listSecurityMonitoringRules(
-            api.new ListSecurityMonitoringRulesParameters().pageSize(pageSize).pageNumber(0L));
+            new SecurityMonitoringApi.ListSecurityMonitoringRulesOptionalParameters().pageSize(pageSize).pageNumber(0L));
     long ruleCount = getCountResponse.getMeta().getPage().getTotalCount();
     assertTrue(ruleCount > 5);
     assertEquals(
@@ -123,7 +123,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
     // created rules are in all rules
     SecurityMonitoringListRulesResponse getAllRules =
         api.listSecurityMonitoringRules(
-            api.new ListSecurityMonitoringRulesParameters().pageSize(ruleCount));
+            new SecurityMonitoringApi.ListSecurityMonitoringRulesOptionalParameters().pageSize(ruleCount));
     // this could be flaky if another test is run at the same time
     // assertEquals(ruleCount, getAllRules.getData().size());
     Set<String> ids =
@@ -139,11 +139,11 @@ public class SecurityMonitoringApiTest extends V2APITest {
     // paging
     SecurityMonitoringListRulesResponse firstPage =
         api.listSecurityMonitoringRules(
-            api.new ListSecurityMonitoringRulesParameters().pageSize(2L).pageNumber(0L));
+            new SecurityMonitoringApi.ListSecurityMonitoringRulesOptionalParameters().pageSize(2L).pageNumber(0L));
     assertEquals(2, firstPage.getData().size());
     SecurityMonitoringListRulesResponse secondPage =
         api.listSecurityMonitoringRules(
-            api.new ListSecurityMonitoringRulesParameters().pageSize(2L).pageNumber(1L));
+            new SecurityMonitoringApi.ListSecurityMonitoringRulesOptionalParameters().pageSize(2L).pageNumber(1L));
     assertEquals(2, secondPage.getData().size());
 
     Set<String> firstPageIds =
@@ -215,7 +215,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
           try {
             SecurityMonitoringSignalsListResponse response =
                 api.searchSecurityMonitoringSignals(
-                    api.new SearchSecurityMonitoringSignalsParameters().body(bothSignalsRequest));
+                    new SecurityMonitoringApi.SearchSecurityMonitoringSignalsOptionalParameters().body(bothSignalsRequest));
             return response.getData() != null && response.getData().size() == 2;
           } catch (ApiException ignored) {
             return false;
@@ -232,7 +232,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
           try {
             responseAscending.set(
                 api.searchSecurityMonitoringSignals(
-                    api.new SearchSecurityMonitoringSignalsParameters()
+                    new SecurityMonitoringApi.SearchSecurityMonitoringSignalsOptionalParameters()
                         .body(
                             new SecurityMonitoringSignalListRequest()
                                 .filter(allSignalsFilter)
@@ -260,7 +260,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
           try {
             responseDescending.set(
                 api.searchSecurityMonitoringSignals(
-                    api.new SearchSecurityMonitoringSignalsParameters()
+                    new SecurityMonitoringApi.SearchSecurityMonitoringSignalsOptionalParameters()
                         .body(
                             new SecurityMonitoringSignalListRequest()
                                 .filter(allSignalsFilter)
@@ -288,7 +288,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
           try {
             pageOneResponse.set(
                 api.searchSecurityMonitoringSignals(
-                    api.new SearchSecurityMonitoringSignalsParameters()
+                    new SecurityMonitoringApi.SearchSecurityMonitoringSignalsOptionalParameters()
                         .body(
                             new SecurityMonitoringSignalListRequest()
                                 .filter(allSignalsFilter)
@@ -301,7 +301,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
 
             pageTwoResponse.set(
                 api.searchSecurityMonitoringSignals(
-                    api.new SearchSecurityMonitoringSignalsParameters()
+                    new SecurityMonitoringApi.SearchSecurityMonitoringSignalsOptionalParameters()
                         .body(
                             new SecurityMonitoringSignalListRequest()
                                 .filter(allSignalsFilter)
@@ -317,7 +317,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
           }
         });
     String cursor = pageOneResponse.get().getMeta().getPage().getAfter();
-    assertTrue(pageOneResponse.get().getLinks().getNext().contains(URLEncoder.encode(cursor)));
+    assertTrue(pageOneResponse.get().getLinks().getNext().contains(URLEncoder.encode(cursor, "UTF-8")));
     assertNotEquals(
         pageOneResponse.get().getData().get(0).getId(),
         pageTwoResponse.get().getData().get(0).getId());
@@ -343,7 +343,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
           try {
             SecurityMonitoringSignalsListResponse response =
                 api.listSecurityMonitoringSignals(
-                    api.new ListSecurityMonitoringSignalsParameters()
+                    new SecurityMonitoringApi.ListSecurityMonitoringSignalsOptionalParameters()
                         .filterQuery(uniqueName)
                         .filterFrom(now.minus(Duration.ofHours(1)))
                         .filterTo(now.plus(Duration.ofHours(1)))
@@ -364,7 +364,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
           try {
             responseAscending.set(
                 api.listSecurityMonitoringSignals(
-                    api.new ListSecurityMonitoringSignalsParameters()
+                    new SecurityMonitoringApi.ListSecurityMonitoringSignalsOptionalParameters()
                         .filterQuery(uniqueName)
                         .filterFrom(now.minus(Duration.ofHours(1)))
                         .filterTo(now.plus(Duration.ofHours(1)))
@@ -392,7 +392,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
           try {
             responseDescending.set(
                 api.listSecurityMonitoringSignals(
-                    api.new ListSecurityMonitoringSignalsParameters()
+                    new SecurityMonitoringApi.ListSecurityMonitoringSignalsOptionalParameters()
                         .filterQuery(uniqueName)
                         .filterFrom(now.minus(Duration.ofHours(1)))
                         .filterTo(now.plus(Duration.ofHours(1)))
@@ -421,7 +421,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
             // First page
             pageOneResponse.set(
                 api.listSecurityMonitoringSignals(
-                    api.new ListSecurityMonitoringSignalsParameters()
+                    new SecurityMonitoringApi.ListSecurityMonitoringSignalsOptionalParameters()
                         .filterQuery(uniqueName)
                         .filterFrom(now.minus(Duration.ofHours(1)))
                         .filterTo(now.plus(Duration.ofHours(1)))
@@ -435,7 +435,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
             // Second page
             pageTwoResponse.set(
                 api.listSecurityMonitoringSignals(
-                    api.new ListSecurityMonitoringSignalsParameters()
+                    new SecurityMonitoringApi.ListSecurityMonitoringSignalsOptionalParameters()
                         .filterQuery(uniqueName)
                         .filterFrom(now.minus(Duration.ofHours(1)))
                         .filterTo(now.plus(Duration.ofHours(1)))
@@ -449,7 +449,7 @@ public class SecurityMonitoringApiTest extends V2APITest {
           }
         });
     String cursor = pageOneResponse.get().getMeta().getPage().getAfter();
-    assertTrue(pageOneResponse.get().getLinks().getNext().contains(URLEncoder.encode(cursor)));
+    assertTrue(pageOneResponse.get().getLinks().getNext().contains(URLEncoder.encode(cursor, "UTF-8")));
     assertNotEquals(
         pageOneResponse.get().getData().get(0).getId(),
         pageTwoResponse.get().getData().get(0).getId());

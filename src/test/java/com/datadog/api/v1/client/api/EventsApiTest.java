@@ -110,7 +110,7 @@ public class EventsApiTest extends V1ApiTest {
                 api.listEvents(
                     start,
                     end,
-                    api.new ListEventsParameters()
+                    new EventsApi.ListEventsOptionalParameters()
                         .priority(priority)
                         .sources(sources)
                         .tags(tags)
@@ -133,7 +133,7 @@ public class EventsApiTest extends V1ApiTest {
   @Test
   public void eventListErrorTest() throws IOException {
     try {
-      api.listEvents(new Long(345), new Long(123));
+      api.listEvents(Long.valueOf(345), Long.valueOf(123));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -142,7 +142,7 @@ public class EventsApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.listEvents(new Long(345), new Long(123));
+      fakeAuthApi.listEvents(Long.valueOf(345), Long.valueOf(123));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -154,7 +154,7 @@ public class EventsApiTest extends V1ApiTest {
   @Test
   public void eventGetErrorTest() throws IOException {
     try {
-      fakeAuthApi.getEvent(new Long((new Long(1234))));
+      fakeAuthApi.getEvent(Long.valueOf((Long.valueOf(1234))));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -163,7 +163,7 @@ public class EventsApiTest extends V1ApiTest {
     }
 
     try {
-      api.getEvent(new Long((new Long(1234))));
+      api.getEvent(Long.valueOf((Long.valueOf(1234))));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());

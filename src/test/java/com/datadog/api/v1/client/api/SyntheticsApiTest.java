@@ -209,7 +209,7 @@ public class SyntheticsApiTest extends V1ApiTest {
     latestResults =
         api.getAPITestLatestResults(
             publicId,
-            api.new GetAPITestLatestResultsParameters()
+            new SyntheticsApi.GetAPITestLatestResultsOptionalParameters()
                 .fromTs(0L)
                 .toTs(now.toInstant().toEpochMilli())
                 .probeDc(Arrays.asList("aws:us-east-2")));
@@ -318,7 +318,7 @@ public class SyntheticsApiTest extends V1ApiTest {
     latestResults =
         api.getAPITestLatestResults(
             publicId,
-            api.new GetAPITestLatestResultsParameters()
+            new SyntheticsApi.GetAPITestLatestResultsOptionalParameters()
                 .fromTs(0L)
                 .toTs(now.toInstant().toEpochMilli())
                 .probeDc(Arrays.asList("aws:us-east-2")));
@@ -424,7 +424,7 @@ public class SyntheticsApiTest extends V1ApiTest {
     latestResults =
         api.getBrowserTestLatestResults(
             publicId,
-            api.new GetBrowserTestLatestResultsParameters()
+            new SyntheticsApi.GetBrowserTestLatestResultsOptionalParameters()
                 .fromTs(0L)
                 .toTs(now.toInstant().toEpochMilli())
                 .probeDc(Arrays.asList("aws:us-east-2")));

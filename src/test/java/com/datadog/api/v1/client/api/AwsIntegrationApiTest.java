@@ -322,7 +322,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
           try {
             api.updateAWSAccount(
                 awsAccount,
-                api.new UpdateAWSAccountParameters()
+                new AwsIntegrationApi.UpdateAWSAccountOptionalParameters()
                     .accountId(awsAccount.getAccountId())
                     .roleName(awsAccount.getRoleName()));
           } catch (ApiException e) {
@@ -334,7 +334,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
 
     AWSAccount newAccount =
         api.listAWSAccounts(
-                api.new ListAWSAccountsParameters()
+                new AwsIntegrationApi.ListAWSAccountsOptionalParameters()
                     .accountId(awsAccount.getAccountId())
                     .roleName(awsAccount.getRoleName()))
             .getAccounts()

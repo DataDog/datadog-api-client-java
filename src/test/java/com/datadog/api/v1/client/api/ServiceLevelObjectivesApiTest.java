@@ -223,7 +223,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     // Get multiple SLOs
     SLOListResponse slosResp =
         api.listSLOs(
-            api.new ListSLOsParameters()
+            new ServiceLevelObjectivesApi.ListSLOsOptionalParameters()
                 .ids(String.format("%s,%s", createdMonitorSLO.getId(), createdEventSLO.getId())));
     assertSLOInList(slosResp.getData(), createdEventSLO.getId());
     assertSLOInList(slosResp.getData(), createdMonitorSLO.getId());
@@ -273,7 +273,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
   @Test
   public void listSLOErrorsTest() throws IOException {
     try {
-      api.listSLOs(api.new ListSLOsParameters().ids("id1,id1"));
+      api.listSLOs(new ServiceLevelObjectivesApi.ListSLOsOptionalParameters().ids("id1,id1"));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -282,7 +282,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     }
 
     try {
-      api.listSLOs(api.new ListSLOsParameters().ids("id1,id2"));
+      api.listSLOs(new ServiceLevelObjectivesApi.ListSLOsOptionalParameters().ids("id1,id2"));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());
@@ -291,7 +291,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.listSLOs(api.new ListSLOsParameters().ids("id1,id2"));
+      fakeAuthApi.listSLOs(new ServiceLevelObjectivesApi.ListSLOsOptionalParameters().ids("id1,id2"));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -421,7 +421,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     deleteSLOs.add(created.getId());
 
     try {
-      api.getSLOHistory(created.getId(), new Long(123), new Long(12));
+      api.getSLOHistory(created.getId(), Long.valueOf(123), Long.valueOf(12));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -430,7 +430,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.getSLOHistory("id", new Long(123), new Long(12));
+      fakeAuthApi.getSLOHistory("id", Long.valueOf(123), Long.valueOf(12));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -439,7 +439,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     }
 
     try {
-      api.getSLOHistory("id", new Long(123), new Long(12));
+      api.getSLOHistory("id", Long.valueOf(123), Long.valueOf(12));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());

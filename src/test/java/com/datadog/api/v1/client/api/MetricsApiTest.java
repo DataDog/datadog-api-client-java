@@ -110,20 +110,20 @@ public class MetricsApiTest extends V1ApiTest {
     assertEquals(1, queryResult.getGroupBy().size());
     assertEquals("host", queryResult.getGroupBy().get(0));
     assertEquals(testQuery, queryResult.getQuery());
-    assertEquals(new Long((nowSeconds - 100) * 1000), queryResult.getFromDate());
-    assertEquals(new Long((nowSeconds + 100) * 1000), queryResult.getToDate());
+    assertEquals(Long.valueOf((nowSeconds - 100) * 1000), queryResult.getFromDate());
+    assertEquals(Long.valueOf((nowSeconds + 100) * 1000), queryResult.getToDate());
     assertEquals("ok", queryResult.getStatus());
     assertEquals("time_series", queryResult.getResType());
     assertEquals(1, queryResult.getSeries().size());
     MetricsQueryMetadata series = queryResult.getSeries().get(0);
-    assertEquals(new Long(2), series.getLength());
+    assertEquals(Long.valueOf(2), series.getLength());
     assertEquals("avg", series.getAggr());
     assertEquals(testMetric, series.getDisplayName());
     assertEquals(testMetric, series.getMetric());
     assertEquals(series.getPointlist().get(0).get(0), Double.valueOf(series.getStart()));
     assertEquals(series.getPointlist().get(1).get(0), Double.valueOf(series.getEnd()));
-    assertEquals(new Double(10.5), series.getPointlist().get(0).get(1));
-    assertEquals(new Double(11.), series.getPointlist().get(1).get(1));
+    assertEquals(Double.valueOf(10.5), series.getPointlist().get(0).get(1));
+    assertEquals(Double.valueOf(11.), series.getPointlist().get(1).get(1));
 
     // Test search
     String searchQuery = String.format("metrics:%s", testMetric);
@@ -156,7 +156,7 @@ public class MetricsApiTest extends V1ApiTest {
     assertEquals("second", metadata.getPerUnit());
     assertEquals("byte", metadata.getUnit());
     assertEquals("short_name", metadata.getShortName());
-    assertEquals(new Long(20), metadata.getStatsdInterval());
+    assertEquals(Long.valueOf(20), metadata.getStatsdInterval());
     assertEquals("count", metadata.getType());
   }
 
@@ -173,7 +173,7 @@ public class MetricsApiTest extends V1ApiTest {
             .withQueryParam("host", equalTo("host"))
             .willReturn(okJson(expectedJSON)));
     MetricsListResponse r =
-        unitApi.listActiveMetrics(1L, api.new ListActiveMetricsParameters().host("host"));
+       api.listActiveMetrics(1L, new MetricsApi.ListActiveMetricsOptionalParameters().host("host"));
 
     assertEquals(expected, r);
   }
@@ -184,7 +184,7 @@ public class MetricsApiTest extends V1ApiTest {
     stubFor(get(urlPathEqualTo(apiUri)).willReturn(okJson(fixtureData).withStatus(400)));
     // Error 400 cannot be triggered from the client due to client side validation, so mock it
     try {
-      unitApi.listActiveMetrics(new Long(-1));
+      unitApi.listActiveMetrics(Long.valueOf(-1));
       throw new AssertionError();
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -196,7 +196,7 @@ public class MetricsApiTest extends V1ApiTest {
   @Test
   public void metricsListActiveErrorsTest() throws IOException {
     try {
-      fakeAuthApi.listActiveMetrics(new Long(-1));
+      fakeAuthApi.listActiveMetrics(Long.valueOf(-1));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -297,7 +297,7 @@ public class MetricsApiTest extends V1ApiTest {
     stubFor(get(urlPathEqualTo("/api/v1/query")).willReturn(okJson(fixtureData).withStatus(400)));
     // Error 400 cannot be triggered from the client due to client side validation, so mock it
     try {
-      unitApi.queryMetrics(new Long(9), new Long(9), "");
+      unitApi.queryMetrics(Long.valueOf(9), Long.valueOf(9), "");
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -309,7 +309,7 @@ public class MetricsApiTest extends V1ApiTest {
   @Test
   public void metricsQueryErrorsTest() throws IOException {
     try {
-      fakeAuthApi.queryMetrics(new Long(9), new Long(9), "");
+      fakeAuthApi.queryMetrics(Long.valueOf(9), Long.valueOf(9), "");
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());

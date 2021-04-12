@@ -166,7 +166,7 @@ public class HostsApiTest extends V1ApiTest {
             .willReturn(
                 okJson(TestUtils.getFixture("v1/client/api/hosts_fixtures/host_totals.json"))));
 
-    HostTotals actual = unitAPI.getHostTotals(unitAPI.new GetHostTotalsParameters().from(123L));
+    HostTotals actual = unitAPI.getHostTotals(new HostsApi.GetHostTotalsOptionalParameters().from(123L));
     assertEquals(20L, actual.getTotalActive().longValue());
     assertEquals(10L, actual.getTotalUp().longValue());
   }
@@ -194,7 +194,7 @@ public class HostsApiTest extends V1ApiTest {
 
     HostListResponse response =
         unitAPI.listHosts(
-            unitAPI.new ListHostsParameters()
+            new HostsApi.ListHostsOptionalParameters()
                 .filter("filter string")
                 .count(4L)
                 .from(123L)
@@ -209,7 +209,7 @@ public class HostsApiTest extends V1ApiTest {
   @Test
   public void hostsListErrorsTest() throws IOException {
     try {
-      api.listHosts(unitAPI.new ListHostsParameters().count(-1L));
+      api.listHosts(new HostsApi.ListHostsOptionalParameters().count(-1L));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -218,7 +218,7 @@ public class HostsApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.listHosts(unitAPI.new ListHostsParameters().count(-1L));
+      fakeAuthApi.listHosts(new HostsApi.ListHostsOptionalParameters().count(-1L));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -230,7 +230,7 @@ public class HostsApiTest extends V1ApiTest {
   @Test
   public void hostsGetTotalsErrorsTest() throws IOException {
     try {
-      api.getHostTotals(api.new GetHostTotalsParameters().from(now.toEpochSecond() + 60));
+      api.getHostTotals(new HostsApi.GetHostTotalsOptionalParameters().from(now.toEpochSecond() + 60));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -239,7 +239,7 @@ public class HostsApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.getHostTotals(api.new GetHostTotalsParameters().from(now.toEpochSecond() + 60));
+      fakeAuthApi.getHostTotals(new HostsApi.GetHostTotalsOptionalParameters().from(now.toEpochSecond() + 60));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -320,7 +320,7 @@ public class HostsApiTest extends V1ApiTest {
 
     HostListResponse response =
         unitAPI.listHosts(
-            unitAPI.new ListHostsParameters()
+            new HostsApi.ListHostsOptionalParameters()
                 .filter("filter string")
                 .count(4L)
                 .from(123L)
@@ -353,7 +353,7 @@ public class HostsApiTest extends V1ApiTest {
 
     HostListResponse response =
         unitAPI.listHosts(
-            unitAPI.new ListHostsParameters()
+            new HostsApi.ListHostsOptionalParameters()
                 .filter("filter string")
                 .count(4L)
                 .from(123L)
@@ -385,7 +385,7 @@ public class HostsApiTest extends V1ApiTest {
 
     HostListResponse response =
         unitAPI.listHosts(
-            unitAPI.new ListHostsParameters()
+            new HostsApi.ListHostsOptionalParameters()
                 .filter("filter string")
                 .count(4L)
                 .from(123L)
@@ -416,7 +416,7 @@ public class HostsApiTest extends V1ApiTest {
 
     HostListResponse response =
         unitAPI.listHosts(
-            unitAPI.new ListHostsParameters()
+            new HostsApi.ListHostsOptionalParameters()
                 .filter("filter string")
                 .count(4L)
                 .from(123L)
@@ -449,7 +449,7 @@ public class HostsApiTest extends V1ApiTest {
 
     HostListResponse response =
         unitAPI.listHosts(
-            unitAPI.new ListHostsParameters()
+            new HostsApi.ListHostsOptionalParameters()
                 .filter("filter string")
                 .count(4L)
                 .from(123L)
@@ -481,7 +481,7 @@ public class HostsApiTest extends V1ApiTest {
 
     HostListResponse response =
         unitAPI.listHosts(
-            unitAPI.new ListHostsParameters()
+            new HostsApi.ListHostsOptionalParameters()
                 .filter("filter string")
                 .count(4L)
                 .from(123L)
