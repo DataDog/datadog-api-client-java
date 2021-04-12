@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**listActiveMetrics**](MetricsApi.md#listActiveMetrics) | **GET** /api/v1/metrics | Get active metrics list
 [**listMetrics**](MetricsApi.md#listMetrics) | **GET** /api/v1/search | Search metrics
 [**queryMetrics**](MetricsApi.md#queryMetrics) | **GET** /api/v1/query | Query timeseries points
+[**submitMetrics**](MetricsApi.md#submitMetrics) | **POST** /api/v1/series | Submit metrics
 [**updateMetricMetadata**](MetricsApi.md#updateMetricMetadata) | **PUT** /api/v1/metrics/{metric_name} | Edit metric metadata
 
 
@@ -35,18 +36,6 @@ import com.datadog.api.v1.client.api.MetricsApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        // Configure the Datadog site to send API calls to
-        HashMap<String, String> serverVariables = new HashMap<String, String>();
-        String site = System.getenv("DD_SITE");
-        if (site != null) {
-            serverVariables.put("site", site);
-            defaultClient.setServerVariables(serverVariables);
-        }
-        // Configure API key authorization: 
-        HashMap<String, String> secrets = new HashMap<String, String>();
-        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
-        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
-        defaultClient.configureApiKeys(secrets);
 
         MetricsApi apiInstance = new MetricsApi(defaultClient);
         String metricName = "metricName_example"; // String | Name of the metric for which to get metadata.
@@ -95,7 +84,7 @@ Name | Type | Description  | Notes
 
 ## listActiveMetrics
 
-> MetricsListResponse listActiveMetrics().from(from).host(host).execute();
+> MetricsListResponse listActiveMetrics().from(from).host(host).tagFilter(tagFilter).execute();
 
 Get active metrics list
 
@@ -116,26 +105,16 @@ import com.datadog.api.v1.client.api.MetricsApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        // Configure the Datadog site to send API calls to
-        HashMap<String, String> serverVariables = new HashMap<String, String>();
-        String site = System.getenv("DD_SITE");
-        if (site != null) {
-            serverVariables.put("site", site);
-            defaultClient.setServerVariables(serverVariables);
-        }
-        // Configure API key authorization: 
-        HashMap<String, String> secrets = new HashMap<String, String>();
-        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
-        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
-        defaultClient.configureApiKeys(secrets);
 
         MetricsApi apiInstance = new MetricsApi(defaultClient);
         Long from = 56L; // Long | Seconds since the Unix epoch.
         String host = "host_example"; // String | Hostname for filtering the list of metrics returned. If set, metrics retrieved are those with the corresponding hostname tag.
+        String tagFilter = "env IN (staging,test) AND service:web"; // String | Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters.
         try {
             MetricsListResponse result = apiInstance.listActiveMetrics()
                 .from(from)
                 .host(host)
+                .tagFilter(tagFilter)
                 .execute();
             System.out.println(result);
         } catch (ApiException e) {
@@ -156,6 +135,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **from** | **Long**| Seconds since the Unix epoch. |
  **host** | **String**| Hostname for filtering the list of metrics returned. If set, metrics retrieved are those with the corresponding hostname tag. | [optional]
+ **tagFilter** | **String**| Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters. | [optional]
 
 ### Return type
 
@@ -201,18 +181,6 @@ import com.datadog.api.v1.client.api.MetricsApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        // Configure the Datadog site to send API calls to
-        HashMap<String, String> serverVariables = new HashMap<String, String>();
-        String site = System.getenv("DD_SITE");
-        if (site != null) {
-            serverVariables.put("site", site);
-            defaultClient.setServerVariables(serverVariables);
-        }
-        // Configure API key authorization: 
-        HashMap<String, String> secrets = new HashMap<String, String>();
-        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
-        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
-        defaultClient.configureApiKeys(secrets);
 
         MetricsApi apiInstance = new MetricsApi(defaultClient);
         String q = "q_example"; // String | Query string to search metrics upon. Must be prefixed with `metrics:`.
@@ -283,18 +251,6 @@ import com.datadog.api.v1.client.api.MetricsApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        // Configure the Datadog site to send API calls to
-        HashMap<String, String> serverVariables = new HashMap<String, String>();
-        String site = System.getenv("DD_SITE");
-        if (site != null) {
-            serverVariables.put("site", site);
-            defaultClient.setServerVariables(serverVariables);
-        }
-        // Configure API key authorization: 
-        HashMap<String, String> secrets = new HashMap<String, String>();
-        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
-        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
-        defaultClient.configureApiKeys(secrets);
 
         MetricsApi apiInstance = new MetricsApi(defaultClient);
         Long from = 56L; // Long | Start of the queried time period, seconds since the Unix epoch.
@@ -348,6 +304,88 @@ Name | Type | Description  | Notes
 | **403** | Forbidden |  -  |
 
 
+## submitMetrics
+
+> IntakePayloadAccepted submitMetrics().body(body).execute();
+
+Submit metrics
+
+The metrics end-point allows you to post time-series data that can be graphed on Datadog’s dashboards.
+The maximum payload size is 3.2 megabytes (3200000). Compressed payloads must have a decompressed size of up to 62 megabytes (62914560).
+
+If you’re submitting metrics directly to the Datadog API without using DogStatsD, expect
+
+- 64 bits for the timestamp
+- 32 bits for the value
+- 20 bytes for the metric names
+- 50 bytes for the timeseries
+- The full payload is approximately ~ 100 bytes. However, with the DogStatsD API,
+compression is applied, which reduces the payload size.
+
+### Example
+
+```java
+// Import classes:
+import java.util.*;
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.Configuration;
+import com.datadog.api.v1.client.auth.*;
+import com.datadog.api.v1.client.model.*;
+import com.datadog.api.v1.client.api.MetricsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+        MetricsApi apiInstance = new MetricsApi(defaultClient);
+        MetricsPayload body = new MetricsPayload(); // MetricsPayload | 
+        try {
+            IntakePayloadAccepted result = apiInstance.submitMetrics()
+                .body(body)
+                .execute();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MetricsApi#submitMetrics");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**MetricsPayload**](MetricsPayload.md)|  |
+
+### Return type
+
+[**IntakePayloadAccepted**](IntakePayloadAccepted.md)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **202** | Payload accepted |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication error |  -  |
+| **408** | Request timeout |  -  |
+| **413** | Payload too large |  -  |
+
+
 ## updateMetricMetadata
 
 > MetricMetadata updateMetricMetadata(metricName).body(body).execute();
@@ -371,18 +409,6 @@ import com.datadog.api.v1.client.api.MetricsApi;
 public class Example {
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        // Configure the Datadog site to send API calls to
-        HashMap<String, String> serverVariables = new HashMap<String, String>();
-        String site = System.getenv("DD_SITE");
-        if (site != null) {
-            serverVariables.put("site", site);
-            defaultClient.setServerVariables(serverVariables);
-        }
-        // Configure API key authorization: 
-        HashMap<String, String> secrets = new HashMap<String, String>();
-        secrets.put("apiKeyAuth", System.getenv("DD_CLIENT_API_KEY"));
-        secrets.put("appKeyAuth", System.getenv("DD_CLIENT_APP_KEY"));
-        defaultClient.configureApiKeys(secrets);
 
         MetricsApi apiInstance = new MetricsApi(defaultClient);
         String metricName = "metricName_example"; // String | Name of the metric for which to edit metadata.

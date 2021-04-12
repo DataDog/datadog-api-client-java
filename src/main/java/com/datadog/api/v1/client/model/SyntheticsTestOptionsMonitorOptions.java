@@ -8,66 +8,53 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
-
+import java.util.Objects;
 
 /**
  * Object containing the options for a Synthetic test as a monitor (for example, renotification).
  */
-@ApiModel(description = "Object containing the options for a Synthetic test as a monitor (for example, renotification).")
-@JsonPropertyOrder({
-  SyntheticsTestOptionsMonitorOptions.JSON_PROPERTY_RENOTIFY_INTERVAL
-})
+@ApiModel(
+    description =
+        "Object containing the options for a Synthetic test as a monitor (for example,"
+            + " renotification).")
+@JsonPropertyOrder({SyntheticsTestOptionsMonitorOptions.JSON_PROPERTY_RENOTIFY_INTERVAL})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsTestOptionsMonitorOptions {
   public static final String JSON_PROPERTY_RENOTIFY_INTERVAL = "renotify_interval";
   private Long renotifyInterval;
-
 
   public SyntheticsTestOptionsMonitorOptions renotifyInterval(Long renotifyInterval) {
     this.renotifyInterval = renotifyInterval;
     return this;
   }
 
-   /**
-   * Time interval before renotifying if the test is still failing (in minutes).
-   * minimum: 0
-   * maximum: 1440
+  /**
+   * Time interval before renotifying if the test is still failing (in minutes). minimum: 0 maximum:
+   * 1440
+   *
    * @return renotifyInterval
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Time interval before renotifying if the test is still failing (in minutes).")
+  @ApiModelProperty(
+      value = "Time interval before renotifying if the test is still failing (in minutes).")
   @JsonProperty(JSON_PROPERTY_RENOTIFY_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getRenotifyInterval() {
     return renotifyInterval;
   }
-
 
   public void setRenotifyInterval(Long renotifyInterval) {
     this.renotifyInterval = renotifyInterval;
   }
 
-
-  /**
-   * Return true if this SyntheticsTestOptions_monitor_options object is equal to o.
-   */
+  /** Return true if this SyntheticsTestOptions_monitor_options object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -76,15 +63,16 @@ public class SyntheticsTestOptionsMonitorOptions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsTestOptionsMonitorOptions syntheticsTestOptionsMonitorOptions = (SyntheticsTestOptionsMonitorOptions) o;
-    return Objects.equals(this.renotifyInterval, syntheticsTestOptionsMonitorOptions.renotifyInterval);
+    SyntheticsTestOptionsMonitorOptions syntheticsTestOptionsMonitorOptions =
+        (SyntheticsTestOptionsMonitorOptions) o;
+    return Objects.equals(
+        this.renotifyInterval, syntheticsTestOptionsMonitorOptions.renotifyInterval);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(renotifyInterval);
   }
-
 
   @Override
   public String toString() {
@@ -96,8 +84,7 @@ public class SyntheticsTestOptionsMonitorOptions {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -105,6 +92,4 @@ public class SyntheticsTestOptionsMonitorOptions {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

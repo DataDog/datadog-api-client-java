@@ -8,28 +8,23 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
-
+import java.util.Objects;
 
 /**
- * Used to perform a histogram computation (only for measure facets). Note: At most 100 buckets are allowed, the number of buckets is (max - min)/interval.
+ * Used to perform a histogram computation (only for measure facets). Note: At most 100 buckets are
+ * allowed, the number of buckets is (max - min)/interval.
  */
-@ApiModel(description = "Used to perform a histogram computation (only for measure facets). Note: At most 100 buckets are allowed, the number of buckets is (max - min)/interval.")
+@ApiModel(
+    description =
+        "Used to perform a histogram computation (only for measure facets). Note: At most 100"
+            + " buckets are allowed, the number of buckets is (max - min)/interval.")
 @JsonPropertyOrder({
   LogsGroupByHistogram.JSON_PROPERTY_INTERVAL,
   LogsGroupByHistogram.JSON_PROPERTY_MAX,
@@ -46,79 +41,85 @@ public class LogsGroupByHistogram {
   public static final String JSON_PROPERTY_MIN = "min";
   private Double min;
 
-
   public LogsGroupByHistogram interval(Double interval) {
     this.interval = interval;
     return this;
   }
 
-   /**
+  /**
    * The bin size of the histogram buckets
+   *
    * @return interval
-  **/
-  @ApiModelProperty(example = "10", required = true, value = "The bin size of the histogram buckets")
+   */
+  @ApiModelProperty(
+      example = "10",
+      required = true,
+      value = "The bin size of the histogram buckets")
   @JsonProperty(JSON_PROPERTY_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Double getInterval() {
     return interval;
   }
 
-
   public void setInterval(Double interval) {
     this.interval = interval;
   }
-
 
   public LogsGroupByHistogram max(Double max) {
     this.max = max;
     return this;
   }
 
-   /**
-   * The maximum value for the measure used in the histogram (values greater than this one are filtered out)
+  /**
+   * The maximum value for the measure used in the histogram (values greater than this one are
+   * filtered out)
+   *
    * @return max
-  **/
-  @ApiModelProperty(example = "100", required = true, value = "The maximum value for the measure used in the histogram (values greater than this one are filtered out)")
+   */
+  @ApiModelProperty(
+      example = "100",
+      required = true,
+      value =
+          "The maximum value for the measure used in the histogram (values greater than this one"
+              + " are filtered out)")
   @JsonProperty(JSON_PROPERTY_MAX)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Double getMax() {
     return max;
   }
 
-
   public void setMax(Double max) {
     this.max = max;
   }
-
 
   public LogsGroupByHistogram min(Double min) {
     this.min = min;
     return this;
   }
 
-   /**
-   * The minimum value for the measure used in the histogram (values smaller than this one are filtered out)
+  /**
+   * The minimum value for the measure used in the histogram (values smaller than this one are
+   * filtered out)
+   *
    * @return min
-  **/
-  @ApiModelProperty(example = "50", required = true, value = "The minimum value for the measure used in the histogram (values smaller than this one are filtered out)")
+   */
+  @ApiModelProperty(
+      example = "50",
+      required = true,
+      value =
+          "The minimum value for the measure used in the histogram (values smaller than this one"
+              + " are filtered out)")
   @JsonProperty(JSON_PROPERTY_MIN)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Double getMin() {
     return min;
   }
-
 
   public void setMin(Double min) {
     this.min = min;
   }
 
-
-  /**
-   * Return true if this LogsGroupBy_histogram object is equal to o.
-   */
+  /** Return true if this LogsGroupBy_histogram object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -128,16 +129,15 @@ public class LogsGroupByHistogram {
       return false;
     }
     LogsGroupByHistogram logsGroupByHistogram = (LogsGroupByHistogram) o;
-    return Objects.equals(this.interval, logsGroupByHistogram.interval) &&
-        Objects.equals(this.max, logsGroupByHistogram.max) &&
-        Objects.equals(this.min, logsGroupByHistogram.min);
+    return Objects.equals(this.interval, logsGroupByHistogram.interval)
+        && Objects.equals(this.max, logsGroupByHistogram.max)
+        && Objects.equals(this.min, logsGroupByHistogram.min);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(interval, max, min);
   }
-
 
   @Override
   public String toString() {
@@ -151,8 +151,7 @@ public class LogsGroupByHistogram {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -160,6 +159,4 @@ public class LogsGroupByHistogram {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

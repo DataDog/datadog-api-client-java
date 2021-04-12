@@ -8,30 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.ApplicationKeyRelationships;
-import com.datadog.api.v2.client.model.ApplicationKeysType;
-import com.datadog.api.v2.client.model.FullApplicationKeyAttributes;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Datadog application key.
- */
+/** Datadog application key. */
 @ApiModel(description = "Datadog application key.")
 @JsonPropertyOrder({
   FullApplicationKey.JSON_PROPERTY_ATTRIBUTES,
@@ -53,106 +39,95 @@ public class FullApplicationKey {
   public static final String JSON_PROPERTY_TYPE = "type";
   private ApplicationKeysType type = ApplicationKeysType.APPLICATION_KEYS;
 
-
   public FullApplicationKey attributes(FullApplicationKeyAttributes attributes) {
     this.attributes = attributes;
     return this;
   }
 
-   /**
+  /**
    * Get attributes
+   *
    * @return attributes
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public FullApplicationKeyAttributes getAttributes() {
     return attributes;
   }
 
-
   public void setAttributes(FullApplicationKeyAttributes attributes) {
     this.attributes = attributes;
   }
-
 
   public FullApplicationKey id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * ID of the application key.
+   *
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "ID of the application key.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
   public void setId(String id) {
     this.id = id;
   }
-
 
   public FullApplicationKey relationships(ApplicationKeyRelationships relationships) {
     this.relationships = relationships;
     return this;
   }
 
-   /**
+  /**
    * Get relationships
+   *
    * @return relationships
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ApplicationKeyRelationships getRelationships() {
     return relationships;
   }
 
-
   public void setRelationships(ApplicationKeyRelationships relationships) {
     this.relationships = relationships;
   }
-
 
   public FullApplicationKey type(ApplicationKeysType type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
+   *
    * @return type
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ApplicationKeysType getType() {
     return type;
   }
-
 
   public void setType(ApplicationKeysType type) {
     this.type = type;
   }
 
-
-  /**
-   * Return true if this FullApplicationKey object is equal to o.
-   */
+  /** Return true if this FullApplicationKey object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -162,17 +137,16 @@ public class FullApplicationKey {
       return false;
     }
     FullApplicationKey fullApplicationKey = (FullApplicationKey) o;
-    return Objects.equals(this.attributes, fullApplicationKey.attributes) &&
-        Objects.equals(this.id, fullApplicationKey.id) &&
-        Objects.equals(this.relationships, fullApplicationKey.relationships) &&
-        Objects.equals(this.type, fullApplicationKey.type);
+    return Objects.equals(this.attributes, fullApplicationKey.attributes)
+        && Objects.equals(this.id, fullApplicationKey.id)
+        && Objects.equals(this.relationships, fullApplicationKey.relationships)
+        && Objects.equals(this.type, fullApplicationKey.type);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(attributes, id, relationships, type);
   }
-
 
   @Override
   public String toString() {
@@ -187,8 +161,7 @@ public class FullApplicationKey {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -196,6 +169,4 @@ public class FullApplicationKey {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

@@ -8,30 +8,18 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
 
-
-/**
- * An Object of metric units.
- */
+/** An Object of metric units. */
 @ApiModel(description = "An Object of metric units.")
 @JsonPropertyOrder({
   SLOHistoryMetricsSeriesMetadataUnit.JSON_PROPERTY_FAMILY,
@@ -61,103 +49,99 @@ public class SLOHistoryMetricsSeriesMetadataUnit {
   public static final String JSON_PROPERTY_SHORT_NAME = "short_name";
   private JsonNullable<String> shortName = JsonNullable.<String>undefined();
 
-
   public SLOHistoryMetricsSeriesMetadataUnit family(String family) {
     this.family = family;
     return this;
   }
 
-   /**
-   * The family of metric unit, for example &#x60;bytes&#x60; is the family for &#x60;kibibyte&#x60;, &#x60;byte&#x60;, and &#x60;bit&#x60; units.
+  /**
+   * The family of metric unit, for example &#x60;bytes&#x60; is the family for
+   * &#x60;kibibyte&#x60;, &#x60;byte&#x60;, and &#x60;bit&#x60; units.
+   *
    * @return family
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The family of metric unit, for example `bytes` is the family for `kibibyte`, `byte`, and `bit` units.")
+  @ApiModelProperty(
+      value =
+          "The family of metric unit, for example `bytes` is the family for `kibibyte`, `byte`,"
+              + " and `bit` units.")
   @JsonProperty(JSON_PROPERTY_FAMILY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getFamily() {
     return family;
   }
 
-
   public void setFamily(String family) {
     this.family = family;
   }
-
 
   public SLOHistoryMetricsSeriesMetadataUnit id(Long id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * The ID of the metric unit.
+   *
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The ID of the metric unit.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getId() {
     return id;
   }
 
-
   public void setId(Long id) {
     this.id = id;
   }
-
 
   public SLOHistoryMetricsSeriesMetadataUnit name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The unit of the metric, for instance &#x60;byte&#x60;.
+   *
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The unit of the metric, for instance `byte`.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getName() {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
-
 
   public SLOHistoryMetricsSeriesMetadataUnit plural(String plural) {
     this.plural = JsonNullable.<String>of(plural);
     return this;
   }
 
-   /**
+  /**
    * The plural Unit of metric, for instance &#x60;bytes&#x60;.
+   *
    * @return plural
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The plural Unit of metric, for instance `bytes`.")
   @JsonIgnore
-
   public String getPlural() {
-        return plural.orElse(null);
+    return plural.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_PLURAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getPlural_JsonNullable() {
     return plural;
   }
-  
+
   @JsonProperty(JSON_PROPERTY_PLURAL)
   public void setPlural_JsonNullable(JsonNullable<String> plural) {
     this.plural = plural;
@@ -167,55 +151,52 @@ public class SLOHistoryMetricsSeriesMetadataUnit {
     this.plural = JsonNullable.<String>of(plural);
   }
 
-
   public SLOHistoryMetricsSeriesMetadataUnit scaleFactor(Double scaleFactor) {
     this.scaleFactor = scaleFactor;
     return this;
   }
 
-   /**
+  /**
    * The scale factor of metric unit, for instance &#x60;1.0&#x60;.
+   *
    * @return scaleFactor
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The scale factor of metric unit, for instance `1.0`.")
   @JsonProperty(JSON_PROPERTY_SCALE_FACTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Double getScaleFactor() {
     return scaleFactor;
   }
 
-
   public void setScaleFactor(Double scaleFactor) {
     this.scaleFactor = scaleFactor;
   }
-
 
   public SLOHistoryMetricsSeriesMetadataUnit shortName(String shortName) {
     this.shortName = JsonNullable.<String>of(shortName);
     return this;
   }
 
-   /**
+  /**
    * A shorter and abbreviated version of the metric unit, for instance &#x60;B&#x60;.
+   *
    * @return shortName
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A shorter and abbreviated version of the metric unit, for instance `B`.")
+  @ApiModelProperty(
+      value = "A shorter and abbreviated version of the metric unit, for instance `B`.")
   @JsonIgnore
-
   public String getShortName() {
-        return shortName.orElse(null);
+    return shortName.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_SHORT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getShortName_JsonNullable() {
     return shortName;
   }
-  
+
   @JsonProperty(JSON_PROPERTY_SHORT_NAME)
   public void setShortName_JsonNullable(JsonNullable<String> shortName) {
     this.shortName = shortName;
@@ -225,10 +206,7 @@ public class SLOHistoryMetricsSeriesMetadataUnit {
     this.shortName = JsonNullable.<String>of(shortName);
   }
 
-
-  /**
-   * Return true if this SLOHistoryMetricsSeriesMetadataUnit object is equal to o.
-   */
+  /** Return true if this SLOHistoryMetricsSeriesMetadataUnit object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -237,20 +215,20 @@ public class SLOHistoryMetricsSeriesMetadataUnit {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOHistoryMetricsSeriesMetadataUnit slOHistoryMetricsSeriesMetadataUnit = (SLOHistoryMetricsSeriesMetadataUnit) o;
-    return Objects.equals(this.family, slOHistoryMetricsSeriesMetadataUnit.family) &&
-        Objects.equals(this.id, slOHistoryMetricsSeriesMetadataUnit.id) &&
-        Objects.equals(this.name, slOHistoryMetricsSeriesMetadataUnit.name) &&
-        Objects.equals(this.plural, slOHistoryMetricsSeriesMetadataUnit.plural) &&
-        Objects.equals(this.scaleFactor, slOHistoryMetricsSeriesMetadataUnit.scaleFactor) &&
-        Objects.equals(this.shortName, slOHistoryMetricsSeriesMetadataUnit.shortName);
+    SLOHistoryMetricsSeriesMetadataUnit slOHistoryMetricsSeriesMetadataUnit =
+        (SLOHistoryMetricsSeriesMetadataUnit) o;
+    return Objects.equals(this.family, slOHistoryMetricsSeriesMetadataUnit.family)
+        && Objects.equals(this.id, slOHistoryMetricsSeriesMetadataUnit.id)
+        && Objects.equals(this.name, slOHistoryMetricsSeriesMetadataUnit.name)
+        && Objects.equals(this.plural, slOHistoryMetricsSeriesMetadataUnit.plural)
+        && Objects.equals(this.scaleFactor, slOHistoryMetricsSeriesMetadataUnit.scaleFactor)
+        && Objects.equals(this.shortName, slOHistoryMetricsSeriesMetadataUnit.shortName);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(family, id, name, plural, scaleFactor, shortName);
   }
-
 
   @Override
   public String toString() {
@@ -267,8 +245,7 @@ public class SLOHistoryMetricsSeriesMetadataUnit {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -276,6 +253,4 @@ public class SLOHistoryMetricsSeriesMetadataUnit {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

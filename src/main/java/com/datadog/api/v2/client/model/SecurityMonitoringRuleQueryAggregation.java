@@ -8,34 +8,22 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
 
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * The aggregation type.
- */
+/** The aggregation type. */
 public enum SecurityMonitoringRuleQueryAggregation {
-  
   COUNT("count"),
-  
+
   CARDINALITY("cardinality"),
-  
+
   SUM("sum"),
-  
+
   MAX("max"),
-  
+
   NEW_VALUE("new_value");
 
   private String value;
@@ -56,7 +44,8 @@ public enum SecurityMonitoringRuleQueryAggregation {
 
   @JsonCreator
   public static SecurityMonitoringRuleQueryAggregation fromValue(String value) {
-    for (SecurityMonitoringRuleQueryAggregation b : SecurityMonitoringRuleQueryAggregation.values()) {
+    for (SecurityMonitoringRuleQueryAggregation b :
+        SecurityMonitoringRuleQueryAggregation.values()) {
       if (b.value.equals(value)) {
         return b;
       }
@@ -64,4 +53,3 @@ public enum SecurityMonitoringRuleQueryAggregation {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

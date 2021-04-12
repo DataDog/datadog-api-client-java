@@ -8,30 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.UserAttributes;
-import com.datadog.api.v2.client.model.UserResponseRelationships;
-import com.datadog.api.v2.client.model.UsersType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * User object returned by the API.
- */
+/** User object returned by the API. */
 @ApiModel(description = "User object returned by the API.")
 @JsonPropertyOrder({
   User.JSON_PROPERTY_ATTRIBUTES,
@@ -53,106 +39,95 @@ public class User {
   public static final String JSON_PROPERTY_TYPE = "type";
   private UsersType type = UsersType.USERS;
 
-
   public User attributes(UserAttributes attributes) {
     this.attributes = attributes;
     return this;
   }
 
-   /**
+  /**
    * Get attributes
+   *
    * @return attributes
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public UserAttributes getAttributes() {
     return attributes;
   }
 
-
   public void setAttributes(UserAttributes attributes) {
     this.attributes = attributes;
   }
-
 
   public User id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * ID of the user.
+   *
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "ID of the user.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
   public void setId(String id) {
     this.id = id;
   }
-
 
   public User relationships(UserResponseRelationships relationships) {
     this.relationships = relationships;
     return this;
   }
 
-   /**
+  /**
    * Get relationships
+   *
    * @return relationships
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public UserResponseRelationships getRelationships() {
     return relationships;
   }
 
-
   public void setRelationships(UserResponseRelationships relationships) {
     this.relationships = relationships;
   }
-
 
   public User type(UsersType type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
+   *
    * @return type
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public UsersType getType() {
     return type;
   }
-
 
   public void setType(UsersType type) {
     this.type = type;
   }
 
-
-  /**
-   * Return true if this User object is equal to o.
-   */
+  /** Return true if this User object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -162,17 +137,16 @@ public class User {
       return false;
     }
     User user = (User) o;
-    return Objects.equals(this.attributes, user.attributes) &&
-        Objects.equals(this.id, user.id) &&
-        Objects.equals(this.relationships, user.relationships) &&
-        Objects.equals(this.type, user.type);
+    return Objects.equals(this.attributes, user.attributes)
+        && Objects.equals(this.id, user.id)
+        && Objects.equals(this.relationships, user.relationships)
+        && Objects.equals(this.type, user.type);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(attributes, id, relationships, type);
   }
-
 
   @Override
   public String toString() {
@@ -187,8 +161,7 @@ public class User {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -196,6 +169,4 @@ public class User {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

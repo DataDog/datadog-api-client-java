@@ -3,6 +3,7 @@
 # UserAttributes
 
 Attributes of user object returned by the API.
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -12,6 +13,7 @@ Name | Type | Description | Notes
 **email** | **String** | Email of the user. |  [optional]
 **handle** | **String** | Handle of the user. |  [optional]
 **icon** | **String** | URL of the user&#39;s icon. |  [optional]
+**modifiedAt** | **OffsetDateTime** | Time that the user was last modified. |  [optional]
 **name** | **String** | Name of the user. |  [optional]
 **status** | **String** | Status of the user. |  [optional]
 **title** | **String** | Title of the user. |  [optional]

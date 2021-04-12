@@ -8,64 +8,51 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Has one property enabled (boolean).
- */
+/** Has one property enabled (boolean). */
 @ApiModel(description = "Has one property enabled (boolean).")
-@JsonPropertyOrder({
-  OrganizationSettingsSamlIdpInitiatedLogin.JSON_PROPERTY_ENABLED
-})
+@JsonPropertyOrder({OrganizationSettingsSamlIdpInitiatedLogin.JSON_PROPERTY_ENABLED})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class OrganizationSettingsSamlIdpInitiatedLogin {
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
-
 
   public OrganizationSettingsSamlIdpInitiatedLogin enabled(Boolean enabled) {
     this.enabled = enabled;
     return this;
   }
 
-   /**
-   * Whether SAML IdP initiated login is enabled, learn more in the [SAML documentation](https://docs.datadoghq.com/account_management/saml/#idp-initiated-login).
+  /**
+   * Whether SAML IdP initiated login is enabled, learn more in the [SAML
+   * documentation](https://docs.datadoghq.com/account_management/saml/#idp-initiated-login).
+   *
    * @return enabled
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "Whether SAML IdP initiated login is enabled, learn more in the [SAML documentation](https://docs.datadoghq.com/account_management/saml/#idp-initiated-login).")
+  @ApiModelProperty(
+      example = "false",
+      value =
+          "Whether SAML IdP initiated login is enabled, learn more in the [SAML"
+              + " documentation](https://docs.datadoghq.com/account_management/saml/#idp-initiated-login).")
   @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getEnabled() {
     return enabled;
   }
-
 
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
   }
 
-
-  /**
-   * Return true if this Organization_settings_saml_idp_initiated_login object is equal to o.
-   */
+  /** Return true if this Organization_settings_saml_idp_initiated_login object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -74,7 +61,8 @@ public class OrganizationSettingsSamlIdpInitiatedLogin {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OrganizationSettingsSamlIdpInitiatedLogin organizationSettingsSamlIdpInitiatedLogin = (OrganizationSettingsSamlIdpInitiatedLogin) o;
+    OrganizationSettingsSamlIdpInitiatedLogin organizationSettingsSamlIdpInitiatedLogin =
+        (OrganizationSettingsSamlIdpInitiatedLogin) o;
     return Objects.equals(this.enabled, organizationSettingsSamlIdpInitiatedLogin.enabled);
   }
 
@@ -82,7 +70,6 @@ public class OrganizationSettingsSamlIdpInitiatedLogin {
   public int hashCode() {
     return Objects.hash(enabled);
   }
-
 
   @Override
   public String toString() {
@@ -94,8 +81,7 @@ public class OrganizationSettingsSamlIdpInitiatedLogin {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -103,6 +89,4 @@ public class OrganizationSettingsSamlIdpInitiatedLogin {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

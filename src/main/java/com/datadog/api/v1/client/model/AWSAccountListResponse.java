@@ -8,39 +8,24 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.AWSAccount;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * List of enabled AWS accounts.
- */
+/** List of enabled AWS accounts. */
 @ApiModel(description = "List of enabled AWS accounts.")
-@JsonPropertyOrder({
-  AWSAccountListResponse.JSON_PROPERTY_ACCOUNTS
-})
+@JsonPropertyOrder({AWSAccountListResponse.JSON_PROPERTY_ACCOUNTS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AWSAccountListResponse {
   public static final String JSON_PROPERTY_ACCOUNTS = "accounts";
   private List<AWSAccount> accounts = null;
-
 
   public AWSAccountListResponse accounts(List<AWSAccount> accounts) {
     this.accounts = accounts;
@@ -55,28 +40,24 @@ public class AWSAccountListResponse {
     return this;
   }
 
-   /**
+  /**
    * List of enabled AWS accounts.
+   *
    * @return accounts
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "List of enabled AWS accounts.")
   @JsonProperty(JSON_PROPERTY_ACCOUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<AWSAccount> getAccounts() {
     return accounts;
   }
-
 
   public void setAccounts(List<AWSAccount> accounts) {
     this.accounts = accounts;
   }
 
-
-  /**
-   * Return true if this AWSAccountListResponse object is equal to o.
-   */
+  /** Return true if this AWSAccountListResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -94,7 +75,6 @@ public class AWSAccountListResponse {
     return Objects.hash(accounts);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -105,8 +85,7 @@ public class AWSAccountListResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -114,6 +93,4 @@ public class AWSAccountListResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

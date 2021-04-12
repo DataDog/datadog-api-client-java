@@ -8,63 +8,55 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Cancel downtimes according to scope.
- */
+/** Cancel downtimes according to scope. */
 @ApiModel(description = "Cancel downtimes according to scope.")
-@JsonPropertyOrder({
-  CancelDowntimesByScopeRequest.JSON_PROPERTY_SCOPE
-})
+@JsonPropertyOrder({CancelDowntimesByScopeRequest.JSON_PROPERTY_SCOPE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CancelDowntimesByScopeRequest {
   public static final String JSON_PROPERTY_SCOPE = "scope";
   private String scope;
-
 
   public CancelDowntimesByScopeRequest scope(String scope) {
     this.scope = scope;
     return this;
   }
 
-   /**
-   * The scope(s) to which the downtime applies. For example, &#x60;host:app2&#x60;. Provide multiple scopes as a comma-separated list like &#x60;env:dev,env:prod&#x60;. The resulting downtime applies to sources that matches ALL provided scopes (&#x60;env:dev&#x60; **AND** &#x60;env:prod&#x60;).
+  /**
+   * The scope(s) to which the downtime applies. For example, &#x60;host:app2&#x60;. Provide
+   * multiple scopes as a comma-separated list like &#x60;env:dev,env:prod&#x60;. The resulting
+   * downtime applies to sources that matches ALL provided scopes (&#x60;env:dev&#x60; **AND**
+   * &#x60;env:prod&#x60;).
+   *
    * @return scope
-  **/
-  @ApiModelProperty(example = "host:myserver", required = true, value = "The scope(s) to which the downtime applies. For example, `host:app2`. Provide multiple scopes as a comma-separated list like `env:dev,env:prod`. The resulting downtime applies to sources that matches ALL provided scopes (`env:dev` **AND** `env:prod`).")
+   */
+  @ApiModelProperty(
+      example = "host:myserver",
+      required = true,
+      value =
+          "The scope(s) to which the downtime applies. For example, `host:app2`. Provide multiple"
+              + " scopes as a comma-separated list like `env:dev,env:prod`. The resulting downtime"
+              + " applies to sources that matches ALL provided scopes (`env:dev` **AND**"
+              + " `env:prod`).")
   @JsonProperty(JSON_PROPERTY_SCOPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getScope() {
     return scope;
   }
-
 
   public void setScope(String scope) {
     this.scope = scope;
   }
 
-
-  /**
-   * Return true if this CancelDowntimesByScopeRequest object is equal to o.
-   */
+  /** Return true if this CancelDowntimesByScopeRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -82,7 +74,6 @@ public class CancelDowntimesByScopeRequest {
     return Objects.hash(scope);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -93,8 +84,7 @@ public class CancelDowntimesByScopeRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -102,6 +92,4 @@ public class CancelDowntimesByScopeRequest {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

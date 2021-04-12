@@ -8,27 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Public key for the result encryption.
- */
+/** Public key for the result encryption. */
 @ApiModel(description = "Public key for the result encryption.")
 @JsonPropertyOrder({
   SyntheticsPrivateLocationCreationResponseResultEncryption.JSON_PROPERTY_ID,
@@ -42,57 +31,53 @@ public class SyntheticsPrivateLocationCreationResponseResultEncryption {
   public static final String JSON_PROPERTY_KEY = "key";
   private String key;
 
-
   public SyntheticsPrivateLocationCreationResponseResultEncryption id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Fingerprint for the encryption key.
+   *
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Fingerprint for the encryption key.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
   public void setId(String id) {
     this.id = id;
   }
-
 
   public SyntheticsPrivateLocationCreationResponseResultEncryption key(String key) {
     this.key = key;
     return this;
   }
 
-   /**
+  /**
    * Public key for result encryption.
+   *
    * @return key
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Public key for result encryption.")
   @JsonProperty(JSON_PROPERTY_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getKey() {
     return key;
   }
-
 
   public void setKey(String key) {
     this.key = key;
   }
 
-
   /**
-   * Return true if this SyntheticsPrivateLocationCreationResponse_result_encryption object is equal to o.
+   * Return true if this SyntheticsPrivateLocationCreationResponse_result_encryption object is equal
+   * to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -102,16 +87,17 @@ public class SyntheticsPrivateLocationCreationResponseResultEncryption {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsPrivateLocationCreationResponseResultEncryption syntheticsPrivateLocationCreationResponseResultEncryption = (SyntheticsPrivateLocationCreationResponseResultEncryption) o;
-    return Objects.equals(this.id, syntheticsPrivateLocationCreationResponseResultEncryption.id) &&
-        Objects.equals(this.key, syntheticsPrivateLocationCreationResponseResultEncryption.key);
+    SyntheticsPrivateLocationCreationResponseResultEncryption
+        syntheticsPrivateLocationCreationResponseResultEncryption =
+            (SyntheticsPrivateLocationCreationResponseResultEncryption) o;
+    return Objects.equals(this.id, syntheticsPrivateLocationCreationResponseResultEncryption.id)
+        && Objects.equals(this.key, syntheticsPrivateLocationCreationResponseResultEncryption.key);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(id, key);
   }
-
 
   @Override
   public String toString() {
@@ -124,8 +110,7 @@ public class SyntheticsPrivateLocationCreationResponseResultEncryption {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -133,6 +118,4 @@ public class SyntheticsPrivateLocationCreationResponseResultEncryption {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

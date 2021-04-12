@@ -8,28 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.WidgetSort;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Define a sorting method.
- */
+/** Define a sorting method. */
 @ApiModel(description = "Define a sorting method.")
 @JsonPropertyOrder({
   LogQueryDefinitionGroupBySort.JSON_PROPERTY_AGGREGATION,
@@ -47,80 +35,71 @@ public class LogQueryDefinitionGroupBySort {
   public static final String JSON_PROPERTY_ORDER = "order";
   private WidgetSort order;
 
-
   public LogQueryDefinitionGroupBySort aggregation(String aggregation) {
     this.aggregation = aggregation;
     return this;
   }
 
-   /**
+  /**
    * The aggregation method.
+   *
    * @return aggregation
-  **/
+   */
   @ApiModelProperty(example = "avg", required = true, value = "The aggregation method.")
   @JsonProperty(JSON_PROPERTY_AGGREGATION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getAggregation() {
     return aggregation;
   }
 
-
   public void setAggregation(String aggregation) {
     this.aggregation = aggregation;
   }
-
 
   public LogQueryDefinitionGroupBySort facet(String facet) {
     this.facet = facet;
     return this;
   }
 
-   /**
+  /**
    * Facet name.
+   *
    * @return facet
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(example = "@string_query.interval", value = "Facet name.")
   @JsonProperty(JSON_PROPERTY_FACET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getFacet() {
     return facet;
   }
 
-
   public void setFacet(String facet) {
     this.facet = facet;
   }
-
 
   public LogQueryDefinitionGroupBySort order(WidgetSort order) {
     this.order = order;
     return this;
   }
 
-   /**
+  /**
    * Get order
+   *
    * @return order
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ORDER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public WidgetSort getOrder() {
     return order;
   }
-
 
   public void setOrder(WidgetSort order) {
     this.order = order;
   }
 
-
-  /**
-   * Return true if this LogQueryDefinitionGroupBy_sort object is equal to o.
-   */
+  /** Return true if this LogQueryDefinitionGroupBy_sort object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -130,16 +109,15 @@ public class LogQueryDefinitionGroupBySort {
       return false;
     }
     LogQueryDefinitionGroupBySort logQueryDefinitionGroupBySort = (LogQueryDefinitionGroupBySort) o;
-    return Objects.equals(this.aggregation, logQueryDefinitionGroupBySort.aggregation) &&
-        Objects.equals(this.facet, logQueryDefinitionGroupBySort.facet) &&
-        Objects.equals(this.order, logQueryDefinitionGroupBySort.order);
+    return Objects.equals(this.aggregation, logQueryDefinitionGroupBySort.aggregation)
+        && Objects.equals(this.facet, logQueryDefinitionGroupBySort.facet)
+        && Objects.equals(this.order, logQueryDefinitionGroupBySort.order);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(aggregation, facet, order);
   }
-
 
   @Override
   public String toString() {
@@ -153,8 +131,7 @@ public class LogQueryDefinitionGroupBySort {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -162,6 +139,4 @@ public class LogQueryDefinitionGroupBySort {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

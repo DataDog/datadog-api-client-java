@@ -8,39 +8,55 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.UsageTopAvgMetricsHour;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Response containing the number of hourly recorded custom metrics for a given organization.
- */
-@ApiModel(description = "Response containing the number of hourly recorded custom metrics for a given organization.")
+/** Response containing the number of hourly recorded custom metrics for a given organization. */
+@ApiModel(
+    description =
+        "Response containing the number of hourly recorded custom metrics for a given"
+            + " organization.")
 @JsonPropertyOrder({
+  UsageTopAvgMetricsResponse.JSON_PROPERTY_METADATA,
   UsageTopAvgMetricsResponse.JSON_PROPERTY_USAGE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageTopAvgMetricsResponse {
+  public static final String JSON_PROPERTY_METADATA = "metadata";
+  private UsageTopAvgMetricsMetadata metadata;
+
   public static final String JSON_PROPERTY_USAGE = "usage";
   private List<UsageTopAvgMetricsHour> usage = null;
 
+  public UsageTopAvgMetricsResponse metadata(UsageTopAvgMetricsMetadata metadata) {
+    this.metadata = metadata;
+    return this;
+  }
+
+  /**
+   * Get metadata
+   *
+   * @return metadata
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public UsageTopAvgMetricsMetadata getMetadata() {
+    return metadata;
+  }
+
+  public void setMetadata(UsageTopAvgMetricsMetadata metadata) {
+    this.metadata = metadata;
+  }
 
   public UsageTopAvgMetricsResponse usage(List<UsageTopAvgMetricsHour> usage) {
     this.usage = usage;
@@ -55,28 +71,24 @@ public class UsageTopAvgMetricsResponse {
     return this;
   }
 
-   /**
+  /**
    * Number of hourly recorded custom metrics for a given organization.
+   *
    * @return usage
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Number of hourly recorded custom metrics for a given organization.")
   @JsonProperty(JSON_PROPERTY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<UsageTopAvgMetricsHour> getUsage() {
     return usage;
   }
-
 
   public void setUsage(List<UsageTopAvgMetricsHour> usage) {
     this.usage = usage;
   }
 
-
-  /**
-   * Return true if this UsageTopAvgMetricsResponse object is equal to o.
-   */
+  /** Return true if this UsageTopAvgMetricsResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -86,27 +98,27 @@ public class UsageTopAvgMetricsResponse {
       return false;
     }
     UsageTopAvgMetricsResponse usageTopAvgMetricsResponse = (UsageTopAvgMetricsResponse) o;
-    return Objects.equals(this.usage, usageTopAvgMetricsResponse.usage);
+    return Objects.equals(this.metadata, usageTopAvgMetricsResponse.metadata)
+        && Objects.equals(this.usage, usageTopAvgMetricsResponse.usage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(usage);
+    return Objects.hash(metadata, usage);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UsageTopAvgMetricsResponse {\n");
+    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    usage: ").append(toIndentedString(usage)).append("\n");
     sb.append("}");
     return sb.toString();
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -114,6 +126,4 @@ public class UsageTopAvgMetricsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

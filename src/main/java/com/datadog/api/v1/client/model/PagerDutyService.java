@@ -8,27 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * The PagerDuty service that is available for integration with Datadog.
- */
+/** The PagerDuty service that is available for integration with Datadog. */
 @ApiModel(description = "The PagerDuty service that is available for integration with Datadog.")
 @JsonPropertyOrder({
   PagerDutyService.JSON_PROPERTY_SERVICE_KEY,
@@ -42,56 +31,52 @@ public class PagerDutyService {
   public static final String JSON_PROPERTY_SERVICE_NAME = "service_name";
   private String serviceName;
 
-
   public PagerDutyService serviceKey(String serviceKey) {
     this.serviceKey = serviceKey;
     return this;
   }
 
-   /**
+  /**
    * Your service key in PagerDuty.
+   *
    * @return serviceKey
-  **/
+   */
   @ApiModelProperty(example = "", required = true, value = "Your service key in PagerDuty.")
   @JsonProperty(JSON_PROPERTY_SERVICE_KEY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getServiceKey() {
     return serviceKey;
   }
 
-
   public void setServiceKey(String serviceKey) {
     this.serviceKey = serviceKey;
   }
-
 
   public PagerDutyService serviceName(String serviceName) {
     this.serviceName = serviceName;
     return this;
   }
 
-   /**
+  /**
    * Your service name associated with a service key in PagerDuty.
+   *
    * @return serviceName
-  **/
-  @ApiModelProperty(example = "", required = true, value = "Your service name associated with a service key in PagerDuty.")
+   */
+  @ApiModelProperty(
+      example = "",
+      required = true,
+      value = "Your service name associated with a service key in PagerDuty.")
   @JsonProperty(JSON_PROPERTY_SERVICE_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getServiceName() {
     return serviceName;
   }
-
 
   public void setServiceName(String serviceName) {
     this.serviceName = serviceName;
   }
 
-
-  /**
-   * Return true if this PagerDutyService object is equal to o.
-   */
+  /** Return true if this PagerDutyService object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -101,15 +86,14 @@ public class PagerDutyService {
       return false;
     }
     PagerDutyService pagerDutyService = (PagerDutyService) o;
-    return Objects.equals(this.serviceKey, pagerDutyService.serviceKey) &&
-        Objects.equals(this.serviceName, pagerDutyService.serviceName);
+    return Objects.equals(this.serviceKey, pagerDutyService.serviceKey)
+        && Objects.equals(this.serviceName, pagerDutyService.serviceName);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(serviceKey, serviceName);
   }
-
 
   @Override
   public String toString() {
@@ -122,8 +106,7 @@ public class PagerDutyService {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -131,6 +114,4 @@ public class PagerDutyService {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

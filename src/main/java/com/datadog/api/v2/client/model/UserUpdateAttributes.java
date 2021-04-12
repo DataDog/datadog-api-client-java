@@ -8,27 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Attributes of the edited user.
- */
+/** Attributes of the edited user. */
 @ApiModel(description = "Attributes of the edited user.")
 @JsonPropertyOrder({
   UserUpdateAttributes.JSON_PROPERTY_DISABLED,
@@ -46,82 +35,73 @@ public class UserUpdateAttributes {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-
   public UserUpdateAttributes disabled(Boolean disabled) {
     this.disabled = disabled;
     return this;
   }
 
-   /**
+  /**
    * If the user is enabled or disabled.
+   *
    * @return disabled
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "If the user is enabled or disabled.")
   @JsonProperty(JSON_PROPERTY_DISABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getDisabled() {
     return disabled;
   }
 
-
   public void setDisabled(Boolean disabled) {
     this.disabled = disabled;
   }
-
 
   public UserUpdateAttributes email(String email) {
     this.email = email;
     return this;
   }
 
-   /**
+  /**
    * The email of the user.
+   *
    * @return email
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The email of the user.")
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getEmail() {
     return email;
   }
 
-
   public void setEmail(String email) {
     this.email = email;
   }
-
 
   public UserUpdateAttributes name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The name of the user.
+   *
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The name of the user.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getName() {
     return name;
   }
-
 
   public void setName(String name) {
     this.name = name;
   }
 
-
-  /**
-   * Return true if this UserUpdateAttributes object is equal to o.
-   */
+  /** Return true if this UserUpdateAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -131,16 +111,15 @@ public class UserUpdateAttributes {
       return false;
     }
     UserUpdateAttributes userUpdateAttributes = (UserUpdateAttributes) o;
-    return Objects.equals(this.disabled, userUpdateAttributes.disabled) &&
-        Objects.equals(this.email, userUpdateAttributes.email) &&
-        Objects.equals(this.name, userUpdateAttributes.name);
+    return Objects.equals(this.disabled, userUpdateAttributes.disabled)
+        && Objects.equals(this.email, userUpdateAttributes.email)
+        && Objects.equals(this.name, userUpdateAttributes.name);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(disabled, email, name);
   }
-
 
   @Override
   public String toString() {
@@ -154,8 +133,7 @@ public class UserUpdateAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -163,6 +141,4 @@ public class UserUpdateAttributes {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

@@ -8,27 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Configuration options for what is shown in an alert event message.
- */
+/** Configuration options for what is shown in an alert event message. */
 @ApiModel(description = "Configuration options for what is shown in an alert event message.")
 @JsonPropertyOrder({
   SlackIntegrationChannelDisplay.JSON_PROPERTY_MESSAGE,
@@ -50,106 +39,95 @@ public class SlackIntegrationChannelDisplay {
   public static final String JSON_PROPERTY_TAGS = "tags";
   private Boolean tags = true;
 
-
   public SlackIntegrationChannelDisplay message(Boolean message) {
     this.message = message;
     return this;
   }
 
-   /**
+  /**
    * Show the main body of the alert event.
+   *
    * @return message
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Show the main body of the alert event.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getMessage() {
     return message;
   }
 
-
   public void setMessage(Boolean message) {
     this.message = message;
   }
-
 
   public SlackIntegrationChannelDisplay notified(Boolean notified) {
     this.notified = notified;
     return this;
   }
 
-   /**
+  /**
    * Show the list of @-handles in the alert event.
+   *
    * @return notified
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Show the list of @-handles in the alert event.")
   @JsonProperty(JSON_PROPERTY_NOTIFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getNotified() {
     return notified;
   }
 
-
   public void setNotified(Boolean notified) {
     this.notified = notified;
   }
-
 
   public SlackIntegrationChannelDisplay snapshot(Boolean snapshot) {
     this.snapshot = snapshot;
     return this;
   }
 
-   /**
+  /**
    * Show the alert event&#39;s snapshot image.
+   *
    * @return snapshot
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Show the alert event's snapshot image.")
   @JsonProperty(JSON_PROPERTY_SNAPSHOT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getSnapshot() {
     return snapshot;
   }
 
-
   public void setSnapshot(Boolean snapshot) {
     this.snapshot = snapshot;
   }
-
 
   public SlackIntegrationChannelDisplay tags(Boolean tags) {
     this.tags = tags;
     return this;
   }
 
-   /**
+  /**
    * Show the scopes on which the monitor alerted.
+   *
    * @return tags
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Show the scopes on which the monitor alerted.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getTags() {
     return tags;
   }
-
 
   public void setTags(Boolean tags) {
     this.tags = tags;
   }
 
-
-  /**
-   * Return true if this SlackIntegrationChannel_display object is equal to o.
-   */
+  /** Return true if this SlackIntegrationChannel_display object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -158,18 +136,18 @@ public class SlackIntegrationChannelDisplay {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SlackIntegrationChannelDisplay slackIntegrationChannelDisplay = (SlackIntegrationChannelDisplay) o;
-    return Objects.equals(this.message, slackIntegrationChannelDisplay.message) &&
-        Objects.equals(this.notified, slackIntegrationChannelDisplay.notified) &&
-        Objects.equals(this.snapshot, slackIntegrationChannelDisplay.snapshot) &&
-        Objects.equals(this.tags, slackIntegrationChannelDisplay.tags);
+    SlackIntegrationChannelDisplay slackIntegrationChannelDisplay =
+        (SlackIntegrationChannelDisplay) o;
+    return Objects.equals(this.message, slackIntegrationChannelDisplay.message)
+        && Objects.equals(this.notified, slackIntegrationChannelDisplay.notified)
+        && Objects.equals(this.snapshot, slackIntegrationChannelDisplay.snapshot)
+        && Objects.equals(this.tags, slackIntegrationChannelDisplay.tags);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(message, notified, snapshot, tags);
   }
-
 
   @Override
   public String toString() {
@@ -184,8 +162,7 @@ public class SlackIntegrationChannelDisplay {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -193,6 +170,4 @@ public class SlackIntegrationChannelDisplay {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

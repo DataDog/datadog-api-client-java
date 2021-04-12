@@ -8,35 +8,21 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.LogsAggregateRequestPage;
-import com.datadog.api.v2.client.model.LogsCompute;
-import com.datadog.api.v2.client.model.LogsGroupBy;
-import com.datadog.api.v2.client.model.LogsQueryFilter;
-import com.datadog.api.v2.client.model.LogsQueryOptions;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * The object sent with the request to retrieve a list of logs from your organization.
- */
-@ApiModel(description = "The object sent with the request to retrieve a list of logs from your organization.")
+/** The object sent with the request to retrieve a list of logs from your organization. */
+@ApiModel(
+    description =
+        "The object sent with the request to retrieve a list of logs from your organization.")
 @JsonPropertyOrder({
   LogsAggregateRequest.JSON_PROPERTY_COMPUTE,
   LogsAggregateRequest.JSON_PROPERTY_FILTER,
@@ -61,7 +47,6 @@ public class LogsAggregateRequest {
   public static final String JSON_PROPERTY_PAGE = "page";
   private LogsAggregateRequestPage page;
 
-
   public LogsAggregateRequest compute(List<LogsCompute> compute) {
     this.compute = compute;
     return this;
@@ -75,48 +60,45 @@ public class LogsAggregateRequest {
     return this;
   }
 
-   /**
+  /**
    * The list of metrics or timeseries to compute for the retrieved buckets.
+   *
    * @return compute
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The list of metrics or timeseries to compute for the retrieved buckets.")
+  @ApiModelProperty(
+      value = "The list of metrics or timeseries to compute for the retrieved buckets.")
   @JsonProperty(JSON_PROPERTY_COMPUTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<LogsCompute> getCompute() {
     return compute;
   }
 
-
   public void setCompute(List<LogsCompute> compute) {
     this.compute = compute;
   }
-
 
   public LogsAggregateRequest filter(LogsQueryFilter filter) {
     this.filter = filter;
     return this;
   }
 
-   /**
+  /**
    * Get filter
+   *
    * @return filter
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FILTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LogsQueryFilter getFilter() {
     return filter;
   }
 
-
   public void setFilter(LogsQueryFilter filter) {
     this.filter = filter;
   }
-
 
   public LogsAggregateRequest groupBy(List<LogsGroupBy> groupBy) {
     this.groupBy = groupBy;
@@ -131,76 +113,68 @@ public class LogsAggregateRequest {
     return this;
   }
 
-   /**
+  /**
    * The rules for the group by
+   *
    * @return groupBy
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The rules for the group by")
   @JsonProperty(JSON_PROPERTY_GROUP_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<LogsGroupBy> getGroupBy() {
     return groupBy;
   }
 
-
   public void setGroupBy(List<LogsGroupBy> groupBy) {
     this.groupBy = groupBy;
   }
-
 
   public LogsAggregateRequest options(LogsQueryOptions options) {
     this.options = options;
     return this;
   }
 
-   /**
+  /**
    * Get options
+   *
    * @return options
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LogsQueryOptions getOptions() {
     return options;
   }
 
-
   public void setOptions(LogsQueryOptions options) {
     this.options = options;
   }
-
 
   public LogsAggregateRequest page(LogsAggregateRequestPage page) {
     this.page = page;
     return this;
   }
 
-   /**
+  /**
    * Get page
+   *
    * @return page
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LogsAggregateRequestPage getPage() {
     return page;
   }
-
 
   public void setPage(LogsAggregateRequestPage page) {
     this.page = page;
   }
 
-
-  /**
-   * Return true if this LogsAggregateRequest object is equal to o.
-   */
+  /** Return true if this LogsAggregateRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -210,18 +184,17 @@ public class LogsAggregateRequest {
       return false;
     }
     LogsAggregateRequest logsAggregateRequest = (LogsAggregateRequest) o;
-    return Objects.equals(this.compute, logsAggregateRequest.compute) &&
-        Objects.equals(this.filter, logsAggregateRequest.filter) &&
-        Objects.equals(this.groupBy, logsAggregateRequest.groupBy) &&
-        Objects.equals(this.options, logsAggregateRequest.options) &&
-        Objects.equals(this.page, logsAggregateRequest.page);
+    return Objects.equals(this.compute, logsAggregateRequest.compute)
+        && Objects.equals(this.filter, logsAggregateRequest.filter)
+        && Objects.equals(this.groupBy, logsAggregateRequest.groupBy)
+        && Objects.equals(this.options, logsAggregateRequest.options)
+        && Objects.equals(this.page, logsAggregateRequest.page);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(compute, filter, groupBy, options, page);
   }
-
 
   @Override
   public String toString() {
@@ -237,8 +210,7 @@ public class LogsAggregateRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -246,6 +218,4 @@ public class LogsAggregateRequest {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

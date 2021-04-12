@@ -8,28 +8,19 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * The list of current AWS services for which Datadog offers automatic log collection.
- */
-@ApiModel(description = "The list of current AWS services for which Datadog offers automatic log collection.")
+/** The list of current AWS services for which Datadog offers automatic log collection. */
+@ApiModel(
+    description =
+        "The list of current AWS services for which Datadog offers automatic log collection.")
 @JsonPropertyOrder({
   AWSLogsListServicesResponse.JSON_PROPERTY_ID,
   AWSLogsListServicesResponse.JSON_PROPERTY_LABEL
@@ -42,58 +33,53 @@ public class AWSLogsListServicesResponse {
   public static final String JSON_PROPERTY_LABEL = "label";
   private String label;
 
-
   public AWSLogsListServicesResponse id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Key value in returned object.
+   *
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(example = "s3", value = "Key value in returned object.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
   public void setId(String id) {
     this.id = id;
   }
-
 
   public AWSLogsListServicesResponse label(String label) {
     this.label = label;
     return this;
   }
 
-   /**
+  /**
    * Name of service available for configuration with Datadog logs.
+   *
    * @return label
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "S3 Access Logs", value = "Name of service available for configuration with Datadog logs.")
+  @ApiModelProperty(
+      example = "S3 Access Logs",
+      value = "Name of service available for configuration with Datadog logs.")
   @JsonProperty(JSON_PROPERTY_LABEL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLabel() {
     return label;
   }
-
 
   public void setLabel(String label) {
     this.label = label;
   }
 
-
-  /**
-   * Return true if this AWSLogsListServicesResponse object is equal to o.
-   */
+  /** Return true if this AWSLogsListServicesResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -103,15 +89,14 @@ public class AWSLogsListServicesResponse {
       return false;
     }
     AWSLogsListServicesResponse awSLogsListServicesResponse = (AWSLogsListServicesResponse) o;
-    return Objects.equals(this.id, awSLogsListServicesResponse.id) &&
-        Objects.equals(this.label, awSLogsListServicesResponse.label);
+    return Objects.equals(this.id, awSLogsListServicesResponse.id)
+        && Objects.equals(this.label, awSLogsListServicesResponse.label);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(id, label);
   }
-
 
   @Override
   public String toString() {
@@ -124,8 +109,7 @@ public class AWSLogsListServicesResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -133,6 +117,4 @@ public class AWSLogsListServicesResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

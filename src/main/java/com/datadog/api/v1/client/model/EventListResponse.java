@@ -8,35 +8,20 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.Event;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * An event list response.
- */
+/** An event list response. */
 @ApiModel(description = "An event list response.")
-@JsonPropertyOrder({
-  EventListResponse.JSON_PROPERTY_EVENTS,
-  EventListResponse.JSON_PROPERTY_STATUS
-})
+@JsonPropertyOrder({EventListResponse.JSON_PROPERTY_EVENTS, EventListResponse.JSON_PROPERTY_STATUS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class EventListResponse {
   public static final String JSON_PROPERTY_EVENTS = "events";
@@ -44,7 +29,6 @@ public class EventListResponse {
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private String status;
-
 
   public EventListResponse events(List<Event> events) {
     this.events = events;
@@ -59,52 +43,46 @@ public class EventListResponse {
     return this;
   }
 
-   /**
+  /**
    * An array of events.
+   *
    * @return events
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "An array of events.")
   @JsonProperty(JSON_PROPERTY_EVENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<Event> getEvents() {
     return events;
   }
 
-
   public void setEvents(List<Event> events) {
     this.events = events;
   }
-
 
   public EventListResponse status(String status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * A status.
+   *
    * @return status
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "A status.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getStatus() {
     return status;
   }
-
 
   public void setStatus(String status) {
     this.status = status;
   }
 
-
-  /**
-   * Return true if this EventListResponse object is equal to o.
-   */
+  /** Return true if this EventListResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -114,15 +92,14 @@ public class EventListResponse {
       return false;
     }
     EventListResponse eventListResponse = (EventListResponse) o;
-    return Objects.equals(this.events, eventListResponse.events) &&
-        Objects.equals(this.status, eventListResponse.status);
+    return Objects.equals(this.events, eventListResponse.events)
+        && Objects.equals(this.status, eventListResponse.status);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(events, status);
   }
-
 
   @Override
   public String toString() {
@@ -135,8 +112,7 @@ public class EventListResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -144,6 +120,4 @@ public class EventListResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

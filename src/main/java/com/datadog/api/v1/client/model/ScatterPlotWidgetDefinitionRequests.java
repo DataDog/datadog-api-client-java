@@ -8,28 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.ScatterPlotRequest;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Widget definition.
- */
+/** Widget definition. */
 @ApiModel(description = "Widget definition.")
 @JsonPropertyOrder({
   ScatterPlotWidgetDefinitionRequests.JSON_PROPERTY_X,
@@ -43,56 +31,49 @@ public class ScatterPlotWidgetDefinitionRequests {
   public static final String JSON_PROPERTY_Y = "y";
   private ScatterPlotRequest y;
 
-
   public ScatterPlotWidgetDefinitionRequests x(ScatterPlotRequest x) {
     this.x = x;
     return this;
   }
 
-   /**
+  /**
    * Get x
+   *
    * @return x
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_X)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public ScatterPlotRequest getX() {
     return x;
   }
 
-
   public void setX(ScatterPlotRequest x) {
     this.x = x;
   }
-
 
   public ScatterPlotWidgetDefinitionRequests y(ScatterPlotRequest y) {
     this.y = y;
     return this;
   }
 
-   /**
+  /**
    * Get y
+   *
    * @return y
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_Y)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public ScatterPlotRequest getY() {
     return y;
   }
-
 
   public void setY(ScatterPlotRequest y) {
     this.y = y;
   }
 
-
-  /**
-   * Return true if this ScatterPlotWidgetDefinition_requests object is equal to o.
-   */
+  /** Return true if this ScatterPlotWidgetDefinition_requests object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -101,16 +82,16 @@ public class ScatterPlotWidgetDefinitionRequests {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ScatterPlotWidgetDefinitionRequests scatterPlotWidgetDefinitionRequests = (ScatterPlotWidgetDefinitionRequests) o;
-    return Objects.equals(this.x, scatterPlotWidgetDefinitionRequests.x) &&
-        Objects.equals(this.y, scatterPlotWidgetDefinitionRequests.y);
+    ScatterPlotWidgetDefinitionRequests scatterPlotWidgetDefinitionRequests =
+        (ScatterPlotWidgetDefinitionRequests) o;
+    return Objects.equals(this.x, scatterPlotWidgetDefinitionRequests.x)
+        && Objects.equals(this.y, scatterPlotWidgetDefinitionRequests.y);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(x, y);
   }
-
 
   @Override
   public String toString() {
@@ -123,8 +104,7 @@ public class ScatterPlotWidgetDefinitionRequests {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -132,6 +112,4 @@ public class ScatterPlotWidgetDefinitionRequests {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

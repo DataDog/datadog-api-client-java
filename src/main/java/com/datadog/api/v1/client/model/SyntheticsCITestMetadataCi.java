@@ -8,27 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Describe CI provider.
- */
+/** Describe CI provider. */
 @ApiModel(description = "Describe CI provider.")
 @JsonPropertyOrder({
   SyntheticsCITestMetadataCi.JSON_PROPERTY_PIPELINE,
@@ -42,58 +31,51 @@ public class SyntheticsCITestMetadataCi {
   public static final String JSON_PROPERTY_PROVIDER = "provider";
   private String provider;
 
-
   public SyntheticsCITestMetadataCi pipeline(String pipeline) {
     this.pipeline = pipeline;
     return this;
   }
 
-   /**
+  /**
    * Name of the pipeline.
+   *
    * @return pipeline
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Name of the pipeline.")
   @JsonProperty(JSON_PROPERTY_PIPELINE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPipeline() {
     return pipeline;
   }
 
-
   public void setPipeline(String pipeline) {
     this.pipeline = pipeline;
   }
-
 
   public SyntheticsCITestMetadataCi provider(String provider) {
     this.provider = provider;
     return this;
   }
 
-   /**
+  /**
    * Name of the CI provider.
+   *
    * @return provider
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Name of the CI provider.")
   @JsonProperty(JSON_PROPERTY_PROVIDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getProvider() {
     return provider;
   }
-
 
   public void setProvider(String provider) {
     this.provider = provider;
   }
 
-
-  /**
-   * Return true if this SyntheticsCITest_metadata_ci object is equal to o.
-   */
+  /** Return true if this SyntheticsCITest_metadata_ci object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -103,15 +85,14 @@ public class SyntheticsCITestMetadataCi {
       return false;
     }
     SyntheticsCITestMetadataCi syntheticsCITestMetadataCi = (SyntheticsCITestMetadataCi) o;
-    return Objects.equals(this.pipeline, syntheticsCITestMetadataCi.pipeline) &&
-        Objects.equals(this.provider, syntheticsCITestMetadataCi.provider);
+    return Objects.equals(this.pipeline, syntheticsCITestMetadataCi.pipeline)
+        && Objects.equals(this.provider, syntheticsCITestMetadataCi.provider);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(pipeline, provider);
   }
-
 
   @Override
   public String toString() {
@@ -124,8 +105,7 @@ public class SyntheticsCITestMetadataCi {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -133,6 +113,4 @@ public class SyntheticsCITestMetadataCi {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

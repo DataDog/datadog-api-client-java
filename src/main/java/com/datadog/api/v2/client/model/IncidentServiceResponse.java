@@ -8,31 +8,17 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.IncidentServiceIncludedItems;
-import com.datadog.api.v2.client.model.IncidentServiceResponseData;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Response with an incident service payload.
- */
+/** Response with an incident service payload. */
 @ApiModel(description = "Response with an incident service payload.")
 @JsonPropertyOrder({
   IncidentServiceResponse.JSON_PROPERTY_DATA,
@@ -46,49 +32,41 @@ public class IncidentServiceResponse {
   public static final String JSON_PROPERTY_INCLUDED = "included";
   private List<IncidentServiceIncludedItems> included = null;
 
-
   public IncidentServiceResponse data(IncidentServiceResponseData data) {
     this.data = data;
     return this;
   }
 
-   /**
+  /**
    * Get data
+   *
    * @return data
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public IncidentServiceResponseData getData() {
     return data;
   }
-
 
   public void setData(IncidentServiceResponseData data) {
     this.data = data;
   }
 
-
-   /**
+  /**
    * Included objects from relationships.
+   *
    * @return included
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Included objects from relationships.")
   @JsonProperty(JSON_PROPERTY_INCLUDED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<IncidentServiceIncludedItems> getIncluded() {
     return included;
   }
 
-
-
-
-  /**
-   * Return true if this IncidentServiceResponse object is equal to o.
-   */
+  /** Return true if this IncidentServiceResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -98,15 +76,14 @@ public class IncidentServiceResponse {
       return false;
     }
     IncidentServiceResponse incidentServiceResponse = (IncidentServiceResponse) o;
-    return Objects.equals(this.data, incidentServiceResponse.data) &&
-        Objects.equals(this.included, incidentServiceResponse.included);
+    return Objects.equals(this.data, incidentServiceResponse.data)
+        && Objects.equals(this.included, incidentServiceResponse.included);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(data, included);
   }
-
 
   @Override
   public String toString() {
@@ -119,8 +96,7 @@ public class IncidentServiceResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -128,6 +104,4 @@ public class IncidentServiceResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

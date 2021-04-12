@@ -8,34 +8,23 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.MonitorSummaryWidgetDefinitionType;
-import com.datadog.api.v1.client.model.WidgetColorPreference;
-import com.datadog.api.v1.client.model.WidgetMonitorSummaryDisplayFormat;
-import com.datadog.api.v1.client.model.WidgetMonitorSummarySort;
-import com.datadog.api.v1.client.model.WidgetSummaryType;
-import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
-
+import java.util.Objects;
 
 /**
- * The monitor summary widget displays a summary view of all your Datadog monitors, or a subset based on a query. Only available on FREE layout dashboards.
+ * The monitor summary widget displays a summary view of all your Datadog monitors, or a subset
+ * based on a query. Only available on FREE layout dashboards.
  */
-@ApiModel(description = "The monitor summary widget displays a summary view of all your Datadog monitors, or a subset based on a query. Only available on FREE layout dashboards.")
+@ApiModel(
+    description =
+        "The monitor summary widget displays a summary view of all your Datadog monitors, or a"
+            + " subset based on a query. Only available on FREE layout dashboards.")
 @JsonPropertyOrder({
   MonitorSummaryWidgetDefinition.JSON_PROPERTY_COLOR_PREFERENCE,
   MonitorSummaryWidgetDefinition.JSON_PROPERTY_COUNT,
@@ -90,322 +79,296 @@ public class MonitorSummaryWidgetDefinition {
   private String titleSize;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private MonitorSummaryWidgetDefinitionType type = MonitorSummaryWidgetDefinitionType.MANAGE_STATUS;
-
+  private MonitorSummaryWidgetDefinitionType type =
+      MonitorSummaryWidgetDefinitionType.MANAGE_STATUS;
 
   public MonitorSummaryWidgetDefinition colorPreference(WidgetColorPreference colorPreference) {
     this.colorPreference = colorPreference;
     return this;
   }
 
-   /**
+  /**
    * Get colorPreference
+   *
    * @return colorPreference
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COLOR_PREFERENCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public WidgetColorPreference getColorPreference() {
     return colorPreference;
   }
 
-
   public void setColorPreference(WidgetColorPreference colorPreference) {
     this.colorPreference = colorPreference;
   }
-
 
   public MonitorSummaryWidgetDefinition count(Long count) {
     this.count = count;
     return this;
   }
 
-   /**
+  /**
    * The number of monitors to display.
+   *
    * @return count
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The number of monitors to display.")
   @JsonProperty(JSON_PROPERTY_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getCount() {
     return count;
   }
-
 
   public void setCount(Long count) {
     this.count = count;
   }
 
-
-  public MonitorSummaryWidgetDefinition displayFormat(WidgetMonitorSummaryDisplayFormat displayFormat) {
+  public MonitorSummaryWidgetDefinition displayFormat(
+      WidgetMonitorSummaryDisplayFormat displayFormat) {
     this.displayFormat = displayFormat;
     return this;
   }
 
-   /**
+  /**
    * Get displayFormat
+   *
    * @return displayFormat
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DISPLAY_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public WidgetMonitorSummaryDisplayFormat getDisplayFormat() {
     return displayFormat;
   }
 
-
   public void setDisplayFormat(WidgetMonitorSummaryDisplayFormat displayFormat) {
     this.displayFormat = displayFormat;
   }
-
 
   public MonitorSummaryWidgetDefinition hideZeroCounts(Boolean hideZeroCounts) {
     this.hideZeroCounts = hideZeroCounts;
     return this;
   }
 
-   /**
+  /**
    * Whether to show counts of 0 or not.
+   *
    * @return hideZeroCounts
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Whether to show counts of 0 or not.")
   @JsonProperty(JSON_PROPERTY_HIDE_ZERO_COUNTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getHideZeroCounts() {
     return hideZeroCounts;
   }
 
-
   public void setHideZeroCounts(Boolean hideZeroCounts) {
     this.hideZeroCounts = hideZeroCounts;
   }
-
 
   public MonitorSummaryWidgetDefinition query(String query) {
     this.query = query;
     return this;
   }
 
-   /**
+  /**
    * Query to filter the monitors with.
+   *
    * @return query
-  **/
+   */
   @ApiModelProperty(example = "", required = true, value = "Query to filter the monitors with.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getQuery() {
     return query;
   }
 
-
   public void setQuery(String query) {
     this.query = query;
   }
-
 
   public MonitorSummaryWidgetDefinition showLastTriggered(Boolean showLastTriggered) {
     this.showLastTriggered = showLastTriggered;
     return this;
   }
 
-   /**
+  /**
    * Whether to show the time that has elapsed since the monitor/group triggered.
+   *
    * @return showLastTriggered
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether to show the time that has elapsed since the monitor/group triggered.")
+  @ApiModelProperty(
+      value = "Whether to show the time that has elapsed since the monitor/group triggered.")
   @JsonProperty(JSON_PROPERTY_SHOW_LAST_TRIGGERED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getShowLastTriggered() {
     return showLastTriggered;
   }
 
-
   public void setShowLastTriggered(Boolean showLastTriggered) {
     this.showLastTriggered = showLastTriggered;
   }
-
 
   public MonitorSummaryWidgetDefinition sort(WidgetMonitorSummarySort sort) {
     this.sort = sort;
     return this;
   }
 
-   /**
+  /**
    * Get sort
+   *
    * @return sort
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public WidgetMonitorSummarySort getSort() {
     return sort;
   }
 
-
   public void setSort(WidgetMonitorSummarySort sort) {
     this.sort = sort;
   }
-
 
   public MonitorSummaryWidgetDefinition start(Long start) {
     this.start = start;
     return this;
   }
 
-   /**
+  /**
    * The start of the list. Typically 0.
+   *
    * @return start
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The start of the list. Typically 0.")
   @JsonProperty(JSON_PROPERTY_START)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getStart() {
     return start;
   }
 
-
   public void setStart(Long start) {
     this.start = start;
   }
-
 
   public MonitorSummaryWidgetDefinition summaryType(WidgetSummaryType summaryType) {
     this.summaryType = summaryType;
     return this;
   }
 
-   /**
+  /**
    * Get summaryType
+   *
    * @return summaryType
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SUMMARY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public WidgetSummaryType getSummaryType() {
     return summaryType;
   }
 
-
   public void setSummaryType(WidgetSummaryType summaryType) {
     this.summaryType = summaryType;
   }
-
 
   public MonitorSummaryWidgetDefinition title(String title) {
     this.title = title;
     return this;
   }
 
-   /**
+  /**
    * Title of the widget.
+   *
    * @return title
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Title of the widget.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTitle() {
     return title;
   }
 
-
   public void setTitle(String title) {
     this.title = title;
   }
-
 
   public MonitorSummaryWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
     return this;
   }
 
-   /**
+  /**
    * Get titleAlign
+   *
    * @return titleAlign
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public WidgetTextAlign getTitleAlign() {
     return titleAlign;
   }
 
-
   public void setTitleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
   }
-
 
   public MonitorSummaryWidgetDefinition titleSize(String titleSize) {
     this.titleSize = titleSize;
     return this;
   }
 
-   /**
+  /**
    * Size of the title.
+   *
    * @return titleSize
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Size of the title.")
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTitleSize() {
     return titleSize;
   }
 
-
   public void setTitleSize(String titleSize) {
     this.titleSize = titleSize;
   }
-
 
   public MonitorSummaryWidgetDefinition type(MonitorSummaryWidgetDefinitionType type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
+   *
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public MonitorSummaryWidgetDefinitionType getType() {
     return type;
   }
-
 
   public void setType(MonitorSummaryWidgetDefinitionType type) {
     this.type = type;
   }
 
-
-  /**
-   * Return true if this MonitorSummaryWidgetDefinition object is equal to o.
-   */
+  /** Return true if this MonitorSummaryWidgetDefinition object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -414,27 +377,40 @@ public class MonitorSummaryWidgetDefinition {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MonitorSummaryWidgetDefinition monitorSummaryWidgetDefinition = (MonitorSummaryWidgetDefinition) o;
-    return Objects.equals(this.colorPreference, monitorSummaryWidgetDefinition.colorPreference) &&
-        Objects.equals(this.count, monitorSummaryWidgetDefinition.count) &&
-        Objects.equals(this.displayFormat, monitorSummaryWidgetDefinition.displayFormat) &&
-        Objects.equals(this.hideZeroCounts, monitorSummaryWidgetDefinition.hideZeroCounts) &&
-        Objects.equals(this.query, monitorSummaryWidgetDefinition.query) &&
-        Objects.equals(this.showLastTriggered, monitorSummaryWidgetDefinition.showLastTriggered) &&
-        Objects.equals(this.sort, monitorSummaryWidgetDefinition.sort) &&
-        Objects.equals(this.start, monitorSummaryWidgetDefinition.start) &&
-        Objects.equals(this.summaryType, monitorSummaryWidgetDefinition.summaryType) &&
-        Objects.equals(this.title, monitorSummaryWidgetDefinition.title) &&
-        Objects.equals(this.titleAlign, monitorSummaryWidgetDefinition.titleAlign) &&
-        Objects.equals(this.titleSize, monitorSummaryWidgetDefinition.titleSize) &&
-        Objects.equals(this.type, monitorSummaryWidgetDefinition.type);
+    MonitorSummaryWidgetDefinition monitorSummaryWidgetDefinition =
+        (MonitorSummaryWidgetDefinition) o;
+    return Objects.equals(this.colorPreference, monitorSummaryWidgetDefinition.colorPreference)
+        && Objects.equals(this.count, monitorSummaryWidgetDefinition.count)
+        && Objects.equals(this.displayFormat, monitorSummaryWidgetDefinition.displayFormat)
+        && Objects.equals(this.hideZeroCounts, monitorSummaryWidgetDefinition.hideZeroCounts)
+        && Objects.equals(this.query, monitorSummaryWidgetDefinition.query)
+        && Objects.equals(this.showLastTriggered, monitorSummaryWidgetDefinition.showLastTriggered)
+        && Objects.equals(this.sort, monitorSummaryWidgetDefinition.sort)
+        && Objects.equals(this.start, monitorSummaryWidgetDefinition.start)
+        && Objects.equals(this.summaryType, monitorSummaryWidgetDefinition.summaryType)
+        && Objects.equals(this.title, monitorSummaryWidgetDefinition.title)
+        && Objects.equals(this.titleAlign, monitorSummaryWidgetDefinition.titleAlign)
+        && Objects.equals(this.titleSize, monitorSummaryWidgetDefinition.titleSize)
+        && Objects.equals(this.type, monitorSummaryWidgetDefinition.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(colorPreference, count, displayFormat, hideZeroCounts, query, showLastTriggered, sort, start, summaryType, title, titleAlign, titleSize, type);
+    return Objects.hash(
+        colorPreference,
+        count,
+        displayFormat,
+        hideZeroCounts,
+        query,
+        showLastTriggered,
+        sort,
+        start,
+        summaryType,
+        title,
+        titleAlign,
+        titleSize,
+        type);
   }
-
 
   @Override
   public String toString() {
@@ -458,8 +434,7 @@ public class MonitorSummaryWidgetDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -467,6 +442,4 @@ public class MonitorSummaryWidgetDefinition {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

@@ -8,64 +8,45 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.RelationshipToUserData;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Relationship to user.
- */
+/** Relationship to user. */
 @ApiModel(description = "Relationship to user.")
-@JsonPropertyOrder({
-  RelationshipToUser.JSON_PROPERTY_DATA
-})
+@JsonPropertyOrder({RelationshipToUser.JSON_PROPERTY_DATA})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class RelationshipToUser {
   public static final String JSON_PROPERTY_DATA = "data";
   private RelationshipToUserData data;
-
 
   public RelationshipToUser data(RelationshipToUserData data) {
     this.data = data;
     return this;
   }
 
-   /**
+  /**
    * Get data
+   *
    * @return data
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public RelationshipToUserData getData() {
     return data;
   }
-
 
   public void setData(RelationshipToUserData data) {
     this.data = data;
   }
 
-
-  /**
-   * Return true if this RelationshipToUser object is equal to o.
-   */
+  /** Return true if this RelationshipToUser object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -83,7 +64,6 @@ public class RelationshipToUser {
     return Objects.hash(data);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -94,8 +74,7 @@ public class RelationshipToUser {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -103,6 +82,4 @@ public class RelationshipToUser {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

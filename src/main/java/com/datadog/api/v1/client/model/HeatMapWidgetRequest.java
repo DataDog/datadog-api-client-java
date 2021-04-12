@@ -8,31 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.EventQueryDefinition;
-import com.datadog.api.v1.client.model.LogQueryDefinition;
-import com.datadog.api.v1.client.model.ProcessQueryDefinition;
-import com.datadog.api.v1.client.model.WidgetStyle;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Updated heat map widget.
- */
+/** Updated heat map widget. */
 @ApiModel(description = "Updated heat map widget.")
 @JsonPropertyOrder({
   HeatMapWidgetRequest.JSON_PROPERTY_APM_QUERY,
@@ -78,250 +63,227 @@ public class HeatMapWidgetRequest {
   public static final String JSON_PROPERTY_STYLE = "style";
   private WidgetStyle style;
 
-
   public HeatMapWidgetRequest apmQuery(LogQueryDefinition apmQuery) {
     this.apmQuery = apmQuery;
     return this;
   }
 
-   /**
+  /**
    * Get apmQuery
+   *
    * @return apmQuery
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_APM_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LogQueryDefinition getApmQuery() {
     return apmQuery;
   }
 
-
   public void setApmQuery(LogQueryDefinition apmQuery) {
     this.apmQuery = apmQuery;
   }
-
 
   public HeatMapWidgetRequest eventQuery(EventQueryDefinition eventQuery) {
     this.eventQuery = eventQuery;
     return this;
   }
 
-   /**
+  /**
    * Get eventQuery
+   *
    * @return eventQuery
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EVENT_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public EventQueryDefinition getEventQuery() {
     return eventQuery;
   }
 
-
   public void setEventQuery(EventQueryDefinition eventQuery) {
     this.eventQuery = eventQuery;
   }
-
 
   public HeatMapWidgetRequest logQuery(LogQueryDefinition logQuery) {
     this.logQuery = logQuery;
     return this;
   }
 
-   /**
+  /**
    * Get logQuery
+   *
    * @return logQuery
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LOG_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LogQueryDefinition getLogQuery() {
     return logQuery;
   }
 
-
   public void setLogQuery(LogQueryDefinition logQuery) {
     this.logQuery = logQuery;
   }
-
 
   public HeatMapWidgetRequest networkQuery(LogQueryDefinition networkQuery) {
     this.networkQuery = networkQuery;
     return this;
   }
 
-   /**
+  /**
    * Get networkQuery
+   *
    * @return networkQuery
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NETWORK_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LogQueryDefinition getNetworkQuery() {
     return networkQuery;
   }
 
-
   public void setNetworkQuery(LogQueryDefinition networkQuery) {
     this.networkQuery = networkQuery;
   }
-
 
   public HeatMapWidgetRequest processQuery(ProcessQueryDefinition processQuery) {
     this.processQuery = processQuery;
     return this;
   }
 
-   /**
+  /**
    * Get processQuery
+   *
    * @return processQuery
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PROCESS_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ProcessQueryDefinition getProcessQuery() {
     return processQuery;
   }
 
-
   public void setProcessQuery(ProcessQueryDefinition processQuery) {
     this.processQuery = processQuery;
   }
-
 
   public HeatMapWidgetRequest profileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
     this.profileMetricsQuery = profileMetricsQuery;
     return this;
   }
 
-   /**
+  /**
    * Get profileMetricsQuery
+   *
    * @return profileMetricsQuery
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PROFILE_METRICS_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LogQueryDefinition getProfileMetricsQuery() {
     return profileMetricsQuery;
   }
 
-
   public void setProfileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
     this.profileMetricsQuery = profileMetricsQuery;
   }
-
 
   public HeatMapWidgetRequest q(String q) {
     this.q = q;
     return this;
   }
 
-   /**
+  /**
    * Widget query.
+   *
    * @return q
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Widget query.")
   @JsonProperty(JSON_PROPERTY_Q)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getQ() {
     return q;
   }
 
-
   public void setQ(String q) {
     this.q = q;
   }
-
 
   public HeatMapWidgetRequest rumQuery(LogQueryDefinition rumQuery) {
     this.rumQuery = rumQuery;
     return this;
   }
 
-   /**
+  /**
    * Get rumQuery
+   *
    * @return rumQuery
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RUM_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LogQueryDefinition getRumQuery() {
     return rumQuery;
   }
 
-
   public void setRumQuery(LogQueryDefinition rumQuery) {
     this.rumQuery = rumQuery;
   }
-
 
   public HeatMapWidgetRequest securityQuery(LogQueryDefinition securityQuery) {
     this.securityQuery = securityQuery;
     return this;
   }
 
-   /**
+  /**
    * Get securityQuery
+   *
    * @return securityQuery
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SECURITY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LogQueryDefinition getSecurityQuery() {
     return securityQuery;
   }
 
-
   public void setSecurityQuery(LogQueryDefinition securityQuery) {
     this.securityQuery = securityQuery;
   }
-
 
   public HeatMapWidgetRequest style(WidgetStyle style) {
     this.style = style;
     return this;
   }
 
-   /**
+  /**
    * Get style
+   *
    * @return style
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STYLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public WidgetStyle getStyle() {
     return style;
   }
-
 
   public void setStyle(WidgetStyle style) {
     this.style = style;
   }
 
-
-  /**
-   * Return true if this HeatMapWidgetRequest object is equal to o.
-   */
+  /** Return true if this HeatMapWidgetRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -331,23 +293,32 @@ public class HeatMapWidgetRequest {
       return false;
     }
     HeatMapWidgetRequest heatMapWidgetRequest = (HeatMapWidgetRequest) o;
-    return Objects.equals(this.apmQuery, heatMapWidgetRequest.apmQuery) &&
-        Objects.equals(this.eventQuery, heatMapWidgetRequest.eventQuery) &&
-        Objects.equals(this.logQuery, heatMapWidgetRequest.logQuery) &&
-        Objects.equals(this.networkQuery, heatMapWidgetRequest.networkQuery) &&
-        Objects.equals(this.processQuery, heatMapWidgetRequest.processQuery) &&
-        Objects.equals(this.profileMetricsQuery, heatMapWidgetRequest.profileMetricsQuery) &&
-        Objects.equals(this.q, heatMapWidgetRequest.q) &&
-        Objects.equals(this.rumQuery, heatMapWidgetRequest.rumQuery) &&
-        Objects.equals(this.securityQuery, heatMapWidgetRequest.securityQuery) &&
-        Objects.equals(this.style, heatMapWidgetRequest.style);
+    return Objects.equals(this.apmQuery, heatMapWidgetRequest.apmQuery)
+        && Objects.equals(this.eventQuery, heatMapWidgetRequest.eventQuery)
+        && Objects.equals(this.logQuery, heatMapWidgetRequest.logQuery)
+        && Objects.equals(this.networkQuery, heatMapWidgetRequest.networkQuery)
+        && Objects.equals(this.processQuery, heatMapWidgetRequest.processQuery)
+        && Objects.equals(this.profileMetricsQuery, heatMapWidgetRequest.profileMetricsQuery)
+        && Objects.equals(this.q, heatMapWidgetRequest.q)
+        && Objects.equals(this.rumQuery, heatMapWidgetRequest.rumQuery)
+        && Objects.equals(this.securityQuery, heatMapWidgetRequest.securityQuery)
+        && Objects.equals(this.style, heatMapWidgetRequest.style);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apmQuery, eventQuery, logQuery, networkQuery, processQuery, profileMetricsQuery, q, rumQuery, securityQuery, style);
+    return Objects.hash(
+        apmQuery,
+        eventQuery,
+        logQuery,
+        networkQuery,
+        processQuery,
+        profileMetricsQuery,
+        q,
+        rumQuery,
+        securityQuery,
+        style);
   }
-
 
   @Override
   public String toString() {
@@ -358,7 +329,9 @@ public class HeatMapWidgetRequest {
     sb.append("    logQuery: ").append(toIndentedString(logQuery)).append("\n");
     sb.append("    networkQuery: ").append(toIndentedString(networkQuery)).append("\n");
     sb.append("    processQuery: ").append(toIndentedString(processQuery)).append("\n");
-    sb.append("    profileMetricsQuery: ").append(toIndentedString(profileMetricsQuery)).append("\n");
+    sb.append("    profileMetricsQuery: ")
+        .append(toIndentedString(profileMetricsQuery))
+        .append("\n");
     sb.append("    q: ").append(toIndentedString(q)).append("\n");
     sb.append("    rumQuery: ").append(toIndentedString(rumQuery)).append("\n");
     sb.append("    securityQuery: ").append(toIndentedString(securityQuery)).append("\n");
@@ -368,8 +341,7 @@ public class HeatMapWidgetRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -377,6 +349,4 @@ public class HeatMapWidgetRequest {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

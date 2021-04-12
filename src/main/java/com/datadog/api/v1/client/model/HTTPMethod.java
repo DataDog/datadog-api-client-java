@@ -8,38 +8,25 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
-
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * The HTTP method.
- */
+/** The HTTP method. */
 public enum HTTPMethod {
-  
   GET("GET"),
-  
+
   POST("POST"),
-  
+
   PATCH("PATCH"),
-  
+
   PUT("PUT"),
-  
+
   DELETE("DELETE"),
-  
+
   HEAD("HEAD"),
-  
+
   OPTIONS("OPTIONS");
 
   private String value;
@@ -68,4 +55,3 @@ public enum HTTPMethod {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

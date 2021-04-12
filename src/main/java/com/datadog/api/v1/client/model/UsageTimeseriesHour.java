@@ -8,28 +8,17 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * The hourly usage of timeseries.
- */
+/** The hourly usage of timeseries. */
 @ApiModel(description = "The hourly usage of timeseries.")
 @JsonPropertyOrder({
   UsageTimeseriesHour.JSON_PROPERTY_HOUR,
@@ -42,115 +31,114 @@ public class UsageTimeseriesHour {
   public static final String JSON_PROPERTY_HOUR = "hour";
   private OffsetDateTime hour;
 
-  public static final String JSON_PROPERTY_NUM_CUSTOM_INPUT_TIMESERIES = "num_custom_input_timeseries";
+  public static final String JSON_PROPERTY_NUM_CUSTOM_INPUT_TIMESERIES =
+      "num_custom_input_timeseries";
   private Long numCustomInputTimeseries;
 
-  public static final String JSON_PROPERTY_NUM_CUSTOM_OUTPUT_TIMESERIES = "num_custom_output_timeseries";
+  public static final String JSON_PROPERTY_NUM_CUSTOM_OUTPUT_TIMESERIES =
+      "num_custom_output_timeseries";
   private Long numCustomOutputTimeseries;
 
   public static final String JSON_PROPERTY_NUM_CUSTOM_TIMESERIES = "num_custom_timeseries";
   private Long numCustomTimeseries;
-
 
   public UsageTimeseriesHour hour(OffsetDateTime hour) {
     this.hour = hour;
     return this;
   }
 
-   /**
+  /**
    * The hour for the usage.
+   *
    * @return hour
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The hour for the usage.")
   @JsonProperty(JSON_PROPERTY_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getHour() {
     return hour;
   }
 
-
   public void setHour(OffsetDateTime hour) {
     this.hour = hour;
   }
-
 
   public UsageTimeseriesHour numCustomInputTimeseries(Long numCustomInputTimeseries) {
     this.numCustomInputTimeseries = numCustomInputTimeseries;
     return this;
   }
 
-   /**
-   * Contains the number of custom metrics that are inputs for aggregations (metric configured is custom).
+  /**
+   * Contains the number of custom metrics that are inputs for aggregations (metric configured is
+   * custom).
+   *
    * @return numCustomInputTimeseries
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Contains the number of custom metrics that are inputs for aggregations (metric configured is custom).")
+  @ApiModelProperty(
+      value =
+          "Contains the number of custom metrics that are inputs for aggregations (metric"
+              + " configured is custom).")
   @JsonProperty(JSON_PROPERTY_NUM_CUSTOM_INPUT_TIMESERIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getNumCustomInputTimeseries() {
     return numCustomInputTimeseries;
   }
 
-
   public void setNumCustomInputTimeseries(Long numCustomInputTimeseries) {
     this.numCustomInputTimeseries = numCustomInputTimeseries;
   }
-
 
   public UsageTimeseriesHour numCustomOutputTimeseries(Long numCustomOutputTimeseries) {
     this.numCustomOutputTimeseries = numCustomOutputTimeseries;
     return this;
   }
 
-   /**
-   * Contains the number of custom metrics that are outputs for aggregations (metric configured is custom).
+  /**
+   * Contains the number of custom metrics that are outputs for aggregations (metric configured is
+   * custom).
+   *
    * @return numCustomOutputTimeseries
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Contains the number of custom metrics that are outputs for aggregations (metric configured is custom).")
+  @ApiModelProperty(
+      value =
+          "Contains the number of custom metrics that are outputs for aggregations (metric"
+              + " configured is custom).")
   @JsonProperty(JSON_PROPERTY_NUM_CUSTOM_OUTPUT_TIMESERIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getNumCustomOutputTimeseries() {
     return numCustomOutputTimeseries;
   }
 
-
   public void setNumCustomOutputTimeseries(Long numCustomOutputTimeseries) {
     this.numCustomOutputTimeseries = numCustomOutputTimeseries;
   }
-
 
   public UsageTimeseriesHour numCustomTimeseries(Long numCustomTimeseries) {
     this.numCustomTimeseries = numCustomTimeseries;
     return this;
   }
 
-   /**
+  /**
    * Contains the number of non-aggregation custom metrics.
+   *
    * @return numCustomTimeseries
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Contains the number of non-aggregation custom metrics.")
   @JsonProperty(JSON_PROPERTY_NUM_CUSTOM_TIMESERIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getNumCustomTimeseries() {
     return numCustomTimeseries;
   }
-
 
   public void setNumCustomTimeseries(Long numCustomTimeseries) {
     this.numCustomTimeseries = numCustomTimeseries;
   }
 
-
-  /**
-   * Return true if this UsageTimeseriesHour object is equal to o.
-   */
+  /** Return true if this UsageTimeseriesHour object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -160,33 +148,40 @@ public class UsageTimeseriesHour {
       return false;
     }
     UsageTimeseriesHour usageTimeseriesHour = (UsageTimeseriesHour) o;
-    return Objects.equals(this.hour, usageTimeseriesHour.hour) &&
-        Objects.equals(this.numCustomInputTimeseries, usageTimeseriesHour.numCustomInputTimeseries) &&
-        Objects.equals(this.numCustomOutputTimeseries, usageTimeseriesHour.numCustomOutputTimeseries) &&
-        Objects.equals(this.numCustomTimeseries, usageTimeseriesHour.numCustomTimeseries);
+    return Objects.equals(this.hour, usageTimeseriesHour.hour)
+        && Objects.equals(
+            this.numCustomInputTimeseries, usageTimeseriesHour.numCustomInputTimeseries)
+        && Objects.equals(
+            this.numCustomOutputTimeseries, usageTimeseriesHour.numCustomOutputTimeseries)
+        && Objects.equals(this.numCustomTimeseries, usageTimeseriesHour.numCustomTimeseries);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hour, numCustomInputTimeseries, numCustomOutputTimeseries, numCustomTimeseries);
+    return Objects.hash(
+        hour, numCustomInputTimeseries, numCustomOutputTimeseries, numCustomTimeseries);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UsageTimeseriesHour {\n");
     sb.append("    hour: ").append(toIndentedString(hour)).append("\n");
-    sb.append("    numCustomInputTimeseries: ").append(toIndentedString(numCustomInputTimeseries)).append("\n");
-    sb.append("    numCustomOutputTimeseries: ").append(toIndentedString(numCustomOutputTimeseries)).append("\n");
-    sb.append("    numCustomTimeseries: ").append(toIndentedString(numCustomTimeseries)).append("\n");
+    sb.append("    numCustomInputTimeseries: ")
+        .append(toIndentedString(numCustomInputTimeseries))
+        .append("\n");
+    sb.append("    numCustomOutputTimeseries: ")
+        .append(toIndentedString(numCustomOutputTimeseries))
+        .append("\n");
+    sb.append("    numCustomTimeseries: ")
+        .append(toIndentedString(numCustomTimeseries))
+        .append("\n");
     sb.append("}");
     return sb.toString();
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -194,6 +189,4 @@ public class UsageTimeseriesHour {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

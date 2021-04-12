@@ -8,33 +8,20 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.Log;
-import com.datadog.api.v2.client.model.LogsListResponseLinks;
-import com.datadog.api.v2.client.model.LogsResponseMetadata;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Response object with all logs matching the request and pagination information.
- */
-@ApiModel(description = "Response object with all logs matching the request and pagination information.")
+/** Response object with all logs matching the request and pagination information. */
+@ApiModel(
+    description = "Response object with all logs matching the request and pagination information.")
 @JsonPropertyOrder({
   LogsListResponse.JSON_PROPERTY_DATA,
   LogsListResponse.JSON_PROPERTY_LINKS,
@@ -51,7 +38,6 @@ public class LogsListResponse {
   public static final String JSON_PROPERTY_META = "meta";
   private LogsResponseMetadata meta;
 
-
   public LogsListResponse data(List<Log> data) {
     this.data = data;
     return this;
@@ -65,76 +51,68 @@ public class LogsListResponse {
     return this;
   }
 
-   /**
+  /**
    * Array of logs matching the request.
+   *
    * @return data
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Array of logs matching the request.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<Log> getData() {
     return data;
   }
 
-
   public void setData(List<Log> data) {
     this.data = data;
   }
-
 
   public LogsListResponse links(LogsListResponseLinks links) {
     this.links = links;
     return this;
   }
 
-   /**
+  /**
    * Get links
+   *
    * @return links
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LogsListResponseLinks getLinks() {
     return links;
   }
 
-
   public void setLinks(LogsListResponseLinks links) {
     this.links = links;
   }
-
 
   public LogsListResponse meta(LogsResponseMetadata meta) {
     this.meta = meta;
     return this;
   }
 
-   /**
+  /**
    * Get meta
+   *
    * @return meta
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LogsResponseMetadata getMeta() {
     return meta;
   }
-
 
   public void setMeta(LogsResponseMetadata meta) {
     this.meta = meta;
   }
 
-
-  /**
-   * Return true if this LogsListResponse object is equal to o.
-   */
+  /** Return true if this LogsListResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -144,16 +122,15 @@ public class LogsListResponse {
       return false;
     }
     LogsListResponse logsListResponse = (LogsListResponse) o;
-    return Objects.equals(this.data, logsListResponse.data) &&
-        Objects.equals(this.links, logsListResponse.links) &&
-        Objects.equals(this.meta, logsListResponse.meta);
+    return Objects.equals(this.data, logsListResponse.data)
+        && Objects.equals(this.links, logsListResponse.links)
+        && Objects.equals(this.meta, logsListResponse.meta);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(data, links, meta);
   }
-
 
   @Override
   public String toString() {
@@ -167,8 +144,7 @@ public class LogsListResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -176,6 +152,4 @@ public class LogsListResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

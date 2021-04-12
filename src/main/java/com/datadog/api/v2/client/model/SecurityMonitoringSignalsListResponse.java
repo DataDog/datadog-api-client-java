@@ -8,33 +8,24 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.SecurityMonitoringSignal;
-import com.datadog.api.v2.client.model.SecurityMonitoringSignalsListResponseLinks;
-import com.datadog.api.v2.client.model.SecurityMonitoringSignalsListResponseMeta;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
-
+import java.util.Objects;
 
 /**
  * The response object with all security signals matching the request and pagination information.
  */
-@ApiModel(description = "The response object with all security signals matching the request and pagination information.")
+@ApiModel(
+    description =
+        "The response object with all security signals matching the request and pagination"
+            + " information.")
 @JsonPropertyOrder({
   SecurityMonitoringSignalsListResponse.JSON_PROPERTY_DATA,
   SecurityMonitoringSignalsListResponse.JSON_PROPERTY_LINKS,
@@ -51,7 +42,6 @@ public class SecurityMonitoringSignalsListResponse {
   public static final String JSON_PROPERTY_META = "meta";
   private SecurityMonitoringSignalsListResponseMeta meta;
 
-
   public SecurityMonitoringSignalsListResponse data(List<SecurityMonitoringSignal> data) {
     this.data = data;
     return this;
@@ -65,76 +55,70 @@ public class SecurityMonitoringSignalsListResponse {
     return this;
   }
 
-   /**
+  /**
    * An array of security signals matching the request.
+   *
    * @return data
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "An array of security signals matching the request.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<SecurityMonitoringSignal> getData() {
     return data;
   }
-
 
   public void setData(List<SecurityMonitoringSignal> data) {
     this.data = data;
   }
 
-
-  public SecurityMonitoringSignalsListResponse links(SecurityMonitoringSignalsListResponseLinks links) {
+  public SecurityMonitoringSignalsListResponse links(
+      SecurityMonitoringSignalsListResponseLinks links) {
     this.links = links;
     return this;
   }
 
-   /**
+  /**
    * Get links
+   *
    * @return links
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SecurityMonitoringSignalsListResponseLinks getLinks() {
     return links;
   }
-
 
   public void setLinks(SecurityMonitoringSignalsListResponseLinks links) {
     this.links = links;
   }
 
-
-  public SecurityMonitoringSignalsListResponse meta(SecurityMonitoringSignalsListResponseMeta meta) {
+  public SecurityMonitoringSignalsListResponse meta(
+      SecurityMonitoringSignalsListResponseMeta meta) {
     this.meta = meta;
     return this;
   }
 
-   /**
+  /**
    * Get meta
+   *
    * @return meta
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SecurityMonitoringSignalsListResponseMeta getMeta() {
     return meta;
   }
-
 
   public void setMeta(SecurityMonitoringSignalsListResponseMeta meta) {
     this.meta = meta;
   }
 
-
-  /**
-   * Return true if this SecurityMonitoringSignalsListResponse object is equal to o.
-   */
+  /** Return true if this SecurityMonitoringSignalsListResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -143,17 +127,17 @@ public class SecurityMonitoringSignalsListResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SecurityMonitoringSignalsListResponse securityMonitoringSignalsListResponse = (SecurityMonitoringSignalsListResponse) o;
-    return Objects.equals(this.data, securityMonitoringSignalsListResponse.data) &&
-        Objects.equals(this.links, securityMonitoringSignalsListResponse.links) &&
-        Objects.equals(this.meta, securityMonitoringSignalsListResponse.meta);
+    SecurityMonitoringSignalsListResponse securityMonitoringSignalsListResponse =
+        (SecurityMonitoringSignalsListResponse) o;
+    return Objects.equals(this.data, securityMonitoringSignalsListResponse.data)
+        && Objects.equals(this.links, securityMonitoringSignalsListResponse.links)
+        && Objects.equals(this.meta, securityMonitoringSignalsListResponse.meta);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(data, links, meta);
   }
-
 
   @Override
   public String toString() {
@@ -167,8 +151,7 @@ public class SecurityMonitoringSignalsListResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -176,6 +159,4 @@ public class SecurityMonitoringSignalsListResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

@@ -29,6 +29,14 @@ servers:
     protocol:
       default: https
       description: The protocol for accessing the API.
+- url: https://{subdomain}.{site}
+  variables:
+    site:
+      default: datadoghq.com
+      description: Any Datadog deployment.
+    subdomain:
+      default: api
+      description: The subdomain where the API is deployed.
 security:
 - apiKeyAuth: []
   appKeyAuth: []
@@ -78,6 +86,7 @@ tags:
     - Post metrics data so it can be graphed on Datadog’s dashboards
     - Query metrics from any time period
     - Modify tag configurations for metrics
+    - View tags and volumes for metrics
 
     **Note**: A graph can only contain a set number of points
     and as the timeframe over which a metric is viewed increases,
@@ -2285,6 +2294,29 @@ paths:
         schema:
           type: boolean
         style: form
+      - description: |-
+          Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions.
+          Cannot be combined with other filters.
+        example: env IN (staging,test) AND service:web
+        explode: true
+        in: query
+        name: filter[tags]
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: |-
+          The number of seconds of look back (from now) to apply to a filter[tag] query.
+          Defaults value is 3600 (1 hour), maximum value is 172,800 (2 days).
+        example: 3600
+        explode: true
+        in: query
+        name: window[seconds]
+        required: false
+        schema:
+          format: int64
+          type: integer
+        style: form
       responses:
         "200":
           content:
@@ -2310,7 +2342,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/APIErrorResponse'
           description: Too Many Requests
-      summary: List Tag Configurations
+      summary: List tag configurations
       tags:
       - Metrics
       x-undo:
@@ -2318,6 +2350,60 @@ paths:
       x-unstable: |-
         **Note: Use of this endpoint for count/gauge/rate metric types is only accessible for Metrics without Limits&trade; beta customers.
         If you’re interested in Metrics without Limits&trade;, please contact your Customer Success Manager.**
+      x-accepts: application/json
+  /api/v2/metrics/{metric_name}/all-tags:
+    get:
+      description: View indexed tag key-value pairs for a given metric name.
+      operationId: ListTagsByMetricName
+      parameters:
+      - description: The name of the metric.
+        example: dist.http.endpoint.request
+        explode: false
+        in: path
+        name: metric_name
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetricAllTagsResponse'
+          description: Success
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Not Found
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Too Many Requests
+      summary: List tags by metric name
+      tags:
+      - Metrics
+      x-undo:
+        type: safe
+      x-unstable: |-
+        **Note: This endpoint is in public beta. If you have any feedback,
+        contact [Datadog support](https://docs.datadoghq.com/help/).**
       x-accepts: application/json
   /api/v2/metrics/{metric_name}/tags:
     delete:
@@ -2356,7 +2442,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/APIErrorResponse'
           description: Too Many Requests
-      summary: Delete a Tag Configuration
+      summary: Delete a tag configuration
       tags:
       - Metrics
       x-undo:
@@ -2403,7 +2489,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/APIErrorResponse'
           description: Too Many Requests
-      summary: List Tag Configuration by Name
+      summary: List tag configuration by name
       tags:
       - Metrics
       x-undo:
@@ -2464,7 +2550,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/APIErrorResponse'
           description: Too Many Requests
-      summary: Update a Tag Configuration
+      summary: Update a tag configuration
       tags:
       - Metrics
       x-codegen-request-body-name: body
@@ -2527,7 +2613,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/APIErrorResponse'
           description: Too Many Requests
-      summary: Create a Tag Configuration
+      summary: Create a tag configuration
       tags:
       - Metrics
       x-codegen-request-body-name: body
@@ -2559,6 +2645,65 @@ paths:
         **Note: Use of this endpoint for count/gauge/rate metric types is only accessible for Metrics without Limits&trade; beta customers.
         If you’re interested in Metrics without Limits&trade;, please contact your Customer Success Manager.**
       x-contentType: application/json
+      x-accepts: application/json
+  /api/v2/metrics/{metric_name}/volumes:
+    get:
+      description: |-
+        View distinct metrics volumes for the given metric name.
+
+        Custom distribution metrics will return both ingested and indexed custom metric volumes.
+        For Metrics without Limits&trade; beta customers, all metrics will return both ingested/indexed volumes.
+        Custom metrics generated in-app from other products will return `null` for ingested volumes.
+      operationId: ListVolumesByMetricName
+      parameters:
+      - description: The name of the metric.
+        example: dist.http.endpoint.request
+        explode: false
+        in: path
+        name: metric_name
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetricVolumesResponse'
+          description: Success
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Bad Request
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Not Found
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Too Many Requests
+      summary: List distinct metric volumes by metric name
+      tags:
+      - Metrics
+      x-undo:
+        type: safe
+      x-unstable: |-
+        **Note: This endpoint is in public beta. If you have any feedback,
+        contact [Datadog support](https://docs.datadoghq.com/help/).**
       x-accepts: application/json
   /api/v2/permissions:
     get:
@@ -3360,11 +3505,45 @@ paths:
       tags:
       - Security Monitoring
       x-codegen-request-body-name: body
+      x-given:
+        security_rule:
+          parameters:
+          - name: body
+            value: |-
+              {
+                "name": "{{ unique }}",
+                "queries": [{
+                  "query": "@test:true",
+                  "aggregation": "count",
+                  "groupByFields": [],
+                  "distinctFields": [],
+                  "metric": ""
+                }],
+                "filters": [],
+                "cases": [{
+                  "name": "",
+                  "status": "info",
+                  "condition": "a > 0",
+                  "notifications": []
+                }],
+                "options": {
+                  "evaluationWindow": 900,
+                  "keepAlive": 3600,
+                  "maxSignalDuration": 86400
+                },
+                "hasExtendedTitle": false,
+                "message": "Test rule",
+                "tags": [],
+                "isDefault": false,
+                "isEnabled": true,
+                "type": "log_detection"
+              }
+          step: there is a valid "security_rule" in the system
       x-undo:
         operationId: DeleteSecurityMonitoringRule
         parameters:
         - name: rule_id
-          source: data.id
+          source: id
         type: unsafe
       x-contentType: application/json
       x-accepts: application/json
@@ -4515,7 +4694,8 @@ paths:
               {
                 "data": {
                   "attributes": {
-                    "email": "{{ unique }}@datadoghq.com"
+                    "email": "{{ unique }}@datadoghq.com",
+                    "title": "user title"
                    },
                    "type": "users"
                 }
@@ -8815,6 +8995,127 @@ components:
         type:
           $ref: '#/components/schemas/MetricType'
       type: object
+    MetricAllTags:
+      description: Object for a single metric's indexed tags.
+      example:
+        attributes:
+          tags:
+          - sport:golf
+          - sport:football
+          - animal:dog
+        id: test.metric.latency
+        type: metrics
+      properties:
+        attributes:
+          $ref: '#/components/schemas/MetricAllTagsAttributes'
+        id:
+          description: The metric name for this resource.
+          example: test.metric.latency
+          type: string
+        type:
+          $ref: '#/components/schemas/MetricType'
+      type: object
+    MetricAllTagsAttributes:
+      description: Object containing the definition of a metric's tags.
+      example:
+        tags:
+        - sport:golf
+        - sport:football
+        - animal:dog
+      properties:
+        tags:
+          description: List of indexed tag value pairs.
+          example:
+          - sport:golf
+          - sport:football
+          - animal:dog
+          items:
+            description: Tag key-value pairs.
+            type: string
+          type: array
+      type: object
+    MetricAllTagsResponse:
+      description: Response object that includes a single metric's indexed tags.
+      example:
+        data:
+          attributes:
+            tags:
+            - sport:golf
+            - sport:football
+            - animal:dog
+          id: test.metric.latency
+          type: metrics
+      properties:
+        data:
+          $ref: '#/components/schemas/MetricAllTags'
+      readOnly: true
+      type: object
+    MetricDistinctVolume:
+      description: Object for a single metric's distinct volume.
+      properties:
+        attributes:
+          $ref: '#/components/schemas/MetricDistinctVolumeAttributes'
+        id:
+          description: The metric name for this resource.
+          example: test.metric.latency
+          type: string
+        type:
+          $ref: '#/components/schemas/MetricDistinctVolumeType'
+      type: object
+    MetricDistinctVolumeAttributes:
+      description: Object containing the definition of a metric's distinct volume.
+      properties:
+        distinct_volume:
+          description: Distinct volume for the given metric.
+          example: 10
+          format: int64
+          type: integer
+      type: object
+    MetricDistinctVolumeType:
+      default: distinct_metric_volumes
+      description: The metric distinct volume type.
+      enum:
+      - distinct_metric_volumes
+      example: distinct_metric_volumes
+      type: string
+      x-enum-varnames:
+      - DISTINCT_METRIC_VOLUMES
+    MetricIngestedIndexedVolume:
+      description: Object for a single metric's ingested and indexed volume.
+      properties:
+        attributes:
+          $ref: '#/components/schemas/MetricIngestedIndexedVolumeAttributes'
+        id:
+          description: The metric name for this resource.
+          example: test.metric.latency
+          type: string
+        type:
+          $ref: '#/components/schemas/MetricIngestedIndexedVolumeType'
+      type: object
+    MetricIngestedIndexedVolumeAttributes:
+      description: Object containing the definition of a metric's ingested and indexed
+        volume.
+      properties:
+        indexed_volume:
+          description: Indexed volume for the given metric.
+          example: 10
+          format: int64
+          type: integer
+        ingested_volume:
+          description: Ingested volume for the given metric.
+          example: 20
+          format: int64
+          type: integer
+      type: object
+    MetricIngestedIndexedVolumeType:
+      default: metric_volumes
+      description: The metric ingested and indexed volume type.
+      enum:
+      - metric_volumes
+      example: metric_volumes
+      type: string
+      x-enum-varnames:
+      - METRIC_VOLUMES
     MetricName:
       description: The metric name for this resource.
       example: test.metric.latency
@@ -9055,6 +9356,20 @@ components:
       type: string
       x-enum-varnames:
       - METRICS
+    MetricVolumes:
+      description: Possible response objects for a metric's volume.
+      oneOf:
+      - $ref: '#/components/schemas/MetricDistinctVolume'
+      - $ref: '#/components/schemas/MetricIngestedIndexedVolume'
+      type: object
+    MetricVolumesResponse:
+      description: Response object which includes a single metric's volume.
+      example: {}
+      properties:
+        data:
+          $ref: '#/components/schemas/MetricVolumes'
+      readOnly: true
+      type: object
     MetricsAndMetricTagConfigurations:
       description: Object for a metrics and metric tag configurations.
       oneOf:
@@ -10132,6 +10447,9 @@ components:
             - groupByFields
             query: query
             name: name
+            agentRule:
+              expression: expression
+              agentRuleId: etc_shadow
           - distinctFields:
             - distinctFields
             - distinctFields
@@ -10141,6 +10459,9 @@ components:
             - groupByFields
             query: query
             name: name
+            agentRule:
+              expression: expression
+              agentRuleId: etc_shadow
           version: 1
           tags:
           - tags
@@ -10179,6 +10500,9 @@ components:
             - groupByFields
             query: query
             name: name
+            agentRule:
+              expression: expression
+              agentRuleId: etc_shadow
           - distinctFields:
             - distinctFields
             - distinctFields
@@ -10188,6 +10512,9 @@ components:
             - groupByFields
             query: query
             name: name
+            agentRule:
+              expression: expression
+              agentRuleId: etc_shadow
           version: 1
           tags:
           - tags
@@ -10490,7 +10817,12 @@ components:
         - groupByFields
         query: query
         name: name
+        agentRule:
+          expression: expression
+          agentRuleId: etc_shadow
       properties:
+        agentRule:
+          $ref: '#/components/schemas/SecurityMonitoringRuntimeAgentRule'
         aggregation:
           $ref: '#/components/schemas/SecurityMonitoringRuleQueryAggregation'
         distinctFields:
@@ -10535,6 +10867,8 @@ components:
     SecurityMonitoringRuleQueryCreate:
       description: Query for matching rule.
       properties:
+        agentRule:
+          $ref: '#/components/schemas/SecurityMonitoringRuntimeAgentRule'
         aggregation:
           $ref: '#/components/schemas/SecurityMonitoringRuleQueryAggregation'
         distinctFields:
@@ -10592,6 +10926,9 @@ components:
           - groupByFields
           query: query
           name: name
+          agentRule:
+            expression: expression
+            agentRuleId: etc_shadow
         - distinctFields:
           - distinctFields
           - distinctFields
@@ -10601,6 +10938,9 @@ components:
           - groupByFields
           query: query
           name: name
+          agentRule:
+            expression: expression
+            agentRuleId: etc_shadow
         version: 1
         tags:
         - tags
@@ -10716,6 +11056,9 @@ components:
           - groupByFields
           query: query
           name: name
+          agentRule:
+            expression: expression
+            agentRuleId: etc_shadow
         - distinctFields:
           - distinctFields
           - distinctFields
@@ -10725,6 +11068,9 @@ components:
           - groupByFields
           query: query
           name: name
+          agentRule:
+            expression: expression
+            agentRuleId: etc_shadow
         tags:
         - tags
         - tags
@@ -10762,6 +11108,23 @@ components:
             description: Tag.
             type: string
           type: array
+      type: object
+    SecurityMonitoringRuntimeAgentRule:
+      description: The Agent rule.
+      example:
+        expression: expression
+        agentRuleId: etc_shadow
+      properties:
+        agentRuleId:
+          description: The Agent rule ID. Must be unique within the rule.
+          example: etc_shadow
+          type: string
+        expression:
+          description: |-
+            A Runtime Security expression determines what activity should be collected by the Datadog Agent.
+            These logical expressions can use predefined operators and attributes. Tags cannot be used in Runtime
+            Security expressions. Instead, allow or deny based on tags under the advanced option.
+          type: string
       type: object
     SecurityMonitoringSignal:
       description: Object description of a security signal.
@@ -10907,6 +11270,7 @@ components:
           created_at: 2000-01-23T04:56:07.000+00:00
           disabled: true
           handle: handle
+          modified_at: 2000-01-23T04:56:07.000+00:00
           title: title
           email: email
           status: status
@@ -10932,6 +11296,7 @@ components:
         created_at: 2000-01-23T04:56:07.000+00:00
         disabled: true
         handle: handle
+        modified_at: 2000-01-23T04:56:07.000+00:00
         title: title
         email: email
         status: status
@@ -10951,6 +11316,10 @@ components:
           type: string
         icon:
           description: URL of the user's icon.
+          type: string
+        modified_at:
+          description: Time that the user was last modified.
+          format: date-time
           type: string
         name:
           description: Name of the user.
@@ -11196,6 +11565,7 @@ components:
             created_at: 2000-01-23T04:56:07.000+00:00
             disabled: true
             handle: handle
+            modified_at: 2000-01-23T04:56:07.000+00:00
             title: title
             email: email
             status: status
@@ -11329,6 +11699,7 @@ components:
             created_at: 2000-01-23T04:56:07.000+00:00
             disabled: true
             handle: handle
+            modified_at: 2000-01-23T04:56:07.000+00:00
             title: title
             email: email
             status: status
@@ -11356,6 +11727,7 @@ components:
             created_at: 2000-01-23T04:56:07.000+00:00
             disabled: true
             handle: handle
+            modified_at: 2000-01-23T04:56:07.000+00:00
             title: title
             email: email
             status: status
@@ -11809,12 +12181,12 @@ components:
       in: header
       name: DD-API-KEY
       type: apiKey
-      x-env-name: DD_CLIENT_API_KEY
+      x-env-name: DD_API_KEY
     appKeyAuth:
       description: Your Datadog APP Key.
       in: header
       name: DD-APPLICATION-KEY
       type: apiKey
-      x-env-name: DD_CLIENT_APP_KEY
+      x-env-name: DD_APP_KEY
 x-group-parameters: true
 

@@ -8,38 +8,25 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
-
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * The aggregation methods available for metrics queries.
- */
+/** The aggregation methods available for metrics queries. */
 public enum FormulaAndFunctionMetricAggregation {
-  
   AVG("avg"),
-  
+
   MIN("min"),
-  
+
   MAX("max"),
-  
+
   SUM("sum"),
-  
+
   LAST("last"),
-  
+
   AREA("area"),
-  
+
   L2NORM("l2norm");
 
   private String value;
@@ -68,4 +55,3 @@ public enum FormulaAndFunctionMetricAggregation {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

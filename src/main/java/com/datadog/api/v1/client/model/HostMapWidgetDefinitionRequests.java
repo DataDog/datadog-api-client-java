@@ -8,28 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.HostMapRequest;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * List of definitions.
- */
+/** List of definitions. */
 @ApiModel(description = "List of definitions.")
 @JsonPropertyOrder({
   HostMapWidgetDefinitionRequests.JSON_PROPERTY_FILL,
@@ -43,58 +31,51 @@ public class HostMapWidgetDefinitionRequests {
   public static final String JSON_PROPERTY_SIZE = "size";
   private HostMapRequest size;
 
-
   public HostMapWidgetDefinitionRequests fill(HostMapRequest fill) {
     this.fill = fill;
     return this;
   }
 
-   /**
+  /**
    * Get fill
+   *
    * @return fill
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FILL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public HostMapRequest getFill() {
     return fill;
   }
 
-
   public void setFill(HostMapRequest fill) {
     this.fill = fill;
   }
-
 
   public HostMapWidgetDefinitionRequests size(HostMapRequest size) {
     this.size = size;
     return this;
   }
 
-   /**
+  /**
    * Get size
+   *
    * @return size
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public HostMapRequest getSize() {
     return size;
   }
-
 
   public void setSize(HostMapRequest size) {
     this.size = size;
   }
 
-
-  /**
-   * Return true if this HostMapWidgetDefinition_requests object is equal to o.
-   */
+  /** Return true if this HostMapWidgetDefinition_requests object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -103,16 +84,16 @@ public class HostMapWidgetDefinitionRequests {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    HostMapWidgetDefinitionRequests hostMapWidgetDefinitionRequests = (HostMapWidgetDefinitionRequests) o;
-    return Objects.equals(this.fill, hostMapWidgetDefinitionRequests.fill) &&
-        Objects.equals(this.size, hostMapWidgetDefinitionRequests.size);
+    HostMapWidgetDefinitionRequests hostMapWidgetDefinitionRequests =
+        (HostMapWidgetDefinitionRequests) o;
+    return Objects.equals(this.fill, hostMapWidgetDefinitionRequests.fill)
+        && Objects.equals(this.size, hostMapWidgetDefinitionRequests.size);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(fill, size);
   }
-
 
   @Override
   public String toString() {
@@ -125,8 +106,7 @@ public class HostMapWidgetDefinitionRequests {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -134,6 +114,4 @@ public class HostMapWidgetDefinitionRequests {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

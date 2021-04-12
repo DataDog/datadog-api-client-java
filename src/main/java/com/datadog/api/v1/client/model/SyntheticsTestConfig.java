@@ -8,33 +8,18 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.SyntheticsAssertion;
-import com.datadog.api.v1.client.model.SyntheticsBrowserVariable;
-import com.datadog.api.v1.client.model.SyntheticsConfigVariable;
-import com.datadog.api.v1.client.model.SyntheticsTestRequest;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Configuration object for a Synthetic test.
- */
+/** Configuration object for a Synthetic test. */
 @ApiModel(description = "Configuration object for a Synthetic test.")
 @JsonPropertyOrder({
   SyntheticsTestConfig.JSON_PROPERTY_ASSERTIONS,
@@ -56,7 +41,6 @@ public class SyntheticsTestConfig {
   public static final String JSON_PROPERTY_VARIABLES = "variables";
   private List<SyntheticsBrowserVariable> variables = null;
 
-
   public SyntheticsTestConfig assertions(List<SyntheticsAssertion> assertions) {
     this.assertions = assertions;
     return this;
@@ -67,23 +51,24 @@ public class SyntheticsTestConfig {
     return this;
   }
 
-   /**
+  /**
    * Array of assertions used for the test.
+   *
    * @return assertions
-  **/
-  @ApiModelProperty(example = "[]", required = true, value = "Array of assertions used for the test.")
+   */
+  @ApiModelProperty(
+      example = "[]",
+      required = true,
+      value = "Array of assertions used for the test.")
   @JsonProperty(JSON_PROPERTY_ASSERTIONS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public List<SyntheticsAssertion> getAssertions() {
     return assertions;
   }
 
-
   public void setAssertions(List<SyntheticsAssertion> assertions) {
     this.assertions = assertions;
   }
-
 
   public SyntheticsTestConfig configVariables(List<SyntheticsConfigVariable> configVariables) {
     this.configVariables = configVariables;
@@ -98,47 +83,43 @@ public class SyntheticsTestConfig {
     return this;
   }
 
-   /**
+  /**
    * API tests only - array of variables used for the test.
+   *
    * @return configVariables
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "API tests only - array of variables used for the test.")
   @JsonProperty(JSON_PROPERTY_CONFIG_VARIABLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<SyntheticsConfigVariable> getConfigVariables() {
     return configVariables;
   }
 
-
   public void setConfigVariables(List<SyntheticsConfigVariable> configVariables) {
     this.configVariables = configVariables;
   }
-
 
   public SyntheticsTestConfig request(SyntheticsTestRequest request) {
     this.request = request;
     return this;
   }
 
-   /**
+  /**
    * Get request
+   *
    * @return request
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_REQUEST)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public SyntheticsTestRequest getRequest() {
     return request;
   }
 
-
   public void setRequest(SyntheticsTestRequest request) {
     this.request = request;
   }
-
 
   public SyntheticsTestConfig variables(List<SyntheticsBrowserVariable> variables) {
     this.variables = variables;
@@ -153,28 +134,24 @@ public class SyntheticsTestConfig {
     return this;
   }
 
-   /**
+  /**
    * Browser tests only - array of variables used for the test steps.
+   *
    * @return variables
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Browser tests only - array of variables used for the test steps.")
   @JsonProperty(JSON_PROPERTY_VARIABLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<SyntheticsBrowserVariable> getVariables() {
     return variables;
   }
-
 
   public void setVariables(List<SyntheticsBrowserVariable> variables) {
     this.variables = variables;
   }
 
-
-  /**
-   * Return true if this SyntheticsTestConfig object is equal to o.
-   */
+  /** Return true if this SyntheticsTestConfig object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -184,17 +161,16 @@ public class SyntheticsTestConfig {
       return false;
     }
     SyntheticsTestConfig syntheticsTestConfig = (SyntheticsTestConfig) o;
-    return Objects.equals(this.assertions, syntheticsTestConfig.assertions) &&
-        Objects.equals(this.configVariables, syntheticsTestConfig.configVariables) &&
-        Objects.equals(this.request, syntheticsTestConfig.request) &&
-        Objects.equals(this.variables, syntheticsTestConfig.variables);
+    return Objects.equals(this.assertions, syntheticsTestConfig.assertions)
+        && Objects.equals(this.configVariables, syntheticsTestConfig.configVariables)
+        && Objects.equals(this.request, syntheticsTestConfig.request)
+        && Objects.equals(this.variables, syntheticsTestConfig.variables);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(assertions, configVariables, request, variables);
   }
-
 
   @Override
   public String toString() {
@@ -209,8 +185,7 @@ public class SyntheticsTestConfig {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -218,6 +193,4 @@ public class SyntheticsTestConfig {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

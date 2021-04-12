@@ -8,65 +8,47 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.SecurityMonitoringSignalsListResponseMetaPage;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Meta attributes.
- */
+/** Meta attributes. */
 @ApiModel(description = "Meta attributes.")
-@JsonPropertyOrder({
-  SecurityMonitoringSignalsListResponseMeta.JSON_PROPERTY_PAGE
-})
+@JsonPropertyOrder({SecurityMonitoringSignalsListResponseMeta.JSON_PROPERTY_PAGE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SecurityMonitoringSignalsListResponseMeta {
   public static final String JSON_PROPERTY_PAGE = "page";
   private SecurityMonitoringSignalsListResponseMetaPage page;
 
-
-  public SecurityMonitoringSignalsListResponseMeta page(SecurityMonitoringSignalsListResponseMetaPage page) {
+  public SecurityMonitoringSignalsListResponseMeta page(
+      SecurityMonitoringSignalsListResponseMetaPage page) {
     this.page = page;
     return this;
   }
 
-   /**
+  /**
    * Get page
+   *
    * @return page
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SecurityMonitoringSignalsListResponseMetaPage getPage() {
     return page;
   }
-
 
   public void setPage(SecurityMonitoringSignalsListResponseMetaPage page) {
     this.page = page;
   }
 
-
-  /**
-   * Return true if this SecurityMonitoringSignalsListResponse_meta object is equal to o.
-   */
+  /** Return true if this SecurityMonitoringSignalsListResponse_meta object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -75,7 +57,8 @@ public class SecurityMonitoringSignalsListResponseMeta {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SecurityMonitoringSignalsListResponseMeta securityMonitoringSignalsListResponseMeta = (SecurityMonitoringSignalsListResponseMeta) o;
+    SecurityMonitoringSignalsListResponseMeta securityMonitoringSignalsListResponseMeta =
+        (SecurityMonitoringSignalsListResponseMeta) o;
     return Objects.equals(this.page, securityMonitoringSignalsListResponseMeta.page);
   }
 
@@ -83,7 +66,6 @@ public class SecurityMonitoringSignalsListResponseMeta {
   public int hashCode() {
     return Objects.hash(page);
   }
-
 
   @Override
   public String toString() {
@@ -95,8 +77,7 @@ public class SecurityMonitoringSignalsListResponseMeta {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -104,6 +85,4 @@ public class SecurityMonitoringSignalsListResponseMeta {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

@@ -8,30 +8,22 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
 
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * The duration in days during which values are learned, and after which signals will be generated for values that weren&#39;t learned. If set to 0, a signal will be generated for all new values after the first value is learned.
+ * The duration in days during which values are learned, and after which signals will be generated
+ * for values that weren&#39;t learned. If set to 0, a signal will be generated for all new values
+ * after the first value is learned.
  */
 public enum SecurityMonitoringRuleNewValueOptionsLearningDuration {
-  
   ZERO_DAYS(0),
-  
+
   ONE_DAY(1),
-  
+
   SEVEN_DAYS(7);
 
   private Integer value;
@@ -52,7 +44,8 @@ public enum SecurityMonitoringRuleNewValueOptionsLearningDuration {
 
   @JsonCreator
   public static SecurityMonitoringRuleNewValueOptionsLearningDuration fromValue(Integer value) {
-    for (SecurityMonitoringRuleNewValueOptionsLearningDuration b : SecurityMonitoringRuleNewValueOptionsLearningDuration.values()) {
+    for (SecurityMonitoringRuleNewValueOptionsLearningDuration b :
+        SecurityMonitoringRuleNewValueOptionsLearningDuration.values()) {
       if (b.value.equals(value)) {
         return b;
       }
@@ -60,4 +53,3 @@ public enum SecurityMonitoringRuleNewValueOptionsLearningDuration {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

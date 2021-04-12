@@ -8,64 +8,46 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Response from the delete dashboard call.
- */
+/** Response from the delete dashboard call. */
 @ApiModel(description = "Response from the delete dashboard call.")
-@JsonPropertyOrder({
-  DashboardDeleteResponse.JSON_PROPERTY_DELETED_DASHBOARD_ID
-})
+@JsonPropertyOrder({DashboardDeleteResponse.JSON_PROPERTY_DELETED_DASHBOARD_ID})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DashboardDeleteResponse {
   public static final String JSON_PROPERTY_DELETED_DASHBOARD_ID = "deleted_dashboard_id";
   private String deletedDashboardId;
-
 
   public DashboardDeleteResponse deletedDashboardId(String deletedDashboardId) {
     this.deletedDashboardId = deletedDashboardId;
     return this;
   }
 
-   /**
+  /**
    * ID of the deleted dashboard.
+   *
    * @return deletedDashboardId
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "ID of the deleted dashboard.")
   @JsonProperty(JSON_PROPERTY_DELETED_DASHBOARD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDeletedDashboardId() {
     return deletedDashboardId;
   }
-
 
   public void setDeletedDashboardId(String deletedDashboardId) {
     this.deletedDashboardId = deletedDashboardId;
   }
 
-
-  /**
-   * Return true if this DashboardDeleteResponse object is equal to o.
-   */
+  /** Return true if this DashboardDeleteResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -83,7 +65,6 @@ public class DashboardDeleteResponse {
     return Objects.hash(deletedDashboardId);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -94,8 +75,7 @@ public class DashboardDeleteResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -103,6 +83,4 @@ public class DashboardDeleteResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

@@ -8,31 +8,20 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.MetricTagConfigurationMetricTypes;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Object containing the definition of a metric tag configuration to be created.
- */
-@ApiModel(description = "Object containing the definition of a metric tag configuration to be created.")
+/** Object containing the definition of a metric tag configuration to be created. */
+@ApiModel(
+    description = "Object containing the definition of a metric tag configuration to be created.")
 @JsonPropertyOrder({
   MetricTagConfigurationCreateAttributes.JSON_PROPERTY_INCLUDE_PERCENTILES,
   MetricTagConfigurationCreateAttributes.JSON_PROPERTY_METRIC_TYPE,
@@ -49,53 +38,54 @@ public class MetricTagConfigurationCreateAttributes {
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = new ArrayList<>();
 
-
   public MetricTagConfigurationCreateAttributes includePercentiles(Boolean includePercentiles) {
     this.includePercentiles = includePercentiles;
     return this;
   }
 
-   /**
-   * Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a &#x60;metric_type&#x60; of &#x60;distribution&#x60;.
+  /**
+   * Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be
+   * applied to metrics that have a &#x60;metric_type&#x60; of &#x60;distribution&#x60;.
+   *
    * @return includePercentiles
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of `distribution`.")
+  @ApiModelProperty(
+      example = "true",
+      value =
+          "Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can"
+              + " only be applied to metrics that have a `metric_type` of `distribution`.")
   @JsonProperty(JSON_PROPERTY_INCLUDE_PERCENTILES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getIncludePercentiles() {
     return includePercentiles;
   }
-
 
   public void setIncludePercentiles(Boolean includePercentiles) {
     this.includePercentiles = includePercentiles;
   }
 
-
-  public MetricTagConfigurationCreateAttributes metricType(MetricTagConfigurationMetricTypes metricType) {
+  public MetricTagConfigurationCreateAttributes metricType(
+      MetricTagConfigurationMetricTypes metricType) {
     this.metricType = metricType;
     return this;
   }
 
-   /**
+  /**
    * Get metricType
+   *
    * @return metricType
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_METRIC_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public MetricTagConfigurationMetricTypes getMetricType() {
     return metricType;
   }
 
-
   public void setMetricType(MetricTagConfigurationMetricTypes metricType) {
     this.metricType = metricType;
   }
-
 
   public MetricTagConfigurationCreateAttributes tags(List<String> tags) {
     this.tags = tags;
@@ -107,27 +97,26 @@ public class MetricTagConfigurationCreateAttributes {
     return this;
   }
 
-   /**
+  /**
    * A list of tag keys that will be queryable for your metric.
+   *
    * @return tags
-  **/
-  @ApiModelProperty(example = "[\"app\",\"datacenter\"]", required = true, value = "A list of tag keys that will be queryable for your metric.")
+   */
+  @ApiModelProperty(
+      example = "[\"app\",\"datacenter\"]",
+      required = true,
+      value = "A list of tag keys that will be queryable for your metric.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public List<String> getTags() {
     return tags;
   }
-
 
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
 
-
-  /**
-   * Return true if this MetricTagConfigurationCreateAttributes object is equal to o.
-   */
+  /** Return true if this MetricTagConfigurationCreateAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -136,17 +125,18 @@ public class MetricTagConfigurationCreateAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MetricTagConfigurationCreateAttributes metricTagConfigurationCreateAttributes = (MetricTagConfigurationCreateAttributes) o;
-    return Objects.equals(this.includePercentiles, metricTagConfigurationCreateAttributes.includePercentiles) &&
-        Objects.equals(this.metricType, metricTagConfigurationCreateAttributes.metricType) &&
-        Objects.equals(this.tags, metricTagConfigurationCreateAttributes.tags);
+    MetricTagConfigurationCreateAttributes metricTagConfigurationCreateAttributes =
+        (MetricTagConfigurationCreateAttributes) o;
+    return Objects.equals(
+            this.includePercentiles, metricTagConfigurationCreateAttributes.includePercentiles)
+        && Objects.equals(this.metricType, metricTagConfigurationCreateAttributes.metricType)
+        && Objects.equals(this.tags, metricTagConfigurationCreateAttributes.tags);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(includePercentiles, metricType, tags);
   }
-
 
   @Override
   public String toString() {
@@ -160,8 +150,7 @@ public class MetricTagConfigurationCreateAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -169,6 +158,4 @@ public class MetricTagConfigurationCreateAttributes {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

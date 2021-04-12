@@ -8,64 +8,46 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Widget style definition.
- */
+/** Widget style definition. */
 @ApiModel(description = "Widget style definition.")
-@JsonPropertyOrder({
-  WidgetStyle.JSON_PROPERTY_PALETTE
-})
+@JsonPropertyOrder({WidgetStyle.JSON_PROPERTY_PALETTE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WidgetStyle {
   public static final String JSON_PROPERTY_PALETTE = "palette";
   private String palette;
-
 
   public WidgetStyle palette(String palette) {
     this.palette = palette;
     return this;
   }
 
-   /**
+  /**
    * Color palette to apply to the widget.
+   *
    * @return palette
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Color palette to apply to the widget.")
   @JsonProperty(JSON_PROPERTY_PALETTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPalette() {
     return palette;
   }
-
 
   public void setPalette(String palette) {
     this.palette = palette;
   }
 
-
-  /**
-   * Return true if this WidgetStyle object is equal to o.
-   */
+  /** Return true if this WidgetStyle object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -83,7 +65,6 @@ public class WidgetStyle {
     return Objects.hash(palette);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -94,8 +75,7 @@ public class WidgetStyle {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -103,6 +83,4 @@ public class WidgetStyle {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

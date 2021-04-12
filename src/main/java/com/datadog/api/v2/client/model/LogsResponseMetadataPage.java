@@ -8,64 +8,52 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Paging attributes.
- */
+/** Paging attributes. */
 @ApiModel(description = "Paging attributes.")
-@JsonPropertyOrder({
-  LogsResponseMetadataPage.JSON_PROPERTY_AFTER
-})
+@JsonPropertyOrder({LogsResponseMetadataPage.JSON_PROPERTY_AFTER})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsResponseMetadataPage {
   public static final String JSON_PROPERTY_AFTER = "after";
   private String after;
-
 
   public LogsResponseMetadataPage after(String after) {
     this.after = after;
     return this;
   }
 
-   /**
-   * The cursor to use to get the next results, if any. To make the next request, use the same. parameters with the addition of the &#x60;page[cursor]&#x60;.
+  /**
+   * The cursor to use to get the next results, if any. To make the next request, use the same.
+   * parameters with the addition of the &#x60;page[cursor]&#x60;.
+   *
    * @return after
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ==", value = "The cursor to use to get the next results, if any. To make the next request, use the same. parameters with the addition of the `page[cursor]`.")
+  @ApiModelProperty(
+      example =
+          "eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ==",
+      value =
+          "The cursor to use to get the next results, if any. To make the next request, use the"
+              + " same. parameters with the addition of the `page[cursor]`.")
   @JsonProperty(JSON_PROPERTY_AFTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAfter() {
     return after;
   }
-
 
   public void setAfter(String after) {
     this.after = after;
   }
 
-
-  /**
-   * Return true if this LogsResponseMetadata_page object is equal to o.
-   */
+  /** Return true if this LogsResponseMetadata_page object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -83,7 +71,6 @@ public class LogsResponseMetadataPage {
     return Objects.hash(after);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -94,8 +81,7 @@ public class LogsResponseMetadataPage {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -103,6 +89,4 @@ public class LogsResponseMetadataPage {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

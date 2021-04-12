@@ -3,6 +3,7 @@
 # SLOThreshold
 
 SLO thresholds (target and optionally warning) for a single time window.
+
 ## Properties
 
 Name | Type | Description | Notes

@@ -8,29 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.SLOCorrectionCreateRequestAttributes;
-import com.datadog.api.v1.client.model.SLOCorrectionType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * The data object associated with the SLO correction to be created
- */
+/** The data object associated with the SLO correction to be created */
 @ApiModel(description = "The data object associated with the SLO correction to be created")
 @JsonPropertyOrder({
   SLOCorrectionCreateData.JSON_PROPERTY_ATTRIBUTES,
@@ -44,58 +31,51 @@ public class SLOCorrectionCreateData {
   public static final String JSON_PROPERTY_TYPE = "type";
   private SLOCorrectionType type = SLOCorrectionType.CORRECTION;
 
-
   public SLOCorrectionCreateData attributes(SLOCorrectionCreateRequestAttributes attributes) {
     this.attributes = attributes;
     return this;
   }
 
-   /**
+  /**
    * Get attributes
+   *
    * @return attributes
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SLOCorrectionCreateRequestAttributes getAttributes() {
     return attributes;
   }
 
-
   public void setAttributes(SLOCorrectionCreateRequestAttributes attributes) {
     this.attributes = attributes;
   }
-
 
   public SLOCorrectionCreateData type(SLOCorrectionType type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
+   *
    * @return type
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SLOCorrectionType getType() {
     return type;
   }
-
 
   public void setType(SLOCorrectionType type) {
     this.type = type;
   }
 
-
-  /**
-   * Return true if this SLOCorrectionCreateData object is equal to o.
-   */
+  /** Return true if this SLOCorrectionCreateData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -105,15 +85,14 @@ public class SLOCorrectionCreateData {
       return false;
     }
     SLOCorrectionCreateData slOCorrectionCreateData = (SLOCorrectionCreateData) o;
-    return Objects.equals(this.attributes, slOCorrectionCreateData.attributes) &&
-        Objects.equals(this.type, slOCorrectionCreateData.type);
+    return Objects.equals(this.attributes, slOCorrectionCreateData.attributes)
+        && Objects.equals(this.type, slOCorrectionCreateData.type);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(attributes, type);
   }
-
 
   @Override
   public String toString() {
@@ -126,8 +105,7 @@ public class SLOCorrectionCreateData {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -135,6 +113,4 @@ public class SLOCorrectionCreateData {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

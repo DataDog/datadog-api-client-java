@@ -8,39 +8,31 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
-
+import java.util.Objects;
 
 /**
- * In this object, the key is the tag, the value is a list of host names that are reporting that tag.
+ * In this object, the key is the tag, the value is a list of host names that are reporting that
+ * tag.
  */
-@ApiModel(description = "In this object, the key is the tag, the value is a list of host names that are reporting that tag.")
-@JsonPropertyOrder({
-  TagToHosts.JSON_PROPERTY_TAGS
-})
+@ApiModel(
+    description =
+        "In this object, the key is the tag, the value is a list of host names that are reporting"
+            + " that tag.")
+@JsonPropertyOrder({TagToHosts.JSON_PROPERTY_TAGS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TagToHosts {
   public static final String JSON_PROPERTY_TAGS = "tags";
   private Map<String, List<String>> tags = null;
-
 
   public TagToHosts tags(Map<String, List<String>> tags) {
     this.tags = tags;
@@ -55,28 +47,24 @@ public class TagToHosts {
     return this;
   }
 
-   /**
+  /**
    * A list of tags to apply to the host.
+   *
    * @return tags
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "A list of tags to apply to the host.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, List<String>> getTags() {
     return tags;
   }
-
 
   public void setTags(Map<String, List<String>> tags) {
     this.tags = tags;
   }
 
-
-  /**
-   * Return true if this TagToHosts object is equal to o.
-   */
+  /** Return true if this TagToHosts object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -94,7 +82,6 @@ public class TagToHosts {
     return Objects.hash(tags);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -105,8 +92,7 @@ public class TagToHosts {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -114,6 +100,4 @@ public class TagToHosts {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

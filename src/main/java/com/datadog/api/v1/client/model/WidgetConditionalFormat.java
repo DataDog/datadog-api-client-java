@@ -8,29 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.WidgetComparator;
-import com.datadog.api.v1.client.model.WidgetPalette;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Define a conditional format for the widget.
- */
+/** Define a conditional format for the widget. */
 @ApiModel(description = "Define a conditional format for the widget.")
 @JsonPropertyOrder({
   WidgetConditionalFormat.JSON_PROPERTY_COMPARATOR,
@@ -72,223 +59,204 @@ public class WidgetConditionalFormat {
   public static final String JSON_PROPERTY_VALUE = "value";
   private Double value;
 
-
   public WidgetConditionalFormat comparator(WidgetComparator comparator) {
     this.comparator = comparator;
     return this;
   }
 
-   /**
+  /**
    * Get comparator
+   *
    * @return comparator
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_COMPARATOR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public WidgetComparator getComparator() {
     return comparator;
   }
 
-
   public void setComparator(WidgetComparator comparator) {
     this.comparator = comparator;
   }
-
 
   public WidgetConditionalFormat customBgColor(String customBgColor) {
     this.customBgColor = customBgColor;
     return this;
   }
 
-   /**
+  /**
    * Color palette to apply to the background, same values available as palette.
+   *
    * @return customBgColor
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Color palette to apply to the background, same values available as palette.")
+  @ApiModelProperty(
+      value = "Color palette to apply to the background, same values available as palette.")
   @JsonProperty(JSON_PROPERTY_CUSTOM_BG_COLOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCustomBgColor() {
     return customBgColor;
   }
 
-
   public void setCustomBgColor(String customBgColor) {
     this.customBgColor = customBgColor;
   }
-
 
   public WidgetConditionalFormat customFgColor(String customFgColor) {
     this.customFgColor = customFgColor;
     return this;
   }
 
-   /**
+  /**
    * Color palette to apply to the foreground, same values available as palette.
+   *
    * @return customFgColor
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Color palette to apply to the foreground, same values available as palette.")
+  @ApiModelProperty(
+      value = "Color palette to apply to the foreground, same values available as palette.")
   @JsonProperty(JSON_PROPERTY_CUSTOM_FG_COLOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCustomFgColor() {
     return customFgColor;
   }
 
-
   public void setCustomFgColor(String customFgColor) {
     this.customFgColor = customFgColor;
   }
-
 
   public WidgetConditionalFormat hideValue(Boolean hideValue) {
     this.hideValue = hideValue;
     return this;
   }
 
-   /**
+  /**
    * True hides values.
+   *
    * @return hideValue
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "True hides values.")
   @JsonProperty(JSON_PROPERTY_HIDE_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getHideValue() {
     return hideValue;
   }
 
-
   public void setHideValue(Boolean hideValue) {
     this.hideValue = hideValue;
   }
-
 
   public WidgetConditionalFormat imageUrl(String imageUrl) {
     this.imageUrl = imageUrl;
     return this;
   }
 
-   /**
+  /**
    * Displays an image as the background.
+   *
    * @return imageUrl
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Displays an image as the background.")
   @JsonProperty(JSON_PROPERTY_IMAGE_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getImageUrl() {
     return imageUrl;
   }
 
-
   public void setImageUrl(String imageUrl) {
     this.imageUrl = imageUrl;
   }
-
 
   public WidgetConditionalFormat metric(String metric) {
     this.metric = metric;
     return this;
   }
 
-   /**
+  /**
    * Metric from the request to correlate this conditional format with.
+   *
    * @return metric
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Metric from the request to correlate this conditional format with.")
   @JsonProperty(JSON_PROPERTY_METRIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMetric() {
     return metric;
   }
 
-
   public void setMetric(String metric) {
     this.metric = metric;
   }
-
 
   public WidgetConditionalFormat palette(WidgetPalette palette) {
     this.palette = palette;
     return this;
   }
 
-   /**
+  /**
    * Get palette
+   *
    * @return palette
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_PALETTE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public WidgetPalette getPalette() {
     return palette;
   }
 
-
   public void setPalette(WidgetPalette palette) {
     this.palette = palette;
   }
-
 
   public WidgetConditionalFormat timeframe(String timeframe) {
     this.timeframe = timeframe;
     return this;
   }
 
-   /**
+  /**
    * Defines the displayed timeframe.
+   *
    * @return timeframe
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Defines the displayed timeframe.")
   @JsonProperty(JSON_PROPERTY_TIMEFRAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTimeframe() {
     return timeframe;
   }
 
-
   public void setTimeframe(String timeframe) {
     this.timeframe = timeframe;
   }
-
 
   public WidgetConditionalFormat value(Double value) {
     this.value = value;
     return this;
   }
 
-   /**
+  /**
    * Value for the comparator.
+   *
    * @return value
-  **/
+   */
   @ApiModelProperty(example = "0.0", required = true, value = "Value for the comparator.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public Double getValue() {
     return value;
   }
-
 
   public void setValue(Double value) {
     this.value = value;
   }
 
-
-  /**
-   * Return true if this WidgetConditionalFormat object is equal to o.
-   */
+  /** Return true if this WidgetConditionalFormat object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -298,22 +266,30 @@ public class WidgetConditionalFormat {
       return false;
     }
     WidgetConditionalFormat widgetConditionalFormat = (WidgetConditionalFormat) o;
-    return Objects.equals(this.comparator, widgetConditionalFormat.comparator) &&
-        Objects.equals(this.customBgColor, widgetConditionalFormat.customBgColor) &&
-        Objects.equals(this.customFgColor, widgetConditionalFormat.customFgColor) &&
-        Objects.equals(this.hideValue, widgetConditionalFormat.hideValue) &&
-        Objects.equals(this.imageUrl, widgetConditionalFormat.imageUrl) &&
-        Objects.equals(this.metric, widgetConditionalFormat.metric) &&
-        Objects.equals(this.palette, widgetConditionalFormat.palette) &&
-        Objects.equals(this.timeframe, widgetConditionalFormat.timeframe) &&
-        Objects.equals(this.value, widgetConditionalFormat.value);
+    return Objects.equals(this.comparator, widgetConditionalFormat.comparator)
+        && Objects.equals(this.customBgColor, widgetConditionalFormat.customBgColor)
+        && Objects.equals(this.customFgColor, widgetConditionalFormat.customFgColor)
+        && Objects.equals(this.hideValue, widgetConditionalFormat.hideValue)
+        && Objects.equals(this.imageUrl, widgetConditionalFormat.imageUrl)
+        && Objects.equals(this.metric, widgetConditionalFormat.metric)
+        && Objects.equals(this.palette, widgetConditionalFormat.palette)
+        && Objects.equals(this.timeframe, widgetConditionalFormat.timeframe)
+        && Objects.equals(this.value, widgetConditionalFormat.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(comparator, customBgColor, customFgColor, hideValue, imageUrl, metric, palette, timeframe, value);
+    return Objects.hash(
+        comparator,
+        customBgColor,
+        customFgColor,
+        hideValue,
+        imageUrl,
+        metric,
+        palette,
+        timeframe,
+        value);
   }
-
 
   @Override
   public String toString() {
@@ -333,8 +309,7 @@ public class WidgetConditionalFormat {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -342,6 +317,4 @@ public class WidgetConditionalFormat {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

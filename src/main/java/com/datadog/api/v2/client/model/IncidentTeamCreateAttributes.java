@@ -8,63 +8,45 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * The incident team&#39;s attributes for a create request.
- */
+/** The incident team&#39;s attributes for a create request. */
 @ApiModel(description = "The incident team's attributes for a create request.")
-@JsonPropertyOrder({
-  IncidentTeamCreateAttributes.JSON_PROPERTY_NAME
-})
+@JsonPropertyOrder({IncidentTeamCreateAttributes.JSON_PROPERTY_NAME})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IncidentTeamCreateAttributes {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
-
 
   public IncidentTeamCreateAttributes name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Name of the incident team.
+   *
    * @return name
-  **/
+   */
   @ApiModelProperty(example = "team name", required = true, value = "Name of the incident team.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getName() {
     return name;
   }
-
 
   public void setName(String name) {
     this.name = name;
   }
 
-
-  /**
-   * Return true if this IncidentTeamCreateAttributes object is equal to o.
-   */
+  /** Return true if this IncidentTeamCreateAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -82,7 +64,6 @@ public class IncidentTeamCreateAttributes {
     return Objects.hash(name);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -93,8 +74,7 @@ public class IncidentTeamCreateAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -102,6 +82,4 @@ public class IncidentTeamCreateAttributes {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

@@ -8,30 +8,18 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.SyntheticsAPITestResultShort;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Object with the latest Synthetic API test run.
- */
+/** Object with the latest Synthetic API test run. */
 @ApiModel(description = "Object with the latest Synthetic API test run.")
 @JsonPropertyOrder({
   SyntheticsGetAPITestLatestResultsResponse.JSON_PROPERTY_LAST_TIMESTAMP_FETCHED,
@@ -45,37 +33,36 @@ public class SyntheticsGetAPITestLatestResultsResponse {
   public static final String JSON_PROPERTY_RESULTS = "results";
   private List<SyntheticsAPITestResultShort> results = null;
 
-
   public SyntheticsGetAPITestLatestResultsResponse lastTimestampFetched(Long lastTimestampFetched) {
     this.lastTimestampFetched = lastTimestampFetched;
     return this;
   }
 
-   /**
+  /**
    * Timestamp of the latest API test run.
+   *
    * @return lastTimestampFetched
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Timestamp of the latest API test run.")
   @JsonProperty(JSON_PROPERTY_LAST_TIMESTAMP_FETCHED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getLastTimestampFetched() {
     return lastTimestampFetched;
   }
-
 
   public void setLastTimestampFetched(Long lastTimestampFetched) {
     this.lastTimestampFetched = lastTimestampFetched;
   }
 
-
-  public SyntheticsGetAPITestLatestResultsResponse results(List<SyntheticsAPITestResultShort> results) {
+  public SyntheticsGetAPITestLatestResultsResponse results(
+      List<SyntheticsAPITestResultShort> results) {
     this.results = results;
     return this;
   }
 
-  public SyntheticsGetAPITestLatestResultsResponse addResultsItem(SyntheticsAPITestResultShort resultsItem) {
+  public SyntheticsGetAPITestLatestResultsResponse addResultsItem(
+      SyntheticsAPITestResultShort resultsItem) {
     if (this.results == null) {
       this.results = new ArrayList<>();
     }
@@ -83,28 +70,24 @@ public class SyntheticsGetAPITestLatestResultsResponse {
     return this;
   }
 
-   /**
+  /**
    * Result of the latest API test run.
+   *
    * @return results
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Result of the latest API test run.")
   @JsonProperty(JSON_PROPERTY_RESULTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<SyntheticsAPITestResultShort> getResults() {
     return results;
   }
-
 
   public void setResults(List<SyntheticsAPITestResultShort> results) {
     this.results = results;
   }
 
-
-  /**
-   * Return true if this SyntheticsGetAPITestLatestResultsResponse object is equal to o.
-   */
+  /** Return true if this SyntheticsGetAPITestLatestResultsResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -113,9 +96,12 @@ public class SyntheticsGetAPITestLatestResultsResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsGetAPITestLatestResultsResponse syntheticsGetAPITestLatestResultsResponse = (SyntheticsGetAPITestLatestResultsResponse) o;
-    return Objects.equals(this.lastTimestampFetched, syntheticsGetAPITestLatestResultsResponse.lastTimestampFetched) &&
-        Objects.equals(this.results, syntheticsGetAPITestLatestResultsResponse.results);
+    SyntheticsGetAPITestLatestResultsResponse syntheticsGetAPITestLatestResultsResponse =
+        (SyntheticsGetAPITestLatestResultsResponse) o;
+    return Objects.equals(
+            this.lastTimestampFetched,
+            syntheticsGetAPITestLatestResultsResponse.lastTimestampFetched)
+        && Objects.equals(this.results, syntheticsGetAPITestLatestResultsResponse.results);
   }
 
   @Override
@@ -123,20 +109,20 @@ public class SyntheticsGetAPITestLatestResultsResponse {
     return Objects.hash(lastTimestampFetched, results);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SyntheticsGetAPITestLatestResultsResponse {\n");
-    sb.append("    lastTimestampFetched: ").append(toIndentedString(lastTimestampFetched)).append("\n");
+    sb.append("    lastTimestampFetched: ")
+        .append(toIndentedString(lastTimestampFetched))
+        .append("\n");
     sb.append("    results: ").append(toIndentedString(results)).append("\n");
     sb.append("}");
     return sb.toString();
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -144,6 +130,4 @@ public class SyntheticsGetAPITestLatestResultsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

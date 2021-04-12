@@ -8,28 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.SyntheticsDevice;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Object with the result of the last browser test run.
- */
+/** Object with the result of the last browser test run. */
 @ApiModel(description = "Object with the result of the last browser test run.")
 @JsonPropertyOrder({
   SyntheticsBrowserTestResultShortResult.JSON_PROPERTY_DEVICE,
@@ -55,130 +43,117 @@ public class SyntheticsBrowserTestResultShortResult {
   public static final String JSON_PROPERTY_STEP_COUNT_TOTAL = "stepCountTotal";
   private Long stepCountTotal;
 
-
   public SyntheticsBrowserTestResultShortResult device(SyntheticsDevice device) {
     this.device = device;
     return this;
   }
 
-   /**
+  /**
    * Get device
+   *
    * @return device
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DEVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SyntheticsDevice getDevice() {
     return device;
   }
 
-
   public void setDevice(SyntheticsDevice device) {
     this.device = device;
   }
-
 
   public SyntheticsBrowserTestResultShortResult duration(Double duration) {
     this.duration = duration;
     return this;
   }
 
-   /**
+  /**
    * Length in second of the browser test run.
+   *
    * @return duration
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Length in second of the browser test run.")
   @JsonProperty(JSON_PROPERTY_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Double getDuration() {
     return duration;
   }
 
-
   public void setDuration(Double duration) {
     this.duration = duration;
   }
-
 
   public SyntheticsBrowserTestResultShortResult errorCount(Long errorCount) {
     this.errorCount = errorCount;
     return this;
   }
 
-   /**
+  /**
    * Amount of errors collected for a single browser test run.
+   *
    * @return errorCount
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Amount of errors collected for a single browser test run.")
   @JsonProperty(JSON_PROPERTY_ERROR_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getErrorCount() {
     return errorCount;
   }
 
-
   public void setErrorCount(Long errorCount) {
     this.errorCount = errorCount;
   }
-
 
   public SyntheticsBrowserTestResultShortResult stepCountCompleted(Long stepCountCompleted) {
     this.stepCountCompleted = stepCountCompleted;
     return this;
   }
 
-   /**
+  /**
    * Amount of browser test steps completed before failing.
+   *
    * @return stepCountCompleted
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Amount of browser test steps completed before failing.")
   @JsonProperty(JSON_PROPERTY_STEP_COUNT_COMPLETED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getStepCountCompleted() {
     return stepCountCompleted;
   }
 
-
   public void setStepCountCompleted(Long stepCountCompleted) {
     this.stepCountCompleted = stepCountCompleted;
   }
-
 
   public SyntheticsBrowserTestResultShortResult stepCountTotal(Long stepCountTotal) {
     this.stepCountTotal = stepCountTotal;
     return this;
   }
 
-   /**
+  /**
    * Total amount of browser test steps.
+   *
    * @return stepCountTotal
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Total amount of browser test steps.")
   @JsonProperty(JSON_PROPERTY_STEP_COUNT_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getStepCountTotal() {
     return stepCountTotal;
   }
-
 
   public void setStepCountTotal(Long stepCountTotal) {
     this.stepCountTotal = stepCountTotal;
   }
 
-
-  /**
-   * Return true if this SyntheticsBrowserTestResultShort_result object is equal to o.
-   */
+  /** Return true if this SyntheticsBrowserTestResultShort_result object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -187,19 +162,21 @@ public class SyntheticsBrowserTestResultShortResult {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsBrowserTestResultShortResult syntheticsBrowserTestResultShortResult = (SyntheticsBrowserTestResultShortResult) o;
-    return Objects.equals(this.device, syntheticsBrowserTestResultShortResult.device) &&
-        Objects.equals(this.duration, syntheticsBrowserTestResultShortResult.duration) &&
-        Objects.equals(this.errorCount, syntheticsBrowserTestResultShortResult.errorCount) &&
-        Objects.equals(this.stepCountCompleted, syntheticsBrowserTestResultShortResult.stepCountCompleted) &&
-        Objects.equals(this.stepCountTotal, syntheticsBrowserTestResultShortResult.stepCountTotal);
+    SyntheticsBrowserTestResultShortResult syntheticsBrowserTestResultShortResult =
+        (SyntheticsBrowserTestResultShortResult) o;
+    return Objects.equals(this.device, syntheticsBrowserTestResultShortResult.device)
+        && Objects.equals(this.duration, syntheticsBrowserTestResultShortResult.duration)
+        && Objects.equals(this.errorCount, syntheticsBrowserTestResultShortResult.errorCount)
+        && Objects.equals(
+            this.stepCountCompleted, syntheticsBrowserTestResultShortResult.stepCountCompleted)
+        && Objects.equals(
+            this.stepCountTotal, syntheticsBrowserTestResultShortResult.stepCountTotal);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(device, duration, errorCount, stepCountCompleted, stepCountTotal);
   }
-
 
   @Override
   public String toString() {
@@ -215,8 +192,7 @@ public class SyntheticsBrowserTestResultShortResult {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -224,6 +200,4 @@ public class SyntheticsBrowserTestResultShortResult {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

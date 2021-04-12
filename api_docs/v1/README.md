@@ -41,7 +41,9 @@ Class | Method | HTTP request | Description
 *DowntimesApi* | [**createDowntime**](DowntimesApi.md#createDowntime) | **POST** /api/v1/downtime | Schedule a downtime
 *DowntimesApi* | [**getDowntime**](DowntimesApi.md#getDowntime) | **GET** /api/v1/downtime/{downtime_id} | Get a downtime
 *DowntimesApi* | [**listDowntimes**](DowntimesApi.md#listDowntimes) | **GET** /api/v1/downtime | Get all downtimes
+*DowntimesApi* | [**listMonitorDowntimes**](DowntimesApi.md#listMonitorDowntimes) | **GET** /api/v1/monitor/{monitor_id}/downtimes | Get all downtimes for a monitor
 *DowntimesApi* | [**updateDowntime**](DowntimesApi.md#updateDowntime) | **PUT** /api/v1/downtime/{downtime_id} | Update a downtime
+*EventsApi* | [**createEvent**](EventsApi.md#createEvent) | **POST** /api/v1/events | Post an event
 *EventsApi* | [**getEvent**](EventsApi.md#getEvent) | **GET** /api/v1/events/{event_id} | Get an event
 *EventsApi* | [**listEvents**](EventsApi.md#listEvents) | **GET** /api/v1/events | Query the event stream
 *GcpIntegrationApi* | [**createGCPIntegration**](GcpIntegrationApi.md#createGCPIntegration) | **POST** /api/v1/integration/gcp | Create a GCP integration
@@ -64,6 +66,7 @@ Class | Method | HTTP request | Description
 *KeyManagementApi* | [**updateAPIKey**](KeyManagementApi.md#updateAPIKey) | **PUT** /api/v1/api_key/{key} | Edit an API key
 *KeyManagementApi* | [**updateApplicationKey**](KeyManagementApi.md#updateApplicationKey) | **PUT** /api/v1/application_key/{key} | Edit an application key
 *LogsApi* | [**listLogs**](LogsApi.md#listLogs) | **POST** /api/v1/logs-queries/list | Search logs
+*LogsApi* | [**submitLog**](LogsApi.md#submitLog) | **POST** /v1/input | Send logs
 *LogsIndexesApi* | [**createLogsIndex**](LogsIndexesApi.md#createLogsIndex) | **POST** /api/v1/logs/config/indexes | Create an index
 *LogsIndexesApi* | [**getLogsIndex**](LogsIndexesApi.md#getLogsIndex) | **GET** /api/v1/logs/config/indexes/{name} | Get an index
 *LogsIndexesApi* | [**getLogsIndexOrder**](LogsIndexesApi.md#getLogsIndexOrder) | **GET** /api/v1/logs/config/index-order | Get indexes order
@@ -81,6 +84,7 @@ Class | Method | HTTP request | Description
 *MetricsApi* | [**listActiveMetrics**](MetricsApi.md#listActiveMetrics) | **GET** /api/v1/metrics | Get active metrics list
 *MetricsApi* | [**listMetrics**](MetricsApi.md#listMetrics) | **GET** /api/v1/search | Search metrics
 *MetricsApi* | [**queryMetrics**](MetricsApi.md#queryMetrics) | **GET** /api/v1/query | Query timeseries points
+*MetricsApi* | [**submitMetrics**](MetricsApi.md#submitMetrics) | **POST** /api/v1/series | Submit metrics
 *MetricsApi* | [**updateMetricMetadata**](MetricsApi.md#updateMetricMetadata) | **PUT** /api/v1/metrics/{metric_name} | Edit metric metadata
 *MonitorsApi* | [**checkCanDeleteMonitor**](MonitorsApi.md#checkCanDeleteMonitor) | **GET** /api/v1/monitor/can_delete | Check if a monitor can be deleted
 *MonitorsApi* | [**createMonitor**](MonitorsApi.md#createMonitor) | **POST** /api/v1/monitor | Create a monitor
@@ -98,19 +102,20 @@ Class | Method | HTTP request | Description
 *PagerDutyIntegrationApi* | [**deletePagerDutyIntegrationService**](PagerDutyIntegrationApi.md#deletePagerDutyIntegrationService) | **DELETE** /api/v1/integration/pagerduty/configuration/services/{service_name} | Delete a single service object
 *PagerDutyIntegrationApi* | [**getPagerDutyIntegrationService**](PagerDutyIntegrationApi.md#getPagerDutyIntegrationService) | **GET** /api/v1/integration/pagerduty/configuration/services/{service_name} | Get a single service object
 *PagerDutyIntegrationApi* | [**updatePagerDutyIntegrationService**](PagerDutyIntegrationApi.md#updatePagerDutyIntegrationService) | **PUT** /api/v1/integration/pagerduty/configuration/services/{service_name} | Update a single service object
+*ServiceChecksApi* | [**submitServiceCheck**](ServiceChecksApi.md#submitServiceCheck) | **POST** /api/v1/check_run | Submit a Service Check
 *ServiceLevelObjectiveCorrectionsApi* | [**createSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#createSLOCorrection) | **POST** /api/v1/slo/correction | Create an SLO correction
-*ServiceLevelObjectiveCorrectionsApi* | [**deleteSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#deleteSLOCorrection) | **DELETE** /api/v1/slo/correction/{slo_correction_id} | Delete an SLO Correction
+*ServiceLevelObjectiveCorrectionsApi* | [**deleteSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#deleteSLOCorrection) | **DELETE** /api/v1/slo/correction/{slo_correction_id} | Delete an SLO correction
 *ServiceLevelObjectiveCorrectionsApi* | [**getSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#getSLOCorrection) | **GET** /api/v1/slo/correction/{slo_correction_id} | Get an SLO correction for an SLO
 *ServiceLevelObjectiveCorrectionsApi* | [**listSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#listSLOCorrection) | **GET** /api/v1/slo/correction | Get all SLO corrections
-*ServiceLevelObjectiveCorrectionsApi* | [**updateSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#updateSLOCorrection) | **PATCH** /api/v1/slo/correction/{slo_correction_id} | Update an SLO Correction
+*ServiceLevelObjectiveCorrectionsApi* | [**updateSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#updateSLOCorrection) | **PATCH** /api/v1/slo/correction/{slo_correction_id} | Update an SLO correction
 *ServiceLevelObjectivesApi* | [**checkCanDeleteSLO**](ServiceLevelObjectivesApi.md#checkCanDeleteSLO) | **GET** /api/v1/slo/can_delete | Check if SLOs can be safely deleted
-*ServiceLevelObjectivesApi* | [**createSLO**](ServiceLevelObjectivesApi.md#createSLO) | **POST** /api/v1/slo | Create a SLO object
-*ServiceLevelObjectivesApi* | [**deleteSLO**](ServiceLevelObjectivesApi.md#deleteSLO) | **DELETE** /api/v1/slo/{slo_id} | Delete a SLO
+*ServiceLevelObjectivesApi* | [**createSLO**](ServiceLevelObjectivesApi.md#createSLO) | **POST** /api/v1/slo | Create an SLO object
+*ServiceLevelObjectivesApi* | [**deleteSLO**](ServiceLevelObjectivesApi.md#deleteSLO) | **DELETE** /api/v1/slo/{slo_id} | Delete an SLO
 *ServiceLevelObjectivesApi* | [**deleteSLOTimeframeInBulk**](ServiceLevelObjectivesApi.md#deleteSLOTimeframeInBulk) | **POST** /api/v1/slo/bulk_delete | Bulk Delete SLO Timeframes
-*ServiceLevelObjectivesApi* | [**getSLO**](ServiceLevelObjectivesApi.md#getSLO) | **GET** /api/v1/slo/{slo_id} | Get a SLO&#39;s details
+*ServiceLevelObjectivesApi* | [**getSLO**](ServiceLevelObjectivesApi.md#getSLO) | **GET** /api/v1/slo/{slo_id} | Get an SLO&#39;s details
 *ServiceLevelObjectivesApi* | [**getSLOHistory**](ServiceLevelObjectivesApi.md#getSLOHistory) | **GET** /api/v1/slo/{slo_id}/history | Get an SLO&#39;s history
 *ServiceLevelObjectivesApi* | [**listSLOs**](ServiceLevelObjectivesApi.md#listSLOs) | **GET** /api/v1/slo | Get all SLOs
-*ServiceLevelObjectivesApi* | [**updateSLO**](ServiceLevelObjectivesApi.md#updateSLO) | **PUT** /api/v1/slo/{slo_id} | Update a SLO
+*ServiceLevelObjectivesApi* | [**updateSLO**](ServiceLevelObjectivesApi.md#updateSLO) | **PUT** /api/v1/slo/{slo_id} | Update an SLO
 *SlackIntegrationApi* | [**createSlackIntegrationChannel**](SlackIntegrationApi.md#createSlackIntegrationChannel) | **POST** /api/v1/integration/slack/configuration/accounts/{account_name}/channels | Create a Slack integration channel
 *SlackIntegrationApi* | [**getSlackIntegrationChannel**](SlackIntegrationApi.md#getSlackIntegrationChannel) | **GET** /api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name} | Get a Slack integration channel
 *SlackIntegrationApi* | [**getSlackIntegrationChannels**](SlackIntegrationApi.md#getSlackIntegrationChannels) | **GET** /api/v1/integration/slack/configuration/accounts/{account_name}/channels | Get all channels in a Slack integration
@@ -119,11 +124,14 @@ Class | Method | HTTP request | Description
 *SnapshotsApi* | [**getGraphSnapshot**](SnapshotsApi.md#getGraphSnapshot) | **GET** /api/v1/graph/snapshot | Take graph snapshots
 *SyntheticsApi* | [**createGlobalVariable**](SyntheticsApi.md#createGlobalVariable) | **POST** /api/v1/synthetics/variables | Create a global variable
 *SyntheticsApi* | [**createPrivateLocation**](SyntheticsApi.md#createPrivateLocation) | **POST** /api/v1/synthetics/private-locations | Create a private location
+*SyntheticsApi* | [**createSyntheticsAPITest**](SyntheticsApi.md#createSyntheticsAPITest) | **POST** /api/v1/synthetics/tests/api | Create an API test
+*SyntheticsApi* | [**createSyntheticsBrowserTest**](SyntheticsApi.md#createSyntheticsBrowserTest) | **POST** /api/v1/synthetics/tests/browser | Create a browser test
 *SyntheticsApi* | [**createTest**](SyntheticsApi.md#createTest) | **POST** /api/v1/synthetics/tests | Create a test
 *SyntheticsApi* | [**deleteGlobalVariable**](SyntheticsApi.md#deleteGlobalVariable) | **DELETE** /api/v1/synthetics/variables/{variable_id} | Delete a global variable
 *SyntheticsApi* | [**deletePrivateLocation**](SyntheticsApi.md#deletePrivateLocation) | **DELETE** /api/v1/synthetics/private-locations/{location_id} | Delete a private location
 *SyntheticsApi* | [**deleteTests**](SyntheticsApi.md#deleteTests) | **POST** /api/v1/synthetics/tests/delete | Delete tests
 *SyntheticsApi* | [**editGlobalVariable**](SyntheticsApi.md#editGlobalVariable) | **PUT** /api/v1/synthetics/variables/{variable_id} | Edit a global variable
+*SyntheticsApi* | [**getAPITest**](SyntheticsApi.md#getAPITest) | **GET** /api/v1/synthetics/tests/api/{public_id} | Get an API test
 *SyntheticsApi* | [**getAPITestLatestResults**](SyntheticsApi.md#getAPITestLatestResults) | **GET** /api/v1/synthetics/tests/{public_id}/results | Get the test&#39;s latest results summaries (API)
 *SyntheticsApi* | [**getAPITestResult**](SyntheticsApi.md#getAPITestResult) | **GET** /api/v1/synthetics/tests/{public_id}/results/{result_id} | Get a test result (API)
 *SyntheticsApi* | [**getBrowserTest**](SyntheticsApi.md#getBrowserTest) | **GET** /api/v1/synthetics/tests/browser/{public_id} | Get a test configuration (browser)
@@ -135,6 +143,8 @@ Class | Method | HTTP request | Description
 *SyntheticsApi* | [**listLocations**](SyntheticsApi.md#listLocations) | **GET** /api/v1/synthetics/locations | Get all locations (public and private)
 *SyntheticsApi* | [**listTests**](SyntheticsApi.md#listTests) | **GET** /api/v1/synthetics/tests | Get the list of all tests
 *SyntheticsApi* | [**triggerCITests**](SyntheticsApi.md#triggerCITests) | **POST** /api/v1/synthetics/tests/trigger/ci | Trigger some Synthetics tests for CI
+*SyntheticsApi* | [**updateAPITest**](SyntheticsApi.md#updateAPITest) | **PUT** /api/v1/synthetics/tests/api/{public_id} | Edit an API test
+*SyntheticsApi* | [**updateBrowserTest**](SyntheticsApi.md#updateBrowserTest) | **PUT** /api/v1/synthetics/tests/browser/{public_id} | Edit a browser test
 *SyntheticsApi* | [**updatePrivateLocation**](SyntheticsApi.md#updatePrivateLocation) | **PUT** /api/v1/synthetics/private-locations/{location_id} | Edit a private location
 *SyntheticsApi* | [**updateTest**](SyntheticsApi.md#updateTest) | **PUT** /api/v1/synthetics/tests/{public_id} | Edit a test
 *SyntheticsApi* | [**updateTestPauseStatus**](SyntheticsApi.md#updateTestPauseStatus) | **PUT** /api/v1/synthetics/tests/{public_id}/status | Pause or start a test
@@ -153,6 +163,7 @@ Class | Method | HTTP request | Description
 *UsageMeteringApi* | [**getUsageAnalyzedLogs**](UsageMeteringApi.md#getUsageAnalyzedLogs) | **GET** /api/v1/usage/analyzed_logs | Get hourly usage for analyzed logs
 *UsageMeteringApi* | [**getUsageAttribution**](UsageMeteringApi.md#getUsageAttribution) | **GET** /api/v1/usage/attribution | Get Usage Attribution
 *UsageMeteringApi* | [**getUsageBillableSummary**](UsageMeteringApi.md#getUsageBillableSummary) | **GET** /api/v1/usage/billable-summary | Get billable usage across your account
+*UsageMeteringApi* | [**getUsageComplianceMonitoring**](UsageMeteringApi.md#getUsageComplianceMonitoring) | **GET** /api/v1/usage/compliance-monitoring | Get hourly usage for Compliance Monitoring
 *UsageMeteringApi* | [**getUsageFargate**](UsageMeteringApi.md#getUsageFargate) | **GET** /api/v1/usage/fargate | Get hourly usage for Fargate
 *UsageMeteringApi* | [**getUsageHosts**](UsageMeteringApi.md#getUsageHosts) | **GET** /api/v1/usage/hosts | Get hourly usage for hosts and containers
 *UsageMeteringApi* | [**getUsageIndexedSpans**](UsageMeteringApi.md#getUsageIndexedSpans) | **GET** /api/v1/usage/indexed-spans | Get hourly usage for indexed spans
@@ -224,6 +235,7 @@ Class | Method | HTTP request | Description
  - [CheckCanDeleteSLOResponseData](CheckCanDeleteSLOResponseData.md)
  - [CheckStatusWidgetDefinition](CheckStatusWidgetDefinition.md)
  - [CheckStatusWidgetDefinitionType](CheckStatusWidgetDefinitionType.md)
+ - [ContentEncoding](ContentEncoding.md)
  - [Creator](Creator.md)
  - [Dashboard](Dashboard.md)
  - [DashboardDeleteResponse](DashboardDeleteResponse.md)
@@ -231,6 +243,7 @@ Class | Method | HTTP request | Description
  - [DashboardList](DashboardList.md)
  - [DashboardListDeleteResponse](DashboardListDeleteResponse.md)
  - [DashboardListListResponse](DashboardListListResponse.md)
+ - [DashboardReflowType](DashboardReflowType.md)
  - [DashboardSummary](DashboardSummary.md)
  - [DashboardSummaryDefinition](DashboardSummaryDefinition.md)
  - [DashboardTemplateVariable](DashboardTemplateVariable.md)
@@ -244,6 +257,8 @@ Class | Method | HTTP request | Description
  - [DowntimeRecurrence](DowntimeRecurrence.md)
  - [Event](Event.md)
  - [EventAlertType](EventAlertType.md)
+ - [EventCreateRequest](EventCreateRequest.md)
+ - [EventCreateResponse](EventCreateResponse.md)
  - [EventListResponse](EventListResponse.md)
  - [EventPriority](EventPriority.md)
  - [EventQueryDefinition](EventQueryDefinition.md)
@@ -277,6 +292,8 @@ Class | Method | HTTP request | Description
  - [GraphSnapshot](GraphSnapshot.md)
  - [GroupWidgetDefinition](GroupWidgetDefinition.md)
  - [GroupWidgetDefinitionType](GroupWidgetDefinitionType.md)
+ - [HTTPLogError](HTTPLogError.md)
+ - [HTTPLogItem](HTTPLogItem.md)
  - [HTTPMethod](HTTPMethod.md)
  - [HeatMapWidgetDefinition](HeatMapWidgetDefinition.md)
  - [HeatMapWidgetDefinitionType](HeatMapWidgetDefinitionType.md)
@@ -308,6 +325,7 @@ Class | Method | HTTP request | Description
  - [IdpResponse](IdpResponse.md)
  - [ImageWidgetDefinition](ImageWidgetDefinition.md)
  - [ImageWidgetDefinitionType](ImageWidgetDefinitionType.md)
+ - [IntakePayloadAccepted](IntakePayloadAccepted.md)
  - [Log](Log.md)
  - [LogContent](LogContent.md)
  - [LogQueryDefinition](LogQueryDefinition.md)
@@ -369,6 +387,7 @@ Class | Method | HTTP request | Description
  - [MetricSearchResponse](MetricSearchResponse.md)
  - [MetricSearchResponseResults](MetricSearchResponseResults.md)
  - [MetricsListResponse](MetricsListResponse.md)
+ - [MetricsPayload](MetricsPayload.md)
  - [MetricsQueryMetadata](MetricsQueryMetadata.md)
  - [MetricsQueryResponse](MetricsQueryResponse.md)
  - [MetricsQueryUnit](MetricsQueryUnit.md)
@@ -444,6 +463,9 @@ Class | Method | HTTP request | Description
  - [ScatterPlotWidgetDefinition](ScatterPlotWidgetDefinition.md)
  - [ScatterPlotWidgetDefinitionRequests](ScatterPlotWidgetDefinitionRequests.md)
  - [ScatterPlotWidgetDefinitionType](ScatterPlotWidgetDefinitionType.md)
+ - [Series](Series.md)
+ - [ServiceCheck](ServiceCheck.md)
+ - [ServiceCheckStatus](ServiceCheckStatus.md)
  - [ServiceLevelObjective](ServiceLevelObjective.md)
  - [ServiceLevelObjectiveQuery](ServiceLevelObjectiveQuery.md)
  - [ServiceLevelObjectiveRequest](ServiceLevelObjectiveRequest.md)
@@ -453,11 +475,16 @@ Class | Method | HTTP request | Description
  - [ServiceSummaryWidgetDefinitionType](ServiceSummaryWidgetDefinitionType.md)
  - [SlackIntegrationChannel](SlackIntegrationChannel.md)
  - [SlackIntegrationChannelDisplay](SlackIntegrationChannelDisplay.md)
+ - [SyntheticsAPIStep](SyntheticsAPIStep.md)
+ - [SyntheticsAPIStepSubtype](SyntheticsAPIStepSubtype.md)
+ - [SyntheticsAPITest](SyntheticsAPITest.md)
+ - [SyntheticsAPITestConfig](SyntheticsAPITestConfig.md)
  - [SyntheticsAPITestResultData](SyntheticsAPITestResultData.md)
  - [SyntheticsAPITestResultFull](SyntheticsAPITestResultFull.md)
  - [SyntheticsAPITestResultFullCheck](SyntheticsAPITestResultFullCheck.md)
  - [SyntheticsAPITestResultShort](SyntheticsAPITestResultShort.md)
  - [SyntheticsAPITestResultShortResult](SyntheticsAPITestResultShortResult.md)
+ - [SyntheticsAPITestType](SyntheticsAPITestType.md)
  - [SyntheticsAssertion](SyntheticsAssertion.md)
  - [SyntheticsAssertionJSONPathOperator](SyntheticsAssertionJSONPathOperator.md)
  - [SyntheticsAssertionJSONPathTarget](SyntheticsAssertionJSONPathTarget.md)
@@ -468,11 +495,14 @@ Class | Method | HTTP request | Description
  - [SyntheticsBasicAuth](SyntheticsBasicAuth.md)
  - [SyntheticsBrowserError](SyntheticsBrowserError.md)
  - [SyntheticsBrowserErrorType](SyntheticsBrowserErrorType.md)
+ - [SyntheticsBrowserTest](SyntheticsBrowserTest.md)
+ - [SyntheticsBrowserTestConfig](SyntheticsBrowserTestConfig.md)
  - [SyntheticsBrowserTestResultData](SyntheticsBrowserTestResultData.md)
  - [SyntheticsBrowserTestResultFull](SyntheticsBrowserTestResultFull.md)
  - [SyntheticsBrowserTestResultFullCheck](SyntheticsBrowserTestResultFullCheck.md)
  - [SyntheticsBrowserTestResultShort](SyntheticsBrowserTestResultShort.md)
  - [SyntheticsBrowserTestResultShortResult](SyntheticsBrowserTestResultShortResult.md)
+ - [SyntheticsBrowserTestType](SyntheticsBrowserTestType.md)
  - [SyntheticsBrowserVariable](SyntheticsBrowserVariable.md)
  - [SyntheticsBrowserVariableType](SyntheticsBrowserVariableType.md)
  - [SyntheticsCITest](SyntheticsCITest.md)
@@ -483,6 +513,7 @@ Class | Method | HTTP request | Description
  - [SyntheticsCheckType](SyntheticsCheckType.md)
  - [SyntheticsConfigVariable](SyntheticsConfigVariable.md)
  - [SyntheticsConfigVariableType](SyntheticsConfigVariableType.md)
+ - [SyntheticsCoreWebVitals](SyntheticsCoreWebVitals.md)
  - [SyntheticsDeleteTestsPayload](SyntheticsDeleteTestsPayload.md)
  - [SyntheticsDeleteTestsResponse](SyntheticsDeleteTestsResponse.md)
  - [SyntheticsDeletedTest](SyntheticsDeletedTest.md)
@@ -493,13 +524,13 @@ Class | Method | HTTP request | Description
  - [SyntheticsGetBrowserTestLatestResultsResponse](SyntheticsGetBrowserTestLatestResultsResponse.md)
  - [SyntheticsGlobalVariable](SyntheticsGlobalVariable.md)
  - [SyntheticsGlobalVariableParseTestOptions](SyntheticsGlobalVariableParseTestOptions.md)
- - [SyntheticsGlobalVariableParseTestOptionsParser](SyntheticsGlobalVariableParseTestOptionsParser.md)
  - [SyntheticsGlobalVariableParseTestOptionsType](SyntheticsGlobalVariableParseTestOptionsType.md)
  - [SyntheticsGlobalVariableParserType](SyntheticsGlobalVariableParserType.md)
  - [SyntheticsGlobalVariableValue](SyntheticsGlobalVariableValue.md)
  - [SyntheticsListTestsResponse](SyntheticsListTestsResponse.md)
  - [SyntheticsLocation](SyntheticsLocation.md)
  - [SyntheticsLocations](SyntheticsLocations.md)
+ - [SyntheticsParsingOptions](SyntheticsParsingOptions.md)
  - [SyntheticsPlayingTab](SyntheticsPlayingTab.md)
  - [SyntheticsPrivateLocation](SyntheticsPrivateLocation.md)
  - [SyntheticsPrivateLocationCreationResponse](SyntheticsPrivateLocationCreationResponse.md)
@@ -533,6 +564,7 @@ Class | Method | HTTP request | Description
  - [SyntheticsTriggerCITestRunResult](SyntheticsTriggerCITestRunResult.md)
  - [SyntheticsTriggerCITestsResponse](SyntheticsTriggerCITestsResponse.md)
  - [SyntheticsUpdateTestPauseStatusPayload](SyntheticsUpdateTestPauseStatusPayload.md)
+ - [SyntheticsVariableParser](SyntheticsVariableParser.md)
  - [SyntheticsWarningType](SyntheticsWarningType.md)
  - [TableWidgetCellDisplayMode](TableWidgetCellDisplayMode.md)
  - [TableWidgetDefinition](TableWidgetDefinition.md)
@@ -544,6 +576,8 @@ Class | Method | HTTP request | Description
  - [TimeseriesWidgetDefinition](TimeseriesWidgetDefinition.md)
  - [TimeseriesWidgetDefinitionType](TimeseriesWidgetDefinitionType.md)
  - [TimeseriesWidgetExpressionAlias](TimeseriesWidgetExpressionAlias.md)
+ - [TimeseriesWidgetLegendColumn](TimeseriesWidgetLegendColumn.md)
+ - [TimeseriesWidgetLegendLayout](TimeseriesWidgetLegendLayout.md)
  - [TimeseriesWidgetRequest](TimeseriesWidgetRequest.md)
  - [ToplistWidgetDefinition](ToplistWidgetDefinition.md)
  - [ToplistWidgetDefinitionType](ToplistWidgetDefinitionType.md)
@@ -561,6 +595,8 @@ Class | Method | HTTP request | Description
  - [UsageBillableSummaryHour](UsageBillableSummaryHour.md)
  - [UsageBillableSummaryKeys](UsageBillableSummaryKeys.md)
  - [UsageBillableSummaryResponse](UsageBillableSummaryResponse.md)
+ - [UsageComplianceHour](UsageComplianceHour.md)
+ - [UsageComplianceResponse](UsageComplianceResponse.md)
  - [UsageCustomReportsAttributes](UsageCustomReportsAttributes.md)
  - [UsageCustomReportsData](UsageCustomReportsData.md)
  - [UsageCustomReportsMeta](UsageCustomReportsMeta.md)
@@ -615,6 +651,7 @@ Class | Method | HTTP request | Description
  - [UsageTimeseriesHour](UsageTimeseriesHour.md)
  - [UsageTimeseriesResponse](UsageTimeseriesResponse.md)
  - [UsageTopAvgMetricsHour](UsageTopAvgMetricsHour.md)
+ - [UsageTopAvgMetricsMetadata](UsageTopAvgMetricsMetadata.md)
  - [UsageTopAvgMetricsResponse](UsageTopAvgMetricsResponse.md)
  - [UsageTraceHour](UsageTraceHour.md)
  - [UsageTraceResponse](UsageTraceResponse.md)

@@ -8,33 +8,18 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.WidgetSort;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Which column and order to sort by
- */
+/** Which column and order to sort by */
 @ApiModel(description = "Which column and order to sort by")
-@JsonPropertyOrder({
-  WidgetFieldSort.JSON_PROPERTY_COLUMN,
-  WidgetFieldSort.JSON_PROPERTY_ORDER
-})
+@JsonPropertyOrder({WidgetFieldSort.JSON_PROPERTY_COLUMN, WidgetFieldSort.JSON_PROPERTY_ORDER})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WidgetFieldSort {
   public static final String JSON_PROPERTY_COLUMN = "column";
@@ -43,56 +28,49 @@ public class WidgetFieldSort {
   public static final String JSON_PROPERTY_ORDER = "order";
   private WidgetSort order;
 
-
   public WidgetFieldSort column(String column) {
     this.column = column;
     return this;
   }
 
-   /**
+  /**
    * Facet path for the column
+   *
    * @return column
-  **/
+   */
   @ApiModelProperty(example = "", required = true, value = "Facet path for the column")
   @JsonProperty(JSON_PROPERTY_COLUMN)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getColumn() {
     return column;
   }
 
-
   public void setColumn(String column) {
     this.column = column;
   }
-
 
   public WidgetFieldSort order(WidgetSort order) {
     this.order = order;
     return this;
   }
 
-   /**
+  /**
    * Get order
+   *
    * @return order
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ORDER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public WidgetSort getOrder() {
     return order;
   }
-
 
   public void setOrder(WidgetSort order) {
     this.order = order;
   }
 
-
-  /**
-   * Return true if this WidgetFieldSort object is equal to o.
-   */
+  /** Return true if this WidgetFieldSort object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -102,15 +80,14 @@ public class WidgetFieldSort {
       return false;
     }
     WidgetFieldSort widgetFieldSort = (WidgetFieldSort) o;
-    return Objects.equals(this.column, widgetFieldSort.column) &&
-        Objects.equals(this.order, widgetFieldSort.order);
+    return Objects.equals(this.column, widgetFieldSort.column)
+        && Objects.equals(this.order, widgetFieldSort.order);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(column, order);
   }
-
 
   @Override
   public String toString() {
@@ -123,8 +100,7 @@ public class WidgetFieldSort {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -132,6 +108,4 @@ public class WidgetFieldSort {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

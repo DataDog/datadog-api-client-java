@@ -8,28 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.SyntheticsDeviceID;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Information about a single test run.
- */
+/** Information about a single test run. */
 @ApiModel(description = "Information about a single test run.")
 @JsonPropertyOrder({
   SyntheticsTriggerCITestRunResult.JSON_PROPERTY_DEVICE,
@@ -51,106 +39,95 @@ public class SyntheticsTriggerCITestRunResult {
   public static final String JSON_PROPERTY_RESULT_ID = "result_id";
   private String resultId;
 
-
   public SyntheticsTriggerCITestRunResult device(SyntheticsDeviceID device) {
     this.device = device;
     return this;
   }
 
-   /**
+  /**
    * Get device
+   *
    * @return device
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DEVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SyntheticsDeviceID getDevice() {
     return device;
   }
 
-
   public void setDevice(SyntheticsDeviceID device) {
     this.device = device;
   }
-
 
   public SyntheticsTriggerCITestRunResult location(Long location) {
     this.location = location;
     return this;
   }
 
-   /**
+  /**
    * The location ID of the test run.
+   *
    * @return location
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The location ID of the test run.")
   @JsonProperty(JSON_PROPERTY_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getLocation() {
     return location;
   }
 
-
   public void setLocation(Long location) {
     this.location = location;
   }
-
 
   public SyntheticsTriggerCITestRunResult publicId(String publicId) {
     this.publicId = publicId;
     return this;
   }
 
-   /**
+  /**
    * The public ID of the Synthetics test.
+   *
    * @return publicId
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The public ID of the Synthetics test.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPublicId() {
     return publicId;
   }
 
-
   public void setPublicId(String publicId) {
     this.publicId = publicId;
   }
-
 
   public SyntheticsTriggerCITestRunResult resultId(String resultId) {
     this.resultId = resultId;
     return this;
   }
 
-   /**
+  /**
    * ID of the result.
+   *
    * @return resultId
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "ID of the result.")
   @JsonProperty(JSON_PROPERTY_RESULT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getResultId() {
     return resultId;
   }
-
 
   public void setResultId(String resultId) {
     this.resultId = resultId;
   }
 
-
-  /**
-   * Return true if this SyntheticsTriggerCITestRunResult object is equal to o.
-   */
+  /** Return true if this SyntheticsTriggerCITestRunResult object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -159,18 +136,18 @@ public class SyntheticsTriggerCITestRunResult {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsTriggerCITestRunResult syntheticsTriggerCITestRunResult = (SyntheticsTriggerCITestRunResult) o;
-    return Objects.equals(this.device, syntheticsTriggerCITestRunResult.device) &&
-        Objects.equals(this.location, syntheticsTriggerCITestRunResult.location) &&
-        Objects.equals(this.publicId, syntheticsTriggerCITestRunResult.publicId) &&
-        Objects.equals(this.resultId, syntheticsTriggerCITestRunResult.resultId);
+    SyntheticsTriggerCITestRunResult syntheticsTriggerCITestRunResult =
+        (SyntheticsTriggerCITestRunResult) o;
+    return Objects.equals(this.device, syntheticsTriggerCITestRunResult.device)
+        && Objects.equals(this.location, syntheticsTriggerCITestRunResult.location)
+        && Objects.equals(this.publicId, syntheticsTriggerCITestRunResult.publicId)
+        && Objects.equals(this.resultId, syntheticsTriggerCITestRunResult.resultId);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(device, location, publicId, resultId);
   }
-
 
   @Override
   public String toString() {
@@ -185,8 +162,7 @@ public class SyntheticsTriggerCITestRunResult {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -194,6 +170,4 @@ public class SyntheticsTriggerCITestRunResult {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

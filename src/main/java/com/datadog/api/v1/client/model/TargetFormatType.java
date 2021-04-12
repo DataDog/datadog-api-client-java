@@ -8,32 +8,24 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
-
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * If the &#x60;target_type&#x60; of the remapper is &#x60;attribute&#x60;, try to cast the value to a new specific type. If the cast is not possible, the original type is kept. &#x60;string&#x60;, &#x60;integer&#x60;, or &#x60;double&#x60; are the possible types. If the &#x60;target_type&#x60; is &#x60;tag&#x60;, this parameter may not be specified.
+ * If the &#x60;target_type&#x60; of the remapper is &#x60;attribute&#x60;, try to cast the value to
+ * a new specific type. If the cast is not possible, the original type is kept. &#x60;string&#x60;,
+ * &#x60;integer&#x60;, or &#x60;double&#x60; are the possible types. If the &#x60;target_type&#x60;
+ * is &#x60;tag&#x60;, this parameter may not be specified.
  */
 public enum TargetFormatType {
-  
   AUTO("auto"),
-  
+
   STRING("string"),
-  
+
   INTEGER("integer"),
-  
+
   DOUBLE("double");
 
   private String value;
@@ -62,4 +54,3 @@ public enum TargetFormatType {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

@@ -8,31 +8,18 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.SyntheticsTriggerCITestLocation;
-import com.datadog.api.v1.client.model.SyntheticsTriggerCITestRunResult;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Object containing information about the tests triggered.
- */
+/** Object containing information about the tests triggered. */
 @ApiModel(description = "Object containing information about the tests triggered.")
 @JsonPropertyOrder({
   SyntheticsTriggerCITestsResponse.JSON_PROPERTY_LOCATIONS,
@@ -50,13 +37,14 @@ public class SyntheticsTriggerCITestsResponse {
   public static final String JSON_PROPERTY_TRIGGERED_CHECK_IDS = "triggered_check_ids";
   private List<String> triggeredCheckIds = null;
 
-
-  public SyntheticsTriggerCITestsResponse locations(List<SyntheticsTriggerCITestLocation> locations) {
+  public SyntheticsTriggerCITestsResponse locations(
+      List<SyntheticsTriggerCITestLocation> locations) {
     this.locations = locations;
     return this;
   }
 
-  public SyntheticsTriggerCITestsResponse addLocationsItem(SyntheticsTriggerCITestLocation locationsItem) {
+  public SyntheticsTriggerCITestsResponse addLocationsItem(
+      SyntheticsTriggerCITestLocation locationsItem) {
     if (this.locations == null) {
       this.locations = new ArrayList<>();
     }
@@ -64,31 +52,30 @@ public class SyntheticsTriggerCITestsResponse {
     return this;
   }
 
-   /**
+  /**
    * List of Synthetics locations.
+   *
    * @return locations
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "List of Synthetics locations.")
   @JsonProperty(JSON_PROPERTY_LOCATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<SyntheticsTriggerCITestLocation> getLocations() {
     return locations;
   }
 
-
   public void setLocations(List<SyntheticsTriggerCITestLocation> locations) {
     this.locations = locations;
   }
-
 
   public SyntheticsTriggerCITestsResponse results(List<SyntheticsTriggerCITestRunResult> results) {
     this.results = results;
     return this;
   }
 
-  public SyntheticsTriggerCITestsResponse addResultsItem(SyntheticsTriggerCITestRunResult resultsItem) {
+  public SyntheticsTriggerCITestsResponse addResultsItem(
+      SyntheticsTriggerCITestRunResult resultsItem) {
     if (this.results == null) {
       this.results = new ArrayList<>();
     }
@@ -96,24 +83,22 @@ public class SyntheticsTriggerCITestsResponse {
     return this;
   }
 
-   /**
+  /**
    * Information about the tests runs.
+   *
    * @return results
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Information about the tests runs.")
   @JsonProperty(JSON_PROPERTY_RESULTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<SyntheticsTriggerCITestRunResult> getResults() {
     return results;
   }
 
-
   public void setResults(List<SyntheticsTriggerCITestRunResult> results) {
     this.results = results;
   }
-
 
   public SyntheticsTriggerCITestsResponse triggeredCheckIds(List<String> triggeredCheckIds) {
     this.triggeredCheckIds = triggeredCheckIds;
@@ -128,28 +113,24 @@ public class SyntheticsTriggerCITestsResponse {
     return this;
   }
 
-   /**
+  /**
    * The public IDs of the Synthetics test triggered.
+   *
    * @return triggeredCheckIds
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The public IDs of the Synthetics test triggered.")
   @JsonProperty(JSON_PROPERTY_TRIGGERED_CHECK_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getTriggeredCheckIds() {
     return triggeredCheckIds;
   }
-
 
   public void setTriggeredCheckIds(List<String> triggeredCheckIds) {
     this.triggeredCheckIds = triggeredCheckIds;
   }
 
-
-  /**
-   * Return true if this SyntheticsTriggerCITestsResponse object is equal to o.
-   */
+  /** Return true if this SyntheticsTriggerCITestsResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -158,17 +139,18 @@ public class SyntheticsTriggerCITestsResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsTriggerCITestsResponse syntheticsTriggerCITestsResponse = (SyntheticsTriggerCITestsResponse) o;
-    return Objects.equals(this.locations, syntheticsTriggerCITestsResponse.locations) &&
-        Objects.equals(this.results, syntheticsTriggerCITestsResponse.results) &&
-        Objects.equals(this.triggeredCheckIds, syntheticsTriggerCITestsResponse.triggeredCheckIds);
+    SyntheticsTriggerCITestsResponse syntheticsTriggerCITestsResponse =
+        (SyntheticsTriggerCITestsResponse) o;
+    return Objects.equals(this.locations, syntheticsTriggerCITestsResponse.locations)
+        && Objects.equals(this.results, syntheticsTriggerCITestsResponse.results)
+        && Objects.equals(
+            this.triggeredCheckIds, syntheticsTriggerCITestsResponse.triggeredCheckIds);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(locations, results, triggeredCheckIds);
   }
-
 
   @Override
   public String toString() {
@@ -182,8 +164,7 @@ public class SyntheticsTriggerCITestsResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -191,6 +172,4 @@ public class SyntheticsTriggerCITestsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

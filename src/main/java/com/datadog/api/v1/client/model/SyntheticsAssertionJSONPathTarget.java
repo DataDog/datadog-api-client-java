@@ -8,30 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.SyntheticsAssertionJSONPathOperator;
-import com.datadog.api.v1.client.model.SyntheticsAssertionJSONPathTargetTarget;
-import com.datadog.api.v1.client.model.SyntheticsAssertionType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * An assertion for the &#x60;validatesJSONPath&#x60; operator.
- */
+/** An assertion for the &#x60;validatesJSONPath&#x60; operator. */
 @ApiModel(description = "An assertion for the `validatesJSONPath` operator.")
 @JsonPropertyOrder({
   SyntheticsAssertionJSONPathTarget.JSON_PROPERTY_OPERATOR,
@@ -53,104 +39,93 @@ public class SyntheticsAssertionJSONPathTarget {
   public static final String JSON_PROPERTY_TYPE = "type";
   private SyntheticsAssertionType type;
 
-
   public SyntheticsAssertionJSONPathTarget operator(SyntheticsAssertionJSONPathOperator operator) {
     this.operator = operator;
     return this;
   }
 
-   /**
+  /**
    * Get operator
+   *
    * @return operator
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_OPERATOR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public SyntheticsAssertionJSONPathOperator getOperator() {
     return operator;
   }
 
-
   public void setOperator(SyntheticsAssertionJSONPathOperator operator) {
     this.operator = operator;
   }
-
 
   public SyntheticsAssertionJSONPathTarget property(String property) {
     this.property = property;
     return this;
   }
 
-   /**
+  /**
    * The associated assertion property.
+   *
    * @return property
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The associated assertion property.")
   @JsonProperty(JSON_PROPERTY_PROPERTY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getProperty() {
     return property;
   }
 
-
   public void setProperty(String property) {
     this.property = property;
   }
-
 
   public SyntheticsAssertionJSONPathTarget target(SyntheticsAssertionJSONPathTargetTarget target) {
     this.target = target;
     return this;
   }
 
-   /**
+  /**
    * Get target
+   *
    * @return target
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TARGET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SyntheticsAssertionJSONPathTargetTarget getTarget() {
     return target;
   }
 
-
   public void setTarget(SyntheticsAssertionJSONPathTargetTarget target) {
     this.target = target;
   }
-
 
   public SyntheticsAssertionJSONPathTarget type(SyntheticsAssertionType type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
+   *
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public SyntheticsAssertionType getType() {
     return type;
   }
-
 
   public void setType(SyntheticsAssertionType type) {
     this.type = type;
   }
 
-
-  /**
-   * Return true if this SyntheticsAssertionJSONPathTarget object is equal to o.
-   */
+  /** Return true if this SyntheticsAssertionJSONPathTarget object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -159,18 +134,18 @@ public class SyntheticsAssertionJSONPathTarget {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsAssertionJSONPathTarget syntheticsAssertionJSONPathTarget = (SyntheticsAssertionJSONPathTarget) o;
-    return Objects.equals(this.operator, syntheticsAssertionJSONPathTarget.operator) &&
-        Objects.equals(this.property, syntheticsAssertionJSONPathTarget.property) &&
-        Objects.equals(this.target, syntheticsAssertionJSONPathTarget.target) &&
-        Objects.equals(this.type, syntheticsAssertionJSONPathTarget.type);
+    SyntheticsAssertionJSONPathTarget syntheticsAssertionJSONPathTarget =
+        (SyntheticsAssertionJSONPathTarget) o;
+    return Objects.equals(this.operator, syntheticsAssertionJSONPathTarget.operator)
+        && Objects.equals(this.property, syntheticsAssertionJSONPathTarget.property)
+        && Objects.equals(this.target, syntheticsAssertionJSONPathTarget.target)
+        && Objects.equals(this.type, syntheticsAssertionJSONPathTarget.type);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(operator, property, target, type);
   }
-
 
   @Override
   public String toString() {
@@ -185,8 +160,7 @@ public class SyntheticsAssertionJSONPathTarget {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -194,6 +168,4 @@ public class SyntheticsAssertionJSONPathTarget {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

@@ -8,28 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.WidgetFormulaLimit;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Formula to be used in a widget query.
- */
+/** Formula to be used in a widget query. */
 @ApiModel(description = "Formula to be used in a widget query.")
 @JsonPropertyOrder({
   WidgetFormula.JSON_PROPERTY_ALIAS,
@@ -47,81 +35,75 @@ public class WidgetFormula {
   public static final String JSON_PROPERTY_LIMIT = "limit";
   private WidgetFormulaLimit limit;
 
-
   public WidgetFormula alias(String alias) {
     this.alias = alias;
     return this;
   }
 
-   /**
+  /**
    * Expression alias.
+   *
    * @return alias
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Expression alias.")
   @JsonProperty(JSON_PROPERTY_ALIAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAlias() {
     return alias;
   }
 
-
   public void setAlias(String alias) {
     this.alias = alias;
   }
-
 
   public WidgetFormula formula(String formula) {
     this.formula = formula;
     return this;
   }
 
-   /**
+  /**
    * String expression built from queries, formulas, and functions.
+   *
    * @return formula
-  **/
-  @ApiModelProperty(example = "func(a) + b", required = true, value = "String expression built from queries, formulas, and functions.")
+   */
+  @ApiModelProperty(
+      example = "func(a) + b",
+      required = true,
+      value = "String expression built from queries, formulas, and functions.")
   @JsonProperty(JSON_PROPERTY_FORMULA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getFormula() {
     return formula;
   }
 
-
   public void setFormula(String formula) {
     this.formula = formula;
   }
-
 
   public WidgetFormula limit(WidgetFormulaLimit limit) {
     this.limit = limit;
     return this;
   }
 
-   /**
+  /**
    * Get limit
+   *
    * @return limit
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public WidgetFormulaLimit getLimit() {
     return limit;
   }
-
 
   public void setLimit(WidgetFormulaLimit limit) {
     this.limit = limit;
   }
 
-
-  /**
-   * Return true if this WidgetFormula object is equal to o.
-   */
+  /** Return true if this WidgetFormula object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -131,16 +113,15 @@ public class WidgetFormula {
       return false;
     }
     WidgetFormula widgetFormula = (WidgetFormula) o;
-    return Objects.equals(this.alias, widgetFormula.alias) &&
-        Objects.equals(this.formula, widgetFormula.formula) &&
-        Objects.equals(this.limit, widgetFormula.limit);
+    return Objects.equals(this.alias, widgetFormula.alias)
+        && Objects.equals(this.formula, widgetFormula.formula)
+        && Objects.equals(this.limit, widgetFormula.limit);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(alias, formula, limit);
   }
-
 
   @Override
   public String toString() {
@@ -154,8 +135,7 @@ public class WidgetFormula {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -163,6 +143,4 @@ public class WidgetFormula {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

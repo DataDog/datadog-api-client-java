@@ -8,29 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.SyntheticsCITestMetadataCi;
-import com.datadog.api.v1.client.model.SyntheticsCITestMetadataGit;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Metadata for the Synthetics tests run
- */
+/** Metadata for the Synthetics tests run */
 @ApiModel(description = "Metadata for the Synthetics tests run")
 @JsonPropertyOrder({
   SyntheticsCITestMetadata.JSON_PROPERTY_CI,
@@ -44,58 +31,51 @@ public class SyntheticsCITestMetadata {
   public static final String JSON_PROPERTY_GIT = "git";
   private SyntheticsCITestMetadataGit git;
 
-
   public SyntheticsCITestMetadata ci(SyntheticsCITestMetadataCi ci) {
     this.ci = ci;
     return this;
   }
 
-   /**
+  /**
    * Get ci
+   *
    * @return ci
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SyntheticsCITestMetadataCi getCi() {
     return ci;
   }
 
-
   public void setCi(SyntheticsCITestMetadataCi ci) {
     this.ci = ci;
   }
-
 
   public SyntheticsCITestMetadata git(SyntheticsCITestMetadataGit git) {
     this.git = git;
     return this;
   }
 
-   /**
+  /**
    * Get git
+   *
    * @return git
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_GIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SyntheticsCITestMetadataGit getGit() {
     return git;
   }
-
 
   public void setGit(SyntheticsCITestMetadataGit git) {
     this.git = git;
   }
 
-
-  /**
-   * Return true if this SyntheticsCITest_metadata object is equal to o.
-   */
+  /** Return true if this SyntheticsCITest_metadata object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -105,15 +85,14 @@ public class SyntheticsCITestMetadata {
       return false;
     }
     SyntheticsCITestMetadata syntheticsCITestMetadata = (SyntheticsCITestMetadata) o;
-    return Objects.equals(this.ci, syntheticsCITestMetadata.ci) &&
-        Objects.equals(this.git, syntheticsCITestMetadata.git);
+    return Objects.equals(this.ci, syntheticsCITestMetadata.ci)
+        && Objects.equals(this.git, syntheticsCITestMetadata.git);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(ci, git);
   }
-
 
   @Override
   public String toString() {
@@ -126,8 +105,7 @@ public class SyntheticsCITestMetadata {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -135,6 +113,4 @@ public class SyntheticsCITestMetadata {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

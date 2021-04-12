@@ -2,7 +2,8 @@
 
 # SLOHistoryMetrics
 
-A `metric` based SLO history response.
+A `metric` based SLO history response.  This is not included in responses for `monitor` based SLOs.
+
 ## Properties
 
 Name | Type | Description | Notes

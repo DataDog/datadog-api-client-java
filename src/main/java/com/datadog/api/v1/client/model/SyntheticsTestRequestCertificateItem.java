@@ -8,27 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Define a request certificate.
- */
+/** Define a request certificate. */
 @ApiModel(description = "Define a request certificate.")
 @JsonPropertyOrder({
   SyntheticsTestRequestCertificateItem.JSON_PROPERTY_CONTENT,
@@ -46,82 +35,73 @@ public class SyntheticsTestRequestCertificateItem {
   public static final String JSON_PROPERTY_UPDATED_AT = "updatedAt";
   private String updatedAt;
 
-
   public SyntheticsTestRequestCertificateItem content(String content) {
     this.content = content;
     return this;
   }
 
-   /**
+  /**
    * Content of the certificate or key.
+   *
    * @return content
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Content of the certificate or key.")
   @JsonProperty(JSON_PROPERTY_CONTENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getContent() {
     return content;
   }
 
-
   public void setContent(String content) {
     this.content = content;
   }
-
 
   public SyntheticsTestRequestCertificateItem filename(String filename) {
     this.filename = filename;
     return this;
   }
 
-   /**
+  /**
    * File name for the certificate or key.
+   *
    * @return filename
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "File name for the certificate or key.")
   @JsonProperty(JSON_PROPERTY_FILENAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getFilename() {
     return filename;
   }
 
-
   public void setFilename(String filename) {
     this.filename = filename;
   }
-
 
   public SyntheticsTestRequestCertificateItem updatedAt(String updatedAt) {
     this.updatedAt = updatedAt;
     return this;
   }
 
-   /**
+  /**
    * Date of update of the certificate or key, ISO format.
+   *
    * @return updatedAt
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Date of update of the certificate or key, ISO format.")
   @JsonProperty(JSON_PROPERTY_UPDATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getUpdatedAt() {
     return updatedAt;
   }
-
 
   public void setUpdatedAt(String updatedAt) {
     this.updatedAt = updatedAt;
   }
 
-
-  /**
-   * Return true if this SyntheticsTestRequestCertificateItem object is equal to o.
-   */
+  /** Return true if this SyntheticsTestRequestCertificateItem object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -130,17 +110,17 @@ public class SyntheticsTestRequestCertificateItem {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsTestRequestCertificateItem syntheticsTestRequestCertificateItem = (SyntheticsTestRequestCertificateItem) o;
-    return Objects.equals(this.content, syntheticsTestRequestCertificateItem.content) &&
-        Objects.equals(this.filename, syntheticsTestRequestCertificateItem.filename) &&
-        Objects.equals(this.updatedAt, syntheticsTestRequestCertificateItem.updatedAt);
+    SyntheticsTestRequestCertificateItem syntheticsTestRequestCertificateItem =
+        (SyntheticsTestRequestCertificateItem) o;
+    return Objects.equals(this.content, syntheticsTestRequestCertificateItem.content)
+        && Objects.equals(this.filename, syntheticsTestRequestCertificateItem.filename)
+        && Objects.equals(this.updatedAt, syntheticsTestRequestCertificateItem.updatedAt);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(content, filename, updatedAt);
   }
-
 
   @Override
   public String toString() {
@@ -154,8 +134,7 @@ public class SyntheticsTestRequestCertificateItem {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -163,6 +142,4 @@ public class SyntheticsTestRequestCertificateItem {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

@@ -8,30 +8,18 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
 
-
-/**
- * Alerting time window options.
- */
+/** Alerting time window options. */
 @ApiModel(description = "Alerting time window options.")
 @JsonPropertyOrder({
   MonitorThresholdWindowOptions.JSON_PROPERTY_RECOVERY_WINDOW,
@@ -45,31 +33,30 @@ public class MonitorThresholdWindowOptions {
   public static final String JSON_PROPERTY_TRIGGER_WINDOW = "trigger_window";
   private JsonNullable<String> triggerWindow = JsonNullable.<String>undefined();
 
-
   public MonitorThresholdWindowOptions recoveryWindow(String recoveryWindow) {
     this.recoveryWindow = JsonNullable.<String>of(recoveryWindow);
     return this;
   }
 
-   /**
+  /**
    * Describes how long an anomalous metric must be normal before the alert recovers.
+   *
    * @return recoveryWindow
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Describes how long an anomalous metric must be normal before the alert recovers.")
+  @ApiModelProperty(
+      value = "Describes how long an anomalous metric must be normal before the alert recovers.")
   @JsonIgnore
-
   public String getRecoveryWindow() {
-        return recoveryWindow.orElse(null);
+    return recoveryWindow.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_RECOVERY_WINDOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getRecoveryWindow_JsonNullable() {
     return recoveryWindow;
   }
-  
+
   @JsonProperty(JSON_PROPERTY_RECOVERY_WINDOW)
   public void setRecoveryWindow_JsonNullable(JsonNullable<String> recoveryWindow) {
     this.recoveryWindow = recoveryWindow;
@@ -79,31 +66,30 @@ public class MonitorThresholdWindowOptions {
     this.recoveryWindow = JsonNullable.<String>of(recoveryWindow);
   }
 
-
   public MonitorThresholdWindowOptions triggerWindow(String triggerWindow) {
     this.triggerWindow = JsonNullable.<String>of(triggerWindow);
     return this;
   }
 
-   /**
+  /**
    * Describes how long a metric must be anomalous before an alert triggers.
+   *
    * @return triggerWindow
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Describes how long a metric must be anomalous before an alert triggers.")
+  @ApiModelProperty(
+      value = "Describes how long a metric must be anomalous before an alert triggers.")
   @JsonIgnore
-
   public String getTriggerWindow() {
-        return triggerWindow.orElse(null);
+    return triggerWindow.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_TRIGGER_WINDOW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getTriggerWindow_JsonNullable() {
     return triggerWindow;
   }
-  
+
   @JsonProperty(JSON_PROPERTY_TRIGGER_WINDOW)
   public void setTriggerWindow_JsonNullable(JsonNullable<String> triggerWindow) {
     this.triggerWindow = triggerWindow;
@@ -113,10 +99,7 @@ public class MonitorThresholdWindowOptions {
     this.triggerWindow = JsonNullable.<String>of(triggerWindow);
   }
 
-
-  /**
-   * Return true if this MonitorThresholdWindowOptions object is equal to o.
-   */
+  /** Return true if this MonitorThresholdWindowOptions object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -126,15 +109,14 @@ public class MonitorThresholdWindowOptions {
       return false;
     }
     MonitorThresholdWindowOptions monitorThresholdWindowOptions = (MonitorThresholdWindowOptions) o;
-    return Objects.equals(this.recoveryWindow, monitorThresholdWindowOptions.recoveryWindow) &&
-        Objects.equals(this.triggerWindow, monitorThresholdWindowOptions.triggerWindow);
+    return Objects.equals(this.recoveryWindow, monitorThresholdWindowOptions.recoveryWindow)
+        && Objects.equals(this.triggerWindow, monitorThresholdWindowOptions.triggerWindow);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(recoveryWindow, triggerWindow);
   }
-
 
   @Override
   public String toString() {
@@ -147,8 +129,7 @@ public class MonitorThresholdWindowOptions {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -156,6 +137,4 @@ public class MonitorThresholdWindowOptions {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

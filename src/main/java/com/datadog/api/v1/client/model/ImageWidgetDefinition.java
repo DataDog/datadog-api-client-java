@@ -8,31 +8,23 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.ImageWidgetDefinitionType;
-import com.datadog.api.v1.client.model.WidgetImageSizing;
-import com.datadog.api.v1.client.model.WidgetMargin;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
-
+import java.util.Objects;
 
 /**
- * The image widget allows you to embed an image on your dashboard. An image can be a PNG, JPG, or animated GIF. Only available on FREE layout dashboards.
+ * The image widget allows you to embed an image on your dashboard. An image can be a PNG, JPG, or
+ * animated GIF. Only available on FREE layout dashboards.
  */
-@ApiModel(description = "The image widget allows you to embed an image on your dashboard. An image can be a PNG, JPG, or animated GIF. Only available on FREE layout dashboards.")
+@ApiModel(
+    description =
+        "The image widget allows you to embed an image on your dashboard. An image can be a PNG,"
+            + " JPG, or animated GIF. Only available on FREE layout dashboards.")
 @JsonPropertyOrder({
   ImageWidgetDefinition.JSON_PROPERTY_MARGIN,
   ImageWidgetDefinition.JSON_PROPERTY_SIZING,
@@ -53,104 +45,93 @@ public class ImageWidgetDefinition {
   public static final String JSON_PROPERTY_URL = "url";
   private String url;
 
-
   public ImageWidgetDefinition margin(WidgetMargin margin) {
     this.margin = margin;
     return this;
   }
 
-   /**
+  /**
    * Get margin
+   *
    * @return margin
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MARGIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public WidgetMargin getMargin() {
     return margin;
   }
 
-
   public void setMargin(WidgetMargin margin) {
     this.margin = margin;
   }
-
 
   public ImageWidgetDefinition sizing(WidgetImageSizing sizing) {
     this.sizing = sizing;
     return this;
   }
 
-   /**
+  /**
    * Get sizing
+   *
    * @return sizing
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SIZING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public WidgetImageSizing getSizing() {
     return sizing;
   }
 
-
   public void setSizing(WidgetImageSizing sizing) {
     this.sizing = sizing;
   }
-
 
   public ImageWidgetDefinition type(ImageWidgetDefinitionType type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
+   *
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public ImageWidgetDefinitionType getType() {
     return type;
   }
 
-
   public void setType(ImageWidgetDefinitionType type) {
     this.type = type;
   }
-
 
   public ImageWidgetDefinition url(String url) {
     this.url = url;
     return this;
   }
 
-   /**
+  /**
    * URL of the image.
+   *
    * @return url
-  **/
+   */
   @ApiModelProperty(example = "", required = true, value = "URL of the image.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getUrl() {
     return url;
   }
-
 
   public void setUrl(String url) {
     this.url = url;
   }
 
-
-  /**
-   * Return true if this ImageWidgetDefinition object is equal to o.
-   */
+  /** Return true if this ImageWidgetDefinition object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -160,17 +141,16 @@ public class ImageWidgetDefinition {
       return false;
     }
     ImageWidgetDefinition imageWidgetDefinition = (ImageWidgetDefinition) o;
-    return Objects.equals(this.margin, imageWidgetDefinition.margin) &&
-        Objects.equals(this.sizing, imageWidgetDefinition.sizing) &&
-        Objects.equals(this.type, imageWidgetDefinition.type) &&
-        Objects.equals(this.url, imageWidgetDefinition.url);
+    return Objects.equals(this.margin, imageWidgetDefinition.margin)
+        && Objects.equals(this.sizing, imageWidgetDefinition.sizing)
+        && Objects.equals(this.type, imageWidgetDefinition.type)
+        && Objects.equals(this.url, imageWidgetDefinition.url);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(margin, sizing, type, url);
   }
-
 
   @Override
   public String toString() {
@@ -185,8 +165,7 @@ public class ImageWidgetDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -194,6 +173,4 @@ public class ImageWidgetDefinition {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

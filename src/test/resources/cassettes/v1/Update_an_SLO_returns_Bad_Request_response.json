@@ -1,0 +1,47 @@
+[{
+  "id" : "823a081a-6e0b-491c-855d-a54729c96e3f",
+  "httpRequest" : {
+    "method" : "PUT",
+    "path" : "/api/v1/slo/testupdateansloreturnsbadrequestresponse1618240197",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "Update_an_SLO_returns_Bad_Request_response" ],
+      "DD-OPERATION-ID" : [ "updateSLO" ],
+      "Content-Type" : [ "application/json" ]
+    },
+    "keepAlive" : false,
+    "secure" : true,
+    "body" : {
+      "type" : "JSON",
+      "json" : "{\"name\":null,\"thresholds\":[],\"type\":null}"
+    }
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 400,
+    "reasonPhrase" : "Bad Request",
+    "headers" : {
+      "Date" : [ "Mon, 12 Apr 2021 15:09:57 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Content-Length" : [ "56" ],
+      "Connection" : [ "keep-alive" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "x-ratelimit-limit" : [ "500" ],
+      "x-ratelimit-period" : [ "60" ],
+      "x-ratelimit-reset" : [ "3" ],
+      "x-ratelimit-remaining" : [ "495" ],
+      "x-dd-version" : [ "35.4290125" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ]
+    },
+    "body" : "{\"errors\": [\"Invalid payload: 'name' should be string\"]}"
+  }
+}]

@@ -8,64 +8,45 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.RelationshipToUser;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Relationships data for user invitation.
- */
+/** Relationships data for user invitation. */
 @ApiModel(description = "Relationships data for user invitation.")
-@JsonPropertyOrder({
-  UserInvitationRelationships.JSON_PROPERTY_USER
-})
+@JsonPropertyOrder({UserInvitationRelationships.JSON_PROPERTY_USER})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UserInvitationRelationships {
   public static final String JSON_PROPERTY_USER = "user";
   private RelationshipToUser user;
-
 
   public UserInvitationRelationships user(RelationshipToUser user) {
     this.user = user;
     return this;
   }
 
-   /**
+  /**
    * Get user
+   *
    * @return user
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_USER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public RelationshipToUser getUser() {
     return user;
   }
-
 
   public void setUser(RelationshipToUser user) {
     this.user = user;
   }
 
-
-  /**
-   * Return true if this UserInvitationRelationships object is equal to o.
-   */
+  /** Return true if this UserInvitationRelationships object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -83,7 +64,6 @@ public class UserInvitationRelationships {
     return Objects.hash(user);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -94,8 +74,7 @@ public class UserInvitationRelationships {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -103,6 +82,4 @@ public class UserInvitationRelationships {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

@@ -8,65 +8,46 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.LogsArchiveCreateRequestDefinition;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * The logs archive.
- */
+/** The logs archive. */
 @ApiModel(description = "The logs archive.")
-@JsonPropertyOrder({
-  LogsArchiveCreateRequest.JSON_PROPERTY_DATA
-})
+@JsonPropertyOrder({LogsArchiveCreateRequest.JSON_PROPERTY_DATA})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsArchiveCreateRequest {
   public static final String JSON_PROPERTY_DATA = "data";
   private LogsArchiveCreateRequestDefinition data;
-
 
   public LogsArchiveCreateRequest data(LogsArchiveCreateRequestDefinition data) {
     this.data = data;
     return this;
   }
 
-   /**
+  /**
    * Get data
+   *
    * @return data
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LogsArchiveCreateRequestDefinition getData() {
     return data;
   }
-
 
   public void setData(LogsArchiveCreateRequestDefinition data) {
     this.data = data;
   }
 
-
-  /**
-   * Return true if this LogsArchiveCreateRequest object is equal to o.
-   */
+  /** Return true if this LogsArchiveCreateRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -84,7 +65,6 @@ public class LogsArchiveCreateRequest {
     return Objects.hash(data);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -95,8 +75,7 @@ public class LogsArchiveCreateRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -104,6 +83,4 @@ public class LogsArchiveCreateRequest {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

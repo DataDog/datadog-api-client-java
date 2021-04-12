@@ -8,28 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.UsageMetricCategory;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Number of hourly recorded custom metrics for a given organization.
- */
+/** Number of hourly recorded custom metrics for a given organization. */
 @ApiModel(description = "Number of hourly recorded custom metrics for a given organization.")
 @JsonPropertyOrder({
   UsageTopAvgMetricsHour.JSON_PROPERTY_AVG_METRIC_HOUR,
@@ -51,106 +39,95 @@ public class UsageTopAvgMetricsHour {
   public static final String JSON_PROPERTY_METRIC_NAME = "metric_name";
   private String metricName;
 
-
   public UsageTopAvgMetricsHour avgMetricHour(Long avgMetricHour) {
     this.avgMetricHour = avgMetricHour;
     return this;
   }
 
-   /**
+  /**
    * Average number of timeseries per hour in which the metric occurs.
+   *
    * @return avgMetricHour
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Average number of timeseries per hour in which the metric occurs.")
   @JsonProperty(JSON_PROPERTY_AVG_METRIC_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getAvgMetricHour() {
     return avgMetricHour;
   }
 
-
   public void setAvgMetricHour(Long avgMetricHour) {
     this.avgMetricHour = avgMetricHour;
   }
-
 
   public UsageTopAvgMetricsHour maxMetricHour(Long maxMetricHour) {
     this.maxMetricHour = maxMetricHour;
     return this;
   }
 
-   /**
+  /**
    * Maximum number of timeseries per hour in which the metric occurs.
+   *
    * @return maxMetricHour
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Maximum number of timeseries per hour in which the metric occurs.")
   @JsonProperty(JSON_PROPERTY_MAX_METRIC_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getMaxMetricHour() {
     return maxMetricHour;
   }
 
-
   public void setMaxMetricHour(Long maxMetricHour) {
     this.maxMetricHour = maxMetricHour;
   }
-
 
   public UsageTopAvgMetricsHour metricCategory(UsageMetricCategory metricCategory) {
     this.metricCategory = metricCategory;
     return this;
   }
 
-   /**
+  /**
    * Get metricCategory
+   *
    * @return metricCategory
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_METRIC_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public UsageMetricCategory getMetricCategory() {
     return metricCategory;
   }
 
-
   public void setMetricCategory(UsageMetricCategory metricCategory) {
     this.metricCategory = metricCategory;
   }
-
 
   public UsageTopAvgMetricsHour metricName(String metricName) {
     this.metricName = metricName;
     return this;
   }
 
-   /**
+  /**
    * Contains the custom metric name.
+   *
    * @return metricName
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Contains the custom metric name.")
   @JsonProperty(JSON_PROPERTY_METRIC_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMetricName() {
     return metricName;
   }
-
 
   public void setMetricName(String metricName) {
     this.metricName = metricName;
   }
 
-
-  /**
-   * Return true if this UsageTopAvgMetricsHour object is equal to o.
-   */
+  /** Return true if this UsageTopAvgMetricsHour object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -160,17 +137,16 @@ public class UsageTopAvgMetricsHour {
       return false;
     }
     UsageTopAvgMetricsHour usageTopAvgMetricsHour = (UsageTopAvgMetricsHour) o;
-    return Objects.equals(this.avgMetricHour, usageTopAvgMetricsHour.avgMetricHour) &&
-        Objects.equals(this.maxMetricHour, usageTopAvgMetricsHour.maxMetricHour) &&
-        Objects.equals(this.metricCategory, usageTopAvgMetricsHour.metricCategory) &&
-        Objects.equals(this.metricName, usageTopAvgMetricsHour.metricName);
+    return Objects.equals(this.avgMetricHour, usageTopAvgMetricsHour.avgMetricHour)
+        && Objects.equals(this.maxMetricHour, usageTopAvgMetricsHour.maxMetricHour)
+        && Objects.equals(this.metricCategory, usageTopAvgMetricsHour.metricCategory)
+        && Objects.equals(this.metricName, usageTopAvgMetricsHour.metricName);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(avgMetricHour, maxMetricHour, metricCategory, metricName);
   }
-
 
   @Override
   public String toString() {
@@ -185,8 +161,7 @@ public class UsageTopAvgMetricsHour {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -194,6 +169,4 @@ public class UsageTopAvgMetricsHour {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

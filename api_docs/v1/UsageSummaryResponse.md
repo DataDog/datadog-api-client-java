@@ -3,6 +3,7 @@
 # UsageSummaryResponse
 
 Response with hourly report of all data billed by Datadog all organizations.
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -16,6 +17,8 @@ Name | Type | Description | Notes
 **azureAppServiceTop99pSum** | **Long** | Shows the 99th percentile of all Azure app services over all hours in the current months for all organizations. |  [optional]
 **azureHostTop99pSum** | **Long** | Shows the 99th percentile of all Azure hosts over all hours in the current months for all organizations. |  [optional]
 **billableIngestedBytesAggSum** | **Long** | Shows the sum of all log bytes ingested over all hours in the current months for all organizations. |  [optional]
+**complianceContainerAggSum** | **Object** | Shows the sum of all compliance containers over all hours in the current months for all organizations. |  [optional]
+**complianceHostAggSum** | **Long** | Shows the sum of all compliance hosts over all hours in the current months for all organizations. |  [optional]
 **containerAvgSum** | **Long** | Shows the average of all distinct containers over all hours in the current months for all organizations. |  [optional]
 **containerHwmSum** | **Long** | Shows the sum of the high-water marks of all distinct containers over all hours in the current months for all organizations. |  [optional]
 **customTsSum** | **Long** | Shows the average number of distinct custom metrics over all hours in the current months for all organizations. |  [optional]
@@ -23,6 +26,7 @@ Name | Type | Description | Notes
 **fargateTasksCountAvgSum** | **Long** | Shows the average of all Fargate tasks over all hours in the current months for all organizations. |  [optional]
 **fargateTasksCountHwmSum** | **Long** | Shows the sum of the high-water marks of all Fargate tasks over all hours in the current months for all organizations. |  [optional]
 **gcpHostTop99pSum** | **Long** | Shows the 99th percentile of all GCP hosts over all hours in the current months for all organizations. |  [optional]
+**herokuHostTop99pSum** | **Long** | Shows the 99th percentile of all Heroku dynos over all hours in the current months for all organizations. |  [optional]
 **incidentManagementMonthlyActiveUsersHwmSum** | **Long** | Shows sum of the the high-water marks of incident management monthly active users in the current months for all organizations. |  [optional]
 **indexedEventsCountAggSum** | **Long** | Shows the sum of all log events indexed over all hours in the current months for all organizations. |  [optional]
 **infraHostTop99pSum** | **Long** | Shows the 99th percentile of all distinct infrastructure hosts over all hours in the current months for all organizations. |  [optional]
@@ -37,6 +41,7 @@ Name | Type | Description | Notes
 **mobileRumSessionCountIosAggSum** | **Long** | Shows the sum of all mobile RUM Sessions on iOS over all hours in the current months for all organizations. |  [optional]
 **netflowIndexedEventsCountAggSum** | **Long** | Shows the sum of all Network flows indexed over all hours in the current months for all organizations. |  [optional]
 **npmHostTop99pSum** | **Long** | Shows the 99th percentile of all distinct Networks hosts over all hours in the current months for all organizations. |  [optional]
+**opentelemetryHostTop99pSum** | **Long** | Shows the 99th percentile of all hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current months for all organizations. |  [optional]
 **profilingContainerAgentCountAvg** | **Long** | Shows the average number of profiled containers over all hours in the current months for all organizations. |  [optional]
 **profilingHostCountTop99pSum** | **Long** | Shows the 99th percentile of all profiled hosts over all hours in the current months for all organizations. |  [optional]
 **rehydratedIndexedEventsAggSum** | **Long** | Shows the sum of all rehydrated logs indexed over all hours in the current months for all organizations (data available as of December 1, 2020). |  [optional]

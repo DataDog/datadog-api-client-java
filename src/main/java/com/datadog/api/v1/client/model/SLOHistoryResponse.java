@@ -8,36 +8,20 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.SLOHistoryResponseData;
-import com.datadog.api.v1.client.model.SLOHistoryResponseError;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * A service level objective history response.
- */
+/** A service level objective history response. */
 @ApiModel(description = "A service level objective history response.")
-@JsonPropertyOrder({
-  SLOHistoryResponse.JSON_PROPERTY_DATA,
-  SLOHistoryResponse.JSON_PROPERTY_ERRORS
-})
+@JsonPropertyOrder({SLOHistoryResponse.JSON_PROPERTY_DATA, SLOHistoryResponse.JSON_PROPERTY_ERRORS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SLOHistoryResponse {
   public static final String JSON_PROPERTY_DATA = "data";
@@ -46,30 +30,27 @@ public class SLOHistoryResponse {
   public static final String JSON_PROPERTY_ERRORS = "errors";
   private List<SLOHistoryResponseError> errors = null;
 
-
   public SLOHistoryResponse data(SLOHistoryResponseData data) {
     this.data = data;
     return this;
   }
 
-   /**
+  /**
    * Get data
+   *
    * @return data
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SLOHistoryResponseData getData() {
     return data;
   }
 
-
   public void setData(SLOHistoryResponseData data) {
     this.data = data;
   }
-
 
   public SLOHistoryResponse errors(List<SLOHistoryResponseError> errors) {
     this.errors = errors;
@@ -84,28 +65,25 @@ public class SLOHistoryResponse {
     return this;
   }
 
-   /**
+  /**
    * A list of errors while querying the history data for the service level objective.
+   *
    * @return errors
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A list of errors while querying the history data for the service level objective.")
+  @ApiModelProperty(
+      value = "A list of errors while querying the history data for the service level objective.")
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<SLOHistoryResponseError> getErrors() {
     return errors;
   }
-
 
   public void setErrors(List<SLOHistoryResponseError> errors) {
     this.errors = errors;
   }
 
-
-  /**
-   * Return true if this SLOHistoryResponse object is equal to o.
-   */
+  /** Return true if this SLOHistoryResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -115,15 +93,14 @@ public class SLOHistoryResponse {
       return false;
     }
     SLOHistoryResponse slOHistoryResponse = (SLOHistoryResponse) o;
-    return Objects.equals(this.data, slOHistoryResponse.data) &&
-        Objects.equals(this.errors, slOHistoryResponse.errors);
+    return Objects.equals(this.data, slOHistoryResponse.data)
+        && Objects.equals(this.errors, slOHistoryResponse.errors);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(data, errors);
   }
-
 
   @Override
   public String toString() {
@@ -136,8 +113,7 @@ public class SLOHistoryResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -145,6 +121,4 @@ public class SLOHistoryResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

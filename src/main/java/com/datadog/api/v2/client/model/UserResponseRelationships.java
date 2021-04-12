@@ -8,31 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.RelationshipToOrganization;
-import com.datadog.api.v2.client.model.RelationshipToOrganizations;
-import com.datadog.api.v2.client.model.RelationshipToRoles;
-import com.datadog.api.v2.client.model.RelationshipToUsers;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Relationships of the user object returned by the API.
- */
+/** Relationships of the user object returned by the API. */
 @ApiModel(description = "Relationships of the user object returned by the API.")
 @JsonPropertyOrder({
   UserResponseRelationships.JSON_PROPERTY_ORG,
@@ -54,106 +39,95 @@ public class UserResponseRelationships {
   public static final String JSON_PROPERTY_ROLES = "roles";
   private RelationshipToRoles roles;
 
-
   public UserResponseRelationships org(RelationshipToOrganization org) {
     this.org = org;
     return this;
   }
 
-   /**
+  /**
    * Get org
+   *
    * @return org
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ORG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public RelationshipToOrganization getOrg() {
     return org;
   }
 
-
   public void setOrg(RelationshipToOrganization org) {
     this.org = org;
   }
-
 
   public UserResponseRelationships otherOrgs(RelationshipToOrganizations otherOrgs) {
     this.otherOrgs = otherOrgs;
     return this;
   }
 
-   /**
+  /**
    * Get otherOrgs
+   *
    * @return otherOrgs
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OTHER_ORGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public RelationshipToOrganizations getOtherOrgs() {
     return otherOrgs;
   }
 
-
   public void setOtherOrgs(RelationshipToOrganizations otherOrgs) {
     this.otherOrgs = otherOrgs;
   }
-
 
   public UserResponseRelationships otherUsers(RelationshipToUsers otherUsers) {
     this.otherUsers = otherUsers;
     return this;
   }
 
-   /**
+  /**
    * Get otherUsers
+   *
    * @return otherUsers
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OTHER_USERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public RelationshipToUsers getOtherUsers() {
     return otherUsers;
   }
 
-
   public void setOtherUsers(RelationshipToUsers otherUsers) {
     this.otherUsers = otherUsers;
   }
-
 
   public UserResponseRelationships roles(RelationshipToRoles roles) {
     this.roles = roles;
     return this;
   }
 
-   /**
+  /**
    * Get roles
+   *
    * @return roles
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public RelationshipToRoles getRoles() {
     return roles;
   }
-
 
   public void setRoles(RelationshipToRoles roles) {
     this.roles = roles;
   }
 
-
-  /**
-   * Return true if this UserResponseRelationships object is equal to o.
-   */
+  /** Return true if this UserResponseRelationships object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -163,17 +137,16 @@ public class UserResponseRelationships {
       return false;
     }
     UserResponseRelationships userResponseRelationships = (UserResponseRelationships) o;
-    return Objects.equals(this.org, userResponseRelationships.org) &&
-        Objects.equals(this.otherOrgs, userResponseRelationships.otherOrgs) &&
-        Objects.equals(this.otherUsers, userResponseRelationships.otherUsers) &&
-        Objects.equals(this.roles, userResponseRelationships.roles);
+    return Objects.equals(this.org, userResponseRelationships.org)
+        && Objects.equals(this.otherOrgs, userResponseRelationships.otherOrgs)
+        && Objects.equals(this.otherUsers, userResponseRelationships.otherUsers)
+        && Objects.equals(this.roles, userResponseRelationships.roles);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(org, otherOrgs, otherUsers, roles);
   }
-
 
   @Override
   public String toString() {
@@ -188,8 +161,7 @@ public class UserResponseRelationships {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -197,6 +169,4 @@ public class UserResponseRelationships {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

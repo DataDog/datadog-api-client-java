@@ -8,29 +8,18 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Available prefix information for the APM endpoints.
- */
+/** Available prefix information for the APM endpoints. */
 @ApiModel(description = "Available prefix information for the APM endpoints.")
 @JsonPropertyOrder({
   IPPrefixesAPM.JSON_PROPERTY_PREFIXES_IPV4,
@@ -43,7 +32,6 @@ public class IPPrefixesAPM {
 
   public static final String JSON_PROPERTY_PREFIXES_IPV6 = "prefixes_ipv6";
   private List<String> prefixesIpv6 = null;
-
 
   public IPPrefixesAPM prefixesIpv4(List<String> prefixesIpv4) {
     this.prefixesIpv4 = prefixesIpv4;
@@ -58,24 +46,22 @@ public class IPPrefixesAPM {
     return this;
   }
 
-   /**
+  /**
    * List of IPv4 prefixes.
+   *
    * @return prefixesIpv4
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "List of IPv4 prefixes.")
   @JsonProperty(JSON_PROPERTY_PREFIXES_IPV4)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getPrefixesIpv4() {
     return prefixesIpv4;
   }
 
-
   public void setPrefixesIpv4(List<String> prefixesIpv4) {
     this.prefixesIpv4 = prefixesIpv4;
   }
-
 
   public IPPrefixesAPM prefixesIpv6(List<String> prefixesIpv6) {
     this.prefixesIpv6 = prefixesIpv6;
@@ -90,28 +76,24 @@ public class IPPrefixesAPM {
     return this;
   }
 
-   /**
+  /**
    * List of IPv6 prefixes.
+   *
    * @return prefixesIpv6
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "List of IPv6 prefixes.")
   @JsonProperty(JSON_PROPERTY_PREFIXES_IPV6)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getPrefixesIpv6() {
     return prefixesIpv6;
   }
-
 
   public void setPrefixesIpv6(List<String> prefixesIpv6) {
     this.prefixesIpv6 = prefixesIpv6;
   }
 
-
-  /**
-   * Return true if this IPPrefixesAPM object is equal to o.
-   */
+  /** Return true if this IPPrefixesAPM object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -121,15 +103,14 @@ public class IPPrefixesAPM {
       return false;
     }
     IPPrefixesAPM ipPrefixesAPM = (IPPrefixesAPM) o;
-    return Objects.equals(this.prefixesIpv4, ipPrefixesAPM.prefixesIpv4) &&
-        Objects.equals(this.prefixesIpv6, ipPrefixesAPM.prefixesIpv6);
+    return Objects.equals(this.prefixesIpv4, ipPrefixesAPM.prefixesIpv4)
+        && Objects.equals(this.prefixesIpv6, ipPrefixesAPM.prefixesIpv6);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(prefixesIpv4, prefixesIpv6);
   }
-
 
   @Override
   public String toString() {
@@ -142,8 +123,7 @@ public class IPPrefixesAPM {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -151,6 +131,4 @@ public class IPPrefixesAPM {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

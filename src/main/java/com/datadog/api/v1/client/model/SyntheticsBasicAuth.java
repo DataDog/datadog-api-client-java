@@ -8,27 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Object to handle basic authentication when performing the test.
- */
+/** Object to handle basic authentication when performing the test. */
 @ApiModel(description = "Object to handle basic authentication when performing the test.")
 @JsonPropertyOrder({
   SyntheticsBasicAuth.JSON_PROPERTY_PASSWORD,
@@ -42,56 +31,55 @@ public class SyntheticsBasicAuth {
   public static final String JSON_PROPERTY_USERNAME = "username";
   private String username;
 
-
   public SyntheticsBasicAuth password(String password) {
     this.password = password;
     return this;
   }
 
-   /**
+  /**
    * Password to use for the basic authentication.
+   *
    * @return password
-  **/
-  @ApiModelProperty(example = "", required = true, value = "Password to use for the basic authentication.")
+   */
+  @ApiModelProperty(
+      example = "",
+      required = true,
+      value = "Password to use for the basic authentication.")
   @JsonProperty(JSON_PROPERTY_PASSWORD)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getPassword() {
     return password;
   }
 
-
   public void setPassword(String password) {
     this.password = password;
   }
-
 
   public SyntheticsBasicAuth username(String username) {
     this.username = username;
     return this;
   }
 
-   /**
+  /**
    * Username to use for the basic authentication.
+   *
    * @return username
-  **/
-  @ApiModelProperty(example = "", required = true, value = "Username to use for the basic authentication.")
+   */
+  @ApiModelProperty(
+      example = "",
+      required = true,
+      value = "Username to use for the basic authentication.")
   @JsonProperty(JSON_PROPERTY_USERNAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getUsername() {
     return username;
   }
-
 
   public void setUsername(String username) {
     this.username = username;
   }
 
-
-  /**
-   * Return true if this SyntheticsBasicAuth object is equal to o.
-   */
+  /** Return true if this SyntheticsBasicAuth object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -101,15 +89,14 @@ public class SyntheticsBasicAuth {
       return false;
     }
     SyntheticsBasicAuth syntheticsBasicAuth = (SyntheticsBasicAuth) o;
-    return Objects.equals(this.password, syntheticsBasicAuth.password) &&
-        Objects.equals(this.username, syntheticsBasicAuth.username);
+    return Objects.equals(this.password, syntheticsBasicAuth.password)
+        && Objects.equals(this.username, syntheticsBasicAuth.username);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(password, username);
   }
-
 
   @Override
   public String toString() {
@@ -122,8 +109,7 @@ public class SyntheticsBasicAuth {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -131,6 +117,4 @@ public class SyntheticsBasicAuth {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

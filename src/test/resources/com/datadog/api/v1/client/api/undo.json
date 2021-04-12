@@ -79,6 +79,12 @@
       "type": "idempotent"
     }
   },
+  "SubmitServiceCheck": {
+    "tag": "Service Checks",
+    "undo": {
+      "type": "safe"
+    }
+  },
   "GetDailyCustomReports": {
     "tag": "Usage Metering",
     "undo": {
@@ -204,6 +210,12 @@
     }
   },
   "ListEvents": {
+    "tag": "Events",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "CreateEvent": {
     "tag": "Events",
     "undo": {
       "type": "safe"
@@ -627,6 +639,12 @@
       "type": "idempotent"
     }
   },
+  "ListMonitorDowntimes": {
+    "tag": "Downtimes",
+    "undo": {
+      "type": "safe"
+    }
+  },
   "GetMonthlyCustomReports": {
     "tag": "Usage Metering",
     "undo": {
@@ -678,6 +696,12 @@
     }
   },
   "ListMetrics": {
+    "tag": "Metrics",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "SubmitMetrics": {
     "tag": "Metrics",
     "undo": {
       "type": "safe"
@@ -826,10 +850,44 @@
       "type": "unsafe"
     }
   },
+  "CreateSyntheticsAPITest": {
+    "tag": "Synthetics",
+    "undo": {
+      "operationId": "TODO",
+      "parameters": [],
+      "type": "unsafe"
+    }
+  },
+  "GetAPITest": {
+    "tag": "Synthetics",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "UpdateAPITest": {
+    "tag": "Synthetics",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "CreateSyntheticsBrowserTest": {
+    "tag": "Synthetics",
+    "undo": {
+      "operationId": "TODO",
+      "parameters": [],
+      "type": "unsafe"
+    }
+  },
   "GetBrowserTest": {
     "tag": "Synthetics",
     "undo": {
       "type": "safe"
+    }
+  },
+  "UpdateBrowserTest": {
+    "tag": "Synthetics",
+    "undo": {
+      "type": "idempotent"
     }
   },
   "GetBrowserTestLatestResults": {
@@ -977,6 +1035,12 @@
     }
   },
   "GetUsageBillableSummary": {
+    "tag": "Usage Metering",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "GetUsageComplianceMonitoring": {
     "tag": "Usage Metering",
     "undo": {
       "type": "safe"
@@ -1147,6 +1211,12 @@
   },
   "Validate": {
     "tag": "Authentication",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "SubmitLog": {
+    "tag": "Logs",
     "undo": {
       "type": "safe"
     }

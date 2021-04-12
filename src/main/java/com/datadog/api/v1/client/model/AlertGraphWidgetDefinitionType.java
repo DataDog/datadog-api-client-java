@@ -8,26 +8,13 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
-
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * Type of the alert graph widget.
- */
+/** Type of the alert graph widget. */
 public enum AlertGraphWidgetDefinitionType {
-  
   ALERT_GRAPH("alert_graph");
 
   private String value;
@@ -56,4 +43,3 @@ public enum AlertGraphWidgetDefinitionType {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

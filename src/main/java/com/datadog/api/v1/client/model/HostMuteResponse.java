@@ -8,27 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Response with the list of muted host for your organization.
- */
+/** Response with the list of muted host for your organization. */
 @ApiModel(description = "Response with the list of muted host for your organization.")
 @JsonPropertyOrder({
   HostMuteResponse.JSON_PROPERTY_ACTION,
@@ -50,106 +39,99 @@ public class HostMuteResponse {
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
 
-
   public HostMuteResponse action(String action) {
     this.action = action;
     return this;
   }
 
-   /**
+  /**
    * Action applied to the hosts.
+   *
    * @return action
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Muted", value = "Action applied to the hosts.")
   @JsonProperty(JSON_PROPERTY_ACTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAction() {
     return action;
   }
 
-
   public void setAction(String action) {
     this.action = action;
   }
-
 
   public HostMuteResponse end(Long end) {
     this.end = end;
     return this;
   }
 
-   /**
+  /**
    * POSIX timestamp in seconds when the host is unmuted.
+   *
    * @return end
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1579098130", value = "POSIX timestamp in seconds when the host is unmuted.")
+  @ApiModelProperty(
+      example = "1579098130",
+      value = "POSIX timestamp in seconds when the host is unmuted.")
   @JsonProperty(JSON_PROPERTY_END)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getEnd() {
     return end;
   }
 
-
   public void setEnd(Long end) {
     this.end = end;
   }
-
 
   public HostMuteResponse hostname(String hostname) {
     this.hostname = hostname;
     return this;
   }
 
-   /**
+  /**
    * The host name.
+   *
    * @return hostname
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(example = "test.host", value = "The host name.")
   @JsonProperty(JSON_PROPERTY_HOSTNAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getHostname() {
     return hostname;
   }
 
-
   public void setHostname(String hostname) {
     this.hostname = hostname;
   }
-
 
   public HostMuteResponse message(String message) {
     this.message = message;
     return this;
   }
 
-   /**
+  /**
    * Message associated with the mute.
+   *
    * @return message
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Muting this host for a test!", value = "Message associated with the mute.")
+  @ApiModelProperty(
+      example = "Muting this host for a test!",
+      value = "Message associated with the mute.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMessage() {
     return message;
   }
-
 
   public void setMessage(String message) {
     this.message = message;
   }
 
-
-  /**
-   * Return true if this HostMuteResponse object is equal to o.
-   */
+  /** Return true if this HostMuteResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -159,17 +141,16 @@ public class HostMuteResponse {
       return false;
     }
     HostMuteResponse hostMuteResponse = (HostMuteResponse) o;
-    return Objects.equals(this.action, hostMuteResponse.action) &&
-        Objects.equals(this.end, hostMuteResponse.end) &&
-        Objects.equals(this.hostname, hostMuteResponse.hostname) &&
-        Objects.equals(this.message, hostMuteResponse.message);
+    return Objects.equals(this.action, hostMuteResponse.action)
+        && Objects.equals(this.end, hostMuteResponse.end)
+        && Objects.equals(this.hostname, hostMuteResponse.hostname)
+        && Objects.equals(this.message, hostMuteResponse.message);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(action, end, hostname, message);
   }
-
 
   @Override
   public String toString() {
@@ -184,8 +165,7 @@ public class HostMuteResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -193,6 +173,4 @@ public class HostMuteResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

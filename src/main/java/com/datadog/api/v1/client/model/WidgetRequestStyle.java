@@ -8,29 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.WidgetLineType;
-import com.datadog.api.v1.client.model.WidgetLineWidth;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Define request widget style.
- */
+/** Define request widget style. */
 @ApiModel(description = "Define request widget style.")
 @JsonPropertyOrder({
   WidgetRequestStyle.JSON_PROPERTY_LINE_TYPE,
@@ -48,82 +35,73 @@ public class WidgetRequestStyle {
   public static final String JSON_PROPERTY_PALETTE = "palette";
   private String palette;
 
-
   public WidgetRequestStyle lineType(WidgetLineType lineType) {
     this.lineType = lineType;
     return this;
   }
 
-   /**
+  /**
    * Get lineType
+   *
    * @return lineType
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LINE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public WidgetLineType getLineType() {
     return lineType;
   }
 
-
   public void setLineType(WidgetLineType lineType) {
     this.lineType = lineType;
   }
-
 
   public WidgetRequestStyle lineWidth(WidgetLineWidth lineWidth) {
     this.lineWidth = lineWidth;
     return this;
   }
 
-   /**
+  /**
    * Get lineWidth
+   *
    * @return lineWidth
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LINE_WIDTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public WidgetLineWidth getLineWidth() {
     return lineWidth;
   }
 
-
   public void setLineWidth(WidgetLineWidth lineWidth) {
     this.lineWidth = lineWidth;
   }
-
 
   public WidgetRequestStyle palette(String palette) {
     this.palette = palette;
     return this;
   }
 
-   /**
+  /**
    * Color palette to apply to the widget.
+   *
    * @return palette
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Color palette to apply to the widget.")
   @JsonProperty(JSON_PROPERTY_PALETTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPalette() {
     return palette;
   }
-
 
   public void setPalette(String palette) {
     this.palette = palette;
   }
 
-
-  /**
-   * Return true if this WidgetRequestStyle object is equal to o.
-   */
+  /** Return true if this WidgetRequestStyle object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -133,16 +111,15 @@ public class WidgetRequestStyle {
       return false;
     }
     WidgetRequestStyle widgetRequestStyle = (WidgetRequestStyle) o;
-    return Objects.equals(this.lineType, widgetRequestStyle.lineType) &&
-        Objects.equals(this.lineWidth, widgetRequestStyle.lineWidth) &&
-        Objects.equals(this.palette, widgetRequestStyle.palette);
+    return Objects.equals(this.lineType, widgetRequestStyle.lineType)
+        && Objects.equals(this.lineWidth, widgetRequestStyle.lineWidth)
+        && Objects.equals(this.palette, widgetRequestStyle.palette);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(lineType, lineWidth, palette);
   }
-
 
   @Override
   public String toString() {
@@ -156,8 +133,7 @@ public class WidgetRequestStyle {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -165,6 +141,4 @@ public class WidgetRequestStyle {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

@@ -8,32 +8,23 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.UsageSummaryDateOrg;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-
-/**
- * Response with hourly report of all data billed by Datadog all organizations.
- */
-@ApiModel(description = "Response with hourly report of all data billed by Datadog all organizations.")
+/** Response with hourly report of all data billed by Datadog all organizations. */
+@ApiModel(
+    description = "Response with hourly report of all data billed by Datadog all organizations.")
 @JsonPropertyOrder({
   UsageSummaryDate.JSON_PROPERTY_AGENT_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_TOP99P,
@@ -43,6 +34,8 @@ import com.datadog.api.v1.client.JSON;
   UsageSummaryDate.JSON_PROPERTY_AWS_LAMBDA_INVOCATIONS_SUM,
   UsageSummaryDate.JSON_PROPERTY_AZURE_APP_SERVICE_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_BILLABLE_INGESTED_BYTES_SUM,
+  UsageSummaryDate.JSON_PROPERTY_COMPLIANCE_CONTAINER_COUNT_SUM,
+  UsageSummaryDate.JSON_PROPERTY_COMPLIANCE_HOST_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_CONTAINER_AVG,
   UsageSummaryDate.JSON_PROPERTY_CONTAINER_HWM,
   UsageSummaryDate.JSON_PROPERTY_CUSTOM_TS_AVG,
@@ -50,6 +43,7 @@ import com.datadog.api.v1.client.JSON;
   UsageSummaryDate.JSON_PROPERTY_FARGATE_TASKS_COUNT_AVG,
   UsageSummaryDate.JSON_PROPERTY_FARGATE_TASKS_COUNT_HWM,
   UsageSummaryDate.JSON_PROPERTY_GCP_HOST_TOP99P,
+  UsageSummaryDate.JSON_PROPERTY_HEROKU_HOST_TOP99P_SUM,
   UsageSummaryDate.JSON_PROPERTY_INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_HWM,
   UsageSummaryDate.JSON_PROPERTY_INDEXED_EVENTS_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_INFRA_HOST_TOP99P,
@@ -61,6 +55,7 @@ import com.datadog.api.v1.client.JSON;
   UsageSummaryDate.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_NETFLOW_INDEXED_EVENTS_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_NPM_HOST_TOP99P,
+  UsageSummaryDate.JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P_SUM,
   UsageSummaryDate.JSON_PROPERTY_ORGS,
   UsageSummaryDate.JSON_PROPERTY_PROFILING_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_RUM_SESSION_COUNT_SUM,
@@ -75,7 +70,8 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_AGENT_HOST_TOP99P = "agent_host_top99p";
   private Long agentHostTop99p;
 
-  public static final String JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_TOP99P = "apm_azure_app_service_host_top99p";
+  public static final String JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_TOP99P =
+      "apm_azure_app_service_host_top99p";
   private Long apmAzureAppServiceHostTop99p;
 
   public static final String JSON_PROPERTY_APM_HOST_TOP99P = "apm_host_top99p";
@@ -87,14 +83,23 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_AWS_LAMBDA_FUNC_COUNT = "aws_lambda_func_count";
   private Long awsLambdaFuncCount;
 
-  public static final String JSON_PROPERTY_AWS_LAMBDA_INVOCATIONS_SUM = "aws_lambda_invocations_sum";
+  public static final String JSON_PROPERTY_AWS_LAMBDA_INVOCATIONS_SUM =
+      "aws_lambda_invocations_sum";
   private Long awsLambdaInvocationsSum;
 
   public static final String JSON_PROPERTY_AZURE_APP_SERVICE_TOP99P = "azure_app_service_top99p";
   private Long azureAppServiceTop99p;
 
-  public static final String JSON_PROPERTY_BILLABLE_INGESTED_BYTES_SUM = "billable_ingested_bytes_sum";
+  public static final String JSON_PROPERTY_BILLABLE_INGESTED_BYTES_SUM =
+      "billable_ingested_bytes_sum";
   private Long billableIngestedBytesSum;
+
+  public static final String JSON_PROPERTY_COMPLIANCE_CONTAINER_COUNT_SUM =
+      "compliance_container_count_sum";
+  private JsonNullable<Object> complianceContainerCountSum = JsonNullable.<Object>of(null);
+
+  public static final String JSON_PROPERTY_COMPLIANCE_HOST_COUNT_SUM = "compliance_host_count_sum";
+  private Long complianceHostCountSum;
 
   public static final String JSON_PROPERTY_CONTAINER_AVG = "container_avg";
   private Long containerAvg;
@@ -117,7 +122,11 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_GCP_HOST_TOP99P = "gcp_host_top99p";
   private Long gcpHostTop99p;
 
-  public static final String JSON_PROPERTY_INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_HWM = "incident_management_monthly_active_users_hwm";
+  public static final String JSON_PROPERTY_HEROKU_HOST_TOP99P_SUM = "heroku_host_top99p_sum";
+  private Long herokuHostTop99pSum;
+
+  public static final String JSON_PROPERTY_INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_HWM =
+      "incident_management_monthly_active_users_hwm";
   private Long incidentManagementMonthlyActiveUsersHwm;
 
   public static final String JSON_PROPERTY_INDEXED_EVENTS_COUNT_SUM = "indexed_events_count_sum";
@@ -135,20 +144,28 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_IOT_DEVICE_TOP99P_SUM = "iot_device_top99p_sum";
   private Long iotDeviceTop99pSum;
 
-  public static final String JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ANDROID_SUM = "mobile_rum_session_count_android_sum";
+  public static final String JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ANDROID_SUM =
+      "mobile_rum_session_count_android_sum";
   private Long mobileRumSessionCountAndroidSum;
 
-  public static final String JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_IOS_SUM = "mobile_rum_session_count_ios_sum";
+  public static final String JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_IOS_SUM =
+      "mobile_rum_session_count_ios_sum";
   private Long mobileRumSessionCountIosSum;
 
-  public static final String JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_SUM = "mobile_rum_session_count_sum";
+  public static final String JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_SUM =
+      "mobile_rum_session_count_sum";
   private Long mobileRumSessionCountSum;
 
-  public static final String JSON_PROPERTY_NETFLOW_INDEXED_EVENTS_COUNT_SUM = "netflow_indexed_events_count_sum";
+  public static final String JSON_PROPERTY_NETFLOW_INDEXED_EVENTS_COUNT_SUM =
+      "netflow_indexed_events_count_sum";
   private Long netflowIndexedEventsCountSum;
 
   public static final String JSON_PROPERTY_NPM_HOST_TOP99P = "npm_host_top99p";
   private Long npmHostTop99p;
+
+  public static final String JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P_SUM =
+      "opentelemetry_host_top99p_sum";
+  private Long opentelemetryHostTop99pSum;
 
   public static final String JSON_PROPERTY_ORGS = "orgs";
   private List<UsageSummaryDateOrg> orgs = null;
@@ -159,645 +176,813 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_RUM_SESSION_COUNT_SUM = "rum_session_count_sum";
   private Long rumSessionCountSum;
 
-  public static final String JSON_PROPERTY_RUM_TOTAL_SESSION_COUNT_SUM = "rum_total_session_count_sum";
+  public static final String JSON_PROPERTY_RUM_TOTAL_SESSION_COUNT_SUM =
+      "rum_total_session_count_sum";
   private Long rumTotalSessionCountSum;
 
-  public static final String JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_SUM = "synthetics_browser_check_calls_count_sum";
+  public static final String JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_SUM =
+      "synthetics_browser_check_calls_count_sum";
   private Long syntheticsBrowserCheckCallsCountSum;
 
-  public static final String JSON_PROPERTY_SYNTHETICS_CHECK_CALLS_COUNT_SUM = "synthetics_check_calls_count_sum";
+  public static final String JSON_PROPERTY_SYNTHETICS_CHECK_CALLS_COUNT_SUM =
+      "synthetics_check_calls_count_sum";
   private Long syntheticsCheckCallsCountSum;
 
-  public static final String JSON_PROPERTY_TRACE_SEARCH_INDEXED_EVENTS_COUNT_SUM = "trace_search_indexed_events_count_sum";
+  public static final String JSON_PROPERTY_TRACE_SEARCH_INDEXED_EVENTS_COUNT_SUM =
+      "trace_search_indexed_events_count_sum";
   private Long traceSearchIndexedEventsCountSum;
 
-  public static final String JSON_PROPERTY_TWOL_INGESTED_EVENTS_BYTES_SUM = "twol_ingested_events_bytes_sum";
+  public static final String JSON_PROPERTY_TWOL_INGESTED_EVENTS_BYTES_SUM =
+      "twol_ingested_events_bytes_sum";
   private Long twolIngestedEventsBytesSum;
-
 
   public UsageSummaryDate agentHostTop99p(Long agentHostTop99p) {
     this.agentHostTop99p = agentHostTop99p;
     return this;
   }
 
-   /**
-   * Shows the 99th percentile of all agent hosts over all hours in the current date for all organizations.
+  /**
+   * Shows the 99th percentile of all agent hosts over all hours in the current date for all
+   * organizations.
+   *
    * @return agentHostTop99p
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the 99th percentile of all agent hosts over all hours in the current date for all organizations.")
+  @ApiModelProperty(
+      value =
+          "Shows the 99th percentile of all agent hosts over all hours in the current date for all"
+              + " organizations.")
   @JsonProperty(JSON_PROPERTY_AGENT_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getAgentHostTop99p() {
     return agentHostTop99p;
   }
 
-
   public void setAgentHostTop99p(Long agentHostTop99p) {
     this.agentHostTop99p = agentHostTop99p;
   }
-
 
   public UsageSummaryDate apmAzureAppServiceHostTop99p(Long apmAzureAppServiceHostTop99p) {
     this.apmAzureAppServiceHostTop99p = apmAzureAppServiceHostTop99p;
     return this;
   }
 
-   /**
-   * Shows the 99th percentile of all Azure app services using APM over all hours in the current date all organizations.
+  /**
+   * Shows the 99th percentile of all Azure app services using APM over all hours in the current
+   * date all organizations.
+   *
    * @return apmAzureAppServiceHostTop99p
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the 99th percentile of all Azure app services using APM over all hours in the current date all organizations.")
+  @ApiModelProperty(
+      value =
+          "Shows the 99th percentile of all Azure app services using APM over all hours in the"
+              + " current date all organizations.")
   @JsonProperty(JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getApmAzureAppServiceHostTop99p() {
     return apmAzureAppServiceHostTop99p;
   }
 
-
   public void setApmAzureAppServiceHostTop99p(Long apmAzureAppServiceHostTop99p) {
     this.apmAzureAppServiceHostTop99p = apmAzureAppServiceHostTop99p;
   }
-
 
   public UsageSummaryDate apmHostTop99p(Long apmHostTop99p) {
     this.apmHostTop99p = apmHostTop99p;
     return this;
   }
 
-   /**
-   * Shows the 99th percentile of all distinct APM hosts over all hours in the current date for all organizations.
+  /**
+   * Shows the 99th percentile of all distinct APM hosts over all hours in the current date for all
+   * organizations.
+   *
    * @return apmHostTop99p
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the 99th percentile of all distinct APM hosts over all hours in the current date for all organizations.")
+  @ApiModelProperty(
+      value =
+          "Shows the 99th percentile of all distinct APM hosts over all hours in the current date"
+              + " for all organizations.")
   @JsonProperty(JSON_PROPERTY_APM_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getApmHostTop99p() {
     return apmHostTop99p;
   }
 
-
   public void setApmHostTop99p(Long apmHostTop99p) {
     this.apmHostTop99p = apmHostTop99p;
   }
-
 
   public UsageSummaryDate awsHostTop99p(Long awsHostTop99p) {
     this.awsHostTop99p = awsHostTop99p;
     return this;
   }
 
-   /**
-   * Shows the 99th percentile of all AWS hosts over all hours in the current date for all organizations.
+  /**
+   * Shows the 99th percentile of all AWS hosts over all hours in the current date for all
+   * organizations.
+   *
    * @return awsHostTop99p
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the 99th percentile of all AWS hosts over all hours in the current date for all organizations.")
+  @ApiModelProperty(
+      value =
+          "Shows the 99th percentile of all AWS hosts over all hours in the current date for all"
+              + " organizations.")
   @JsonProperty(JSON_PROPERTY_AWS_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getAwsHostTop99p() {
     return awsHostTop99p;
   }
 
-
   public void setAwsHostTop99p(Long awsHostTop99p) {
     this.awsHostTop99p = awsHostTop99p;
   }
-
 
   public UsageSummaryDate awsLambdaFuncCount(Long awsLambdaFuncCount) {
     this.awsLambdaFuncCount = awsLambdaFuncCount;
     return this;
   }
 
-   /**
-   * Shows the average of the number of functions that executed 1 or more times each hour in the current date for all organizations.
+  /**
+   * Shows the average of the number of functions that executed 1 or more times each hour in the
+   * current date for all organizations.
+   *
    * @return awsLambdaFuncCount
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the average of the number of functions that executed 1 or more times each hour in the current date for all organizations.")
+  @ApiModelProperty(
+      value =
+          "Shows the average of the number of functions that executed 1 or more times each hour in"
+              + " the current date for all organizations.")
   @JsonProperty(JSON_PROPERTY_AWS_LAMBDA_FUNC_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getAwsLambdaFuncCount() {
     return awsLambdaFuncCount;
   }
 
-
   public void setAwsLambdaFuncCount(Long awsLambdaFuncCount) {
     this.awsLambdaFuncCount = awsLambdaFuncCount;
   }
-
 
   public UsageSummaryDate awsLambdaInvocationsSum(Long awsLambdaInvocationsSum) {
     this.awsLambdaInvocationsSum = awsLambdaInvocationsSum;
     return this;
   }
 
-   /**
-   * Shows the sum of all AWS Lambda invocations over all hours in the current date for all organizations.
+  /**
+   * Shows the sum of all AWS Lambda invocations over all hours in the current date for all
+   * organizations.
+   *
    * @return awsLambdaInvocationsSum
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the sum of all AWS Lambda invocations over all hours in the current date for all organizations.")
+  @ApiModelProperty(
+      value =
+          "Shows the sum of all AWS Lambda invocations over all hours in the current date for all"
+              + " organizations.")
   @JsonProperty(JSON_PROPERTY_AWS_LAMBDA_INVOCATIONS_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getAwsLambdaInvocationsSum() {
     return awsLambdaInvocationsSum;
   }
 
-
   public void setAwsLambdaInvocationsSum(Long awsLambdaInvocationsSum) {
     this.awsLambdaInvocationsSum = awsLambdaInvocationsSum;
   }
-
 
   public UsageSummaryDate azureAppServiceTop99p(Long azureAppServiceTop99p) {
     this.azureAppServiceTop99p = azureAppServiceTop99p;
     return this;
   }
 
-   /**
-   * Shows the 99th percentile of all Azure app services over all hours in the current date for all organizations.
+  /**
+   * Shows the 99th percentile of all Azure app services over all hours in the current date for all
+   * organizations.
+   *
    * @return azureAppServiceTop99p
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the 99th percentile of all Azure app services over all hours in the current date for all organizations.")
+  @ApiModelProperty(
+      value =
+          "Shows the 99th percentile of all Azure app services over all hours in the current date"
+              + " for all organizations.")
   @JsonProperty(JSON_PROPERTY_AZURE_APP_SERVICE_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getAzureAppServiceTop99p() {
     return azureAppServiceTop99p;
   }
 
-
   public void setAzureAppServiceTop99p(Long azureAppServiceTop99p) {
     this.azureAppServiceTop99p = azureAppServiceTop99p;
   }
-
 
   public UsageSummaryDate billableIngestedBytesSum(Long billableIngestedBytesSum) {
     this.billableIngestedBytesSum = billableIngestedBytesSum;
     return this;
   }
 
-   /**
-   * Shows the sum of all log bytes ingested over all hours in the current date for all organizations.
+  /**
+   * Shows the sum of all log bytes ingested over all hours in the current date for all
+   * organizations.
+   *
    * @return billableIngestedBytesSum
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the sum of all log bytes ingested over all hours in the current date for all organizations.")
+  @ApiModelProperty(
+      value =
+          "Shows the sum of all log bytes ingested over all hours in the current date for all"
+              + " organizations.")
   @JsonProperty(JSON_PROPERTY_BILLABLE_INGESTED_BYTES_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getBillableIngestedBytesSum() {
     return billableIngestedBytesSum;
   }
-
 
   public void setBillableIngestedBytesSum(Long billableIngestedBytesSum) {
     this.billableIngestedBytesSum = billableIngestedBytesSum;
   }
 
+  public UsageSummaryDate complianceContainerCountSum(Object complianceContainerCountSum) {
+    this.complianceContainerCountSum = JsonNullable.<Object>of(complianceContainerCountSum);
+    return this;
+  }
+
+  /**
+   * Shows the sum of compliance containers over all hours in the current date for all
+   * organizations.
+   *
+   * @return complianceContainerCountSum
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the sum of compliance containers over all hours in the current date for all"
+              + " organizations.")
+  @JsonIgnore
+  public Object getComplianceContainerCountSum() {
+    return complianceContainerCountSum.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_COMPLIANCE_CONTAINER_COUNT_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Object> getComplianceContainerCountSum_JsonNullable() {
+    return complianceContainerCountSum;
+  }
+
+  @JsonProperty(JSON_PROPERTY_COMPLIANCE_CONTAINER_COUNT_SUM)
+  public void setComplianceContainerCountSum_JsonNullable(
+      JsonNullable<Object> complianceContainerCountSum) {
+    this.complianceContainerCountSum = complianceContainerCountSum;
+  }
+
+  public void setComplianceContainerCountSum(Object complianceContainerCountSum) {
+    this.complianceContainerCountSum = JsonNullable.<Object>of(complianceContainerCountSum);
+  }
+
+  public UsageSummaryDate complianceHostCountSum(Long complianceHostCountSum) {
+    this.complianceHostCountSum = complianceHostCountSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of compliance hosts over all hours in the current date for all organizations.
+   *
+   * @return complianceHostCountSum
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the sum of compliance hosts over all hours in the current date for all"
+              + " organizations.")
+  @JsonProperty(JSON_PROPERTY_COMPLIANCE_HOST_COUNT_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getComplianceHostCountSum() {
+    return complianceHostCountSum;
+  }
+
+  public void setComplianceHostCountSum(Long complianceHostCountSum) {
+    this.complianceHostCountSum = complianceHostCountSum;
+  }
 
   public UsageSummaryDate containerAvg(Long containerAvg) {
     this.containerAvg = containerAvg;
     return this;
   }
 
-   /**
-   * Shows the average of all distinct containers over all hours in the current date for all organizations.
+  /**
+   * Shows the average of all distinct containers over all hours in the current date for all
+   * organizations.
+   *
    * @return containerAvg
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the average of all distinct containers over all hours in the current date for all organizations.")
+  @ApiModelProperty(
+      value =
+          "Shows the average of all distinct containers over all hours in the current date for all"
+              + " organizations.")
   @JsonProperty(JSON_PROPERTY_CONTAINER_AVG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getContainerAvg() {
     return containerAvg;
   }
 
-
   public void setContainerAvg(Long containerAvg) {
     this.containerAvg = containerAvg;
   }
-
 
   public UsageSummaryDate containerHwm(Long containerHwm) {
     this.containerHwm = containerHwm;
     return this;
   }
 
-   /**
-   * Shows the high-water mark of all distinct containers over all hours in the current date for all organizations.
+  /**
+   * Shows the high-water mark of all distinct containers over all hours in the current date for all
+   * organizations.
+   *
    * @return containerHwm
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the high-water mark of all distinct containers over all hours in the current date for all organizations.")
+  @ApiModelProperty(
+      value =
+          "Shows the high-water mark of all distinct containers over all hours in the current date"
+              + " for all organizations.")
   @JsonProperty(JSON_PROPERTY_CONTAINER_HWM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getContainerHwm() {
     return containerHwm;
   }
 
-
   public void setContainerHwm(Long containerHwm) {
     this.containerHwm = containerHwm;
   }
-
 
   public UsageSummaryDate customTsAvg(Long customTsAvg) {
     this.customTsAvg = customTsAvg;
     return this;
   }
 
-   /**
-   * Shows the average number of distinct custom metrics over all hours in the current date for all organizations.
+  /**
+   * Shows the average number of distinct custom metrics over all hours in the current date for all
+   * organizations.
+   *
    * @return customTsAvg
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the average number of distinct custom metrics over all hours in the current date for all organizations.")
+  @ApiModelProperty(
+      value =
+          "Shows the average number of distinct custom metrics over all hours in the current date"
+              + " for all organizations.")
   @JsonProperty(JSON_PROPERTY_CUSTOM_TS_AVG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getCustomTsAvg() {
     return customTsAvg;
   }
 
-
   public void setCustomTsAvg(Long customTsAvg) {
     this.customTsAvg = customTsAvg;
   }
-
 
   public UsageSummaryDate date(OffsetDateTime date) {
     this.date = date;
     return this;
   }
 
-   /**
+  /**
    * The date for the usage.
+   *
    * @return date
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The date for the usage.")
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getDate() {
     return date;
   }
 
-
   public void setDate(OffsetDateTime date) {
     this.date = date;
   }
-
 
   public UsageSummaryDate fargateTasksCountAvg(Long fargateTasksCountAvg) {
     this.fargateTasksCountAvg = fargateTasksCountAvg;
     return this;
   }
 
-   /**
-   * Shows the high-watermark of all Fargate tasks over all hours in the current date for all organizations.
+  /**
+   * Shows the high-watermark of all Fargate tasks over all hours in the current date for all
+   * organizations.
+   *
    * @return fargateTasksCountAvg
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the high-watermark of all Fargate tasks over all hours in the current date for all organizations.")
+  @ApiModelProperty(
+      value =
+          "Shows the high-watermark of all Fargate tasks over all hours in the current date for"
+              + " all organizations.")
   @JsonProperty(JSON_PROPERTY_FARGATE_TASKS_COUNT_AVG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getFargateTasksCountAvg() {
     return fargateTasksCountAvg;
   }
 
-
   public void setFargateTasksCountAvg(Long fargateTasksCountAvg) {
     this.fargateTasksCountAvg = fargateTasksCountAvg;
   }
-
 
   public UsageSummaryDate fargateTasksCountHwm(Long fargateTasksCountHwm) {
     this.fargateTasksCountHwm = fargateTasksCountHwm;
     return this;
   }
 
-   /**
-   * Shows the average of all Fargate tasks over all hours in the current date for all organizations.
+  /**
+   * Shows the average of all Fargate tasks over all hours in the current date for all
+   * organizations.
+   *
    * @return fargateTasksCountHwm
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the average of all Fargate tasks over all hours in the current date for all organizations.")
+  @ApiModelProperty(
+      value =
+          "Shows the average of all Fargate tasks over all hours in the current date for all"
+              + " organizations.")
   @JsonProperty(JSON_PROPERTY_FARGATE_TASKS_COUNT_HWM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getFargateTasksCountHwm() {
     return fargateTasksCountHwm;
   }
 
-
   public void setFargateTasksCountHwm(Long fargateTasksCountHwm) {
     this.fargateTasksCountHwm = fargateTasksCountHwm;
   }
-
 
   public UsageSummaryDate gcpHostTop99p(Long gcpHostTop99p) {
     this.gcpHostTop99p = gcpHostTop99p;
     return this;
   }
 
-   /**
-   * Shows the 99th percentile of all GCP hosts over all hours in the current date for all organizations.
+  /**
+   * Shows the 99th percentile of all GCP hosts over all hours in the current date for all
+   * organizations.
+   *
    * @return gcpHostTop99p
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the 99th percentile of all GCP hosts over all hours in the current date for all organizations.")
+  @ApiModelProperty(
+      value =
+          "Shows the 99th percentile of all GCP hosts over all hours in the current date for all"
+              + " organizations.")
   @JsonProperty(JSON_PROPERTY_GCP_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getGcpHostTop99p() {
     return gcpHostTop99p;
   }
-
 
   public void setGcpHostTop99p(Long gcpHostTop99p) {
     this.gcpHostTop99p = gcpHostTop99p;
   }
 
+  public UsageSummaryDate herokuHostTop99pSum(Long herokuHostTop99pSum) {
+    this.herokuHostTop99pSum = herokuHostTop99pSum;
+    return this;
+  }
 
-  public UsageSummaryDate incidentManagementMonthlyActiveUsersHwm(Long incidentManagementMonthlyActiveUsersHwm) {
+  /**
+   * Shows the 99th percentile of all Heroku dynos over all hours in the current date for all
+   * organizations.
+   *
+   * @return herokuHostTop99pSum
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the 99th percentile of all Heroku dynos over all hours in the current date for"
+              + " all organizations.")
+  @JsonProperty(JSON_PROPERTY_HEROKU_HOST_TOP99P_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getHerokuHostTop99pSum() {
+    return herokuHostTop99pSum;
+  }
+
+  public void setHerokuHostTop99pSum(Long herokuHostTop99pSum) {
+    this.herokuHostTop99pSum = herokuHostTop99pSum;
+  }
+
+  public UsageSummaryDate incidentManagementMonthlyActiveUsersHwm(
+      Long incidentManagementMonthlyActiveUsersHwm) {
     this.incidentManagementMonthlyActiveUsersHwm = incidentManagementMonthlyActiveUsersHwm;
     return this;
   }
 
-   /**
-   * Shows the high-water mark of incident management monthly active users over all hours in the current date for all organizations.
+  /**
+   * Shows the high-water mark of incident management monthly active users over all hours in the
+   * current date for all organizations.
+   *
    * @return incidentManagementMonthlyActiveUsersHwm
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the high-water mark of incident management monthly active users over all hours in the current date for all organizations.")
+  @ApiModelProperty(
+      value =
+          "Shows the high-water mark of incident management monthly active users over all hours in"
+              + " the current date for all organizations.")
   @JsonProperty(JSON_PROPERTY_INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_HWM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getIncidentManagementMonthlyActiveUsersHwm() {
     return incidentManagementMonthlyActiveUsersHwm;
   }
 
-
-  public void setIncidentManagementMonthlyActiveUsersHwm(Long incidentManagementMonthlyActiveUsersHwm) {
+  public void setIncidentManagementMonthlyActiveUsersHwm(
+      Long incidentManagementMonthlyActiveUsersHwm) {
     this.incidentManagementMonthlyActiveUsersHwm = incidentManagementMonthlyActiveUsersHwm;
   }
-
 
   public UsageSummaryDate indexedEventsCountSum(Long indexedEventsCountSum) {
     this.indexedEventsCountSum = indexedEventsCountSum;
     return this;
   }
 
-   /**
-   * Shows the sum of all log events indexed over all hours in the current date for all organizations.
+  /**
+   * Shows the sum of all log events indexed over all hours in the current date for all
+   * organizations.
+   *
    * @return indexedEventsCountSum
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the sum of all log events indexed over all hours in the current date for all organizations.")
+  @ApiModelProperty(
+      value =
+          "Shows the sum of all log events indexed over all hours in the current date for all"
+              + " organizations.")
   @JsonProperty(JSON_PROPERTY_INDEXED_EVENTS_COUNT_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getIndexedEventsCountSum() {
     return indexedEventsCountSum;
   }
 
-
   public void setIndexedEventsCountSum(Long indexedEventsCountSum) {
     this.indexedEventsCountSum = indexedEventsCountSum;
   }
-
 
   public UsageSummaryDate infraHostTop99p(Long infraHostTop99p) {
     this.infraHostTop99p = infraHostTop99p;
     return this;
   }
 
-   /**
-   * Shows the 99th percentile of all distinct infrastructure hosts over all hours in the current date for all organizations.
+  /**
+   * Shows the 99th percentile of all distinct infrastructure hosts over all hours in the current
+   * date for all organizations.
+   *
    * @return infraHostTop99p
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the 99th percentile of all distinct infrastructure hosts over all hours in the current date for all organizations.")
+  @ApiModelProperty(
+      value =
+          "Shows the 99th percentile of all distinct infrastructure hosts over all hours in the"
+              + " current date for all organizations.")
   @JsonProperty(JSON_PROPERTY_INFRA_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getInfraHostTop99p() {
     return infraHostTop99p;
   }
 
-
   public void setInfraHostTop99p(Long infraHostTop99p) {
     this.infraHostTop99p = infraHostTop99p;
   }
-
 
   public UsageSummaryDate ingestedEventsBytesSum(Long ingestedEventsBytesSum) {
     this.ingestedEventsBytesSum = ingestedEventsBytesSum;
     return this;
   }
 
-   /**
-   * Shows the sum of all log bytes ingested over all hours in the current date for all organizations.
+  /**
+   * Shows the sum of all log bytes ingested over all hours in the current date for all
+   * organizations.
+   *
    * @return ingestedEventsBytesSum
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the sum of all log bytes ingested over all hours in the current date for all organizations.")
+  @ApiModelProperty(
+      value =
+          "Shows the sum of all log bytes ingested over all hours in the current date for all"
+              + " organizations.")
   @JsonProperty(JSON_PROPERTY_INGESTED_EVENTS_BYTES_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getIngestedEventsBytesSum() {
     return ingestedEventsBytesSum;
   }
 
-
   public void setIngestedEventsBytesSum(Long ingestedEventsBytesSum) {
     this.ingestedEventsBytesSum = ingestedEventsBytesSum;
   }
-
 
   public UsageSummaryDate iotDeviceAggSum(Long iotDeviceAggSum) {
     this.iotDeviceAggSum = iotDeviceAggSum;
     return this;
   }
 
-   /**
+  /**
    * Shows the sum of all IoT devices over all hours in the current date for all organizations.
+   *
    * @return iotDeviceAggSum
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the sum of all IoT devices over all hours in the current date for all organizations.")
+  @ApiModelProperty(
+      value =
+          "Shows the sum of all IoT devices over all hours in the current date for all"
+              + " organizations.")
   @JsonProperty(JSON_PROPERTY_IOT_DEVICE_AGG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getIotDeviceAggSum() {
     return iotDeviceAggSum;
   }
 
-
   public void setIotDeviceAggSum(Long iotDeviceAggSum) {
     this.iotDeviceAggSum = iotDeviceAggSum;
   }
-
 
   public UsageSummaryDate iotDeviceTop99pSum(Long iotDeviceTop99pSum) {
     this.iotDeviceTop99pSum = iotDeviceTop99pSum;
     return this;
   }
 
-   /**
-   * Shows the 99th percentile of all IoT devices over all hours in the current date all organizations.
+  /**
+   * Shows the 99th percentile of all IoT devices over all hours in the current date all
+   * organizations.
+   *
    * @return iotDeviceTop99pSum
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the 99th percentile of all IoT devices over all hours in the current date all organizations.")
+  @ApiModelProperty(
+      value =
+          "Shows the 99th percentile of all IoT devices over all hours in the current date all"
+              + " organizations.")
   @JsonProperty(JSON_PROPERTY_IOT_DEVICE_TOP99P_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getIotDeviceTop99pSum() {
     return iotDeviceTop99pSum;
   }
 
-
   public void setIotDeviceTop99pSum(Long iotDeviceTop99pSum) {
     this.iotDeviceTop99pSum = iotDeviceTop99pSum;
   }
-
 
   public UsageSummaryDate mobileRumSessionCountAndroidSum(Long mobileRumSessionCountAndroidSum) {
     this.mobileRumSessionCountAndroidSum = mobileRumSessionCountAndroidSum;
     return this;
   }
 
-   /**
-   * Shows the sum of all mobile RUM Sessions on Android over all hours in the current date for all organizations.
+  /**
+   * Shows the sum of all mobile RUM Sessions on Android over all hours in the current date for all
+   * organizations.
+   *
    * @return mobileRumSessionCountAndroidSum
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the sum of all mobile RUM Sessions on Android over all hours in the current date for all organizations.")
+  @ApiModelProperty(
+      value =
+          "Shows the sum of all mobile RUM Sessions on Android over all hours in the current date"
+              + " for all organizations.")
   @JsonProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ANDROID_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getMobileRumSessionCountAndroidSum() {
     return mobileRumSessionCountAndroidSum;
   }
 
-
   public void setMobileRumSessionCountAndroidSum(Long mobileRumSessionCountAndroidSum) {
     this.mobileRumSessionCountAndroidSum = mobileRumSessionCountAndroidSum;
   }
-
 
   public UsageSummaryDate mobileRumSessionCountIosSum(Long mobileRumSessionCountIosSum) {
     this.mobileRumSessionCountIosSum = mobileRumSessionCountIosSum;
     return this;
   }
 
-   /**
-   * Shows the sum of all mobile RUM Sessions on iOS over all hours in the current date for all organizations.
+  /**
+   * Shows the sum of all mobile RUM Sessions on iOS over all hours in the current date for all
+   * organizations.
+   *
    * @return mobileRumSessionCountIosSum
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the sum of all mobile RUM Sessions on iOS over all hours in the current date for all organizations.")
+  @ApiModelProperty(
+      value =
+          "Shows the sum of all mobile RUM Sessions on iOS over all hours in the current date for"
+              + " all organizations.")
   @JsonProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_IOS_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getMobileRumSessionCountIosSum() {
     return mobileRumSessionCountIosSum;
   }
 
-
   public void setMobileRumSessionCountIosSum(Long mobileRumSessionCountIosSum) {
     this.mobileRumSessionCountIosSum = mobileRumSessionCountIosSum;
   }
-
 
   public UsageSummaryDate mobileRumSessionCountSum(Long mobileRumSessionCountSum) {
     this.mobileRumSessionCountSum = mobileRumSessionCountSum;
     return this;
   }
 
-   /**
-   * Shows the sum of all mobile RUM Sessions over all hours in the current date for all organizations
+  /**
+   * Shows the sum of all mobile RUM Sessions over all hours in the current date for all
+   * organizations
+   *
    * @return mobileRumSessionCountSum
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the sum of all mobile RUM Sessions over all hours in the current date for all organizations")
+  @ApiModelProperty(
+      value =
+          "Shows the sum of all mobile RUM Sessions over all hours in the current date for all"
+              + " organizations")
   @JsonProperty(JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getMobileRumSessionCountSum() {
     return mobileRumSessionCountSum;
   }
 
-
   public void setMobileRumSessionCountSum(Long mobileRumSessionCountSum) {
     this.mobileRumSessionCountSum = mobileRumSessionCountSum;
   }
-
 
   public UsageSummaryDate netflowIndexedEventsCountSum(Long netflowIndexedEventsCountSum) {
     this.netflowIndexedEventsCountSum = netflowIndexedEventsCountSum;
     return this;
   }
 
-   /**
-   * Shows the sum of all Network flows indexed over all hours in the current date for all organizations.
+  /**
+   * Shows the sum of all Network flows indexed over all hours in the current date for all
+   * organizations.
+   *
    * @return netflowIndexedEventsCountSum
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the sum of all Network flows indexed over all hours in the current date for all organizations.")
+  @ApiModelProperty(
+      value =
+          "Shows the sum of all Network flows indexed over all hours in the current date for all"
+              + " organizations.")
   @JsonProperty(JSON_PROPERTY_NETFLOW_INDEXED_EVENTS_COUNT_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getNetflowIndexedEventsCountSum() {
     return netflowIndexedEventsCountSum;
   }
 
-
   public void setNetflowIndexedEventsCountSum(Long netflowIndexedEventsCountSum) {
     this.netflowIndexedEventsCountSum = netflowIndexedEventsCountSum;
   }
-
 
   public UsageSummaryDate npmHostTop99p(Long npmHostTop99p) {
     this.npmHostTop99p = npmHostTop99p;
     return this;
   }
 
-   /**
-   * Shows the 99th percentile of all distinct Networks hosts over all hours in the current date for all organizations.
+  /**
+   * Shows the 99th percentile of all distinct Networks hosts over all hours in the current date for
+   * all organizations.
+   *
    * @return npmHostTop99p
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the 99th percentile of all distinct Networks hosts over all hours in the current date for all organizations.")
+  @ApiModelProperty(
+      value =
+          "Shows the 99th percentile of all distinct Networks hosts over all hours in the current"
+              + " date for all organizations.")
   @JsonProperty(JSON_PROPERTY_NPM_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getNpmHostTop99p() {
     return npmHostTop99p;
   }
-
 
   public void setNpmHostTop99p(Long npmHostTop99p) {
     this.npmHostTop99p = npmHostTop99p;
   }
 
+  public UsageSummaryDate opentelemetryHostTop99pSum(Long opentelemetryHostTop99pSum) {
+    this.opentelemetryHostTop99pSum = opentelemetryHostTop99pSum;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all hosts reported by the Datadog exporter for the OpenTelemetry
+   * Collector over all hours in the current date for all organizations.
+   *
+   * @return opentelemetryHostTop99pSum
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the 99th percentile of all hosts reported by the Datadog exporter for the"
+              + " OpenTelemetry Collector over all hours in the current date for all"
+              + " organizations.")
+  @JsonProperty(JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getOpentelemetryHostTop99pSum() {
+    return opentelemetryHostTop99pSum;
+  }
+
+  public void setOpentelemetryHostTop99pSum(Long opentelemetryHostTop99pSum) {
+    this.opentelemetryHostTop99pSum = opentelemetryHostTop99pSum;
+  }
 
   public UsageSummaryDate orgs(List<UsageSummaryDateOrg> orgs) {
     this.orgs = orgs;
@@ -812,196 +997,207 @@ public class UsageSummaryDate {
     return this;
   }
 
-   /**
+  /**
    * Organizations associated with a user.
+   *
    * @return orgs
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Organizations associated with a user.")
   @JsonProperty(JSON_PROPERTY_ORGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<UsageSummaryDateOrg> getOrgs() {
     return orgs;
   }
 
-
   public void setOrgs(List<UsageSummaryDateOrg> orgs) {
     this.orgs = orgs;
   }
-
 
   public UsageSummaryDate profilingHostTop99p(Long profilingHostTop99p) {
     this.profilingHostTop99p = profilingHostTop99p;
     return this;
   }
 
-   /**
-   * Shows the 99th percentile of all profiled hosts over all hours in the current date for all organizations.
+  /**
+   * Shows the 99th percentile of all profiled hosts over all hours in the current date for all
+   * organizations.
+   *
    * @return profilingHostTop99p
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the 99th percentile of all profiled hosts over all hours in the current date for all organizations.")
+  @ApiModelProperty(
+      value =
+          "Shows the 99th percentile of all profiled hosts over all hours in the current date for"
+              + " all organizations.")
   @JsonProperty(JSON_PROPERTY_PROFILING_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getProfilingHostTop99p() {
     return profilingHostTop99p;
   }
 
-
   public void setProfilingHostTop99p(Long profilingHostTop99p) {
     this.profilingHostTop99p = profilingHostTop99p;
   }
-
 
   public UsageSummaryDate rumSessionCountSum(Long rumSessionCountSum) {
     this.rumSessionCountSum = rumSessionCountSum;
     return this;
   }
 
-   /**
-   * Shows the sum of all browser RUM Sessions over all hours in the current date for all organizations
+  /**
+   * Shows the sum of all browser RUM Sessions over all hours in the current date for all
+   * organizations
+   *
    * @return rumSessionCountSum
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the sum of all browser RUM Sessions over all hours in the current date for all organizations")
+  @ApiModelProperty(
+      value =
+          "Shows the sum of all browser RUM Sessions over all hours in the current date for all"
+              + " organizations")
   @JsonProperty(JSON_PROPERTY_RUM_SESSION_COUNT_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getRumSessionCountSum() {
     return rumSessionCountSum;
   }
 
-
   public void setRumSessionCountSum(Long rumSessionCountSum) {
     this.rumSessionCountSum = rumSessionCountSum;
   }
-
 
   public UsageSummaryDate rumTotalSessionCountSum(Long rumTotalSessionCountSum) {
     this.rumTotalSessionCountSum = rumTotalSessionCountSum;
     return this;
   }
 
-   /**
-   * Shows the sum of RUM Sessions (browser and mobile) over all hours in the current date for all organizations.
+  /**
+   * Shows the sum of RUM Sessions (browser and mobile) over all hours in the current date for all
+   * organizations.
+   *
    * @return rumTotalSessionCountSum
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the sum of RUM Sessions (browser and mobile) over all hours in the current date for all organizations.")
+  @ApiModelProperty(
+      value =
+          "Shows the sum of RUM Sessions (browser and mobile) over all hours in the current date"
+              + " for all organizations.")
   @JsonProperty(JSON_PROPERTY_RUM_TOTAL_SESSION_COUNT_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getRumTotalSessionCountSum() {
     return rumTotalSessionCountSum;
   }
-
 
   public void setRumTotalSessionCountSum(Long rumTotalSessionCountSum) {
     this.rumTotalSessionCountSum = rumTotalSessionCountSum;
   }
 
-
-  public UsageSummaryDate syntheticsBrowserCheckCallsCountSum(Long syntheticsBrowserCheckCallsCountSum) {
+  public UsageSummaryDate syntheticsBrowserCheckCallsCountSum(
+      Long syntheticsBrowserCheckCallsCountSum) {
     this.syntheticsBrowserCheckCallsCountSum = syntheticsBrowserCheckCallsCountSum;
     return this;
   }
 
-   /**
-   * Shows the sum of all Synthetic browser tests over all hours in the current date for all organizations.
+  /**
+   * Shows the sum of all Synthetic browser tests over all hours in the current date for all
+   * organizations.
+   *
    * @return syntheticsBrowserCheckCallsCountSum
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the sum of all Synthetic browser tests over all hours in the current date for all organizations.")
+  @ApiModelProperty(
+      value =
+          "Shows the sum of all Synthetic browser tests over all hours in the current date for all"
+              + " organizations.")
   @JsonProperty(JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getSyntheticsBrowserCheckCallsCountSum() {
     return syntheticsBrowserCheckCallsCountSum;
   }
 
-
   public void setSyntheticsBrowserCheckCallsCountSum(Long syntheticsBrowserCheckCallsCountSum) {
     this.syntheticsBrowserCheckCallsCountSum = syntheticsBrowserCheckCallsCountSum;
   }
-
 
   public UsageSummaryDate syntheticsCheckCallsCountSum(Long syntheticsCheckCallsCountSum) {
     this.syntheticsCheckCallsCountSum = syntheticsCheckCallsCountSum;
     return this;
   }
 
-   /**
-   * Shows the sum of all Synthetic API tests over all hours in the current date for all organizations.
+  /**
+   * Shows the sum of all Synthetic API tests over all hours in the current date for all
+   * organizations.
+   *
    * @return syntheticsCheckCallsCountSum
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the sum of all Synthetic API tests over all hours in the current date for all organizations.")
+  @ApiModelProperty(
+      value =
+          "Shows the sum of all Synthetic API tests over all hours in the current date for all"
+              + " organizations.")
   @JsonProperty(JSON_PROPERTY_SYNTHETICS_CHECK_CALLS_COUNT_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getSyntheticsCheckCallsCountSum() {
     return syntheticsCheckCallsCountSum;
   }
 
-
   public void setSyntheticsCheckCallsCountSum(Long syntheticsCheckCallsCountSum) {
     this.syntheticsCheckCallsCountSum = syntheticsCheckCallsCountSum;
   }
-
 
   public UsageSummaryDate traceSearchIndexedEventsCountSum(Long traceSearchIndexedEventsCountSum) {
     this.traceSearchIndexedEventsCountSum = traceSearchIndexedEventsCountSum;
     return this;
   }
 
-   /**
-   * Shows the sum of all Indexed Spans indexed over all hours in the current date for all organizations.
+  /**
+   * Shows the sum of all Indexed Spans indexed over all hours in the current date for all
+   * organizations.
+   *
    * @return traceSearchIndexedEventsCountSum
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the sum of all Indexed Spans indexed over all hours in the current date for all organizations.")
+  @ApiModelProperty(
+      value =
+          "Shows the sum of all Indexed Spans indexed over all hours in the current date for all"
+              + " organizations.")
   @JsonProperty(JSON_PROPERTY_TRACE_SEARCH_INDEXED_EVENTS_COUNT_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getTraceSearchIndexedEventsCountSum() {
     return traceSearchIndexedEventsCountSum;
   }
 
-
   public void setTraceSearchIndexedEventsCountSum(Long traceSearchIndexedEventsCountSum) {
     this.traceSearchIndexedEventsCountSum = traceSearchIndexedEventsCountSum;
   }
-
 
   public UsageSummaryDate twolIngestedEventsBytesSum(Long twolIngestedEventsBytesSum) {
     this.twolIngestedEventsBytesSum = twolIngestedEventsBytesSum;
     return this;
   }
 
-   /**
-   * Shows the sum of all tracing without limits bytes ingested over all hours in the current date for all organizations.
+  /**
+   * Shows the sum of all tracing without limits bytes ingested over all hours in the current date
+   * for all organizations.
+   *
    * @return twolIngestedEventsBytesSum
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Shows the sum of all tracing without limits bytes ingested over all hours in the current date for all organizations.")
+  @ApiModelProperty(
+      value =
+          "Shows the sum of all tracing without limits bytes ingested over all hours in the"
+              + " current date for all organizations.")
   @JsonProperty(JSON_PROPERTY_TWOL_INGESTED_EVENTS_BYTES_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getTwolIngestedEventsBytesSum() {
     return twolIngestedEventsBytesSum;
   }
-
 
   public void setTwolIngestedEventsBytesSum(Long twolIngestedEventsBytesSum) {
     this.twolIngestedEventsBytesSum = twolIngestedEventsBytesSum;
   }
 
-
-  /**
-   * Return true if this UsageSummaryDate object is equal to o.
-   */
+  /** Return true if this UsageSummaryDate object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -1011,93 +1207,197 @@ public class UsageSummaryDate {
       return false;
     }
     UsageSummaryDate usageSummaryDate = (UsageSummaryDate) o;
-    return Objects.equals(this.agentHostTop99p, usageSummaryDate.agentHostTop99p) &&
-        Objects.equals(this.apmAzureAppServiceHostTop99p, usageSummaryDate.apmAzureAppServiceHostTop99p) &&
-        Objects.equals(this.apmHostTop99p, usageSummaryDate.apmHostTop99p) &&
-        Objects.equals(this.awsHostTop99p, usageSummaryDate.awsHostTop99p) &&
-        Objects.equals(this.awsLambdaFuncCount, usageSummaryDate.awsLambdaFuncCount) &&
-        Objects.equals(this.awsLambdaInvocationsSum, usageSummaryDate.awsLambdaInvocationsSum) &&
-        Objects.equals(this.azureAppServiceTop99p, usageSummaryDate.azureAppServiceTop99p) &&
-        Objects.equals(this.billableIngestedBytesSum, usageSummaryDate.billableIngestedBytesSum) &&
-        Objects.equals(this.containerAvg, usageSummaryDate.containerAvg) &&
-        Objects.equals(this.containerHwm, usageSummaryDate.containerHwm) &&
-        Objects.equals(this.customTsAvg, usageSummaryDate.customTsAvg) &&
-        Objects.equals(this.date, usageSummaryDate.date) &&
-        Objects.equals(this.fargateTasksCountAvg, usageSummaryDate.fargateTasksCountAvg) &&
-        Objects.equals(this.fargateTasksCountHwm, usageSummaryDate.fargateTasksCountHwm) &&
-        Objects.equals(this.gcpHostTop99p, usageSummaryDate.gcpHostTop99p) &&
-        Objects.equals(this.incidentManagementMonthlyActiveUsersHwm, usageSummaryDate.incidentManagementMonthlyActiveUsersHwm) &&
-        Objects.equals(this.indexedEventsCountSum, usageSummaryDate.indexedEventsCountSum) &&
-        Objects.equals(this.infraHostTop99p, usageSummaryDate.infraHostTop99p) &&
-        Objects.equals(this.ingestedEventsBytesSum, usageSummaryDate.ingestedEventsBytesSum) &&
-        Objects.equals(this.iotDeviceAggSum, usageSummaryDate.iotDeviceAggSum) &&
-        Objects.equals(this.iotDeviceTop99pSum, usageSummaryDate.iotDeviceTop99pSum) &&
-        Objects.equals(this.mobileRumSessionCountAndroidSum, usageSummaryDate.mobileRumSessionCountAndroidSum) &&
-        Objects.equals(this.mobileRumSessionCountIosSum, usageSummaryDate.mobileRumSessionCountIosSum) &&
-        Objects.equals(this.mobileRumSessionCountSum, usageSummaryDate.mobileRumSessionCountSum) &&
-        Objects.equals(this.netflowIndexedEventsCountSum, usageSummaryDate.netflowIndexedEventsCountSum) &&
-        Objects.equals(this.npmHostTop99p, usageSummaryDate.npmHostTop99p) &&
-        Objects.equals(this.orgs, usageSummaryDate.orgs) &&
-        Objects.equals(this.profilingHostTop99p, usageSummaryDate.profilingHostTop99p) &&
-        Objects.equals(this.rumSessionCountSum, usageSummaryDate.rumSessionCountSum) &&
-        Objects.equals(this.rumTotalSessionCountSum, usageSummaryDate.rumTotalSessionCountSum) &&
-        Objects.equals(this.syntheticsBrowserCheckCallsCountSum, usageSummaryDate.syntheticsBrowserCheckCallsCountSum) &&
-        Objects.equals(this.syntheticsCheckCallsCountSum, usageSummaryDate.syntheticsCheckCallsCountSum) &&
-        Objects.equals(this.traceSearchIndexedEventsCountSum, usageSummaryDate.traceSearchIndexedEventsCountSum) &&
-        Objects.equals(this.twolIngestedEventsBytesSum, usageSummaryDate.twolIngestedEventsBytesSum);
+    return Objects.equals(this.agentHostTop99p, usageSummaryDate.agentHostTop99p)
+        && Objects.equals(
+            this.apmAzureAppServiceHostTop99p, usageSummaryDate.apmAzureAppServiceHostTop99p)
+        && Objects.equals(this.apmHostTop99p, usageSummaryDate.apmHostTop99p)
+        && Objects.equals(this.awsHostTop99p, usageSummaryDate.awsHostTop99p)
+        && Objects.equals(this.awsLambdaFuncCount, usageSummaryDate.awsLambdaFuncCount)
+        && Objects.equals(this.awsLambdaInvocationsSum, usageSummaryDate.awsLambdaInvocationsSum)
+        && Objects.equals(this.azureAppServiceTop99p, usageSummaryDate.azureAppServiceTop99p)
+        && Objects.equals(this.billableIngestedBytesSum, usageSummaryDate.billableIngestedBytesSum)
+        && Objects.equals(
+            this.complianceContainerCountSum, usageSummaryDate.complianceContainerCountSum)
+        && Objects.equals(this.complianceHostCountSum, usageSummaryDate.complianceHostCountSum)
+        && Objects.equals(this.containerAvg, usageSummaryDate.containerAvg)
+        && Objects.equals(this.containerHwm, usageSummaryDate.containerHwm)
+        && Objects.equals(this.customTsAvg, usageSummaryDate.customTsAvg)
+        && Objects.equals(this.date, usageSummaryDate.date)
+        && Objects.equals(this.fargateTasksCountAvg, usageSummaryDate.fargateTasksCountAvg)
+        && Objects.equals(this.fargateTasksCountHwm, usageSummaryDate.fargateTasksCountHwm)
+        && Objects.equals(this.gcpHostTop99p, usageSummaryDate.gcpHostTop99p)
+        && Objects.equals(this.herokuHostTop99pSum, usageSummaryDate.herokuHostTop99pSum)
+        && Objects.equals(
+            this.incidentManagementMonthlyActiveUsersHwm,
+            usageSummaryDate.incidentManagementMonthlyActiveUsersHwm)
+        && Objects.equals(this.indexedEventsCountSum, usageSummaryDate.indexedEventsCountSum)
+        && Objects.equals(this.infraHostTop99p, usageSummaryDate.infraHostTop99p)
+        && Objects.equals(this.ingestedEventsBytesSum, usageSummaryDate.ingestedEventsBytesSum)
+        && Objects.equals(this.iotDeviceAggSum, usageSummaryDate.iotDeviceAggSum)
+        && Objects.equals(this.iotDeviceTop99pSum, usageSummaryDate.iotDeviceTop99pSum)
+        && Objects.equals(
+            this.mobileRumSessionCountAndroidSum, usageSummaryDate.mobileRumSessionCountAndroidSum)
+        && Objects.equals(
+            this.mobileRumSessionCountIosSum, usageSummaryDate.mobileRumSessionCountIosSum)
+        && Objects.equals(this.mobileRumSessionCountSum, usageSummaryDate.mobileRumSessionCountSum)
+        && Objects.equals(
+            this.netflowIndexedEventsCountSum, usageSummaryDate.netflowIndexedEventsCountSum)
+        && Objects.equals(this.npmHostTop99p, usageSummaryDate.npmHostTop99p)
+        && Objects.equals(
+            this.opentelemetryHostTop99pSum, usageSummaryDate.opentelemetryHostTop99pSum)
+        && Objects.equals(this.orgs, usageSummaryDate.orgs)
+        && Objects.equals(this.profilingHostTop99p, usageSummaryDate.profilingHostTop99p)
+        && Objects.equals(this.rumSessionCountSum, usageSummaryDate.rumSessionCountSum)
+        && Objects.equals(this.rumTotalSessionCountSum, usageSummaryDate.rumTotalSessionCountSum)
+        && Objects.equals(
+            this.syntheticsBrowserCheckCallsCountSum,
+            usageSummaryDate.syntheticsBrowserCheckCallsCountSum)
+        && Objects.equals(
+            this.syntheticsCheckCallsCountSum, usageSummaryDate.syntheticsCheckCallsCountSum)
+        && Objects.equals(
+            this.traceSearchIndexedEventsCountSum,
+            usageSummaryDate.traceSearchIndexedEventsCountSum)
+        && Objects.equals(
+            this.twolIngestedEventsBytesSum, usageSummaryDate.twolIngestedEventsBytesSum);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentHostTop99p, apmAzureAppServiceHostTop99p, apmHostTop99p, awsHostTop99p, awsLambdaFuncCount, awsLambdaInvocationsSum, azureAppServiceTop99p, billableIngestedBytesSum, containerAvg, containerHwm, customTsAvg, date, fargateTasksCountAvg, fargateTasksCountHwm, gcpHostTop99p, incidentManagementMonthlyActiveUsersHwm, indexedEventsCountSum, infraHostTop99p, ingestedEventsBytesSum, iotDeviceAggSum, iotDeviceTop99pSum, mobileRumSessionCountAndroidSum, mobileRumSessionCountIosSum, mobileRumSessionCountSum, netflowIndexedEventsCountSum, npmHostTop99p, orgs, profilingHostTop99p, rumSessionCountSum, rumTotalSessionCountSum, syntheticsBrowserCheckCallsCountSum, syntheticsCheckCallsCountSum, traceSearchIndexedEventsCountSum, twolIngestedEventsBytesSum);
+    return Objects.hash(
+        agentHostTop99p,
+        apmAzureAppServiceHostTop99p,
+        apmHostTop99p,
+        awsHostTop99p,
+        awsLambdaFuncCount,
+        awsLambdaInvocationsSum,
+        azureAppServiceTop99p,
+        billableIngestedBytesSum,
+        complianceContainerCountSum,
+        complianceHostCountSum,
+        containerAvg,
+        containerHwm,
+        customTsAvg,
+        date,
+        fargateTasksCountAvg,
+        fargateTasksCountHwm,
+        gcpHostTop99p,
+        herokuHostTop99pSum,
+        incidentManagementMonthlyActiveUsersHwm,
+        indexedEventsCountSum,
+        infraHostTop99p,
+        ingestedEventsBytesSum,
+        iotDeviceAggSum,
+        iotDeviceTop99pSum,
+        mobileRumSessionCountAndroidSum,
+        mobileRumSessionCountIosSum,
+        mobileRumSessionCountSum,
+        netflowIndexedEventsCountSum,
+        npmHostTop99p,
+        opentelemetryHostTop99pSum,
+        orgs,
+        profilingHostTop99p,
+        rumSessionCountSum,
+        rumTotalSessionCountSum,
+        syntheticsBrowserCheckCallsCountSum,
+        syntheticsCheckCallsCountSum,
+        traceSearchIndexedEventsCountSum,
+        twolIngestedEventsBytesSum);
   }
-
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UsageSummaryDate {\n");
     sb.append("    agentHostTop99p: ").append(toIndentedString(agentHostTop99p)).append("\n");
-    sb.append("    apmAzureAppServiceHostTop99p: ").append(toIndentedString(apmAzureAppServiceHostTop99p)).append("\n");
+    sb.append("    apmAzureAppServiceHostTop99p: ")
+        .append(toIndentedString(apmAzureAppServiceHostTop99p))
+        .append("\n");
     sb.append("    apmHostTop99p: ").append(toIndentedString(apmHostTop99p)).append("\n");
     sb.append("    awsHostTop99p: ").append(toIndentedString(awsHostTop99p)).append("\n");
     sb.append("    awsLambdaFuncCount: ").append(toIndentedString(awsLambdaFuncCount)).append("\n");
-    sb.append("    awsLambdaInvocationsSum: ").append(toIndentedString(awsLambdaInvocationsSum)).append("\n");
-    sb.append("    azureAppServiceTop99p: ").append(toIndentedString(azureAppServiceTop99p)).append("\n");
-    sb.append("    billableIngestedBytesSum: ").append(toIndentedString(billableIngestedBytesSum)).append("\n");
+    sb.append("    awsLambdaInvocationsSum: ")
+        .append(toIndentedString(awsLambdaInvocationsSum))
+        .append("\n");
+    sb.append("    azureAppServiceTop99p: ")
+        .append(toIndentedString(azureAppServiceTop99p))
+        .append("\n");
+    sb.append("    billableIngestedBytesSum: ")
+        .append(toIndentedString(billableIngestedBytesSum))
+        .append("\n");
+    sb.append("    complianceContainerCountSum: ")
+        .append(toIndentedString(complianceContainerCountSum))
+        .append("\n");
+    sb.append("    complianceHostCountSum: ")
+        .append(toIndentedString(complianceHostCountSum))
+        .append("\n");
     sb.append("    containerAvg: ").append(toIndentedString(containerAvg)).append("\n");
     sb.append("    containerHwm: ").append(toIndentedString(containerHwm)).append("\n");
     sb.append("    customTsAvg: ").append(toIndentedString(customTsAvg)).append("\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
-    sb.append("    fargateTasksCountAvg: ").append(toIndentedString(fargateTasksCountAvg)).append("\n");
-    sb.append("    fargateTasksCountHwm: ").append(toIndentedString(fargateTasksCountHwm)).append("\n");
+    sb.append("    fargateTasksCountAvg: ")
+        .append(toIndentedString(fargateTasksCountAvg))
+        .append("\n");
+    sb.append("    fargateTasksCountHwm: ")
+        .append(toIndentedString(fargateTasksCountHwm))
+        .append("\n");
     sb.append("    gcpHostTop99p: ").append(toIndentedString(gcpHostTop99p)).append("\n");
-    sb.append("    incidentManagementMonthlyActiveUsersHwm: ").append(toIndentedString(incidentManagementMonthlyActiveUsersHwm)).append("\n");
-    sb.append("    indexedEventsCountSum: ").append(toIndentedString(indexedEventsCountSum)).append("\n");
+    sb.append("    herokuHostTop99pSum: ")
+        .append(toIndentedString(herokuHostTop99pSum))
+        .append("\n");
+    sb.append("    incidentManagementMonthlyActiveUsersHwm: ")
+        .append(toIndentedString(incidentManagementMonthlyActiveUsersHwm))
+        .append("\n");
+    sb.append("    indexedEventsCountSum: ")
+        .append(toIndentedString(indexedEventsCountSum))
+        .append("\n");
     sb.append("    infraHostTop99p: ").append(toIndentedString(infraHostTop99p)).append("\n");
-    sb.append("    ingestedEventsBytesSum: ").append(toIndentedString(ingestedEventsBytesSum)).append("\n");
+    sb.append("    ingestedEventsBytesSum: ")
+        .append(toIndentedString(ingestedEventsBytesSum))
+        .append("\n");
     sb.append("    iotDeviceAggSum: ").append(toIndentedString(iotDeviceAggSum)).append("\n");
     sb.append("    iotDeviceTop99pSum: ").append(toIndentedString(iotDeviceTop99pSum)).append("\n");
-    sb.append("    mobileRumSessionCountAndroidSum: ").append(toIndentedString(mobileRumSessionCountAndroidSum)).append("\n");
-    sb.append("    mobileRumSessionCountIosSum: ").append(toIndentedString(mobileRumSessionCountIosSum)).append("\n");
-    sb.append("    mobileRumSessionCountSum: ").append(toIndentedString(mobileRumSessionCountSum)).append("\n");
-    sb.append("    netflowIndexedEventsCountSum: ").append(toIndentedString(netflowIndexedEventsCountSum)).append("\n");
+    sb.append("    mobileRumSessionCountAndroidSum: ")
+        .append(toIndentedString(mobileRumSessionCountAndroidSum))
+        .append("\n");
+    sb.append("    mobileRumSessionCountIosSum: ")
+        .append(toIndentedString(mobileRumSessionCountIosSum))
+        .append("\n");
+    sb.append("    mobileRumSessionCountSum: ")
+        .append(toIndentedString(mobileRumSessionCountSum))
+        .append("\n");
+    sb.append("    netflowIndexedEventsCountSum: ")
+        .append(toIndentedString(netflowIndexedEventsCountSum))
+        .append("\n");
     sb.append("    npmHostTop99p: ").append(toIndentedString(npmHostTop99p)).append("\n");
+    sb.append("    opentelemetryHostTop99pSum: ")
+        .append(toIndentedString(opentelemetryHostTop99pSum))
+        .append("\n");
     sb.append("    orgs: ").append(toIndentedString(orgs)).append("\n");
-    sb.append("    profilingHostTop99p: ").append(toIndentedString(profilingHostTop99p)).append("\n");
+    sb.append("    profilingHostTop99p: ")
+        .append(toIndentedString(profilingHostTop99p))
+        .append("\n");
     sb.append("    rumSessionCountSum: ").append(toIndentedString(rumSessionCountSum)).append("\n");
-    sb.append("    rumTotalSessionCountSum: ").append(toIndentedString(rumTotalSessionCountSum)).append("\n");
-    sb.append("    syntheticsBrowserCheckCallsCountSum: ").append(toIndentedString(syntheticsBrowserCheckCallsCountSum)).append("\n");
-    sb.append("    syntheticsCheckCallsCountSum: ").append(toIndentedString(syntheticsCheckCallsCountSum)).append("\n");
-    sb.append("    traceSearchIndexedEventsCountSum: ").append(toIndentedString(traceSearchIndexedEventsCountSum)).append("\n");
-    sb.append("    twolIngestedEventsBytesSum: ").append(toIndentedString(twolIngestedEventsBytesSum)).append("\n");
+    sb.append("    rumTotalSessionCountSum: ")
+        .append(toIndentedString(rumTotalSessionCountSum))
+        .append("\n");
+    sb.append("    syntheticsBrowserCheckCallsCountSum: ")
+        .append(toIndentedString(syntheticsBrowserCheckCallsCountSum))
+        .append("\n");
+    sb.append("    syntheticsCheckCallsCountSum: ")
+        .append(toIndentedString(syntheticsCheckCallsCountSum))
+        .append("\n");
+    sb.append("    traceSearchIndexedEventsCountSum: ")
+        .append(toIndentedString(traceSearchIndexedEventsCountSum))
+        .append("\n");
+    sb.append("    twolIngestedEventsBytesSum: ")
+        .append(toIndentedString(twolIngestedEventsBytesSum))
+        .append("\n");
     sb.append("}");
     return sb.toString();
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -1105,6 +1405,4 @@ public class UsageSummaryDate {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

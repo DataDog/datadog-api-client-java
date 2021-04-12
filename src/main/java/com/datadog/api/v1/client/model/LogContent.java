@@ -8,18 +8,11 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
@@ -27,13 +20,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * JSON object containing all log attributes and their associated values.
- */
+/** JSON object containing all log attributes and their associated values. */
 @ApiModel(description = "JSON object containing all log attributes and their associated values.")
 @JsonPropertyOrder({
   LogContent.JSON_PROPERTY_ATTRIBUTES,
@@ -63,7 +52,6 @@ public class LogContent {
   public static final String JSON_PROPERTY_TIMESTAMP = "timestamp";
   private OffsetDateTime timestamp;
 
-
   public LogContent attributes(Map<String, Object> attributes) {
     this.attributes = attributes;
     return this;
@@ -77,96 +65,109 @@ public class LogContent {
     return this;
   }
 
-   /**
+  /**
    * JSON object of attributes from your log.
+   *
    * @return attributes
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "{\"customAttribute\":123,\"duration\":2345}", value = "JSON object of attributes from your log.")
+  @ApiModelProperty(
+      example = "{\"customAttribute\":123,\"duration\":2345}",
+      value = "JSON object of attributes from your log.")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, Object> getAttributes() {
     return attributes;
   }
 
-
   public void setAttributes(Map<String, Object> attributes) {
     this.attributes = attributes;
   }
-
 
   public LogContent host(String host) {
     this.host = host;
     return this;
   }
 
-   /**
+  /**
    * Name of the machine from where the logs are being sent.
+   *
    * @return host
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "i-0123", value = "Name of the machine from where the logs are being sent.")
+  @ApiModelProperty(
+      example = "i-0123",
+      value = "Name of the machine from where the logs are being sent.")
   @JsonProperty(JSON_PROPERTY_HOST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getHost() {
     return host;
   }
 
-
   public void setHost(String host) {
     this.host = host;
   }
-
 
   public LogContent message(String message) {
     this.message = message;
     return this;
   }
 
-   /**
-   * The message [reserved attribute](https://docs.datadoghq.com/logs/log_collection/#reserved-attributes) of your log. By default, Datadog ingests the value of the message attribute as the body of the log entry. That value is then highlighted and displayed in the Logstream, where it is indexed for full text search.
+  /**
+   * The message [reserved
+   * attribute](https://docs.datadoghq.com/logs/log_collection/#reserved-attributes) of your log. By
+   * default, Datadog ingests the value of the message attribute as the body of the log entry. That
+   * value is then highlighted and displayed in the Logstream, where it is indexed for full text
+   * search.
+   *
    * @return message
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Host connected to remote", value = "The message [reserved attribute](https://docs.datadoghq.com/logs/log_collection/#reserved-attributes) of your log. By default, Datadog ingests the value of the message attribute as the body of the log entry. That value is then highlighted and displayed in the Logstream, where it is indexed for full text search.")
+  @ApiModelProperty(
+      example = "Host connected to remote",
+      value =
+          "The message [reserved"
+              + " attribute](https://docs.datadoghq.com/logs/log_collection/#reserved-attributes)"
+              + " of your log. By default, Datadog ingests the value of the message attribute as"
+              + " the body of the log entry. That value is then highlighted and displayed in the"
+              + " Logstream, where it is indexed for full text search.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMessage() {
     return message;
   }
 
-
   public void setMessage(String message) {
     this.message = message;
   }
-
 
   public LogContent service(String service) {
     this.service = service;
     return this;
   }
 
-   /**
-   * The name of the application or service generating the log events. It is used to switch from Logs to APM, so make sure you define the same value when you use both products.
+  /**
+   * The name of the application or service generating the log events. It is used to switch from
+   * Logs to APM, so make sure you define the same value when you use both products.
+   *
    * @return service
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "agent", value = "The name of the application or service generating the log events. It is used to switch from Logs to APM, so make sure you define the same value when you use both products.")
+  @ApiModelProperty(
+      example = "agent",
+      value =
+          "The name of the application or service generating the log events. It is used to switch"
+              + " from Logs to APM, so make sure you define the same value when you use both"
+              + " products.")
   @JsonProperty(JSON_PROPERTY_SERVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getService() {
     return service;
   }
 
-
   public void setService(String service) {
     this.service = service;
   }
-
 
   public LogContent tags(List<Object> tags) {
     this.tags = tags;
@@ -181,52 +182,46 @@ public class LogContent {
     return this;
   }
 
-   /**
+  /**
    * Array of tags associated with your log.
+   *
    * @return tags
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(example = "[\"team:A\"]", value = "Array of tags associated with your log.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<Object> getTags() {
     return tags;
   }
 
-
   public void setTags(List<Object> tags) {
     this.tags = tags;
   }
-
 
   public LogContent timestamp(OffsetDateTime timestamp) {
     this.timestamp = timestamp;
     return this;
   }
 
-   /**
+  /**
    * Timestamp of your log.
+   *
    * @return timestamp
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(example = "2020-05-26T13:36:14Z", value = "Timestamp of your log.")
   @JsonProperty(JSON_PROPERTY_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getTimestamp() {
     return timestamp;
   }
-
 
   public void setTimestamp(OffsetDateTime timestamp) {
     this.timestamp = timestamp;
   }
 
-
-  /**
-   * Return true if this Log_content object is equal to o.
-   */
+  /** Return true if this Log_content object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -236,19 +231,18 @@ public class LogContent {
       return false;
     }
     LogContent logContent = (LogContent) o;
-    return Objects.equals(this.attributes, logContent.attributes) &&
-        Objects.equals(this.host, logContent.host) &&
-        Objects.equals(this.message, logContent.message) &&
-        Objects.equals(this.service, logContent.service) &&
-        Objects.equals(this.tags, logContent.tags) &&
-        Objects.equals(this.timestamp, logContent.timestamp);
+    return Objects.equals(this.attributes, logContent.attributes)
+        && Objects.equals(this.host, logContent.host)
+        && Objects.equals(this.message, logContent.message)
+        && Objects.equals(this.service, logContent.service)
+        && Objects.equals(this.tags, logContent.tags)
+        && Objects.equals(this.timestamp, logContent.timestamp);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(attributes, host, message, service, tags, timestamp);
   }
-
 
   @Override
   public String toString() {
@@ -265,8 +259,7 @@ public class LogContent {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -274,6 +267,4 @@ public class LogContent {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

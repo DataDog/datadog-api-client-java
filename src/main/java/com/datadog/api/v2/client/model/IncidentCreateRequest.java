@@ -8,64 +8,45 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.IncidentCreateData;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Create request for an incident.
- */
+/** Create request for an incident. */
 @ApiModel(description = "Create request for an incident.")
-@JsonPropertyOrder({
-  IncidentCreateRequest.JSON_PROPERTY_DATA
-})
+@JsonPropertyOrder({IncidentCreateRequest.JSON_PROPERTY_DATA})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IncidentCreateRequest {
   public static final String JSON_PROPERTY_DATA = "data";
   private IncidentCreateData data;
-
 
   public IncidentCreateRequest data(IncidentCreateData data) {
     this.data = data;
     return this;
   }
 
-   /**
+  /**
    * Get data
+   *
    * @return data
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public IncidentCreateData getData() {
     return data;
   }
-
 
   public void setData(IncidentCreateData data) {
     this.data = data;
   }
 
-
-  /**
-   * Return true if this IncidentCreateRequest object is equal to o.
-   */
+  /** Return true if this IncidentCreateRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -83,7 +64,6 @@ public class IncidentCreateRequest {
     return Objects.hash(data);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -94,8 +74,7 @@ public class IncidentCreateRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -103,6 +82,4 @@ public class IncidentCreateRequest {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

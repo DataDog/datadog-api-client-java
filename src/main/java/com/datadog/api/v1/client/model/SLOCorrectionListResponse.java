@@ -8,39 +8,24 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.SLOCorrection;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * A list of  SLO correction objects
- */
+/** A list of SLO correction objects */
 @ApiModel(description = "A list of  SLO correction objects")
-@JsonPropertyOrder({
-  SLOCorrectionListResponse.JSON_PROPERTY_DATA
-})
+@JsonPropertyOrder({SLOCorrectionListResponse.JSON_PROPERTY_DATA})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SLOCorrectionListResponse {
   public static final String JSON_PROPERTY_DATA = "data";
   private List<SLOCorrection> data = null;
-
 
   public SLOCorrectionListResponse data(List<SLOCorrection> data) {
     this.data = data;
@@ -55,28 +40,24 @@ public class SLOCorrectionListResponse {
     return this;
   }
 
-   /**
+  /**
    * The list of of SLO corrections objects
+   *
    * @return data
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The list of of SLO corrections objects")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<SLOCorrection> getData() {
     return data;
   }
-
 
   public void setData(List<SLOCorrection> data) {
     this.data = data;
   }
 
-
-  /**
-   * Return true if this SLOCorrectionListResponse object is equal to o.
-   */
+  /** Return true if this SLOCorrectionListResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -94,7 +75,6 @@ public class SLOCorrectionListResponse {
     return Objects.hash(data);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -105,8 +85,7 @@ public class SLOCorrectionListResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -114,6 +93,4 @@ public class SLOCorrectionListResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

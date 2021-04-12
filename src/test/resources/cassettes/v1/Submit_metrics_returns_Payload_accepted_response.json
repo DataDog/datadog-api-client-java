@@ -1,0 +1,40 @@
+[{
+  "id" : "5d333bac-e083-4794-839c-58d11d8d5f9a",
+  "httpRequest" : {
+    "method" : "POST",
+    "path" : "/api/v1/series",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "Submit_metrics_returns_Payload_accepted_response" ],
+      "DD-OPERATION-ID" : [ "submitMetrics" ],
+      "Content-Type" : [ "application/json" ]
+    },
+    "keepAlive" : false,
+    "secure" : true,
+    "body" : {
+      "type" : "JSON",
+      "json" : "{\"series\":[{\"metric\":\"system.load.1\",\"points\":[[1.6003486E9,1.1]],\"tags\":[\"test:TestSubmitmetricsreturnsPayloadacceptedresponse1618083765\"],\"type\":\"gauge\"}]}"
+    }
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 202,
+    "reasonPhrase" : "Accepted",
+    "headers" : {
+      "Date" : [ "Sat, 10 Apr 2021 19:42:46 GMT" ],
+      "Content-Type" : [ "text/json" ],
+      "Content-Length" : [ "16" ],
+      "Connection" : [ "keep-alive" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ]
+    },
+    "body" : "{\"status\": \"ok\"}"
+  }
+}]

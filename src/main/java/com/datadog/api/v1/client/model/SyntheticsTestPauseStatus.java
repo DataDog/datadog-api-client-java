@@ -8,28 +8,18 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
-
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
- * Define whether you want to start (&#x60;live&#x60;) or pause (&#x60;paused&#x60;) a Synthetic test.
+ * Define whether you want to start (&#x60;live&#x60;) or pause (&#x60;paused&#x60;) a Synthetic
+ * test.
  */
 public enum SyntheticsTestPauseStatus {
-  
   LIVE("live"),
-  
+
   PAUSED("paused");
 
   private String value;
@@ -58,4 +48,3 @@ public enum SyntheticsTestPauseStatus {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

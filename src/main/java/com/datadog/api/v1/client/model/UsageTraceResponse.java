@@ -8,39 +8,24 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.UsageTraceHour;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * A response containing trace usage.
- */
+/** A response containing trace usage. */
 @ApiModel(description = "A response containing trace usage.")
-@JsonPropertyOrder({
-  UsageTraceResponse.JSON_PROPERTY_USAGE
-})
+@JsonPropertyOrder({UsageTraceResponse.JSON_PROPERTY_USAGE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageTraceResponse {
   public static final String JSON_PROPERTY_USAGE = "usage";
   private List<UsageTraceHour> usage = null;
-
 
   public UsageTraceResponse usage(List<UsageTraceHour> usage) {
     this.usage = usage;
@@ -55,28 +40,25 @@ public class UsageTraceResponse {
     return this;
   }
 
-   /**
+  /**
    * Array with the number of hourly traces indexed for a given organization.
+   *
    * @return usage
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array with the number of hourly traces indexed for a given organization.")
+  @ApiModelProperty(
+      value = "Array with the number of hourly traces indexed for a given organization.")
   @JsonProperty(JSON_PROPERTY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<UsageTraceHour> getUsage() {
     return usage;
   }
-
 
   public void setUsage(List<UsageTraceHour> usage) {
     this.usage = usage;
   }
 
-
-  /**
-   * Return true if this UsageTraceResponse object is equal to o.
-   */
+  /** Return true if this UsageTraceResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -94,7 +76,6 @@ public class UsageTraceResponse {
     return Objects.hash(usage);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -105,8 +86,7 @@ public class UsageTraceResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -114,6 +94,4 @@ public class UsageTraceResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

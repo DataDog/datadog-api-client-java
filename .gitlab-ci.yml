@@ -2,6 +2,9 @@ stages:
   - deploy
   - create_key
 
+variables:
+  REGISTRY: 486234852809.dkr.ecr.us-east-1.amazonaws.com
+
 # From the tagged repo, stage the final artifact
 # We've already run tests through the CI when creating the changelog and tag, skip them here
 deploy:
@@ -22,13 +25,25 @@ deploy:
     - printf -- "$GPG_KEY" | gpg --import --batch
     # Perform the release
     - mvn -DskipTests -Darguments=-DskipTests -DdryRun=true --settings settings.xml clean deploy
+  - create_key
 
-# This job creates the GPG key used to sign the above release
+
+# This job creates the GPG key
 create_key:
+  stage: create_key
   when: manual
-  tags: [ "runner:docker", "size:large" ]
-  image: 486234852809.dkr.ecr.us-east-1.amazonaws.com/ci/agent-key-management-tools/create-gpg-key:1
+
+  tags:
+    - "runner:docker"
+    - "size:large"
+
+  image: $REGISTRY/ci/agent-key-management-tools/gpg:1
   variables:
     PROJECT_NAME: "datadog-api-client-java"
+    EXPORT_TO_KEYSERVER: "false"
   script:
-    - ash create_gpg_key.sh
+    - /create.sh
+  artifacts:
+    expire_in: 13 mos
+    paths:
+      - ./pubkeys/

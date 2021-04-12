@@ -8,30 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.SecurityMonitoringSignalListRequestFilter;
-import com.datadog.api.v2.client.model.SecurityMonitoringSignalListRequestPage;
-import com.datadog.api.v2.client.model.SecurityMonitoringSignalsSort;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * The request for a security signal list.
- */
+/** The request for a security signal list. */
 @ApiModel(description = "The request for a security signal list.")
 @JsonPropertyOrder({
   SecurityMonitoringSignalListRequest.JSON_PROPERTY_FILTER,
@@ -49,82 +35,74 @@ public class SecurityMonitoringSignalListRequest {
   public static final String JSON_PROPERTY_SORT = "sort";
   private SecurityMonitoringSignalsSort sort;
 
-
-  public SecurityMonitoringSignalListRequest filter(SecurityMonitoringSignalListRequestFilter filter) {
+  public SecurityMonitoringSignalListRequest filter(
+      SecurityMonitoringSignalListRequestFilter filter) {
     this.filter = filter;
     return this;
   }
 
-   /**
+  /**
    * Get filter
+   *
    * @return filter
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FILTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SecurityMonitoringSignalListRequestFilter getFilter() {
     return filter;
   }
 
-
   public void setFilter(SecurityMonitoringSignalListRequestFilter filter) {
     this.filter = filter;
   }
-
 
   public SecurityMonitoringSignalListRequest page(SecurityMonitoringSignalListRequestPage page) {
     this.page = page;
     return this;
   }
 
-   /**
+  /**
    * Get page
+   *
    * @return page
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SecurityMonitoringSignalListRequestPage getPage() {
     return page;
   }
 
-
   public void setPage(SecurityMonitoringSignalListRequestPage page) {
     this.page = page;
   }
-
 
   public SecurityMonitoringSignalListRequest sort(SecurityMonitoringSignalsSort sort) {
     this.sort = sort;
     return this;
   }
 
-   /**
+  /**
    * Get sort
+   *
    * @return sort
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SecurityMonitoringSignalsSort getSort() {
     return sort;
   }
-
 
   public void setSort(SecurityMonitoringSignalsSort sort) {
     this.sort = sort;
   }
 
-
-  /**
-   * Return true if this SecurityMonitoringSignalListRequest object is equal to o.
-   */
+  /** Return true if this SecurityMonitoringSignalListRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -133,17 +111,17 @@ public class SecurityMonitoringSignalListRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SecurityMonitoringSignalListRequest securityMonitoringSignalListRequest = (SecurityMonitoringSignalListRequest) o;
-    return Objects.equals(this.filter, securityMonitoringSignalListRequest.filter) &&
-        Objects.equals(this.page, securityMonitoringSignalListRequest.page) &&
-        Objects.equals(this.sort, securityMonitoringSignalListRequest.sort);
+    SecurityMonitoringSignalListRequest securityMonitoringSignalListRequest =
+        (SecurityMonitoringSignalListRequest) o;
+    return Objects.equals(this.filter, securityMonitoringSignalListRequest.filter)
+        && Objects.equals(this.page, securityMonitoringSignalListRequest.page)
+        && Objects.equals(this.sort, securityMonitoringSignalListRequest.sort);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(filter, page, sort);
   }
-
 
   @Override
   public String toString() {
@@ -157,8 +135,7 @@ public class SecurityMonitoringSignalListRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -166,6 +143,4 @@ public class SecurityMonitoringSignalListRequest {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

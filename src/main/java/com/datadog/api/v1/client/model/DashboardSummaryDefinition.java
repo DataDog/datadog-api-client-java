@@ -8,29 +8,17 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.DashboardLayoutType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Dashboard definition.
- */
+/** Dashboard definition. */
 @ApiModel(description = "Dashboard definition.")
 @JsonPropertyOrder({
   DashboardSummaryDefinition.JSON_PROPERTY_AUTHOR_HANDLE,
@@ -72,226 +60,209 @@ public class DashboardSummaryDefinition {
   public static final String JSON_PROPERTY_URL = "url";
   private String url;
 
-
   public DashboardSummaryDefinition authorHandle(String authorHandle) {
     this.authorHandle = authorHandle;
     return this;
   }
 
-   /**
+  /**
    * Identifier of the dashboard author.
+   *
    * @return authorHandle
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Identifier of the dashboard author.")
   @JsonProperty(JSON_PROPERTY_AUTHOR_HANDLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAuthorHandle() {
     return authorHandle;
   }
 
-
   public void setAuthorHandle(String authorHandle) {
     this.authorHandle = authorHandle;
   }
-
 
   public DashboardSummaryDefinition createdAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
     return this;
   }
 
-   /**
+  /**
    * Creation date of the dashboard.
+   *
    * @return createdAt
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Creation date of the dashboard.")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
 
-
   public void setCreatedAt(OffsetDateTime createdAt) {
     this.createdAt = createdAt;
   }
-
 
   public DashboardSummaryDefinition description(String description) {
     this.description = description;
     return this;
   }
 
-   /**
+  /**
    * Description of the dashboard.
+   *
    * @return description
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Description of the dashboard.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getDescription() {
     return description;
   }
 
-
   public void setDescription(String description) {
     this.description = description;
   }
-
 
   public DashboardSummaryDefinition id(String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Dashboard identifier.
+   *
    * @return id
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Dashboard identifier.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getId() {
     return id;
   }
 
-
   public void setId(String id) {
     this.id = id;
   }
-
 
   public DashboardSummaryDefinition isReadOnly(Boolean isReadOnly) {
     this.isReadOnly = isReadOnly;
     return this;
   }
 
-   /**
-   * Whether this dashboard is read-only. If True, only the author and admins can make changes to it.
+  /**
+   * Whether this dashboard is read-only. If True, only the author and admins can make changes to
+   * it.
+   *
    * @return isReadOnly
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether this dashboard is read-only. If True, only the author and admins can make changes to it.")
+  @ApiModelProperty(
+      value =
+          "Whether this dashboard is read-only. If True, only the author and admins can make"
+              + " changes to it.")
   @JsonProperty(JSON_PROPERTY_IS_READ_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getIsReadOnly() {
     return isReadOnly;
   }
 
-
   public void setIsReadOnly(Boolean isReadOnly) {
     this.isReadOnly = isReadOnly;
   }
-
 
   public DashboardSummaryDefinition layoutType(DashboardLayoutType layoutType) {
     this.layoutType = layoutType;
     return this;
   }
 
-   /**
+  /**
    * Get layoutType
+   *
    * @return layoutType
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LAYOUT_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public DashboardLayoutType getLayoutType() {
     return layoutType;
   }
 
-
   public void setLayoutType(DashboardLayoutType layoutType) {
     this.layoutType = layoutType;
   }
-
 
   public DashboardSummaryDefinition modifiedAt(OffsetDateTime modifiedAt) {
     this.modifiedAt = modifiedAt;
     return this;
   }
 
-   /**
+  /**
    * Modification date of the dashboard.
+   *
    * @return modifiedAt
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Modification date of the dashboard.")
   @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getModifiedAt() {
     return modifiedAt;
   }
 
-
   public void setModifiedAt(OffsetDateTime modifiedAt) {
     this.modifiedAt = modifiedAt;
   }
-
 
   public DashboardSummaryDefinition title(String title) {
     this.title = title;
     return this;
   }
 
-   /**
+  /**
    * Title of the dashboard.
+   *
    * @return title
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Title of the dashboard.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTitle() {
     return title;
   }
 
-
   public void setTitle(String title) {
     this.title = title;
   }
-
 
   public DashboardSummaryDefinition url(String url) {
     this.url = url;
     return this;
   }
 
-   /**
+  /**
    * URL of the dashboard.
+   *
    * @return url
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "URL of the dashboard.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getUrl() {
     return url;
   }
-
 
   public void setUrl(String url) {
     this.url = url;
   }
 
-
-  /**
-   * Return true if this DashboardSummaryDefinition object is equal to o.
-   */
+  /** Return true if this DashboardSummaryDefinition object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -301,22 +272,22 @@ public class DashboardSummaryDefinition {
       return false;
     }
     DashboardSummaryDefinition dashboardSummaryDefinition = (DashboardSummaryDefinition) o;
-    return Objects.equals(this.authorHandle, dashboardSummaryDefinition.authorHandle) &&
-        Objects.equals(this.createdAt, dashboardSummaryDefinition.createdAt) &&
-        Objects.equals(this.description, dashboardSummaryDefinition.description) &&
-        Objects.equals(this.id, dashboardSummaryDefinition.id) &&
-        Objects.equals(this.isReadOnly, dashboardSummaryDefinition.isReadOnly) &&
-        Objects.equals(this.layoutType, dashboardSummaryDefinition.layoutType) &&
-        Objects.equals(this.modifiedAt, dashboardSummaryDefinition.modifiedAt) &&
-        Objects.equals(this.title, dashboardSummaryDefinition.title) &&
-        Objects.equals(this.url, dashboardSummaryDefinition.url);
+    return Objects.equals(this.authorHandle, dashboardSummaryDefinition.authorHandle)
+        && Objects.equals(this.createdAt, dashboardSummaryDefinition.createdAt)
+        && Objects.equals(this.description, dashboardSummaryDefinition.description)
+        && Objects.equals(this.id, dashboardSummaryDefinition.id)
+        && Objects.equals(this.isReadOnly, dashboardSummaryDefinition.isReadOnly)
+        && Objects.equals(this.layoutType, dashboardSummaryDefinition.layoutType)
+        && Objects.equals(this.modifiedAt, dashboardSummaryDefinition.modifiedAt)
+        && Objects.equals(this.title, dashboardSummaryDefinition.title)
+        && Objects.equals(this.url, dashboardSummaryDefinition.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authorHandle, createdAt, description, id, isReadOnly, layoutType, modifiedAt, title, url);
+    return Objects.hash(
+        authorHandle, createdAt, description, id, isReadOnly, layoutType, modifiedAt, title, url);
   }
-
 
   @Override
   public String toString() {
@@ -336,8 +307,7 @@ public class DashboardSummaryDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -345,6 +315,4 @@ public class DashboardSummaryDefinition {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

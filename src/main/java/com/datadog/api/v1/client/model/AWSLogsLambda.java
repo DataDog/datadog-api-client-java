@@ -8,64 +8,46 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Description of the Lambdas.
- */
+/** Description of the Lambdas. */
 @ApiModel(description = "Description of the Lambdas.")
-@JsonPropertyOrder({
-  AWSLogsLambda.JSON_PROPERTY_ARN
-})
+@JsonPropertyOrder({AWSLogsLambda.JSON_PROPERTY_ARN})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AWSLogsLambda {
   public static final String JSON_PROPERTY_ARN = "arn";
   private String arn;
-
 
   public AWSLogsLambda arn(String arn) {
     this.arn = arn;
     return this;
   }
 
-   /**
+  /**
    * Available ARN IDs.
+   *
    * @return arn
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Available ARN IDs.")
   @JsonProperty(JSON_PROPERTY_ARN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getArn() {
     return arn;
   }
-
 
   public void setArn(String arn) {
     this.arn = arn;
   }
 
-
-  /**
-   * Return true if this AWSLogsLambda object is equal to o.
-   */
+  /** Return true if this AWSLogsLambda object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -83,7 +65,6 @@ public class AWSLogsLambda {
     return Objects.hash(arn);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -94,8 +75,7 @@ public class AWSLogsLambda {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -103,6 +83,4 @@ public class AWSLogsLambda {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

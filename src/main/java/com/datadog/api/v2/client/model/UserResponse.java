@@ -8,36 +8,20 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.User;
-import com.datadog.api.v2.client.model.UserResponseIncludedItem;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Response containing information about a single user.
- */
+/** Response containing information about a single user. */
 @ApiModel(description = "Response containing information about a single user.")
-@JsonPropertyOrder({
-  UserResponse.JSON_PROPERTY_DATA,
-  UserResponse.JSON_PROPERTY_INCLUDED
-})
+@JsonPropertyOrder({UserResponse.JSON_PROPERTY_DATA, UserResponse.JSON_PROPERTY_INCLUDED})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UserResponse {
   public static final String JSON_PROPERTY_DATA = "data";
@@ -46,30 +30,27 @@ public class UserResponse {
   public static final String JSON_PROPERTY_INCLUDED = "included";
   private List<UserResponseIncludedItem> included = null;
 
-
   public UserResponse data(User data) {
     this.data = data;
     return this;
   }
 
-   /**
+  /**
    * Get data
+   *
    * @return data
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public User getData() {
     return data;
   }
 
-
   public void setData(User data) {
     this.data = data;
   }
-
 
   public UserResponse included(List<UserResponseIncludedItem> included) {
     this.included = included;
@@ -84,28 +65,24 @@ public class UserResponse {
     return this;
   }
 
-   /**
+  /**
    * Array of objects related to the user.
+   *
    * @return included
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Array of objects related to the user.")
   @JsonProperty(JSON_PROPERTY_INCLUDED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<UserResponseIncludedItem> getIncluded() {
     return included;
   }
-
 
   public void setIncluded(List<UserResponseIncludedItem> included) {
     this.included = included;
   }
 
-
-  /**
-   * Return true if this UserResponse object is equal to o.
-   */
+  /** Return true if this UserResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -115,15 +92,14 @@ public class UserResponse {
       return false;
     }
     UserResponse userResponse = (UserResponse) o;
-    return Objects.equals(this.data, userResponse.data) &&
-        Objects.equals(this.included, userResponse.included);
+    return Objects.equals(this.data, userResponse.data)
+        && Objects.equals(this.included, userResponse.included);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(data, included);
   }
-
 
   @Override
   public String toString() {
@@ -136,8 +112,7 @@ public class UserResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -145,6 +120,4 @@ public class UserResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

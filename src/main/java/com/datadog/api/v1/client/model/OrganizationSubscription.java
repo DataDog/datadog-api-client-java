@@ -8,64 +8,48 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Subscription definition.
- */
+/** Subscription definition. */
 @ApiModel(description = "Subscription definition.")
-@JsonPropertyOrder({
-  OrganizationSubscription.JSON_PROPERTY_TYPE
-})
+@JsonPropertyOrder({OrganizationSubscription.JSON_PROPERTY_TYPE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class OrganizationSubscription {
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
-
 
   public OrganizationSubscription type(String type) {
     this.type = type;
     return this;
   }
 
-   /**
-   * The subscription type. Types available are &#x60;trial&#x60;, &#x60;free&#x60;, and &#x60;pro&#x60;.
+  /**
+   * The subscription type. Types available are &#x60;trial&#x60;, &#x60;free&#x60;, and
+   * &#x60;pro&#x60;.
+   *
    * @return type
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The subscription type. Types available are `trial`, `free`, and `pro`.")
+  @ApiModelProperty(
+      value = "The subscription type. Types available are `trial`, `free`, and `pro`.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getType() {
     return type;
   }
-
 
   public void setType(String type) {
     this.type = type;
   }
 
-
-  /**
-   * Return true if this OrganizationSubscription object is equal to o.
-   */
+  /** Return true if this OrganizationSubscription object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -83,7 +67,6 @@ public class OrganizationSubscription {
     return Objects.hash(type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -94,8 +77,7 @@ public class OrganizationSubscription {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -103,6 +85,4 @@ public class OrganizationSubscription {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

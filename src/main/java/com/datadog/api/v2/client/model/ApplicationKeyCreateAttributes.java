@@ -8,63 +8,48 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Attributes used to create an application Key.
- */
+/** Attributes used to create an application Key. */
 @ApiModel(description = "Attributes used to create an application Key.")
-@JsonPropertyOrder({
-  ApplicationKeyCreateAttributes.JSON_PROPERTY_NAME
-})
+@JsonPropertyOrder({ApplicationKeyCreateAttributes.JSON_PROPERTY_NAME})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ApplicationKeyCreateAttributes {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
-
 
   public ApplicationKeyCreateAttributes name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Name of the application key.
+   *
    * @return name
-  **/
-  @ApiModelProperty(example = "Application Key for submitting metrics", required = true, value = "Name of the application key.")
+   */
+  @ApiModelProperty(
+      example = "Application Key for submitting metrics",
+      required = true,
+      value = "Name of the application key.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getName() {
     return name;
   }
-
 
   public void setName(String name) {
     this.name = name;
   }
 
-
-  /**
-   * Return true if this ApplicationKeyCreateAttributes object is equal to o.
-   */
+  /** Return true if this ApplicationKeyCreateAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -73,7 +58,8 @@ public class ApplicationKeyCreateAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ApplicationKeyCreateAttributes applicationKeyCreateAttributes = (ApplicationKeyCreateAttributes) o;
+    ApplicationKeyCreateAttributes applicationKeyCreateAttributes =
+        (ApplicationKeyCreateAttributes) o;
     return Objects.equals(this.name, applicationKeyCreateAttributes.name);
   }
 
@@ -81,7 +67,6 @@ public class ApplicationKeyCreateAttributes {
   public int hashCode() {
     return Objects.hash(name);
   }
-
 
   @Override
   public String toString() {
@@ -93,8 +78,7 @@ public class ApplicationKeyCreateAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -102,6 +86,4 @@ public class ApplicationKeyCreateAttributes {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

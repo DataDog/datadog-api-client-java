@@ -8,27 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Type of aggregation performed in the monitor query.
- */
+/** Type of aggregation performed in the monitor query. */
 @ApiModel(description = "Type of aggregation performed in the monitor query.")
 @JsonPropertyOrder({
   MonitorOptionsAggregation.JSON_PROPERTY_GROUP_BY,
@@ -46,82 +35,73 @@ public class MonitorOptionsAggregation {
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type;
 
-
   public MonitorOptionsAggregation groupBy(String groupBy) {
     this.groupBy = groupBy;
     return this;
   }
 
-   /**
+  /**
    * Group to break down the monitor on.
+   *
    * @return groupBy
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(example = "host", value = "Group to break down the monitor on.")
   @JsonProperty(JSON_PROPERTY_GROUP_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getGroupBy() {
     return groupBy;
   }
 
-
   public void setGroupBy(String groupBy) {
     this.groupBy = groupBy;
   }
-
 
   public MonitorOptionsAggregation metric(String metric) {
     this.metric = metric;
     return this;
   }
 
-   /**
+  /**
    * Metric name used in the monitor.
+   *
    * @return metric
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(example = "metrics.name", value = "Metric name used in the monitor.")
   @JsonProperty(JSON_PROPERTY_METRIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMetric() {
     return metric;
   }
 
-
   public void setMetric(String metric) {
     this.metric = metric;
   }
-
 
   public MonitorOptionsAggregation type(String type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Metric type used in the monitor.
+   *
    * @return type
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(example = "count", value = "Metric type used in the monitor.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getType() {
     return type;
   }
-
 
   public void setType(String type) {
     this.type = type;
   }
 
-
-  /**
-   * Return true if this MonitorOptions_aggregation object is equal to o.
-   */
+  /** Return true if this MonitorOptions_aggregation object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -131,16 +111,15 @@ public class MonitorOptionsAggregation {
       return false;
     }
     MonitorOptionsAggregation monitorOptionsAggregation = (MonitorOptionsAggregation) o;
-    return Objects.equals(this.groupBy, monitorOptionsAggregation.groupBy) &&
-        Objects.equals(this.metric, monitorOptionsAggregation.metric) &&
-        Objects.equals(this.type, monitorOptionsAggregation.type);
+    return Objects.equals(this.groupBy, monitorOptionsAggregation.groupBy)
+        && Objects.equals(this.metric, monitorOptionsAggregation.metric)
+        && Objects.equals(this.type, monitorOptionsAggregation.type);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(groupBy, metric, type);
   }
-
 
   @Override
   public String toString() {
@@ -154,8 +133,7 @@ public class MonitorOptionsAggregation {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -163,6 +141,4 @@ public class MonitorOptionsAggregation {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

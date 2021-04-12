@@ -8,32 +8,29 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.SLOBulkDeleteError;
-import com.datadog.api.v1.client.model.SLOBulkDeleteResponseData;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
-
+import java.util.Objects;
 
 /**
- * The bulk partial delete service level objective object endpoint response.  This endpoint operates on multiple service level objective objects, so it may be partially successful. In such cases, the \&quot;data\&quot; and \&quot;error\&quot; fields in this response indicate which deletions succeeded and failed.
+ * The bulk partial delete service level objective object endpoint response. This endpoint operates
+ * on multiple service level objective objects, so it may be partially successful. In such cases,
+ * the \&quot;data\&quot; and \&quot;error\&quot; fields in this response indicate which deletions
+ * succeeded and failed.
  */
-@ApiModel(description = "The bulk partial delete service level objective object endpoint response.  This endpoint operates on multiple service level objective objects, so it may be partially successful. In such cases, the \"data\" and \"error\" fields in this response indicate which deletions succeeded and failed.")
+@ApiModel(
+    description =
+        "The bulk partial delete service level objective object endpoint response.  This endpoint"
+            + " operates on multiple service level objective objects, so it may be partially"
+            + " successful. In such cases, the \"data\" and \"error\" fields in this response"
+            + " indicate which deletions succeeded and failed.")
 @JsonPropertyOrder({
   SLOBulkDeleteResponse.JSON_PROPERTY_DATA,
   SLOBulkDeleteResponse.JSON_PROPERTY_ERRORS
@@ -46,30 +43,27 @@ public class SLOBulkDeleteResponse {
   public static final String JSON_PROPERTY_ERRORS = "errors";
   private List<SLOBulkDeleteError> errors = null;
 
-
   public SLOBulkDeleteResponse data(SLOBulkDeleteResponseData data) {
     this.data = data;
     return this;
   }
 
-   /**
+  /**
    * Get data
+   *
    * @return data
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SLOBulkDeleteResponseData getData() {
     return data;
   }
 
-
   public void setData(SLOBulkDeleteResponseData data) {
     this.data = data;
   }
-
 
   public SLOBulkDeleteResponse errors(List<SLOBulkDeleteError> errors) {
     this.errors = errors;
@@ -84,28 +78,24 @@ public class SLOBulkDeleteResponse {
     return this;
   }
 
-   /**
+  /**
    * Array of errors object returned.
+   *
    * @return errors
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Array of errors object returned.")
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<SLOBulkDeleteError> getErrors() {
     return errors;
   }
-
 
   public void setErrors(List<SLOBulkDeleteError> errors) {
     this.errors = errors;
   }
 
-
-  /**
-   * Return true if this SLOBulkDeleteResponse object is equal to o.
-   */
+  /** Return true if this SLOBulkDeleteResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -115,15 +105,14 @@ public class SLOBulkDeleteResponse {
       return false;
     }
     SLOBulkDeleteResponse slOBulkDeleteResponse = (SLOBulkDeleteResponse) o;
-    return Objects.equals(this.data, slOBulkDeleteResponse.data) &&
-        Objects.equals(this.errors, slOBulkDeleteResponse.errors);
+    return Objects.equals(this.data, slOBulkDeleteResponse.data)
+        && Objects.equals(this.errors, slOBulkDeleteResponse.errors);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(data, errors);
   }
-
 
   @Override
   public String toString() {
@@ -136,8 +125,7 @@ public class SLOBulkDeleteResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -145,6 +133,4 @@ public class SLOBulkDeleteResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

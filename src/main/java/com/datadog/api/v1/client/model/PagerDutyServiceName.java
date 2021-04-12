@@ -8,63 +8,48 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * PagerDuty service object name.
- */
+/** PagerDuty service object name. */
 @ApiModel(description = "PagerDuty service object name.")
-@JsonPropertyOrder({
-  PagerDutyServiceName.JSON_PROPERTY_SERVICE_NAME
-})
+@JsonPropertyOrder({PagerDutyServiceName.JSON_PROPERTY_SERVICE_NAME})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class PagerDutyServiceName {
   public static final String JSON_PROPERTY_SERVICE_NAME = "service_name";
   private String serviceName;
-
 
   public PagerDutyServiceName serviceName(String serviceName) {
     this.serviceName = serviceName;
     return this;
   }
 
-   /**
+  /**
    * Your service name associated service key in PagerDuty.
+   *
    * @return serviceName
-  **/
-  @ApiModelProperty(example = "", required = true, value = "Your service name associated service key in PagerDuty.")
+   */
+  @ApiModelProperty(
+      example = "",
+      required = true,
+      value = "Your service name associated service key in PagerDuty.")
   @JsonProperty(JSON_PROPERTY_SERVICE_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getServiceName() {
     return serviceName;
   }
-
 
   public void setServiceName(String serviceName) {
     this.serviceName = serviceName;
   }
 
-
-  /**
-   * Return true if this PagerDutyServiceName object is equal to o.
-   */
+  /** Return true if this PagerDutyServiceName object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -82,7 +67,6 @@ public class PagerDutyServiceName {
     return Objects.hash(serviceName);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -93,8 +77,7 @@ public class PagerDutyServiceName {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -102,6 +85,4 @@ public class PagerDutyServiceName {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

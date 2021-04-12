@@ -8,40 +8,24 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.MonitorStateGroup;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Wrapper object with the different monitor states.
- */
+/** Wrapper object with the different monitor states. */
 @ApiModel(description = "Wrapper object with the different monitor states.")
-@JsonPropertyOrder({
-  MonitorState.JSON_PROPERTY_GROUPS
-})
+@JsonPropertyOrder({MonitorState.JSON_PROPERTY_GROUPS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MonitorState {
   public static final String JSON_PROPERTY_GROUPS = "groups";
   private Map<String, MonitorStateGroup> groups = null;
-
 
   public MonitorState groups(Map<String, MonitorStateGroup> groups) {
     this.groups = groups;
@@ -56,28 +40,28 @@ public class MonitorState {
     return this;
   }
 
-   /**
-   * Dictionary where the keys are groups (comma separated lists of tags) and the values are the list of groups your monitor is broken down on.
+  /**
+   * Dictionary where the keys are groups (comma separated lists of tags) and the values are the
+   * list of groups your monitor is broken down on.
+   *
    * @return groups
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Dictionary where the keys are groups (comma separated lists of tags) and the values are the list of groups your monitor is broken down on.")
+  @ApiModelProperty(
+      value =
+          "Dictionary where the keys are groups (comma separated lists of tags) and the values are"
+              + " the list of groups your monitor is broken down on.")
   @JsonProperty(JSON_PROPERTY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, MonitorStateGroup> getGroups() {
     return groups;
   }
-
 
   public void setGroups(Map<String, MonitorStateGroup> groups) {
     this.groups = groups;
   }
 
-
-  /**
-   * Return true if this MonitorState object is equal to o.
-   */
+  /** Return true if this MonitorState object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -95,7 +79,6 @@ public class MonitorState {
     return Objects.hash(groups);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -106,8 +89,7 @@ public class MonitorState {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -115,6 +97,4 @@ public class MonitorState {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

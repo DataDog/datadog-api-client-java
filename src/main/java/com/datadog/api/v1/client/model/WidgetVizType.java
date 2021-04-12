@@ -8,28 +8,15 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
-
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * Whether to display the Alert Graph as a timeseries or a top list.
- */
+/** Whether to display the Alert Graph as a timeseries or a top list. */
 public enum WidgetVizType {
-  
   TIMESERIES("timeseries"),
-  
+
   TOPLIST("toplist");
 
   private String value;
@@ -58,4 +45,3 @@ public enum WidgetVizType {
     throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
-

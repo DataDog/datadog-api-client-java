@@ -8,36 +8,20 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.APIKeyResponseIncludedItem;
-import com.datadog.api.v2.client.model.PartialAPIKey;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Response for a list of API keys.
- */
+/** Response for a list of API keys. */
 @ApiModel(description = "Response for a list of API keys.")
-@JsonPropertyOrder({
-  APIKeysResponse.JSON_PROPERTY_DATA,
-  APIKeysResponse.JSON_PROPERTY_INCLUDED
-})
+@JsonPropertyOrder({APIKeysResponse.JSON_PROPERTY_DATA, APIKeysResponse.JSON_PROPERTY_INCLUDED})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class APIKeysResponse {
   public static final String JSON_PROPERTY_DATA = "data";
@@ -45,7 +29,6 @@ public class APIKeysResponse {
 
   public static final String JSON_PROPERTY_INCLUDED = "included";
   private List<APIKeyResponseIncludedItem> included = null;
-
 
   public APIKeysResponse data(List<PartialAPIKey> data) {
     this.data = data;
@@ -60,24 +43,22 @@ public class APIKeysResponse {
     return this;
   }
 
-   /**
+  /**
    * Array of API keys.
+   *
    * @return data
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Array of API keys.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<PartialAPIKey> getData() {
     return data;
   }
 
-
   public void setData(List<PartialAPIKey> data) {
     this.data = data;
   }
-
 
   public APIKeysResponse included(List<APIKeyResponseIncludedItem> included) {
     this.included = included;
@@ -92,28 +73,24 @@ public class APIKeysResponse {
     return this;
   }
 
-   /**
+  /**
    * Array of objects related to the API key.
+   *
    * @return included
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Array of objects related to the API key.")
   @JsonProperty(JSON_PROPERTY_INCLUDED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<APIKeyResponseIncludedItem> getIncluded() {
     return included;
   }
-
 
   public void setIncluded(List<APIKeyResponseIncludedItem> included) {
     this.included = included;
   }
 
-
-  /**
-   * Return true if this APIKeysResponse object is equal to o.
-   */
+  /** Return true if this APIKeysResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -123,15 +100,14 @@ public class APIKeysResponse {
       return false;
     }
     APIKeysResponse apIKeysResponse = (APIKeysResponse) o;
-    return Objects.equals(this.data, apIKeysResponse.data) &&
-        Objects.equals(this.included, apIKeysResponse.included);
+    return Objects.equals(this.data, apIKeysResponse.data)
+        && Objects.equals(this.included, apIKeysResponse.included);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(data, included);
   }
-
 
   @Override
   public String toString() {
@@ -144,8 +120,7 @@ public class APIKeysResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -153,6 +128,4 @@ public class APIKeysResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

@@ -3,6 +3,7 @@
 # PartialAPIKeyAttributes
 
 Attributes of a partial API key.
+
 ## Properties
 
 Name | Type | Description | Notes

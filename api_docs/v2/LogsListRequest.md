@@ -3,6 +3,7 @@
 # LogsListRequest
 
 The request for a logs list.
+
 ## Properties
 
 Name | Type | Description | Notes

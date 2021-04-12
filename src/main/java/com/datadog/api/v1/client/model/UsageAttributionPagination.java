@@ -8,27 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * The page count for the current pagination.
- */
+/** The page count for the current pagination. */
 @ApiModel(description = "The page count for the current pagination.")
 @JsonPropertyOrder({
   UsageAttributionPagination.JSON_PROPERTY_LIMIT,
@@ -54,130 +43,117 @@ public class UsageAttributionPagination {
   public static final String JSON_PROPERTY_TOTAL_NUMBER_OF_RECORDS = "total_number_of_records";
   private Long totalNumberOfRecords;
 
-
   public UsageAttributionPagination limit(Long limit) {
     this.limit = limit;
     return this;
   }
 
-   /**
+  /**
    * Maximum amount of records to be returned.
+   *
    * @return limit
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Maximum amount of records to be returned.")
   @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getLimit() {
     return limit;
   }
 
-
   public void setLimit(Long limit) {
     this.limit = limit;
   }
-
 
   public UsageAttributionPagination offset(Long offset) {
     this.offset = offset;
     return this;
   }
 
-   /**
+  /**
    * Records to be skipped before beginning to return.
+   *
    * @return offset
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Records to be skipped before beginning to return.")
   @JsonProperty(JSON_PROPERTY_OFFSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getOffset() {
     return offset;
   }
 
-
   public void setOffset(Long offset) {
     this.offset = offset;
   }
-
 
   public UsageAttributionPagination sortDirection(String sortDirection) {
     this.sortDirection = sortDirection;
     return this;
   }
 
-   /**
+  /**
    * Direction to sort by.
+   *
    * @return sortDirection
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Direction to sort by.")
   @JsonProperty(JSON_PROPERTY_SORT_DIRECTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSortDirection() {
     return sortDirection;
   }
 
-
   public void setSortDirection(String sortDirection) {
     this.sortDirection = sortDirection;
   }
-
 
   public UsageAttributionPagination sortName(String sortName) {
     this.sortName = sortName;
     return this;
   }
 
-   /**
+  /**
    * Field to sort by.
+   *
    * @return sortName
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Field to sort by.")
   @JsonProperty(JSON_PROPERTY_SORT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getSortName() {
     return sortName;
   }
 
-
   public void setSortName(String sortName) {
     this.sortName = sortName;
   }
-
 
   public UsageAttributionPagination totalNumberOfRecords(Long totalNumberOfRecords) {
     this.totalNumberOfRecords = totalNumberOfRecords;
     return this;
   }
 
-   /**
+  /**
    * Total number of records.
+   *
    * @return totalNumberOfRecords
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Total number of records.")
   @JsonProperty(JSON_PROPERTY_TOTAL_NUMBER_OF_RECORDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getTotalNumberOfRecords() {
     return totalNumberOfRecords;
   }
-
 
   public void setTotalNumberOfRecords(Long totalNumberOfRecords) {
     this.totalNumberOfRecords = totalNumberOfRecords;
   }
 
-
-  /**
-   * Return true if this UsageAttributionPagination object is equal to o.
-   */
+  /** Return true if this UsageAttributionPagination object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -187,18 +163,18 @@ public class UsageAttributionPagination {
       return false;
     }
     UsageAttributionPagination usageAttributionPagination = (UsageAttributionPagination) o;
-    return Objects.equals(this.limit, usageAttributionPagination.limit) &&
-        Objects.equals(this.offset, usageAttributionPagination.offset) &&
-        Objects.equals(this.sortDirection, usageAttributionPagination.sortDirection) &&
-        Objects.equals(this.sortName, usageAttributionPagination.sortName) &&
-        Objects.equals(this.totalNumberOfRecords, usageAttributionPagination.totalNumberOfRecords);
+    return Objects.equals(this.limit, usageAttributionPagination.limit)
+        && Objects.equals(this.offset, usageAttributionPagination.offset)
+        && Objects.equals(this.sortDirection, usageAttributionPagination.sortDirection)
+        && Objects.equals(this.sortName, usageAttributionPagination.sortName)
+        && Objects.equals(
+            this.totalNumberOfRecords, usageAttributionPagination.totalNumberOfRecords);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(limit, offset, sortDirection, sortName, totalNumberOfRecords);
   }
-
 
   @Override
   public String toString() {
@@ -208,14 +184,15 @@ public class UsageAttributionPagination {
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
     sb.append("    sortDirection: ").append(toIndentedString(sortDirection)).append("\n");
     sb.append("    sortName: ").append(toIndentedString(sortName)).append("\n");
-    sb.append("    totalNumberOfRecords: ").append(toIndentedString(totalNumberOfRecords)).append("\n");
+    sb.append("    totalNumberOfRecords: ")
+        .append(toIndentedString(totalNumberOfRecords))
+        .append("\n");
     sb.append("}");
     return sb.toString();
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -223,6 +200,4 @@ public class UsageAttributionPagination {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

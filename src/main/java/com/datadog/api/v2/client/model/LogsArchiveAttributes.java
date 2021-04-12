@@ -8,31 +8,18 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.LogsArchiveDestination;
-import com.datadog.api.v2.client.model.LogsArchiveState;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * The attributes associated with the archive.
- */
+/** The attributes associated with the archive. */
 @ApiModel(description = "The attributes associated with the archive.")
 @JsonPropertyOrder({
   LogsArchiveAttributes.JSON_PROPERTY_DESTINATION,
@@ -62,100 +49,99 @@ public class LogsArchiveAttributes {
   public static final String JSON_PROPERTY_STATE = "state";
   private LogsArchiveState state;
 
-
   public LogsArchiveAttributes destination(LogsArchiveDestination destination) {
     this.destination = destination;
     return this;
   }
 
-   /**
+  /**
    * Get destination
+   *
    * @return destination
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DESTINATION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public LogsArchiveDestination getDestination() {
     return destination;
   }
 
-
   public void setDestination(LogsArchiveDestination destination) {
     this.destination = destination;
   }
-
 
   public LogsArchiveAttributes includeTags(Boolean includeTags) {
     this.includeTags = includeTags;
     return this;
   }
 
-   /**
-   * To store the tags in the archive, set the value \&quot;true\&quot;. If it is set to \&quot;false\&quot;, the tags will be deleted when the logs are sent to the archive.
+  /**
+   * To store the tags in the archive, set the value \&quot;true\&quot;. If it is set to
+   * \&quot;false\&quot;, the tags will be deleted when the logs are sent to the archive.
+   *
    * @return includeTags
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "To store the tags in the archive, set the value \"true\". If it is set to \"false\", the tags will be deleted when the logs are sent to the archive.")
+  @ApiModelProperty(
+      example = "false",
+      value =
+          "To store the tags in the archive, set the value \"true\". If it is set to \"false\","
+              + " the tags will be deleted when the logs are sent to the archive.")
   @JsonProperty(JSON_PROPERTY_INCLUDE_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getIncludeTags() {
     return includeTags;
   }
 
-
   public void setIncludeTags(Boolean includeTags) {
     this.includeTags = includeTags;
   }
-
 
   public LogsArchiveAttributes name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The archive name.
+   *
    * @return name
-  **/
+   */
   @ApiModelProperty(example = "Nginx Archive", required = true, value = "The archive name.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getName() {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
-
 
   public LogsArchiveAttributes query(String query) {
     this.query = query;
     return this;
   }
 
-   /**
+  /**
    * The archive query/filter. Logs matching this query are included in the archive.
+   *
    * @return query
-  **/
-  @ApiModelProperty(example = "source:nginx", required = true, value = "The archive query/filter. Logs matching this query are included in the archive.")
+   */
+  @ApiModelProperty(
+      example = "source:nginx",
+      required = true,
+      value = "The archive query/filter. Logs matching this query are included in the archive.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getQuery() {
     return query;
   }
 
-
   public void setQuery(String query) {
     this.query = query;
   }
-
 
   public LogsArchiveAttributes rehydrationTags(List<String> rehydrationTags) {
     this.rehydrationTags = rehydrationTags;
@@ -170,52 +156,48 @@ public class LogsArchiveAttributes {
     return this;
   }
 
-   /**
+  /**
    * An array of tags to add to rehydrated logs from an archive.
+   *
    * @return rehydrationTags
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "[\"team:intake\",\"team:app\"]", value = "An array of tags to add to rehydrated logs from an archive.")
+  @ApiModelProperty(
+      example = "[\"team:intake\",\"team:app\"]",
+      value = "An array of tags to add to rehydrated logs from an archive.")
   @JsonProperty(JSON_PROPERTY_REHYDRATION_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getRehydrationTags() {
     return rehydrationTags;
   }
 
-
   public void setRehydrationTags(List<String> rehydrationTags) {
     this.rehydrationTags = rehydrationTags;
   }
-
 
   public LogsArchiveAttributes state(LogsArchiveState state) {
     this.state = state;
     return this;
   }
 
-   /**
+  /**
    * Get state
+   *
    * @return state
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LogsArchiveState getState() {
     return state;
   }
-
 
   public void setState(LogsArchiveState state) {
     this.state = state;
   }
 
-
-  /**
-   * Return true if this LogsArchiveAttributes object is equal to o.
-   */
+  /** Return true if this LogsArchiveAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -225,19 +207,18 @@ public class LogsArchiveAttributes {
       return false;
     }
     LogsArchiveAttributes logsArchiveAttributes = (LogsArchiveAttributes) o;
-    return Objects.equals(this.destination, logsArchiveAttributes.destination) &&
-        Objects.equals(this.includeTags, logsArchiveAttributes.includeTags) &&
-        Objects.equals(this.name, logsArchiveAttributes.name) &&
-        Objects.equals(this.query, logsArchiveAttributes.query) &&
-        Objects.equals(this.rehydrationTags, logsArchiveAttributes.rehydrationTags) &&
-        Objects.equals(this.state, logsArchiveAttributes.state);
+    return Objects.equals(this.destination, logsArchiveAttributes.destination)
+        && Objects.equals(this.includeTags, logsArchiveAttributes.includeTags)
+        && Objects.equals(this.name, logsArchiveAttributes.name)
+        && Objects.equals(this.query, logsArchiveAttributes.query)
+        && Objects.equals(this.rehydrationTags, logsArchiveAttributes.rehydrationTags)
+        && Objects.equals(this.state, logsArchiveAttributes.state);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(destination, includeTags, name, query, rehydrationTags, state);
   }
-
 
   @Override
   public String toString() {
@@ -254,8 +235,7 @@ public class LogsArchiveAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -263,6 +243,4 @@ public class LogsArchiveAttributes {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

@@ -1,0 +1,134 @@
+[{
+  "id" : "78ea05f1-c268-4036-88f2-fd58ca1ae00b",
+  "httpRequest" : {
+    "method" : "POST",
+    "path" : "/api/v1/slo",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "Delete_an_SLO_returns_OK_response" ],
+      "DD-OPERATION-ID" : [ "createSLO" ],
+      "Content-Type" : [ "application/json" ]
+    },
+    "keepAlive" : false,
+    "secure" : true,
+    "body" : {
+      "type" : "JSON",
+      "json" : "{\"name\":\"Test-Delete_an_SLO_returns_OK_response-1618240195\",\"query\":{\"denominator\":\"sum:httpservice.hits{!code:3xx}.as_count()\",\"numerator\":\"sum:httpservice.hits{code:2xx}.as_count()\"},\"thresholds\":[{\"target\":95.0,\"timeframe\":\"7d\",\"warning\":98.0}],\"type\":\"metric\"}"
+    }
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 200,
+    "reasonPhrase" : "OK",
+    "headers" : {
+      "Date" : [ "Mon, 12 Apr 2021 15:09:55 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "keep-alive" ],
+      "vary" : [ "Accept-Encoding" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "x-dd-version" : [ "35.4290125" ],
+      "x-ratelimit-limit" : [ "500" ],
+      "x-ratelimit-period" : [ "60" ],
+      "x-ratelimit-reset" : [ "5" ],
+      "x-ratelimit-remaining" : [ "491" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ],
+      "content-length" : [ "564" ]
+    },
+    "body" : "{\"data\":[{\"description\":\"\",\"monitor_tags\":[],\"creator\":{\"handle\":\"frog@datadoghq.com\",\"name\":null,\"email\":\"frog@datadoghq.com\"},\"thresholds\":[{\"warning\":98.0,\"warning_display\":\"98.\",\"target\":95.0,\"target_display\":\"95.\",\"timeframe\":\"7d\"}],\"type_id\":1,\"query\":{\"denominator\":\"sum:httpservice.hits{!code:3xx}.as_count()\",\"numerator\":\"sum:httpservice.hits{code:2xx}.as_count()\"},\"id\":\"2ed6f32851625972a0606fded5463cf2\",\"name\":\"Test-Delete_an_SLO_returns_OK_response-1618240195\",\"created_at\":1618240195,\"tags\":[],\"modified_at\":1618240195,\"type\":\"metric\"}],\"error\":null}"
+  }
+}, {
+  "id" : "e2304ae6-a185-43af-81d1-437470888322",
+  "httpRequest" : {
+    "method" : "DELETE",
+    "path" : "/api/v1/slo/2ed6f32851625972a0606fded5463cf2",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "Delete_an_SLO_returns_OK_response" ],
+      "DD-OPERATION-ID" : [ "deleteSLO" ],
+      "Content-Type" : [ "application/json" ]
+    },
+    "keepAlive" : false,
+    "secure" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 200,
+    "reasonPhrase" : "OK",
+    "headers" : {
+      "Date" : [ "Mon, 12 Apr 2021 15:09:56 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "keep-alive" ],
+      "vary" : [ "Accept-Encoding" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "x-dd-version" : [ "35.4290125" ],
+      "x-ratelimit-limit" : [ "3000" ],
+      "x-ratelimit-period" : [ "10" ],
+      "x-ratelimit-reset" : [ "4" ],
+      "x-ratelimit-remaining" : [ "2998" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ],
+      "content-length" : [ "58" ]
+    },
+    "body" : "{\"data\":[\"2ed6f32851625972a0606fded5463cf2\"],\"error\":null}"
+  }
+}, {
+  "id" : "d6061e21-8dc9-472a-9ffd-7f99bb37672f",
+  "httpRequest" : {
+    "method" : "DELETE",
+    "path" : "/api/v1/slo/2ed6f32851625972a0606fded5463cf2",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "Delete_an_SLO_returns_OK_response" ],
+      "DD-OPERATION-ID" : [ "deleteSLO" ],
+      "Content-Type" : [ "application/json" ]
+    },
+    "keepAlive" : false,
+    "secure" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 404,
+    "reasonPhrase" : "Not Found",
+    "headers" : {
+      "Date" : [ "Mon, 12 Apr 2021 15:09:56 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "keep-alive" ],
+      "vary" : [ "Accept-Encoding" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "x-ratelimit-limit" : [ "3000" ],
+      "x-ratelimit-period" : [ "10" ],
+      "x-ratelimit-reset" : [ "4" ],
+      "x-ratelimit-remaining" : [ "2997" ],
+      "x-dd-version" : [ "35.4290125" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ],
+      "content-length" : [ "73" ]
+    },
+    "body" : "{\"errors\": [\"SLO not found: 2ed6f32851625972a0606fded5463cf2 not found\"]}"
+  }
+}]

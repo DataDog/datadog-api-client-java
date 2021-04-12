@@ -8,29 +8,18 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Object listing all metric names stored by Datadog since a given time.
- */
+/** Object listing all metric names stored by Datadog since a given time. */
 @ApiModel(description = "Object listing all metric names stored by Datadog since a given time.")
 @JsonPropertyOrder({
   MetricsListResponse.JSON_PROPERTY_FROM,
@@ -44,30 +33,27 @@ public class MetricsListResponse {
   public static final String JSON_PROPERTY_METRICS = "metrics";
   private List<String> metrics = null;
 
-
   public MetricsListResponse from(String from) {
     this.from = from;
     return this;
   }
 
-   /**
+  /**
    * Time when the metrics were active, seconds since the Unix epoch.
+   *
    * @return from
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Time when the metrics were active, seconds since the Unix epoch.")
   @JsonProperty(JSON_PROPERTY_FROM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getFrom() {
     return from;
   }
 
-
   public void setFrom(String from) {
     this.from = from;
   }
-
 
   public MetricsListResponse metrics(List<String> metrics) {
     this.metrics = metrics;
@@ -82,28 +68,24 @@ public class MetricsListResponse {
     return this;
   }
 
-   /**
+  /**
    * List of metric names.
+   *
    * @return metrics
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "List of metric names.")
   @JsonProperty(JSON_PROPERTY_METRICS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getMetrics() {
     return metrics;
   }
-
 
   public void setMetrics(List<String> metrics) {
     this.metrics = metrics;
   }
 
-
-  /**
-   * Return true if this MetricsListResponse object is equal to o.
-   */
+  /** Return true if this MetricsListResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -113,15 +95,14 @@ public class MetricsListResponse {
       return false;
     }
     MetricsListResponse metricsListResponse = (MetricsListResponse) o;
-    return Objects.equals(this.from, metricsListResponse.from) &&
-        Objects.equals(this.metrics, metricsListResponse.metrics);
+    return Objects.equals(this.from, metricsListResponse.from)
+        && Objects.equals(this.metrics, metricsListResponse.metrics);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(from, metrics);
   }
-
 
   @Override
   public String toString() {
@@ -134,8 +115,7 @@ public class MetricsListResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -143,6 +123,4 @@ public class MetricsListResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

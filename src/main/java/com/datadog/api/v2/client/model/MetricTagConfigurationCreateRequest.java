@@ -8,64 +8,47 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.MetricTagConfigurationCreateData;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Request object that includes the metric that you would like to configure tags for.
- */
-@ApiModel(description = "Request object that includes the metric that you would like to configure tags for.")
-@JsonPropertyOrder({
-  MetricTagConfigurationCreateRequest.JSON_PROPERTY_DATA
-})
+/** Request object that includes the metric that you would like to configure tags for. */
+@ApiModel(
+    description =
+        "Request object that includes the metric that you would like to configure tags for.")
+@JsonPropertyOrder({MetricTagConfigurationCreateRequest.JSON_PROPERTY_DATA})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MetricTagConfigurationCreateRequest {
   public static final String JSON_PROPERTY_DATA = "data";
   private MetricTagConfigurationCreateData data;
-
 
   public MetricTagConfigurationCreateRequest data(MetricTagConfigurationCreateData data) {
     this.data = data;
     return this;
   }
 
-   /**
+  /**
    * Get data
+   *
    * @return data
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public MetricTagConfigurationCreateData getData() {
     return data;
   }
-
 
   public void setData(MetricTagConfigurationCreateData data) {
     this.data = data;
   }
 
-
-  /**
-   * Return true if this MetricTagConfigurationCreateRequest object is equal to o.
-   */
+  /** Return true if this MetricTagConfigurationCreateRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -74,7 +57,8 @@ public class MetricTagConfigurationCreateRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MetricTagConfigurationCreateRequest metricTagConfigurationCreateRequest = (MetricTagConfigurationCreateRequest) o;
+    MetricTagConfigurationCreateRequest metricTagConfigurationCreateRequest =
+        (MetricTagConfigurationCreateRequest) o;
     return Objects.equals(this.data, metricTagConfigurationCreateRequest.data);
   }
 
@@ -82,7 +66,6 @@ public class MetricTagConfigurationCreateRequest {
   public int hashCode() {
     return Objects.hash(data);
   }
-
 
   @Override
   public String toString() {
@@ -94,8 +77,7 @@ public class MetricTagConfigurationCreateRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -103,6 +85,4 @@ public class MetricTagConfigurationCreateRequest {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

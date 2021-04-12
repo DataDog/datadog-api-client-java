@@ -8,28 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.FormulaAndFunctionEventAggregation;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Compute options.
- */
+/** Compute options. */
 @ApiModel(description = "Compute options.")
 @JsonPropertyOrder({
   FormulaAndFunctionEventQueryDefinitionCompute.JSON_PROPERTY_AGGREGATION,
@@ -47,81 +35,73 @@ public class FormulaAndFunctionEventQueryDefinitionCompute {
   public static final String JSON_PROPERTY_METRIC = "metric";
   private String metric;
 
-
-  public FormulaAndFunctionEventQueryDefinitionCompute aggregation(FormulaAndFunctionEventAggregation aggregation) {
+  public FormulaAndFunctionEventQueryDefinitionCompute aggregation(
+      FormulaAndFunctionEventAggregation aggregation) {
     this.aggregation = aggregation;
     return this;
   }
 
-   /**
+  /**
    * Get aggregation
+   *
    * @return aggregation
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_AGGREGATION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public FormulaAndFunctionEventAggregation getAggregation() {
     return aggregation;
   }
 
-
   public void setAggregation(FormulaAndFunctionEventAggregation aggregation) {
     this.aggregation = aggregation;
   }
-
 
   public FormulaAndFunctionEventQueryDefinitionCompute interval(Long interval) {
     this.interval = interval;
     return this;
   }
 
-   /**
+  /**
    * A time interval in milliseconds.
+   *
    * @return interval
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(example = "60000", value = "A time interval in milliseconds.")
   @JsonProperty(JSON_PROPERTY_INTERVAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getInterval() {
     return interval;
   }
 
-
   public void setInterval(Long interval) {
     this.interval = interval;
   }
-
 
   public FormulaAndFunctionEventQueryDefinitionCompute metric(String metric) {
     this.metric = metric;
     return this;
   }
 
-   /**
+  /**
    * Measurable attribute to compute.
+   *
    * @return metric
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(example = "@duration", value = "Measurable attribute to compute.")
   @JsonProperty(JSON_PROPERTY_METRIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMetric() {
     return metric;
   }
-
 
   public void setMetric(String metric) {
     this.metric = metric;
   }
 
-
-  /**
-   * Return true if this FormulaAndFunctionEventQueryDefinition_compute object is equal to o.
-   */
+  /** Return true if this FormulaAndFunctionEventQueryDefinition_compute object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -130,17 +110,18 @@ public class FormulaAndFunctionEventQueryDefinitionCompute {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FormulaAndFunctionEventQueryDefinitionCompute formulaAndFunctionEventQueryDefinitionCompute = (FormulaAndFunctionEventQueryDefinitionCompute) o;
-    return Objects.equals(this.aggregation, formulaAndFunctionEventQueryDefinitionCompute.aggregation) &&
-        Objects.equals(this.interval, formulaAndFunctionEventQueryDefinitionCompute.interval) &&
-        Objects.equals(this.metric, formulaAndFunctionEventQueryDefinitionCompute.metric);
+    FormulaAndFunctionEventQueryDefinitionCompute formulaAndFunctionEventQueryDefinitionCompute =
+        (FormulaAndFunctionEventQueryDefinitionCompute) o;
+    return Objects.equals(
+            this.aggregation, formulaAndFunctionEventQueryDefinitionCompute.aggregation)
+        && Objects.equals(this.interval, formulaAndFunctionEventQueryDefinitionCompute.interval)
+        && Objects.equals(this.metric, formulaAndFunctionEventQueryDefinitionCompute.metric);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(aggregation, interval, metric);
   }
-
 
   @Override
   public String toString() {
@@ -154,8 +135,7 @@ public class FormulaAndFunctionEventQueryDefinitionCompute {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -163,6 +143,4 @@ public class FormulaAndFunctionEventQueryDefinitionCompute {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

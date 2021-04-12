@@ -8,28 +8,17 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * The number of profiled hosts for each hour for a given organization.
- */
+/** The number of profiled hosts for each hour for a given organization. */
 @ApiModel(description = "The number of profiled hosts for each hour for a given organization.")
 @JsonPropertyOrder({
   UsageProfilingHour.JSON_PROPERTY_AVG_CONTAINER_AGENT_COUNT,
@@ -47,82 +36,74 @@ public class UsageProfilingHour {
   public static final String JSON_PROPERTY_HOUR = "hour";
   private OffsetDateTime hour;
 
-
   public UsageProfilingHour avgContainerAgentCount(Long avgContainerAgentCount) {
     this.avgContainerAgentCount = avgContainerAgentCount;
     return this;
   }
 
-   /**
+  /**
    * Get average number of container agents for that hour.
+   *
    * @return avgContainerAgentCount
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Get average number of container agents for that hour.")
   @JsonProperty(JSON_PROPERTY_AVG_CONTAINER_AGENT_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getAvgContainerAgentCount() {
     return avgContainerAgentCount;
   }
 
-
   public void setAvgContainerAgentCount(Long avgContainerAgentCount) {
     this.avgContainerAgentCount = avgContainerAgentCount;
   }
-
 
   public UsageProfilingHour hostCount(Long hostCount) {
     this.hostCount = hostCount;
     return this;
   }
 
-   /**
+  /**
    * Contains the total number of profiled hosts reporting during a given hour.
+   *
    * @return hostCount
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Contains the total number of profiled hosts reporting during a given hour.")
+  @ApiModelProperty(
+      value = "Contains the total number of profiled hosts reporting during a given hour.")
   @JsonProperty(JSON_PROPERTY_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getHostCount() {
     return hostCount;
   }
 
-
   public void setHostCount(Long hostCount) {
     this.hostCount = hostCount;
   }
-
 
   public UsageProfilingHour hour(OffsetDateTime hour) {
     this.hour = hour;
     return this;
   }
 
-   /**
+  /**
    * The hour for the usage.
+   *
    * @return hour
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The hour for the usage.")
   @JsonProperty(JSON_PROPERTY_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getHour() {
     return hour;
   }
-
 
   public void setHour(OffsetDateTime hour) {
     this.hour = hour;
   }
 
-
-  /**
-   * Return true if this UsageProfilingHour object is equal to o.
-   */
+  /** Return true if this UsageProfilingHour object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -132,9 +113,9 @@ public class UsageProfilingHour {
       return false;
     }
     UsageProfilingHour usageProfilingHour = (UsageProfilingHour) o;
-    return Objects.equals(this.avgContainerAgentCount, usageProfilingHour.avgContainerAgentCount) &&
-        Objects.equals(this.hostCount, usageProfilingHour.hostCount) &&
-        Objects.equals(this.hour, usageProfilingHour.hour);
+    return Objects.equals(this.avgContainerAgentCount, usageProfilingHour.avgContainerAgentCount)
+        && Objects.equals(this.hostCount, usageProfilingHour.hostCount)
+        && Objects.equals(this.hour, usageProfilingHour.hour);
   }
 
   @Override
@@ -142,12 +123,13 @@ public class UsageProfilingHour {
     return Objects.hash(avgContainerAgentCount, hostCount, hour);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UsageProfilingHour {\n");
-    sb.append("    avgContainerAgentCount: ").append(toIndentedString(avgContainerAgentCount)).append("\n");
+    sb.append("    avgContainerAgentCount: ")
+        .append(toIndentedString(avgContainerAgentCount))
+        .append("\n");
     sb.append("    hostCount: ").append(toIndentedString(hostCount)).append("\n");
     sb.append("    hour: ").append(toIndentedString(hour)).append("\n");
     sb.append("}");
@@ -155,8 +137,7 @@ public class UsageProfilingHour {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -164,6 +145,4 @@ public class UsageProfilingHour {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

@@ -8,39 +8,24 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.ApiKey;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * List of API and application keys available for a given organization.
- */
+/** List of API and application keys available for a given organization. */
 @ApiModel(description = "List of API and application keys available for a given organization.")
-@JsonPropertyOrder({
-  ApiKeyListResponse.JSON_PROPERTY_API_KEYS
-})
+@JsonPropertyOrder({ApiKeyListResponse.JSON_PROPERTY_API_KEYS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ApiKeyListResponse {
   public static final String JSON_PROPERTY_API_KEYS = "api_keys";
   private List<ApiKey> apiKeys = null;
-
 
   public ApiKeyListResponse apiKeys(List<ApiKey> apiKeys) {
     this.apiKeys = apiKeys;
@@ -55,28 +40,24 @@ public class ApiKeyListResponse {
     return this;
   }
 
-   /**
+  /**
    * Array of API keys.
+   *
    * @return apiKeys
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Array of API keys.")
   @JsonProperty(JSON_PROPERTY_API_KEYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<ApiKey> getApiKeys() {
     return apiKeys;
   }
-
 
   public void setApiKeys(List<ApiKey> apiKeys) {
     this.apiKeys = apiKeys;
   }
 
-
-  /**
-   * Return true if this ApiKeyListResponse object is equal to o.
-   */
+  /** Return true if this ApiKeyListResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -94,7 +75,6 @@ public class ApiKeyListResponse {
     return Objects.hash(apiKeys);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -105,8 +85,7 @@ public class ApiKeyListResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -114,6 +93,4 @@ public class ApiKeyListResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

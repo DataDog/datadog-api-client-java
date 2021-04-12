@@ -8,27 +8,16 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Git information.
- */
+/** Git information. */
 @ApiModel(description = "Git information.")
 @JsonPropertyOrder({
   SyntheticsCITestMetadataGit.JSON_PROPERTY_BRANCH,
@@ -42,58 +31,51 @@ public class SyntheticsCITestMetadataGit {
   public static final String JSON_PROPERTY_COMMIT_SHA = "commit_sha";
   private String commitSha;
 
-
   public SyntheticsCITestMetadataGit branch(String branch) {
     this.branch = branch;
     return this;
   }
 
-   /**
+  /**
    * Branch name.
+   *
    * @return branch
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Branch name.")
   @JsonProperty(JSON_PROPERTY_BRANCH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getBranch() {
     return branch;
   }
 
-
   public void setBranch(String branch) {
     this.branch = branch;
   }
-
 
   public SyntheticsCITestMetadataGit commitSha(String commitSha) {
     this.commitSha = commitSha;
     return this;
   }
 
-   /**
+  /**
    * Commit SHA.
+   *
    * @return commitSha
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Commit SHA.")
   @JsonProperty(JSON_PROPERTY_COMMIT_SHA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getCommitSha() {
     return commitSha;
   }
-
 
   public void setCommitSha(String commitSha) {
     this.commitSha = commitSha;
   }
 
-
-  /**
-   * Return true if this SyntheticsCITest_metadata_git object is equal to o.
-   */
+  /** Return true if this SyntheticsCITest_metadata_git object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -103,15 +85,14 @@ public class SyntheticsCITestMetadataGit {
       return false;
     }
     SyntheticsCITestMetadataGit syntheticsCITestMetadataGit = (SyntheticsCITestMetadataGit) o;
-    return Objects.equals(this.branch, syntheticsCITestMetadataGit.branch) &&
-        Objects.equals(this.commitSha, syntheticsCITestMetadataGit.commitSha);
+    return Objects.equals(this.branch, syntheticsCITestMetadataGit.branch)
+        && Objects.equals(this.commitSha, syntheticsCITestMetadataGit.commitSha);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(branch, commitSha);
   }
-
 
   @Override
   public String toString() {
@@ -124,8 +105,7 @@ public class SyntheticsCITestMetadataGit {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -133,6 +113,4 @@ public class SyntheticsCITestMetadataGit {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

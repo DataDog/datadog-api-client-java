@@ -8,36 +8,25 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.ScatterPlotWidgetDefinitionRequests;
-import com.datadog.api.v1.client.model.ScatterPlotWidgetDefinitionType;
-import com.datadog.api.v1.client.model.WidgetAxis;
-import com.datadog.api.v1.client.model.WidgetCustomLink;
-import com.datadog.api.v1.client.model.WidgetTextAlign;
-import com.datadog.api.v1.client.model.WidgetTime;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
-
+import java.util.Objects;
 
 /**
- * The scatter plot visualization allows you to graph a chosen scope over two different metrics with their respective aggregation.
+ * The scatter plot visualization allows you to graph a chosen scope over two different metrics with
+ * their respective aggregation.
  */
-@ApiModel(description = "The scatter plot visualization allows you to graph a chosen scope over two different metrics with their respective aggregation.")
+@ApiModel(
+    description =
+        "The scatter plot visualization allows you to graph a chosen scope over two different"
+            + " metrics with their respective aggregation.")
 @JsonPropertyOrder({
   ScatterPlotWidgetDefinition.JSON_PROPERTY_COLOR_BY_GROUPS,
   ScatterPlotWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
@@ -82,7 +71,6 @@ public class ScatterPlotWidgetDefinition {
   public static final String JSON_PROPERTY_YAXIS = "yaxis";
   private WidgetAxis yaxis;
 
-
   public ScatterPlotWidgetDefinition colorByGroups(List<String> colorByGroups) {
     this.colorByGroups = colorByGroups;
     return this;
@@ -96,24 +84,22 @@ public class ScatterPlotWidgetDefinition {
     return this;
   }
 
-   /**
+  /**
    * List of groups used for colors.
+   *
    * @return colorByGroups
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "List of groups used for colors.")
   @JsonProperty(JSON_PROPERTY_COLOR_BY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getColorByGroups() {
     return colorByGroups;
   }
 
-
   public void setColorByGroups(List<String> colorByGroups) {
     this.colorByGroups = colorByGroups;
   }
-
 
   public ScatterPlotWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
@@ -128,218 +114,198 @@ public class ScatterPlotWidgetDefinition {
     return this;
   }
 
-   /**
+  /**
    * List of custom links.
+   *
    * @return customLinks
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "List of custom links.")
   @JsonProperty(JSON_PROPERTY_CUSTOM_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<WidgetCustomLink> getCustomLinks() {
     return customLinks;
   }
 
-
   public void setCustomLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
   }
-
 
   public ScatterPlotWidgetDefinition requests(ScatterPlotWidgetDefinitionRequests requests) {
     this.requests = requests;
     return this;
   }
 
-   /**
+  /**
    * Get requests
+   *
    * @return requests
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_REQUESTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public ScatterPlotWidgetDefinitionRequests getRequests() {
     return requests;
   }
 
-
   public void setRequests(ScatterPlotWidgetDefinitionRequests requests) {
     this.requests = requests;
   }
-
 
   public ScatterPlotWidgetDefinition time(WidgetTime time) {
     this.time = time;
     return this;
   }
 
-   /**
+  /**
    * Get time
+   *
    * @return time
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public WidgetTime getTime() {
     return time;
   }
 
-
   public void setTime(WidgetTime time) {
     this.time = time;
   }
-
 
   public ScatterPlotWidgetDefinition title(String title) {
     this.title = title;
     return this;
   }
 
-   /**
+  /**
    * Title of your widget.
+   *
    * @return title
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Title of your widget.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTitle() {
     return title;
   }
 
-
   public void setTitle(String title) {
     this.title = title;
   }
-
 
   public ScatterPlotWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
     return this;
   }
 
-   /**
+  /**
    * Get titleAlign
+   *
    * @return titleAlign
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public WidgetTextAlign getTitleAlign() {
     return titleAlign;
   }
 
-
   public void setTitleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
   }
-
 
   public ScatterPlotWidgetDefinition titleSize(String titleSize) {
     this.titleSize = titleSize;
     return this;
   }
 
-   /**
+  /**
    * Size of the title.
+   *
    * @return titleSize
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Size of the title.")
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTitleSize() {
     return titleSize;
   }
 
-
   public void setTitleSize(String titleSize) {
     this.titleSize = titleSize;
   }
-
 
   public ScatterPlotWidgetDefinition type(ScatterPlotWidgetDefinitionType type) {
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
+   *
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public ScatterPlotWidgetDefinitionType getType() {
     return type;
   }
 
-
   public void setType(ScatterPlotWidgetDefinitionType type) {
     this.type = type;
   }
-
 
   public ScatterPlotWidgetDefinition xaxis(WidgetAxis xaxis) {
     this.xaxis = xaxis;
     return this;
   }
 
-   /**
+  /**
    * Get xaxis
+   *
    * @return xaxis
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_XAXIS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public WidgetAxis getXaxis() {
     return xaxis;
   }
 
-
   public void setXaxis(WidgetAxis xaxis) {
     this.xaxis = xaxis;
   }
-
 
   public ScatterPlotWidgetDefinition yaxis(WidgetAxis yaxis) {
     this.yaxis = yaxis;
     return this;
   }
 
-   /**
+  /**
    * Get yaxis
+   *
    * @return yaxis
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_YAXIS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public WidgetAxis getYaxis() {
     return yaxis;
   }
-
 
   public void setYaxis(WidgetAxis yaxis) {
     this.yaxis = yaxis;
   }
 
-
-  /**
-   * Return true if this ScatterPlotWidgetDefinition object is equal to o.
-   */
+  /** Return true if this ScatterPlotWidgetDefinition object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -349,23 +315,32 @@ public class ScatterPlotWidgetDefinition {
       return false;
     }
     ScatterPlotWidgetDefinition scatterPlotWidgetDefinition = (ScatterPlotWidgetDefinition) o;
-    return Objects.equals(this.colorByGroups, scatterPlotWidgetDefinition.colorByGroups) &&
-        Objects.equals(this.customLinks, scatterPlotWidgetDefinition.customLinks) &&
-        Objects.equals(this.requests, scatterPlotWidgetDefinition.requests) &&
-        Objects.equals(this.time, scatterPlotWidgetDefinition.time) &&
-        Objects.equals(this.title, scatterPlotWidgetDefinition.title) &&
-        Objects.equals(this.titleAlign, scatterPlotWidgetDefinition.titleAlign) &&
-        Objects.equals(this.titleSize, scatterPlotWidgetDefinition.titleSize) &&
-        Objects.equals(this.type, scatterPlotWidgetDefinition.type) &&
-        Objects.equals(this.xaxis, scatterPlotWidgetDefinition.xaxis) &&
-        Objects.equals(this.yaxis, scatterPlotWidgetDefinition.yaxis);
+    return Objects.equals(this.colorByGroups, scatterPlotWidgetDefinition.colorByGroups)
+        && Objects.equals(this.customLinks, scatterPlotWidgetDefinition.customLinks)
+        && Objects.equals(this.requests, scatterPlotWidgetDefinition.requests)
+        && Objects.equals(this.time, scatterPlotWidgetDefinition.time)
+        && Objects.equals(this.title, scatterPlotWidgetDefinition.title)
+        && Objects.equals(this.titleAlign, scatterPlotWidgetDefinition.titleAlign)
+        && Objects.equals(this.titleSize, scatterPlotWidgetDefinition.titleSize)
+        && Objects.equals(this.type, scatterPlotWidgetDefinition.type)
+        && Objects.equals(this.xaxis, scatterPlotWidgetDefinition.xaxis)
+        && Objects.equals(this.yaxis, scatterPlotWidgetDefinition.yaxis);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(colorByGroups, customLinks, requests, time, title, titleAlign, titleSize, type, xaxis, yaxis);
+    return Objects.hash(
+        colorByGroups,
+        customLinks,
+        requests,
+        time,
+        title,
+        titleAlign,
+        titleSize,
+        type,
+        xaxis,
+        yaxis);
   }
-
 
   @Override
   public String toString() {
@@ -386,8 +361,7 @@ public class ScatterPlotWidgetDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -395,6 +369,4 @@ public class ScatterPlotWidgetDefinition {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

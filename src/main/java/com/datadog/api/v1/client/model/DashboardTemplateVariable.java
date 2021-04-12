@@ -8,30 +8,18 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.datadog.api.v1.client.JSON;
 
-
-/**
- * Template variable.
- */
+/** Template variable. */
 @ApiModel(description = "Template variable.")
 @JsonPropertyOrder({
   DashboardTemplateVariable.JSON_PROPERTY_DEFAULT,
@@ -49,31 +37,31 @@ public class DashboardTemplateVariable {
   public static final String JSON_PROPERTY_PREFIX = "prefix";
   private JsonNullable<String> prefix = JsonNullable.<String>undefined();
 
-
   public DashboardTemplateVariable _default(String _default) {
     this._default = JsonNullable.<String>of(_default);
     return this;
   }
 
-   /**
+  /**
    * The default value for the template variable on dashboard load.
+   *
    * @return _default
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "my-host", value = "The default value for the template variable on dashboard load.")
+  @ApiModelProperty(
+      example = "my-host",
+      value = "The default value for the template variable on dashboard load.")
   @JsonIgnore
-
   public String getDefault() {
-        return _default.orElse(null);
+    return _default.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_DEFAULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getDefault_JsonNullable() {
     return _default;
   }
-  
+
   @JsonProperty(JSON_PROPERTY_DEFAULT)
   public void setDefault_JsonNullable(JsonNullable<String> _default) {
     this._default = _default;
@@ -83,54 +71,55 @@ public class DashboardTemplateVariable {
     this._default = JsonNullable.<String>of(_default);
   }
 
-
   public DashboardTemplateVariable name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * The name of the variable.
+   *
    * @return name
-  **/
+   */
   @ApiModelProperty(example = "host1", required = true, value = "The name of the variable.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getName() {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
-
 
   public DashboardTemplateVariable prefix(String prefix) {
     this.prefix = JsonNullable.<String>of(prefix);
     return this;
   }
 
-   /**
-   * The tag prefix associated with the variable. Only tags with this prefix appear in the variable drop-down.
+  /**
+   * The tag prefix associated with the variable. Only tags with this prefix appear in the variable
+   * drop-down.
+   *
    * @return prefix
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "host", value = "The tag prefix associated with the variable. Only tags with this prefix appear in the variable drop-down.")
+  @ApiModelProperty(
+      example = "host",
+      value =
+          "The tag prefix associated with the variable. Only tags with this prefix appear in the"
+              + " variable drop-down.")
   @JsonIgnore
-
   public String getPrefix() {
-        return prefix.orElse(null);
+    return prefix.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_PREFIX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<String> getPrefix_JsonNullable() {
     return prefix;
   }
-  
+
   @JsonProperty(JSON_PROPERTY_PREFIX)
   public void setPrefix_JsonNullable(JsonNullable<String> prefix) {
     this.prefix = prefix;
@@ -140,10 +129,7 @@ public class DashboardTemplateVariable {
     this.prefix = JsonNullable.<String>of(prefix);
   }
 
-
-  /**
-   * Return true if this DashboardTemplateVariable object is equal to o.
-   */
+  /** Return true if this DashboardTemplateVariable object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -153,16 +139,15 @@ public class DashboardTemplateVariable {
       return false;
     }
     DashboardTemplateVariable dashboardTemplateVariable = (DashboardTemplateVariable) o;
-    return Objects.equals(this._default, dashboardTemplateVariable._default) &&
-        Objects.equals(this.name, dashboardTemplateVariable.name) &&
-        Objects.equals(this.prefix, dashboardTemplateVariable.prefix);
+    return Objects.equals(this._default, dashboardTemplateVariable._default)
+        && Objects.equals(this.name, dashboardTemplateVariable.name)
+        && Objects.equals(this.prefix, dashboardTemplateVariable.prefix);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(_default, name, prefix);
   }
-
 
   @Override
   public String toString() {
@@ -176,8 +161,7 @@ public class DashboardTemplateVariable {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -185,6 +169,4 @@ public class DashboardTemplateVariable {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-
