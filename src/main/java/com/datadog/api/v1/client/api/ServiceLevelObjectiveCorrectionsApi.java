@@ -254,7 +254,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Delete an SLO Correction Permanently delete the specified SLO Correction object
+   * Delete an SLO correction Permanently delete the specified SLO correction object
    *
    * @param sloCorrectionId The ID of the SLO correction object (required)
    * @return deleteSLOCorrectionRequest
@@ -368,7 +368,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Get an SLO correction for an SLO Get an SLO Correction
+   * Get an SLO correction for an SLO Get an SLO correction
    *
    * @param sloCorrectionId The ID of the SLO correction object (required)
    * @return getSLOCorrectionRequest
@@ -466,7 +466,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Get all SLO corrections Get all Service Level Objective Corrections
+   * Get all SLO corrections Get all Service Level Objective corrections
    *
    * @return listSLOCorrectionRequest
    * @throws ApiException if fails to make API call
@@ -597,7 +597,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Update an SLO Correction Update the specified SLO correction object object
+   * Update an SLO correction Update the specified SLO correction object object
    *
    * @param sloCorrectionId The ID of the SLO correction object (required)
    * @return updateSLOCorrectionRequest

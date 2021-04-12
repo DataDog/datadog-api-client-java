@@ -104,10 +104,10 @@ Class | Method | HTTP request | Description
 *PagerDutyIntegrationApi* | [**updatePagerDutyIntegrationService**](PagerDutyIntegrationApi.md#updatePagerDutyIntegrationService) | **PUT** /api/v1/integration/pagerduty/configuration/services/{service_name} | Update a single service object
 *ServiceChecksApi* | [**submitServiceCheck**](ServiceChecksApi.md#submitServiceCheck) | **POST** /api/v1/check_run | Submit a Service Check
 *ServiceLevelObjectiveCorrectionsApi* | [**createSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#createSLOCorrection) | **POST** /api/v1/slo/correction | Create an SLO correction
-*ServiceLevelObjectiveCorrectionsApi* | [**deleteSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#deleteSLOCorrection) | **DELETE** /api/v1/slo/correction/{slo_correction_id} | Delete an SLO Correction
+*ServiceLevelObjectiveCorrectionsApi* | [**deleteSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#deleteSLOCorrection) | **DELETE** /api/v1/slo/correction/{slo_correction_id} | Delete an SLO correction
 *ServiceLevelObjectiveCorrectionsApi* | [**getSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#getSLOCorrection) | **GET** /api/v1/slo/correction/{slo_correction_id} | Get an SLO correction for an SLO
 *ServiceLevelObjectiveCorrectionsApi* | [**listSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#listSLOCorrection) | **GET** /api/v1/slo/correction | Get all SLO corrections
-*ServiceLevelObjectiveCorrectionsApi* | [**updateSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#updateSLOCorrection) | **PATCH** /api/v1/slo/correction/{slo_correction_id} | Update an SLO Correction
+*ServiceLevelObjectiveCorrectionsApi* | [**updateSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#updateSLOCorrection) | **PATCH** /api/v1/slo/correction/{slo_correction_id} | Update an SLO correction
 *ServiceLevelObjectivesApi* | [**checkCanDeleteSLO**](ServiceLevelObjectivesApi.md#checkCanDeleteSLO) | **GET** /api/v1/slo/can_delete | Check if SLOs can be safely deleted
 *ServiceLevelObjectivesApi* | [**createSLO**](ServiceLevelObjectivesApi.md#createSLO) | **POST** /api/v1/slo | Create an SLO object
 *ServiceLevelObjectivesApi* | [**deleteSLO**](ServiceLevelObjectivesApi.md#deleteSLO) | **DELETE** /api/v1/slo/{slo_id} | Delete an SLO
