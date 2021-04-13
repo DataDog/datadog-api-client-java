@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## createLogsMetric
 
-> LogsMetricResponse createLogsMetric(body);
+> LogsMetricResponse createLogsMetric().body(body).execute();
 
 Create a log-based metric
 
@@ -40,7 +40,9 @@ public class Example {
         LogsMetricsApi apiInstance = new LogsMetricsApi(defaultClient);
         LogsMetricCreateRequest body = new LogsMetricCreateRequest(); // LogsMetricCreateRequest | The definition of the new log-based metric.
         try {
-            LogsMetricResponse result = apiInstance.createLogsMetric(body);
+            LogsMetricResponse result = apiInstance.createLogsMetric()
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling LogsMetricsApi#createLogsMetric");
@@ -85,7 +87,7 @@ Name | Type | Description  | Notes
 
 ## deleteLogsMetric
 
-> deleteLogsMetric(metricId);
+> deleteLogsMetric(metricId).execute();
 
 Delete a log-based metric
 
@@ -110,7 +112,8 @@ public class Example {
         LogsMetricsApi apiInstance = new LogsMetricsApi(defaultClient);
         String metricId = "metricId_example"; // String | The name of the log-based metric.
         try {
-            apiInstance.deleteLogsMetric(metricId);
+            apiInstance.deleteLogsMetric(metricId)
+                .execute();
         } catch (ApiException e) {
             System.err.println("Exception when calling LogsMetricsApi#deleteLogsMetric");
             System.err.println("Status code: " + e.getCode());
@@ -153,7 +156,7 @@ null (empty response body)
 
 ## getLogsMetric
 
-> LogsMetricResponse getLogsMetric(metricId);
+> LogsMetricResponse getLogsMetric(metricId).execute();
 
 Get a log-based metric
 
@@ -178,7 +181,8 @@ public class Example {
         LogsMetricsApi apiInstance = new LogsMetricsApi(defaultClient);
         String metricId = "metricId_example"; // String | The name of the log-based metric.
         try {
-            LogsMetricResponse result = apiInstance.getLogsMetric(metricId);
+            LogsMetricResponse result = apiInstance.getLogsMetric(metricId)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling LogsMetricsApi#getLogsMetric");
@@ -222,7 +226,7 @@ Name | Type | Description  | Notes
 
 ## listLogsMetrics
 
-> LogsMetricsResponse listLogsMetrics();
+> LogsMetricsResponse listLogsMetrics().execute();
 
 Get all log-based metrics
 
@@ -246,7 +250,8 @@ public class Example {
 
         LogsMetricsApi apiInstance = new LogsMetricsApi(defaultClient);
         try {
-            LogsMetricsResponse result = apiInstance.listLogsMetrics();
+            LogsMetricsResponse result = apiInstance.listLogsMetrics()
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling LogsMetricsApi#listLogsMetrics");
@@ -286,7 +291,7 @@ This endpoint does not need any parameter.
 
 ## updateLogsMetric
 
-> LogsMetricResponse updateLogsMetric(metricId, body);
+> LogsMetricResponse updateLogsMetric(metricId).body(body).execute();
 
 Update a log-based metric
 
@@ -313,7 +318,9 @@ public class Example {
         String metricId = "metricId_example"; // String | The name of the log-based metric.
         LogsMetricUpdateRequest body = new LogsMetricUpdateRequest(); // LogsMetricUpdateRequest | New definition of the log-based metric.
         try {
-            LogsMetricResponse result = apiInstance.updateLogsMetric(metricId, body);
+            LogsMetricResponse result = apiInstance.updateLogsMetric(metricId)
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling LogsMetricsApi#updateLogsMetric");

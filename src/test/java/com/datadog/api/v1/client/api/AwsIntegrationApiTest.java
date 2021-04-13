@@ -117,7 +117,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
           20,
           () -> {
             try {
-              api.deleteAWSAccount(account);
+              api.deleteAWSAccount().body(account).execute();
             } catch (ApiException e) {
               System.out.println(String.format("Error deleting AWS Account: %s", e));
               return false;
@@ -172,7 +172,8 @@ public class AwsIntegrationApiTest extends V1ApiTest {
         20,
         () -> {
           try {
-            AWSAccountCreateResponse createResponse = api.createAWSAccount(awsAccount);
+            AWSAccountCreateResponse createResponse =
+                api.createAWSAccount().body(awsAccount).execute();
             accountsToDelete.add(awsAccount);
             assertNotNull(createResponse.getExternalId());
           } catch (ApiException e) {
@@ -204,7 +205,8 @@ public class AwsIntegrationApiTest extends V1ApiTest {
         20,
         () -> {
           try {
-            AWSAccountCreateResponse createResponse = api.createAWSAccount(awsAccountFull);
+            AWSAccountCreateResponse createResponse =
+                api.createAWSAccount().body(awsAccountFull).execute();
             accountsToDelete.add(awsAccountFull);
             assertNotNull(createResponse.getExternalId());
           } catch (ApiException e) {
@@ -221,7 +223,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     AWSAccount awsAccount = new AWSAccount();
     awsAccount.setRoleName("java_testRoleName");
     try {
-      api.createAWSAccount(awsAccount);
+      api.createAWSAccount().body(awsAccount).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       // Currently, @Test(expected = ApiException.class) is wrongly reported as failed by APM.
@@ -234,7 +236,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     AWSAccount awsAccount = new AWSAccount();
     awsAccount.setAccountId(generateAwsAccountId());
     try {
-      api.createAWSAccount(awsAccount);
+      api.createAWSAccount().body(awsAccount).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       // Currently, @Test(expected = ApiException.class) is wrongly reported as failed by APM.
@@ -266,7 +268,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
           () -> {
             try {
               AWSAccountCreateResponse createResponse =
-                  api.createAWSAccount(awsAccounts.get(finalI));
+                  api.createAWSAccount().body(awsAccounts.get(finalI)).execute();
               accountsToDelete.add(awsAccounts.get(finalI));
               assertNotNull(createResponse.getExternalId());
             } catch (ApiException e) {
@@ -277,7 +279,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
           });
     }
 
-    List<AWSAccount> awsAllAccounts = api.listAWSAccounts().getAccounts();
+    List<AWSAccount> awsAllAccounts = api.listAWSAccounts().execute().getAccounts();
     assertTrue(awsAllAccounts.size() >= 5);
     for (AWSAccount account : awsAccounts) {
       assertAccountIn(account, awsAllAccounts);
@@ -295,7 +297,8 @@ public class AwsIntegrationApiTest extends V1ApiTest {
         20,
         () -> {
           try {
-            AWSAccountCreateResponse createResponse = api.createAWSAccount(awsAccount);
+            AWSAccountCreateResponse createResponse =
+                api.createAWSAccount().body(awsAccount).execute();
             accountsToDelete.add(awsAccount);
             assertNotNull(createResponse.getExternalId());
           } catch (ApiException e) {
@@ -320,11 +323,11 @@ public class AwsIntegrationApiTest extends V1ApiTest {
         20,
         () -> {
           try {
-            api.updateAWSAccount(
-                awsAccount,
-                new AwsIntegrationApi.UpdateAWSAccountOptionalParameters()
-                    .accountId(awsAccount.getAccountId())
-                    .roleName(awsAccount.getRoleName()));
+            api.updateAWSAccount()
+                .body(awsAccount)
+                .accountId(awsAccount.getAccountId())
+                .roleName(awsAccount.getRoleName())
+                .execute();
           } catch (ApiException e) {
             System.out.println(String.format("Error updating AWS Account: %s", e));
             return false;
@@ -333,10 +336,10 @@ public class AwsIntegrationApiTest extends V1ApiTest {
         });
 
     AWSAccount newAccount =
-        api.listAWSAccounts(
-                new AwsIntegrationApi.ListAWSAccountsOptionalParameters()
-                    .accountId(awsAccount.getAccountId())
-                    .roleName(awsAccount.getRoleName()))
+        api.listAWSAccounts()
+            .accountId(awsAccount.getAccountId())
+            .roleName(awsAccount.getRoleName())
+            .execute()
             .getAccounts()
             .get(0);
     // collection fields are intialized to null on the objects, but returned as empty list/map by
@@ -357,7 +360,8 @@ public class AwsIntegrationApiTest extends V1ApiTest {
         20,
         () -> {
           try {
-            AWSAccountCreateResponse createResponse = api.createAWSAccount(awsAccount);
+            AWSAccountCreateResponse createResponse =
+                api.createAWSAccount().body(awsAccount).execute();
             accountsToDelete.add(awsAccount);
             assertNotNull(createResponse.getExternalId());
           } catch (ApiException e) {
@@ -367,13 +371,14 @@ public class AwsIntegrationApiTest extends V1ApiTest {
           return true;
         });
 
-    AWSAccountCreateResponse generateNewID = api.createNewAWSExternalID(awsAccount);
+    AWSAccountCreateResponse generateNewID =
+        api.createNewAWSExternalID().body(awsAccount).execute();
     assertNotEquals(generateNewID.getExternalId(), "");
   }
 
   @Test
   public void listNamespacesTest() throws ApiException {
-    List<String> namespaces = api.listAvailableAWSNamespaces();
+    List<String> namespaces = api.listAvailableAWSNamespaces().execute();
 
     // Check that a few examples are in the response
     // Full list - https://docs.datadoghq.com/api/?lang=bash#list-namespace-rules
@@ -386,7 +391,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
   @Test
   public void generateExternalIDAWSErrorsTest() throws IOException {
     try {
-      api.createNewAWSExternalID(new AWSAccount());
+      api.createNewAWSExternalID().body(new AWSAccount()).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -395,7 +400,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.createNewAWSExternalID(new AWSAccount());
+      fakeAuthApi.createNewAWSExternalID().body(new AWSAccount()).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -407,7 +412,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
   @Test
   public void createErrorsAWSTest() throws IOException {
     try {
-      api.createAWSAccount(new AWSAccount());
+      api.createAWSAccount().body(new AWSAccount()).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -416,7 +421,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.createAWSAccount(new AWSAccount());
+      fakeAuthApi.createAWSAccount().body(new AWSAccount()).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -428,7 +433,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
   @Test
   public void deleteErrorsAWSTest() throws IOException {
     try {
-      api.deleteAWSAccount(new AWSAccount());
+      api.deleteAWSAccount().body(new AWSAccount()).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -437,7 +442,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.deleteAWSAccount(new AWSAccount());
+      fakeAuthApi.deleteAWSAccount().body(new AWSAccount()).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -449,7 +454,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
   @Test
   public void getAll403ErrorAWSTest() throws IOException {
     try {
-      fakeAuthApi.listAWSAccounts();
+      fakeAuthApi.listAWSAccounts().execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -466,7 +471,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     // the case on test org
     // and it can't be done through the API
     try {
-      unitApi.listAWSAccounts();
+      unitApi.listAWSAccounts().execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -478,7 +483,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
   @Test
   public void listNamespacesAWSErrorsTest() throws IOException {
     try {
-      fakeAuthApi.listAvailableAWSNamespaces();
+      fakeAuthApi.listAvailableAWSNamespaces().execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -490,7 +495,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
   @Test
   public void updateAWSErrorsTest() throws IOException {
     try {
-      api.updateAWSAccount(new AWSAccount());
+      api.updateAWSAccount().body(new AWSAccount()).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -499,7 +504,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.updateAWSAccount(new AWSAccount());
+      fakeAuthApi.updateAWSAccount().body(new AWSAccount()).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -532,7 +537,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
         20,
         () -> {
           try {
-            api.createAWSAccount(uniqueAWSAccount);
+            api.createAWSAccount().body(uniqueAWSAccount).execute();
             accountsToDelete.add(uniqueAWSAccount);
           } catch (ApiException e) {
             System.out.println(String.format("Error creating AWS Account: %s", e));
@@ -541,7 +546,8 @@ public class AwsIntegrationApiTest extends V1ApiTest {
           return true;
         });
 
-    AWSLogsAsyncResponse response = logsApi.checkAWSLogsLambdaAsync(uniqueAWSAccountLambdaRequest);
+    AWSLogsAsyncResponse response =
+        logsApi.checkAWSLogsLambdaAsync().body(uniqueAWSAccountLambdaRequest).execute();
     assertNull(response.getErrors());
     assertEquals(response.getStatus(), "created");
 
@@ -553,7 +559,8 @@ public class AwsIntegrationApiTest extends V1ApiTest {
         () -> {
           AWSLogsAsyncResponse retryResponse;
           try {
-            retryResponse = logsApi.checkAWSLogsLambdaAsync(uniqueAWSAccountLambdaRequest);
+            retryResponse =
+                logsApi.checkAWSLogsLambdaAsync().body(uniqueAWSAccountLambdaRequest).execute();
           } catch (ApiException e) {
             System.out.println(String.format("Error checking the lambda status: %s", e));
             return false;
@@ -569,7 +576,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
           }
         });
 
-    response = logsApi.checkAWSLogsLambdaAsync(uniqueAWSAccountLambdaRequest);
+    response = logsApi.checkAWSLogsLambdaAsync().body(uniqueAWSAccountLambdaRequest).execute();
     assertNotEquals(response.getErrors().get(0).getCode(), "");
     assertNotEquals(response.getErrors().get(0).getMessage(), "");
     assertEquals(response.getStatus(), "error");
@@ -599,7 +606,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
         20,
         () -> {
           try {
-            api.createAWSAccount(uniqueAWSAccount);
+            api.createAWSAccount().body(uniqueAWSAccount).execute();
             accountsToDelete.add(uniqueAWSAccount);
           } catch (ApiException e) {
             System.out.println(String.format("Error creating AWS Account: %s", e));
@@ -607,7 +614,8 @@ public class AwsIntegrationApiTest extends V1ApiTest {
           }
           return true;
         });
-    AWSLogsAsyncResponse response = logsApi.checkAWSLogsServicesAsync(uniqueAWSLogsServicesRequest);
+    AWSLogsAsyncResponse response =
+        logsApi.checkAWSLogsServicesAsync().body(uniqueAWSLogsServicesRequest).execute();
     assertNotEquals(response.getErrors().get(0).getCode(), "");
     assertNotEquals(response.getErrors().get(0).getMessage(), "");
   }
@@ -626,7 +634,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
         20,
         () -> {
           try {
-            api.createAWSAccount(uniqueAWSAccount);
+            api.createAWSAccount().body(uniqueAWSAccount).execute();
             accountsToDelete.add(uniqueAWSAccount);
           } catch (ApiException e) {
             System.out.println(String.format("Error creating AWS Account: %s", e));
@@ -635,12 +643,12 @@ public class AwsIntegrationApiTest extends V1ApiTest {
           return true;
         });
     // Add Lambda to Account
-    logsApi.createAWSLambdaARN(uniqueAWSAccountLambdaRequest);
+    logsApi.createAWSLambdaARN().body(uniqueAWSAccountLambdaRequest).execute();
     // Enable services for Lambda
-    logsApi.enableAWSLogServices(uniqueAWSLogsServicesRequest);
+    logsApi.enableAWSLogServices().body(uniqueAWSLogsServicesRequest).execute();
 
     // List AWS Logs integrations before deleting
-    List<AWSLogsListResponse> listOutput1 = logsApi.listAWSLogsIntegrations();
+    List<AWSLogsListResponse> listOutput1 = logsApi.listAWSLogsIntegrations().execute();
     Boolean accountExists = false;
     // Iterate over output and list Lambdas
     for (AWSLogsListResponse account : listOutput1) {
@@ -658,8 +666,8 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     assertEquals(true, accountExists);
 
     // Delete newly added Lambda
-    logsApi.deleteAWSLambdaARN(uniqueAWSAccountLambdaRequest);
-    List<AWSLogsListResponse> listOutput2 = logsApi.listAWSLogsIntegrations();
+    logsApi.deleteAWSLambdaARN().body(uniqueAWSAccountLambdaRequest).execute();
+    List<AWSLogsListResponse> listOutput2 = logsApi.listAWSLogsIntegrations().execute();
     Boolean accountExistsAfterDelete = false;
     List<AWSLogsLambda> listOfARNs2 = new ArrayList<>();
 
@@ -688,7 +696,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
    */
   @Test
   public void aWSLogsServicesListTest() throws ApiException {
-    List<AWSLogsListServicesResponse> response = logsApi.listAWSLogsServices();
+    List<AWSLogsListServicesResponse> response = logsApi.listAWSLogsServices().execute();
     // There are currently 6 supported AWS Logs services as noted in the docs
     // https://docs.datadoghq.com/api/?lang=bash#get-list-of-aws-log-ready-services
     assertTrue(response.size() >= 6);
@@ -702,7 +710,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     // the case on test org
     // and it can't be done through the API
     try {
-      logsUnitApi.listAWSLogsIntegrations();
+      logsUnitApi.listAWSLogsIntegrations().execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -714,7 +722,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
   @Test
   public void logsList403ErrorTest() throws IOException {
     try {
-      logsFakeAuthApi.listAWSLogsIntegrations();
+      logsFakeAuthApi.listAWSLogsIntegrations().execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -731,7 +739,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     // the case on test org
     // and it can't be done through the API
     try {
-      logsUnitApi.createAWSLambdaARN(new AWSAccountAndLambdaRequest());
+      logsUnitApi.createAWSLambdaARN().body(new AWSAccountAndLambdaRequest()).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -743,7 +751,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
   @Test
   public void logsAdd403ErrorTest() throws IOException {
     try {
-      logsFakeAuthApi.createAWSLambdaARN(new AWSAccountAndLambdaRequest());
+      logsFakeAuthApi.createAWSLambdaARN().body(new AWSAccountAndLambdaRequest()).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -760,7 +768,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     // the case on test org
     // and it can't be done through the API
     try {
-      logsUnitApi.deleteAWSLambdaARN(new AWSAccountAndLambdaRequest());
+      logsUnitApi.deleteAWSLambdaARN().body(new AWSAccountAndLambdaRequest()).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -772,7 +780,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
   @Test
   public void logsDelete403ErrorTest() throws IOException {
     try {
-      logsFakeAuthApi.deleteAWSLambdaARN(new AWSAccountAndLambdaRequest());
+      logsFakeAuthApi.deleteAWSLambdaARN().body(new AWSAccountAndLambdaRequest()).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -784,7 +792,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
   @Test
   public void logsServicesListErrorsTest() throws IOException {
     try {
-      logsFakeAuthApi.listAWSLogsServices();
+      logsFakeAuthApi.listAWSLogsServices().execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -796,7 +804,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
   @Test
   public void logsServicesEnableErrorsTest() throws IOException {
     try {
-      logsApi.enableAWSLogServices(new AWSLogsServicesRequest());
+      logsApi.enableAWSLogServices().body(new AWSLogsServicesRequest()).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -805,7 +813,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     }
 
     try {
-      logsFakeAuthApi.enableAWSLogServices(new AWSLogsServicesRequest());
+      logsFakeAuthApi.enableAWSLogServices().body(new AWSLogsServicesRequest()).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -818,7 +826,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
   @Test
   public void logsLambdaCheckListErrorsTest() throws IOException {
     try {
-      logsApi.checkAWSLogsLambdaAsync(new AWSAccountAndLambdaRequest());
+      logsApi.checkAWSLogsLambdaAsync().body(new AWSAccountAndLambdaRequest()).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -827,7 +835,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     }
 
     try {
-      logsFakeAuthApi.checkAWSLogsLambdaAsync(new AWSAccountAndLambdaRequest());
+      logsFakeAuthApi.checkAWSLogsLambdaAsync().body(new AWSAccountAndLambdaRequest()).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());

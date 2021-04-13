@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## createEvent
 
-> EventCreateResponse createEvent(body);
+> EventCreateResponse createEvent().body(body).execute();
 
 Post an event
 
@@ -38,7 +38,9 @@ public class Example {
         EventsApi apiInstance = new EventsApi(defaultClient);
         EventCreateRequest body = new EventCreateRequest(); // EventCreateRequest | Event request object
         try {
-            EventCreateResponse result = apiInstance.createEvent(body);
+            EventCreateResponse result = apiInstance.createEvent()
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling EventsApi#createEvent");
@@ -80,7 +82,7 @@ Name | Type | Description  | Notes
 
 ## getEvent
 
-> EventResponse getEvent(eventId);
+> EventResponse getEvent(eventId).execute();
 
 Get an event
 
@@ -108,7 +110,8 @@ public class Example {
         EventsApi apiInstance = new EventsApi(defaultClient);
         Long eventId = 56L; // Long | The ID of the event.
         try {
-            EventResponse result = apiInstance.getEvent(eventId);
+            EventResponse result = apiInstance.getEvent(eventId)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling EventsApi#getEvent");
@@ -151,7 +154,7 @@ Name | Type | Description  | Notes
 
 ## listEvents
 
-> EventListResponse listEvents(start, end, parameters);
+> EventListResponse listEvents().start(start).end(end).priority(priority).sources(sources).tags(tags).unaggregated(unaggregated).execute();
 
 Query the event stream
 
@@ -189,11 +192,14 @@ public class Example {
         String tags = "host:host0"; // String | A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope.
         Boolean unaggregated = true; // Boolean | Set unaggregated to `true` to return all events within the specified [`start`,`end`] timeframe. Otherwise if an event is aggregated to a parent event with a timestamp outside of the timeframe, it won't be available in the output.
         try {
-	    EventListResponse result = apiInstance.listEvents(start, end, new EventsApi.ListEventsOptionalParameters()
+            EventListResponse result = apiInstance.listEvents()
+                .start(start)
+                .end(end)
                 .priority(priority)
                 .sources(sources)
                 .tags(tags)
-                .unaggregated(unaggregated));
+                .unaggregated(unaggregated)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling EventsApi#listEvents");

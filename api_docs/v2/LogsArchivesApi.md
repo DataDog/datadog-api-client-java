@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 ## addReadRoleToArchive
 
-> addReadRoleToArchive(archiveId, body);
+> addReadRoleToArchive(archiveId).body(body).execute();
 
 Grant role to an archive
 
@@ -45,7 +45,9 @@ public class Example {
         String archiveId = "archiveId_example"; // String | The ID of the archive.
         RelationshipToRole body = new RelationshipToRole(); // RelationshipToRole | 
         try {
-            apiInstance.addReadRoleToArchive(archiveId, body);
+            apiInstance.addReadRoleToArchive(archiveId)
+                .body(body)
+                .execute();
         } catch (ApiException e) {
             System.err.println("Exception when calling LogsArchivesApi#addReadRoleToArchive");
             System.err.println("Status code: " + e.getCode());
@@ -89,7 +91,7 @@ null (empty response body)
 
 ## createLogsArchive
 
-> LogsArchive createLogsArchive(body);
+> LogsArchive createLogsArchive().body(body).execute();
 
 Create an archive
 
@@ -114,7 +116,9 @@ public class Example {
         LogsArchivesApi apiInstance = new LogsArchivesApi(defaultClient);
         LogsArchiveCreateRequest body = new LogsArchiveCreateRequest(); // LogsArchiveCreateRequest | The definition of the new archive.
         try {
-            LogsArchive result = apiInstance.createLogsArchive(body);
+            LogsArchive result = apiInstance.createLogsArchive()
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling LogsArchivesApi#createLogsArchive");
@@ -157,7 +161,7 @@ Name | Type | Description  | Notes
 
 ## deleteLogsArchive
 
-> deleteLogsArchive(archiveId);
+> deleteLogsArchive(archiveId).execute();
 
 Delete an archive
 
@@ -182,7 +186,8 @@ public class Example {
         LogsArchivesApi apiInstance = new LogsArchivesApi(defaultClient);
         String archiveId = "archiveId_example"; // String | The ID of the archive.
         try {
-            apiInstance.deleteLogsArchive(archiveId);
+            apiInstance.deleteLogsArchive(archiveId)
+                .execute();
         } catch (ApiException e) {
             System.err.println("Exception when calling LogsArchivesApi#deleteLogsArchive");
             System.err.println("Status code: " + e.getCode());
@@ -225,7 +230,7 @@ null (empty response body)
 
 ## getLogsArchive
 
-> LogsArchive getLogsArchive(archiveId);
+> LogsArchive getLogsArchive(archiveId).execute();
 
 Get an archive
 
@@ -250,7 +255,8 @@ public class Example {
         LogsArchivesApi apiInstance = new LogsArchivesApi(defaultClient);
         String archiveId = "archiveId_example"; // String | The ID of the archive.
         try {
-            LogsArchive result = apiInstance.getLogsArchive(archiveId);
+            LogsArchive result = apiInstance.getLogsArchive(archiveId)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling LogsArchivesApi#getLogsArchive");
@@ -294,7 +300,7 @@ Name | Type | Description  | Notes
 
 ## getLogsArchiveOrder
 
-> LogsArchiveOrder getLogsArchiveOrder();
+> LogsArchiveOrder getLogsArchiveOrder().execute();
 
 Get archive order
 
@@ -319,7 +325,8 @@ public class Example {
 
         LogsArchivesApi apiInstance = new LogsArchivesApi(defaultClient);
         try {
-            LogsArchiveOrder result = apiInstance.getLogsArchiveOrder();
+            LogsArchiveOrder result = apiInstance.getLogsArchiveOrder()
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling LogsArchivesApi#getLogsArchiveOrder");
@@ -358,7 +365,7 @@ This endpoint does not need any parameter.
 
 ## listArchiveReadRoles
 
-> RolesResponse listArchiveReadRoles(archiveId);
+> RolesResponse listArchiveReadRoles(archiveId).execute();
 
 List read roles for an archive
 
@@ -383,7 +390,8 @@ public class Example {
         LogsArchivesApi apiInstance = new LogsArchivesApi(defaultClient);
         String archiveId = "archiveId_example"; // String | The ID of the archive.
         try {
-            RolesResponse result = apiInstance.listArchiveReadRoles(archiveId);
+            RolesResponse result = apiInstance.listArchiveReadRoles(archiveId)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling LogsArchivesApi#listArchiveReadRoles");
@@ -427,7 +435,7 @@ Name | Type | Description  | Notes
 
 ## listLogsArchives
 
-> LogsArchives listLogsArchives();
+> LogsArchives listLogsArchives().execute();
 
 Get all archives
 
@@ -451,7 +459,8 @@ public class Example {
 
         LogsArchivesApi apiInstance = new LogsArchivesApi(defaultClient);
         try {
-            LogsArchives result = apiInstance.listLogsArchives();
+            LogsArchives result = apiInstance.listLogsArchives()
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling LogsArchivesApi#listLogsArchives");
@@ -490,7 +499,7 @@ This endpoint does not need any parameter.
 
 ## removeRoleFromArchive
 
-> removeRoleFromArchive(archiveId, body);
+> removeRoleFromArchive(archiveId).body(body).execute();
 
 Revoke role from an archive
 
@@ -516,7 +525,9 @@ public class Example {
         String archiveId = "archiveId_example"; // String | The ID of the archive.
         RelationshipToRole body = new RelationshipToRole(); // RelationshipToRole | 
         try {
-            apiInstance.removeRoleFromArchive(archiveId, body);
+            apiInstance.removeRoleFromArchive(archiveId)
+                .body(body)
+                .execute();
         } catch (ApiException e) {
             System.err.println("Exception when calling LogsArchivesApi#removeRoleFromArchive");
             System.err.println("Status code: " + e.getCode());
@@ -560,7 +571,7 @@ null (empty response body)
 
 ## updateLogsArchive
 
-> LogsArchive updateLogsArchive(archiveId, body);
+> LogsArchive updateLogsArchive(archiveId).body(body).execute();
 
 Update an archive
 
@@ -589,7 +600,9 @@ public class Example {
         String archiveId = "archiveId_example"; // String | The ID of the archive.
         LogsArchiveCreateRequest body = new LogsArchiveCreateRequest(); // LogsArchiveCreateRequest | New definition of the archive.
         try {
-            LogsArchive result = apiInstance.updateLogsArchive(archiveId, body);
+            LogsArchive result = apiInstance.updateLogsArchive(archiveId)
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling LogsArchivesApi#updateLogsArchive");
@@ -634,7 +647,7 @@ Name | Type | Description  | Notes
 
 ## updateLogsArchiveOrder
 
-> LogsArchiveOrder updateLogsArchiveOrder(body);
+> LogsArchiveOrder updateLogsArchiveOrder().body(body).execute();
 
 Update archive order
 
@@ -663,7 +676,9 @@ public class Example {
         LogsArchivesApi apiInstance = new LogsArchivesApi(defaultClient);
         LogsArchiveOrder body = new LogsArchiveOrder(); // LogsArchiveOrder | An object containing the new ordered list of archive IDs.
         try {
-            LogsArchiveOrder result = apiInstance.updateLogsArchiveOrder(body);
+            LogsArchiveOrder result = apiInstance.updateLogsArchiveOrder()
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling LogsArchivesApi#updateLogsArchiveOrder");

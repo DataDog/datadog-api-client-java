@@ -102,7 +102,7 @@ public class HostsApiTest extends V1ApiTest {
         () -> {
           MetricsListResponse metrics;
           try {
-            HostTags hostTagsResp = tagsAPI.getHostTags(hostname);
+            HostTags hostTagsResp = tagsAPI.getHostTags(hostname).execute();
           } catch (ApiException e) {
             System.out.println(String.format("Error getting list of host tags: %s", e));
             return false;
@@ -113,7 +113,7 @@ public class HostsApiTest extends V1ApiTest {
     // test methods
     HostMuteSettings muteSettings =
         new HostMuteSettings().message("muting for java tests").end(nowMillis + 60);
-    HostMuteResponse hostMuteResp = api.muteHost(hostname, muteSettings);
+    HostMuteResponse hostMuteResp = api.muteHost(hostname).body(muteSettings).execute();
     assertEquals("muting for java tests", hostMuteResp.getMessage());
     assertEquals(hostname, hostMuteResp.getHostname());
     assertEquals(nowMillis + 60, hostMuteResp.getEnd().longValue());
@@ -126,7 +126,7 @@ public class HostsApiTest extends V1ApiTest {
     // This should fail since the override flag isn't set to true
     boolean failedAsExpected = false;
     try {
-      api.muteHost(hostname, muteSettings);
+      api.muteHost(hostname).body(muteSettings).execute();
     } catch (ApiException e) {
       failedAsExpected = true;
     } finally {
@@ -135,14 +135,14 @@ public class HostsApiTest extends V1ApiTest {
 
     // Set the override bit and confirm we can update the mute settings for this host
     muteSettings.override(true);
-    hostMuteResp = api.muteHost(hostname, muteSettings);
+    hostMuteResp = api.muteHost(hostname).body(muteSettings).execute();
     assertEquals("muting for test - updating", hostMuteResp.getMessage());
     assertEquals(hostname, hostMuteResp.getHostname());
     assertEquals(nowMillis + 120, hostMuteResp.getEnd().longValue());
     assertEquals("Muted", hostMuteResp.getAction());
 
     // Unmute the host
-    hostMuteResp = api.unmuteHost(hostname);
+    hostMuteResp = api.unmuteHost(hostname).execute();
     assertEquals("Unmuted", hostMuteResp.getAction());
     assertEquals(hostname, hostMuteResp.getHostname());
   }
@@ -166,8 +166,7 @@ public class HostsApiTest extends V1ApiTest {
             .willReturn(
                 okJson(TestUtils.getFixture("v1/client/api/hosts_fixtures/host_totals.json"))));
 
-    HostTotals actual =
-        unitAPI.getHostTotals(new HostsApi.GetHostTotalsOptionalParameters().from(123L));
+    HostTotals actual = unitAPI.getHostTotals().from(123L).execute();
     assertEquals(20L, actual.getTotalActive().longValue());
     assertEquals(10L, actual.getTotalUp().longValue());
   }
@@ -194,14 +193,15 @@ public class HostsApiTest extends V1ApiTest {
         new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
 
     HostListResponse response =
-        unitAPI.listHosts(
-            new HostsApi.ListHostsOptionalParameters()
-                .filter("filter string")
-                .count(4L)
-                .from(123L)
-                .sortDir("asc")
-                .sortField("status")
-                .start(3L));
+        unitAPI
+            .listHosts()
+            .filter("filter string")
+            .count(4L)
+            .from(123L)
+            .sortDir("asc")
+            .sortField("status")
+            .start(3L)
+            .execute();
     HostListResponse expected = mapper.readValue(fixtureData, HostListResponse.class);
 
     assertEquals(expected, response);
@@ -210,7 +210,7 @@ public class HostsApiTest extends V1ApiTest {
   @Test
   public void hostsListErrorsTest() throws IOException {
     try {
-      api.listHosts(new HostsApi.ListHostsOptionalParameters().count(-1L));
+      api.listHosts().count(-1L).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -219,7 +219,7 @@ public class HostsApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.listHosts(new HostsApi.ListHostsOptionalParameters().count(-1L));
+      fakeAuthApi.listHosts().count(-1L).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -231,8 +231,7 @@ public class HostsApiTest extends V1ApiTest {
   @Test
   public void hostsGetTotalsErrorsTest() throws IOException {
     try {
-      api.getHostTotals(
-          new HostsApi.GetHostTotalsOptionalParameters().from(now.toEpochSecond() + 60));
+      api.getHostTotals().from(now.toEpochSecond() + 60).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -241,8 +240,7 @@ public class HostsApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.getHostTotals(
-          new HostsApi.GetHostTotalsOptionalParameters().from(now.toEpochSecond() + 60));
+      fakeAuthApi.getHostTotals().from(now.toEpochSecond() + 60).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -259,10 +257,10 @@ public class HostsApiTest extends V1ApiTest {
     // Mute host a first time in order to trigger a 400
     HostMuteSettings muteSettings = new HostMuteSettings();
     muteSettings.setOverride(true);
-    api.muteHost(hostname, muteSettings);
+    api.muteHost(hostname).body(muteSettings).execute();
 
     try {
-      api.muteHost(hostname, new HostMuteSettings());
+      api.muteHost(hostname).body(new HostMuteSettings()).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -271,7 +269,7 @@ public class HostsApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.muteHost(hostname, new HostMuteSettings());
+      fakeAuthApi.muteHost(hostname).body(new HostMuteSettings()).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -286,7 +284,7 @@ public class HostsApiTest extends V1ApiTest {
     String hostname = getUniqueEntityName();
 
     try {
-      api.unmuteHost(hostname);
+      api.unmuteHost(hostname).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -295,7 +293,7 @@ public class HostsApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.unmuteHost(hostname);
+      fakeAuthApi.unmuteHost(hostname).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -322,15 +320,16 @@ public class HostsApiTest extends V1ApiTest {
         new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
 
     HostListResponse response =
-        unitAPI.listHosts(
-            new HostsApi.ListHostsOptionalParameters()
-                .filter("filter string")
-                .count(4L)
-                .from(123L)
-                .sortDir("asc")
-                .sortField("status")
-                .start(3L)
-                .includeMutedHostsData(false));
+        unitAPI
+            .listHosts()
+            .filter("filter string")
+            .count(4L)
+            .from(123L)
+            .sortDir("asc")
+            .sortField("status")
+            .start(3L)
+            .includeMutedHostsData(false)
+            .execute();
     HostListResponse expected = mapper.readValue(fixtureData, HostListResponse.class);
 
     assertEquals(expected, response);
@@ -355,15 +354,16 @@ public class HostsApiTest extends V1ApiTest {
         new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
 
     HostListResponse response =
-        unitAPI.listHosts(
-            new HostsApi.ListHostsOptionalParameters()
-                .filter("filter string")
-                .count(4L)
-                .from(123L)
-                .sortDir("asc")
-                .sortField("status")
-                .start(3L)
-                .includeMutedHostsData(true));
+        unitAPI
+            .listHosts()
+            .filter("filter string")
+            .count(4L)
+            .from(123L)
+            .sortDir("asc")
+            .sortField("status")
+            .start(3L)
+            .includeMutedHostsData(true)
+            .execute();
     HostListResponse expected = mapper.readValue(fixtureData, HostListResponse.class);
 
     assertEquals(expected, response);
@@ -387,14 +387,15 @@ public class HostsApiTest extends V1ApiTest {
         new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
 
     HostListResponse response =
-        unitAPI.listHosts(
-            new HostsApi.ListHostsOptionalParameters()
-                .filter("filter string")
-                .count(4L)
-                .from(123L)
-                .sortDir("asc")
-                .sortField("status")
-                .start(3L));
+        unitAPI
+            .listHosts()
+            .filter("filter string")
+            .count(4L)
+            .from(123L)
+            .sortDir("asc")
+            .sortField("status")
+            .start(3L)
+            .execute();
     HostListResponse expected = mapper.readValue(fixtureData, HostListResponse.class);
 
     assertEquals(expected, response);
@@ -418,15 +419,16 @@ public class HostsApiTest extends V1ApiTest {
         new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
 
     HostListResponse response =
-        unitAPI.listHosts(
-            new HostsApi.ListHostsOptionalParameters()
-                .filter("filter string")
-                .count(4L)
-                .from(123L)
-                .sortDir("asc")
-                .sortField("status")
-                .start(3L)
-                .includeHostsMetadata(false));
+        unitAPI
+            .listHosts()
+            .filter("filter string")
+            .count(4L)
+            .from(123L)
+            .sortDir("asc")
+            .sortField("status")
+            .start(3L)
+            .includeHostsMetadata(false)
+            .execute();
     HostListResponse expected = mapper.readValue(fixtureData, HostListResponse.class);
 
     assertEquals(expected, response);
@@ -451,15 +453,16 @@ public class HostsApiTest extends V1ApiTest {
         new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
 
     HostListResponse response =
-        unitAPI.listHosts(
-            new HostsApi.ListHostsOptionalParameters()
-                .filter("filter string")
-                .count(4L)
-                .from(123L)
-                .sortDir("asc")
-                .sortField("status")
-                .start(3L)
-                .includeHostsMetadata(true));
+        unitAPI
+            .listHosts()
+            .filter("filter string")
+            .count(4L)
+            .from(123L)
+            .sortDir("asc")
+            .sortField("status")
+            .start(3L)
+            .includeHostsMetadata(true)
+            .execute();
     HostListResponse expected = mapper.readValue(fixtureData, HostListResponse.class);
 
     assertEquals(expected, response);
@@ -483,14 +486,15 @@ public class HostsApiTest extends V1ApiTest {
         new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
 
     HostListResponse response =
-        unitAPI.listHosts(
-            new HostsApi.ListHostsOptionalParameters()
-                .filter("filter string")
-                .count(4L)
-                .from(123L)
-                .sortDir("asc")
-                .sortField("status")
-                .start(3L));
+        unitAPI
+            .listHosts()
+            .filter("filter string")
+            .count(4L)
+            .from(123L)
+            .sortDir("asc")
+            .sortField("status")
+            .start(3L)
+            .execute();
     HostListResponse expected = mapper.readValue(fixtureData, HostListResponse.class);
 
     assertEquals(expected, response);

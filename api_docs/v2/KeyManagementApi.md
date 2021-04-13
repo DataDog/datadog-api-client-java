@@ -22,7 +22,7 @@ Method | HTTP request | Description
 
 ## createAPIKey
 
-> APIKeyResponse createAPIKey(body);
+> APIKeyResponse createAPIKey().body(body).execute();
 
 Create an API key
 
@@ -47,7 +47,9 @@ public class Example {
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
         APIKeyCreateRequest body = new APIKeyCreateRequest(); // APIKeyCreateRequest | 
         try {
-            APIKeyResponse result = apiInstance.createAPIKey(body);
+            APIKeyResponse result = apiInstance.createAPIKey()
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling KeyManagementApi#createAPIKey");
@@ -90,7 +92,7 @@ Name | Type | Description  | Notes
 
 ## createCurrentUserApplicationKey
 
-> ApplicationKeyResponse createCurrentUserApplicationKey(body);
+> ApplicationKeyResponse createCurrentUserApplicationKey().body(body).execute();
 
 Create an application key for current user
 
@@ -115,7 +117,9 @@ public class Example {
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
         ApplicationKeyCreateRequest body = new ApplicationKeyCreateRequest(); // ApplicationKeyCreateRequest | 
         try {
-            ApplicationKeyResponse result = apiInstance.createCurrentUserApplicationKey(body);
+            ApplicationKeyResponse result = apiInstance.createCurrentUserApplicationKey()
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling KeyManagementApi#createCurrentUserApplicationKey");
@@ -158,7 +162,7 @@ Name | Type | Description  | Notes
 
 ## deleteAPIKey
 
-> deleteAPIKey(apiKeyId);
+> deleteAPIKey(apiKeyId).execute();
 
 Delete an API key
 
@@ -183,7 +187,8 @@ public class Example {
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
         String apiKeyId = "apiKeyId_example"; // String | The ID of the API key.
         try {
-            apiInstance.deleteAPIKey(apiKeyId);
+            apiInstance.deleteAPIKey(apiKeyId)
+                .execute();
         } catch (ApiException e) {
             System.err.println("Exception when calling KeyManagementApi#deleteAPIKey");
             System.err.println("Status code: " + e.getCode());
@@ -225,7 +230,7 @@ null (empty response body)
 
 ## deleteApplicationKey
 
-> deleteApplicationKey(appKeyId);
+> deleteApplicationKey(appKeyId).execute();
 
 Delete an application key
 
@@ -250,7 +255,8 @@ public class Example {
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
         String appKeyId = "appKeyId_example"; // String | The ID of the application key.
         try {
-            apiInstance.deleteApplicationKey(appKeyId);
+            apiInstance.deleteApplicationKey(appKeyId)
+                .execute();
         } catch (ApiException e) {
             System.err.println("Exception when calling KeyManagementApi#deleteApplicationKey");
             System.err.println("Status code: " + e.getCode());
@@ -292,7 +298,7 @@ null (empty response body)
 
 ## deleteCurrentUserApplicationKey
 
-> deleteCurrentUserApplicationKey(appKeyId);
+> deleteCurrentUserApplicationKey(appKeyId).execute();
 
 Delete an application key owned by current user
 
@@ -317,7 +323,8 @@ public class Example {
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
         String appKeyId = "appKeyId_example"; // String | The ID of the application key.
         try {
-            apiInstance.deleteCurrentUserApplicationKey(appKeyId);
+            apiInstance.deleteCurrentUserApplicationKey(appKeyId)
+                .execute();
         } catch (ApiException e) {
             System.err.println("Exception when calling KeyManagementApi#deleteCurrentUserApplicationKey");
             System.err.println("Status code: " + e.getCode());
@@ -359,7 +366,7 @@ null (empty response body)
 
 ## getAPIKey
 
-> APIKeyResponse getAPIKey(apiKeyId, parameters);
+> APIKeyResponse getAPIKey(apiKeyId).include(include).execute();
 
 Get API key
 
@@ -385,8 +392,9 @@ public class Example {
         String apiKeyId = "apiKeyId_example"; // String | The ID of the API key.
         String include = "created_by,modified_by"; // String | Comma separated list of resource paths for related resources to include in the response. Supported resource paths are `created_by` and `modified_by`.
         try {
-	    APIKeyResponse result = apiInstance.getAPIKey(apiKeyId, new KeyManagementApi.GetAPIKeyOptionalParameters()
-                .include(include));
+            APIKeyResponse result = apiInstance.getAPIKey(apiKeyId)
+                .include(include)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling KeyManagementApi#getAPIKey");
@@ -430,7 +438,7 @@ Name | Type | Description  | Notes
 
 ## getCurrentUserApplicationKey
 
-> ApplicationKeyResponse getCurrentUserApplicationKey(appKeyId);
+> ApplicationKeyResponse getCurrentUserApplicationKey(appKeyId).execute();
 
 Get one application key owned by current user
 
@@ -455,7 +463,8 @@ public class Example {
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
         String appKeyId = "appKeyId_example"; // String | The ID of the application key.
         try {
-            ApplicationKeyResponse result = apiInstance.getCurrentUserApplicationKey(appKeyId);
+            ApplicationKeyResponse result = apiInstance.getCurrentUserApplicationKey(appKeyId)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling KeyManagementApi#getCurrentUserApplicationKey");
@@ -498,7 +507,7 @@ Name | Type | Description  | Notes
 
 ## listAPIKeys
 
-> APIKeysResponse listAPIKeys(parameters);
+> APIKeysResponse listAPIKeys().pageSize(pageSize).pageNumber(pageNumber).sort(sort).filter(filter).filterCreatedAtStart(filterCreatedAtStart).filterCreatedAtEnd(filterCreatedAtEnd).filterModifiedAtStart(filterModifiedAtStart).filterModifiedAtEnd(filterModifiedAtEnd).include(include).execute();
 
 Get all API keys
 
@@ -531,7 +540,7 @@ public class Example {
         String filterModifiedAtEnd = "2020-11-24T18:46:21+00:00"; // String | Only include API keys modified on or before the specified date.
         String include = "created_by,modified_by"; // String | Comma separated list of resource paths for related resources to include in the response. Supported resource paths are `created_by` and `modified_by`.
         try {
-	    APIKeysResponse result = apiInstance.listAPIKeys(new KeyManagementApi.ListAPIKeysOptionalParameters()
+            APIKeysResponse result = apiInstance.listAPIKeys()
                 .pageSize(pageSize)
                 .pageNumber(pageNumber)
                 .sort(sort)
@@ -540,7 +549,8 @@ public class Example {
                 .filterCreatedAtEnd(filterCreatedAtEnd)
                 .filterModifiedAtStart(filterModifiedAtStart)
                 .filterModifiedAtEnd(filterModifiedAtEnd)
-                .include(include));
+                .include(include)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling KeyManagementApi#listAPIKeys");
@@ -591,7 +601,7 @@ Name | Type | Description  | Notes
 
 ## listApplicationKeys
 
-> ListApplicationKeysResponse listApplicationKeys(parameters);
+> ListApplicationKeysResponse listApplicationKeys().pageSize(pageSize).pageNumber(pageNumber).sort(sort).filter(filter).filterCreatedAtStart(filterCreatedAtStart).filterCreatedAtEnd(filterCreatedAtEnd).execute();
 
 Get all application keys
 
@@ -621,13 +631,14 @@ public class Example {
         String filterCreatedAtStart = "2020-11-24T18:46:21+00:00"; // String | Only include application keys created on or after the specified date.
         String filterCreatedAtEnd = "2020-11-24T18:46:21+00:00"; // String | Only include application keys created on or before the specified date.
         try {
-	    ListApplicationKeysResponse result = apiInstance.listApplicationKeys(new KeyManagementApi.ListApplicationKeysOptionalParameters()
+            ListApplicationKeysResponse result = apiInstance.listApplicationKeys()
                 .pageSize(pageSize)
                 .pageNumber(pageNumber)
                 .sort(sort)
                 .filter(filter)
                 .filterCreatedAtStart(filterCreatedAtStart)
-                .filterCreatedAtEnd(filterCreatedAtEnd));
+                .filterCreatedAtEnd(filterCreatedAtEnd)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling KeyManagementApi#listApplicationKeys");
@@ -676,7 +687,7 @@ Name | Type | Description  | Notes
 
 ## listCurrentUserApplicationKeys
 
-> ListApplicationKeysResponse listCurrentUserApplicationKeys(parameters);
+> ListApplicationKeysResponse listCurrentUserApplicationKeys().pageSize(pageSize).pageNumber(pageNumber).sort(sort).filter(filter).filterCreatedAtStart(filterCreatedAtStart).filterCreatedAtEnd(filterCreatedAtEnd).execute();
 
 Get all application keys owned by current user
 
@@ -706,13 +717,14 @@ public class Example {
         String filterCreatedAtStart = "2020-11-24T18:46:21+00:00"; // String | Only include application keys created on or after the specified date.
         String filterCreatedAtEnd = "2020-11-24T18:46:21+00:00"; // String | Only include application keys created on or before the specified date.
         try {
-	    ListApplicationKeysResponse result = apiInstance.listCurrentUserApplicationKeys(new KeyManagementApi.ListCurrentUserApplicationKeysOptionalParameters()
+            ListApplicationKeysResponse result = apiInstance.listCurrentUserApplicationKeys()
                 .pageSize(pageSize)
                 .pageNumber(pageNumber)
                 .sort(sort)
                 .filter(filter)
                 .filterCreatedAtStart(filterCreatedAtStart)
-                .filterCreatedAtEnd(filterCreatedAtEnd));
+                .filterCreatedAtEnd(filterCreatedAtEnd)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling KeyManagementApi#listCurrentUserApplicationKeys");
@@ -761,7 +773,7 @@ Name | Type | Description  | Notes
 
 ## updateAPIKey
 
-> APIKeyResponse updateAPIKey(apiKeyId, body);
+> APIKeyResponse updateAPIKey(apiKeyId).body(body).execute();
 
 Edit an API key
 
@@ -787,7 +799,9 @@ public class Example {
         String apiKeyId = "apiKeyId_example"; // String | The ID of the API key.
         APIKeyUpdateRequest body = new APIKeyUpdateRequest(); // APIKeyUpdateRequest | 
         try {
-            APIKeyResponse result = apiInstance.updateAPIKey(apiKeyId, body);
+            APIKeyResponse result = apiInstance.updateAPIKey(apiKeyId)
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling KeyManagementApi#updateAPIKey");
@@ -832,7 +846,7 @@ Name | Type | Description  | Notes
 
 ## updateApplicationKey
 
-> ApplicationKeyResponse updateApplicationKey(appKeyId, body);
+> ApplicationKeyResponse updateApplicationKey(appKeyId).body(body).execute();
 
 Edit an application key
 
@@ -858,7 +872,9 @@ public class Example {
         String appKeyId = "appKeyId_example"; // String | The ID of the application key.
         ApplicationKeyUpdateRequest body = new ApplicationKeyUpdateRequest(); // ApplicationKeyUpdateRequest | 
         try {
-            ApplicationKeyResponse result = apiInstance.updateApplicationKey(appKeyId, body);
+            ApplicationKeyResponse result = apiInstance.updateApplicationKey(appKeyId)
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling KeyManagementApi#updateApplicationKey");
@@ -903,7 +919,7 @@ Name | Type | Description  | Notes
 
 ## updateCurrentUserApplicationKey
 
-> ApplicationKeyResponse updateCurrentUserApplicationKey(appKeyId, body);
+> ApplicationKeyResponse updateCurrentUserApplicationKey(appKeyId).body(body).execute();
 
 Edit an application key owned by current user
 
@@ -929,7 +945,9 @@ public class Example {
         String appKeyId = "appKeyId_example"; // String | The ID of the application key.
         ApplicationKeyUpdateRequest body = new ApplicationKeyUpdateRequest(); // ApplicationKeyUpdateRequest | 
         try {
-            ApplicationKeyResponse result = apiInstance.updateCurrentUserApplicationKey(appKeyId, body);
+            ApplicationKeyResponse result = apiInstance.updateCurrentUserApplicationKey(appKeyId)
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling KeyManagementApi#updateCurrentUserApplicationKey");

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## getIPRanges
 
-> IPRanges getIPRanges();
+> IPRanges getIPRanges().execute();
 
 List IP Ranges
 
@@ -33,7 +33,8 @@ public class Example {
 
         IpRangesApi apiInstance = new IpRangesApi(defaultClient);
         try {
-            IPRanges result = apiInstance.getIPRanges();
+            IPRanges result = apiInstance.getIPRanges()
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling IpRangesApi#getIPRanges");

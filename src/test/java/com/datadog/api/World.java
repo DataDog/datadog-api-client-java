@@ -33,10 +33,9 @@ public class World {
   public Map<String, Object> context;
 
   // Request information
-  Class<?> requestParametersClass;
-  Object requestParameters;
+  Class<?> requestClass;
   Method requestBuilder;
-  List<Object> parametersArray;
+  Map<String, Object> requestParams;
 
   // Response information
   Class<?> responseClass;
@@ -154,96 +153,13 @@ public class World {
   }
 
   public void newRequest(String methodName) {
+    requestParams = new HashMap<String, Object>();
     for (Method method : apiClass.getMethods()) {
-      if (method.getName().equals(toMethodName(methodName) + "WithHttpInfo")) {
+      if (method.getName().equals(methodName)) {
         requestBuilder = method;
+        requestClass = method.getReturnType();
         break;
       }
-    }
-    for (Class c : apiClass.getClasses()) {
-      if (c.getName().endsWith(methodName + "OptionalParameters")) {
-        requestParametersClass = c;
-        try {
-          requestParameters = c.getConstructor().newInstance();
-        } catch (Exception e) {
-          throw new RuntimeException(e);
-        }
-        break;
-      }
-    }
-    parametersArray = new ArrayList<>();
-  }
-
-  public void addRequestParameter(String parameterName, String value)
-      throws java.lang.IllegalAccessException, java.lang.NoSuchFieldException,
-          java.lang.ClassNotFoundException, java.lang.NoSuchMethodException,
-          java.lang.reflect.InvocationTargetException,
-          com.fasterxml.jackson.core.JsonProcessingException {
-    String propertyName = toPropertyName(parameterName);
-    Class fieldType = null;
-    Boolean isOptional = false;
-    if (requestParametersClass != null) {
-      try {
-        Field field = requestParametersClass.getDeclaredField(propertyName);
-        fieldType = field.getType();
-        isOptional = true;
-      } catch (NoSuchFieldException e) {
-      }
-    }
-    if (fieldType == null) {
-      Class<?>[] types = requestBuilder.getParameterTypes();
-      fieldType = types[parametersArray.size()];
-    }
-    if (fieldType == null) {
-      throw new RuntimeException(
-          propertyName
-              + " "
-              + requestParametersClass
-              + " "
-              + requestBuilder.getParameterTypes().length);
-    }
-
-    Object data = fromJSON(getObjectMapper(), fieldType, templated(value, context));
-    if (isOptional) {
-      requestParametersClass.getMethod(propertyName, fieldType).invoke(requestParameters, data);
-    } else {
-      parametersArray.add(data);
-    }
-  }
-
-  public void addRequestParameterFixture(String parameterName, String fixturePath)
-      throws java.lang.IllegalAccessException, java.lang.NoSuchFieldException,
-          java.lang.ClassNotFoundException, java.lang.NoSuchMethodException,
-          java.lang.reflect.InvocationTargetException {
-    String propertyName = toPropertyName(parameterName);
-    Class fieldType = null;
-    Boolean isOptional = false;
-    if (requestParametersClass != null) {
-      try {
-        Field field = requestParametersClass.getDeclaredField(propertyName);
-        fieldType = field.getType();
-        isOptional = true;
-      } catch (NoSuchFieldException e) {
-      }
-    }
-    if (fieldType == null) {
-      Class<?>[] types = requestBuilder.getParameterTypes();
-      fieldType = types[parametersArray.size()];
-    }
-    if (fieldType == null) {
-      throw new RuntimeException(
-          propertyName
-              + " "
-              + requestParametersClass
-              + " "
-              + requestBuilder.getParameterTypes().length);
-    }
-
-    Object data = lookup(context, fixturePath);
-    if (isOptional) {
-      requestParametersClass.getMethod(propertyName, fieldType).invoke(requestParameters, data);
-    } else {
-      parametersArray.add(data);
     }
   }
 
@@ -256,7 +172,7 @@ public class World {
     String givenOperationName = step.getOperationName();
     Method givenOperation = null;
     for (Method method : givenAPIClass.getMethods()) {
-      if (method.getName().equals(givenOperationName + "WithHttpInfo")) {
+      if (method.getName().equals(givenOperationName)) {
         givenOperation = method;
         break;
       }
@@ -272,53 +188,34 @@ public class World {
           .invoke(client, givenOperationName, true);
     }
 
-    Class<?> givenParametersClass = null;
-    Object parameters = null;
-    for (Class c : givenAPIClass.getClasses()) {
-      if (c.getName().endsWith(step.operationId + "OptionalParameters")) {
-        givenParametersClass = c;
-        parameters = givenParametersClass.getConstructor().newInstance();
-        break;
-      }
+    Object request;
+    if (givenOperation.getParameterCount() > 0) {
+      request = givenOperation.invoke(givenAPI, new Object[givenOperation.getParameterCount()]);
+    } else {
+      request = givenOperation.invoke(givenAPI);
     }
-    Class<?> givenResponseClass = givenOperation.getReturnType();
-    List<Object> givenParametersArray = new ArrayList<>();
+
+    Class<?> givenClass = givenOperation.getReturnType();
 
     // Build request from undo parameters and response data
     Map<String, Given.Parameter> givenParams = step.getRequestParameters();
-
-    for (Map.Entry<String, Given.Parameter> entry : givenParams.entrySet()) {
-      if (givenParametersClass != null) {
-        try {
-          Field f = givenParametersClass.getDeclaredField(entry.getKey());
-          f.setAccessible(true);
-          f.set(parameters, entry.getValue().resolve(f.getType(), context, getObjectMapper()));
-        } catch (NoSuchFieldException e) {
-          Class<?>[] types = givenOperation.getParameterTypes();
-          Class fieldType = types[givenParametersArray.size()];
-          givenParametersArray.add(entry.getValue().resolve(fieldType, context, getObjectMapper()));
-        }
-      } else {
-        Class<?>[] types = givenOperation.getParameterTypes();
-        Class fieldType = types[givenParametersArray.size()];
-        givenParametersArray.add(entry.getValue().resolve(fieldType, context, getObjectMapper()));
+    for (Field f : givenClass.getDeclaredFields()) {
+      if (givenParams.containsKey(f.getName())) {
+        f.setAccessible(true);
+        f.set(
+            request, givenParams.get(f.getName()).resolve(f.getType(), context, getObjectMapper()));
       }
     }
-    if (givenParametersClass != null) {
-      givenParametersArray.add(parameters);
-    }
+
+    Undo undoSettings = UndoAction.UndoAction().getUndo(apiVersion, step.getOperationName());
 
     // Execute request
-    Object givenResponse;
-    try {
-      givenResponse = givenOperation.invoke(givenAPI, givenParametersArray.toArray());
-    } catch (Exception e) {
-      throw new RuntimeException(e);
-    }
+    Method givenExecute = givenClass.getMethod("executeWithHttpInfo");
+    Class<?> givenResponseClass = givenExecute.getReturnType();
+    Object givenResponse = givenExecute.invoke(request);
     Method dataMethod = givenResponseClass.getMethod("getData");
     Object data = dataMethod.invoke(givenResponse);
 
-    Undo undoSettings = UndoAction.UndoAction().getUndo(apiVersion, step.getOperationName());
     if (undoSettings != null) {
       undo.add(getRequestUndo(apiVersion, undoSettings, data));
     }
@@ -339,6 +236,13 @@ public class World {
     Object undoAPI = undoAPIClass.getConstructor(clientClass).newInstance(client);
 
     String undoOperationName = undoSettings.getOperationName();
+    Method undoOperation = null;
+    for (Method method : undoAPIClass.getMethods()) {
+      if (method.getName().equals(undoOperationName)) {
+        undoOperation = method;
+        break;
+      }
+    }
 
     // Enable unstable undo operation automatically
     if ((boolean)
@@ -350,20 +254,36 @@ public class World {
           .invoke(client, undoOperationName, true);
     }
 
-    return () -> {
-      Method undoOperation = null;
-      for (Method method : undoAPIClass.getMethods()) {
-        if (method.getName().equals(undoOperationName + "WithHttpInfo")) {
-          undoOperation = method;
-          break;
-        }
+    Object undoRequest;
+    if (undoOperation.getParameterCount() > 0) {
+      try {
+        undoRequest = undoOperation.invoke(undoAPI, new Object[undoOperation.getParameterCount()]);
+      } catch (Exception e) {
+        throw new Exception(e.getCause());
       }
+    } else {
+      try {
+        undoRequest = undoOperation.invoke(undoAPI);
+      } catch (Exception e) {
+        throw new Exception(e.getCause());
+      }
+    }
+
+    Class<?> undoClass = undoOperation.getReturnType();
+
+    return () -> {
       // Build request from undo parameters and response data
       Map<String, Object> undoRequestParams = undoSettings.undo.getRequestParameters(data);
+      for (Field f : undoClass.getDeclaredFields()) {
+        if (undoRequestParams.containsKey(f.getName())) {
+          f.setAccessible(true);
+          f.set(undoRequest, undoRequestParams.get(f.getName()));
+        }
+      }
 
       // Execute request
       try {
-        undoOperation.invoke(undoAPI, undoRequestParams.values().toArray());
+        undoClass.getMethod("executeWithHttpInfo").invoke(undoRequest);
       } catch (Exception e) {
         throw new Exception(e.getCause());
       }
@@ -372,24 +292,32 @@ public class World {
   }
 
   public void sendRequest() throws Exception {
-    if (requestParametersClass != null) {
-      parametersArray.add(requestParameters);
+    Object request;
+    if (requestBuilder.getParameterCount() > 0) {
+      Object[] parameters = new Object[requestBuilder.getParameterCount()];
+      request = requestBuilder.invoke(api, parameters);
+    } else {
+      request = requestBuilder.invoke(api);
     }
 
-    responseClass = requestBuilder.getReturnType();
+    for (Field f : requestClass.getDeclaredFields()) {
+      if (requestParams.containsKey(f.getName())) {
+        f.setAccessible(true);
+        f.set(request, requestParams.get(f.getName()));
+      }
+    }
+
+    Method responseMethod = requestClass.getMethod("executeWithHttpInfo");
+    responseClass = responseMethod.getReturnType();
 
     String apiVersion = getVersion();
     Class<?> exceptionClass =
         Class.forName("com.datadog.api." + apiVersion + ".client.ApiException");
 
-    Undo undoSettings =
-        UndoAction.UndoAction()
-            .getUndo(
-                apiVersion,
-                requestBuilder.getName().substring(0, requestBuilder.getName().length() - 12));
+    Undo undoSettings = UndoAction.UndoAction().getUndo(apiVersion, requestBuilder.getName());
 
     try {
-      response = requestBuilder.invoke(api, parametersArray.toArray());
+      response = responseMethod.invoke(request);
     } catch (Exception e) {
       // Return a new response object with the response code set
       // so we can make assertions on it
@@ -437,8 +365,7 @@ public class World {
       name = name.substring(0, 100);
     }
 
-    String prefix =
-        TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE) ? "Test-Java" : "Test";
+    String prefix = TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE) ? "Test-Java" : "Test";
     String result = String.format("%s-%s-%d", prefix, name, now.toEpochSecond());
     return result;
   }

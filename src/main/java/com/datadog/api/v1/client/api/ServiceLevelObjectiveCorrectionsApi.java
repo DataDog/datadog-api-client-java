@@ -45,40 +45,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
     this.apiClient = apiClient;
   }
 
-  /**
-   * Create an SLO correction Create an SLO Correction
-   *
-   * @param body Create an SLO Correction (required)
-   * @return SLOCorrectionResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public SLOCorrectionResponse createSLOCorrection(SLOCorrectionCreateRequest body)
-      throws ApiException {
-    return createSLOCorrectionWithHttpInfo(body).getData();
-  }
-
-  /**
-   * Create an SLO correction Create an SLO Correction
-   *
-   * @param body Create an SLO Correction (required)
-   * @return ApiResponse&lt;SLOCorrectionResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public ApiResponse<SLOCorrectionResponse> createSLOCorrectionWithHttpInfo(
+  private ApiResponse<SLOCorrectionResponse> createSLOCorrectionWithHttpInfo(
       SLOCorrectionCreateRequest body) throws ApiException {
     Object localVarPostBody = body;
 
@@ -87,6 +54,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling createSLOCorrection");
     }
+
     // create path and map variables
     String localVarPath = "/api/v1/slo/correction";
 
@@ -126,38 +94,74 @@ public class ServiceLevelObjectiveCorrectionsApi {
         false);
   }
 
-  /**
-   * Delete an SLO correction Permanently delete the specified SLO correction object
-   *
-   * @param sloCorrectionId The ID of the SLO correction object (required)
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public void deleteSLOCorrection(String sloCorrectionId) throws ApiException {
-    deleteSLOCorrectionWithHttpInfo(sloCorrectionId);
+  public class APIcreateSLOCorrectionRequest {
+    private SLOCorrectionCreateRequest body;
+
+    private APIcreateSLOCorrectionRequest() {}
+
+    /**
+     * Set body
+     *
+     * @param body Create an SLO Correction (required)
+     * @return APIcreateSLOCorrectionRequest
+     */
+    public APIcreateSLOCorrectionRequest body(SLOCorrectionCreateRequest body) {
+      this.body = body;
+      return this;
+    }
+
+    /**
+     * Execute createSLOCorrection request
+     *
+     * @return SLOCorrectionResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * </table>
+     */
+    public SLOCorrectionResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute createSLOCorrection request with HTTP info returned
+     *
+     * @return ApiResponse&lt;SLOCorrectionResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<SLOCorrectionResponse> executeWithHttpInfo() throws ApiException {
+      return createSLOCorrectionWithHttpInfo(body);
+    }
   }
 
   /**
-   * Delete an SLO correction Permanently delete the specified SLO correction object
+   * Create an SLO correction Create an SLO Correction
    *
-   * @param sloCorrectionId The ID of the SLO correction object (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return createSLOCorrectionRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-   *     </table>
    */
-  public ApiResponse<Void> deleteSLOCorrectionWithHttpInfo(String sloCorrectionId)
+  public APIcreateSLOCorrectionRequest createSLOCorrection() throws ApiException {
+    String operationId = "createSLOCorrection";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    return new APIcreateSLOCorrectionRequest();
+  }
+
+  private ApiResponse<Void> deleteSLOCorrectionWithHttpInfo(String sloCorrectionId)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -166,6 +170,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
       throw new ApiException(
           400, "Missing the required parameter 'sloCorrectionId' when calling deleteSLOCorrection");
     }
+
     // create path and map variables
     String localVarPath =
         "/api/v1/slo/correction/{slo_correction_id}"
@@ -207,39 +212,66 @@ public class ServiceLevelObjectiveCorrectionsApi {
         false);
   }
 
-  /**
-   * Get an SLO correction for an SLO Get an SLO correction
-   *
-   * @param sloCorrectionId The ID of the SLO correction object (required)
-   * @return SLOCorrectionResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public SLOCorrectionResponse getSLOCorrection(String sloCorrectionId) throws ApiException {
-    return getSLOCorrectionWithHttpInfo(sloCorrectionId).getData();
+  public class APIdeleteSLOCorrectionRequest {
+    private String sloCorrectionId;
+
+    private APIdeleteSLOCorrectionRequest(String sloCorrectionId) {
+      this.sloCorrectionId = sloCorrectionId;
+    }
+
+    /**
+     * Execute deleteSLOCorrection request
+     *
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+     * </table>
+     */
+    public void execute() throws ApiException {
+      this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute deleteSLOCorrection request with HTTP info returned
+     *
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<Void> executeWithHttpInfo() throws ApiException {
+      return deleteSLOCorrectionWithHttpInfo(sloCorrectionId);
+    }
   }
 
   /**
-   * Get an SLO correction for an SLO Get an SLO correction
+   * Delete an SLO correction Permanently delete the specified SLO correction object
    *
    * @param sloCorrectionId The ID of the SLO correction object (required)
-   * @return ApiResponse&lt;SLOCorrectionResponse&gt;
+   * @return deleteSLOCorrectionRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *     </table>
    */
-  public ApiResponse<SLOCorrectionResponse> getSLOCorrectionWithHttpInfo(String sloCorrectionId)
+  public APIdeleteSLOCorrectionRequest deleteSLOCorrection(String sloCorrectionId)
+      throws ApiException {
+    String operationId = "deleteSLOCorrection";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    return new APIdeleteSLOCorrectionRequest(sloCorrectionId);
+  }
+
+  private ApiResponse<SLOCorrectionResponse> getSLOCorrectionWithHttpInfo(String sloCorrectionId)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -248,6 +280,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
       throw new ApiException(
           400, "Missing the required parameter 'sloCorrectionId' when calling getSLOCorrection");
     }
+
     // create path and map variables
     String localVarPath =
         "/api/v1/slo/correction/{slo_correction_id}"
@@ -292,37 +325,69 @@ public class ServiceLevelObjectiveCorrectionsApi {
         false);
   }
 
-  /**
-   * Get all SLO corrections Get all Service Level Objective corrections
-   *
-   * @return SLOCorrectionListResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public SLOCorrectionListResponse listSLOCorrection() throws ApiException {
-    return listSLOCorrectionWithHttpInfo().getData();
+  public class APIgetSLOCorrectionRequest {
+    private String sloCorrectionId;
+
+    private APIgetSLOCorrectionRequest(String sloCorrectionId) {
+      this.sloCorrectionId = sloCorrectionId;
+    }
+
+    /**
+     * Execute getSLOCorrection request
+     *
+     * @return SLOCorrectionResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * </table>
+     */
+    public SLOCorrectionResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute getSLOCorrection request with HTTP info returned
+     *
+     * @return ApiResponse&lt;SLOCorrectionResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<SLOCorrectionResponse> executeWithHttpInfo() throws ApiException {
+      return getSLOCorrectionWithHttpInfo(sloCorrectionId);
+    }
   }
 
   /**
-   * Get all SLO corrections Get all Service Level Objective corrections
+   * Get an SLO correction for an SLO Get an SLO correction
    *
-   * @return ApiResponse&lt;SLOCorrectionListResponse&gt;
+   * @param sloCorrectionId The ID of the SLO correction object (required)
+   * @return getSLOCorrectionRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *     </table>
    */
-  public ApiResponse<SLOCorrectionListResponse> listSLOCorrectionWithHttpInfo()
+  public APIgetSLOCorrectionRequest getSLOCorrection(String sloCorrectionId) throws ApiException {
+    String operationId = "getSLOCorrection";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    return new APIgetSLOCorrectionRequest(sloCorrectionId);
+  }
+
+  private ApiResponse<SLOCorrectionListResponse> listSLOCorrectionWithHttpInfo()
       throws ApiException {
     Object localVarPostBody = null;
+
     // create path and map variables
     String localVarPath = "/api/v1/slo/correction";
 
@@ -363,44 +428,60 @@ public class ServiceLevelObjectiveCorrectionsApi {
         false);
   }
 
-  /**
-   * Update an SLO correction Update the specified SLO correction object object
-   *
-   * @param sloCorrectionId The ID of the SLO correction object (required)
-   * @param body The edited SLO correction object. (required)
-   * @return SLOCorrectionResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public SLOCorrectionResponse updateSLOCorrection(
-      String sloCorrectionId, SLOCorrectionUpdateRequest body) throws ApiException {
-    return updateSLOCorrectionWithHttpInfo(sloCorrectionId, body).getData();
+  public class APIlistSLOCorrectionRequest {
+
+    private APIlistSLOCorrectionRequest() {}
+
+    /**
+     * Execute listSLOCorrection request
+     *
+     * @return SLOCorrectionListResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * </table>
+     */
+    public SLOCorrectionListResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute listSLOCorrection request with HTTP info returned
+     *
+     * @return ApiResponse&lt;SLOCorrectionListResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<SLOCorrectionListResponse> executeWithHttpInfo() throws ApiException {
+      return listSLOCorrectionWithHttpInfo();
+    }
   }
 
   /**
-   * Update an SLO correction Update the specified SLO correction object object
+   * Get all SLO corrections Get all Service Level Objective corrections
    *
-   * @param sloCorrectionId The ID of the SLO correction object (required)
-   * @param body The edited SLO correction object. (required)
-   * @return ApiResponse&lt;SLOCorrectionResponse&gt;
+   * @return listSLOCorrectionRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *     </table>
    */
-  public ApiResponse<SLOCorrectionResponse> updateSLOCorrectionWithHttpInfo(
+  public APIlistSLOCorrectionRequest listSLOCorrection() throws ApiException {
+    String operationId = "listSLOCorrection";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    return new APIlistSLOCorrectionRequest();
+  }
+
+  private ApiResponse<SLOCorrectionResponse> updateSLOCorrectionWithHttpInfo(
       String sloCorrectionId, SLOCorrectionUpdateRequest body) throws ApiException {
     Object localVarPostBody = body;
 
@@ -415,6 +496,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling updateSLOCorrection");
     }
+
     // create path and map variables
     String localVarPath =
         "/api/v1/slo/correction/{slo_correction_id}"
@@ -456,5 +538,79 @@ public class ServiceLevelObjectiveCorrectionsApi {
         localVarAuthNames,
         localVarReturnType,
         false);
+  }
+
+  public class APIupdateSLOCorrectionRequest {
+    private String sloCorrectionId;
+    private SLOCorrectionUpdateRequest body;
+
+    private APIupdateSLOCorrectionRequest(String sloCorrectionId) {
+      this.sloCorrectionId = sloCorrectionId;
+    }
+
+    /**
+     * Set body
+     *
+     * @param body The edited SLO correction object. (required)
+     * @return APIupdateSLOCorrectionRequest
+     */
+    public APIupdateSLOCorrectionRequest body(SLOCorrectionUpdateRequest body) {
+      this.body = body;
+      return this;
+    }
+
+    /**
+     * Execute updateSLOCorrection request
+     *
+     * @return SLOCorrectionResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
+     */
+    public SLOCorrectionResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute updateSLOCorrection request with HTTP info returned
+     *
+     * @return ApiResponse&lt;SLOCorrectionResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<SLOCorrectionResponse> executeWithHttpInfo() throws ApiException {
+      return updateSLOCorrectionWithHttpInfo(sloCorrectionId, body);
+    }
+  }
+
+  /**
+   * Update an SLO correction Update the specified SLO correction object object
+   *
+   * @param sloCorrectionId The ID of the SLO correction object (required)
+   * @return updateSLOCorrectionRequest
+   * @throws ApiException if fails to make API call
+   */
+  public APIupdateSLOCorrectionRequest updateSLOCorrection(String sloCorrectionId)
+      throws ApiException {
+    String operationId = "updateSLOCorrection";
+    if (apiClient.isUnstableOperationEnabled(operationId)) {
+      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
+    } else {
+      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
+    }
+    return new APIupdateSLOCorrectionRequest(sloCorrectionId);
   }
 }

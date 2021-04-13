@@ -78,7 +78,7 @@ public class EventsApiTest extends V1ApiTest {
         20,
         () -> {
           try {
-            eventGetResponse.set(api.getEvent(eventId));
+            eventGetResponse.set(api.getEvent(eventId).execute());
           } catch (ApiException e) {
             System.out.println(String.format("Error getting event: %s", e));
             return false;
@@ -107,14 +107,14 @@ public class EventsApiTest extends V1ApiTest {
           List<Event> events;
           try {
             EventListResponse eventListResponse =
-                api.listEvents(
-                    start,
-                    end,
-                    new EventsApi.ListEventsOptionalParameters()
-                        .priority(priority)
-                        .sources(sources)
-                        .tags(tags)
-                        .unaggregated(unaggregated));
+                api.listEvents()
+                    .start(start)
+                    .end(end)
+                    .priority(priority)
+                    .sources(sources)
+                    .tags(tags)
+                    .unaggregated(unaggregated)
+                    .execute();
             events = eventListResponse.getEvents();
             if (!events.isEmpty() && events.contains(fetchedEvent)) {
               return true;
@@ -133,7 +133,7 @@ public class EventsApiTest extends V1ApiTest {
   @Test
   public void eventListErrorTest() throws IOException {
     try {
-      api.listEvents(Long.valueOf(345), Long.valueOf(123));
+      api.listEvents().start(new Long(345)).end(new Long(123)).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -142,7 +142,7 @@ public class EventsApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.listEvents(Long.valueOf(345), Long.valueOf(123));
+      fakeAuthApi.listEvents().start(new Long(345)).end(new Long(123)).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -154,7 +154,7 @@ public class EventsApiTest extends V1ApiTest {
   @Test
   public void eventGetErrorTest() throws IOException {
     try {
-      fakeAuthApi.getEvent(Long.valueOf((Long.valueOf(1234))));
+      fakeAuthApi.getEvent(new Long((new Long(1234)))).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -163,7 +163,7 @@ public class EventsApiTest extends V1ApiTest {
     }
 
     try {
-      api.getEvent(Long.valueOf((Long.valueOf(1234))));
+      api.getEvent(new Long((new Long(1234)))).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());

@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## cancelDowntime
 
-> cancelDowntime(downtimeId);
+> cancelDowntime(downtimeId).execute();
 
 Cancel a downtime
 
@@ -41,7 +41,8 @@ public class Example {
         DowntimesApi apiInstance = new DowntimesApi(defaultClient);
         Long downtimeId = 123456L; // Long | ID of the downtime to cancel.
         try {
-            apiInstance.cancelDowntime(downtimeId);
+            apiInstance.cancelDowntime(downtimeId)
+                .execute();
         } catch (ApiException e) {
             System.err.println("Exception when calling DowntimesApi#cancelDowntime");
             System.err.println("Status code: " + e.getCode());
@@ -83,7 +84,7 @@ null (empty response body)
 
 ## cancelDowntimesByScope
 
-> CanceledDowntimesIds cancelDowntimesByScope(body);
+> CanceledDowntimesIds cancelDowntimesByScope().body(body).execute();
 
 Cancel downtimes by scope
 
@@ -108,7 +109,9 @@ public class Example {
         DowntimesApi apiInstance = new DowntimesApi(defaultClient);
         CancelDowntimesByScopeRequest body = new CancelDowntimesByScopeRequest(); // CancelDowntimesByScopeRequest | Scope to cancel downtimes for.
         try {
-            CanceledDowntimesIds result = apiInstance.cancelDowntimesByScope(body);
+            CanceledDowntimesIds result = apiInstance.cancelDowntimesByScope()
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DowntimesApi#cancelDowntimesByScope");
@@ -152,7 +155,7 @@ Name | Type | Description  | Notes
 
 ## createDowntime
 
-> Downtime createDowntime(body);
+> Downtime createDowntime().body(body).execute();
 
 Schedule a downtime
 
@@ -177,7 +180,9 @@ public class Example {
         DowntimesApi apiInstance = new DowntimesApi(defaultClient);
         Downtime body = new Downtime(); // Downtime | Schedule a downtime request body.
         try {
-            Downtime result = apiInstance.createDowntime(body);
+            Downtime result = apiInstance.createDowntime()
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DowntimesApi#createDowntime");
@@ -220,7 +225,7 @@ Name | Type | Description  | Notes
 
 ## getDowntime
 
-> Downtime getDowntime(downtimeId);
+> Downtime getDowntime(downtimeId).execute();
 
 Get a downtime
 
@@ -245,7 +250,8 @@ public class Example {
         DowntimesApi apiInstance = new DowntimesApi(defaultClient);
         Long downtimeId = 123456L; // Long | ID of the downtime to fetch.
         try {
-            Downtime result = apiInstance.getDowntime(downtimeId);
+            Downtime result = apiInstance.getDowntime(downtimeId)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DowntimesApi#getDowntime");
@@ -288,7 +294,7 @@ Name | Type | Description  | Notes
 
 ## listDowntimes
 
-> List&lt;Downtime&gt; listDowntimes(parameters);
+> List&lt;Downtime&gt; listDowntimes().currentOnly(currentOnly).execute();
 
 Get all downtimes
 
@@ -313,8 +319,9 @@ public class Example {
         DowntimesApi apiInstance = new DowntimesApi(defaultClient);
         Boolean currentOnly = true; // Boolean | Only return downtimes that are active when the request is made.
         try {
-	    List<Downtime> result = apiInstance.listDowntimes(new DowntimesApi.ListDowntimesOptionalParameters()
-                .currentOnly(currentOnly));
+            List<Downtime> result = apiInstance.listDowntimes()
+                .currentOnly(currentOnly)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DowntimesApi#listDowntimes");
@@ -356,7 +363,7 @@ Name | Type | Description  | Notes
 
 ## listMonitorDowntimes
 
-> List&lt;Downtime&gt; listMonitorDowntimes(monitorId);
+> List&lt;Downtime&gt; listMonitorDowntimes(monitorId).execute();
 
 Get all downtimes for a monitor
 
@@ -381,7 +388,8 @@ public class Example {
         DowntimesApi apiInstance = new DowntimesApi(defaultClient);
         Long monitorId = 56L; // Long | The id of the monitor
         try {
-            List<Downtime> result = apiInstance.listMonitorDowntimes(monitorId);
+            List<Downtime> result = apiInstance.listMonitorDowntimes(monitorId)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DowntimesApi#listMonitorDowntimes");
@@ -424,7 +432,7 @@ Name | Type | Description  | Notes
 
 ## updateDowntime
 
-> Downtime updateDowntime(downtimeId, body);
+> Downtime updateDowntime(downtimeId).body(body).execute();
 
 Update a downtime
 
@@ -450,7 +458,9 @@ public class Example {
         Long downtimeId = 123456L; // Long | ID of the downtime to update.
         Downtime body = new Downtime(); // Downtime | Update a downtime request body.
         try {
-            Downtime result = apiInstance.updateDowntime(downtimeId, body);
+            Downtime result = apiInstance.updateDowntime(downtimeId)
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DowntimesApi#updateDowntime");

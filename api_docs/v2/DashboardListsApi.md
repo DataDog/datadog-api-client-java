@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## createDashboardListItems
 
-> DashboardListAddItemsResponse createDashboardListItems(dashboardListId, body);
+> DashboardListAddItemsResponse createDashboardListItems(dashboardListId).body(body).execute();
 
 Add Items to a Dashboard List
 
@@ -39,7 +39,9 @@ public class Example {
         Long dashboardListId = 56L; // Long | ID of the dashboard list to add items to.
         DashboardListAddItemsRequest body = new DashboardListAddItemsRequest(); // DashboardListAddItemsRequest | Dashboards to add to the dashboard list.
         try {
-            DashboardListAddItemsResponse result = apiInstance.createDashboardListItems(dashboardListId, body);
+            DashboardListAddItemsResponse result = apiInstance.createDashboardListItems(dashboardListId)
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DashboardListsApi#createDashboardListItems");
@@ -84,7 +86,7 @@ Name | Type | Description  | Notes
 
 ## deleteDashboardListItems
 
-> DashboardListDeleteItemsResponse deleteDashboardListItems(dashboardListId, body);
+> DashboardListDeleteItemsResponse deleteDashboardListItems(dashboardListId).body(body).execute();
 
 Delete items from a dashboard list
 
@@ -110,7 +112,9 @@ public class Example {
         Long dashboardListId = 56L; // Long | ID of the dashboard list to delete items from.
         DashboardListDeleteItemsRequest body = new DashboardListDeleteItemsRequest(); // DashboardListDeleteItemsRequest | Dashboards to delete from the dashboard list.
         try {
-            DashboardListDeleteItemsResponse result = apiInstance.deleteDashboardListItems(dashboardListId, body);
+            DashboardListDeleteItemsResponse result = apiInstance.deleteDashboardListItems(dashboardListId)
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DashboardListsApi#deleteDashboardListItems");
@@ -155,7 +159,7 @@ Name | Type | Description  | Notes
 
 ## getDashboardListItems
 
-> DashboardListItems getDashboardListItems(dashboardListId);
+> DashboardListItems getDashboardListItems(dashboardListId).execute();
 
 Get items of a Dashboard List
 
@@ -180,7 +184,8 @@ public class Example {
         DashboardListsApi apiInstance = new DashboardListsApi(defaultClient);
         Long dashboardListId = 56L; // Long | ID of the dashboard list to get items from.
         try {
-            DashboardListItems result = apiInstance.getDashboardListItems(dashboardListId);
+            DashboardListItems result = apiInstance.getDashboardListItems(dashboardListId)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DashboardListsApi#getDashboardListItems");
@@ -223,7 +228,7 @@ Name | Type | Description  | Notes
 
 ## updateDashboardListItems
 
-> DashboardListUpdateItemsResponse updateDashboardListItems(dashboardListId, body);
+> DashboardListUpdateItemsResponse updateDashboardListItems(dashboardListId).body(body).execute();
 
 Update items of a dashboard list
 
@@ -249,7 +254,9 @@ public class Example {
         Long dashboardListId = 56L; // Long | ID of the dashboard list to update items from.
         DashboardListUpdateItemsRequest body = new DashboardListUpdateItemsRequest(); // DashboardListUpdateItemsRequest | New dashboards of the dashboard list.
         try {
-            DashboardListUpdateItemsResponse result = apiInstance.updateDashboardListItems(dashboardListId, body);
+            DashboardListUpdateItemsResponse result = apiInstance.updateDashboardListItems(dashboardListId)
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DashboardListsApi#updateDashboardListItems");

@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 ## createAPIKey
 
-> ApiKeyResponse createAPIKey(body);
+> ApiKeyResponse createAPIKey().body(body).execute();
 
 Create an API key
 
@@ -44,7 +44,9 @@ public class Example {
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
         ApiKey body = new ApiKey(); // ApiKey | 
         try {
-            ApiKeyResponse result = apiInstance.createAPIKey(body);
+            ApiKeyResponse result = apiInstance.createAPIKey()
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling KeyManagementApi#createAPIKey");
@@ -87,7 +89,7 @@ Name | Type | Description  | Notes
 
 ## createApplicationKey
 
-> ApplicationKeyResponse createApplicationKey(body);
+> ApplicationKeyResponse createApplicationKey().body(body).execute();
 
 Create an application key
 
@@ -112,7 +114,9 @@ public class Example {
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
         ApplicationKey body = new ApplicationKey(); // ApplicationKey | 
         try {
-            ApplicationKeyResponse result = apiInstance.createApplicationKey(body);
+            ApplicationKeyResponse result = apiInstance.createApplicationKey()
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling KeyManagementApi#createApplicationKey");
@@ -156,7 +160,7 @@ Name | Type | Description  | Notes
 
 ## deleteAPIKey
 
-> ApiKeyResponse deleteAPIKey(key);
+> ApiKeyResponse deleteAPIKey(key).execute();
 
 Delete an API key
 
@@ -181,7 +185,8 @@ public class Example {
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
         String key = "key_example"; // String | The specific API key you are working with.
         try {
-            ApiKeyResponse result = apiInstance.deleteAPIKey(key);
+            ApiKeyResponse result = apiInstance.deleteAPIKey(key)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling KeyManagementApi#deleteAPIKey");
@@ -225,7 +230,7 @@ Name | Type | Description  | Notes
 
 ## deleteApplicationKey
 
-> ApplicationKeyResponse deleteApplicationKey(key);
+> ApplicationKeyResponse deleteApplicationKey(key).execute();
 
 Delete an application key
 
@@ -250,7 +255,8 @@ public class Example {
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
         String key = "key_example"; // String | The specific APP key you are working with.
         try {
-            ApplicationKeyResponse result = apiInstance.deleteApplicationKey(key);
+            ApplicationKeyResponse result = apiInstance.deleteApplicationKey(key)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling KeyManagementApi#deleteApplicationKey");
@@ -293,7 +299,7 @@ Name | Type | Description  | Notes
 
 ## getAPIKey
 
-> ApiKeyResponse getAPIKey(key);
+> ApiKeyResponse getAPIKey(key).execute();
 
 Get API key
 
@@ -318,7 +324,8 @@ public class Example {
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
         String key = "key_example"; // String | The specific API key you are working with.
         try {
-            ApiKeyResponse result = apiInstance.getAPIKey(key);
+            ApiKeyResponse result = apiInstance.getAPIKey(key)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling KeyManagementApi#getAPIKey");
@@ -361,7 +368,7 @@ Name | Type | Description  | Notes
 
 ## getApplicationKey
 
-> ApplicationKeyResponse getApplicationKey(key);
+> ApplicationKeyResponse getApplicationKey(key).execute();
 
 Get an application key
 
@@ -386,7 +393,8 @@ public class Example {
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
         String key = "key_example"; // String | The specific APP key you are working with.
         try {
-            ApplicationKeyResponse result = apiInstance.getApplicationKey(key);
+            ApplicationKeyResponse result = apiInstance.getApplicationKey(key)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling KeyManagementApi#getApplicationKey");
@@ -429,7 +437,7 @@ Name | Type | Description  | Notes
 
 ## listAPIKeys
 
-> ApiKeyListResponse listAPIKeys();
+> ApiKeyListResponse listAPIKeys().execute();
 
 Get all API keys
 
@@ -453,7 +461,8 @@ public class Example {
 
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
         try {
-            ApiKeyListResponse result = apiInstance.listAPIKeys();
+            ApiKeyListResponse result = apiInstance.listAPIKeys()
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling KeyManagementApi#listAPIKeys");
@@ -492,7 +501,7 @@ This endpoint does not need any parameter.
 
 ## listApplicationKeys
 
-> ApplicationKeyListResponse listApplicationKeys();
+> ApplicationKeyListResponse listApplicationKeys().execute();
 
 Get all application keys
 
@@ -516,7 +525,8 @@ public class Example {
 
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
         try {
-            ApplicationKeyListResponse result = apiInstance.listApplicationKeys();
+            ApplicationKeyListResponse result = apiInstance.listApplicationKeys()
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling KeyManagementApi#listApplicationKeys");
@@ -555,7 +565,7 @@ This endpoint does not need any parameter.
 
 ## updateAPIKey
 
-> ApiKeyResponse updateAPIKey(key, body);
+> ApiKeyResponse updateAPIKey(key).body(body).execute();
 
 Edit an API key
 
@@ -581,7 +591,9 @@ public class Example {
         String key = "key_example"; // String | The specific API key you are working with.
         ApiKey body = new ApiKey(); // ApiKey | 
         try {
-            ApiKeyResponse result = apiInstance.updateAPIKey(key, body);
+            ApiKeyResponse result = apiInstance.updateAPIKey(key)
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling KeyManagementApi#updateAPIKey");
@@ -626,7 +638,7 @@ Name | Type | Description  | Notes
 
 ## updateApplicationKey
 
-> ApplicationKeyResponse updateApplicationKey(key, body);
+> ApplicationKeyResponse updateApplicationKey(key).body(body).execute();
 
 Edit an application key
 
@@ -652,7 +664,9 @@ public class Example {
         String key = "key_example"; // String | The specific APP key you are working with.
         ApplicationKey body = new ApplicationKey(); // ApplicationKey | 
         try {
-            ApplicationKeyResponse result = apiInstance.updateApplicationKey(key, body);
+            ApplicationKeyResponse result = apiInstance.updateApplicationKey(key)
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling KeyManagementApi#updateApplicationKey");

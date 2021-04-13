@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## listLogs
 
-> LogsListResponse listLogs(body);
+> LogsListResponse listLogs().body(body).execute();
 
 Search logs
 
@@ -44,7 +44,9 @@ public class Example {
         LogsApi apiInstance = new LogsApi(defaultClient);
         LogsListRequest body = new LogsListRequest(); // LogsListRequest | Logs filter
         try {
-            LogsListResponse result = apiInstance.listLogs(body);
+            LogsListResponse result = apiInstance.listLogs()
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling LogsApi#listLogs");
@@ -87,7 +89,7 @@ Name | Type | Description  | Notes
 
 ## submitLog
 
-> Object submitLog(body, parameters);
+> Object submitLog().body(body).contentEncoding(contentEncoding).ddtags(ddtags).execute();
 
 Send logs
 
@@ -132,9 +134,11 @@ public class Example {
         ContentEncoding contentEncoding = ContentEncoding.fromValue("gzip"); // ContentEncoding | HTTP header used to compress the media-type.
         String ddtags = "env:prod,user:my-user"; // String | Log tags can be passed as query parameters with `text/plain` content type.
         try {
-	    Object result = apiInstance.submitLog(body, new LogsApi.SubmitLogOptionalParameters()
+            Object result = apiInstance.submitLog()
+                .body(body)
                 .contentEncoding(contentEncoding)
-                .ddtags(ddtags));
+                .ddtags(ddtags)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling LogsApi#submitLog");

@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## createChildOrg
 
-> OrganizationCreateResponse createChildOrg(body);
+> OrganizationCreateResponse createChildOrg().body(body).execute();
 
 Create a child organization
 
@@ -48,7 +48,9 @@ public class Example {
         OrganizationsApi apiInstance = new OrganizationsApi(defaultClient);
         OrganizationCreateBody body = new OrganizationCreateBody(); // OrganizationCreateBody | Organization object that needs to be created
         try {
-            OrganizationCreateResponse result = apiInstance.createChildOrg(body);
+            OrganizationCreateResponse result = apiInstance.createChildOrg()
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling OrganizationsApi#createChildOrg");
@@ -91,7 +93,7 @@ Name | Type | Description  | Notes
 
 ## getOrg
 
-> OrganizationResponse getOrg(publicId);
+> OrganizationResponse getOrg(publicId).execute();
 
 Get organization information
 
@@ -116,7 +118,8 @@ public class Example {
         OrganizationsApi apiInstance = new OrganizationsApi(defaultClient);
         String publicId = "abc123"; // String | The `public_id` of the organization you are operating within.
         try {
-            OrganizationResponse result = apiInstance.getOrg(publicId);
+            OrganizationResponse result = apiInstance.getOrg(publicId)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling OrganizationsApi#getOrg");
@@ -159,7 +162,7 @@ Name | Type | Description  | Notes
 
 ## listOrgs
 
-> OrganizationListResponse listOrgs();
+> OrganizationListResponse listOrgs().execute();
 
 List your managed organizations
 
@@ -183,7 +186,8 @@ public class Example {
 
         OrganizationsApi apiInstance = new OrganizationsApi(defaultClient);
         try {
-            OrganizationListResponse result = apiInstance.listOrgs();
+            OrganizationListResponse result = apiInstance.listOrgs()
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling OrganizationsApi#listOrgs");
@@ -222,7 +226,7 @@ This endpoint does not need any parameter.
 
 ## updateOrg
 
-> OrganizationResponse updateOrg(publicId, body);
+> OrganizationResponse updateOrg(publicId).body(body).execute();
 
 Update your organization
 
@@ -248,7 +252,9 @@ public class Example {
         String publicId = "abc123"; // String | The `public_id` of the organization you are operating within.
         Organization body = new Organization(); // Organization | 
         try {
-            OrganizationResponse result = apiInstance.updateOrg(publicId, body);
+            OrganizationResponse result = apiInstance.updateOrg(publicId)
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling OrganizationsApi#updateOrg");
@@ -292,7 +298,7 @@ Name | Type | Description  | Notes
 
 ## uploadIdPForOrg
 
-> IdpResponse uploadIdPForOrg(publicId, idpFile);
+> IdpResponse uploadIdPForOrg(publicId).idpFile(idpFile).execute();
 
 Upload IdP metadata
 
@@ -324,7 +330,9 @@ public class Example {
         String publicId = "abc123"; // String | The `public_id` of the organization you are operating with
         File idpFile = new File("/path/to/file"); // File | The path to the XML metadata file you wish to upload.
         try {
-            IdpResponse result = apiInstance.uploadIdPForOrg(publicId, idpFile);
+            IdpResponse result = apiInstance.uploadIdPForOrg(publicId)
+                .idpFile(idpFile)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling OrganizationsApi#uploadIdPForOrg");

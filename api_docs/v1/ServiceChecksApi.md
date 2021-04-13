@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## submitServiceCheck
 
-> IntakePayloadAccepted submitServiceCheck(body);
+> IntakePayloadAccepted submitServiceCheck().body(body).execute();
 
 Submit a Service Check
 
@@ -37,7 +37,9 @@ public class Example {
         ServiceChecksApi apiInstance = new ServiceChecksApi(defaultClient);
         List<ServiceCheck> body = Arrays.asList(); // List<ServiceCheck> | Service Check request body.
         try {
-            IntakePayloadAccepted result = apiInstance.submitServiceCheck(body);
+            IntakePayloadAccepted result = apiInstance.submitServiceCheck()
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ServiceChecksApi#submitServiceCheck");

@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## getHostTotals
 
-> HostTotals getHostTotals(parameters);
+> HostTotals getHostTotals().from(from).execute();
 
 Get the total number of active hosts
 
@@ -39,8 +39,9 @@ public class Example {
         HostsApi apiInstance = new HostsApi(defaultClient);
         Long from = 56L; // Long | Number of seconds from which you want to get total number of active hosts.
         try {
-	    HostTotals result = apiInstance.getHostTotals(new HostsApi.GetHostTotalsOptionalParameters()
-                .from(from));
+            HostTotals result = apiInstance.getHostTotals()
+                .from(from)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling HostsApi#getHostTotals");
@@ -83,7 +84,7 @@ Name | Type | Description  | Notes
 
 ## listHosts
 
-> HostListResponse listHosts(parameters);
+> HostListResponse listHosts().filter(filter).sortField(sortField).sortDir(sortDir).start(start).count(count).from(from).includeMutedHostsData(includeMutedHostsData).includeHostsMetadata(includeHostsMetadata).execute();
 
 Get all hosts for your organization
 
@@ -118,7 +119,7 @@ public class Example {
         Boolean includeMutedHostsData = true; // Boolean | Include information on the muted status of hosts and when the mute expires.
         Boolean includeHostsMetadata = true; // Boolean | Include additional metadata about the hosts (agent_version, machine, platform, processor, etc.).
         try {
-	    HostListResponse result = apiInstance.listHosts(new HostsApi.ListHostsOptionalParameters()
+            HostListResponse result = apiInstance.listHosts()
                 .filter(filter)
                 .sortField(sortField)
                 .sortDir(sortDir)
@@ -126,7 +127,8 @@ public class Example {
                 .count(count)
                 .from(from)
                 .includeMutedHostsData(includeMutedHostsData)
-                .includeHostsMetadata(includeHostsMetadata));
+                .includeHostsMetadata(includeHostsMetadata)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling HostsApi#listHosts");
@@ -176,7 +178,7 @@ Name | Type | Description  | Notes
 
 ## muteHost
 
-> HostMuteResponse muteHost(hostName, body);
+> HostMuteResponse muteHost(hostName).body(body).execute();
 
 Mute a host
 
@@ -202,7 +204,9 @@ public class Example {
         String hostName = "hostName_example"; // String | Name of the host to mute.
         HostMuteSettings body = new HostMuteSettings(); // HostMuteSettings | Mute a host request body.
         try {
-            HostMuteResponse result = apiInstance.muteHost(hostName, body);
+            HostMuteResponse result = apiInstance.muteHost(hostName)
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling HostsApi#muteHost");
@@ -246,7 +250,7 @@ Name | Type | Description  | Notes
 
 ## unmuteHost
 
-> HostMuteResponse unmuteHost(hostName);
+> HostMuteResponse unmuteHost(hostName).execute();
 
 Unmute a host
 
@@ -271,7 +275,8 @@ public class Example {
         HostsApi apiInstance = new HostsApi(defaultClient);
         String hostName = "hostName_example"; // String | Name of the host to unmute.
         try {
-            HostMuteResponse result = apiInstance.unmuteHost(hostName);
+            HostMuteResponse result = apiInstance.unmuteHost(hostName)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling HostsApi#unmuteHost");

@@ -49,7 +49,7 @@ public class RolesApiTest extends V2APITest {
     if (deleteRoles != null) {
       for (String id : deleteRoles) {
         try {
-          api.deleteRole(id);
+          api.deleteRole(id).execute();
         } catch (ApiException e) {
           System.err.println("Role was already deleted: " + id);
         }
@@ -61,9 +61,9 @@ public class RolesApiTest extends V2APITest {
   public void disableUsers() throws ApiException {
     if (disableUsers != null) {
       for (String id : disableUsers) {
-        UserResponse urp = usersApi.getUser(id);
+        UserResponse urp = usersApi.getUser(id).execute();
         if (!urp.getData().getAttributes().getDisabled()) {
-          usersApi.disableUser(id);
+          usersApi.disableUser(id).execute();
         }
       }
     }
@@ -77,7 +77,7 @@ public class RolesApiTest extends V2APITest {
     RoleCreateRequest rcr = new RoleCreateRequest().data(rcd);
 
     // first, test creating a role
-    RoleCreateResponse rr = api.createRole(rcr);
+    RoleCreateResponse rr = api.createRole().body(rcr).execute();
     String rid = rr.getData().getId();
     deleteRoles.add(rid);
 
@@ -89,21 +89,21 @@ public class RolesApiTest extends V2APITest {
     RoleUpdateData rud = new RoleUpdateData().attributes(rua).id(rid);
     RoleUpdateRequest rur = new RoleUpdateRequest().data(rud);
 
-    RoleUpdateResponse urr = api.updateRole(rid, rur);
+    RoleUpdateResponse urr = api.updateRole(rid).body(rur).execute();
     assertEquals(updatedRoleName, urr.getData().getAttributes().getName());
 
     // now, test getting it
-    RoleResponse grr = api.getRole(rid);
+    RoleResponse grr = api.getRole(rid).execute();
     assertEquals(updatedRoleName, grr.getData().getAttributes().getName());
 
     // now, test filtering for it in the list call
     RolesResponse rsr =
-        api.listRoles(
-            new RolesApi.ListRolesOptionalParameters()
-                .filter(updatedRoleName)
-                .pageSize(1L)
-                .pageNumber(0L)
-                .sort(RolesSort.MODIFIED_AT_DESCENDING));
+        api.listRoles()
+            .filter(updatedRoleName)
+            .pageSize(1L)
+            .pageNumber(0L)
+            .sort(RolesSort.MODIFIED_AT_DESCENDING)
+            .execute();
     assertEquals(1, rsr.getData().size());
     assertEquals(updatedRoleName, rsr.getData().get(0).getAttributes().getName());
     assertTrue(rsr.getMeta().getPage().getTotalCount() >= 1);
@@ -122,12 +122,12 @@ public class RolesApiTest extends V2APITest {
     RoleCreateRequest rcr = new RoleCreateRequest().data(rcd);
 
     // first, create a role
-    RoleCreateResponse rr = api.createRole(rcr);
+    RoleCreateResponse rr = api.createRole().body(rcr).execute();
     String rid = rr.getData().getId();
     deleteRoles.add(rid);
 
     // find a permission
-    PermissionsResponse permissions = api.listPermissions();
+    PermissionsResponse permissions = api.listPermissions().execute();
     assertTrue(permissions.getData().size() > 0);
 
     Permission permission = permissions.getData().get(0);
@@ -137,7 +137,7 @@ public class RolesApiTest extends V2APITest {
     RelationshipToPermissionData rtpd = new RelationshipToPermissionData().id(pid);
     RelationshipToPermission rtp = new RelationshipToPermission().data(rtpd);
 
-    PermissionsResponse crrtps = api.addPermissionToRole(rid, rtp);
+    PermissionsResponse crrtps = api.addPermissionToRole(rid).body(rtp).execute();
     boolean found = false;
     for (Permission p : crrtps.getData()) {
       if (pid.equals(p.getId())) {
@@ -148,7 +148,7 @@ public class RolesApiTest extends V2APITest {
     assertTrue(found);
 
     // get all permissions for the role
-    PermissionsResponse lrrtps = api.listRolePermissions(rid);
+    PermissionsResponse lrrtps = api.listRolePermissions(rid).execute();
     found = false;
     for (Permission p : lrrtps.getData()) {
       if (pid.equals(p.getId())) {
@@ -159,7 +159,7 @@ public class RolesApiTest extends V2APITest {
     assertTrue(found);
 
     // remove the permission from the role
-    PermissionsResponse drrtps = api.removePermissionFromRole(rid, rtp);
+    PermissionsResponse drrtps = api.removePermissionFromRole(rid).body(rtp).execute();
     found = false;
     for (Permission p : drrtps.getData()) {
       if (pid.equals(p.getId())) {
@@ -178,7 +178,7 @@ public class RolesApiTest extends V2APITest {
     RoleCreateRequest rcp = new RoleCreateRequest().data(rcd);
 
     // first, create a role
-    RoleCreateResponse rr = api.createRole(rcp);
+    RoleCreateResponse rr = api.createRole().body(rcp).execute();
     String rid = rr.getData().getId();
     deleteRoles.add(rid);
 
@@ -191,7 +191,7 @@ public class RolesApiTest extends V2APITest {
             .title(testingUserTitle);
     UserCreateData ucd = new UserCreateData().attributes(uca);
     UserCreateRequest ucr = new UserCreateRequest().data(ucd);
-    UserResponse ur = usersApi.createUser(ucr);
+    UserResponse ur = usersApi.createUser().body(ucr).execute();
     String uid = ur.getData().getId();
     disableUsers.add(uid);
 
@@ -199,7 +199,7 @@ public class RolesApiTest extends V2APITest {
     RelationshipToUserData rtud = new RelationshipToUserData().id(uid);
     RelationshipToUser rtu = new RelationshipToUser().data(rtud);
 
-    UsersResponse crrtus = api.addUserToRole(rid, rtu);
+    UsersResponse crrtus = api.addUserToRole(rid).body(rtu).execute();
     boolean found = false;
     for (User u : crrtus.getData()) {
       if (uid.equals(u.getId())) {
@@ -210,7 +210,7 @@ public class RolesApiTest extends V2APITest {
     assertTrue(found);
 
     // get all users for the role
-    UsersResponse lrrtus = api.listRoleUsers(rid);
+    UsersResponse lrrtus = api.listRoleUsers(rid).execute();
     found = false;
     for (User u : lrrtus.getData()) {
       if (uid.equals(u.getId())) {
@@ -221,7 +221,7 @@ public class RolesApiTest extends V2APITest {
     assertTrue(found);
 
     // remove the permission from the role
-    UsersResponse drrtus = api.removeUserFromRole(rid, rtu);
+    UsersResponse drrtus = api.removeUserFromRole(rid).body(rtu).execute();
     found = false;
     for (User u : drrtus.getData()) {
       if (uid.equals(u.getId())) {
@@ -234,7 +234,7 @@ public class RolesApiTest extends V2APITest {
 
   @Test
   public void listPermissionsTest() throws ApiException {
-    PermissionsResponse psr = api.listPermissions();
+    PermissionsResponse psr = api.listPermissions().execute();
     assertTrue(psr.getData().size() > 0);
   }
 }

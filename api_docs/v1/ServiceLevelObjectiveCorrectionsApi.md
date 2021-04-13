@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## createSLOCorrection
 
-> SLOCorrectionResponse createSLOCorrection(body);
+> SLOCorrectionResponse createSLOCorrection().body(body).execute();
 
 Create an SLO correction
 
@@ -39,7 +39,9 @@ public class Example {
         ServiceLevelObjectiveCorrectionsApi apiInstance = new ServiceLevelObjectiveCorrectionsApi(defaultClient);
         SLOCorrectionCreateRequest body = new SLOCorrectionCreateRequest(); // SLOCorrectionCreateRequest | Create an SLO Correction
         try {
-            SLOCorrectionResponse result = apiInstance.createSLOCorrection(body);
+            SLOCorrectionResponse result = apiInstance.createSLOCorrection()
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ServiceLevelObjectiveCorrectionsApi#createSLOCorrection");
@@ -82,7 +84,7 @@ Name | Type | Description  | Notes
 
 ## deleteSLOCorrection
 
-> deleteSLOCorrection(sloCorrectionId);
+> deleteSLOCorrection(sloCorrectionId).execute();
 
 Delete an SLO correction
 
@@ -107,7 +109,8 @@ public class Example {
         ServiceLevelObjectiveCorrectionsApi apiInstance = new ServiceLevelObjectiveCorrectionsApi(defaultClient);
         String sloCorrectionId = "sloCorrectionId_example"; // String | The ID of the SLO correction object
         try {
-            apiInstance.deleteSLOCorrection(sloCorrectionId);
+            apiInstance.deleteSLOCorrection(sloCorrectionId)
+                .execute();
         } catch (ApiException e) {
             System.err.println("Exception when calling ServiceLevelObjectiveCorrectionsApi#deleteSLOCorrection");
             System.err.println("Status code: " + e.getCode());
@@ -149,7 +152,7 @@ null (empty response body)
 
 ## getSLOCorrection
 
-> SLOCorrectionResponse getSLOCorrection(sloCorrectionId);
+> SLOCorrectionResponse getSLOCorrection(sloCorrectionId).execute();
 
 Get an SLO correction for an SLO
 
@@ -174,7 +177,8 @@ public class Example {
         ServiceLevelObjectiveCorrectionsApi apiInstance = new ServiceLevelObjectiveCorrectionsApi(defaultClient);
         String sloCorrectionId = "sloCorrectionId_example"; // String | The ID of the SLO correction object
         try {
-            SLOCorrectionResponse result = apiInstance.getSLOCorrection(sloCorrectionId);
+            SLOCorrectionResponse result = apiInstance.getSLOCorrection(sloCorrectionId)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ServiceLevelObjectiveCorrectionsApi#getSLOCorrection");
@@ -217,7 +221,7 @@ Name | Type | Description  | Notes
 
 ## listSLOCorrection
 
-> SLOCorrectionListResponse listSLOCorrection();
+> SLOCorrectionListResponse listSLOCorrection().execute();
 
 Get all SLO corrections
 
@@ -241,7 +245,8 @@ public class Example {
 
         ServiceLevelObjectiveCorrectionsApi apiInstance = new ServiceLevelObjectiveCorrectionsApi(defaultClient);
         try {
-            SLOCorrectionListResponse result = apiInstance.listSLOCorrection();
+            SLOCorrectionListResponse result = apiInstance.listSLOCorrection()
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ServiceLevelObjectiveCorrectionsApi#listSLOCorrection");
@@ -280,7 +285,7 @@ This endpoint does not need any parameter.
 
 ## updateSLOCorrection
 
-> SLOCorrectionResponse updateSLOCorrection(sloCorrectionId, body);
+> SLOCorrectionResponse updateSLOCorrection(sloCorrectionId).body(body).execute();
 
 Update an SLO correction
 
@@ -306,7 +311,9 @@ public class Example {
         String sloCorrectionId = "sloCorrectionId_example"; // String | The ID of the SLO correction object
         SLOCorrectionUpdateRequest body = new SLOCorrectionUpdateRequest(); // SLOCorrectionUpdateRequest | The edited SLO correction object.
         try {
-            SLOCorrectionResponse result = apiInstance.updateSLOCorrection(sloCorrectionId, body);
+            SLOCorrectionResponse result = apiInstance.updateSLOCorrection(sloCorrectionId)
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ServiceLevelObjectiveCorrectionsApi#updateSLOCorrection");

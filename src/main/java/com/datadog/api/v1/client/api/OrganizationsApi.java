@@ -48,50 +48,7 @@ public class OrganizationsApi {
     this.apiClient = apiClient;
   }
 
-  /**
-   * Create a child organization Create a child organization. This endpoint requires the
-   * [multi-organization account](https://docs.datadoghq.com/account_management/multi_organization/)
-   * feature and must be enabled by [contacting support](https://docs.datadoghq.com/help/). Once a
-   * new child organization is created, you can interact with it by using the
-   * &#x60;org.public_id&#x60;, &#x60;pi_key.key&#x60;, and &#x60;application_key.hash&#x60;
-   * provided in the response.
-   *
-   * @param body Organization object that needs to be created (required)
-   * @return OrganizationCreateResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public OrganizationCreateResponse createChildOrg(OrganizationCreateBody body)
-      throws ApiException {
-    return createChildOrgWithHttpInfo(body).getData();
-  }
-
-  /**
-   * Create a child organization Create a child organization. This endpoint requires the
-   * [multi-organization account](https://docs.datadoghq.com/account_management/multi_organization/)
-   * feature and must be enabled by [contacting support](https://docs.datadoghq.com/help/). Once a
-   * new child organization is created, you can interact with it by using the
-   * &#x60;org.public_id&#x60;, &#x60;pi_key.key&#x60;, and &#x60;application_key.hash&#x60;
-   * provided in the response.
-   *
-   * @param body Organization object that needs to be created (required)
-   * @return ApiResponse&lt;OrganizationCreateResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public ApiResponse<OrganizationCreateResponse> createChildOrgWithHttpInfo(
+  private ApiResponse<OrganizationCreateResponse> createChildOrgWithHttpInfo(
       OrganizationCreateBody body) throws ApiException {
     Object localVarPostBody = body;
 
@@ -100,6 +57,7 @@ public class OrganizationsApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling createChildOrg");
     }
+
     // create path and map variables
     String localVarPath = "/api/v1/org";
 
@@ -139,47 +97,81 @@ public class OrganizationsApi {
         false);
   }
 
-  /**
-   * Get organization information Get organization information.
-   *
-   * @param publicId The &#x60;public_id&#x60; of the organization you are operating within.
-   *     (required)
-   * @return OrganizationResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public OrganizationResponse getOrg(String publicId) throws ApiException {
-    return getOrgWithHttpInfo(publicId).getData();
+  public class APIcreateChildOrgRequest {
+    private OrganizationCreateBody body;
+
+    private APIcreateChildOrgRequest() {}
+
+    /**
+     * Set body
+     *
+     * @param body Organization object that needs to be created (required)
+     * @return APIcreateChildOrgRequest
+     */
+    public APIcreateChildOrgRequest body(OrganizationCreateBody body) {
+      this.body = body;
+      return this;
+    }
+
+    /**
+     * Execute createChildOrg request
+     *
+     * @return OrganizationCreateResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * </table>
+     */
+    public OrganizationCreateResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute createChildOrg request with HTTP info returned
+     *
+     * @return ApiResponse&lt;OrganizationCreateResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<OrganizationCreateResponse> executeWithHttpInfo() throws ApiException {
+      return createChildOrgWithHttpInfo(body);
+    }
   }
 
   /**
-   * Get organization information Get organization information.
+   * Create a child organization Create a child organization. This endpoint requires the
+   * [multi-organization account](https://docs.datadoghq.com/account_management/multi_organization/)
+   * feature and must be enabled by [contacting support](https://docs.datadoghq.com/help/). Once a
+   * new child organization is created, you can interact with it by using the
+   * &#x60;org.public_id&#x60;, &#x60;pi_key.key&#x60;, and &#x60;application_key.hash&#x60;
+   * provided in the response.
    *
-   * @param publicId The &#x60;public_id&#x60; of the organization you are operating within.
-   *     (required)
-   * @return ApiResponse&lt;OrganizationResponse&gt;
+   * @return createChildOrgRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *     </table>
    */
-  public ApiResponse<OrganizationResponse> getOrgWithHttpInfo(String publicId) throws ApiException {
+  public APIcreateChildOrgRequest createChildOrg() throws ApiException {
+    return new APIcreateChildOrgRequest();
+  }
+
+  private ApiResponse<OrganizationResponse> getOrgWithHttpInfo(String publicId)
+      throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'publicId' is set
     if (publicId == null) {
       throw new ApiException(400, "Missing the required parameter 'publicId' when calling getOrg");
     }
+
     // create path and map variables
     String localVarPath =
         "/api/v1/org/{public_id}"
@@ -222,36 +214,63 @@ public class OrganizationsApi {
         false);
   }
 
-  /**
-   * List your managed organizations List your managed organizations.
-   *
-   * @return OrganizationListResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public OrganizationListResponse listOrgs() throws ApiException {
-    return listOrgsWithHttpInfo().getData();
+  public class APIgetOrgRequest {
+    private String publicId;
+
+    private APIgetOrgRequest(String publicId) {
+      this.publicId = publicId;
+    }
+
+    /**
+     * Execute getOrg request
+     *
+     * @return OrganizationResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * </table>
+     */
+    public OrganizationResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute getOrg request with HTTP info returned
+     *
+     * @return ApiResponse&lt;OrganizationResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<OrganizationResponse> executeWithHttpInfo() throws ApiException {
+      return getOrgWithHttpInfo(publicId);
+    }
   }
 
   /**
-   * List your managed organizations List your managed organizations.
+   * Get organization information Get organization information.
    *
-   * @return ApiResponse&lt;OrganizationListResponse&gt;
+   * @param publicId The &#x60;public_id&#x60; of the organization you are operating within.
+   *     (required)
+   * @return getOrgRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *     </table>
    */
-  public ApiResponse<OrganizationListResponse> listOrgsWithHttpInfo() throws ApiException {
+  public APIgetOrgRequest getOrg(String publicId) throws ApiException {
+    return new APIgetOrgRequest(publicId);
+  }
+
+  private ApiResponse<OrganizationListResponse> listOrgsWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
+
     // create path and map variables
     String localVarPath = "/api/v1/org";
 
@@ -292,44 +311,55 @@ public class OrganizationsApi {
         false);
   }
 
-  /**
-   * Update your organization Update your organization.
-   *
-   * @param publicId The &#x60;public_id&#x60; of the organization you are operating within.
-   *     (required)
-   * @param body (required)
-   * @return OrganizationResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public OrganizationResponse updateOrg(String publicId, Organization body) throws ApiException {
-    return updateOrgWithHttpInfo(publicId, body).getData();
+  public class APIlistOrgsRequest {
+
+    private APIlistOrgsRequest() {}
+
+    /**
+     * Execute listOrgs request
+     *
+     * @return OrganizationListResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * </table>
+     */
+    public OrganizationListResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute listOrgs request with HTTP info returned
+     *
+     * @return ApiResponse&lt;OrganizationListResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<OrganizationListResponse> executeWithHttpInfo() throws ApiException {
+      return listOrgsWithHttpInfo();
+    }
   }
 
   /**
-   * Update your organization Update your organization.
+   * List your managed organizations List your managed organizations.
    *
-   * @param publicId The &#x60;public_id&#x60; of the organization you are operating within.
-   *     (required)
-   * @param body (required)
-   * @return ApiResponse&lt;OrganizationResponse&gt;
+   * @return listOrgsRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *     </table>
    */
-  public ApiResponse<OrganizationResponse> updateOrgWithHttpInfo(String publicId, Organization body)
-      throws ApiException {
+  public APIlistOrgsRequest listOrgs() throws ApiException {
+    return new APIlistOrgsRequest();
+  }
+
+  private ApiResponse<OrganizationResponse> updateOrgWithHttpInfo(
+      String publicId, Organization body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'publicId' is set
@@ -342,6 +372,7 @@ public class OrganizationsApi {
     if (body == null) {
       throw new ApiException(400, "Missing the required parameter 'body' when calling updateOrg");
     }
+
     // create path and map variables
     String localVarPath =
         "/api/v1/org/{public_id}"
@@ -383,47 +414,73 @@ public class OrganizationsApi {
         false);
   }
 
-  /**
-   * Upload IdP metadata There are a couple of options for updating the Identity Provider (IdP)
-   * metadata from your SAML IdP. * **Multipart Form-Data**: Post the IdP metadata file using a form
-   * post. * **XML Body:** Post the IdP metadata file as the body of the request.
-   *
-   * @param publicId The &#x60;public_id&#x60; of the organization you are operating with (required)
-   * @param idpFile The path to the XML metadata file you wish to upload. (required)
-   * @return IdpResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 415 </td><td> Unsupported Media Type </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public IdpResponse uploadIdPForOrg(String publicId, File idpFile) throws ApiException {
-    return uploadIdPForOrgWithHttpInfo(publicId, idpFile).getData();
+  public class APIupdateOrgRequest {
+    private String publicId;
+    private Organization body;
+
+    private APIupdateOrgRequest(String publicId) {
+      this.publicId = publicId;
+    }
+
+    /**
+     * Set body
+     *
+     * @param body (required)
+     * @return APIupdateOrgRequest
+     */
+    public APIupdateOrgRequest body(Organization body) {
+      this.body = body;
+      return this;
+    }
+
+    /**
+     * Execute updateOrg request
+     *
+     * @return OrganizationResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * </table>
+     */
+    public OrganizationResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute updateOrg request with HTTP info returned
+     *
+     * @return ApiResponse&lt;OrganizationResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<OrganizationResponse> executeWithHttpInfo() throws ApiException {
+      return updateOrgWithHttpInfo(publicId, body);
+    }
   }
 
   /**
-   * Upload IdP metadata There are a couple of options for updating the Identity Provider (IdP)
-   * metadata from your SAML IdP. * **Multipart Form-Data**: Post the IdP metadata file using a form
-   * post. * **XML Body:** Post the IdP metadata file as the body of the request.
+   * Update your organization Update your organization.
    *
-   * @param publicId The &#x60;public_id&#x60; of the organization you are operating with (required)
-   * @param idpFile The path to the XML metadata file you wish to upload. (required)
-   * @return ApiResponse&lt;IdpResponse&gt;
+   * @param publicId The &#x60;public_id&#x60; of the organization you are operating within.
+   *     (required)
+   * @return updateOrgRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 415 </td><td> Unsupported Media Type </td><td>  -  </td></tr>
-   *     </table>
    */
-  public ApiResponse<IdpResponse> uploadIdPForOrgWithHttpInfo(String publicId, File idpFile)
+  public APIupdateOrgRequest updateOrg(String publicId) throws ApiException {
+    return new APIupdateOrgRequest(publicId);
+  }
+
+  private ApiResponse<IdpResponse> uploadIdPForOrgWithHttpInfo(String publicId, File idpFile)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -438,6 +495,7 @@ public class OrganizationsApi {
       throw new ApiException(
           400, "Missing the required parameter 'idpFile' when calling uploadIdPForOrg");
     }
+
     // create path and map variables
     String localVarPath =
         "/api/v1/org/{public_id}/idp_metadata"
@@ -478,5 +536,74 @@ public class OrganizationsApi {
         localVarAuthNames,
         localVarReturnType,
         false);
+  }
+
+  public class APIuploadIdPForOrgRequest {
+    private String publicId;
+    private File idpFile;
+
+    private APIuploadIdPForOrgRequest(String publicId) {
+      this.publicId = publicId;
+    }
+
+    /**
+     * Set idpFile
+     *
+     * @param idpFile The path to the XML metadata file you wish to upload. (required)
+     * @return APIuploadIdPForOrgRequest
+     */
+    public APIuploadIdPForOrgRequest idpFile(File idpFile) {
+      this.idpFile = idpFile;
+      return this;
+    }
+
+    /**
+     * Execute uploadIdPForOrg request
+     *
+     * @return IdpResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * <tr><td> 415 </td><td> Unsupported Media Type </td><td>  -  </td></tr>
+     * </table>
+     */
+    public IdpResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute uploadIdPForOrg request with HTTP info returned
+     *
+     * @return ApiResponse&lt;IdpResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * <tr><td> 415 </td><td> Unsupported Media Type </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<IdpResponse> executeWithHttpInfo() throws ApiException {
+      return uploadIdPForOrgWithHttpInfo(publicId, idpFile);
+    }
+  }
+
+  /**
+   * Upload IdP metadata There are a couple of options for updating the Identity Provider (IdP)
+   * metadata from your SAML IdP. * **Multipart Form-Data**: Post the IdP metadata file using a form
+   * post. * **XML Body:** Post the IdP metadata file as the body of the request.
+   *
+   * @param publicId The &#x60;public_id&#x60; of the organization you are operating with (required)
+   * @return uploadIdPForOrgRequest
+   * @throws ApiException if fails to make API call
+   */
+  public APIuploadIdPForOrgRequest uploadIdPForOrg(String publicId) throws ApiException {
+    return new APIuploadIdPForOrgRequest(publicId);
   }
 }

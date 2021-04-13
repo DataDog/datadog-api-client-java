@@ -43,91 +43,8 @@ public class TagsApi {
     this.apiClient = apiClient;
   }
 
-  /** Manage optional parameters to createHostTags. */
-  public static class CreateHostTagsOptionalParameters {
-    private String source;
-
-    /**
-     * Set source
-     *
-     * @param source The source of the tags. [Complete list of source attribute
-     *     values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
-     *     (optional)
-     * @return CreateHostTagsOptionalParameters
-     */
-    public CreateHostTagsOptionalParameters source(String source) {
-      this.source = source;
-      return this;
-    }
-  }
-
-  /**
-   * Add tags to a host This endpoint allows you to add new tags to a host, optionally specifying
-   * where these tags come from.
-   *
-   * @param hostName This endpoint allows you to add new tags to a host, optionally specifying where
-   *     the tags came from. (required)
-   * @param body Update host tags request body. (required)
-   * @return HostTags
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public HostTags createHostTags(String hostName, HostTags body) throws ApiException {
-    return createHostTagsWithHttpInfo(hostName, body, new CreateHostTagsOptionalParameters())
-        .getData();
-  }
-
-  /**
-   * Add tags to a host This endpoint allows you to add new tags to a host, optionally specifying
-   * where these tags come from.
-   *
-   * @param hostName This endpoint allows you to add new tags to a host, optionally specifying where
-   *     the tags came from. (required)
-   * @param body Update host tags request body. (required)
-   * @param parameters Optional parameters for the request.
-   * @return HostTags
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public HostTags createHostTags(
-      String hostName, HostTags body, CreateHostTagsOptionalParameters parameters)
-      throws ApiException {
-    return createHostTagsWithHttpInfo(hostName, body, parameters).getData();
-  }
-
-  /**
-   * Add tags to a host This endpoint allows you to add new tags to a host, optionally specifying
-   * where these tags come from.
-   *
-   * @param hostName This endpoint allows you to add new tags to a host, optionally specifying where
-   *     the tags came from. (required)
-   * @param body Update host tags request body. (required)
-   * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;HostTags&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public ApiResponse<HostTags> createHostTagsWithHttpInfo(
-      String hostName, HostTags body, CreateHostTagsOptionalParameters parameters)
-      throws ApiException {
+  private ApiResponse<HostTags> createHostTagsWithHttpInfo(
+      String hostName, HostTags body, String source) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'hostName' is set
@@ -141,7 +58,7 @@ public class TagsApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling createHostTags");
     }
-    String source = parameters.source;
+
     // create path and map variables
     String localVarPath =
         "/api/v1/tags/hosts/{host_name}"
@@ -184,80 +101,89 @@ public class TagsApi {
         false);
   }
 
-  /** Manage optional parameters to deleteHostTags. */
-  public static class DeleteHostTagsOptionalParameters {
+  public class APIcreateHostTagsRequest {
+    private String hostName;
+    private HostTags body;
     private String source;
+
+    private APIcreateHostTagsRequest(String hostName) {
+      this.hostName = hostName;
+    }
+
+    /**
+     * Set body
+     *
+     * @param body Update host tags request body. (required)
+     * @return APIcreateHostTagsRequest
+     */
+    public APIcreateHostTagsRequest body(HostTags body) {
+      this.body = body;
+      return this;
+    }
 
     /**
      * Set source
      *
-     * @param source The source of the tags (e.g. chef, puppet). [Complete list of source attribute
+     * @param source The source of the tags. [Complete list of source attribute
      *     values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
      *     (optional)
-     * @return DeleteHostTagsOptionalParameters
+     * @return APIcreateHostTagsRequest
      */
-    public DeleteHostTagsOptionalParameters source(String source) {
+    public APIcreateHostTagsRequest source(String source) {
       this.source = source;
       return this;
+    }
+
+    /**
+     * Execute createHostTags request
+     *
+     * @return HostTags
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
+     */
+    public HostTags execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute createHostTags request with HTTP info returned
+     *
+     * @return ApiResponse&lt;HostTags&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<HostTags> executeWithHttpInfo() throws ApiException {
+      return createHostTagsWithHttpInfo(hostName, body, source);
     }
   }
 
   /**
-   * Remove host tags This endpoint allows you to remove all user-assigned tags for a single host.
+   * Add tags to a host This endpoint allows you to add new tags to a host, optionally specifying
+   * where these tags come from.
    *
-   * @param hostName This endpoint allows you to remove all user-assigned tags for a single host.
-   *     (required)
+   * @param hostName This endpoint allows you to add new tags to a host, optionally specifying where
+   *     the tags came from. (required)
+   * @return createHostTagsRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *     </table>
    */
-  public void deleteHostTags(String hostName) throws ApiException {
-    deleteHostTagsWithHttpInfo(hostName, new DeleteHostTagsOptionalParameters());
+  public APIcreateHostTagsRequest createHostTags(String hostName) throws ApiException {
+    return new APIcreateHostTagsRequest(hostName);
   }
 
-  /**
-   * Remove host tags This endpoint allows you to remove all user-assigned tags for a single host.
-   *
-   * @param hostName This endpoint allows you to remove all user-assigned tags for a single host.
-   *     (required)
-   * @param parameters Optional parameters for the request.
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public void deleteHostTags(String hostName, DeleteHostTagsOptionalParameters parameters)
+  private ApiResponse<Void> deleteHostTagsWithHttpInfo(String hostName, String source)
       throws ApiException {
-    deleteHostTagsWithHttpInfo(hostName, parameters);
-  }
-
-  /**
-   * Remove host tags This endpoint allows you to remove all user-assigned tags for a single host.
-   *
-   * @param hostName This endpoint allows you to remove all user-assigned tags for a single host.
-   *     (required)
-   * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;Void&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public ApiResponse<Void> deleteHostTagsWithHttpInfo(
-      String hostName, DeleteHostTagsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'hostName' is set
@@ -265,7 +191,7 @@ public class TagsApi {
       throw new ApiException(
           400, "Missing the required parameter 'hostName' when calling deleteHostTags");
     }
-    String source = parameters.source;
+
     // create path and map variables
     String localVarPath =
         "/api/v1/tags/hosts/{host_name}"
@@ -307,80 +233,75 @@ public class TagsApi {
         false);
   }
 
-  /** Manage optional parameters to getHostTags. */
-  public static class GetHostTagsOptionalParameters {
+  public class APIdeleteHostTagsRequest {
+    private String hostName;
     private String source;
+
+    private APIdeleteHostTagsRequest(String hostName) {
+      this.hostName = hostName;
+    }
 
     /**
      * Set source
      *
-     * @param source Source to filter. (optional)
-     * @return GetHostTagsOptionalParameters
+     * @param source The source of the tags (e.g. chef, puppet). [Complete list of source attribute
+     *     values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
+     *     (optional)
+     * @return APIdeleteHostTagsRequest
      */
-    public GetHostTagsOptionalParameters source(String source) {
+    public APIdeleteHostTagsRequest source(String source) {
       this.source = source;
       return this;
+    }
+
+    /**
+     * Execute deleteHostTags request
+     *
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
+     */
+    public void execute() throws ApiException {
+      this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute deleteHostTags request with HTTP info returned
+     *
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<Void> executeWithHttpInfo() throws ApiException {
+      return deleteHostTagsWithHttpInfo(hostName, source);
     }
   }
 
   /**
-   * Get host tags Return the list of tags that apply to a given host.
+   * Remove host tags This endpoint allows you to remove all user-assigned tags for a single host.
    *
-   * @param hostName When specified, filters list of tags to those tags with the specified source.
+   * @param hostName This endpoint allows you to remove all user-assigned tags for a single host.
    *     (required)
-   * @return HostTags
+   * @return deleteHostTagsRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *     </table>
    */
-  public HostTags getHostTags(String hostName) throws ApiException {
-    return getHostTagsWithHttpInfo(hostName, new GetHostTagsOptionalParameters()).getData();
+  public APIdeleteHostTagsRequest deleteHostTags(String hostName) throws ApiException {
+    return new APIdeleteHostTagsRequest(hostName);
   }
 
-  /**
-   * Get host tags Return the list of tags that apply to a given host.
-   *
-   * @param hostName When specified, filters list of tags to those tags with the specified source.
-   *     (required)
-   * @param parameters Optional parameters for the request.
-   * @return HostTags
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public HostTags getHostTags(String hostName, GetHostTagsOptionalParameters parameters)
+  private ApiResponse<HostTags> getHostTagsWithHttpInfo(String hostName, String source)
       throws ApiException {
-    return getHostTagsWithHttpInfo(hostName, parameters).getData();
-  }
-
-  /**
-   * Get host tags Return the list of tags that apply to a given host.
-   *
-   * @param hostName When specified, filters list of tags to those tags with the specified source.
-   *     (required)
-   * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;HostTags&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public ApiResponse<HostTags> getHostTagsWithHttpInfo(
-      String hostName, GetHostTagsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'hostName' is set
@@ -388,7 +309,7 @@ public class TagsApi {
       throw new ApiException(
           400, "Missing the required parameter 'hostName' when calling getHostTags");
     }
-    String source = parameters.source;
+
     // create path and map variables
     String localVarPath =
         "/api/v1/tags/hosts/{host_name}"
@@ -432,76 +353,75 @@ public class TagsApi {
         false);
   }
 
-  /** Manage optional parameters to listHostTags. */
-  public static class ListHostTagsOptionalParameters {
+  public class APIgetHostTagsRequest {
+    private String hostName;
     private String source;
+
+    private APIgetHostTagsRequest(String hostName) {
+      this.hostName = hostName;
+    }
 
     /**
      * Set source
      *
-     * @param source When specified, filters host list to those tags with the specified source.
-     *     (optional)
-     * @return ListHostTagsOptionalParameters
+     * @param source Source to filter. (optional)
+     * @return APIgetHostTagsRequest
      */
-    public ListHostTagsOptionalParameters source(String source) {
+    public APIgetHostTagsRequest source(String source) {
       this.source = source;
       return this;
+    }
+
+    /**
+     * Execute getHostTags request
+     *
+     * @return HostTags
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
+     */
+    public HostTags execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute getHostTags request with HTTP info returned
+     *
+     * @return ApiResponse&lt;HostTags&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<HostTags> executeWithHttpInfo() throws ApiException {
+      return getHostTagsWithHttpInfo(hostName, source);
     }
   }
 
   /**
-   * Get Tags Return a mapping of tags to hosts for your whole infrastructure.
+   * Get host tags Return the list of tags that apply to a given host.
    *
-   * @return TagToHosts
+   * @param hostName When specified, filters list of tags to those tags with the specified source.
+   *     (required)
+   * @return getHostTagsRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *     </table>
    */
-  public TagToHosts listHostTags() throws ApiException {
-    return listHostTagsWithHttpInfo(new ListHostTagsOptionalParameters()).getData();
+  public APIgetHostTagsRequest getHostTags(String hostName) throws ApiException {
+    return new APIgetHostTagsRequest(hostName);
   }
 
-  /**
-   * Get Tags Return a mapping of tags to hosts for your whole infrastructure.
-   *
-   * @param parameters Optional parameters for the request.
-   * @return TagToHosts
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public TagToHosts listHostTags(ListHostTagsOptionalParameters parameters) throws ApiException {
-    return listHostTagsWithHttpInfo(parameters).getData();
-  }
-
-  /**
-   * Get Tags Return a mapping of tags to hosts for your whole infrastructure.
-   *
-   * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;TagToHosts&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public ApiResponse<TagToHosts> listHostTagsWithHttpInfo(ListHostTagsOptionalParameters parameters)
-      throws ApiException {
+  private ApiResponse<TagToHosts> listHostTagsWithHttpInfo(String source) throws ApiException {
     Object localVarPostBody = null;
-    String source = parameters.source;
+
     // create path and map variables
     String localVarPath = "/api/v1/tags/hosts";
 
@@ -543,91 +463,70 @@ public class TagsApi {
         false);
   }
 
-  /** Manage optional parameters to updateHostTags. */
-  public static class UpdateHostTagsOptionalParameters {
+  public class APIlistHostTagsRequest {
     private String source;
+
+    private APIlistHostTagsRequest() {}
 
     /**
      * Set source
      *
-     * @param source The source of the tags (e.g. chef, puppet). [Complete list of source attribute
-     *     values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value)
+     * @param source When specified, filters host list to those tags with the specified source.
      *     (optional)
-     * @return UpdateHostTagsOptionalParameters
+     * @return APIlistHostTagsRequest
      */
-    public UpdateHostTagsOptionalParameters source(String source) {
+    public APIlistHostTagsRequest source(String source) {
       this.source = source;
       return this;
+    }
+
+    /**
+     * Execute listHostTags request
+     *
+     * @return TagToHosts
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
+     */
+    public TagToHosts execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute listHostTags request with HTTP info returned
+     *
+     * @return ApiResponse&lt;TagToHosts&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<TagToHosts> executeWithHttpInfo() throws ApiException {
+      return listHostTagsWithHttpInfo(source);
     }
   }
 
   /**
-   * Update host tags This endpoint allows you to update/replace all tags in an integration source
-   * with those supplied in the request.
+   * Get Tags Return a mapping of tags to hosts for your whole infrastructure.
    *
-   * @param hostName This endpoint allows you to update/replace all in an integration source with
-   *     those supplied in the request. (required)
-   * @param body Add tags to host (required)
-   * @return HostTags
+   * @return listHostTagsRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 201 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *     </table>
    */
-  public HostTags updateHostTags(String hostName, HostTags body) throws ApiException {
-    return updateHostTagsWithHttpInfo(hostName, body, new UpdateHostTagsOptionalParameters())
-        .getData();
+  public APIlistHostTagsRequest listHostTags() throws ApiException {
+    return new APIlistHostTagsRequest();
   }
 
-  /**
-   * Update host tags This endpoint allows you to update/replace all tags in an integration source
-   * with those supplied in the request.
-   *
-   * @param hostName This endpoint allows you to update/replace all in an integration source with
-   *     those supplied in the request. (required)
-   * @param body Add tags to host (required)
-   * @param parameters Optional parameters for the request.
-   * @return HostTags
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 201 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public HostTags updateHostTags(
-      String hostName, HostTags body, UpdateHostTagsOptionalParameters parameters)
-      throws ApiException {
-    return updateHostTagsWithHttpInfo(hostName, body, parameters).getData();
-  }
-
-  /**
-   * Update host tags This endpoint allows you to update/replace all tags in an integration source
-   * with those supplied in the request.
-   *
-   * @param hostName This endpoint allows you to update/replace all in an integration source with
-   *     those supplied in the request. (required)
-   * @param body Add tags to host (required)
-   * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;HostTags&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 201 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public ApiResponse<HostTags> updateHostTagsWithHttpInfo(
-      String hostName, HostTags body, UpdateHostTagsOptionalParameters parameters)
-      throws ApiException {
+  private ApiResponse<HostTags> updateHostTagsWithHttpInfo(
+      String hostName, HostTags body, String source) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'hostName' is set
@@ -641,7 +540,7 @@ public class TagsApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling updateHostTags");
     }
-    String source = parameters.source;
+
     // create path and map variables
     String localVarPath =
         "/api/v1/tags/hosts/{host_name}"
@@ -682,5 +581,86 @@ public class TagsApi {
         localVarAuthNames,
         localVarReturnType,
         false);
+  }
+
+  public class APIupdateHostTagsRequest {
+    private String hostName;
+    private HostTags body;
+    private String source;
+
+    private APIupdateHostTagsRequest(String hostName) {
+      this.hostName = hostName;
+    }
+
+    /**
+     * Set body
+     *
+     * @param body Add tags to host (required)
+     * @return APIupdateHostTagsRequest
+     */
+    public APIupdateHostTagsRequest body(HostTags body) {
+      this.body = body;
+      return this;
+    }
+
+    /**
+     * Set source
+     *
+     * @param source The source of the tags (e.g. chef, puppet). [Complete list of source attribute
+     *     values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value)
+     *     (optional)
+     * @return APIupdateHostTagsRequest
+     */
+    public APIupdateHostTagsRequest source(String source) {
+      this.source = source;
+      return this;
+    }
+
+    /**
+     * Execute updateHostTags request
+     *
+     * @return HostTags
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 201 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
+     */
+    public HostTags execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute updateHostTags request with HTTP info returned
+     *
+     * @return ApiResponse&lt;HostTags&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 201 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<HostTags> executeWithHttpInfo() throws ApiException {
+      return updateHostTagsWithHttpInfo(hostName, body, source);
+    }
+  }
+
+  /**
+   * Update host tags This endpoint allows you to update/replace all tags in an integration source
+   * with those supplied in the request.
+   *
+   * @param hostName This endpoint allows you to update/replace all in an integration source with
+   *     those supplied in the request. (required)
+   * @return updateHostTagsRequest
+   * @throws ApiException if fails to make API call
+   */
+  public APIupdateHostTagsRequest updateHostTags(String hostName) throws ApiException {
+    return new APIupdateHostTagsRequest(hostName);
   }
 }

@@ -35,7 +35,7 @@ Method | HTTP request | Description
 
 ## createGlobalVariable
 
-> SyntheticsGlobalVariable createGlobalVariable(body);
+> SyntheticsGlobalVariable createGlobalVariable().body(body).execute();
 
 Create a global variable
 
@@ -60,7 +60,9 @@ public class Example {
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
         SyntheticsGlobalVariable body = new SyntheticsGlobalVariable(); // SyntheticsGlobalVariable | Details of the global variable to create.
         try {
-            SyntheticsGlobalVariable result = apiInstance.createGlobalVariable(body);
+            SyntheticsGlobalVariable result = apiInstance.createGlobalVariable()
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SyntheticsApi#createGlobalVariable");
@@ -103,7 +105,7 @@ Name | Type | Description  | Notes
 
 ## createPrivateLocation
 
-> SyntheticsPrivateLocationCreationResponse createPrivateLocation(body);
+> SyntheticsPrivateLocationCreationResponse createPrivateLocation().body(body).execute();
 
 Create a private location
 
@@ -128,7 +130,9 @@ public class Example {
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
         SyntheticsPrivateLocation body = new SyntheticsPrivateLocation(); // SyntheticsPrivateLocation | Details of the private location to create.
         try {
-            SyntheticsPrivateLocationCreationResponse result = apiInstance.createPrivateLocation(body);
+            SyntheticsPrivateLocationCreationResponse result = apiInstance.createPrivateLocation()
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SyntheticsApi#createPrivateLocation");
@@ -171,7 +175,7 @@ Name | Type | Description  | Notes
 
 ## createSyntheticsAPITest
 
-> SyntheticsAPITest createSyntheticsAPITest(body);
+> SyntheticsAPITest createSyntheticsAPITest().body(body).execute();
 
 Create an API test
 
@@ -196,7 +200,9 @@ public class Example {
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
         SyntheticsAPITest body = new SyntheticsAPITest(); // SyntheticsAPITest | Details of the test to create.
         try {
-            SyntheticsAPITest result = apiInstance.createSyntheticsAPITest(body);
+            SyntheticsAPITest result = apiInstance.createSyntheticsAPITest()
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SyntheticsApi#createSyntheticsAPITest");
@@ -240,7 +246,7 @@ Name | Type | Description  | Notes
 
 ## createSyntheticsBrowserTest
 
-> SyntheticsBrowserTest createSyntheticsBrowserTest(body);
+> SyntheticsBrowserTest createSyntheticsBrowserTest().body(body).execute();
 
 Create a browser test
 
@@ -265,7 +271,9 @@ public class Example {
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
         SyntheticsBrowserTest body = new SyntheticsBrowserTest(); // SyntheticsBrowserTest | Details of the test to create.
         try {
-            SyntheticsBrowserTest result = apiInstance.createSyntheticsBrowserTest(body);
+            SyntheticsBrowserTest result = apiInstance.createSyntheticsBrowserTest()
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SyntheticsApi#createSyntheticsBrowserTest");
@@ -309,7 +317,7 @@ Name | Type | Description  | Notes
 
 ## createTest
 
-> SyntheticsTestDetails createTest(body);
+> SyntheticsTestDetails createTest().body(body).execute();
 
 Create a test
 
@@ -334,7 +342,9 @@ public class Example {
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
         SyntheticsTestDetails body = new SyntheticsTestDetails(); // SyntheticsTestDetails | Details of the test to create.
         try {
-            SyntheticsTestDetails result = apiInstance.createTest(body);
+            SyntheticsTestDetails result = apiInstance.createTest()
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SyntheticsApi#createTest");
@@ -378,7 +388,7 @@ Name | Type | Description  | Notes
 
 ## deleteGlobalVariable
 
-> deleteGlobalVariable(variableId);
+> deleteGlobalVariable(variableId).execute();
 
 Delete a global variable
 
@@ -403,7 +413,8 @@ public class Example {
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
         String variableId = "variableId_example"; // String | The ID of the global variable.
         try {
-            apiInstance.deleteGlobalVariable(variableId);
+            apiInstance.deleteGlobalVariable(variableId)
+                .execute();
         } catch (ApiException e) {
             System.err.println("Exception when calling SyntheticsApi#deleteGlobalVariable");
             System.err.println("Status code: " + e.getCode());
@@ -446,7 +457,7 @@ null (empty response body)
 
 ## deletePrivateLocation
 
-> deletePrivateLocation(locationId);
+> deletePrivateLocation(locationId).execute();
 
 Delete a private location
 
@@ -471,7 +482,8 @@ public class Example {
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
         String locationId = "locationId_example"; // String | The ID of the private location.
         try {
-            apiInstance.deletePrivateLocation(locationId);
+            apiInstance.deletePrivateLocation(locationId)
+                .execute();
         } catch (ApiException e) {
             System.err.println("Exception when calling SyntheticsApi#deletePrivateLocation");
             System.err.println("Status code: " + e.getCode());
@@ -512,7 +524,7 @@ null (empty response body)
 
 ## deleteTests
 
-> SyntheticsDeleteTestsResponse deleteTests(body);
+> SyntheticsDeleteTestsResponse deleteTests().body(body).execute();
 
 Delete tests
 
@@ -537,7 +549,9 @@ public class Example {
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
         SyntheticsDeleteTestsPayload body = new SyntheticsDeleteTestsPayload(); // SyntheticsDeleteTestsPayload | Public ID list of the Synthetic tests to be deleted.
         try {
-            SyntheticsDeleteTestsResponse result = apiInstance.deleteTests(body);
+            SyntheticsDeleteTestsResponse result = apiInstance.deleteTests()
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SyntheticsApi#deleteTests");
@@ -581,7 +595,7 @@ Name | Type | Description  | Notes
 
 ## editGlobalVariable
 
-> SyntheticsGlobalVariable editGlobalVariable(variableId, body);
+> SyntheticsGlobalVariable editGlobalVariable(variableId).body(body).execute();
 
 Edit a global variable
 
@@ -607,7 +621,9 @@ public class Example {
         String variableId = "variableId_example"; // String | The ID of the global variable.
         SyntheticsGlobalVariable body = new SyntheticsGlobalVariable(); // SyntheticsGlobalVariable | Details of the global variable to update.
         try {
-            SyntheticsGlobalVariable result = apiInstance.editGlobalVariable(variableId, body);
+            SyntheticsGlobalVariable result = apiInstance.editGlobalVariable(variableId)
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SyntheticsApi#editGlobalVariable");
@@ -651,7 +667,7 @@ Name | Type | Description  | Notes
 
 ## getAPITest
 
-> SyntheticsAPITest getAPITest(publicId);
+> SyntheticsAPITest getAPITest(publicId).execute();
 
 Get an API test
 
@@ -677,7 +693,8 @@ public class Example {
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
         String publicId = "publicId_example"; // String | The public ID of the test to get details from.
         try {
-            SyntheticsAPITest result = apiInstance.getAPITest(publicId);
+            SyntheticsAPITest result = apiInstance.getAPITest(publicId)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SyntheticsApi#getAPITest");
@@ -720,7 +737,7 @@ Name | Type | Description  | Notes
 
 ## getAPITestLatestResults
 
-> SyntheticsGetAPITestLatestResultsResponse getAPITestLatestResults(publicId, parameters);
+> SyntheticsGetAPITestLatestResultsResponse getAPITestLatestResults(publicId).fromTs(fromTs).toTs(toTs).probeDc(probeDc).execute();
 
 Get the test&#39;s latest results summaries (API)
 
@@ -748,10 +765,11 @@ public class Example {
         Long toTs = 56L; // Long | Timestamp up to which to query results.
         List<String> probeDc = Arrays.asList(); // List<String> | Locations for which to query results.
         try {
-	    SyntheticsGetAPITestLatestResultsResponse result = apiInstance.getAPITestLatestResults(publicId, new SyntheticsApi.GetAPITestLatestResultsOptionalParameters()
+            SyntheticsGetAPITestLatestResultsResponse result = apiInstance.getAPITestLatestResults(publicId)
                 .fromTs(fromTs)
                 .toTs(toTs)
-                .probeDc(probeDc));
+                .probeDc(probeDc)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SyntheticsApi#getAPITestLatestResults");
@@ -797,7 +815,7 @@ Name | Type | Description  | Notes
 
 ## getAPITestResult
 
-> SyntheticsAPITestResultFull getAPITestResult(publicId, resultId);
+> SyntheticsAPITestResultFull getAPITestResult(publicId, resultId).execute();
 
 Get a test result (API)
 
@@ -823,7 +841,8 @@ public class Example {
         String publicId = "publicId_example"; // String | The public ID of the API test to which the target result belongs.
         String resultId = "resultId_example"; // String | The ID of the result to get.
         try {
-            SyntheticsAPITestResultFull result = apiInstance.getAPITestResult(publicId, resultId);
+            SyntheticsAPITestResultFull result = apiInstance.getAPITestResult(publicId, resultId)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SyntheticsApi#getAPITestResult");
@@ -867,7 +886,7 @@ Name | Type | Description  | Notes
 
 ## getBrowserTest
 
-> SyntheticsBrowserTest getBrowserTest(publicId);
+> SyntheticsBrowserTest getBrowserTest(publicId).execute();
 
 Get a test configuration (browser)
 
@@ -893,7 +912,8 @@ public class Example {
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
         String publicId = "publicId_example"; // String | The public ID of the test to get details from.
         try {
-            SyntheticsBrowserTest result = apiInstance.getBrowserTest(publicId);
+            SyntheticsBrowserTest result = apiInstance.getBrowserTest(publicId)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SyntheticsApi#getBrowserTest");
@@ -936,7 +956,7 @@ Name | Type | Description  | Notes
 
 ## getBrowserTestLatestResults
 
-> SyntheticsGetBrowserTestLatestResultsResponse getBrowserTestLatestResults(publicId, parameters);
+> SyntheticsGetBrowserTestLatestResultsResponse getBrowserTestLatestResults(publicId).fromTs(fromTs).toTs(toTs).probeDc(probeDc).execute();
 
 Get the test&#39;s latest results summaries (browser)
 
@@ -964,10 +984,11 @@ public class Example {
         Long toTs = 56L; // Long | Timestamp up to which to query results.
         List<String> probeDc = Arrays.asList(); // List<String> | Locations for which to query results.
         try {
-	    SyntheticsGetBrowserTestLatestResultsResponse result = apiInstance.getBrowserTestLatestResults(publicId, new SyntheticsApi.GetBrowserTestLatestResultsOptionalParameters()
+            SyntheticsGetBrowserTestLatestResultsResponse result = apiInstance.getBrowserTestLatestResults(publicId)
                 .fromTs(fromTs)
                 .toTs(toTs)
-                .probeDc(probeDc));
+                .probeDc(probeDc)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SyntheticsApi#getBrowserTestLatestResults");
@@ -1013,7 +1034,7 @@ Name | Type | Description  | Notes
 
 ## getBrowserTestResult
 
-> SyntheticsBrowserTestResultFull getBrowserTestResult(publicId, resultId);
+> SyntheticsBrowserTestResultFull getBrowserTestResult(publicId, resultId).execute();
 
 Get a test result (browser)
 
@@ -1039,7 +1060,8 @@ public class Example {
         String publicId = "publicId_example"; // String | The public ID of the browser test to which the target result belongs.
         String resultId = "resultId_example"; // String | The ID of the result to get.
         try {
-            SyntheticsBrowserTestResultFull result = apiInstance.getBrowserTestResult(publicId, resultId);
+            SyntheticsBrowserTestResultFull result = apiInstance.getBrowserTestResult(publicId, resultId)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SyntheticsApi#getBrowserTestResult");
@@ -1083,7 +1105,7 @@ Name | Type | Description  | Notes
 
 ## getGlobalVariable
 
-> SyntheticsGlobalVariable getGlobalVariable(variableId);
+> SyntheticsGlobalVariable getGlobalVariable(variableId).execute();
 
 Get a global variable
 
@@ -1108,7 +1130,8 @@ public class Example {
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
         String variableId = "variableId_example"; // String | The ID of the global variable.
         try {
-            SyntheticsGlobalVariable result = apiInstance.getGlobalVariable(variableId);
+            SyntheticsGlobalVariable result = apiInstance.getGlobalVariable(variableId)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SyntheticsApi#getGlobalVariable");
@@ -1151,7 +1174,7 @@ Name | Type | Description  | Notes
 
 ## getPrivateLocation
 
-> SyntheticsPrivateLocation getPrivateLocation(locationId);
+> SyntheticsPrivateLocation getPrivateLocation(locationId).execute();
 
 Get a private location
 
@@ -1176,7 +1199,8 @@ public class Example {
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
         String locationId = "locationId_example"; // String | The ID of the private location.
         try {
-            SyntheticsPrivateLocation result = apiInstance.getPrivateLocation(locationId);
+            SyntheticsPrivateLocation result = apiInstance.getPrivateLocation(locationId)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SyntheticsApi#getPrivateLocation");
@@ -1218,7 +1242,7 @@ Name | Type | Description  | Notes
 
 ## getTest
 
-> SyntheticsTestDetails getTest(publicId);
+> SyntheticsTestDetails getTest(publicId).execute();
 
 Get a test configuration (API)
 
@@ -1243,7 +1267,8 @@ public class Example {
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
         String publicId = "publicId_example"; // String | The public ID of the test to get details from.
         try {
-            SyntheticsTestDetails result = apiInstance.getTest(publicId);
+            SyntheticsTestDetails result = apiInstance.getTest(publicId)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SyntheticsApi#getTest");
@@ -1286,7 +1311,7 @@ Name | Type | Description  | Notes
 
 ## listLocations
 
-> SyntheticsLocations listLocations();
+> SyntheticsLocations listLocations().execute();
 
 Get all locations (public and private)
 
@@ -1311,7 +1336,8 @@ public class Example {
 
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
         try {
-            SyntheticsLocations result = apiInstance.listLocations();
+            SyntheticsLocations result = apiInstance.listLocations()
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SyntheticsApi#listLocations");
@@ -1349,7 +1375,7 @@ This endpoint does not need any parameter.
 
 ## listTests
 
-> SyntheticsListTestsResponse listTests();
+> SyntheticsListTestsResponse listTests().execute();
 
 Get the list of all tests
 
@@ -1373,7 +1399,8 @@ public class Example {
 
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
         try {
-            SyntheticsListTestsResponse result = apiInstance.listTests();
+            SyntheticsListTestsResponse result = apiInstance.listTests()
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SyntheticsApi#listTests");
@@ -1413,7 +1440,7 @@ This endpoint does not need any parameter.
 
 ## triggerCITests
 
-> SyntheticsTriggerCITestsResponse triggerCITests(body);
+> SyntheticsTriggerCITestsResponse triggerCITests().body(body).execute();
 
 Trigger some Synthetics tests for CI
 
@@ -1438,7 +1465,9 @@ public class Example {
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
         SyntheticsCITestBody body = new SyntheticsCITestBody(); // SyntheticsCITestBody | Details of the test to trigger.
         try {
-            SyntheticsTriggerCITestsResponse result = apiInstance.triggerCITests(body);
+            SyntheticsTriggerCITestsResponse result = apiInstance.triggerCITests()
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SyntheticsApi#triggerCITests");
@@ -1480,7 +1509,7 @@ Name | Type | Description  | Notes
 
 ## updateAPITest
 
-> SyntheticsAPITest updateAPITest(publicId, body);
+> SyntheticsAPITest updateAPITest(publicId).body(body).execute();
 
 Edit an API test
 
@@ -1506,7 +1535,9 @@ public class Example {
         String publicId = "publicId_example"; // String | The public ID of the test to get details from.
         SyntheticsAPITest body = new SyntheticsAPITest(); // SyntheticsAPITest | New test details to be saved.
         try {
-            SyntheticsAPITest result = apiInstance.updateAPITest(publicId, body);
+            SyntheticsAPITest result = apiInstance.updateAPITest(publicId)
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SyntheticsApi#updateAPITest");
@@ -1551,7 +1582,7 @@ Name | Type | Description  | Notes
 
 ## updateBrowserTest
 
-> SyntheticsBrowserTest updateBrowserTest(publicId, body);
+> SyntheticsBrowserTest updateBrowserTest(publicId).body(body).execute();
 
 Edit a browser test
 
@@ -1577,7 +1608,9 @@ public class Example {
         String publicId = "publicId_example"; // String | The public ID of the test to get details from.
         SyntheticsBrowserTest body = new SyntheticsBrowserTest(); // SyntheticsBrowserTest | New test details to be saved.
         try {
-            SyntheticsBrowserTest result = apiInstance.updateBrowserTest(publicId, body);
+            SyntheticsBrowserTest result = apiInstance.updateBrowserTest(publicId)
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SyntheticsApi#updateBrowserTest");
@@ -1622,7 +1655,7 @@ Name | Type | Description  | Notes
 
 ## updatePrivateLocation
 
-> SyntheticsPrivateLocation updatePrivateLocation(locationId, body);
+> SyntheticsPrivateLocation updatePrivateLocation(locationId).body(body).execute();
 
 Edit a private location
 
@@ -1648,7 +1681,9 @@ public class Example {
         String locationId = "locationId_example"; // String | The ID of the private location.
         SyntheticsPrivateLocation body = new SyntheticsPrivateLocation(); // SyntheticsPrivateLocation | Details of the private location to be updated.
         try {
-            SyntheticsPrivateLocation result = apiInstance.updatePrivateLocation(locationId, body);
+            SyntheticsPrivateLocation result = apiInstance.updatePrivateLocation(locationId)
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SyntheticsApi#updatePrivateLocation");
@@ -1691,7 +1726,7 @@ Name | Type | Description  | Notes
 
 ## updateTest
 
-> SyntheticsTestDetails updateTest(publicId, body);
+> SyntheticsTestDetails updateTest(publicId).body(body).execute();
 
 Edit a test
 
@@ -1717,7 +1752,9 @@ public class Example {
         String publicId = "publicId_example"; // String | The public ID of the test to get details from.
         SyntheticsTestDetails body = new SyntheticsTestDetails(); // SyntheticsTestDetails | New test details to be saved.
         try {
-            SyntheticsTestDetails result = apiInstance.updateTest(publicId, body);
+            SyntheticsTestDetails result = apiInstance.updateTest(publicId)
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SyntheticsApi#updateTest");
@@ -1762,7 +1799,7 @@ Name | Type | Description  | Notes
 
 ## updateTestPauseStatus
 
-> Boolean updateTestPauseStatus(publicId, body);
+> Boolean updateTestPauseStatus(publicId).body(body).execute();
 
 Pause or start a test
 
@@ -1788,7 +1825,9 @@ public class Example {
         String publicId = "publicId_example"; // String | The public ID of the Synthetic test to update.
         SyntheticsUpdateTestPauseStatusPayload body = new SyntheticsUpdateTestPauseStatusPayload(); // SyntheticsUpdateTestPauseStatusPayload | Status to set the given Synthetic test to.
         try {
-            Boolean result = apiInstance.updateTestPauseStatus(publicId, body);
+            Boolean result = apiInstance.updateTestPauseStatus(publicId)
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SyntheticsApi#updateTestPauseStatus");

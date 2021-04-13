@@ -141,7 +141,9 @@ public class SyntheticsApiTest extends V1ApiTest {
     if (deleteSyntheticsTests != null) {
       for (String id : deleteSyntheticsTests) {
         try {
-          api.deleteTests(new SyntheticsDeleteTestsPayload().publicIds(Arrays.asList(id)));
+          api.deleteTests()
+              .body(new SyntheticsDeleteTestsPayload().publicIds(Arrays.asList(id)))
+              .execute();
         } catch (ApiException e) {
           if (e.getCode() == 404) {
             // doesn't exist => continue
@@ -171,7 +173,7 @@ public class SyntheticsApiTest extends V1ApiTest {
     // Create API test
     String apiTestName = getUniqueEntityName();
     apiTestConfig.setName(apiTestName);
-    synt = api.createTest(apiTestConfig);
+    synt = api.createTest().body(apiTestConfig).execute();
     publicId = synt.getPublicId();
     deleteSyntheticsTests.add(publicId);
     assertEquals(apiTestName, synt.getName());
@@ -182,37 +184,39 @@ public class SyntheticsApiTest extends V1ApiTest {
     // can't be sent back
     synt.setMonitorId(null);
     synt.setPublicId(null);
-    synt = api.updateTest(publicId, synt);
+    synt = api.updateTest(publicId).body(synt).execute();
     assertEquals(apiTestConfig.getName() + "-updated", synt.getName());
 
     // Get API test
-    synt = api.getTest(publicId);
+    synt = api.getTest(publicId).execute();
     assertEquals(apiTestConfig.getName() + "-updated", synt.getName());
 
     // NOTE: API tests are started by default, so we have to stop it first
     // Stop API test
     pauseStatus =
-        api.updateTestPauseStatus(
-            publicId,
-            new SyntheticsUpdateTestPauseStatusPayload()
-                .newStatus(SyntheticsTestPauseStatus.PAUSED));
+        api.updateTestPauseStatus(publicId)
+            .body(
+                new SyntheticsUpdateTestPauseStatusPayload()
+                    .newStatus(SyntheticsTestPauseStatus.PAUSED))
+            .execute();
     assertEquals(true, pauseStatus);
 
     // Start API test
     pauseStatus =
-        api.updateTestPauseStatus(
-            publicId,
-            new SyntheticsUpdateTestPauseStatusPayload().newStatus(SyntheticsTestPauseStatus.LIVE));
+        api.updateTestPauseStatus(publicId)
+            .body(
+                new SyntheticsUpdateTestPauseStatusPayload()
+                    .newStatus(SyntheticsTestPauseStatus.LIVE))
+            .execute();
     assertEquals(true, pauseStatus);
 
     // Get the most recent API test results
     latestResults =
-        api.getAPITestLatestResults(
-            publicId,
-            new SyntheticsApi.GetAPITestLatestResultsOptionalParameters()
-                .fromTs(0L)
-                .toTs(now.toInstant().toEpochMilli())
-                .probeDc(Arrays.asList("aws:us-east-2")));
+        api.getAPITestLatestResults(publicId)
+            .fromTs(0L)
+            .toTs(now.toInstant().toEpochMilli())
+            .probeDc(Arrays.asList("aws:us-east-2"))
+            .execute();
     // API tests sometimes have a delay before getting first result, so we use a mock response to
     // verify
     // that deserialization works properly
@@ -244,7 +248,7 @@ public class SyntheticsApiTest extends V1ApiTest {
                     TestUtils.getFixture(
                         "v1/client/api/synthetics_fixtures/api_test_single_result.json"))));
     SyntheticsAPITestResultFull result =
-        unitApi.getAPITestResult("test-synthetics-id", "test-result-id");
+        unitApi.getAPITestResult("test-synthetics-id", "test-result-id").execute();
 
     // Assert a few of the returned attributes unmarshall properly
     assertEquals(result.getStatus(), SyntheticsTestMonitorStatus.TRIGGERED);
@@ -254,7 +258,9 @@ public class SyntheticsApiTest extends V1ApiTest {
     assertEquals(result.getResult().getEventType(), SyntheticsTestProcessStatus.FINISHED);
 
     // Delete API test
-    api.deleteTests(new SyntheticsDeleteTestsPayload().publicIds(Arrays.asList(publicId)));
+    api.deleteTests()
+        .body(new SyntheticsDeleteTestsPayload().publicIds(Arrays.asList(publicId)))
+        .execute();
   }
 
   @Test
@@ -278,7 +284,7 @@ public class SyntheticsApiTest extends V1ApiTest {
     // Create API test
     String apiTestName = getUniqueEntityName();
     subtypeTcpApiTestConfig.setName(apiTestName);
-    synt = api.createTest(subtypeTcpApiTestConfig);
+    synt = api.createTest().body(subtypeTcpApiTestConfig).execute();
     publicId = synt.getPublicId();
     deleteSyntheticsTests.add(publicId);
     assertEquals(apiTestName, synt.getName());
@@ -289,39 +295,41 @@ public class SyntheticsApiTest extends V1ApiTest {
     // can't be sent back
     synt.setMonitorId(null);
     synt.setPublicId(null);
-    synt = api.updateTest(publicId, synt);
+    synt = api.updateTest(publicId).body(synt).execute();
     assertEquals(subtypeTcpApiTestConfig.getName() + "-updated", synt.getName());
 
     assertEquals(1, synt.getConfig().getAssertions().size());
 
     // Get API test
-    synt = api.getTest(publicId);
+    synt = api.getTest(publicId).execute();
     assertEquals(subtypeTcpApiTestConfig.getName() + "-updated", synt.getName());
 
     // NOTE: API tests are started by default, so we have to stop it first
     // Stop API test
     pauseStatus =
-        api.updateTestPauseStatus(
-            publicId,
-            new SyntheticsUpdateTestPauseStatusPayload()
-                .newStatus(SyntheticsTestPauseStatus.PAUSED));
+        api.updateTestPauseStatus(publicId)
+            .body(
+                new SyntheticsUpdateTestPauseStatusPayload()
+                    .newStatus(SyntheticsTestPauseStatus.PAUSED))
+            .execute();
     assertEquals(true, pauseStatus);
 
     // Start API test
     pauseStatus =
-        api.updateTestPauseStatus(
-            publicId,
-            new SyntheticsUpdateTestPauseStatusPayload().newStatus(SyntheticsTestPauseStatus.LIVE));
+        api.updateTestPauseStatus(publicId)
+            .body(
+                new SyntheticsUpdateTestPauseStatusPayload()
+                    .newStatus(SyntheticsTestPauseStatus.LIVE))
+            .execute();
     assertEquals(true, pauseStatus);
 
     // Get the most recent API test results
     latestResults =
-        api.getAPITestLatestResults(
-            publicId,
-            new SyntheticsApi.GetAPITestLatestResultsOptionalParameters()
-                .fromTs(0L)
-                .toTs(now.toInstant().toEpochMilli())
-                .probeDc(Arrays.asList("aws:us-east-2")));
+        api.getAPITestLatestResults(publicId)
+            .fromTs(0L)
+            .toTs(now.toInstant().toEpochMilli())
+            .probeDc(Arrays.asList("aws:us-east-2"))
+            .execute();
     // API tests sometimes have a delay before getting first result, so we use a mock response to
     // verify
     // that deserialization works properly
@@ -353,7 +361,7 @@ public class SyntheticsApiTest extends V1ApiTest {
                     TestUtils.getFixture(
                         "v1/client/api/synthetics_fixtures/api_test_subtype_tcp_single_result.json"))));
     SyntheticsAPITestResultFull result =
-        unitApi.getAPITestResult("test-synthetics-id", "test-result-id");
+        unitApi.getAPITestResult("test-synthetics-id", "test-result-id").execute();
 
     // Assert a few of the returned attributes unmarshall properly
     assertEquals(result.getStatus(), SyntheticsTestMonitorStatus.UNTRIGGERED);
@@ -363,7 +371,9 @@ public class SyntheticsApiTest extends V1ApiTest {
     assertEquals(result.getResult().getEventType(), SyntheticsTestProcessStatus.FINISHED);
 
     // Delete API test
-    api.deleteTests(new SyntheticsDeleteTestsPayload().publicIds(Arrays.asList(publicId)));
+    api.deleteTests()
+        .body(new SyntheticsDeleteTestsPayload().publicIds(Arrays.asList(publicId)))
+        .execute();
   }
 
   @Test
@@ -386,7 +396,7 @@ public class SyntheticsApiTest extends V1ApiTest {
     // Create Browser test
     String browserTestName = getUniqueEntityName();
     browserTestConfig.setName(browserTestName);
-    synt = api.createTest(browserTestConfig);
+    synt = api.createTest().body(browserTestConfig).execute();
     publicId = synt.getPublicId();
     deleteSyntheticsTests.add(publicId);
     assertEquals(browserTestName, synt.getName());
@@ -397,37 +407,39 @@ public class SyntheticsApiTest extends V1ApiTest {
     // can't be sent back
     synt.setMonitorId(null);
     synt.setPublicId(null);
-    synt = api.updateTest(publicId, synt);
+    synt = api.updateTest(publicId).body(synt).execute();
     assertEquals(browserTestConfig.getName() + "-updated", synt.getName());
 
     // Get Browser test
-    synt = api.getTest(publicId);
+    synt = api.getTest(publicId).execute();
     assertEquals(browserTestConfig.getName() + "-updated", synt.getName());
 
     // NOTE: Browser tests are paused by default, so we have to run it first
     // Start Browser test
     pauseStatus =
-        api.updateTestPauseStatus(
-            publicId,
-            new SyntheticsUpdateTestPauseStatusPayload().newStatus(SyntheticsTestPauseStatus.LIVE));
+        api.updateTestPauseStatus(publicId)
+            .body(
+                new SyntheticsUpdateTestPauseStatusPayload()
+                    .newStatus(SyntheticsTestPauseStatus.LIVE))
+            .execute();
     assertEquals(true, pauseStatus);
 
     // Stop Browser test
     pauseStatus =
-        api.updateTestPauseStatus(
-            publicId,
-            new SyntheticsUpdateTestPauseStatusPayload()
-                .newStatus(SyntheticsTestPauseStatus.PAUSED));
+        api.updateTestPauseStatus(publicId)
+            .body(
+                new SyntheticsUpdateTestPauseStatusPayload()
+                    .newStatus(SyntheticsTestPauseStatus.PAUSED))
+            .execute();
     assertEquals(true, pauseStatus);
 
     // Get the most recent Browser test results
     latestResults =
-        api.getBrowserTestLatestResults(
-            publicId,
-            new SyntheticsApi.GetBrowserTestLatestResultsOptionalParameters()
-                .fromTs(0L)
-                .toTs(now.toInstant().toEpochMilli())
-                .probeDc(Arrays.asList("aws:us-east-2")));
+        api.getBrowserTestLatestResults(publicId)
+            .fromTs(0L)
+            .toTs(now.toInstant().toEpochMilli())
+            .probeDc(Arrays.asList("aws:us-east-2"))
+            .execute();
     assertTrue(latestResults.getResults().isEmpty());
     // Browser tests are asynchronous and take some time to run, so we use a mock response to verify
     // that deserialization works properly
@@ -450,7 +462,7 @@ public class SyntheticsApiTest extends V1ApiTest {
                     TestUtils.getFixture(
                         "v1/client/api/synthetics_fixtures/browser_test_single_result.json"))));
     SyntheticsBrowserTestResultFull result =
-        unitApi.getBrowserTestResult("test-synthetics-id", "test-result-id");
+        unitApi.getBrowserTestResult("test-synthetics-id", "test-result-id").execute();
     // Assert based on the data from the fixture file, test a few fields
     assertEquals(result.getResultId(), "5140738909114888212");
     assertEquals(result.getStatus(), SyntheticsTestMonitorStatus.UNTRIGGERED);
@@ -458,7 +470,9 @@ public class SyntheticsApiTest extends V1ApiTest {
     assertEquals(result.getCheckVersion().intValue(), 5);
 
     // Delete Browser test
-    api.deleteTests(new SyntheticsDeleteTestsPayload().publicIds(Arrays.asList(publicId)));
+    api.deleteTests()
+        .body(new SyntheticsDeleteTestsPayload().publicIds(Arrays.asList(publicId)))
+        .execute();
   }
 
   @Test
@@ -467,12 +481,12 @@ public class SyntheticsApiTest extends V1ApiTest {
     SyntheticsListTestsResponse allTests;
 
     apiTestConfig.setName(getUniqueEntityName("api"));
-    syntAPI = api.createTest(apiTestConfig);
+    syntAPI = api.createTest().body(apiTestConfig).execute();
     deleteSyntheticsTests.add(syntAPI.getPublicId());
     browserTestConfig.setName(getUniqueEntityName("browser"));
-    syntBrowser = api.createTest(browserTestConfig);
+    syntBrowser = api.createTest().body(browserTestConfig).execute();
     deleteSyntheticsTests.add(syntBrowser.getPublicId());
-    allTests = api.listTests();
+    allTests = api.listTests().execute();
 
     assertPublicIdPresent(syntAPI.getPublicId(), allTests.getTests());
     assertPublicIdPresent(syntBrowser.getPublicId(), allTests.getTests());
@@ -491,7 +505,7 @@ public class SyntheticsApiTest extends V1ApiTest {
   @Test
   public void deleteSyntheticsErrorsTest() throws IOException {
     try {
-      api.deleteTests(new SyntheticsDeleteTestsPayload());
+      api.deleteTests().body(new SyntheticsDeleteTestsPayload()).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -500,7 +514,7 @@ public class SyntheticsApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.deleteTests(new SyntheticsDeleteTestsPayload());
+      fakeAuthApi.deleteTests().body(new SyntheticsDeleteTestsPayload()).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -517,7 +531,7 @@ public class SyntheticsApiTest extends V1ApiTest {
             .willReturn(okJson(fixtureData).withStatus(404)));
 
     try {
-      unitApi.deleteTests(new SyntheticsDeleteTestsPayload());
+      unitApi.deleteTests().body(new SyntheticsDeleteTestsPayload()).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());
@@ -530,12 +544,14 @@ public class SyntheticsApiTest extends V1ApiTest {
   public void updateStatusSyntheticsErrorsTest() throws ApiException, IOException {
     // Create API test
     apiTestConfig.setName(getUniqueEntityName());
-    SyntheticsTestDetails synt = api.createTest(apiTestConfig);
+    SyntheticsTestDetails synt = api.createTest().body(apiTestConfig).execute();
     String publicId = synt.getPublicId();
     deleteSyntheticsTests.add(publicId);
 
     try {
-      api.updateTestPauseStatus(publicId, new SyntheticsUpdateTestPauseStatusPayload());
+      api.updateTestPauseStatus(publicId)
+          .body(new SyntheticsUpdateTestPauseStatusPayload())
+          .execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -544,7 +560,10 @@ public class SyntheticsApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.updateTestPauseStatus(publicId, new SyntheticsUpdateTestPauseStatusPayload());
+      fakeAuthApi
+          .updateTestPauseStatus(publicId)
+          .body(new SyntheticsUpdateTestPauseStatusPayload())
+          .execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -553,7 +572,9 @@ public class SyntheticsApiTest extends V1ApiTest {
     }
 
     try {
-      api.updateTestPauseStatus("aaa-aaa-aaa", new SyntheticsUpdateTestPauseStatusPayload());
+      api.updateTestPauseStatus("aaa-aaa-aaa")
+          .body(new SyntheticsUpdateTestPauseStatusPayload())
+          .execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());
@@ -565,7 +586,7 @@ public class SyntheticsApiTest extends V1ApiTest {
   @Test
   public void browserSpecificGetResultSyntheticsErrorsTest() throws IOException {
     try {
-      fakeAuthApi.getBrowserTestResult("id", "resultid");
+      fakeAuthApi.getBrowserTestResult("id", "resultid").execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -574,7 +595,7 @@ public class SyntheticsApiTest extends V1ApiTest {
     }
 
     try {
-      api.getBrowserTestResult("aaa-aaa-aaa", "resultid");
+      api.getBrowserTestResult("aaa-aaa-aaa", "resultid").execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());
@@ -586,7 +607,7 @@ public class SyntheticsApiTest extends V1ApiTest {
   @Test
   public void aPISpecificGetResultSyntheticsErrorsTest() throws IOException {
     try {
-      fakeAuthApi.getAPITestResult("id", "resultid");
+      fakeAuthApi.getAPITestResult("id", "resultid").execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -595,7 +616,7 @@ public class SyntheticsApiTest extends V1ApiTest {
     }
 
     try {
-      api.getAPITestResult("aaa-aaa-aaa", "resultid");
+      api.getAPITestResult("aaa-aaa-aaa", "resultid").execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());
@@ -607,7 +628,7 @@ public class SyntheticsApiTest extends V1ApiTest {
   @Test
   public void getTestSyntheticsErrorsTest() throws IOException {
     try {
-      fakeAuthApi.getTest("id");
+      fakeAuthApi.getTest("id").execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -616,7 +637,7 @@ public class SyntheticsApiTest extends V1ApiTest {
     }
 
     try {
-      api.getTest("aaa-aaa-aaa");
+      api.getTest("aaa-aaa-aaa").execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());
@@ -629,12 +650,12 @@ public class SyntheticsApiTest extends V1ApiTest {
   public void updateTestSyntheticsErrorsTest() throws ApiException, IOException {
     // Create API test
     apiTestConfig.setName(getUniqueEntityName());
-    SyntheticsTestDetails synt = api.createTest(apiTestConfig);
+    SyntheticsTestDetails synt = api.createTest().body(apiTestConfig).execute();
     String publicId = synt.getPublicId();
     deleteSyntheticsTests.add(publicId);
 
     try {
-      api.updateTest(publicId, new SyntheticsTestDetails());
+      api.updateTest(publicId).body(new SyntheticsTestDetails()).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -643,7 +664,7 @@ public class SyntheticsApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.updateTest("id", new SyntheticsTestDetails());
+      fakeAuthApi.updateTest("id").body(new SyntheticsTestDetails()).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -652,7 +673,7 @@ public class SyntheticsApiTest extends V1ApiTest {
     }
 
     try {
-      api.updateTest("aaa-aaa-aaa", new SyntheticsTestDetails());
+      api.updateTest("aaa-aaa-aaa").body(new SyntheticsTestDetails()).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());
@@ -664,7 +685,7 @@ public class SyntheticsApiTest extends V1ApiTest {
   @Test
   public void listTestSyntheticsErrorsTest() throws IOException {
     try {
-      fakeAuthApi.listTests();
+      fakeAuthApi.listTests().execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -679,7 +700,7 @@ public class SyntheticsApiTest extends V1ApiTest {
     stubFor(get(urlPathEqualTo(apiUri + "/tests")).willReturn(okJson(fixtureData).withStatus(404)));
 
     try {
-      unitApi.listTests();
+      unitApi.listTests().execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());
@@ -691,7 +712,7 @@ public class SyntheticsApiTest extends V1ApiTest {
   @Test
   public void createTestSyntheticsErrorsTest() throws IOException {
     try {
-      api.createTest(new SyntheticsTestDetails());
+      api.createTest().body(new SyntheticsTestDetails()).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -700,7 +721,7 @@ public class SyntheticsApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.createTest(new SyntheticsTestDetails());
+      fakeAuthApi.createTest().body(new SyntheticsTestDetails()).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -716,7 +737,7 @@ public class SyntheticsApiTest extends V1ApiTest {
         post(urlPathEqualTo(apiUri + "/tests")).willReturn(okJson(fixtureData).withStatus(402)));
 
     try {
-      unitApi.createTest(new SyntheticsTestDetails());
+      unitApi.createTest().body(new SyntheticsTestDetails()).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(402, e.getCode());
@@ -727,7 +748,7 @@ public class SyntheticsApiTest extends V1ApiTest {
 
   @Test
   public void syntheticsListLocationsTest() throws ApiException {
-    SyntheticsLocations locations = api.listLocations();
+    SyntheticsLocations locations = api.listLocations().execute();
     assertTrue(locations.getLocations().size() > 0);
   }
 }

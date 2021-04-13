@@ -69,7 +69,7 @@ public class DashboardsApiTest extends V1ApiTest {
   public void cleanupDash() throws ApiException {
     for (String id : cleanupDashIDs) {
       try {
-        api.deleteDashboard(id);
+        api.deleteDashboard(id).execute();
       } catch (ApiException e) {
         System.out.printf(
             "Error deleting dashboard, it may have already been deleted by a test: %s",
@@ -79,7 +79,7 @@ public class DashboardsApiTest extends V1ApiTest {
     cleanupDashIDs = new ArrayList<>();
     if (deleteSLO != null) {
       try {
-        sloApi.deleteSLO(deleteSLO);
+        sloApi.deleteSLO(deleteSLO).execute();
       } catch (ApiException e) {
         if (e.getCode() == 404) {
           // doesn't exist => ok
@@ -104,7 +104,7 @@ public class DashboardsApiTest extends V1ApiTest {
 
     // Create an SLO to reference in the SLO widget
     eventSLO.setName(getUniqueEntityName());
-    SLOListResponse sloResp = sloApi.createSLO(eventSLO);
+    SLOListResponse sloResp = sloApi.createSLO().body(eventSLO).execute();
     ServiceLevelObjective slo = sloResp.getData().get(0);
     deleteSLO = slo.getId();
 
@@ -804,11 +804,11 @@ public class DashboardsApiTest extends V1ApiTest {
             .addTemplateVariablePresetsItem(dashboardTemplateVariablePreset)
             .addNotifyListItem("test@datadoghq.com");
     // Create ordered dashboard with all expected fields
-    Dashboard response = api.createDashboard(dashboard);
+    Dashboard response = api.createDashboard().body(dashboard).execute();
     cleanupDashIDs.add(response.getId());
 
     // Assert the get response for this dashboard matches the create response
-    Dashboard getResponse = api.getDashboard(response.getId());
+    Dashboard getResponse = api.getDashboard(response.getId()).execute();
     assertEquals(getResponse, response);
 
     // Assert the same for the free widgets
@@ -827,9 +827,9 @@ public class DashboardsApiTest extends V1ApiTest {
             .description("Test Free layout dashboard for Java client")
             .isReadOnly(false)
             .templateVariables(templateVariables);
-    Dashboard createFreeResponse = api.createDashboard(freeDashboard);
+    Dashboard createFreeResponse = api.createDashboard().body(freeDashboard).execute();
     cleanupDashIDs.add(createFreeResponse.getId());
-    Dashboard getFreeResponse = api.getDashboard(createFreeResponse.getId());
+    Dashboard getFreeResponse = api.getDashboard(createFreeResponse.getId()).execute();
     assertEquals(createFreeResponse, getFreeResponse);
 
     // Assert root dashboard items on the create response
@@ -884,7 +884,7 @@ public class DashboardsApiTest extends V1ApiTest {
         .addWidgetsItem(
             noteWidget.definition(
                 new WidgetDefinition(noteDefinition.content("Updated content").fontSize("30"))));
-    Dashboard updateResponse = api.updateDashboard(response.getId(), dashboard);
+    Dashboard updateResponse = api.updateDashboard(response.getId()).body(dashboard).execute();
     assertNull(dashboard.getDescription());
     assertNull(dashboard.getTemplateVariables());
     assertNull(dashboard.getTemplateVariablePresets());
@@ -906,7 +906,7 @@ public class DashboardsApiTest extends V1ApiTest {
     assertTrue(updateResponse.getWidgets().size() > 1);
 
     // Delete the dashboard and assert response
-    DashboardDeleteResponse deleteResponse = api.deleteDashboard(response.getId());
+    DashboardDeleteResponse deleteResponse = api.deleteDashboard(response.getId()).execute();
     assertEquals(deleteResponse.getDeletedDashboardId(), response.getId());
   }
 
@@ -919,7 +919,7 @@ public class DashboardsApiTest extends V1ApiTest {
   public void getAllDashboardTest() throws ApiException {
     // Get all dashboards and confirm the first returned entry has all expected fields set to not
     // null
-    DashboardSummary getAllResponse = api.listDashboards();
+    DashboardSummary getAllResponse = api.listDashboards().execute();
     assertNotNull(getAllResponse.getDashboards().get(0).getAuthorHandle());
     assertNotNull(getAllResponse.getDashboards().get(0).getCreatedAt());
     assertNotNull(getAllResponse.getDashboards().get(0).getModifiedAt());
@@ -935,7 +935,7 @@ public class DashboardsApiTest extends V1ApiTest {
   @Test
   public void dashboardCreateErrorsTest() throws IOException {
     try {
-      api.createDashboard(emptyDashboard);
+      api.createDashboard().body(emptyDashboard).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -944,7 +944,7 @@ public class DashboardsApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.createDashboard(emptyDashboard);
+      fakeAuthApi.createDashboard().body(emptyDashboard).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -956,7 +956,7 @@ public class DashboardsApiTest extends V1ApiTest {
   @Test
   public void dashboardListErrorsTest() throws IOException {
     try {
-      fakeAuthApi.listDashboards();
+      fakeAuthApi.listDashboards().execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -968,7 +968,7 @@ public class DashboardsApiTest extends V1ApiTest {
   @Test
   public void dashboardDeleteErrorsTest() throws IOException {
     try {
-      fakeAuthApi.deleteDashboard("random");
+      fakeAuthApi.deleteDashboard("random").execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -977,7 +977,7 @@ public class DashboardsApiTest extends V1ApiTest {
     }
 
     try {
-      api.deleteDashboard("random");
+      api.deleteDashboard("random").execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());
@@ -995,7 +995,7 @@ public class DashboardsApiTest extends V1ApiTest {
             .layoutType(DashboardLayoutType.FREE);
 
     try {
-      api.updateDashboard("random", emptyDashboard);
+      api.updateDashboard("random").body(emptyDashboard).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -1004,7 +1004,7 @@ public class DashboardsApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.updateDashboard("random", emptyDashboard);
+      fakeAuthApi.updateDashboard("random").body(emptyDashboard).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -1013,7 +1013,7 @@ public class DashboardsApiTest extends V1ApiTest {
     }
 
     try {
-      api.updateDashboard("random", dashboard);
+      api.updateDashboard("random").body(dashboard).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());

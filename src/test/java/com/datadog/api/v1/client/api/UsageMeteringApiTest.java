@@ -105,110 +105,87 @@ public class UsageMeteringApiTest extends V1ApiTest {
   @Test
   public void getUsageAnalyzedLogsTest() throws ApiException {
     UsageAnalyzedLogsResponse response =
-        api.getUsageAnalyzedLogs(
-            startHr, new UsageMeteringApi.GetUsageAnalyzedLogsOptionalParameters().endHr(endHr));
+        api.getUsageAnalyzedLogs().startHr(startHr).endHr(endHr).execute();
     assertNotNull(response.getUsage());
   }
 
   @Test
   public void getUsageFargateTest() throws ApiException {
-    UsageFargateResponse response =
-        api.getUsageFargate(
-            startHr, new UsageMeteringApi.GetUsageFargateOptionalParameters().endHr(endHr));
+    UsageFargateResponse response = api.getUsageFargate().startHr(startHr).endHr(endHr).execute();
     assertNotNull(response.getUsage());
   }
 
   @Test
   public void getUsageRumSessionsTest() throws ApiException {
     UsageRumSessionsResponse response =
-        api.getUsageRumSessions(
-            startHr, new UsageMeteringApi.GetUsageRumSessionsOptionalParameters().endHr(endHr));
+        api.getUsageRumSessions().startHr(startHr).endHr(endHr).execute();
     assertNotNull(response.getUsage());
   }
 
   @Test
   public void getUsageMobileRumSessionsTest() throws ApiException {
     UsageRumSessionsResponse response =
-        api.getUsageRumSessions(
-            startHr,
-            new UsageMeteringApi.GetUsageRumSessionsOptionalParameters()
-                .endHr(endHr)
-                .type("mobile"));
+        api.getUsageRumSessions().startHr(startHr).endHr(endHr).type("mobile").execute();
     assertNotNull(response.getUsage());
   }
 
   @Test
   public void getUsageHostsTest() throws ApiException {
-    UsageHostsResponse response =
-        api.getUsageHosts(
-            startHr, new UsageMeteringApi.GetUsageHostsOptionalParameters().endHr(endHr));
+    UsageHostsResponse response = api.getUsageHosts().startHr(startHr).endHr(endHr).execute();
     assertNotNull(response.getUsage());
   }
 
   @Test
   public void getUsageProfilingTest() throws ApiException {
     UsageProfilingResponse response =
-        api.getUsageProfiling(
-            startHr, new UsageMeteringApi.GetUsageProfilingOptionalParameters().endHr(endHr));
+        api.getUsageProfiling().startHr(startHr).endHr(endHr).execute();
     assertNotNull(response.getUsage());
   }
 
   @Test
   public void getUsageLogsTest() throws ApiException {
-    UsageLogsResponse response =
-        api.getUsageLogs(
-            startHr, new UsageMeteringApi.GetUsageLogsOptionalParameters().endHr(endHr));
+    UsageLogsResponse response = api.getUsageLogs().startHr(startHr).endHr(endHr).execute();
     assertNotNull(response.getUsage());
   }
 
   @Test
   public void getUsageLogsByIndexTest() throws ApiException {
     UsageLogsByIndexResponse response =
-        api.getUsageLogsByIndex(
-            startHr,
-            new UsageMeteringApi.GetUsageLogsByIndexOptionalParameters()
-                .endHr(endHr)
-                .indexName(null));
+        api.getUsageLogsByIndex().startHr(startHr).endHr(endHr).indexName(null).execute();
     assertNotNull(response.getUsage());
   }
 
   @Test
   public void getUsageNetworkFlowsTest() throws ApiException {
     UsageNetworkFlowsResponse response =
-        api.getUsageNetworkFlows(
-            startHr, new UsageMeteringApi.GetUsageNetworkFlowsOptionalParameters().endHr(endHr));
+        api.getUsageNetworkFlows().startHr(startHr).endHr(endHr).execute();
     assertNotNull(response.getUsage());
   }
 
   @Test
   public void getUsageNetworkHostsTest() throws ApiException {
     UsageNetworkHostsResponse response =
-        api.getUsageNetworkHosts(
-            startHr, new UsageMeteringApi.GetUsageNetworkHostsOptionalParameters().endHr(endHr));
+        api.getUsageNetworkHosts().startHr(startHr).endHr(endHr).execute();
     assertNotNull(response.getUsage());
   }
 
   @Test
   public void getUsageSNMPTest() throws ApiException {
-    UsageSNMPResponse response =
-        api.getUsageSNMP(
-            startHr, new UsageMeteringApi.GetUsageSNMPOptionalParameters().endHr(endHr));
+    UsageSNMPResponse response = api.getUsageSNMP().startHr(startHr).endHr(endHr).execute();
     assertNotNull(response.getUsage());
   }
 
   @Test
   public void getUsageIngestedSpansTest() throws ApiException {
     UsageIngestedSpansResponse response =
-        api.getIngestedSpans(
-            startHr, new UsageMeteringApi.GetIngestedSpansOptionalParameters().endHr(endHr));
+        api.getIngestedSpans().startHr(startHr).endHr(endHr).execute();
     assertNotNull(response.getUsage());
   }
 
   @Test
   public void getUsageIncidentManagementTest() throws ApiException {
     UsageIncidentManagementResponse response =
-        api.getIncidentManagement(
-            startHr, new UsageMeteringApi.GetIncidentManagementOptionalParameters().endHr(endHr));
+        api.getIncidentManagement().startHr(startHr).endHr(endHr).execute();
     assertNotNull(response.getUsage());
   }
 
@@ -221,7 +198,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
                     TestUtils.getFixture(
                         "v1/client/api/usage_fixtures/usage_billable_summary.json"))));
 
-    UsageBillableSummaryResponse usage = unitApi.getUsageBillableSummary();
+    UsageBillableSummaryResponse usage = unitApi.getUsageBillableSummary().execute();
 
     assertNotNull(usage.getUsage());
     UsageBillableSummaryHour usageItem = usage.getUsage().get(0);
@@ -256,7 +233,8 @@ public class UsageMeteringApiTest extends V1ApiTest {
     String reportID = FORMATTER.format(date.minusDays(1)); // Only have report from previous day
     generalApiClient.setUnstableOperationEnabled("getSpecifiedDailyCustomReports", true);
     try {
-      UsageSpecifiedCustomReportsResponse response = api.getSpecifiedDailyCustomReports(reportID);
+      UsageSpecifiedCustomReportsResponse response =
+          api.getSpecifiedDailyCustomReports(reportID).execute();
       assertNotNull(response.getMeta());
       assertNotNull(response.getData());
     } catch (ApiException e) {
@@ -277,7 +255,8 @@ public class UsageMeteringApiTest extends V1ApiTest {
             date.minusDays(1)); // Reports will only be generated on this 2020-08-15 for this org
     generalApiClient.setUnstableOperationEnabled("getSpecifiedMonthlyCustomReports", true);
     try {
-      UsageSpecifiedCustomReportsResponse response = api.getSpecifiedMonthlyCustomReports(reportID);
+      UsageSpecifiedCustomReportsResponse response =
+          api.getSpecifiedMonthlyCustomReports(reportID).execute();
       assertNotNull(response.getMeta());
       assertNotNull(response.getData());
     } catch (ApiException e) {
@@ -293,7 +272,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
   public void getDailyCustomReportsTest() throws ApiException {
     generalApiClient.setUnstableOperationEnabled("getDailyCustomReports", true);
     try {
-      UsageCustomReportsResponse response = api.getDailyCustomReports();
+      UsageCustomReportsResponse response = api.getDailyCustomReports().execute();
       assertNotNull(response.getMeta());
       assertNotNull(response.getData());
     } catch (ApiException e) {
@@ -309,7 +288,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
   public void getMonthlyCustomReportsTest() throws ApiException {
     generalApiClient.setUnstableOperationEnabled("getMonthlyCustomReports", true);
     try {
-      UsageCustomReportsResponse response = api.getMonthlyCustomReports();
+      UsageCustomReportsResponse response = api.getMonthlyCustomReports().execute();
       assertNotNull(response.getMeta());
       assertNotNull(response.getData());
     } catch (ApiException e) {
@@ -336,11 +315,12 @@ public class UsageMeteringApiTest extends V1ApiTest {
                 okJson(TestUtils.getFixture("v1/client/api/usage_fixtures/usage_summary.json"))));
 
     UsageSummaryResponse usage =
-        unitApi.getUsageSummary(
-            startMonth,
-            new UsageMeteringApi.GetUsageSummaryOptionalParameters()
-                .endMonth(endMonth)
-                .includeOrgDetails(includeOrgDetails));
+        unitApi
+            .getUsageSummary()
+            .startMonth(startMonth)
+            .endMonth(endMonth)
+            .includeOrgDetails(includeOrgDetails)
+            .execute();
 
     assertNotNull(usage.getUsage());
     OffsetDateTime startDateExpected =
@@ -414,33 +394,28 @@ public class UsageMeteringApiTest extends V1ApiTest {
   @Test
   public void getUsageSyntheticsTest() throws ApiException {
     UsageSyntheticsResponse response =
-        api.getUsageSynthetics(
-            startHr, new UsageMeteringApi.GetUsageSyntheticsOptionalParameters().endHr(endHr));
+        api.getUsageSynthetics().startHr(startHr).endHr(endHr).execute();
     assertNotNull(response.getUsage());
   }
 
   @Test
   public void getUsageSyntheticsAPITest() throws ApiException {
     UsageSyntheticsAPIResponse response =
-        api.getUsageSyntheticsAPI(
-            startHr, new UsageMeteringApi.GetUsageSyntheticsAPIOptionalParameters().endHr(endHr));
+        api.getUsageSyntheticsAPI().startHr(startHr).endHr(endHr).execute();
     assertNotNull(response.getUsage());
   }
 
   @Test
   public void getUsageSyntheticsBrowserTest() throws ApiException {
     UsageSyntheticsBrowserResponse response =
-        api.getUsageSyntheticsBrowser(
-            startHr,
-            new UsageMeteringApi.GetUsageSyntheticsBrowserOptionalParameters().endHr(endHr));
+        api.getUsageSyntheticsBrowser().startHr(startHr).endHr(endHr).execute();
     assertNotNull(response.getUsage());
   }
 
   @Test
   public void getUsageTimeseriesTest() throws ApiException {
     UsageTimeseriesResponse response =
-        api.getUsageTimeseries(
-            startHr, new UsageMeteringApi.GetUsageTimeseriesOptionalParameters().endHr(endHr));
+        api.getUsageTimeseries().startHr(startHr).endHr(endHr).execute();
     assertNotNull(response.getUsage());
   }
 
@@ -448,31 +423,31 @@ public class UsageMeteringApiTest extends V1ApiTest {
   public void getUsageTopAvgMetricsTest() throws ApiException {
     // List<String> names = null;
     UsageTopAvgMetricsResponse response =
-        api.getUsageTopAvgMetrics(
-            new UsageMeteringApi.GetUsageTopAvgMetricsOptionalParameters().month(startMonth));
+        api.getUsageTopAvgMetrics()
+            .month(startMonth)
+            // .names(names)
+            .execute();
     assertNotNull(response.getUsage());
   }
 
   @Test
   public void getUsageIndexedSpansTest() throws ApiException {
     UsageIndexedSpansResponse response =
-        api.getUsageIndexedSpans(
-            startHr, new UsageMeteringApi.GetUsageIndexedSpansOptionalParameters().endHr(endHr));
+        api.getUsageIndexedSpans().startHr(startHr).endHr(endHr).execute();
     assertNotNull(response.getUsage());
   }
 
   @Test
   public void getUsageLambdaTest() throws ApiException {
-    UsageLambdaResponse response =
-        api.getUsageLambda(
-            startHr, new UsageMeteringApi.GetUsageLambdaOptionalParameters().endHr(endHr));
+    UsageLambdaResponse response = api.getUsageLambda().startHr(startHr).endHr(endHr).execute();
     assertNotNull(response.getUsage());
   }
 
   @Test
   public void getUsageAttributionTest() throws ApiException {
     generalApiClient.setUnstableOperationEnabled("getUsageAttribution", true);
-    UsageAttributionResponse usage = api.getUsageAttribution(startMonth, "*");
+    UsageAttributionResponse usage =
+        api.getUsageAttribution().startMonth(startMonth).fields("*").execute();
 
     assertNotNull(usage.getUsage());
     assertNotNull(usage.getMetadata());
@@ -481,7 +456,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
   @Test
   public void getUsageAnalyzedLogsErrorsTest() throws IOException {
     try {
-      api.getUsageAnalyzedLogs(futureStartHr);
+      api.getUsageAnalyzedLogs().startHr(futureStartHr).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -490,7 +465,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.getUsageAnalyzedLogs(futureStartHr);
+      fakeAuthApi.getUsageAnalyzedLogs().startHr(futureStartHr).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -502,7 +477,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
   @Test
   public void getUsageHostsErrorsTest() throws IOException {
     try {
-      api.getUsageHosts(futureStartHr);
+      api.getUsageHosts().startHr(futureStartHr).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -511,7 +486,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.getUsageHosts(futureStartHr);
+      fakeAuthApi.getUsageHosts().startHr(futureStartHr).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -523,7 +498,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
   @Test
   public void getUsageProfilingErrorsTest() throws IOException {
     try {
-      api.getUsageProfiling(futureStartHr);
+      api.getUsageProfiling().startHr(futureStartHr).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -532,7 +507,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.getUsageProfiling(futureStartHr);
+      fakeAuthApi.getUsageProfiling().startHr(futureStartHr).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -544,7 +519,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
   @Test
   public void getUsageLogsErrorsTest() throws IOException {
     try {
-      api.getUsageLogs(futureStartHr);
+      api.getUsageLogs().startHr(futureStartHr).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -553,7 +528,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.getUsageLogs(futureStartHr);
+      fakeAuthApi.getUsageLogs().startHr(futureStartHr).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -565,7 +540,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
   @Test
   public void getUsageLogsByIndexErrorsTest() throws IOException {
     try {
-      api.getUsageLogsByIndex(futureStartHr);
+      api.getUsageLogsByIndex().startHr(futureStartHr).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -574,7 +549,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.getUsageLogsByIndex(futureStartHr);
+      fakeAuthApi.getUsageLogsByIndex().startHr(futureStartHr).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -586,7 +561,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
   @Test
   public void getUsageTimeSeriesErrorsTest() throws IOException {
     try {
-      api.getUsageTimeseries(futureStartHr);
+      api.getUsageTimeseries().startHr(futureStartHr).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -595,7 +570,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.getUsageTimeseries(futureStartHr);
+      fakeAuthApi.getUsageTimeseries().startHr(futureStartHr).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -607,8 +582,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
   @Test
   public void getUsageTopAvgMetricsErrorsTest() throws IOException {
     try {
-      api.getUsageTopAvgMetrics(
-          new UsageMeteringApi.GetUsageTopAvgMetricsOptionalParameters().month(pastStartMonth));
+      api.getUsageTopAvgMetrics().month(pastStartMonth).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -617,8 +591,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.getUsageTopAvgMetrics(
-          new UsageMeteringApi.GetUsageTopAvgMetricsOptionalParameters().month(pastStartMonth));
+      fakeAuthApi.getUsageTopAvgMetrics().month(pastStartMonth).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -630,7 +603,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
   @Test
   public void getUsageIndexedSpansErrorsTest() throws IOException {
     try {
-      api.getUsageIndexedSpans(futureStartHr);
+      api.getUsageIndexedSpans().startHr(futureStartHr).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -639,7 +612,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.getUsageIndexedSpans(futureStartHr);
+      fakeAuthApi.getUsageIndexedSpans().startHr(futureStartHr).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -652,7 +625,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
   public void getUsageSyntheticsErrorsTest() throws IOException {
     // This function is deprecated
     try {
-      api.getUsageSynthetics(futureStartHr);
+      api.getUsageSynthetics().startHr(futureStartHr).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -661,7 +634,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.getUsageSynthetics(futureStartHr);
+      fakeAuthApi.getUsageSynthetics().startHr(futureStartHr).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -673,7 +646,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
   @Test
   public void getUsageSyntheticsAPIErrorsTest() throws IOException {
     try {
-      api.getUsageSyntheticsAPI(futureStartHr);
+      api.getUsageSyntheticsAPI().startHr(futureStartHr).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -682,7 +655,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.getUsageSyntheticsAPI(futureStartHr);
+      fakeAuthApi.getUsageSyntheticsAPI().startHr(futureStartHr).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -694,7 +667,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
   @Test
   public void getUsageSyntheticsBrowserErrorsTest() throws IOException {
     try {
-      api.getUsageSyntheticsBrowser(futureStartHr);
+      api.getUsageSyntheticsBrowser().startHr(futureStartHr).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -703,7 +676,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.getUsageSyntheticsBrowser(futureStartHr);
+      fakeAuthApi.getUsageSyntheticsBrowser().startHr(futureStartHr).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -715,7 +688,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
   @Test
   public void getUsageFargateErrorsTest() throws IOException {
     try {
-      api.getUsageFargate(futureStartHr);
+      api.getUsageFargate().startHr(futureStartHr).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -724,7 +697,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.getUsageFargate(futureStartHr);
+      fakeAuthApi.getUsageFargate().startHr(futureStartHr).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -736,7 +709,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
   @Test
   public void getUsageLambdaErrorsTest() throws IOException {
     try {
-      api.getUsageLambda(futureStartHr);
+      api.getUsageLambda().startHr(futureStartHr).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -745,7 +718,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.getUsageLambda(futureStartHr);
+      fakeAuthApi.getUsageLambda().startHr(futureStartHr).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -757,7 +730,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
   @Test
   public void getUsageRumSessionErrorsTest() throws IOException {
     try {
-      api.getUsageRumSessions(futureStartHr);
+      api.getUsageRumSessions().startHr(futureStartHr).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -766,11 +739,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     try {
-      api.getUsageRumSessions(
-          startHr,
-          new UsageMeteringApi.GetUsageRumSessionsOptionalParameters()
-              .endHr(endHr)
-              .type("invalid"));
+      api.getUsageRumSessions().startHr(startHr).endHr(endHr).type("invalid").execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -779,7 +748,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.getUsageRumSessions(futureStartHr);
+      fakeAuthApi.getUsageRumSessions().startHr(futureStartHr).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -791,7 +760,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
   @Test
   public void getUsageNetworkHostsErrorsTest() throws IOException {
     try {
-      api.getUsageNetworkHosts(futureStartHr);
+      api.getUsageNetworkHosts().startHr(futureStartHr).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -800,7 +769,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.getUsageNetworkHosts(futureStartHr);
+      fakeAuthApi.getUsageNetworkHosts().startHr(futureStartHr).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -812,7 +781,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
   @Test
   public void getUsageNetworkFlowsErrorsTest() throws IOException {
     try {
-      api.getUsageNetworkFlows(futureStartHr);
+      api.getUsageNetworkFlows().startHr(futureStartHr).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -821,7 +790,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.getUsageNetworkFlows(futureStartHr);
+      fakeAuthApi.getUsageNetworkFlows().startHr(futureStartHr).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -833,7 +802,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
   @Test
   public void getUsageSNMPErrorsTest() throws IOException {
     try {
-      api.getUsageSNMP(futureStartHr);
+      api.getUsageSNMP().startHr(futureStartHr).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -842,7 +811,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.getUsageSNMP(futureStartHr);
+      fakeAuthApi.getUsageSNMP().startHr(futureStartHr).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -854,7 +823,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
   @Test
   public void getUsageBillableSummaryErrorsTest() throws IOException {
     try {
-      fakeAuthApi.getUsageBillableSummary();
+      fakeAuthApi.getUsageBillableSummary().execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -867,7 +836,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
   public void getSpecifiedDailyCustomReportsErrorsTest() throws IOException {
     try {
       generalFakeAuthApiClient.setUnstableOperationEnabled("getSpecifiedDailyCustomReports", true);
-      fakeAuthApi.getSpecifiedDailyCustomReports("whatever");
+      fakeAuthApi.getSpecifiedDailyCustomReports("whatever").execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -877,7 +846,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
 
     try {
       generalApiClient.setUnstableOperationEnabled("getSpecifiedDailyCustomReports", true);
-      api.getSpecifiedDailyCustomReports("2010-01-01");
+      api.getSpecifiedDailyCustomReports("2010-01-01").execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());
@@ -890,7 +859,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
   public void getSpecifiedMonthlyCustomReportsErrorsTest() throws IOException {
     try {
       generalApiClient.setUnstableOperationEnabled("getSpecifiedMonthlyCustomReports", true);
-      api.getSpecifiedMonthlyCustomReports("whatever");
+      api.getSpecifiedMonthlyCustomReports("whatever").execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -901,7 +870,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     try {
       generalFakeAuthApiClient.setUnstableOperationEnabled(
           "getSpecifiedMonthlyCustomReports", true);
-      fakeAuthApi.getSpecifiedMonthlyCustomReports("whatever");
+      fakeAuthApi.getSpecifiedMonthlyCustomReports("whatever").execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -914,7 +883,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
   public void getSpecifiedMonthlyCustomReports404ErrorTest() throws IOException {
     try {
       generalApiClient.setUnstableOperationEnabled("getSpecifiedMonthlyCustomReports", true);
-      api.getSpecifiedMonthlyCustomReports("2010-01-01");
+      api.getSpecifiedMonthlyCustomReports("2010-01-01").execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());
@@ -927,7 +896,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
   public void getDailyCustomReportsErrorsTest() throws IOException {
     try {
       generalFakeAuthApiClient.setUnstableOperationEnabled("getDailyCustomReports", true);
-      fakeAuthApi.getDailyCustomReports();
+      fakeAuthApi.getDailyCustomReports().execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -940,7 +909,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
   public void getMonthlyCustomReportsErrorsTest() throws IOException {
     try {
       generalFakeAuthApiClient.setUnstableOperationEnabled("getMonthlyCustomReports", true);
-      fakeAuthApi.getMonthlyCustomReports();
+      fakeAuthApi.getMonthlyCustomReports().execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -957,7 +926,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
             .willReturn(okJson(fixtureData).withStatus(400)));
     // Mocked as this call must be made from the parent organization
     try {
-      unitApi.getUsageBillableSummary();
+      unitApi.getUsageBillableSummary().execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -969,7 +938,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
   @Test
   public void getUsageSummaryErrorsTest() throws IOException {
     try {
-      fakeAuthApi.getUsageSummary(futureStartMonth);
+      fakeAuthApi.getUsageSummary().startMonth(futureStartMonth).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -985,7 +954,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
         get(urlPathEqualTo(apiUri + "/summary")).willReturn(okJson(fixtureData).withStatus(400)));
     // Mocked because this requires multi org feature
     try {
-      unitApi.getUsageSummary(startMonth);
+      unitApi.getUsageSummary().startMonth(startMonth).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -997,7 +966,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
   @Test
   public void getUsageIncidentManagementErrorsTest() throws IOException {
     try {
-      api.getIncidentManagement(futureStartHr);
+      api.getIncidentManagement().startHr(futureStartHr).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -1006,7 +975,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.getIncidentManagement(futureStartHr);
+      fakeAuthApi.getIncidentManagement().startHr(futureStartHr).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -1019,7 +988,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
   public void getUsageAttributionErrorsTest() throws IOException {
     try {
       generalFakeAuthApiClient.setUnstableOperationEnabled("getUsageAttribution", true);
-      fakeAuthApi.getUsageAttribution(startMonth, "*");
+      fakeAuthApi.getUsageAttribution().startMonth(startMonth).fields("*").execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());

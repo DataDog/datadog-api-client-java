@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 ## createAWSAccount
 
-> AWSAccountCreateResponse createAWSAccount(body);
+> AWSAccountCreateResponse createAWSAccount().body(body).execute();
 
 Create an AWS integration
 
@@ -46,7 +46,9 @@ public class Example {
         AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
         AWSAccount body = new AWSAccount(); // AWSAccount | AWS Request Object
         try {
-            AWSAccountCreateResponse result = apiInstance.createAWSAccount(body);
+            AWSAccountCreateResponse result = apiInstance.createAWSAccount()
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AwsIntegrationApi#createAWSAccount");
@@ -90,7 +92,7 @@ Name | Type | Description  | Notes
 
 ## createAWSTagFilter
 
-> Object createAWSTagFilter(body);
+> Object createAWSTagFilter().body(body).execute();
 
 Set an AWS tag filter
 
@@ -115,7 +117,9 @@ public class Example {
         AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
         AWSTagFilterCreateRequest body = new AWSTagFilterCreateRequest(); // AWSTagFilterCreateRequest | Set an AWS tag filter using an `aws_account_identifier`, `namespace`, and filtering string. Namespace options are `application_elb`, `elb`, `lambda`, `network_elb`, `rds`, `sqs`, and `custom`.
         try {
-            Object result = apiInstance.createAWSTagFilter(body);
+            Object result = apiInstance.createAWSTagFilter()
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AwsIntegrationApi#createAWSTagFilter");
@@ -158,7 +162,7 @@ Name | Type | Description  | Notes
 
 ## createNewAWSExternalID
 
-> AWSAccountCreateResponse createNewAWSExternalID(body);
+> AWSAccountCreateResponse createNewAWSExternalID().body(body).execute();
 
 Generate a new external ID
 
@@ -183,7 +187,9 @@ public class Example {
         AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
         AWSAccount body = new AWSAccount(); // AWSAccount | Your Datadog role delegation name. For more information about your AWS account Role name, see the [Datadog AWS integration configuration info](https://github.com/DataDog/documentation/blob/master/integrations/amazon_web_services/#installation).
         try {
-            AWSAccountCreateResponse result = apiInstance.createNewAWSExternalID(body);
+            AWSAccountCreateResponse result = apiInstance.createNewAWSExternalID()
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AwsIntegrationApi#createNewAWSExternalID");
@@ -226,7 +232,7 @@ Name | Type | Description  | Notes
 
 ## deleteAWSAccount
 
-> Object deleteAWSAccount(body);
+> Object deleteAWSAccount().body(body).execute();
 
 Delete an AWS integration
 
@@ -251,7 +257,9 @@ public class Example {
         AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
         AWSAccount body = new AWSAccount(); // AWSAccount | AWS request object
         try {
-            Object result = apiInstance.deleteAWSAccount(body);
+            Object result = apiInstance.deleteAWSAccount()
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AwsIntegrationApi#deleteAWSAccount");
@@ -295,7 +303,7 @@ Name | Type | Description  | Notes
 
 ## deleteAWSTagFilter
 
-> Object deleteAWSTagFilter(body);
+> Object deleteAWSTagFilter().body(body).execute();
 
 Delete a tag filtering entry
 
@@ -320,7 +328,9 @@ public class Example {
         AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
         AWSTagFilterDeleteRequest body = new AWSTagFilterDeleteRequest(); // AWSTagFilterDeleteRequest | Delete a tag filtering entry for a given AWS account and `dd-aws` namespace.
         try {
-            Object result = apiInstance.deleteAWSTagFilter(body);
+            Object result = apiInstance.deleteAWSTagFilter()
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AwsIntegrationApi#deleteAWSTagFilter");
@@ -363,7 +373,7 @@ Name | Type | Description  | Notes
 
 ## listAWSAccounts
 
-> AWSAccountListResponse listAWSAccounts(parameters);
+> AWSAccountListResponse listAWSAccounts().accountId(accountId).roleName(roleName).accessKeyId(accessKeyId).execute();
 
 List all AWS integrations
 
@@ -390,10 +400,11 @@ public class Example {
         String roleName = "roleName_example"; // String | Only return AWS accounts that matches this role_name.
         String accessKeyId = "accessKeyId_example"; // String | Only return AWS accounts that matches this `access_key_id`.
         try {
-	    AWSAccountListResponse result = apiInstance.listAWSAccounts(new AwsIntegrationApi.ListAWSAccountsOptionalParameters()
+            AWSAccountListResponse result = apiInstance.listAWSAccounts()
                 .accountId(accountId)
                 .roleName(roleName)
-                .accessKeyId(accessKeyId));
+                .accessKeyId(accessKeyId)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AwsIntegrationApi#listAWSAccounts");
@@ -438,7 +449,7 @@ Name | Type | Description  | Notes
 
 ## listAWSTagFilters
 
-> AWSTagFilterListResponse listAWSTagFilters(accountId);
+> AWSTagFilterListResponse listAWSTagFilters().accountId(accountId).execute();
 
 Get all AWS tag filters
 
@@ -463,7 +474,9 @@ public class Example {
         AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
         String accountId = "accountId_example"; // String | Only return AWS filters that matches this `account_id`.
         try {
-            AWSTagFilterListResponse result = apiInstance.listAWSTagFilters(accountId);
+            AWSTagFilterListResponse result = apiInstance.listAWSTagFilters()
+                .accountId(accountId)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AwsIntegrationApi#listAWSTagFilters");
@@ -506,7 +519,7 @@ Name | Type | Description  | Notes
 
 ## listAvailableAWSNamespaces
 
-> List&lt;String&gt; listAvailableAWSNamespaces();
+> List&lt;String&gt; listAvailableAWSNamespaces().execute();
 
 List namespace rules
 
@@ -530,7 +543,8 @@ public class Example {
 
         AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
         try {
-            List<String> result = apiInstance.listAvailableAWSNamespaces();
+            List<String> result = apiInstance.listAvailableAWSNamespaces()
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AwsIntegrationApi#listAvailableAWSNamespaces");
@@ -569,7 +583,7 @@ This endpoint does not need any parameter.
 
 ## updateAWSAccount
 
-> Object updateAWSAccount(body, parameters);
+> Object updateAWSAccount().body(body).accountId(accountId).roleName(roleName).accessKeyId(accessKeyId).execute();
 
 Update an AWS integration
 
@@ -597,10 +611,12 @@ public class Example {
         String roleName = "roleName_example"; // String | Only return AWS accounts that match this `role_name`. Required if `account_id` is specified.
         String accessKeyId = "accessKeyId_example"; // String | Only return AWS accounts that matches this `access_key_id`. Required if none of the other two options are specified.
         try {
-	    Object result = apiInstance.updateAWSAccount(body, new AwsIntegrationApi.UpdateAWSAccountOptionalParameters()
+            Object result = apiInstance.updateAWSAccount()
+                .body(body)
                 .accountId(accountId)
                 .roleName(roleName)
-                .accessKeyId(accessKeyId));
+                .accessKeyId(accessKeyId)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AwsIntegrationApi#updateAWSAccount");

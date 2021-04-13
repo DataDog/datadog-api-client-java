@@ -52,12 +52,12 @@ public class DashboardListsApiTest extends V1ApiTest {
     if (dashboardListsToDelete != null) {
       for (Long id : dashboardListsToDelete) {
         try {
-          api.getDashboardList(id);
+          api.getDashboardList(id).execute();
         } catch (ApiException e) {
           // doesn't exist => continue
           continue;
         }
-        api.deleteDashboardList(id);
+        api.deleteDashboardList(id).execute();
       }
     }
   }
@@ -68,7 +68,7 @@ public class DashboardListsApiTest extends V1ApiTest {
     DashboardList testDashboardList = new DashboardList().name(getUniqueEntityName());
 
     // Create dashboard list
-    DashboardList dashboardList = api.createDashboardList(testDashboardList);
+    DashboardList dashboardList = api.createDashboardList().body(testDashboardList).execute();
     dashboardListsToDelete.add(dashboardList.getId());
     assertEquals(testDashboardList.getName(), dashboardList.getName());
     assertNotNull(dashboardList.getAuthor());
@@ -79,17 +79,18 @@ public class DashboardListsApiTest extends V1ApiTest {
     assertEquals("manual_dashboard_list", dashboardList.getType());
 
     // Get the dashboard list
-    dashboardList = api.getDashboardList(dashboardList.getId());
+    dashboardList = api.getDashboardList(dashboardList.getId()).execute();
     assertEquals(dashboardList.getName(), testDashboardList.getName());
 
     // Edit the dashboard list
     DashboardList editedDashboardList =
         new DashboardList().name(getUniqueEntityName() + "-updated");
-    dashboardList = api.updateDashboardList(dashboardList.getId(), editedDashboardList);
+    dashboardList =
+        api.updateDashboardList(dashboardList.getId()).body(editedDashboardList).execute();
     assertEquals(dashboardList.getName(), editedDashboardList.getName());
 
     // Get all dashboard lists
-    DashboardListListResponse allDashboardLists = api.listDashboardLists();
+    DashboardListListResponse allDashboardLists = api.listDashboardLists().execute();
     assertTrue(allDashboardLists.getDashboardLists().size() > 0);
     // The actual dashboardList model is asserted when we create and get, so just ensure the get all
     // is
@@ -97,14 +98,14 @@ public class DashboardListsApiTest extends V1ApiTest {
     assertTrue(allDashboardLists.getDashboardLists().get(0) instanceof DashboardList);
 
     // Delete the dashboard list
-    DashboardListDeleteResponse res = api.deleteDashboardList(dashboardList.getId());
+    DashboardListDeleteResponse res = api.deleteDashboardList(dashboardList.getId()).execute();
     assertEquals(res.getDeletedDashboardListId(), dashboardList.getId());
   }
 
   @Test
   public void dashboardListListErrorsTest() throws IOException {
     try {
-      fakeAuthApi.listDashboardLists();
+      fakeAuthApi.listDashboardLists().execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -116,7 +117,7 @@ public class DashboardListsApiTest extends V1ApiTest {
   @Test
   public void dashboardListCreateErrorsTest() throws IOException {
     try {
-      api.createDashboardList(new DashboardList());
+      api.createDashboardList().body(new DashboardList()).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -125,7 +126,7 @@ public class DashboardListsApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.createDashboardList(new DashboardList());
+      fakeAuthApi.createDashboardList().body(new DashboardList()).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -137,7 +138,7 @@ public class DashboardListsApiTest extends V1ApiTest {
   @Test
   public void dashboardListGetErrorsTest() throws IOException {
     try {
-      fakeAuthApi.getDashboardList(new Long(1234));
+      fakeAuthApi.getDashboardList(new Long(1234)).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -146,7 +147,7 @@ public class DashboardListsApiTest extends V1ApiTest {
     }
 
     try {
-      api.getDashboardList(new Long(1234));
+      api.getDashboardList(new Long(1234)).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());
@@ -158,7 +159,7 @@ public class DashboardListsApiTest extends V1ApiTest {
   @Test
   public void dashboardListUpdateErrorsTest() throws IOException {
     try {
-      api.updateDashboardList(new Long(1234), new DashboardList());
+      api.updateDashboardList(new Long(1234)).body(new DashboardList()).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -167,7 +168,7 @@ public class DashboardListsApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.updateDashboardList(new Long(1234), new DashboardList());
+      fakeAuthApi.updateDashboardList(new Long(1234)).body(new DashboardList()).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -176,7 +177,9 @@ public class DashboardListsApiTest extends V1ApiTest {
     }
 
     try {
-      api.updateDashboardList(new Long(1234), new DashboardList().name("nonexistent"));
+      api.updateDashboardList(new Long(1234))
+          .body(new DashboardList().name("nonexistent"))
+          .execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());
@@ -188,7 +191,7 @@ public class DashboardListsApiTest extends V1ApiTest {
   @Test
   public void dashboardListDeleteErrorsTest() throws IOException {
     try {
-      fakeAuthApi.deleteDashboardList(new Long(1234));
+      fakeAuthApi.deleteDashboardList(new Long(1234)).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -197,7 +200,7 @@ public class DashboardListsApiTest extends V1ApiTest {
     }
 
     try {
-      api.getDashboardList(new Long(1234));
+      api.getDashboardList(new Long(1234)).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());

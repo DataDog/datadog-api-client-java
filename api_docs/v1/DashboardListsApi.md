@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## createDashboardList
 
-> DashboardList createDashboardList(body);
+> DashboardList createDashboardList().body(body).execute();
 
 Create a dashboard list
 
@@ -39,7 +39,9 @@ public class Example {
         DashboardListsApi apiInstance = new DashboardListsApi(defaultClient);
         DashboardList body = new DashboardList(); // DashboardList | Create a dashboard list request body.
         try {
-            DashboardList result = apiInstance.createDashboardList(body);
+            DashboardList result = apiInstance.createDashboardList()
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DashboardListsApi#createDashboardList");
@@ -82,7 +84,7 @@ Name | Type | Description  | Notes
 
 ## deleteDashboardList
 
-> DashboardListDeleteResponse deleteDashboardList(listId);
+> DashboardListDeleteResponse deleteDashboardList(listId).execute();
 
 Delete a dashboard list
 
@@ -107,7 +109,8 @@ public class Example {
         DashboardListsApi apiInstance = new DashboardListsApi(defaultClient);
         Long listId = 56L; // Long | ID of the dashboard list to delete.
         try {
-            DashboardListDeleteResponse result = apiInstance.deleteDashboardList(listId);
+            DashboardListDeleteResponse result = apiInstance.deleteDashboardList(listId)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DashboardListsApi#deleteDashboardList");
@@ -150,7 +153,7 @@ Name | Type | Description  | Notes
 
 ## getDashboardList
 
-> DashboardList getDashboardList(listId);
+> DashboardList getDashboardList(listId).execute();
 
 Get a dashboard list
 
@@ -175,7 +178,8 @@ public class Example {
         DashboardListsApi apiInstance = new DashboardListsApi(defaultClient);
         Long listId = 56L; // Long | ID of the dashboard list to fetch.
         try {
-            DashboardList result = apiInstance.getDashboardList(listId);
+            DashboardList result = apiInstance.getDashboardList(listId)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DashboardListsApi#getDashboardList");
@@ -218,7 +222,7 @@ Name | Type | Description  | Notes
 
 ## listDashboardLists
 
-> DashboardListListResponse listDashboardLists();
+> DashboardListListResponse listDashboardLists().execute();
 
 Get all dashboard lists
 
@@ -242,7 +246,8 @@ public class Example {
 
         DashboardListsApi apiInstance = new DashboardListsApi(defaultClient);
         try {
-            DashboardListListResponse result = apiInstance.listDashboardLists();
+            DashboardListListResponse result = apiInstance.listDashboardLists()
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DashboardListsApi#listDashboardLists");
@@ -281,7 +286,7 @@ This endpoint does not need any parameter.
 
 ## updateDashboardList
 
-> DashboardList updateDashboardList(listId, body);
+> DashboardList updateDashboardList(listId).body(body).execute();
 
 Update a dashboard list
 
@@ -307,7 +312,9 @@ public class Example {
         Long listId = 56L; // Long | ID of the dashboard list to update.
         DashboardList body = new DashboardList(); // DashboardList | Update a dashboard list request body.
         try {
-            DashboardList result = apiInstance.updateDashboardList(listId, body);
+            DashboardList result = apiInstance.updateDashboardList(listId)
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DashboardListsApi#updateDashboardList");

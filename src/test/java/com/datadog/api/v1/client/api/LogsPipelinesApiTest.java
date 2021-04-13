@@ -55,7 +55,7 @@ public class LogsPipelinesApiTest extends V1ApiTest {
   @Ignore
   public void createLogsPipelineTest() throws ApiException {
     LogsPipeline body = null;
-    LogsPipeline response = api.createLogsPipeline(body);
+    LogsPipeline response = api.createLogsPipeline().body(body).execute();
     // TODO: test validations
   }
 
@@ -71,7 +71,7 @@ public class LogsPipelinesApiTest extends V1ApiTest {
   @Ignore
   public void deleteLogsPipelineTest() throws ApiException {
     String pipelineId = null;
-    api.deleteLogsPipeline(pipelineId);
+    api.deleteLogsPipeline(pipelineId).execute();
     // TODO: test validations
   }
 
@@ -86,7 +86,7 @@ public class LogsPipelinesApiTest extends V1ApiTest {
   @Test
   @Ignore
   public void listLogsPipelinesTest() throws ApiException {
-    List<LogsPipeline> response = api.listLogsPipelines();
+    List<LogsPipeline> response = api.listLogsPipelines().execute();
     // TODO: test validations
   }
 
@@ -102,7 +102,7 @@ public class LogsPipelinesApiTest extends V1ApiTest {
   @Ignore
   public void getLogsPipelineTest() throws ApiException {
     String pipelineId = null;
-    LogsPipeline response = api.getLogsPipeline(pipelineId);
+    LogsPipeline response = api.getLogsPipeline(pipelineId).execute();
     // TODO: test validations
   }
 
@@ -116,7 +116,7 @@ public class LogsPipelinesApiTest extends V1ApiTest {
   @Test
   @Ignore
   public void getLogsPipelineOrderTest() throws ApiException {
-    LogsPipelinesOrder response = api.getLogsPipelineOrder();
+    LogsPipelinesOrder response = api.getLogsPipelineOrder().execute();
     // TODO: test validations
   }
 
@@ -139,7 +139,7 @@ public class LogsPipelinesApiTest extends V1ApiTest {
   public void updateLogsPipelineTest() throws ApiException {
     String pipelineId = null;
     LogsPipeline body = null;
-    LogsPipeline response = api.updateLogsPipeline(pipelineId, body);
+    LogsPipeline response = api.updateLogsPipeline(pipelineId).body(body).execute();
     // TODO: test validations
   }
 
@@ -159,14 +159,14 @@ public class LogsPipelinesApiTest extends V1ApiTest {
   @Ignore
   public void updateLogsPipelineOrderTest() throws ApiException {
     LogsPipelinesOrder body = null;
-    LogsPipelinesOrder response = api.updateLogsPipelineOrder(body);
+    LogsPipelinesOrder response = api.updateLogsPipelineOrder().body(body).execute();
     // TODO: test validations
   }
 
   @Test
   public void orderGetLogsPipelineErrorsTest() throws IOException {
     try {
-      fakeAuthApi.getLogsPipelineOrder();
+      fakeAuthApi.getLogsPipelineOrder().execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -178,7 +178,7 @@ public class LogsPipelinesApiTest extends V1ApiTest {
   @Test
   public void orderUpdateLogsPipelineErrorsTest() throws IOException {
     try {
-      api.updateLogsPipelineOrder(new LogsPipelinesOrder().pipelineIds(null));
+      api.updateLogsPipelineOrder().body(new LogsPipelinesOrder().pipelineIds(null)).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -187,7 +187,7 @@ public class LogsPipelinesApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.updateLogsPipelineOrder(new LogsPipelinesOrder());
+      fakeAuthApi.updateLogsPipelineOrder().body(new LogsPipelinesOrder()).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -196,7 +196,9 @@ public class LogsPipelinesApiTest extends V1ApiTest {
     }
 
     try {
-      api.updateLogsPipelineOrder(new LogsPipelinesOrder().pipelineIds(Arrays.asList("ids")));
+      api.updateLogsPipelineOrder()
+          .body(new LogsPipelinesOrder().pipelineIds(Arrays.asList("ids")))
+          .execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(422, e.getCode());
@@ -209,7 +211,7 @@ public class LogsPipelinesApiTest extends V1ApiTest {
   @Test
   public void listLogsPipelineErrorsTest() throws IOException {
     try {
-      fakeAuthApi.listLogsPipelines();
+      fakeAuthApi.listLogsPipelines().execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -221,7 +223,7 @@ public class LogsPipelinesApiTest extends V1ApiTest {
   @Test
   public void createLogsPipelineErrorsTest() throws IOException {
     try {
-      api.createLogsPipeline(new LogsPipeline());
+      api.createLogsPipeline().body(new LogsPipeline()).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -231,7 +233,7 @@ public class LogsPipelinesApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.createLogsPipeline(new LogsPipeline());
+      fakeAuthApi.createLogsPipeline().body(new LogsPipeline()).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -243,7 +245,7 @@ public class LogsPipelinesApiTest extends V1ApiTest {
   @Test
   public void getLogsPipelineErrorsTest() throws IOException {
     try {
-      api.getLogsPipeline("id");
+      api.getLogsPipeline("id").execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -253,7 +255,7 @@ public class LogsPipelinesApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.getLogsPipeline("id");
+      fakeAuthApi.getLogsPipeline("id").execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -265,7 +267,7 @@ public class LogsPipelinesApiTest extends V1ApiTest {
   @Test
   public void deleteLogsPipelineErrorsTest() throws IOException {
     try {
-      api.deleteLogsPipeline("id");
+      api.deleteLogsPipeline("id").execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -275,7 +277,7 @@ public class LogsPipelinesApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.deleteLogsPipeline("id");
+      fakeAuthApi.deleteLogsPipeline("id").execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -287,7 +289,7 @@ public class LogsPipelinesApiTest extends V1ApiTest {
   @Test
   public void updateLogsPipelineErrorsTest() throws IOException {
     try {
-      api.deleteLogsPipeline("id");
+      api.deleteLogsPipeline("id").execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -297,7 +299,7 @@ public class LogsPipelinesApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.deleteLogsPipeline("id");
+      fakeAuthApi.deleteLogsPipeline("id").execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());

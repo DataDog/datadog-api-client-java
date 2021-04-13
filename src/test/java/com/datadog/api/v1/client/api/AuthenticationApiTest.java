@@ -40,14 +40,14 @@ public class AuthenticationApiTest extends V1ApiTest {
 
   @Test
   public void validateTest() throws ApiException {
-    AuthenticationValidationResponse response = api.validate();
+    AuthenticationValidationResponse response = api.validate().execute();
     assertTrue(response.getValid());
   }
 
   @Test
   public void validateInvalidTest() throws IOException {
     try {
-      fakeAuthApi.validate();
+      fakeAuthApi.validate().execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());

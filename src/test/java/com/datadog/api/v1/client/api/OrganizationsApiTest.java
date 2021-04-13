@@ -72,7 +72,7 @@ public class OrganizationsApiTest extends V1ApiTest {
             .name("My Org")
             .billing(new OrganizationBilling().type("parent_billing"))
             .subscription(new OrganizationSubscription().type("pro"));
-    OrganizationCreateResponse response = unitApi.createChildOrg(orgCreateBody);
+    OrganizationCreateResponse response = unitApi.createChildOrg().body(orgCreateBody).execute();
 
     // Assert values match whats in create_child_org.json
     assertEquals(response.getOrg().getName(), "My Org");
@@ -100,7 +100,7 @@ public class OrganizationsApiTest extends V1ApiTest {
     MappingBuilder stub = setupStub(apiUri, fixturePrefix + "/get_orgs.json", "get");
     stubFor(stub);
 
-    OrganizationListResponse response = unitApi.listOrgs();
+    OrganizationListResponse response = unitApi.listOrgs().execute();
 
     // Assert values match whats in get_orgs.json fixture
     assertEquals(response.getOrgs().size(), 1);
@@ -149,7 +149,7 @@ public class OrganizationsApiTest extends V1ApiTest {
                             .enabled(true)
                             .addDomainsItem("my-org.com")
                             .addDomainsItem("example.com")));
-    OrganizationResponse response = unitApi.updateOrg(publicId, org);
+    OrganizationResponse response = unitApi.updateOrg(publicId).body(org).execute();
 
     // Assert values match whats in update_orgs.json fixture
     assertEquals(response.getOrg().getPublicId(), "axd2s");
@@ -205,7 +205,7 @@ public class OrganizationsApiTest extends V1ApiTest {
         new File(
             OrganizationsApiTest.class.getResource("org_fixtures/update_idp_meta.json").toURI());
     IdpResponse response =
-        unitApi.uploadIdPForOrg(publicId, idpFile); // .uploadIdPForOrg(publicId);
+        unitApi.uploadIdPForOrg(publicId).idpFile(idpFile).execute(); // .uploadIdPForOrg(publicId);
 
     assertEquals(response.getMessage(), "IdP metadata successfully uploaded for org Datadog HQ");
   }
@@ -213,7 +213,7 @@ public class OrganizationsApiTest extends V1ApiTest {
   @Test
   public void orgsCreateErrorsTest() throws IOException {
     try {
-      api.createChildOrg(new OrganizationCreateBody());
+      api.createChildOrg().body(new OrganizationCreateBody()).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -222,7 +222,7 @@ public class OrganizationsApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.createChildOrg(new OrganizationCreateBody());
+      fakeAuthApi.createChildOrg().body(new OrganizationCreateBody()).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -234,7 +234,7 @@ public class OrganizationsApiTest extends V1ApiTest {
   @Test
   public void orgsListErrorsTest() throws IOException {
     try {
-      fakeAuthApi.listOrgs();
+      fakeAuthApi.listOrgs().execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -246,7 +246,7 @@ public class OrganizationsApiTest extends V1ApiTest {
   @Test
   public void orgsGetErrorsTest() throws IOException {
     try {
-      api.getOrg("lsqdkjf");
+      api.getOrg("lsqdkjf").execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -255,7 +255,7 @@ public class OrganizationsApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.getOrg("lsqdkjf");
+      fakeAuthApi.getOrg("lsqdkjf").execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -267,7 +267,7 @@ public class OrganizationsApiTest extends V1ApiTest {
   @Test
   public void orgsUpdateErrorsTest() throws IOException {
     try {
-      api.updateOrg("lsqdkjf", new Organization());
+      api.updateOrg("lsqdkjf").body(new Organization()).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -276,7 +276,7 @@ public class OrganizationsApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.updateOrg("lsqdkjf", new Organization());
+      fakeAuthApi.updateOrg("lsqdkjf").body(new Organization()).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -297,7 +297,7 @@ public class OrganizationsApiTest extends V1ApiTest {
         new File(OrganizationsApiTest.class.getResource("org_fixtures/error_415.json").toURI());
 
     try {
-      api.uploadIdPForOrg("lsqdkjf", idpFile);
+      api.uploadIdPForOrg("lsqdkjf").idpFile(idpFile).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -306,7 +306,7 @@ public class OrganizationsApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.uploadIdPForOrg("lsqdkjf", idpFile);
+      fakeAuthApi.uploadIdPForOrg("lsqdkjf").idpFile(idpFile).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -327,7 +327,7 @@ public class OrganizationsApiTest extends V1ApiTest {
             .willReturn(okJson(fixtureData).withStatus(415)));
     // Can't trigger 415 from the client because it will always send the proper MIME type so mock it
     try {
-      unitApi.uploadIdPForOrg("id", idpFile);
+      unitApi.uploadIdPForOrg("id").idpFile(idpFile).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(415, e.getCode());

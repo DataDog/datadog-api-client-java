@@ -43,7 +43,7 @@ public class DashboardListsApiTest extends V2APITest {
 
   @After
   public void deleteDashboardList() throws com.datadog.api.v1.client.ApiException {
-    dashboardListsApiV1.deleteDashboardList(dashboardListID);
+    dashboardListsApiV1.deleteDashboardList(dashboardListID).execute();
   }
 
   @Before
@@ -64,7 +64,10 @@ public class DashboardListsApiTest extends V2APITest {
 
     dashboardListsApiV1 = new com.datadog.api.v1.client.api.DashboardListsApi(v1Client);
     DashboardList res =
-        dashboardListsApiV1.createDashboardList(new DashboardList().name(getUniqueEntityName()));
+        dashboardListsApiV1
+            .createDashboardList()
+            .body(new DashboardList().name(getUniqueEntityName()))
+            .execute();
     dashboardListID = res.getId();
   }
 
@@ -93,7 +96,7 @@ public class DashboardListsApiTest extends V2APITest {
     DashboardListAddItemsRequest addRequest =
         new DashboardListAddItemsRequest().dashboards(dashboardsRequest);
     DashboardListAddItemsResponse addResponse =
-        api.createDashboardListItems(dashboardListID, addRequest);
+        api.createDashboardListItems(dashboardListID).body(addRequest).execute();
     assertNotNull(addResponse.getAddedDashboardsToList());
     assertEquals(3, addResponse.getAddedDashboardsToList().size());
     Set<String> ids =
@@ -105,7 +108,7 @@ public class DashboardListsApiTest extends V2APITest {
     DashboardListDeleteItemsRequest deleteRequest =
         new DashboardListDeleteItemsRequest().dashboards(dashboardsRequest);
     DashboardListDeleteItemsResponse deleteResponse =
-        api.deleteDashboardListItems(dashboardListID, deleteRequest);
+        api.deleteDashboardListItems(dashboardListID).body(deleteRequest).execute();
     assertNotNull(deleteResponse.getDeletedDashboardsFromList());
     assertEquals(3, deleteResponse.getDeletedDashboardsFromList().size());
 
@@ -115,7 +118,7 @@ public class DashboardListsApiTest extends V2APITest {
             .collect(Collectors.toSet());
     assertEquals(ids, expectedIds);
 
-    DashboardListItems getResponse = api.getDashboardListItems(dashboardListID);
+    DashboardListItems getResponse = api.getDashboardListItems(dashboardListID).execute();
     assertNotNull(getResponse.getTotal());
     assertEquals(0, (long) getResponse.getTotal());
     assertEquals(0, getResponse.getDashboards().size());
@@ -123,7 +126,7 @@ public class DashboardListsApiTest extends V2APITest {
     DashboardListUpdateItemsRequest updateRequest =
         new DashboardListUpdateItemsRequest().dashboards(dashboardsRequest);
     DashboardListUpdateItemsResponse updateResponse =
-        api.updateDashboardListItems(dashboardListID, updateRequest);
+        api.updateDashboardListItems(dashboardListID).body(updateRequest).execute();
     assertNotNull(updateResponse.getDashboards());
     assertEquals(3, updateResponse.getDashboards().size());
 
@@ -135,10 +138,10 @@ public class DashboardListsApiTest extends V2APITest {
 
     // Leave only one dash in the list for easier assertion
     dashboardsRequest.remove(2);
-    deleteResponse = api.deleteDashboardListItems(dashboardListID, deleteRequest);
+    deleteResponse = api.deleteDashboardListItems(dashboardListID).body(deleteRequest).execute();
     assertNotNull(deleteResponse.getDeletedDashboardsFromList());
     assertEquals(2, deleteResponse.getDeletedDashboardsFromList().size());
-    getResponse = api.getDashboardListItems(dashboardListID);
+    getResponse = api.getDashboardListItems(dashboardListID).execute();
     assertNotNull(getResponse.getDashboards());
     assertNotNull(getResponse.getTotal());
     assertEquals(1, getResponse.getDashboards().size());

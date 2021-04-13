@@ -44,47 +44,7 @@ public class DashboardsApi {
     this.apiClient = apiClient;
   }
 
-  /**
-   * Create a new dashboard Create a dashboard using the specified options. When defining queries in
-   * your widgets, take note of which queries should have the &#x60;as_count()&#x60; or
-   * &#x60;as_rate()&#x60; modifiers appended. Refer to the following
-   * [documentation](https://docs.datadoghq.com/developers/metrics/type_modifiers/?tab&#x3D;count#in-application-modifiers)
-   * for more information on these modifiers.
-   *
-   * @param body Create a dashboard request body. (required)
-   * @return Dashboard
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public Dashboard createDashboard(Dashboard body) throws ApiException {
-    return createDashboardWithHttpInfo(body).getData();
-  }
-
-  /**
-   * Create a new dashboard Create a dashboard using the specified options. When defining queries in
-   * your widgets, take note of which queries should have the &#x60;as_count()&#x60; or
-   * &#x60;as_rate()&#x60; modifiers appended. Refer to the following
-   * [documentation](https://docs.datadoghq.com/developers/metrics/type_modifiers/?tab&#x3D;count#in-application-modifiers)
-   * for more information on these modifiers.
-   *
-   * @param body Create a dashboard request body. (required)
-   * @return ApiResponse&lt;Dashboard&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public ApiResponse<Dashboard> createDashboardWithHttpInfo(Dashboard body) throws ApiException {
+  private ApiResponse<Dashboard> createDashboardWithHttpInfo(Dashboard body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -92,6 +52,7 @@ public class DashboardsApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling createDashboard");
     }
+
     // create path and map variables
     String localVarPath = "/api/v1/dashboard";
 
@@ -130,39 +91,72 @@ public class DashboardsApi {
         false);
   }
 
-  /**
-   * Delete a dashboard Delete a dashboard using the specified ID.
-   *
-   * @param dashboardId The ID of the dashboard. (required)
-   * @return DashboardDeleteResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Dashboards Not Found </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public DashboardDeleteResponse deleteDashboard(String dashboardId) throws ApiException {
-    return deleteDashboardWithHttpInfo(dashboardId).getData();
+  public class APIcreateDashboardRequest {
+    private Dashboard body;
+
+    private APIcreateDashboardRequest() {}
+
+    /**
+     * Set body
+     *
+     * @param body Create a dashboard request body. (required)
+     * @return APIcreateDashboardRequest
+     */
+    public APIcreateDashboardRequest body(Dashboard body) {
+      this.body = body;
+      return this;
+    }
+
+    /**
+     * Execute createDashboard request
+     *
+     * @return Dashboard
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+     * </table>
+     */
+    public Dashboard execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute createDashboard request with HTTP info returned
+     *
+     * @return ApiResponse&lt;Dashboard&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<Dashboard> executeWithHttpInfo() throws ApiException {
+      return createDashboardWithHttpInfo(body);
+    }
   }
 
   /**
-   * Delete a dashboard Delete a dashboard using the specified ID.
+   * Create a new dashboard Create a dashboard using the specified options. When defining queries in
+   * your widgets, take note of which queries should have the &#x60;as_count()&#x60; or
+   * &#x60;as_rate()&#x60; modifiers appended. Refer to the following
+   * [documentation](https://docs.datadoghq.com/developers/metrics/type_modifiers/?tab&#x3D;count#in-application-modifiers)
+   * for more information on these modifiers.
    *
-   * @param dashboardId The ID of the dashboard. (required)
-   * @return ApiResponse&lt;DashboardDeleteResponse&gt;
+   * @return createDashboardRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Dashboards Not Found </td><td>  -  </td></tr>
-   *     </table>
    */
-  public ApiResponse<DashboardDeleteResponse> deleteDashboardWithHttpInfo(String dashboardId)
+  public APIcreateDashboardRequest createDashboard() throws ApiException {
+    return new APIcreateDashboardRequest();
+  }
+
+  private ApiResponse<DashboardDeleteResponse> deleteDashboardWithHttpInfo(String dashboardId)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -171,6 +165,7 @@ public class DashboardsApi {
       throw new ApiException(
           400, "Missing the required parameter 'dashboardId' when calling deleteDashboard");
     }
+
     // create path and map variables
     String localVarPath =
         "/api/v1/dashboard/{dashboard_id}"
@@ -214,39 +209,60 @@ public class DashboardsApi {
         false);
   }
 
-  /**
-   * Get a dashboard Get a dashboard using the specified ID.
-   *
-   * @param dashboardId The ID of the dashboard. (required)
-   * @return Dashboard
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public Dashboard getDashboard(String dashboardId) throws ApiException {
-    return getDashboardWithHttpInfo(dashboardId).getData();
+  public class APIdeleteDashboardRequest {
+    private String dashboardId;
+
+    private APIdeleteDashboardRequest(String dashboardId) {
+      this.dashboardId = dashboardId;
+    }
+
+    /**
+     * Execute deleteDashboard request
+     *
+     * @return DashboardDeleteResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Dashboards Not Found </td><td>  -  </td></tr>
+     * </table>
+     */
+    public DashboardDeleteResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute deleteDashboard request with HTTP info returned
+     *
+     * @return ApiResponse&lt;DashboardDeleteResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Dashboards Not Found </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<DashboardDeleteResponse> executeWithHttpInfo() throws ApiException {
+      return deleteDashboardWithHttpInfo(dashboardId);
+    }
   }
 
   /**
-   * Get a dashboard Get a dashboard using the specified ID.
+   * Delete a dashboard Delete a dashboard using the specified ID.
    *
    * @param dashboardId The ID of the dashboard. (required)
-   * @return ApiResponse&lt;Dashboard&gt;
+   * @return deleteDashboardRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-   *     </table>
    */
-  public ApiResponse<Dashboard> getDashboardWithHttpInfo(String dashboardId) throws ApiException {
+  public APIdeleteDashboardRequest deleteDashboard(String dashboardId) throws ApiException {
+    return new APIdeleteDashboardRequest(dashboardId);
+  }
+
+  private ApiResponse<Dashboard> getDashboardWithHttpInfo(String dashboardId) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'dashboardId' is set
@@ -254,6 +270,7 @@ public class DashboardsApi {
       throw new ApiException(
           400, "Missing the required parameter 'dashboardId' when calling getDashboard");
     }
+
     // create path and map variables
     String localVarPath =
         "/api/v1/dashboard/{dashboard_id}"
@@ -296,38 +313,62 @@ public class DashboardsApi {
         false);
   }
 
-  /**
-   * Get all dashboards Get all dashboards. **Note**: This query will only return custom created or
-   * cloned dashboards. This query will not return preset dashboards.
-   *
-   * @return DashboardSummary
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public DashboardSummary listDashboards() throws ApiException {
-    return listDashboardsWithHttpInfo().getData();
+  public class APIgetDashboardRequest {
+    private String dashboardId;
+
+    private APIgetDashboardRequest(String dashboardId) {
+      this.dashboardId = dashboardId;
+    }
+
+    /**
+     * Execute getDashboard request
+     *
+     * @return Dashboard
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
+     * </table>
+     */
+    public Dashboard execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute getDashboard request with HTTP info returned
+     *
+     * @return ApiResponse&lt;Dashboard&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<Dashboard> executeWithHttpInfo() throws ApiException {
+      return getDashboardWithHttpInfo(dashboardId);
+    }
   }
 
   /**
-   * Get all dashboards Get all dashboards. **Note**: This query will only return custom created or
-   * cloned dashboards. This query will not return preset dashboards.
+   * Get a dashboard Get a dashboard using the specified ID.
    *
-   * @return ApiResponse&lt;DashboardSummary&gt;
+   * @param dashboardId The ID of the dashboard. (required)
+   * @return getDashboardRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *     </table>
    */
-  public ApiResponse<DashboardSummary> listDashboardsWithHttpInfo() throws ApiException {
+  public APIgetDashboardRequest getDashboard(String dashboardId) throws ApiException {
+    return new APIgetDashboardRequest(dashboardId);
+  }
+
+  private ApiResponse<DashboardSummary> listDashboardsWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
+
     // create path and map variables
     String localVarPath = "/api/v1/dashboard";
 
@@ -367,43 +408,55 @@ public class DashboardsApi {
         false);
   }
 
-  /**
-   * Update a dashboard Update a dashboard using the specified ID.
-   *
-   * @param dashboardId The ID of the dashboard. (required)
-   * @param body Update Dashboard request body. (required)
-   * @return Dashboard
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public Dashboard updateDashboard(String dashboardId, Dashboard body) throws ApiException {
-    return updateDashboardWithHttpInfo(dashboardId, body).getData();
+  public class APIlistDashboardsRequest {
+
+    private APIlistDashboardsRequest() {}
+
+    /**
+     * Execute listDashboards request
+     *
+     * @return DashboardSummary
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+     * </table>
+     */
+    public DashboardSummary execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute listDashboards request with HTTP info returned
+     *
+     * @return ApiResponse&lt;DashboardSummary&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<DashboardSummary> executeWithHttpInfo() throws ApiException {
+      return listDashboardsWithHttpInfo();
+    }
   }
 
   /**
-   * Update a dashboard Update a dashboard using the specified ID.
+   * Get all dashboards Get all dashboards. **Note**: This query will only return custom created or
+   * cloned dashboards. This query will not return preset dashboards.
    *
-   * @param dashboardId The ID of the dashboard. (required)
-   * @param body Update Dashboard request body. (required)
-   * @return ApiResponse&lt;Dashboard&gt;
+   * @return listDashboardsRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-   *     </table>
    */
-  public ApiResponse<Dashboard> updateDashboardWithHttpInfo(String dashboardId, Dashboard body)
+  public APIlistDashboardsRequest listDashboards() throws ApiException {
+    return new APIlistDashboardsRequest();
+  }
+
+  private ApiResponse<Dashboard> updateDashboardWithHttpInfo(String dashboardId, Dashboard body)
       throws ApiException {
     Object localVarPostBody = body;
 
@@ -418,6 +471,7 @@ public class DashboardsApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling updateDashboard");
     }
+
     // create path and map variables
     String localVarPath =
         "/api/v1/dashboard/{dashboard_id}"
@@ -457,5 +511,72 @@ public class DashboardsApi {
         localVarAuthNames,
         localVarReturnType,
         false);
+  }
+
+  public class APIupdateDashboardRequest {
+    private String dashboardId;
+    private Dashboard body;
+
+    private APIupdateDashboardRequest(String dashboardId) {
+      this.dashboardId = dashboardId;
+    }
+
+    /**
+     * Set body
+     *
+     * @param body Update Dashboard request body. (required)
+     * @return APIupdateDashboardRequest
+     */
+    public APIupdateDashboardRequest body(Dashboard body) {
+      this.body = body;
+      return this;
+    }
+
+    /**
+     * Execute updateDashboard request
+     *
+     * @return Dashboard
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
+     * </table>
+     */
+    public Dashboard execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute updateDashboard request with HTTP info returned
+     *
+     * @return ApiResponse&lt;Dashboard&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<Dashboard> executeWithHttpInfo() throws ApiException {
+      return updateDashboardWithHttpInfo(dashboardId, body);
+    }
+  }
+
+  /**
+   * Update a dashboard Update a dashboard using the specified ID.
+   *
+   * @param dashboardId The ID of the dashboard. (required)
+   * @return updateDashboardRequest
+   * @throws ApiException if fails to make API call
+   */
+  public APIupdateDashboardRequest updateDashboard(String dashboardId) throws ApiException {
+    return new APIupdateDashboardRequest(dashboardId);
   }
 }

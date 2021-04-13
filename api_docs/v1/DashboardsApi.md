@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## createDashboard
 
-> Dashboard createDashboard(body);
+> Dashboard createDashboard().body(body).execute();
 
 Create a new dashboard
 
@@ -40,7 +40,9 @@ public class Example {
         DashboardsApi apiInstance = new DashboardsApi(defaultClient);
         Dashboard body = new Dashboard(); // Dashboard | Create a dashboard request body.
         try {
-            Dashboard result = apiInstance.createDashboard(body);
+            Dashboard result = apiInstance.createDashboard()
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DashboardsApi#createDashboard");
@@ -83,7 +85,7 @@ Name | Type | Description  | Notes
 
 ## deleteDashboard
 
-> DashboardDeleteResponse deleteDashboard(dashboardId);
+> DashboardDeleteResponse deleteDashboard(dashboardId).execute();
 
 Delete a dashboard
 
@@ -108,7 +110,8 @@ public class Example {
         DashboardsApi apiInstance = new DashboardsApi(defaultClient);
         String dashboardId = "dashboardId_example"; // String | The ID of the dashboard.
         try {
-            DashboardDeleteResponse result = apiInstance.deleteDashboard(dashboardId);
+            DashboardDeleteResponse result = apiInstance.deleteDashboard(dashboardId)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DashboardsApi#deleteDashboard");
@@ -151,7 +154,7 @@ Name | Type | Description  | Notes
 
 ## getDashboard
 
-> Dashboard getDashboard(dashboardId);
+> Dashboard getDashboard(dashboardId).execute();
 
 Get a dashboard
 
@@ -176,7 +179,8 @@ public class Example {
         DashboardsApi apiInstance = new DashboardsApi(defaultClient);
         String dashboardId = "dashboardId_example"; // String | The ID of the dashboard.
         try {
-            Dashboard result = apiInstance.getDashboard(dashboardId);
+            Dashboard result = apiInstance.getDashboard(dashboardId)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DashboardsApi#getDashboard");
@@ -219,7 +223,7 @@ Name | Type | Description  | Notes
 
 ## listDashboards
 
-> DashboardSummary listDashboards();
+> DashboardSummary listDashboards().execute();
 
 Get all dashboards
 
@@ -246,7 +250,8 @@ public class Example {
 
         DashboardsApi apiInstance = new DashboardsApi(defaultClient);
         try {
-            DashboardSummary result = apiInstance.listDashboards();
+            DashboardSummary result = apiInstance.listDashboards()
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DashboardsApi#listDashboards");
@@ -285,7 +290,7 @@ This endpoint does not need any parameter.
 
 ## updateDashboard
 
-> Dashboard updateDashboard(dashboardId, body);
+> Dashboard updateDashboard(dashboardId).body(body).execute();
 
 Update a dashboard
 
@@ -311,7 +316,9 @@ public class Example {
         String dashboardId = "dashboardId_example"; // String | The ID of the dashboard.
         Dashboard body = new Dashboard(); // Dashboard | Update Dashboard request body.
         try {
-            Dashboard result = apiInstance.updateDashboard(dashboardId, body);
+            Dashboard result = apiInstance.updateDashboard(dashboardId)
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DashboardsApi#updateDashboard");

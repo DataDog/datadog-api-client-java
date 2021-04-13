@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## aggregateLogs
 
-> LogsAggregateResponse aggregateLogs(body);
+> LogsAggregateResponse aggregateLogs().body(body).execute();
 
 Aggregate events
 
@@ -37,7 +37,9 @@ public class Example {
         LogsApi apiInstance = new LogsApi(defaultClient);
         LogsAggregateRequest body = new LogsAggregateRequest(); // LogsAggregateRequest | 
         try {
-            LogsAggregateResponse result = apiInstance.aggregateLogs(body);
+            LogsAggregateResponse result = apiInstance.aggregateLogs()
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling LogsApi#aggregateLogs");
@@ -80,7 +82,7 @@ Name | Type | Description  | Notes
 
 ## listLogs
 
-> LogsListResponse listLogs(parameters);
+> LogsListResponse listLogs().body(body).execute();
 
 Search logs
 
@@ -115,8 +117,9 @@ public class Example {
         LogsApi apiInstance = new LogsApi(defaultClient);
         LogsListRequest body = new LogsListRequest(); // LogsListRequest | 
         try {
-	    LogsListResponse result = apiInstance.listLogs(new LogsApi.ListLogsOptionalParameters()
-                .body(body));
+            LogsListResponse result = apiInstance.listLogs()
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling LogsApi#listLogs");
@@ -159,7 +162,7 @@ Name | Type | Description  | Notes
 
 ## listLogsGet
 
-> LogsListResponse listLogsGet(parameters);
+> LogsListResponse listLogsGet().filterQuery(filterQuery).filterIndex(filterIndex).filterFrom(filterFrom).filterTo(filterTo).sort(sort).pageCursor(pageCursor).pageLimit(pageLimit).execute();
 
 Get a list of logs
 
@@ -201,14 +204,15 @@ public class Example {
         String pageCursor = "eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ=="; // String | List following results with a cursor provided in the previous query.
         Integer pageLimit = 10; // Integer | Maximum number of logs in the response.
         try {
-	    LogsListResponse result = apiInstance.listLogsGet(new LogsApi.ListLogsGetOptionalParameters()
+            LogsListResponse result = apiInstance.listLogsGet()
                 .filterQuery(filterQuery)
                 .filterIndex(filterIndex)
                 .filterFrom(filterFrom)
                 .filterTo(filterTo)
                 .sort(sort)
                 .pageCursor(pageCursor)
-                .pageLimit(pageLimit));
+                .pageLimit(pageLimit)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling LogsApi#listLogsGet");

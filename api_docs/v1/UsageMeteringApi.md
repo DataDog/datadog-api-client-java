@@ -39,7 +39,7 @@ Method | HTTP request | Description
 
 ## getDailyCustomReports
 
-> UsageCustomReportsResponse getDailyCustomReports(parameters);
+> UsageCustomReportsResponse getDailyCustomReports().pageSize(pageSize).pageNumber(pageNumber).sortDir(sortDir).sort(sort).execute();
 
 Get the list of available daily custom reports
 
@@ -67,11 +67,12 @@ public class Example {
         UsageSortDirection sortDir = UsageSortDirection.fromValue("desc"); // UsageSortDirection | The direction to sort by: `[desc, asc]`.
         UsageSort sort = UsageSort.fromValue("computed_on"); // UsageSort | The field to sort by: `[computed_on, size, start_date, end_date]`.
         try {
-	    UsageCustomReportsResponse result = apiInstance.getDailyCustomReports(new UsageMeteringApi.GetDailyCustomReportsOptionalParameters()
+            UsageCustomReportsResponse result = apiInstance.getDailyCustomReports()
                 .pageSize(pageSize)
                 .pageNumber(pageNumber)
                 .sortDir(sortDir)
-                .sort(sort));
+                .sort(sort)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsageMeteringApi#getDailyCustomReports");
@@ -116,7 +117,7 @@ Name | Type | Description  | Notes
 
 ## getIncidentManagement
 
-> UsageIncidentManagementResponse getIncidentManagement(startHr, parameters);
+> UsageIncidentManagementResponse getIncidentManagement().startHr(startHr).endHr(endHr).execute();
 
 Get hourly usage for incident management
 
@@ -143,8 +144,10 @@ public class Example {
         OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
         try {
-	    UsageIncidentManagementResponse result = apiInstance.getIncidentManagement(startHr, new UsageMeteringApi.GetIncidentManagementOptionalParameters()
-                .endHr(endHr));
+            UsageIncidentManagementResponse result = apiInstance.getIncidentManagement()
+                .startHr(startHr)
+                .endHr(endHr)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsageMeteringApi#getIncidentManagement");
@@ -188,7 +191,7 @@ Name | Type | Description  | Notes
 
 ## getIngestedSpans
 
-> UsageIngestedSpansResponse getIngestedSpans(startHr, parameters);
+> UsageIngestedSpansResponse getIngestedSpans().startHr(startHr).endHr(endHr).execute();
 
 Get hourly usage for ingested spans
 
@@ -215,8 +218,10 @@ public class Example {
         OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
         try {
-	    UsageIngestedSpansResponse result = apiInstance.getIngestedSpans(startHr, new UsageMeteringApi.GetIngestedSpansOptionalParameters()
-                .endHr(endHr));
+            UsageIngestedSpansResponse result = apiInstance.getIngestedSpans()
+                .startHr(startHr)
+                .endHr(endHr)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsageMeteringApi#getIngestedSpans");
@@ -260,7 +265,7 @@ Name | Type | Description  | Notes
 
 ## getMonthlyCustomReports
 
-> UsageCustomReportsResponse getMonthlyCustomReports(parameters);
+> UsageCustomReportsResponse getMonthlyCustomReports().pageSize(pageSize).pageNumber(pageNumber).sortDir(sortDir).sort(sort).execute();
 
 Get the list of available monthly custom reports
 
@@ -288,11 +293,12 @@ public class Example {
         UsageSortDirection sortDir = UsageSortDirection.fromValue("desc"); // UsageSortDirection | The direction to sort by: `[desc, asc]`.
         UsageSort sort = UsageSort.fromValue("computed_on"); // UsageSort | The field to sort by: `[computed_on, size, start_date, end_date]`.
         try {
-	    UsageCustomReportsResponse result = apiInstance.getMonthlyCustomReports(new UsageMeteringApi.GetMonthlyCustomReportsOptionalParameters()
+            UsageCustomReportsResponse result = apiInstance.getMonthlyCustomReports()
                 .pageSize(pageSize)
                 .pageNumber(pageNumber)
                 .sortDir(sortDir)
-                .sort(sort));
+                .sort(sort)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsageMeteringApi#getMonthlyCustomReports");
@@ -337,7 +343,7 @@ Name | Type | Description  | Notes
 
 ## getSpecifiedDailyCustomReports
 
-> UsageSpecifiedCustomReportsResponse getSpecifiedDailyCustomReports(reportId);
+> UsageSpecifiedCustomReportsResponse getSpecifiedDailyCustomReports(reportId).execute();
 
 Get specified daily custom reports
 
@@ -362,7 +368,8 @@ public class Example {
         UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);
         String reportId = "reportId_example"; // String | The specified ID to search results for.
         try {
-            UsageSpecifiedCustomReportsResponse result = apiInstance.getSpecifiedDailyCustomReports(reportId);
+            UsageSpecifiedCustomReportsResponse result = apiInstance.getSpecifiedDailyCustomReports(reportId)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsageMeteringApi#getSpecifiedDailyCustomReports");
@@ -405,7 +412,7 @@ Name | Type | Description  | Notes
 
 ## getSpecifiedMonthlyCustomReports
 
-> UsageSpecifiedCustomReportsResponse getSpecifiedMonthlyCustomReports(reportId);
+> UsageSpecifiedCustomReportsResponse getSpecifiedMonthlyCustomReports(reportId).execute();
 
 Get specified monthly custom reports
 
@@ -430,7 +437,8 @@ public class Example {
         UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);
         String reportId = "reportId_example"; // String | The specified ID to search results for.
         try {
-            UsageSpecifiedCustomReportsResponse result = apiInstance.getSpecifiedMonthlyCustomReports(reportId);
+            UsageSpecifiedCustomReportsResponse result = apiInstance.getSpecifiedMonthlyCustomReports(reportId)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsageMeteringApi#getSpecifiedMonthlyCustomReports");
@@ -474,7 +482,7 @@ Name | Type | Description  | Notes
 
 ## getTracingWithoutLimits
 
-> UsageTracingWithoutLimitsResponse getTracingWithoutLimits(startHr, parameters);
+> UsageTracingWithoutLimitsResponse getTracingWithoutLimits().startHr(startHr).endHr(endHr).execute();
 
 Get hourly usage for tracing without limits
 
@@ -503,8 +511,10 @@ public class Example {
         OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
         try {
-	    UsageTracingWithoutLimitsResponse result = apiInstance.getTracingWithoutLimits(startHr, new UsageMeteringApi.GetTracingWithoutLimitsOptionalParameters()
-                .endHr(endHr));
+            UsageTracingWithoutLimitsResponse result = apiInstance.getTracingWithoutLimits()
+                .startHr(startHr)
+                .endHr(endHr)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsageMeteringApi#getTracingWithoutLimits");
@@ -548,7 +558,7 @@ Name | Type | Description  | Notes
 
 ## getUsageAnalyzedLogs
 
-> UsageAnalyzedLogsResponse getUsageAnalyzedLogs(startHr, parameters);
+> UsageAnalyzedLogsResponse getUsageAnalyzedLogs().startHr(startHr).endHr(endHr).execute();
 
 Get hourly usage for analyzed logs
 
@@ -575,8 +585,10 @@ public class Example {
         OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
         try {
-	    UsageAnalyzedLogsResponse result = apiInstance.getUsageAnalyzedLogs(startHr, new UsageMeteringApi.GetUsageAnalyzedLogsOptionalParameters()
-                .endHr(endHr));
+            UsageAnalyzedLogsResponse result = apiInstance.getUsageAnalyzedLogs()
+                .startHr(startHr)
+                .endHr(endHr)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsageMeteringApi#getUsageAnalyzedLogs");
@@ -620,7 +632,7 @@ Name | Type | Description  | Notes
 
 ## getUsageAttribution
 
-> UsageAttributionResponse getUsageAttribution(startMonth, fields, parameters);
+> UsageAttributionResponse getUsageAttribution().startMonth(startMonth).fields(fields).endMonth(endMonth).sortDirection(sortDirection).sortName(sortName).execute();
 
 Get Usage Attribution
 
@@ -650,10 +662,13 @@ public class Example {
         UsageSortDirection sortDirection = UsageSortDirection.fromValue("desc"); // UsageSortDirection | The direction to sort by: `[desc, asc]`.
         UsageAttributionSort sortName = UsageAttributionSort.fromValue("api_percentage"); // UsageAttributionSort | The field to sort by.
         try {
-	    UsageAttributionResponse result = apiInstance.getUsageAttribution(startMonth, fields, new UsageMeteringApi.GetUsageAttributionOptionalParameters()
+            UsageAttributionResponse result = apiInstance.getUsageAttribution()
+                .startMonth(startMonth)
+                .fields(fields)
                 .endMonth(endMonth)
                 .sortDirection(sortDirection)
-                .sortName(sortName));
+                .sortName(sortName)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsageMeteringApi#getUsageAttribution");
@@ -699,7 +714,7 @@ Name | Type | Description  | Notes
 
 ## getUsageBillableSummary
 
-> UsageBillableSummaryResponse getUsageBillableSummary(parameters);
+> UsageBillableSummaryResponse getUsageBillableSummary().month(month).execute();
 
 Get billable usage across your account
 
@@ -725,8 +740,9 @@ public class Example {
         UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);
         OffsetDateTime month = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage starting this month.
         try {
-	    UsageBillableSummaryResponse result = apiInstance.getUsageBillableSummary(new UsageMeteringApi.GetUsageBillableSummaryOptionalParameters()
-                .month(month));
+            UsageBillableSummaryResponse result = apiInstance.getUsageBillableSummary()
+                .month(month)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsageMeteringApi#getUsageBillableSummary");
@@ -769,7 +785,7 @@ Name | Type | Description  | Notes
 
 ## getUsageComplianceMonitoring
 
-> UsageComplianceResponse getUsageComplianceMonitoring(startHr, parameters);
+> UsageComplianceResponse getUsageComplianceMonitoring().startHr(startHr).endHr(endHr).execute();
 
 Get hourly usage for Compliance Monitoring
 
@@ -796,8 +812,10 @@ public class Example {
         OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
         try {
-	    UsageComplianceResponse result = apiInstance.getUsageComplianceMonitoring(startHr, new UsageMeteringApi.GetUsageComplianceMonitoringOptionalParameters()
-                .endHr(endHr));
+            UsageComplianceResponse result = apiInstance.getUsageComplianceMonitoring()
+                .startHr(startHr)
+                .endHr(endHr)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsageMeteringApi#getUsageComplianceMonitoring");
@@ -841,7 +859,7 @@ Name | Type | Description  | Notes
 
 ## getUsageFargate
 
-> UsageFargateResponse getUsageFargate(startHr, parameters);
+> UsageFargateResponse getUsageFargate().startHr(startHr).endHr(endHr).execute();
 
 Get hourly usage for Fargate
 
@@ -868,8 +886,10 @@ public class Example {
         OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
         try {
-	    UsageFargateResponse result = apiInstance.getUsageFargate(startHr, new UsageMeteringApi.GetUsageFargateOptionalParameters()
-                .endHr(endHr));
+            UsageFargateResponse result = apiInstance.getUsageFargate()
+                .startHr(startHr)
+                .endHr(endHr)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsageMeteringApi#getUsageFargate");
@@ -913,7 +933,7 @@ Name | Type | Description  | Notes
 
 ## getUsageHosts
 
-> UsageHostsResponse getUsageHosts(startHr, parameters);
+> UsageHostsResponse getUsageHosts().startHr(startHr).endHr(endHr).execute();
 
 Get hourly usage for hosts and containers
 
@@ -940,8 +960,10 @@ public class Example {
         OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
         try {
-	    UsageHostsResponse result = apiInstance.getUsageHosts(startHr, new UsageMeteringApi.GetUsageHostsOptionalParameters()
-                .endHr(endHr));
+            UsageHostsResponse result = apiInstance.getUsageHosts()
+                .startHr(startHr)
+                .endHr(endHr)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsageMeteringApi#getUsageHosts");
@@ -985,7 +1007,7 @@ Name | Type | Description  | Notes
 
 ## getUsageIndexedSpans
 
-> UsageIndexedSpansResponse getUsageIndexedSpans(startHr, parameters);
+> UsageIndexedSpansResponse getUsageIndexedSpans().startHr(startHr).endHr(endHr).execute();
 
 Get hourly usage for indexed spans
 
@@ -1012,8 +1034,10 @@ public class Example {
         OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
         try {
-	    UsageIndexedSpansResponse result = apiInstance.getUsageIndexedSpans(startHr, new UsageMeteringApi.GetUsageIndexedSpansOptionalParameters()
-                .endHr(endHr));
+            UsageIndexedSpansResponse result = apiInstance.getUsageIndexedSpans()
+                .startHr(startHr)
+                .endHr(endHr)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsageMeteringApi#getUsageIndexedSpans");
@@ -1057,7 +1081,7 @@ Name | Type | Description  | Notes
 
 ## getUsageInternetOfThings
 
-> UsageIoTResponse getUsageInternetOfThings(startHr, parameters);
+> UsageIoTResponse getUsageInternetOfThings().startHr(startHr).endHr(endHr).execute();
 
 Get hourly usage for IoT
 
@@ -1084,8 +1108,10 @@ public class Example {
         OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
         try {
-	    UsageIoTResponse result = apiInstance.getUsageInternetOfThings(startHr, new UsageMeteringApi.GetUsageInternetOfThingsOptionalParameters()
-                .endHr(endHr));
+            UsageIoTResponse result = apiInstance.getUsageInternetOfThings()
+                .startHr(startHr)
+                .endHr(endHr)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsageMeteringApi#getUsageInternetOfThings");
@@ -1129,7 +1155,7 @@ Name | Type | Description  | Notes
 
 ## getUsageLambda
 
-> UsageLambdaResponse getUsageLambda(startHr, parameters);
+> UsageLambdaResponse getUsageLambda().startHr(startHr).endHr(endHr).execute();
 
 Get hourly usage for Lambda
 
@@ -1156,8 +1182,10 @@ public class Example {
         OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
         try {
-	    UsageLambdaResponse result = apiInstance.getUsageLambda(startHr, new UsageMeteringApi.GetUsageLambdaOptionalParameters()
-                .endHr(endHr));
+            UsageLambdaResponse result = apiInstance.getUsageLambda()
+                .startHr(startHr)
+                .endHr(endHr)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsageMeteringApi#getUsageLambda");
@@ -1201,7 +1229,7 @@ Name | Type | Description  | Notes
 
 ## getUsageLogs
 
-> UsageLogsResponse getUsageLogs(startHr, parameters);
+> UsageLogsResponse getUsageLogs().startHr(startHr).endHr(endHr).execute();
 
 Get hourly usage for Logs
 
@@ -1228,8 +1256,10 @@ public class Example {
         OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
         try {
-	    UsageLogsResponse result = apiInstance.getUsageLogs(startHr, new UsageMeteringApi.GetUsageLogsOptionalParameters()
-                .endHr(endHr));
+            UsageLogsResponse result = apiInstance.getUsageLogs()
+                .startHr(startHr)
+                .endHr(endHr)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsageMeteringApi#getUsageLogs");
@@ -1273,7 +1303,7 @@ Name | Type | Description  | Notes
 
 ## getUsageLogsByIndex
 
-> UsageLogsByIndexResponse getUsageLogsByIndex(startHr, parameters);
+> UsageLogsByIndexResponse getUsageLogsByIndex().startHr(startHr).endHr(endHr).indexName(indexName).execute();
 
 Get hourly usage for Logs by Index
 
@@ -1301,9 +1331,11 @@ public class Example {
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
         List<String> indexName = Arrays.asList(); // List<String> | Comma-separated list of log index names.
         try {
-	    UsageLogsByIndexResponse result = apiInstance.getUsageLogsByIndex(startHr, new UsageMeteringApi.GetUsageLogsByIndexOptionalParameters()
+            UsageLogsByIndexResponse result = apiInstance.getUsageLogsByIndex()
+                .startHr(startHr)
                 .endHr(endHr)
-                .indexName(indexName));
+                .indexName(indexName)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsageMeteringApi#getUsageLogsByIndex");
@@ -1348,7 +1380,7 @@ Name | Type | Description  | Notes
 
 ## getUsageNetworkFlows
 
-> UsageNetworkFlowsResponse getUsageNetworkFlows(startHr, parameters);
+> UsageNetworkFlowsResponse getUsageNetworkFlows().startHr(startHr).endHr(endHr).execute();
 
 Get hourly usage for Network Flows
 
@@ -1375,8 +1407,10 @@ public class Example {
         OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
         try {
-	    UsageNetworkFlowsResponse result = apiInstance.getUsageNetworkFlows(startHr, new UsageMeteringApi.GetUsageNetworkFlowsOptionalParameters()
-                .endHr(endHr));
+            UsageNetworkFlowsResponse result = apiInstance.getUsageNetworkFlows()
+                .startHr(startHr)
+                .endHr(endHr)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsageMeteringApi#getUsageNetworkFlows");
@@ -1420,7 +1454,7 @@ Name | Type | Description  | Notes
 
 ## getUsageNetworkHosts
 
-> UsageNetworkHostsResponse getUsageNetworkHosts(startHr, parameters);
+> UsageNetworkHostsResponse getUsageNetworkHosts().startHr(startHr).endHr(endHr).execute();
 
 Get hourly usage for Network Hosts
 
@@ -1447,8 +1481,10 @@ public class Example {
         OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
         try {
-	    UsageNetworkHostsResponse result = apiInstance.getUsageNetworkHosts(startHr, new UsageMeteringApi.GetUsageNetworkHostsOptionalParameters()
-                .endHr(endHr));
+            UsageNetworkHostsResponse result = apiInstance.getUsageNetworkHosts()
+                .startHr(startHr)
+                .endHr(endHr)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsageMeteringApi#getUsageNetworkHosts");
@@ -1492,7 +1528,7 @@ Name | Type | Description  | Notes
 
 ## getUsageProfiling
 
-> UsageProfilingResponse getUsageProfiling(startHr, parameters);
+> UsageProfilingResponse getUsageProfiling().startHr(startHr).endHr(endHr).execute();
 
 Get hourly usage for profiled hosts
 
@@ -1519,8 +1555,10 @@ public class Example {
         OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
         try {
-	    UsageProfilingResponse result = apiInstance.getUsageProfiling(startHr, new UsageMeteringApi.GetUsageProfilingOptionalParameters()
-                .endHr(endHr));
+            UsageProfilingResponse result = apiInstance.getUsageProfiling()
+                .startHr(startHr)
+                .endHr(endHr)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsageMeteringApi#getUsageProfiling");
@@ -1564,7 +1602,7 @@ Name | Type | Description  | Notes
 
 ## getUsageRumSessions
 
-> UsageRumSessionsResponse getUsageRumSessions(startHr, parameters);
+> UsageRumSessionsResponse getUsageRumSessions().startHr(startHr).endHr(endHr).type(type).execute();
 
 Get hourly usage for RUM Sessions
 
@@ -1592,9 +1630,11 @@ public class Example {
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
         String type = "type_example"; // String | RUM type: `[browser, mobile]`. Defaults to `browser`.
         try {
-	    UsageRumSessionsResponse result = apiInstance.getUsageRumSessions(startHr, new UsageMeteringApi.GetUsageRumSessionsOptionalParameters()
+            UsageRumSessionsResponse result = apiInstance.getUsageRumSessions()
+                .startHr(startHr)
                 .endHr(endHr)
-                .type(type));
+                .type(type)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsageMeteringApi#getUsageRumSessions");
@@ -1639,7 +1679,7 @@ Name | Type | Description  | Notes
 
 ## getUsageSNMP
 
-> UsageSNMPResponse getUsageSNMP(startHr, parameters);
+> UsageSNMPResponse getUsageSNMP().startHr(startHr).endHr(endHr).execute();
 
 Get hourly usage for SNMP devices
 
@@ -1666,8 +1706,10 @@ public class Example {
         OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
         try {
-	    UsageSNMPResponse result = apiInstance.getUsageSNMP(startHr, new UsageMeteringApi.GetUsageSNMPOptionalParameters()
-                .endHr(endHr));
+            UsageSNMPResponse result = apiInstance.getUsageSNMP()
+                .startHr(startHr)
+                .endHr(endHr)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsageMeteringApi#getUsageSNMP");
@@ -1711,7 +1753,7 @@ Name | Type | Description  | Notes
 
 ## getUsageSummary
 
-> UsageSummaryResponse getUsageSummary(startMonth, parameters);
+> UsageSummaryResponse getUsageSummary().startMonth(startMonth).endMonth(endMonth).includeOrgDetails(includeOrgDetails).execute();
 
 Get usage across your multi-org account
 
@@ -1739,9 +1781,11 @@ public class Example {
         OffsetDateTime endMonth = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage ending this month.
         Boolean includeOrgDetails = true; // Boolean | Include usage summaries for each sub-org.
         try {
-	    UsageSummaryResponse result = apiInstance.getUsageSummary(startMonth, new UsageMeteringApi.GetUsageSummaryOptionalParameters()
+            UsageSummaryResponse result = apiInstance.getUsageSummary()
+                .startMonth(startMonth)
                 .endMonth(endMonth)
-                .includeOrgDetails(includeOrgDetails));
+                .includeOrgDetails(includeOrgDetails)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsageMeteringApi#getUsageSummary");
@@ -1786,7 +1830,7 @@ Name | Type | Description  | Notes
 
 ## getUsageSynthetics
 
-> UsageSyntheticsResponse getUsageSynthetics(startHr, parameters);
+> UsageSyntheticsResponse getUsageSynthetics().startHr(startHr).endHr(endHr).execute();
 
 Get hourly usage for Synthetics Checks
 
@@ -1813,8 +1857,10 @@ public class Example {
         OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
         try {
-	    UsageSyntheticsResponse result = apiInstance.getUsageSynthetics(startHr, new UsageMeteringApi.GetUsageSyntheticsOptionalParameters()
-                .endHr(endHr));
+            UsageSyntheticsResponse result = apiInstance.getUsageSynthetics()
+                .startHr(startHr)
+                .endHr(endHr)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsageMeteringApi#getUsageSynthetics");
@@ -1858,7 +1904,7 @@ Name | Type | Description  | Notes
 
 ## getUsageSyntheticsAPI
 
-> UsageSyntheticsAPIResponse getUsageSyntheticsAPI(startHr, parameters);
+> UsageSyntheticsAPIResponse getUsageSyntheticsAPI().startHr(startHr).endHr(endHr).execute();
 
 Get hourly usage for Synthetics API Checks
 
@@ -1885,8 +1931,10 @@ public class Example {
         OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
         try {
-	    UsageSyntheticsAPIResponse result = apiInstance.getUsageSyntheticsAPI(startHr, new UsageMeteringApi.GetUsageSyntheticsAPIOptionalParameters()
-                .endHr(endHr));
+            UsageSyntheticsAPIResponse result = apiInstance.getUsageSyntheticsAPI()
+                .startHr(startHr)
+                .endHr(endHr)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsageMeteringApi#getUsageSyntheticsAPI");
@@ -1930,7 +1978,7 @@ Name | Type | Description  | Notes
 
 ## getUsageSyntheticsBrowser
 
-> UsageSyntheticsBrowserResponse getUsageSyntheticsBrowser(startHr, parameters);
+> UsageSyntheticsBrowserResponse getUsageSyntheticsBrowser().startHr(startHr).endHr(endHr).execute();
 
 Get hourly usage for Synthetics Browser Checks
 
@@ -1957,8 +2005,10 @@ public class Example {
         OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
         try {
-	    UsageSyntheticsBrowserResponse result = apiInstance.getUsageSyntheticsBrowser(startHr, new UsageMeteringApi.GetUsageSyntheticsBrowserOptionalParameters()
-                .endHr(endHr));
+            UsageSyntheticsBrowserResponse result = apiInstance.getUsageSyntheticsBrowser()
+                .startHr(startHr)
+                .endHr(endHr)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsageMeteringApi#getUsageSyntheticsBrowser");
@@ -2002,7 +2052,7 @@ Name | Type | Description  | Notes
 
 ## getUsageTimeseries
 
-> UsageTimeseriesResponse getUsageTimeseries(startHr, parameters);
+> UsageTimeseriesResponse getUsageTimeseries().startHr(startHr).endHr(endHr).execute();
 
 Get hourly usage for custom metrics
 
@@ -2029,8 +2079,10 @@ public class Example {
         OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
         try {
-	    UsageTimeseriesResponse result = apiInstance.getUsageTimeseries(startHr, new UsageMeteringApi.GetUsageTimeseriesOptionalParameters()
-                .endHr(endHr));
+            UsageTimeseriesResponse result = apiInstance.getUsageTimeseries()
+                .startHr(startHr)
+                .endHr(endHr)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsageMeteringApi#getUsageTimeseries");
@@ -2074,7 +2126,7 @@ Name | Type | Description  | Notes
 
 ## getUsageTopAvgMetrics
 
-> UsageTopAvgMetricsResponse getUsageTopAvgMetrics(parameters);
+> UsageTopAvgMetricsResponse getUsageTopAvgMetrics().month(month).day(day).names(names).limit(limit).execute();
 
 Get top custom metrics by hourly average
 
@@ -2103,11 +2155,12 @@ public class Example {
         List<String> names = Arrays.asList(); // List<String> | Comma-separated list of metric names.
         Integer limit = 500; // Integer | Maximum number of results to return (between 1 and 5000) - defaults to 500 results if limit not specified.
         try {
-	    UsageTopAvgMetricsResponse result = apiInstance.getUsageTopAvgMetrics(new UsageMeteringApi.GetUsageTopAvgMetricsOptionalParameters()
+            UsageTopAvgMetricsResponse result = apiInstance.getUsageTopAvgMetrics()
                 .month(month)
                 .day(day)
                 .names(names)
-                .limit(limit));
+                .limit(limit)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsageMeteringApi#getUsageTopAvgMetrics");
@@ -2153,7 +2206,7 @@ Name | Type | Description  | Notes
 
 ## getUsageTrace
 
-> UsageTraceResponse getUsageTrace(startHr, parameters);
+> UsageTraceResponse getUsageTrace().startHr(startHr).endHr(endHr).execute();
 
 Get hourly usage for Trace Search
 
@@ -2182,8 +2235,10 @@ public class Example {
         OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
         try {
-	    UsageTraceResponse result = apiInstance.getUsageTrace(startHr, new UsageMeteringApi.GetUsageTraceOptionalParameters()
-                .endHr(endHr));
+            UsageTraceResponse result = apiInstance.getUsageTrace()
+                .startHr(startHr)
+                .endHr(endHr)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsageMeteringApi#getUsageTrace");

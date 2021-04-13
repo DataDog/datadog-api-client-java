@@ -42,38 +42,9 @@ public class AuthenticationApi {
     this.apiClient = apiClient;
   }
 
-  /**
-   * Validate API key Check if the API key (not the APP key) is valid. If invalid, a 403 is
-   * returned.
-   *
-   * @return AuthenticationValidationResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public AuthenticationValidationResponse validate() throws ApiException {
-    return validateWithHttpInfo().getData();
-  }
-
-  /**
-   * Validate API key Check if the API key (not the APP key) is valid. If invalid, a 403 is
-   * returned.
-   *
-   * @return ApiResponse&lt;AuthenticationValidationResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public ApiResponse<AuthenticationValidationResponse> validateWithHttpInfo() throws ApiException {
+  private ApiResponse<AuthenticationValidationResponse> validateWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
+
     // create path and map variables
     String localVarPath = "/api/v1/validate";
 
@@ -112,5 +83,53 @@ public class AuthenticationApi {
         localVarAuthNames,
         localVarReturnType,
         false);
+  }
+
+  public class APIvalidateRequest {
+
+    private APIvalidateRequest() {}
+
+    /**
+     * Execute validate request
+     *
+     * @return AuthenticationValidationResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+     * </table>
+     */
+    public AuthenticationValidationResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute validate request with HTTP info returned
+     *
+     * @return ApiResponse&lt;AuthenticationValidationResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<AuthenticationValidationResponse> executeWithHttpInfo() throws ApiException {
+      return validateWithHttpInfo();
+    }
+  }
+
+  /**
+   * Validate API key Check if the API key (not the APP key) is valid. If invalid, a 403 is
+   * returned.
+   *
+   * @return validateRequest
+   * @throws ApiException if fails to make API call
+   */
+  public APIvalidateRequest validate() throws ApiException {
+    return new APIvalidateRequest();
   }
 }

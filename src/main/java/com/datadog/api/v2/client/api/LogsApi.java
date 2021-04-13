@@ -47,41 +47,7 @@ public class LogsApi {
     this.apiClient = apiClient;
   }
 
-  /**
-   * Aggregate events The API endpoint to aggregate events into buckets and compute metrics and
-   * timeseries.
-   *
-   * @param body (required)
-   * @return LogsAggregateResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public LogsAggregateResponse aggregateLogs(LogsAggregateRequest body) throws ApiException {
-    return aggregateLogsWithHttpInfo(body).getData();
-  }
-
-  /**
-   * Aggregate events The API endpoint to aggregate events into buckets and compute metrics and
-   * timeseries.
-   *
-   * @param body (required)
-   * @return ApiResponse&lt;LogsAggregateResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public ApiResponse<LogsAggregateResponse> aggregateLogsWithHttpInfo(LogsAggregateRequest body)
+  private ApiResponse<LogsAggregateResponse> aggregateLogsWithHttpInfo(LogsAggregateRequest body)
       throws ApiException {
     Object localVarPostBody = body;
 
@@ -90,6 +56,7 @@ public class LogsApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling aggregateLogs");
     }
+
     // create path and map variables
     String localVarPath = "/api/v2/logs/analytics/aggregate";
 
@@ -129,86 +96,72 @@ public class LogsApi {
         false);
   }
 
-  /** Manage optional parameters to listLogs. */
-  public static class ListLogsOptionalParameters {
-    private LogsListRequest body;
+  public class APIaggregateLogsRequest {
+    private LogsAggregateRequest body;
+
+    private APIaggregateLogsRequest() {}
 
     /**
      * Set body
      *
-     * @param body (optional)
-     * @return ListLogsOptionalParameters
+     * @param body (required)
+     * @return APIaggregateLogsRequest
      */
-    public ListLogsOptionalParameters body(LogsListRequest body) {
+    public APIaggregateLogsRequest body(LogsAggregateRequest body) {
       this.body = body;
       return this;
+    }
+
+    /**
+     * Execute aggregateLogs request
+     *
+     * @return LogsAggregateResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+     * </table>
+     */
+    public LogsAggregateResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute aggregateLogs request with HTTP info returned
+     *
+     * @return ApiResponse&lt;LogsAggregateResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<LogsAggregateResponse> executeWithHttpInfo() throws ApiException {
+      return aggregateLogsWithHttpInfo(body);
     }
   }
 
   /**
-   * Search logs List endpoint returns logs that match a log search query. [Results are
-   * paginated][1]. Use this endpoint to build complex logs filtering and search. **If you are
-   * considering archiving logs for your organization, consider use of the Datadog archive
-   * capabilities instead of the log list API. See [Datadog Logs Archive documentation][2].** [1]:
-   * /logs/guide/collect-multiple-logs-with-pagination [2]: https://docs.datadoghq.com/logs/archives
+   * Aggregate events The API endpoint to aggregate events into buckets and compute metrics and
+   * timeseries.
    *
-   * @return LogsListResponse
+   * @return aggregateLogsRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-   *     </table>
    */
-  public LogsListResponse listLogs() throws ApiException {
-    return listLogsWithHttpInfo(new ListLogsOptionalParameters()).getData();
+  public APIaggregateLogsRequest aggregateLogs() throws ApiException {
+    return new APIaggregateLogsRequest();
   }
 
-  /**
-   * Search logs List endpoint returns logs that match a log search query. [Results are
-   * paginated][1]. Use this endpoint to build complex logs filtering and search. **If you are
-   * considering archiving logs for your organization, consider use of the Datadog archive
-   * capabilities instead of the log list API. See [Datadog Logs Archive documentation][2].** [1]:
-   * /logs/guide/collect-multiple-logs-with-pagination [2]: https://docs.datadoghq.com/logs/archives
-   *
-   * @param parameters Optional parameters for the request.
-   * @return LogsListResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public LogsListResponse listLogs(ListLogsOptionalParameters parameters) throws ApiException {
-    return listLogsWithHttpInfo(parameters).getData();
-  }
-
-  /**
-   * Search logs List endpoint returns logs that match a log search query. [Results are
-   * paginated][1]. Use this endpoint to build complex logs filtering and search. **If you are
-   * considering archiving logs for your organization, consider use of the Datadog archive
-   * capabilities instead of the log list API. See [Datadog Logs Archive documentation][2].** [1]:
-   * /logs/guide/collect-multiple-logs-with-pagination [2]: https://docs.datadoghq.com/logs/archives
-   *
-   * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;LogsListResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public ApiResponse<LogsListResponse> listLogsWithHttpInfo(ListLogsOptionalParameters parameters)
+  private ApiResponse<LogsListResponse> listLogsWithHttpInfo(LogsListRequest body)
       throws ApiException {
-    Object localVarPostBody = parameters.body;
+    Object localVarPostBody = body;
+
     // create path and map variables
     String localVarPath = "/api/v2/logs/events/search";
 
@@ -247,168 +200,82 @@ public class LogsApi {
         false);
   }
 
-  /** Manage optional parameters to listLogsGet. */
-  public static class ListLogsGetOptionalParameters {
-    private String filterQuery;
-    private String filterIndex;
-    private OffsetDateTime filterFrom;
-    private OffsetDateTime filterTo;
-    private LogsSort sort;
-    private String pageCursor;
-    private Integer pageLimit;
+  public class APIlistLogsRequest {
+    private LogsListRequest body;
+
+    private APIlistLogsRequest() {}
 
     /**
-     * Set filterQuery
+     * Set body
      *
-     * @param filterQuery Search query following logs syntax. (optional)
-     * @return ListLogsGetOptionalParameters
+     * @param body (optional)
+     * @return APIlistLogsRequest
      */
-    public ListLogsGetOptionalParameters filterQuery(String filterQuery) {
-      this.filterQuery = filterQuery;
+    public APIlistLogsRequest body(LogsListRequest body) {
+      this.body = body;
       return this;
     }
 
     /**
-     * Set filterIndex
+     * Execute listLogs request
      *
-     * @param filterIndex For customers with multiple indexes, the indexes to search Defaults to
-     *     &#39;*&#39; which means all indexes (optional)
-     * @return ListLogsGetOptionalParameters
+     * @return LogsListResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+     * </table>
      */
-    public ListLogsGetOptionalParameters filterIndex(String filterIndex) {
-      this.filterIndex = filterIndex;
-      return this;
+    public LogsListResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
     }
 
     /**
-     * Set filterFrom
+     * Execute listLogs request with HTTP info returned
      *
-     * @param filterFrom Minimum timestamp for requested logs. (optional)
-     * @return ListLogsGetOptionalParameters
+     * @return ApiResponse&lt;LogsListResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+     * </table>
      */
-    public ListLogsGetOptionalParameters filterFrom(OffsetDateTime filterFrom) {
-      this.filterFrom = filterFrom;
-      return this;
-    }
-
-    /**
-     * Set filterTo
-     *
-     * @param filterTo Maximum timestamp for requested logs. (optional)
-     * @return ListLogsGetOptionalParameters
-     */
-    public ListLogsGetOptionalParameters filterTo(OffsetDateTime filterTo) {
-      this.filterTo = filterTo;
-      return this;
-    }
-
-    /**
-     * Set sort
-     *
-     * @param sort Order of logs in results. (optional)
-     * @return ListLogsGetOptionalParameters
-     */
-    public ListLogsGetOptionalParameters sort(LogsSort sort) {
-      this.sort = sort;
-      return this;
-    }
-
-    /**
-     * Set pageCursor
-     *
-     * @param pageCursor List following results with a cursor provided in the previous query.
-     *     (optional)
-     * @return ListLogsGetOptionalParameters
-     */
-    public ListLogsGetOptionalParameters pageCursor(String pageCursor) {
-      this.pageCursor = pageCursor;
-      return this;
-    }
-
-    /**
-     * Set pageLimit
-     *
-     * @param pageLimit Maximum number of logs in the response. (optional, default to 10)
-     * @return ListLogsGetOptionalParameters
-     */
-    public ListLogsGetOptionalParameters pageLimit(Integer pageLimit) {
-      this.pageLimit = pageLimit;
-      return this;
+    public ApiResponse<LogsListResponse> executeWithHttpInfo() throws ApiException {
+      return listLogsWithHttpInfo(body);
     }
   }
 
   /**
-   * Get a list of logs List endpoint returns logs that match a log search query. [Results are
-   * paginated][1]. Use this endpoint to see your latest logs. **If you are considering archiving
-   * logs for your organization, consider use of the Datadog archive capabilities instead of the log
-   * list API. See [Datadog Logs Archive documentation][2].** [1]:
+   * Search logs List endpoint returns logs that match a log search query. [Results are
+   * paginated][1]. Use this endpoint to build complex logs filtering and search. **If you are
+   * considering archiving logs for your organization, consider use of the Datadog archive
+   * capabilities instead of the log list API. See [Datadog Logs Archive documentation][2].** [1]:
    * /logs/guide/collect-multiple-logs-with-pagination [2]: https://docs.datadoghq.com/logs/archives
    *
-   * @return LogsListResponse
+   * @return listLogsRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-   *     </table>
    */
-  public LogsListResponse listLogsGet() throws ApiException {
-    return listLogsGetWithHttpInfo(new ListLogsGetOptionalParameters()).getData();
+  public APIlistLogsRequest listLogs() throws ApiException {
+    return new APIlistLogsRequest();
   }
 
-  /**
-   * Get a list of logs List endpoint returns logs that match a log search query. [Results are
-   * paginated][1]. Use this endpoint to see your latest logs. **If you are considering archiving
-   * logs for your organization, consider use of the Datadog archive capabilities instead of the log
-   * list API. See [Datadog Logs Archive documentation][2].** [1]:
-   * /logs/guide/collect-multiple-logs-with-pagination [2]: https://docs.datadoghq.com/logs/archives
-   *
-   * @param parameters Optional parameters for the request.
-   * @return LogsListResponse
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public LogsListResponse listLogsGet(ListLogsGetOptionalParameters parameters)
+  private ApiResponse<LogsListResponse> listLogsGetWithHttpInfo(
+      String filterQuery,
+      String filterIndex,
+      OffsetDateTime filterFrom,
+      OffsetDateTime filterTo,
+      LogsSort sort,
+      String pageCursor,
+      Integer pageLimit)
       throws ApiException {
-    return listLogsGetWithHttpInfo(parameters).getData();
-  }
-
-  /**
-   * Get a list of logs List endpoint returns logs that match a log search query. [Results are
-   * paginated][1]. Use this endpoint to see your latest logs. **If you are considering archiving
-   * logs for your organization, consider use of the Datadog archive capabilities instead of the log
-   * list API. See [Datadog Logs Archive documentation][2].** [1]:
-   * /logs/guide/collect-multiple-logs-with-pagination [2]: https://docs.datadoghq.com/logs/archives
-   *
-   * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;LogsListResponse&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public ApiResponse<LogsListResponse> listLogsGetWithHttpInfo(
-      ListLogsGetOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
-    String filterQuery = parameters.filterQuery;
-    String filterIndex = parameters.filterIndex;
-    OffsetDateTime filterFrom = parameters.filterFrom;
-    OffsetDateTime filterTo = parameters.filterTo;
-    LogsSort sort = parameters.sort;
-    String pageCursor = parameters.pageCursor;
-    Integer pageLimit = parameters.pageLimit;
+
     // create path and map variables
     String localVarPath = "/api/v2/logs/events";
 
@@ -454,5 +321,145 @@ public class LogsApi {
         localVarAuthNames,
         localVarReturnType,
         false);
+  }
+
+  public class APIlistLogsGetRequest {
+    private String filterQuery;
+    private String filterIndex;
+    private OffsetDateTime filterFrom;
+    private OffsetDateTime filterTo;
+    private LogsSort sort;
+    private String pageCursor;
+    private Integer pageLimit;
+
+    private APIlistLogsGetRequest() {}
+
+    /**
+     * Set filterQuery
+     *
+     * @param filterQuery Search query following logs syntax. (optional)
+     * @return APIlistLogsGetRequest
+     */
+    public APIlistLogsGetRequest filterQuery(String filterQuery) {
+      this.filterQuery = filterQuery;
+      return this;
+    }
+
+    /**
+     * Set filterIndex
+     *
+     * @param filterIndex For customers with multiple indexes, the indexes to search Defaults to
+     *     &#39;*&#39; which means all indexes (optional)
+     * @return APIlistLogsGetRequest
+     */
+    public APIlistLogsGetRequest filterIndex(String filterIndex) {
+      this.filterIndex = filterIndex;
+      return this;
+    }
+
+    /**
+     * Set filterFrom
+     *
+     * @param filterFrom Minimum timestamp for requested logs. (optional)
+     * @return APIlistLogsGetRequest
+     */
+    public APIlistLogsGetRequest filterFrom(OffsetDateTime filterFrom) {
+      this.filterFrom = filterFrom;
+      return this;
+    }
+
+    /**
+     * Set filterTo
+     *
+     * @param filterTo Maximum timestamp for requested logs. (optional)
+     * @return APIlistLogsGetRequest
+     */
+    public APIlistLogsGetRequest filterTo(OffsetDateTime filterTo) {
+      this.filterTo = filterTo;
+      return this;
+    }
+
+    /**
+     * Set sort
+     *
+     * @param sort Order of logs in results. (optional)
+     * @return APIlistLogsGetRequest
+     */
+    public APIlistLogsGetRequest sort(LogsSort sort) {
+      this.sort = sort;
+      return this;
+    }
+
+    /**
+     * Set pageCursor
+     *
+     * @param pageCursor List following results with a cursor provided in the previous query.
+     *     (optional)
+     * @return APIlistLogsGetRequest
+     */
+    public APIlistLogsGetRequest pageCursor(String pageCursor) {
+      this.pageCursor = pageCursor;
+      return this;
+    }
+
+    /**
+     * Set pageLimit
+     *
+     * @param pageLimit Maximum number of logs in the response. (optional, default to 10)
+     * @return APIlistLogsGetRequest
+     */
+    public APIlistLogsGetRequest pageLimit(Integer pageLimit) {
+      this.pageLimit = pageLimit;
+      return this;
+    }
+
+    /**
+     * Execute listLogsGet request
+     *
+     * @return LogsListResponse
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+     * </table>
+     */
+    public LogsListResponse execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute listLogsGet request with HTTP info returned
+     *
+     * @return ApiResponse&lt;LogsListResponse&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<LogsListResponse> executeWithHttpInfo() throws ApiException {
+      return listLogsGetWithHttpInfo(
+          filterQuery, filterIndex, filterFrom, filterTo, sort, pageCursor, pageLimit);
+    }
+  }
+
+  /**
+   * Get a list of logs List endpoint returns logs that match a log search query. [Results are
+   * paginated][1]. Use this endpoint to see your latest logs. **If you are considering archiving
+   * logs for your organization, consider use of the Datadog archive capabilities instead of the log
+   * list API. See [Datadog Logs Archive documentation][2].** [1]:
+   * /logs/guide/collect-multiple-logs-with-pagination [2]: https://docs.datadoghq.com/logs/archives
+   *
+   * @return listLogsGetRequest
+   * @throws ApiException if fails to make API call
+   */
+  public APIlistLogsGetRequest listLogsGet() throws ApiException {
+    return new APIlistLogsGetRequest();
   }
 }

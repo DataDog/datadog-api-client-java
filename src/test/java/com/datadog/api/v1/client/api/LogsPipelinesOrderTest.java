@@ -32,7 +32,7 @@ public class LogsPipelinesOrderTest extends V1ApiTest {
   public void pipelineOrderTest() throws ApiException {
 
     // Get current pipelines order
-    LogsPipelinesOrder pipelinesOrder = api.getLogsPipelineOrder();
+    LogsPipelinesOrder pipelinesOrder = api.getLogsPipelineOrder().execute();
     List<String> pipelineIDs = pipelinesOrder.getPipelineIds();
 
     // Slightly change order
@@ -41,7 +41,8 @@ public class LogsPipelinesOrderTest extends V1ApiTest {
     newOrder.remove(0);
     pipelinesOrder.setPipelineIds(newOrder);
 
-    LogsPipelinesOrder updatedPipelinesOrder = api.updateLogsPipelineOrder(pipelinesOrder);
+    LogsPipelinesOrder updatedPipelinesOrder =
+        api.updateLogsPipelineOrder().body(pipelinesOrder).execute();
     assertEquals(newOrder, updatedPipelinesOrder.getPipelineIds());
   }
 }

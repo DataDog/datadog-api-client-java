@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## createTagConfiguration
 
-> MetricTagConfigurationResponse createTagConfiguration(metricName, body);
+> MetricTagConfigurationResponse createTagConfiguration(metricName).body(body).execute();
 
 Create a tag configuration
 
@@ -43,7 +43,9 @@ public class Example {
         String metricName = "dist.http.endpoint.request"; // String | The name of the metric.
         MetricTagConfigurationCreateRequest body = new MetricTagConfigurationCreateRequest(); // MetricTagConfigurationCreateRequest | 
         try {
-            MetricTagConfigurationResponse result = apiInstance.createTagConfiguration(metricName, body);
+            MetricTagConfigurationResponse result = apiInstance.createTagConfiguration(metricName)
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling MetricsApi#createTagConfiguration");
@@ -89,7 +91,7 @@ Name | Type | Description  | Notes
 
 ## deleteTagConfiguration
 
-> deleteTagConfiguration(metricName);
+> deleteTagConfiguration(metricName).execute();
 
 Delete a tag configuration
 
@@ -115,7 +117,8 @@ public class Example {
         MetricsApi apiInstance = new MetricsApi(defaultClient);
         String metricName = "dist.http.endpoint.request"; // String | The name of the metric.
         try {
-            apiInstance.deleteTagConfiguration(metricName);
+            apiInstance.deleteTagConfiguration(metricName)
+                .execute();
         } catch (ApiException e) {
             System.err.println("Exception when calling MetricsApi#deleteTagConfiguration");
             System.err.println("Status code: " + e.getCode());
@@ -158,7 +161,7 @@ null (empty response body)
 
 ## listTagConfigurationByName
 
-> MetricTagConfigurationResponse listTagConfigurationByName(metricName);
+> MetricTagConfigurationResponse listTagConfigurationByName(metricName).execute();
 
 List tag configuration by name
 
@@ -183,7 +186,8 @@ public class Example {
         MetricsApi apiInstance = new MetricsApi(defaultClient);
         String metricName = "dist.http.endpoint.request"; // String | The name of the metric.
         try {
-            MetricTagConfigurationResponse result = apiInstance.listTagConfigurationByName(metricName);
+            MetricTagConfigurationResponse result = apiInstance.listTagConfigurationByName(metricName)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling MetricsApi#listTagConfigurationByName");
@@ -227,7 +231,7 @@ Name | Type | Description  | Notes
 
 ## listTagConfigurations
 
-> MetricsAndMetricTagConfigurationsResponse listTagConfigurations(parameters);
+> MetricsAndMetricTagConfigurationsResponse listTagConfigurations().filterConfigured(filterConfigured).filterTagsConfigured(filterTagsConfigured).filterMetricType(filterMetricType).filterIncludePercentiles(filterIncludePercentiles).filterTags(filterTags).windowSeconds(windowSeconds).execute();
 
 List tag configurations
 
@@ -258,13 +262,14 @@ public class Example {
         String filterTags = "env IN (staging,test) AND service:web"; // String | Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters.
         Long windowSeconds = 3600L; // Long | The number of seconds of look back (from now) to apply to a filter[tag] query. Defaults value is 3600 (1 hour), maximum value is 172,800 (2 days).
         try {
-	    MetricsAndMetricTagConfigurationsResponse result = apiInstance.listTagConfigurations(new MetricsApi.ListTagConfigurationsOptionalParameters()
+            MetricsAndMetricTagConfigurationsResponse result = apiInstance.listTagConfigurations()
                 .filterConfigured(filterConfigured)
                 .filterTagsConfigured(filterTagsConfigured)
                 .filterMetricType(filterMetricType)
                 .filterIncludePercentiles(filterIncludePercentiles)
                 .filterTags(filterTags)
-                .windowSeconds(windowSeconds));
+                .windowSeconds(windowSeconds)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling MetricsApi#listTagConfigurations");
@@ -313,7 +318,7 @@ Name | Type | Description  | Notes
 
 ## listTagsByMetricName
 
-> MetricAllTagsResponse listTagsByMetricName(metricName);
+> MetricAllTagsResponse listTagsByMetricName(metricName).execute();
 
 List tags by metric name
 
@@ -338,7 +343,8 @@ public class Example {
         MetricsApi apiInstance = new MetricsApi(defaultClient);
         String metricName = "dist.http.endpoint.request"; // String | The name of the metric.
         try {
-            MetricAllTagsResponse result = apiInstance.listTagsByMetricName(metricName);
+            MetricAllTagsResponse result = apiInstance.listTagsByMetricName(metricName)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling MetricsApi#listTagsByMetricName");
@@ -383,7 +389,7 @@ Name | Type | Description  | Notes
 
 ## listVolumesByMetricName
 
-> MetricVolumesResponse listVolumesByMetricName(metricName);
+> MetricVolumesResponse listVolumesByMetricName(metricName).execute();
 
 List distinct metric volumes by metric name
 
@@ -412,7 +418,8 @@ public class Example {
         MetricsApi apiInstance = new MetricsApi(defaultClient);
         String metricName = "dist.http.endpoint.request"; // String | The name of the metric.
         try {
-            MetricVolumesResponse result = apiInstance.listVolumesByMetricName(metricName);
+            MetricVolumesResponse result = apiInstance.listVolumesByMetricName(metricName)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling MetricsApi#listVolumesByMetricName");
@@ -457,7 +464,7 @@ Name | Type | Description  | Notes
 
 ## updateTagConfiguration
 
-> MetricTagConfigurationResponse updateTagConfiguration(metricName, body);
+> MetricTagConfigurationResponse updateTagConfiguration(metricName).body(body).execute();
 
 Update a tag configuration
 
@@ -484,7 +491,9 @@ public class Example {
         String metricName = "dist.http.endpoint.request"; // String | The name of the metric.
         MetricTagConfigurationUpdateRequest body = new MetricTagConfigurationUpdateRequest(); // MetricTagConfigurationUpdateRequest | 
         try {
-            MetricTagConfigurationResponse result = apiInstance.updateTagConfiguration(metricName, body);
+            MetricTagConfigurationResponse result = apiInstance.updateTagConfiguration(metricName)
+                .body(body)
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling MetricsApi#updateTagConfiguration");

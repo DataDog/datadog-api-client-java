@@ -89,7 +89,7 @@ public class LogsArchivesApiTest extends V2APITest {
         post(urlPathEqualTo(apiUriForArchives))
             .withRequestBody(equalToJson(objectMapper.writeValueAsString(archive)))
             .willReturn(okJson(outputData).withStatus(200)));
-    LogsArchive response = api.createLogsArchive(archive);
+    LogsArchive response = api.createLogsArchive().body(archive).execute();
     assertEquals(objectMapper.readValue(outputData, LogsArchive.class), response);
   }
 
@@ -112,7 +112,7 @@ public class LogsArchivesApiTest extends V2APITest {
         post(urlPathEqualTo(apiUriForArchives))
             .withRequestBody(equalToJson(objectMapper.writeValueAsString(archive)))
             .willReturn(okJson(outputData).withStatus(200)));
-    LogsArchive response = api.createLogsArchive(archive);
+    LogsArchive response = api.createLogsArchive().body(archive).execute();
     assertEquals(objectMapper.readValue(outputData, LogsArchive.class), response);
   }
 
@@ -135,7 +135,7 @@ public class LogsArchivesApiTest extends V2APITest {
         post(urlPathEqualTo(apiUriForArchives))
             .withRequestBody(equalToJson(objectMapper.writeValueAsString(archive)))
             .willReturn(okJson(outputData).withStatus(200)));
-    LogsArchive response = api.createLogsArchive(archive);
+    LogsArchive response = api.createLogsArchive().body(archive).execute();
     assertEquals(objectMapper.readValue(outputData, LogsArchive.class), response);
   }
 
@@ -156,7 +156,7 @@ public class LogsArchivesApiTest extends V2APITest {
     stubFor(
         delete(urlPathEqualTo(String.format("%s/%s", apiUriForArchives, ARCHIVE_ID)))
             .willReturn(okJson(fixtureData).withStatus(204)));
-    ApiResponse<Void> response = api.deleteLogsArchiveWithHttpInfo(ARCHIVE_ID);
+    ApiResponse<Void> response = api.deleteLogsArchive(ARCHIVE_ID).executeWithHttpInfo();
     assertEquals(204, response.getStatusCode());
   }
 
@@ -177,7 +177,7 @@ public class LogsArchivesApiTest extends V2APITest {
     stubFor(
         get(urlPathEqualTo(String.format("%s/%s", apiUriForArchives, ARCHIVE_ID)))
             .willReturn(okJson(fixtureData).withStatus(200)));
-    LogsArchive response = api.getLogsArchive(ARCHIVE_ID);
+    LogsArchive response = api.getLogsArchive(ARCHIVE_ID).execute();
     assertEquals(objectMapper.readValue(fixtureData, LogsArchive.class), response);
   }
 
@@ -196,7 +196,7 @@ public class LogsArchivesApiTest extends V2APITest {
         TestUtils.getFixture(
             String.format("%s/%s/out/%s", fixturePrefix, archiveType, "getall.json"));
     stubFor(get(urlPathEqualTo(apiUriForArchives)).willReturn(okJson(fixtureData).withStatus(200)));
-    LogsArchives response = api.listLogsArchives();
+    LogsArchives response = api.listLogsArchives().execute();
     assertEquals(objectMapper.readValue(fixtureData, LogsArchives.class), response);
   }
 
@@ -221,7 +221,7 @@ public class LogsArchivesApiTest extends V2APITest {
         put(urlPathEqualTo(String.format("%s/%s", apiUriForArchives, ARCHIVE_ID)))
             .withRequestBody(equalToJson(objectMapper.writeValueAsString(input)))
             .willReturn(okJson(outputData).withStatus(200)));
-    LogsArchive response = api.updateLogsArchive(ARCHIVE_ID, input);
+    LogsArchive response = api.updateLogsArchive(ARCHIVE_ID).body(input).execute();
     assertEquals(objectMapper.readValue(outputData, LogsArchive.class), response);
   }
 
@@ -235,7 +235,7 @@ public class LogsArchivesApiTest extends V2APITest {
         get(urlPathEqualTo(String.format("%s", apiUriForArchiveOrder)))
             .willReturn(okJson(outputData).withStatus(200)));
 
-    LogsArchiveOrder response = api.getLogsArchiveOrder();
+    LogsArchiveOrder response = api.getLogsArchiveOrder().execute();
     assertEquals(objectMapper.readValue(outputData, LogsArchiveOrder.class), response);
   }
 
@@ -251,7 +251,7 @@ public class LogsArchivesApiTest extends V2APITest {
             .withRequestBody(equalToJson(objectMapper.writeValueAsString(input)))
             .willReturn(okJson(outputData).withStatus(200)));
 
-    LogsArchiveOrder response = api.updateLogsArchiveOrder(input);
+    LogsArchiveOrder response = api.updateLogsArchiveOrder().body(input).execute();
     assertEquals(objectMapper.readValue(outputData, LogsArchiveOrder.class), response);
   }
 

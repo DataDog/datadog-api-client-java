@@ -47,9 +47,9 @@ public class UsersApiTest extends V2APITest {
   public void disableUsers() throws ApiException {
     if (disableUsers != null) {
       for (String id : disableUsers) {
-        UserResponse urp = api.getUser(id);
+        UserResponse urp = api.getUser(id).execute();
         if (!urp.getData().getAttributes().getDisabled()) {
-          api.disableUser(id);
+          api.disableUser(id).execute();
         }
       }
     }
@@ -68,7 +68,7 @@ public class UsersApiTest extends V2APITest {
             .title(testingUserTitle);
     UserCreateData ucd = new UserCreateData().attributes(uca);
     UserCreateRequest ucr = new UserCreateRequest().data(ucd);
-    UserResponse ur = api.createUser(ucr);
+    UserResponse ur = api.createUser().body(ucr).execute();
     String uid = ur.getData().getId();
     disableUsers.add(uid);
 
@@ -82,26 +82,26 @@ public class UsersApiTest extends V2APITest {
     UserUpdateRequest uur = new UserUpdateRequest().data(uud);
 
     // empty response payload, if the call doesn't raise an exception, we're ok
-    api.updateUser(uid, uur);
+    api.updateUser(uid).body(uur).execute();
 
     // now, test getting it
-    UserResponse urp = api.getUser(uid);
+    UserResponse urp = api.getUser(uid).execute();
     assertEquals(testingUserHandle, urp.getData().getAttributes().getEmail());
     assertEquals("Joe Doe", urp.getData().getAttributes().getName());
     assertFalse(urp.getData().getAttributes().getDisabled());
 
     // now, test disabling it
     // no response payload; we're ok it it didn't throw exception
-    api.disableUser(uid);
+    api.disableUser(uid).execute();
 
     // now, test filtering for it in the list call
     UsersResponse usrp =
-        api.listUsers(
-            new UsersApi.ListUsersOptionalParameters()
-                .filter(testingUserHandle)
-                .pageSize(1L)
-                .pageNumber(0L)
-                .sortDir(QuerySortOrder.ASC));
+        api.listUsers()
+            .filter(testingUserHandle)
+            .pageSize(1L)
+            .pageNumber(0L)
+            .sortDir(QuerySortOrder.ASC)
+            .execute();
     assertEquals(1, usrp.getData().size());
     assertEquals(
         testingUserHandle.toLowerCase(), usrp.getData().get(0).getAttributes().getHandle());
@@ -124,7 +124,7 @@ public class UsersApiTest extends V2APITest {
             .title(testingUserTitle);
     UserCreateData ucd = new UserCreateData().attributes(uca);
     UserCreateRequest ucr = new UserCreateRequest().data(ucd);
-    UserResponse ur = api.createUser(ucr);
+    UserResponse ur = api.createUser().body(ucr).execute();
     String id = ur.getData().getId();
     disableUsers.add(id);
 
@@ -137,11 +137,11 @@ public class UsersApiTest extends V2APITest {
     luid.add(uid);
     UserInvitationsRequest uireq = new UserInvitationsRequest().data(luid);
 
-    UserInvitationsResponse resp = api.sendInvitations(uireq);
+    UserInvitationsResponse resp = api.sendInvitations().body(uireq).execute();
     String respId = resp.getData().get(0).getId();
 
     // now, test getting the invitation
-    UserInvitationResponse oneresp = api.getInvitation(respId);
+    UserInvitationResponse oneresp = api.getInvitation(respId).execute();
     assertEquals(respId, oneresp.getData().getId());
   }
 }

@@ -54,7 +54,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
    */
   @Test
   public void listLogIndexesTest() throws ApiException {
-    LogsIndexListResponse response = api.listLogIndexes();
+    LogsIndexListResponse response = api.listLogIndexes().execute();
     assertTrue(0 < response.getIndexes().size());
   }
 
@@ -65,7 +65,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
    */
   @Test
   public void getLogsIndexTest() throws ApiException {
-    LogsIndex response = api.getLogsIndex(INDEXNAME);
+    LogsIndex response = api.getLogsIndex(INDEXNAME).execute();
     assertEquals(INDEXNAME, response.getName());
     assertEquals("", response.getFilter().getQuery());
     assertNotNull(response.getExclusionFilters().size());
@@ -81,7 +81,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
    */
   @Test
   public void getLogsIndexOrderTest() throws ApiException {
-    LogsIndexesOrder response = api.getLogsIndexOrder();
+    LogsIndexesOrder response = api.getLogsIndexOrder().execute();
     assertTrue(0 < response.getIndexNames().size());
     assertTrue(response.getIndexNames().contains(INDEXNAME));
   }
@@ -117,7 +117,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
                 okJson(
                     TestUtils.getFixture(
                         "v1/client/api/logs_indexes_fixtures/create_index.json"))));
-    LogsIndex response = unitApi.createLogsIndex(body);
+    LogsIndex response = unitApi.createLogsIndex().body(body).execute();
     resetWiremock();
     assertEquals(body.getName(), response.getName());
     assertEquals(body.getFilter(), response.getFilter());
@@ -138,7 +138,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
             .willReturn(
                 okJson(
                     TestUtils.getFixture("v1/client/api/logs_indexes_fixtures/get_index.json"))));
-    LogsIndex orig = unitApi.getLogsIndex(INDEXNAME);
+    LogsIndex orig = unitApi.getLogsIndex(INDEXNAME).execute();
     resetWiremock();
 
     List<LogsExclusion> exclusionFilters = new ArrayList<LogsExclusion>();
@@ -158,7 +158,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
                 okJson(
                     TestUtils.getFixture(
                         "v1/client/api/logs_indexes_fixtures/update_index.json"))));
-    LogsIndex response = unitApi.updateLogsIndex(INDEXNAME, body);
+    LogsIndex response = unitApi.updateLogsIndex(INDEXNAME).body(body).execute();
     resetWiremock();
     assertEquals(body.getExclusionFilters(), response.getExclusionFilters());
   }
@@ -178,7 +178,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
                     TestUtils.getFixture(
                         "v1/client/api/logs_indexes_fixtures/get_index_order.json"))));
 
-    LogsIndexesOrder body = unitApi.getLogsIndexOrder();
+    LogsIndexesOrder body = unitApi.getLogsIndexOrder().execute();
     resetWiremock();
     List<String> names = body.getIndexNames();
 
@@ -193,7 +193,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
                 okJson(
                     TestUtils.getFixture(
                         "v1/client/api/logs_indexes_fixtures/updated_index_order.json"))));
-    LogsIndexesOrder response = unitApi.updateLogsIndexOrder(body);
+    LogsIndexesOrder response = unitApi.updateLogsIndexOrder().body(body).execute();
     resetWiremock();
     assertEquals(body.getIndexNames(), response.getIndexNames());
   }
@@ -201,7 +201,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
   @Test
   public void logsIndexesListErrorsTest() throws IOException {
     try {
-      fakeAuthApi.listLogIndexes();
+      fakeAuthApi.listLogIndexes().execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -213,7 +213,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
   @Test
   public void logsIndexesGetErrorsTest() throws IOException {
     try {
-      fakeAuthApi.getLogsIndex("shrugs");
+      fakeAuthApi.getLogsIndex("shrugs").execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -222,7 +222,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
     }
 
     try {
-      api.getLogsIndex("shrugs");
+      api.getLogsIndex("shrugs").execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());
@@ -235,7 +235,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
   @Test
   public void logsIndexesUpdateErrorsTest() throws IOException {
     try {
-      api.updateLogsIndex("shrugs", new LogsIndexUpdateRequest());
+      api.updateLogsIndex("shrugs").body(new LogsIndexUpdateRequest()).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -245,7 +245,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.updateLogsIndex("shrugs", new LogsIndexUpdateRequest());
+      fakeAuthApi.updateLogsIndex("shrugs").body(new LogsIndexUpdateRequest()).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -262,7 +262,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
         put(urlPathEqualTo(apiUri + "/shrugs")).willReturn(okJson(fixtureData).withStatus(429)));
     // Mock the 429 response
     try {
-      unitApi.updateLogsIndex("shrugs", new LogsIndexUpdateRequest());
+      unitApi.updateLogsIndex("shrugs").body(new LogsIndexUpdateRequest()).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(429, e.getCode());
@@ -275,7 +275,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
   @Test
   public void logsIndexesOrderGetErrorsTest() throws IOException {
     try {
-      fakeAuthApi.getLogsIndexOrder();
+      fakeAuthApi.getLogsIndexOrder().execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -287,7 +287,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
   @Test
   public void logsIndexesOrderUpdateErrorsTest() throws IOException {
     try {
-      api.updateLogsIndexOrder(new LogsIndexesOrder().indexNames(null));
+      api.updateLogsIndexOrder().body(new LogsIndexesOrder().indexNames(null)).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -297,7 +297,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.updateLogsIndexOrder(new LogsIndexesOrder().indexNames(null));
+      fakeAuthApi.updateLogsIndexOrder().body(new LogsIndexesOrder().indexNames(null)).execute();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());

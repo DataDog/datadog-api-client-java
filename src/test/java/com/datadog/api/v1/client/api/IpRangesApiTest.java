@@ -31,7 +31,7 @@ public class IpRangesApiTest extends V1ApiTest {
     api = new IpRangesApi(generalApiClient);
 
     // Get IP ranges
-    IPRanges ipRanges = api.getIPRanges();
+    IPRanges ipRanges = api.getIPRanges().execute();
     assertTrue(ipRanges.getAgents().getPrefixesIpv4().size() > 0);
     assertTrue(ipRanges.getApi().getPrefixesIpv4().size() > 0);
     assertTrue(ipRanges.getApm().getPrefixesIpv4().size() > 0);
@@ -50,7 +50,7 @@ public class IpRangesApiTest extends V1ApiTest {
             .willReturn(okJson(TestUtils.getFixture("v1/client/api/ip_ranges/ip_ranges.json"))));
 
     // Get IP ranges
-    IPRanges ipRanges = api.getIPRanges();
+    IPRanges ipRanges = api.getIPRanges().execute();
     assertEquals(new Long(11), ipRanges.getVersion());
     assertEquals("2019-07-29-11-48-00", ipRanges.getModified());
     assertEquals("ipv4", ipRanges.getAgents().getPrefixesIpv4().get(0));

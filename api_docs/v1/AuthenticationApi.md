@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## validate
 
-> AuthenticationValidationResponse validate();
+> AuthenticationValidationResponse validate().execute();
 
 Validate API key
 
@@ -34,7 +34,8 @@ public class Example {
 
         AuthenticationApi apiInstance = new AuthenticationApi(defaultClient);
         try {
-            AuthenticationValidationResponse result = apiInstance.validate();
+            AuthenticationValidationResponse result = apiInstance.validate()
+                .execute();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AuthenticationApi#validate");

@@ -43,39 +43,7 @@ public class LogsPipelinesApi {
     this.apiClient = apiClient;
   }
 
-  /**
-   * Create a pipeline Create a pipeline in your organization.
-   *
-   * @param body Definition of the new pipeline. (required)
-   * @return LogsPipeline
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public LogsPipeline createLogsPipeline(LogsPipeline body) throws ApiException {
-    return createLogsPipelineWithHttpInfo(body).getData();
-  }
-
-  /**
-   * Create a pipeline Create a pipeline in your organization.
-   *
-   * @param body Definition of the new pipeline. (required)
-   * @return ApiResponse&lt;LogsPipeline&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public ApiResponse<LogsPipeline> createLogsPipelineWithHttpInfo(LogsPipeline body)
+  private ApiResponse<LogsPipeline> createLogsPipelineWithHttpInfo(LogsPipeline body)
       throws ApiException {
     Object localVarPostBody = body;
 
@@ -84,6 +52,7 @@ public class LogsPipelinesApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling createLogsPipeline");
     }
+
     // create path and map variables
     String localVarPath = "/api/v1/logs/config/pipelines";
 
@@ -122,40 +91,68 @@ public class LogsPipelinesApi {
         false);
   }
 
-  /**
-   * Delete a pipeline Delete a given pipeline from your organization. This endpoint takes no JSON
-   * arguments.
-   *
-   * @param pipelineId ID of the pipeline to delete. (required)
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public void deleteLogsPipeline(String pipelineId) throws ApiException {
-    deleteLogsPipelineWithHttpInfo(pipelineId);
+  public class APIcreateLogsPipelineRequest {
+    private LogsPipeline body;
+
+    private APIcreateLogsPipelineRequest() {}
+
+    /**
+     * Set body
+     *
+     * @param body Definition of the new pipeline. (required)
+     * @return APIcreateLogsPipelineRequest
+     */
+    public APIcreateLogsPipelineRequest body(LogsPipeline body) {
+      this.body = body;
+      return this;
+    }
+
+    /**
+     * Execute createLogsPipeline request
+     *
+     * @return LogsPipeline
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * </table>
+     */
+    public LogsPipeline execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute createLogsPipeline request with HTTP info returned
+     *
+     * @return ApiResponse&lt;LogsPipeline&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<LogsPipeline> executeWithHttpInfo() throws ApiException {
+      return createLogsPipelineWithHttpInfo(body);
+    }
   }
 
   /**
-   * Delete a pipeline Delete a given pipeline from your organization. This endpoint takes no JSON
-   * arguments.
+   * Create a pipeline Create a pipeline in your organization.
    *
-   * @param pipelineId ID of the pipeline to delete. (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return createLogsPipelineRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *     </table>
    */
-  public ApiResponse<Void> deleteLogsPipelineWithHttpInfo(String pipelineId) throws ApiException {
+  public APIcreateLogsPipelineRequest createLogsPipeline() throws ApiException {
+    return new APIcreateLogsPipelineRequest();
+  }
+
+  private ApiResponse<Void> deleteLogsPipelineWithHttpInfo(String pipelineId) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'pipelineId' is set
@@ -163,6 +160,7 @@ public class LogsPipelinesApi {
       throw new ApiException(
           400, "Missing the required parameter 'pipelineId' when calling deleteLogsPipeline");
     }
+
     // create path and map variables
     String localVarPath =
         "/api/v1/logs/config/pipelines/{pipeline_id}"
@@ -203,41 +201,60 @@ public class LogsPipelinesApi {
         false);
   }
 
-  /**
-   * Get a pipeline Get a specific pipeline from your organization. This endpoint takes no JSON
-   * arguments.
-   *
-   * @param pipelineId ID of the pipeline to get. (required)
-   * @return LogsPipeline
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public LogsPipeline getLogsPipeline(String pipelineId) throws ApiException {
-    return getLogsPipelineWithHttpInfo(pipelineId).getData();
+  public class APIdeleteLogsPipelineRequest {
+    private String pipelineId;
+
+    private APIdeleteLogsPipelineRequest(String pipelineId) {
+      this.pipelineId = pipelineId;
+    }
+
+    /**
+     * Execute deleteLogsPipeline request
+     *
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * </table>
+     */
+    public void execute() throws ApiException {
+      this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute deleteLogsPipeline request with HTTP info returned
+     *
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<Void> executeWithHttpInfo() throws ApiException {
+      return deleteLogsPipelineWithHttpInfo(pipelineId);
+    }
   }
 
   /**
-   * Get a pipeline Get a specific pipeline from your organization. This endpoint takes no JSON
+   * Delete a pipeline Delete a given pipeline from your organization. This endpoint takes no JSON
    * arguments.
    *
-   * @param pipelineId ID of the pipeline to get. (required)
-   * @return ApiResponse&lt;LogsPipeline&gt;
+   * @param pipelineId ID of the pipeline to delete. (required)
+   * @return deleteLogsPipelineRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *     </table>
    */
-  public ApiResponse<LogsPipeline> getLogsPipelineWithHttpInfo(String pipelineId)
+  public APIdeleteLogsPipelineRequest deleteLogsPipeline(String pipelineId) throws ApiException {
+    return new APIdeleteLogsPipelineRequest(pipelineId);
+  }
+
+  private ApiResponse<LogsPipeline> getLogsPipelineWithHttpInfo(String pipelineId)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -246,6 +263,7 @@ public class LogsPipelinesApi {
       throw new ApiException(
           400, "Missing the required parameter 'pipelineId' when calling getLogsPipeline");
     }
+
     // create path and map variables
     String localVarPath =
         "/api/v1/logs/config/pipelines/{pipeline_id}"
@@ -288,38 +306,63 @@ public class LogsPipelinesApi {
         false);
   }
 
-  /**
-   * Get pipeline order Get the current order of your pipelines. This endpoint takes no JSON
-   * arguments.
-   *
-   * @return LogsPipelinesOrder
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public LogsPipelinesOrder getLogsPipelineOrder() throws ApiException {
-    return getLogsPipelineOrderWithHttpInfo().getData();
+  public class APIgetLogsPipelineRequest {
+    private String pipelineId;
+
+    private APIgetLogsPipelineRequest(String pipelineId) {
+      this.pipelineId = pipelineId;
+    }
+
+    /**
+     * Execute getLogsPipeline request
+     *
+     * @return LogsPipeline
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * </table>
+     */
+    public LogsPipeline execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute getLogsPipeline request with HTTP info returned
+     *
+     * @return ApiResponse&lt;LogsPipeline&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<LogsPipeline> executeWithHttpInfo() throws ApiException {
+      return getLogsPipelineWithHttpInfo(pipelineId);
+    }
   }
 
   /**
-   * Get pipeline order Get the current order of your pipelines. This endpoint takes no JSON
+   * Get a pipeline Get a specific pipeline from your organization. This endpoint takes no JSON
    * arguments.
    *
-   * @return ApiResponse&lt;LogsPipelinesOrder&gt;
+   * @param pipelineId ID of the pipeline to get. (required)
+   * @return getLogsPipelineRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *     </table>
    */
-  public ApiResponse<LogsPipelinesOrder> getLogsPipelineOrderWithHttpInfo() throws ApiException {
+  public APIgetLogsPipelineRequest getLogsPipeline(String pipelineId) throws ApiException {
+    return new APIgetLogsPipelineRequest(pipelineId);
+  }
+
+  private ApiResponse<LogsPipelinesOrder> getLogsPipelineOrderWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
+
     // create path and map variables
     String localVarPath = "/api/v1/logs/config/pipeline-order";
 
@@ -359,38 +402,57 @@ public class LogsPipelinesApi {
         false);
   }
 
-  /**
-   * Get all pipelines Get all pipelines from your organization. This endpoint takes no JSON
-   * arguments.
-   *
-   * @return List&lt;LogsPipeline&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public List<LogsPipeline> listLogsPipelines() throws ApiException {
-    return listLogsPipelinesWithHttpInfo().getData();
+  public class APIgetLogsPipelineOrderRequest {
+
+    private APIgetLogsPipelineOrderRequest() {}
+
+    /**
+     * Execute getLogsPipelineOrder request
+     *
+     * @return LogsPipelinesOrder
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * </table>
+     */
+    public LogsPipelinesOrder execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute getLogsPipelineOrder request with HTTP info returned
+     *
+     * @return ApiResponse&lt;LogsPipelinesOrder&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<LogsPipelinesOrder> executeWithHttpInfo() throws ApiException {
+      return getLogsPipelineOrderWithHttpInfo();
+    }
   }
 
   /**
-   * Get all pipelines Get all pipelines from your organization. This endpoint takes no JSON
+   * Get pipeline order Get the current order of your pipelines. This endpoint takes no JSON
    * arguments.
    *
-   * @return ApiResponse&lt;List&lt;LogsPipeline&gt;&gt;
+   * @return getLogsPipelineOrderRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *     </table>
    */
-  public ApiResponse<List<LogsPipeline>> listLogsPipelinesWithHttpInfo() throws ApiException {
+  public APIgetLogsPipelineOrderRequest getLogsPipelineOrder() throws ApiException {
+    return new APIgetLogsPipelineOrderRequest();
+  }
+
+  private ApiResponse<List<LogsPipeline>> listLogsPipelinesWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
+
     // create path and map variables
     String localVarPath = "/api/v1/logs/config/pipelines";
 
@@ -430,45 +492,55 @@ public class LogsPipelinesApi {
         false);
   }
 
-  /**
-   * Update a pipeline Update a given pipeline configuration to change it’s processors or their
-   * order. **Note**: Using this method updates your pipeline configuration by **replacing** your
-   * current configuration with the new one sent to your Datadog organization.
-   *
-   * @param pipelineId ID of the pipeline to delete. (required)
-   * @param body New definition of the pipeline. (required)
-   * @return LogsPipeline
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public LogsPipeline updateLogsPipeline(String pipelineId, LogsPipeline body) throws ApiException {
-    return updateLogsPipelineWithHttpInfo(pipelineId, body).getData();
+  public class APIlistLogsPipelinesRequest {
+
+    private APIlistLogsPipelinesRequest() {}
+
+    /**
+     * Execute listLogsPipelines request
+     *
+     * @return List&lt;LogsPipeline&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * </table>
+     */
+    public List<LogsPipeline> execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute listLogsPipelines request with HTTP info returned
+     *
+     * @return ApiResponse&lt;List&lt;LogsPipeline&gt;&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<List<LogsPipeline>> executeWithHttpInfo() throws ApiException {
+      return listLogsPipelinesWithHttpInfo();
+    }
   }
 
   /**
-   * Update a pipeline Update a given pipeline configuration to change it’s processors or their
-   * order. **Note**: Using this method updates your pipeline configuration by **replacing** your
-   * current configuration with the new one sent to your Datadog organization.
+   * Get all pipelines Get all pipelines from your organization. This endpoint takes no JSON
+   * arguments.
    *
-   * @param pipelineId ID of the pipeline to delete. (required)
-   * @param body New definition of the pipeline. (required)
-   * @return ApiResponse&lt;LogsPipeline&gt;
+   * @return listLogsPipelinesRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *     </table>
    */
-  public ApiResponse<LogsPipeline> updateLogsPipelineWithHttpInfo(
+  public APIlistLogsPipelinesRequest listLogsPipelines() throws ApiException {
+    return new APIlistLogsPipelinesRequest();
+  }
+
+  private ApiResponse<LogsPipeline> updateLogsPipelineWithHttpInfo(
       String pipelineId, LogsPipeline body) throws ApiException {
     Object localVarPostBody = body;
 
@@ -483,6 +555,7 @@ public class LogsPipelinesApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling updateLogsPipeline");
     }
+
     // create path and map variables
     String localVarPath =
         "/api/v1/logs/config/pipelines/{pipeline_id}"
@@ -524,49 +597,74 @@ public class LogsPipelinesApi {
         false);
   }
 
-  /**
-   * Update pipeline order Update the order of your pipelines. Since logs are processed
-   * sequentially, reordering a pipeline may change the structure and content of the data processed
-   * by other pipelines and their processors. **Note**: Using the &#x60;PUT&#x60; method updates
-   * your pipeline order by replacing your current order with the new one sent to your Datadog
-   * organization.
-   *
-   * @param body Object containing the new ordered list of pipeline IDs. (required)
-   * @return LogsPipelinesOrder
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public LogsPipelinesOrder updateLogsPipelineOrder(LogsPipelinesOrder body) throws ApiException {
-    return updateLogsPipelineOrderWithHttpInfo(body).getData();
+  public class APIupdateLogsPipelineRequest {
+    private String pipelineId;
+    private LogsPipeline body;
+
+    private APIupdateLogsPipelineRequest(String pipelineId) {
+      this.pipelineId = pipelineId;
+    }
+
+    /**
+     * Set body
+     *
+     * @param body New definition of the pipeline. (required)
+     * @return APIupdateLogsPipelineRequest
+     */
+    public APIupdateLogsPipelineRequest body(LogsPipeline body) {
+      this.body = body;
+      return this;
+    }
+
+    /**
+     * Execute updateLogsPipeline request
+     *
+     * @return LogsPipeline
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * </table>
+     */
+    public LogsPipeline execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute updateLogsPipeline request with HTTP info returned
+     *
+     * @return ApiResponse&lt;LogsPipeline&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<LogsPipeline> executeWithHttpInfo() throws ApiException {
+      return updateLogsPipelineWithHttpInfo(pipelineId, body);
+    }
   }
 
   /**
-   * Update pipeline order Update the order of your pipelines. Since logs are processed
-   * sequentially, reordering a pipeline may change the structure and content of the data processed
-   * by other pipelines and their processors. **Note**: Using the &#x60;PUT&#x60; method updates
-   * your pipeline order by replacing your current order with the new one sent to your Datadog
-   * organization.
+   * Update a pipeline Update a given pipeline configuration to change it’s processors or their
+   * order. **Note**: Using this method updates your pipeline configuration by **replacing** your
+   * current configuration with the new one sent to your Datadog organization.
    *
-   * @param body Object containing the new ordered list of pipeline IDs. (required)
-   * @return ApiResponse&lt;LogsPipelinesOrder&gt;
+   * @param pipelineId ID of the pipeline to delete. (required)
+   * @return updateLogsPipelineRequest
    * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-   *       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-   *     </table>
    */
-  public ApiResponse<LogsPipelinesOrder> updateLogsPipelineOrderWithHttpInfo(
+  public APIupdateLogsPipelineRequest updateLogsPipeline(String pipelineId) throws ApiException {
+    return new APIupdateLogsPipelineRequest(pipelineId);
+  }
+
+  private ApiResponse<LogsPipelinesOrder> updateLogsPipelineOrderWithHttpInfo(
       LogsPipelinesOrder body) throws ApiException {
     Object localVarPostBody = body;
 
@@ -575,6 +673,7 @@ public class LogsPipelinesApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling updateLogsPipelineOrder");
     }
+
     // create path and map variables
     String localVarPath = "/api/v1/logs/config/pipeline-order";
 
@@ -611,5 +710,72 @@ public class LogsPipelinesApi {
         localVarAuthNames,
         localVarReturnType,
         false);
+  }
+
+  public class APIupdateLogsPipelineOrderRequest {
+    private LogsPipelinesOrder body;
+
+    private APIupdateLogsPipelineOrderRequest() {}
+
+    /**
+     * Set body
+     *
+     * @param body Object containing the new ordered list of pipeline IDs. (required)
+     * @return APIupdateLogsPipelineOrderRequest
+     */
+    public APIupdateLogsPipelineOrderRequest body(LogsPipelinesOrder body) {
+      this.body = body;
+      return this;
+    }
+
+    /**
+     * Execute updateLogsPipelineOrder request
+     *
+     * @return LogsPipelinesOrder
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+     * </table>
+     */
+    public LogsPipelinesOrder execute() throws ApiException {
+      return this.executeWithHttpInfo().getData();
+    }
+
+    /**
+     * Execute updateLogsPipelineOrder request with HTTP info returned
+     *
+     * @return ApiResponse&lt;LogsPipelinesOrder&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<LogsPipelinesOrder> executeWithHttpInfo() throws ApiException {
+      return updateLogsPipelineOrderWithHttpInfo(body);
+    }
+  }
+
+  /**
+   * Update pipeline order Update the order of your pipelines. Since logs are processed
+   * sequentially, reordering a pipeline may change the structure and content of the data processed
+   * by other pipelines and their processors. **Note**: Using the &#x60;PUT&#x60; method updates
+   * your pipeline order by replacing your current order with the new one sent to your Datadog
+   * organization.
+   *
+   * @return updateLogsPipelineOrderRequest
+   * @throws ApiException if fails to make API call
+   */
+  public APIupdateLogsPipelineOrderRequest updateLogsPipelineOrder() throws ApiException {
+    return new APIupdateLogsPipelineOrderRequest();
   }
 }
