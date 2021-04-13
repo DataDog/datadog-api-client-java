@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## createLogsPipeline
 
-> LogsPipeline createLogsPipeline().body(body).execute();
+> LogsPipeline createLogsPipeline(body);
 
 Create a pipeline
 
@@ -41,9 +41,7 @@ public class Example {
         LogsPipelinesApi apiInstance = new LogsPipelinesApi(defaultClient);
         LogsPipeline body = new LogsPipeline(); // LogsPipeline | Definition of the new pipeline.
         try {
-            LogsPipeline result = apiInstance.createLogsPipeline()
-                .body(body)
-                .execute();
+            LogsPipeline result = apiInstance.createLogsPipeline(body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling LogsPipelinesApi#createLogsPipeline");
@@ -86,7 +84,7 @@ Name | Type | Description  | Notes
 
 ## deleteLogsPipeline
 
-> deleteLogsPipeline(pipelineId).execute();
+> deleteLogsPipeline(pipelineId);
 
 Delete a pipeline
 
@@ -112,8 +110,7 @@ public class Example {
         LogsPipelinesApi apiInstance = new LogsPipelinesApi(defaultClient);
         String pipelineId = "pipelineId_example"; // String | ID of the pipeline to delete.
         try {
-            apiInstance.deleteLogsPipeline(pipelineId)
-                .execute();
+            apiInstance.deleteLogsPipeline(pipelineId);
         } catch (ApiException e) {
             System.err.println("Exception when calling LogsPipelinesApi#deleteLogsPipeline");
             System.err.println("Status code: " + e.getCode());
@@ -155,7 +152,7 @@ null (empty response body)
 
 ## getLogsPipeline
 
-> LogsPipeline getLogsPipeline(pipelineId).execute();
+> LogsPipeline getLogsPipeline(pipelineId);
 
 Get a pipeline
 
@@ -181,8 +178,7 @@ public class Example {
         LogsPipelinesApi apiInstance = new LogsPipelinesApi(defaultClient);
         String pipelineId = "pipelineId_example"; // String | ID of the pipeline to get.
         try {
-            LogsPipeline result = apiInstance.getLogsPipeline(pipelineId)
-                .execute();
+            LogsPipeline result = apiInstance.getLogsPipeline(pipelineId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling LogsPipelinesApi#getLogsPipeline");
@@ -225,7 +221,7 @@ Name | Type | Description  | Notes
 
 ## getLogsPipelineOrder
 
-> LogsPipelinesOrder getLogsPipelineOrder().execute();
+> LogsPipelinesOrder getLogsPipelineOrder();
 
 Get pipeline order
 
@@ -250,8 +246,7 @@ public class Example {
 
         LogsPipelinesApi apiInstance = new LogsPipelinesApi(defaultClient);
         try {
-            LogsPipelinesOrder result = apiInstance.getLogsPipelineOrder()
-                .execute();
+            LogsPipelinesOrder result = apiInstance.getLogsPipelineOrder();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling LogsPipelinesApi#getLogsPipelineOrder");
@@ -290,7 +285,7 @@ This endpoint does not need any parameter.
 
 ## listLogsPipelines
 
-> List&lt;LogsPipeline&gt; listLogsPipelines().execute();
+> List&lt;LogsPipeline&gt; listLogsPipelines();
 
 Get all pipelines
 
@@ -315,8 +310,7 @@ public class Example {
 
         LogsPipelinesApi apiInstance = new LogsPipelinesApi(defaultClient);
         try {
-            List<LogsPipeline> result = apiInstance.listLogsPipelines()
-                .execute();
+            List<LogsPipeline> result = apiInstance.listLogsPipelines();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling LogsPipelinesApi#listLogsPipelines");
@@ -355,7 +349,7 @@ This endpoint does not need any parameter.
 
 ## updateLogsPipeline
 
-> LogsPipeline updateLogsPipeline(pipelineId).body(body).execute();
+> LogsPipeline updateLogsPipeline(pipelineId, body);
 
 Update a pipeline
 
@@ -384,9 +378,7 @@ public class Example {
         String pipelineId = "pipelineId_example"; // String | ID of the pipeline to delete.
         LogsPipeline body = new LogsPipeline(); // LogsPipeline | New definition of the pipeline.
         try {
-            LogsPipeline result = apiInstance.updateLogsPipeline(pipelineId)
-                .body(body)
-                .execute();
+            LogsPipeline result = apiInstance.updateLogsPipeline(pipelineId, body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling LogsPipelinesApi#updateLogsPipeline");
@@ -430,7 +422,7 @@ Name | Type | Description  | Notes
 
 ## updateLogsPipelineOrder
 
-> LogsPipelinesOrder updateLogsPipelineOrder().body(body).execute();
+> LogsPipelinesOrder updateLogsPipelineOrder(body);
 
 Update pipeline order
 
@@ -459,9 +451,7 @@ public class Example {
         LogsPipelinesApi apiInstance = new LogsPipelinesApi(defaultClient);
         LogsPipelinesOrder body = new LogsPipelinesOrder(); // LogsPipelinesOrder | Object containing the new ordered list of pipeline IDs.
         try {
-            LogsPipelinesOrder result = apiInstance.updateLogsPipelineOrder()
-                .body(body)
-                .execute();
+            LogsPipelinesOrder result = apiInstance.updateLogsPipelineOrder(body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling LogsPipelinesApi#updateLogsPipelineOrder");

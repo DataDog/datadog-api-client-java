@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 ## createUser
 
-> UserResponse createUser().body(body).execute();
+> UserResponse createUser(body);
 
 Create a user
 
@@ -43,9 +43,7 @@ public class Example {
         UsersApi apiInstance = new UsersApi(defaultClient);
         UserCreateRequest body = new UserCreateRequest(); // UserCreateRequest | 
         try {
-            UserResponse result = apiInstance.createUser()
-                .body(body)
-                .execute();
+            UserResponse result = apiInstance.createUser(body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#createUser");
@@ -88,7 +86,7 @@ Name | Type | Description  | Notes
 
 ## disableUser
 
-> disableUser(userId).execute();
+> disableUser(userId);
 
 Disable a user
 
@@ -114,8 +112,7 @@ public class Example {
         UsersApi apiInstance = new UsersApi(defaultClient);
         String userId = "userId_example"; // String | The ID of the user.
         try {
-            apiInstance.disableUser(userId)
-                .execute();
+            apiInstance.disableUser(userId);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#disableUser");
             System.err.println("Status code: " + e.getCode());
@@ -157,7 +154,7 @@ null (empty response body)
 
 ## getInvitation
 
-> UserInvitationResponse getInvitation(userInvitationUuid).execute();
+> UserInvitationResponse getInvitation(userInvitationUuid);
 
 Get a user invitation
 
@@ -182,8 +179,7 @@ public class Example {
         UsersApi apiInstance = new UsersApi(defaultClient);
         String userInvitationUuid = "userInvitationUuid_example"; // String | The UUID of the user invitation.
         try {
-            UserInvitationResponse result = apiInstance.getInvitation(userInvitationUuid)
-                .execute();
+            UserInvitationResponse result = apiInstance.getInvitation(userInvitationUuid);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#getInvitation");
@@ -226,7 +222,7 @@ Name | Type | Description  | Notes
 
 ## getUser
 
-> UserResponse getUser(userId).execute();
+> UserResponse getUser(userId);
 
 Get user details
 
@@ -251,8 +247,7 @@ public class Example {
         UsersApi apiInstance = new UsersApi(defaultClient);
         String userId = "userId_example"; // String | The ID of the user.
         try {
-            UserResponse result = apiInstance.getUser(userId)
-                .execute();
+            UserResponse result = apiInstance.getUser(userId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#getUser");
@@ -295,7 +290,7 @@ Name | Type | Description  | Notes
 
 ## listUserOrganizations
 
-> UserResponse listUserOrganizations(userId).execute();
+> UserResponse listUserOrganizations(userId);
 
 Get a user organization
 
@@ -321,8 +316,7 @@ public class Example {
         UsersApi apiInstance = new UsersApi(defaultClient);
         String userId = "userId_example"; // String | The ID of the user.
         try {
-            UserResponse result = apiInstance.listUserOrganizations(userId)
-                .execute();
+            UserResponse result = apiInstance.listUserOrganizations(userId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#listUserOrganizations");
@@ -365,7 +359,7 @@ Name | Type | Description  | Notes
 
 ## listUserPermissions
 
-> PermissionsResponse listUserPermissions(userId).execute();
+> PermissionsResponse listUserPermissions(userId);
 
 Get a user permissions
 
@@ -391,8 +385,7 @@ public class Example {
         UsersApi apiInstance = new UsersApi(defaultClient);
         String userId = "userId_example"; // String | The ID of the user.
         try {
-            PermissionsResponse result = apiInstance.listUserPermissions(userId)
-                .execute();
+            PermissionsResponse result = apiInstance.listUserPermissions(userId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#listUserPermissions");
@@ -435,7 +428,7 @@ Name | Type | Description  | Notes
 
 ## listUsers
 
-> UsersResponse listUsers().pageSize(pageSize).pageNumber(pageNumber).sort(sort).sortDir(sortDir).filter(filter).filterStatus(filterStatus).execute();
+> UsersResponse listUsers(parameters);
 
 List all users
 
@@ -466,14 +459,13 @@ public class Example {
         String filter = "filter_example"; // String | Filter all users by the given string. Defaults to no filtering.
         String filterStatus = "filterStatus_example"; // String | Filter on status attribute. Comma separated list, with possible values `Active`, `Pending`, and `Disabled`. Defaults to no filtering.
         try {
-            UsersResponse result = apiInstance.listUsers()
+	    UsersResponse result = apiInstance.listUsers(new UsersApi.ListUsersOptionalParameters()
                 .pageSize(pageSize)
                 .pageNumber(pageNumber)
                 .sort(sort)
                 .sortDir(sortDir)
                 .filter(filter)
-                .filterStatus(filterStatus)
-                .execute();
+                .filterStatus(filterStatus));
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#listUsers");
@@ -521,7 +513,7 @@ Name | Type | Description  | Notes
 
 ## sendInvitations
 
-> UserInvitationsResponse sendInvitations().body(body).execute();
+> UserInvitationsResponse sendInvitations(body);
 
 Send invitation emails
 
@@ -546,9 +538,7 @@ public class Example {
         UsersApi apiInstance = new UsersApi(defaultClient);
         UserInvitationsRequest body = new UserInvitationsRequest(); // UserInvitationsRequest | 
         try {
-            UserInvitationsResponse result = apiInstance.sendInvitations()
-                .body(body)
-                .execute();
+            UserInvitationsResponse result = apiInstance.sendInvitations(body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#sendInvitations");
@@ -591,7 +581,7 @@ Name | Type | Description  | Notes
 
 ## updateUser
 
-> UserResponse updateUser(userId).body(body).execute();
+> UserResponse updateUser(userId, body);
 
 Update a user
 
@@ -618,9 +608,7 @@ public class Example {
         String userId = "userId_example"; // String | The ID of the user.
         UserUpdateRequest body = new UserUpdateRequest(); // UserUpdateRequest | 
         try {
-            UserResponse result = apiInstance.updateUser(userId)
-                .body(body)
-                .execute();
+            UserResponse result = apiInstance.updateUser(userId, body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#updateUser");

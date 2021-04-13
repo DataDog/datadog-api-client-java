@@ -58,7 +58,40 @@ public class SyntheticsApi {
     this.apiClient = apiClient;
   }
 
-  private ApiResponse<SyntheticsGlobalVariable> createGlobalVariableWithHttpInfo(
+  /**
+   * Create a global variable Create a Synthetics global variable.
+   *
+   * @param body Details of the global variable to create. (required)
+   * @return SyntheticsGlobalVariable
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Invalid request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public SyntheticsGlobalVariable createGlobalVariable(SyntheticsGlobalVariable body)
+      throws ApiException {
+    return createGlobalVariableWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create a global variable Create a Synthetics global variable.
+   *
+   * @param body Details of the global variable to create. (required)
+   * @return ApiResponse&lt;SyntheticsGlobalVariable&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Invalid request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SyntheticsGlobalVariable> createGlobalVariableWithHttpInfo(
       SyntheticsGlobalVariable body) throws ApiException {
     Object localVarPostBody = body;
 
@@ -67,7 +100,6 @@ public class SyntheticsApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling createGlobalVariable");
     }
-
     // create path and map variables
     String localVarPath = "/api/v1/synthetics/variables";
 
@@ -107,68 +139,40 @@ public class SyntheticsApi {
         false);
   }
 
-  public class APIcreateGlobalVariableRequest {
-    private SyntheticsGlobalVariable body;
-
-    private APIcreateGlobalVariableRequest() {}
-
-    /**
-     * Set body
-     *
-     * @param body Details of the global variable to create. (required)
-     * @return APIcreateGlobalVariableRequest
-     */
-    public APIcreateGlobalVariableRequest body(SyntheticsGlobalVariable body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Execute createGlobalVariable request
-     *
-     * @return SyntheticsGlobalVariable
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Invalid request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * </table>
-     */
-    public SyntheticsGlobalVariable execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute createGlobalVariable request with HTTP info returned
-     *
-     * @return ApiResponse&lt;SyntheticsGlobalVariable&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Invalid request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<SyntheticsGlobalVariable> executeWithHttpInfo() throws ApiException {
-      return createGlobalVariableWithHttpInfo(body);
-    }
+  /**
+   * Create a private location Create a new Synthetics private location.
+   *
+   * @param body Details of the private location to create. (required)
+   * @return SyntheticsPrivateLocationCreationResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 402 </td><td> Quota reached for private locations </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Private locations are not activated for the user </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public SyntheticsPrivateLocationCreationResponse createPrivateLocation(
+      SyntheticsPrivateLocation body) throws ApiException {
+    return createPrivateLocationWithHttpInfo(body).getData();
   }
 
   /**
-   * Create a global variable Create a Synthetics global variable.
+   * Create a private location Create a new Synthetics private location.
    *
-   * @return createGlobalVariableRequest
+   * @param body Details of the private location to create. (required)
+   * @return ApiResponse&lt;SyntheticsPrivateLocationCreationResponse&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 402 </td><td> Quota reached for private locations </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Private locations are not activated for the user </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIcreateGlobalVariableRequest createGlobalVariable() throws ApiException {
-    return new APIcreateGlobalVariableRequest();
-  }
-
-  private ApiResponse<SyntheticsPrivateLocationCreationResponse> createPrivateLocationWithHttpInfo(
+  public ApiResponse<SyntheticsPrivateLocationCreationResponse> createPrivateLocationWithHttpInfo(
       SyntheticsPrivateLocation body) throws ApiException {
     Object localVarPostBody = body;
 
@@ -177,7 +181,6 @@ public class SyntheticsApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling createPrivateLocation");
     }
-
     // create path and map variables
     String localVarPath = "/api/v1/synthetics/private-locations";
 
@@ -217,69 +220,41 @@ public class SyntheticsApi {
         false);
   }
 
-  public class APIcreatePrivateLocationRequest {
-    private SyntheticsPrivateLocation body;
-
-    private APIcreatePrivateLocationRequest() {}
-
-    /**
-     * Set body
-     *
-     * @param body Details of the private location to create. (required)
-     * @return APIcreatePrivateLocationRequest
-     */
-    public APIcreatePrivateLocationRequest body(SyntheticsPrivateLocation body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Execute createPrivateLocation request
-     *
-     * @return SyntheticsPrivateLocationCreationResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 402 </td><td> Quota reached for private locations </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Private locations are not activated for the user </td><td>  -  </td></tr>
-     * </table>
-     */
-    public SyntheticsPrivateLocationCreationResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute createPrivateLocation request with HTTP info returned
-     *
-     * @return ApiResponse&lt;SyntheticsPrivateLocationCreationResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 402 </td><td> Quota reached for private locations </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Private locations are not activated for the user </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<SyntheticsPrivateLocationCreationResponse> executeWithHttpInfo()
-        throws ApiException {
-      return createPrivateLocationWithHttpInfo(body);
-    }
+  /**
+   * Create an API test Create a Synthetic API test.
+   *
+   * @param body Details of the test to create. (required)
+   * @return SyntheticsAPITest
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK - Returns the created test details. </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> - JSON format is wrong - Creation failed </td><td>  -  </td></tr>
+   *       <tr><td> 402 </td><td> Test quota is reached </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public SyntheticsAPITest createSyntheticsAPITest(SyntheticsAPITest body) throws ApiException {
+    return createSyntheticsAPITestWithHttpInfo(body).getData();
   }
 
   /**
-   * Create a private location Create a new Synthetics private location.
+   * Create an API test Create a Synthetic API test.
    *
-   * @return createPrivateLocationRequest
+   * @param body Details of the test to create. (required)
+   * @return ApiResponse&lt;SyntheticsAPITest&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK - Returns the created test details. </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> - JSON format is wrong - Creation failed </td><td>  -  </td></tr>
+   *       <tr><td> 402 </td><td> Test quota is reached </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIcreatePrivateLocationRequest createPrivateLocation() throws ApiException {
-    return new APIcreatePrivateLocationRequest();
-  }
-
-  private ApiResponse<SyntheticsAPITest> createSyntheticsAPITestWithHttpInfo(SyntheticsAPITest body)
+  public ApiResponse<SyntheticsAPITest> createSyntheticsAPITestWithHttpInfo(SyntheticsAPITest body)
       throws ApiException {
     Object localVarPostBody = body;
 
@@ -288,7 +263,6 @@ public class SyntheticsApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling createSyntheticsAPITest");
     }
-
     // create path and map variables
     String localVarPath = "/api/v1/synthetics/tests/api";
 
@@ -327,70 +301,42 @@ public class SyntheticsApi {
         false);
   }
 
-  public class APIcreateSyntheticsAPITestRequest {
-    private SyntheticsAPITest body;
-
-    private APIcreateSyntheticsAPITestRequest() {}
-
-    /**
-     * Set body
-     *
-     * @param body Details of the test to create. (required)
-     * @return APIcreateSyntheticsAPITestRequest
-     */
-    public APIcreateSyntheticsAPITestRequest body(SyntheticsAPITest body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Execute createSyntheticsAPITest request
-     *
-     * @return SyntheticsAPITest
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK - Returns the created test details. </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> - JSON format is wrong - Creation failed </td><td>  -  </td></tr>
-     * <tr><td> 402 </td><td> Test quota is reached </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * </table>
-     */
-    public SyntheticsAPITest execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute createSyntheticsAPITest request with HTTP info returned
-     *
-     * @return ApiResponse&lt;SyntheticsAPITest&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK - Returns the created test details. </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> - JSON format is wrong - Creation failed </td><td>  -  </td></tr>
-     * <tr><td> 402 </td><td> Test quota is reached </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<SyntheticsAPITest> executeWithHttpInfo() throws ApiException {
-      return createSyntheticsAPITestWithHttpInfo(body);
-    }
+  /**
+   * Create a browser test Create a Synthetic browser test.
+   *
+   * @param body Details of the test to create. (required)
+   * @return SyntheticsBrowserTest
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK - Returns the created test details. </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> - JSON format is wrong - Creation failed </td><td>  -  </td></tr>
+   *       <tr><td> 402 </td><td> Test quota is reached </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public SyntheticsBrowserTest createSyntheticsBrowserTest(SyntheticsBrowserTest body)
+      throws ApiException {
+    return createSyntheticsBrowserTestWithHttpInfo(body).getData();
   }
 
   /**
-   * Create an API test Create a Synthetic API test.
+   * Create a browser test Create a Synthetic browser test.
    *
-   * @return createSyntheticsAPITestRequest
+   * @param body Details of the test to create. (required)
+   * @return ApiResponse&lt;SyntheticsBrowserTest&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK - Returns the created test details. </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> - JSON format is wrong - Creation failed </td><td>  -  </td></tr>
+   *       <tr><td> 402 </td><td> Test quota is reached </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIcreateSyntheticsAPITestRequest createSyntheticsAPITest() throws ApiException {
-    return new APIcreateSyntheticsAPITestRequest();
-  }
-
-  private ApiResponse<SyntheticsBrowserTest> createSyntheticsBrowserTestWithHttpInfo(
+  public ApiResponse<SyntheticsBrowserTest> createSyntheticsBrowserTestWithHttpInfo(
       SyntheticsBrowserTest body) throws ApiException {
     Object localVarPostBody = body;
 
@@ -399,7 +345,6 @@ public class SyntheticsApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling createSyntheticsBrowserTest");
     }
-
     // create path and map variables
     String localVarPath = "/api/v1/synthetics/tests/browser";
 
@@ -439,70 +384,47 @@ public class SyntheticsApi {
         false);
   }
 
-  public class APIcreateSyntheticsBrowserTestRequest {
-    private SyntheticsBrowserTest body;
-
-    private APIcreateSyntheticsBrowserTestRequest() {}
-
-    /**
-     * Set body
-     *
-     * @param body Details of the test to create. (required)
-     * @return APIcreateSyntheticsBrowserTestRequest
-     */
-    public APIcreateSyntheticsBrowserTestRequest body(SyntheticsBrowserTest body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Execute createSyntheticsBrowserTest request
-     *
-     * @return SyntheticsBrowserTest
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK - Returns the created test details. </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> - JSON format is wrong - Creation failed </td><td>  -  </td></tr>
-     * <tr><td> 402 </td><td> Test quota is reached </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * </table>
-     */
-    public SyntheticsBrowserTest execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute createSyntheticsBrowserTest request with HTTP info returned
-     *
-     * @return ApiResponse&lt;SyntheticsBrowserTest&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK - Returns the created test details. </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> - JSON format is wrong - Creation failed </td><td>  -  </td></tr>
-     * <tr><td> 402 </td><td> Test quota is reached </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<SyntheticsBrowserTest> executeWithHttpInfo() throws ApiException {
-      return createSyntheticsBrowserTestWithHttpInfo(body);
-    }
+  /**
+   * Create a test Create a Synthetic test.
+   *
+   * @param body Details of the test to create. (required)
+   * @return SyntheticsTestDetails
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK - Returns the created test details. </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> - JSON format is wrong - Creation failed </td><td>  -  </td></tr>
+   *       <tr><td> 402 </td><td> Test quota is reached </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *     </table>
+   *
+   * @deprecated
+   */
+  @Deprecated
+  public SyntheticsTestDetails createTest(SyntheticsTestDetails body) throws ApiException {
+    return createTestWithHttpInfo(body).getData();
   }
 
   /**
-   * Create a browser test Create a Synthetic browser test.
+   * Create a test Create a Synthetic test.
    *
-   * @return createSyntheticsBrowserTestRequest
+   * @param body Details of the test to create. (required)
+   * @return ApiResponse&lt;SyntheticsTestDetails&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK - Returns the created test details. </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> - JSON format is wrong - Creation failed </td><td>  -  </td></tr>
+   *       <tr><td> 402 </td><td> Test quota is reached </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *     </table>
+   *
+   * @deprecated
    */
-  public APIcreateSyntheticsBrowserTestRequest createSyntheticsBrowserTest() throws ApiException {
-    return new APIcreateSyntheticsBrowserTestRequest();
-  }
-
-  private ApiResponse<SyntheticsTestDetails> createTestWithHttpInfo(SyntheticsTestDetails body)
+  @Deprecated
+  public ApiResponse<SyntheticsTestDetails> createTestWithHttpInfo(SyntheticsTestDetails body)
       throws ApiException {
     Object localVarPostBody = body;
 
@@ -510,7 +432,6 @@ public class SyntheticsApi {
     if (body == null) {
       throw new ApiException(400, "Missing the required parameter 'body' when calling createTest");
     }
-
     // create path and map variables
     String localVarPath = "/api/v1/synthetics/tests";
 
@@ -550,79 +471,40 @@ public class SyntheticsApi {
         false);
   }
 
-  public class APIcreateTestRequest {
-    private SyntheticsTestDetails body;
-
-    private APIcreateTestRequest() {}
-
-    /**
-     * Set body
-     *
-     * @param body Details of the test to create. (required)
-     * @return APIcreateTestRequest
-     */
-    public APIcreateTestRequest body(SyntheticsTestDetails body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Execute createTest request
-     *
-     * @return SyntheticsTestDetails
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK - Returns the created test details. </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> - JSON format is wrong - Creation failed </td><td>  -  </td></tr>
-     * <tr><td> 402 </td><td> Test quota is reached </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * </table>
-     *
-     * @deprecated
-     */
-    @Deprecated
-    public SyntheticsTestDetails execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute createTest request with HTTP info returned
-     *
-     * @return ApiResponse&lt;SyntheticsTestDetails&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK - Returns the created test details. </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> - JSON format is wrong - Creation failed </td><td>  -  </td></tr>
-     * <tr><td> 402 </td><td> Test quota is reached </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * </table>
-     *
-     * @deprecated
-     */
-    @Deprecated
-    public ApiResponse<SyntheticsTestDetails> executeWithHttpInfo() throws ApiException {
-      return createTestWithHttpInfo(body);
-    }
+  /**
+   * Delete a global variable Delete a Synthetics global variable.
+   *
+   * @param variableId The ID of the global variable. (required)
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> JSON format is wrong </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public void deleteGlobalVariable(String variableId) throws ApiException {
+    deleteGlobalVariableWithHttpInfo(variableId);
   }
 
   /**
-   * Create a test Create a Synthetic test.
+   * Delete a global variable Delete a Synthetics global variable.
    *
-   * @return createTestRequest
+   * @param variableId The ID of the global variable. (required)
+   * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
-   * @deprecated
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> JSON format is wrong </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *     </table>
    */
-  @Deprecated
-  public APIcreateTestRequest createTest() throws ApiException {
-    return new APIcreateTestRequest();
-  }
-
-  private ApiResponse<Void> deleteGlobalVariableWithHttpInfo(String variableId)
-      throws ApiException {
+  public ApiResponse<Void> deleteGlobalVariableWithHttpInfo(String variableId) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'variableId' is set
@@ -630,7 +512,6 @@ public class SyntheticsApi {
       throw new ApiException(
           400, "Missing the required parameter 'variableId' when calling deleteGlobalVariable");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v1/synthetics/variables/{variable_id}"
@@ -671,62 +552,36 @@ public class SyntheticsApi {
         false);
   }
 
-  public class APIdeleteGlobalVariableRequest {
-    private String variableId;
-
-    private APIdeleteGlobalVariableRequest(String variableId) {
-      this.variableId = variableId;
-    }
-
-    /**
-     * Execute deleteGlobalVariable request
-     *
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> JSON format is wrong </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public void execute() throws ApiException {
-      this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute deleteGlobalVariable request with HTTP info returned
-     *
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> JSON format is wrong </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<Void> executeWithHttpInfo() throws ApiException {
-      return deleteGlobalVariableWithHttpInfo(variableId);
-    }
+  /**
+   * Delete a private location Delete a Synthetics private location.
+   *
+   * @param locationId The ID of the private location. (required)
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> - Private locations are not activated for the user - Private location does not exist </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public void deletePrivateLocation(String locationId) throws ApiException {
+    deletePrivateLocationWithHttpInfo(locationId);
   }
 
   /**
-   * Delete a global variable Delete a Synthetics global variable.
+   * Delete a private location Delete a Synthetics private location.
    *
-   * @param variableId The ID of the global variable. (required)
-   * @return deleteGlobalVariableRequest
+   * @param locationId The ID of the private location. (required)
+   * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> - Private locations are not activated for the user - Private location does not exist </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIdeleteGlobalVariableRequest deleteGlobalVariable(String variableId)
-      throws ApiException {
-    return new APIdeleteGlobalVariableRequest(variableId);
-  }
-
-  private ApiResponse<Void> deletePrivateLocationWithHttpInfo(String locationId)
+  public ApiResponse<Void> deletePrivateLocationWithHttpInfo(String locationId)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -735,7 +590,6 @@ public class SyntheticsApi {
       throw new ApiException(
           400, "Missing the required parameter 'locationId' when calling deletePrivateLocation");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v1/synthetics/private-locations/{location_id}"
@@ -776,58 +630,42 @@ public class SyntheticsApi {
         false);
   }
 
-  public class APIdeletePrivateLocationRequest {
-    private String locationId;
-
-    private APIdeletePrivateLocationRequest(String locationId) {
-      this.locationId = locationId;
-    }
-
-    /**
-     * Execute deletePrivateLocation request
-     *
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> - Private locations are not activated for the user - Private location does not exist </td><td>  -  </td></tr>
-     * </table>
-     */
-    public void execute() throws ApiException {
-      this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute deletePrivateLocation request with HTTP info returned
-     *
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> - Private locations are not activated for the user - Private location does not exist </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<Void> executeWithHttpInfo() throws ApiException {
-      return deletePrivateLocationWithHttpInfo(locationId);
-    }
+  /**
+   * Delete tests Delete multiple Synthetic tests by ID.
+   *
+   * @param body Public ID list of the Synthetic tests to be deleted. (required)
+   * @return SyntheticsDeleteTestsResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK. </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> - JSON format is wrong - Test cannot be deleted as it&#39;s used elsewhere (as a sub-test or in an uptime widget) - Some IDs are not owned by the user </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> - Tests to be deleted can&#39;t be found - Synthetics is not activated for the user </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public SyntheticsDeleteTestsResponse deleteTests(SyntheticsDeleteTestsPayload body)
+      throws ApiException {
+    return deleteTestsWithHttpInfo(body).getData();
   }
 
   /**
-   * Delete a private location Delete a Synthetics private location.
+   * Delete tests Delete multiple Synthetic tests by ID.
    *
-   * @param locationId The ID of the private location. (required)
-   * @return deletePrivateLocationRequest
+   * @param body Public ID list of the Synthetic tests to be deleted. (required)
+   * @return ApiResponse&lt;SyntheticsDeleteTestsResponse&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK. </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> - JSON format is wrong - Test cannot be deleted as it&#39;s used elsewhere (as a sub-test or in an uptime widget) - Some IDs are not owned by the user </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> - Tests to be deleted can&#39;t be found - Synthetics is not activated for the user </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIdeletePrivateLocationRequest deletePrivateLocation(String locationId)
-      throws ApiException {
-    return new APIdeletePrivateLocationRequest(locationId);
-  }
-
-  private ApiResponse<SyntheticsDeleteTestsResponse> deleteTestsWithHttpInfo(
+  public ApiResponse<SyntheticsDeleteTestsResponse> deleteTestsWithHttpInfo(
       SyntheticsDeleteTestsPayload body) throws ApiException {
     Object localVarPostBody = body;
 
@@ -835,7 +673,6 @@ public class SyntheticsApi {
     if (body == null) {
       throw new ApiException(400, "Missing the required parameter 'body' when calling deleteTests");
     }
-
     // create path and map variables
     String localVarPath = "/api/v1/synthetics/tests/delete";
 
@@ -875,70 +712,42 @@ public class SyntheticsApi {
         false);
   }
 
-  public class APIdeleteTestsRequest {
-    private SyntheticsDeleteTestsPayload body;
-
-    private APIdeleteTestsRequest() {}
-
-    /**
-     * Set body
-     *
-     * @param body Public ID list of the Synthetic tests to be deleted. (required)
-     * @return APIdeleteTestsRequest
-     */
-    public APIdeleteTestsRequest body(SyntheticsDeleteTestsPayload body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Execute deleteTests request
-     *
-     * @return SyntheticsDeleteTestsResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK. </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> - JSON format is wrong - Test cannot be deleted as it&#39;s used elsewhere (as a sub-test or in an uptime widget) - Some IDs are not owned by the user </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> - Tests to be deleted can&#39;t be found - Synthetics is not activated for the user </td><td>  -  </td></tr>
-     * </table>
-     */
-    public SyntheticsDeleteTestsResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute deleteTests request with HTTP info returned
-     *
-     * @return ApiResponse&lt;SyntheticsDeleteTestsResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK. </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> - JSON format is wrong - Test cannot be deleted as it&#39;s used elsewhere (as a sub-test or in an uptime widget) - Some IDs are not owned by the user </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> - Tests to be deleted can&#39;t be found - Synthetics is not activated for the user </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<SyntheticsDeleteTestsResponse> executeWithHttpInfo() throws ApiException {
-      return deleteTestsWithHttpInfo(body);
-    }
+  /**
+   * Edit a global variable Edit a Synthetics global variable.
+   *
+   * @param variableId The ID of the global variable. (required)
+   * @param body Details of the global variable to update. (required)
+   * @return SyntheticsGlobalVariable
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Invalid request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public SyntheticsGlobalVariable editGlobalVariable(
+      String variableId, SyntheticsGlobalVariable body) throws ApiException {
+    return editGlobalVariableWithHttpInfo(variableId, body).getData();
   }
 
   /**
-   * Delete tests Delete multiple Synthetic tests by ID.
+   * Edit a global variable Edit a Synthetics global variable.
    *
-   * @return deleteTestsRequest
+   * @param variableId The ID of the global variable. (required)
+   * @param body Details of the global variable to update. (required)
+   * @return ApiResponse&lt;SyntheticsGlobalVariable&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Invalid request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIdeleteTestsRequest deleteTests() throws ApiException {
-    return new APIdeleteTestsRequest();
-  }
-
-  private ApiResponse<SyntheticsGlobalVariable> editGlobalVariableWithHttpInfo(
+  public ApiResponse<SyntheticsGlobalVariable> editGlobalVariableWithHttpInfo(
       String variableId, SyntheticsGlobalVariable body) throws ApiException {
     Object localVarPostBody = body;
 
@@ -953,7 +762,6 @@ public class SyntheticsApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling editGlobalVariable");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v1/synthetics/variables/{variable_id}"
@@ -996,72 +804,39 @@ public class SyntheticsApi {
         false);
   }
 
-  public class APIeditGlobalVariableRequest {
-    private String variableId;
-    private SyntheticsGlobalVariable body;
-
-    private APIeditGlobalVariableRequest(String variableId) {
-      this.variableId = variableId;
-    }
-
-    /**
-     * Set body
-     *
-     * @param body Details of the global variable to update. (required)
-     * @return APIeditGlobalVariableRequest
-     */
-    public APIeditGlobalVariableRequest body(SyntheticsGlobalVariable body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Execute editGlobalVariable request
-     *
-     * @return SyntheticsGlobalVariable
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Invalid request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * </table>
-     */
-    public SyntheticsGlobalVariable execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute editGlobalVariable request with HTTP info returned
-     *
-     * @return ApiResponse&lt;SyntheticsGlobalVariable&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Invalid request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<SyntheticsGlobalVariable> executeWithHttpInfo() throws ApiException {
-      return editGlobalVariableWithHttpInfo(variableId, body);
-    }
+  /**
+   * Get an API test Get the detailed configuration associated with a Synthetic API test.
+   *
+   * @param publicId The public ID of the test to get details from. (required)
+   * @return SyntheticsAPITest
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> - Synthetic Monitoring is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public SyntheticsAPITest getAPITest(String publicId) throws ApiException {
+    return getAPITestWithHttpInfo(publicId).getData();
   }
 
   /**
-   * Edit a global variable Edit a Synthetics global variable.
+   * Get an API test Get the detailed configuration associated with a Synthetic API test.
    *
-   * @param variableId The ID of the global variable. (required)
-   * @return editGlobalVariableRequest
+   * @param publicId The public ID of the test to get details from. (required)
+   * @return ApiResponse&lt;SyntheticsAPITest&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> - Synthetic Monitoring is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIeditGlobalVariableRequest editGlobalVariable(String variableId) throws ApiException {
-    return new APIeditGlobalVariableRequest(variableId);
-  }
-
-  private ApiResponse<SyntheticsAPITest> getAPITestWithHttpInfo(String publicId)
+  public ApiResponse<SyntheticsAPITest> getAPITestWithHttpInfo(String publicId)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -1070,7 +845,6 @@ public class SyntheticsApi {
       throw new ApiException(
           400, "Missing the required parameter 'publicId' when calling getAPITest");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v1/synthetics/tests/api/{public_id}"
@@ -1112,62 +886,107 @@ public class SyntheticsApi {
         false);
   }
 
-  public class APIgetAPITestRequest {
-    private String publicId;
+  /** Manage optional parameters to getAPITestLatestResults. */
+  public static class GetAPITestLatestResultsOptionalParameters {
+    private Long fromTs;
+    private Long toTs;
+    private List<String> probeDc;
 
-    private APIgetAPITestRequest(String publicId) {
-      this.publicId = publicId;
+    /**
+     * Set fromTs
+     *
+     * @param fromTs Timestamp from which to start querying results. (optional)
+     * @return GetAPITestLatestResultsOptionalParameters
+     */
+    public GetAPITestLatestResultsOptionalParameters fromTs(Long fromTs) {
+      this.fromTs = fromTs;
+      return this;
     }
 
     /**
-     * Execute getAPITest request
+     * Set toTs
      *
-     * @return SyntheticsAPITest
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> - Synthetic Monitoring is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
-     * </table>
+     * @param toTs Timestamp up to which to query results. (optional)
+     * @return GetAPITestLatestResultsOptionalParameters
      */
-    public SyntheticsAPITest execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
+    public GetAPITestLatestResultsOptionalParameters toTs(Long toTs) {
+      this.toTs = toTs;
+      return this;
     }
 
     /**
-     * Execute getAPITest request with HTTP info returned
+     * Set probeDc
      *
-     * @return ApiResponse&lt;SyntheticsAPITest&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> - Synthetic Monitoring is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
-     * </table>
+     * @param probeDc Locations for which to query results. (optional)
+     * @return GetAPITestLatestResultsOptionalParameters
      */
-    public ApiResponse<SyntheticsAPITest> executeWithHttpInfo() throws ApiException {
-      return getAPITestWithHttpInfo(publicId);
+    public GetAPITestLatestResultsOptionalParameters probeDc(List<String> probeDc) {
+      this.probeDc = probeDc;
+      return this;
     }
   }
 
   /**
-   * Get an API test Get the detailed configuration associated with a Synthetic API test.
+   * Get the test&#39;s latest results summaries (API) Get the last 50 test results summaries for a
+   * given Synthetics API test.
    *
-   * @param publicId The public ID of the test to get details from. (required)
-   * @return getAPITestRequest
+   * @param publicId The public ID of the test for which to search results for. (required)
+   * @return SyntheticsGetAPITestLatestResultsResponse
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIgetAPITestRequest getAPITest(String publicId) throws ApiException {
-    return new APIgetAPITestRequest(publicId);
+  public SyntheticsGetAPITestLatestResultsResponse getAPITestLatestResults(String publicId)
+      throws ApiException {
+    return getAPITestLatestResultsWithHttpInfo(
+            publicId, new GetAPITestLatestResultsOptionalParameters())
+        .getData();
   }
 
-  private ApiResponse<SyntheticsGetAPITestLatestResultsResponse>
-      getAPITestLatestResultsWithHttpInfo(
-          String publicId, Long fromTs, Long toTs, List<String> probeDc) throws ApiException {
+  /**
+   * Get the test&#39;s latest results summaries (API) Get the last 50 test results summaries for a
+   * given Synthetics API test.
+   *
+   * @param publicId The public ID of the test for which to search results for. (required)
+   * @param parameters Optional parameters for the request.
+   * @return SyntheticsGetAPITestLatestResultsResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public SyntheticsGetAPITestLatestResultsResponse getAPITestLatestResults(
+      String publicId, GetAPITestLatestResultsOptionalParameters parameters) throws ApiException {
+    return getAPITestLatestResultsWithHttpInfo(publicId, parameters).getData();
+  }
+
+  /**
+   * Get the test&#39;s latest results summaries (API) Get the last 50 test results summaries for a
+   * given Synthetics API test.
+   *
+   * @param publicId The public ID of the test for which to search results for. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;SyntheticsGetAPITestLatestResultsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SyntheticsGetAPITestLatestResultsResponse> getAPITestLatestResultsWithHttpInfo(
+      String publicId, GetAPITestLatestResultsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'publicId' is set
@@ -1175,7 +994,9 @@ public class SyntheticsApi {
       throw new ApiException(
           400, "Missing the required parameter 'publicId' when calling getAPITestLatestResults");
     }
-
+    Long fromTs = parameters.fromTs;
+    Long toTs = parameters.toTs;
+    List<String> probeDc = parameters.probeDc;
     // create path and map variables
     String localVarPath =
         "/api/v1/synthetics/tests/{public_id}/results"
@@ -1222,99 +1043,42 @@ public class SyntheticsApi {
         false);
   }
 
-  public class APIgetAPITestLatestResultsRequest {
-    private String publicId;
-    private Long fromTs;
-    private Long toTs;
-    private List<String> probeDc;
-
-    private APIgetAPITestLatestResultsRequest(String publicId) {
-      this.publicId = publicId;
-    }
-
-    /**
-     * Set fromTs
-     *
-     * @param fromTs Timestamp from which to start querying results. (optional)
-     * @return APIgetAPITestLatestResultsRequest
-     */
-    public APIgetAPITestLatestResultsRequest fromTs(Long fromTs) {
-      this.fromTs = fromTs;
-      return this;
-    }
-
-    /**
-     * Set toTs
-     *
-     * @param toTs Timestamp up to which to query results. (optional)
-     * @return APIgetAPITestLatestResultsRequest
-     */
-    public APIgetAPITestLatestResultsRequest toTs(Long toTs) {
-      this.toTs = toTs;
-      return this;
-    }
-
-    /**
-     * Set probeDc
-     *
-     * @param probeDc Locations for which to query results. (optional)
-     * @return APIgetAPITestLatestResultsRequest
-     */
-    public APIgetAPITestLatestResultsRequest probeDc(List<String> probeDc) {
-      this.probeDc = probeDc;
-      return this;
-    }
-
-    /**
-     * Execute getAPITestLatestResults request
-     *
-     * @return SyntheticsGetAPITestLatestResultsResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
-     * </table>
-     */
-    public SyntheticsGetAPITestLatestResultsResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getAPITestLatestResults request with HTTP info returned
-     *
-     * @return ApiResponse&lt;SyntheticsGetAPITestLatestResultsResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<SyntheticsGetAPITestLatestResultsResponse> executeWithHttpInfo()
-        throws ApiException {
-      return getAPITestLatestResultsWithHttpInfo(publicId, fromTs, toTs, probeDc);
-    }
+  /**
+   * Get a test result (API) Get a specific full result from a given (API) Synthetic test.
+   *
+   * @param publicId The public ID of the API test to which the target result belongs. (required)
+   * @param resultId The ID of the result to get. (required)
+   * @return SyntheticsAPITestResultFull
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test or result is not owned by the user </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public SyntheticsAPITestResultFull getAPITestResult(String publicId, String resultId)
+      throws ApiException {
+    return getAPITestResultWithHttpInfo(publicId, resultId).getData();
   }
 
   /**
-   * Get the test&#39;s latest results summaries (API) Get the last 50 test results summaries for a
-   * given Synthetics API test.
+   * Get a test result (API) Get a specific full result from a given (API) Synthetic test.
    *
-   * @param publicId The public ID of the test for which to search results for. (required)
-   * @return getAPITestLatestResultsRequest
+   * @param publicId The public ID of the API test to which the target result belongs. (required)
+   * @param resultId The ID of the result to get. (required)
+   * @return ApiResponse&lt;SyntheticsAPITestResultFull&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test or result is not owned by the user </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIgetAPITestLatestResultsRequest getAPITestLatestResults(String publicId)
-      throws ApiException {
-    return new APIgetAPITestLatestResultsRequest(publicId);
-  }
-
-  private ApiResponse<SyntheticsAPITestResultFull> getAPITestResultWithHttpInfo(
+  public ApiResponse<SyntheticsAPITestResultFull> getAPITestResultWithHttpInfo(
       String publicId, String resultId) throws ApiException {
     Object localVarPostBody = null;
 
@@ -1329,7 +1093,6 @@ public class SyntheticsApi {
       throw new ApiException(
           400, "Missing the required parameter 'resultId' when calling getAPITestResult");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v1/synthetics/tests/{public_id}/results/{result_id}"
@@ -1373,64 +1136,41 @@ public class SyntheticsApi {
         false);
   }
 
-  public class APIgetAPITestResultRequest {
-    private String publicId;
-    private String resultId;
-
-    private APIgetAPITestResultRequest(String publicId, String resultId) {
-      this.publicId = publicId;
-      this.resultId = resultId;
-    }
-
-    /**
-     * Execute getAPITestResult request
-     *
-     * @return SyntheticsAPITestResultFull
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test or result is not owned by the user </td><td>  -  </td></tr>
-     * </table>
-     */
-    public SyntheticsAPITestResultFull execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getAPITestResult request with HTTP info returned
-     *
-     * @return ApiResponse&lt;SyntheticsAPITestResultFull&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test or result is not owned by the user </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<SyntheticsAPITestResultFull> executeWithHttpInfo() throws ApiException {
-      return getAPITestResultWithHttpInfo(publicId, resultId);
-    }
+  /**
+   * Get a test configuration (browser) Get the detailed configuration (including steps) associated
+   * with a Synthetic browser test.
+   *
+   * @param publicId The public ID of the test to get details from. (required)
+   * @return SyntheticsBrowserTest
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public SyntheticsBrowserTest getBrowserTest(String publicId) throws ApiException {
+    return getBrowserTestWithHttpInfo(publicId).getData();
   }
 
   /**
-   * Get a test result (API) Get a specific full result from a given (API) Synthetic test.
+   * Get a test configuration (browser) Get the detailed configuration (including steps) associated
+   * with a Synthetic browser test.
    *
-   * @param publicId The public ID of the API test to which the target result belongs. (required)
-   * @param resultId The ID of the result to get. (required)
-   * @return getAPITestResultRequest
+   * @param publicId The public ID of the test to get details from. (required)
+   * @return ApiResponse&lt;SyntheticsBrowserTest&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIgetAPITestResultRequest getAPITestResult(String publicId, String resultId)
-      throws ApiException {
-    return new APIgetAPITestResultRequest(publicId, resultId);
-  }
-
-  private ApiResponse<SyntheticsBrowserTest> getBrowserTestWithHttpInfo(String publicId)
+  public ApiResponse<SyntheticsBrowserTest> getBrowserTestWithHttpInfo(String publicId)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -1439,7 +1179,6 @@ public class SyntheticsApi {
       throw new ApiException(
           400, "Missing the required parameter 'publicId' when calling getBrowserTest");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v1/synthetics/tests/browser/{public_id}"
@@ -1482,63 +1221,110 @@ public class SyntheticsApi {
         false);
   }
 
-  public class APIgetBrowserTestRequest {
-    private String publicId;
+  /** Manage optional parameters to getBrowserTestLatestResults. */
+  public static class GetBrowserTestLatestResultsOptionalParameters {
+    private Long fromTs;
+    private Long toTs;
+    private List<String> probeDc;
 
-    private APIgetBrowserTestRequest(String publicId) {
-      this.publicId = publicId;
+    /**
+     * Set fromTs
+     *
+     * @param fromTs Timestamp from which to start querying results. (optional)
+     * @return GetBrowserTestLatestResultsOptionalParameters
+     */
+    public GetBrowserTestLatestResultsOptionalParameters fromTs(Long fromTs) {
+      this.fromTs = fromTs;
+      return this;
     }
 
     /**
-     * Execute getBrowserTest request
+     * Set toTs
      *
-     * @return SyntheticsBrowserTest
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
-     * </table>
+     * @param toTs Timestamp up to which to query results. (optional)
+     * @return GetBrowserTestLatestResultsOptionalParameters
      */
-    public SyntheticsBrowserTest execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
+    public GetBrowserTestLatestResultsOptionalParameters toTs(Long toTs) {
+      this.toTs = toTs;
+      return this;
     }
 
     /**
-     * Execute getBrowserTest request with HTTP info returned
+     * Set probeDc
      *
-     * @return ApiResponse&lt;SyntheticsBrowserTest&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
-     * </table>
+     * @param probeDc Locations for which to query results. (optional)
+     * @return GetBrowserTestLatestResultsOptionalParameters
      */
-    public ApiResponse<SyntheticsBrowserTest> executeWithHttpInfo() throws ApiException {
-      return getBrowserTestWithHttpInfo(publicId);
+    public GetBrowserTestLatestResultsOptionalParameters probeDc(List<String> probeDc) {
+      this.probeDc = probeDc;
+      return this;
     }
   }
 
   /**
-   * Get a test configuration (browser) Get the detailed configuration (including steps) associated
-   * with a Synthetic browser test.
+   * Get the test&#39;s latest results summaries (browser) Get the last 50 test results summaries
+   * for a given Synthetics Browser test.
    *
-   * @param publicId The public ID of the test to get details from. (required)
-   * @return getBrowserTestRequest
+   * @param publicId The public ID of the browser test for which to search results for. (required)
+   * @return SyntheticsGetBrowserTestLatestResultsResponse
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIgetBrowserTestRequest getBrowserTest(String publicId) throws ApiException {
-    return new APIgetBrowserTestRequest(publicId);
+  public SyntheticsGetBrowserTestLatestResultsResponse getBrowserTestLatestResults(String publicId)
+      throws ApiException {
+    return getBrowserTestLatestResultsWithHttpInfo(
+            publicId, new GetBrowserTestLatestResultsOptionalParameters())
+        .getData();
   }
 
-  private ApiResponse<SyntheticsGetBrowserTestLatestResultsResponse>
+  /**
+   * Get the test&#39;s latest results summaries (browser) Get the last 50 test results summaries
+   * for a given Synthetics Browser test.
+   *
+   * @param publicId The public ID of the browser test for which to search results for. (required)
+   * @param parameters Optional parameters for the request.
+   * @return SyntheticsGetBrowserTestLatestResultsResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public SyntheticsGetBrowserTestLatestResultsResponse getBrowserTestLatestResults(
+      String publicId, GetBrowserTestLatestResultsOptionalParameters parameters)
+      throws ApiException {
+    return getBrowserTestLatestResultsWithHttpInfo(publicId, parameters).getData();
+  }
+
+  /**
+   * Get the test&#39;s latest results summaries (browser) Get the last 50 test results summaries
+   * for a given Synthetics Browser test.
+   *
+   * @param publicId The public ID of the browser test for which to search results for. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;SyntheticsGetBrowserTestLatestResultsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SyntheticsGetBrowserTestLatestResultsResponse>
       getBrowserTestLatestResultsWithHttpInfo(
-          String publicId, Long fromTs, Long toTs, List<String> probeDc) throws ApiException {
+          String publicId, GetBrowserTestLatestResultsOptionalParameters parameters)
+          throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'publicId' is set
@@ -1547,7 +1333,9 @@ public class SyntheticsApi {
           400,
           "Missing the required parameter 'publicId' when calling getBrowserTestLatestResults");
     }
-
+    Long fromTs = parameters.fromTs;
+    Long toTs = parameters.toTs;
+    List<String> probeDc = parameters.probeDc;
     // create path and map variables
     String localVarPath =
         "/api/v1/synthetics/tests/browser/{public_id}/results"
@@ -1594,99 +1382,44 @@ public class SyntheticsApi {
         false);
   }
 
-  public class APIgetBrowserTestLatestResultsRequest {
-    private String publicId;
-    private Long fromTs;
-    private Long toTs;
-    private List<String> probeDc;
-
-    private APIgetBrowserTestLatestResultsRequest(String publicId) {
-      this.publicId = publicId;
-    }
-
-    /**
-     * Set fromTs
-     *
-     * @param fromTs Timestamp from which to start querying results. (optional)
-     * @return APIgetBrowserTestLatestResultsRequest
-     */
-    public APIgetBrowserTestLatestResultsRequest fromTs(Long fromTs) {
-      this.fromTs = fromTs;
-      return this;
-    }
-
-    /**
-     * Set toTs
-     *
-     * @param toTs Timestamp up to which to query results. (optional)
-     * @return APIgetBrowserTestLatestResultsRequest
-     */
-    public APIgetBrowserTestLatestResultsRequest toTs(Long toTs) {
-      this.toTs = toTs;
-      return this;
-    }
-
-    /**
-     * Set probeDc
-     *
-     * @param probeDc Locations for which to query results. (optional)
-     * @return APIgetBrowserTestLatestResultsRequest
-     */
-    public APIgetBrowserTestLatestResultsRequest probeDc(List<String> probeDc) {
-      this.probeDc = probeDc;
-      return this;
-    }
-
-    /**
-     * Execute getBrowserTestLatestResults request
-     *
-     * @return SyntheticsGetBrowserTestLatestResultsResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
-     * </table>
-     */
-    public SyntheticsGetBrowserTestLatestResultsResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getBrowserTestLatestResults request with HTTP info returned
-     *
-     * @return ApiResponse&lt;SyntheticsGetBrowserTestLatestResultsResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<SyntheticsGetBrowserTestLatestResultsResponse> executeWithHttpInfo()
-        throws ApiException {
-      return getBrowserTestLatestResultsWithHttpInfo(publicId, fromTs, toTs, probeDc);
-    }
+  /**
+   * Get a test result (browser) Get a specific full result from a given (browser) Synthetic test.
+   *
+   * @param publicId The public ID of the browser test to which the target result belongs.
+   *     (required)
+   * @param resultId The ID of the result to get. (required)
+   * @return SyntheticsBrowserTestResultFull
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test or result is not owned by the user </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public SyntheticsBrowserTestResultFull getBrowserTestResult(String publicId, String resultId)
+      throws ApiException {
+    return getBrowserTestResultWithHttpInfo(publicId, resultId).getData();
   }
 
   /**
-   * Get the test&#39;s latest results summaries (browser) Get the last 50 test results summaries
-   * for a given Synthetics Browser test.
+   * Get a test result (browser) Get a specific full result from a given (browser) Synthetic test.
    *
-   * @param publicId The public ID of the browser test for which to search results for. (required)
-   * @return getBrowserTestLatestResultsRequest
+   * @param publicId The public ID of the browser test to which the target result belongs.
+   *     (required)
+   * @param resultId The ID of the result to get. (required)
+   * @return ApiResponse&lt;SyntheticsBrowserTestResultFull&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test or result is not owned by the user </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIgetBrowserTestLatestResultsRequest getBrowserTestLatestResults(String publicId)
-      throws ApiException {
-    return new APIgetBrowserTestLatestResultsRequest(publicId);
-  }
-
-  private ApiResponse<SyntheticsBrowserTestResultFull> getBrowserTestResultWithHttpInfo(
+  public ApiResponse<SyntheticsBrowserTestResultFull> getBrowserTestResultWithHttpInfo(
       String publicId, String resultId) throws ApiException {
     Object localVarPostBody = null;
 
@@ -1701,7 +1434,6 @@ public class SyntheticsApi {
       throw new ApiException(
           400, "Missing the required parameter 'resultId' when calling getBrowserTestResult");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v1/synthetics/tests/browser/{public_id}/results/{result_id}"
@@ -1745,65 +1477,39 @@ public class SyntheticsApi {
         false);
   }
 
-  public class APIgetBrowserTestResultRequest {
-    private String publicId;
-    private String resultId;
-
-    private APIgetBrowserTestResultRequest(String publicId, String resultId) {
-      this.publicId = publicId;
-      this.resultId = resultId;
-    }
-
-    /**
-     * Execute getBrowserTestResult request
-     *
-     * @return SyntheticsBrowserTestResultFull
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test or result is not owned by the user </td><td>  -  </td></tr>
-     * </table>
-     */
-    public SyntheticsBrowserTestResultFull execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getBrowserTestResult request with HTTP info returned
-     *
-     * @return ApiResponse&lt;SyntheticsBrowserTestResultFull&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test or result is not owned by the user </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<SyntheticsBrowserTestResultFull> executeWithHttpInfo() throws ApiException {
-      return getBrowserTestResultWithHttpInfo(publicId, resultId);
-    }
+  /**
+   * Get a global variable Get the detailed configuration of a global variable.
+   *
+   * @param variableId The ID of the global variable. (required)
+   * @return SyntheticsGlobalVariable
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public SyntheticsGlobalVariable getGlobalVariable(String variableId) throws ApiException {
+    return getGlobalVariableWithHttpInfo(variableId).getData();
   }
 
   /**
-   * Get a test result (browser) Get a specific full result from a given (browser) Synthetic test.
+   * Get a global variable Get the detailed configuration of a global variable.
    *
-   * @param publicId The public ID of the browser test to which the target result belongs.
-   *     (required)
-   * @param resultId The ID of the result to get. (required)
-   * @return getBrowserTestResultRequest
+   * @param variableId The ID of the global variable. (required)
+   * @return ApiResponse&lt;SyntheticsGlobalVariable&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIgetBrowserTestResultRequest getBrowserTestResult(String publicId, String resultId)
-      throws ApiException {
-    return new APIgetBrowserTestResultRequest(publicId, resultId);
-  }
-
-  private ApiResponse<SyntheticsGlobalVariable> getGlobalVariableWithHttpInfo(String variableId)
+  public ApiResponse<SyntheticsGlobalVariable> getGlobalVariableWithHttpInfo(String variableId)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -1812,7 +1518,6 @@ public class SyntheticsApi {
       throw new ApiException(
           400, "Missing the required parameter 'variableId' when calling getGlobalVariable");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v1/synthetics/variables/{variable_id}"
@@ -1856,60 +1561,37 @@ public class SyntheticsApi {
         false);
   }
 
-  public class APIgetGlobalVariableRequest {
-    private String variableId;
-
-    private APIgetGlobalVariableRequest(String variableId) {
-      this.variableId = variableId;
-    }
-
-    /**
-     * Execute getGlobalVariable request
-     *
-     * @return SyntheticsGlobalVariable
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public SyntheticsGlobalVariable execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getGlobalVariable request with HTTP info returned
-     *
-     * @return ApiResponse&lt;SyntheticsGlobalVariable&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<SyntheticsGlobalVariable> executeWithHttpInfo() throws ApiException {
-      return getGlobalVariableWithHttpInfo(variableId);
-    }
+  /**
+   * Get a private location Get a Synthetics private location.
+   *
+   * @param locationId The ID of the private location. (required)
+   * @return SyntheticsPrivateLocation
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> - Synthetic private locations are not activated for the user - Private location does not exist </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public SyntheticsPrivateLocation getPrivateLocation(String locationId) throws ApiException {
+    return getPrivateLocationWithHttpInfo(locationId).getData();
   }
 
   /**
-   * Get a global variable Get the detailed configuration of a global variable.
+   * Get a private location Get a Synthetics private location.
    *
-   * @param variableId The ID of the global variable. (required)
-   * @return getGlobalVariableRequest
+   * @param locationId The ID of the private location. (required)
+   * @return ApiResponse&lt;SyntheticsPrivateLocation&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> - Synthetic private locations are not activated for the user - Private location does not exist </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIgetGlobalVariableRequest getGlobalVariable(String variableId) throws ApiException {
-    return new APIgetGlobalVariableRequest(variableId);
-  }
-
-  private ApiResponse<SyntheticsPrivateLocation> getPrivateLocationWithHttpInfo(String locationId)
+  public ApiResponse<SyntheticsPrivateLocation> getPrivateLocationWithHttpInfo(String locationId)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -1918,7 +1600,6 @@ public class SyntheticsApi {
       throw new ApiException(
           400, "Missing the required parameter 'locationId' when calling getPrivateLocation");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v1/synthetics/private-locations/{location_id}"
@@ -1962,58 +1643,41 @@ public class SyntheticsApi {
         false);
   }
 
-  public class APIgetPrivateLocationRequest {
-    private String locationId;
-
-    private APIgetPrivateLocationRequest(String locationId) {
-      this.locationId = locationId;
-    }
-
-    /**
-     * Execute getPrivateLocation request
-     *
-     * @return SyntheticsPrivateLocation
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> - Synthetic private locations are not activated for the user - Private location does not exist </td><td>  -  </td></tr>
-     * </table>
-     */
-    public SyntheticsPrivateLocation execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getPrivateLocation request with HTTP info returned
-     *
-     * @return ApiResponse&lt;SyntheticsPrivateLocation&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> - Synthetic private locations are not activated for the user - Private location does not exist </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<SyntheticsPrivateLocation> executeWithHttpInfo() throws ApiException {
-      return getPrivateLocationWithHttpInfo(locationId);
-    }
+  /**
+   * Get a test configuration (API) Get the detailed configuration associated with a Synthetics
+   * test.
+   *
+   * @param publicId The public ID of the test to get details from. (required)
+   * @return SyntheticsTestDetails
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public SyntheticsTestDetails getTest(String publicId) throws ApiException {
+    return getTestWithHttpInfo(publicId).getData();
   }
 
   /**
-   * Get a private location Get a Synthetics private location.
+   * Get a test configuration (API) Get the detailed configuration associated with a Synthetics
+   * test.
    *
-   * @param locationId The ID of the private location. (required)
-   * @return getPrivateLocationRequest
+   * @param publicId The public ID of the test to get details from. (required)
+   * @return ApiResponse&lt;SyntheticsTestDetails&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIgetPrivateLocationRequest getPrivateLocation(String locationId) throws ApiException {
-    return new APIgetPrivateLocationRequest(locationId);
-  }
-
-  private ApiResponse<SyntheticsTestDetails> getTestWithHttpInfo(String publicId)
+  public ApiResponse<SyntheticsTestDetails> getTestWithHttpInfo(String publicId)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -2021,7 +1685,6 @@ public class SyntheticsApi {
     if (publicId == null) {
       throw new ApiException(400, "Missing the required parameter 'publicId' when calling getTest");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v1/synthetics/tests/{public_id}"
@@ -2064,63 +1727,36 @@ public class SyntheticsApi {
         false);
   }
 
-  public class APIgetTestRequest {
-    private String publicId;
-
-    private APIgetTestRequest(String publicId) {
-      this.publicId = publicId;
-    }
-
-    /**
-     * Execute getTest request
-     *
-     * @return SyntheticsTestDetails
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
-     * </table>
-     */
-    public SyntheticsTestDetails execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getTest request with HTTP info returned
-     *
-     * @return ApiResponse&lt;SyntheticsTestDetails&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<SyntheticsTestDetails> executeWithHttpInfo() throws ApiException {
-      return getTestWithHttpInfo(publicId);
-    }
+  /**
+   * Get all locations (public and private) Get the list of public and private locations available
+   * for Synthetic tests. No arguments required.
+   *
+   * @return SyntheticsLocations
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public SyntheticsLocations listLocations() throws ApiException {
+    return listLocationsWithHttpInfo().getData();
   }
 
   /**
-   * Get a test configuration (API) Get the detailed configuration associated with a Synthetics
-   * test.
+   * Get all locations (public and private) Get the list of public and private locations available
+   * for Synthetic tests. No arguments required.
    *
-   * @param publicId The public ID of the test to get details from. (required)
-   * @return getTestRequest
+   * @return ApiResponse&lt;SyntheticsLocations&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIgetTestRequest getTest(String publicId) throws ApiException {
-    return new APIgetTestRequest(publicId);
-  }
-
-  private ApiResponse<SyntheticsLocations> listLocationsWithHttpInfo() throws ApiException {
+  public ApiResponse<SyntheticsLocations> listLocationsWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
-
     // create path and map variables
     String localVarPath = "/api/v1/synthetics/locations";
 
@@ -2160,55 +1796,38 @@ public class SyntheticsApi {
         false);
   }
 
-  public class APIlistLocationsRequest {
-
-    private APIlistLocationsRequest() {}
-
-    /**
-     * Execute listLocations request
-     *
-     * @return SyntheticsLocations
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * </table>
-     */
-    public SyntheticsLocations execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute listLocations request with HTTP info returned
-     *
-     * @return ApiResponse&lt;SyntheticsLocations&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<SyntheticsLocations> executeWithHttpInfo() throws ApiException {
-      return listLocationsWithHttpInfo();
-    }
+  /**
+   * Get the list of all tests Get the list of all Synthetic tests.
+   *
+   * @return SyntheticsListTestsResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK - Returns the list of all Synthetic tests. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Synthetics is not activated for the user. </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public SyntheticsListTestsResponse listTests() throws ApiException {
+    return listTestsWithHttpInfo().getData();
   }
 
   /**
-   * Get all locations (public and private) Get the list of public and private locations available
-   * for Synthetic tests. No arguments required.
+   * Get the list of all tests Get the list of all Synthetic tests.
    *
-   * @return listLocationsRequest
+   * @return ApiResponse&lt;SyntheticsListTestsResponse&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK - Returns the list of all Synthetic tests. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Synthetics is not activated for the user. </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIlistLocationsRequest listLocations() throws ApiException {
-    return new APIlistLocationsRequest();
-  }
-
-  private ApiResponse<SyntheticsListTestsResponse> listTestsWithHttpInfo() throws ApiException {
+  public ApiResponse<SyntheticsListTestsResponse> listTestsWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
-
     // create path and map variables
     String localVarPath = "/api/v1/synthetics/tests";
 
@@ -2249,56 +1868,40 @@ public class SyntheticsApi {
         false);
   }
 
-  public class APIlistTestsRequest {
-
-    private APIlistTestsRequest() {}
-
-    /**
-     * Execute listTests request
-     *
-     * @return SyntheticsListTestsResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK - Returns the list of all Synthetic tests. </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Synthetics is not activated for the user. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public SyntheticsListTestsResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute listTests request with HTTP info returned
-     *
-     * @return ApiResponse&lt;SyntheticsListTestsResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK - Returns the list of all Synthetic tests. </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Synthetics is not activated for the user. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<SyntheticsListTestsResponse> executeWithHttpInfo() throws ApiException {
-      return listTestsWithHttpInfo();
-    }
+  /**
+   * Trigger some Synthetics tests for CI Trigger a set of Synthetics tests for continuous
+   * integration.
+   *
+   * @param body Details of the test to trigger. (required)
+   * @return SyntheticsTriggerCITestsResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> JSON format is wrong </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public SyntheticsTriggerCITestsResponse triggerCITests(SyntheticsCITestBody body)
+      throws ApiException {
+    return triggerCITestsWithHttpInfo(body).getData();
   }
 
   /**
-   * Get the list of all tests Get the list of all Synthetic tests.
+   * Trigger some Synthetics tests for CI Trigger a set of Synthetics tests for continuous
+   * integration.
    *
-   * @return listTestsRequest
+   * @param body Details of the test to trigger. (required)
+   * @return ApiResponse&lt;SyntheticsTriggerCITestsResponse&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> JSON format is wrong </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIlistTestsRequest listTests() throws ApiException {
-    return new APIlistTestsRequest();
-  }
-
-  private ApiResponse<SyntheticsTriggerCITestsResponse> triggerCITestsWithHttpInfo(
+  public ApiResponse<SyntheticsTriggerCITestsResponse> triggerCITestsWithHttpInfo(
       SyntheticsCITestBody body) throws ApiException {
     Object localVarPostBody = body;
 
@@ -2307,7 +1910,6 @@ public class SyntheticsApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling triggerCITests");
     }
-
     // create path and map variables
     String localVarPath = "/api/v1/synthetics/tests/trigger/ci";
 
@@ -2347,67 +1949,44 @@ public class SyntheticsApi {
         false);
   }
 
-  public class APItriggerCITestsRequest {
-    private SyntheticsCITestBody body;
-
-    private APItriggerCITestsRequest() {}
-
-    /**
-     * Set body
-     *
-     * @param body Details of the test to trigger. (required)
-     * @return APItriggerCITestsRequest
-     */
-    public APItriggerCITestsRequest body(SyntheticsCITestBody body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Execute triggerCITests request
-     *
-     * @return SyntheticsTriggerCITestsResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> JSON format is wrong </td><td>  -  </td></tr>
-     * </table>
-     */
-    public SyntheticsTriggerCITestsResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute triggerCITests request with HTTP info returned
-     *
-     * @return ApiResponse&lt;SyntheticsTriggerCITestsResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> JSON format is wrong </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<SyntheticsTriggerCITestsResponse> executeWithHttpInfo() throws ApiException {
-      return triggerCITestsWithHttpInfo(body);
-    }
+  /**
+   * Edit an API test Edit the configuration of a Synthetic API test.
+   *
+   * @param publicId The public ID of the test to get details from. (required)
+   * @param body New test details to be saved. (required)
+   * @return SyntheticsAPITest
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> - JSON format is wrong - Updating sub-type is forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> - Synthetic Monitoring is not activated for the user - Test is not owned by the user - Test can&#39;t be found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public SyntheticsAPITest updateAPITest(String publicId, SyntheticsAPITest body)
+      throws ApiException {
+    return updateAPITestWithHttpInfo(publicId, body).getData();
   }
 
   /**
-   * Trigger some Synthetics tests for CI Trigger a set of Synthetics tests for continuous
-   * integration.
+   * Edit an API test Edit the configuration of a Synthetic API test.
    *
-   * @return triggerCITestsRequest
+   * @param publicId The public ID of the test to get details from. (required)
+   * @param body New test details to be saved. (required)
+   * @return ApiResponse&lt;SyntheticsAPITest&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> - JSON format is wrong - Updating sub-type is forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> - Synthetic Monitoring is not activated for the user - Test is not owned by the user - Test can&#39;t be found </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APItriggerCITestsRequest triggerCITests() throws ApiException {
-    return new APItriggerCITestsRequest();
-  }
-
-  private ApiResponse<SyntheticsAPITest> updateAPITestWithHttpInfo(
+  public ApiResponse<SyntheticsAPITest> updateAPITestWithHttpInfo(
       String publicId, SyntheticsAPITest body) throws ApiException {
     Object localVarPostBody = body;
 
@@ -2422,7 +2001,6 @@ public class SyntheticsApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling updateAPITest");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v1/synthetics/tests/api/{public_id}"
@@ -2463,74 +2041,44 @@ public class SyntheticsApi {
         false);
   }
 
-  public class APIupdateAPITestRequest {
-    private String publicId;
-    private SyntheticsAPITest body;
-
-    private APIupdateAPITestRequest(String publicId) {
-      this.publicId = publicId;
-    }
-
-    /**
-     * Set body
-     *
-     * @param body New test details to be saved. (required)
-     * @return APIupdateAPITestRequest
-     */
-    public APIupdateAPITestRequest body(SyntheticsAPITest body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Execute updateAPITest request
-     *
-     * @return SyntheticsAPITest
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> - JSON format is wrong - Updating sub-type is forbidden </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> - Synthetic Monitoring is not activated for the user - Test is not owned by the user - Test can&#39;t be found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public SyntheticsAPITest execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute updateAPITest request with HTTP info returned
-     *
-     * @return ApiResponse&lt;SyntheticsAPITest&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> - JSON format is wrong - Updating sub-type is forbidden </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> - Synthetic Monitoring is not activated for the user - Test is not owned by the user - Test can&#39;t be found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<SyntheticsAPITest> executeWithHttpInfo() throws ApiException {
-      return updateAPITestWithHttpInfo(publicId, body);
-    }
+  /**
+   * Edit a browser test Edit the configuration of a Synthetic browser test.
+   *
+   * @param publicId The public ID of the test to get details from. (required)
+   * @param body New test details to be saved. (required)
+   * @return SyntheticsBrowserTest
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> - JSON format is wrong - Updating sub-type is forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> - Synthetic Monitoring is not activated for the user - Test is not owned by the user - Test can&#39;t be found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public SyntheticsBrowserTest updateBrowserTest(String publicId, SyntheticsBrowserTest body)
+      throws ApiException {
+    return updateBrowserTestWithHttpInfo(publicId, body).getData();
   }
 
   /**
-   * Edit an API test Edit the configuration of a Synthetic API test.
+   * Edit a browser test Edit the configuration of a Synthetic browser test.
    *
    * @param publicId The public ID of the test to get details from. (required)
-   * @return updateAPITestRequest
+   * @param body New test details to be saved. (required)
+   * @return ApiResponse&lt;SyntheticsBrowserTest&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> - JSON format is wrong - Updating sub-type is forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> - Synthetic Monitoring is not activated for the user - Test is not owned by the user - Test can&#39;t be found </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIupdateAPITestRequest updateAPITest(String publicId) throws ApiException {
-    return new APIupdateAPITestRequest(publicId);
-  }
-
-  private ApiResponse<SyntheticsBrowserTest> updateBrowserTestWithHttpInfo(
+  public ApiResponse<SyntheticsBrowserTest> updateBrowserTestWithHttpInfo(
       String publicId, SyntheticsBrowserTest body) throws ApiException {
     Object localVarPostBody = body;
 
@@ -2545,7 +2093,6 @@ public class SyntheticsApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling updateBrowserTest");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v1/synthetics/tests/browser/{public_id}"
@@ -2587,74 +2134,40 @@ public class SyntheticsApi {
         false);
   }
 
-  public class APIupdateBrowserTestRequest {
-    private String publicId;
-    private SyntheticsBrowserTest body;
-
-    private APIupdateBrowserTestRequest(String publicId) {
-      this.publicId = publicId;
-    }
-
-    /**
-     * Set body
-     *
-     * @param body New test details to be saved. (required)
-     * @return APIupdateBrowserTestRequest
-     */
-    public APIupdateBrowserTestRequest body(SyntheticsBrowserTest body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Execute updateBrowserTest request
-     *
-     * @return SyntheticsBrowserTest
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> - JSON format is wrong - Updating sub-type is forbidden </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> - Synthetic Monitoring is not activated for the user - Test is not owned by the user - Test can&#39;t be found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public SyntheticsBrowserTest execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute updateBrowserTest request with HTTP info returned
-     *
-     * @return ApiResponse&lt;SyntheticsBrowserTest&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> - JSON format is wrong - Updating sub-type is forbidden </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> - Synthetic Monitoring is not activated for the user - Test is not owned by the user - Test can&#39;t be found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<SyntheticsBrowserTest> executeWithHttpInfo() throws ApiException {
-      return updateBrowserTestWithHttpInfo(publicId, body);
-    }
+  /**
+   * Edit a private location Edit a Synthetics private location.
+   *
+   * @param locationId The ID of the private location. (required)
+   * @param body Details of the private location to be updated. (required)
+   * @return SyntheticsPrivateLocation
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> - Private locations are not activated for the user - Private location does not exist </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public SyntheticsPrivateLocation updatePrivateLocation(
+      String locationId, SyntheticsPrivateLocation body) throws ApiException {
+    return updatePrivateLocationWithHttpInfo(locationId, body).getData();
   }
 
   /**
-   * Edit a browser test Edit the configuration of a Synthetic browser test.
+   * Edit a private location Edit a Synthetics private location.
    *
-   * @param publicId The public ID of the test to get details from. (required)
-   * @return updateBrowserTestRequest
+   * @param locationId The ID of the private location. (required)
+   * @param body Details of the private location to be updated. (required)
+   * @return ApiResponse&lt;SyntheticsPrivateLocation&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> - Private locations are not activated for the user - Private location does not exist </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIupdateBrowserTestRequest updateBrowserTest(String publicId) throws ApiException {
-    return new APIupdateBrowserTestRequest(publicId);
-  }
-
-  private ApiResponse<SyntheticsPrivateLocation> updatePrivateLocationWithHttpInfo(
+  public ApiResponse<SyntheticsPrivateLocation> updatePrivateLocationWithHttpInfo(
       String locationId, SyntheticsPrivateLocation body) throws ApiException {
     Object localVarPostBody = body;
 
@@ -2669,7 +2182,6 @@ public class SyntheticsApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling updatePrivateLocation");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v1/synthetics/private-locations/{location_id}"
@@ -2712,71 +2224,50 @@ public class SyntheticsApi {
         false);
   }
 
-  public class APIupdatePrivateLocationRequest {
-    private String locationId;
-    private SyntheticsPrivateLocation body;
-
-    private APIupdatePrivateLocationRequest(String locationId) {
-      this.locationId = locationId;
-    }
-
-    /**
-     * Set body
-     *
-     * @param body Details of the private location to be updated. (required)
-     * @return APIupdatePrivateLocationRequest
-     */
-    public APIupdatePrivateLocationRequest body(SyntheticsPrivateLocation body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Execute updatePrivateLocation request
-     *
-     * @return SyntheticsPrivateLocation
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> - Private locations are not activated for the user - Private location does not exist </td><td>  -  </td></tr>
-     * </table>
-     */
-    public SyntheticsPrivateLocation execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute updatePrivateLocation request with HTTP info returned
-     *
-     * @return ApiResponse&lt;SyntheticsPrivateLocation&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> - Private locations are not activated for the user - Private location does not exist </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<SyntheticsPrivateLocation> executeWithHttpInfo() throws ApiException {
-      return updatePrivateLocationWithHttpInfo(locationId, body);
-    }
+  /**
+   * Edit a test Edit the configuration of a Synthetic test.
+   *
+   * @param publicId The public ID of the test to get details from. (required)
+   * @param body New test details to be saved. (required)
+   * @return SyntheticsTestDetails
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> - JSON format is wrong - Updating sub-type is forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user - Test can&#39;t be found </td><td>  -  </td></tr>
+   *     </table>
+   *
+   * @deprecated
+   */
+  @Deprecated
+  public SyntheticsTestDetails updateTest(String publicId, SyntheticsTestDetails body)
+      throws ApiException {
+    return updateTestWithHttpInfo(publicId, body).getData();
   }
 
   /**
-   * Edit a private location Edit a Synthetics private location.
+   * Edit a test Edit the configuration of a Synthetic test.
    *
-   * @param locationId The ID of the private location. (required)
-   * @return updatePrivateLocationRequest
+   * @param publicId The public ID of the test to get details from. (required)
+   * @param body New test details to be saved. (required)
+   * @return ApiResponse&lt;SyntheticsTestDetails&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> - JSON format is wrong - Updating sub-type is forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user - Test can&#39;t be found </td><td>  -  </td></tr>
+   *     </table>
+   *
+   * @deprecated
    */
-  public APIupdatePrivateLocationRequest updatePrivateLocation(String locationId)
-      throws ApiException {
-    return new APIupdatePrivateLocationRequest(locationId);
-  }
-
-  private ApiResponse<SyntheticsTestDetails> updateTestWithHttpInfo(
+  @Deprecated
+  public ApiResponse<SyntheticsTestDetails> updateTestWithHttpInfo(
       String publicId, SyntheticsTestDetails body) throws ApiException {
     Object localVarPostBody = body;
 
@@ -2790,7 +2281,6 @@ public class SyntheticsApi {
     if (body == null) {
       throw new ApiException(400, "Missing the required parameter 'body' when calling updateTest");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v1/synthetics/tests/{public_id}"
@@ -2832,82 +2322,44 @@ public class SyntheticsApi {
         false);
   }
 
-  public class APIupdateTestRequest {
-    private String publicId;
-    private SyntheticsTestDetails body;
-
-    private APIupdateTestRequest(String publicId) {
-      this.publicId = publicId;
-    }
-
-    /**
-     * Set body
-     *
-     * @param body New test details to be saved. (required)
-     * @return APIupdateTestRequest
-     */
-    public APIupdateTestRequest body(SyntheticsTestDetails body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Execute updateTest request
-     *
-     * @return SyntheticsTestDetails
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> - JSON format is wrong - Updating sub-type is forbidden </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user - Test can&#39;t be found </td><td>  -  </td></tr>
-     * </table>
-     *
-     * @deprecated
-     */
-    @Deprecated
-    public SyntheticsTestDetails execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute updateTest request with HTTP info returned
-     *
-     * @return ApiResponse&lt;SyntheticsTestDetails&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> - JSON format is wrong - Updating sub-type is forbidden </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user - Test can&#39;t be found </td><td>  -  </td></tr>
-     * </table>
-     *
-     * @deprecated
-     */
-    @Deprecated
-    public ApiResponse<SyntheticsTestDetails> executeWithHttpInfo() throws ApiException {
-      return updateTestWithHttpInfo(publicId, body);
-    }
+  /**
+   * Pause or start a test Pause or start a Synthetics test by changing the status.
+   *
+   * @param publicId The public ID of the Synthetic test to update. (required)
+   * @param body Status to set the given Synthetic test to. (required)
+   * @return Boolean
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK - Returns a boolean indicating if the update was successful. </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> JSON format is wrong. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public Boolean updateTestPauseStatus(String publicId, SyntheticsUpdateTestPauseStatusPayload body)
+      throws ApiException {
+    return updateTestPauseStatusWithHttpInfo(publicId, body).getData();
   }
 
   /**
-   * Edit a test Edit the configuration of a Synthetic test.
+   * Pause or start a test Pause or start a Synthetics test by changing the status.
    *
-   * @param publicId The public ID of the test to get details from. (required)
-   * @return updateTestRequest
+   * @param publicId The public ID of the Synthetic test to update. (required)
+   * @param body Status to set the given Synthetic test to. (required)
+   * @return ApiResponse&lt;Boolean&gt;
    * @throws ApiException if fails to make API call
-   * @deprecated
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK - Returns a boolean indicating if the update was successful. </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> JSON format is wrong. </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
+   *     </table>
    */
-  @Deprecated
-  public APIupdateTestRequest updateTest(String publicId) throws ApiException {
-    return new APIupdateTestRequest(publicId);
-  }
-
-  private ApiResponse<Boolean> updateTestPauseStatusWithHttpInfo(
+  public ApiResponse<Boolean> updateTestPauseStatusWithHttpInfo(
       String publicId, SyntheticsUpdateTestPauseStatusPayload body) throws ApiException {
     Object localVarPostBody = body;
 
@@ -2922,7 +2374,6 @@ public class SyntheticsApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling updateTestPauseStatus");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v1/synthetics/tests/{public_id}/status"
@@ -2961,73 +2412,5 @@ public class SyntheticsApi {
         localVarAuthNames,
         localVarReturnType,
         false);
-  }
-
-  public class APIupdateTestPauseStatusRequest {
-    private String publicId;
-    private SyntheticsUpdateTestPauseStatusPayload body;
-
-    private APIupdateTestPauseStatusRequest(String publicId) {
-      this.publicId = publicId;
-    }
-
-    /**
-     * Set body
-     *
-     * @param body Status to set the given Synthetic test to. (required)
-     * @return APIupdateTestPauseStatusRequest
-     */
-    public APIupdateTestPauseStatusRequest body(SyntheticsUpdateTestPauseStatusPayload body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Execute updateTestPauseStatus request
-     *
-     * @return Boolean
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK - Returns a boolean indicating if the update was successful. </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> JSON format is wrong. </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
-     * </table>
-     */
-    public Boolean execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute updateTestPauseStatus request with HTTP info returned
-     *
-     * @return ApiResponse&lt;Boolean&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK - Returns a boolean indicating if the update was successful. </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> JSON format is wrong. </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> - Synthetic is not activated for the user - Test is not owned by the user </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<Boolean> executeWithHttpInfo() throws ApiException {
-      return updateTestPauseStatusWithHttpInfo(publicId, body);
-    }
-  }
-
-  /**
-   * Pause or start a test Pause or start a Synthetics test by changing the status.
-   *
-   * @param publicId The public ID of the Synthetic test to update. (required)
-   * @return updateTestPauseStatusRequest
-   * @throws ApiException if fails to make API call
-   */
-  public APIupdateTestPauseStatusRequest updateTestPauseStatus(String publicId)
-      throws ApiException {
-    return new APIupdateTestPauseStatusRequest(publicId);
   }
 }

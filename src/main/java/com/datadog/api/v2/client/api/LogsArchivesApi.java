@@ -47,7 +47,44 @@ public class LogsArchivesApi {
     this.apiClient = apiClient;
   }
 
-  private ApiResponse<Void> addReadRoleToArchiveWithHttpInfo(
+  /**
+   * Grant role to an archive Adds a read role to an archive. ([Roles
+   * API](https://docs.datadoghq.com/api/v2/roles/))
+   *
+   * @param archiveId The ID of the archive. (required)
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public void addReadRoleToArchive(String archiveId, RelationshipToRole body) throws ApiException {
+    addReadRoleToArchiveWithHttpInfo(archiveId, body);
+  }
+
+  /**
+   * Grant role to an archive Adds a read role to an archive. ([Roles
+   * API](https://docs.datadoghq.com/api/v2/roles/))
+   *
+   * @param archiveId The ID of the archive. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> addReadRoleToArchiveWithHttpInfo(
       String archiveId, RelationshipToRole body) throws ApiException {
     Object localVarPostBody = body;
 
@@ -62,7 +99,6 @@ public class LogsArchivesApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling addReadRoleToArchive");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v2/logs/config/archives/{archive_id}/readers"
@@ -101,74 +137,39 @@ public class LogsArchivesApi {
         false);
   }
 
-  public class APIaddReadRoleToArchiveRequest {
-    private String archiveId;
-    private RelationshipToRole body;
-
-    private APIaddReadRoleToArchiveRequest(String archiveId) {
-      this.archiveId = archiveId;
-    }
-
-    /**
-     * Set body
-     *
-     * @param body (required)
-     * @return APIaddReadRoleToArchiveRequest
-     */
-    public APIaddReadRoleToArchiveRequest body(RelationshipToRole body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Execute addReadRoleToArchive request
-     *
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public void execute() throws ApiException {
-      this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute addReadRoleToArchive request with HTTP info returned
-     *
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<Void> executeWithHttpInfo() throws ApiException {
-      return addReadRoleToArchiveWithHttpInfo(archiveId, body);
-    }
+  /**
+   * Create an archive Create an archive in your organization.
+   *
+   * @param body The definition of the new archive. (required)
+   * @return LogsArchive
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public LogsArchive createLogsArchive(LogsArchiveCreateRequest body) throws ApiException {
+    return createLogsArchiveWithHttpInfo(body).getData();
   }
 
   /**
-   * Grant role to an archive Adds a read role to an archive. ([Roles
-   * API](https://docs.datadoghq.com/api/v2/roles/))
+   * Create an archive Create an archive in your organization.
    *
-   * @param archiveId The ID of the archive. (required)
-   * @return addReadRoleToArchiveRequest
+   * @param body The definition of the new archive. (required)
+   * @return ApiResponse&lt;LogsArchive&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIaddReadRoleToArchiveRequest addReadRoleToArchive(String archiveId) throws ApiException {
-    return new APIaddReadRoleToArchiveRequest(archiveId);
-  }
-
-  private ApiResponse<LogsArchive> createLogsArchiveWithHttpInfo(LogsArchiveCreateRequest body)
+  public ApiResponse<LogsArchive> createLogsArchiveWithHttpInfo(LogsArchiveCreateRequest body)
       throws ApiException {
     Object localVarPostBody = body;
 
@@ -177,7 +178,6 @@ public class LogsArchivesApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling createLogsArchive");
     }
-
     // create path and map variables
     String localVarPath = "/api/v2/logs/config/archives";
 
@@ -216,68 +216,40 @@ public class LogsArchivesApi {
         false);
   }
 
-  public class APIcreateLogsArchiveRequest {
-    private LogsArchiveCreateRequest body;
-
-    private APIcreateLogsArchiveRequest() {}
-
-    /**
-     * Set body
-     *
-     * @param body The definition of the new archive. (required)
-     * @return APIcreateLogsArchiveRequest
-     */
-    public APIcreateLogsArchiveRequest body(LogsArchiveCreateRequest body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Execute createLogsArchive request
-     *
-     * @return LogsArchive
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * </table>
-     */
-    public LogsArchive execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute createLogsArchive request with HTTP info returned
-     *
-     * @return ApiResponse&lt;LogsArchive&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<LogsArchive> executeWithHttpInfo() throws ApiException {
-      return createLogsArchiveWithHttpInfo(body);
-    }
+  /**
+   * Delete an archive Delete a given archive from your organization.
+   *
+   * @param archiveId The ID of the archive. (required)
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public void deleteLogsArchive(String archiveId) throws ApiException {
+    deleteLogsArchiveWithHttpInfo(archiveId);
   }
 
   /**
-   * Create an archive Create an archive in your organization.
+   * Delete an archive Delete a given archive from your organization.
    *
-   * @return createLogsArchiveRequest
+   * @param archiveId The ID of the archive. (required)
+   * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIcreateLogsArchiveRequest createLogsArchive() throws ApiException {
-    return new APIcreateLogsArchiveRequest();
-  }
-
-  private ApiResponse<Void> deleteLogsArchiveWithHttpInfo(String archiveId) throws ApiException {
+  public ApiResponse<Void> deleteLogsArchiveWithHttpInfo(String archiveId) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'archiveId' is set
@@ -285,7 +257,6 @@ public class LogsArchivesApi {
       throw new ApiException(
           400, "Missing the required parameter 'archiveId' when calling deleteLogsArchive");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v2/logs/config/archives/{archive_id}"
@@ -325,62 +296,41 @@ public class LogsArchivesApi {
         false);
   }
 
-  public class APIdeleteLogsArchiveRequest {
-    private String archiveId;
-
-    private APIdeleteLogsArchiveRequest(String archiveId) {
-      this.archiveId = archiveId;
-    }
-
-    /**
-     * Execute deleteLogsArchive request
-     *
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public void execute() throws ApiException {
-      this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute deleteLogsArchive request with HTTP info returned
-     *
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<Void> executeWithHttpInfo() throws ApiException {
-      return deleteLogsArchiveWithHttpInfo(archiveId);
-    }
+  /**
+   * Get an archive Get a specific archive from your organization.
+   *
+   * @param archiveId The ID of the archive. (required)
+   * @return LogsArchive
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public LogsArchive getLogsArchive(String archiveId) throws ApiException {
+    return getLogsArchiveWithHttpInfo(archiveId).getData();
   }
 
   /**
-   * Delete an archive Delete a given archive from your organization.
+   * Get an archive Get a specific archive from your organization.
    *
    * @param archiveId The ID of the archive. (required)
-   * @return deleteLogsArchiveRequest
+   * @return ApiResponse&lt;LogsArchive&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIdeleteLogsArchiveRequest deleteLogsArchive(String archiveId) throws ApiException {
-    return new APIdeleteLogsArchiveRequest(archiveId);
-  }
-
-  private ApiResponse<LogsArchive> getLogsArchiveWithHttpInfo(String archiveId)
-      throws ApiException {
+  public ApiResponse<LogsArchive> getLogsArchiveWithHttpInfo(String archiveId) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'archiveId' is set
@@ -388,7 +338,6 @@ public class LogsArchivesApi {
       throw new ApiException(
           400, "Missing the required parameter 'archiveId' when calling getLogsArchive");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v2/logs/config/archives/{archive_id}"
@@ -430,64 +379,38 @@ public class LogsArchivesApi {
         false);
   }
 
-  public class APIgetLogsArchiveRequest {
-    private String archiveId;
-
-    private APIgetLogsArchiveRequest(String archiveId) {
-      this.archiveId = archiveId;
-    }
-
-    /**
-     * Execute getLogsArchive request
-     *
-     * @return LogsArchive
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public LogsArchive execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getLogsArchive request with HTTP info returned
-     *
-     * @return ApiResponse&lt;LogsArchive&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<LogsArchive> executeWithHttpInfo() throws ApiException {
-      return getLogsArchiveWithHttpInfo(archiveId);
-    }
+  /**
+   * Get archive order Get the current order of your archives. This endpoint takes no JSON
+   * arguments.
+   *
+   * @return LogsArchiveOrder
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public LogsArchiveOrder getLogsArchiveOrder() throws ApiException {
+    return getLogsArchiveOrderWithHttpInfo().getData();
   }
 
   /**
-   * Get an archive Get a specific archive from your organization.
+   * Get archive order Get the current order of your archives. This endpoint takes no JSON
+   * arguments.
    *
-   * @param archiveId The ID of the archive. (required)
-   * @return getLogsArchiveRequest
+   * @return ApiResponse&lt;LogsArchiveOrder&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIgetLogsArchiveRequest getLogsArchive(String archiveId) throws ApiException {
-    return new APIgetLogsArchiveRequest(archiveId);
-  }
-
-  private ApiResponse<LogsArchiveOrder> getLogsArchiveOrderWithHttpInfo() throws ApiException {
+  public ApiResponse<LogsArchiveOrder> getLogsArchiveOrderWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
-
     // create path and map variables
     String localVarPath = "/api/v2/logs/config/archive-order";
 
@@ -527,55 +450,41 @@ public class LogsArchivesApi {
         false);
   }
 
-  public class APIgetLogsArchiveOrderRequest {
-
-    private APIgetLogsArchiveOrderRequest() {}
-
-    /**
-     * Execute getLogsArchiveOrder request
-     *
-     * @return LogsArchiveOrder
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * </table>
-     */
-    public LogsArchiveOrder execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getLogsArchiveOrder request with HTTP info returned
-     *
-     * @return ApiResponse&lt;LogsArchiveOrder&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<LogsArchiveOrder> executeWithHttpInfo() throws ApiException {
-      return getLogsArchiveOrderWithHttpInfo();
-    }
+  /**
+   * List read roles for an archive Returns all read roles a given archive is restricted to.
+   *
+   * @param archiveId The ID of the archive. (required)
+   * @return RolesResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public RolesResponse listArchiveReadRoles(String archiveId) throws ApiException {
+    return listArchiveReadRolesWithHttpInfo(archiveId).getData();
   }
 
   /**
-   * Get archive order Get the current order of your archives. This endpoint takes no JSON
-   * arguments.
+   * List read roles for an archive Returns all read roles a given archive is restricted to.
    *
-   * @return getLogsArchiveOrderRequest
+   * @param archiveId The ID of the archive. (required)
+   * @return ApiResponse&lt;RolesResponse&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIgetLogsArchiveOrderRequest getLogsArchiveOrder() throws ApiException {
-    return new APIgetLogsArchiveOrderRequest();
-  }
-
-  private ApiResponse<RolesResponse> listArchiveReadRolesWithHttpInfo(String archiveId)
+  public ApiResponse<RolesResponse> listArchiveReadRolesWithHttpInfo(String archiveId)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -584,7 +493,6 @@ public class LogsArchivesApi {
       throw new ApiException(
           400, "Missing the required parameter 'archiveId' when calling listArchiveReadRoles");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v2/logs/config/archives/{archive_id}/readers"
@@ -626,64 +534,36 @@ public class LogsArchivesApi {
         false);
   }
 
-  public class APIlistArchiveReadRolesRequest {
-    private String archiveId;
-
-    private APIlistArchiveReadRolesRequest(String archiveId) {
-      this.archiveId = archiveId;
-    }
-
-    /**
-     * Execute listArchiveReadRoles request
-     *
-     * @return RolesResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public RolesResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute listArchiveReadRoles request with HTTP info returned
-     *
-     * @return ApiResponse&lt;RolesResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<RolesResponse> executeWithHttpInfo() throws ApiException {
-      return listArchiveReadRolesWithHttpInfo(archiveId);
-    }
+  /**
+   * Get all archives Get the list of configured logs archives with their definitions.
+   *
+   * @return LogsArchives
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public LogsArchives listLogsArchives() throws ApiException {
+    return listLogsArchivesWithHttpInfo().getData();
   }
 
   /**
-   * List read roles for an archive Returns all read roles a given archive is restricted to.
+   * Get all archives Get the list of configured logs archives with their definitions.
    *
-   * @param archiveId The ID of the archive. (required)
-   * @return listArchiveReadRolesRequest
+   * @return ApiResponse&lt;LogsArchives&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIlistArchiveReadRolesRequest listArchiveReadRoles(String archiveId) throws ApiException {
-    return new APIlistArchiveReadRolesRequest(archiveId);
-  }
-
-  private ApiResponse<LogsArchives> listLogsArchivesWithHttpInfo() throws ApiException {
+  public ApiResponse<LogsArchives> listLogsArchivesWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
-
     // create path and map variables
     String localVarPath = "/api/v2/logs/config/archives";
 
@@ -723,54 +603,44 @@ public class LogsArchivesApi {
         false);
   }
 
-  public class APIlistLogsArchivesRequest {
-
-    private APIlistLogsArchivesRequest() {}
-
-    /**
-     * Execute listLogsArchives request
-     *
-     * @return LogsArchives
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * </table>
-     */
-    public LogsArchives execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute listLogsArchives request with HTTP info returned
-     *
-     * @return ApiResponse&lt;LogsArchives&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<LogsArchives> executeWithHttpInfo() throws ApiException {
-      return listLogsArchivesWithHttpInfo();
-    }
+  /**
+   * Revoke role from an archive Removes a role from an archive. ([Roles
+   * API](https://docs.datadoghq.com/api/v2/roles/))
+   *
+   * @param archiveId The ID of the archive. (required)
+   * @param body (required)
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public void removeRoleFromArchive(String archiveId, RelationshipToRole body) throws ApiException {
+    removeRoleFromArchiveWithHttpInfo(archiveId, body);
   }
 
   /**
-   * Get all archives Get the list of configured logs archives with their definitions.
+   * Revoke role from an archive Removes a role from an archive. ([Roles
+   * API](https://docs.datadoghq.com/api/v2/roles/))
    *
-   * @return listLogsArchivesRequest
+   * @param archiveId The ID of the archive. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIlistLogsArchivesRequest listLogsArchives() throws ApiException {
-    return new APIlistLogsArchivesRequest();
-  }
-
-  private ApiResponse<Void> removeRoleFromArchiveWithHttpInfo(
+  public ApiResponse<Void> removeRoleFromArchiveWithHttpInfo(
       String archiveId, RelationshipToRole body) throws ApiException {
     Object localVarPostBody = body;
 
@@ -785,7 +655,6 @@ public class LogsArchivesApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling removeRoleFromArchive");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v2/logs/config/archives/{archive_id}/readers"
@@ -824,75 +693,48 @@ public class LogsArchivesApi {
         false);
   }
 
-  public class APIremoveRoleFromArchiveRequest {
-    private String archiveId;
-    private RelationshipToRole body;
-
-    private APIremoveRoleFromArchiveRequest(String archiveId) {
-      this.archiveId = archiveId;
-    }
-
-    /**
-     * Set body
-     *
-     * @param body (required)
-     * @return APIremoveRoleFromArchiveRequest
-     */
-    public APIremoveRoleFromArchiveRequest body(RelationshipToRole body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Execute removeRoleFromArchive request
-     *
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public void execute() throws ApiException {
-      this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute removeRoleFromArchive request with HTTP info returned
-     *
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<Void> executeWithHttpInfo() throws ApiException {
-      return removeRoleFromArchiveWithHttpInfo(archiveId, body);
-    }
+  /**
+   * Update an archive Update a given archive configuration. **Note**: Using this method updates
+   * your archive configuration by **replacing** your current configuration with the new one sent to
+   * your Datadog organization.
+   *
+   * @param archiveId The ID of the archive. (required)
+   * @param body New definition of the archive. (required)
+   * @return LogsArchive
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public LogsArchive updateLogsArchive(String archiveId, LogsArchiveCreateRequest body)
+      throws ApiException {
+    return updateLogsArchiveWithHttpInfo(archiveId, body).getData();
   }
 
   /**
-   * Revoke role from an archive Removes a role from an archive. ([Roles
-   * API](https://docs.datadoghq.com/api/v2/roles/))
+   * Update an archive Update a given archive configuration. **Note**: Using this method updates
+   * your archive configuration by **replacing** your current configuration with the new one sent to
+   * your Datadog organization.
    *
    * @param archiveId The ID of the archive. (required)
-   * @return removeRoleFromArchiveRequest
+   * @param body New definition of the archive. (required)
+   * @return ApiResponse&lt;LogsArchive&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIremoveRoleFromArchiveRequest removeRoleFromArchive(String archiveId)
-      throws ApiException {
-    return new APIremoveRoleFromArchiveRequest(archiveId);
-  }
-
-  private ApiResponse<LogsArchive> updateLogsArchiveWithHttpInfo(
+  public ApiResponse<LogsArchive> updateLogsArchiveWithHttpInfo(
       String archiveId, LogsArchiveCreateRequest body) throws ApiException {
     Object localVarPostBody = body;
 
@@ -907,7 +749,6 @@ public class LogsArchivesApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling updateLogsArchive");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v2/logs/config/archives/{archive_id}"
@@ -948,76 +789,47 @@ public class LogsArchivesApi {
         false);
   }
 
-  public class APIupdateLogsArchiveRequest {
-    private String archiveId;
-    private LogsArchiveCreateRequest body;
-
-    private APIupdateLogsArchiveRequest(String archiveId) {
-      this.archiveId = archiveId;
-    }
-
-    /**
-     * Set body
-     *
-     * @param body New definition of the archive. (required)
-     * @return APIupdateLogsArchiveRequest
-     */
-    public APIupdateLogsArchiveRequest body(LogsArchiveCreateRequest body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Execute updateLogsArchive request
-     *
-     * @return LogsArchive
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public LogsArchive execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute updateLogsArchive request with HTTP info returned
-     *
-     * @return ApiResponse&lt;LogsArchive&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<LogsArchive> executeWithHttpInfo() throws ApiException {
-      return updateLogsArchiveWithHttpInfo(archiveId, body);
-    }
+  /**
+   * Update archive order Update the order of your archives. Since logs are processed sequentially,
+   * reordering an archive may change the structure and content of the data processed by other
+   * archives. **Note**: Using the &#x60;PUT&#x60; method updates your archive&#39;s order by
+   * replacing the current order with the new one.
+   *
+   * @param body An object containing the new ordered list of archive IDs. (required)
+   * @return LogsArchiveOrder
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public LogsArchiveOrder updateLogsArchiveOrder(LogsArchiveOrder body) throws ApiException {
+    return updateLogsArchiveOrderWithHttpInfo(body).getData();
   }
 
   /**
-   * Update an archive Update a given archive configuration. **Note**: Using this method updates
-   * your archive configuration by **replacing** your current configuration with the new one sent to
-   * your Datadog organization.
+   * Update archive order Update the order of your archives. Since logs are processed sequentially,
+   * reordering an archive may change the structure and content of the data processed by other
+   * archives. **Note**: Using the &#x60;PUT&#x60; method updates your archive&#39;s order by
+   * replacing the current order with the new one.
    *
-   * @param archiveId The ID of the archive. (required)
-   * @return updateLogsArchiveRequest
+   * @param body An object containing the new ordered list of archive IDs. (required)
+   * @return ApiResponse&lt;LogsArchiveOrder&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIupdateLogsArchiveRequest updateLogsArchive(String archiveId) throws ApiException {
-    return new APIupdateLogsArchiveRequest(archiveId);
-  }
-
-  private ApiResponse<LogsArchiveOrder> updateLogsArchiveOrderWithHttpInfo(LogsArchiveOrder body)
+  public ApiResponse<LogsArchiveOrder> updateLogsArchiveOrderWithHttpInfo(LogsArchiveOrder body)
       throws ApiException {
     Object localVarPostBody = body;
 
@@ -1026,7 +838,6 @@ public class LogsArchivesApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling updateLogsArchiveOrder");
     }
-
     // create path and map variables
     String localVarPath = "/api/v2/logs/config/archive-order";
 
@@ -1063,71 +874,5 @@ public class LogsArchivesApi {
         localVarAuthNames,
         localVarReturnType,
         false);
-  }
-
-  public class APIupdateLogsArchiveOrderRequest {
-    private LogsArchiveOrder body;
-
-    private APIupdateLogsArchiveOrderRequest() {}
-
-    /**
-     * Set body
-     *
-     * @param body An object containing the new ordered list of archive IDs. (required)
-     * @return APIupdateLogsArchiveOrderRequest
-     */
-    public APIupdateLogsArchiveOrderRequest body(LogsArchiveOrder body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Execute updateLogsArchiveOrder request
-     *
-     * @return LogsArchiveOrder
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-     * </table>
-     */
-    public LogsArchiveOrder execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute updateLogsArchiveOrder request with HTTP info returned
-     *
-     * @return ApiResponse&lt;LogsArchiveOrder&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<LogsArchiveOrder> executeWithHttpInfo() throws ApiException {
-      return updateLogsArchiveOrderWithHttpInfo(body);
-    }
-  }
-
-  /**
-   * Update archive order Update the order of your archives. Since logs are processed sequentially,
-   * reordering an archive may change the structure and content of the data processed by other
-   * archives. **Note**: Using the &#x60;PUT&#x60; method updates your archive&#39;s order by
-   * replacing the current order with the new one.
-   *
-   * @return updateLogsArchiveOrderRequest
-   * @throws ApiException if fails to make API call
-   */
-  public APIupdateLogsArchiveOrderRequest updateLogsArchiveOrder() throws ApiException {
-    return new APIupdateLogsArchiveOrderRequest();
   }
 }

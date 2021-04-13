@@ -47,7 +47,39 @@ public class MetricsApi {
     this.apiClient = apiClient;
   }
 
-  private ApiResponse<MetricMetadata> getMetricMetadataWithHttpInfo(String metricName)
+  /**
+   * Get metric metadata Get metadata about a specific metric.
+   *
+   * @param metricName Name of the metric for which to get metadata. (required)
+   * @return MetricMetadata
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public MetricMetadata getMetricMetadata(String metricName) throws ApiException {
+    return getMetricMetadataWithHttpInfo(metricName).getData();
+  }
+
+  /**
+   * Get metric metadata Get metadata about a specific metric.
+   *
+   * @param metricName Name of the metric for which to get metadata. (required)
+   * @return ApiResponse&lt;MetricMetadata&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<MetricMetadata> getMetricMetadataWithHttpInfo(String metricName)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -56,7 +88,6 @@ public class MetricsApi {
       throw new ApiException(
           400, "Missing the required parameter 'metricName' when calling getMetricMetadata");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v1/metrics/{metric_name}"
@@ -99,61 +130,91 @@ public class MetricsApi {
         false);
   }
 
-  public class APIgetMetricMetadataRequest {
-    private String metricName;
+  /** Manage optional parameters to listActiveMetrics. */
+  public static class ListActiveMetricsOptionalParameters {
+    private String host;
+    private String tagFilter;
 
-    private APIgetMetricMetadataRequest(String metricName) {
-      this.metricName = metricName;
+    /**
+     * Set host
+     *
+     * @param host Hostname for filtering the list of metrics returned. If set, metrics retrieved
+     *     are those with the corresponding hostname tag. (optional)
+     * @return ListActiveMetricsOptionalParameters
+     */
+    public ListActiveMetricsOptionalParameters host(String host) {
+      this.host = host;
+      return this;
     }
 
     /**
-     * Execute getMetricMetadata request
+     * Set tagFilter
      *
-     * @return MetricMetadata
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @param tagFilter Filter metrics that have been submitted with the given tags. Supports
+     *     boolean and wildcard expressions. Cannot be combined with other filters. (optional)
+     * @return ListActiveMetricsOptionalParameters
      */
-    public MetricMetadata execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getMetricMetadata request with HTTP info returned
-     *
-     * @return ApiResponse&lt;MetricMetadata&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<MetricMetadata> executeWithHttpInfo() throws ApiException {
-      return getMetricMetadataWithHttpInfo(metricName);
+    public ListActiveMetricsOptionalParameters tagFilter(String tagFilter) {
+      this.tagFilter = tagFilter;
+      return this;
     }
   }
 
   /**
-   * Get metric metadata Get metadata about a specific metric.
+   * Get active metrics list Get the list of actively reporting metrics from a given time until now.
    *
-   * @param metricName Name of the metric for which to get metadata. (required)
-   * @return getMetricMetadataRequest
+   * @param from Seconds since the Unix epoch. (required)
+   * @return MetricsListResponse
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIgetMetricMetadataRequest getMetricMetadata(String metricName) throws ApiException {
-    return new APIgetMetricMetadataRequest(metricName);
+  public MetricsListResponse listActiveMetrics(Long from) throws ApiException {
+    return listActiveMetricsWithHttpInfo(from, new ListActiveMetricsOptionalParameters()).getData();
   }
 
-  private ApiResponse<MetricsListResponse> listActiveMetricsWithHttpInfo(
-      Long from, String host, String tagFilter) throws ApiException {
+  /**
+   * Get active metrics list Get the list of actively reporting metrics from a given time until now.
+   *
+   * @param from Seconds since the Unix epoch. (required)
+   * @param parameters Optional parameters for the request.
+   * @return MetricsListResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public MetricsListResponse listActiveMetrics(
+      Long from, ListActiveMetricsOptionalParameters parameters) throws ApiException {
+    return listActiveMetricsWithHttpInfo(from, parameters).getData();
+  }
+
+  /**
+   * Get active metrics list Get the list of actively reporting metrics from a given time until now.
+   *
+   * @param from Seconds since the Unix epoch. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;MetricsListResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<MetricsListResponse> listActiveMetricsWithHttpInfo(
+      Long from, ListActiveMetricsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'from' is set
@@ -161,7 +222,8 @@ public class MetricsApi {
       throw new ApiException(
           400, "Missing the required parameter 'from' when calling listActiveMetrics");
     }
-
+    String host = parameters.host;
+    String tagFilter = parameters.tagFilter;
     // create path and map variables
     String localVarPath = "/api/v1/metrics";
 
@@ -205,101 +267,47 @@ public class MetricsApi {
         false);
   }
 
-  public class APIlistActiveMetricsRequest {
-    private Long from;
-    private String host;
-    private String tagFilter;
-
-    private APIlistActiveMetricsRequest() {}
-
-    /**
-     * Set from
-     *
-     * @param from Seconds since the Unix epoch. (required)
-     * @return APIlistActiveMetricsRequest
-     */
-    public APIlistActiveMetricsRequest from(Long from) {
-      this.from = from;
-      return this;
-    }
-
-    /**
-     * Set host
-     *
-     * @param host Hostname for filtering the list of metrics returned. If set, metrics retrieved
-     *     are those with the corresponding hostname tag. (optional)
-     * @return APIlistActiveMetricsRequest
-     */
-    public APIlistActiveMetricsRequest host(String host) {
-      this.host = host;
-      return this;
-    }
-
-    /**
-     * Set tagFilter
-     *
-     * @param tagFilter Filter metrics that have been submitted with the given tags. Supports
-     *     boolean and wildcard expressions. Cannot be combined with other filters. (optional)
-     * @return APIlistActiveMetricsRequest
-     */
-    public APIlistActiveMetricsRequest tagFilter(String tagFilter) {
-      this.tagFilter = tagFilter;
-      return this;
-    }
-
-    /**
-     * Execute listActiveMetrics request
-     *
-     * @return MetricsListResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * </table>
-     */
-    public MetricsListResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute listActiveMetrics request with HTTP info returned
-     *
-     * @return ApiResponse&lt;MetricsListResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<MetricsListResponse> executeWithHttpInfo() throws ApiException {
-      return listActiveMetricsWithHttpInfo(from, host, tagFilter);
-    }
+  /**
+   * Search metrics Search for metrics from the last 24 hours in Datadog.
+   *
+   * @param q Query string to search metrics upon. Must be prefixed with &#x60;metrics:&#x60;.
+   *     (required)
+   * @return MetricSearchResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public MetricSearchResponse listMetrics(String q) throws ApiException {
+    return listMetricsWithHttpInfo(q).getData();
   }
 
   /**
-   * Get active metrics list Get the list of actively reporting metrics from a given time until now.
+   * Search metrics Search for metrics from the last 24 hours in Datadog.
    *
-   * @return listActiveMetricsRequest
+   * @param q Query string to search metrics upon. Must be prefixed with &#x60;metrics:&#x60;.
+   *     (required)
+   * @return ApiResponse&lt;MetricSearchResponse&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIlistActiveMetricsRequest listActiveMetrics() throws ApiException {
-    return new APIlistActiveMetricsRequest();
-  }
-
-  private ApiResponse<MetricSearchResponse> listMetricsWithHttpInfo(String q) throws ApiException {
+  public ApiResponse<MetricSearchResponse> listMetricsWithHttpInfo(String q) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'q' is set
     if (q == null) {
       throw new ApiException(400, "Missing the required parameter 'q' when calling listMetrics");
     }
-
     // create path and map variables
     String localVarPath = "/api/v1/search";
 
@@ -342,69 +350,43 @@ public class MetricsApi {
         false);
   }
 
-  public class APIlistMetricsRequest {
-    private String q;
-
-    private APIlistMetricsRequest() {}
-
-    /**
-     * Set q
-     *
-     * @param q Query string to search metrics upon. Must be prefixed with &#x60;metrics:&#x60;.
-     *     (required)
-     * @return APIlistMetricsRequest
-     */
-    public APIlistMetricsRequest q(String q) {
-      this.q = q;
-      return this;
-    }
-
-    /**
-     * Execute listMetrics request
-     *
-     * @return MetricSearchResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * </table>
-     */
-    public MetricSearchResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute listMetrics request with HTTP info returned
-     *
-     * @return ApiResponse&lt;MetricSearchResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<MetricSearchResponse> executeWithHttpInfo() throws ApiException {
-      return listMetricsWithHttpInfo(q);
-    }
+  /**
+   * Query timeseries points Query timeseries points.
+   *
+   * @param from Start of the queried time period, seconds since the Unix epoch. (required)
+   * @param to End of the queried time period, seconds since the Unix epoch. (required)
+   * @param query Query string. (required)
+   * @return MetricsQueryResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public MetricsQueryResponse queryMetrics(Long from, Long to, String query) throws ApiException {
+    return queryMetricsWithHttpInfo(from, to, query).getData();
   }
 
   /**
-   * Search metrics Search for metrics from the last 24 hours in Datadog.
+   * Query timeseries points Query timeseries points.
    *
-   * @return listMetricsRequest
+   * @param from Start of the queried time period, seconds since the Unix epoch. (required)
+   * @param to End of the queried time period, seconds since the Unix epoch. (required)
+   * @param query Query string. (required)
+   * @return ApiResponse&lt;MetricsQueryResponse&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIlistMetricsRequest listMetrics() throws ApiException {
-    return new APIlistMetricsRequest();
-  }
-
-  private ApiResponse<MetricsQueryResponse> queryMetricsWithHttpInfo(
+  public ApiResponse<MetricsQueryResponse> queryMetricsWithHttpInfo(
       Long from, Long to, String query) throws ApiException {
     Object localVarPostBody = null;
 
@@ -424,7 +406,6 @@ public class MetricsApi {
       throw new ApiException(
           400, "Missing the required parameter 'query' when calling queryMetrics");
     }
-
     // create path and map variables
     String localVarPath = "/api/v1/query";
 
@@ -469,92 +450,55 @@ public class MetricsApi {
         false);
   }
 
-  public class APIqueryMetricsRequest {
-    private Long from;
-    private Long to;
-    private String query;
-
-    private APIqueryMetricsRequest() {}
-
-    /**
-     * Set from
-     *
-     * @param from Start of the queried time period, seconds since the Unix epoch. (required)
-     * @return APIqueryMetricsRequest
-     */
-    public APIqueryMetricsRequest from(Long from) {
-      this.from = from;
-      return this;
-    }
-
-    /**
-     * Set to
-     *
-     * @param to End of the queried time period, seconds since the Unix epoch. (required)
-     * @return APIqueryMetricsRequest
-     */
-    public APIqueryMetricsRequest to(Long to) {
-      this.to = to;
-      return this;
-    }
-
-    /**
-     * Set query
-     *
-     * @param query Query string. (required)
-     * @return APIqueryMetricsRequest
-     */
-    public APIqueryMetricsRequest query(String query) {
-      this.query = query;
-      return this;
-    }
-
-    /**
-     * Execute queryMetrics request
-     *
-     * @return MetricsQueryResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * </table>
-     */
-    public MetricsQueryResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute queryMetrics request with HTTP info returned
-     *
-     * @return ApiResponse&lt;MetricsQueryResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<MetricsQueryResponse> executeWithHttpInfo() throws ApiException {
-      return queryMetricsWithHttpInfo(from, to, query);
-    }
+  /**
+   * Submit metrics The metrics end-point allows you to post time-series data that can be graphed on
+   * Datadog’s dashboards. The maximum payload size is 3.2 megabytes (3200000). Compressed payloads
+   * must have a decompressed size of up to 62 megabytes (62914560). If you’re submitting metrics
+   * directly to the Datadog API without using DogStatsD, expect - 64 bits for the timestamp - 32
+   * bits for the value - 20 bytes for the metric names - 50 bytes for the timeseries - The full
+   * payload is approximately ~ 100 bytes. However, with the DogStatsD API, compression is applied,
+   * which reduces the payload size.
+   *
+   * @param body (required)
+   * @return IntakePayloadAccepted
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 202 </td><td> Payload accepted </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 408 </td><td> Request timeout </td><td>  -  </td></tr>
+   *       <tr><td> 413 </td><td> Payload too large </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public IntakePayloadAccepted submitMetrics(MetricsPayload body) throws ApiException {
+    return submitMetricsWithHttpInfo(body).getData();
   }
 
   /**
-   * Query timeseries points Query timeseries points.
+   * Submit metrics The metrics end-point allows you to post time-series data that can be graphed on
+   * Datadog’s dashboards. The maximum payload size is 3.2 megabytes (3200000). Compressed payloads
+   * must have a decompressed size of up to 62 megabytes (62914560). If you’re submitting metrics
+   * directly to the Datadog API without using DogStatsD, expect - 64 bits for the timestamp - 32
+   * bits for the value - 20 bytes for the metric names - 50 bytes for the timeseries - The full
+   * payload is approximately ~ 100 bytes. However, with the DogStatsD API, compression is applied,
+   * which reduces the payload size.
    *
-   * @return queryMetricsRequest
+   * @param body (required)
+   * @return ApiResponse&lt;IntakePayloadAccepted&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 202 </td><td> Payload accepted </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 408 </td><td> Request timeout </td><td>  -  </td></tr>
+   *       <tr><td> 413 </td><td> Payload too large </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIqueryMetricsRequest queryMetrics() throws ApiException {
-    return new APIqueryMetricsRequest();
-  }
-
-  private ApiResponse<IntakePayloadAccepted> submitMetricsWithHttpInfo(MetricsPayload body)
+  public ApiResponse<IntakePayloadAccepted> submitMetricsWithHttpInfo(MetricsPayload body)
       throws ApiException {
     Object localVarPostBody = body;
 
@@ -563,7 +507,6 @@ public class MetricsApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling submitMetrics");
     }
-
     // create path and map variables
     String localVarPath = "/api/v1/series";
 
@@ -603,78 +546,46 @@ public class MetricsApi {
         false);
   }
 
-  public class APIsubmitMetricsRequest {
-    private MetricsPayload body;
-
-    private APIsubmitMetricsRequest() {}
-
-    /**
-     * Set body
-     *
-     * @param body (required)
-     * @return APIsubmitMetricsRequest
-     */
-    public APIsubmitMetricsRequest body(MetricsPayload body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Execute submitMetrics request
-     *
-     * @return IntakePayloadAccepted
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 202 </td><td> Payload accepted </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-     * <tr><td> 408 </td><td> Request timeout </td><td>  -  </td></tr>
-     * <tr><td> 413 </td><td> Payload too large </td><td>  -  </td></tr>
-     * </table>
-     */
-    public IntakePayloadAccepted execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute submitMetrics request with HTTP info returned
-     *
-     * @return ApiResponse&lt;IntakePayloadAccepted&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 202 </td><td> Payload accepted </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-     * <tr><td> 408 </td><td> Request timeout </td><td>  -  </td></tr>
-     * <tr><td> 413 </td><td> Payload too large </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<IntakePayloadAccepted> executeWithHttpInfo() throws ApiException {
-      return submitMetricsWithHttpInfo(body);
-    }
+  /**
+   * Edit metric metadata Edit metadata of a specific metric. Find out more about [supported
+   * types](https://docs.datadoghq.com/developers/metrics).
+   *
+   * @param metricName Name of the metric for which to edit metadata. (required)
+   * @param body New metadata. (required)
+   * @return MetricMetadata
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public MetricMetadata updateMetricMetadata(String metricName, MetricMetadata body)
+      throws ApiException {
+    return updateMetricMetadataWithHttpInfo(metricName, body).getData();
   }
 
   /**
-   * Submit metrics The metrics end-point allows you to post time-series data that can be graphed on
-   * Datadog’s dashboards. The maximum payload size is 3.2 megabytes (3200000). Compressed payloads
-   * must have a decompressed size of up to 62 megabytes (62914560). If you’re submitting metrics
-   * directly to the Datadog API without using DogStatsD, expect - 64 bits for the timestamp - 32
-   * bits for the value - 20 bytes for the metric names - 50 bytes for the timeseries - The full
-   * payload is approximately ~ 100 bytes. However, with the DogStatsD API, compression is applied,
-   * which reduces the payload size.
+   * Edit metric metadata Edit metadata of a specific metric. Find out more about [supported
+   * types](https://docs.datadoghq.com/developers/metrics).
    *
-   * @return submitMetricsRequest
+   * @param metricName Name of the metric for which to edit metadata. (required)
+   * @param body New metadata. (required)
+   * @return ApiResponse&lt;MetricMetadata&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIsubmitMetricsRequest submitMetrics() throws ApiException {
-    return new APIsubmitMetricsRequest();
-  }
-
-  private ApiResponse<MetricMetadata> updateMetricMetadataWithHttpInfo(
+  public ApiResponse<MetricMetadata> updateMetricMetadataWithHttpInfo(
       String metricName, MetricMetadata body) throws ApiException {
     Object localVarPostBody = body;
 
@@ -689,7 +600,6 @@ public class MetricsApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling updateMetricMetadata");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v1/metrics/{metric_name}"
@@ -729,74 +639,5 @@ public class MetricsApi {
         localVarAuthNames,
         localVarReturnType,
         false);
-  }
-
-  public class APIupdateMetricMetadataRequest {
-    private String metricName;
-    private MetricMetadata body;
-
-    private APIupdateMetricMetadataRequest(String metricName) {
-      this.metricName = metricName;
-    }
-
-    /**
-     * Set body
-     *
-     * @param body New metadata. (required)
-     * @return APIupdateMetricMetadataRequest
-     */
-    public APIupdateMetricMetadataRequest body(MetricMetadata body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Execute updateMetricMetadata request
-     *
-     * @return MetricMetadata
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public MetricMetadata execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute updateMetricMetadata request with HTTP info returned
-     *
-     * @return ApiResponse&lt;MetricMetadata&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<MetricMetadata> executeWithHttpInfo() throws ApiException {
-      return updateMetricMetadataWithHttpInfo(metricName, body);
-    }
-  }
-
-  /**
-   * Edit metric metadata Edit metadata of a specific metric. Find out more about [supported
-   * types](https://docs.datadoghq.com/developers/metrics).
-   *
-   * @param metricName Name of the metric for which to edit metadata. (required)
-   * @return updateMetricMetadataRequest
-   * @throws ApiException if fails to make API call
-   */
-  public APIupdateMetricMetadataRequest updateMetricMetadata(String metricName)
-      throws ApiException {
-    return new APIupdateMetricMetadataRequest(metricName);
   }
 }

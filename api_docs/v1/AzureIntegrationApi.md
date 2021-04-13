@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## createAzureIntegration
 
-> Object createAzureIntegration().body(body).execute();
+> Object createAzureIntegration(body);
 
 Create an Azure integration
 
@@ -45,9 +45,7 @@ public class Example {
         AzureIntegrationApi apiInstance = new AzureIntegrationApi(defaultClient);
         AzureAccount body = new AzureAccount(); // AzureAccount | Create a Datadog-Azure integration for your Datadog account request body.
         try {
-            Object result = apiInstance.createAzureIntegration()
-                .body(body)
-                .execute();
+            Object result = apiInstance.createAzureIntegration(body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AzureIntegrationApi#createAzureIntegration");
@@ -90,7 +88,7 @@ Name | Type | Description  | Notes
 
 ## deleteAzureIntegration
 
-> Object deleteAzureIntegration().body(body).execute();
+> Object deleteAzureIntegration(body);
 
 Delete an Azure integration
 
@@ -115,9 +113,7 @@ public class Example {
         AzureIntegrationApi apiInstance = new AzureIntegrationApi(defaultClient);
         AzureAccount body = new AzureAccount(); // AzureAccount | Delete a given Datadog-Azure integration request body.
         try {
-            Object result = apiInstance.deleteAzureIntegration()
-                .body(body)
-                .execute();
+            Object result = apiInstance.deleteAzureIntegration(body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AzureIntegrationApi#deleteAzureIntegration");
@@ -160,7 +156,7 @@ Name | Type | Description  | Notes
 
 ## listAzureIntegration
 
-> List&lt;AzureAccount&gt; listAzureIntegration().execute();
+> List&lt;AzureAccount&gt; listAzureIntegration();
 
 List all Azure integrations
 
@@ -184,8 +180,7 @@ public class Example {
 
         AzureIntegrationApi apiInstance = new AzureIntegrationApi(defaultClient);
         try {
-            List<AzureAccount> result = apiInstance.listAzureIntegration()
-                .execute();
+            List<AzureAccount> result = apiInstance.listAzureIntegration();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AzureIntegrationApi#listAzureIntegration");
@@ -225,7 +220,7 @@ This endpoint does not need any parameter.
 
 ## updateAzureHostFilters
 
-> Object updateAzureHostFilters().body(body).execute();
+> Object updateAzureHostFilters(body);
 
 Update Azure integration host filters
 
@@ -250,9 +245,7 @@ public class Example {
         AzureIntegrationApi apiInstance = new AzureIntegrationApi(defaultClient);
         AzureAccount body = new AzureAccount(); // AzureAccount | Update a Datadog-Azure integration's host filters request body.
         try {
-            Object result = apiInstance.updateAzureHostFilters()
-                .body(body)
-                .execute();
+            Object result = apiInstance.updateAzureHostFilters(body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AzureIntegrationApi#updateAzureHostFilters");
@@ -295,7 +288,7 @@ Name | Type | Description  | Notes
 
 ## updateAzureIntegration
 
-> Object updateAzureIntegration().body(body).execute();
+> Object updateAzureIntegration(body);
 
 Update an Azure integration
 
@@ -322,9 +315,7 @@ public class Example {
         AzureIntegrationApi apiInstance = new AzureIntegrationApi(defaultClient);
         AzureAccount body = new AzureAccount(); // AzureAccount | Update a Datadog-Azure integration request body.
         try {
-            Object result = apiInstance.updateAzureIntegration()
-                .body(body)
-                .execute();
+            Object result = apiInstance.updateAzureIntegration(body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AzureIntegrationApi#updateAzureIntegration");

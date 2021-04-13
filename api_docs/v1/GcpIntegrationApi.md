@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## createGCPIntegration
 
-> Object createGCPIntegration().body(body).execute();
+> Object createGCPIntegration(body);
 
 Create a GCP integration
 
@@ -38,9 +38,7 @@ public class Example {
         GcpIntegrationApi apiInstance = new GcpIntegrationApi(defaultClient);
         GCPAccount body = new GCPAccount(); // GCPAccount | Create a Datadog-GCP integration.
         try {
-            Object result = apiInstance.createGCPIntegration()
-                .body(body)
-                .execute();
+            Object result = apiInstance.createGCPIntegration(body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling GcpIntegrationApi#createGCPIntegration");
@@ -83,7 +81,7 @@ Name | Type | Description  | Notes
 
 ## deleteGCPIntegration
 
-> Object deleteGCPIntegration().body(body).execute();
+> Object deleteGCPIntegration(body);
 
 Delete a GCP integration
 
@@ -108,9 +106,7 @@ public class Example {
         GcpIntegrationApi apiInstance = new GcpIntegrationApi(defaultClient);
         GCPAccount body = new GCPAccount(); // GCPAccount | Delete a given Datadog-GCP integration.
         try {
-            Object result = apiInstance.deleteGCPIntegration()
-                .body(body)
-                .execute();
+            Object result = apiInstance.deleteGCPIntegration(body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling GcpIntegrationApi#deleteGCPIntegration");
@@ -153,7 +149,7 @@ Name | Type | Description  | Notes
 
 ## listGCPIntegration
 
-> List&lt;GCPAccount&gt; listGCPIntegration().execute();
+> List&lt;GCPAccount&gt; listGCPIntegration();
 
 List all GCP integrations
 
@@ -177,8 +173,7 @@ public class Example {
 
         GcpIntegrationApi apiInstance = new GcpIntegrationApi(defaultClient);
         try {
-            List<GCPAccount> result = apiInstance.listGCPIntegration()
-                .execute();
+            List<GCPAccount> result = apiInstance.listGCPIntegration();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling GcpIntegrationApi#listGCPIntegration");
@@ -218,7 +213,7 @@ This endpoint does not need any parameter.
 
 ## updateGCPIntegration
 
-> Object updateGCPIntegration().body(body).execute();
+> Object updateGCPIntegration(body);
 
 Update a GCP integration
 
@@ -246,9 +241,7 @@ public class Example {
         GcpIntegrationApi apiInstance = new GcpIntegrationApi(defaultClient);
         GCPAccount body = new GCPAccount(); // GCPAccount | Update a Datadog-GCP integration.
         try {
-            Object result = apiInstance.updateGCPIntegration()
-                .body(body)
-                .execute();
+            Object result = apiInstance.updateGCPIntegration(body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling GcpIntegrationApi#updateGCPIntegration");

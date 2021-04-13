@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## createIncident
 
-> IncidentResponse createIncident().body(body).execute();
+> IncidentResponse createIncident(body);
 
 Create an incident
 
@@ -39,9 +39,7 @@ public class Example {
         IncidentsApi apiInstance = new IncidentsApi(defaultClient);
         IncidentCreateRequest body = new IncidentCreateRequest(); // IncidentCreateRequest | Incident payload.
         try {
-            IncidentResponse result = apiInstance.createIncident()
-                .body(body)
-                .execute();
+            IncidentResponse result = apiInstance.createIncident(body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling IncidentsApi#createIncident");
@@ -86,7 +84,7 @@ Name | Type | Description  | Notes
 
 ## deleteIncident
 
-> deleteIncident(incidentId).execute();
+> deleteIncident(incidentId);
 
 Delete an existing incident
 
@@ -111,8 +109,7 @@ public class Example {
         IncidentsApi apiInstance = new IncidentsApi(defaultClient);
         String incidentId = "incidentId_example"; // String | The UUID the incident.
         try {
-            apiInstance.deleteIncident(incidentId)
-                .execute();
+            apiInstance.deleteIncident(incidentId);
         } catch (ApiException e) {
             System.err.println("Exception when calling IncidentsApi#deleteIncident");
             System.err.println("Status code: " + e.getCode());
@@ -156,7 +153,7 @@ null (empty response body)
 
 ## getIncident
 
-> IncidentResponse getIncident(incidentId).include(include).execute();
+> IncidentResponse getIncident(incidentId, parameters);
 
 Get the details of an incident
 
@@ -182,9 +179,8 @@ public class Example {
         String incidentId = "incidentId_example"; // String | The UUID the incident.
         List<IncidentRelatedObject> include = Arrays.asList(); // List<IncidentRelatedObject> | Specifies which types of related objects should be included in the response.
         try {
-            IncidentResponse result = apiInstance.getIncident(incidentId)
-                .include(include)
-                .execute();
+	    IncidentResponse result = apiInstance.getIncident(incidentId, new IncidentsApi.GetIncidentOptionalParameters()
+                .include(include));
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling IncidentsApi#getIncident");
@@ -230,7 +226,7 @@ Name | Type | Description  | Notes
 
 ## listIncidents
 
-> IncidentsResponse listIncidents().include(include).pageSize(pageSize).pageOffset(pageOffset).execute();
+> IncidentsResponse listIncidents(parameters);
 
 Get a list of incidents
 
@@ -257,11 +253,10 @@ public class Example {
         Long pageSize = 10L; // Long | Size for a given page.
         Long pageOffset = 0L; // Long | Specific offset to use as the beginning of the returned page.
         try {
-            IncidentsResponse result = apiInstance.listIncidents()
+	    IncidentsResponse result = apiInstance.listIncidents(new IncidentsApi.ListIncidentsOptionalParameters()
                 .include(include)
                 .pageSize(pageSize)
-                .pageOffset(pageOffset)
-                .execute();
+                .pageOffset(pageOffset));
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling IncidentsApi#listIncidents");
@@ -308,7 +303,7 @@ Name | Type | Description  | Notes
 
 ## updateIncident
 
-> IncidentResponse updateIncident(incidentId).body(body).execute();
+> IncidentResponse updateIncident(incidentId, body);
 
 Update an existing incident
 
@@ -334,9 +329,7 @@ public class Example {
         String incidentId = "incidentId_example"; // String | The UUID the incident.
         IncidentUpdateRequest body = new IncidentUpdateRequest(); // IncidentUpdateRequest | Incident Payload.
         try {
-            IncidentResponse result = apiInstance.updateIncident(incidentId)
-                .body(body)
-                .execute();
+            IncidentResponse result = apiInstance.updateIncident(incidentId, body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling IncidentsApi#updateIncident");

@@ -47,7 +47,47 @@ public class AwsIntegrationApi {
     this.apiClient = apiClient;
   }
 
-  private ApiResponse<AWSAccountCreateResponse> createAWSAccountWithHttpInfo(AWSAccount body)
+  /**
+   * Create an AWS integration Create a Datadog-Amazon Web Services integration. Using the
+   * &#x60;POST&#x60; method updates your integration configuration by adding your new configuration
+   * to the existing one in your Datadog organization. A unique AWS Account ID for role based
+   * authentication.
+   *
+   * @param body AWS Request Object (required)
+   * @return AWSAccountCreateResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public AWSAccountCreateResponse createAWSAccount(AWSAccount body) throws ApiException {
+    return createAWSAccountWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create an AWS integration Create a Datadog-Amazon Web Services integration. Using the
+   * &#x60;POST&#x60; method updates your integration configuration by adding your new configuration
+   * to the existing one in your Datadog organization. A unique AWS Account ID for role based
+   * authentication.
+   *
+   * @param body AWS Request Object (required)
+   * @return ApiResponse&lt;AWSAccountCreateResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AWSAccountCreateResponse> createAWSAccountWithHttpInfo(AWSAccount body)
       throws ApiException {
     Object localVarPostBody = body;
 
@@ -56,7 +96,6 @@ public class AwsIntegrationApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling createAWSAccount");
     }
-
     // create path and map variables
     String localVarPath = "/api/v1/integration/aws";
 
@@ -96,73 +135,45 @@ public class AwsIntegrationApi {
         false);
   }
 
-  public class APIcreateAWSAccountRequest {
-    private AWSAccount body;
-
-    private APIcreateAWSAccountRequest() {}
-
-    /**
-     * Set body
-     *
-     * @param body AWS Request Object (required)
-     * @return APIcreateAWSAccountRequest
-     */
-    public APIcreateAWSAccountRequest body(AWSAccount body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Execute createAWSAccount request
-     *
-     * @return AWSAccountCreateResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AWSAccountCreateResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute createAWSAccount request with HTTP info returned
-     *
-     * @return ApiResponse&lt;AWSAccountCreateResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AWSAccountCreateResponse> executeWithHttpInfo() throws ApiException {
-      return createAWSAccountWithHttpInfo(body);
-    }
+  /**
+   * Set an AWS tag filter Set an AWS tag filter.
+   *
+   * @param body Set an AWS tag filter using an &#x60;aws_account_identifier&#x60;,
+   *     &#x60;namespace&#x60;, and filtering string. Namespace options are
+   *     &#x60;application_elb&#x60;, &#x60;elb&#x60;, &#x60;lambda&#x60;, &#x60;network_elb&#x60;,
+   *     &#x60;rds&#x60;, &#x60;sqs&#x60;, and &#x60;custom&#x60;. (required)
+   * @return Object
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public Object createAWSTagFilter(AWSTagFilterCreateRequest body) throws ApiException {
+    return createAWSTagFilterWithHttpInfo(body).getData();
   }
 
   /**
-   * Create an AWS integration Create a Datadog-Amazon Web Services integration. Using the
-   * &#x60;POST&#x60; method updates your integration configuration by adding your new configuration
-   * to the existing one in your Datadog organization. A unique AWS Account ID for role based
-   * authentication.
+   * Set an AWS tag filter Set an AWS tag filter.
    *
-   * @return createAWSAccountRequest
+   * @param body Set an AWS tag filter using an &#x60;aws_account_identifier&#x60;,
+   *     &#x60;namespace&#x60;, and filtering string. Namespace options are
+   *     &#x60;application_elb&#x60;, &#x60;elb&#x60;, &#x60;lambda&#x60;, &#x60;network_elb&#x60;,
+   *     &#x60;rds&#x60;, &#x60;sqs&#x60;, and &#x60;custom&#x60;. (required)
+   * @return ApiResponse&lt;Object&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIcreateAWSAccountRequest createAWSAccount() throws ApiException {
-    return new APIcreateAWSAccountRequest();
-  }
-
-  private ApiResponse<Object> createAWSTagFilterWithHttpInfo(AWSTagFilterCreateRequest body)
+  public ApiResponse<Object> createAWSTagFilterWithHttpInfo(AWSTagFilterCreateRequest body)
       throws ApiException {
     Object localVarPostBody = body;
 
@@ -171,7 +182,6 @@ public class AwsIntegrationApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling createAWSTagFilter");
     }
-
     // create path and map variables
     String localVarPath = "/api/v1/integration/aws/filtering";
 
@@ -210,72 +220,47 @@ public class AwsIntegrationApi {
         false);
   }
 
-  public class APIcreateAWSTagFilterRequest {
-    private AWSTagFilterCreateRequest body;
-
-    private APIcreateAWSTagFilterRequest() {}
-
-    /**
-     * Set body
-     *
-     * @param body Set an AWS tag filter using an &#x60;aws_account_identifier&#x60;,
-     *     &#x60;namespace&#x60;, and filtering string. Namespace options are
-     *     &#x60;application_elb&#x60;, &#x60;elb&#x60;, &#x60;lambda&#x60;,
-     *     &#x60;network_elb&#x60;, &#x60;rds&#x60;, &#x60;sqs&#x60;, and &#x60;custom&#x60;.
-     *     (required)
-     * @return APIcreateAWSTagFilterRequest
-     */
-    public APIcreateAWSTagFilterRequest body(AWSTagFilterCreateRequest body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Execute createAWSTagFilter request
-     *
-     * @return Object
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-     * </table>
-     */
-    public Object execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute createAWSTagFilter request with HTTP info returned
-     *
-     * @return ApiResponse&lt;Object&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
-      return createAWSTagFilterWithHttpInfo(body);
-    }
+  /**
+   * Generate a new external ID Generate a new AWS external ID for a given AWS account ID and role
+   * name pair.
+   *
+   * @param body Your Datadog role delegation name. For more information about your AWS account Role
+   *     name, see the [Datadog AWS integration configuration
+   *     info](https://github.com/DataDog/documentation/blob/master/integrations/amazon_web_services/#installation).
+   *     (required)
+   * @return AWSAccountCreateResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public AWSAccountCreateResponse createNewAWSExternalID(AWSAccount body) throws ApiException {
+    return createNewAWSExternalIDWithHttpInfo(body).getData();
   }
 
   /**
-   * Set an AWS tag filter Set an AWS tag filter.
+   * Generate a new external ID Generate a new AWS external ID for a given AWS account ID and role
+   * name pair.
    *
-   * @return createAWSTagFilterRequest
+   * @param body Your Datadog role delegation name. For more information about your AWS account Role
+   *     name, see the [Datadog AWS integration configuration
+   *     info](https://github.com/DataDog/documentation/blob/master/integrations/amazon_web_services/#installation).
+   *     (required)
+   * @return ApiResponse&lt;AWSAccountCreateResponse&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIcreateAWSTagFilterRequest createAWSTagFilter() throws ApiException {
-    return new APIcreateAWSTagFilterRequest();
-  }
-
-  private ApiResponse<AWSAccountCreateResponse> createNewAWSExternalIDWithHttpInfo(AWSAccount body)
+  public ApiResponse<AWSAccountCreateResponse> createNewAWSExternalIDWithHttpInfo(AWSAccount body)
       throws ApiException {
     Object localVarPostBody = body;
 
@@ -284,7 +269,6 @@ public class AwsIntegrationApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling createNewAWSExternalID");
     }
-
     // create path and map variables
     String localVarPath = "/api/v1/integration/aws/generate_new_external_id";
 
@@ -324,72 +308,43 @@ public class AwsIntegrationApi {
         false);
   }
 
-  public class APIcreateNewAWSExternalIDRequest {
-    private AWSAccount body;
-
-    private APIcreateNewAWSExternalIDRequest() {}
-
-    /**
-     * Set body
-     *
-     * @param body Your Datadog role delegation name. For more information about your AWS account
-     *     Role name, see the [Datadog AWS integration configuration
-     *     info](https://github.com/DataDog/documentation/blob/master/integrations/amazon_web_services/#installation).
-     *     (required)
-     * @return APIcreateNewAWSExternalIDRequest
-     */
-    public APIcreateNewAWSExternalIDRequest body(AWSAccount body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Execute createNewAWSExternalID request
-     *
-     * @return AWSAccountCreateResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AWSAccountCreateResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute createNewAWSExternalID request with HTTP info returned
-     *
-     * @return ApiResponse&lt;AWSAccountCreateResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AWSAccountCreateResponse> executeWithHttpInfo() throws ApiException {
-      return createNewAWSExternalIDWithHttpInfo(body);
-    }
+  /**
+   * Delete an AWS integration Delete a Datadog-AWS integration matching the specified
+   * &#x60;account_id&#x60; and &#x60;role_name parameters&#x60;.
+   *
+   * @param body AWS request object (required)
+   * @return Object
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public Object deleteAWSAccount(AWSAccount body) throws ApiException {
+    return deleteAWSAccountWithHttpInfo(body).getData();
   }
 
   /**
-   * Generate a new external ID Generate a new AWS external ID for a given AWS account ID and role
-   * name pair.
+   * Delete an AWS integration Delete a Datadog-AWS integration matching the specified
+   * &#x60;account_id&#x60; and &#x60;role_name parameters&#x60;.
    *
-   * @return createNewAWSExternalIDRequest
+   * @param body AWS request object (required)
+   * @return ApiResponse&lt;Object&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIcreateNewAWSExternalIDRequest createNewAWSExternalID() throws ApiException {
-    return new APIcreateNewAWSExternalIDRequest();
-  }
-
-  private ApiResponse<Object> deleteAWSAccountWithHttpInfo(AWSAccount body) throws ApiException {
+  public ApiResponse<Object> deleteAWSAccountWithHttpInfo(AWSAccount body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -397,7 +352,6 @@ public class AwsIntegrationApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling deleteAWSAccount");
     }
-
     // create path and map variables
     String localVarPath = "/api/v1/integration/aws";
 
@@ -436,71 +390,41 @@ public class AwsIntegrationApi {
         false);
   }
 
-  public class APIdeleteAWSAccountRequest {
-    private AWSAccount body;
-
-    private APIdeleteAWSAccountRequest() {}
-
-    /**
-     * Set body
-     *
-     * @param body AWS request object (required)
-     * @return APIdeleteAWSAccountRequest
-     */
-    public APIdeleteAWSAccountRequest body(AWSAccount body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Execute deleteAWSAccount request
-     *
-     * @return Object
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
-     * </table>
-     */
-    public Object execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute deleteAWSAccount request with HTTP info returned
-     *
-     * @return ApiResponse&lt;Object&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
-      return deleteAWSAccountWithHttpInfo(body);
-    }
+  /**
+   * Delete a tag filtering entry Delete a tag filtering entry.
+   *
+   * @param body Delete a tag filtering entry for a given AWS account and &#x60;dd-aws&#x60;
+   *     namespace. (required)
+   * @return Object
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public Object deleteAWSTagFilter(AWSTagFilterDeleteRequest body) throws ApiException {
+    return deleteAWSTagFilterWithHttpInfo(body).getData();
   }
 
   /**
-   * Delete an AWS integration Delete a Datadog-AWS integration matching the specified
-   * &#x60;account_id&#x60; and &#x60;role_name parameters&#x60;.
+   * Delete a tag filtering entry Delete a tag filtering entry.
    *
-   * @return deleteAWSAccountRequest
+   * @param body Delete a tag filtering entry for a given AWS account and &#x60;dd-aws&#x60;
+   *     namespace. (required)
+   * @return ApiResponse&lt;Object&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIdeleteAWSAccountRequest deleteAWSAccount() throws ApiException {
-    return new APIdeleteAWSAccountRequest();
-  }
-
-  private ApiResponse<Object> deleteAWSTagFilterWithHttpInfo(AWSTagFilterDeleteRequest body)
+  public ApiResponse<Object> deleteAWSTagFilterWithHttpInfo(AWSTagFilterDeleteRequest body)
       throws ApiException {
     Object localVarPostBody = body;
 
@@ -509,7 +433,6 @@ public class AwsIntegrationApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling deleteAWSTagFilter");
     }
-
     // create path and map variables
     String localVarPath = "/api/v1/integration/aws/filtering";
 
@@ -548,72 +471,107 @@ public class AwsIntegrationApi {
         false);
   }
 
-  public class APIdeleteAWSTagFilterRequest {
-    private AWSTagFilterDeleteRequest body;
-
-    private APIdeleteAWSTagFilterRequest() {}
+  /** Manage optional parameters to listAWSAccounts. */
+  public static class ListAWSAccountsOptionalParameters {
+    private String accountId;
+    private String roleName;
+    private String accessKeyId;
 
     /**
-     * Set body
+     * Set accountId
      *
-     * @param body Delete a tag filtering entry for a given AWS account and &#x60;dd-aws&#x60;
-     *     namespace. (required)
-     * @return APIdeleteAWSTagFilterRequest
+     * @param accountId Only return AWS accounts that matches this &#x60;account_id&#x60;.
+     *     (optional)
+     * @return ListAWSAccountsOptionalParameters
      */
-    public APIdeleteAWSTagFilterRequest body(AWSTagFilterDeleteRequest body) {
-      this.body = body;
+    public ListAWSAccountsOptionalParameters accountId(String accountId) {
+      this.accountId = accountId;
       return this;
     }
 
     /**
-     * Execute deleteAWSTagFilter request
+     * Set roleName
      *
-     * @return Object
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-     * </table>
+     * @param roleName Only return AWS accounts that matches this role_name. (optional)
+     * @return ListAWSAccountsOptionalParameters
      */
-    public Object execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
+    public ListAWSAccountsOptionalParameters roleName(String roleName) {
+      this.roleName = roleName;
+      return this;
     }
 
     /**
-     * Execute deleteAWSTagFilter request with HTTP info returned
+     * Set accessKeyId
      *
-     * @return ApiResponse&lt;Object&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-     * </table>
+     * @param accessKeyId Only return AWS accounts that matches this &#x60;access_key_id&#x60;.
+     *     (optional)
+     * @return ListAWSAccountsOptionalParameters
      */
-    public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
-      return deleteAWSTagFilterWithHttpInfo(body);
+    public ListAWSAccountsOptionalParameters accessKeyId(String accessKeyId) {
+      this.accessKeyId = accessKeyId;
+      return this;
     }
   }
 
   /**
-   * Delete a tag filtering entry Delete a tag filtering entry.
+   * List all AWS integrations List all Datadog-AWS integrations available in your Datadog
+   * organization.
    *
-   * @return deleteAWSTagFilterRequest
+   * @return AWSAccountListResponse
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIdeleteAWSTagFilterRequest deleteAWSTagFilter() throws ApiException {
-    return new APIdeleteAWSTagFilterRequest();
+  public AWSAccountListResponse listAWSAccounts() throws ApiException {
+    return listAWSAccountsWithHttpInfo(new ListAWSAccountsOptionalParameters()).getData();
   }
 
-  private ApiResponse<AWSAccountListResponse> listAWSAccountsWithHttpInfo(
-      String accountId, String roleName, String accessKeyId) throws ApiException {
-    Object localVarPostBody = null;
+  /**
+   * List all AWS integrations List all Datadog-AWS integrations available in your Datadog
+   * organization.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return AWSAccountListResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public AWSAccountListResponse listAWSAccounts(ListAWSAccountsOptionalParameters parameters)
+      throws ApiException {
+    return listAWSAccountsWithHttpInfo(parameters).getData();
+  }
 
+  /**
+   * List all AWS integrations List all Datadog-AWS integrations available in your Datadog
+   * organization.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;AWSAccountListResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<AWSAccountListResponse> listAWSAccountsWithHttpInfo(
+      ListAWSAccountsOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+    String accountId = parameters.accountId;
+    String roleName = parameters.roleName;
+    String accessKeyId = parameters.accessKeyId;
     // create path and map variables
     String localVarPath = "/api/v1/integration/aws";
 
@@ -658,95 +616,39 @@ public class AwsIntegrationApi {
         false);
   }
 
-  public class APIlistAWSAccountsRequest {
-    private String accountId;
-    private String roleName;
-    private String accessKeyId;
-
-    private APIlistAWSAccountsRequest() {}
-
-    /**
-     * Set accountId
-     *
-     * @param accountId Only return AWS accounts that matches this &#x60;account_id&#x60;.
-     *     (optional)
-     * @return APIlistAWSAccountsRequest
-     */
-    public APIlistAWSAccountsRequest accountId(String accountId) {
-      this.accountId = accountId;
-      return this;
-    }
-
-    /**
-     * Set roleName
-     *
-     * @param roleName Only return AWS accounts that matches this role_name. (optional)
-     * @return APIlistAWSAccountsRequest
-     */
-    public APIlistAWSAccountsRequest roleName(String roleName) {
-      this.roleName = roleName;
-      return this;
-    }
-
-    /**
-     * Set accessKeyId
-     *
-     * @param accessKeyId Only return AWS accounts that matches this &#x60;access_key_id&#x60;.
-     *     (optional)
-     * @return APIlistAWSAccountsRequest
-     */
-    public APIlistAWSAccountsRequest accessKeyId(String accessKeyId) {
-      this.accessKeyId = accessKeyId;
-      return this;
-    }
-
-    /**
-     * Execute listAWSAccounts request
-     *
-     * @return AWSAccountListResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AWSAccountListResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute listAWSAccounts request with HTTP info returned
-     *
-     * @return ApiResponse&lt;AWSAccountListResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AWSAccountListResponse> executeWithHttpInfo() throws ApiException {
-      return listAWSAccountsWithHttpInfo(accountId, roleName, accessKeyId);
-    }
+  /**
+   * Get all AWS tag filters Get all AWS tag filters.
+   *
+   * @param accountId Only return AWS filters that matches this &#x60;account_id&#x60;. (required)
+   * @return AWSTagFilterListResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public AWSTagFilterListResponse listAWSTagFilters(String accountId) throws ApiException {
+    return listAWSTagFiltersWithHttpInfo(accountId).getData();
   }
 
   /**
-   * List all AWS integrations List all Datadog-AWS integrations available in your Datadog
-   * organization.
+   * Get all AWS tag filters Get all AWS tag filters.
    *
-   * @return listAWSAccountsRequest
+   * @param accountId Only return AWS filters that matches this &#x60;account_id&#x60;. (required)
+   * @return ApiResponse&lt;AWSTagFilterListResponse&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIlistAWSAccountsRequest listAWSAccounts() throws ApiException {
-    return new APIlistAWSAccountsRequest();
-  }
-
-  private ApiResponse<AWSTagFilterListResponse> listAWSTagFiltersWithHttpInfo(String accountId)
+  public ApiResponse<AWSTagFilterListResponse> listAWSTagFiltersWithHttpInfo(String accountId)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -755,7 +657,6 @@ public class AwsIntegrationApi {
       throw new ApiException(
           400, "Missing the required parameter 'accountId' when calling listAWSTagFilters");
     }
-
     // create path and map variables
     String localVarPath = "/api/v1/integration/aws/filtering";
 
@@ -798,70 +699,38 @@ public class AwsIntegrationApi {
         false);
   }
 
-  public class APIlistAWSTagFiltersRequest {
-    private String accountId;
-
-    private APIlistAWSTagFiltersRequest() {}
-
-    /**
-     * Set accountId
-     *
-     * @param accountId Only return AWS filters that matches this &#x60;account_id&#x60;. (required)
-     * @return APIlistAWSTagFiltersRequest
-     */
-    public APIlistAWSTagFiltersRequest accountId(String accountId) {
-      this.accountId = accountId;
-      return this;
-    }
-
-    /**
-     * Execute listAWSTagFilters request
-     *
-     * @return AWSTagFilterListResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-     * </table>
-     */
-    public AWSTagFilterListResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute listAWSTagFilters request with HTTP info returned
-     *
-     * @return ApiResponse&lt;AWSTagFilterListResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<AWSTagFilterListResponse> executeWithHttpInfo() throws ApiException {
-      return listAWSTagFiltersWithHttpInfo(accountId);
-    }
+  /**
+   * List namespace rules List all namespace rules for a given Datadog-AWS integration. This
+   * endpoint takes no arguments.
+   *
+   * @return List&lt;String&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public List<String> listAvailableAWSNamespaces() throws ApiException {
+    return listAvailableAWSNamespacesWithHttpInfo().getData();
   }
 
   /**
-   * Get all AWS tag filters Get all AWS tag filters.
+   * List namespace rules List all namespace rules for a given Datadog-AWS integration. This
+   * endpoint takes no arguments.
    *
-   * @return listAWSTagFiltersRequest
+   * @return ApiResponse&lt;List&lt;String&gt;&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIlistAWSTagFiltersRequest listAWSTagFilters() throws ApiException {
-    return new APIlistAWSTagFiltersRequest();
-  }
-
-  private ApiResponse<List<String>> listAvailableAWSNamespacesWithHttpInfo() throws ApiException {
+  public ApiResponse<List<String>> listAvailableAWSNamespacesWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
-
     // create path and map variables
     String localVarPath = "/api/v1/integration/aws/available_namespace_rules";
 
@@ -901,56 +770,107 @@ public class AwsIntegrationApi {
         false);
   }
 
-  public class APIlistAvailableAWSNamespacesRequest {
-
-    private APIlistAvailableAWSNamespacesRequest() {}
+  /** Manage optional parameters to updateAWSAccount. */
+  public static class UpdateAWSAccountOptionalParameters {
+    private String accountId;
+    private String roleName;
+    private String accessKeyId;
 
     /**
-     * Execute listAvailableAWSNamespaces request
+     * Set accountId
      *
-     * @return List&lt;String&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-     * </table>
+     * @param accountId Only return AWS accounts that matches this &#x60;account_id&#x60;.
+     *     (optional)
+     * @return UpdateAWSAccountOptionalParameters
      */
-    public List<String> execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
+    public UpdateAWSAccountOptionalParameters accountId(String accountId) {
+      this.accountId = accountId;
+      return this;
     }
 
     /**
-     * Execute listAvailableAWSNamespaces request with HTTP info returned
+     * Set roleName
      *
-     * @return ApiResponse&lt;List&lt;String&gt;&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-     * </table>
+     * @param roleName Only return AWS accounts that match this &#x60;role_name&#x60;. Required if
+     *     &#x60;account_id&#x60; is specified. (optional)
+     * @return UpdateAWSAccountOptionalParameters
      */
-    public ApiResponse<List<String>> executeWithHttpInfo() throws ApiException {
-      return listAvailableAWSNamespacesWithHttpInfo();
+    public UpdateAWSAccountOptionalParameters roleName(String roleName) {
+      this.roleName = roleName;
+      return this;
+    }
+
+    /**
+     * Set accessKeyId
+     *
+     * @param accessKeyId Only return AWS accounts that matches this &#x60;access_key_id&#x60;.
+     *     Required if none of the other two options are specified. (optional)
+     * @return UpdateAWSAccountOptionalParameters
+     */
+    public UpdateAWSAccountOptionalParameters accessKeyId(String accessKeyId) {
+      this.accessKeyId = accessKeyId;
+      return this;
     }
   }
 
   /**
-   * List namespace rules List all namespace rules for a given Datadog-AWS integration. This
-   * endpoint takes no arguments.
+   * Update an AWS integration Update a Datadog-Amazon Web Services integration.
    *
-   * @return listAvailableAWSNamespacesRequest
+   * @param body AWS request object (required)
+   * @return Object
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIlistAvailableAWSNamespacesRequest listAvailableAWSNamespaces() throws ApiException {
-    return new APIlistAvailableAWSNamespacesRequest();
+  public Object updateAWSAccount(AWSAccount body) throws ApiException {
+    return updateAWSAccountWithHttpInfo(body, new UpdateAWSAccountOptionalParameters()).getData();
   }
 
-  private ApiResponse<Object> updateAWSAccountWithHttpInfo(
-      AWSAccount body, String accountId, String roleName, String accessKeyId) throws ApiException {
+  /**
+   * Update an AWS integration Update a Datadog-Amazon Web Services integration.
+   *
+   * @param body AWS request object (required)
+   * @param parameters Optional parameters for the request.
+   * @return Object
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public Object updateAWSAccount(AWSAccount body, UpdateAWSAccountOptionalParameters parameters)
+      throws ApiException {
+    return updateAWSAccountWithHttpInfo(body, parameters).getData();
+  }
+
+  /**
+   * Update an AWS integration Update a Datadog-Amazon Web Services integration.
+   *
+   * @param body AWS request object (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;Object&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Object> updateAWSAccountWithHttpInfo(
+      AWSAccount body, UpdateAWSAccountOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -958,7 +878,9 @@ public class AwsIntegrationApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling updateAWSAccount");
     }
-
+    String accountId = parameters.accountId;
+    String roleName = parameters.roleName;
+    String accessKeyId = parameters.accessKeyId;
     // create path and map variables
     String localVarPath = "/api/v1/integration/aws";
 
@@ -999,107 +921,5 @@ public class AwsIntegrationApi {
         localVarAuthNames,
         localVarReturnType,
         false);
-  }
-
-  public class APIupdateAWSAccountRequest {
-    private AWSAccount body;
-    private String accountId;
-    private String roleName;
-    private String accessKeyId;
-
-    private APIupdateAWSAccountRequest() {}
-
-    /**
-     * Set body
-     *
-     * @param body AWS request object (required)
-     * @return APIupdateAWSAccountRequest
-     */
-    public APIupdateAWSAccountRequest body(AWSAccount body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Set accountId
-     *
-     * @param accountId Only return AWS accounts that matches this &#x60;account_id&#x60;.
-     *     (optional)
-     * @return APIupdateAWSAccountRequest
-     */
-    public APIupdateAWSAccountRequest accountId(String accountId) {
-      this.accountId = accountId;
-      return this;
-    }
-
-    /**
-     * Set roleName
-     *
-     * @param roleName Only return AWS accounts that match this &#x60;role_name&#x60;. Required if
-     *     &#x60;account_id&#x60; is specified. (optional)
-     * @return APIupdateAWSAccountRequest
-     */
-    public APIupdateAWSAccountRequest roleName(String roleName) {
-      this.roleName = roleName;
-      return this;
-    }
-
-    /**
-     * Set accessKeyId
-     *
-     * @param accessKeyId Only return AWS accounts that matches this &#x60;access_key_id&#x60;.
-     *     Required if none of the other two options are specified. (optional)
-     * @return APIupdateAWSAccountRequest
-     */
-    public APIupdateAWSAccountRequest accessKeyId(String accessKeyId) {
-      this.accessKeyId = accessKeyId;
-      return this;
-    }
-
-    /**
-     * Execute updateAWSAccount request
-     *
-     * @return Object
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
-     * </table>
-     */
-    public Object execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute updateAWSAccount request with HTTP info returned
-     *
-     * @return ApiResponse&lt;Object&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
-      return updateAWSAccountWithHttpInfo(body, accountId, roleName, accessKeyId);
-    }
-  }
-
-  /**
-   * Update an AWS integration Update a Datadog-Amazon Web Services integration.
-   *
-   * @return updateAWSAccountRequest
-   * @throws ApiException if fails to make API call
-   */
-  public APIupdateAWSAccountRequest updateAWSAccount() throws ApiException {
-    return new APIupdateAWSAccountRequest();
   }
 }

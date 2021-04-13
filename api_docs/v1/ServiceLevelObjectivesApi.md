@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 ## checkCanDeleteSLO
 
-> CheckCanDeleteSLOResponse checkCanDeleteSLO().ids(ids).execute();
+> CheckCanDeleteSLOResponse checkCanDeleteSLO(ids);
 
 Check if SLOs can be safely deleted
 
@@ -43,9 +43,7 @@ public class Example {
         ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
         String ids = "id1, id2, id3"; // String | A comma separated list of the IDs of the service level objectives objects.
         try {
-            CheckCanDeleteSLOResponse result = apiInstance.checkCanDeleteSLO()
-                .ids(ids)
-                .execute();
+            CheckCanDeleteSLOResponse result = apiInstance.checkCanDeleteSLO(ids);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ServiceLevelObjectivesApi#checkCanDeleteSLO");
@@ -89,7 +87,7 @@ Name | Type | Description  | Notes
 
 ## createSLO
 
-> SLOListResponse createSLO().body(body).execute();
+> SLOListResponse createSLO(body);
 
 Create an SLO object
 
@@ -114,9 +112,7 @@ public class Example {
         ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
         ServiceLevelObjectiveRequest body = new ServiceLevelObjectiveRequest(); // ServiceLevelObjectiveRequest | Service level objective request object.
         try {
-            SLOListResponse result = apiInstance.createSLO()
-                .body(body)
-                .execute();
+            SLOListResponse result = apiInstance.createSLO(body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ServiceLevelObjectivesApi#createSLO");
@@ -159,7 +155,7 @@ Name | Type | Description  | Notes
 
 ## deleteSLO
 
-> SLODeleteResponse deleteSLO(sloId).force(force).execute();
+> SLODeleteResponse deleteSLO(sloId, parameters);
 
 Delete an SLO
 
@@ -188,9 +184,8 @@ public class Example {
         String sloId = "sloId_example"; // String | The ID of the service level objective.
         String force = "force_example"; // String | Delete the monitor even if it's referenced by other resources (e.g. SLO, composite monitor).
         try {
-            SLODeleteResponse result = apiInstance.deleteSLO(sloId)
-                .force(force)
-                .execute();
+	    SLODeleteResponse result = apiInstance.deleteSLO(sloId, new ServiceLevelObjectivesApi.DeleteSLOOptionalParameters()
+                .force(force));
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ServiceLevelObjectivesApi#deleteSLO");
@@ -235,7 +230,7 @@ Name | Type | Description  | Notes
 
 ## deleteSLOTimeframeInBulk
 
-> SLOBulkDeleteResponse deleteSLOTimeframeInBulk().body(body).execute();
+> SLOBulkDeleteResponse deleteSLOTimeframeInBulk(body);
 
 Bulk Delete SLO Timeframes
 
@@ -264,9 +259,7 @@ public class Example {
         ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
         Map<String, List<SLOTimeframe>> body = new HashMap(); // Map<String, List<SLOTimeframe>> | Delete multiple service level objective objects request body.
         try {
-            SLOBulkDeleteResponse result = apiInstance.deleteSLOTimeframeInBulk()
-                .body(body)
-                .execute();
+            SLOBulkDeleteResponse result = apiInstance.deleteSLOTimeframeInBulk(body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ServiceLevelObjectivesApi#deleteSLOTimeframeInBulk");
@@ -309,7 +302,7 @@ Name | Type | Description  | Notes
 
 ## getSLO
 
-> SLOResponse getSLO(sloId).execute();
+> SLOResponse getSLO(sloId);
 
 Get an SLO&#39;s details
 
@@ -334,8 +327,7 @@ public class Example {
         ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
         String sloId = "sloId_example"; // String | The ID of the service level objective object.
         try {
-            SLOResponse result = apiInstance.getSLO(sloId)
-                .execute();
+            SLOResponse result = apiInstance.getSLO(sloId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ServiceLevelObjectivesApi#getSLO");
@@ -378,7 +370,7 @@ Name | Type | Description  | Notes
 
 ## getSLOHistory
 
-> SLOHistoryResponse getSLOHistory(sloId).fromTs(fromTs).toTs(toTs).target(target).execute();
+> SLOHistoryResponse getSLOHistory(sloId, fromTs, toTs, parameters);
 
 Get an SLO&#39;s history
 
@@ -413,11 +405,8 @@ public class Example {
         Long toTs = 56L; // Long | The `to` timestamp for the query window in epoch seconds.
         Double target = 3.4D; // Double | The SLO target. If `target` is passed in, the response will include the error budget that remains.
         try {
-            SLOHistoryResponse result = apiInstance.getSLOHistory(sloId)
-                .fromTs(fromTs)
-                .toTs(toTs)
-                .target(target)
-                .execute();
+	    SLOHistoryResponse result = apiInstance.getSLOHistory(sloId, fromTs, toTs, new ServiceLevelObjectivesApi.GetSLOHistoryOptionalParameters()
+                .target(target));
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ServiceLevelObjectivesApi#getSLOHistory");
@@ -464,7 +453,7 @@ Name | Type | Description  | Notes
 
 ## listSLOs
 
-> SLOListResponse listSLOs().ids(ids).query(query).tagsQuery(tagsQuery).metricsQuery(metricsQuery).execute();
+> SLOListResponse listSLOs(parameters);
 
 Get all SLOs
 
@@ -492,12 +481,11 @@ public class Example {
         String tagsQuery = "env:prod"; // String | The query string to filter results based on a single SLO tag.
         String metricsQuery = "aws.elb.request_count"; // String | The query string to filter results based on SLO numerator and denominator.
         try {
-            SLOListResponse result = apiInstance.listSLOs()
+	    SLOListResponse result = apiInstance.listSLOs(new ServiceLevelObjectivesApi.ListSLOsOptionalParameters()
                 .ids(ids)
                 .query(query)
                 .tagsQuery(tagsQuery)
-                .metricsQuery(metricsQuery)
-                .execute();
+                .metricsQuery(metricsQuery));
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ServiceLevelObjectivesApi#listSLOs");
@@ -544,7 +532,7 @@ Name | Type | Description  | Notes
 
 ## updateSLO
 
-> SLOListResponse updateSLO(sloId).body(body).execute();
+> SLOListResponse updateSLO(sloId, body);
 
 Update an SLO
 
@@ -570,9 +558,7 @@ public class Example {
         String sloId = "sloId_example"; // String | The ID of the service level objective object.
         ServiceLevelObjective body = new ServiceLevelObjective(); // ServiceLevelObjective | The edited service level objective request object.
         try {
-            SLOListResponse result = apiInstance.updateSLO(sloId)
-                .body(body)
-                .execute();
+            SLOListResponse result = apiInstance.updateSLO(sloId, body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ServiceLevelObjectivesApi#updateSLO");

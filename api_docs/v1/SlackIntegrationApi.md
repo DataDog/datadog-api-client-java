@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## createSlackIntegrationChannel
 
-> SlackIntegrationChannel createSlackIntegrationChannel(accountName).body(body).execute();
+> SlackIntegrationChannel createSlackIntegrationChannel(accountName, body);
 
 Create a Slack integration channel
 
@@ -40,9 +40,7 @@ public class Example {
         String accountName = "accountName_example"; // String | Your Slack account name.
         SlackIntegrationChannel body = new SlackIntegrationChannel(); // SlackIntegrationChannel | Payload describing Slack channel to be created
         try {
-            SlackIntegrationChannel result = apiInstance.createSlackIntegrationChannel(accountName)
-                .body(body)
-                .execute();
+            SlackIntegrationChannel result = apiInstance.createSlackIntegrationChannel(accountName, body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SlackIntegrationApi#createSlackIntegrationChannel");
@@ -87,7 +85,7 @@ Name | Type | Description  | Notes
 
 ## getSlackIntegrationChannel
 
-> SlackIntegrationChannel getSlackIntegrationChannel(accountName, channelName).execute();
+> SlackIntegrationChannel getSlackIntegrationChannel(accountName, channelName);
 
 Get a Slack integration channel
 
@@ -113,8 +111,7 @@ public class Example {
         String accountName = "accountName_example"; // String | Your Slack account name.
         String channelName = "channelName_example"; // String | The name of the Slack channel being operated on.
         try {
-            SlackIntegrationChannel result = apiInstance.getSlackIntegrationChannel(accountName, channelName)
-                .execute();
+            SlackIntegrationChannel result = apiInstance.getSlackIntegrationChannel(accountName, channelName);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SlackIntegrationApi#getSlackIntegrationChannel");
@@ -159,7 +156,7 @@ Name | Type | Description  | Notes
 
 ## getSlackIntegrationChannels
 
-> List&lt;SlackIntegrationChannel&gt; getSlackIntegrationChannels(accountName).execute();
+> List&lt;SlackIntegrationChannel&gt; getSlackIntegrationChannels(accountName);
 
 Get all channels in a Slack integration
 
@@ -184,8 +181,7 @@ public class Example {
         SlackIntegrationApi apiInstance = new SlackIntegrationApi(defaultClient);
         String accountName = "accountName_example"; // String | Your Slack account name.
         try {
-            List<SlackIntegrationChannel> result = apiInstance.getSlackIntegrationChannels(accountName)
-                .execute();
+            List<SlackIntegrationChannel> result = apiInstance.getSlackIntegrationChannels(accountName);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SlackIntegrationApi#getSlackIntegrationChannels");
@@ -229,7 +225,7 @@ Name | Type | Description  | Notes
 
 ## removeSlackIntegrationChannel
 
-> removeSlackIntegrationChannel(accountName, channelName).execute();
+> removeSlackIntegrationChannel(accountName, channelName);
 
 Remove a Slack integration channel
 
@@ -255,8 +251,7 @@ public class Example {
         String accountName = "accountName_example"; // String | Your Slack account name.
         String channelName = "channelName_example"; // String | The name of the Slack channel being operated on.
         try {
-            apiInstance.removeSlackIntegrationChannel(accountName, channelName)
-                .execute();
+            apiInstance.removeSlackIntegrationChannel(accountName, channelName);
         } catch (ApiException e) {
             System.err.println("Exception when calling SlackIntegrationApi#removeSlackIntegrationChannel");
             System.err.println("Status code: " + e.getCode());
@@ -300,7 +295,7 @@ null (empty response body)
 
 ## updateSlackIntegrationChannel
 
-> SlackIntegrationChannel updateSlackIntegrationChannel(accountName, channelName).body(body).execute();
+> SlackIntegrationChannel updateSlackIntegrationChannel(accountName, channelName, body);
 
 Update a Slack integration channel
 
@@ -327,9 +322,7 @@ public class Example {
         String channelName = "channelName_example"; // String | The name of the Slack channel being operated on.
         SlackIntegrationChannel body = new SlackIntegrationChannel(); // SlackIntegrationChannel | Payload describing fields and values to be updated.
         try {
-            SlackIntegrationChannel result = apiInstance.updateSlackIntegrationChannel(accountName, channelName)
-                .body(body)
-                .execute();
+            SlackIntegrationChannel result = apiInstance.updateSlackIntegrationChannel(accountName, channelName, body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SlackIntegrationApi#updateSlackIntegrationChannel");

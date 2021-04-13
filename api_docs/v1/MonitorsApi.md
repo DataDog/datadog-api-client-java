@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## checkCanDeleteMonitor
 
-> CheckCanDeleteMonitorResponse checkCanDeleteMonitor().monitorIds(monitorIds).execute();
+> CheckCanDeleteMonitorResponse checkCanDeleteMonitor(monitorIds);
 
 Check if a monitor can be deleted
 
@@ -41,9 +41,7 @@ public class Example {
         MonitorsApi apiInstance = new MonitorsApi(defaultClient);
         List<Long> monitorIds = Arrays.asList(); // List<Long> | The IDs of the monitor to check.
         try {
-            CheckCanDeleteMonitorResponse result = apiInstance.checkCanDeleteMonitor()
-                .monitorIds(monitorIds)
-                .execute();
+            CheckCanDeleteMonitorResponse result = apiInstance.checkCanDeleteMonitor(monitorIds);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling MonitorsApi#checkCanDeleteMonitor");
@@ -87,7 +85,7 @@ Name | Type | Description  | Notes
 
 ## createMonitor
 
-> Monitor createMonitor().body(body).execute();
+> Monitor createMonitor(body);
 
 Create a monitor
 
@@ -232,9 +230,7 @@ public class Example {
         MonitorsApi apiInstance = new MonitorsApi(defaultClient);
         Monitor body = new Monitor(); // Monitor | Create a monitor request body.
         try {
-            Monitor result = apiInstance.createMonitor()
-                .body(body)
-                .execute();
+            Monitor result = apiInstance.createMonitor(body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling MonitorsApi#createMonitor");
@@ -277,7 +273,7 @@ Name | Type | Description  | Notes
 
 ## deleteMonitor
 
-> DeletedMonitor deleteMonitor(monitorId).force(force).execute();
+> DeletedMonitor deleteMonitor(monitorId, parameters);
 
 Delete a monitor
 
@@ -303,9 +299,8 @@ public class Example {
         Long monitorId = 56L; // Long | The ID of the monitor.
         String force = "force_example"; // String | Delete the monitor even if it's referenced by other resources (e.g. SLO, composite monitor).
         try {
-            DeletedMonitor result = apiInstance.deleteMonitor(monitorId)
-                .force(force)
-                .execute();
+	    DeletedMonitor result = apiInstance.deleteMonitor(monitorId, new MonitorsApi.DeleteMonitorOptionalParameters()
+                .force(force));
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling MonitorsApi#deleteMonitor");
@@ -351,7 +346,7 @@ Name | Type | Description  | Notes
 
 ## getMonitor
 
-> Monitor getMonitor(monitorId).groupStates(groupStates).execute();
+> Monitor getMonitor(monitorId, parameters);
 
 Get a monitor&#39;s details
 
@@ -377,9 +372,8 @@ public class Example {
         Long monitorId = 56L; // Long | The ID of the monitor
         String groupStates = "groupStates_example"; // String | When specified, shows additional information about the group states. Choose one or more from `all`, `alert`, `warn`, and `no data`.
         try {
-            Monitor result = apiInstance.getMonitor(monitorId)
-                .groupStates(groupStates)
-                .execute();
+	    Monitor result = apiInstance.getMonitor(monitorId, new MonitorsApi.GetMonitorOptionalParameters()
+                .groupStates(groupStates));
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling MonitorsApi#getMonitor");
@@ -424,7 +418,7 @@ Name | Type | Description  | Notes
 
 ## listMonitors
 
-> List&lt;Monitor&gt; listMonitors().groupStates(groupStates).name(name).tags(tags).monitorTags(monitorTags).withDowntimes(withDowntimes).idOffset(idOffset).page(page).pageSize(pageSize).execute();
+> List&lt;Monitor&gt; listMonitors(parameters);
 
 Get all monitor details
 
@@ -456,7 +450,7 @@ public class Example {
         Long page = 56L; // Long | The page to start paginating from. If this argument is not specified, the request returns all monitors without pagination.
         Integer pageSize = 56; // Integer | The number of monitors to return per page. If the page argument is not specified, the default behavior returns all monitors without a `page_size` limit. However, if page is specified and `page_size` is not, the argument defaults to 100.
         try {
-            List<Monitor> result = apiInstance.listMonitors()
+	    List<Monitor> result = apiInstance.listMonitors(new MonitorsApi.ListMonitorsOptionalParameters()
                 .groupStates(groupStates)
                 .name(name)
                 .tags(tags)
@@ -464,8 +458,7 @@ public class Example {
                 .withDowntimes(withDowntimes)
                 .idOffset(idOffset)
                 .page(page)
-                .pageSize(pageSize)
-                .execute();
+                .pageSize(pageSize));
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling MonitorsApi#listMonitors");
@@ -515,7 +508,7 @@ Name | Type | Description  | Notes
 
 ## updateMonitor
 
-> Monitor updateMonitor(monitorId).body(body).execute();
+> Monitor updateMonitor(monitorId, body);
 
 Edit a monitor
 
@@ -541,9 +534,7 @@ public class Example {
         Long monitorId = 56L; // Long | The ID of the monitor.
         MonitorUpdateRequest body = new MonitorUpdateRequest(); // MonitorUpdateRequest | Edit a monitor request body.
         try {
-            Monitor result = apiInstance.updateMonitor(monitorId)
-                .body(body)
-                .execute();
+            Monitor result = apiInstance.updateMonitor(monitorId, body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling MonitorsApi#updateMonitor");
@@ -589,7 +580,7 @@ Name | Type | Description  | Notes
 
 ## validateMonitor
 
-> Monitor validateMonitor().body(body).execute();
+> Monitor validateMonitor(body);
 
 Validate a monitor
 
@@ -614,9 +605,7 @@ public class Example {
         MonitorsApi apiInstance = new MonitorsApi(defaultClient);
         Monitor body = new Monitor(); // Monitor | Monitor request object
         try {
-            Monitor result = apiInstance.validateMonitor()
-                .body(body)
-                .execute();
+            Monitor result = apiInstance.validateMonitor(body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling MonitorsApi#validateMonitor");

@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## createLogsIndex
 
-> LogsIndex createLogsIndex().body(body).execute();
+> LogsIndex createLogsIndex(body);
 
 Create an index
 
@@ -40,9 +40,7 @@ public class Example {
         LogsIndexesApi apiInstance = new LogsIndexesApi(defaultClient);
         LogsIndex body = new LogsIndex(); // LogsIndex | Object containing the new index.
         try {
-            LogsIndex result = apiInstance.createLogsIndex()
-                .body(body)
-                .execute();
+            LogsIndex result = apiInstance.createLogsIndex(body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling LogsIndexesApi#createLogsIndex");
@@ -85,7 +83,7 @@ Name | Type | Description  | Notes
 
 ## getLogsIndex
 
-> LogsIndex getLogsIndex(name).execute();
+> LogsIndex getLogsIndex(name);
 
 Get an index
 
@@ -110,8 +108,7 @@ public class Example {
         LogsIndexesApi apiInstance = new LogsIndexesApi(defaultClient);
         String name = "name_example"; // String | Name of the log index.
         try {
-            LogsIndex result = apiInstance.getLogsIndex(name)
-                .execute();
+            LogsIndex result = apiInstance.getLogsIndex(name);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling LogsIndexesApi#getLogsIndex");
@@ -154,7 +151,7 @@ Name | Type | Description  | Notes
 
 ## getLogsIndexOrder
 
-> LogsIndexesOrder getLogsIndexOrder().execute();
+> LogsIndexesOrder getLogsIndexOrder();
 
 Get indexes order
 
@@ -178,8 +175,7 @@ public class Example {
 
         LogsIndexesApi apiInstance = new LogsIndexesApi(defaultClient);
         try {
-            LogsIndexesOrder result = apiInstance.getLogsIndexOrder()
-                .execute();
+            LogsIndexesOrder result = apiInstance.getLogsIndexOrder();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling LogsIndexesApi#getLogsIndexOrder");
@@ -218,7 +214,7 @@ This endpoint does not need any parameter.
 
 ## listLogIndexes
 
-> LogsIndexListResponse listLogIndexes().execute();
+> LogsIndexListResponse listLogIndexes();
 
 Get all indexes
 
@@ -243,8 +239,7 @@ public class Example {
 
         LogsIndexesApi apiInstance = new LogsIndexesApi(defaultClient);
         try {
-            LogsIndexListResponse result = apiInstance.listLogIndexes()
-                .execute();
+            LogsIndexListResponse result = apiInstance.listLogIndexes();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling LogsIndexesApi#listLogIndexes");
@@ -283,7 +278,7 @@ This endpoint does not need any parameter.
 
 ## updateLogsIndex
 
-> LogsIndex updateLogsIndex(name).body(body).execute();
+> LogsIndex updateLogsIndex(name, body);
 
 Update an index
 
@@ -313,9 +308,7 @@ public class Example {
         String name = "name_example"; // String | Name of the log index.
         LogsIndexUpdateRequest body = new LogsIndexUpdateRequest(); // LogsIndexUpdateRequest | Object containing the new `LogsIndexUpdateRequest`.
         try {
-            LogsIndex result = apiInstance.updateLogsIndex(name)
-                .body(body)
-                .execute();
+            LogsIndex result = apiInstance.updateLogsIndex(name, body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling LogsIndexesApi#updateLogsIndex");
@@ -360,7 +353,7 @@ Name | Type | Description  | Notes
 
 ## updateLogsIndexOrder
 
-> LogsIndexesOrder updateLogsIndexOrder().body(body).execute();
+> LogsIndexesOrder updateLogsIndexOrder(body);
 
 Update indexes order
 
@@ -386,9 +379,7 @@ public class Example {
         LogsIndexesApi apiInstance = new LogsIndexesApi(defaultClient);
         LogsIndexesOrder body = new LogsIndexesOrder(); // LogsIndexesOrder | Object containing the new ordered list of index names
         try {
-            LogsIndexesOrder result = apiInstance.updateLogsIndexOrder()
-                .body(body)
-                .execute();
+            LogsIndexesOrder result = apiInstance.updateLogsIndexOrder(body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling LogsIndexesApi#updateLogsIndexOrder");
