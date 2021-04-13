@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## getMetricMetadata
 
-> MetricMetadata getMetricMetadata(metricName).execute();
+> MetricMetadata getMetricMetadata(metricName);
 
 Get metric metadata
 
@@ -40,8 +40,7 @@ public class Example {
         MetricsApi apiInstance = new MetricsApi(defaultClient);
         String metricName = "metricName_example"; // String | Name of the metric for which to get metadata.
         try {
-            MetricMetadata result = apiInstance.getMetricMetadata(metricName)
-                .execute();
+            MetricMetadata result = apiInstance.getMetricMetadata(metricName);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling MetricsApi#getMetricMetadata");
@@ -84,7 +83,7 @@ Name | Type | Description  | Notes
 
 ## listActiveMetrics
 
-> MetricsListResponse listActiveMetrics().from(from).host(host).tagFilter(tagFilter).execute();
+> MetricsListResponse listActiveMetrics(from, parameters);
 
 Get active metrics list
 
@@ -111,11 +110,9 @@ public class Example {
         String host = "host_example"; // String | Hostname for filtering the list of metrics returned. If set, metrics retrieved are those with the corresponding hostname tag.
         String tagFilter = "env IN (staging,test) AND service:web"; // String | Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters.
         try {
-            MetricsListResponse result = apiInstance.listActiveMetrics()
-                .from(from)
+	    MetricsListResponse result = apiInstance.listActiveMetrics(from, new MetricsApi.ListActiveMetricsOptionalParameters()
                 .host(host)
-                .tagFilter(tagFilter)
-                .execute();
+                .tagFilter(tagFilter));
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling MetricsApi#listActiveMetrics");
@@ -160,7 +157,7 @@ Name | Type | Description  | Notes
 
 ## listMetrics
 
-> MetricSearchResponse listMetrics().q(q).execute();
+> MetricSearchResponse listMetrics(q);
 
 Search metrics
 
@@ -185,9 +182,7 @@ public class Example {
         MetricsApi apiInstance = new MetricsApi(defaultClient);
         String q = "q_example"; // String | Query string to search metrics upon. Must be prefixed with `metrics:`.
         try {
-            MetricSearchResponse result = apiInstance.listMetrics()
-                .q(q)
-                .execute();
+            MetricSearchResponse result = apiInstance.listMetrics(q);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling MetricsApi#listMetrics");
@@ -230,7 +225,7 @@ Name | Type | Description  | Notes
 
 ## queryMetrics
 
-> MetricsQueryResponse queryMetrics().from(from).to(to).query(query).execute();
+> MetricsQueryResponse queryMetrics(from, to, query);
 
 Query timeseries points
 
@@ -257,11 +252,7 @@ public class Example {
         Long to = 56L; // Long | End of the queried time period, seconds since the Unix epoch.
         String query = "query_example"; // String | Query string.
         try {
-            MetricsQueryResponse result = apiInstance.queryMetrics()
-                .from(from)
-                .to(to)
-                .query(query)
-                .execute();
+            MetricsQueryResponse result = apiInstance.queryMetrics(from, to, query);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling MetricsApi#queryMetrics");
@@ -306,7 +297,7 @@ Name | Type | Description  | Notes
 
 ## submitMetrics
 
-> IntakePayloadAccepted submitMetrics().body(body).execute();
+> IntakePayloadAccepted submitMetrics(body);
 
 Submit metrics
 
@@ -341,9 +332,7 @@ public class Example {
         MetricsApi apiInstance = new MetricsApi(defaultClient);
         MetricsPayload body = new MetricsPayload(); // MetricsPayload | 
         try {
-            IntakePayloadAccepted result = apiInstance.submitMetrics()
-                .body(body)
-                .execute();
+            IntakePayloadAccepted result = apiInstance.submitMetrics(body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling MetricsApi#submitMetrics");
@@ -388,7 +377,7 @@ Name | Type | Description  | Notes
 
 ## updateMetricMetadata
 
-> MetricMetadata updateMetricMetadata(metricName).body(body).execute();
+> MetricMetadata updateMetricMetadata(metricName, body);
 
 Edit metric metadata
 
@@ -414,9 +403,7 @@ public class Example {
         String metricName = "metricName_example"; // String | Name of the metric for which to edit metadata.
         MetricMetadata body = new MetricMetadata(); // MetricMetadata | New metadata.
         try {
-            MetricMetadata result = apiInstance.updateMetricMetadata(metricName)
-                .body(body)
-                .execute();
+            MetricMetadata result = apiInstance.updateMetricMetadata(metricName, body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling MetricsApi#updateMetricMetadata");

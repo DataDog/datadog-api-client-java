@@ -49,7 +49,40 @@ public class SecurityMonitoringApi {
     this.apiClient = apiClient;
   }
 
-  private ApiResponse<SecurityMonitoringRuleResponse> createSecurityMonitoringRuleWithHttpInfo(
+  /**
+   * Create a detection rule Create a detection rule.
+   *
+   * @param body (required)
+   * @return SecurityMonitoringRuleResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public SecurityMonitoringRuleResponse createSecurityMonitoringRule(
+      SecurityMonitoringRuleCreatePayload body) throws ApiException {
+    return createSecurityMonitoringRuleWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create a detection rule Create a detection rule.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;SecurityMonitoringRuleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringRuleResponse> createSecurityMonitoringRuleWithHttpInfo(
       SecurityMonitoringRuleCreatePayload body) throws ApiException {
     Object localVarPostBody = body;
 
@@ -58,7 +91,6 @@ public class SecurityMonitoringApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling createSecurityMonitoringRule");
     }
-
     // create path and map variables
     String localVarPath = "/api/v2/security_monitoring/rules";
 
@@ -98,68 +130,38 @@ public class SecurityMonitoringApi {
         false);
   }
 
-  public class APIcreateSecurityMonitoringRuleRequest {
-    private SecurityMonitoringRuleCreatePayload body;
-
-    private APIcreateSecurityMonitoringRuleRequest() {}
-
-    /**
-     * Set body
-     *
-     * @param body (required)
-     * @return APIcreateSecurityMonitoringRuleRequest
-     */
-    public APIcreateSecurityMonitoringRuleRequest body(SecurityMonitoringRuleCreatePayload body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Execute createSecurityMonitoringRule request
-     *
-     * @return SecurityMonitoringRuleResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public SecurityMonitoringRuleResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute createSecurityMonitoringRule request with HTTP info returned
-     *
-     * @return ApiResponse&lt;SecurityMonitoringRuleResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<SecurityMonitoringRuleResponse> executeWithHttpInfo() throws ApiException {
-      return createSecurityMonitoringRuleWithHttpInfo(body);
-    }
+  /**
+   * Delete an existing rule Delete an existing rule. Default rules cannot be deleted.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public void deleteSecurityMonitoringRule(String ruleId) throws ApiException {
+    deleteSecurityMonitoringRuleWithHttpInfo(ruleId);
   }
 
   /**
-   * Create a detection rule Create a detection rule.
+   * Delete an existing rule Delete an existing rule. Default rules cannot be deleted.
    *
-   * @return createSecurityMonitoringRuleRequest
+   * @param ruleId The ID of the rule. (required)
+   * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIcreateSecurityMonitoringRuleRequest createSecurityMonitoringRule() throws ApiException {
-    return new APIcreateSecurityMonitoringRuleRequest();
-  }
-
-  private ApiResponse<Void> deleteSecurityMonitoringRuleWithHttpInfo(String ruleId)
+  public ApiResponse<Void> deleteSecurityMonitoringRuleWithHttpInfo(String ruleId)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -168,7 +170,6 @@ public class SecurityMonitoringApi {
       throw new ApiException(
           400, "Missing the required parameter 'ruleId' when calling deleteSecurityMonitoringRule");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v2/security_monitoring/rules/{rule_id}"
@@ -208,60 +209,38 @@ public class SecurityMonitoringApi {
         false);
   }
 
-  public class APIdeleteSecurityMonitoringRuleRequest {
-    private String ruleId;
-
-    private APIdeleteSecurityMonitoringRuleRequest(String ruleId) {
-      this.ruleId = ruleId;
-    }
-
-    /**
-     * Execute deleteSecurityMonitoringRule request
-     *
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public void execute() throws ApiException {
-      this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute deleteSecurityMonitoringRule request with HTTP info returned
-     *
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<Void> executeWithHttpInfo() throws ApiException {
-      return deleteSecurityMonitoringRuleWithHttpInfo(ruleId);
-    }
+  /**
+   * Get a rule&#39;s details Get a rule&#39;s details.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @return SecurityMonitoringRuleResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public SecurityMonitoringRuleResponse getSecurityMonitoringRule(String ruleId)
+      throws ApiException {
+    return getSecurityMonitoringRuleWithHttpInfo(ruleId).getData();
   }
 
   /**
-   * Delete an existing rule Delete an existing rule. Default rules cannot be deleted.
+   * Get a rule&#39;s details Get a rule&#39;s details.
    *
    * @param ruleId The ID of the rule. (required)
-   * @return deleteSecurityMonitoringRuleRequest
+   * @return ApiResponse&lt;SecurityMonitoringRuleResponse&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIdeleteSecurityMonitoringRuleRequest deleteSecurityMonitoringRule(String ruleId)
-      throws ApiException {
-    return new APIdeleteSecurityMonitoringRuleRequest(ruleId);
-  }
-
-  private ApiResponse<SecurityMonitoringRuleResponse> getSecurityMonitoringRuleWithHttpInfo(
+  public ApiResponse<SecurityMonitoringRuleResponse> getSecurityMonitoringRuleWithHttpInfo(
       String ruleId) throws ApiException {
     Object localVarPostBody = null;
 
@@ -270,7 +249,6 @@ public class SecurityMonitoringApi {
       throw new ApiException(
           400, "Missing the required parameter 'ruleId' when calling getSecurityMonitoringRule");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v2/security_monitoring/rules/{rule_id}"
@@ -313,62 +291,88 @@ public class SecurityMonitoringApi {
         false);
   }
 
-  public class APIgetSecurityMonitoringRuleRequest {
-    private String ruleId;
+  /** Manage optional parameters to listSecurityMonitoringRules. */
+  public static class ListSecurityMonitoringRulesOptionalParameters {
+    private Long pageSize;
+    private Long pageNumber;
 
-    private APIgetSecurityMonitoringRuleRequest(String ruleId) {
-      this.ruleId = ruleId;
+    /**
+     * Set pageSize
+     *
+     * @param pageSize Size for a given page. (optional, default to 10)
+     * @return ListSecurityMonitoringRulesOptionalParameters
+     */
+    public ListSecurityMonitoringRulesOptionalParameters pageSize(Long pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
     /**
-     * Execute getSecurityMonitoringRule request
+     * Set pageNumber
      *
-     * @return SecurityMonitoringRuleResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @param pageNumber Specific page number to return. (optional, default to 0)
+     * @return ListSecurityMonitoringRulesOptionalParameters
      */
-    public SecurityMonitoringRuleResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getSecurityMonitoringRule request with HTTP info returned
-     *
-     * @return ApiResponse&lt;SecurityMonitoringRuleResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<SecurityMonitoringRuleResponse> executeWithHttpInfo() throws ApiException {
-      return getSecurityMonitoringRuleWithHttpInfo(ruleId);
+    public ListSecurityMonitoringRulesOptionalParameters pageNumber(Long pageNumber) {
+      this.pageNumber = pageNumber;
+      return this;
     }
   }
 
   /**
-   * Get a rule&#39;s details Get a rule&#39;s details.
+   * List rules List rules.
    *
-   * @param ruleId The ID of the rule. (required)
-   * @return getSecurityMonitoringRuleRequest
+   * @return SecurityMonitoringListRulesResponse
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIgetSecurityMonitoringRuleRequest getSecurityMonitoringRule(String ruleId)
-      throws ApiException {
-    return new APIgetSecurityMonitoringRuleRequest(ruleId);
+  public SecurityMonitoringListRulesResponse listSecurityMonitoringRules() throws ApiException {
+    return listSecurityMonitoringRulesWithHttpInfo(
+            new ListSecurityMonitoringRulesOptionalParameters())
+        .getData();
   }
 
-  private ApiResponse<SecurityMonitoringListRulesResponse> listSecurityMonitoringRulesWithHttpInfo(
-      Long pageSize, Long pageNumber) throws ApiException {
-    Object localVarPostBody = null;
+  /**
+   * List rules List rules.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return SecurityMonitoringListRulesResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public SecurityMonitoringListRulesResponse listSecurityMonitoringRules(
+      ListSecurityMonitoringRulesOptionalParameters parameters) throws ApiException {
+    return listSecurityMonitoringRulesWithHttpInfo(parameters).getData();
+  }
 
+  /**
+   * List rules List rules.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;SecurityMonitoringListRulesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringListRulesResponse> listSecurityMonitoringRulesWithHttpInfo(
+      ListSecurityMonitoringRulesOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
     // create path and map variables
     String localVarPath = "/api/v2/security_monitoring/rules";
 
@@ -412,89 +416,153 @@ public class SecurityMonitoringApi {
         false);
   }
 
-  public class APIlistSecurityMonitoringRulesRequest {
-    private Long pageSize;
-    private Long pageNumber;
-
-    private APIlistSecurityMonitoringRulesRequest() {}
+  /** Manage optional parameters to listSecurityMonitoringSignals. */
+  public static class ListSecurityMonitoringSignalsOptionalParameters {
+    private String filterQuery;
+    private OffsetDateTime filterFrom;
+    private OffsetDateTime filterTo;
+    private SecurityMonitoringSignalsSort sort;
+    private String pageCursor;
+    private Integer pageLimit;
 
     /**
-     * Set pageSize
+     * Set filterQuery
      *
-     * @param pageSize Size for a given page. (optional, default to 10)
-     * @return APIlistSecurityMonitoringRulesRequest
+     * @param filterQuery The search query for security signals. (optional)
+     * @return ListSecurityMonitoringSignalsOptionalParameters
      */
-    public APIlistSecurityMonitoringRulesRequest pageSize(Long pageSize) {
-      this.pageSize = pageSize;
+    public ListSecurityMonitoringSignalsOptionalParameters filterQuery(String filterQuery) {
+      this.filterQuery = filterQuery;
       return this;
     }
 
     /**
-     * Set pageNumber
+     * Set filterFrom
      *
-     * @param pageNumber Specific page number to return. (optional, default to 0)
-     * @return APIlistSecurityMonitoringRulesRequest
+     * @param filterFrom The minimum timestamp for requested security signals. (optional)
+     * @return ListSecurityMonitoringSignalsOptionalParameters
      */
-    public APIlistSecurityMonitoringRulesRequest pageNumber(Long pageNumber) {
-      this.pageNumber = pageNumber;
+    public ListSecurityMonitoringSignalsOptionalParameters filterFrom(OffsetDateTime filterFrom) {
+      this.filterFrom = filterFrom;
       return this;
     }
 
     /**
-     * Execute listSecurityMonitoringRules request
+     * Set filterTo
      *
-     * @return SecurityMonitoringListRulesResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * </table>
+     * @param filterTo The maximum timestamp for requested security signals. (optional)
+     * @return ListSecurityMonitoringSignalsOptionalParameters
      */
-    public SecurityMonitoringListRulesResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
+    public ListSecurityMonitoringSignalsOptionalParameters filterTo(OffsetDateTime filterTo) {
+      this.filterTo = filterTo;
+      return this;
     }
 
     /**
-     * Execute listSecurityMonitoringRules request with HTTP info returned
+     * Set sort
      *
-     * @return ApiResponse&lt;SecurityMonitoringListRulesResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * </table>
+     * @param sort The order of the security signals in results. (optional)
+     * @return ListSecurityMonitoringSignalsOptionalParameters
      */
-    public ApiResponse<SecurityMonitoringListRulesResponse> executeWithHttpInfo()
-        throws ApiException {
-      return listSecurityMonitoringRulesWithHttpInfo(pageSize, pageNumber);
+    public ListSecurityMonitoringSignalsOptionalParameters sort(
+        SecurityMonitoringSignalsSort sort) {
+      this.sort = sort;
+      return this;
+    }
+
+    /**
+     * Set pageCursor
+     *
+     * @param pageCursor A list of results using the cursor provided in the previous query.
+     *     (optional)
+     * @return ListSecurityMonitoringSignalsOptionalParameters
+     */
+    public ListSecurityMonitoringSignalsOptionalParameters pageCursor(String pageCursor) {
+      this.pageCursor = pageCursor;
+      return this;
+    }
+
+    /**
+     * Set pageLimit
+     *
+     * @param pageLimit The maximum number of security signals in the response. (optional, default
+     *     to 10)
+     * @return ListSecurityMonitoringSignalsOptionalParameters
+     */
+    public ListSecurityMonitoringSignalsOptionalParameters pageLimit(Integer pageLimit) {
+      this.pageLimit = pageLimit;
+      return this;
     }
   }
 
   /**
-   * List rules List rules.
+   * Get a quick list of security signals The list endpoint returns security signals that match a
+   * search query. Both this endpoint and the POST endpoint can be used interchangeably when listing
+   * security signals.
    *
-   * @return listSecurityMonitoringRulesRequest
+   * @return SecurityMonitoringSignalsListResponse
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIlistSecurityMonitoringRulesRequest listSecurityMonitoringRules() throws ApiException {
-    return new APIlistSecurityMonitoringRulesRequest();
+  public SecurityMonitoringSignalsListResponse listSecurityMonitoringSignals() throws ApiException {
+    return listSecurityMonitoringSignalsWithHttpInfo(
+            new ListSecurityMonitoringSignalsOptionalParameters())
+        .getData();
   }
 
-  private ApiResponse<SecurityMonitoringSignalsListResponse>
-      listSecurityMonitoringSignalsWithHttpInfo(
-          String filterQuery,
-          OffsetDateTime filterFrom,
-          OffsetDateTime filterTo,
-          SecurityMonitoringSignalsSort sort,
-          String pageCursor,
-          Integer pageLimit)
-          throws ApiException {
-    Object localVarPostBody = null;
+  /**
+   * Get a quick list of security signals The list endpoint returns security signals that match a
+   * search query. Both this endpoint and the POST endpoint can be used interchangeably when listing
+   * security signals.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return SecurityMonitoringSignalsListResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public SecurityMonitoringSignalsListResponse listSecurityMonitoringSignals(
+      ListSecurityMonitoringSignalsOptionalParameters parameters) throws ApiException {
+    return listSecurityMonitoringSignalsWithHttpInfo(parameters).getData();
+  }
 
+  /**
+   * Get a quick list of security signals The list endpoint returns security signals that match a
+   * search query. Both this endpoint and the POST endpoint can be used interchangeably when listing
+   * security signals.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;SecurityMonitoringSignalsListResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringSignalsListResponse>
+      listSecurityMonitoringSignalsWithHttpInfo(
+          ListSecurityMonitoringSignalsOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+    String filterQuery = parameters.filterQuery;
+    OffsetDateTime filterFrom = parameters.filterFrom;
+    OffsetDateTime filterTo = parameters.filterTo;
+    SecurityMonitoringSignalsSort sort = parameters.sort;
+    String pageCursor = parameters.pageCursor;
+    Integer pageLimit = parameters.pageLimit;
     // create path and map variables
     String localVarPath = "/api/v2/security_monitoring/signals";
 
@@ -542,145 +610,83 @@ public class SecurityMonitoringApi {
         false);
   }
 
-  public class APIlistSecurityMonitoringSignalsRequest {
-    private String filterQuery;
-    private OffsetDateTime filterFrom;
-    private OffsetDateTime filterTo;
-    private SecurityMonitoringSignalsSort sort;
-    private String pageCursor;
-    private Integer pageLimit;
-
-    private APIlistSecurityMonitoringSignalsRequest() {}
+  /** Manage optional parameters to searchSecurityMonitoringSignals. */
+  public static class SearchSecurityMonitoringSignalsOptionalParameters {
+    private SecurityMonitoringSignalListRequest body;
 
     /**
-     * Set filterQuery
+     * Set body
      *
-     * @param filterQuery The search query for security signals. (optional)
-     * @return APIlistSecurityMonitoringSignalsRequest
+     * @param body (optional)
+     * @return SearchSecurityMonitoringSignalsOptionalParameters
      */
-    public APIlistSecurityMonitoringSignalsRequest filterQuery(String filterQuery) {
-      this.filterQuery = filterQuery;
+    public SearchSecurityMonitoringSignalsOptionalParameters body(
+        SecurityMonitoringSignalListRequest body) {
+      this.body = body;
       return this;
-    }
-
-    /**
-     * Set filterFrom
-     *
-     * @param filterFrom The minimum timestamp for requested security signals. (optional)
-     * @return APIlistSecurityMonitoringSignalsRequest
-     */
-    public APIlistSecurityMonitoringSignalsRequest filterFrom(OffsetDateTime filterFrom) {
-      this.filterFrom = filterFrom;
-      return this;
-    }
-
-    /**
-     * Set filterTo
-     *
-     * @param filterTo The maximum timestamp for requested security signals. (optional)
-     * @return APIlistSecurityMonitoringSignalsRequest
-     */
-    public APIlistSecurityMonitoringSignalsRequest filterTo(OffsetDateTime filterTo) {
-      this.filterTo = filterTo;
-      return this;
-    }
-
-    /**
-     * Set sort
-     *
-     * @param sort The order of the security signals in results. (optional)
-     * @return APIlistSecurityMonitoringSignalsRequest
-     */
-    public APIlistSecurityMonitoringSignalsRequest sort(SecurityMonitoringSignalsSort sort) {
-      this.sort = sort;
-      return this;
-    }
-
-    /**
-     * Set pageCursor
-     *
-     * @param pageCursor A list of results using the cursor provided in the previous query.
-     *     (optional)
-     * @return APIlistSecurityMonitoringSignalsRequest
-     */
-    public APIlistSecurityMonitoringSignalsRequest pageCursor(String pageCursor) {
-      this.pageCursor = pageCursor;
-      return this;
-    }
-
-    /**
-     * Set pageLimit
-     *
-     * @param pageLimit The maximum number of security signals in the response. (optional, default
-     *     to 10)
-     * @return APIlistSecurityMonitoringSignalsRequest
-     */
-    public APIlistSecurityMonitoringSignalsRequest pageLimit(Integer pageLimit) {
-      this.pageLimit = pageLimit;
-      return this;
-    }
-
-    /**
-     * Execute listSecurityMonitoringSignals request
-     *
-     * @return SecurityMonitoringSignalsListResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public SecurityMonitoringSignalsListResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute listSecurityMonitoringSignals request with HTTP info returned
-     *
-     * @return ApiResponse&lt;SecurityMonitoringSignalsListResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<SecurityMonitoringSignalsListResponse> executeWithHttpInfo()
-        throws ApiException {
-      return listSecurityMonitoringSignalsWithHttpInfo(
-          filterQuery, filterFrom, filterTo, sort, pageCursor, pageLimit);
     }
   }
 
   /**
-   * Get a quick list of security signals The list endpoint returns security signals that match a
-   * search query. Both this endpoint and the POST endpoint can be used interchangeably when listing
-   * security signals.
+   * Get a list of security signals Returns security signals that match a search query. Both this
+   * endpoint and the GET endpoint can be used interchangeably for listing security signals.
    *
-   * @return listSecurityMonitoringSignalsRequest
+   * @return SecurityMonitoringSignalsListResponse
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIlistSecurityMonitoringSignalsRequest listSecurityMonitoringSignals()
+  public SecurityMonitoringSignalsListResponse searchSecurityMonitoringSignals()
       throws ApiException {
-    String operationId = "listSecurityMonitoringSignals";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
-    return new APIlistSecurityMonitoringSignalsRequest();
+    return searchSecurityMonitoringSignalsWithHttpInfo(
+            new SearchSecurityMonitoringSignalsOptionalParameters())
+        .getData();
   }
 
-  private ApiResponse<SecurityMonitoringSignalsListResponse>
-      searchSecurityMonitoringSignalsWithHttpInfo(SecurityMonitoringSignalListRequest body)
-          throws ApiException {
-    Object localVarPostBody = body;
+  /**
+   * Get a list of security signals Returns security signals that match a search query. Both this
+   * endpoint and the GET endpoint can be used interchangeably for listing security signals.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return SecurityMonitoringSignalsListResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public SecurityMonitoringSignalsListResponse searchSecurityMonitoringSignals(
+      SearchSecurityMonitoringSignalsOptionalParameters parameters) throws ApiException {
+    return searchSecurityMonitoringSignalsWithHttpInfo(parameters).getData();
+  }
 
+  /**
+   * Get a list of security signals Returns security signals that match a search query. Both this
+   * endpoint and the GET endpoint can be used interchangeably for listing security signals.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;SecurityMonitoringSignalsListResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityMonitoringSignalsListResponse>
+      searchSecurityMonitoringSignalsWithHttpInfo(
+          SearchSecurityMonitoringSignalsOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = parameters.body;
     // create path and map variables
     String localVarPath = "/api/v2/security_monitoring/signals/search";
 
@@ -720,78 +726,52 @@ public class SecurityMonitoringApi {
         false);
   }
 
-  public class APIsearchSecurityMonitoringSignalsRequest {
-    private SecurityMonitoringSignalListRequest body;
-
-    private APIsearchSecurityMonitoringSignalsRequest() {}
-
-    /**
-     * Set body
-     *
-     * @param body (optional)
-     * @return APIsearchSecurityMonitoringSignalsRequest
-     */
-    public APIsearchSecurityMonitoringSignalsRequest body(
-        SecurityMonitoringSignalListRequest body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Execute searchSecurityMonitoringSignals request
-     *
-     * @return SecurityMonitoringSignalsListResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public SecurityMonitoringSignalsListResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute searchSecurityMonitoringSignals request with HTTP info returned
-     *
-     * @return ApiResponse&lt;SecurityMonitoringSignalsListResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<SecurityMonitoringSignalsListResponse> executeWithHttpInfo()
-        throws ApiException {
-      return searchSecurityMonitoringSignalsWithHttpInfo(body);
-    }
+  /**
+   * Update an existing rule Update an existing rule. When updating &#x60;cases&#x60;,
+   * &#x60;queries&#x60; or &#x60;options&#x60;, the whole field must be included. For example, when
+   * modifying a query all queries must be included. Default rules can only be updated to be enabled
+   * and to change notifications.
+   *
+   * @param ruleId The ID of the rule. (required)
+   * @param body (required)
+   * @return SecurityMonitoringRuleResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Concurrent Modification </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public SecurityMonitoringRuleResponse updateSecurityMonitoringRule(
+      String ruleId, SecurityMonitoringRuleUpdatePayload body) throws ApiException {
+    return updateSecurityMonitoringRuleWithHttpInfo(ruleId, body).getData();
   }
 
   /**
-   * Get a list of security signals Returns security signals that match a search query. Both this
-   * endpoint and the GET endpoint can be used interchangeably for listing security signals.
+   * Update an existing rule Update an existing rule. When updating &#x60;cases&#x60;,
+   * &#x60;queries&#x60; or &#x60;options&#x60;, the whole field must be included. For example, when
+   * modifying a query all queries must be included. Default rules can only be updated to be enabled
+   * and to change notifications.
    *
-   * @return searchSecurityMonitoringSignalsRequest
+   * @param ruleId The ID of the rule. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;SecurityMonitoringRuleResponse&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Concurrent Modification </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIsearchSecurityMonitoringSignalsRequest searchSecurityMonitoringSignals()
-      throws ApiException {
-    String operationId = "searchSecurityMonitoringSignals";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
-    return new APIsearchSecurityMonitoringSignalsRequest();
-  }
-
-  private ApiResponse<SecurityMonitoringRuleResponse> updateSecurityMonitoringRuleWithHttpInfo(
+  public ApiResponse<SecurityMonitoringRuleResponse> updateSecurityMonitoringRuleWithHttpInfo(
       String ruleId, SecurityMonitoringRuleUpdatePayload body) throws ApiException {
     Object localVarPostBody = body;
 
@@ -806,7 +786,6 @@ public class SecurityMonitoringApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling updateSecurityMonitoringRule");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v2/security_monitoring/rules/{rule_id}"
@@ -846,78 +825,5 @@ public class SecurityMonitoringApi {
         localVarAuthNames,
         localVarReturnType,
         false);
-  }
-
-  public class APIupdateSecurityMonitoringRuleRequest {
-    private String ruleId;
-    private SecurityMonitoringRuleUpdatePayload body;
-
-    private APIupdateSecurityMonitoringRuleRequest(String ruleId) {
-      this.ruleId = ruleId;
-    }
-
-    /**
-     * Set body
-     *
-     * @param body (required)
-     * @return APIupdateSecurityMonitoringRuleRequest
-     */
-    public APIupdateSecurityMonitoringRuleRequest body(SecurityMonitoringRuleUpdatePayload body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Execute updateSecurityMonitoringRule request
-     *
-     * @return SecurityMonitoringRuleResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Concurrent Modification </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public SecurityMonitoringRuleResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute updateSecurityMonitoringRule request with HTTP info returned
-     *
-     * @return ApiResponse&lt;SecurityMonitoringRuleResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Concurrent Modification </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<SecurityMonitoringRuleResponse> executeWithHttpInfo() throws ApiException {
-      return updateSecurityMonitoringRuleWithHttpInfo(ruleId, body);
-    }
-  }
-
-  /**
-   * Update an existing rule Update an existing rule. When updating &#x60;cases&#x60;,
-   * &#x60;queries&#x60; or &#x60;options&#x60;, the whole field must be included. For example, when
-   * modifying a query all queries must be included. Default rules can only be updated to be enabled
-   * and to change notifications.
-   *
-   * @param ruleId The ID of the rule. (required)
-   * @return updateSecurityMonitoringRuleRequest
-   * @throws ApiException if fails to make API call
-   */
-  public APIupdateSecurityMonitoringRuleRequest updateSecurityMonitoringRule(String ruleId)
-      throws ApiException {
-    return new APIupdateSecurityMonitoringRuleRequest(ruleId);
   }
 }

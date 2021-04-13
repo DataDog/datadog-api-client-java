@@ -14,12 +14,12 @@ Method | HTTP request | Description
 
 ## {{operationId}}
 
-{{^vendorExtensions.x-group-parameters}}
-> {{#returnType}}{{returnType}} {{/returnType}}{{operationId}}({{#allParams}}{{paramName}}{{^-last}}, {{/-last}}{{/allParams}})
-{{/vendorExtensions.x-group-parameters}}
-{{#vendorExtensions.x-group-parameters}}
-> {{#returnType}}{{returnType}} {{/returnType}}{{operationId}}({{#pathParams}}{{paramName}}{{^-last}}, {{/-last}}{{/pathParams}}){{#allParams}}{{^isPathParam}}.{{paramName}}({{paramName}}){{/isPathParam}}{{/allParams}}.execute();
-{{/vendorExtensions.x-group-parameters}}
+{{^hasOptionalParams}}
+> {{#returnType}}{{returnType}} {{/returnType}}{{operationId}}({{#requiredParams}}{{paramName}}{{^-last}}, {{/-last}}{{/requiredParams}});
+{{/hasOptionalParams}}
+{{#hasOptionalParams}}
+> {{#returnType}}{{returnType}} {{/returnType}}{{operationId}}({{#requiredParams}}{{paramName}}, {{/requiredParams}}parameters);
+{{/hasOptionalParams}}
 
 {{summary}}{{#notes}}
 
@@ -49,14 +49,13 @@ public class Example {
         {{{dataType}}} {{{paramName}}} = {{{example}}}; // {{{dataType}}} | {{{description}}}
         {{/allParams}}
         try {
-            {{^vendorExtensions.x-group-parameters}}
-            {{#returnType}}{{{returnType}}} result = {{/returnType}}apiInstance.{{{operationId}}}({{#allParams}}{{{paramName}}}{{^-last}}, {{/-last}}{{/allParams}});
-            {{/vendorExtensions.x-group-parameters}}
-            {{#vendorExtensions.x-group-parameters}}
-            {{#returnType}}{{{returnType}}} result = {{/returnType}}apiInstance.{{operationId}}({{#pathParams}}{{paramName}}{{^-last}}, {{/-last}}{{/pathParams}}){{#allParams}}{{^isPathParam}}
-                .{{paramName}}({{paramName}}){{/isPathParam}}{{/allParams}}
-                .execute();
-            {{/vendorExtensions.x-group-parameters}}
+            {{^hasOptionalParams}}
+            {{#returnType}}{{{returnType}}} result = {{/returnType}}apiInstance.{{{operationId}}}({{#requiredParams}}{{{paramName}}}{{^-last}}, {{/-last}}{{/requiredParams}});
+            {{/hasOptionalParams}}
+            {{#hasOptionalParams}}
+	    {{#returnType}}{{{returnType}}} result = {{/returnType}}apiInstance.{{{operationId}}}({{#requiredParams}}{{{paramName}}}, {{/requiredParams}}new {{{classname}}}.{{operationIdOriginal}}OptionalParameters(){{#optionalParams}}
+                .{{paramName}}({{paramName}}){{/optionalParams}});
+            {{/hasOptionalParams}}
             {{#returnType}}
             System.out.println(result);
             {{/returnType}}

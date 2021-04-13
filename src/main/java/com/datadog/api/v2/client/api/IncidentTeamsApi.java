@@ -46,7 +46,44 @@ public class IncidentTeamsApi {
     this.apiClient = apiClient;
   }
 
-  private ApiResponse<IncidentTeamResponse> createIncidentTeamWithHttpInfo(
+  /**
+   * Create a new incident team Creates a new incident team.
+   *
+   * @param body Incident Team Payload. (required)
+   * @return IncidentTeamResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> CREATED </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public IncidentTeamResponse createIncidentTeam(IncidentTeamCreateRequest body)
+      throws ApiException {
+    return createIncidentTeamWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create a new incident team Creates a new incident team.
+   *
+   * @param body Incident Team Payload. (required)
+   * @return ApiResponse&lt;IncidentTeamResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> CREATED </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<IncidentTeamResponse> createIncidentTeamWithHttpInfo(
       IncidentTeamCreateRequest body) throws ApiException {
     Object localVarPostBody = body;
 
@@ -55,7 +92,6 @@ public class IncidentTeamsApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling createIncidentTeam");
     }
-
     // create path and map variables
     String localVarPath = "/api/v2/teams";
 
@@ -95,78 +131,42 @@ public class IncidentTeamsApi {
         false);
   }
 
-  public class APIcreateIncidentTeamRequest {
-    private IncidentTeamCreateRequest body;
-
-    private APIcreateIncidentTeamRequest() {}
-
-    /**
-     * Set body
-     *
-     * @param body Incident Team Payload. (required)
-     * @return APIcreateIncidentTeamRequest
-     */
-    public APIcreateIncidentTeamRequest body(IncidentTeamCreateRequest body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Execute createIncidentTeam request
-     *
-     * @return IncidentTeamResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> CREATED </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public IncidentTeamResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute createIncidentTeam request with HTTP info returned
-     *
-     * @return ApiResponse&lt;IncidentTeamResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 201 </td><td> CREATED </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<IncidentTeamResponse> executeWithHttpInfo() throws ApiException {
-      return createIncidentTeamWithHttpInfo(body);
-    }
+  /**
+   * Delete an existing incident team Deletes an existing incident team.
+   *
+   * @param teamId The ID of the incident team. (required)
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public void deleteIncidentTeam(String teamId) throws ApiException {
+    deleteIncidentTeamWithHttpInfo(teamId);
   }
 
   /**
-   * Create a new incident team Creates a new incident team.
+   * Delete an existing incident team Deletes an existing incident team.
    *
-   * @return createIncidentTeamRequest
+   * @param teamId The ID of the incident team. (required)
+   * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIcreateIncidentTeamRequest createIncidentTeam() throws ApiException {
-    String operationId = "createIncidentTeam";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
-    return new APIcreateIncidentTeamRequest();
-  }
-
-  private ApiResponse<Void> deleteIncidentTeamWithHttpInfo(String teamId) throws ApiException {
+  public ApiResponse<Void> deleteIncidentTeamWithHttpInfo(String teamId) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'teamId' is set
@@ -174,7 +174,6 @@ public class IncidentTeamsApi {
       throw new ApiException(
           400, "Missing the required parameter 'teamId' when calling deleteIncidentTeam");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v2/teams/{team_id}"
@@ -214,70 +213,90 @@ public class IncidentTeamsApi {
         false);
   }
 
-  public class APIdeleteIncidentTeamRequest {
-    private String teamId;
-
-    private APIdeleteIncidentTeamRequest(String teamId) {
-      this.teamId = teamId;
-    }
+  /** Manage optional parameters to getIncidentTeam. */
+  public static class GetIncidentTeamOptionalParameters {
+    private IncidentRelatedObject include;
 
     /**
-     * Execute deleteIncidentTeam request
+     * Set include
      *
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @param include Specifies which types of related objects should be included in the response.
+     *     (optional)
+     * @return GetIncidentTeamOptionalParameters
      */
-    public void execute() throws ApiException {
-      this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute deleteIncidentTeam request with HTTP info returned
-     *
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<Void> executeWithHttpInfo() throws ApiException {
-      return deleteIncidentTeamWithHttpInfo(teamId);
+    public GetIncidentTeamOptionalParameters include(IncidentRelatedObject include) {
+      this.include = include;
+      return this;
     }
   }
 
   /**
-   * Delete an existing incident team Deletes an existing incident team.
+   * Get details of an incident team Get details of an incident team. If the
+   * &#x60;include[users]&#x60; query parameter is provided, the included attribute will contain the
+   * users related to these incident teams.
    *
    * @param teamId The ID of the incident team. (required)
-   * @return deleteIncidentTeamRequest
+   * @return IncidentTeamResponse
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIdeleteIncidentTeamRequest deleteIncidentTeam(String teamId) throws ApiException {
-    String operationId = "deleteIncidentTeam";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
-    return new APIdeleteIncidentTeamRequest(teamId);
+  public IncidentTeamResponse getIncidentTeam(String teamId) throws ApiException {
+    return getIncidentTeamWithHttpInfo(teamId, new GetIncidentTeamOptionalParameters()).getData();
   }
 
-  private ApiResponse<IncidentTeamResponse> getIncidentTeamWithHttpInfo(
-      String teamId, IncidentRelatedObject include) throws ApiException {
+  /**
+   * Get details of an incident team Get details of an incident team. If the
+   * &#x60;include[users]&#x60; query parameter is provided, the included attribute will contain the
+   * users related to these incident teams.
+   *
+   * @param teamId The ID of the incident team. (required)
+   * @param parameters Optional parameters for the request.
+   * @return IncidentTeamResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public IncidentTeamResponse getIncidentTeam(
+      String teamId, GetIncidentTeamOptionalParameters parameters) throws ApiException {
+    return getIncidentTeamWithHttpInfo(teamId, parameters).getData();
+  }
+
+  /**
+   * Get details of an incident team Get details of an incident team. If the
+   * &#x60;include[users]&#x60; query parameter is provided, the included attribute will contain the
+   * users related to these incident teams.
+   *
+   * @param teamId The ID of the incident team. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;IncidentTeamResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<IncidentTeamResponse> getIncidentTeamWithHttpInfo(
+      String teamId, GetIncidentTeamOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'teamId' is set
@@ -285,7 +304,7 @@ public class IncidentTeamsApi {
       throw new ApiException(
           400, "Missing the required parameter 'teamId' when calling getIncidentTeam");
     }
-
+    IncidentRelatedObject include = parameters.include;
     // create path and map variables
     String localVarPath =
         "/api/v2/teams/{team_id}"
@@ -330,89 +349,129 @@ public class IncidentTeamsApi {
         false);
   }
 
-  public class APIgetIncidentTeamRequest {
-    private String teamId;
+  /** Manage optional parameters to listIncidentTeams. */
+  public static class ListIncidentTeamsOptionalParameters {
     private IncidentRelatedObject include;
-
-    private APIgetIncidentTeamRequest(String teamId) {
-      this.teamId = teamId;
-    }
+    private Long pageSize;
+    private Long pageOffset;
+    private String filter;
 
     /**
      * Set include
      *
      * @param include Specifies which types of related objects should be included in the response.
      *     (optional)
-     * @return APIgetIncidentTeamRequest
+     * @return ListIncidentTeamsOptionalParameters
      */
-    public APIgetIncidentTeamRequest include(IncidentRelatedObject include) {
+    public ListIncidentTeamsOptionalParameters include(IncidentRelatedObject include) {
       this.include = include;
       return this;
     }
 
     /**
-     * Execute getIncidentTeam request
+     * Set pageSize
      *
-     * @return IncidentTeamResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @param pageSize Size for a given page. (optional, default to 10)
+     * @return ListIncidentTeamsOptionalParameters
      */
-    public IncidentTeamResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
+    public ListIncidentTeamsOptionalParameters pageSize(Long pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
     /**
-     * Execute getIncidentTeam request with HTTP info returned
+     * Set pageOffset
      *
-     * @return ApiResponse&lt;IncidentTeamResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @param pageOffset Specific offset to use as the beginning of the returned page. (optional,
+     *     default to 0)
+     * @return ListIncidentTeamsOptionalParameters
      */
-    public ApiResponse<IncidentTeamResponse> executeWithHttpInfo() throws ApiException {
-      return getIncidentTeamWithHttpInfo(teamId, include);
+    public ListIncidentTeamsOptionalParameters pageOffset(Long pageOffset) {
+      this.pageOffset = pageOffset;
+      return this;
+    }
+
+    /**
+     * Set filter
+     *
+     * @param filter A search query that filters teams by name. (optional)
+     * @return ListIncidentTeamsOptionalParameters
+     */
+    public ListIncidentTeamsOptionalParameters filter(String filter) {
+      this.filter = filter;
+      return this;
     }
   }
 
   /**
-   * Get details of an incident team Get details of an incident team. If the
-   * &#x60;include[users]&#x60; query parameter is provided, the included attribute will contain the
-   * users related to these incident teams.
+   * Get a list of all incident teams Get all incident teams for the requesting user&#39;s
+   * organization. If the &#x60;include[users]&#x60; query parameter is provided, the included
+   * attribute will contain the users related to these incident teams.
    *
-   * @param teamId The ID of the incident team. (required)
-   * @return getIncidentTeamRequest
+   * @return IncidentTeamsResponse
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIgetIncidentTeamRequest getIncidentTeam(String teamId) throws ApiException {
-    String operationId = "getIncidentTeam";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
-    return new APIgetIncidentTeamRequest(teamId);
+  public IncidentTeamsResponse listIncidentTeams() throws ApiException {
+    return listIncidentTeamsWithHttpInfo(new ListIncidentTeamsOptionalParameters()).getData();
   }
 
-  private ApiResponse<IncidentTeamsResponse> listIncidentTeamsWithHttpInfo(
-      IncidentRelatedObject include, Long pageSize, Long pageOffset, String filter)
+  /**
+   * Get a list of all incident teams Get all incident teams for the requesting user&#39;s
+   * organization. If the &#x60;include[users]&#x60; query parameter is provided, the included
+   * attribute will contain the users related to these incident teams.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return IncidentTeamsResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public IncidentTeamsResponse listIncidentTeams(ListIncidentTeamsOptionalParameters parameters)
       throws ApiException {
-    Object localVarPostBody = null;
+    return listIncidentTeamsWithHttpInfo(parameters).getData();
+  }
 
+  /**
+   * Get a list of all incident teams Get all incident teams for the requesting user&#39;s
+   * organization. If the &#x60;include[users]&#x60; query parameter is provided, the included
+   * attribute will contain the users related to these incident teams.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;IncidentTeamsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<IncidentTeamsResponse> listIncidentTeamsWithHttpInfo(
+      ListIncidentTeamsOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+    IncidentRelatedObject include = parameters.include;
+    Long pageSize = parameters.pageSize;
+    Long pageOffset = parameters.pageOffset;
+    String filter = parameters.filter;
     // create path and map variables
     String localVarPath = "/api/v2/teams";
 
@@ -458,118 +517,48 @@ public class IncidentTeamsApi {
         false);
   }
 
-  public class APIlistIncidentTeamsRequest {
-    private IncidentRelatedObject include;
-    private Long pageSize;
-    private Long pageOffset;
-    private String filter;
-
-    private APIlistIncidentTeamsRequest() {}
-
-    /**
-     * Set include
-     *
-     * @param include Specifies which types of related objects should be included in the response.
-     *     (optional)
-     * @return APIlistIncidentTeamsRequest
-     */
-    public APIlistIncidentTeamsRequest include(IncidentRelatedObject include) {
-      this.include = include;
-      return this;
-    }
-
-    /**
-     * Set pageSize
-     *
-     * @param pageSize Size for a given page. (optional, default to 10)
-     * @return APIlistIncidentTeamsRequest
-     */
-    public APIlistIncidentTeamsRequest pageSize(Long pageSize) {
-      this.pageSize = pageSize;
-      return this;
-    }
-
-    /**
-     * Set pageOffset
-     *
-     * @param pageOffset Specific offset to use as the beginning of the returned page. (optional,
-     *     default to 0)
-     * @return APIlistIncidentTeamsRequest
-     */
-    public APIlistIncidentTeamsRequest pageOffset(Long pageOffset) {
-      this.pageOffset = pageOffset;
-      return this;
-    }
-
-    /**
-     * Set filter
-     *
-     * @param filter A search query that filters teams by name. (optional)
-     * @return APIlistIncidentTeamsRequest
-     */
-    public APIlistIncidentTeamsRequest filter(String filter) {
-      this.filter = filter;
-      return this;
-    }
-
-    /**
-     * Execute listIncidentTeams request
-     *
-     * @return IncidentTeamsResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public IncidentTeamsResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute listIncidentTeams request with HTTP info returned
-     *
-     * @return ApiResponse&lt;IncidentTeamsResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<IncidentTeamsResponse> executeWithHttpInfo() throws ApiException {
-      return listIncidentTeamsWithHttpInfo(include, pageSize, pageOffset, filter);
-    }
+  /**
+   * Update an existing incident team Updates an existing incident team. Only provide the attributes
+   * which should be updated as this request is a partial update.
+   *
+   * @param teamId The ID of the incident team. (required)
+   * @param body Incident Team Payload. (required)
+   * @return IncidentTeamResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public IncidentTeamResponse updateIncidentTeam(String teamId, IncidentTeamUpdateRequest body)
+      throws ApiException {
+    return updateIncidentTeamWithHttpInfo(teamId, body).getData();
   }
 
   /**
-   * Get a list of all incident teams Get all incident teams for the requesting user&#39;s
-   * organization. If the &#x60;include[users]&#x60; query parameter is provided, the included
-   * attribute will contain the users related to these incident teams.
+   * Update an existing incident team Updates an existing incident team. Only provide the attributes
+   * which should be updated as this request is a partial update.
    *
-   * @return listIncidentTeamsRequest
+   * @param teamId The ID of the incident team. (required)
+   * @param body Incident Team Payload. (required)
+   * @return ApiResponse&lt;IncidentTeamResponse&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIlistIncidentTeamsRequest listIncidentTeams() throws ApiException {
-    String operationId = "listIncidentTeams";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
-    return new APIlistIncidentTeamsRequest();
-  }
-
-  private ApiResponse<IncidentTeamResponse> updateIncidentTeamWithHttpInfo(
+  public ApiResponse<IncidentTeamResponse> updateIncidentTeamWithHttpInfo(
       String teamId, IncidentTeamUpdateRequest body) throws ApiException {
     Object localVarPostBody = body;
 
@@ -584,7 +573,6 @@ public class IncidentTeamsApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling updateIncidentTeam");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v2/teams/{team_id}"
@@ -624,81 +612,5 @@ public class IncidentTeamsApi {
         localVarAuthNames,
         localVarReturnType,
         false);
-  }
-
-  public class APIupdateIncidentTeamRequest {
-    private String teamId;
-    private IncidentTeamUpdateRequest body;
-
-    private APIupdateIncidentTeamRequest(String teamId) {
-      this.teamId = teamId;
-    }
-
-    /**
-     * Set body
-     *
-     * @param body Incident Team Payload. (required)
-     * @return APIupdateIncidentTeamRequest
-     */
-    public APIupdateIncidentTeamRequest body(IncidentTeamUpdateRequest body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Execute updateIncidentTeam request
-     *
-     * @return IncidentTeamResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public IncidentTeamResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute updateIncidentTeam request with HTTP info returned
-     *
-     * @return ApiResponse&lt;IncidentTeamResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<IncidentTeamResponse> executeWithHttpInfo() throws ApiException {
-      return updateIncidentTeamWithHttpInfo(teamId, body);
-    }
-  }
-
-  /**
-   * Update an existing incident team Updates an existing incident team. Only provide the attributes
-   * which should be updated as this request is a partial update.
-   *
-   * @param teamId The ID of the incident team. (required)
-   * @return updateIncidentTeamRequest
-   * @throws ApiException if fails to make API call
-   */
-  public APIupdateIncidentTeamRequest updateIncidentTeam(String teamId) throws ApiException {
-    String operationId = "updateIncidentTeam";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
-    return new APIupdateIncidentTeamRequest(teamId);
   }
 }

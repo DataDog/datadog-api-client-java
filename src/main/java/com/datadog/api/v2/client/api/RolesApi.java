@@ -52,7 +52,44 @@ public class RolesApi {
     this.apiClient = apiClient;
   }
 
-  private ApiResponse<PermissionsResponse> addPermissionToRoleWithHttpInfo(
+  /**
+   * Grant permission to a role Adds a permission to a role.
+   *
+   * @param roleId The ID of the role. (required)
+   * @param body (required)
+   * @return PermissionsResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public PermissionsResponse addPermissionToRole(String roleId, RelationshipToPermission body)
+      throws ApiException {
+    return addPermissionToRoleWithHttpInfo(roleId, body).getData();
+  }
+
+  /**
+   * Grant permission to a role Adds a permission to a role.
+   *
+   * @param roleId The ID of the role. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;PermissionsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<PermissionsResponse> addPermissionToRoleWithHttpInfo(
       String roleId, RelationshipToPermission body) throws ApiException {
     Object localVarPostBody = body;
 
@@ -67,7 +104,6 @@ public class RolesApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling addPermissionToRole");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v2/roles/{role_id}/permissions"
@@ -108,74 +144,43 @@ public class RolesApi {
         false);
   }
 
-  public class APIaddPermissionToRoleRequest {
-    private String roleId;
-    private RelationshipToPermission body;
-
-    private APIaddPermissionToRoleRequest(String roleId) {
-      this.roleId = roleId;
-    }
-
-    /**
-     * Set body
-     *
-     * @param body (required)
-     * @return APIaddPermissionToRoleRequest
-     */
-    public APIaddPermissionToRoleRequest body(RelationshipToPermission body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Execute addPermissionToRole request
-     *
-     * @return PermissionsResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public PermissionsResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute addPermissionToRole request with HTTP info returned
-     *
-     * @return ApiResponse&lt;PermissionsResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<PermissionsResponse> executeWithHttpInfo() throws ApiException {
-      return addPermissionToRoleWithHttpInfo(roleId, body);
-    }
+  /**
+   * Add a user to a role Adds a user to a role.
+   *
+   * @param roleId The ID of the role. (required)
+   * @param body (required)
+   * @return UsersResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public UsersResponse addUserToRole(String roleId, RelationshipToUser body) throws ApiException {
+    return addUserToRoleWithHttpInfo(roleId, body).getData();
   }
 
   /**
-   * Grant permission to a role Adds a permission to a role.
+   * Add a user to a role Adds a user to a role.
    *
    * @param roleId The ID of the role. (required)
-   * @return addPermissionToRoleRequest
+   * @param body (required)
+   * @return ApiResponse&lt;UsersResponse&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIaddPermissionToRoleRequest addPermissionToRole(String roleId) throws ApiException {
-    return new APIaddPermissionToRoleRequest(roleId);
-  }
-
-  private ApiResponse<UsersResponse> addUserToRoleWithHttpInfo(
+  public ApiResponse<UsersResponse> addUserToRoleWithHttpInfo(
       String roleId, RelationshipToUser body) throws ApiException {
     Object localVarPostBody = body;
 
@@ -190,7 +195,6 @@ public class RolesApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling addUserToRole");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v2/roles/{role_id}/users"
@@ -231,74 +235,39 @@ public class RolesApi {
         false);
   }
 
-  public class APIaddUserToRoleRequest {
-    private String roleId;
-    private RelationshipToUser body;
-
-    private APIaddUserToRoleRequest(String roleId) {
-      this.roleId = roleId;
-    }
-
-    /**
-     * Set body
-     *
-     * @param body (required)
-     * @return APIaddUserToRoleRequest
-     */
-    public APIaddUserToRoleRequest body(RelationshipToUser body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Execute addUserToRole request
-     *
-     * @return UsersResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public UsersResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute addUserToRole request with HTTP info returned
-     *
-     * @return ApiResponse&lt;UsersResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<UsersResponse> executeWithHttpInfo() throws ApiException {
-      return addUserToRoleWithHttpInfo(roleId, body);
-    }
+  /**
+   * Create role Create a new role for your organization.
+   *
+   * @param body (required)
+   * @return RoleCreateResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public RoleCreateResponse createRole(RoleCreateRequest body) throws ApiException {
+    return createRoleWithHttpInfo(body).getData();
   }
 
   /**
-   * Add a user to a role Adds a user to a role.
+   * Create role Create a new role for your organization.
    *
-   * @param roleId The ID of the role. (required)
-   * @return addUserToRoleRequest
+   * @param body (required)
+   * @return ApiResponse&lt;RoleCreateResponse&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIaddUserToRoleRequest addUserToRole(String roleId) throws ApiException {
-    return new APIaddUserToRoleRequest(roleId);
-  }
-
-  private ApiResponse<RoleCreateResponse> createRoleWithHttpInfo(RoleCreateRequest body)
+  public ApiResponse<RoleCreateResponse> createRoleWithHttpInfo(RoleCreateRequest body)
       throws ApiException {
     Object localVarPostBody = body;
 
@@ -306,7 +275,6 @@ public class RolesApi {
     if (body == null) {
       throw new ApiException(400, "Missing the required parameter 'body' when calling createRole");
     }
-
     // create path and map variables
     String localVarPath = "/api/v2/roles";
 
@@ -345,68 +313,38 @@ public class RolesApi {
         false);
   }
 
-  public class APIcreateRoleRequest {
-    private RoleCreateRequest body;
-
-    private APIcreateRoleRequest() {}
-
-    /**
-     * Set body
-     *
-     * @param body (required)
-     * @return APIcreateRoleRequest
-     */
-    public APIcreateRoleRequest body(RoleCreateRequest body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Execute createRole request
-     *
-     * @return RoleCreateResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-     * </table>
-     */
-    public RoleCreateResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute createRole request with HTTP info returned
-     *
-     * @return ApiResponse&lt;RoleCreateResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<RoleCreateResponse> executeWithHttpInfo() throws ApiException {
-      return createRoleWithHttpInfo(body);
-    }
+  /**
+   * Delete role Disables a role.
+   *
+   * @param roleId The ID of the role. (required)
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public void deleteRole(String roleId) throws ApiException {
+    deleteRoleWithHttpInfo(roleId);
   }
 
   /**
-   * Create role Create a new role for your organization.
+   * Delete role Disables a role.
    *
-   * @return createRoleRequest
+   * @param roleId The ID of the role. (required)
+   * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIcreateRoleRequest createRole() throws ApiException {
-    return new APIcreateRoleRequest();
-  }
-
-  private ApiResponse<Void> deleteRoleWithHttpInfo(String roleId) throws ApiException {
+  public ApiResponse<Void> deleteRoleWithHttpInfo(String roleId) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'roleId' is set
@@ -414,7 +352,6 @@ public class RolesApi {
       throw new ApiException(
           400, "Missing the required parameter 'roleId' when calling deleteRole");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v2/roles/{role_id}"
@@ -454,66 +391,45 @@ public class RolesApi {
         false);
   }
 
-  public class APIdeleteRoleRequest {
-    private String roleId;
-
-    private APIdeleteRoleRequest(String roleId) {
-      this.roleId = roleId;
-    }
-
-    /**
-     * Execute deleteRole request
-     *
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public void execute() throws ApiException {
-      this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute deleteRole request with HTTP info returned
-     *
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<Void> executeWithHttpInfo() throws ApiException {
-      return deleteRoleWithHttpInfo(roleId);
-    }
+  /**
+   * Get a role Get a role in the organization specified by the role’s &#x60;role_id&#x60;.
+   *
+   * @param roleId The ID of the role. (required)
+   * @return RoleResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public RoleResponse getRole(String roleId) throws ApiException {
+    return getRoleWithHttpInfo(roleId).getData();
   }
 
   /**
-   * Delete role Disables a role.
+   * Get a role Get a role in the organization specified by the role’s &#x60;role_id&#x60;.
    *
    * @param roleId The ID of the role. (required)
-   * @return deleteRoleRequest
+   * @return ApiResponse&lt;RoleResponse&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIdeleteRoleRequest deleteRole(String roleId) throws ApiException {
-    return new APIdeleteRoleRequest(roleId);
-  }
-
-  private ApiResponse<RoleResponse> getRoleWithHttpInfo(String roleId) throws ApiException {
+  public ApiResponse<RoleResponse> getRoleWithHttpInfo(String roleId) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'roleId' is set
     if (roleId == null) {
       throw new ApiException(400, "Missing the required parameter 'roleId' when calling getRole");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v2/roles/{role_id}"
@@ -555,62 +471,38 @@ public class RolesApi {
         false);
   }
 
-  public class APIgetRoleRequest {
-    private String roleId;
-
-    private APIgetRoleRequest(String roleId) {
-      this.roleId = roleId;
-    }
-
-    /**
-     * Execute getRole request
-     *
-     * @return RoleResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public RoleResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getRole request with HTTP info returned
-     *
-     * @return ApiResponse&lt;RoleResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<RoleResponse> executeWithHttpInfo() throws ApiException {
-      return getRoleWithHttpInfo(roleId);
-    }
+  /**
+   * List permissions Returns a list of all permissions, including name, description, and ID.
+   *
+   * @return PermissionsResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public PermissionsResponse listPermissions() throws ApiException {
+    return listPermissionsWithHttpInfo().getData();
   }
 
   /**
-   * Get a role Get a role in the organization specified by the role’s &#x60;role_id&#x60;.
+   * List permissions Returns a list of all permissions, including name, description, and ID.
    *
-   * @param roleId The ID of the role. (required)
-   * @return getRoleRequest
+   * @return ApiResponse&lt;PermissionsResponse&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIgetRoleRequest getRole(String roleId) throws ApiException {
-    return new APIgetRoleRequest(roleId);
-  }
-
-  private ApiResponse<PermissionsResponse> listPermissionsWithHttpInfo() throws ApiException {
+  public ApiResponse<PermissionsResponse> listPermissionsWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
-
     // create path and map variables
     String localVarPath = "/api/v2/permissions";
 
@@ -650,56 +542,39 @@ public class RolesApi {
         false);
   }
 
-  public class APIlistPermissionsRequest {
-
-    private APIlistPermissionsRequest() {}
-
-    /**
-     * Execute listPermissions request
-     *
-     * @return PermissionsResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-     * </table>
-     */
-    public PermissionsResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute listPermissions request with HTTP info returned
-     *
-     * @return ApiResponse&lt;PermissionsResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<PermissionsResponse> executeWithHttpInfo() throws ApiException {
-      return listPermissionsWithHttpInfo();
-    }
+  /**
+   * List permissions for a role Returns a list of all permissions for a single role.
+   *
+   * @param roleId The ID of the role. (required)
+   * @return PermissionsResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public PermissionsResponse listRolePermissions(String roleId) throws ApiException {
+    return listRolePermissionsWithHttpInfo(roleId).getData();
   }
 
   /**
-   * List permissions Returns a list of all permissions, including name, description, and ID.
+   * List permissions for a role Returns a list of all permissions for a single role.
    *
-   * @return listPermissionsRequest
+   * @param roleId The ID of the role. (required)
+   * @return ApiResponse&lt;PermissionsResponse&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIlistPermissionsRequest listPermissions() throws ApiException {
-    return new APIlistPermissionsRequest();
-  }
-
-  private ApiResponse<PermissionsResponse> listRolePermissionsWithHttpInfo(String roleId)
+  public ApiResponse<PermissionsResponse> listRolePermissionsWithHttpInfo(String roleId)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -708,7 +583,6 @@ public class RolesApi {
       throw new ApiException(
           400, "Missing the required parameter 'roleId' when calling listRolePermissions");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v2/roles/{role_id}/permissions"
@@ -750,62 +624,116 @@ public class RolesApi {
         false);
   }
 
-  public class APIlistRolePermissionsRequest {
-    private String roleId;
+  /** Manage optional parameters to listRoleUsers. */
+  public static class ListRoleUsersOptionalParameters {
+    private Long pageSize;
+    private Long pageNumber;
+    private String sort;
+    private String filter;
 
-    private APIlistRolePermissionsRequest(String roleId) {
-      this.roleId = roleId;
+    /**
+     * Set pageSize
+     *
+     * @param pageSize Size for a given page. (optional, default to 10)
+     * @return ListRoleUsersOptionalParameters
+     */
+    public ListRoleUsersOptionalParameters pageSize(Long pageSize) {
+      this.pageSize = pageSize;
+      return this;
     }
 
     /**
-     * Execute listRolePermissions request
+     * Set pageNumber
      *
-     * @return PermissionsResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-     * </table>
+     * @param pageNumber Specific page number to return. (optional, default to 0)
+     * @return ListRoleUsersOptionalParameters
      */
-    public PermissionsResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
+    public ListRoleUsersOptionalParameters pageNumber(Long pageNumber) {
+      this.pageNumber = pageNumber;
+      return this;
     }
 
     /**
-     * Execute listRolePermissions request with HTTP info returned
+     * Set sort
      *
-     * @return ApiResponse&lt;PermissionsResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-     * </table>
+     * @param sort User attribute to order results by. Sort order is **ascending** by default. Sort
+     *     order is **descending** if the field is prefixed by a negative sign, for example
+     *     &#x60;sort&#x3D;-name&#x60;. Options: &#x60;name&#x60;, &#x60;email&#x60;,
+     *     &#x60;status&#x60;. (optional, default to name)
+     * @return ListRoleUsersOptionalParameters
      */
-    public ApiResponse<PermissionsResponse> executeWithHttpInfo() throws ApiException {
-      return listRolePermissionsWithHttpInfo(roleId);
+    public ListRoleUsersOptionalParameters sort(String sort) {
+      this.sort = sort;
+      return this;
+    }
+
+    /**
+     * Set filter
+     *
+     * @param filter Filter all users by the given string. Defaults to no filtering. (optional)
+     * @return ListRoleUsersOptionalParameters
+     */
+    public ListRoleUsersOptionalParameters filter(String filter) {
+      this.filter = filter;
+      return this;
     }
   }
 
   /**
-   * List permissions for a role Returns a list of all permissions for a single role.
+   * Get all users of a role Gets all users of a role.
    *
    * @param roleId The ID of the role. (required)
-   * @return listRolePermissionsRequest
+   * @return UsersResponse
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIlistRolePermissionsRequest listRolePermissions(String roleId) throws ApiException {
-    return new APIlistRolePermissionsRequest(roleId);
+  public UsersResponse listRoleUsers(String roleId) throws ApiException {
+    return listRoleUsersWithHttpInfo(roleId, new ListRoleUsersOptionalParameters()).getData();
   }
 
-  private ApiResponse<UsersResponse> listRoleUsersWithHttpInfo(
-      String roleId, Long pageSize, Long pageNumber, String sort, String filter)
+  /**
+   * Get all users of a role Gets all users of a role.
+   *
+   * @param roleId The ID of the role. (required)
+   * @param parameters Optional parameters for the request.
+   * @return UsersResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public UsersResponse listRoleUsers(String roleId, ListRoleUsersOptionalParameters parameters)
       throws ApiException {
+    return listRoleUsersWithHttpInfo(roleId, parameters).getData();
+  }
+
+  /**
+   * Get all users of a role Gets all users of a role.
+   *
+   * @param roleId The ID of the role. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;UsersResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UsersResponse> listRoleUsersWithHttpInfo(
+      String roleId, ListRoleUsersOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'roleId' is set
@@ -813,7 +741,10 @@ public class RolesApi {
       throw new ApiException(
           400, "Missing the required parameter 'roleId' when calling listRoleUsers");
     }
-
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    String sort = parameters.sort;
+    String filter = parameters.filter;
     // create path and map variables
     String localVarPath =
         "/api/v2/roles/{role_id}/users"
@@ -860,24 +791,20 @@ public class RolesApi {
         false);
   }
 
-  public class APIlistRoleUsersRequest {
-    private String roleId;
+  /** Manage optional parameters to listRoles. */
+  public static class ListRolesOptionalParameters {
     private Long pageSize;
     private Long pageNumber;
-    private String sort;
+    private RolesSort sort;
     private String filter;
-
-    private APIlistRoleUsersRequest(String roleId) {
-      this.roleId = roleId;
-    }
 
     /**
      * Set pageSize
      *
      * @param pageSize Size for a given page. (optional, default to 10)
-     * @return APIlistRoleUsersRequest
+     * @return ListRolesOptionalParameters
      */
-    public APIlistRoleUsersRequest pageSize(Long pageSize) {
+    public ListRolesOptionalParameters pageSize(Long pageSize) {
       this.pageSize = pageSize;
       return this;
     }
@@ -886,9 +813,9 @@ public class RolesApi {
      * Set pageNumber
      *
      * @param pageNumber Specific page number to return. (optional, default to 0)
-     * @return APIlistRoleUsersRequest
+     * @return ListRolesOptionalParameters
      */
-    public APIlistRoleUsersRequest pageNumber(Long pageNumber) {
+    public ListRolesOptionalParameters pageNumber(Long pageNumber) {
       this.pageNumber = pageNumber;
       return this;
     }
@@ -896,13 +823,12 @@ public class RolesApi {
     /**
      * Set sort
      *
-     * @param sort User attribute to order results by. Sort order is **ascending** by default. Sort
-     *     order is **descending** if the field is prefixed by a negative sign, for example
-     *     &#x60;sort&#x3D;-name&#x60;. Options: &#x60;name&#x60;, &#x60;email&#x60;,
-     *     &#x60;status&#x60;. (optional, default to name)
-     * @return APIlistRoleUsersRequest
+     * @param sort Sort roles depending on the given field. Sort order is **ascending** by default.
+     *     Sort order is **descending** if the field is prefixed by a negative sign, for example:
+     *     &#x60;sort&#x3D;-name&#x60;. (optional)
+     * @return ListRolesOptionalParameters
      */
-    public APIlistRoleUsersRequest sort(String sort) {
+    public ListRolesOptionalParameters sort(RolesSort sort) {
       this.sort = sort;
       return this;
     }
@@ -910,64 +836,68 @@ public class RolesApi {
     /**
      * Set filter
      *
-     * @param filter Filter all users by the given string. Defaults to no filtering. (optional)
-     * @return APIlistRoleUsersRequest
+     * @param filter Filter all roles by the given string. (optional)
+     * @return ListRolesOptionalParameters
      */
-    public APIlistRoleUsersRequest filter(String filter) {
+    public ListRolesOptionalParameters filter(String filter) {
       this.filter = filter;
       return this;
-    }
-
-    /**
-     * Execute listRoleUsers request
-     *
-     * @return UsersResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public UsersResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute listRoleUsers request with HTTP info returned
-     *
-     * @return ApiResponse&lt;UsersResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<UsersResponse> executeWithHttpInfo() throws ApiException {
-      return listRoleUsersWithHttpInfo(roleId, pageSize, pageNumber, sort, filter);
     }
   }
 
   /**
-   * Get all users of a role Gets all users of a role.
+   * List roles Returns all roles, including their names and IDs.
    *
-   * @param roleId The ID of the role. (required)
-   * @return listRoleUsersRequest
+   * @return RolesResponse
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIlistRoleUsersRequest listRoleUsers(String roleId) throws ApiException {
-    return new APIlistRoleUsersRequest(roleId);
+  public RolesResponse listRoles() throws ApiException {
+    return listRolesWithHttpInfo(new ListRolesOptionalParameters()).getData();
   }
 
-  private ApiResponse<RolesResponse> listRolesWithHttpInfo(
-      Long pageSize, Long pageNumber, RolesSort sort, String filter) throws ApiException {
-    Object localVarPostBody = null;
+  /**
+   * List roles Returns all roles, including their names and IDs.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return RolesResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public RolesResponse listRoles(ListRolesOptionalParameters parameters) throws ApiException {
+    return listRolesWithHttpInfo(parameters).getData();
+  }
 
+  /**
+   * List roles Returns all roles, including their names and IDs.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;RolesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<RolesResponse> listRolesWithHttpInfo(ListRolesOptionalParameters parameters)
+      throws ApiException {
+    Object localVarPostBody = null;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    RolesSort sort = parameters.sort;
+    String filter = parameters.filter;
     // create path and map variables
     String localVarPath = "/api/v2/roles";
 
@@ -1012,104 +942,44 @@ public class RolesApi {
         false);
   }
 
-  public class APIlistRolesRequest {
-    private Long pageSize;
-    private Long pageNumber;
-    private RolesSort sort;
-    private String filter;
-
-    private APIlistRolesRequest() {}
-
-    /**
-     * Set pageSize
-     *
-     * @param pageSize Size for a given page. (optional, default to 10)
-     * @return APIlistRolesRequest
-     */
-    public APIlistRolesRequest pageSize(Long pageSize) {
-      this.pageSize = pageSize;
-      return this;
-    }
-
-    /**
-     * Set pageNumber
-     *
-     * @param pageNumber Specific page number to return. (optional, default to 0)
-     * @return APIlistRolesRequest
-     */
-    public APIlistRolesRequest pageNumber(Long pageNumber) {
-      this.pageNumber = pageNumber;
-      return this;
-    }
-
-    /**
-     * Set sort
-     *
-     * @param sort Sort roles depending on the given field. Sort order is **ascending** by default.
-     *     Sort order is **descending** if the field is prefixed by a negative sign, for example:
-     *     &#x60;sort&#x3D;-name&#x60;. (optional)
-     * @return APIlistRolesRequest
-     */
-    public APIlistRolesRequest sort(RolesSort sort) {
-      this.sort = sort;
-      return this;
-    }
-
-    /**
-     * Set filter
-     *
-     * @param filter Filter all roles by the given string. (optional)
-     * @return APIlistRolesRequest
-     */
-    public APIlistRolesRequest filter(String filter) {
-      this.filter = filter;
-      return this;
-    }
-
-    /**
-     * Execute listRoles request
-     *
-     * @return RolesResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-     * </table>
-     */
-    public RolesResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute listRoles request with HTTP info returned
-     *
-     * @return ApiResponse&lt;RolesResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<RolesResponse> executeWithHttpInfo() throws ApiException {
-      return listRolesWithHttpInfo(pageSize, pageNumber, sort, filter);
-    }
+  /**
+   * Revoke permission Removes a permission from a role.
+   *
+   * @param roleId The ID of the role. (required)
+   * @param body (required)
+   * @return PermissionsResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public PermissionsResponse removePermissionFromRole(String roleId, RelationshipToPermission body)
+      throws ApiException {
+    return removePermissionFromRoleWithHttpInfo(roleId, body).getData();
   }
 
   /**
-   * List roles Returns all roles, including their names and IDs.
+   * Revoke permission Removes a permission from a role.
    *
-   * @return listRolesRequest
+   * @param roleId The ID of the role. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;PermissionsResponse&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIlistRolesRequest listRoles() throws ApiException {
-    return new APIlistRolesRequest();
-  }
-
-  private ApiResponse<PermissionsResponse> removePermissionFromRoleWithHttpInfo(
+  public ApiResponse<PermissionsResponse> removePermissionFromRoleWithHttpInfo(
       String roleId, RelationshipToPermission body) throws ApiException {
     Object localVarPostBody = body;
 
@@ -1124,7 +994,6 @@ public class RolesApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling removePermissionFromRole");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v2/roles/{role_id}/permissions"
@@ -1165,75 +1034,44 @@ public class RolesApi {
         false);
   }
 
-  public class APIremovePermissionFromRoleRequest {
-    private String roleId;
-    private RelationshipToPermission body;
-
-    private APIremovePermissionFromRoleRequest(String roleId) {
-      this.roleId = roleId;
-    }
-
-    /**
-     * Set body
-     *
-     * @param body (required)
-     * @return APIremovePermissionFromRoleRequest
-     */
-    public APIremovePermissionFromRoleRequest body(RelationshipToPermission body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Execute removePermissionFromRole request
-     *
-     * @return PermissionsResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public PermissionsResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute removePermissionFromRole request with HTTP info returned
-     *
-     * @return ApiResponse&lt;PermissionsResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<PermissionsResponse> executeWithHttpInfo() throws ApiException {
-      return removePermissionFromRoleWithHttpInfo(roleId, body);
-    }
+  /**
+   * Remove a user from a role Removes a user from a role.
+   *
+   * @param roleId The ID of the role. (required)
+   * @param body (required)
+   * @return UsersResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public UsersResponse removeUserFromRole(String roleId, RelationshipToUser body)
+      throws ApiException {
+    return removeUserFromRoleWithHttpInfo(roleId, body).getData();
   }
 
   /**
-   * Revoke permission Removes a permission from a role.
+   * Remove a user from a role Removes a user from a role.
    *
    * @param roleId The ID of the role. (required)
-   * @return removePermissionFromRoleRequest
+   * @param body (required)
+   * @return ApiResponse&lt;UsersResponse&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIremovePermissionFromRoleRequest removePermissionFromRole(String roleId)
-      throws ApiException {
-    return new APIremovePermissionFromRoleRequest(roleId);
-  }
-
-  private ApiResponse<UsersResponse> removeUserFromRoleWithHttpInfo(
+  public ApiResponse<UsersResponse> removeUserFromRoleWithHttpInfo(
       String roleId, RelationshipToUser body) throws ApiException {
     Object localVarPostBody = body;
 
@@ -1248,7 +1086,6 @@ public class RolesApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling removeUserFromRole");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v2/roles/{role_id}/users"
@@ -1289,74 +1126,45 @@ public class RolesApi {
         false);
   }
 
-  public class APIremoveUserFromRoleRequest {
-    private String roleId;
-    private RelationshipToUser body;
-
-    private APIremoveUserFromRoleRequest(String roleId) {
-      this.roleId = roleId;
-    }
-
-    /**
-     * Set body
-     *
-     * @param body (required)
-     * @return APIremoveUserFromRoleRequest
-     */
-    public APIremoveUserFromRoleRequest body(RelationshipToUser body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Execute removeUserFromRole request
-     *
-     * @return UsersResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public UsersResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute removeUserFromRole request with HTTP info returned
-     *
-     * @return ApiResponse&lt;UsersResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<UsersResponse> executeWithHttpInfo() throws ApiException {
-      return removeUserFromRoleWithHttpInfo(roleId, body);
-    }
+  /**
+   * Update a role Edit a role. Can only be used with application keys belonging to administrators.
+   *
+   * @param roleId The ID of the role. (required)
+   * @param body (required)
+   * @return RoleUpdateResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public RoleUpdateResponse updateRole(String roleId, RoleUpdateRequest body) throws ApiException {
+    return updateRoleWithHttpInfo(roleId, body).getData();
   }
 
   /**
-   * Remove a user from a role Removes a user from a role.
+   * Update a role Edit a role. Can only be used with application keys belonging to administrators.
    *
    * @param roleId The ID of the role. (required)
-   * @return removeUserFromRoleRequest
+   * @param body (required)
+   * @return ApiResponse&lt;RoleUpdateResponse&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIremoveUserFromRoleRequest removeUserFromRole(String roleId) throws ApiException {
-    return new APIremoveUserFromRoleRequest(roleId);
-  }
-
-  private ApiResponse<RoleUpdateResponse> updateRoleWithHttpInfo(
+  public ApiResponse<RoleUpdateResponse> updateRoleWithHttpInfo(
       String roleId, RoleUpdateRequest body) throws ApiException {
     Object localVarPostBody = body;
 
@@ -1370,7 +1178,6 @@ public class RolesApi {
     if (body == null) {
       throw new ApiException(400, "Missing the required parameter 'body' when calling updateRole");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v2/roles/{role_id}"
@@ -1409,74 +1216,5 @@ public class RolesApi {
         localVarAuthNames,
         localVarReturnType,
         false);
-  }
-
-  public class APIupdateRoleRequest {
-    private String roleId;
-    private RoleUpdateRequest body;
-
-    private APIupdateRoleRequest(String roleId) {
-      this.roleId = roleId;
-    }
-
-    /**
-     * Set body
-     *
-     * @param body (required)
-     * @return APIupdateRoleRequest
-     */
-    public APIupdateRoleRequest body(RoleUpdateRequest body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Execute updateRole request
-     *
-     * @return RoleUpdateResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-     * </table>
-     */
-    public RoleUpdateResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute updateRole request with HTTP info returned
-     *
-     * @return ApiResponse&lt;RoleUpdateResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<RoleUpdateResponse> executeWithHttpInfo() throws ApiException {
-      return updateRoleWithHttpInfo(roleId, body);
-    }
-  }
-
-  /**
-   * Update a role Edit a role. Can only be used with application keys belonging to administrators.
-   *
-   * @param roleId The ID of the role. (required)
-   * @return updateRoleRequest
-   * @throws ApiException if fails to make API call
-   */
-  public APIupdateRoleRequest updateRole(String roleId) throws ApiException {
-    return new APIupdateRoleRequest(roleId);
   }
 }

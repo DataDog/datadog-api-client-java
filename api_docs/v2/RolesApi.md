@@ -21,7 +21,7 @@ Method | HTTP request | Description
 
 ## addPermissionToRole
 
-> PermissionsResponse addPermissionToRole(roleId).body(body).execute();
+> PermissionsResponse addPermissionToRole(roleId, body);
 
 Grant permission to a role
 
@@ -47,9 +47,7 @@ public class Example {
         String roleId = "roleId_example"; // String | The ID of the role.
         RelationshipToPermission body = new RelationshipToPermission(); // RelationshipToPermission | 
         try {
-            PermissionsResponse result = apiInstance.addPermissionToRole(roleId)
-                .body(body)
-                .execute();
+            PermissionsResponse result = apiInstance.addPermissionToRole(roleId, body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling RolesApi#addPermissionToRole");
@@ -94,7 +92,7 @@ Name | Type | Description  | Notes
 
 ## addUserToRole
 
-> UsersResponse addUserToRole(roleId).body(body).execute();
+> UsersResponse addUserToRole(roleId, body);
 
 Add a user to a role
 
@@ -120,9 +118,7 @@ public class Example {
         String roleId = "roleId_example"; // String | The ID of the role.
         RelationshipToUser body = new RelationshipToUser(); // RelationshipToUser | 
         try {
-            UsersResponse result = apiInstance.addUserToRole(roleId)
-                .body(body)
-                .execute();
+            UsersResponse result = apiInstance.addUserToRole(roleId, body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling RolesApi#addUserToRole");
@@ -167,7 +163,7 @@ Name | Type | Description  | Notes
 
 ## createRole
 
-> RoleCreateResponse createRole().body(body).execute();
+> RoleCreateResponse createRole(body);
 
 Create role
 
@@ -192,9 +188,7 @@ public class Example {
         RolesApi apiInstance = new RolesApi(defaultClient);
         RoleCreateRequest body = new RoleCreateRequest(); // RoleCreateRequest | 
         try {
-            RoleCreateResponse result = apiInstance.createRole()
-                .body(body)
-                .execute();
+            RoleCreateResponse result = apiInstance.createRole(body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling RolesApi#createRole");
@@ -237,7 +231,7 @@ Name | Type | Description  | Notes
 
 ## deleteRole
 
-> deleteRole(roleId).execute();
+> deleteRole(roleId);
 
 Delete role
 
@@ -262,8 +256,7 @@ public class Example {
         RolesApi apiInstance = new RolesApi(defaultClient);
         String roleId = "roleId_example"; // String | The ID of the role.
         try {
-            apiInstance.deleteRole(roleId)
-                .execute();
+            apiInstance.deleteRole(roleId);
         } catch (ApiException e) {
             System.err.println("Exception when calling RolesApi#deleteRole");
             System.err.println("Status code: " + e.getCode());
@@ -305,7 +298,7 @@ null (empty response body)
 
 ## getRole
 
-> RoleResponse getRole(roleId).execute();
+> RoleResponse getRole(roleId);
 
 Get a role
 
@@ -330,8 +323,7 @@ public class Example {
         RolesApi apiInstance = new RolesApi(defaultClient);
         String roleId = "roleId_example"; // String | The ID of the role.
         try {
-            RoleResponse result = apiInstance.getRole(roleId)
-                .execute();
+            RoleResponse result = apiInstance.getRole(roleId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling RolesApi#getRole");
@@ -374,7 +366,7 @@ Name | Type | Description  | Notes
 
 ## listPermissions
 
-> PermissionsResponse listPermissions().execute();
+> PermissionsResponse listPermissions();
 
 List permissions
 
@@ -398,8 +390,7 @@ public class Example {
 
         RolesApi apiInstance = new RolesApi(defaultClient);
         try {
-            PermissionsResponse result = apiInstance.listPermissions()
-                .execute();
+            PermissionsResponse result = apiInstance.listPermissions();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling RolesApi#listPermissions");
@@ -439,7 +430,7 @@ This endpoint does not need any parameter.
 
 ## listRolePermissions
 
-> PermissionsResponse listRolePermissions(roleId).execute();
+> PermissionsResponse listRolePermissions(roleId);
 
 List permissions for a role
 
@@ -464,8 +455,7 @@ public class Example {
         RolesApi apiInstance = new RolesApi(defaultClient);
         String roleId = "roleId_example"; // String | The ID of the role.
         try {
-            PermissionsResponse result = apiInstance.listRolePermissions(roleId)
-                .execute();
+            PermissionsResponse result = apiInstance.listRolePermissions(roleId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling RolesApi#listRolePermissions");
@@ -508,7 +498,7 @@ Name | Type | Description  | Notes
 
 ## listRoleUsers
 
-> UsersResponse listRoleUsers(roleId).pageSize(pageSize).pageNumber(pageNumber).sort(sort).filter(filter).execute();
+> UsersResponse listRoleUsers(roleId, parameters);
 
 Get all users of a role
 
@@ -537,12 +527,11 @@ public class Example {
         String sort = "name"; // String | User attribute to order results by. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example `sort=-name`. Options: `name`, `email`, `status`.
         String filter = "filter_example"; // String | Filter all users by the given string. Defaults to no filtering.
         try {
-            UsersResponse result = apiInstance.listRoleUsers(roleId)
+	    UsersResponse result = apiInstance.listRoleUsers(roleId, new RolesApi.ListRoleUsersOptionalParameters()
                 .pageSize(pageSize)
                 .pageNumber(pageNumber)
                 .sort(sort)
-                .filter(filter)
-                .execute();
+                .filter(filter));
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling RolesApi#listRoleUsers");
@@ -589,7 +578,7 @@ Name | Type | Description  | Notes
 
 ## listRoles
 
-> RolesResponse listRoles().pageSize(pageSize).pageNumber(pageNumber).sort(sort).filter(filter).execute();
+> RolesResponse listRoles(parameters);
 
 List roles
 
@@ -617,12 +606,11 @@ public class Example {
         RolesSort sort = RolesSort.fromValue("name"); // RolesSort | Sort roles depending on the given field. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example: `sort=-name`.
         String filter = "filter_example"; // String | Filter all roles by the given string.
         try {
-            RolesResponse result = apiInstance.listRoles()
+	    RolesResponse result = apiInstance.listRoles(new RolesApi.ListRolesOptionalParameters()
                 .pageSize(pageSize)
                 .pageNumber(pageNumber)
                 .sort(sort)
-                .filter(filter)
-                .execute();
+                .filter(filter));
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling RolesApi#listRoles");
@@ -667,7 +655,7 @@ Name | Type | Description  | Notes
 
 ## removePermissionFromRole
 
-> PermissionsResponse removePermissionFromRole(roleId).body(body).execute();
+> PermissionsResponse removePermissionFromRole(roleId, body);
 
 Revoke permission
 
@@ -693,9 +681,7 @@ public class Example {
         String roleId = "roleId_example"; // String | The ID of the role.
         RelationshipToPermission body = new RelationshipToPermission(); // RelationshipToPermission | 
         try {
-            PermissionsResponse result = apiInstance.removePermissionFromRole(roleId)
-                .body(body)
-                .execute();
+            PermissionsResponse result = apiInstance.removePermissionFromRole(roleId, body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling RolesApi#removePermissionFromRole");
@@ -740,7 +726,7 @@ Name | Type | Description  | Notes
 
 ## removeUserFromRole
 
-> UsersResponse removeUserFromRole(roleId).body(body).execute();
+> UsersResponse removeUserFromRole(roleId, body);
 
 Remove a user from a role
 
@@ -766,9 +752,7 @@ public class Example {
         String roleId = "roleId_example"; // String | The ID of the role.
         RelationshipToUser body = new RelationshipToUser(); // RelationshipToUser | 
         try {
-            UsersResponse result = apiInstance.removeUserFromRole(roleId)
-                .body(body)
-                .execute();
+            UsersResponse result = apiInstance.removeUserFromRole(roleId, body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling RolesApi#removeUserFromRole");
@@ -813,7 +797,7 @@ Name | Type | Description  | Notes
 
 ## updateRole
 
-> RoleUpdateResponse updateRole(roleId).body(body).execute();
+> RoleUpdateResponse updateRole(roleId, body);
 
 Update a role
 
@@ -839,9 +823,7 @@ public class Example {
         String roleId = "roleId_example"; // String | The ID of the role.
         RoleUpdateRequest body = new RoleUpdateRequest(); // RoleUpdateRequest | 
         try {
-            RoleUpdateResponse result = apiInstance.updateRole(roleId)
-                .body(body)
-                .execute();
+            RoleUpdateResponse result = apiInstance.updateRole(roleId, body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling RolesApi#updateRole");

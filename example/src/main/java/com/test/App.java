@@ -24,7 +24,7 @@ public class App {
 
         Downtime created = null;
         try {
-            created = apiInstance.createDowntime().body(d).execute();
+            created = apiInstance.createDowntime(d);
         } catch (ApiException e) {
             System.err.println("Exception when creating a downtime");
             e.printStackTrace();
@@ -40,7 +40,7 @@ public class App {
 
         Downtime modified = null;
         try {
-            modified = apiInstance.updateDowntime(created.getId()).body(created).execute();
+            modified = apiInstance.updateDowntime(created.getId(), created);
         } catch (ApiException e) {
             System.err.println("Exception when updating a downtime");
             e.printStackTrace();
@@ -54,7 +54,7 @@ public class App {
         req.setScope("foo:bar");
         CanceledDowntimesIds cids = null;
         try {
-            cids = apiInstance.cancelDowntimesByScope().body(req).execute();
+            cids = apiInstance.cancelDowntimesByScope(req);
         } catch (ApiException e) {
             System.err.println("Exception when cancelling a downtime");
             e.printStackTrace();

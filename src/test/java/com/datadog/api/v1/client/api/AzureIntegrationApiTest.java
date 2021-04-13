@@ -70,7 +70,7 @@ public class AzureIntegrationApiTest extends V1ApiTest {
   @After
   public void cleanup() {
     try {
-      api.deleteAzureIntegration().body(uniqueAzureAccount).execute();
+      api.deleteAzureIntegration(uniqueAzureAccount);
     } catch (ApiException e) {
       System.out.printf(
           "Couldn't uninstall Azure account %s, may have been removed as part of another test",
@@ -82,7 +82,7 @@ public class AzureIntegrationApiTest extends V1ApiTest {
     updatedAccount.setClientId(uniqueUpdatedAzureAccount.getNewClientId());
     updatedAccount.setTenantName(uniqueUpdatedAzureAccount.getNewTenantName());
     try {
-      api.deleteAzureIntegration().body(updatedAccount).execute();
+      api.deleteAzureIntegration(updatedAccount);
     } catch (ApiException e) {
       System.out.printf(
           "Couldn't uninstall Azure account %s, may have been removed as part of another test",
@@ -106,7 +106,7 @@ public class AzureIntegrationApiTest extends V1ApiTest {
    */
   @Test
   public void createAzureIntegrationTest() throws ApiException {
-    Object response = api.createAzureIntegration().body(uniqueAzureAccount).execute();
+    Object response = api.createAzureIntegration(uniqueAzureAccount);
     assertEquals(response, new java.util.LinkedHashMap<>());
   }
 
@@ -123,9 +123,9 @@ public class AzureIntegrationApiTest extends V1ApiTest {
   @Test
   public void listAnddeleteAzureIntegrationTest() throws ApiException {
     // Setup Azure Account to List
-    api.createAzureIntegration().body(uniqueAzureAccount).execute();
+    api.createAzureIntegration(uniqueAzureAccount);
 
-    List<AzureAccount> listAccounts = api.listAzureIntegration().execute();
+    List<AzureAccount> listAccounts = api.listAzureIntegration();
     AzureAccount retrievedAccount;
     retrievedAccount = retrieveAccountInList(listAccounts, uniqueAzureAccount.getTenantName());
     assertEquals(uniqueAzureAccount.getClientId(), retrievedAccount.getClientId());
@@ -133,12 +133,12 @@ public class AzureIntegrationApiTest extends V1ApiTest {
     assertTrue(listAccounts.size() >= 1);
 
     // Test account deletion as well
-    api.deleteAzureIntegration().body(uniqueAzureAccount).execute();
+    api.deleteAzureIntegration(uniqueAzureAccount);
     try {
       // the API returns 400 if there are no accounts at all, but because of potential other tests
       // running, we can never be sure if there are currently other accounts, so we handle both
       // cases
-      listAccounts = api.listAzureIntegration().execute();
+      listAccounts = api.listAzureIntegration();
       retrievedAccount = retrieveAccountInList(listAccounts, uniqueAzureAccount.getTenantName());
       assertEquals(new AzureAccount(), retrievedAccount);
     } catch (ApiException e) {
@@ -170,11 +170,11 @@ public class AzureIntegrationApiTest extends V1ApiTest {
   @Test
   public void updateAzureIntegrationTest() throws ApiException {
     // Create and update an account
-    api.createAzureIntegration().body(uniqueAzureAccount).execute();
-    api.updateAzureIntegration().body(uniqueUpdatedAzureAccount).execute();
+    api.createAzureIntegration(uniqueAzureAccount);
+    api.updateAzureIntegration(uniqueUpdatedAzureAccount);
 
     // List account to ensure update worked.
-    List<AzureAccount> listAccounts = api.listAzureIntegration().execute();
+    List<AzureAccount> listAccounts = api.listAzureIntegration();
     AzureAccount retrievedAccount;
     retrievedAccount =
         retrieveAccountInList(listAccounts, uniqueUpdatedAzureAccount.getNewTenantName());
@@ -183,8 +183,8 @@ public class AzureIntegrationApiTest extends V1ApiTest {
     assertEquals(uniqueUpdatedAzureAccount.getHostFilters(), retrievedAccount.getHostFilters());
 
     // Test update host filters endpoint
-    api.updateAzureHostFilters().body(uniqueUpdatedHostFilters).execute();
-    listAccounts = api.listAzureIntegration().execute();
+    api.updateAzureHostFilters(uniqueUpdatedHostFilters);
+    listAccounts = api.listAzureIntegration();
     retrievedAccount =
         retrieveAccountInList(listAccounts, uniqueUpdatedHostFilters.getTenantName());
     assertEquals(uniqueUpdatedHostFilters.getHostFilters(), retrievedAccount.getHostFilters());
@@ -208,7 +208,7 @@ public class AzureIntegrationApiTest extends V1ApiTest {
     // the case on test org
     // and it can't be done through the API
     try {
-      unitApi.listAzureIntegration().execute();
+      unitApi.listAzureIntegration();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -220,7 +220,7 @@ public class AzureIntegrationApiTest extends V1ApiTest {
   @Test
   public void list403AzureIntegrationErrorTest() throws IOException {
     try {
-      fakeAuthApi.listAzureIntegration().execute();
+      fakeAuthApi.listAzureIntegration();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -232,7 +232,7 @@ public class AzureIntegrationApiTest extends V1ApiTest {
   @Test
   public void createAzureIntegrationErrorsTest() throws IOException {
     try {
-      api.createAzureIntegration().body(new AzureAccount()).execute();
+      api.createAzureIntegration(new AzureAccount());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -241,7 +241,7 @@ public class AzureIntegrationApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.createAzureIntegration().body(new AzureAccount()).execute();
+      fakeAuthApi.createAzureIntegration(new AzureAccount());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -253,7 +253,7 @@ public class AzureIntegrationApiTest extends V1ApiTest {
   @Test
   public void deleteAzureIntegrationErrorsTest() throws IOException {
     try {
-      api.deleteAzureIntegration().body(new AzureAccount()).execute();
+      api.deleteAzureIntegration(new AzureAccount());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -262,7 +262,7 @@ public class AzureIntegrationApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.deleteAzureIntegration().body(new AzureAccount()).execute();
+      fakeAuthApi.deleteAzureIntegration(new AzureAccount());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -274,7 +274,7 @@ public class AzureIntegrationApiTest extends V1ApiTest {
   @Test
   public void updateAzureIntegrationErrorsTest() throws IOException {
     try {
-      api.updateAzureIntegration().body(new AzureAccount()).execute();
+      api.updateAzureIntegration(new AzureAccount());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -283,7 +283,7 @@ public class AzureIntegrationApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.updateAzureIntegration().body(new AzureAccount()).execute();
+      fakeAuthApi.updateAzureIntegration(new AzureAccount());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -295,7 +295,7 @@ public class AzureIntegrationApiTest extends V1ApiTest {
   @Test
   public void updateHostFiltersAzureIntegrationErrorsTest() throws IOException {
     try {
-      api.updateAzureHostFilters().body(new AzureAccount()).execute();
+      api.updateAzureHostFilters(new AzureAccount());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -304,7 +304,7 @@ public class AzureIntegrationApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.updateAzureHostFilters().body(new AzureAccount()).execute();
+      fakeAuthApi.updateAzureHostFilters(new AzureAccount());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());

@@ -73,11 +73,116 @@ public class UsageMeteringApi {
     this.apiClient = apiClient;
   }
 
-  private ApiResponse<UsageCustomReportsResponse> getDailyCustomReportsWithHttpInfo(
-      Long pageSize, Long pageNumber, UsageSortDirection sortDir, UsageSort sort)
-      throws ApiException {
-    Object localVarPostBody = null;
+  /** Manage optional parameters to getDailyCustomReports. */
+  public static class GetDailyCustomReportsOptionalParameters {
+    private Long pageSize;
+    private Long pageNumber;
+    private UsageSortDirection sortDir;
+    private UsageSort sort;
 
+    /**
+     * Set pageSize
+     *
+     * @param pageSize The number of files to return in the response. &#x60;[default&#x3D;60]&#x60;.
+     *     (optional)
+     * @return GetDailyCustomReportsOptionalParameters
+     */
+    public GetDailyCustomReportsOptionalParameters pageSize(Long pageSize) {
+      this.pageSize = pageSize;
+      return this;
+    }
+
+    /**
+     * Set pageNumber
+     *
+     * @param pageNumber The identifier of the first page to return. This parameter is used for the
+     *     pagination feature &#x60;[default&#x3D;0]&#x60;. (optional)
+     * @return GetDailyCustomReportsOptionalParameters
+     */
+    public GetDailyCustomReportsOptionalParameters pageNumber(Long pageNumber) {
+      this.pageNumber = pageNumber;
+      return this;
+    }
+
+    /**
+     * Set sortDir
+     *
+     * @param sortDir The direction to sort by: &#x60;[desc, asc]&#x60;. (optional)
+     * @return GetDailyCustomReportsOptionalParameters
+     */
+    public GetDailyCustomReportsOptionalParameters sortDir(UsageSortDirection sortDir) {
+      this.sortDir = sortDir;
+      return this;
+    }
+
+    /**
+     * Set sort
+     *
+     * @param sort The field to sort by: &#x60;[computed_on, size, start_date, end_date]&#x60;.
+     *     (optional)
+     * @return GetDailyCustomReportsOptionalParameters
+     */
+    public GetDailyCustomReportsOptionalParameters sort(UsageSort sort) {
+      this.sort = sort;
+      return this;
+    }
+  }
+
+  /**
+   * Get the list of available daily custom reports Get daily custom reports.
+   *
+   * @return UsageCustomReportsResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public UsageCustomReportsResponse getDailyCustomReports() throws ApiException {
+    return getDailyCustomReportsWithHttpInfo(new GetDailyCustomReportsOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get the list of available daily custom reports Get daily custom reports.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return UsageCustomReportsResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public UsageCustomReportsResponse getDailyCustomReports(
+      GetDailyCustomReportsOptionalParameters parameters) throws ApiException {
+    return getDailyCustomReportsWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * Get the list of available daily custom reports Get daily custom reports.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;UsageCustomReportsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UsageCustomReportsResponse> getDailyCustomReportsWithHttpInfo(
+      GetDailyCustomReportsOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    UsageSortDirection sortDir = parameters.sortDir;
+    UsageSort sort = parameters.sort;
     // create path and map variables
     String localVarPath = "/api/v1/daily_custom_reports";
 
@@ -123,112 +228,85 @@ public class UsageMeteringApi {
         false);
   }
 
-  public class APIgetDailyCustomReportsRequest {
-    private Long pageSize;
-    private Long pageNumber;
-    private UsageSortDirection sortDir;
-    private UsageSort sort;
-
-    private APIgetDailyCustomReportsRequest() {}
+  /** Manage optional parameters to getIncidentManagement. */
+  public static class GetIncidentManagementOptionalParameters {
+    private OffsetDateTime endHr;
 
     /**
-     * Set pageSize
+     * Set endHr
      *
-     * @param pageSize The number of files to return in the response. &#x60;[default&#x3D;60]&#x60;.
-     *     (optional)
-     * @return APIgetDailyCustomReportsRequest
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+     *     for usage ending **before** this hour. (optional)
+     * @return GetIncidentManagementOptionalParameters
      */
-    public APIgetDailyCustomReportsRequest pageSize(Long pageSize) {
-      this.pageSize = pageSize;
+    public GetIncidentManagementOptionalParameters endHr(OffsetDateTime endHr) {
+      this.endHr = endHr;
       return this;
-    }
-
-    /**
-     * Set pageNumber
-     *
-     * @param pageNumber The identifier of the first page to return. This parameter is used for the
-     *     pagination feature &#x60;[default&#x3D;0]&#x60;. (optional)
-     * @return APIgetDailyCustomReportsRequest
-     */
-    public APIgetDailyCustomReportsRequest pageNumber(Long pageNumber) {
-      this.pageNumber = pageNumber;
-      return this;
-    }
-
-    /**
-     * Set sortDir
-     *
-     * @param sortDir The direction to sort by: &#x60;[desc, asc]&#x60;. (optional)
-     * @return APIgetDailyCustomReportsRequest
-     */
-    public APIgetDailyCustomReportsRequest sortDir(UsageSortDirection sortDir) {
-      this.sortDir = sortDir;
-      return this;
-    }
-
-    /**
-     * Set sort
-     *
-     * @param sort The field to sort by: &#x60;[computed_on, size, start_date, end_date]&#x60;.
-     *     (optional)
-     * @return APIgetDailyCustomReportsRequest
-     */
-    public APIgetDailyCustomReportsRequest sort(UsageSort sort) {
-      this.sort = sort;
-      return this;
-    }
-
-    /**
-     * Execute getDailyCustomReports request
-     *
-     * @return UsageCustomReportsResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public UsageCustomReportsResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getDailyCustomReports request with HTTP info returned
-     *
-     * @return ApiResponse&lt;UsageCustomReportsResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<UsageCustomReportsResponse> executeWithHttpInfo() throws ApiException {
-      return getDailyCustomReportsWithHttpInfo(pageSize, pageNumber, sortDir, sort);
     }
   }
 
   /**
-   * Get the list of available daily custom reports Get daily custom reports.
+   * Get hourly usage for incident management Get hourly usage for incident management.
    *
-   * @return getDailyCustomReportsRequest
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @return UsageIncidentManagementResponse
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIgetDailyCustomReportsRequest getDailyCustomReports() throws ApiException {
-    String operationId = "getDailyCustomReports";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
-    return new APIgetDailyCustomReportsRequest();
+  public UsageIncidentManagementResponse getIncidentManagement(OffsetDateTime startHr)
+      throws ApiException {
+    return getIncidentManagementWithHttpInfo(startHr, new GetIncidentManagementOptionalParameters())
+        .getData();
   }
 
-  private ApiResponse<UsageIncidentManagementResponse> getIncidentManagementWithHttpInfo(
-      OffsetDateTime startHr, OffsetDateTime endHr) throws ApiException {
+  /**
+   * Get hourly usage for incident management Get hourly usage for incident management.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return UsageIncidentManagementResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public UsageIncidentManagementResponse getIncidentManagement(
+      OffsetDateTime startHr, GetIncidentManagementOptionalParameters parameters)
+      throws ApiException {
+    return getIncidentManagementWithHttpInfo(startHr, parameters).getData();
+  }
+
+  /**
+   * Get hourly usage for incident management Get hourly usage for incident management.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;UsageIncidentManagementResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UsageIncidentManagementResponse> getIncidentManagementWithHttpInfo(
+      OffsetDateTime startHr, GetIncidentManagementOptionalParameters parameters)
+      throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'startHr' is set
@@ -236,7 +314,7 @@ public class UsageMeteringApi {
       throw new ApiException(
           400, "Missing the required parameter 'startHr' when calling getIncidentManagement");
     }
-
+    OffsetDateTime endHr = parameters.endHr;
     // create path and map variables
     String localVarPath = "/api/v1/usage/incident-management";
 
@@ -280,83 +358,82 @@ public class UsageMeteringApi {
         false);
   }
 
-  public class APIgetIncidentManagementRequest {
-    private OffsetDateTime startHr;
+  /** Manage optional parameters to getIngestedSpans. */
+  public static class GetIngestedSpansOptionalParameters {
     private OffsetDateTime endHr;
-
-    private APIgetIncidentManagementRequest() {}
-
-    /**
-     * Set startHr
-     *
-     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
-     *     for usage beginning at this hour. (required)
-     * @return APIgetIncidentManagementRequest
-     */
-    public APIgetIncidentManagementRequest startHr(OffsetDateTime startHr) {
-      this.startHr = startHr;
-      return this;
-    }
 
     /**
      * Set endHr
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
      *     for usage ending **before** this hour. (optional)
-     * @return APIgetIncidentManagementRequest
+     * @return GetIngestedSpansOptionalParameters
      */
-    public APIgetIncidentManagementRequest endHr(OffsetDateTime endHr) {
+    public GetIngestedSpansOptionalParameters endHr(OffsetDateTime endHr) {
       this.endHr = endHr;
       return this;
-    }
-
-    /**
-     * Execute getIncidentManagement request
-     *
-     * @return UsageIncidentManagementResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public UsageIncidentManagementResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getIncidentManagement request with HTTP info returned
-     *
-     * @return ApiResponse&lt;UsageIncidentManagementResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<UsageIncidentManagementResponse> executeWithHttpInfo() throws ApiException {
-      return getIncidentManagementWithHttpInfo(startHr, endHr);
     }
   }
 
   /**
-   * Get hourly usage for incident management Get hourly usage for incident management.
+   * Get hourly usage for ingested spans Get hourly usage for ingested spans.
    *
-   * @return getIncidentManagementRequest
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @return UsageIngestedSpansResponse
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIgetIncidentManagementRequest getIncidentManagement() throws ApiException {
-    return new APIgetIncidentManagementRequest();
+  public UsageIngestedSpansResponse getIngestedSpans(OffsetDateTime startHr) throws ApiException {
+    return getIngestedSpansWithHttpInfo(startHr, new GetIngestedSpansOptionalParameters())
+        .getData();
   }
 
-  private ApiResponse<UsageIngestedSpansResponse> getIngestedSpansWithHttpInfo(
-      OffsetDateTime startHr, OffsetDateTime endHr) throws ApiException {
+  /**
+   * Get hourly usage for ingested spans Get hourly usage for ingested spans.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return UsageIngestedSpansResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public UsageIngestedSpansResponse getIngestedSpans(
+      OffsetDateTime startHr, GetIngestedSpansOptionalParameters parameters) throws ApiException {
+    return getIngestedSpansWithHttpInfo(startHr, parameters).getData();
+  }
+
+  /**
+   * Get hourly usage for ingested spans Get hourly usage for ingested spans.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;UsageIngestedSpansResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UsageIngestedSpansResponse> getIngestedSpansWithHttpInfo(
+      OffsetDateTime startHr, GetIngestedSpansOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'startHr' is set
@@ -364,7 +441,7 @@ public class UsageMeteringApi {
       throw new ApiException(
           400, "Missing the required parameter 'startHr' when calling getIngestedSpans");
     }
-
+    OffsetDateTime endHr = parameters.endHr;
     // create path and map variables
     String localVarPath = "/api/v1/usage/ingested-spans";
 
@@ -408,86 +485,116 @@ public class UsageMeteringApi {
         false);
   }
 
-  public class APIgetIngestedSpansRequest {
-    private OffsetDateTime startHr;
-    private OffsetDateTime endHr;
-
-    private APIgetIngestedSpansRequest() {}
+  /** Manage optional parameters to getMonthlyCustomReports. */
+  public static class GetMonthlyCustomReportsOptionalParameters {
+    private Long pageSize;
+    private Long pageNumber;
+    private UsageSortDirection sortDir;
+    private UsageSort sort;
 
     /**
-     * Set startHr
+     * Set pageSize
      *
-     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
-     *     for usage beginning at this hour. (required)
-     * @return APIgetIngestedSpansRequest
+     * @param pageSize The number of files to return in the response &#x60;[default&#x3D;60].&#x60;
+     *     (optional)
+     * @return GetMonthlyCustomReportsOptionalParameters
      */
-    public APIgetIngestedSpansRequest startHr(OffsetDateTime startHr) {
-      this.startHr = startHr;
+    public GetMonthlyCustomReportsOptionalParameters pageSize(Long pageSize) {
+      this.pageSize = pageSize;
       return this;
     }
 
     /**
-     * Set endHr
+     * Set pageNumber
      *
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
-     *     for usage ending **before** this hour. (optional)
-     * @return APIgetIngestedSpansRequest
+     * @param pageNumber The identifier of the first page to return. This parameter is used for the
+     *     pagination feature &#x60;[default&#x3D;0]&#x60;. (optional)
+     * @return GetMonthlyCustomReportsOptionalParameters
      */
-    public APIgetIngestedSpansRequest endHr(OffsetDateTime endHr) {
-      this.endHr = endHr;
+    public GetMonthlyCustomReportsOptionalParameters pageNumber(Long pageNumber) {
+      this.pageNumber = pageNumber;
       return this;
     }
 
     /**
-     * Execute getIngestedSpans request
+     * Set sortDir
      *
-     * @return UsageIngestedSpansResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
+     * @param sortDir The direction to sort by: &#x60;[desc, asc]&#x60;. (optional)
+     * @return GetMonthlyCustomReportsOptionalParameters
      */
-    public UsageIngestedSpansResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
+    public GetMonthlyCustomReportsOptionalParameters sortDir(UsageSortDirection sortDir) {
+      this.sortDir = sortDir;
+      return this;
     }
 
     /**
-     * Execute getIngestedSpans request with HTTP info returned
+     * Set sort
      *
-     * @return ApiResponse&lt;UsageIngestedSpansResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
+     * @param sort The field to sort by: &#x60;[computed_on, size, start_date, end_date]&#x60;.
+     *     (optional)
+     * @return GetMonthlyCustomReportsOptionalParameters
      */
-    public ApiResponse<UsageIngestedSpansResponse> executeWithHttpInfo() throws ApiException {
-      return getIngestedSpansWithHttpInfo(startHr, endHr);
+    public GetMonthlyCustomReportsOptionalParameters sort(UsageSort sort) {
+      this.sort = sort;
+      return this;
     }
   }
 
   /**
-   * Get hourly usage for ingested spans Get hourly usage for ingested spans.
+   * Get the list of available monthly custom reports Get monthly custom reports.
    *
-   * @return getIngestedSpansRequest
+   * @return UsageCustomReportsResponse
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIgetIngestedSpansRequest getIngestedSpans() throws ApiException {
-    return new APIgetIngestedSpansRequest();
+  public UsageCustomReportsResponse getMonthlyCustomReports() throws ApiException {
+    return getMonthlyCustomReportsWithHttpInfo(new GetMonthlyCustomReportsOptionalParameters())
+        .getData();
   }
 
-  private ApiResponse<UsageCustomReportsResponse> getMonthlyCustomReportsWithHttpInfo(
-      Long pageSize, Long pageNumber, UsageSortDirection sortDir, UsageSort sort)
-      throws ApiException {
-    Object localVarPostBody = null;
+  /**
+   * Get the list of available monthly custom reports Get monthly custom reports.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return UsageCustomReportsResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public UsageCustomReportsResponse getMonthlyCustomReports(
+      GetMonthlyCustomReportsOptionalParameters parameters) throws ApiException {
+    return getMonthlyCustomReportsWithHttpInfo(parameters).getData();
+  }
 
+  /**
+   * Get the list of available monthly custom reports Get monthly custom reports.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;UsageCustomReportsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UsageCustomReportsResponse> getMonthlyCustomReportsWithHttpInfo(
+      GetMonthlyCustomReportsOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    UsageSortDirection sortDir = parameters.sortDir;
+    UsageSort sort = parameters.sort;
     // create path and map variables
     String localVarPath = "/api/v1/monthly_custom_reports";
 
@@ -533,111 +640,40 @@ public class UsageMeteringApi {
         false);
   }
 
-  public class APIgetMonthlyCustomReportsRequest {
-    private Long pageSize;
-    private Long pageNumber;
-    private UsageSortDirection sortDir;
-    private UsageSort sort;
-
-    private APIgetMonthlyCustomReportsRequest() {}
-
-    /**
-     * Set pageSize
-     *
-     * @param pageSize The number of files to return in the response &#x60;[default&#x3D;60].&#x60;
-     *     (optional)
-     * @return APIgetMonthlyCustomReportsRequest
-     */
-    public APIgetMonthlyCustomReportsRequest pageSize(Long pageSize) {
-      this.pageSize = pageSize;
-      return this;
-    }
-
-    /**
-     * Set pageNumber
-     *
-     * @param pageNumber The identifier of the first page to return. This parameter is used for the
-     *     pagination feature &#x60;[default&#x3D;0]&#x60;. (optional)
-     * @return APIgetMonthlyCustomReportsRequest
-     */
-    public APIgetMonthlyCustomReportsRequest pageNumber(Long pageNumber) {
-      this.pageNumber = pageNumber;
-      return this;
-    }
-
-    /**
-     * Set sortDir
-     *
-     * @param sortDir The direction to sort by: &#x60;[desc, asc]&#x60;. (optional)
-     * @return APIgetMonthlyCustomReportsRequest
-     */
-    public APIgetMonthlyCustomReportsRequest sortDir(UsageSortDirection sortDir) {
-      this.sortDir = sortDir;
-      return this;
-    }
-
-    /**
-     * Set sort
-     *
-     * @param sort The field to sort by: &#x60;[computed_on, size, start_date, end_date]&#x60;.
-     *     (optional)
-     * @return APIgetMonthlyCustomReportsRequest
-     */
-    public APIgetMonthlyCustomReportsRequest sort(UsageSort sort) {
-      this.sort = sort;
-      return this;
-    }
-
-    /**
-     * Execute getMonthlyCustomReports request
-     *
-     * @return UsageCustomReportsResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public UsageCustomReportsResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getMonthlyCustomReports request with HTTP info returned
-     *
-     * @return ApiResponse&lt;UsageCustomReportsResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<UsageCustomReportsResponse> executeWithHttpInfo() throws ApiException {
-      return getMonthlyCustomReportsWithHttpInfo(pageSize, pageNumber, sortDir, sort);
-    }
+  /**
+   * Get specified daily custom reports Get specified daily custom reports.
+   *
+   * @param reportId The specified ID to search results for. (required)
+   * @return UsageSpecifiedCustomReportsResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public UsageSpecifiedCustomReportsResponse getSpecifiedDailyCustomReports(String reportId)
+      throws ApiException {
+    return getSpecifiedDailyCustomReportsWithHttpInfo(reportId).getData();
   }
 
   /**
-   * Get the list of available monthly custom reports Get monthly custom reports.
+   * Get specified daily custom reports Get specified daily custom reports.
    *
-   * @return getMonthlyCustomReportsRequest
+   * @param reportId The specified ID to search results for. (required)
+   * @return ApiResponse&lt;UsageSpecifiedCustomReportsResponse&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIgetMonthlyCustomReportsRequest getMonthlyCustomReports() throws ApiException {
-    String operationId = "getMonthlyCustomReports";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
-    return new APIgetMonthlyCustomReportsRequest();
-  }
-
-  private ApiResponse<UsageSpecifiedCustomReportsResponse>
+  public ApiResponse<UsageSpecifiedCustomReportsResponse>
       getSpecifiedDailyCustomReportsWithHttpInfo(String reportId) throws ApiException {
     Object localVarPostBody = null;
 
@@ -647,7 +683,6 @@ public class UsageMeteringApi {
           400,
           "Missing the required parameter 'reportId' when calling getSpecifiedDailyCustomReports");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v1/daily_custom_reports/{report_id}"
@@ -690,68 +725,42 @@ public class UsageMeteringApi {
         false);
   }
 
-  public class APIgetSpecifiedDailyCustomReportsRequest {
-    private String reportId;
-
-    private APIgetSpecifiedDailyCustomReportsRequest(String reportId) {
-      this.reportId = reportId;
-    }
-
-    /**
-     * Execute getSpecifiedDailyCustomReports request
-     *
-     * @return UsageSpecifiedCustomReportsResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public UsageSpecifiedCustomReportsResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getSpecifiedDailyCustomReports request with HTTP info returned
-     *
-     * @return ApiResponse&lt;UsageSpecifiedCustomReportsResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<UsageSpecifiedCustomReportsResponse> executeWithHttpInfo()
-        throws ApiException {
-      return getSpecifiedDailyCustomReportsWithHttpInfo(reportId);
-    }
+  /**
+   * Get specified monthly custom reports Get specified monthly custom reports.
+   *
+   * @param reportId The specified ID to search results for. (required)
+   * @return UsageSpecifiedCustomReportsResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public UsageSpecifiedCustomReportsResponse getSpecifiedMonthlyCustomReports(String reportId)
+      throws ApiException {
+    return getSpecifiedMonthlyCustomReportsWithHttpInfo(reportId).getData();
   }
 
   /**
-   * Get specified daily custom reports Get specified daily custom reports.
+   * Get specified monthly custom reports Get specified monthly custom reports.
    *
    * @param reportId The specified ID to search results for. (required)
-   * @return getSpecifiedDailyCustomReportsRequest
+   * @return ApiResponse&lt;UsageSpecifiedCustomReportsResponse&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIgetSpecifiedDailyCustomReportsRequest getSpecifiedDailyCustomReports(String reportId)
-      throws ApiException {
-    String operationId = "getSpecifiedDailyCustomReports";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
-    return new APIgetSpecifiedDailyCustomReportsRequest(reportId);
-  }
-
-  private ApiResponse<UsageSpecifiedCustomReportsResponse>
+  public ApiResponse<UsageSpecifiedCustomReportsResponse>
       getSpecifiedMonthlyCustomReportsWithHttpInfo(String reportId) throws ApiException {
     Object localVarPostBody = null;
 
@@ -762,7 +771,6 @@ public class UsageMeteringApi {
           "Missing the required parameter 'reportId' when calling"
               + " getSpecifiedMonthlyCustomReports");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v1/monthly_custom_reports/{report_id}"
@@ -805,71 +813,98 @@ public class UsageMeteringApi {
         false);
   }
 
-  public class APIgetSpecifiedMonthlyCustomReportsRequest {
-    private String reportId;
-
-    private APIgetSpecifiedMonthlyCustomReportsRequest(String reportId) {
-      this.reportId = reportId;
-    }
+  /** Manage optional parameters to getTracingWithoutLimits. */
+  public static class GetTracingWithoutLimitsOptionalParameters {
+    private OffsetDateTime endHr;
 
     /**
-     * Execute getSpecifiedMonthlyCustomReports request
+     * Set endHr
      *
-     * @return UsageSpecifiedCustomReportsResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+     *     for usage ending **before** this hour. (optional)
+     * @return GetTracingWithoutLimitsOptionalParameters
      */
-    public UsageSpecifiedCustomReportsResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getSpecifiedMonthlyCustomReports request with HTTP info returned
-     *
-     * @return ApiResponse&lt;UsageSpecifiedCustomReportsResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<UsageSpecifiedCustomReportsResponse> executeWithHttpInfo()
-        throws ApiException {
-      return getSpecifiedMonthlyCustomReportsWithHttpInfo(reportId);
+    public GetTracingWithoutLimitsOptionalParameters endHr(OffsetDateTime endHr) {
+      this.endHr = endHr;
+      return this;
     }
   }
 
   /**
-   * Get specified monthly custom reports Get specified monthly custom reports.
+   * Get hourly usage for tracing without limits Get hourly usage for tracing without limits.
+   * **Note** This endpoint has been renamed to &#x60;/api/v1/usage/ingested-spans&#x60;.
    *
-   * @param reportId The specified ID to search results for. (required)
-   * @return getSpecifiedMonthlyCustomReportsRequest
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @return UsageTracingWithoutLimitsResponse
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   *
+   * @deprecated
    */
-  public APIgetSpecifiedMonthlyCustomReportsRequest getSpecifiedMonthlyCustomReports(
-      String reportId) throws ApiException {
-    String operationId = "getSpecifiedMonthlyCustomReports";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
-    return new APIgetSpecifiedMonthlyCustomReportsRequest(reportId);
+  @Deprecated
+  public UsageTracingWithoutLimitsResponse getTracingWithoutLimits(OffsetDateTime startHr)
+      throws ApiException {
+    return getTracingWithoutLimitsWithHttpInfo(
+            startHr, new GetTracingWithoutLimitsOptionalParameters())
+        .getData();
   }
 
-  private ApiResponse<UsageTracingWithoutLimitsResponse> getTracingWithoutLimitsWithHttpInfo(
-      OffsetDateTime startHr, OffsetDateTime endHr) throws ApiException {
+  /**
+   * Get hourly usage for tracing without limits Get hourly usage for tracing without limits.
+   * **Note** This endpoint has been renamed to &#x60;/api/v1/usage/ingested-spans&#x60;.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return UsageTracingWithoutLimitsResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   *
+   * @deprecated
+   */
+  @Deprecated
+  public UsageTracingWithoutLimitsResponse getTracingWithoutLimits(
+      OffsetDateTime startHr, GetTracingWithoutLimitsOptionalParameters parameters)
+      throws ApiException {
+    return getTracingWithoutLimitsWithHttpInfo(startHr, parameters).getData();
+  }
+
+  /**
+   * Get hourly usage for tracing without limits Get hourly usage for tracing without limits.
+   * **Note** This endpoint has been renamed to &#x60;/api/v1/usage/ingested-spans&#x60;.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;UsageTracingWithoutLimitsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   *
+   * @deprecated
+   */
+  @Deprecated
+  public ApiResponse<UsageTracingWithoutLimitsResponse> getTracingWithoutLimitsWithHttpInfo(
+      OffsetDateTime startHr, GetTracingWithoutLimitsOptionalParameters parameters)
+      throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'startHr' is set
@@ -877,7 +912,7 @@ public class UsageMeteringApi {
       throw new ApiException(
           400, "Missing the required parameter 'startHr' when calling getTracingWithoutLimits");
     }
-
+    OffsetDateTime endHr = parameters.endHr;
     // create path and map variables
     String localVarPath = "/api/v1/usage/tracing-without-limits";
 
@@ -921,93 +956,85 @@ public class UsageMeteringApi {
         false);
   }
 
-  public class APIgetTracingWithoutLimitsRequest {
-    private OffsetDateTime startHr;
+  /** Manage optional parameters to getUsageAnalyzedLogs. */
+  public static class GetUsageAnalyzedLogsOptionalParameters {
     private OffsetDateTime endHr;
-
-    private APIgetTracingWithoutLimitsRequest() {}
-
-    /**
-     * Set startHr
-     *
-     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
-     *     for usage beginning at this hour. (required)
-     * @return APIgetTracingWithoutLimitsRequest
-     */
-    public APIgetTracingWithoutLimitsRequest startHr(OffsetDateTime startHr) {
-      this.startHr = startHr;
-      return this;
-    }
 
     /**
      * Set endHr
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
      *     for usage ending **before** this hour. (optional)
-     * @return APIgetTracingWithoutLimitsRequest
+     * @return GetUsageAnalyzedLogsOptionalParameters
      */
-    public APIgetTracingWithoutLimitsRequest endHr(OffsetDateTime endHr) {
+    public GetUsageAnalyzedLogsOptionalParameters endHr(OffsetDateTime endHr) {
       this.endHr = endHr;
       return this;
-    }
-
-    /**
-     * Execute getTracingWithoutLimits request
-     *
-     * @return UsageTracingWithoutLimitsResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     *
-     * @deprecated
-     */
-    @Deprecated
-    public UsageTracingWithoutLimitsResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getTracingWithoutLimits request with HTTP info returned
-     *
-     * @return ApiResponse&lt;UsageTracingWithoutLimitsResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     *
-     * @deprecated
-     */
-    @Deprecated
-    public ApiResponse<UsageTracingWithoutLimitsResponse> executeWithHttpInfo()
-        throws ApiException {
-      return getTracingWithoutLimitsWithHttpInfo(startHr, endHr);
     }
   }
 
   /**
-   * Get hourly usage for tracing without limits Get hourly usage for tracing without limits.
-   * **Note** This endpoint has been renamed to &#x60;/api/v1/usage/ingested-spans&#x60;.
+   * Get hourly usage for analyzed logs Get hourly usage for analyzed logs (Security Monitoring).
    *
-   * @return getTracingWithoutLimitsRequest
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @return UsageAnalyzedLogsResponse
    * @throws ApiException if fails to make API call
-   * @deprecated
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
    */
-  @Deprecated
-  public APIgetTracingWithoutLimitsRequest getTracingWithoutLimits() throws ApiException {
-    return new APIgetTracingWithoutLimitsRequest();
+  public UsageAnalyzedLogsResponse getUsageAnalyzedLogs(OffsetDateTime startHr)
+      throws ApiException {
+    return getUsageAnalyzedLogsWithHttpInfo(startHr, new GetUsageAnalyzedLogsOptionalParameters())
+        .getData();
   }
 
-  private ApiResponse<UsageAnalyzedLogsResponse> getUsageAnalyzedLogsWithHttpInfo(
-      OffsetDateTime startHr, OffsetDateTime endHr) throws ApiException {
+  /**
+   * Get hourly usage for analyzed logs Get hourly usage for analyzed logs (Security Monitoring).
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return UsageAnalyzedLogsResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public UsageAnalyzedLogsResponse getUsageAnalyzedLogs(
+      OffsetDateTime startHr, GetUsageAnalyzedLogsOptionalParameters parameters)
+      throws ApiException {
+    return getUsageAnalyzedLogsWithHttpInfo(startHr, parameters).getData();
+  }
+
+  /**
+   * Get hourly usage for analyzed logs Get hourly usage for analyzed logs (Security Monitoring).
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;UsageAnalyzedLogsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UsageAnalyzedLogsResponse> getUsageAnalyzedLogsWithHttpInfo(
+      OffsetDateTime startHr, GetUsageAnalyzedLogsOptionalParameters parameters)
+      throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'startHr' is set
@@ -1015,7 +1042,7 @@ public class UsageMeteringApi {
       throw new ApiException(
           400, "Missing the required parameter 'startHr' when calling getUsageAnalyzedLogs");
     }
-
+    OffsetDateTime endHr = parameters.endHr;
     // create path and map variables
     String localVarPath = "/api/v1/usage/analyzed_logs";
 
@@ -1059,87 +1086,109 @@ public class UsageMeteringApi {
         false);
   }
 
-  public class APIgetUsageAnalyzedLogsRequest {
-    private OffsetDateTime startHr;
-    private OffsetDateTime endHr;
-
-    private APIgetUsageAnalyzedLogsRequest() {}
+  /** Manage optional parameters to getUsageAttribution. */
+  public static class GetUsageAttributionOptionalParameters {
+    private OffsetDateTime endMonth;
+    private UsageSortDirection sortDirection;
+    private UsageAttributionSort sortName;
 
     /**
-     * Set startHr
+     * Set endMonth
      *
-     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
-     *     for usage beginning at this hour. (required)
-     * @return APIgetUsageAnalyzedLogsRequest
+     * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
+     *     usage ending this month. (optional)
+     * @return GetUsageAttributionOptionalParameters
      */
-    public APIgetUsageAnalyzedLogsRequest startHr(OffsetDateTime startHr) {
-      this.startHr = startHr;
+    public GetUsageAttributionOptionalParameters endMonth(OffsetDateTime endMonth) {
+      this.endMonth = endMonth;
       return this;
     }
 
     /**
-     * Set endHr
+     * Set sortDirection
      *
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
-     *     for usage ending **before** this hour. (optional)
-     * @return APIgetUsageAnalyzedLogsRequest
+     * @param sortDirection The direction to sort by: &#x60;[desc, asc]&#x60;. (optional)
+     * @return GetUsageAttributionOptionalParameters
      */
-    public APIgetUsageAnalyzedLogsRequest endHr(OffsetDateTime endHr) {
-      this.endHr = endHr;
+    public GetUsageAttributionOptionalParameters sortDirection(UsageSortDirection sortDirection) {
+      this.sortDirection = sortDirection;
       return this;
     }
 
     /**
-     * Execute getUsageAnalyzedLogs request
+     * Set sortName
      *
-     * @return UsageAnalyzedLogsResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
+     * @param sortName The field to sort by. (optional)
+     * @return GetUsageAttributionOptionalParameters
      */
-    public UsageAnalyzedLogsResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getUsageAnalyzedLogs request with HTTP info returned
-     *
-     * @return ApiResponse&lt;UsageAnalyzedLogsResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<UsageAnalyzedLogsResponse> executeWithHttpInfo() throws ApiException {
-      return getUsageAnalyzedLogsWithHttpInfo(startHr, endHr);
+    public GetUsageAttributionOptionalParameters sortName(UsageAttributionSort sortName) {
+      this.sortName = sortName;
+      return this;
     }
   }
 
   /**
-   * Get hourly usage for analyzed logs Get hourly usage for analyzed logs (Security Monitoring).
+   * Get Usage Attribution Get Usage Attribution.
    *
-   * @return getUsageAnalyzedLogsRequest
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
+   *     usage beginning in this month. Maximum of 15 months ago. (required)
+   * @param fields The specified field to search results for. (required)
+   * @return UsageAttributionResponse
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIgetUsageAnalyzedLogsRequest getUsageAnalyzedLogs() throws ApiException {
-    return new APIgetUsageAnalyzedLogsRequest();
+  public UsageAttributionResponse getUsageAttribution(OffsetDateTime startMonth, String fields)
+      throws ApiException {
+    return getUsageAttributionWithHttpInfo(
+            startMonth, fields, new GetUsageAttributionOptionalParameters())
+        .getData();
   }
 
-  private ApiResponse<UsageAttributionResponse> getUsageAttributionWithHttpInfo(
-      OffsetDateTime startMonth,
-      String fields,
-      OffsetDateTime endMonth,
-      UsageSortDirection sortDirection,
-      UsageAttributionSort sortName)
+  /**
+   * Get Usage Attribution Get Usage Attribution.
+   *
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
+   *     usage beginning in this month. Maximum of 15 months ago. (required)
+   * @param fields The specified field to search results for. (required)
+   * @param parameters Optional parameters for the request.
+   * @return UsageAttributionResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public UsageAttributionResponse getUsageAttribution(
+      OffsetDateTime startMonth, String fields, GetUsageAttributionOptionalParameters parameters)
+      throws ApiException {
+    return getUsageAttributionWithHttpInfo(startMonth, fields, parameters).getData();
+  }
+
+  /**
+   * Get Usage Attribution Get Usage Attribution.
+   *
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
+   *     usage beginning in this month. Maximum of 15 months ago. (required)
+   * @param fields The specified field to search results for. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;UsageAttributionResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UsageAttributionResponse> getUsageAttributionWithHttpInfo(
+      OffsetDateTime startMonth, String fields, GetUsageAttributionOptionalParameters parameters)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -1154,7 +1203,9 @@ public class UsageMeteringApi {
       throw new ApiException(
           400, "Missing the required parameter 'fields' when calling getUsageAttribution");
     }
-
+    OffsetDateTime endMonth = parameters.endMonth;
+    UsageSortDirection sortDirection = parameters.sortDirection;
+    UsageAttributionSort sortName = parameters.sortName;
     // create path and map variables
     String localVarPath = "/api/v1/usage/attribution";
 
@@ -1201,125 +1252,78 @@ public class UsageMeteringApi {
         false);
   }
 
-  public class APIgetUsageAttributionRequest {
-    private OffsetDateTime startMonth;
-    private String fields;
-    private OffsetDateTime endMonth;
-    private UsageSortDirection sortDirection;
-    private UsageAttributionSort sortName;
-
-    private APIgetUsageAttributionRequest() {}
+  /** Manage optional parameters to getUsageBillableSummary. */
+  public static class GetUsageBillableSummaryOptionalParameters {
+    private OffsetDateTime month;
 
     /**
-     * Set startMonth
+     * Set month
      *
-     * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60;
-     *     for usage beginning in this month. Maximum of 15 months ago. (required)
-     * @return APIgetUsageAttributionRequest
+     * @param month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
+     *     usage starting this month. (optional)
+     * @return GetUsageBillableSummaryOptionalParameters
      */
-    public APIgetUsageAttributionRequest startMonth(OffsetDateTime startMonth) {
-      this.startMonth = startMonth;
+    public GetUsageBillableSummaryOptionalParameters month(OffsetDateTime month) {
+      this.month = month;
       return this;
-    }
-
-    /**
-     * Set fields
-     *
-     * @param fields The specified field to search results for. (required)
-     * @return APIgetUsageAttributionRequest
-     */
-    public APIgetUsageAttributionRequest fields(String fields) {
-      this.fields = fields;
-      return this;
-    }
-
-    /**
-     * Set endMonth
-     *
-     * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
-     *     usage ending this month. (optional)
-     * @return APIgetUsageAttributionRequest
-     */
-    public APIgetUsageAttributionRequest endMonth(OffsetDateTime endMonth) {
-      this.endMonth = endMonth;
-      return this;
-    }
-
-    /**
-     * Set sortDirection
-     *
-     * @param sortDirection The direction to sort by: &#x60;[desc, asc]&#x60;. (optional)
-     * @return APIgetUsageAttributionRequest
-     */
-    public APIgetUsageAttributionRequest sortDirection(UsageSortDirection sortDirection) {
-      this.sortDirection = sortDirection;
-      return this;
-    }
-
-    /**
-     * Set sortName
-     *
-     * @param sortName The field to sort by. (optional)
-     * @return APIgetUsageAttributionRequest
-     */
-    public APIgetUsageAttributionRequest sortName(UsageAttributionSort sortName) {
-      this.sortName = sortName;
-      return this;
-    }
-
-    /**
-     * Execute getUsageAttribution request
-     *
-     * @return UsageAttributionResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public UsageAttributionResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getUsageAttribution request with HTTP info returned
-     *
-     * @return ApiResponse&lt;UsageAttributionResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<UsageAttributionResponse> executeWithHttpInfo() throws ApiException {
-      return getUsageAttributionWithHttpInfo(startMonth, fields, endMonth, sortDirection, sortName);
     }
   }
 
   /**
-   * Get Usage Attribution Get Usage Attribution.
+   * Get billable usage across your account Get billable usage across your account.
    *
-   * @return getUsageAttributionRequest
+   * @return UsageBillableSummaryResponse
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIgetUsageAttributionRequest getUsageAttribution() throws ApiException {
-    String operationId = "getUsageAttribution";
-    if (apiClient.isUnstableOperationEnabled(operationId)) {
-      apiClient.getLogger().warning(String.format("Using unstable operation '%s'", operationId));
-    } else {
-      throw new ApiException(0, String.format("Unstable operation '%s' is disabled", operationId));
-    }
-    return new APIgetUsageAttributionRequest();
+  public UsageBillableSummaryResponse getUsageBillableSummary() throws ApiException {
+    return getUsageBillableSummaryWithHttpInfo(new GetUsageBillableSummaryOptionalParameters())
+        .getData();
   }
 
-  private ApiResponse<UsageBillableSummaryResponse> getUsageBillableSummaryWithHttpInfo(
-      OffsetDateTime month) throws ApiException {
-    Object localVarPostBody = null;
+  /**
+   * Get billable usage across your account Get billable usage across your account.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return UsageBillableSummaryResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public UsageBillableSummaryResponse getUsageBillableSummary(
+      GetUsageBillableSummaryOptionalParameters parameters) throws ApiException {
+    return getUsageBillableSummaryWithHttpInfo(parameters).getData();
+  }
 
+  /**
+   * Get billable usage across your account Get billable usage across your account.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;UsageBillableSummaryResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UsageBillableSummaryResponse> getUsageBillableSummaryWithHttpInfo(
+      GetUsageBillableSummaryOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+    OffsetDateTime month = parameters.month;
     // create path and map variables
     String localVarPath = "/api/v1/usage/billable-summary";
 
@@ -1362,70 +1366,86 @@ public class UsageMeteringApi {
         false);
   }
 
-  public class APIgetUsageBillableSummaryRequest {
-    private OffsetDateTime month;
-
-    private APIgetUsageBillableSummaryRequest() {}
+  /** Manage optional parameters to getUsageComplianceMonitoring. */
+  public static class GetUsageComplianceMonitoringOptionalParameters {
+    private OffsetDateTime endHr;
 
     /**
-     * Set month
+     * Set endHr
      *
-     * @param month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
-     *     usage starting this month. (optional)
-     * @return APIgetUsageBillableSummaryRequest
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+     *     for usage ending **before** this hour. (optional)
+     * @return GetUsageComplianceMonitoringOptionalParameters
      */
-    public APIgetUsageBillableSummaryRequest month(OffsetDateTime month) {
-      this.month = month;
+    public GetUsageComplianceMonitoringOptionalParameters endHr(OffsetDateTime endHr) {
+      this.endHr = endHr;
       return this;
-    }
-
-    /**
-     * Execute getUsageBillableSummary request
-     *
-     * @return UsageBillableSummaryResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public UsageBillableSummaryResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getUsageBillableSummary request with HTTP info returned
-     *
-     * @return ApiResponse&lt;UsageBillableSummaryResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<UsageBillableSummaryResponse> executeWithHttpInfo() throws ApiException {
-      return getUsageBillableSummaryWithHttpInfo(month);
     }
   }
 
   /**
-   * Get billable usage across your account Get billable usage across your account.
+   * Get hourly usage for Compliance Monitoring Get hourly usage for Compliance Monitoring.
    *
-   * @return getUsageBillableSummaryRequest
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @return UsageComplianceResponse
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIgetUsageBillableSummaryRequest getUsageBillableSummary() throws ApiException {
-    return new APIgetUsageBillableSummaryRequest();
+  public UsageComplianceResponse getUsageComplianceMonitoring(OffsetDateTime startHr)
+      throws ApiException {
+    return getUsageComplianceMonitoringWithHttpInfo(
+            startHr, new GetUsageComplianceMonitoringOptionalParameters())
+        .getData();
   }
 
-  private ApiResponse<UsageComplianceResponse> getUsageComplianceMonitoringWithHttpInfo(
-      OffsetDateTime startHr, OffsetDateTime endHr) throws ApiException {
+  /**
+   * Get hourly usage for Compliance Monitoring Get hourly usage for Compliance Monitoring.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return UsageComplianceResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public UsageComplianceResponse getUsageComplianceMonitoring(
+      OffsetDateTime startHr, GetUsageComplianceMonitoringOptionalParameters parameters)
+      throws ApiException {
+    return getUsageComplianceMonitoringWithHttpInfo(startHr, parameters).getData();
+  }
+
+  /**
+   * Get hourly usage for Compliance Monitoring Get hourly usage for Compliance Monitoring.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;UsageComplianceResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UsageComplianceResponse> getUsageComplianceMonitoringWithHttpInfo(
+      OffsetDateTime startHr, GetUsageComplianceMonitoringOptionalParameters parameters)
+      throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'startHr' is set
@@ -1434,7 +1454,7 @@ public class UsageMeteringApi {
           400,
           "Missing the required parameter 'startHr' when calling getUsageComplianceMonitoring");
     }
-
+    OffsetDateTime endHr = parameters.endHr;
     // create path and map variables
     String localVarPath = "/api/v1/usage/compliance-monitoring";
 
@@ -1478,83 +1498,84 @@ public class UsageMeteringApi {
         false);
   }
 
-  public class APIgetUsageComplianceMonitoringRequest {
-    private OffsetDateTime startHr;
+  /** Manage optional parameters to getUsageFargate. */
+  public static class GetUsageFargateOptionalParameters {
     private OffsetDateTime endHr;
-
-    private APIgetUsageComplianceMonitoringRequest() {}
-
-    /**
-     * Set startHr
-     *
-     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
-     *     for usage beginning at this hour. (required)
-     * @return APIgetUsageComplianceMonitoringRequest
-     */
-    public APIgetUsageComplianceMonitoringRequest startHr(OffsetDateTime startHr) {
-      this.startHr = startHr;
-      return this;
-    }
 
     /**
      * Set endHr
      *
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
-     *     for usage ending **before** this hour. (optional)
-     * @return APIgetUsageComplianceMonitoringRequest
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+     *     ending **before** this hour. (optional)
+     * @return GetUsageFargateOptionalParameters
      */
-    public APIgetUsageComplianceMonitoringRequest endHr(OffsetDateTime endHr) {
+    public GetUsageFargateOptionalParameters endHr(OffsetDateTime endHr) {
       this.endHr = endHr;
       return this;
-    }
-
-    /**
-     * Execute getUsageComplianceMonitoring request
-     *
-     * @return UsageComplianceResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public UsageComplianceResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getUsageComplianceMonitoring request with HTTP info returned
-     *
-     * @return ApiResponse&lt;UsageComplianceResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<UsageComplianceResponse> executeWithHttpInfo() throws ApiException {
-      return getUsageComplianceMonitoringWithHttpInfo(startHr, endHr);
     }
   }
 
   /**
-   * Get hourly usage for Compliance Monitoring Get hourly usage for Compliance Monitoring.
+   * Get hourly usage for Fargate Get hourly usage for
+   * [Fargate](https://docs.datadoghq.com/integrations/ecs_fargate/).
    *
-   * @return getUsageComplianceMonitoringRequest
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+   *     beginning at this hour. (required)
+   * @return UsageFargateResponse
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIgetUsageComplianceMonitoringRequest getUsageComplianceMonitoring() throws ApiException {
-    return new APIgetUsageComplianceMonitoringRequest();
+  public UsageFargateResponse getUsageFargate(OffsetDateTime startHr) throws ApiException {
+    return getUsageFargateWithHttpInfo(startHr, new GetUsageFargateOptionalParameters()).getData();
   }
 
-  private ApiResponse<UsageFargateResponse> getUsageFargateWithHttpInfo(
-      OffsetDateTime startHr, OffsetDateTime endHr) throws ApiException {
+  /**
+   * Get hourly usage for Fargate Get hourly usage for
+   * [Fargate](https://docs.datadoghq.com/integrations/ecs_fargate/).
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+   *     beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return UsageFargateResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public UsageFargateResponse getUsageFargate(
+      OffsetDateTime startHr, GetUsageFargateOptionalParameters parameters) throws ApiException {
+    return getUsageFargateWithHttpInfo(startHr, parameters).getData();
+  }
+
+  /**
+   * Get hourly usage for Fargate Get hourly usage for
+   * [Fargate](https://docs.datadoghq.com/integrations/ecs_fargate/).
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+   *     beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;UsageFargateResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UsageFargateResponse> getUsageFargateWithHttpInfo(
+      OffsetDateTime startHr, GetUsageFargateOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'startHr' is set
@@ -1562,7 +1583,7 @@ public class UsageMeteringApi {
       throw new ApiException(
           400, "Missing the required parameter 'startHr' when calling getUsageFargate");
     }
-
+    OffsetDateTime endHr = parameters.endHr;
     // create path and map variables
     String localVarPath = "/api/v1/usage/fargate";
 
@@ -1606,84 +1627,81 @@ public class UsageMeteringApi {
         false);
   }
 
-  public class APIgetUsageFargateRequest {
-    private OffsetDateTime startHr;
+  /** Manage optional parameters to getUsageHosts. */
+  public static class GetUsageHostsOptionalParameters {
     private OffsetDateTime endHr;
-
-    private APIgetUsageFargateRequest() {}
-
-    /**
-     * Set startHr
-     *
-     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
-     *     beginning at this hour. (required)
-     * @return APIgetUsageFargateRequest
-     */
-    public APIgetUsageFargateRequest startHr(OffsetDateTime startHr) {
-      this.startHr = startHr;
-      return this;
-    }
 
     /**
      * Set endHr
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
      *     ending **before** this hour. (optional)
-     * @return APIgetUsageFargateRequest
+     * @return GetUsageHostsOptionalParameters
      */
-    public APIgetUsageFargateRequest endHr(OffsetDateTime endHr) {
+    public GetUsageHostsOptionalParameters endHr(OffsetDateTime endHr) {
       this.endHr = endHr;
       return this;
-    }
-
-    /**
-     * Execute getUsageFargate request
-     *
-     * @return UsageFargateResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public UsageFargateResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getUsageFargate request with HTTP info returned
-     *
-     * @return ApiResponse&lt;UsageFargateResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<UsageFargateResponse> executeWithHttpInfo() throws ApiException {
-      return getUsageFargateWithHttpInfo(startHr, endHr);
     }
   }
 
   /**
-   * Get hourly usage for Fargate Get hourly usage for
-   * [Fargate](https://docs.datadoghq.com/integrations/ecs_fargate/).
+   * Get hourly usage for hosts and containers Get hourly usage for hosts and containers.
    *
-   * @return getUsageFargateRequest
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+   *     beginning at this hour. (required)
+   * @return UsageHostsResponse
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIgetUsageFargateRequest getUsageFargate() throws ApiException {
-    return new APIgetUsageFargateRequest();
+  public UsageHostsResponse getUsageHosts(OffsetDateTime startHr) throws ApiException {
+    return getUsageHostsWithHttpInfo(startHr, new GetUsageHostsOptionalParameters()).getData();
   }
 
-  private ApiResponse<UsageHostsResponse> getUsageHostsWithHttpInfo(
-      OffsetDateTime startHr, OffsetDateTime endHr) throws ApiException {
+  /**
+   * Get hourly usage for hosts and containers Get hourly usage for hosts and containers.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+   *     beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return UsageHostsResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public UsageHostsResponse getUsageHosts(
+      OffsetDateTime startHr, GetUsageHostsOptionalParameters parameters) throws ApiException {
+    return getUsageHostsWithHttpInfo(startHr, parameters).getData();
+  }
+
+  /**
+   * Get hourly usage for hosts and containers Get hourly usage for hosts and containers.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+   *     beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;UsageHostsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UsageHostsResponse> getUsageHostsWithHttpInfo(
+      OffsetDateTime startHr, GetUsageHostsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'startHr' is set
@@ -1691,7 +1709,7 @@ public class UsageMeteringApi {
       throw new ApiException(
           400, "Missing the required parameter 'startHr' when calling getUsageHosts");
     }
-
+    OffsetDateTime endHr = parameters.endHr;
     // create path and map variables
     String localVarPath = "/api/v1/usage/hosts";
 
@@ -1734,83 +1752,85 @@ public class UsageMeteringApi {
         false);
   }
 
-  public class APIgetUsageHostsRequest {
-    private OffsetDateTime startHr;
+  /** Manage optional parameters to getUsageIndexedSpans. */
+  public static class GetUsageIndexedSpansOptionalParameters {
     private OffsetDateTime endHr;
-
-    private APIgetUsageHostsRequest() {}
-
-    /**
-     * Set startHr
-     *
-     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
-     *     beginning at this hour. (required)
-     * @return APIgetUsageHostsRequest
-     */
-    public APIgetUsageHostsRequest startHr(OffsetDateTime startHr) {
-      this.startHr = startHr;
-      return this;
-    }
 
     /**
      * Set endHr
      *
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
-     *     ending **before** this hour. (optional)
-     * @return APIgetUsageHostsRequest
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+     *     for usage ending **before** this hour. (optional)
+     * @return GetUsageIndexedSpansOptionalParameters
      */
-    public APIgetUsageHostsRequest endHr(OffsetDateTime endHr) {
+    public GetUsageIndexedSpansOptionalParameters endHr(OffsetDateTime endHr) {
       this.endHr = endHr;
       return this;
-    }
-
-    /**
-     * Execute getUsageHosts request
-     *
-     * @return UsageHostsResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public UsageHostsResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getUsageHosts request with HTTP info returned
-     *
-     * @return ApiResponse&lt;UsageHostsResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<UsageHostsResponse> executeWithHttpInfo() throws ApiException {
-      return getUsageHostsWithHttpInfo(startHr, endHr);
     }
   }
 
   /**
-   * Get hourly usage for hosts and containers Get hourly usage for hosts and containers.
+   * Get hourly usage for indexed spans Get hourly usage for indexed spans.
    *
-   * @return getUsageHostsRequest
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @return UsageIndexedSpansResponse
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIgetUsageHostsRequest getUsageHosts() throws ApiException {
-    return new APIgetUsageHostsRequest();
+  public UsageIndexedSpansResponse getUsageIndexedSpans(OffsetDateTime startHr)
+      throws ApiException {
+    return getUsageIndexedSpansWithHttpInfo(startHr, new GetUsageIndexedSpansOptionalParameters())
+        .getData();
   }
 
-  private ApiResponse<UsageIndexedSpansResponse> getUsageIndexedSpansWithHttpInfo(
-      OffsetDateTime startHr, OffsetDateTime endHr) throws ApiException {
+  /**
+   * Get hourly usage for indexed spans Get hourly usage for indexed spans.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return UsageIndexedSpansResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public UsageIndexedSpansResponse getUsageIndexedSpans(
+      OffsetDateTime startHr, GetUsageIndexedSpansOptionalParameters parameters)
+      throws ApiException {
+    return getUsageIndexedSpansWithHttpInfo(startHr, parameters).getData();
+  }
+
+  /**
+   * Get hourly usage for indexed spans Get hourly usage for indexed spans.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;UsageIndexedSpansResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UsageIndexedSpansResponse> getUsageIndexedSpansWithHttpInfo(
+      OffsetDateTime startHr, GetUsageIndexedSpansOptionalParameters parameters)
+      throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'startHr' is set
@@ -1818,7 +1838,7 @@ public class UsageMeteringApi {
       throw new ApiException(
           400, "Missing the required parameter 'startHr' when calling getUsageIndexedSpans");
     }
-
+    OffsetDateTime endHr = parameters.endHr;
     // create path and map variables
     String localVarPath = "/api/v1/usage/indexed-spans";
 
@@ -1862,83 +1882,85 @@ public class UsageMeteringApi {
         false);
   }
 
-  public class APIgetUsageIndexedSpansRequest {
-    private OffsetDateTime startHr;
+  /** Manage optional parameters to getUsageInternetOfThings. */
+  public static class GetUsageInternetOfThingsOptionalParameters {
     private OffsetDateTime endHr;
-
-    private APIgetUsageIndexedSpansRequest() {}
-
-    /**
-     * Set startHr
-     *
-     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
-     *     for usage beginning at this hour. (required)
-     * @return APIgetUsageIndexedSpansRequest
-     */
-    public APIgetUsageIndexedSpansRequest startHr(OffsetDateTime startHr) {
-      this.startHr = startHr;
-      return this;
-    }
 
     /**
      * Set endHr
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
      *     for usage ending **before** this hour. (optional)
-     * @return APIgetUsageIndexedSpansRequest
+     * @return GetUsageInternetOfThingsOptionalParameters
      */
-    public APIgetUsageIndexedSpansRequest endHr(OffsetDateTime endHr) {
+    public GetUsageInternetOfThingsOptionalParameters endHr(OffsetDateTime endHr) {
       this.endHr = endHr;
       return this;
-    }
-
-    /**
-     * Execute getUsageIndexedSpans request
-     *
-     * @return UsageIndexedSpansResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public UsageIndexedSpansResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getUsageIndexedSpans request with HTTP info returned
-     *
-     * @return ApiResponse&lt;UsageIndexedSpansResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<UsageIndexedSpansResponse> executeWithHttpInfo() throws ApiException {
-      return getUsageIndexedSpansWithHttpInfo(startHr, endHr);
     }
   }
 
   /**
-   * Get hourly usage for indexed spans Get hourly usage for indexed spans.
+   * Get hourly usage for IoT Get hourly usage for IoT.
    *
-   * @return getUsageIndexedSpansRequest
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @return UsageIoTResponse
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIgetUsageIndexedSpansRequest getUsageIndexedSpans() throws ApiException {
-    return new APIgetUsageIndexedSpansRequest();
+  public UsageIoTResponse getUsageInternetOfThings(OffsetDateTime startHr) throws ApiException {
+    return getUsageInternetOfThingsWithHttpInfo(
+            startHr, new GetUsageInternetOfThingsOptionalParameters())
+        .getData();
   }
 
-  private ApiResponse<UsageIoTResponse> getUsageInternetOfThingsWithHttpInfo(
-      OffsetDateTime startHr, OffsetDateTime endHr) throws ApiException {
+  /**
+   * Get hourly usage for IoT Get hourly usage for IoT.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return UsageIoTResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public UsageIoTResponse getUsageInternetOfThings(
+      OffsetDateTime startHr, GetUsageInternetOfThingsOptionalParameters parameters)
+      throws ApiException {
+    return getUsageInternetOfThingsWithHttpInfo(startHr, parameters).getData();
+  }
+
+  /**
+   * Get hourly usage for IoT Get hourly usage for IoT.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;UsageIoTResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UsageIoTResponse> getUsageInternetOfThingsWithHttpInfo(
+      OffsetDateTime startHr, GetUsageInternetOfThingsOptionalParameters parameters)
+      throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'startHr' is set
@@ -1946,7 +1968,7 @@ public class UsageMeteringApi {
       throw new ApiException(
           400, "Missing the required parameter 'startHr' when calling getUsageInternetOfThings");
     }
-
+    OffsetDateTime endHr = parameters.endHr;
     // create path and map variables
     String localVarPath = "/api/v1/usage/iot";
 
@@ -1989,83 +2011,81 @@ public class UsageMeteringApi {
         false);
   }
 
-  public class APIgetUsageInternetOfThingsRequest {
-    private OffsetDateTime startHr;
+  /** Manage optional parameters to getUsageLambda. */
+  public static class GetUsageLambdaOptionalParameters {
     private OffsetDateTime endHr;
-
-    private APIgetUsageInternetOfThingsRequest() {}
-
-    /**
-     * Set startHr
-     *
-     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
-     *     for usage beginning at this hour. (required)
-     * @return APIgetUsageInternetOfThingsRequest
-     */
-    public APIgetUsageInternetOfThingsRequest startHr(OffsetDateTime startHr) {
-      this.startHr = startHr;
-      return this;
-    }
 
     /**
      * Set endHr
      *
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
-     *     for usage ending **before** this hour. (optional)
-     * @return APIgetUsageInternetOfThingsRequest
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+     *     ending **before** this hour. (optional)
+     * @return GetUsageLambdaOptionalParameters
      */
-    public APIgetUsageInternetOfThingsRequest endHr(OffsetDateTime endHr) {
+    public GetUsageLambdaOptionalParameters endHr(OffsetDateTime endHr) {
       this.endHr = endHr;
       return this;
-    }
-
-    /**
-     * Execute getUsageInternetOfThings request
-     *
-     * @return UsageIoTResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public UsageIoTResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getUsageInternetOfThings request with HTTP info returned
-     *
-     * @return ApiResponse&lt;UsageIoTResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<UsageIoTResponse> executeWithHttpInfo() throws ApiException {
-      return getUsageInternetOfThingsWithHttpInfo(startHr, endHr);
     }
   }
 
   /**
-   * Get hourly usage for IoT Get hourly usage for IoT.
+   * Get hourly usage for Lambda Get hourly usage for lambda.
    *
-   * @return getUsageInternetOfThingsRequest
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+   *     beginning at this hour. (required)
+   * @return UsageLambdaResponse
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIgetUsageInternetOfThingsRequest getUsageInternetOfThings() throws ApiException {
-    return new APIgetUsageInternetOfThingsRequest();
+  public UsageLambdaResponse getUsageLambda(OffsetDateTime startHr) throws ApiException {
+    return getUsageLambdaWithHttpInfo(startHr, new GetUsageLambdaOptionalParameters()).getData();
   }
 
-  private ApiResponse<UsageLambdaResponse> getUsageLambdaWithHttpInfo(
-      OffsetDateTime startHr, OffsetDateTime endHr) throws ApiException {
+  /**
+   * Get hourly usage for Lambda Get hourly usage for lambda.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+   *     beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return UsageLambdaResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public UsageLambdaResponse getUsageLambda(
+      OffsetDateTime startHr, GetUsageLambdaOptionalParameters parameters) throws ApiException {
+    return getUsageLambdaWithHttpInfo(startHr, parameters).getData();
+  }
+
+  /**
+   * Get hourly usage for Lambda Get hourly usage for lambda.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+   *     beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;UsageLambdaResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UsageLambdaResponse> getUsageLambdaWithHttpInfo(
+      OffsetDateTime startHr, GetUsageLambdaOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'startHr' is set
@@ -2073,7 +2093,7 @@ public class UsageMeteringApi {
       throw new ApiException(
           400, "Missing the required parameter 'startHr' when calling getUsageLambda");
     }
-
+    OffsetDateTime endHr = parameters.endHr;
     // create path and map variables
     String localVarPath = "/api/v1/usage/aws_lambda";
 
@@ -2116,83 +2136,81 @@ public class UsageMeteringApi {
         false);
   }
 
-  public class APIgetUsageLambdaRequest {
-    private OffsetDateTime startHr;
+  /** Manage optional parameters to getUsageLogs. */
+  public static class GetUsageLogsOptionalParameters {
     private OffsetDateTime endHr;
-
-    private APIgetUsageLambdaRequest() {}
-
-    /**
-     * Set startHr
-     *
-     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
-     *     beginning at this hour. (required)
-     * @return APIgetUsageLambdaRequest
-     */
-    public APIgetUsageLambdaRequest startHr(OffsetDateTime startHr) {
-      this.startHr = startHr;
-      return this;
-    }
 
     /**
      * Set endHr
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
      *     ending **before** this hour. (optional)
-     * @return APIgetUsageLambdaRequest
+     * @return GetUsageLogsOptionalParameters
      */
-    public APIgetUsageLambdaRequest endHr(OffsetDateTime endHr) {
+    public GetUsageLogsOptionalParameters endHr(OffsetDateTime endHr) {
       this.endHr = endHr;
       return this;
-    }
-
-    /**
-     * Execute getUsageLambda request
-     *
-     * @return UsageLambdaResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public UsageLambdaResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getUsageLambda request with HTTP info returned
-     *
-     * @return ApiResponse&lt;UsageLambdaResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<UsageLambdaResponse> executeWithHttpInfo() throws ApiException {
-      return getUsageLambdaWithHttpInfo(startHr, endHr);
     }
   }
 
   /**
-   * Get hourly usage for Lambda Get hourly usage for lambda.
+   * Get hourly usage for Logs Get hourly usage for logs.
    *
-   * @return getUsageLambdaRequest
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+   *     beginning at this hour. (required)
+   * @return UsageLogsResponse
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIgetUsageLambdaRequest getUsageLambda() throws ApiException {
-    return new APIgetUsageLambdaRequest();
+  public UsageLogsResponse getUsageLogs(OffsetDateTime startHr) throws ApiException {
+    return getUsageLogsWithHttpInfo(startHr, new GetUsageLogsOptionalParameters()).getData();
   }
 
-  private ApiResponse<UsageLogsResponse> getUsageLogsWithHttpInfo(
-      OffsetDateTime startHr, OffsetDateTime endHr) throws ApiException {
+  /**
+   * Get hourly usage for Logs Get hourly usage for logs.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+   *     beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return UsageLogsResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public UsageLogsResponse getUsageLogs(
+      OffsetDateTime startHr, GetUsageLogsOptionalParameters parameters) throws ApiException {
+    return getUsageLogsWithHttpInfo(startHr, parameters).getData();
+  }
+
+  /**
+   * Get hourly usage for Logs Get hourly usage for logs.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+   *     beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;UsageLogsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UsageLogsResponse> getUsageLogsWithHttpInfo(
+      OffsetDateTime startHr, GetUsageLogsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'startHr' is set
@@ -2200,7 +2218,7 @@ public class UsageMeteringApi {
       throw new ApiException(
           400, "Missing the required parameter 'startHr' when calling getUsageLogs");
     }
-
+    OffsetDateTime endHr = parameters.endHr;
     // create path and map variables
     String localVarPath = "/api/v1/usage/logs";
 
@@ -2243,83 +2261,96 @@ public class UsageMeteringApi {
         false);
   }
 
-  public class APIgetUsageLogsRequest {
-    private OffsetDateTime startHr;
+  /** Manage optional parameters to getUsageLogsByIndex. */
+  public static class GetUsageLogsByIndexOptionalParameters {
     private OffsetDateTime endHr;
-
-    private APIgetUsageLogsRequest() {}
-
-    /**
-     * Set startHr
-     *
-     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
-     *     beginning at this hour. (required)
-     * @return APIgetUsageLogsRequest
-     */
-    public APIgetUsageLogsRequest startHr(OffsetDateTime startHr) {
-      this.startHr = startHr;
-      return this;
-    }
+    private List<String> indexName;
 
     /**
      * Set endHr
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
      *     ending **before** this hour. (optional)
-     * @return APIgetUsageLogsRequest
+     * @return GetUsageLogsByIndexOptionalParameters
      */
-    public APIgetUsageLogsRequest endHr(OffsetDateTime endHr) {
+    public GetUsageLogsByIndexOptionalParameters endHr(OffsetDateTime endHr) {
       this.endHr = endHr;
       return this;
     }
 
     /**
-     * Execute getUsageLogs request
+     * Set indexName
      *
-     * @return UsageLogsResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
+     * @param indexName Comma-separated list of log index names. (optional)
+     * @return GetUsageLogsByIndexOptionalParameters
      */
-    public UsageLogsResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getUsageLogs request with HTTP info returned
-     *
-     * @return ApiResponse&lt;UsageLogsResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<UsageLogsResponse> executeWithHttpInfo() throws ApiException {
-      return getUsageLogsWithHttpInfo(startHr, endHr);
+    public GetUsageLogsByIndexOptionalParameters indexName(List<String> indexName) {
+      this.indexName = indexName;
+      return this;
     }
   }
 
   /**
-   * Get hourly usage for Logs Get hourly usage for logs.
+   * Get hourly usage for Logs by Index Get hourly usage for logs by index.
    *
-   * @return getUsageLogsRequest
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+   *     beginning at this hour. (required)
+   * @return UsageLogsByIndexResponse
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIgetUsageLogsRequest getUsageLogs() throws ApiException {
-    return new APIgetUsageLogsRequest();
+  public UsageLogsByIndexResponse getUsageLogsByIndex(OffsetDateTime startHr) throws ApiException {
+    return getUsageLogsByIndexWithHttpInfo(startHr, new GetUsageLogsByIndexOptionalParameters())
+        .getData();
   }
 
-  private ApiResponse<UsageLogsByIndexResponse> getUsageLogsByIndexWithHttpInfo(
-      OffsetDateTime startHr, OffsetDateTime endHr, List<String> indexName) throws ApiException {
+  /**
+   * Get hourly usage for Logs by Index Get hourly usage for logs by index.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+   *     beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return UsageLogsByIndexResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public UsageLogsByIndexResponse getUsageLogsByIndex(
+      OffsetDateTime startHr, GetUsageLogsByIndexOptionalParameters parameters)
+      throws ApiException {
+    return getUsageLogsByIndexWithHttpInfo(startHr, parameters).getData();
+  }
+
+  /**
+   * Get hourly usage for Logs by Index Get hourly usage for logs by index.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+   *     beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;UsageLogsByIndexResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UsageLogsByIndexResponse> getUsageLogsByIndexWithHttpInfo(
+      OffsetDateTime startHr, GetUsageLogsByIndexOptionalParameters parameters)
+      throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'startHr' is set
@@ -2327,7 +2358,8 @@ public class UsageMeteringApi {
       throw new ApiException(
           400, "Missing the required parameter 'startHr' when calling getUsageLogsByIndex");
     }
-
+    OffsetDateTime endHr = parameters.endHr;
+    List<String> indexName = parameters.indexName;
     // create path and map variables
     String localVarPath = "/api/v1/usage/logs_by_index";
 
@@ -2372,95 +2404,85 @@ public class UsageMeteringApi {
         false);
   }
 
-  public class APIgetUsageLogsByIndexRequest {
-    private OffsetDateTime startHr;
+  /** Manage optional parameters to getUsageNetworkFlows. */
+  public static class GetUsageNetworkFlowsOptionalParameters {
     private OffsetDateTime endHr;
-    private List<String> indexName;
-
-    private APIgetUsageLogsByIndexRequest() {}
-
-    /**
-     * Set startHr
-     *
-     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
-     *     beginning at this hour. (required)
-     * @return APIgetUsageLogsByIndexRequest
-     */
-    public APIgetUsageLogsByIndexRequest startHr(OffsetDateTime startHr) {
-      this.startHr = startHr;
-      return this;
-    }
 
     /**
      * Set endHr
      *
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
-     *     ending **before** this hour. (optional)
-     * @return APIgetUsageLogsByIndexRequest
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+     *     for usage ending **before** this hour. (optional)
+     * @return GetUsageNetworkFlowsOptionalParameters
      */
-    public APIgetUsageLogsByIndexRequest endHr(OffsetDateTime endHr) {
+    public GetUsageNetworkFlowsOptionalParameters endHr(OffsetDateTime endHr) {
       this.endHr = endHr;
       return this;
-    }
-
-    /**
-     * Set indexName
-     *
-     * @param indexName Comma-separated list of log index names. (optional)
-     * @return APIgetUsageLogsByIndexRequest
-     */
-    public APIgetUsageLogsByIndexRequest indexName(List<String> indexName) {
-      this.indexName = indexName;
-      return this;
-    }
-
-    /**
-     * Execute getUsageLogsByIndex request
-     *
-     * @return UsageLogsByIndexResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public UsageLogsByIndexResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getUsageLogsByIndex request with HTTP info returned
-     *
-     * @return ApiResponse&lt;UsageLogsByIndexResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<UsageLogsByIndexResponse> executeWithHttpInfo() throws ApiException {
-      return getUsageLogsByIndexWithHttpInfo(startHr, endHr, indexName);
     }
   }
 
   /**
-   * Get hourly usage for Logs by Index Get hourly usage for logs by index.
+   * Get hourly usage for Network Flows Get hourly usage for network flows.
    *
-   * @return getUsageLogsByIndexRequest
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @return UsageNetworkFlowsResponse
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIgetUsageLogsByIndexRequest getUsageLogsByIndex() throws ApiException {
-    return new APIgetUsageLogsByIndexRequest();
+  public UsageNetworkFlowsResponse getUsageNetworkFlows(OffsetDateTime startHr)
+      throws ApiException {
+    return getUsageNetworkFlowsWithHttpInfo(startHr, new GetUsageNetworkFlowsOptionalParameters())
+        .getData();
   }
 
-  private ApiResponse<UsageNetworkFlowsResponse> getUsageNetworkFlowsWithHttpInfo(
-      OffsetDateTime startHr, OffsetDateTime endHr) throws ApiException {
+  /**
+   * Get hourly usage for Network Flows Get hourly usage for network flows.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return UsageNetworkFlowsResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public UsageNetworkFlowsResponse getUsageNetworkFlows(
+      OffsetDateTime startHr, GetUsageNetworkFlowsOptionalParameters parameters)
+      throws ApiException {
+    return getUsageNetworkFlowsWithHttpInfo(startHr, parameters).getData();
+  }
+
+  /**
+   * Get hourly usage for Network Flows Get hourly usage for network flows.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;UsageNetworkFlowsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UsageNetworkFlowsResponse> getUsageNetworkFlowsWithHttpInfo(
+      OffsetDateTime startHr, GetUsageNetworkFlowsOptionalParameters parameters)
+      throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'startHr' is set
@@ -2468,7 +2490,7 @@ public class UsageMeteringApi {
       throw new ApiException(
           400, "Missing the required parameter 'startHr' when calling getUsageNetworkFlows");
     }
-
+    OffsetDateTime endHr = parameters.endHr;
     // create path and map variables
     String localVarPath = "/api/v1/usage/network_flows";
 
@@ -2512,83 +2534,85 @@ public class UsageMeteringApi {
         false);
   }
 
-  public class APIgetUsageNetworkFlowsRequest {
-    private OffsetDateTime startHr;
+  /** Manage optional parameters to getUsageNetworkHosts. */
+  public static class GetUsageNetworkHostsOptionalParameters {
     private OffsetDateTime endHr;
-
-    private APIgetUsageNetworkFlowsRequest() {}
-
-    /**
-     * Set startHr
-     *
-     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
-     *     for usage beginning at this hour. (required)
-     * @return APIgetUsageNetworkFlowsRequest
-     */
-    public APIgetUsageNetworkFlowsRequest startHr(OffsetDateTime startHr) {
-      this.startHr = startHr;
-      return this;
-    }
 
     /**
      * Set endHr
      *
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
-     *     for usage ending **before** this hour. (optional)
-     * @return APIgetUsageNetworkFlowsRequest
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+     *     ending **before** this hour. (optional)
+     * @return GetUsageNetworkHostsOptionalParameters
      */
-    public APIgetUsageNetworkFlowsRequest endHr(OffsetDateTime endHr) {
+    public GetUsageNetworkHostsOptionalParameters endHr(OffsetDateTime endHr) {
       this.endHr = endHr;
       return this;
-    }
-
-    /**
-     * Execute getUsageNetworkFlows request
-     *
-     * @return UsageNetworkFlowsResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public UsageNetworkFlowsResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getUsageNetworkFlows request with HTTP info returned
-     *
-     * @return ApiResponse&lt;UsageNetworkFlowsResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<UsageNetworkFlowsResponse> executeWithHttpInfo() throws ApiException {
-      return getUsageNetworkFlowsWithHttpInfo(startHr, endHr);
     }
   }
 
   /**
-   * Get hourly usage for Network Flows Get hourly usage for network flows.
+   * Get hourly usage for Network Hosts Get hourly usage for network hosts.
    *
-   * @return getUsageNetworkFlowsRequest
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+   *     beginning at this hour. (required)
+   * @return UsageNetworkHostsResponse
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIgetUsageNetworkFlowsRequest getUsageNetworkFlows() throws ApiException {
-    return new APIgetUsageNetworkFlowsRequest();
+  public UsageNetworkHostsResponse getUsageNetworkHosts(OffsetDateTime startHr)
+      throws ApiException {
+    return getUsageNetworkHostsWithHttpInfo(startHr, new GetUsageNetworkHostsOptionalParameters())
+        .getData();
   }
 
-  private ApiResponse<UsageNetworkHostsResponse> getUsageNetworkHostsWithHttpInfo(
-      OffsetDateTime startHr, OffsetDateTime endHr) throws ApiException {
+  /**
+   * Get hourly usage for Network Hosts Get hourly usage for network hosts.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+   *     beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return UsageNetworkHostsResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public UsageNetworkHostsResponse getUsageNetworkHosts(
+      OffsetDateTime startHr, GetUsageNetworkHostsOptionalParameters parameters)
+      throws ApiException {
+    return getUsageNetworkHostsWithHttpInfo(startHr, parameters).getData();
+  }
+
+  /**
+   * Get hourly usage for Network Hosts Get hourly usage for network hosts.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+   *     beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;UsageNetworkHostsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UsageNetworkHostsResponse> getUsageNetworkHostsWithHttpInfo(
+      OffsetDateTime startHr, GetUsageNetworkHostsOptionalParameters parameters)
+      throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'startHr' is set
@@ -2596,7 +2620,7 @@ public class UsageMeteringApi {
       throw new ApiException(
           400, "Missing the required parameter 'startHr' when calling getUsageNetworkHosts");
     }
-
+    OffsetDateTime endHr = parameters.endHr;
     // create path and map variables
     String localVarPath = "/api/v1/usage/network_hosts";
 
@@ -2640,83 +2664,82 @@ public class UsageMeteringApi {
         false);
   }
 
-  public class APIgetUsageNetworkHostsRequest {
-    private OffsetDateTime startHr;
+  /** Manage optional parameters to getUsageProfiling. */
+  public static class GetUsageProfilingOptionalParameters {
     private OffsetDateTime endHr;
-
-    private APIgetUsageNetworkHostsRequest() {}
-
-    /**
-     * Set startHr
-     *
-     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
-     *     beginning at this hour. (required)
-     * @return APIgetUsageNetworkHostsRequest
-     */
-    public APIgetUsageNetworkHostsRequest startHr(OffsetDateTime startHr) {
-      this.startHr = startHr;
-      return this;
-    }
 
     /**
      * Set endHr
      *
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
-     *     ending **before** this hour. (optional)
-     * @return APIgetUsageNetworkHostsRequest
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+     *     for usage ending **before** this hour. (optional)
+     * @return GetUsageProfilingOptionalParameters
      */
-    public APIgetUsageNetworkHostsRequest endHr(OffsetDateTime endHr) {
+    public GetUsageProfilingOptionalParameters endHr(OffsetDateTime endHr) {
       this.endHr = endHr;
       return this;
-    }
-
-    /**
-     * Execute getUsageNetworkHosts request
-     *
-     * @return UsageNetworkHostsResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public UsageNetworkHostsResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getUsageNetworkHosts request with HTTP info returned
-     *
-     * @return ApiResponse&lt;UsageNetworkHostsResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<UsageNetworkHostsResponse> executeWithHttpInfo() throws ApiException {
-      return getUsageNetworkHostsWithHttpInfo(startHr, endHr);
     }
   }
 
   /**
-   * Get hourly usage for Network Hosts Get hourly usage for network hosts.
+   * Get hourly usage for profiled hosts Get hourly usage for profiled hosts.
    *
-   * @return getUsageNetworkHostsRequest
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @return UsageProfilingResponse
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIgetUsageNetworkHostsRequest getUsageNetworkHosts() throws ApiException {
-    return new APIgetUsageNetworkHostsRequest();
+  public UsageProfilingResponse getUsageProfiling(OffsetDateTime startHr) throws ApiException {
+    return getUsageProfilingWithHttpInfo(startHr, new GetUsageProfilingOptionalParameters())
+        .getData();
   }
 
-  private ApiResponse<UsageProfilingResponse> getUsageProfilingWithHttpInfo(
-      OffsetDateTime startHr, OffsetDateTime endHr) throws ApiException {
+  /**
+   * Get hourly usage for profiled hosts Get hourly usage for profiled hosts.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return UsageProfilingResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public UsageProfilingResponse getUsageProfiling(
+      OffsetDateTime startHr, GetUsageProfilingOptionalParameters parameters) throws ApiException {
+    return getUsageProfilingWithHttpInfo(startHr, parameters).getData();
+  }
+
+  /**
+   * Get hourly usage for profiled hosts Get hourly usage for profiled hosts.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;UsageProfilingResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UsageProfilingResponse> getUsageProfilingWithHttpInfo(
+      OffsetDateTime startHr, GetUsageProfilingOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'startHr' is set
@@ -2724,7 +2747,7 @@ public class UsageMeteringApi {
       throw new ApiException(
           400, "Missing the required parameter 'startHr' when calling getUsageProfiling");
     }
-
+    OffsetDateTime endHr = parameters.endHr;
     // create path and map variables
     String localVarPath = "/api/v1/usage/profiling";
 
@@ -2768,83 +2791,100 @@ public class UsageMeteringApi {
         false);
   }
 
-  public class APIgetUsageProfilingRequest {
-    private OffsetDateTime startHr;
+  /** Manage optional parameters to getUsageRumSessions. */
+  public static class GetUsageRumSessionsOptionalParameters {
     private OffsetDateTime endHr;
-
-    private APIgetUsageProfilingRequest() {}
-
-    /**
-     * Set startHr
-     *
-     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
-     *     for usage beginning at this hour. (required)
-     * @return APIgetUsageProfilingRequest
-     */
-    public APIgetUsageProfilingRequest startHr(OffsetDateTime startHr) {
-      this.startHr = startHr;
-      return this;
-    }
+    private String type;
 
     /**
      * Set endHr
      *
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
-     *     for usage ending **before** this hour. (optional)
-     * @return APIgetUsageProfilingRequest
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+     *     ending **before** this hour. (optional)
+     * @return GetUsageRumSessionsOptionalParameters
      */
-    public APIgetUsageProfilingRequest endHr(OffsetDateTime endHr) {
+    public GetUsageRumSessionsOptionalParameters endHr(OffsetDateTime endHr) {
       this.endHr = endHr;
       return this;
     }
 
     /**
-     * Execute getUsageProfiling request
+     * Set type
      *
-     * @return UsageProfilingResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
+     * @param type RUM type: &#x60;[browser, mobile]&#x60;. Defaults to &#x60;browser&#x60;.
+     *     (optional)
+     * @return GetUsageRumSessionsOptionalParameters
      */
-    public UsageProfilingResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getUsageProfiling request with HTTP info returned
-     *
-     * @return ApiResponse&lt;UsageProfilingResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<UsageProfilingResponse> executeWithHttpInfo() throws ApiException {
-      return getUsageProfilingWithHttpInfo(startHr, endHr);
+    public GetUsageRumSessionsOptionalParameters type(String type) {
+      this.type = type;
+      return this;
     }
   }
 
   /**
-   * Get hourly usage for profiled hosts Get hourly usage for profiled hosts.
+   * Get hourly usage for RUM Sessions Get hourly usage for
+   * [RUM](https://docs.datadoghq.com/real_user_monitoring/) Sessions.
    *
-   * @return getUsageProfilingRequest
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+   *     beginning at this hour. (required)
+   * @return UsageRumSessionsResponse
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIgetUsageProfilingRequest getUsageProfiling() throws ApiException {
-    return new APIgetUsageProfilingRequest();
+  public UsageRumSessionsResponse getUsageRumSessions(OffsetDateTime startHr) throws ApiException {
+    return getUsageRumSessionsWithHttpInfo(startHr, new GetUsageRumSessionsOptionalParameters())
+        .getData();
   }
 
-  private ApiResponse<UsageRumSessionsResponse> getUsageRumSessionsWithHttpInfo(
-      OffsetDateTime startHr, OffsetDateTime endHr, String type) throws ApiException {
+  /**
+   * Get hourly usage for RUM Sessions Get hourly usage for
+   * [RUM](https://docs.datadoghq.com/real_user_monitoring/) Sessions.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+   *     beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return UsageRumSessionsResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public UsageRumSessionsResponse getUsageRumSessions(
+      OffsetDateTime startHr, GetUsageRumSessionsOptionalParameters parameters)
+      throws ApiException {
+    return getUsageRumSessionsWithHttpInfo(startHr, parameters).getData();
+  }
+
+  /**
+   * Get hourly usage for RUM Sessions Get hourly usage for
+   * [RUM](https://docs.datadoghq.com/real_user_monitoring/) Sessions.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+   *     beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;UsageRumSessionsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UsageRumSessionsResponse> getUsageRumSessionsWithHttpInfo(
+      OffsetDateTime startHr, GetUsageRumSessionsOptionalParameters parameters)
+      throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'startHr' is set
@@ -2852,7 +2892,8 @@ public class UsageMeteringApi {
       throw new ApiException(
           400, "Missing the required parameter 'startHr' when calling getUsageRumSessions");
     }
-
+    OffsetDateTime endHr = parameters.endHr;
+    String type = parameters.type;
     // create path and map variables
     String localVarPath = "/api/v1/usage/rum_sessions";
 
@@ -2897,97 +2938,81 @@ public class UsageMeteringApi {
         false);
   }
 
-  public class APIgetUsageRumSessionsRequest {
-    private OffsetDateTime startHr;
+  /** Manage optional parameters to getUsageSNMP. */
+  public static class GetUsageSNMPOptionalParameters {
     private OffsetDateTime endHr;
-    private String type;
-
-    private APIgetUsageRumSessionsRequest() {}
-
-    /**
-     * Set startHr
-     *
-     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
-     *     beginning at this hour. (required)
-     * @return APIgetUsageRumSessionsRequest
-     */
-    public APIgetUsageRumSessionsRequest startHr(OffsetDateTime startHr) {
-      this.startHr = startHr;
-      return this;
-    }
 
     /**
      * Set endHr
      *
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
-     *     ending **before** this hour. (optional)
-     * @return APIgetUsageRumSessionsRequest
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+     *     for usage ending **before** this hour. (optional)
+     * @return GetUsageSNMPOptionalParameters
      */
-    public APIgetUsageRumSessionsRequest endHr(OffsetDateTime endHr) {
+    public GetUsageSNMPOptionalParameters endHr(OffsetDateTime endHr) {
       this.endHr = endHr;
       return this;
-    }
-
-    /**
-     * Set type
-     *
-     * @param type RUM type: &#x60;[browser, mobile]&#x60;. Defaults to &#x60;browser&#x60;.
-     *     (optional)
-     * @return APIgetUsageRumSessionsRequest
-     */
-    public APIgetUsageRumSessionsRequest type(String type) {
-      this.type = type;
-      return this;
-    }
-
-    /**
-     * Execute getUsageRumSessions request
-     *
-     * @return UsageRumSessionsResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public UsageRumSessionsResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getUsageRumSessions request with HTTP info returned
-     *
-     * @return ApiResponse&lt;UsageRumSessionsResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<UsageRumSessionsResponse> executeWithHttpInfo() throws ApiException {
-      return getUsageRumSessionsWithHttpInfo(startHr, endHr, type);
     }
   }
 
   /**
-   * Get hourly usage for RUM Sessions Get hourly usage for
-   * [RUM](https://docs.datadoghq.com/real_user_monitoring/) Sessions.
+   * Get hourly usage for SNMP devices Get hourly usage for SNMP devices.
    *
-   * @return getUsageRumSessionsRequest
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @return UsageSNMPResponse
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIgetUsageRumSessionsRequest getUsageRumSessions() throws ApiException {
-    return new APIgetUsageRumSessionsRequest();
+  public UsageSNMPResponse getUsageSNMP(OffsetDateTime startHr) throws ApiException {
+    return getUsageSNMPWithHttpInfo(startHr, new GetUsageSNMPOptionalParameters()).getData();
   }
 
-  private ApiResponse<UsageSNMPResponse> getUsageSNMPWithHttpInfo(
-      OffsetDateTime startHr, OffsetDateTime endHr) throws ApiException {
+  /**
+   * Get hourly usage for SNMP devices Get hourly usage for SNMP devices.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return UsageSNMPResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public UsageSNMPResponse getUsageSNMP(
+      OffsetDateTime startHr, GetUsageSNMPOptionalParameters parameters) throws ApiException {
+    return getUsageSNMPWithHttpInfo(startHr, parameters).getData();
+  }
+
+  /**
+   * Get hourly usage for SNMP devices Get hourly usage for SNMP devices.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;UsageSNMPResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UsageSNMPResponse> getUsageSNMPWithHttpInfo(
+      OffsetDateTime startHr, GetUsageSNMPOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'startHr' is set
@@ -2995,7 +3020,7 @@ public class UsageMeteringApi {
       throw new ApiException(
           400, "Missing the required parameter 'startHr' when calling getUsageSNMP");
     }
-
+    OffsetDateTime endHr = parameters.endHr;
     // create path and map variables
     String localVarPath = "/api/v1/usage/snmp";
 
@@ -3038,84 +3063,97 @@ public class UsageMeteringApi {
         false);
   }
 
-  public class APIgetUsageSNMPRequest {
-    private OffsetDateTime startHr;
-    private OffsetDateTime endHr;
-
-    private APIgetUsageSNMPRequest() {}
+  /** Manage optional parameters to getUsageSummary. */
+  public static class GetUsageSummaryOptionalParameters {
+    private OffsetDateTime endMonth;
+    private Boolean includeOrgDetails;
 
     /**
-     * Set startHr
+     * Set endMonth
      *
-     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
-     *     for usage beginning at this hour. (required)
-     * @return APIgetUsageSNMPRequest
+     * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
+     *     usage ending this month. (optional)
+     * @return GetUsageSummaryOptionalParameters
      */
-    public APIgetUsageSNMPRequest startHr(OffsetDateTime startHr) {
-      this.startHr = startHr;
+    public GetUsageSummaryOptionalParameters endMonth(OffsetDateTime endMonth) {
+      this.endMonth = endMonth;
       return this;
     }
 
     /**
-     * Set endHr
+     * Set includeOrgDetails
      *
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
-     *     for usage ending **before** this hour. (optional)
-     * @return APIgetUsageSNMPRequest
+     * @param includeOrgDetails Include usage summaries for each sub-org. (optional)
+     * @return GetUsageSummaryOptionalParameters
      */
-    public APIgetUsageSNMPRequest endHr(OffsetDateTime endHr) {
-      this.endHr = endHr;
+    public GetUsageSummaryOptionalParameters includeOrgDetails(Boolean includeOrgDetails) {
+      this.includeOrgDetails = includeOrgDetails;
       return this;
-    }
-
-    /**
-     * Execute getUsageSNMP request
-     *
-     * @return UsageSNMPResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public UsageSNMPResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getUsageSNMP request with HTTP info returned
-     *
-     * @return ApiResponse&lt;UsageSNMPResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<UsageSNMPResponse> executeWithHttpInfo() throws ApiException {
-      return getUsageSNMPWithHttpInfo(startHr, endHr);
     }
   }
 
   /**
-   * Get hourly usage for SNMP devices Get hourly usage for SNMP devices.
+   * Get usage across your multi-org account Get usage across your multi-org account. You must have
+   * the multi-org feature enabled.
    *
-   * @return getUsageSNMPRequest
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
+   *     usage beginning in this month. Maximum of 15 months ago. (required)
+   * @return UsageSummaryResponse
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIgetUsageSNMPRequest getUsageSNMP() throws ApiException {
-    return new APIgetUsageSNMPRequest();
+  public UsageSummaryResponse getUsageSummary(OffsetDateTime startMonth) throws ApiException {
+    return getUsageSummaryWithHttpInfo(startMonth, new GetUsageSummaryOptionalParameters())
+        .getData();
   }
 
-  private ApiResponse<UsageSummaryResponse> getUsageSummaryWithHttpInfo(
-      OffsetDateTime startMonth, OffsetDateTime endMonth, Boolean includeOrgDetails)
-      throws ApiException {
+  /**
+   * Get usage across your multi-org account Get usage across your multi-org account. You must have
+   * the multi-org feature enabled.
+   *
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
+   *     usage beginning in this month. Maximum of 15 months ago. (required)
+   * @param parameters Optional parameters for the request.
+   * @return UsageSummaryResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public UsageSummaryResponse getUsageSummary(
+      OffsetDateTime startMonth, GetUsageSummaryOptionalParameters parameters) throws ApiException {
+    return getUsageSummaryWithHttpInfo(startMonth, parameters).getData();
+  }
+
+  /**
+   * Get usage across your multi-org account Get usage across your multi-org account. You must have
+   * the multi-org feature enabled.
+   *
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
+   *     usage beginning in this month. Maximum of 15 months ago. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;UsageSummaryResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UsageSummaryResponse> getUsageSummaryWithHttpInfo(
+      OffsetDateTime startMonth, GetUsageSummaryOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'startMonth' is set
@@ -3123,7 +3161,8 @@ public class UsageMeteringApi {
       throw new ApiException(
           400, "Missing the required parameter 'startMonth' when calling getUsageSummary");
     }
-
+    OffsetDateTime endMonth = parameters.endMonth;
+    Boolean includeOrgDetails = parameters.includeOrgDetails;
     // create path and map variables
     String localVarPath = "/api/v1/usage/summary";
 
@@ -3169,96 +3208,94 @@ public class UsageMeteringApi {
         false);
   }
 
-  public class APIgetUsageSummaryRequest {
-    private OffsetDateTime startMonth;
-    private OffsetDateTime endMonth;
-    private Boolean includeOrgDetails;
-
-    private APIgetUsageSummaryRequest() {}
+  /** Manage optional parameters to getUsageSynthetics. */
+  public static class GetUsageSyntheticsOptionalParameters {
+    private OffsetDateTime endHr;
 
     /**
-     * Set startMonth
+     * Set endHr
      *
-     * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60;
-     *     for usage beginning in this month. Maximum of 15 months ago. (required)
-     * @return APIgetUsageSummaryRequest
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+     *     ending **before** this hour. (optional)
+     * @return GetUsageSyntheticsOptionalParameters
      */
-    public APIgetUsageSummaryRequest startMonth(OffsetDateTime startMonth) {
-      this.startMonth = startMonth;
+    public GetUsageSyntheticsOptionalParameters endHr(OffsetDateTime endHr) {
+      this.endHr = endHr;
       return this;
-    }
-
-    /**
-     * Set endMonth
-     *
-     * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
-     *     usage ending this month. (optional)
-     * @return APIgetUsageSummaryRequest
-     */
-    public APIgetUsageSummaryRequest endMonth(OffsetDateTime endMonth) {
-      this.endMonth = endMonth;
-      return this;
-    }
-
-    /**
-     * Set includeOrgDetails
-     *
-     * @param includeOrgDetails Include usage summaries for each sub-org. (optional)
-     * @return APIgetUsageSummaryRequest
-     */
-    public APIgetUsageSummaryRequest includeOrgDetails(Boolean includeOrgDetails) {
-      this.includeOrgDetails = includeOrgDetails;
-      return this;
-    }
-
-    /**
-     * Execute getUsageSummary request
-     *
-     * @return UsageSummaryResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public UsageSummaryResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getUsageSummary request with HTTP info returned
-     *
-     * @return ApiResponse&lt;UsageSummaryResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<UsageSummaryResponse> executeWithHttpInfo() throws ApiException {
-      return getUsageSummaryWithHttpInfo(startMonth, endMonth, includeOrgDetails);
     }
   }
 
   /**
-   * Get usage across your multi-org account Get usage across your multi-org account. You must have
-   * the multi-org feature enabled.
+   * Get hourly usage for Synthetics Checks Get hourly usage for [Synthetics
+   * checks](https://docs.datadoghq.com/synthetics/).
    *
-   * @return getUsageSummaryRequest
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+   *     beginning at this hour. (required)
+   * @return UsageSyntheticsResponse
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   *
+   * @deprecated
    */
-  public APIgetUsageSummaryRequest getUsageSummary() throws ApiException {
-    return new APIgetUsageSummaryRequest();
+  @Deprecated
+  public UsageSyntheticsResponse getUsageSynthetics(OffsetDateTime startHr) throws ApiException {
+    return getUsageSyntheticsWithHttpInfo(startHr, new GetUsageSyntheticsOptionalParameters())
+        .getData();
   }
 
-  private ApiResponse<UsageSyntheticsResponse> getUsageSyntheticsWithHttpInfo(
-      OffsetDateTime startHr, OffsetDateTime endHr) throws ApiException {
+  /**
+   * Get hourly usage for Synthetics Checks Get hourly usage for [Synthetics
+   * checks](https://docs.datadoghq.com/synthetics/).
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+   *     beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return UsageSyntheticsResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   *
+   * @deprecated
+   */
+  @Deprecated
+  public UsageSyntheticsResponse getUsageSynthetics(
+      OffsetDateTime startHr, GetUsageSyntheticsOptionalParameters parameters) throws ApiException {
+    return getUsageSyntheticsWithHttpInfo(startHr, parameters).getData();
+  }
+
+  /**
+   * Get hourly usage for Synthetics Checks Get hourly usage for [Synthetics
+   * checks](https://docs.datadoghq.com/synthetics/).
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+   *     beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;UsageSyntheticsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   *
+   * @deprecated
+   */
+  @Deprecated
+  public ApiResponse<UsageSyntheticsResponse> getUsageSyntheticsWithHttpInfo(
+      OffsetDateTime startHr, GetUsageSyntheticsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'startHr' is set
@@ -3266,7 +3303,7 @@ public class UsageMeteringApi {
       throw new ApiException(
           400, "Missing the required parameter 'startHr' when calling getUsageSynthetics");
     }
-
+    OffsetDateTime endHr = parameters.endHr;
     // create path and map variables
     String localVarPath = "/api/v1/usage/synthetics";
 
@@ -3310,92 +3347,88 @@ public class UsageMeteringApi {
         false);
   }
 
-  public class APIgetUsageSyntheticsRequest {
-    private OffsetDateTime startHr;
+  /** Manage optional parameters to getUsageSyntheticsAPI. */
+  public static class GetUsageSyntheticsAPIOptionalParameters {
     private OffsetDateTime endHr;
-
-    private APIgetUsageSyntheticsRequest() {}
-
-    /**
-     * Set startHr
-     *
-     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
-     *     beginning at this hour. (required)
-     * @return APIgetUsageSyntheticsRequest
-     */
-    public APIgetUsageSyntheticsRequest startHr(OffsetDateTime startHr) {
-      this.startHr = startHr;
-      return this;
-    }
 
     /**
      * Set endHr
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
      *     ending **before** this hour. (optional)
-     * @return APIgetUsageSyntheticsRequest
+     * @return GetUsageSyntheticsAPIOptionalParameters
      */
-    public APIgetUsageSyntheticsRequest endHr(OffsetDateTime endHr) {
+    public GetUsageSyntheticsAPIOptionalParameters endHr(OffsetDateTime endHr) {
       this.endHr = endHr;
       return this;
-    }
-
-    /**
-     * Execute getUsageSynthetics request
-     *
-     * @return UsageSyntheticsResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     *
-     * @deprecated
-     */
-    @Deprecated
-    public UsageSyntheticsResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getUsageSynthetics request with HTTP info returned
-     *
-     * @return ApiResponse&lt;UsageSyntheticsResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     *
-     * @deprecated
-     */
-    @Deprecated
-    public ApiResponse<UsageSyntheticsResponse> executeWithHttpInfo() throws ApiException {
-      return getUsageSyntheticsWithHttpInfo(startHr, endHr);
     }
   }
 
   /**
-   * Get hourly usage for Synthetics Checks Get hourly usage for [Synthetics
+   * Get hourly usage for Synthetics API Checks Get hourly usage for [synthetics API
    * checks](https://docs.datadoghq.com/synthetics/).
    *
-   * @return getUsageSyntheticsRequest
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+   *     beginning at this hour. (required)
+   * @return UsageSyntheticsAPIResponse
    * @throws ApiException if fails to make API call
-   * @deprecated
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
    */
-  @Deprecated
-  public APIgetUsageSyntheticsRequest getUsageSynthetics() throws ApiException {
-    return new APIgetUsageSyntheticsRequest();
+  public UsageSyntheticsAPIResponse getUsageSyntheticsAPI(OffsetDateTime startHr)
+      throws ApiException {
+    return getUsageSyntheticsAPIWithHttpInfo(startHr, new GetUsageSyntheticsAPIOptionalParameters())
+        .getData();
   }
 
-  private ApiResponse<UsageSyntheticsAPIResponse> getUsageSyntheticsAPIWithHttpInfo(
-      OffsetDateTime startHr, OffsetDateTime endHr) throws ApiException {
+  /**
+   * Get hourly usage for Synthetics API Checks Get hourly usage for [synthetics API
+   * checks](https://docs.datadoghq.com/synthetics/).
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+   *     beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return UsageSyntheticsAPIResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public UsageSyntheticsAPIResponse getUsageSyntheticsAPI(
+      OffsetDateTime startHr, GetUsageSyntheticsAPIOptionalParameters parameters)
+      throws ApiException {
+    return getUsageSyntheticsAPIWithHttpInfo(startHr, parameters).getData();
+  }
+
+  /**
+   * Get hourly usage for Synthetics API Checks Get hourly usage for [synthetics API
+   * checks](https://docs.datadoghq.com/synthetics/).
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+   *     beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;UsageSyntheticsAPIResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UsageSyntheticsAPIResponse> getUsageSyntheticsAPIWithHttpInfo(
+      OffsetDateTime startHr, GetUsageSyntheticsAPIOptionalParameters parameters)
+      throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'startHr' is set
@@ -3403,7 +3436,7 @@ public class UsageMeteringApi {
       throw new ApiException(
           400, "Missing the required parameter 'startHr' when calling getUsageSyntheticsAPI");
     }
-
+    OffsetDateTime endHr = parameters.endHr;
     // create path and map variables
     String localVarPath = "/api/v1/usage/synthetics_api";
 
@@ -3447,84 +3480,86 @@ public class UsageMeteringApi {
         false);
   }
 
-  public class APIgetUsageSyntheticsAPIRequest {
-    private OffsetDateTime startHr;
+  /** Manage optional parameters to getUsageSyntheticsBrowser. */
+  public static class GetUsageSyntheticsBrowserOptionalParameters {
     private OffsetDateTime endHr;
-
-    private APIgetUsageSyntheticsAPIRequest() {}
-
-    /**
-     * Set startHr
-     *
-     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
-     *     beginning at this hour. (required)
-     * @return APIgetUsageSyntheticsAPIRequest
-     */
-    public APIgetUsageSyntheticsAPIRequest startHr(OffsetDateTime startHr) {
-      this.startHr = startHr;
-      return this;
-    }
 
     /**
      * Set endHr
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
      *     ending **before** this hour. (optional)
-     * @return APIgetUsageSyntheticsAPIRequest
+     * @return GetUsageSyntheticsBrowserOptionalParameters
      */
-    public APIgetUsageSyntheticsAPIRequest endHr(OffsetDateTime endHr) {
+    public GetUsageSyntheticsBrowserOptionalParameters endHr(OffsetDateTime endHr) {
       this.endHr = endHr;
       return this;
-    }
-
-    /**
-     * Execute getUsageSyntheticsAPI request
-     *
-     * @return UsageSyntheticsAPIResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public UsageSyntheticsAPIResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getUsageSyntheticsAPI request with HTTP info returned
-     *
-     * @return ApiResponse&lt;UsageSyntheticsAPIResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<UsageSyntheticsAPIResponse> executeWithHttpInfo() throws ApiException {
-      return getUsageSyntheticsAPIWithHttpInfo(startHr, endHr);
     }
   }
 
   /**
-   * Get hourly usage for Synthetics API Checks Get hourly usage for [synthetics API
-   * checks](https://docs.datadoghq.com/synthetics/).
+   * Get hourly usage for Synthetics Browser Checks Get hourly usage for synthetics browser checks.
    *
-   * @return getUsageSyntheticsAPIRequest
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+   *     beginning at this hour. (required)
+   * @return UsageSyntheticsBrowserResponse
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIgetUsageSyntheticsAPIRequest getUsageSyntheticsAPI() throws ApiException {
-    return new APIgetUsageSyntheticsAPIRequest();
+  public UsageSyntheticsBrowserResponse getUsageSyntheticsBrowser(OffsetDateTime startHr)
+      throws ApiException {
+    return getUsageSyntheticsBrowserWithHttpInfo(
+            startHr, new GetUsageSyntheticsBrowserOptionalParameters())
+        .getData();
   }
 
-  private ApiResponse<UsageSyntheticsBrowserResponse> getUsageSyntheticsBrowserWithHttpInfo(
-      OffsetDateTime startHr, OffsetDateTime endHr) throws ApiException {
+  /**
+   * Get hourly usage for Synthetics Browser Checks Get hourly usage for synthetics browser checks.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+   *     beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return UsageSyntheticsBrowserResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public UsageSyntheticsBrowserResponse getUsageSyntheticsBrowser(
+      OffsetDateTime startHr, GetUsageSyntheticsBrowserOptionalParameters parameters)
+      throws ApiException {
+    return getUsageSyntheticsBrowserWithHttpInfo(startHr, parameters).getData();
+  }
+
+  /**
+   * Get hourly usage for Synthetics Browser Checks Get hourly usage for synthetics browser checks.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+   *     beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;UsageSyntheticsBrowserResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UsageSyntheticsBrowserResponse> getUsageSyntheticsBrowserWithHttpInfo(
+      OffsetDateTime startHr, GetUsageSyntheticsBrowserOptionalParameters parameters)
+      throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'startHr' is set
@@ -3532,7 +3567,7 @@ public class UsageMeteringApi {
       throw new ApiException(
           400, "Missing the required parameter 'startHr' when calling getUsageSyntheticsBrowser");
     }
-
+    OffsetDateTime endHr = parameters.endHr;
     // create path and map variables
     String localVarPath = "/api/v1/usage/synthetics_browser";
 
@@ -3576,83 +3611,85 @@ public class UsageMeteringApi {
         false);
   }
 
-  public class APIgetUsageSyntheticsBrowserRequest {
-    private OffsetDateTime startHr;
+  /** Manage optional parameters to getUsageTimeseries. */
+  public static class GetUsageTimeseriesOptionalParameters {
     private OffsetDateTime endHr;
-
-    private APIgetUsageSyntheticsBrowserRequest() {}
-
-    /**
-     * Set startHr
-     *
-     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
-     *     beginning at this hour. (required)
-     * @return APIgetUsageSyntheticsBrowserRequest
-     */
-    public APIgetUsageSyntheticsBrowserRequest startHr(OffsetDateTime startHr) {
-      this.startHr = startHr;
-      return this;
-    }
 
     /**
      * Set endHr
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
      *     ending **before** this hour. (optional)
-     * @return APIgetUsageSyntheticsBrowserRequest
+     * @return GetUsageTimeseriesOptionalParameters
      */
-    public APIgetUsageSyntheticsBrowserRequest endHr(OffsetDateTime endHr) {
+    public GetUsageTimeseriesOptionalParameters endHr(OffsetDateTime endHr) {
       this.endHr = endHr;
       return this;
-    }
-
-    /**
-     * Execute getUsageSyntheticsBrowser request
-     *
-     * @return UsageSyntheticsBrowserResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public UsageSyntheticsBrowserResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getUsageSyntheticsBrowser request with HTTP info returned
-     *
-     * @return ApiResponse&lt;UsageSyntheticsBrowserResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<UsageSyntheticsBrowserResponse> executeWithHttpInfo() throws ApiException {
-      return getUsageSyntheticsBrowserWithHttpInfo(startHr, endHr);
     }
   }
 
   /**
-   * Get hourly usage for Synthetics Browser Checks Get hourly usage for synthetics browser checks.
+   * Get hourly usage for custom metrics Get hourly usage for [custom
+   * metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/).
    *
-   * @return getUsageSyntheticsBrowserRequest
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+   *     beginning at this hour. (required)
+   * @return UsageTimeseriesResponse
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIgetUsageSyntheticsBrowserRequest getUsageSyntheticsBrowser() throws ApiException {
-    return new APIgetUsageSyntheticsBrowserRequest();
+  public UsageTimeseriesResponse getUsageTimeseries(OffsetDateTime startHr) throws ApiException {
+    return getUsageTimeseriesWithHttpInfo(startHr, new GetUsageTimeseriesOptionalParameters())
+        .getData();
   }
 
-  private ApiResponse<UsageTimeseriesResponse> getUsageTimeseriesWithHttpInfo(
-      OffsetDateTime startHr, OffsetDateTime endHr) throws ApiException {
+  /**
+   * Get hourly usage for custom metrics Get hourly usage for [custom
+   * metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/).
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+   *     beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return UsageTimeseriesResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public UsageTimeseriesResponse getUsageTimeseries(
+      OffsetDateTime startHr, GetUsageTimeseriesOptionalParameters parameters) throws ApiException {
+    return getUsageTimeseriesWithHttpInfo(startHr, parameters).getData();
+  }
+
+  /**
+   * Get hourly usage for custom metrics Get hourly usage for [custom
+   * metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/).
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+   *     beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;UsageTimeseriesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UsageTimeseriesResponse> getUsageTimeseriesWithHttpInfo(
+      OffsetDateTime startHr, GetUsageTimeseriesOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'startHr' is set
@@ -3660,7 +3697,7 @@ public class UsageMeteringApi {
       throw new ApiException(
           400, "Missing the required parameter 'startHr' when calling getUsageTimeseries");
     }
-
+    OffsetDateTime endHr = parameters.endHr;
     // create path and map variables
     String localVarPath = "/api/v1/usage/timeseries";
 
@@ -3704,87 +3741,129 @@ public class UsageMeteringApi {
         false);
   }
 
-  public class APIgetUsageTimeseriesRequest {
-    private OffsetDateTime startHr;
-    private OffsetDateTime endHr;
-
-    private APIgetUsageTimeseriesRequest() {}
+  /** Manage optional parameters to getUsageTopAvgMetrics. */
+  public static class GetUsageTopAvgMetricsOptionalParameters {
+    private OffsetDateTime month;
+    private OffsetDateTime day;
+    private List<String> names;
+    private Integer limit;
 
     /**
-     * Set startHr
+     * Set month
      *
-     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
-     *     beginning at this hour. (required)
-     * @return APIgetUsageTimeseriesRequest
+     * @param month Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage
+     *     beginning at this hour. (Either month or day should be specified, but not both)
+     *     (optional)
+     * @return GetUsageTopAvgMetricsOptionalParameters
      */
-    public APIgetUsageTimeseriesRequest startHr(OffsetDateTime startHr) {
-      this.startHr = startHr;
+    public GetUsageTopAvgMetricsOptionalParameters month(OffsetDateTime month) {
+      this.month = month;
       return this;
     }
 
     /**
-     * Set endHr
+     * Set day
      *
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
-     *     ending **before** this hour. (optional)
-     * @return APIgetUsageTimeseriesRequest
+     * @param day Datetime in ISO-8601 format, UTC, precise to day: [YYYY-MM-DD] for usage beginning
+     *     at this hour. (Either month or day should be specified, but not both) (optional)
+     * @return GetUsageTopAvgMetricsOptionalParameters
      */
-    public APIgetUsageTimeseriesRequest endHr(OffsetDateTime endHr) {
-      this.endHr = endHr;
+    public GetUsageTopAvgMetricsOptionalParameters day(OffsetDateTime day) {
+      this.day = day;
       return this;
     }
 
     /**
-     * Execute getUsageTimeseries request
+     * Set names
      *
-     * @return UsageTimeseriesResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
+     * @param names Comma-separated list of metric names. (optional)
+     * @return GetUsageTopAvgMetricsOptionalParameters
      */
-    public UsageTimeseriesResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
+    public GetUsageTopAvgMetricsOptionalParameters names(List<String> names) {
+      this.names = names;
+      return this;
     }
 
     /**
-     * Execute getUsageTimeseries request with HTTP info returned
+     * Set limit
      *
-     * @return ApiResponse&lt;UsageTimeseriesResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
+     * @param limit Maximum number of results to return (between 1 and 5000) - defaults to 500
+     *     results if limit not specified. (optional, default to 500)
+     * @return GetUsageTopAvgMetricsOptionalParameters
      */
-    public ApiResponse<UsageTimeseriesResponse> executeWithHttpInfo() throws ApiException {
-      return getUsageTimeseriesWithHttpInfo(startHr, endHr);
+    public GetUsageTopAvgMetricsOptionalParameters limit(Integer limit) {
+      this.limit = limit;
+      return this;
     }
   }
 
   /**
-   * Get hourly usage for custom metrics Get hourly usage for [custom
-   * metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/).
+   * Get top custom metrics by hourly average Get top [custom
+   * metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average. Use
+   * the month parameter to get a month-to-date data resolution or use the day parameter to get a
+   * daily resolution. One of the two is required, and only one of the two is allowed.
    *
-   * @return getUsageTimeseriesRequest
+   * @return UsageTopAvgMetricsResponse
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIgetUsageTimeseriesRequest getUsageTimeseries() throws ApiException {
-    return new APIgetUsageTimeseriesRequest();
+  public UsageTopAvgMetricsResponse getUsageTopAvgMetrics() throws ApiException {
+    return getUsageTopAvgMetricsWithHttpInfo(new GetUsageTopAvgMetricsOptionalParameters())
+        .getData();
   }
 
-  private ApiResponse<UsageTopAvgMetricsResponse> getUsageTopAvgMetricsWithHttpInfo(
-      OffsetDateTime month, OffsetDateTime day, List<String> names, Integer limit)
-      throws ApiException {
-    Object localVarPostBody = null;
+  /**
+   * Get top custom metrics by hourly average Get top [custom
+   * metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average. Use
+   * the month parameter to get a month-to-date data resolution or use the day parameter to get a
+   * daily resolution. One of the two is required, and only one of the two is allowed.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return UsageTopAvgMetricsResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public UsageTopAvgMetricsResponse getUsageTopAvgMetrics(
+      GetUsageTopAvgMetricsOptionalParameters parameters) throws ApiException {
+    return getUsageTopAvgMetricsWithHttpInfo(parameters).getData();
+  }
 
+  /**
+   * Get top custom metrics by hourly average Get top [custom
+   * metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average. Use
+   * the month parameter to get a month-to-date data resolution or use the day parameter to get a
+   * daily resolution. One of the two is required, and only one of the two is allowed.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;UsageTopAvgMetricsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UsageTopAvgMetricsResponse> getUsageTopAvgMetricsWithHttpInfo(
+      GetUsageTopAvgMetricsOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+    OffsetDateTime month = parameters.month;
+    OffsetDateTime day = parameters.day;
+    List<String> names = parameters.names;
+    Integer limit = parameters.limit;
     // create path and map variables
     String localVarPath = "/api/v1/usage/top_avg_metrics";
 
@@ -3830,112 +3909,93 @@ public class UsageMeteringApi {
         false);
   }
 
-  public class APIgetUsageTopAvgMetricsRequest {
-    private OffsetDateTime month;
-    private OffsetDateTime day;
-    private List<String> names;
-    private Integer limit;
-
-    private APIgetUsageTopAvgMetricsRequest() {}
+  /** Manage optional parameters to getUsageTrace. */
+  public static class GetUsageTraceOptionalParameters {
+    private OffsetDateTime endHr;
 
     /**
-     * Set month
+     * Set endHr
      *
-     * @param month Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage
-     *     beginning at this hour. (Either month or day should be specified, but not both)
-     *     (optional)
-     * @return APIgetUsageTopAvgMetricsRequest
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+     *     ending **before** this hour. (optional)
+     * @return GetUsageTraceOptionalParameters
      */
-    public APIgetUsageTopAvgMetricsRequest month(OffsetDateTime month) {
-      this.month = month;
+    public GetUsageTraceOptionalParameters endHr(OffsetDateTime endHr) {
+      this.endHr = endHr;
       return this;
-    }
-
-    /**
-     * Set day
-     *
-     * @param day Datetime in ISO-8601 format, UTC, precise to day: [YYYY-MM-DD] for usage beginning
-     *     at this hour. (Either month or day should be specified, but not both) (optional)
-     * @return APIgetUsageTopAvgMetricsRequest
-     */
-    public APIgetUsageTopAvgMetricsRequest day(OffsetDateTime day) {
-      this.day = day;
-      return this;
-    }
-
-    /**
-     * Set names
-     *
-     * @param names Comma-separated list of metric names. (optional)
-     * @return APIgetUsageTopAvgMetricsRequest
-     */
-    public APIgetUsageTopAvgMetricsRequest names(List<String> names) {
-      this.names = names;
-      return this;
-    }
-
-    /**
-     * Set limit
-     *
-     * @param limit Maximum number of results to return (between 1 and 5000) - defaults to 500
-     *     results if limit not specified. (optional, default to 500)
-     * @return APIgetUsageTopAvgMetricsRequest
-     */
-    public APIgetUsageTopAvgMetricsRequest limit(Integer limit) {
-      this.limit = limit;
-      return this;
-    }
-
-    /**
-     * Execute getUsageTopAvgMetrics request
-     *
-     * @return UsageTopAvgMetricsResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public UsageTopAvgMetricsResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getUsageTopAvgMetrics request with HTTP info returned
-     *
-     * @return ApiResponse&lt;UsageTopAvgMetricsResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<UsageTopAvgMetricsResponse> executeWithHttpInfo() throws ApiException {
-      return getUsageTopAvgMetricsWithHttpInfo(month, day, names, limit);
     }
   }
 
   /**
-   * Get top custom metrics by hourly average Get top [custom
-   * metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average. Use
-   * the month parameter to get a month-to-date data resolution or use the day parameter to get a
-   * daily resolution. One of the two is required, and only one of the two is allowed.
+   * Get hourly usage for Trace Search Get hourly usage for trace search. **Note** This endpoint has
+   * been renamed to &#x60;/api/v1/usage/indexed-spans&#x60;.
    *
-   * @return getUsageTopAvgMetricsRequest
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+   *     beginning at this hour. (required)
+   * @return UsageTraceResponse
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   *
+   * @deprecated
    */
-  public APIgetUsageTopAvgMetricsRequest getUsageTopAvgMetrics() throws ApiException {
-    return new APIgetUsageTopAvgMetricsRequest();
+  @Deprecated
+  public UsageTraceResponse getUsageTrace(OffsetDateTime startHr) throws ApiException {
+    return getUsageTraceWithHttpInfo(startHr, new GetUsageTraceOptionalParameters()).getData();
   }
 
-  private ApiResponse<UsageTraceResponse> getUsageTraceWithHttpInfo(
-      OffsetDateTime startHr, OffsetDateTime endHr) throws ApiException {
+  /**
+   * Get hourly usage for Trace Search Get hourly usage for trace search. **Note** This endpoint has
+   * been renamed to &#x60;/api/v1/usage/indexed-spans&#x60;.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+   *     beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return UsageTraceResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   *
+   * @deprecated
+   */
+  @Deprecated
+  public UsageTraceResponse getUsageTrace(
+      OffsetDateTime startHr, GetUsageTraceOptionalParameters parameters) throws ApiException {
+    return getUsageTraceWithHttpInfo(startHr, parameters).getData();
+  }
+
+  /**
+   * Get hourly usage for Trace Search Get hourly usage for trace search. **Note** This endpoint has
+   * been renamed to &#x60;/api/v1/usage/indexed-spans&#x60;.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+   *     beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;UsageTraceResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   *
+   * @deprecated
+   */
+  @Deprecated
+  public ApiResponse<UsageTraceResponse> getUsageTraceWithHttpInfo(
+      OffsetDateTime startHr, GetUsageTraceOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'startHr' is set
@@ -3943,7 +4003,7 @@ public class UsageMeteringApi {
       throw new ApiException(
           400, "Missing the required parameter 'startHr' when calling getUsageTrace");
     }
-
+    OffsetDateTime endHr = parameters.endHr;
     // create path and map variables
     String localVarPath = "/api/v1/usage/traces";
 
@@ -3984,89 +4044,5 @@ public class UsageMeteringApi {
         localVarAuthNames,
         localVarReturnType,
         false);
-  }
-
-  public class APIgetUsageTraceRequest {
-    private OffsetDateTime startHr;
-    private OffsetDateTime endHr;
-
-    private APIgetUsageTraceRequest() {}
-
-    /**
-     * Set startHr
-     *
-     * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
-     *     beginning at this hour. (required)
-     * @return APIgetUsageTraceRequest
-     */
-    public APIgetUsageTraceRequest startHr(OffsetDateTime startHr) {
-      this.startHr = startHr;
-      return this;
-    }
-
-    /**
-     * Set endHr
-     *
-     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
-     *     ending **before** this hour. (optional)
-     * @return APIgetUsageTraceRequest
-     */
-    public APIgetUsageTraceRequest endHr(OffsetDateTime endHr) {
-      this.endHr = endHr;
-      return this;
-    }
-
-    /**
-     * Execute getUsageTrace request
-     *
-     * @return UsageTraceResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     *
-     * @deprecated
-     */
-    @Deprecated
-    public UsageTraceResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getUsageTrace request with HTTP info returned
-     *
-     * @return ApiResponse&lt;UsageTraceResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
-     * </table>
-     *
-     * @deprecated
-     */
-    @Deprecated
-    public ApiResponse<UsageTraceResponse> executeWithHttpInfo() throws ApiException {
-      return getUsageTraceWithHttpInfo(startHr, endHr);
-    }
-  }
-
-  /**
-   * Get hourly usage for Trace Search Get hourly usage for trace search. **Note** This endpoint has
-   * been renamed to &#x60;/api/v1/usage/indexed-spans&#x60;.
-   *
-   * @return getUsageTraceRequest
-   * @throws ApiException if fails to make API call
-   * @deprecated
-   */
-  @Deprecated
-  public APIgetUsageTraceRequest getUsageTrace() throws ApiException {
-    return new APIgetUsageTraceRequest();
   }
 }

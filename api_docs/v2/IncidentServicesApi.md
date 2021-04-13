@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## createIncidentService
 
-> IncidentServiceResponse createIncidentService().body(body).execute();
+> IncidentServiceResponse createIncidentService(body);
 
 Create a new incident service
 
@@ -39,9 +39,7 @@ public class Example {
         IncidentServicesApi apiInstance = new IncidentServicesApi(defaultClient);
         IncidentServiceCreateRequest body = new IncidentServiceCreateRequest(); // IncidentServiceCreateRequest | Incident Service Payload.
         try {
-            IncidentServiceResponse result = apiInstance.createIncidentService()
-                .body(body)
-                .execute();
+            IncidentServiceResponse result = apiInstance.createIncidentService(body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling IncidentServicesApi#createIncidentService");
@@ -86,7 +84,7 @@ Name | Type | Description  | Notes
 
 ## deleteIncidentService
 
-> deleteIncidentService(serviceId).execute();
+> deleteIncidentService(serviceId);
 
 Delete an existing incident service
 
@@ -111,8 +109,7 @@ public class Example {
         IncidentServicesApi apiInstance = new IncidentServicesApi(defaultClient);
         String serviceId = "serviceId_example"; // String | The ID of the incident service.
         try {
-            apiInstance.deleteIncidentService(serviceId)
-                .execute();
+            apiInstance.deleteIncidentService(serviceId);
         } catch (ApiException e) {
             System.err.println("Exception when calling IncidentServicesApi#deleteIncidentService");
             System.err.println("Status code: " + e.getCode());
@@ -156,7 +153,7 @@ null (empty response body)
 
 ## getIncidentService
 
-> IncidentServiceResponse getIncidentService(serviceId).include(include).execute();
+> IncidentServiceResponse getIncidentService(serviceId, parameters);
 
 Get details of an incident service
 
@@ -183,9 +180,8 @@ public class Example {
         String serviceId = "serviceId_example"; // String | The ID of the incident service.
         IncidentRelatedObject include = IncidentRelatedObject.fromValue("users"); // IncidentRelatedObject | Specifies which types of related objects should be included in the response.
         try {
-            IncidentServiceResponse result = apiInstance.getIncidentService(serviceId)
-                .include(include)
-                .execute();
+	    IncidentServiceResponse result = apiInstance.getIncidentService(serviceId, new IncidentServicesApi.GetIncidentServiceOptionalParameters()
+                .include(include));
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling IncidentServicesApi#getIncidentService");
@@ -231,7 +227,7 @@ Name | Type | Description  | Notes
 
 ## listIncidentServices
 
-> IncidentServicesResponse listIncidentServices().include(include).pageSize(pageSize).pageOffset(pageOffset).filter(filter).execute();
+> IncidentServicesResponse listIncidentServices(parameters);
 
 Get a list of all incident services
 
@@ -259,12 +255,11 @@ public class Example {
         Long pageOffset = 0L; // Long | Specific offset to use as the beginning of the returned page.
         String filter = "ExampleServiceName"; // String | A search query that filters services by name.
         try {
-            IncidentServicesResponse result = apiInstance.listIncidentServices()
+	    IncidentServicesResponse result = apiInstance.listIncidentServices(new IncidentServicesApi.ListIncidentServicesOptionalParameters()
                 .include(include)
                 .pageSize(pageSize)
                 .pageOffset(pageOffset)
-                .filter(filter)
-                .execute();
+                .filter(filter));
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling IncidentServicesApi#listIncidentServices");
@@ -312,7 +307,7 @@ Name | Type | Description  | Notes
 
 ## updateIncidentService
 
-> IncidentServiceResponse updateIncidentService(serviceId).body(body).execute();
+> IncidentServiceResponse updateIncidentService(serviceId, body);
 
 Update an existing incident service
 
@@ -338,9 +333,7 @@ public class Example {
         String serviceId = "serviceId_example"; // String | The ID of the incident service.
         IncidentServiceUpdateRequest body = new IncidentServiceUpdateRequest(); // IncidentServiceUpdateRequest | Incident Service Payload.
         try {
-            IncidentServiceResponse result = apiInstance.updateIncidentService(serviceId)
-                .body(body)
-                .execute();
+            IncidentServiceResponse result = apiInstance.updateIncidentService(serviceId, body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling IncidentServicesApi#updateIncidentService");

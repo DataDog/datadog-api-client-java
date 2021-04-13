@@ -7,7 +7,6 @@ import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import java.lang.reflect.Field;
 import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.HashMap;
@@ -120,14 +119,15 @@ public class ClientSteps {
   public void newRequest(String methodName)
       throws java.lang.IllegalAccessException, java.lang.IllegalAccessException,
           java.lang.NoSuchMethodException, java.lang.reflect.InvocationTargetException {
-    world.newRequest(World.toMethodName(methodName));
+    world.newRequest(methodName);
   }
 
   @Given("request contains {string} parameter from {string}")
   public void requestContainsParameterFrom(String parameterName, String fixturePath)
-      throws java.lang.IllegalAccessException, java.lang.NoSuchFieldException {
-    world.requestParams.put(
-        World.toPropertyName(parameterName), World.lookup(world.context, fixturePath));
+      throws java.lang.IllegalAccessException, java.lang.NoSuchFieldException,
+          java.lang.ClassNotFoundException, java.lang.NoSuchMethodException,
+          java.lang.reflect.InvocationTargetException {
+    world.addRequestParameterFixture(parameterName, fixturePath);
   }
 
   @Given("request contains {string} parameter with value {}")
@@ -136,12 +136,7 @@ public class ClientSteps {
           java.lang.ClassNotFoundException, java.lang.NoSuchMethodException,
           java.lang.reflect.InvocationTargetException,
           com.fasterxml.jackson.core.JsonProcessingException {
-    String propertyName = World.toPropertyName(parameterName);
-    Field field = world.requestClass.getDeclaredField(propertyName);
-    world.requestParams.put(
-        propertyName,
-        World.fromJSON(
-            world.getObjectMapper(), field.getType(), World.templated(value, world.context)));
+    world.addRequestParameter(parameterName, value);
   }
 
   @Given("body {}")
@@ -150,11 +145,7 @@ public class ClientSteps {
           java.lang.ClassNotFoundException, java.lang.NoSuchMethodException,
           java.lang.reflect.InvocationTargetException,
           com.fasterxml.jackson.core.JsonProcessingException {
-    Field field = world.requestClass.getDeclaredField("body");
-    world.requestParams.put(
-        "body",
-        World.fromJSON(
-            world.getObjectMapper(), field.getType(), World.templated(data, world.context)));
+    world.addRequestParameter("body", data);
   }
 
   @Then("the response status is {int} {}")

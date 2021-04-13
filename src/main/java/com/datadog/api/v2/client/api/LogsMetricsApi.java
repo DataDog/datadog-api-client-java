@@ -45,7 +45,45 @@ public class LogsMetricsApi {
     this.apiClient = apiClient;
   }
 
-  private ApiResponse<LogsMetricResponse> createLogsMetricWithHttpInfo(LogsMetricCreateRequest body)
+  /**
+   * Create a log-based metric Create a metric based on your ingested logs in your organization.
+   * Returns the log-based metric object from the request body when the request is successful.
+   *
+   * @param body The definition of the new log-based metric. (required)
+   * @return LogsMetricResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public LogsMetricResponse createLogsMetric(LogsMetricCreateRequest body) throws ApiException {
+    return createLogsMetricWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create a log-based metric Create a metric based on your ingested logs in your organization.
+   * Returns the log-based metric object from the request body when the request is successful.
+   *
+   * @param body The definition of the new log-based metric. (required)
+   * @return ApiResponse&lt;LogsMetricResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LogsMetricResponse> createLogsMetricWithHttpInfo(LogsMetricCreateRequest body)
       throws ApiException {
     Object localVarPostBody = body;
 
@@ -54,7 +92,6 @@ public class LogsMetricsApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling createLogsMetric");
     }
-
     // create path and map variables
     String localVarPath = "/api/v2/logs/config/metrics";
 
@@ -93,73 +130,40 @@ public class LogsMetricsApi {
         false);
   }
 
-  public class APIcreateLogsMetricRequest {
-    private LogsMetricCreateRequest body;
-
-    private APIcreateLogsMetricRequest() {}
-
-    /**
-     * Set body
-     *
-     * @param body The definition of the new log-based metric. (required)
-     * @return APIcreateLogsMetricRequest
-     */
-    public APIcreateLogsMetricRequest body(LogsMetricCreateRequest body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Execute createLogsMetric request
-     *
-     * @return LogsMetricResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-     * </table>
-     */
-    public LogsMetricResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute createLogsMetric request with HTTP info returned
-     *
-     * @return ApiResponse&lt;LogsMetricResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<LogsMetricResponse> executeWithHttpInfo() throws ApiException {
-      return createLogsMetricWithHttpInfo(body);
-    }
+  /**
+   * Delete a log-based metric Delete a specific log-based metric from your organization.
+   *
+   * @param metricId The name of the log-based metric. (required)
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public void deleteLogsMetric(String metricId) throws ApiException {
+    deleteLogsMetricWithHttpInfo(metricId);
   }
 
   /**
-   * Create a log-based metric Create a metric based on your ingested logs in your organization.
-   * Returns the log-based metric object from the request body when the request is successful.
+   * Delete a log-based metric Delete a specific log-based metric from your organization.
    *
-   * @return createLogsMetricRequest
+   * @param metricId The name of the log-based metric. (required)
+   * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIcreateLogsMetricRequest createLogsMetric() throws ApiException {
-    return new APIcreateLogsMetricRequest();
-  }
-
-  private ApiResponse<Void> deleteLogsMetricWithHttpInfo(String metricId) throws ApiException {
+  public ApiResponse<Void> deleteLogsMetricWithHttpInfo(String metricId) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'metricId' is set
@@ -167,7 +171,6 @@ public class LogsMetricsApi {
       throw new ApiException(
           400, "Missing the required parameter 'metricId' when calling deleteLogsMetric");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v2/logs/config/metrics/{metric_id}"
@@ -207,61 +210,41 @@ public class LogsMetricsApi {
         false);
   }
 
-  public class APIdeleteLogsMetricRequest {
-    private String metricId;
-
-    private APIdeleteLogsMetricRequest(String metricId) {
-      this.metricId = metricId;
-    }
-
-    /**
-     * Execute deleteLogsMetric request
-     *
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-     * </table>
-     */
-    public void execute() throws ApiException {
-      this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute deleteLogsMetric request with HTTP info returned
-     *
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<Void> executeWithHttpInfo() throws ApiException {
-      return deleteLogsMetricWithHttpInfo(metricId);
-    }
+  /**
+   * Get a log-based metric Get a specific log-based metric from your organization.
+   *
+   * @param metricId The name of the log-based metric. (required)
+   * @return LogsMetricResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public LogsMetricResponse getLogsMetric(String metricId) throws ApiException {
+    return getLogsMetricWithHttpInfo(metricId).getData();
   }
 
   /**
-   * Delete a log-based metric Delete a specific log-based metric from your organization.
+   * Get a log-based metric Get a specific log-based metric from your organization.
    *
    * @param metricId The name of the log-based metric. (required)
-   * @return deleteLogsMetricRequest
+   * @return ApiResponse&lt;LogsMetricResponse&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIdeleteLogsMetricRequest deleteLogsMetric(String metricId) throws ApiException {
-    return new APIdeleteLogsMetricRequest(metricId);
-  }
-
-  private ApiResponse<LogsMetricResponse> getLogsMetricWithHttpInfo(String metricId)
+  public ApiResponse<LogsMetricResponse> getLogsMetricWithHttpInfo(String metricId)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -270,7 +253,6 @@ public class LogsMetricsApi {
       throw new ApiException(
           400, "Missing the required parameter 'metricId' when calling getLogsMetric");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v2/logs/config/metrics/{metric_id}"
@@ -312,64 +294,38 @@ public class LogsMetricsApi {
         false);
   }
 
-  public class APIgetLogsMetricRequest {
-    private String metricId;
-
-    private APIgetLogsMetricRequest(String metricId) {
-      this.metricId = metricId;
-    }
-
-    /**
-     * Execute getLogsMetric request
-     *
-     * @return LogsMetricResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-     * </table>
-     */
-    public LogsMetricResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getLogsMetric request with HTTP info returned
-     *
-     * @return ApiResponse&lt;LogsMetricResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<LogsMetricResponse> executeWithHttpInfo() throws ApiException {
-      return getLogsMetricWithHttpInfo(metricId);
-    }
+  /**
+   * Get all log-based metrics Get the list of configured log-based metrics with their definitions.
+   *
+   * @return LogsMetricsResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public LogsMetricsResponse listLogsMetrics() throws ApiException {
+    return listLogsMetricsWithHttpInfo().getData();
   }
 
   /**
-   * Get a log-based metric Get a specific log-based metric from your organization.
+   * Get all log-based metrics Get the list of configured log-based metrics with their definitions.
    *
-   * @param metricId The name of the log-based metric. (required)
-   * @return getLogsMetricRequest
+   * @return ApiResponse&lt;LogsMetricsResponse&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIgetLogsMetricRequest getLogsMetric(String metricId) throws ApiException {
-    return new APIgetLogsMetricRequest(metricId);
-  }
-
-  private ApiResponse<LogsMetricsResponse> listLogsMetricsWithHttpInfo() throws ApiException {
+  public ApiResponse<LogsMetricsResponse> listLogsMetricsWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
-
     // create path and map variables
     String localVarPath = "/api/v2/logs/config/metrics";
 
@@ -409,56 +365,48 @@ public class LogsMetricsApi {
         false);
   }
 
-  public class APIlistLogsMetricsRequest {
-
-    private APIlistLogsMetricsRequest() {}
-
-    /**
-     * Execute listLogsMetrics request
-     *
-     * @return LogsMetricsResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-     * </table>
-     */
-    public LogsMetricsResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute listLogsMetrics request with HTTP info returned
-     *
-     * @return ApiResponse&lt;LogsMetricsResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<LogsMetricsResponse> executeWithHttpInfo() throws ApiException {
-      return listLogsMetricsWithHttpInfo();
-    }
+  /**
+   * Update a log-based metric Update a specific log-based metric from your organization. Returns
+   * the log-based metric object from the request body when the request is successful.
+   *
+   * @param metricId The name of the log-based metric. (required)
+   * @param body New definition of the log-based metric. (required)
+   * @return LogsMetricResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public LogsMetricResponse updateLogsMetric(String metricId, LogsMetricUpdateRequest body)
+      throws ApiException {
+    return updateLogsMetricWithHttpInfo(metricId, body).getData();
   }
 
   /**
-   * Get all log-based metrics Get the list of configured log-based metrics with their definitions.
+   * Update a log-based metric Update a specific log-based metric from your organization. Returns
+   * the log-based metric object from the request body when the request is successful.
    *
-   * @return listLogsMetricsRequest
+   * @param metricId The name of the log-based metric. (required)
+   * @param body New definition of the log-based metric. (required)
+   * @return ApiResponse&lt;LogsMetricResponse&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIlistLogsMetricsRequest listLogsMetrics() throws ApiException {
-    return new APIlistLogsMetricsRequest();
-  }
-
-  private ApiResponse<LogsMetricResponse> updateLogsMetricWithHttpInfo(
+  public ApiResponse<LogsMetricResponse> updateLogsMetricWithHttpInfo(
       String metricId, LogsMetricUpdateRequest body) throws ApiException {
     Object localVarPostBody = body;
 
@@ -473,7 +421,6 @@ public class LogsMetricsApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling updateLogsMetric");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v2/logs/config/metrics/{metric_id}"
@@ -512,75 +459,5 @@ public class LogsMetricsApi {
         localVarAuthNames,
         localVarReturnType,
         false);
-  }
-
-  public class APIupdateLogsMetricRequest {
-    private String metricId;
-    private LogsMetricUpdateRequest body;
-
-    private APIupdateLogsMetricRequest(String metricId) {
-      this.metricId = metricId;
-    }
-
-    /**
-     * Set body
-     *
-     * @param body New definition of the log-based metric. (required)
-     * @return APIupdateLogsMetricRequest
-     */
-    public APIupdateLogsMetricRequest body(LogsMetricUpdateRequest body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Execute updateLogsMetric request
-     *
-     * @return LogsMetricResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-     * </table>
-     */
-    public LogsMetricResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute updateLogsMetric request with HTTP info returned
-     *
-     * @return ApiResponse&lt;LogsMetricResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<LogsMetricResponse> executeWithHttpInfo() throws ApiException {
-      return updateLogsMetricWithHttpInfo(metricId, body);
-    }
-  }
-
-  /**
-   * Update a log-based metric Update a specific log-based metric from your organization. Returns
-   * the log-based metric object from the request body when the request is successful.
-   *
-   * @param metricId The name of the log-based metric. (required)
-   * @return updateLogsMetricRequest
-   * @throws ApiException if fails to make API call
-   */
-  public APIupdateLogsMetricRequest updateLogsMetric(String metricId) throws ApiException {
-    return new APIupdateLogsMetricRequest(metricId);
   }
 }

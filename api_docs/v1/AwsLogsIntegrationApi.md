@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## checkAWSLogsLambdaAsync
 
-> AWSLogsAsyncResponse checkAWSLogsLambdaAsync().body(body).execute();
+> AWSLogsAsyncResponse checkAWSLogsLambdaAsync(body);
 
 Check that an AWS Lambda Function exists
 
@@ -48,9 +48,7 @@ public class Example {
         AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
         AWSAccountAndLambdaRequest body = new AWSAccountAndLambdaRequest(); // AWSAccountAndLambdaRequest | Check AWS Log Lambda Async request body.
         try {
-            AWSLogsAsyncResponse result = apiInstance.checkAWSLogsLambdaAsync()
-                .body(body)
-                .execute();
+            AWSLogsAsyncResponse result = apiInstance.checkAWSLogsLambdaAsync(body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AwsLogsIntegrationApi#checkAWSLogsLambdaAsync");
@@ -93,7 +91,7 @@ Name | Type | Description  | Notes
 
 ## checkAWSLogsServicesAsync
 
-> AWSLogsAsyncResponse checkAWSLogsServicesAsync().body(body).execute();
+> AWSLogsAsyncResponse checkAWSLogsServicesAsync(body);
 
 Check permissions for log services
 
@@ -127,9 +125,7 @@ public class Example {
         AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
         AWSLogsServicesRequest body = new AWSLogsServicesRequest(); // AWSLogsServicesRequest | Check AWS Logs Async Services request body.
         try {
-            AWSLogsAsyncResponse result = apiInstance.checkAWSLogsServicesAsync()
-                .body(body)
-                .execute();
+            AWSLogsAsyncResponse result = apiInstance.checkAWSLogsServicesAsync(body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AwsLogsIntegrationApi#checkAWSLogsServicesAsync");
@@ -172,7 +168,7 @@ Name | Type | Description  | Notes
 
 ## createAWSLambdaARN
 
-> Object createAWSLambdaARN().body(body).execute();
+> Object createAWSLambdaARN(body);
 
 Add AWS Log Lambda ARN
 
@@ -197,9 +193,7 @@ public class Example {
         AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
         AWSAccountAndLambdaRequest body = new AWSAccountAndLambdaRequest(); // AWSAccountAndLambdaRequest | AWS Log Lambda Async request body.
         try {
-            Object result = apiInstance.createAWSLambdaARN()
-                .body(body)
-                .execute();
+            Object result = apiInstance.createAWSLambdaARN(body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AwsLogsIntegrationApi#createAWSLambdaARN");
@@ -242,7 +236,7 @@ Name | Type | Description  | Notes
 
 ## deleteAWSLambdaARN
 
-> Object deleteAWSLambdaARN().body(body).execute();
+> Object deleteAWSLambdaARN(body);
 
 Delete an AWS Logs integration
 
@@ -267,9 +261,7 @@ public class Example {
         AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
         AWSAccountAndLambdaRequest body = new AWSAccountAndLambdaRequest(); // AWSAccountAndLambdaRequest | Delete AWS Lambda ARN request body.
         try {
-            Object result = apiInstance.deleteAWSLambdaARN()
-                .body(body)
-                .execute();
+            Object result = apiInstance.deleteAWSLambdaARN(body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AwsLogsIntegrationApi#deleteAWSLambdaARN");
@@ -312,7 +304,7 @@ Name | Type | Description  | Notes
 
 ## enableAWSLogServices
 
-> Object enableAWSLogServices().body(body).execute();
+> Object enableAWSLogServices(body);
 
 Enable an AWS Logs integration
 
@@ -337,9 +329,7 @@ public class Example {
         AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
         AWSLogsServicesRequest body = new AWSLogsServicesRequest(); // AWSLogsServicesRequest | Enable AWS Log Services request body.
         try {
-            Object result = apiInstance.enableAWSLogServices()
-                .body(body)
-                .execute();
+            Object result = apiInstance.enableAWSLogServices(body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AwsLogsIntegrationApi#enableAWSLogServices");
@@ -382,7 +372,7 @@ Name | Type | Description  | Notes
 
 ## listAWSLogsIntegrations
 
-> List&lt;AWSLogsListResponse&gt; listAWSLogsIntegrations().execute();
+> List&lt;AWSLogsListResponse&gt; listAWSLogsIntegrations();
 
 List all AWS Logs integrations
 
@@ -406,8 +396,7 @@ public class Example {
 
         AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
         try {
-            List<AWSLogsListResponse> result = apiInstance.listAWSLogsIntegrations()
-                .execute();
+            List<AWSLogsListResponse> result = apiInstance.listAWSLogsIntegrations();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AwsLogsIntegrationApi#listAWSLogsIntegrations");
@@ -447,7 +436,7 @@ This endpoint does not need any parameter.
 
 ## listAWSLogsServices
 
-> List&lt;AWSLogsListServicesResponse&gt; listAWSLogsServices().execute();
+> List&lt;AWSLogsListServicesResponse&gt; listAWSLogsServices();
 
 Get list of AWS log ready services
 
@@ -471,8 +460,7 @@ public class Example {
 
         AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
         try {
-            List<AWSLogsListServicesResponse> result = apiInstance.listAWSLogsServices()
-                .execute();
+            List<AWSLogsListServicesResponse> result = apiInstance.listAWSLogsServices();
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AwsLogsIntegrationApi#listAWSLogsServices");

@@ -60,9 +60,9 @@ public class UsersApiTest extends V1ApiTest {
   public void disableUsers() throws ApiException {
     if (disableUsers != null) {
       for (String handle : disableUsers) {
-        UserResponse ugr = api.getUser(handle).execute();
+        UserResponse ugr = api.getUser(handle);
         if (!ugr.getUser().getDisabled()) {
-          api.disableUser(handle).execute();
+          api.disableUser(handle);
         }
       }
     }
@@ -79,7 +79,7 @@ public class UsersApiTest extends V1ApiTest {
     user.setAccessRole(testingUserAR);
     user.setHandle(testingUserHandle);
     user.setName(testingUserName);
-    UserResponse response = api.createUser().body(user).execute();
+    UserResponse response = api.createUser(user);
     // If something fails, make sure we disable the user
     disableUsers.add(testingUserHandle);
 
@@ -91,20 +91,20 @@ public class UsersApiTest extends V1ApiTest {
     // Now test updating user
     user.setName(testingUserName + "-updated");
     user.setDisabled(false);
-    response = api.updateUser(user.getHandle()).body(user).execute();
+    response = api.updateUser(user.getHandle(), user);
 
     assertEquals(testingUserName + "-updated", response.getUser().getName());
 
     // Now test getting user
-    response = api.getUser(user.getHandle()).execute();
+    response = api.getUser(user.getHandle());
     assertEquals(testingUserHandle, response.getUser().getHandle());
     assertEquals(testingUserName + "-updated", response.getUser().getName());
     assertEquals(testingUserAR.toString(), response.getUser().getAccessRole().toString());
     assertEquals(false, response.getUser().getDisabled());
 
     // Now test disabling user
-    api.disableUser(user.getHandle()).execute();
-    response = api.getUser(user.getHandle()).execute();
+    api.disableUser(user.getHandle());
+    response = api.getUser(user.getHandle());
     assertEquals(true, response.getUser().getDisabled());
   }
 
@@ -122,10 +122,10 @@ public class UsersApiTest extends V1ApiTest {
       user.setAccessRole(testingUserAR);
       user.setHandle(String.format("%s-%s@datadoghq.com", testingUserName, suffix));
       user.setName(String.format("%s-%s", testingUserName, suffix));
-      UserResponse response = api.createUser().body(user).execute();
+      UserResponse response = api.createUser(user);
       disableUsers.add(response.getUser().getHandle());
     }
-    UserListResponse response = api.listUsers().execute();
+    UserListResponse response = api.listUsers();
     List<User> users = response.getUsers();
     for (String suffix : suffixes) {
       boolean found = false;
@@ -144,7 +144,7 @@ public class UsersApiTest extends V1ApiTest {
   @Test
   public void userCreateErrorsTest() throws IOException {
     try {
-      api.createUser().body(new User()).execute();
+      api.createUser(new User());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -153,7 +153,7 @@ public class UsersApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.createUser().body(new User()).execute();
+      fakeAuthApi.createUser(new User());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -168,7 +168,7 @@ public class UsersApiTest extends V1ApiTest {
     stubFor(post(urlPathEqualTo(apiUri)).willReturn(okJson(fixtureData).withStatus(409)));
 
     try {
-      unitApi.createUser().body(new User()).execute();
+      unitApi.createUser(new User());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(409, e.getCode());
@@ -180,7 +180,7 @@ public class UsersApiTest extends V1ApiTest {
   @Test
   public void testUserListErrorsTest() throws IOException {
     try {
-      fakeAuthApi.listUsers().execute();
+      fakeAuthApi.listUsers();
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -192,7 +192,7 @@ public class UsersApiTest extends V1ApiTest {
   @Test
   public void userGetErrorsTest() throws IOException {
     try {
-      fakeAuthApi.getUser("notahandle").execute();
+      fakeAuthApi.getUser("notahandle");
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -201,7 +201,7 @@ public class UsersApiTest extends V1ApiTest {
     }
 
     try {
-      api.getUser("notahandle").execute();
+      api.getUser("notahandle");
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());
@@ -219,7 +219,7 @@ public class UsersApiTest extends V1ApiTest {
     user.setAccessRole(testingUserAR);
     user.setHandle(testingUserHandle);
     user.setName(testingUserName);
-    UserResponse response = api.createUser().body(user).execute();
+    UserResponse response = api.createUser(user);
     // If something fails, make sure we disable the user
     disableUsers.add(testingUserHandle);
 
@@ -227,7 +227,7 @@ public class UsersApiTest extends V1ApiTest {
     badUser.setEmail("notanemail");
 
     try {
-      api.updateUser(user.getHandle()).body(badUser).execute();
+      api.updateUser(user.getHandle(), badUser);
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -236,7 +236,7 @@ public class UsersApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.updateUser("notahandle").body(badUser).execute();
+      fakeAuthApi.updateUser("notahandle", badUser);
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -245,7 +245,7 @@ public class UsersApiTest extends V1ApiTest {
     }
 
     try {
-      api.updateUser("notahandle").body(badUser).execute();
+      api.updateUser("notahandle", badUser);
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());
@@ -263,15 +263,15 @@ public class UsersApiTest extends V1ApiTest {
     user.setAccessRole(testingUserAR);
     user.setHandle(testingUserHandle);
     user.setName(testingUserName);
-    UserResponse response = api.createUser().body(user).execute();
+    UserResponse response = api.createUser(user);
     // If something fails, make sure we disable the user
     disableUsers.add(testingUserHandle);
     user = response.getUser();
     user.setDisabled(true);
-    api.updateUser(user.getHandle()).body(user).execute();
+    api.updateUser(user.getHandle(), user);
 
     try {
-      api.disableUser(user.getHandle()).execute();
+      api.disableUser(user.getHandle());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -280,7 +280,7 @@ public class UsersApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.disableUser("notahandle").execute();
+      fakeAuthApi.disableUser("notahandle");
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -289,7 +289,7 @@ public class UsersApiTest extends V1ApiTest {
     }
 
     try {
-      api.disableUser("notahandle").execute();
+      api.disableUser("notahandle");
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());

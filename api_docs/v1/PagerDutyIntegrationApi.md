@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## createPagerDutyIntegrationService
 
-> PagerDutyServiceName createPagerDutyIntegrationService().body(body).execute();
+> PagerDutyServiceName createPagerDutyIntegrationService(body);
 
 Create a new service object
 
@@ -38,9 +38,7 @@ public class Example {
         PagerDutyIntegrationApi apiInstance = new PagerDutyIntegrationApi(defaultClient);
         PagerDutyService body = new PagerDutyService(); // PagerDutyService | Create a new service object request body.
         try {
-            PagerDutyServiceName result = apiInstance.createPagerDutyIntegrationService()
-                .body(body)
-                .execute();
+            PagerDutyServiceName result = apiInstance.createPagerDutyIntegrationService(body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling PagerDutyIntegrationApi#createPagerDutyIntegrationService");
@@ -83,7 +81,7 @@ Name | Type | Description  | Notes
 
 ## deletePagerDutyIntegrationService
 
-> deletePagerDutyIntegrationService(serviceName).execute();
+> deletePagerDutyIntegrationService(serviceName);
 
 Delete a single service object
 
@@ -108,8 +106,7 @@ public class Example {
         PagerDutyIntegrationApi apiInstance = new PagerDutyIntegrationApi(defaultClient);
         String serviceName = "serviceName_example"; // String | The service name
         try {
-            apiInstance.deletePagerDutyIntegrationService(serviceName)
-                .execute();
+            apiInstance.deletePagerDutyIntegrationService(serviceName);
         } catch (ApiException e) {
             System.err.println("Exception when calling PagerDutyIntegrationApi#deletePagerDutyIntegrationService");
             System.err.println("Status code: " + e.getCode());
@@ -151,7 +148,7 @@ null (empty response body)
 
 ## getPagerDutyIntegrationService
 
-> PagerDutyServiceName getPagerDutyIntegrationService(serviceName).execute();
+> PagerDutyServiceName getPagerDutyIntegrationService(serviceName);
 
 Get a single service object
 
@@ -176,8 +173,7 @@ public class Example {
         PagerDutyIntegrationApi apiInstance = new PagerDutyIntegrationApi(defaultClient);
         String serviceName = "serviceName_example"; // String | The service name.
         try {
-            PagerDutyServiceName result = apiInstance.getPagerDutyIntegrationService(serviceName)
-                .execute();
+            PagerDutyServiceName result = apiInstance.getPagerDutyIntegrationService(serviceName);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling PagerDutyIntegrationApi#getPagerDutyIntegrationService");
@@ -220,7 +216,7 @@ Name | Type | Description  | Notes
 
 ## updatePagerDutyIntegrationService
 
-> updatePagerDutyIntegrationService(serviceName).body(body).execute();
+> updatePagerDutyIntegrationService(serviceName, body);
 
 Update a single service object
 
@@ -246,9 +242,7 @@ public class Example {
         String serviceName = "serviceName_example"; // String | The service name
         PagerDutyServiceKey body = new PagerDutyServiceKey(); // PagerDutyServiceKey | Update an existing service object request body.
         try {
-            apiInstance.updatePagerDutyIntegrationService(serviceName)
-                .body(body)
-                .execute();
+            apiInstance.updatePagerDutyIntegrationService(serviceName, body);
         } catch (ApiException e) {
             System.err.println("Exception when calling PagerDutyIntegrationApi#updatePagerDutyIntegrationService");
             System.err.println("Status code: " + e.getCode());

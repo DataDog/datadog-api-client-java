@@ -105,7 +105,7 @@ public class LogsApiTest extends V1ApiTest {
         10,
         () -> {
           try {
-            LogsListResponse response = api.listLogs().body(request).execute();
+            LogsListResponse response = api.listLogs(request);
             return 2 == response.getLogs().size();
           } catch (ApiException e) {
             return false;
@@ -121,7 +121,7 @@ public class LogsApiTest extends V1ApiTest {
 
             // Find first log item
             LogsListRequest logsRequest = request.limit(1).startAt(null);
-            logsResponse = api.listLogs().body(logsRequest).execute();
+            logsResponse = api.listLogs(logsRequest);
             assertEquals(1, logsResponse.getLogs().size());
 
             Log log = logsResponse.getLogs().get(0);
@@ -132,7 +132,7 @@ public class LogsApiTest extends V1ApiTest {
             assertNotNull(logsResponse.getNextLogId());
 
             logsRequest = logsRequest.startAt(logsResponse.getNextLogId());
-            logsResponse = api.listLogs().body(logsRequest).execute();
+            logsResponse = api.listLogs(logsRequest);
             assertEquals(1, logsResponse.getLogs().size());
 
             log = logsResponse.getLogs().get(0);
@@ -153,7 +153,7 @@ public class LogsApiTest extends V1ApiTest {
             .time(new LogsListRequestTime().from(now.minusHours(1)).to(now));
 
     try {
-      api.listLogs().body(logsListRequest).execute();
+      api.listLogs(logsListRequest);
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -163,7 +163,7 @@ public class LogsApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.listLogs().body(logsListRequest).execute();
+      fakeAuthApi.listLogs(logsListRequest);
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());

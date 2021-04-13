@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## createIncidentTeam
 
-> IncidentTeamResponse createIncidentTeam().body(body).execute();
+> IncidentTeamResponse createIncidentTeam(body);
 
 Create a new incident team
 
@@ -39,9 +39,7 @@ public class Example {
         IncidentTeamsApi apiInstance = new IncidentTeamsApi(defaultClient);
         IncidentTeamCreateRequest body = new IncidentTeamCreateRequest(); // IncidentTeamCreateRequest | Incident Team Payload.
         try {
-            IncidentTeamResponse result = apiInstance.createIncidentTeam()
-                .body(body)
-                .execute();
+            IncidentTeamResponse result = apiInstance.createIncidentTeam(body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling IncidentTeamsApi#createIncidentTeam");
@@ -86,7 +84,7 @@ Name | Type | Description  | Notes
 
 ## deleteIncidentTeam
 
-> deleteIncidentTeam(teamId).execute();
+> deleteIncidentTeam(teamId);
 
 Delete an existing incident team
 
@@ -111,8 +109,7 @@ public class Example {
         IncidentTeamsApi apiInstance = new IncidentTeamsApi(defaultClient);
         String teamId = "teamId_example"; // String | The ID of the incident team.
         try {
-            apiInstance.deleteIncidentTeam(teamId)
-                .execute();
+            apiInstance.deleteIncidentTeam(teamId);
         } catch (ApiException e) {
             System.err.println("Exception when calling IncidentTeamsApi#deleteIncidentTeam");
             System.err.println("Status code: " + e.getCode());
@@ -156,7 +153,7 @@ null (empty response body)
 
 ## getIncidentTeam
 
-> IncidentTeamResponse getIncidentTeam(teamId).include(include).execute();
+> IncidentTeamResponse getIncidentTeam(teamId, parameters);
 
 Get details of an incident team
 
@@ -183,9 +180,8 @@ public class Example {
         String teamId = "teamId_example"; // String | The ID of the incident team.
         IncidentRelatedObject include = IncidentRelatedObject.fromValue("users"); // IncidentRelatedObject | Specifies which types of related objects should be included in the response.
         try {
-            IncidentTeamResponse result = apiInstance.getIncidentTeam(teamId)
-                .include(include)
-                .execute();
+	    IncidentTeamResponse result = apiInstance.getIncidentTeam(teamId, new IncidentTeamsApi.GetIncidentTeamOptionalParameters()
+                .include(include));
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling IncidentTeamsApi#getIncidentTeam");
@@ -231,7 +227,7 @@ Name | Type | Description  | Notes
 
 ## listIncidentTeams
 
-> IncidentTeamsResponse listIncidentTeams().include(include).pageSize(pageSize).pageOffset(pageOffset).filter(filter).execute();
+> IncidentTeamsResponse listIncidentTeams(parameters);
 
 Get a list of all incident teams
 
@@ -259,12 +255,11 @@ public class Example {
         Long pageOffset = 0L; // Long | Specific offset to use as the beginning of the returned page.
         String filter = "ExampleTeamName"; // String | A search query that filters teams by name.
         try {
-            IncidentTeamsResponse result = apiInstance.listIncidentTeams()
+	    IncidentTeamsResponse result = apiInstance.listIncidentTeams(new IncidentTeamsApi.ListIncidentTeamsOptionalParameters()
                 .include(include)
                 .pageSize(pageSize)
                 .pageOffset(pageOffset)
-                .filter(filter)
-                .execute();
+                .filter(filter));
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling IncidentTeamsApi#listIncidentTeams");
@@ -312,7 +307,7 @@ Name | Type | Description  | Notes
 
 ## updateIncidentTeam
 
-> IncidentTeamResponse updateIncidentTeam(teamId).body(body).execute();
+> IncidentTeamResponse updateIncidentTeam(teamId, body);
 
 Update an existing incident team
 
@@ -338,9 +333,7 @@ public class Example {
         String teamId = "teamId_example"; // String | The ID of the incident team.
         IncidentTeamUpdateRequest body = new IncidentTeamUpdateRequest(); // IncidentTeamUpdateRequest | Incident Team Payload.
         try {
-            IncidentTeamResponse result = apiInstance.updateIncidentTeam(teamId)
-                .body(body)
-                .execute();
+            IncidentTeamResponse result = apiInstance.updateIncidentTeam(teamId, body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling IncidentTeamsApi#updateIncidentTeam");

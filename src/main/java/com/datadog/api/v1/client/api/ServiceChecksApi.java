@@ -43,7 +43,43 @@ public class ServiceChecksApi {
     this.apiClient = apiClient;
   }
 
-  private ApiResponse<IntakePayloadAccepted> submitServiceCheckWithHttpInfo(List<ServiceCheck> body)
+  /**
+   * Submit a Service Check Submit a list of Service Checks. **Note**: A valid API key is required.
+   *
+   * @param body Service Check request body. (required)
+   * @return IntakePayloadAccepted
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 202 </td><td> Payload accepted </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *       <tr><td> 408 </td><td> Request timeout </td><td>  -  </td></tr>
+   *       <tr><td> 413 </td><td> Payload too large </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public IntakePayloadAccepted submitServiceCheck(List<ServiceCheck> body) throws ApiException {
+    return submitServiceCheckWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Submit a Service Check Submit a list of Service Checks. **Note**: A valid API key is required.
+   *
+   * @param body Service Check request body. (required)
+   * @return ApiResponse&lt;IntakePayloadAccepted&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 202 </td><td> Payload accepted </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *       <tr><td> 408 </td><td> Request timeout </td><td>  -  </td></tr>
+   *       <tr><td> 413 </td><td> Payload too large </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<IntakePayloadAccepted> submitServiceCheckWithHttpInfo(List<ServiceCheck> body)
       throws ApiException {
     Object localVarPostBody = body;
 
@@ -52,7 +88,6 @@ public class ServiceChecksApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling submitServiceCheck");
     }
-
     // create path and map variables
     String localVarPath = "/api/v1/check_run";
 
@@ -90,70 +125,5 @@ public class ServiceChecksApi {
         localVarAuthNames,
         localVarReturnType,
         false);
-  }
-
-  public class APIsubmitServiceCheckRequest {
-    private List<ServiceCheck> body;
-
-    private APIsubmitServiceCheckRequest() {}
-
-    /**
-     * Set body
-     *
-     * @param body Service Check request body. (required)
-     * @return APIsubmitServiceCheckRequest
-     */
-    public APIsubmitServiceCheckRequest body(List<ServiceCheck> body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Execute submitServiceCheck request
-     *
-     * @return IntakePayloadAccepted
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 202 </td><td> Payload accepted </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-     * <tr><td> 408 </td><td> Request timeout </td><td>  -  </td></tr>
-     * <tr><td> 413 </td><td> Payload too large </td><td>  -  </td></tr>
-     * </table>
-     */
-    public IntakePayloadAccepted execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute submitServiceCheck request with HTTP info returned
-     *
-     * @return ApiResponse&lt;IntakePayloadAccepted&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 202 </td><td> Payload accepted </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-     * <tr><td> 408 </td><td> Request timeout </td><td>  -  </td></tr>
-     * <tr><td> 413 </td><td> Payload too large </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<IntakePayloadAccepted> executeWithHttpInfo() throws ApiException {
-      return submitServiceCheckWithHttpInfo(body);
-    }
-  }
-
-  /**
-   * Submit a Service Check Submit a list of Service Checks. **Note**: A valid API key is required.
-   *
-   * @return submitServiceCheckRequest
-   * @throws ApiException if fails to make API call
-   */
-  public APIsubmitServiceCheckRequest submitServiceCheck() throws ApiException {
-    return new APIsubmitServiceCheckRequest();
   }
 }

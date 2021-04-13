@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## listProcesses
 
-> ProcessSummariesResponse listProcesses().search(search).tags(tags).from(from).to(to).pageLimit(pageLimit).pageCursor(pageCursor).execute();
+> ProcessSummariesResponse listProcesses(parameters);
 
 Get all processes
 
@@ -40,14 +40,13 @@ public class Example {
         Integer pageLimit = 1000; // Integer | Maximum number of results returned.
         String pageCursor = "pageCursor_example"; // String | String to query the next page of results. This key is provided with each valid response from the API in `meta.page.after`.
         try {
-            ProcessSummariesResponse result = apiInstance.listProcesses()
+	    ProcessSummariesResponse result = apiInstance.listProcesses(new ProcessesApi.ListProcessesOptionalParameters()
                 .search(search)
                 .tags(tags)
                 .from(from)
                 .to(to)
                 .pageLimit(pageLimit)
-                .pageCursor(pageCursor)
-                .execute();
+                .pageCursor(pageCursor));
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ProcessesApi#listProcesses");

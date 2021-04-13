@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## getGraphSnapshot
 
-> GraphSnapshot getGraphSnapshot().start(start).end(end).metricQuery(metricQuery).eventQuery(eventQuery).graphDef(graphDef).title(title).execute();
+> GraphSnapshot getGraphSnapshot(start, end, parameters);
 
 Take graph snapshots
 
@@ -41,14 +41,11 @@ public class Example {
         String graphDef = "graphDef_example"; // String | A JSON document defining the graph. `graph_def` can be used instead of `metric_query`. The JSON document uses the [grammar defined here](https://docs.datadoghq.com/graphing/graphing_json/#grammar) and should be formatted to a single line then URL encoded.
         String title = "title_example"; // String | A title for the graph. If no title is specified, the graph does not have a title.
         try {
-            GraphSnapshot result = apiInstance.getGraphSnapshot()
-                .start(start)
-                .end(end)
+	    GraphSnapshot result = apiInstance.getGraphSnapshot(start, end, new SnapshotsApi.GetGraphSnapshotOptionalParameters()
                 .metricQuery(metricQuery)
                 .eventQuery(eventQuery)
                 .graphDef(graphDef)
-                .title(title)
-                .execute();
+                .title(title));
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SnapshotsApi#getGraphSnapshot");

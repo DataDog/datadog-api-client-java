@@ -50,20 +50,23 @@ public class SnapshotsApiTest extends V1ApiTest {
 
     // Try to create a snapshot with a metric_query (and an optional event_query)
     GraphSnapshot response =
-        api.getGraphSnapshot()
-            .metricQuery(metricQuery)
-            .start(start)
-            .end(end)
-            .title(title)
-            .eventQuery(eventQuery)
-            .execute();
+        api.getGraphSnapshot(
+            start,
+            end,
+            new SnapshotsApi.GetGraphSnapshotOptionalParameters()
+                .metricQuery(metricQuery)
+                .title(title)
+                .eventQuery(eventQuery));
     assertEquals(metricQuery, response.getMetricQuery());
     assertEquals(graphDef, response.getGraphDef());
     assertNotEquals("", response.getSnapshotUrl());
 
     // Try to create a snapshot with a graph_def
     response =
-        api.getGraphSnapshot().graphDef(graphDef).start(start).end(end).title(title).execute();
+        api.getGraphSnapshot(
+            start,
+            end,
+            new SnapshotsApi.GetGraphSnapshotOptionalParameters().graphDef(graphDef).title(title));
     assertEquals(graphDef, response.getGraphDef());
     assertNotEquals("", response.getSnapshotUrl());
   }
@@ -74,7 +77,10 @@ public class SnapshotsApiTest extends V1ApiTest {
     String metricQuery = "query";
 
     try {
-      api.getGraphSnapshot().end(end).metricQuery(metricQuery).execute();
+      api.getGraphSnapshot(
+          null,
+          end,
+          new SnapshotsApi.GetGraphSnapshotOptionalParameters().metricQuery(metricQuery));
     } catch (ApiException e) {
       assertTrue(e.getMessage().contains("Missing the required parameter 'start"));
     }
@@ -86,7 +92,10 @@ public class SnapshotsApiTest extends V1ApiTest {
     String metricQuery = "query";
 
     try {
-      api.getGraphSnapshot().start(start).metricQuery(metricQuery).execute();
+      api.getGraphSnapshot(
+          start,
+          null,
+          new SnapshotsApi.GetGraphSnapshotOptionalParameters().metricQuery(metricQuery));
     } catch (ApiException e) {
       assertTrue(e.getMessage().contains("Missing the required parameter 'end"));
     }
@@ -95,7 +104,7 @@ public class SnapshotsApiTest extends V1ApiTest {
   @Test
   public void getGraphErrors() throws IOException {
     try {
-      api.getGraphSnapshot().start(new Long(345)).end(new Long(123)).execute();
+      api.getGraphSnapshot(Long.valueOf(345), Long.valueOf(123));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -104,7 +113,7 @@ public class SnapshotsApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.getGraphSnapshot().start(new Long(345)).end(new Long(123)).execute();
+      fakeAuthApi.getGraphSnapshot(Long.valueOf(345), Long.valueOf(123));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());

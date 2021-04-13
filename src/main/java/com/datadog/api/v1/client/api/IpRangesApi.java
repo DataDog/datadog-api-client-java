@@ -42,9 +42,34 @@ public class IpRangesApi {
     this.apiClient = apiClient;
   }
 
-  private ApiResponse<IPRanges> getIPRangesWithHttpInfo() throws ApiException {
-    Object localVarPostBody = null;
+  /**
+   * List IP Ranges Get information about Datadog IP ranges.
+   *
+   * @return IPRanges
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public IPRanges getIPRanges() throws ApiException {
+    return getIPRangesWithHttpInfo().getData();
+  }
 
+  /**
+   * List IP Ranges Get information about Datadog IP ranges.
+   *
+   * @return ApiResponse&lt;IPRanges&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<IPRanges> getIPRangesWithHttpInfo() throws ApiException {
+    Object localVarPostBody = null;
     // create path and map variables
     String localVarPath = "/";
 
@@ -82,50 +107,5 @@ public class IpRangesApi {
         localVarAuthNames,
         localVarReturnType,
         false);
-  }
-
-  public class APIgetIPRangesRequest {
-
-    private APIgetIPRangesRequest() {}
-
-    /**
-     * Execute getIPRanges request
-     *
-     * @return IPRanges
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * </table>
-     */
-    public IPRanges execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getIPRanges request with HTTP info returned
-     *
-     * @return ApiResponse&lt;IPRanges&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<IPRanges> executeWithHttpInfo() throws ApiException {
-      return getIPRangesWithHttpInfo();
-    }
-  }
-
-  /**
-   * List IP Ranges Get information about Datadog IP ranges.
-   *
-   * @return getIPRangesRequest
-   * @throws ApiException if fails to make API call
-   */
-  public APIgetIPRangesRequest getIPRanges() throws ApiException {
-    return new APIgetIPRangesRequest();
   }
 }

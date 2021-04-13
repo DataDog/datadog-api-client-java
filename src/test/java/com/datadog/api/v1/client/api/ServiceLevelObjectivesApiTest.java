@@ -86,7 +86,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     if (deleteSLOs != null) {
       for (String id : deleteSLOs) {
         try {
-          api.deleteSLO(id).execute();
+          api.deleteSLO(id);
         } catch (ApiException e) {
           if (e.getCode() == 404) {
             // doesn't exist => continue
@@ -103,7 +103,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
   public void deleteMonitors() throws ApiException {
     if (deleteMonitors != null) {
       for (Long id : deleteMonitors) {
-        mApi.deleteMonitor(id).execute();
+        mApi.deleteMonitor(id);
       }
     }
   }
@@ -117,33 +117,33 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
             .name(getUniqueEntityName())
             .type(MonitorType.METRIC_ALERT)
             .query("avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100");
-    m = mApi.createMonitor().body(m).execute();
+    m = mApi.createMonitor(m);
     deleteMonitors.add(m.getId());
     monitorSLO.monitorIds(Arrays.asList(m.getId()));
     monitorSLO.setName(getUniqueEntityName());
 
     // Create SLO
-    SLOListResponse sloResp = api.createSLO().body(monitorSLO).execute();
+    SLOListResponse sloResp = api.createSLO(monitorSLO);
     ServiceLevelObjective created = sloResp.getData().get(0);
     deleteSLOs.add(created.getId());
     assertEquals(monitorSLO.getName(), created.getName());
 
     // Update SLO
     created.setDescription("Updated description");
-    sloResp = api.updateSLO(created.getId()).body(created).execute();
+    sloResp = api.updateSLO(created.getId(), created);
     ServiceLevelObjective edited = sloResp.getData().get(0);
     assertEquals(created.getDescription(), edited.getDescription());
 
     // Check that the SLO can be deleted
-    CheckCanDeleteSLOResponse canDelete = api.checkCanDeleteSLO().ids(edited.getId()).execute();
+    CheckCanDeleteSLOResponse canDelete = api.checkCanDeleteSLO(edited.getId());
     assertEquals(Arrays.asList(edited.getId()), canDelete.getData().getOk());
 
     // Get SLO
-    SLOResponse oneSLO = api.getSLO(edited.getId()).execute();
+    SLOResponse oneSLO = api.getSLO(edited.getId());
     assertEquals(edited, oneSLO.getData());
 
     // Delete SLO
-    SLODeleteResponse deletedResp = api.deleteSLO(edited.getId()).execute();
+    SLODeleteResponse deletedResp = api.deleteSLO(edited.getId());
     assertEquals(Arrays.asList(edited.getId()), deletedResp.getData());
   }
 
@@ -152,23 +152,23 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
   public void createModifyDeleteEventSLO() throws ApiException {
     // Create SLO
     eventSLO.setName(getUniqueEntityName());
-    SLOListResponse sloResp = api.createSLO().body(eventSLO).execute();
+    SLOListResponse sloResp = api.createSLO(eventSLO);
     ServiceLevelObjective created = sloResp.getData().get(0);
     deleteSLOs.add(created.getId());
     assertEquals(eventSLO.getName(), created.getName());
 
     // Edit SLO
     created.setDescription("Updated description");
-    sloResp = api.updateSLO(created.getId()).body(created).execute();
+    sloResp = api.updateSLO(created.getId(), created);
     ServiceLevelObjective edited = sloResp.getData().get(0);
     assertEquals(created.getDescription(), edited.getDescription());
 
     // Check that the SLO can be deleted
-    CheckCanDeleteSLOResponse canDelete = api.checkCanDeleteSLO().ids(edited.getId()).execute();
+    CheckCanDeleteSLOResponse canDelete = api.checkCanDeleteSLO(edited.getId());
     assertEquals(Arrays.asList(edited.getId()), canDelete.getData().getOk());
 
     // Get SLO
-    SLOResponse oneSLO = api.getSLO(edited.getId()).execute();
+    SLOResponse oneSLO = api.getSLO(edited.getId());
     assertEquals(edited, oneSLO.getData());
 
     // Get SLO history
@@ -176,8 +176,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     // ensure
     // that the structure deserialized properly and no exception was thrown
     Long time = now.toEpochSecond();
-    SLOHistoryResponse historyResp =
-        api.getSLOHistory(edited.getId()).fromTs(time - 11).toTs(time - 1).execute();
+    SLOHistoryResponse historyResp = api.getSLOHistory(edited.getId(), time - 11, time - 1);
 
     SLOHistorySLIData overall = historyResp.getData().getOverall();
     Double sliValue = overall.getSliValue();
@@ -192,7 +191,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     assertNotNull(numerator.getValues());
 
     // Delete SLO
-    SLODeleteResponse deletedResp = api.deleteSLO(edited.getId()).execute();
+    SLODeleteResponse deletedResp = api.deleteSLO(edited.getId());
     assertEquals(Arrays.asList(edited.getId()), deletedResp.getData());
   }
 
@@ -205,27 +204,27 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
             .name(getUniqueEntityName())
             .type(MonitorType.METRIC_ALERT)
             .query("avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100");
-    m = mApi.createMonitor().body(m).execute();
+    m = mApi.createMonitor(m);
     deleteMonitors.add(m.getId());
     monitorSLO.monitorIds(Arrays.asList(m.getId()));
     monitorSLO.setName(getUniqueEntityName());
 
     // Create Monitor SLO
-    SLOListResponse sloResp = api.createSLO().body(monitorSLO).execute();
+    SLOListResponse sloResp = api.createSLO(monitorSLO);
     final ServiceLevelObjective createdMonitorSLO = sloResp.getData().get(0);
     deleteSLOs.add(createdMonitorSLO.getId());
 
     // Create Event SLO
     eventSLO.setName(getUniqueEntityName());
-    sloResp = api.createSLO().body(eventSLO).execute();
+    sloResp = api.createSLO(eventSLO);
     final ServiceLevelObjective createdEventSLO = sloResp.getData().get(0);
     deleteSLOs.add(createdEventSLO.getId());
 
     // Get multiple SLOs
     SLOListResponse slosResp =
-        api.listSLOs()
-            .ids(String.format("%s,%s", createdMonitorSLO.getId(), createdEventSLO.getId()))
-            .execute();
+        api.listSLOs(
+            new ServiceLevelObjectivesApi.ListSLOsOptionalParameters()
+                .ids(String.format("%s,%s", createdMonitorSLO.getId(), createdEventSLO.getId())));
     assertSLOInList(slosResp.getData(), createdEventSLO.getId());
     assertSLOInList(slosResp.getData(), createdMonitorSLO.getId());
 
@@ -236,7 +235,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
             put(createdEventSLO.getId(), Arrays.asList(SLOTimeframe.SEVEN_DAYS));
           }
         };
-    SLOBulkDeleteResponse deletedResp = api.deleteSLOTimeframeInBulk().body(toDelete).execute();
+    SLOBulkDeleteResponse deletedResp = api.deleteSLOTimeframeInBulk(toDelete);
     assertEquals(Arrays.asList(createdEventSLO.getId()), deletedResp.getData().getDeleted());
     assertEquals(null, deletedResp.getData().getUpdated());
   }
@@ -253,7 +252,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
   @Test
   public void createSLOErrorsTest() throws IOException {
     try {
-      api.createSLO().body(new ServiceLevelObjectiveRequest()).execute();
+      api.createSLO(new ServiceLevelObjectiveRequest());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -262,7 +261,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.createSLO().body(new ServiceLevelObjectiveRequest()).execute();
+      fakeAuthApi.createSLO(new ServiceLevelObjectiveRequest());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -274,7 +273,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
   @Test
   public void listSLOErrorsTest() throws IOException {
     try {
-      api.listSLOs().ids("id1,id1").execute();
+      api.listSLOs(new ServiceLevelObjectivesApi.ListSLOsOptionalParameters().ids("id1,id1"));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -283,7 +282,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     }
 
     try {
-      api.listSLOs().ids("id1,id2").execute();
+      api.listSLOs(new ServiceLevelObjectivesApi.ListSLOsOptionalParameters().ids("id1,id2"));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());
@@ -292,7 +291,8 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.listSLOs().ids("id1,id2").execute();
+      fakeAuthApi.listSLOs(
+          new ServiceLevelObjectivesApi.ListSLOsOptionalParameters().ids("id1,id2"));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -304,7 +304,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
   @Test
   public void updateSLOErrorsTest() throws IOException {
     try {
-      api.updateSLO("id").body(new ServiceLevelObjective()).execute();
+      api.updateSLO("id", new ServiceLevelObjective());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -313,7 +313,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.updateSLO("id").body(new ServiceLevelObjective()).execute();
+      fakeAuthApi.updateSLO("id", new ServiceLevelObjective());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -334,7 +334,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
                         .target(95.0)
                         .warning(98.0)));
     try {
-      api.updateSLO("id").body(updateMonitorSLO).execute();
+      api.updateSLO("id", updateMonitorSLO);
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());
@@ -346,7 +346,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
   @Test
   public void getSLOErrorsTest() throws IOException {
     try {
-      fakeAuthApi.getSLO("id").execute();
+      fakeAuthApi.getSLO("id");
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -355,7 +355,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     }
 
     try {
-      api.getSLO("id").execute();
+      api.getSLO("id");
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());
@@ -367,7 +367,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
   @Test
   public void deleteSLOErrorsTest() throws IOException {
     try {
-      fakeAuthApi.deleteSLO("id").execute();
+      fakeAuthApi.deleteSLO("id");
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -376,7 +376,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     }
 
     try {
-      api.deleteSLO("id").execute();
+      api.deleteSLO("id");
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());
@@ -393,7 +393,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     // FIXME: Make it an integration test when feature is fixed
     //// Create SLO and reference it in a dashboard to trigger 409
     try {
-      unitApi.deleteSLO("id").execute();
+      unitApi.deleteSLO("id");
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(409, e.getCode());
@@ -411,18 +411,18 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
             .name(getUniqueEntityName())
             .type(MonitorType.METRIC_ALERT)
             .query("avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100");
-    m = mApi.createMonitor().body(m).execute();
+    m = mApi.createMonitor(m);
     deleteMonitors.add(m.getId());
     monitorSLO.monitorIds(Arrays.asList(m.getId()));
     monitorSLO.setName(getUniqueEntityName());
 
     // Create SLO
-    SLOListResponse sloResp = api.createSLO().body(monitorSLO).execute();
+    SLOListResponse sloResp = api.createSLO(monitorSLO);
     ServiceLevelObjective created = sloResp.getData().get(0);
     deleteSLOs.add(created.getId());
 
     try {
-      api.getSLOHistory(created.getId()).fromTs(new Long(123)).toTs(new Long(12)).execute();
+      api.getSLOHistory(created.getId(), Long.valueOf(123), Long.valueOf(12));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -431,7 +431,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.getSLOHistory("id").fromTs(new Long(123)).toTs(new Long(12)).execute();
+      fakeAuthApi.getSLOHistory("id", Long.valueOf(123), Long.valueOf(12));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -440,7 +440,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     }
 
     try {
-      api.getSLOHistory("id").fromTs(new Long(123)).toTs(new Long(12)).execute();
+      api.getSLOHistory("id", Long.valueOf(123), Long.valueOf(12));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());
@@ -458,7 +458,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     // Mocked as the feature is in a broken state right now
     // FIXME: Make it an integration test when feature is fixed
     try {
-      unitApi.checkCanDeleteSLO().ids("id").execute();
+      unitApi.checkCanDeleteSLO("id");
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(409, e.getCode());
@@ -473,7 +473,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     Map<String, List<SLOTimeframe>> toDelete = new HashMap<String, List<SLOTimeframe>>();
 
     try {
-      api.deleteSLOTimeframeInBulk().body(toDelete).execute();
+      api.deleteSLOTimeframeInBulk(toDelete);
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -482,7 +482,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.deleteSLOTimeframeInBulk().body(toDelete).execute();
+      fakeAuthApi.deleteSLOTimeframeInBulk(toDelete);
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());

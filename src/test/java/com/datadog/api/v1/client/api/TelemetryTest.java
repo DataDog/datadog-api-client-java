@@ -38,7 +38,8 @@ public class TelemetryTest extends V1ApiTest {
                         + " .*?; os_version .*?; arch .*?\\)$"))
             .willReturn(status(299)));
 
-    ApiResponse<AWSAccountListResponse> httpresp = api.listAWSAccounts().executeWithHttpInfo();
+    ApiResponse<AWSAccountListResponse> httpresp =
+        api.listAWSAccountsWithHttpInfo(new AwsIntegrationApi.ListAWSAccountsOptionalParameters());
     assertEquals(299, httpresp.getStatusCode());
   }
 }

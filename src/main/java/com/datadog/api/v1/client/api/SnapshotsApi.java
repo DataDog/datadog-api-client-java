@@ -42,9 +42,124 @@ public class SnapshotsApi {
     this.apiClient = apiClient;
   }
 
-  private ApiResponse<GraphSnapshot> getGraphSnapshotWithHttpInfo(
-      Long start, Long end, String metricQuery, String eventQuery, String graphDef, String title)
-      throws ApiException {
+  /** Manage optional parameters to getGraphSnapshot. */
+  public static class GetGraphSnapshotOptionalParameters {
+    private String metricQuery;
+    private String eventQuery;
+    private String graphDef;
+    private String title;
+
+    /**
+     * Set metricQuery
+     *
+     * @param metricQuery The metric query. (optional)
+     * @return GetGraphSnapshotOptionalParameters
+     */
+    public GetGraphSnapshotOptionalParameters metricQuery(String metricQuery) {
+      this.metricQuery = metricQuery;
+      return this;
+    }
+
+    /**
+     * Set eventQuery
+     *
+     * @param eventQuery A query that adds event bands to the graph. (optional)
+     * @return GetGraphSnapshotOptionalParameters
+     */
+    public GetGraphSnapshotOptionalParameters eventQuery(String eventQuery) {
+      this.eventQuery = eventQuery;
+      return this;
+    }
+
+    /**
+     * Set graphDef
+     *
+     * @param graphDef A JSON document defining the graph. &#x60;graph_def&#x60; can be used instead
+     *     of &#x60;metric_query&#x60;. The JSON document uses the [grammar defined
+     *     here](https://docs.datadoghq.com/graphing/graphing_json/#grammar) and should be formatted
+     *     to a single line then URL encoded. (optional)
+     * @return GetGraphSnapshotOptionalParameters
+     */
+    public GetGraphSnapshotOptionalParameters graphDef(String graphDef) {
+      this.graphDef = graphDef;
+      return this;
+    }
+
+    /**
+     * Set title
+     *
+     * @param title A title for the graph. If no title is specified, the graph does not have a
+     *     title. (optional)
+     * @return GetGraphSnapshotOptionalParameters
+     */
+    public GetGraphSnapshotOptionalParameters title(String title) {
+      this.title = title;
+      return this;
+    }
+  }
+
+  /**
+   * Take graph snapshots Take graph snapshots. **Note**: When a snapshot is created, there is some
+   * delay before it is available.
+   *
+   * @param start The POSIX timestamp of the start of the query. (required)
+   * @param end The POSIX timestamp of the end of the query. (required)
+   * @return GraphSnapshot
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public GraphSnapshot getGraphSnapshot(Long start, Long end) throws ApiException {
+    return getGraphSnapshotWithHttpInfo(start, end, new GetGraphSnapshotOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Take graph snapshots Take graph snapshots. **Note**: When a snapshot is created, there is some
+   * delay before it is available.
+   *
+   * @param start The POSIX timestamp of the start of the query. (required)
+   * @param end The POSIX timestamp of the end of the query. (required)
+   * @param parameters Optional parameters for the request.
+   * @return GraphSnapshot
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public GraphSnapshot getGraphSnapshot(
+      Long start, Long end, GetGraphSnapshotOptionalParameters parameters) throws ApiException {
+    return getGraphSnapshotWithHttpInfo(start, end, parameters).getData();
+  }
+
+  /**
+   * Take graph snapshots Take graph snapshots. **Note**: When a snapshot is created, there is some
+   * delay before it is available.
+   *
+   * @param start The POSIX timestamp of the start of the query. (required)
+   * @param end The POSIX timestamp of the end of the query. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;GraphSnapshot&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<GraphSnapshot> getGraphSnapshotWithHttpInfo(
+      Long start, Long end, GetGraphSnapshotOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'start' is set
@@ -58,7 +173,10 @@ public class SnapshotsApi {
       throw new ApiException(
           400, "Missing the required parameter 'end' when calling getGraphSnapshot");
     }
-
+    String metricQuery = parameters.metricQuery;
+    String eventQuery = parameters.eventQuery;
+    String graphDef = parameters.graphDef;
+    String title = parameters.title;
     // create path and map variables
     String localVarPath = "/api/v1/graph/snapshot";
 
@@ -103,131 +221,5 @@ public class SnapshotsApi {
         localVarAuthNames,
         localVarReturnType,
         false);
-  }
-
-  public class APIgetGraphSnapshotRequest {
-    private Long start;
-    private Long end;
-    private String metricQuery;
-    private String eventQuery;
-    private String graphDef;
-    private String title;
-
-    private APIgetGraphSnapshotRequest() {}
-
-    /**
-     * Set start
-     *
-     * @param start The POSIX timestamp of the start of the query. (required)
-     * @return APIgetGraphSnapshotRequest
-     */
-    public APIgetGraphSnapshotRequest start(Long start) {
-      this.start = start;
-      return this;
-    }
-
-    /**
-     * Set end
-     *
-     * @param end The POSIX timestamp of the end of the query. (required)
-     * @return APIgetGraphSnapshotRequest
-     */
-    public APIgetGraphSnapshotRequest end(Long end) {
-      this.end = end;
-      return this;
-    }
-
-    /**
-     * Set metricQuery
-     *
-     * @param metricQuery The metric query. (optional)
-     * @return APIgetGraphSnapshotRequest
-     */
-    public APIgetGraphSnapshotRequest metricQuery(String metricQuery) {
-      this.metricQuery = metricQuery;
-      return this;
-    }
-
-    /**
-     * Set eventQuery
-     *
-     * @param eventQuery A query that adds event bands to the graph. (optional)
-     * @return APIgetGraphSnapshotRequest
-     */
-    public APIgetGraphSnapshotRequest eventQuery(String eventQuery) {
-      this.eventQuery = eventQuery;
-      return this;
-    }
-
-    /**
-     * Set graphDef
-     *
-     * @param graphDef A JSON document defining the graph. &#x60;graph_def&#x60; can be used instead
-     *     of &#x60;metric_query&#x60;. The JSON document uses the [grammar defined
-     *     here](https://docs.datadoghq.com/graphing/graphing_json/#grammar) and should be formatted
-     *     to a single line then URL encoded. (optional)
-     * @return APIgetGraphSnapshotRequest
-     */
-    public APIgetGraphSnapshotRequest graphDef(String graphDef) {
-      this.graphDef = graphDef;
-      return this;
-    }
-
-    /**
-     * Set title
-     *
-     * @param title A title for the graph. If no title is specified, the graph does not have a
-     *     title. (optional)
-     * @return APIgetGraphSnapshotRequest
-     */
-    public APIgetGraphSnapshotRequest title(String title) {
-      this.title = title;
-      return this;
-    }
-
-    /**
-     * Execute getGraphSnapshot request
-     *
-     * @return GraphSnapshot
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * </table>
-     */
-    public GraphSnapshot execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getGraphSnapshot request with HTTP info returned
-     *
-     * @return ApiResponse&lt;GraphSnapshot&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<GraphSnapshot> executeWithHttpInfo() throws ApiException {
-      return getGraphSnapshotWithHttpInfo(start, end, metricQuery, eventQuery, graphDef, title);
-    }
-  }
-
-  /**
-   * Take graph snapshots Take graph snapshots. **Note**: When a snapshot is created, there is some
-   * delay before it is available.
-   *
-   * @return getGraphSnapshotRequest
-   * @throws ApiException if fails to make API call
-   */
-  public APIgetGraphSnapshotRequest getGraphSnapshot() throws ApiException {
-    return new APIgetGraphSnapshotRequest();
   }
 }

@@ -45,7 +45,41 @@ public class LogsIndexesApi {
     this.apiClient = apiClient;
   }
 
-  private ApiResponse<LogsIndex> createLogsIndexWithHttpInfo(LogsIndex body) throws ApiException {
+  /**
+   * Create an index Creates a new index. Returns the Index object passed in the request body when
+   * the request is successful.
+   *
+   * @param body Object containing the new index. (required)
+   * @return LogsIndex
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public LogsIndex createLogsIndex(LogsIndex body) throws ApiException {
+    return createLogsIndexWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create an index Creates a new index. Returns the Index object passed in the request body when
+   * the request is successful.
+   *
+   * @param body Object containing the new index. (required)
+   * @return ApiResponse&lt;LogsIndex&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<LogsIndex> createLogsIndexWithHttpInfo(LogsIndex body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -53,7 +87,6 @@ public class LogsIndexesApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling createLogsIndex");
     }
-
     // create path and map variables
     String localVarPath = "/api/v1/logs/config/indexes";
 
@@ -92,69 +125,39 @@ public class LogsIndexesApi {
         false);
   }
 
-  public class APIcreateLogsIndexRequest {
-    private LogsIndex body;
-
-    private APIcreateLogsIndexRequest() {}
-
-    /**
-     * Set body
-     *
-     * @param body Object containing the new index. (required)
-     * @return APIcreateLogsIndexRequest
-     */
-    public APIcreateLogsIndexRequest body(LogsIndex body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Execute createLogsIndex request
-     *
-     * @return LogsIndex
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * </table>
-     */
-    public LogsIndex execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute createLogsIndex request with HTTP info returned
-     *
-     * @return ApiResponse&lt;LogsIndex&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<LogsIndex> executeWithHttpInfo() throws ApiException {
-      return createLogsIndexWithHttpInfo(body);
-    }
+  /**
+   * Get an index Get one log index from your organization. This endpoint takes no JSON arguments.
+   *
+   * @param name Name of the log index. (required)
+   * @return LogsIndex
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public LogsIndex getLogsIndex(String name) throws ApiException {
+    return getLogsIndexWithHttpInfo(name).getData();
   }
 
   /**
-   * Create an index Creates a new index. Returns the Index object passed in the request body when
-   * the request is successful.
+   * Get an index Get one log index from your organization. This endpoint takes no JSON arguments.
    *
-   * @return createLogsIndexRequest
+   * @param name Name of the log index. (required)
+   * @return ApiResponse&lt;LogsIndex&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIcreateLogsIndexRequest createLogsIndex() throws ApiException {
-    return new APIcreateLogsIndexRequest();
-  }
-
-  private ApiResponse<LogsIndex> getLogsIndexWithHttpInfo(String name) throws ApiException {
+  public ApiResponse<LogsIndex> getLogsIndexWithHttpInfo(String name) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'name' is set
@@ -162,7 +165,6 @@ public class LogsIndexesApi {
       throw new ApiException(
           400, "Missing the required parameter 'name' when calling getLogsIndex");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v1/logs/config/indexes/{name}"
@@ -204,62 +206,38 @@ public class LogsIndexesApi {
         false);
   }
 
-  public class APIgetLogsIndexRequest {
-    private String name;
-
-    private APIgetLogsIndexRequest(String name) {
-      this.name = name;
-    }
-
-    /**
-     * Execute getLogsIndex request
-     *
-     * @return LogsIndex
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public LogsIndex execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getLogsIndex request with HTTP info returned
-     *
-     * @return ApiResponse&lt;LogsIndex&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<LogsIndex> executeWithHttpInfo() throws ApiException {
-      return getLogsIndexWithHttpInfo(name);
-    }
+  /**
+   * Get indexes order Get the current order of your log indexes. This endpoint takes no JSON
+   * arguments.
+   *
+   * @return LogsIndexesOrder
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public LogsIndexesOrder getLogsIndexOrder() throws ApiException {
+    return getLogsIndexOrderWithHttpInfo().getData();
   }
 
   /**
-   * Get an index Get one log index from your organization. This endpoint takes no JSON arguments.
+   * Get indexes order Get the current order of your log indexes. This endpoint takes no JSON
+   * arguments.
    *
-   * @param name Name of the log index. (required)
-   * @return getLogsIndexRequest
+   * @return ApiResponse&lt;LogsIndexesOrder&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIgetLogsIndexRequest getLogsIndex(String name) throws ApiException {
-    return new APIgetLogsIndexRequest(name);
-  }
-
-  private ApiResponse<LogsIndexesOrder> getLogsIndexOrderWithHttpInfo() throws ApiException {
+  public ApiResponse<LogsIndexesOrder> getLogsIndexOrderWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
-
     // create path and map variables
     String localVarPath = "/api/v1/logs/config/index-order";
 
@@ -299,57 +277,38 @@ public class LogsIndexesApi {
         false);
   }
 
-  public class APIgetLogsIndexOrderRequest {
-
-    private APIgetLogsIndexOrderRequest() {}
-
-    /**
-     * Execute getLogsIndexOrder request
-     *
-     * @return LogsIndexesOrder
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * </table>
-     */
-    public LogsIndexesOrder execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getLogsIndexOrder request with HTTP info returned
-     *
-     * @return ApiResponse&lt;LogsIndexesOrder&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<LogsIndexesOrder> executeWithHttpInfo() throws ApiException {
-      return getLogsIndexOrderWithHttpInfo();
-    }
+  /**
+   * Get all indexes The Index object describes the configuration of a log index. This endpoint
+   * returns an array of the &#x60;LogIndex&#x60; objects of your organization.
+   *
+   * @return LogsIndexListResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public LogsIndexListResponse listLogIndexes() throws ApiException {
+    return listLogIndexesWithHttpInfo().getData();
   }
 
   /**
-   * Get indexes order Get the current order of your log indexes. This endpoint takes no JSON
-   * arguments.
+   * Get all indexes The Index object describes the configuration of a log index. This endpoint
+   * returns an array of the &#x60;LogIndex&#x60; objects of your organization.
    *
-   * @return getLogsIndexOrderRequest
+   * @return ApiResponse&lt;LogsIndexListResponse&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIgetLogsIndexOrderRequest getLogsIndexOrder() throws ApiException {
-    return new APIgetLogsIndexOrderRequest();
-  }
-
-  private ApiResponse<LogsIndexListResponse> listLogIndexesWithHttpInfo() throws ApiException {
+  public ApiResponse<LogsIndexListResponse> listLogIndexesWithHttpInfo() throws ApiException {
     Object localVarPostBody = null;
-
     // create path and map variables
     String localVarPath = "/api/v1/logs/config/indexes";
 
@@ -390,55 +349,49 @@ public class LogsIndexesApi {
         false);
   }
 
-  public class APIlistLogIndexesRequest {
-
-    private APIlistLogIndexesRequest() {}
-
-    /**
-     * Execute listLogIndexes request
-     *
-     * @return LogsIndexListResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * </table>
-     */
-    public LogsIndexListResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute listLogIndexes request with HTTP info returned
-     *
-     * @return ApiResponse&lt;LogsIndexListResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<LogsIndexListResponse> executeWithHttpInfo() throws ApiException {
-      return listLogIndexesWithHttpInfo();
-    }
+  /**
+   * Update an index Update an index as identified by its name. Returns the Index object passed in
+   * the request body when the request is successful. Using the &#x60;PUT&#x60; method updates your
+   * index’s configuration by **replacing** your current configuration with the new one sent to your
+   * Datadog organization.
+   *
+   * @param name Name of the log index. (required)
+   * @param body Object containing the new &#x60;LogsIndexUpdateRequest&#x60;. (required)
+   * @return LogsIndex
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public LogsIndex updateLogsIndex(String name, LogsIndexUpdateRequest body) throws ApiException {
+    return updateLogsIndexWithHttpInfo(name, body).getData();
   }
 
   /**
-   * Get all indexes The Index object describes the configuration of a log index. This endpoint
-   * returns an array of the &#x60;LogIndex&#x60; objects of your organization.
+   * Update an index Update an index as identified by its name. Returns the Index object passed in
+   * the request body when the request is successful. Using the &#x60;PUT&#x60; method updates your
+   * index’s configuration by **replacing** your current configuration with the new one sent to your
+   * Datadog organization.
    *
-   * @return listLogIndexesRequest
+   * @param name Name of the log index. (required)
+   * @param body Object containing the new &#x60;LogsIndexUpdateRequest&#x60;. (required)
+   * @return ApiResponse&lt;LogsIndex&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIlistLogIndexesRequest listLogIndexes() throws ApiException {
-    return new APIlistLogIndexesRequest();
-  }
-
-  private ApiResponse<LogsIndex> updateLogsIndexWithHttpInfo(
+  public ApiResponse<LogsIndex> updateLogsIndexWithHttpInfo(
       String name, LogsIndexUpdateRequest body) throws ApiException {
     Object localVarPostBody = body;
 
@@ -453,7 +406,6 @@ public class LogsIndexesApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling updateLogsIndex");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v1/logs/config/indexes/{name}"
@@ -494,77 +446,41 @@ public class LogsIndexesApi {
         false);
   }
 
-  public class APIupdateLogsIndexRequest {
-    private String name;
-    private LogsIndexUpdateRequest body;
-
-    private APIupdateLogsIndexRequest(String name) {
-      this.name = name;
-    }
-
-    /**
-     * Set body
-     *
-     * @param body Object containing the new &#x60;LogsIndexUpdateRequest&#x60;. (required)
-     * @return APIupdateLogsIndexRequest
-     */
-    public APIupdateLogsIndexRequest body(LogsIndexUpdateRequest body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Execute updateLogsIndex request
-     *
-     * @return LogsIndex
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
-     * </table>
-     */
-    public LogsIndex execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute updateLogsIndex request with HTTP info returned
-     *
-     * @return ApiResponse&lt;LogsIndex&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Invalid Parameter Error </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too Many Requests </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<LogsIndex> executeWithHttpInfo() throws ApiException {
-      return updateLogsIndexWithHttpInfo(name, body);
-    }
+  /**
+   * Update indexes order This endpoint updates the index order of your organization. It returns the
+   * index order object passed in the request body when the request is successful.
+   *
+   * @param body Object containing the new ordered list of index names (required)
+   * @return LogsIndexesOrder
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public LogsIndexesOrder updateLogsIndexOrder(LogsIndexesOrder body) throws ApiException {
+    return updateLogsIndexOrderWithHttpInfo(body).getData();
   }
 
   /**
-   * Update an index Update an index as identified by its name. Returns the Index object passed in
-   * the request body when the request is successful. Using the &#x60;PUT&#x60; method updates your
-   * index’s configuration by **replacing** your current configuration with the new one sent to your
-   * Datadog organization.
+   * Update indexes order This endpoint updates the index order of your organization. It returns the
+   * index order object passed in the request body when the request is successful.
    *
-   * @param name Name of the log index. (required)
-   * @return updateLogsIndexRequest
+   * @param body Object containing the new ordered list of index names (required)
+   * @return ApiResponse&lt;LogsIndexesOrder&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIupdateLogsIndexRequest updateLogsIndex(String name) throws ApiException {
-    return new APIupdateLogsIndexRequest(name);
-  }
-
-  private ApiResponse<LogsIndexesOrder> updateLogsIndexOrderWithHttpInfo(LogsIndexesOrder body)
+  public ApiResponse<LogsIndexesOrder> updateLogsIndexOrderWithHttpInfo(LogsIndexesOrder body)
       throws ApiException {
     Object localVarPostBody = body;
 
@@ -573,7 +489,6 @@ public class LogsIndexesApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling updateLogsIndexOrder");
     }
-
     // create path and map variables
     String localVarPath = "/api/v1/logs/config/index-order";
 
@@ -610,67 +525,5 @@ public class LogsIndexesApi {
         localVarAuthNames,
         localVarReturnType,
         false);
-  }
-
-  public class APIupdateLogsIndexOrderRequest {
-    private LogsIndexesOrder body;
-
-    private APIupdateLogsIndexOrderRequest() {}
-
-    /**
-     * Set body
-     *
-     * @param body Object containing the new ordered list of index names (required)
-     * @return APIupdateLogsIndexOrderRequest
-     */
-    public APIupdateLogsIndexOrderRequest body(LogsIndexesOrder body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Execute updateLogsIndexOrder request
-     *
-     * @return LogsIndexesOrder
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * </table>
-     */
-    public LogsIndexesOrder execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute updateLogsIndexOrder request with HTTP info returned
-     *
-     * @return ApiResponse&lt;LogsIndexesOrder&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<LogsIndexesOrder> executeWithHttpInfo() throws ApiException {
-      return updateLogsIndexOrderWithHttpInfo(body);
-    }
-  }
-
-  /**
-   * Update indexes order This endpoint updates the index order of your organization. It returns the
-   * index order object passed in the request body when the request is successful.
-   *
-   * @return updateLogsIndexOrderRequest
-   * @throws ApiException if fails to make API call
-   */
-  public APIupdateLogsIndexOrderRequest updateLogsIndexOrder() throws ApiException {
-    return new APIupdateLogsIndexOrderRequest();
   }
 }

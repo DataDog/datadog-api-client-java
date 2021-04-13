@@ -46,7 +46,39 @@ public class EventsApi {
     this.apiClient = apiClient;
   }
 
-  private ApiResponse<EventCreateResponse> createEventWithHttpInfo(EventCreateRequest body)
+  /**
+   * Post an event This endpoint allows you to post events to the stream. Tag them, set priority and
+   * event aggregate them with other events.
+   *
+   * @param body Event request object (required)
+   * @return EventCreateResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 202 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public EventCreateResponse createEvent(EventCreateRequest body) throws ApiException {
+    return createEventWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Post an event This endpoint allows you to post events to the stream. Tag them, set priority and
+   * event aggregate them with other events.
+   *
+   * @param body Event request object (required)
+   * @return ApiResponse&lt;EventCreateResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 202 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<EventCreateResponse> createEventWithHttpInfo(EventCreateRequest body)
       throws ApiException {
     Object localVarPostBody = body;
 
@@ -54,7 +86,6 @@ public class EventsApi {
     if (body == null) {
       throw new ApiException(400, "Missing the required parameter 'body' when calling createEvent");
     }
-
     // create path and map variables
     String localVarPath = "/api/v1/events";
 
@@ -93,74 +124,49 @@ public class EventsApi {
         false);
   }
 
-  public class APIcreateEventRequest {
-    private EventCreateRequest body;
-
-    private APIcreateEventRequest() {}
-
-    /**
-     * Set body
-     *
-     * @param body Event request object (required)
-     * @return APIcreateEventRequest
-     */
-    public APIcreateEventRequest body(EventCreateRequest body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Execute createEvent request
-     *
-     * @return EventCreateResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 202 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * </table>
-     */
-    public EventCreateResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute createEvent request with HTTP info returned
-     *
-     * @return ApiResponse&lt;EventCreateResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 202 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<EventCreateResponse> executeWithHttpInfo() throws ApiException {
-      return createEventWithHttpInfo(body);
-    }
+  /**
+   * Get an event This endpoint allows you to query for event details. **Note**: If the event you’re
+   * querying contains markdown formatting of any kind, you may see characters such as
+   * &#x60;%&#x60;,&#x60;\\&#x60;,&#x60;n&#x60; in your output.
+   *
+   * @param eventId The ID of the event. (required)
+   * @return EventResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public EventResponse getEvent(Long eventId) throws ApiException {
+    return getEventWithHttpInfo(eventId).getData();
   }
 
   /**
-   * Post an event This endpoint allows you to post events to the stream. Tag them, set priority and
-   * event aggregate them with other events.
+   * Get an event This endpoint allows you to query for event details. **Note**: If the event you’re
+   * querying contains markdown formatting of any kind, you may see characters such as
+   * &#x60;%&#x60;,&#x60;\\&#x60;,&#x60;n&#x60; in your output.
    *
-   * @return createEventRequest
+   * @param eventId The ID of the event. (required)
+   * @return ApiResponse&lt;EventResponse&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIcreateEventRequest createEvent() throws ApiException {
-    return new APIcreateEventRequest();
-  }
-
-  private ApiResponse<EventResponse> getEventWithHttpInfo(Long eventId) throws ApiException {
+  public ApiResponse<EventResponse> getEventWithHttpInfo(Long eventId) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'eventId' is set
     if (eventId == null) {
       throw new ApiException(400, "Missing the required parameter 'eventId' when calling getEvent");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v1/events/{event_id}"
@@ -202,69 +208,136 @@ public class EventsApi {
         false);
   }
 
-  public class APIgetEventRequest {
-    private Long eventId;
+  /** Manage optional parameters to listEvents. */
+  public static class ListEventsOptionalParameters {
+    private EventPriority priority;
+    private String sources;
+    private String tags;
+    private Boolean unaggregated;
 
-    private APIgetEventRequest(Long eventId) {
-      this.eventId = eventId;
+    /**
+     * Set priority
+     *
+     * @param priority Priority of your events, either &#x60;low&#x60; or &#x60;normal&#x60;.
+     *     (optional)
+     * @return ListEventsOptionalParameters
+     */
+    public ListEventsOptionalParameters priority(EventPriority priority) {
+      this.priority = priority;
+      return this;
     }
 
     /**
-     * Execute getEvent request
+     * Set sources
      *
-     * @return EventResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @param sources A comma separated string of sources. (optional)
+     * @return ListEventsOptionalParameters
      */
-    public EventResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
+    public ListEventsOptionalParameters sources(String sources) {
+      this.sources = sources;
+      return this;
     }
 
     /**
-     * Execute getEvent request with HTTP info returned
+     * Set tags
      *
-     * @return ApiResponse&lt;EventResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
-     * </table>
+     * @param tags A comma separated list indicating what tags, if any, should be used to filter the
+     *     list of monitors by scope. (optional)
+     * @return ListEventsOptionalParameters
      */
-    public ApiResponse<EventResponse> executeWithHttpInfo() throws ApiException {
-      return getEventWithHttpInfo(eventId);
+    public ListEventsOptionalParameters tags(String tags) {
+      this.tags = tags;
+      return this;
+    }
+
+    /**
+     * Set unaggregated
+     *
+     * @param unaggregated Set unaggregated to &#x60;true&#x60; to return all events within the
+     *     specified [&#x60;start&#x60;,&#x60;end&#x60;] timeframe. Otherwise if an event is
+     *     aggregated to a parent event with a timestamp outside of the timeframe, it won&#39;t be
+     *     available in the output. (optional)
+     * @return ListEventsOptionalParameters
+     */
+    public ListEventsOptionalParameters unaggregated(Boolean unaggregated) {
+      this.unaggregated = unaggregated;
+      return this;
     }
   }
 
   /**
-   * Get an event This endpoint allows you to query for event details. **Note**: If the event you’re
-   * querying contains markdown formatting of any kind, you may see characters such as
-   * &#x60;%&#x60;,&#x60;\\&#x60;,&#x60;n&#x60; in your output.
+   * Query the event stream The event stream can be queried and filtered by time, priority, sources
+   * and tags. **Notes**: - If the event you’re querying contains markdown formatting of any kind,
+   * you may see characters such as &#x60;%&#x60;,&#x60;\\&#x60;,&#x60;n&#x60; in your output. -
+   * This endpoint returns a maximum of &#x60;1000&#x60; most recent results. To return additional
+   * results, identify the last timestamp of the last result and set that as the &#x60;end&#x60;
+   * query time to paginate the results.
    *
-   * @param eventId The ID of the event. (required)
-   * @return getEventRequest
+   * @param start POSIX timestamp. (required)
+   * @param end POSIX timestamp. (required)
+   * @return EventListResponse
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIgetEventRequest getEvent(Long eventId) throws ApiException {
-    return new APIgetEventRequest(eventId);
+  public EventListResponse listEvents(Long start, Long end) throws ApiException {
+    return listEventsWithHttpInfo(start, end, new ListEventsOptionalParameters()).getData();
   }
 
-  private ApiResponse<EventListResponse> listEventsWithHttpInfo(
-      Long start,
-      Long end,
-      EventPriority priority,
-      String sources,
-      String tags,
-      Boolean unaggregated)
+  /**
+   * Query the event stream The event stream can be queried and filtered by time, priority, sources
+   * and tags. **Notes**: - If the event you’re querying contains markdown formatting of any kind,
+   * you may see characters such as &#x60;%&#x60;,&#x60;\\&#x60;,&#x60;n&#x60; in your output. -
+   * This endpoint returns a maximum of &#x60;1000&#x60; most recent results. To return additional
+   * results, identify the last timestamp of the last result and set that as the &#x60;end&#x60;
+   * query time to paginate the results.
+   *
+   * @param start POSIX timestamp. (required)
+   * @param end POSIX timestamp. (required)
+   * @param parameters Optional parameters for the request.
+   * @return EventListResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public EventListResponse listEvents(Long start, Long end, ListEventsOptionalParameters parameters)
       throws ApiException {
+    return listEventsWithHttpInfo(start, end, parameters).getData();
+  }
+
+  /**
+   * Query the event stream The event stream can be queried and filtered by time, priority, sources
+   * and tags. **Notes**: - If the event you’re querying contains markdown formatting of any kind,
+   * you may see characters such as &#x60;%&#x60;,&#x60;\\&#x60;,&#x60;n&#x60; in your output. -
+   * This endpoint returns a maximum of &#x60;1000&#x60; most recent results. To return additional
+   * results, identify the last timestamp of the last result and set that as the &#x60;end&#x60;
+   * query time to paginate the results.
+   *
+   * @param start POSIX timestamp. (required)
+   * @param end POSIX timestamp. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;EventListResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<EventListResponse> listEventsWithHttpInfo(
+      Long start, Long end, ListEventsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'start' is set
@@ -276,7 +349,10 @@ public class EventsApi {
     if (end == null) {
       throw new ApiException(400, "Missing the required parameter 'end' when calling listEvents");
     }
-
+    EventPriority priority = parameters.priority;
+    String sources = parameters.sources;
+    String tags = parameters.tags;
+    Boolean unaggregated = parameters.unaggregated;
     // create path and map variables
     String localVarPath = "/api/v1/events";
 
@@ -321,136 +397,5 @@ public class EventsApi {
         localVarAuthNames,
         localVarReturnType,
         false);
-  }
-
-  public class APIlistEventsRequest {
-    private Long start;
-    private Long end;
-    private EventPriority priority;
-    private String sources;
-    private String tags;
-    private Boolean unaggregated;
-
-    private APIlistEventsRequest() {}
-
-    /**
-     * Set start
-     *
-     * @param start POSIX timestamp. (required)
-     * @return APIlistEventsRequest
-     */
-    public APIlistEventsRequest start(Long start) {
-      this.start = start;
-      return this;
-    }
-
-    /**
-     * Set end
-     *
-     * @param end POSIX timestamp. (required)
-     * @return APIlistEventsRequest
-     */
-    public APIlistEventsRequest end(Long end) {
-      this.end = end;
-      return this;
-    }
-
-    /**
-     * Set priority
-     *
-     * @param priority Priority of your events, either &#x60;low&#x60; or &#x60;normal&#x60;.
-     *     (optional)
-     * @return APIlistEventsRequest
-     */
-    public APIlistEventsRequest priority(EventPriority priority) {
-      this.priority = priority;
-      return this;
-    }
-
-    /**
-     * Set sources
-     *
-     * @param sources A comma separated string of sources. (optional)
-     * @return APIlistEventsRequest
-     */
-    public APIlistEventsRequest sources(String sources) {
-      this.sources = sources;
-      return this;
-    }
-
-    /**
-     * Set tags
-     *
-     * @param tags A comma separated list indicating what tags, if any, should be used to filter the
-     *     list of monitors by scope. (optional)
-     * @return APIlistEventsRequest
-     */
-    public APIlistEventsRequest tags(String tags) {
-      this.tags = tags;
-      return this;
-    }
-
-    /**
-     * Set unaggregated
-     *
-     * @param unaggregated Set unaggregated to &#x60;true&#x60; to return all events within the
-     *     specified [&#x60;start&#x60;,&#x60;end&#x60;] timeframe. Otherwise if an event is
-     *     aggregated to a parent event with a timestamp outside of the timeframe, it won&#39;t be
-     *     available in the output. (optional)
-     * @return APIlistEventsRequest
-     */
-    public APIlistEventsRequest unaggregated(Boolean unaggregated) {
-      this.unaggregated = unaggregated;
-      return this;
-    }
-
-    /**
-     * Execute listEvents request
-     *
-     * @return EventListResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-     * </table>
-     */
-    public EventListResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute listEvents request with HTTP info returned
-     *
-     * @return ApiResponse&lt;EventListResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<EventListResponse> executeWithHttpInfo() throws ApiException {
-      return listEventsWithHttpInfo(start, end, priority, sources, tags, unaggregated);
-    }
-  }
-
-  /**
-   * Query the event stream The event stream can be queried and filtered by time, priority, sources
-   * and tags. **Notes**: - If the event you’re querying contains markdown formatting of any kind,
-   * you may see characters such as &#x60;%&#x60;,&#x60;\\&#x60;,&#x60;n&#x60; in your output. -
-   * This endpoint returns a maximum of &#x60;1000&#x60; most recent results. To return additional
-   * results, identify the last timestamp of the last result and set that as the &#x60;end&#x60;
-   * query time to paginate the results.
-   *
-   * @return listEventsRequest
-   * @throws ApiException if fails to make API call
-   */
-  public APIlistEventsRequest listEvents() throws ApiException {
-    return new APIlistEventsRequest();
   }
 }

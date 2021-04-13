@@ -34,7 +34,7 @@ public class LogsPipelinesLifecycleTest extends V1ApiTest {
   public void deletePipelines() {
     for (String pipelineID : pipelinesToDelete) {
       try {
-        api.deleteLogsPipeline(pipelineID).execute();
+        api.deleteLogsPipeline(pipelineID);
       } catch (ApiException e) {
       }
     }
@@ -164,7 +164,7 @@ public class LogsPipelinesLifecycleTest extends V1ApiTest {
             .addProcessorsItem(traceRemapper)
             .addProcessorsItem(pipelineProcessor)
             .name(name);
-    LogsPipeline createdPipeline = api.createLogsPipeline().body(pipeline).execute();
+    LogsPipeline createdPipeline = api.createLogsPipeline(pipeline);
     pipelinesToDelete.add(createdPipeline.getId());
     assertEquals(name, createdPipeline.getName());
     assertTrue(createdPipeline.getIsEnabled());
@@ -194,7 +194,7 @@ public class LogsPipelinesLifecycleTest extends V1ApiTest {
     assertEquals(logDateRemapper, nestedPipelineProcessor.getProcessors().get(1));
 
     // Get all pipelines and assert our freshly created one is part of the result
-    List<LogsPipeline> pipelines = api.listLogsPipelines().execute();
+    List<LogsPipeline> pipelines = api.listLogsPipelines();
     boolean asserted = false;
     for (LogsPipeline pipe : pipelines) {
       if (pipe.equals(createdPipeline)) {
@@ -205,7 +205,7 @@ public class LogsPipelinesLifecycleTest extends V1ApiTest {
     assertTrue(asserted);
 
     // Get the freshly created pipeline
-    LogsPipeline pipe = api.getLogsPipeline(createdPipeline.getId()).execute();
+    LogsPipeline pipe = api.getLogsPipeline(createdPipeline.getId());
     assertEquals(createdPipeline, pipe);
 
     // Update the pipeline
@@ -214,8 +214,7 @@ public class LogsPipelinesLifecycleTest extends V1ApiTest {
     pipeline.setIsEnabled(false);
     pipeline.setFilter(new LogsFilter().query("updated query"));
     pipeline.setName(name + "-updated");
-    LogsPipeline updatedPipeline =
-        api.updateLogsPipeline(createdPipeline.getId()).body(pipeline).execute();
+    LogsPipeline updatedPipeline = api.updateLogsPipeline(createdPipeline.getId(), pipeline);
     assertEquals(name + "-updated", updatedPipeline.getName());
     assertFalse(updatedPipeline.getIsEnabled());
     assertEquals("updated query", updatedPipeline.getFilter().getQuery());
@@ -237,6 +236,6 @@ public class LogsPipelinesLifecycleTest extends V1ApiTest {
     assertEquals(traceRemapper, updatedPipeline.getProcessors().get(13));
 
     // Delete the pipeline
-    api.deleteLogsPipeline(createdPipeline.getId()).execute();
+    api.deleteLogsPipeline(createdPipeline.getId());
   }
 }

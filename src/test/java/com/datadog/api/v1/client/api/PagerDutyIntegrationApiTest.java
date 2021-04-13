@@ -57,7 +57,7 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
   public void removeServices() {
     for (String serviceName : removeServices) {
       try {
-        api.deletePagerDutyIntegrationService(serviceName).execute();
+        api.deletePagerDutyIntegrationService(serviceName);
       } catch (ApiException e) {
         System.out.println(
             String.format(
@@ -79,28 +79,28 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
     PagerDutyService serviceBody =
         new PagerDutyService().serviceName(serviceName).serviceKey("deadbeef");
     ApiResponse<PagerDutyServiceName> serviceNameResponse =
-        api.createPagerDutyIntegrationService().body(serviceBody).executeWithHttpInfo();
+        api.createPagerDutyIntegrationServiceWithHttpInfo(serviceBody);
     removeServices.add(serviceNameResponse.getData().getServiceName());
     assertEquals(201, serviceNameResponse.getStatusCode());
     assertEquals(serviceBody.getServiceName(), serviceNameResponse.getData().getServiceName());
 
     // Get created Service object
-    PagerDutyServiceName service = api.getPagerDutyIntegrationService(serviceName).execute();
+    PagerDutyServiceName service = api.getPagerDutyIntegrationService(serviceName);
     assertEquals(serviceBody.getServiceName(), service.getServiceName());
 
     // Update service object
     PagerDutyServiceKey serviceKey = new PagerDutyServiceKey();
     serviceKey.setServiceKey("newkey");
-    api.updatePagerDutyIntegrationService(serviceName).body(serviceKey).executeWithHttpInfo();
+    api.updatePagerDutyIntegrationService(serviceName, serviceKey);
 
     // Delete Service Object
     ApiResponse<Void> serviceDeleteResponse =
-        api.deletePagerDutyIntegrationService(serviceName).executeWithHttpInfo();
+        api.deletePagerDutyIntegrationServiceWithHttpInfo(serviceName);
     assertEquals(200, serviceDeleteResponse.getStatusCode());
 
     // Make sure the service object was deleted
     try {
-      api.getPagerDutyIntegrationService(serviceName).execute();
+      api.getPagerDutyIntegrationService(serviceName);
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());
@@ -113,8 +113,7 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
         new PagerDutyService().serviceKey("lalaa").serviceName(getUniqueEntityName());
 
     try {
-      PagerDutyServiceName service =
-          api.createPagerDutyIntegrationService().body(new PagerDutyService()).execute();
+      PagerDutyServiceName service = api.createPagerDutyIntegrationService(new PagerDutyService());
       removeServices.add(service.getServiceName());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
@@ -124,7 +123,7 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.createPagerDutyIntegrationService().body(body).execute();
+      fakeAuthApi.createPagerDutyIntegrationService(body);
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -136,7 +135,7 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
   @Test
   public void getPagerDutyIntegrationServicesTest() throws IOException {
     try {
-      fakeAuthApi.getPagerDutyIntegrationService(getUniqueEntityName()).execute();
+      fakeAuthApi.getPagerDutyIntegrationService(getUniqueEntityName());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -145,7 +144,7 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
     }
 
     try {
-      api.getPagerDutyIntegrationService(getUniqueEntityName()).execute();
+      api.getPagerDutyIntegrationService(getUniqueEntityName());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());
@@ -160,7 +159,7 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
     PagerDutyServiceKey body = new PagerDutyServiceKey().serviceKey("lalaa");
 
     try {
-      api.updatePagerDutyIntegrationService(serviceName).body(new PagerDutyServiceKey()).execute();
+      api.updatePagerDutyIntegrationService(serviceName, new PagerDutyServiceKey());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -169,7 +168,7 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.updatePagerDutyIntegrationService(serviceName).body(body).execute();
+      fakeAuthApi.updatePagerDutyIntegrationService(serviceName, body);
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -178,7 +177,7 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
     }
 
     try {
-      api.updatePagerDutyIntegrationService(serviceName).body(body).execute();
+      api.updatePagerDutyIntegrationService(serviceName, body);
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());
@@ -192,7 +191,7 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
     String serviceName = getUniqueEntityName();
 
     try {
-      fakeAuthApi.deletePagerDutyIntegrationService(serviceName).execute();
+      fakeAuthApi.deletePagerDutyIntegrationService(serviceName);
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -201,7 +200,7 @@ public class PagerDutyIntegrationApiTest extends V1ApiTest {
     }
 
     try {
-      api.deletePagerDutyIntegrationService(serviceName).execute();
+      api.deletePagerDutyIntegrationService(serviceName);
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(404, e.getCode());

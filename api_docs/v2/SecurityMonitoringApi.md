@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## createSecurityMonitoringRule
 
-> SecurityMonitoringRuleResponse createSecurityMonitoringRule().body(body).execute();
+> SecurityMonitoringRuleResponse createSecurityMonitoringRule(body);
 
 Create a detection rule
 
@@ -41,9 +41,7 @@ public class Example {
         SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
         SecurityMonitoringRuleCreatePayload body = new SecurityMonitoringRuleCreatePayload(); // SecurityMonitoringRuleCreatePayload | 
         try {
-            SecurityMonitoringRuleResponse result = apiInstance.createSecurityMonitoringRule()
-                .body(body)
-                .execute();
+            SecurityMonitoringRuleResponse result = apiInstance.createSecurityMonitoringRule(body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SecurityMonitoringApi#createSecurityMonitoringRule");
@@ -86,7 +84,7 @@ Name | Type | Description  | Notes
 
 ## deleteSecurityMonitoringRule
 
-> deleteSecurityMonitoringRule(ruleId).execute();
+> deleteSecurityMonitoringRule(ruleId);
 
 Delete an existing rule
 
@@ -111,8 +109,7 @@ public class Example {
         SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
         String ruleId = "ruleId_example"; // String | The ID of the rule.
         try {
-            apiInstance.deleteSecurityMonitoringRule(ruleId)
-                .execute();
+            apiInstance.deleteSecurityMonitoringRule(ruleId);
         } catch (ApiException e) {
             System.err.println("Exception when calling SecurityMonitoringApi#deleteSecurityMonitoringRule");
             System.err.println("Status code: " + e.getCode());
@@ -154,7 +151,7 @@ null (empty response body)
 
 ## getSecurityMonitoringRule
 
-> SecurityMonitoringRuleResponse getSecurityMonitoringRule(ruleId).execute();
+> SecurityMonitoringRuleResponse getSecurityMonitoringRule(ruleId);
 
 Get a rule&#39;s details
 
@@ -179,8 +176,7 @@ public class Example {
         SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
         String ruleId = "ruleId_example"; // String | The ID of the rule.
         try {
-            SecurityMonitoringRuleResponse result = apiInstance.getSecurityMonitoringRule(ruleId)
-                .execute();
+            SecurityMonitoringRuleResponse result = apiInstance.getSecurityMonitoringRule(ruleId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SecurityMonitoringApi#getSecurityMonitoringRule");
@@ -222,7 +218,7 @@ Name | Type | Description  | Notes
 
 ## listSecurityMonitoringRules
 
-> SecurityMonitoringListRulesResponse listSecurityMonitoringRules().pageSize(pageSize).pageNumber(pageNumber).execute();
+> SecurityMonitoringListRulesResponse listSecurityMonitoringRules(parameters);
 
 List rules
 
@@ -248,10 +244,9 @@ public class Example {
         Long pageSize = 10L; // Long | Size for a given page.
         Long pageNumber = 0L; // Long | Specific page number to return.
         try {
-            SecurityMonitoringListRulesResponse result = apiInstance.listSecurityMonitoringRules()
+	    SecurityMonitoringListRulesResponse result = apiInstance.listSecurityMonitoringRules(new SecurityMonitoringApi.ListSecurityMonitoringRulesOptionalParameters()
                 .pageSize(pageSize)
-                .pageNumber(pageNumber)
-                .execute();
+                .pageNumber(pageNumber));
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SecurityMonitoringApi#listSecurityMonitoringRules");
@@ -294,7 +289,7 @@ Name | Type | Description  | Notes
 
 ## listSecurityMonitoringSignals
 
-> SecurityMonitoringSignalsListResponse listSecurityMonitoringSignals().filterQuery(filterQuery).filterFrom(filterFrom).filterTo(filterTo).sort(sort).pageCursor(pageCursor).pageLimit(pageLimit).execute();
+> SecurityMonitoringSignalsListResponse listSecurityMonitoringSignals(parameters);
 
 Get a quick list of security signals
 
@@ -327,14 +322,13 @@ public class Example {
         String pageCursor = "eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ=="; // String | A list of results using the cursor provided in the previous query.
         Integer pageLimit = 10; // Integer | The maximum number of security signals in the response.
         try {
-            SecurityMonitoringSignalsListResponse result = apiInstance.listSecurityMonitoringSignals()
+	    SecurityMonitoringSignalsListResponse result = apiInstance.listSecurityMonitoringSignals(new SecurityMonitoringApi.ListSecurityMonitoringSignalsOptionalParameters()
                 .filterQuery(filterQuery)
                 .filterFrom(filterFrom)
                 .filterTo(filterTo)
                 .sort(sort)
                 .pageCursor(pageCursor)
-                .pageLimit(pageLimit)
-                .execute();
+                .pageLimit(pageLimit));
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SecurityMonitoringApi#listSecurityMonitoringSignals");
@@ -382,7 +376,7 @@ Name | Type | Description  | Notes
 
 ## searchSecurityMonitoringSignals
 
-> SecurityMonitoringSignalsListResponse searchSecurityMonitoringSignals().body(body).execute();
+> SecurityMonitoringSignalsListResponse searchSecurityMonitoringSignals(parameters);
 
 Get a list of security signals
 
@@ -409,9 +403,8 @@ public class Example {
         SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
         SecurityMonitoringSignalListRequest body = new SecurityMonitoringSignalListRequest(); // SecurityMonitoringSignalListRequest | 
         try {
-            SecurityMonitoringSignalsListResponse result = apiInstance.searchSecurityMonitoringSignals()
-                .body(body)
-                .execute();
+	    SecurityMonitoringSignalsListResponse result = apiInstance.searchSecurityMonitoringSignals(new SecurityMonitoringApi.SearchSecurityMonitoringSignalsOptionalParameters()
+                .body(body));
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SecurityMonitoringApi#searchSecurityMonitoringSignals");
@@ -454,7 +447,7 @@ Name | Type | Description  | Notes
 
 ## updateSecurityMonitoringRule
 
-> SecurityMonitoringRuleResponse updateSecurityMonitoringRule(ruleId).body(body).execute();
+> SecurityMonitoringRuleResponse updateSecurityMonitoringRule(ruleId, body);
 
 Update an existing rule
 
@@ -482,9 +475,7 @@ public class Example {
         String ruleId = "ruleId_example"; // String | The ID of the rule.
         SecurityMonitoringRuleUpdatePayload body = new SecurityMonitoringRuleUpdatePayload(); // SecurityMonitoringRuleUpdatePayload | 
         try {
-            SecurityMonitoringRuleResponse result = apiInstance.updateSecurityMonitoringRule(ruleId)
-                .body(body)
-                .execute();
+            SecurityMonitoringRuleResponse result = apiInstance.updateSecurityMonitoringRule(ruleId, body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SecurityMonitoringApi#updateSecurityMonitoringRule");

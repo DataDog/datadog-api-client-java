@@ -48,7 +48,44 @@ public class DashboardListsApi {
     this.apiClient = apiClient;
   }
 
-  private ApiResponse<DashboardListAddItemsResponse> createDashboardListItemsWithHttpInfo(
+  /**
+   * Add Items to a Dashboard List Add dashboards to an existing dashboard list.
+   *
+   * @param dashboardListId ID of the dashboard list to add items to. (required)
+   * @param body Dashboards to add to the dashboard list. (required)
+   * @return DashboardListAddItemsResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public DashboardListAddItemsResponse createDashboardListItems(
+      Long dashboardListId, DashboardListAddItemsRequest body) throws ApiException {
+    return createDashboardListItemsWithHttpInfo(dashboardListId, body).getData();
+  }
+
+  /**
+   * Add Items to a Dashboard List Add dashboards to an existing dashboard list.
+   *
+   * @param dashboardListId ID of the dashboard list to add items to. (required)
+   * @param body Dashboards to add to the dashboard list. (required)
+   * @return ApiResponse&lt;DashboardListAddItemsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<DashboardListAddItemsResponse> createDashboardListItemsWithHttpInfo(
       Long dashboardListId, DashboardListAddItemsRequest body) throws ApiException {
     Object localVarPostBody = body;
 
@@ -64,7 +101,6 @@ public class DashboardListsApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling createDashboardListItems");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards"
@@ -108,75 +144,44 @@ public class DashboardListsApi {
         false);
   }
 
-  public class APIcreateDashboardListItemsRequest {
-    private Long dashboardListId;
-    private DashboardListAddItemsRequest body;
-
-    private APIcreateDashboardListItemsRequest(Long dashboardListId) {
-      this.dashboardListId = dashboardListId;
-    }
-
-    /**
-     * Set body
-     *
-     * @param body Dashboards to add to the dashboard list. (required)
-     * @return APIcreateDashboardListItemsRequest
-     */
-    public APIcreateDashboardListItemsRequest body(DashboardListAddItemsRequest body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Execute createDashboardListItems request
-     *
-     * @return DashboardListAddItemsResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DashboardListAddItemsResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute createDashboardListItems request with HTTP info returned
-     *
-     * @return ApiResponse&lt;DashboardListAddItemsResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DashboardListAddItemsResponse> executeWithHttpInfo() throws ApiException {
-      return createDashboardListItemsWithHttpInfo(dashboardListId, body);
-    }
+  /**
+   * Delete items from a dashboard list Delete dashboards from an existing dashboard list.
+   *
+   * @param dashboardListId ID of the dashboard list to delete items from. (required)
+   * @param body Dashboards to delete from the dashboard list. (required)
+   * @return DashboardListDeleteItemsResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public DashboardListDeleteItemsResponse deleteDashboardListItems(
+      Long dashboardListId, DashboardListDeleteItemsRequest body) throws ApiException {
+    return deleteDashboardListItemsWithHttpInfo(dashboardListId, body).getData();
   }
 
   /**
-   * Add Items to a Dashboard List Add dashboards to an existing dashboard list.
+   * Delete items from a dashboard list Delete dashboards from an existing dashboard list.
    *
-   * @param dashboardListId ID of the dashboard list to add items to. (required)
-   * @return createDashboardListItemsRequest
+   * @param dashboardListId ID of the dashboard list to delete items from. (required)
+   * @param body Dashboards to delete from the dashboard list. (required)
+   * @return ApiResponse&lt;DashboardListDeleteItemsResponse&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIcreateDashboardListItemsRequest createDashboardListItems(Long dashboardListId)
-      throws ApiException {
-    return new APIcreateDashboardListItemsRequest(dashboardListId);
-  }
-
-  private ApiResponse<DashboardListDeleteItemsResponse> deleteDashboardListItemsWithHttpInfo(
+  public ApiResponse<DashboardListDeleteItemsResponse> deleteDashboardListItemsWithHttpInfo(
       Long dashboardListId, DashboardListDeleteItemsRequest body) throws ApiException {
     Object localVarPostBody = body;
 
@@ -192,7 +197,6 @@ public class DashboardListsApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling deleteDashboardListItems");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards"
@@ -236,75 +240,39 @@ public class DashboardListsApi {
         false);
   }
 
-  public class APIdeleteDashboardListItemsRequest {
-    private Long dashboardListId;
-    private DashboardListDeleteItemsRequest body;
-
-    private APIdeleteDashboardListItemsRequest(Long dashboardListId) {
-      this.dashboardListId = dashboardListId;
-    }
-
-    /**
-     * Set body
-     *
-     * @param body Dashboards to delete from the dashboard list. (required)
-     * @return APIdeleteDashboardListItemsRequest
-     */
-    public APIdeleteDashboardListItemsRequest body(DashboardListDeleteItemsRequest body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Execute deleteDashboardListItems request
-     *
-     * @return DashboardListDeleteItemsResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DashboardListDeleteItemsResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute deleteDashboardListItems request with HTTP info returned
-     *
-     * @return ApiResponse&lt;DashboardListDeleteItemsResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DashboardListDeleteItemsResponse> executeWithHttpInfo() throws ApiException {
-      return deleteDashboardListItemsWithHttpInfo(dashboardListId, body);
-    }
+  /**
+   * Get items of a Dashboard List Fetch the dashboard list’s dashboard definitions.
+   *
+   * @param dashboardListId ID of the dashboard list to get items from. (required)
+   * @return DashboardListItems
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public DashboardListItems getDashboardListItems(Long dashboardListId) throws ApiException {
+    return getDashboardListItemsWithHttpInfo(dashboardListId).getData();
   }
 
   /**
-   * Delete items from a dashboard list Delete dashboards from an existing dashboard list.
+   * Get items of a Dashboard List Fetch the dashboard list’s dashboard definitions.
    *
-   * @param dashboardListId ID of the dashboard list to delete items from. (required)
-   * @return deleteDashboardListItemsRequest
+   * @param dashboardListId ID of the dashboard list to get items from. (required)
+   * @return ApiResponse&lt;DashboardListItems&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIdeleteDashboardListItemsRequest deleteDashboardListItems(Long dashboardListId)
-      throws ApiException {
-    return new APIdeleteDashboardListItemsRequest(dashboardListId);
-  }
-
-  private ApiResponse<DashboardListItems> getDashboardListItemsWithHttpInfo(Long dashboardListId)
+  public ApiResponse<DashboardListItems> getDashboardListItemsWithHttpInfo(Long dashboardListId)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -314,7 +282,6 @@ public class DashboardListsApi {
           400,
           "Missing the required parameter 'dashboardListId' when calling getDashboardListItems");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards"
@@ -358,61 +325,44 @@ public class DashboardListsApi {
         false);
   }
 
-  public class APIgetDashboardListItemsRequest {
-    private Long dashboardListId;
-
-    private APIgetDashboardListItemsRequest(Long dashboardListId) {
-      this.dashboardListId = dashboardListId;
-    }
-
-    /**
-     * Execute getDashboardListItems request
-     *
-     * @return DashboardListItems
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DashboardListItems execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute getDashboardListItems request with HTTP info returned
-     *
-     * @return ApiResponse&lt;DashboardListItems&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DashboardListItems> executeWithHttpInfo() throws ApiException {
-      return getDashboardListItemsWithHttpInfo(dashboardListId);
-    }
+  /**
+   * Update items of a dashboard list Update dashboards of an existing dashboard list.
+   *
+   * @param dashboardListId ID of the dashboard list to update items from. (required)
+   * @param body New dashboards of the dashboard list. (required)
+   * @return DashboardListUpdateItemsResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public DashboardListUpdateItemsResponse updateDashboardListItems(
+      Long dashboardListId, DashboardListUpdateItemsRequest body) throws ApiException {
+    return updateDashboardListItemsWithHttpInfo(dashboardListId, body).getData();
   }
 
   /**
-   * Get items of a Dashboard List Fetch the dashboard list’s dashboard definitions.
+   * Update items of a dashboard list Update dashboards of an existing dashboard list.
    *
-   * @param dashboardListId ID of the dashboard list to get items from. (required)
-   * @return getDashboardListItemsRequest
+   * @param dashboardListId ID of the dashboard list to update items from. (required)
+   * @param body New dashboards of the dashboard list. (required)
+   * @return ApiResponse&lt;DashboardListUpdateItemsResponse&gt;
    * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *     </table>
    */
-  public APIgetDashboardListItemsRequest getDashboardListItems(Long dashboardListId)
-      throws ApiException {
-    return new APIgetDashboardListItemsRequest(dashboardListId);
-  }
-
-  private ApiResponse<DashboardListUpdateItemsResponse> updateDashboardListItemsWithHttpInfo(
+  public ApiResponse<DashboardListUpdateItemsResponse> updateDashboardListItemsWithHttpInfo(
       Long dashboardListId, DashboardListUpdateItemsRequest body) throws ApiException {
     Object localVarPostBody = body;
 
@@ -428,7 +378,6 @@ public class DashboardListsApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling updateDashboardListItems");
     }
-
     // create path and map variables
     String localVarPath =
         "/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards"
@@ -470,73 +419,5 @@ public class DashboardListsApi {
         localVarAuthNames,
         localVarReturnType,
         false);
-  }
-
-  public class APIupdateDashboardListItemsRequest {
-    private Long dashboardListId;
-    private DashboardListUpdateItemsRequest body;
-
-    private APIupdateDashboardListItemsRequest(Long dashboardListId) {
-      this.dashboardListId = dashboardListId;
-    }
-
-    /**
-     * Set body
-     *
-     * @param body New dashboards of the dashboard list. (required)
-     * @return APIupdateDashboardListItemsRequest
-     */
-    public APIupdateDashboardListItemsRequest body(DashboardListUpdateItemsRequest body) {
-      this.body = body;
-      return this;
-    }
-
-    /**
-     * Execute updateDashboardListItems request
-     *
-     * @return DashboardListUpdateItemsResponse
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DashboardListUpdateItemsResponse execute() throws ApiException {
-      return this.executeWithHttpInfo().getData();
-    }
-
-    /**
-     * Execute updateDashboardListItems request with HTTP info returned
-     *
-     * @return ApiResponse&lt;DashboardListUpdateItemsResponse&gt;
-     * @throws ApiException if fails to make API call
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-     * <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DashboardListUpdateItemsResponse> executeWithHttpInfo() throws ApiException {
-      return updateDashboardListItemsWithHttpInfo(dashboardListId, body);
-    }
-  }
-
-  /**
-   * Update items of a dashboard list Update dashboards of an existing dashboard list.
-   *
-   * @param dashboardListId ID of the dashboard list to update items from. (required)
-   * @return updateDashboardListItemsRequest
-   * @throws ApiException if fails to make API call
-   */
-  public APIupdateDashboardListItemsRequest updateDashboardListItems(Long dashboardListId)
-      throws ApiException {
-    return new APIupdateDashboardListItemsRequest(dashboardListId);
   }
 }
