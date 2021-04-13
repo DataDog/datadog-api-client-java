@@ -23,9 +23,17 @@
     </licenses>
 
     <distributionManagement>
+        <snapshotRepository>
+            <id>nexus</id>
+            <!-- Use the localhost endpoint for testing -->
+            <!-- <url>http://localhost:8081/repository/maven-snapshots/</url> -->
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
         <repository>
-            <id>bintray-datadog-api-client</id>
-            <url>https://api.bintray.com/maven/${bintray.repo}/${bintray.package}/</url>
+            <id>nexus</id>
+            <!-- Use the localhost endpoint for testing -->
+            <!-- <url>http://localhost:8081/repository/maven-releases/</url> -->
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
 
@@ -78,6 +86,14 @@
                 <version>3.0.0-M1</version>
                 <configuration>
                     <tagNameFormat>@{project.version}</tagNameFormat>
+                </configuration>
+            </plugin>
+            <!-- Skip the maven release default deploy, we use the nexus staging plugin for this-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
                 </configuration>
             </plugin>
             <plugin>
@@ -223,32 +239,41 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.6</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>nexus</serverId>
+                    <!-- Use the localhost endpoint for testing -->
+                    <!-- <nexusUrl>http://localhost:8081/repository/maven-releases/</nexusUrl> -->
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>false</autoReleaseAfterClose>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                        <configuration>
+                            <gpgArguments>
+                                <arg>--pinentry-mode</arg>
+                                <arg>loopback</arg>
+                            </gpgArguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
-
-    <profiles>
-        <profile>
-            <id>sign-artifacts</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.5</version>
-                        <executions>
-                            <execution>
-                                <id>sign-artifacts</id>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
 
     <dependencies>
         <dependency>
@@ -404,7 +429,6 @@
         <maven-plugin-version>1.0.0</maven-plugin-version>
         <junit-version>4.13.1</junit-version>
         <dd-java-agent-version>0.72.0</dd-java-agent-version>
-        <bintray.repo>datadog/datadog-maven</bintray.repo>
-        <bintray.package>datadog-api-client</bintray.package>
+        <project.scm.id>github</project.scm.id>
     </properties>
 </project>
