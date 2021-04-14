@@ -72,27 +72,6 @@ Feature: Synthetics
     Then the response status is 402 Quota reached for private locations
 
   @generated @skip
-  Scenario: Create a test returns "- JSON format is wrong" response
-    Given new "CreateTest" request
-    And body {}
-    When the request is sent
-    Then the response status is 400 - JSON format is wrong
-
-  @generated @skip
-  Scenario: Create a test returns "OK - Returns the created test details." response
-    Given new "CreateTest" request
-    And body {}
-    When the request is sent
-    Then the response status is 200 OK - Returns the created test details.
-
-  @generated @skip
-  Scenario: Create a test returns "Test quota is reached" response
-    Given new "CreateTest" request
-    And body {}
-    When the request is sent
-    Then the response status is 402 Test quota is reached
-
-  @generated @skip
   Scenario: Create an API test returns "- JSON format is wrong" response
     Given new "CreateSyntheticsAPITest" request
     And body {}
@@ -225,29 +204,6 @@ Feature: Synthetics
     When the request is sent
     Then the response status is 200 OK
 
-  @generated @skip
-  Scenario: Edit a test returns "- JSON format is wrong" response
-    Given new "UpdateTest" request
-    And request contains "public_id" parameter from "<PATH>"
-    And body {}
-    When the request is sent
-    Then the response status is 400 - JSON format is wrong
-
-  @generated @skip
-  Scenario: Edit a test returns "- Synthetic is not activated for the user" response
-    Given new "UpdateTest" request
-    And request contains "public_id" parameter from "<PATH>"
-    And body {}
-    When the request is sent
-    Then the response status is 404 - Synthetic is not activated for the user
-
-  @generated @skip
-  Scenario: Edit a test returns "OK" response
-    Given new "UpdateTest" request
-    And request contains "public_id" parameter from "<PATH>"
-    And body {}
-    When the request is sent
-    Then the response status is 200 OK
 
   @generated @skip
   Scenario: Edit an API test returns "- JSON format is wrong" response
