@@ -38,7 +38,7 @@ deploy_to_sonatype:
     - set -x
 
     - echo "Building release..."
-    - mvn -DskipTests -Darguments=-DskipTests -DdryRun=true --settings ./settings.xml clean deploy
+    - mvn -DperformRelease=true -DskipTests -Darguments=-DskipTests --settings ./settings.xml clean deploy
 
 
 # This job creates the GPG key
