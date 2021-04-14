@@ -1211,9 +1211,7 @@ public class ApiClient extends JavaTimeFormatter {
    */
   protected Client buildHttpClient() {
     // use the default client config if not yet initialized
-    if (clientConfig == null) {
-      clientConfig = getDefaultClientConfig();
-    }
+    clientConfig = getDefaultClientConfig();
 
     ClientBuilder clientBuilder = ClientBuilder.newBuilder();
     customizeClientBuilder(clientBuilder);

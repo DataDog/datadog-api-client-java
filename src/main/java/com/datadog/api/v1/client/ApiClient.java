@@ -1524,15 +1524,12 @@ public class ApiClient extends JavaTimeFormatter {
    * @return Client
    */
   protected Client buildHttpClient() {
-    // use the default client config if not yet initialized
-    if (clientConfig == null) {
+      // use the default client config if not yet initialized
       clientConfig = getDefaultClientConfig();
-    }
-
-    ClientBuilder clientBuilder = ClientBuilder.newBuilder();
-    customizeClientBuilder(clientBuilder);
-    clientBuilder = clientBuilder.withConfig(clientConfig);
-    return clientBuilder.build();
+      ClientBuilder clientBuilder = ClientBuilder.newBuilder();
+      customizeClientBuilder(clientBuilder);
+      clientBuilder = clientBuilder.withConfig(clientConfig);
+      return clientBuilder.build();
   }
 
   /**
