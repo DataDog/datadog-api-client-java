@@ -67,6 +67,7 @@ public class DashboardListsApiTest extends V2APITest {
       generalApiClient.setBasePath(
               "https://" + TestUtils.MOCKSERVER_HOST + ":" + TestUtils.MOCKSERVER_PORT);
       generalApiClient.setServerIndex(null);
+      TestUtils.APITest.trustProxyCertsStatic();
     }
 
     dashboardListsApiV1 = new com.datadog.api.v1.client.api.DashboardListsApi(v1Client);
