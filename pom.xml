@@ -9,7 +9,7 @@
     <description>Java client library for Datadog API</description>
     <scm>
         <connection>scm:git:git://github.com/DataDog/datadog-api-client-java.git</connection>
-        <developerConnection>scm:git:git@github.com:DataDog/datadog-api-client-java.git</developerConnection>
+        <developerConnection>scm:git:https://github.com/DataDog/datadog-api-client-java.git</developerConnection>
         <url>https://github.com/DataDog/datadog-api-client-java</url>
         <tag>HEAD</tag>
     </scm>
