@@ -18,7 +18,7 @@ jobs:
      run: |
        git config user.email "package@datadoghq.com"
        git config user.name "Datadog"
-  - name: Prepare repo for release
-    run: mvn -B -DskipTests -Darguments=-DskipTests release:prepare
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+   - name: Prepare repo for release
+     run: mvn -B -DskipTests -Darguments=-DskipTests release:prepare
+     env:
+       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
