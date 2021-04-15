@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - nick/fix
 
 jobs:
   prep-release:
