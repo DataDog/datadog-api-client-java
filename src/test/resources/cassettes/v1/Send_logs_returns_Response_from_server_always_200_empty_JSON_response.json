@@ -1,5 +1,5 @@
 [{
-  "id" : "a7cbfa85-a3eb-41fc-9d8c-e27bc3268976",
+  "id" : "5aca2d30-e62f-4022-b10d-2b2bd7afb187",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/v1/input",
@@ -13,7 +13,7 @@
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "[{\"message\":\"Test-Send_logs_returns_Response_from_server_always_200_empty_JSON_response-1618083764\",\"tags\":\"host:TestSendlogsreturnsResponsefromserveralways200emptyJSONresponse1618083764\"}]"
+      "json" : "[{\"message\":\"Test-Send_logs_returns_Response_from_server_always_200_empty_JSON_response-1618577681\",\"ddtags\":\"host:TestSendlogsreturnsResponsefromserveralways200emptyJSONresponse1618577681\"}]"
     }
   },
   "times" : {
@@ -26,7 +26,7 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Sat, 10 Apr 2021 19:42:45 GMT" ],
+      "Date" : [ "Fri, 16 Apr 2021 12:54:44 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Content-Length" : [ "2" ],
       "Connection" : [ "keep-alive" ]
