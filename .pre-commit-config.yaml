@@ -7,7 +7,3 @@ repos:
     entry: Unstage generated files with 'git reset --' command
     files: '^(src/main|api_docs/v)'
     verbose: true
-  - id: java-format
-    name: Format code
-    language: script
-    entry: ./format.sh
