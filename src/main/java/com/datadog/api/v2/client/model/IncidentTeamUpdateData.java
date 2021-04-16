@@ -71,12 +71,12 @@ public class IncidentTeamUpdateData {
    *
    * @return id
    */
+  @javax.annotation.Nullable
   @ApiModelProperty(
       example = "00000000-0000-0000-0000-000000000000",
-      required = true,
       value = "The incident team's ID.")
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
     return id;
   }
