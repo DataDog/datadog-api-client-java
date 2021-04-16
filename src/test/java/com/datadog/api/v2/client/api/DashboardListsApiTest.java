@@ -56,16 +56,16 @@ public class DashboardListsApiTest extends V2APITest {
     v1Client.configureApiKeys(secrets);
     v1Client.setDebugging("true".equals(System.getenv("DEBUG")));
     ClientConfig config = (ClientConfig) v1Client.getHttpClient().getConfiguration();
-    if(!TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {
+    if (!TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {
       if (!TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
         config.connectorProvider(
-                new HttpUrlConnectorProvider()
-                        .connectionFactory(new TestUtils.MockServerProxyConnectionFactory()));
+            new HttpUrlConnectorProvider()
+                .connectionFactory(new TestUtils.MockServerProxyConnectionFactory()));
       }
     } else {
       // Set base path to the mock server for replaying
       v1Client.setBasePath(
-              "https://" + TestUtils.MOCKSERVER_HOST + ":" + TestUtils.MOCKSERVER_PORT);
+          "https://" + TestUtils.MOCKSERVER_HOST + ":" + TestUtils.MOCKSERVER_PORT);
       v1Client.setServerIndex(null);
     }
 
