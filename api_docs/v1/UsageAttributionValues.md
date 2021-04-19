@@ -28,6 +28,10 @@ Name | Type | Description | Notes
 **lambdaUsage** | **Double** | The Lambda function usage by tag(s).  **Note** this field is deprecated. Use lambda_functions_usage instead. |  [optional]
 **npmHostPercentage** | **Double** | The percentage of network host usage by tag(s). |  [optional]
 **npmHostUsage** | **Double** | The network host usage by tag(s). |  [optional]
+**profiledContainersPercentage** | **Double** | The percentage of profiled containers usage by tag(s). |  [optional]
+**profiledContainersUsage** | **Double** | The profiled container usage by tag(s). |  [optional]
+**profiledHostsPercentage** | **Double** | The percentage of profiled hosts usage by tag(s). |  [optional]
+**profiledHostsUsage** | **Double** | The profiled host usage by tag(s). |  [optional]
 **snmpPercentage** | **Double** | The percentage of network device usage by tag(s). |  [optional]
 **snmpUsage** | **Double** | The network device usage by tag(s). |  [optional]
 
