@@ -35,18 +35,22 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.datadoghq</groupId>
   <artifactId>datadog-api-client</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.0-beta10</version>
   <scope>compile</scope>
 </dependency>
 ```
+
+See the [Releases page](https://github.com/DataDog/datadog-api-client-java/releases) for the latest available version.
 
 ### Gradle users
 
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.datadoghq:datadog-api-client:1.0.0"
+compile "com.datadoghq:datadog-api-client:1.0.0-beta10"
 ```
+
+See the [Releases page](https://github.com/DataDog/datadog-api-client-java/releases) for the latest available version.
 
 ### Others
 
@@ -58,7 +62,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-- `target/datadog-api-client-1.0.0.jar`
+- `target/datadog-api-client-<VERSION>.jar`
 - `target/lib/*.jar`
 
 ## Getting Started
