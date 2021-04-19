@@ -28,24 +28,54 @@ import java.util.Objects;
         "The groups widget allows you to keep similar graphs together on your timeboard. Each"
             + " group has a custom header, can hold one to many graphs, and is collapsible.")
 @JsonPropertyOrder({
+  GroupWidgetDefinition.JSON_PROPERTY_BACKGROUND_COLOR,
   GroupWidgetDefinition.JSON_PROPERTY_LAYOUT_TYPE,
   GroupWidgetDefinition.JSON_PROPERTY_TITLE,
+  GroupWidgetDefinition.JSON_PROPERTY_TITLE_ALIGN,
   GroupWidgetDefinition.JSON_PROPERTY_TYPE,
   GroupWidgetDefinition.JSON_PROPERTY_WIDGETS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GroupWidgetDefinition {
+  public static final String JSON_PROPERTY_BACKGROUND_COLOR = "background_color";
+  private String backgroundColor;
+
   public static final String JSON_PROPERTY_LAYOUT_TYPE = "layout_type";
   private WidgetLayoutType layoutType;
 
   public static final String JSON_PROPERTY_TITLE = "title";
   private String title;
 
+  public static final String JSON_PROPERTY_TITLE_ALIGN = "title_align";
+  private WidgetTextAlign titleAlign;
+
   public static final String JSON_PROPERTY_TYPE = "type";
   private GroupWidgetDefinitionType type = GroupWidgetDefinitionType.GROUP;
 
   public static final String JSON_PROPERTY_WIDGETS = "widgets";
   private List<Widget> widgets = new ArrayList<>();
+
+  public GroupWidgetDefinition backgroundColor(String backgroundColor) {
+    this.backgroundColor = backgroundColor;
+    return this;
+  }
+
+  /**
+   * Background color of the group title.
+   *
+   * @return backgroundColor
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Background color of the group title.")
+  @JsonProperty(JSON_PROPERTY_BACKGROUND_COLOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getBackgroundColor() {
+    return backgroundColor;
+  }
+
+  public void setBackgroundColor(String backgroundColor) {
+    this.backgroundColor = backgroundColor;
+  }
 
   public GroupWidgetDefinition layoutType(WidgetLayoutType layoutType) {
     this.layoutType = layoutType;
@@ -88,6 +118,28 @@ public class GroupWidgetDefinition {
 
   public void setTitle(String title) {
     this.title = title;
+  }
+
+  public GroupWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
+    this.titleAlign = titleAlign;
+    return this;
+  }
+
+  /**
+   * Get titleAlign
+   *
+   * @return titleAlign
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetTextAlign getTitleAlign() {
+    return titleAlign;
+  }
+
+  public void setTitleAlign(WidgetTextAlign titleAlign) {
+    this.titleAlign = titleAlign;
   }
 
   public GroupWidgetDefinition type(GroupWidgetDefinitionType type) {
@@ -151,23 +203,27 @@ public class GroupWidgetDefinition {
       return false;
     }
     GroupWidgetDefinition groupWidgetDefinition = (GroupWidgetDefinition) o;
-    return Objects.equals(this.layoutType, groupWidgetDefinition.layoutType)
+    return Objects.equals(this.backgroundColor, groupWidgetDefinition.backgroundColor)
+        && Objects.equals(this.layoutType, groupWidgetDefinition.layoutType)
         && Objects.equals(this.title, groupWidgetDefinition.title)
+        && Objects.equals(this.titleAlign, groupWidgetDefinition.titleAlign)
         && Objects.equals(this.type, groupWidgetDefinition.type)
         && Objects.equals(this.widgets, groupWidgetDefinition.widgets);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(layoutType, title, type, widgets);
+    return Objects.hash(backgroundColor, layoutType, title, titleAlign, type, widgets);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GroupWidgetDefinition {\n");
+    sb.append("    backgroundColor: ").append(toIndentedString(backgroundColor)).append("\n");
     sb.append("    layoutType: ").append(toIndentedString(layoutType)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    titleAlign: ").append(toIndentedString(titleAlign)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    widgets: ").append(toIndentedString(widgets)).append("\n");
     sb.append("}");
