@@ -219,7 +219,7 @@ Name | Type | Description  | Notes
 
 ## listDashboards
 
-> DashboardSummary listDashboards();
+> DashboardSummary listDashboards(parameters);
 
 Get all dashboards
 
@@ -245,8 +245,10 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         DashboardsApi apiInstance = new DashboardsApi(defaultClient);
+        Boolean filterShared = true; // Boolean | When `true`, this query only returns shared custom created or cloned dashboards.
         try {
-            DashboardSummary result = apiInstance.listDashboards();
+	    DashboardSummary result = apiInstance.listDashboards(new DashboardsApi.ListDashboardsOptionalParameters()
+                .filterShared(filterShared));
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DashboardsApi#listDashboards");
@@ -261,7 +263,10 @@ public class Example {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **filterShared** | **Boolean**| When &#x60;true&#x60;, this query only returns shared custom created or cloned dashboards. | [optional]
 
 ### Return type
 
