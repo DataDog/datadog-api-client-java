@@ -296,6 +296,23 @@ public class DashboardsApi {
         false);
   }
 
+  /** Manage optional parameters to listDashboards. */
+  public static class ListDashboardsOptionalParameters {
+    private Boolean filterShared;
+
+    /**
+     * Set filterShared
+     *
+     * @param filterShared When &#x60;true&#x60;, this query only returns shared custom created or
+     *     cloned dashboards. (optional)
+     * @return ListDashboardsOptionalParameters
+     */
+    public ListDashboardsOptionalParameters filterShared(Boolean filterShared) {
+      this.filterShared = filterShared;
+      return this;
+    }
+  }
+
   /**
    * Get all dashboards Get all dashboards. **Note**: This query will only return custom created or
    * cloned dashboards. This query will not return preset dashboards.
@@ -310,13 +327,33 @@ public class DashboardsApi {
    *     </table>
    */
   public DashboardSummary listDashboards() throws ApiException {
-    return listDashboardsWithHttpInfo().getData();
+    return listDashboardsWithHttpInfo(new ListDashboardsOptionalParameters()).getData();
   }
 
   /**
    * Get all dashboards Get all dashboards. **Note**: This query will only return custom created or
    * cloned dashboards. This query will not return preset dashboards.
    *
+   * @param parameters Optional parameters for the request.
+   * @return DashboardSummary
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public DashboardSummary listDashboards(ListDashboardsOptionalParameters parameters)
+      throws ApiException {
+    return listDashboardsWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * Get all dashboards Get all dashboards. **Note**: This query will only return custom created or
+   * cloned dashboards. This query will not return preset dashboards.
+   *
+   * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;DashboardSummary&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -326,8 +363,10 @@ public class DashboardsApi {
    *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<DashboardSummary> listDashboardsWithHttpInfo() throws ApiException {
+  public ApiResponse<DashboardSummary> listDashboardsWithHttpInfo(
+      ListDashboardsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
+    Boolean filterShared = parameters.filterShared;
     // create path and map variables
     String localVarPath = "/api/v1/dashboard";
 
@@ -336,6 +375,8 @@ public class DashboardsApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[shared]", filterShared));
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "listDashboards");
