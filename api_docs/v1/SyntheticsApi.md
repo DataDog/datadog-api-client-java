@@ -14,17 +14,17 @@ Method | HTTP request | Description
 [**deleteTests**](SyntheticsApi.md#deleteTests) | **POST** /api/v1/synthetics/tests/delete | Delete tests
 [**editGlobalVariable**](SyntheticsApi.md#editGlobalVariable) | **PUT** /api/v1/synthetics/variables/{variable_id} | Edit a global variable
 [**getAPITest**](SyntheticsApi.md#getAPITest) | **GET** /api/v1/synthetics/tests/api/{public_id} | Get an API test
-[**getAPITestLatestResults**](SyntheticsApi.md#getAPITestLatestResults) | **GET** /api/v1/synthetics/tests/{public_id}/results | Get the test&#39;s latest results summaries (API)
-[**getAPITestResult**](SyntheticsApi.md#getAPITestResult) | **GET** /api/v1/synthetics/tests/{public_id}/results/{result_id} | Get a test result (API)
-[**getBrowserTest**](SyntheticsApi.md#getBrowserTest) | **GET** /api/v1/synthetics/tests/browser/{public_id} | Get a test configuration (browser)
-[**getBrowserTestLatestResults**](SyntheticsApi.md#getBrowserTestLatestResults) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results | Get the test&#39;s latest results summaries (browser)
-[**getBrowserTestResult**](SyntheticsApi.md#getBrowserTestResult) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results/{result_id} | Get a test result (browser)
+[**getAPITestLatestResults**](SyntheticsApi.md#getAPITestLatestResults) | **GET** /api/v1/synthetics/tests/{public_id}/results | Get an API test&#39;s latest results summaries
+[**getAPITestResult**](SyntheticsApi.md#getAPITestResult) | **GET** /api/v1/synthetics/tests/{public_id}/results/{result_id} | Get an API test result
+[**getBrowserTest**](SyntheticsApi.md#getBrowserTest) | **GET** /api/v1/synthetics/tests/browser/{public_id} | Get a browser test
+[**getBrowserTestLatestResults**](SyntheticsApi.md#getBrowserTestLatestResults) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results | Get a browser test&#39;s latest results summaries
+[**getBrowserTestResult**](SyntheticsApi.md#getBrowserTestResult) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results/{result_id} | Get a browser test result
 [**getGlobalVariable**](SyntheticsApi.md#getGlobalVariable) | **GET** /api/v1/synthetics/variables/{variable_id} | Get a global variable
 [**getPrivateLocation**](SyntheticsApi.md#getPrivateLocation) | **GET** /api/v1/synthetics/private-locations/{location_id} | Get a private location
 [**getTest**](SyntheticsApi.md#getTest) | **GET** /api/v1/synthetics/tests/{public_id} | Get a test configuration (API)
 [**listLocations**](SyntheticsApi.md#listLocations) | **GET** /api/v1/synthetics/locations | Get all locations (public and private)
 [**listTests**](SyntheticsApi.md#listTests) | **GET** /api/v1/synthetics/tests | Get the list of all tests
-[**triggerCITests**](SyntheticsApi.md#triggerCITests) | **POST** /api/v1/synthetics/tests/trigger/ci | Trigger some Synthetics tests for CI
+[**triggerCITests**](SyntheticsApi.md#triggerCITests) | **POST** /api/v1/synthetics/tests/trigger/ci | Trigger tests from CI/CD pipelines
 [**updateAPITest**](SyntheticsApi.md#updateAPITest) | **PUT** /api/v1/synthetics/tests/api/{public_id} | Edit an API test
 [**updateBrowserTest**](SyntheticsApi.md#updateBrowserTest) | **PUT** /api/v1/synthetics/tests/browser/{public_id} | Edit a browser test
 [**updatePrivateLocation**](SyntheticsApi.md#updatePrivateLocation) | **PUT** /api/v1/synthetics/private-locations/{location_id} | Edit a private location
@@ -722,7 +722,7 @@ Name | Type | Description  | Notes
 
 > SyntheticsGetAPITestLatestResultsResponse getAPITestLatestResults(publicId, parameters);
 
-Get the test&#39;s latest results summaries (API)
+Get an API test&#39;s latest results summaries
 
 Get the last 50 test results summaries for a given Synthetics API test.
 
@@ -799,7 +799,7 @@ Name | Type | Description  | Notes
 
 > SyntheticsAPITestResultFull getAPITestResult(publicId, resultId);
 
-Get a test result (API)
+Get an API test result
 
 Get a specific full result from a given (API) Synthetic test.
 
@@ -869,7 +869,7 @@ Name | Type | Description  | Notes
 
 > SyntheticsBrowserTest getBrowserTest(publicId);
 
-Get a test configuration (browser)
+Get a browser test
 
 Get the detailed configuration (including steps) associated with
 a Synthetic browser test.
@@ -938,7 +938,7 @@ Name | Type | Description  | Notes
 
 > SyntheticsGetBrowserTestLatestResultsResponse getBrowserTestLatestResults(publicId, parameters);
 
-Get the test&#39;s latest results summaries (browser)
+Get a browser test&#39;s latest results summaries
 
 Get the last 50 test results summaries for a given Synthetics Browser test.
 
@@ -1015,7 +1015,7 @@ Name | Type | Description  | Notes
 
 > SyntheticsBrowserTestResultFull getBrowserTestResult(publicId, resultId);
 
-Get a test result (browser)
+Get a browser test result
 
 Get a specific full result from a given (browser) Synthetic test.
 
@@ -1415,7 +1415,7 @@ This endpoint does not need any parameter.
 
 > SyntheticsTriggerCITestsResponse triggerCITests(body);
 
-Trigger some Synthetics tests for CI
+Trigger tests from CI/CD pipelines
 
 Trigger a set of Synthetics tests for continuous integration.
 
