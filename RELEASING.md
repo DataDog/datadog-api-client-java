@@ -10,30 +10,19 @@ This project does not have a strict release schedule. However, we would make a r
 
 ### Prerequisites
 - Install [datadog_checks_dev](https://datadog-checks-base.readthedocs.io/en/latest/datadog_checks_dev.cli.html#installation) using Python 3
-- Have [Java 1.8](https://www.oracle.com/java/technologies/javase-jdk8-downloads.html)
 - Ensure all CIs are passing on the master branch that we're about to release.
-- Set the `BINTRAY_USER` and `BINTRAY_API_KEY` environment variables so that the release process can deploy to Bintray.
 
 ## Release
-Note that once the release process is started, nobody should be merging/pushing anything.
-
-### Commands
+Note that once the release process has started, nobody should be merging/pushing anything.
 
 - See changes ready for release by running `ddev release show changes . --tag-prefix datadog-api-client-` at the root of this project. Add any missing labels to PRs if needed.
 - Run `ddev release changelog . <NEW_VERSION> --tag-prefix datadog-api-client-` to update the `CHANGELOG.md` file at the root of this repository
+    - In this same branch, remove the `-SNAPSHOT` from the project's version in the `pom.xml` file.
 - Commit the changes to the repository in a release branch and get it approved/merged after you:
-    - Make sure that all CIs are passing, as this is the commit we will be releasing!
-
-- Pull the latest changes after merging the above PR.
-- Run `mvn --settings settings.xml clean release:prepare` and follow the prompts to update the version and tag the repository.
-- Run `mvn --settings settings.xml release:perform` to deploy the artifact to Bintray.
-- Find the artifact in Bintray and publish to make it visible to all.
-- Within Bintray, sync the specified version to maven central.
-
-## Release
-
-After merging the above PR, create a release on the [releases page](https://github.com/DataDog/datadog-api-client-java/releases).
-- Choose the tag that was created by the `mvn release:prepare` step
-- Place the changelog contents into the description of the release.
-- Attach the built Jar file into the release
-- Create/Publish the release, which will automatically create a tag on the `HEAD` commit.
+    - Make sure all tests in CIs are passing, as this is the commit we will be releasing!
+- Create a Github release. ([Example](https://github.com/DataDog/datadog-api-client-java/releases/tag/datadog-api-client-1.0.0-beta10))
+    - This will kick off a gitlab pipeline that will build and upload the JAR to sonatype.
+    - Sign into sonatype and find the uploaded project [here](https://oss.sonatype.org/#stagingRepositories)
+    - Check this project and click `Release`. Once confirmed this will start the sync and finalize the release.
+      - Note the full sync may take some time but confirm the version is available [here](https://repo1.maven.org/maven2/com/datadoghq/datadog-api-client/)
+- Finally, pull the recent changes and create a PR to begin the next dev cycle by bumping the project's version in `pom.xml` and adding back `-SNAPSHOT`.
