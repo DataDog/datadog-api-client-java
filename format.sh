@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 if [ $# -ne 0 ]; then
     JAR_FILE="/app/google-java-format.jar"
     if [[ -e $JAR_FILE ]]; then
