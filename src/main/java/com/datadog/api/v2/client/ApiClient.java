@@ -166,8 +166,6 @@ public class ApiClient extends JavaTimeFormatter {
           put("deleteTagConfiguration", false);
           put("listTagConfigurationByName", false);
           put("listTagConfigurations", false);
-          put("listTagsByMetricName", false);
-          put("listVolumesByMetricName", false);
           put("updateTagConfiguration", false);
           put("listSecurityMonitoringSignals", false);
           put("searchSecurityMonitoringSignals", false);
