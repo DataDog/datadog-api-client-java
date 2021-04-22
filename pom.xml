@@ -38,6 +38,28 @@
     </developers>
 
     <profiles>
+        <profile>
+            <id>surefire-java16</id>
+            <activation>
+                <property>
+                    <name>java.version</name>
+                    <value>16.0.1</value>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>2.19.1</version>
+                        <configuration>
+                            <runOrder>random</runOrder>
+                            <argLine>-DloggerPath=conf/log4j.properties -Ddd.integration.junit.enabled=true -Ddd.prioritization.type=ENSURE_TRACE -Ddd.jmxfetch.enabled=false -javaagent:${basedir}/target/dd-java-agent-${dd-java-agent-version}.jar ${argLine} -Xms512m -Xmx3500m -DsurefireForkNumber=${surefire.forkNumber} --add-exports java.base/sun.security.x509=ALL-UNNAMED --add-opens java.base/sun.net.www.protocol.https=ALL-UNNAMED --add-opens java.base/java.net=ALL-UNNAMED</argLine>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
         <!-- Performing a release deployment requires setting of performRelease property -->
         <profile>
             <id>deploy-artifacts</id>
@@ -155,14 +177,7 @@
                 <version>2.19.1</version>
                 <configuration>
                     <runOrder>random</runOrder>
-                    <!-- We don't use threads, as that would complicate cassette recording, plus keystore used by tests isn't thread safe. -->
-                    <!-- FIXME
-                    <forkCount>2</forkCount>
-                    <reuseForks>true</reuseForks>
-                    <threadCount>1</threadCount>
-                    <parallel>classes</parallel>
-                    -->
-                    <argLine>-DloggerPath=conf/log4j.properties -Ddd.integration.junit.enabled=true -Ddd.prioritization.type=ENSURE_TRACE -Ddd.jmxfetch.enabled=false -javaagent:${basedir}/target/dd-java-agent-${dd-java-agent-version}.jar ${argLine} -Xms512m -Xmx3500m -DsurefireForkNumber=${surefire.forkNumber} --add-exports java.base/sun.security.x509=ALL-UNNAMED --add-opens java.base/sun.net.www.protocol.https=ALL-UNNAMED --add-opens java.base/java.net=ALL-UNNAMED</argLine>
+                    <argLine>-DloggerPath=conf/log4j.properties -Ddd.integration.junit.enabled=true -Ddd.prioritization.type=ENSURE_TRACE -Ddd.jmxfetch.enabled=false -javaagent:${basedir}/target/dd-java-agent-${dd-java-agent-version}.jar ${argLine} -Xms512m -Xmx3500m -DsurefireForkNumber=${surefire.forkNumber}</argLine>
                 </configuration>
             </plugin>
             <plugin>
