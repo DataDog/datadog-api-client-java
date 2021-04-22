@@ -28,9 +28,7 @@ jobs:
      matrix:
        # see DEVELOPMENT.md for information why we're using this specific combination
        # of JDKs to run unit tests on
-       # FIXME
-       # java-version: ["adopt@1.8.0-275", "1.16.0=tgz+https://download.oracle.com/otn-pub/java/jdk/16.0.1+9/7147401fd7354114ac51ef3e1328291f/jdk-16.0.1_linux-x64_bin.tar.gz"]
-       java-version: ["adopt@1.8.0-275"]
+       java-version: ["adopt@1.8.0-275", "1.16.0=tgz+https://download.oracle.com/otn-pub/java/jdk/16.0.1+9/7147401fd7354114ac51ef3e1328291f/jdk-16.0.1_linux-x64_bin.tar.gz"]
 
    runs-on: ubuntu-18.04
    if: github.event.pull_request.draft == false && !contains(github.event.pull_request.labels.*.name, 'ci/skip') && !contains(github.event.pull_request.head.ref, 'datadog-api-spec/test/')
