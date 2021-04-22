@@ -731,6 +731,7 @@ components:
       - integration_screenboard
       - integration_timeboard
       - host_timeboard
+      example: host_timeboard
       type: string
       x-enum-varnames:
       - CUSTOM_TIMEBOARD
@@ -1258,7 +1259,6 @@ components:
         type:
           $ref: '#/components/schemas/IncidentServiceType'
       required:
-      - id
       - type
       type: object
     IncidentServiceUpdateRequest:
@@ -1438,7 +1438,6 @@ components:
         type:
           $ref: '#/components/schemas/IncidentTeamType'
       required:
-      - id
       - type
       type: object
     IncidentTeamUpdateRequest:
@@ -6429,9 +6428,6 @@ paths:
       - Metrics
       x-undo:
         type: safe
-      x-unstable: '**Note: This endpoint is in public beta. If you have any feedback,
-
-        contact [Datadog support](https://docs.datadoghq.com/help/).**'
   /api/v2/metrics/{metric_name}/tags:
     delete:
       description: 'Deletes a metric''s tag configuration. Can only be used with application
@@ -6687,9 +6683,6 @@ paths:
       - Metrics
       x-undo:
         type: safe
-      x-unstable: '**Note: This endpoint is in public beta. If you have any feedback,
-
-        contact [Datadog support](https://docs.datadoghq.com/help/).**'
   /api/v2/permissions:
     get:
       description: Returns a list of all permissions, including name, description,
@@ -7325,9 +7318,8 @@ paths:
               filters\": [],\n  \"cases\": [{\n    \"name\": \"\",\n    \"status\"\
               : \"info\",\n    \"condition\": \"a > 0\",\n    \"notifications\": []\n\
               \  }],\n  \"options\": {\n    \"evaluationWindow\": 900,\n    \"keepAlive\"\
-              : 3600,\n    \"maxSignalDuration\": 86400\n  },\n  \"hasExtendedTitle\"\
-              : false,\n  \"message\": \"Test rule\",\n  \"tags\": [],\n  \"isDefault\"\
-              : false,\n  \"isEnabled\": true,\n  \"type\": \"log_detection\"\n}"
+              : 3600,\n    \"maxSignalDuration\": 86400\n  },\n  \"message\": \"Test\
+              \ rule\",\n  \"tags\": [],\n  \"isEnabled\": true\n}"
           step: there is a valid "security_rule" in the system
       x-undo:
         operationId: DeleteSecurityMonitoringRule

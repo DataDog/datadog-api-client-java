@@ -111,9 +111,9 @@ public class UsersApiTest extends V1ApiTest {
   /** Get all users */
   @Test
   public void listUsersTest() throws ApiException {
-    Assume.assumeFalse(
+    Assume.assumeTrue(
         "This test does not support replay from recording",
-        TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING));
+        TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE));
     ArrayList<String> suffixes = new ArrayList<>(Arrays.asList("1", "2", "3"));
     // max name length is 55, so get 53 + add "-X" below
     String testingUserName = getUniqueEntityName(53);

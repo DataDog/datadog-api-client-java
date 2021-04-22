@@ -927,7 +927,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get the test&#39;s latest results summaries (API) Get the last 50 test results summaries for a
+   * Get an API test&#39;s latest results summaries Get the last 50 test results summaries for a
    * given Synthetics API test.
    *
    * @param publicId The public ID of the test for which to search results for. (required)
@@ -949,7 +949,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get the test&#39;s latest results summaries (API) Get the last 50 test results summaries for a
+   * Get an API test&#39;s latest results summaries Get the last 50 test results summaries for a
    * given Synthetics API test.
    *
    * @param publicId The public ID of the test for which to search results for. (required)
@@ -970,7 +970,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get the test&#39;s latest results summaries (API) Get the last 50 test results summaries for a
+   * Get an API test&#39;s latest results summaries Get the last 50 test results summaries for a
    * given Synthetics API test.
    *
    * @param publicId The public ID of the test for which to search results for. (required)
@@ -1044,7 +1044,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get a test result (API) Get a specific full result from a given (API) Synthetic test.
+   * Get an API test result Get a specific full result from a given (API) Synthetic test.
    *
    * @param publicId The public ID of the API test to which the target result belongs. (required)
    * @param resultId The ID of the result to get. (required)
@@ -1064,7 +1064,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get a test result (API) Get a specific full result from a given (API) Synthetic test.
+   * Get an API test result Get a specific full result from a given (API) Synthetic test.
    *
    * @param publicId The public ID of the API test to which the target result belongs. (required)
    * @param resultId The ID of the result to get. (required)
@@ -1137,8 +1137,8 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get a test configuration (browser) Get the detailed configuration (including steps) associated
-   * with a Synthetic browser test.
+   * Get a browser test Get the detailed configuration (including steps) associated with a Synthetic
+   * browser test.
    *
    * @param publicId The public ID of the test to get details from. (required)
    * @return SyntheticsBrowserTest
@@ -1156,8 +1156,8 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get a test configuration (browser) Get the detailed configuration (including steps) associated
-   * with a Synthetic browser test.
+   * Get a browser test Get the detailed configuration (including steps) associated with a Synthetic
+   * browser test.
    *
    * @param publicId The public ID of the test to get details from. (required)
    * @return ApiResponse&lt;SyntheticsBrowserTest&gt;
@@ -1262,8 +1262,8 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get the test&#39;s latest results summaries (browser) Get the last 50 test results summaries
-   * for a given Synthetics Browser test.
+   * Get a browser test&#39;s latest results summaries Get the last 50 test results summaries for a
+   * given Synthetics Browser test.
    *
    * @param publicId The public ID of the browser test for which to search results for. (required)
    * @return SyntheticsGetBrowserTestLatestResultsResponse
@@ -1284,8 +1284,8 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get the test&#39;s latest results summaries (browser) Get the last 50 test results summaries
-   * for a given Synthetics Browser test.
+   * Get a browser test&#39;s latest results summaries Get the last 50 test results summaries for a
+   * given Synthetics Browser test.
    *
    * @param publicId The public ID of the browser test for which to search results for. (required)
    * @param parameters Optional parameters for the request.
@@ -1306,8 +1306,8 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get the test&#39;s latest results summaries (browser) Get the last 50 test results summaries
-   * for a given Synthetics Browser test.
+   * Get a browser test&#39;s latest results summaries Get the last 50 test results summaries for a
+   * given Synthetics Browser test.
    *
    * @param publicId The public ID of the browser test for which to search results for. (required)
    * @param parameters Optional parameters for the request.
@@ -1383,7 +1383,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get a test result (browser) Get a specific full result from a given (browser) Synthetic test.
+   * Get a browser test result Get a specific full result from a given (browser) Synthetic test.
    *
    * @param publicId The public ID of the browser test to which the target result belongs.
    *     (required)
@@ -1404,7 +1404,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get a test result (browser) Get a specific full result from a given (browser) Synthetic test.
+   * Get a browser test result Get a specific full result from a given (browser) Synthetic test.
    *
    * @param publicId The public ID of the browser test to which the target result belongs.
    *     (required)
@@ -1869,7 +1869,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Trigger some Synthetics tests for CI Trigger a set of Synthetics tests for continuous
+   * Trigger tests from CI/CD pipelines Trigger a set of Synthetics tests for continuous
    * integration.
    *
    * @param body Details of the test to trigger. (required)
@@ -1888,7 +1888,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Trigger some Synthetics tests for CI Trigger a set of Synthetics tests for continuous
+   * Trigger tests from CI/CD pipelines Trigger a set of Synthetics tests for continuous
    * integration.
    *
    * @param body Details of the test to trigger. (required)

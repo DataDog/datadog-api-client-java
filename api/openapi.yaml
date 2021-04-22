@@ -2401,9 +2401,6 @@ paths:
       - Metrics
       x-undo:
         type: safe
-      x-unstable: |-
-        **Note: This endpoint is in public beta. If you have any feedback,
-        contact [Datadog support](https://docs.datadoghq.com/help/).**
       x-accepts: application/json
   /api/v2/metrics/{metric_name}/tags:
     delete:
@@ -2701,9 +2698,6 @@ paths:
       - Metrics
       x-undo:
         type: safe
-      x-unstable: |-
-        **Note: This endpoint is in public beta. If you have any feedback,
-        contact [Datadog support](https://docs.datadoghq.com/help/).**
       x-accepts: application/json
   /api/v2/permissions:
     get:
@@ -3531,12 +3525,9 @@ paths:
                   "keepAlive": 3600,
                   "maxSignalDuration": 86400
                 },
-                "hasExtendedTitle": false,
                 "message": "Test rule",
                 "tags": [],
-                "isDefault": false,
-                "isEnabled": true,
-                "type": "log_detection"
+                "isEnabled": true
               }
           step: there is a valid "security_rule" in the system
       x-undo:
@@ -5696,7 +5687,9 @@ components:
       example:
         dashboards:
         - id: q5j-nti-fv6
+          type: host_timeboard
         - id: q5j-nti-fv6
+          type: host_timeboard
       properties:
         dashboards:
           description: List of dashboards to add the dashboard list.
@@ -5709,7 +5702,9 @@ components:
       example:
         added_dashboards_to_list:
         - id: q5j-nti-fv6
+          type: host_timeboard
         - id: q5j-nti-fv6
+          type: host_timeboard
       properties:
         added_dashboards_to_list:
           description: List of dashboards added to the dashboard list.
@@ -5722,7 +5717,9 @@ components:
       example:
         dashboards:
         - id: q5j-nti-fv6
+          type: host_timeboard
         - id: q5j-nti-fv6
+          type: host_timeboard
       properties:
         dashboards:
           description: List of dashboards to delete from the dashboard list.
@@ -5735,7 +5732,9 @@ components:
       example:
         deleted_dashboards_from_list:
         - id: q5j-nti-fv6
+          type: host_timeboard
         - id: q5j-nti-fv6
+          type: host_timeboard
       properties:
         deleted_dashboards_from_list:
           description: List of dashboards deleted from the dashboard list.
@@ -5802,6 +5801,7 @@ components:
       description: A dashboard within a list.
       example:
         id: q5j-nti-fv6
+        type: host_timeboard
       properties:
         id:
           description: ID of the dashboard.
@@ -5817,6 +5817,7 @@ components:
       description: A dashboard within a list.
       example:
         id: q5j-nti-fv6
+        type: host_timeboard
       properties:
         id:
           description: ID of the dashboard.
@@ -5854,7 +5855,9 @@ components:
       example:
         dashboards:
         - id: q5j-nti-fv6
+          type: host_timeboard
         - id: q5j-nti-fv6
+          type: host_timeboard
       properties:
         dashboards:
           description: List of dashboards to update the dashboard list to.
@@ -5867,7 +5870,9 @@ components:
       example:
         dashboards:
         - id: q5j-nti-fv6
+          type: host_timeboard
         - id: q5j-nti-fv6
+          type: host_timeboard
       properties:
         dashboards:
           description: List of dashboards in the dashboard list.
@@ -5883,6 +5888,7 @@ components:
       - integration_screenboard
       - integration_timeboard
       - host_timeboard
+      example: host_timeboard
       type: string
       x-enum-varnames:
       - CUSTOM_TIMEBOARD
@@ -6756,7 +6762,6 @@ components:
         type:
           $ref: '#/components/schemas/IncidentServiceType'
       required:
-      - id
       - type
       type: object
     IncidentServiceUpdateRequest:
@@ -7034,7 +7039,6 @@ components:
         type:
           $ref: '#/components/schemas/IncidentTeamType'
       required:
-      - id
       - type
       type: object
     IncidentTeamUpdateRequest:
