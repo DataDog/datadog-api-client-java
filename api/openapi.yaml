@@ -2401,9 +2401,6 @@ paths:
       - Metrics
       x-undo:
         type: safe
-      x-unstable: |-
-        **Note: This endpoint is in public beta. If you have any feedback,
-        contact [Datadog support](https://docs.datadoghq.com/help/).**
       x-accepts: application/json
   /api/v2/metrics/{metric_name}/tags:
     delete:
@@ -2701,9 +2698,6 @@ paths:
       - Metrics
       x-undo:
         type: safe
-      x-unstable: |-
-        **Note: This endpoint is in public beta. If you have any feedback,
-        contact [Datadog support](https://docs.datadoghq.com/help/).**
       x-accepts: application/json
   /api/v2/permissions:
     get:
