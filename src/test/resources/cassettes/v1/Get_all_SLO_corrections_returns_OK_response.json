@@ -1,5 +1,99 @@
 [{
-  "id" : "8f298a24-e386-4e1b-9785-02b103684e0c",
+  "id" : "1234bef4-e602-4d29-bbef-a6387f4c4662",
+  "httpRequest" : {
+    "method" : "POST",
+    "path" : "/api/v1/slo",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "Get_all_SLO_corrections_returns_OK_response" ],
+      "DD-OPERATION-ID" : [ "createSLO" ],
+      "Content-Type" : [ "application/json" ]
+    },
+    "keepAlive" : false,
+    "secure" : true,
+    "body" : {
+      "type" : "JSON",
+      "json" : "{\"name\":\"Test-Get_all_SLO_corrections_returns_OK_response-1619078582\",\"query\":{\"denominator\":\"sum:httpservice.hits{!code:3xx}.as_count()\",\"numerator\":\"sum:httpservice.hits{code:2xx}.as_count()\"},\"thresholds\":[{\"target\":95.0,\"timeframe\":\"7d\",\"warning\":98.0}],\"type\":\"metric\"}"
+    }
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 200,
+    "reasonPhrase" : "OK",
+    "headers" : {
+      "Date" : [ "Thu, 22 Apr 2021 08:03:02 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "keep-alive" ],
+      "vary" : [ "Accept-Encoding" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "x-dd-version" : [ "35.4367882" ],
+      "x-ratelimit-limit" : [ "500" ],
+      "x-ratelimit-period" : [ "60" ],
+      "x-ratelimit-reset" : [ "58" ],
+      "x-ratelimit-remaining" : [ "493" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ],
+      "content-length" : [ "616" ]
+    },
+    "body" : "{\"data\":[{\"description\":\"\",\"monitor_tags\":[],\"creator\":{\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\",\"email\":\"team-intg-tools-libs@datadoghq.com\"},\"thresholds\":[{\"warning\":98.0,\"warning_display\":\"98.\",\"target\":95.0,\"target_display\":\"95.\",\"timeframe\":\"7d\"}],\"type_id\":1,\"query\":{\"denominator\":\"sum:httpservice.hits{!code:3xx}.as_count()\",\"numerator\":\"sum:httpservice.hits{code:2xx}.as_count()\"},\"id\":\"2a13c2c515cd5110be09e243240b9087\",\"name\":\"Test-Get_all_SLO_corrections_returns_OK_response-1619078582\",\"created_at\":1619078582,\"tags\":[],\"modified_at\":1619078582,\"type\":\"metric\"}],\"error\":null}"
+  }
+}, {
+  "id" : "02cdbc6d-695d-42c9-9cd7-472bd84fe5be",
+  "httpRequest" : {
+    "method" : "POST",
+    "path" : "/api/v1/slo/correction",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "Get_all_SLO_corrections_returns_OK_response" ],
+      "DD-OPERATION-ID" : [ "createSLOCorrection" ],
+      "Content-Type" : [ "application/json" ]
+    },
+    "keepAlive" : false,
+    "secure" : true,
+    "body" : {
+      "type" : "JSON",
+      "json" : "{\"data\":{\"attributes\":{\"category\":\"Other\",\"description\":\"Test Correction\",\"end\":1619082182,\"slo_id\":\"2a13c2c515cd5110be09e243240b9087\",\"start\":1619078582,\"timezone\":\"UTC\"},\"type\":\"correction\"}}"
+    }
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 200,
+    "reasonPhrase" : "OK",
+    "headers" : {
+      "Date" : [ "Thu, 22 Apr 2021 08:03:03 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "keep-alive" ],
+      "vary" : [ "Accept-Encoding" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "x-dd-version" : [ "35.4367882" ],
+      "x-ratelimit-limit" : [ "12000" ],
+      "x-ratelimit-period" : [ "60" ],
+      "x-ratelimit-reset" : [ "57" ],
+      "x-ratelimit-remaining" : [ "11997" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ],
+      "content-length" : [ "581" ]
+    },
+    "body" : "{\"data\":{\"type\":\"correction\",\"id\":\"29b6955e-a341-11eb-9fc2-da7ad0900002\",\"attributes\":{\"slo_id\":\"2a13c2c515cd5110be09e243240b9087\",\"start\":1619078582,\"end\":1619082182,\"description\":\"Test Correction\",\"category\":\"Other\",\"timezone\":\"UTC\",\"creator\":{\"data\":{\"type\":\"users\",\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"attributes\":{\"uuid\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"email\":\"team-intg-tools-libs@datadoghq.com\",\"name\":\"CI Account\",\"icon\":\"https://secure.gravatar.com/avatar/bff625f8b50529c690eb616cd5e64167?s=48&d=retro\"}}}}}}"
+  }
+}, {
+  "id" : "5847c6ae-40e8-4ad0-b915-f0f554ae38ee",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/slo/correction",
@@ -22,28 +116,64 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Wed, 03 Feb 2021 12:05:27 GMT" ],
+      "Date" : [ "Thu, 22 Apr 2021 08:03:03 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "vary" : [ "Accept-Encoding" ],
       "pragma" : [ "no-cache" ],
       "cache-control" : [ "no-cache" ],
-      "set-cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Wed, 10-Feb-2021 12:05:27 GMT; secure; HttpOnly" ],
-      "x-dd-version" : [ "35.3833449" ],
+      "x-dd-version" : [ "35.4367882" ],
       "x-ratelimit-limit" : [ "12000" ],
       "x-ratelimit-period" : [ "60" ],
-      "x-ratelimit-reset" : [ "33" ],
+      "x-ratelimit-reset" : [ "57" ],
       "x-ratelimit-remaining" : [ "11999" ],
-      "x-dd-debug" : [ "gYZcaADwbKcv7Hm19HJx6WsLoKuOijDWAt2viPeCfWqUgyKY+9e1xZdmMJeXV3YV" ],
       "x-content-type-options" : [ "nosniff" ],
       "strict-transport-security" : [ "max-age=15724800;" ],
       "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
       "x-frame-options" : [ "SAMEORIGIN" ],
-      "content-length" : [ "3054" ]
+      "content-length" : [ "6515" ]
     },
-    "cookies" : {
-      "DD-PSHARD" : "233"
+    "body" : "{\"data\":[{\"type\":\"correction\",\"id\":\"211ca2e6-8b07-11eb-98b6-da7ad0900002\",\"attributes\":{\"slo_id\":\"93c4dc1029775cfdbcbc4f1936ebc89a\",\"start\":1735707000,\"end\":1735718600,\"description\":\"test correction on slo tf-TestAccDatadogSloCorrection_Basic-52957-1616414829\",\"category\":\"Scheduled Maintenance\",\"timezone\":\"UTC\",\"creator\":{\"data\":{\"type\":\"users\",\"id\":\"35d26b57-eba0-11e9-a77a-6f9ab1aa16b2\",\"attributes\":{\"uuid\":\"35d26b57-eba0-11e9-a77a-6f9ab1aa16b2\",\"handle\":\"slavek.kabrda@datadoghq.com\",\"email\":\"slavek.kabrda@datadoghq.com\",\"name\":\"Slavek Kabrda\",\"icon\":\"https://secure.gravatar.com/avatar/fdee041733cf38ffdb15d1c6ac1ba7ab?s=48&d=retro\"}}}}},{\"type\":\"correction\",\"id\":\"29b6955e-a341-11eb-9fc2-da7ad0900002\",\"attributes\":{\"slo_id\":\"2a13c2c515cd5110be09e243240b9087\",\"start\":1619078582,\"end\":1619082182,\"description\":\"Test Correction\",\"category\":\"Other\",\"timezone\":\"UTC\",\"creator\":{\"data\":{\"type\":\"users\",\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"attributes\":{\"uuid\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"email\":\"team-intg-tools-libs@datadoghq.com\",\"name\":\"CI Account\",\"icon\":\"https://secure.gravatar.com/avatar/bff625f8b50529c690eb616cd5e64167?s=48&d=retro\"}}}}},{\"type\":\"correction\",\"id\":\"2fa85e5c-9743-11eb-9c91-da7ad0900002\",\"attributes\":{\"slo_id\":\"d413f1a99b085c90b7fe398618adefee\",\"start\":1617760037,\"end\":1617763637,\"description\":\"Test Correction\",\"category\":\"Other\",\"timezone\":\"UTC\",\"creator\":{\"data\":{\"type\":\"users\",\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"attributes\":{\"uuid\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"email\":\"team-intg-tools-libs@datadoghq.com\",\"name\":\"CI Account\",\"icon\":\"https://secure.gravatar.com/avatar/bff625f8b50529c690eb616cd5e64167?s=48&d=retro\"}}}}},{\"type\":\"correction\",\"id\":\"31a59c7e-993c-11eb-9ceb-da7ad0900002\",\"attributes\":{\"slo_id\":\"39af1ca3f2bc505db3afdaacbca10b46\",\"start\":1617976937,\"end\":1617980537,\"description\":\"\",\"category\":\"Scheduled Maintenance\",\"timezone\":\"UTC\",\"creator\":{\"data\":{\"type\":\"users\",\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"attributes\":{\"uuid\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"email\":\"team-intg-tools-libs@datadoghq.com\",\"name\":\"CI Account\",\"icon\":\"https://secure.gravatar.com/avatar/bff625f8b50529c690eb616cd5e64167?s=48&d=retro\"}}}}},{\"type\":\"correction\",\"id\":\"461e34c2-7bb4-11eb-964d-da7ad0900002\",\"attributes\":{\"slo_id\":\"28ab7a1fe5aa505da94400f195f7f5e1\",\"start\":1735707000,\"end\":1735718600,\"description\":\"test correction on slo tf-TestAccDatadogSloCorrection_Basic-49552-1614729976\",\"category\":\"Scheduled Maintenance\",\"timezone\":\"UTC\",\"creator\":{\"data\":{\"type\":\"users\",\"id\":\"35d26b57-eba0-11e9-a77a-6f9ab1aa16b2\",\"attributes\":{\"uuid\":\"35d26b57-eba0-11e9-a77a-6f9ab1aa16b2\",\"handle\":\"slavek.kabrda@datadoghq.com\",\"email\":\"slavek.kabrda@datadoghq.com\",\"name\":\"Slavek Kabrda\",\"icon\":\"https://secure.gravatar.com/avatar/fdee041733cf38ffdb15d1c6ac1ba7ab?s=48&d=retro\"}}}}},{\"type\":\"correction\",\"id\":\"5cf76882-9c05-11eb-9d67-da7ad0900002\",\"attributes\":{\"slo_id\":\"f297c008eb3e57378f6707a7bc3bb197\",\"start\":1618283241,\"end\":1618286841,\"description\":\"Test Correction\",\"category\":\"Other\",\"timezone\":\"UTC\",\"creator\":{\"data\":{\"type\":\"users\",\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"attributes\":{\"uuid\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"email\":\"team-intg-tools-libs@datadoghq.com\",\"name\":\"CI Account\",\"icon\":\"https://secure.gravatar.com/avatar/bff625f8b50529c690eb616cd5e64167?s=48&d=retro\"}}}}},{\"type\":\"correction\",\"id\":\"8cdeb912-9735-11eb-9c8a-da7ad0900002\",\"attributes\":{\"slo_id\":\"026eec134ef356a1a69194e2ae223e1e\",\"start\":1735707000,\"end\":1735718600,\"description\":\"test correction on slo tf-TestAccDatadogSloCorrection_Basic-56693-1617754181\",\"category\":\"Scheduled Maintenance\",\"timezone\":\"UTC\",\"creator\":{\"data\":{\"type\":\"users\",\"id\":\"35d26b57-eba0-11e9-a77a-6f9ab1aa16b2\",\"attributes\":{\"uuid\":\"35d26b57-eba0-11e9-a77a-6f9ab1aa16b2\",\"handle\":\"slavek.kabrda@datadoghq.com\",\"email\":\"slavek.kabrda@datadoghq.com\",\"name\":\"Slavek Kabrda\",\"icon\":\"https://secure.gravatar.com/avatar/fdee041733cf38ffdb15d1c6ac1ba7ab?s=48&d=retro\"}}}}},{\"type\":\"correction\",\"id\":\"bf95e9e6-961a-11eb-9c61-da7ad0900002\",\"attributes\":{\"slo_id\":\"b725034194ef5f8ca25c36f6b6e7e3e9\",\"start\":1617632719,\"end\":1617636319,\"description\":\"\",\"category\":\"Scheduled Maintenance\",\"timezone\":\"UTC\",\"creator\":{\"data\":{\"type\":\"users\",\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"attributes\":{\"uuid\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"email\":\"team-intg-tools-libs@datadoghq.com\",\"name\":\"CI Account\",\"icon\":\"https://secure.gravatar.com/avatar/bff625f8b50529c690eb616cd5e64167?s=48&d=retro\"}}}}},{\"type\":\"correction\",\"id\":\"c00a2184-8d5b-11eb-993a-da7ad0900002\",\"attributes\":{\"slo_id\":\"e86268900d305d07ae0774b7b36100a4\",\"start\":1616671075,\"end\":1616674675,\"description\":\"Test Correction\",\"category\":\"Other\",\"timezone\":\"UTC\",\"creator\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"attributes\":{\"uuid\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\",\"name\":null,\"icon\":\"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro\"}}}}},{\"type\":\"correction\",\"id\":\"c5fb7b84-8bf2-11eb-98f2-da7ad0900002\",\"attributes\":{\"slo_id\":\"a37f48eaa4bb550087fdd335500f6353\",\"start\":1616516037,\"end\":1616519637,\"description\":\"Test Correction\",\"category\":\"Other\",\"timezone\":\"UTC\",\"creator\":{\"data\":{\"type\":\"users\",\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"attributes\":{\"uuid\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"email\":\"team-intg-tools-libs@datadoghq.com\",\"name\":\"CI Account\",\"icon\":\"https://secure.gravatar.com/avatar/bff625f8b50529c690eb616cd5e64167?s=48&d=retro\"}}}}},{\"type\":\"correction\",\"id\":\"d5edbdae-a2db-11eb-9fb0-da7ad0900002\",\"attributes\":{\"slo_id\":\"e67da14f5cf25d5ca5c7feb21227fd1a\",\"start\":1619035063,\"end\":1619038663,\"description\":\"Test-Update_an_SLO_correction_returns_OK_response-1619035063\",\"category\":\"Deployment\",\"timezone\":\"UTC\",\"creator\":{\"data\":{\"type\":\"users\",\"id\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"attributes\":{\"uuid\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"email\":\"team-intg-tools-libs@datadoghq.com\",\"name\":\"CI Account\",\"icon\":\"https://secure.gravatar.com/avatar/bff625f8b50529c690eb616cd5e64167?s=48&d=retro\"}}}}}]}"
+  }
+}, {
+  "id" : "f7a22ff7-cc2d-4373-b82c-b1c928cf4a87",
+  "httpRequest" : {
+    "method" : "DELETE",
+    "path" : "/api/v1/slo/correction/29b6955e-a341-11eb-9fc2-da7ad0900002",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "Get_all_SLO_corrections_returns_OK_response" ],
+      "DD-OPERATION-ID" : [ "deleteSLOCorrection" ],
+      "Content-Type" : [ "application/json" ]
     },
-    "body" : "{\"data\":[{\"type\":\"correction\",\"id\":\"06643f2e-61b1-11eb-8fa0-fb77777e5742\",\"attributes\":{\"slo_id\":\"09d76252734f50e8b3f8f0119e0814c7\",\"start\":1735707000,\"end\":1735718600,\"description\":\"test correction on slo tf-TestAccDatadogSloCorrection_Updated-local-1611869850\",\"category\":\"Scheduled Maintenance\",\"timezone\":\"UTC\",\"creator\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"attributes\":{\"uuid\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\",\"name\":null,\"icon\":\"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro\"}}}}},{\"type\":\"correction\",\"id\":\"0f1e5bb6-61ae-11eb-8fa0-9becba1ede13\",\"attributes\":{\"slo_id\":\"331f726639dd5b01a80c776494364b93\",\"start\":1735707000,\"end\":1735718600,\"description\":\"test correction on slo tf-TestAccDatadogSloCorrection_Basic-local-1611868576\",\"category\":\"Scheduled Maintenance\",\"timezone\":\"UTC\",\"creator\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"attributes\":{\"uuid\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\",\"name\":null,\"icon\":\"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro\"}}}}},{\"type\":\"correction\",\"id\":\"793dc73a-61b2-11eb-8fa0-cb9ecfe220b1\",\"attributes\":{\"slo_id\":\"65c8add3c53a5427861cad53eb607566\",\"start\":1735707000,\"end\":1735718600,\"description\":\"test correction on slo tf-TestAccDatadogSloCorrection_Updated-local-1611870472\",\"category\":\"Scheduled Maintenance\",\"timezone\":\"UTC\",\"creator\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"attributes\":{\"uuid\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\",\"name\":null,\"icon\":\"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro\"}}}}},{\"type\":\"correction\",\"id\":\"dc89679e-61ae-11eb-8fa0-8723e85d7f29\",\"attributes\":{\"slo_id\":\"807322441d5c5a0c9bb6b20b3de83c08\",\"start\":1735707000,\"end\":1735718600,\"description\":\"test correction on slo tf-TestAccDatadogSloCorrection_Basic-local-1611868921\",\"category\":\"Scheduled Maintenance\",\"timezone\":\"UTC\",\"creator\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"attributes\":{\"uuid\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\",\"name\":null,\"icon\":\"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro\"}}}}},{\"type\":\"correction\",\"id\":\"f457bcfe-61ae-11eb-8fa0-838b90f6060c\",\"attributes\":{\"slo_id\":\"2afd8c02c5b3518490d6b71765336342\",\"start\":1735707000,\"end\":1735718600,\"description\":\"test correction on slo tf-TestAccDatadogSloCorrection_Basic-local-1611868961\",\"category\":\"Scheduled Maintenance\",\"timezone\":\"UTC\",\"creator\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"attributes\":{\"uuid\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\",\"name\":null,\"icon\":\"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro\"}}}}}]}"
+    "keepAlive" : false,
+    "secure" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 204,
+    "reasonPhrase" : "No Content",
+    "headers" : {
+      "Date" : [ "Thu, 22 Apr 2021 08:03:04 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Content-Length" : [ "0" ],
+      "Connection" : [ "keep-alive" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "x-dd-version" : [ "35.4367882" ],
+      "x-ratelimit-limit" : [ "12000" ],
+      "x-ratelimit-period" : [ "60" ],
+      "x-ratelimit-reset" : [ "57" ],
+      "x-ratelimit-remaining" : [ "11997" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ]
+    }
   }
 }]
