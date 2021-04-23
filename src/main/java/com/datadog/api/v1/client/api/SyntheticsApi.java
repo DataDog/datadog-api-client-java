@@ -1644,8 +1644,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get a test configuration (API) Get the detailed configuration associated with a Synthetics
-   * test.
+   * Get a test configuration Get the detailed configuration associated with a Synthetics test.
    *
    * @param publicId The public ID of the test to get details from. (required)
    * @return SyntheticsTestDetails
@@ -1663,8 +1662,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Get a test configuration (API) Get the detailed configuration associated with a Synthetics
-   * test.
+   * Get a test configuration Get the detailed configuration associated with a Synthetics test.
    *
    * @param publicId The public ID of the test to get details from. (required)
    * @return ApiResponse&lt;SyntheticsTestDetails&gt;
