@@ -921,6 +921,7 @@ paths:
       tags:
       - Dashboard Lists
       x-codegen-request-body-name: body
+      x-menu-order: 4
       x-undo:
         type: idempotent
       x-contentType: application/json
@@ -960,6 +961,7 @@ paths:
       summary: Get items of a Dashboard List
       tags:
       - Dashboard Lists
+      x-menu-order: 1
       x-undo:
         type: safe
       x-accepts: application/json
@@ -1012,6 +1014,7 @@ paths:
       tags:
       - Dashboard Lists
       x-codegen-request-body-name: body
+      x-menu-order: 2
       x-undo:
         type: safe
       x-contentType: application/json
@@ -1065,6 +1068,7 @@ paths:
       tags:
       - Dashboard Lists
       x-codegen-request-body-name: body
+      x-menu-order: 3
       x-undo:
         type: safe
       x-contentType: application/json
@@ -1424,6 +1428,7 @@ paths:
       tags:
       - Logs
       x-codegen-request-body-name: body
+      x-menu-order: 1
       x-undo:
         type: safe
       x-contentType: application/json
@@ -1450,6 +1455,7 @@ paths:
       summary: Get archive order
       tags:
       - Logs Archives
+      x-menu-order: 9
       x-undo:
         type: safe
       x-accepts: application/json
@@ -1497,6 +1503,7 @@ paths:
       tags:
       - Logs Archives
       x-codegen-request-body-name: body
+      x-menu-order: 10
       x-undo:
         type: safe
       x-contentType: application/json
@@ -1521,6 +1528,7 @@ paths:
       summary: Get all archives
       tags:
       - Logs Archives
+      x-menu-order: 1
       x-undo:
         type: safe
       x-accepts: application/json
@@ -1557,6 +1565,7 @@ paths:
       tags:
       - Logs Archives
       x-codegen-request-body-name: body
+      x-menu-order: 2
       x-undo:
         operationId: DeleteLogsArchive
         parameters:
@@ -1602,6 +1611,7 @@ paths:
       summary: Delete an archive
       tags:
       - Logs Archives
+      x-menu-order: 5
       x-undo:
         type: idempotent
       x-accepts: application/json
@@ -1645,6 +1655,7 @@ paths:
       summary: Get an archive
       tags:
       - Logs Archives
+      x-menu-order: 3
       x-undo:
         type: safe
       x-accepts: application/json
@@ -1700,6 +1711,7 @@ paths:
       tags:
       - Logs Archives
       x-codegen-request-body-name: body
+      x-menu-order: 4
       x-undo:
         type: safe
       x-contentType: application/json
@@ -1748,6 +1760,7 @@ paths:
       tags:
       - Logs Archives
       x-codegen-request-body-name: body
+      x-menu-order: 8
       x-undo:
         type: idempotent
       x-contentType: application/json
@@ -1793,6 +1806,7 @@ paths:
       tags:
       - Logs Archives
       x-codegen-request-body-name: body
+      x-menu-order: 6
       x-undo:
         type: safe
       x-accepts: application/json
@@ -1839,6 +1853,7 @@ paths:
       tags:
       - Logs Archives
       x-codegen-request-body-name: body
+      x-menu-order: 7
       x-undo:
         type: unsafe
       x-contentType: application/json
@@ -1869,6 +1884,7 @@ paths:
       summary: Get all log-based metrics
       tags:
       - Logs Metrics
+      x-menu-order: 1
       x-undo:
         type: safe
       x-accepts: application/json
@@ -1939,6 +1955,7 @@ paths:
                 }
               }
           step: there is a valid "logs_metric" in the system
+      x-menu-order: 2
       x-undo:
         operationId: DeleteLogsMetric
         parameters:
@@ -1984,6 +2001,7 @@ paths:
       summary: Delete a log-based metric
       tags:
       - Logs Metrics
+      x-menu-order: 5
       x-undo:
         type: idempotent
       x-accepts: application/json
@@ -2027,6 +2045,7 @@ paths:
       summary: Get a log-based metric
       tags:
       - Logs Metrics
+      x-menu-order: 3
       x-undo:
         type: safe
       x-accepts: application/json
@@ -2086,6 +2105,7 @@ paths:
       tags:
       - Logs Metrics
       x-codegen-request-body-name: body
+      x-menu-order: 4
       x-undo:
         type: idempotent
       x-contentType: application/json
@@ -2198,6 +2218,7 @@ paths:
       summary: Get a list of logs
       tags:
       - Logs
+      x-menu-order: 3
       x-undo:
         type: safe
       x-accepts: application/json
@@ -2245,6 +2266,7 @@ paths:
       tags:
       - Logs
       x-codegen-request-body-name: body
+      x-menu-order: 2
       x-undo:
         type: safe
       x-contentType: application/json
@@ -2345,6 +2367,7 @@ paths:
       summary: List tag configurations
       tags:
       - Metrics
+      x-menu-order: 5
       x-undo:
         type: safe
       x-unstable: |-
@@ -2399,6 +2422,7 @@ paths:
       summary: List tags by metric name
       tags:
       - Metrics
+      x-menu-order: 6
       x-undo:
         type: safe
       x-accepts: application/json
@@ -2442,6 +2466,7 @@ paths:
       summary: Delete a tag configuration
       tags:
       - Metrics
+      x-menu-order: 4
       x-undo:
         type: idempotent
       x-unstable: |-
@@ -2489,6 +2514,7 @@ paths:
       summary: List tag configuration by name
       tags:
       - Metrics
+      x-menu-order: 2
       x-undo:
         type: safe
       x-unstable: |-
@@ -2551,6 +2577,7 @@ paths:
       tags:
       - Metrics
       x-codegen-request-body-name: body
+      x-menu-order: 3
       x-undo:
         type: idempotent
       x-unstable: |-
@@ -2632,6 +2659,7 @@ paths:
                 }
               }
           step: there is a valid "metric_tag_configuration" in the system
+      x-menu-order: 1
       x-undo:
         operationId: DeleteTagConfiguration
         parameters:
@@ -2696,6 +2724,7 @@ paths:
       summary: List distinct metric volumes by metric name
       tags:
       - Metrics
+      x-menu-order: 7
       x-undo:
         type: safe
       x-accepts: application/json
@@ -2730,6 +2759,7 @@ paths:
         permission:
           source: data[0]
           step: there is a valid "permission" in the system
+      x-menu-order: 1
       x-undo:
         type: safe
       x-accepts: application/json
@@ -2823,6 +2853,7 @@ paths:
       summary: Get all processes
       tags:
       - Processes
+      x-menu-order: 1
       x-undo:
         type: safe
       x-accepts: application/json
@@ -2886,6 +2917,7 @@ paths:
       summary: List roles
       tags:
       - Roles
+      x-menu-order: 1
       x-undo:
         type: safe
       x-accepts: application/json
@@ -2935,6 +2967,7 @@ paths:
                 }
               }
           step: there is a valid "role" in the system
+      x-menu-order: 2
       x-undo:
         operationId: DeleteRole
         parameters:
@@ -2975,6 +3008,7 @@ paths:
       tags:
       - Roles
       x-codegen-request-body-name: body
+      x-menu-order: 5
       x-undo:
         type: idempotent
       x-accepts: application/json
@@ -3013,6 +3047,7 @@ paths:
       tags:
       - Roles
       x-codegen-request-body-name: body
+      x-menu-order: 3
       x-undo:
         type: safe
       x-accepts: application/json
@@ -3070,6 +3105,7 @@ paths:
       tags:
       - Roles
       x-codegen-request-body-name: body
+      x-menu-order: 4
       x-undo:
         type: idempotent
       x-contentType: application/json
@@ -3122,6 +3158,7 @@ paths:
       tags:
       - Roles
       x-codegen-request-body-name: body
+      x-menu-order: 8
       x-undo:
         type: idempotent
       x-contentType: application/json
@@ -3161,6 +3198,7 @@ paths:
       tags:
       - Roles
       x-codegen-request-body-name: body
+      x-menu-order: 6
       x-undo:
         type: safe
       x-accepts: application/json
@@ -3225,6 +3263,7 @@ paths:
                 }
               }
           step: the "permission" is granted to the "role"
+      x-menu-order: 7
       x-undo:
         type: safe
       x-contentType: application/json
@@ -3277,6 +3316,7 @@ paths:
       tags:
       - Roles
       x-codegen-request-body-name: body
+      x-menu-order: 11
       x-undo:
         type: idempotent
       x-contentType: application/json
@@ -3355,6 +3395,7 @@ paths:
       summary: Get all users of a role
       tags:
       - Roles
+      x-menu-order: 9
       x-undo:
         type: safe
       x-accepts: application/json
@@ -3419,6 +3460,7 @@ paths:
                 }
               }
           step: the "user" has the "role"
+      x-menu-order: 10
       x-undo:
         type: safe
       x-contentType: application/json
@@ -3464,6 +3506,7 @@ paths:
       summary: List rules
       tags:
       - Security Monitoring
+      x-menu-order: 1
       x-undo:
         type: safe
       x-accepts: application/json
@@ -3530,6 +3573,7 @@ paths:
                 "isEnabled": true
               }
           step: there is a valid "security_rule" in the system
+      x-menu-order: 2
       x-undo:
         operationId: DeleteSecurityMonitoringRule
         parameters:
@@ -3569,6 +3613,7 @@ paths:
       summary: Delete an existing rule
       tags:
       - Security Monitoring
+      x-menu-order: 5
       x-undo:
         type: idempotent
       x-accepts: application/json
@@ -3600,6 +3645,7 @@ paths:
       summary: Get a rule's details
       tags:
       - Security Monitoring
+      x-menu-order: 3
       x-undo:
         type: safe
       x-accepts: application/json
@@ -3659,6 +3705,7 @@ paths:
       tags:
       - Security Monitoring
       x-codegen-request-body-name: body
+      x-menu-order: 4
       x-undo:
         type: idempotent
       x-contentType: application/json
@@ -3751,6 +3798,7 @@ paths:
       summary: Get a quick list of security signals
       tags:
       - Security Monitoring
+      x-menu-order: 7
       x-undo:
         type: safe
       x-unstable: |-
@@ -3793,6 +3841,7 @@ paths:
       tags:
       - Security Monitoring
       x-codegen-request-body-name: body
+      x-menu-order: 6
       x-undo:
         type: safe
       x-unstable: |-
@@ -4509,6 +4558,7 @@ paths:
               }
           source: data[0]
           step: the "user" has a "user_invitation"
+      x-menu-order: 8
       x-undo:
         type: safe
       x-contentType: application/json
@@ -4549,6 +4599,7 @@ paths:
       tags:
       - Users
       x-codegen-request-body-name: body
+      x-menu-order: 9
       x-undo:
         type: safe
       x-accepts: application/json
@@ -4642,6 +4693,7 @@ paths:
       tags:
       - Users
       x-codegen-request-body-name: body
+      x-menu-order: 1
       x-undo:
         type: safe
       x-accepts: application/json
@@ -4692,6 +4744,7 @@ paths:
                 }
               }
           step: there is a valid "user" in the system
+      x-menu-order: 2
       x-undo:
         operationId: DisableUser
         parameters:
@@ -4734,6 +4787,7 @@ paths:
       tags:
       - Users
       x-codegen-request-body-name: body
+      x-menu-order: 5
       x-undo:
         type: idempotent
       x-accepts: application/json
@@ -4772,6 +4826,7 @@ paths:
       tags:
       - Users
       x-codegen-request-body-name: body
+      x-menu-order: 3
       x-undo:
         type: safe
       x-accepts: application/json
@@ -4830,6 +4885,7 @@ paths:
       tags:
       - Users
       x-codegen-request-body-name: body
+      x-menu-order: 4
       x-undo:
         type: idempotent
       x-contentType: application/json
@@ -4872,6 +4928,7 @@ paths:
       tags:
       - Users
       x-codegen-request-body-name: body
+      x-menu-order: 6
       x-undo:
         type: safe
       x-accepts: application/json
@@ -4913,6 +4970,7 @@ paths:
       tags:
       - Users
       x-codegen-request-body-name: body
+      x-menu-order: 7
       x-undo:
         type: safe
       x-accepts: application/json
