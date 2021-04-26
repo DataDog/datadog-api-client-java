@@ -43,19 +43,19 @@ import org.openapitools.jackson.nullable.JsonNullable;
   UsageSummaryDate.JSON_PROPERTY_FARGATE_TASKS_COUNT_AVG,
   UsageSummaryDate.JSON_PROPERTY_FARGATE_TASKS_COUNT_HWM,
   UsageSummaryDate.JSON_PROPERTY_GCP_HOST_TOP99P,
-  UsageSummaryDate.JSON_PROPERTY_HEROKU_HOST_TOP99P_SUM,
+  UsageSummaryDate.JSON_PROPERTY_HEROKU_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_HWM,
   UsageSummaryDate.JSON_PROPERTY_INDEXED_EVENTS_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_INFRA_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_INGESTED_EVENTS_BYTES_SUM,
-  UsageSummaryDate.JSON_PROPERTY_IOT_DEVICE_AGG_SUM,
-  UsageSummaryDate.JSON_PROPERTY_IOT_DEVICE_TOP99P_SUM,
+  UsageSummaryDate.JSON_PROPERTY_IOT_DEVICE_SUM,
+  UsageSummaryDate.JSON_PROPERTY_IOT_DEVICE_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ANDROID_SUM,
   UsageSummaryDate.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_IOS_SUM,
   UsageSummaryDate.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_NETFLOW_INDEXED_EVENTS_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_NPM_HOST_TOP99P,
-  UsageSummaryDate.JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P_SUM,
+  UsageSummaryDate.JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_ORGS,
   UsageSummaryDate.JSON_PROPERTY_PROFILING_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_RUM_SESSION_COUNT_SUM,
@@ -63,7 +63,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   UsageSummaryDate.JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_SYNTHETICS_CHECK_CALLS_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_TRACE_SEARCH_INDEXED_EVENTS_COUNT_SUM,
-  UsageSummaryDate.JSON_PROPERTY_TWOL_INGESTED_EVENTS_BYTES_SUM
+  UsageSummaryDate.JSON_PROPERTY_TWOL_INGESTED_EVENTS_BYTES_SUM,
+  UsageSummaryDate.JSON_PROPERTY_VSPHERE_HOST_TOP99P
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageSummaryDate {
@@ -122,8 +123,8 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_GCP_HOST_TOP99P = "gcp_host_top99p";
   private Long gcpHostTop99p;
 
-  public static final String JSON_PROPERTY_HEROKU_HOST_TOP99P_SUM = "heroku_host_top99p_sum";
-  private Long herokuHostTop99pSum;
+  public static final String JSON_PROPERTY_HEROKU_HOST_TOP99P = "heroku_host_top99p";
+  private Long herokuHostTop99p;
 
   public static final String JSON_PROPERTY_INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_HWM =
       "incident_management_monthly_active_users_hwm";
@@ -138,11 +139,11 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_INGESTED_EVENTS_BYTES_SUM = "ingested_events_bytes_sum";
   private Long ingestedEventsBytesSum;
 
-  public static final String JSON_PROPERTY_IOT_DEVICE_AGG_SUM = "iot_device_agg_sum";
-  private Long iotDeviceAggSum;
+  public static final String JSON_PROPERTY_IOT_DEVICE_SUM = "iot_device_sum";
+  private Long iotDeviceSum;
 
-  public static final String JSON_PROPERTY_IOT_DEVICE_TOP99P_SUM = "iot_device_top99p_sum";
-  private Long iotDeviceTop99pSum;
+  public static final String JSON_PROPERTY_IOT_DEVICE_TOP99P = "iot_device_top99p";
+  private Long iotDeviceTop99p;
 
   public static final String JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ANDROID_SUM =
       "mobile_rum_session_count_android_sum";
@@ -163,9 +164,8 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_NPM_HOST_TOP99P = "npm_host_top99p";
   private Long npmHostTop99p;
 
-  public static final String JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P_SUM =
-      "opentelemetry_host_top99p_sum";
-  private Long opentelemetryHostTop99pSum;
+  public static final String JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P = "opentelemetry_host_top99p";
+  private Long opentelemetryHostTop99p;
 
   public static final String JSON_PROPERTY_ORGS = "orgs";
   private List<UsageSummaryDateOrg> orgs = null;
@@ -195,6 +195,9 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_TWOL_INGESTED_EVENTS_BYTES_SUM =
       "twol_ingested_events_bytes_sum";
   private Long twolIngestedEventsBytesSum;
+
+  public static final String JSON_PROPERTY_VSPHERE_HOST_TOP99P = "vsphere_host_top99p";
+  private Long vsphereHostTop99p;
 
   public UsageSummaryDate agentHostTop99p(Long agentHostTop99p) {
     this.agentHostTop99p = agentHostTop99p;
@@ -644,8 +647,8 @@ public class UsageSummaryDate {
     this.gcpHostTop99p = gcpHostTop99p;
   }
 
-  public UsageSummaryDate herokuHostTop99pSum(Long herokuHostTop99pSum) {
-    this.herokuHostTop99pSum = herokuHostTop99pSum;
+  public UsageSummaryDate herokuHostTop99p(Long herokuHostTop99p) {
+    this.herokuHostTop99p = herokuHostTop99p;
     return this;
   }
 
@@ -653,21 +656,21 @@ public class UsageSummaryDate {
    * Shows the 99th percentile of all Heroku dynos over all hours in the current date for all
    * organizations.
    *
-   * @return herokuHostTop99pSum
+   * @return herokuHostTop99p
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
           "Shows the 99th percentile of all Heroku dynos over all hours in the current date for"
               + " all organizations.")
-  @JsonProperty(JSON_PROPERTY_HEROKU_HOST_TOP99P_SUM)
+  @JsonProperty(JSON_PROPERTY_HEROKU_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getHerokuHostTop99pSum() {
-    return herokuHostTop99pSum;
+  public Long getHerokuHostTop99p() {
+    return herokuHostTop99p;
   }
 
-  public void setHerokuHostTop99pSum(Long herokuHostTop99pSum) {
-    this.herokuHostTop99pSum = herokuHostTop99pSum;
+  public void setHerokuHostTop99p(Long herokuHostTop99p) {
+    this.herokuHostTop99p = herokuHostTop99p;
   }
 
   public UsageSummaryDate incidentManagementMonthlyActiveUsersHwm(
@@ -776,33 +779,33 @@ public class UsageSummaryDate {
     this.ingestedEventsBytesSum = ingestedEventsBytesSum;
   }
 
-  public UsageSummaryDate iotDeviceAggSum(Long iotDeviceAggSum) {
-    this.iotDeviceAggSum = iotDeviceAggSum;
+  public UsageSummaryDate iotDeviceSum(Long iotDeviceSum) {
+    this.iotDeviceSum = iotDeviceSum;
     return this;
   }
 
   /**
    * Shows the sum of all IoT devices over all hours in the current date for all organizations.
    *
-   * @return iotDeviceAggSum
+   * @return iotDeviceSum
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
           "Shows the sum of all IoT devices over all hours in the current date for all"
               + " organizations.")
-  @JsonProperty(JSON_PROPERTY_IOT_DEVICE_AGG_SUM)
+  @JsonProperty(JSON_PROPERTY_IOT_DEVICE_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getIotDeviceAggSum() {
-    return iotDeviceAggSum;
+  public Long getIotDeviceSum() {
+    return iotDeviceSum;
   }
 
-  public void setIotDeviceAggSum(Long iotDeviceAggSum) {
-    this.iotDeviceAggSum = iotDeviceAggSum;
+  public void setIotDeviceSum(Long iotDeviceSum) {
+    this.iotDeviceSum = iotDeviceSum;
   }
 
-  public UsageSummaryDate iotDeviceTop99pSum(Long iotDeviceTop99pSum) {
-    this.iotDeviceTop99pSum = iotDeviceTop99pSum;
+  public UsageSummaryDate iotDeviceTop99p(Long iotDeviceTop99p) {
+    this.iotDeviceTop99p = iotDeviceTop99p;
     return this;
   }
 
@@ -810,21 +813,21 @@ public class UsageSummaryDate {
    * Shows the 99th percentile of all IoT devices over all hours in the current date all
    * organizations.
    *
-   * @return iotDeviceTop99pSum
+   * @return iotDeviceTop99p
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
           "Shows the 99th percentile of all IoT devices over all hours in the current date all"
               + " organizations.")
-  @JsonProperty(JSON_PROPERTY_IOT_DEVICE_TOP99P_SUM)
+  @JsonProperty(JSON_PROPERTY_IOT_DEVICE_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getIotDeviceTop99pSum() {
-    return iotDeviceTop99pSum;
+  public Long getIotDeviceTop99p() {
+    return iotDeviceTop99p;
   }
 
-  public void setIotDeviceTop99pSum(Long iotDeviceTop99pSum) {
-    this.iotDeviceTop99pSum = iotDeviceTop99pSum;
+  public void setIotDeviceTop99p(Long iotDeviceTop99p) {
+    this.iotDeviceTop99p = iotDeviceTop99p;
   }
 
   public UsageSummaryDate mobileRumSessionCountAndroidSum(Long mobileRumSessionCountAndroidSum) {
@@ -957,8 +960,8 @@ public class UsageSummaryDate {
     this.npmHostTop99p = npmHostTop99p;
   }
 
-  public UsageSummaryDate opentelemetryHostTop99pSum(Long opentelemetryHostTop99pSum) {
-    this.opentelemetryHostTop99pSum = opentelemetryHostTop99pSum;
+  public UsageSummaryDate opentelemetryHostTop99p(Long opentelemetryHostTop99p) {
+    this.opentelemetryHostTop99p = opentelemetryHostTop99p;
     return this;
   }
 
@@ -966,7 +969,7 @@ public class UsageSummaryDate {
    * Shows the 99th percentile of all hosts reported by the Datadog exporter for the OpenTelemetry
    * Collector over all hours in the current date for all organizations.
    *
-   * @return opentelemetryHostTop99pSum
+   * @return opentelemetryHostTop99p
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
@@ -974,14 +977,14 @@ public class UsageSummaryDate {
           "Shows the 99th percentile of all hosts reported by the Datadog exporter for the"
               + " OpenTelemetry Collector over all hours in the current date for all"
               + " organizations.")
-  @JsonProperty(JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P_SUM)
+  @JsonProperty(JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getOpentelemetryHostTop99pSum() {
-    return opentelemetryHostTop99pSum;
+  public Long getOpentelemetryHostTop99p() {
+    return opentelemetryHostTop99p;
   }
 
-  public void setOpentelemetryHostTop99pSum(Long opentelemetryHostTop99pSum) {
-    this.opentelemetryHostTop99pSum = opentelemetryHostTop99pSum;
+  public void setOpentelemetryHostTop99p(Long opentelemetryHostTop99p) {
+    this.opentelemetryHostTop99p = opentelemetryHostTop99p;
   }
 
   public UsageSummaryDate orgs(List<UsageSummaryDateOrg> orgs) {
@@ -1197,6 +1200,32 @@ public class UsageSummaryDate {
     this.twolIngestedEventsBytesSum = twolIngestedEventsBytesSum;
   }
 
+  public UsageSummaryDate vsphereHostTop99p(Long vsphereHostTop99p) {
+    this.vsphereHostTop99p = vsphereHostTop99p;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all vSphere hosts over all hours in the current date for all
+   * organizations.
+   *
+   * @return vsphereHostTop99p
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the 99th percentile of all vSphere hosts over all hours in the current date for"
+              + " all organizations.")
+  @JsonProperty(JSON_PROPERTY_VSPHERE_HOST_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getVsphereHostTop99p() {
+    return vsphereHostTop99p;
+  }
+
+  public void setVsphereHostTop99p(Long vsphereHostTop99p) {
+    this.vsphereHostTop99p = vsphereHostTop99p;
+  }
+
   /** Return true if this UsageSummaryDate object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -1226,15 +1255,15 @@ public class UsageSummaryDate {
         && Objects.equals(this.fargateTasksCountAvg, usageSummaryDate.fargateTasksCountAvg)
         && Objects.equals(this.fargateTasksCountHwm, usageSummaryDate.fargateTasksCountHwm)
         && Objects.equals(this.gcpHostTop99p, usageSummaryDate.gcpHostTop99p)
-        && Objects.equals(this.herokuHostTop99pSum, usageSummaryDate.herokuHostTop99pSum)
+        && Objects.equals(this.herokuHostTop99p, usageSummaryDate.herokuHostTop99p)
         && Objects.equals(
             this.incidentManagementMonthlyActiveUsersHwm,
             usageSummaryDate.incidentManagementMonthlyActiveUsersHwm)
         && Objects.equals(this.indexedEventsCountSum, usageSummaryDate.indexedEventsCountSum)
         && Objects.equals(this.infraHostTop99p, usageSummaryDate.infraHostTop99p)
         && Objects.equals(this.ingestedEventsBytesSum, usageSummaryDate.ingestedEventsBytesSum)
-        && Objects.equals(this.iotDeviceAggSum, usageSummaryDate.iotDeviceAggSum)
-        && Objects.equals(this.iotDeviceTop99pSum, usageSummaryDate.iotDeviceTop99pSum)
+        && Objects.equals(this.iotDeviceSum, usageSummaryDate.iotDeviceSum)
+        && Objects.equals(this.iotDeviceTop99p, usageSummaryDate.iotDeviceTop99p)
         && Objects.equals(
             this.mobileRumSessionCountAndroidSum, usageSummaryDate.mobileRumSessionCountAndroidSum)
         && Objects.equals(
@@ -1243,8 +1272,7 @@ public class UsageSummaryDate {
         && Objects.equals(
             this.netflowIndexedEventsCountSum, usageSummaryDate.netflowIndexedEventsCountSum)
         && Objects.equals(this.npmHostTop99p, usageSummaryDate.npmHostTop99p)
-        && Objects.equals(
-            this.opentelemetryHostTop99pSum, usageSummaryDate.opentelemetryHostTop99pSum)
+        && Objects.equals(this.opentelemetryHostTop99p, usageSummaryDate.opentelemetryHostTop99p)
         && Objects.equals(this.orgs, usageSummaryDate.orgs)
         && Objects.equals(this.profilingHostTop99p, usageSummaryDate.profilingHostTop99p)
         && Objects.equals(this.rumSessionCountSum, usageSummaryDate.rumSessionCountSum)
@@ -1258,7 +1286,8 @@ public class UsageSummaryDate {
             this.traceSearchIndexedEventsCountSum,
             usageSummaryDate.traceSearchIndexedEventsCountSum)
         && Objects.equals(
-            this.twolIngestedEventsBytesSum, usageSummaryDate.twolIngestedEventsBytesSum);
+            this.twolIngestedEventsBytesSum, usageSummaryDate.twolIngestedEventsBytesSum)
+        && Objects.equals(this.vsphereHostTop99p, usageSummaryDate.vsphereHostTop99p);
   }
 
   @Override
@@ -1281,19 +1310,19 @@ public class UsageSummaryDate {
         fargateTasksCountAvg,
         fargateTasksCountHwm,
         gcpHostTop99p,
-        herokuHostTop99pSum,
+        herokuHostTop99p,
         incidentManagementMonthlyActiveUsersHwm,
         indexedEventsCountSum,
         infraHostTop99p,
         ingestedEventsBytesSum,
-        iotDeviceAggSum,
-        iotDeviceTop99pSum,
+        iotDeviceSum,
+        iotDeviceTop99p,
         mobileRumSessionCountAndroidSum,
         mobileRumSessionCountIosSum,
         mobileRumSessionCountSum,
         netflowIndexedEventsCountSum,
         npmHostTop99p,
-        opentelemetryHostTop99pSum,
+        opentelemetryHostTop99p,
         orgs,
         profilingHostTop99p,
         rumSessionCountSum,
@@ -1301,7 +1330,8 @@ public class UsageSummaryDate {
         syntheticsBrowserCheckCallsCountSum,
         syntheticsCheckCallsCountSum,
         traceSearchIndexedEventsCountSum,
-        twolIngestedEventsBytesSum);
+        twolIngestedEventsBytesSum,
+        vsphereHostTop99p);
   }
 
   @Override
@@ -1341,9 +1371,7 @@ public class UsageSummaryDate {
         .append(toIndentedString(fargateTasksCountHwm))
         .append("\n");
     sb.append("    gcpHostTop99p: ").append(toIndentedString(gcpHostTop99p)).append("\n");
-    sb.append("    herokuHostTop99pSum: ")
-        .append(toIndentedString(herokuHostTop99pSum))
-        .append("\n");
+    sb.append("    herokuHostTop99p: ").append(toIndentedString(herokuHostTop99p)).append("\n");
     sb.append("    incidentManagementMonthlyActiveUsersHwm: ")
         .append(toIndentedString(incidentManagementMonthlyActiveUsersHwm))
         .append("\n");
@@ -1354,8 +1382,8 @@ public class UsageSummaryDate {
     sb.append("    ingestedEventsBytesSum: ")
         .append(toIndentedString(ingestedEventsBytesSum))
         .append("\n");
-    sb.append("    iotDeviceAggSum: ").append(toIndentedString(iotDeviceAggSum)).append("\n");
-    sb.append("    iotDeviceTop99pSum: ").append(toIndentedString(iotDeviceTop99pSum)).append("\n");
+    sb.append("    iotDeviceSum: ").append(toIndentedString(iotDeviceSum)).append("\n");
+    sb.append("    iotDeviceTop99p: ").append(toIndentedString(iotDeviceTop99p)).append("\n");
     sb.append("    mobileRumSessionCountAndroidSum: ")
         .append(toIndentedString(mobileRumSessionCountAndroidSum))
         .append("\n");
@@ -1369,8 +1397,8 @@ public class UsageSummaryDate {
         .append(toIndentedString(netflowIndexedEventsCountSum))
         .append("\n");
     sb.append("    npmHostTop99p: ").append(toIndentedString(npmHostTop99p)).append("\n");
-    sb.append("    opentelemetryHostTop99pSum: ")
-        .append(toIndentedString(opentelemetryHostTop99pSum))
+    sb.append("    opentelemetryHostTop99p: ")
+        .append(toIndentedString(opentelemetryHostTop99p))
         .append("\n");
     sb.append("    orgs: ").append(toIndentedString(orgs)).append("\n");
     sb.append("    profilingHostTop99p: ")
@@ -1392,6 +1420,7 @@ public class UsageSummaryDate {
     sb.append("    twolIngestedEventsBytesSum: ")
         .append(toIndentedString(twolIngestedEventsBytesSum))
         .append("\n");
+    sb.append("    vsphereHostTop99p: ").append(toIndentedString(vsphereHostTop99p)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **hour** | **OffsetDateTime** | The hour for the usage. |  [optional]
 **infraAzureAppService** | **Long** | Contains the total number of hosts that reported via the Azure App Services integration (and were NOT running the Datadog Agent). |  [optional]
 **opentelemetryHostCount** | **Long** | Contains the total number of hosts reported by Datadog exporter for the OpenTelemetry Collector. |  [optional]
+**vsphereHostCount** | **Long** | Contains the total number of hosts that reported via vSphere integration (and were NOT running the Datadog Agent). |  [optional]
 
 
 
