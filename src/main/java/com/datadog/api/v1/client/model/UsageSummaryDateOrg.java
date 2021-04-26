@@ -61,7 +61,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   UsageSummaryDateOrg.JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_SYNTHETICS_CHECK_CALLS_COUNT_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_TRACE_SEARCH_INDEXED_EVENTS_COUNT_SUM,
-  UsageSummaryDateOrg.JSON_PROPERTY_TWOL_INGESTED_EVENTS_BYTES_SUM
+  UsageSummaryDateOrg.JSON_PROPERTY_TWOL_INGESTED_EVENTS_BYTES_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_VSPHERE_HOST_TOP99P
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageSummaryDateOrg {
@@ -195,6 +196,9 @@ public class UsageSummaryDateOrg {
   public static final String JSON_PROPERTY_TWOL_INGESTED_EVENTS_BYTES_SUM =
       "twol_ingested_events_bytes_sum";
   private Long twolIngestedEventsBytesSum;
+
+  public static final String JSON_PROPERTY_VSPHERE_HOST_TOP99P = "vsphere_host_top99p";
+  private Long vsphereHostTop99p;
 
   public UsageSummaryDateOrg agentHostTop99p(Long agentHostTop99p) {
     this.agentHostTop99p = agentHostTop99p;
@@ -1200,6 +1204,32 @@ public class UsageSummaryDateOrg {
     this.twolIngestedEventsBytesSum = twolIngestedEventsBytesSum;
   }
 
+  public UsageSummaryDateOrg vsphereHostTop99p(Long vsphereHostTop99p) {
+    this.vsphereHostTop99p = vsphereHostTop99p;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all vSphere hosts over all hours in the current date for the given
+   * org.
+   *
+   * @return vsphereHostTop99p
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the 99th percentile of all vSphere hosts over all hours in the current date for"
+              + " the given org.")
+  @JsonProperty(JSON_PROPERTY_VSPHERE_HOST_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getVsphereHostTop99p() {
+    return vsphereHostTop99p;
+  }
+
+  public void setVsphereHostTop99p(Long vsphereHostTop99p) {
+    this.vsphereHostTop99p = vsphereHostTop99p;
+  }
+
   /** Return true if this UsageSummaryDateOrg object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -1264,7 +1294,8 @@ public class UsageSummaryDateOrg {
             this.traceSearchIndexedEventsCountSum,
             usageSummaryDateOrg.traceSearchIndexedEventsCountSum)
         && Objects.equals(
-            this.twolIngestedEventsBytesSum, usageSummaryDateOrg.twolIngestedEventsBytesSum);
+            this.twolIngestedEventsBytesSum, usageSummaryDateOrg.twolIngestedEventsBytesSum)
+        && Objects.equals(this.vsphereHostTop99p, usageSummaryDateOrg.vsphereHostTop99p);
   }
 
   @Override
@@ -1308,7 +1339,8 @@ public class UsageSummaryDateOrg {
         syntheticsBrowserCheckCallsCountSum,
         syntheticsCheckCallsCountSum,
         traceSearchIndexedEventsCountSum,
-        twolIngestedEventsBytesSum);
+        twolIngestedEventsBytesSum,
+        vsphereHostTop99p);
   }
 
   @Override
@@ -1398,6 +1430,7 @@ public class UsageSummaryDateOrg {
     sb.append("    twolIngestedEventsBytesSum: ")
         .append(toIndentedString(twolIngestedEventsBytesSum))
         .append("\n");
+    sb.append("    vsphereHostTop99p: ").append(toIndentedString(vsphereHostTop99p)).append("\n");
     sb.append("}");
     return sb.toString();
   }

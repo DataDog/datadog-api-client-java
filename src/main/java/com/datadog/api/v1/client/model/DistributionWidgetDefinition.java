@@ -31,18 +31,24 @@ import java.util.Objects;
             + " quantity rather than time.")
 @JsonPropertyOrder({
   DistributionWidgetDefinition.JSON_PROPERTY_LEGEND_SIZE,
+  DistributionWidgetDefinition.JSON_PROPERTY_MARKERS,
   DistributionWidgetDefinition.JSON_PROPERTY_REQUESTS,
   DistributionWidgetDefinition.JSON_PROPERTY_SHOW_LEGEND,
   DistributionWidgetDefinition.JSON_PROPERTY_TIME,
   DistributionWidgetDefinition.JSON_PROPERTY_TITLE,
   DistributionWidgetDefinition.JSON_PROPERTY_TITLE_ALIGN,
   DistributionWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
-  DistributionWidgetDefinition.JSON_PROPERTY_TYPE
+  DistributionWidgetDefinition.JSON_PROPERTY_TYPE,
+  DistributionWidgetDefinition.JSON_PROPERTY_XAXIS,
+  DistributionWidgetDefinition.JSON_PROPERTY_YAXIS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DistributionWidgetDefinition {
   public static final String JSON_PROPERTY_LEGEND_SIZE = "legend_size";
   private String legendSize;
+
+  public static final String JSON_PROPERTY_MARKERS = "markers";
+  private List<WidgetMarker> markers = null;
 
   public static final String JSON_PROPERTY_REQUESTS = "requests";
   private List<DistributionWidgetRequest> requests = new ArrayList<>();
@@ -65,22 +71,24 @@ public class DistributionWidgetDefinition {
   public static final String JSON_PROPERTY_TYPE = "type";
   private DistributionWidgetDefinitionType type = DistributionWidgetDefinitionType.DISTRIBUTION;
 
+  public static final String JSON_PROPERTY_XAXIS = "xaxis";
+  private DistributionWidgetXAxis xaxis;
+
+  public static final String JSON_PROPERTY_YAXIS = "yaxis";
+  private DistributionWidgetYAxis yaxis;
+
   public DistributionWidgetDefinition legendSize(String legendSize) {
     this.legendSize = legendSize;
     return this;
   }
 
   /**
-   * Available legend sizes for a widget. Should be one of \&quot;0\&quot;, \&quot;2\&quot;,
-   * \&quot;4\&quot;, \&quot;8\&quot;, \&quot;16\&quot;, or \&quot;auto\&quot;.
+   * (Deprecated) The widget legend was replaced by a tooltip and sidebar.
    *
    * @return legendSize
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Available legend sizes for a widget. Should be one of \"0\", \"2\", \"4\", \"8\","
-              + " \"16\", or \"auto\".")
+  @ApiModelProperty(value = "(Deprecated) The widget legend was replaced by a tooltip and sidebar.")
   @JsonProperty(JSON_PROPERTY_LEGEND_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getLegendSize() {
@@ -89,6 +97,36 @@ public class DistributionWidgetDefinition {
 
   public void setLegendSize(String legendSize) {
     this.legendSize = legendSize;
+  }
+
+  public DistributionWidgetDefinition markers(List<WidgetMarker> markers) {
+    this.markers = markers;
+    return this;
+  }
+
+  public DistributionWidgetDefinition addMarkersItem(WidgetMarker markersItem) {
+    if (this.markers == null) {
+      this.markers = new ArrayList<>();
+    }
+    this.markers.add(markersItem);
+    return this;
+  }
+
+  /**
+   * List of markers.
+   *
+   * @return markers
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of markers.")
+  @JsonProperty(JSON_PROPERTY_MARKERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<WidgetMarker> getMarkers() {
+    return markers;
+  }
+
+  public void setMarkers(List<WidgetMarker> markers) {
+    this.markers = markers;
   }
 
   public DistributionWidgetDefinition requests(List<DistributionWidgetRequest> requests) {
@@ -132,12 +170,12 @@ public class DistributionWidgetDefinition {
   }
 
   /**
-   * Whether or not to display the legend on this widget.
+   * (Deprecated) The widget legend was replaced by a tooltip and sidebar.
    *
    * @return showLegend
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether or not to display the legend on this widget.")
+  @ApiModelProperty(value = "(Deprecated) The widget legend was replaced by a tooltip and sidebar.")
   @JsonProperty(JSON_PROPERTY_SHOW_LEGEND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getShowLegend() {
@@ -257,6 +295,50 @@ public class DistributionWidgetDefinition {
     this.type = type;
   }
 
+  public DistributionWidgetDefinition xaxis(DistributionWidgetXAxis xaxis) {
+    this.xaxis = xaxis;
+    return this;
+  }
+
+  /**
+   * Get xaxis
+   *
+   * @return xaxis
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_XAXIS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public DistributionWidgetXAxis getXaxis() {
+    return xaxis;
+  }
+
+  public void setXaxis(DistributionWidgetXAxis xaxis) {
+    this.xaxis = xaxis;
+  }
+
+  public DistributionWidgetDefinition yaxis(DistributionWidgetYAxis yaxis) {
+    this.yaxis = yaxis;
+    return this;
+  }
+
+  /**
+   * Get yaxis
+   *
+   * @return yaxis
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_YAXIS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public DistributionWidgetYAxis getYaxis() {
+    return yaxis;
+  }
+
+  public void setYaxis(DistributionWidgetYAxis yaxis) {
+    this.yaxis = yaxis;
+  }
+
   /** Return true if this DistributionWidgetDefinition object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -268,18 +350,32 @@ public class DistributionWidgetDefinition {
     }
     DistributionWidgetDefinition distributionWidgetDefinition = (DistributionWidgetDefinition) o;
     return Objects.equals(this.legendSize, distributionWidgetDefinition.legendSize)
+        && Objects.equals(this.markers, distributionWidgetDefinition.markers)
         && Objects.equals(this.requests, distributionWidgetDefinition.requests)
         && Objects.equals(this.showLegend, distributionWidgetDefinition.showLegend)
         && Objects.equals(this.time, distributionWidgetDefinition.time)
         && Objects.equals(this.title, distributionWidgetDefinition.title)
         && Objects.equals(this.titleAlign, distributionWidgetDefinition.titleAlign)
         && Objects.equals(this.titleSize, distributionWidgetDefinition.titleSize)
-        && Objects.equals(this.type, distributionWidgetDefinition.type);
+        && Objects.equals(this.type, distributionWidgetDefinition.type)
+        && Objects.equals(this.xaxis, distributionWidgetDefinition.xaxis)
+        && Objects.equals(this.yaxis, distributionWidgetDefinition.yaxis);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(legendSize, requests, showLegend, time, title, titleAlign, titleSize, type);
+    return Objects.hash(
+        legendSize,
+        markers,
+        requests,
+        showLegend,
+        time,
+        title,
+        titleAlign,
+        titleSize,
+        type,
+        xaxis,
+        yaxis);
   }
 
   @Override
@@ -287,6 +383,7 @@ public class DistributionWidgetDefinition {
     StringBuilder sb = new StringBuilder();
     sb.append("class DistributionWidgetDefinition {\n");
     sb.append("    legendSize: ").append(toIndentedString(legendSize)).append("\n");
+    sb.append("    markers: ").append(toIndentedString(markers)).append("\n");
     sb.append("    requests: ").append(toIndentedString(requests)).append("\n");
     sb.append("    showLegend: ").append(toIndentedString(showLegend)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");
@@ -294,6 +391,8 @@ public class DistributionWidgetDefinition {
     sb.append("    titleAlign: ").append(toIndentedString(titleAlign)).append("\n");
     sb.append("    titleSize: ").append(toIndentedString(titleSize)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    xaxis: ").append(toIndentedString(xaxis)).append("\n");
+    sb.append("    yaxis: ").append(toIndentedString(yaxis)).append("\n");
     sb.append("}");
     return sb.toString();
   }

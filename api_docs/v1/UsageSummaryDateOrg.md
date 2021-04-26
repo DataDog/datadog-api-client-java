@@ -47,6 +47,7 @@ Name | Type | Description | Notes
 **syntheticsCheckCallsCountSum** | **Long** | Shows the sum of all Synthetic API tests over all hours in the current date for the given org. |  [optional]
 **traceSearchIndexedEventsCountSum** | **Long** | Shows the sum of all Indexed Spans indexed over all hours in the current date for the given org. |  [optional]
 **twolIngestedEventsBytesSum** | **Long** | Shows the sum of all tracing without limits bytes ingested over all hours in the current date for the given org. |  [optional]
+**vsphereHostTop99p** | **Long** | Shows the 99th percentile of all vSphere hosts over all hours in the current date for the given org. |  [optional]
 
 
 

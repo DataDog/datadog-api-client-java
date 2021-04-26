@@ -46,6 +46,7 @@ public class WidgetMarker {
 
   /**
    * Combination of: - A severity error, warning, ok, or info - A line type: dashed, solid, or bold
+   * In this case of a Distribution widget, this can be set to be &#x60;x_axis_percentile&#x60;.
    *
    * @return displayType
    */
@@ -54,7 +55,8 @@ public class WidgetMarker {
       example = "error dashed",
       value =
           "Combination of:   - A severity error, warning, ok, or info   - A line type: dashed,"
-              + " solid, or bold ")
+              + " solid, or bold In this case of a Distribution widget, this can be set to be"
+              + " `x_axis_percentile`. ")
   @JsonProperty(JSON_PROPERTY_DISPLAY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getDisplayType() {

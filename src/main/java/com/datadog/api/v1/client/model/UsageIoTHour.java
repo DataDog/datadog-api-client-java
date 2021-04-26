@@ -57,16 +57,12 @@ public class UsageIoTHour {
   }
 
   /**
-   * The total number of IoT device hours from the start of the given hour&#39;s month until the
-   * given hour.
+   * The total number of IoT devices during a given hour.
    *
    * @return iotDeviceCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "The total number of IoT device hours from the start of the given hour's month until the"
-              + " given hour.")
+  @ApiModelProperty(value = "The total number of IoT devices during a given hour.")
   @JsonProperty(JSON_PROPERTY_IOT_DEVICE_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getIotDeviceCount() {
