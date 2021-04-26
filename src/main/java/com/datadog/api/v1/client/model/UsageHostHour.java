@@ -34,7 +34,8 @@ import java.util.Objects;
   UsageHostHour.JSON_PROPERTY_HOST_COUNT,
   UsageHostHour.JSON_PROPERTY_HOUR,
   UsageHostHour.JSON_PROPERTY_INFRA_AZURE_APP_SERVICE,
-  UsageHostHour.JSON_PROPERTY_OPENTELEMETRY_HOST_COUNT
+  UsageHostHour.JSON_PROPERTY_OPENTELEMETRY_HOST_COUNT,
+  UsageHostHour.JSON_PROPERTY_VSPHERE_HOST_COUNT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageHostHour {
@@ -77,6 +78,9 @@ public class UsageHostHour {
 
   public static final String JSON_PROPERTY_OPENTELEMETRY_HOST_COUNT = "opentelemetry_host_count";
   private Long opentelemetryHostCount;
+
+  public static final String JSON_PROPERTY_VSPHERE_HOST_COUNT = "vsphere_host_count";
+  private Long vsphereHostCount;
 
   public UsageHostHour agentHostCount(Long agentHostCount) {
     this.agentHostCount = agentHostCount;
@@ -406,6 +410,32 @@ public class UsageHostHour {
     this.opentelemetryHostCount = opentelemetryHostCount;
   }
 
+  public UsageHostHour vsphereHostCount(Long vsphereHostCount) {
+    this.vsphereHostCount = vsphereHostCount;
+    return this;
+  }
+
+  /**
+   * Contains the total number of hosts that reported via vSphere integration (and were NOT running
+   * the Datadog Agent).
+   *
+   * @return vsphereHostCount
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Contains the total number of hosts that reported via vSphere integration (and were NOT"
+              + " running the Datadog Agent).")
+  @JsonProperty(JSON_PROPERTY_VSPHERE_HOST_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getVsphereHostCount() {
+    return vsphereHostCount;
+  }
+
+  public void setVsphereHostCount(Long vsphereHostCount) {
+    this.vsphereHostCount = vsphereHostCount;
+  }
+
   /** Return true if this UsageHostHour object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -429,7 +459,8 @@ public class UsageHostHour {
         && Objects.equals(this.hostCount, usageHostHour.hostCount)
         && Objects.equals(this.hour, usageHostHour.hour)
         && Objects.equals(this.infraAzureAppService, usageHostHour.infraAzureAppService)
-        && Objects.equals(this.opentelemetryHostCount, usageHostHour.opentelemetryHostCount);
+        && Objects.equals(this.opentelemetryHostCount, usageHostHour.opentelemetryHostCount)
+        && Objects.equals(this.vsphereHostCount, usageHostHour.vsphereHostCount);
   }
 
   @Override
@@ -447,7 +478,8 @@ public class UsageHostHour {
         hostCount,
         hour,
         infraAzureAppService,
-        opentelemetryHostCount);
+        opentelemetryHostCount,
+        vsphereHostCount);
   }
 
   @Override
@@ -473,6 +505,7 @@ public class UsageHostHour {
     sb.append("    opentelemetryHostCount: ")
         .append(toIndentedString(opentelemetryHostCount))
         .append("\n");
+    sb.append("    vsphereHostCount: ").append(toIndentedString(vsphereHostCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }
