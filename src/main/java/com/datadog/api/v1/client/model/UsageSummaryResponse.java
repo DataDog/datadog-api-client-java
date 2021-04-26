@@ -71,7 +71,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   UsageSummaryResponse.JSON_PROPERTY_SYNTHETICS_CHECK_CALLS_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_TRACE_SEARCH_INDEXED_EVENTS_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_TWOL_INGESTED_EVENTS_BYTES_AGG_SUM,
-  UsageSummaryResponse.JSON_PROPERTY_USAGE
+  UsageSummaryResponse.JSON_PROPERTY_USAGE,
+  UsageSummaryResponse.JSON_PROPERTY_VSPHERE_HOST_TOP99P_SUM
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageSummaryResponse {
@@ -238,6 +239,9 @@ public class UsageSummaryResponse {
 
   public static final String JSON_PROPERTY_USAGE = "usage";
   private List<UsageSummaryDate> usage = null;
+
+  public static final String JSON_PROPERTY_VSPHERE_HOST_TOP99P_SUM = "vsphere_host_top99p_sum";
+  private Long vsphereHostTop99pSum;
 
   public UsageSummaryResponse agentHostTop99pSum(Long agentHostTop99pSum) {
     this.agentHostTop99pSum = agentHostTop99pSum;
@@ -1454,6 +1458,32 @@ public class UsageSummaryResponse {
     this.usage = usage;
   }
 
+  public UsageSummaryResponse vsphereHostTop99pSum(Long vsphereHostTop99pSum) {
+    this.vsphereHostTop99pSum = vsphereHostTop99pSum;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all vSphere hosts over all hours in the current months for all
+   * organizations.
+   *
+   * @return vsphereHostTop99pSum
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the 99th percentile of all vSphere hosts over all hours in the current months for"
+              + " all organizations.")
+  @JsonProperty(JSON_PROPERTY_VSPHERE_HOST_TOP99P_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getVsphereHostTop99pSum() {
+    return vsphereHostTop99pSum;
+  }
+
+  public void setVsphereHostTop99pSum(Long vsphereHostTop99pSum) {
+    this.vsphereHostTop99pSum = vsphereHostTop99pSum;
+  }
+
   /** Return true if this UsageSummaryResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -1544,7 +1574,8 @@ public class UsageSummaryResponse {
             usageSummaryResponse.traceSearchIndexedEventsCountAggSum)
         && Objects.equals(
             this.twolIngestedEventsBytesAggSum, usageSummaryResponse.twolIngestedEventsBytesAggSum)
-        && Objects.equals(this.usage, usageSummaryResponse.usage);
+        && Objects.equals(this.usage, usageSummaryResponse.usage)
+        && Objects.equals(this.vsphereHostTop99pSum, usageSummaryResponse.vsphereHostTop99pSum);
   }
 
   @Override
@@ -1595,7 +1626,8 @@ public class UsageSummaryResponse {
         syntheticsCheckCallsCountAggSum,
         traceSearchIndexedEventsCountAggSum,
         twolIngestedEventsBytesAggSum,
-        usage);
+        usage,
+        vsphereHostTop99pSum);
   }
 
   @Override
@@ -1706,6 +1738,9 @@ public class UsageSummaryResponse {
         .append(toIndentedString(twolIngestedEventsBytesAggSum))
         .append("\n");
     sb.append("    usage: ").append(toIndentedString(usage)).append("\n");
+    sb.append("    vsphereHostTop99pSum: ")
+        .append(toIndentedString(vsphereHostTop99pSum))
+        .append("\n");
     sb.append("}");
     return sb.toString();
   }
