@@ -46,10 +46,10 @@ public class MonitorsApiTest extends V1ApiTest {
   private final String fixturePrefix = "v1/client/api/monitors_fixtures";
   private final String apiUri = "/api/v1/monitor";
 
-  private SyntheticsTestDetails apiTestConfig =
-      new SyntheticsTestDetails()
+  private SyntheticsAPITest apiTestConfig =
+      new SyntheticsAPITest()
           .config(
-              new SyntheticsTestConfig()
+              new SyntheticsAPITestConfig()
                   .assertions(
                       Arrays.asList(
                           new SyntheticsAssertion(
@@ -87,7 +87,7 @@ public class MonitorsApiTest extends V1ApiTest {
                   .tickEvery(SyntheticsTickInterval.MINUTE))
           .subtype(SyntheticsTestDetailsSubType.HTTP)
           .tags(Arrays.asList("testing:api"))
-          .type(SyntheticsTestDetailsType.API);
+          .type(SyntheticsAPITestType.API);
 
   // ObjectMapper instance configure to not fail when encountering unknown properties
   private static ObjectMapper objectMapper =
@@ -242,10 +242,10 @@ public class MonitorsApiTest extends V1ApiTest {
   @Test
   public void monitorGetSyntheticsTest() throws ApiException {
     // Create a synthetics API test to retrieve its corresponding monitor via GetMonitor
-    SyntheticsTestDetails synt;
+    SyntheticsAPITest synt;
     String apiTestName = getUniqueEntityName();
     apiTestConfig.setName(apiTestName);
-    synt = syntheticsApi.createTest(apiTestConfig);
+    synt = syntheticsApi.createSyntheticsAPITest(apiTestConfig);
 
     // Retrieve the corresponding synthetics test monitor
     Monitor obtained = api.getMonitor(synt.getMonitorId());
