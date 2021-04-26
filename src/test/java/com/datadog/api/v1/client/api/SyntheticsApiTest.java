@@ -714,7 +714,8 @@ public class SyntheticsApiTest extends V1ApiTest {
   public void createTestSynthetics402ErrorTest() throws IOException {
     String fixtureData = TestUtils.getFixture(fixturePrefix + "/error_402.json");
     stubFor(
-        post(urlPathEqualTo(apiUri + "/tests/api")).willReturn(okJson(fixtureData).withStatus(402)));
+        post(urlPathEqualTo(apiUri + "/tests/api"))
+            .willReturn(okJson(fixtureData).withStatus(402)));
 
     try {
       unitApi.createSyntheticsAPITest(new SyntheticsAPITest());
