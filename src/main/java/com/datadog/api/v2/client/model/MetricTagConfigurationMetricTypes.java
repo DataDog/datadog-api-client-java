@@ -20,6 +20,8 @@ public enum MetricTagConfigurationMetricTypes {
 
   COUNT("count"),
 
+  RATE("rate"),
+
   DISTRIBUTION("distribution");
 
   private String value;
