@@ -34,7 +34,15 @@ public enum SyntheticsAssertionType {
 
   TLS_VERSION("tlsVersion"),
 
-  MIN_TLS_VERSION("minTlsVersion");
+  MIN_TLS_VERSION("minTlsVersion"),
+
+  LATENCY("latency"),
+
+  PACKET_LOSS_PERCENTAGE("packetLossPercentage"),
+
+  PACKETS_RECEIVED("packetsReceived"),
+
+  NETWORK_HOP("networkHop");
 
   private String value;
 

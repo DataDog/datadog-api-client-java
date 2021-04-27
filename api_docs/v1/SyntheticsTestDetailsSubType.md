@@ -15,5 +15,7 @@
 
 * `MULTI` (value: `"multi"`)
 
+* `ICMP` (value: `"icmp"`)
+
 
 

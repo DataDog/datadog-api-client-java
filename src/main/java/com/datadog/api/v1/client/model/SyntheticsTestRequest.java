@@ -30,8 +30,10 @@ import java.util.Objects;
   SyntheticsTestRequest.JSON_PROPERTY_HOST,
   SyntheticsTestRequest.JSON_PROPERTY_METHOD,
   SyntheticsTestRequest.JSON_PROPERTY_NO_SAVING_RESPONSE_BODY,
+  SyntheticsTestRequest.JSON_PROPERTY_NUMBER_OF_PACKETS,
   SyntheticsTestRequest.JSON_PROPERTY_PORT,
   SyntheticsTestRequest.JSON_PROPERTY_QUERY,
+  SyntheticsTestRequest.JSON_PROPERTY_SHOULD_TRACK_HOPS,
   SyntheticsTestRequest.JSON_PROPERTY_TIMEOUT,
   SyntheticsTestRequest.JSON_PROPERTY_URL
 })
@@ -61,11 +63,17 @@ public class SyntheticsTestRequest {
   public static final String JSON_PROPERTY_NO_SAVING_RESPONSE_BODY = "noSavingResponseBody";
   private Boolean noSavingResponseBody;
 
+  public static final String JSON_PROPERTY_NUMBER_OF_PACKETS = "numberOfPackets";
+  private Integer numberOfPackets;
+
   public static final String JSON_PROPERTY_PORT = "port";
   private Long port;
 
   public static final String JSON_PROPERTY_QUERY = "query";
   private Object query;
+
+  public static final String JSON_PROPERTY_SHOULD_TRACK_HOPS = "shouldTrackHops";
+  private Boolean shouldTrackHops;
 
   public static final String JSON_PROPERTY_TIMEOUT = "timeout";
   private Double timeout;
@@ -257,6 +265,28 @@ public class SyntheticsTestRequest {
     this.noSavingResponseBody = noSavingResponseBody;
   }
 
+  public SyntheticsTestRequest numberOfPackets(Integer numberOfPackets) {
+    this.numberOfPackets = numberOfPackets;
+    return this;
+  }
+
+  /**
+   * Number of pings to use per test. minimum: 0 maximum: 10
+   *
+   * @return numberOfPackets
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Number of pings to use per test.")
+  @JsonProperty(JSON_PROPERTY_NUMBER_OF_PACKETS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Integer getNumberOfPackets() {
+    return numberOfPackets;
+  }
+
+  public void setNumberOfPackets(Integer numberOfPackets) {
+    this.numberOfPackets = numberOfPackets;
+  }
+
   public SyntheticsTestRequest port(Long port) {
     this.port = port;
     return this;
@@ -299,6 +329,31 @@ public class SyntheticsTestRequest {
 
   public void setQuery(Object query) {
     this.query = query;
+  }
+
+  public SyntheticsTestRequest shouldTrackHops(Boolean shouldTrackHops) {
+    this.shouldTrackHops = shouldTrackHops;
+    return this;
+  }
+
+  /**
+   * Turns on a traceroute probe to discover all gateways along the path to the host destination.
+   *
+   * @return shouldTrackHops
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Turns on a traceroute probe to discover all gateways along the path to the host"
+              + " destination.")
+  @JsonProperty(JSON_PROPERTY_SHOULD_TRACK_HOPS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getShouldTrackHops() {
+    return shouldTrackHops;
+  }
+
+  public void setShouldTrackHops(Boolean shouldTrackHops) {
+    this.shouldTrackHops = shouldTrackHops;
   }
 
   public SyntheticsTestRequest timeout(Double timeout) {
@@ -363,8 +418,10 @@ public class SyntheticsTestRequest {
         && Objects.equals(this.host, syntheticsTestRequest.host)
         && Objects.equals(this.method, syntheticsTestRequest.method)
         && Objects.equals(this.noSavingResponseBody, syntheticsTestRequest.noSavingResponseBody)
+        && Objects.equals(this.numberOfPackets, syntheticsTestRequest.numberOfPackets)
         && Objects.equals(this.port, syntheticsTestRequest.port)
         && Objects.equals(this.query, syntheticsTestRequest.query)
+        && Objects.equals(this.shouldTrackHops, syntheticsTestRequest.shouldTrackHops)
         && Objects.equals(this.timeout, syntheticsTestRequest.timeout)
         && Objects.equals(this.url, syntheticsTestRequest.url);
   }
@@ -380,8 +437,10 @@ public class SyntheticsTestRequest {
         host,
         method,
         noSavingResponseBody,
+        numberOfPackets,
         port,
         query,
+        shouldTrackHops,
         timeout,
         url);
   }
@@ -400,8 +459,10 @@ public class SyntheticsTestRequest {
     sb.append("    noSavingResponseBody: ")
         .append(toIndentedString(noSavingResponseBody))
         .append("\n");
+    sb.append("    numberOfPackets: ").append(toIndentedString(numberOfPackets)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("    shouldTrackHops: ").append(toIndentedString(shouldTrackHops)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");
