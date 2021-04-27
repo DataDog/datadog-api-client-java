@@ -8,7 +8,6 @@ Method | HTTP request | Description
 [**createPrivateLocation**](SyntheticsApi.md#createPrivateLocation) | **POST** /api/v1/synthetics/private-locations | Create a private location
 [**createSyntheticsAPITest**](SyntheticsApi.md#createSyntheticsAPITest) | **POST** /api/v1/synthetics/tests/api | Create an API test
 [**createSyntheticsBrowserTest**](SyntheticsApi.md#createSyntheticsBrowserTest) | **POST** /api/v1/synthetics/tests/browser | Create a browser test
-[**createTest**](SyntheticsApi.md#createTest) | **POST** /api/v1/synthetics/tests | Create a test
 [**deleteGlobalVariable**](SyntheticsApi.md#deleteGlobalVariable) | **DELETE** /api/v1/synthetics/variables/{variable_id} | Delete a global variable
 [**deletePrivateLocation**](SyntheticsApi.md#deletePrivateLocation) | **DELETE** /api/v1/synthetics/private-locations/{location_id} | Delete a private location
 [**deleteTests**](SyntheticsApi.md#deleteTests) | **POST** /api/v1/synthetics/tests/delete | Delete tests
@@ -28,7 +27,6 @@ Method | HTTP request | Description
 [**updateAPITest**](SyntheticsApi.md#updateAPITest) | **PUT** /api/v1/synthetics/tests/api/{public_id} | Edit an API test
 [**updateBrowserTest**](SyntheticsApi.md#updateBrowserTest) | **PUT** /api/v1/synthetics/tests/browser/{public_id} | Edit a browser test
 [**updatePrivateLocation**](SyntheticsApi.md#updatePrivateLocation) | **PUT** /api/v1/synthetics/private-locations/{location_id} | Edit a private location
-[**updateTest**](SyntheticsApi.md#updateTest) | **PUT** /api/v1/synthetics/tests/{public_id} | Edit a test
 [**updateTestPauseStatus**](SyntheticsApi.md#updateTestPauseStatus) | **PUT** /api/v1/synthetics/tests/{public_id}/status | Pause or start a test
 
 
@@ -288,75 +286,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SyntheticsBrowserTest**](SyntheticsBrowserTest.md)
-
-### Authorization
-
-[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK - Returns the created test details. |  -  |
-| **400** | - JSON format is wrong - Creation failed |  -  |
-| **402** | Test quota is reached |  -  |
-| **403** | Forbidden |  -  |
-
-
-## createTest
-
-> SyntheticsTestDetails createTest(body);
-
-Create a test
-
-Create a Synthetic test.
-
-### Example
-
-```java
-// Import classes:
-import java.util.*;
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
-import com.datadog.api.v1.client.model.*;
-import com.datadog.api.v1.client.api.SyntheticsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-        SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
-        SyntheticsTestDetails body = new SyntheticsTestDetails(); // SyntheticsTestDetails | Details of the test to create.
-        try {
-            SyntheticsTestDetails result = apiInstance.createTest(body);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling SyntheticsApi#createTest");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**SyntheticsTestDetails**](SyntheticsTestDetails.md)| Details of the test to create. |
-
-### Return type
-
-[**SyntheticsTestDetails**](SyntheticsTestDetails.md)
 
 ### Authorization
 
@@ -1687,77 +1616,6 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **404** | - Private locations are not activated for the user - Private location does not exist |  -  |
-
-
-## updateTest
-
-> SyntheticsTestDetails updateTest(publicId, body);
-
-Edit a test
-
-Edit the configuration of a Synthetic test.
-
-### Example
-
-```java
-// Import classes:
-import java.util.*;
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
-import com.datadog.api.v1.client.model.*;
-import com.datadog.api.v1.client.api.SyntheticsApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-        SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
-        String publicId = "publicId_example"; // String | The public ID of the test to get details from.
-        SyntheticsTestDetails body = new SyntheticsTestDetails(); // SyntheticsTestDetails | New test details to be saved.
-        try {
-            SyntheticsTestDetails result = apiInstance.updateTest(publicId, body);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling SyntheticsApi#updateTest");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **publicId** | **String**| The public ID of the test to get details from. |
- **body** | [**SyntheticsTestDetails**](SyntheticsTestDetails.md)| New test details to be saved. |
-
-### Return type
-
-[**SyntheticsTestDetails**](SyntheticsTestDetails.md)
-
-### Authorization
-
-[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | - JSON format is wrong - Updating sub-type is forbidden |  -  |
-| **403** | Forbidden |  -  |
-| **404** | - Synthetic is not activated for the user - Test is not owned by the user - Test can&#39;t be found |  -  |
 
 
 ## updateTestPauseStatus
