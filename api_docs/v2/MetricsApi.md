@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 Create a tag configuration
 
-Create and define a list of queryable tag keys for a count/gauge/rate/distribution metric. Optionally, include percentile aggregations on any distribution metric.
+Create and define a list of queryable tag keys for an existing count/gauge/rate/distribution metric. Optionally, include percentile aggregations on any distribution metric.
 Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
 
 ### Example
@@ -284,7 +284,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **filterConfigured** | **Boolean**| Filter metrics that have configured tags. | [optional]
  **filterTagsConfigured** | **String**| Filter tag configurations by configured tags. | [optional]
- **filterMetricType** | **MetricTagConfigurationMetricTypes**| Filter tag configurations by metric type. | [optional] [enum: gauge, count, distribution]
+ **filterMetricType** | **MetricTagConfigurationMetricTypes**| Filter tag configurations by metric type. | [optional] [enum: gauge, count, rate, distribution]
  **filterIncludePercentiles** | **Boolean**| Filter distributions with additional percentile aggregations enabled or disabled. | [optional]
  **filterTags** | **String**| Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters. | [optional]
  **windowSeconds** | **Long**| The number of seconds of look back (from now) to apply to a filter[tag] query. Defaults value is 3600 (1 hour), maximum value is 172,800 (2 days). | [optional]
