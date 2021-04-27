@@ -16,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * The subtype of the Synthetic API test, &#x60;http&#x60;, &#x60;ssl&#x60;, &#x60;tcp&#x60;,
- * &#x60;dns&#x60; or &#x60;multi&#x60;.
+ * &#x60;dns&#x60;, &#x60;icmp&#x60; or &#x60;multi&#x60;.
  */
 public enum SyntheticsTestDetailsSubType {
   HTTP("http"),
@@ -27,7 +27,9 @@ public enum SyntheticsTestDetailsSubType {
 
   DNS("dns"),
 
-  MULTI("multi");
+  MULTI("multi"),
+
+  ICMP("icmp");
 
   private String value;
 
