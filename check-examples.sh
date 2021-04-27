@@ -5,7 +5,7 @@
 for f in examples/v*/*/*.java ; do
     df=$(dirname $f)/$(basename $f .java)
     mkdir -p $df
-    cp $f $df/Example.java
+    mv $f $df/Example.java
 done
 
 mvn -DskipTests -Dmaven.javadoc.skip=true clean install
