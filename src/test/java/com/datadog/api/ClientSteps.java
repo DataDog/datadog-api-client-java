@@ -156,15 +156,8 @@ public class ClientSteps {
       throws java.lang.IllegalAccessException, java.lang.NoSuchFieldException,
           java.lang.ClassNotFoundException, java.lang.NoSuchMethodException,
           java.lang.reflect.InvocationTargetException, IOException {
-    String data =
-        String.join(
-            "\n",
-            Files.readAllLines(
-                Paths.get(
-                    "src/test/resources/com/datadog/api/"
-                        + apiVersion
-                        + "/client/api/"
-                        + filename)));
+    String bodyPath = Paths.get("src/test/resources/com/datadog/api/" + apiVersion + "/client/api/" + filename);
+    String data = new String(Files.readAllBytes(bodyPath));
     world.addRequestParameter("body", data);
   }
 
