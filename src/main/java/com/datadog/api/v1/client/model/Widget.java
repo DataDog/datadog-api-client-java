@@ -18,13 +18,19 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /**
- * Information about widget. Note: The &#x60;layout&#x60; property is required for widgets in
- * dashboards with &#x60;free&#x60; &#x60;layout_type&#x60; only.
+ * Information about widget. **Note**: The &#x60;layout&#x60; property is required for widgets in
+ * dashboards with &#x60;free&#x60; &#x60;layout_type&#x60;. For the **new dashboard layout**, the
+ * &#x60;layout&#x60; property depends on the &#x60;reflow_type&#x60; of the dashboard. - If
+ * &#x60;reflow_type&#x60; is &#x60;fixed&#x60;, &#x60;layout&#x60; is required. - If
+ * &#x60;reflow_type&#x60; is &#x60;auto&#x60;, &#x60;layout&#x60; should not be set.
  */
 @ApiModel(
     description =
-        "Information about widget.  Note: The `layout` property is required for widgets in"
-            + " dashboards with `free` `layout_type` only.")
+        "Information about widget.  **Note**: The `layout` property is required for widgets in"
+            + " dashboards with `free` `layout_type`.       For the **new dashboard layout**, the"
+            + " `layout` property depends on the `reflow_type` of the dashboard.       - If"
+            + " `reflow_type` is `fixed`, `layout` is required.       - If `reflow_type` is"
+            + " `auto`, `layout` should not be set.")
 @JsonPropertyOrder({
   Widget.JSON_PROPERTY_DEFINITION,
   Widget.JSON_PROPERTY_ID,

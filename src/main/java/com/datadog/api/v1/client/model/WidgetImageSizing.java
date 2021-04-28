@@ -14,8 +14,22 @@ package com.datadog.api.v1.client.model;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/** How to size the image on the widget. */
+/**
+ * How to size the image on the widget. The values are based on the image &#x60;object-fit&#x60; CSS
+ * properties. **Note**: &#x60;zoom&#x60;, &#x60;fit&#x60; and &#x60;center&#x60; values are
+ * deprecated.
+ */
 public enum WidgetImageSizing {
+  FILL("fill"),
+
+  CONTAIN("contain"),
+
+  COVER("cover"),
+
+  NONE("none"),
+
+  SCALEDOWN("scale-down"),
+
   ZOOM("zoom"),
 
   FIT("fit"),

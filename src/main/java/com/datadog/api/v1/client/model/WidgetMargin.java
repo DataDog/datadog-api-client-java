@@ -14,8 +14,17 @@ package com.datadog.api.v1.client.model;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/** Size of the margins around the image. */
+/**
+ * Size of the margins around the image. **Note**: &#x60;small&#x60; and &#x60;large&#x60; values
+ * are deprecated.
+ */
 public enum WidgetMargin {
+  SM("sm"),
+
+  MD("md"),
+
+  LG("lg"),
+
   SMALL("small"),
 
   LARGE("large");

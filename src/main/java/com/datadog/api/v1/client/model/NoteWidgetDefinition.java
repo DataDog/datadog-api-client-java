@@ -29,11 +29,13 @@ import java.util.Objects;
   NoteWidgetDefinition.JSON_PROPERTY_BACKGROUND_COLOR,
   NoteWidgetDefinition.JSON_PROPERTY_CONTENT,
   NoteWidgetDefinition.JSON_PROPERTY_FONT_SIZE,
+  NoteWidgetDefinition.JSON_PROPERTY_HAS_PADDING,
   NoteWidgetDefinition.JSON_PROPERTY_SHOW_TICK,
   NoteWidgetDefinition.JSON_PROPERTY_TEXT_ALIGN,
   NoteWidgetDefinition.JSON_PROPERTY_TICK_EDGE,
   NoteWidgetDefinition.JSON_PROPERTY_TICK_POS,
-  NoteWidgetDefinition.JSON_PROPERTY_TYPE
+  NoteWidgetDefinition.JSON_PROPERTY_TYPE,
+  NoteWidgetDefinition.JSON_PROPERTY_VERTICAL_ALIGN
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class NoteWidgetDefinition {
@@ -45,6 +47,9 @@ public class NoteWidgetDefinition {
 
   public static final String JSON_PROPERTY_FONT_SIZE = "font_size";
   private String fontSize;
+
+  public static final String JSON_PROPERTY_HAS_PADDING = "has_padding";
+  private Boolean hasPadding = true;
 
   public static final String JSON_PROPERTY_SHOW_TICK = "show_tick";
   private Boolean showTick;
@@ -60,6 +65,9 @@ public class NoteWidgetDefinition {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private NoteWidgetDefinitionType type = NoteWidgetDefinitionType.NOTE;
+
+  public static final String JSON_PROPERTY_VERTICAL_ALIGN = "vertical_align";
+  private WidgetVerticalAlign verticalAlign;
 
   public NoteWidgetDefinition backgroundColor(String backgroundColor) {
     this.backgroundColor = backgroundColor;
@@ -124,6 +132,28 @@ public class NoteWidgetDefinition {
 
   public void setFontSize(String fontSize) {
     this.fontSize = fontSize;
+  }
+
+  public NoteWidgetDefinition hasPadding(Boolean hasPadding) {
+    this.hasPadding = hasPadding;
+    return this;
+  }
+
+  /**
+   * Whether to add padding or not.
+   *
+   * @return hasPadding
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Whether to add padding or not.")
+  @JsonProperty(JSON_PROPERTY_HAS_PADDING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getHasPadding() {
+    return hasPadding;
+  }
+
+  public void setHasPadding(Boolean hasPadding) {
+    this.hasPadding = hasPadding;
   }
 
   public NoteWidgetDefinition showTick(Boolean showTick) {
@@ -235,6 +265,28 @@ public class NoteWidgetDefinition {
     this.type = type;
   }
 
+  public NoteWidgetDefinition verticalAlign(WidgetVerticalAlign verticalAlign) {
+    this.verticalAlign = verticalAlign;
+    return this;
+  }
+
+  /**
+   * Get verticalAlign
+   *
+   * @return verticalAlign
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_VERTICAL_ALIGN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetVerticalAlign getVerticalAlign() {
+    return verticalAlign;
+  }
+
+  public void setVerticalAlign(WidgetVerticalAlign verticalAlign) {
+    this.verticalAlign = verticalAlign;
+  }
+
   /** Return true if this NoteWidgetDefinition object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -248,17 +300,28 @@ public class NoteWidgetDefinition {
     return Objects.equals(this.backgroundColor, noteWidgetDefinition.backgroundColor)
         && Objects.equals(this.content, noteWidgetDefinition.content)
         && Objects.equals(this.fontSize, noteWidgetDefinition.fontSize)
+        && Objects.equals(this.hasPadding, noteWidgetDefinition.hasPadding)
         && Objects.equals(this.showTick, noteWidgetDefinition.showTick)
         && Objects.equals(this.textAlign, noteWidgetDefinition.textAlign)
         && Objects.equals(this.tickEdge, noteWidgetDefinition.tickEdge)
         && Objects.equals(this.tickPos, noteWidgetDefinition.tickPos)
-        && Objects.equals(this.type, noteWidgetDefinition.type);
+        && Objects.equals(this.type, noteWidgetDefinition.type)
+        && Objects.equals(this.verticalAlign, noteWidgetDefinition.verticalAlign);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        backgroundColor, content, fontSize, showTick, textAlign, tickEdge, tickPos, type);
+        backgroundColor,
+        content,
+        fontSize,
+        hasPadding,
+        showTick,
+        textAlign,
+        tickEdge,
+        tickPos,
+        type,
+        verticalAlign);
   }
 
   @Override
@@ -268,11 +331,13 @@ public class NoteWidgetDefinition {
     sb.append("    backgroundColor: ").append(toIndentedString(backgroundColor)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    fontSize: ").append(toIndentedString(fontSize)).append("\n");
+    sb.append("    hasPadding: ").append(toIndentedString(hasPadding)).append("\n");
     sb.append("    showTick: ").append(toIndentedString(showTick)).append("\n");
     sb.append("    textAlign: ").append(toIndentedString(textAlign)).append("\n");
     sb.append("    tickEdge: ").append(toIndentedString(tickEdge)).append("\n");
     sb.append("    tickPos: ").append(toIndentedString(tickPos)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    verticalAlign: ").append(toIndentedString(verticalAlign)).append("\n");
     sb.append("}");
     return sb.toString();
   }
