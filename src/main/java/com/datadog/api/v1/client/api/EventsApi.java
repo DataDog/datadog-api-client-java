@@ -214,6 +214,8 @@ public class EventsApi {
     private String sources;
     private String tags;
     private Boolean unaggregated;
+    private Boolean excludeAggregate;
+    private Integer page;
 
     /**
      * Set priority
@@ -256,11 +258,40 @@ public class EventsApi {
      * @param unaggregated Set unaggregated to &#x60;true&#x60; to return all events within the
      *     specified [&#x60;start&#x60;,&#x60;end&#x60;] timeframe. Otherwise if an event is
      *     aggregated to a parent event with a timestamp outside of the timeframe, it won&#39;t be
-     *     available in the output. (optional)
+     *     available in the output. Aggregated events with &#x60;is_aggregate&#x3D;true&#x60; in the
+     *     response will still be returned unless exclude_aggregate is set to &#x60;true.&#x60;
+     *     (optional)
      * @return ListEventsOptionalParameters
      */
     public ListEventsOptionalParameters unaggregated(Boolean unaggregated) {
       this.unaggregated = unaggregated;
+      return this;
+    }
+
+    /**
+     * Set excludeAggregate
+     *
+     * @param excludeAggregate Set &#x60;exclude_aggregate&#x60; to &#x60;true&#x60; to only return
+     *     unaggregated events where &#x60;is_aggregate&#x3D;false&#x60; in the response. If the
+     *     &#x60;exclude_aggregate&#x60; parameter is set to &#x60;true&#x60;, then the unaggregated
+     *     parameter is ignored and will be &#x60;true&#x60; by default. (optional)
+     * @return ListEventsOptionalParameters
+     */
+    public ListEventsOptionalParameters excludeAggregate(Boolean excludeAggregate) {
+      this.excludeAggregate = excludeAggregate;
+      return this;
+    }
+
+    /**
+     * Set page
+     *
+     * @param page By default 1000 results are returned per request. Set page to the number of the
+     *     page to return with &#x60;0&#x60; being the first page. The page parameter can only be
+     *     used when either unaggregated or exclude_aggregate is set to &#x60;true.&#x60; (optional)
+     * @return ListEventsOptionalParameters
+     */
+    public ListEventsOptionalParameters page(Integer page) {
+      this.page = page;
       return this;
     }
   }
@@ -271,7 +302,8 @@ public class EventsApi {
    * you may see characters such as &#x60;%&#x60;,&#x60;\\&#x60;,&#x60;n&#x60; in your output. -
    * This endpoint returns a maximum of &#x60;1000&#x60; most recent results. To return additional
    * results, identify the last timestamp of the last result and set that as the &#x60;end&#x60;
-   * query time to paginate the results.
+   * query time to paginate the results. You can also use the page parameter to specify which set of
+   * &#x60;1000&#x60; results to return.
    *
    * @param start POSIX timestamp. (required)
    * @param end POSIX timestamp. (required)
@@ -295,7 +327,8 @@ public class EventsApi {
    * you may see characters such as &#x60;%&#x60;,&#x60;\\&#x60;,&#x60;n&#x60; in your output. -
    * This endpoint returns a maximum of &#x60;1000&#x60; most recent results. To return additional
    * results, identify the last timestamp of the last result and set that as the &#x60;end&#x60;
-   * query time to paginate the results.
+   * query time to paginate the results. You can also use the page parameter to specify which set of
+   * &#x60;1000&#x60; results to return.
    *
    * @param start POSIX timestamp. (required)
    * @param end POSIX timestamp. (required)
@@ -321,7 +354,8 @@ public class EventsApi {
    * you may see characters such as &#x60;%&#x60;,&#x60;\\&#x60;,&#x60;n&#x60; in your output. -
    * This endpoint returns a maximum of &#x60;1000&#x60; most recent results. To return additional
    * results, identify the last timestamp of the last result and set that as the &#x60;end&#x60;
-   * query time to paginate the results.
+   * query time to paginate the results. You can also use the page parameter to specify which set of
+   * &#x60;1000&#x60; results to return.
    *
    * @param start POSIX timestamp. (required)
    * @param end POSIX timestamp. (required)
@@ -353,6 +387,8 @@ public class EventsApi {
     String sources = parameters.sources;
     String tags = parameters.tags;
     Boolean unaggregated = parameters.unaggregated;
+    Boolean excludeAggregate = parameters.excludeAggregate;
+    Integer page = parameters.page;
     // create path and map variables
     String localVarPath = "/api/v1/events";
 
@@ -368,6 +404,9 @@ public class EventsApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sources", sources));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "tags", tags));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "unaggregated", unaggregated));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "exclude_aggregate", excludeAggregate));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page", page));
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "listEvents");
