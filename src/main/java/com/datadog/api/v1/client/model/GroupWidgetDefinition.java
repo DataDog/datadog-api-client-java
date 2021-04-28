@@ -29,7 +29,9 @@ import java.util.Objects;
             + " group has a custom header, can hold one to many graphs, and is collapsible.")
 @JsonPropertyOrder({
   GroupWidgetDefinition.JSON_PROPERTY_BACKGROUND_COLOR,
+  GroupWidgetDefinition.JSON_PROPERTY_BANNER_IMG,
   GroupWidgetDefinition.JSON_PROPERTY_LAYOUT_TYPE,
+  GroupWidgetDefinition.JSON_PROPERTY_SHOW_TITLE,
   GroupWidgetDefinition.JSON_PROPERTY_TITLE,
   GroupWidgetDefinition.JSON_PROPERTY_TITLE_ALIGN,
   GroupWidgetDefinition.JSON_PROPERTY_TYPE,
@@ -40,8 +42,14 @@ public class GroupWidgetDefinition {
   public static final String JSON_PROPERTY_BACKGROUND_COLOR = "background_color";
   private String backgroundColor;
 
+  public static final String JSON_PROPERTY_BANNER_IMG = "banner_img";
+  private String bannerImg;
+
   public static final String JSON_PROPERTY_LAYOUT_TYPE = "layout_type";
   private WidgetLayoutType layoutType;
+
+  public static final String JSON_PROPERTY_SHOW_TITLE = "show_title";
+  private Boolean showTitle = true;
 
   public static final String JSON_PROPERTY_TITLE = "title";
   private String title;
@@ -77,6 +85,28 @@ public class GroupWidgetDefinition {
     this.backgroundColor = backgroundColor;
   }
 
+  public GroupWidgetDefinition bannerImg(String bannerImg) {
+    this.bannerImg = bannerImg;
+    return this;
+  }
+
+  /**
+   * URL of image to display as a banner for the group.
+   *
+   * @return bannerImg
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "URL of image to display as a banner for the group.")
+  @JsonProperty(JSON_PROPERTY_BANNER_IMG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getBannerImg() {
+    return bannerImg;
+  }
+
+  public void setBannerImg(String bannerImg) {
+    this.bannerImg = bannerImg;
+  }
+
   public GroupWidgetDefinition layoutType(WidgetLayoutType layoutType) {
     this.layoutType = layoutType;
     return this;
@@ -96,6 +126,28 @@ public class GroupWidgetDefinition {
 
   public void setLayoutType(WidgetLayoutType layoutType) {
     this.layoutType = layoutType;
+  }
+
+  public GroupWidgetDefinition showTitle(Boolean showTitle) {
+    this.showTitle = showTitle;
+    return this;
+  }
+
+  /**
+   * Whether to show the title or not.
+   *
+   * @return showTitle
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Whether to show the title or not.")
+  @JsonProperty(JSON_PROPERTY_SHOW_TITLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getShowTitle() {
+    return showTitle;
+  }
+
+  public void setShowTitle(Boolean showTitle) {
+    this.showTitle = showTitle;
   }
 
   public GroupWidgetDefinition title(String title) {
@@ -204,7 +256,9 @@ public class GroupWidgetDefinition {
     }
     GroupWidgetDefinition groupWidgetDefinition = (GroupWidgetDefinition) o;
     return Objects.equals(this.backgroundColor, groupWidgetDefinition.backgroundColor)
+        && Objects.equals(this.bannerImg, groupWidgetDefinition.bannerImg)
         && Objects.equals(this.layoutType, groupWidgetDefinition.layoutType)
+        && Objects.equals(this.showTitle, groupWidgetDefinition.showTitle)
         && Objects.equals(this.title, groupWidgetDefinition.title)
         && Objects.equals(this.titleAlign, groupWidgetDefinition.titleAlign)
         && Objects.equals(this.type, groupWidgetDefinition.type)
@@ -213,7 +267,8 @@ public class GroupWidgetDefinition {
 
   @Override
   public int hashCode() {
-    return Objects.hash(backgroundColor, layoutType, title, titleAlign, type, widgets);
+    return Objects.hash(
+        backgroundColor, bannerImg, layoutType, showTitle, title, titleAlign, type, widgets);
   }
 
   @Override
@@ -221,7 +276,9 @@ public class GroupWidgetDefinition {
     StringBuilder sb = new StringBuilder();
     sb.append("class GroupWidgetDefinition {\n");
     sb.append("    backgroundColor: ").append(toIndentedString(backgroundColor)).append("\n");
+    sb.append("    bannerImg: ").append(toIndentedString(bannerImg)).append("\n");
     sb.append("    layoutType: ").append(toIndentedString(layoutType)).append("\n");
+    sb.append("    showTitle: ").append(toIndentedString(showTitle)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    titleAlign: ").append(toIndentedString(titleAlign)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

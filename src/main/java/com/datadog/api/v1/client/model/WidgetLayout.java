@@ -17,10 +17,12 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
-/** The layout for a widget on a free dashboard. */
-@ApiModel(description = "The layout for a widget on a free dashboard.")
+/** The layout for a widget on a &#x60;free&#x60; or **new dashboard layout** dashboard. */
+@ApiModel(
+    description = "The layout for a widget on a `free` or **new dashboard layout** dashboard.")
 @JsonPropertyOrder({
   WidgetLayout.JSON_PROPERTY_HEIGHT,
+  WidgetLayout.JSON_PROPERTY_IS_COLUMN_BREAK,
   WidgetLayout.JSON_PROPERTY_WIDTH,
   WidgetLayout.JSON_PROPERTY_X,
   WidgetLayout.JSON_PROPERTY_Y
@@ -29,6 +31,9 @@ import java.util.Objects;
 public class WidgetLayout {
   public static final String JSON_PROPERTY_HEIGHT = "height";
   private Long height;
+
+  public static final String JSON_PROPERTY_IS_COLUMN_BREAK = "is_column_break";
+  private Boolean isColumnBreak = false;
 
   public static final String JSON_PROPERTY_WIDTH = "width";
   private Long width;
@@ -61,6 +66,34 @@ public class WidgetLayout {
 
   public void setHeight(Long height) {
     this.height = height;
+  }
+
+  public WidgetLayout isColumnBreak(Boolean isColumnBreak) {
+    this.isColumnBreak = isColumnBreak;
+    return this;
+  }
+
+  /**
+   * Whether the widget should be the first one on the second column in high density or not.
+   * **Note**: Only for the **new dashboard layout** and only one widget in the dashboard should
+   * have this property set to &#x60;true&#x60;.
+   *
+   * @return isColumnBreak
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Whether the widget should be the first one on the second column in high density or not."
+              + " **Note**: Only for the **new dashboard layout** and only one widget in the"
+              + " dashboard should have this property set to `true`.")
+  @JsonProperty(JSON_PROPERTY_IS_COLUMN_BREAK)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsColumnBreak() {
+    return isColumnBreak;
+  }
+
+  public void setIsColumnBreak(Boolean isColumnBreak) {
+    this.isColumnBreak = isColumnBreak;
   }
 
   public WidgetLayout width(Long width) {
@@ -151,6 +184,7 @@ public class WidgetLayout {
     }
     WidgetLayout widgetLayout = (WidgetLayout) o;
     return Objects.equals(this.height, widgetLayout.height)
+        && Objects.equals(this.isColumnBreak, widgetLayout.isColumnBreak)
         && Objects.equals(this.width, widgetLayout.width)
         && Objects.equals(this.x, widgetLayout.x)
         && Objects.equals(this.y, widgetLayout.y);
@@ -158,7 +192,7 @@ public class WidgetLayout {
 
   @Override
   public int hashCode() {
-    return Objects.hash(height, width, x, y);
+    return Objects.hash(height, isColumnBreak, width, x, y);
   }
 
   @Override
@@ -166,6 +200,7 @@ public class WidgetLayout {
     StringBuilder sb = new StringBuilder();
     sb.append("class WidgetLayout {\n");
     sb.append("    height: ").append(toIndentedString(height)).append("\n");
+    sb.append("    isColumnBreak: ").append(toIndentedString(isColumnBreak)).append("\n");
     sb.append("    width: ").append(toIndentedString(width)).append("\n");
     sb.append("    x: ").append(toIndentedString(x)).append("\n");
     sb.append("    y: ").append(toIndentedString(y)).append("\n");

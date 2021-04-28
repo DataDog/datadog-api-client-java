@@ -14,19 +14,17 @@ package com.datadog.api.v1.client.model;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/**
- * Reflow type for a **new dashboard layout** dashboard. Set this only when layout type is
- * &#39;ordered&#39;. If set to &#39;fixed&#39;, the dashboard expects all widgets to have a layout,
- * and if it&#39;s set to &#39;auto&#39;, widgets should not have layouts.
- */
-public enum DashboardReflowType {
-  AUTO("auto"),
+/** Vertical alignment. */
+public enum WidgetVerticalAlign {
+  CENTER("center"),
 
-  FIXED("fixed");
+  TOP("top"),
+
+  BOTTOM("bottom");
 
   private String value;
 
-  DashboardReflowType(String value) {
+  WidgetVerticalAlign(String value) {
     this.value = value;
   }
 
@@ -41,8 +39,8 @@ public enum DashboardReflowType {
   }
 
   @JsonCreator
-  public static DashboardReflowType fromValue(String value) {
-    for (DashboardReflowType b : DashboardReflowType.values()) {
+  public static WidgetVerticalAlign fromValue(String value) {
+    for (WidgetVerticalAlign b : WidgetVerticalAlign.values()) {
       if (b.value.equals(value)) {
         return b;
       }

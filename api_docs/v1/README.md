@@ -678,6 +678,7 @@ Class | Method | HTTP request | Description
  - [WidgetFormula](WidgetFormula.md)
  - [WidgetFormulaLimit](WidgetFormulaLimit.md)
  - [WidgetGrouping](WidgetGrouping.md)
+ - [WidgetHorizontalAlign](WidgetHorizontalAlign.md)
  - [WidgetImageSizing](WidgetImageSizing.md)
  - [WidgetLayout](WidgetLayout.md)
  - [WidgetLayoutType](WidgetLayoutType.md)
@@ -702,6 +703,7 @@ Class | Method | HTTP request | Description
  - [WidgetTickEdge](WidgetTickEdge.md)
  - [WidgetTime](WidgetTime.md)
  - [WidgetTimeWindows](WidgetTimeWindows.md)
+ - [WidgetVerticalAlign](WidgetVerticalAlign.md)
  - [WidgetViewMode](WidgetViewMode.md)
  - [WidgetVizType](WidgetVizType.md)
 

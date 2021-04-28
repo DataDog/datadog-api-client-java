@@ -26,13 +26,27 @@ import java.util.Objects;
         "The image widget allows you to embed an image on your dashboard. An image can be a PNG,"
             + " JPG, or animated GIF. Only available on FREE layout dashboards.")
 @JsonPropertyOrder({
+  ImageWidgetDefinition.JSON_PROPERTY_HAS_BACKGROUND,
+  ImageWidgetDefinition.JSON_PROPERTY_HAS_BORDER,
+  ImageWidgetDefinition.JSON_PROPERTY_HORIZONTAL_ALIGN,
   ImageWidgetDefinition.JSON_PROPERTY_MARGIN,
   ImageWidgetDefinition.JSON_PROPERTY_SIZING,
   ImageWidgetDefinition.JSON_PROPERTY_TYPE,
-  ImageWidgetDefinition.JSON_PROPERTY_URL
+  ImageWidgetDefinition.JSON_PROPERTY_URL,
+  ImageWidgetDefinition.JSON_PROPERTY_URL_DARK_THEME,
+  ImageWidgetDefinition.JSON_PROPERTY_VERTICAL_ALIGN
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ImageWidgetDefinition {
+  public static final String JSON_PROPERTY_HAS_BACKGROUND = "has_background";
+  private Boolean hasBackground = true;
+
+  public static final String JSON_PROPERTY_HAS_BORDER = "has_border";
+  private Boolean hasBorder = true;
+
+  public static final String JSON_PROPERTY_HORIZONTAL_ALIGN = "horizontal_align";
+  private WidgetHorizontalAlign horizontalAlign;
+
   public static final String JSON_PROPERTY_MARGIN = "margin";
   private WidgetMargin margin;
 
@@ -44,6 +58,78 @@ public class ImageWidgetDefinition {
 
   public static final String JSON_PROPERTY_URL = "url";
   private String url;
+
+  public static final String JSON_PROPERTY_URL_DARK_THEME = "url_dark_theme";
+  private String urlDarkTheme;
+
+  public static final String JSON_PROPERTY_VERTICAL_ALIGN = "vertical_align";
+  private WidgetVerticalAlign verticalAlign;
+
+  public ImageWidgetDefinition hasBackground(Boolean hasBackground) {
+    this.hasBackground = hasBackground;
+    return this;
+  }
+
+  /**
+   * Whether to display a background or not.
+   *
+   * @return hasBackground
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "true", value = "Whether to display a background or not.")
+  @JsonProperty(JSON_PROPERTY_HAS_BACKGROUND)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getHasBackground() {
+    return hasBackground;
+  }
+
+  public void setHasBackground(Boolean hasBackground) {
+    this.hasBackground = hasBackground;
+  }
+
+  public ImageWidgetDefinition hasBorder(Boolean hasBorder) {
+    this.hasBorder = hasBorder;
+    return this;
+  }
+
+  /**
+   * Whether to display a border or not.
+   *
+   * @return hasBorder
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "true", value = "Whether to display a border or not.")
+  @JsonProperty(JSON_PROPERTY_HAS_BORDER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getHasBorder() {
+    return hasBorder;
+  }
+
+  public void setHasBorder(Boolean hasBorder) {
+    this.hasBorder = hasBorder;
+  }
+
+  public ImageWidgetDefinition horizontalAlign(WidgetHorizontalAlign horizontalAlign) {
+    this.horizontalAlign = horizontalAlign;
+    return this;
+  }
+
+  /**
+   * Get horizontalAlign
+   *
+   * @return horizontalAlign
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_HORIZONTAL_ALIGN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetHorizontalAlign getHorizontalAlign() {
+    return horizontalAlign;
+  }
+
+  public void setHorizontalAlign(WidgetHorizontalAlign horizontalAlign) {
+    this.horizontalAlign = horizontalAlign;
+  }
 
   public ImageWidgetDefinition margin(WidgetMargin margin) {
     this.margin = margin;
@@ -120,7 +206,10 @@ public class ImageWidgetDefinition {
    *
    * @return url
    */
-  @ApiModelProperty(example = "", required = true, value = "URL of the image.")
+  @ApiModelProperty(
+      example = "https://example.com/image.png",
+      required = true,
+      value = "URL of the image.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getUrl() {
@@ -129,6 +218,52 @@ public class ImageWidgetDefinition {
 
   public void setUrl(String url) {
     this.url = url;
+  }
+
+  public ImageWidgetDefinition urlDarkTheme(String urlDarkTheme) {
+    this.urlDarkTheme = urlDarkTheme;
+    return this;
+  }
+
+  /**
+   * URL of the image in dark mode.
+   *
+   * @return urlDarkTheme
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      example = "https://example.com/image-dark-mode.png",
+      value = "URL of the image in dark mode.")
+  @JsonProperty(JSON_PROPERTY_URL_DARK_THEME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getUrlDarkTheme() {
+    return urlDarkTheme;
+  }
+
+  public void setUrlDarkTheme(String urlDarkTheme) {
+    this.urlDarkTheme = urlDarkTheme;
+  }
+
+  public ImageWidgetDefinition verticalAlign(WidgetVerticalAlign verticalAlign) {
+    this.verticalAlign = verticalAlign;
+    return this;
+  }
+
+  /**
+   * Get verticalAlign
+   *
+   * @return verticalAlign
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_VERTICAL_ALIGN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetVerticalAlign getVerticalAlign() {
+    return verticalAlign;
+  }
+
+  public void setVerticalAlign(WidgetVerticalAlign verticalAlign) {
+    this.verticalAlign = verticalAlign;
   }
 
   /** Return true if this ImageWidgetDefinition object is equal to o. */
@@ -141,25 +276,44 @@ public class ImageWidgetDefinition {
       return false;
     }
     ImageWidgetDefinition imageWidgetDefinition = (ImageWidgetDefinition) o;
-    return Objects.equals(this.margin, imageWidgetDefinition.margin)
+    return Objects.equals(this.hasBackground, imageWidgetDefinition.hasBackground)
+        && Objects.equals(this.hasBorder, imageWidgetDefinition.hasBorder)
+        && Objects.equals(this.horizontalAlign, imageWidgetDefinition.horizontalAlign)
+        && Objects.equals(this.margin, imageWidgetDefinition.margin)
         && Objects.equals(this.sizing, imageWidgetDefinition.sizing)
         && Objects.equals(this.type, imageWidgetDefinition.type)
-        && Objects.equals(this.url, imageWidgetDefinition.url);
+        && Objects.equals(this.url, imageWidgetDefinition.url)
+        && Objects.equals(this.urlDarkTheme, imageWidgetDefinition.urlDarkTheme)
+        && Objects.equals(this.verticalAlign, imageWidgetDefinition.verticalAlign);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(margin, sizing, type, url);
+    return Objects.hash(
+        hasBackground,
+        hasBorder,
+        horizontalAlign,
+        margin,
+        sizing,
+        type,
+        url,
+        urlDarkTheme,
+        verticalAlign);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ImageWidgetDefinition {\n");
+    sb.append("    hasBackground: ").append(toIndentedString(hasBackground)).append("\n");
+    sb.append("    hasBorder: ").append(toIndentedString(hasBorder)).append("\n");
+    sb.append("    horizontalAlign: ").append(toIndentedString(horizontalAlign)).append("\n");
     sb.append("    margin: ").append(toIndentedString(margin)).append("\n");
     sb.append("    sizing: ").append(toIndentedString(sizing)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    urlDarkTheme: ").append(toIndentedString(urlDarkTheme)).append("\n");
+    sb.append("    verticalAlign: ").append(toIndentedString(verticalAlign)).append("\n");
     sb.append("}");
     return sb.toString();
   }
