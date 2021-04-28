@@ -163,7 +163,7 @@ you may see characters such as `%`,`\`,`n` in your output.
 
 - This endpoint returns a maximum of `1000` most recent results. To return additional results,
 identify the last timestamp of the last result and set that as the `end` query time to
-paginate the results.
+paginate the results. You can also use the page parameter to specify which set of `1000` results to return.
 
 ### Example
 
@@ -187,13 +187,17 @@ public class Example {
         EventPriority priority = EventPriority.fromValue("normal"); // EventPriority | Priority of your events, either `low` or `normal`.
         String sources = "sources_example"; // String | A comma separated string of sources.
         String tags = "host:host0"; // String | A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope.
-        Boolean unaggregated = true; // Boolean | Set unaggregated to `true` to return all events within the specified [`start`,`end`] timeframe. Otherwise if an event is aggregated to a parent event with a timestamp outside of the timeframe, it won't be available in the output.
+        Boolean unaggregated = true; // Boolean | Set unaggregated to `true` to return all events within the specified [`start`,`end`] timeframe. Otherwise if an event is aggregated to a parent event with a timestamp outside of the timeframe, it won't be available in the output. Aggregated events with `is_aggregate=true` in the response will still be returned unless exclude_aggregate is set to `true.`
+        Boolean excludeAggregate = true; // Boolean | Set `exclude_aggregate` to `true` to only return unaggregated events where `is_aggregate=false` in the response. If the `exclude_aggregate` parameter is set to `true`, then the unaggregated parameter is ignored and will be `true` by default.
+        Integer page = 56; // Integer | By default 1000 results are returned per request. Set page to the number of the page to return with `0` being the first page. The page parameter can only be used when either unaggregated or exclude_aggregate is set to `true.`
         try {
 	    EventListResponse result = apiInstance.listEvents(start, end, new EventsApi.ListEventsOptionalParameters()
                 .priority(priority)
                 .sources(sources)
                 .tags(tags)
-                .unaggregated(unaggregated));
+                .unaggregated(unaggregated)
+                .excludeAggregate(excludeAggregate)
+                .page(page));
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling EventsApi#listEvents");
@@ -216,7 +220,9 @@ Name | Type | Description  | Notes
  **priority** | **EventPriority**| Priority of your events, either &#x60;low&#x60; or &#x60;normal&#x60;. | [optional] [enum: normal, low]
  **sources** | **String**| A comma separated string of sources. | [optional]
  **tags** | **String**| A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope. | [optional]
- **unaggregated** | **Boolean**| Set unaggregated to &#x60;true&#x60; to return all events within the specified [&#x60;start&#x60;,&#x60;end&#x60;] timeframe. Otherwise if an event is aggregated to a parent event with a timestamp outside of the timeframe, it won&#39;t be available in the output. | [optional]
+ **unaggregated** | **Boolean**| Set unaggregated to &#x60;true&#x60; to return all events within the specified [&#x60;start&#x60;,&#x60;end&#x60;] timeframe. Otherwise if an event is aggregated to a parent event with a timestamp outside of the timeframe, it won&#39;t be available in the output. Aggregated events with &#x60;is_aggregate&#x3D;true&#x60; in the response will still be returned unless exclude_aggregate is set to &#x60;true.&#x60; | [optional]
+ **excludeAggregate** | **Boolean**| Set &#x60;exclude_aggregate&#x60; to &#x60;true&#x60; to only return unaggregated events where &#x60;is_aggregate&#x3D;false&#x60; in the response. If the &#x60;exclude_aggregate&#x60; parameter is set to &#x60;true&#x60;, then the unaggregated parameter is ignored and will be &#x60;true&#x60; by default. | [optional]
+ **page** | **Integer**| By default 1000 results are returned per request. Set page to the number of the page to return with &#x60;0&#x60; being the first page. The page parameter can only be used when either unaggregated or exclude_aggregate is set to &#x60;true.&#x60; | [optional]
 
 ### Return type
 
