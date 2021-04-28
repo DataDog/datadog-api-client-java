@@ -9,6 +9,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.format.DateTimeFormatter;
 import java.util.Collections;
@@ -156,7 +157,8 @@ public class ClientSteps {
       throws java.lang.IllegalAccessException, java.lang.NoSuchFieldException,
           java.lang.ClassNotFoundException, java.lang.NoSuchMethodException,
           java.lang.reflect.InvocationTargetException, IOException {
-    String bodyPath = Paths.get("src/test/resources/com/datadog/api/" + apiVersion + "/client/api/" + filename);
+    Path bodyPath =
+        Paths.get("src/test/resources/com/datadog/api/" + apiVersion + "/client/api/" + filename);
     String data = new String(Files.readAllBytes(bodyPath));
     world.addRequestParameter("body", data);
   }
