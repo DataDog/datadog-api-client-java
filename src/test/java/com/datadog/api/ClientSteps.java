@@ -7,6 +7,9 @@ import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.HashMap;
@@ -139,12 +142,29 @@ public class ClientSteps {
     world.addRequestParameter(parameterName, value);
   }
 
-  @Given("body {}")
+  @Given("body with value {}")
   public void setBody(String data)
       throws java.lang.IllegalAccessException, java.lang.NoSuchFieldException,
           java.lang.ClassNotFoundException, java.lang.NoSuchMethodException,
           java.lang.reflect.InvocationTargetException,
           com.fasterxml.jackson.core.JsonProcessingException {
+    world.addRequestParameter("body", data);
+  }
+
+  @Given("body from file {string}")
+  public void setBodyFromFile(String filename)
+      throws java.lang.IllegalAccessException, java.lang.NoSuchFieldException,
+          java.lang.ClassNotFoundException, java.lang.NoSuchMethodException,
+          java.lang.reflect.InvocationTargetException, IOException {
+    String data =
+        String.join(
+            "\n",
+            Files.readAllLines(
+                Paths.get(
+                    "src/test/resources/com/datadog/api/"
+                        + apiVersion
+                        + "/client/api/"
+                        + filename)));
     world.addRequestParameter("body", data);
   }
 
