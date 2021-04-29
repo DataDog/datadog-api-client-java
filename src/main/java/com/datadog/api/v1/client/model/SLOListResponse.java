@@ -21,7 +21,11 @@ import java.util.Objects;
 
 /** A response with one or more service level objective. */
 @ApiModel(description = "A response with one or more service level objective.")
-@JsonPropertyOrder({SLOListResponse.JSON_PROPERTY_DATA, SLOListResponse.JSON_PROPERTY_ERRORS})
+@JsonPropertyOrder({
+  SLOListResponse.JSON_PROPERTY_DATA,
+  SLOListResponse.JSON_PROPERTY_ERRORS,
+  SLOListResponse.JSON_PROPERTY_METADATA
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SLOListResponse {
   public static final String JSON_PROPERTY_DATA = "data";
@@ -29,6 +33,9 @@ public class SLOListResponse {
 
   public static final String JSON_PROPERTY_ERRORS = "errors";
   private List<String> errors = null;
+
+  public static final String JSON_PROPERTY_METADATA = "metadata";
+  private SLOListResponseMetadata metadata;
 
   public SLOListResponse data(List<ServiceLevelObjective> data) {
     this.data = data;
@@ -91,6 +98,28 @@ public class SLOListResponse {
     this.errors = errors;
   }
 
+  public SLOListResponse metadata(SLOListResponseMetadata metadata) {
+    this.metadata = metadata;
+    return this;
+  }
+
+  /**
+   * Get metadata
+   *
+   * @return metadata
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SLOListResponseMetadata getMetadata() {
+    return metadata;
+  }
+
+  public void setMetadata(SLOListResponseMetadata metadata) {
+    this.metadata = metadata;
+  }
+
   /** Return true if this SLOListResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -102,12 +131,13 @@ public class SLOListResponse {
     }
     SLOListResponse slOListResponse = (SLOListResponse) o;
     return Objects.equals(this.data, slOListResponse.data)
-        && Objects.equals(this.errors, slOListResponse.errors);
+        && Objects.equals(this.errors, slOListResponse.errors)
+        && Objects.equals(this.metadata, slOListResponse.metadata);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, errors);
+    return Objects.hash(data, errors, metadata);
   }
 
   @Override
@@ -116,6 +146,7 @@ public class SLOListResponse {
     sb.append("class SLOListResponse {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
+    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("}");
     return sb.toString();
   }
