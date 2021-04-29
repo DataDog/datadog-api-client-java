@@ -22,19 +22,27 @@ import java.util.Objects;
 /** The steps used in a Synthetics multistep API test. */
 @ApiModel(description = "The steps used in a Synthetics multistep API test.")
 @JsonPropertyOrder({
+  SyntheticsAPIStep.JSON_PROPERTY_ALLOW_FAILURE,
   SyntheticsAPIStep.JSON_PROPERTY_ASSERTIONS,
   SyntheticsAPIStep.JSON_PROPERTY_EXTRACTED_VALUES,
+  SyntheticsAPIStep.JSON_PROPERTY_IS_CRITICAL,
   SyntheticsAPIStep.JSON_PROPERTY_NAME,
   SyntheticsAPIStep.JSON_PROPERTY_REQUEST,
   SyntheticsAPIStep.JSON_PROPERTY_SUBTYPE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsAPIStep {
+  public static final String JSON_PROPERTY_ALLOW_FAILURE = "allowFailure";
+  private Boolean allowFailure;
+
   public static final String JSON_PROPERTY_ASSERTIONS = "assertions";
   private List<SyntheticsAssertion> assertions = null;
 
   public static final String JSON_PROPERTY_EXTRACTED_VALUES = "extractedValues";
   private List<SyntheticsParsingOptions> extractedValues = null;
+
+  public static final String JSON_PROPERTY_IS_CRITICAL = "isCritical";
+  private Boolean isCritical;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -44,6 +52,28 @@ public class SyntheticsAPIStep {
 
   public static final String JSON_PROPERTY_SUBTYPE = "subtype";
   private SyntheticsAPIStepSubtype subtype;
+
+  public SyntheticsAPIStep allowFailure(Boolean allowFailure) {
+    this.allowFailure = allowFailure;
+    return this;
+  }
+
+  /**
+   * Determines whether or not to continue with test if this step fails.
+   *
+   * @return allowFailure
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Determines whether or not to continue with test if this step fails.")
+  @JsonProperty(JSON_PROPERTY_ALLOW_FAILURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getAllowFailure() {
+    return allowFailure;
+  }
+
+  public void setAllowFailure(Boolean allowFailure) {
+    this.allowFailure = allowFailure;
+  }
 
   public SyntheticsAPIStep assertions(List<SyntheticsAssertion> assertions) {
     this.assertions = assertions;
@@ -103,6 +133,32 @@ public class SyntheticsAPIStep {
 
   public void setExtractedValues(List<SyntheticsParsingOptions> extractedValues) {
     this.extractedValues = extractedValues;
+  }
+
+  public SyntheticsAPIStep isCritical(Boolean isCritical) {
+    this.isCritical = isCritical;
+    return this;
+  }
+
+  /**
+   * Determines whether or not to consider the entire test as failed if this step fails. Can be used
+   * only if &#x60;allowFailure&#x60; is &#x60;true&#x60;.
+   *
+   * @return isCritical
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Determines whether or not to consider the entire test as failed if this step fails. Can"
+              + " be used only if `allowFailure` is `true`.")
+  @JsonProperty(JSON_PROPERTY_IS_CRITICAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsCritical() {
+    return isCritical;
+  }
+
+  public void setIsCritical(Boolean isCritical) {
+    this.isCritical = isCritical;
   }
 
   public SyntheticsAPIStep name(String name) {
@@ -181,8 +237,10 @@ public class SyntheticsAPIStep {
       return false;
     }
     SyntheticsAPIStep syntheticsAPIStep = (SyntheticsAPIStep) o;
-    return Objects.equals(this.assertions, syntheticsAPIStep.assertions)
+    return Objects.equals(this.allowFailure, syntheticsAPIStep.allowFailure)
+        && Objects.equals(this.assertions, syntheticsAPIStep.assertions)
         && Objects.equals(this.extractedValues, syntheticsAPIStep.extractedValues)
+        && Objects.equals(this.isCritical, syntheticsAPIStep.isCritical)
         && Objects.equals(this.name, syntheticsAPIStep.name)
         && Objects.equals(this.request, syntheticsAPIStep.request)
         && Objects.equals(this.subtype, syntheticsAPIStep.subtype);
@@ -190,15 +248,18 @@ public class SyntheticsAPIStep {
 
   @Override
   public int hashCode() {
-    return Objects.hash(assertions, extractedValues, name, request, subtype);
+    return Objects.hash(
+        allowFailure, assertions, extractedValues, isCritical, name, request, subtype);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SyntheticsAPIStep {\n");
+    sb.append("    allowFailure: ").append(toIndentedString(allowFailure)).append("\n");
     sb.append("    assertions: ").append(toIndentedString(assertions)).append("\n");
     sb.append("    extractedValues: ").append(toIndentedString(extractedValues)).append("\n");
+    sb.append("    isCritical: ").append(toIndentedString(isCritical)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    request: ").append(toIndentedString(request)).append("\n");
     sb.append("    subtype: ").append(toIndentedString(subtype)).append("\n");

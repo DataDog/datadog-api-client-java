@@ -26,6 +26,7 @@ import java.util.Objects;
   SyntheticsTestRequest.JSON_PROPERTY_BODY,
   SyntheticsTestRequest.JSON_PROPERTY_CERTIFICATE,
   SyntheticsTestRequest.JSON_PROPERTY_DNS_SERVER,
+  SyntheticsTestRequest.JSON_PROPERTY_DNS_SERVER_PORT,
   SyntheticsTestRequest.JSON_PROPERTY_HEADERS,
   SyntheticsTestRequest.JSON_PROPERTY_HOST,
   SyntheticsTestRequest.JSON_PROPERTY_METHOD,
@@ -50,6 +51,9 @@ public class SyntheticsTestRequest {
 
   public static final String JSON_PROPERTY_DNS_SERVER = "dnsServer";
   private String dnsServer;
+
+  public static final String JSON_PROPERTY_DNS_SERVER_PORT = "dnsServerPort";
+  private Integer dnsServerPort;
 
   public static final String JSON_PROPERTY_HEADERS = "headers";
   private Map<String, String> headers = null;
@@ -167,6 +171,28 @@ public class SyntheticsTestRequest {
 
   public void setDnsServer(String dnsServer) {
     this.dnsServer = dnsServer;
+  }
+
+  public SyntheticsTestRequest dnsServerPort(Integer dnsServerPort) {
+    this.dnsServerPort = dnsServerPort;
+    return this;
+  }
+
+  /**
+   * DNS server port to use for DNS tests. minimum: 1 maximum: 65535
+   *
+   * @return dnsServerPort
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "DNS server port to use for DNS tests.")
+  @JsonProperty(JSON_PROPERTY_DNS_SERVER_PORT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Integer getDnsServerPort() {
+    return dnsServerPort;
+  }
+
+  public void setDnsServerPort(Integer dnsServerPort) {
+    this.dnsServerPort = dnsServerPort;
   }
 
   public SyntheticsTestRequest headers(Map<String, String> headers) {
@@ -414,6 +440,7 @@ public class SyntheticsTestRequest {
         && Objects.equals(this.body, syntheticsTestRequest.body)
         && Objects.equals(this.certificate, syntheticsTestRequest.certificate)
         && Objects.equals(this.dnsServer, syntheticsTestRequest.dnsServer)
+        && Objects.equals(this.dnsServerPort, syntheticsTestRequest.dnsServerPort)
         && Objects.equals(this.headers, syntheticsTestRequest.headers)
         && Objects.equals(this.host, syntheticsTestRequest.host)
         && Objects.equals(this.method, syntheticsTestRequest.method)
@@ -433,6 +460,7 @@ public class SyntheticsTestRequest {
         body,
         certificate,
         dnsServer,
+        dnsServerPort,
         headers,
         host,
         method,
@@ -453,6 +481,7 @@ public class SyntheticsTestRequest {
     sb.append("    body: ").append(toIndentedString(body)).append("\n");
     sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
     sb.append("    dnsServer: ").append(toIndentedString(dnsServer)).append("\n");
+    sb.append("    dnsServerPort: ").append(toIndentedString(dnsServerPort)).append("\n");
     sb.append("    headers: ").append(toIndentedString(headers)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    method: ").append(toIndentedString(method)).append("\n");
