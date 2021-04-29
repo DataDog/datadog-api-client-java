@@ -24,6 +24,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   SyntheticsBrowserTestConfig.JSON_PROPERTY_ASSERTIONS,
   SyntheticsBrowserTestConfig.JSON_PROPERTY_REQUEST,
+  SyntheticsBrowserTestConfig.JSON_PROPERTY_SET_COOKIE,
   SyntheticsBrowserTestConfig.JSON_PROPERTY_VARIABLES
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -33,6 +34,9 @@ public class SyntheticsBrowserTestConfig {
 
   public static final String JSON_PROPERTY_REQUEST = "request";
   private SyntheticsTestRequest request;
+
+  public static final String JSON_PROPERTY_SET_COOKIE = "setCookie";
+  private String setCookie;
 
   public static final String JSON_PROPERTY_VARIABLES = "variables";
   private List<SyntheticsBrowserVariable> variables = null;
@@ -87,6 +91,33 @@ public class SyntheticsBrowserTestConfig {
     this.request = request;
   }
 
+  public SyntheticsBrowserTestConfig setCookie(String setCookie) {
+    this.setCookie = setCookie;
+    return this;
+  }
+
+  /**
+   * Cookies to be used for the request, using the
+   * [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie) syntax.
+   *
+   * @return setCookie
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Cookies to be used for the request, using the"
+              + " [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie)"
+              + " syntax.")
+  @JsonProperty(JSON_PROPERTY_SET_COOKIE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSetCookie() {
+    return setCookie;
+  }
+
+  public void setSetCookie(String setCookie) {
+    this.setCookie = setCookie;
+  }
+
   public SyntheticsBrowserTestConfig variables(List<SyntheticsBrowserVariable> variables) {
     this.variables = variables;
     return this;
@@ -129,12 +160,13 @@ public class SyntheticsBrowserTestConfig {
     SyntheticsBrowserTestConfig syntheticsBrowserTestConfig = (SyntheticsBrowserTestConfig) o;
     return Objects.equals(this.assertions, syntheticsBrowserTestConfig.assertions)
         && Objects.equals(this.request, syntheticsBrowserTestConfig.request)
+        && Objects.equals(this.setCookie, syntheticsBrowserTestConfig.setCookie)
         && Objects.equals(this.variables, syntheticsBrowserTestConfig.variables);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(assertions, request, variables);
+    return Objects.hash(assertions, request, setCookie, variables);
   }
 
   @Override
@@ -143,6 +175,7 @@ public class SyntheticsBrowserTestConfig {
     sb.append("class SyntheticsBrowserTestConfig {\n");
     sb.append("    assertions: ").append(toIndentedString(assertions)).append("\n");
     sb.append("    request: ").append(toIndentedString(request)).append("\n");
+    sb.append("    setCookie: ").append(toIndentedString(setCookie)).append("\n");
     sb.append("    variables: ").append(toIndentedString(variables)).append("\n");
     sb.append("}");
     return sb.toString();
