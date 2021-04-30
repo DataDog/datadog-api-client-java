@@ -3,14 +3,22 @@
 ./extract-code-blocks.sh
 
 for f in examples/v*/*/*.java ; do
-    df=$(dirname $f)/$(basename $f .java)
-    mkdir -p $df
-    mv $f $df/Example.java
+    filename=$(basename -- "$f")
+    filename="${filename%.*}"
+    sed -i.bak "s/public class Example/public class $filename/" $f
 done
 
 mvn -DskipTests -Dmaven.javadoc.skip=true clean install
-ls examples/v*/*/*/Example.java | xargs -P $(($(nproc)*2)) -n 1 javac -cp "target/lib/*" -sourcepath src/main/java/
+
+# We separate v1 and v2 as operation IDs can be duplicated between the 2
+ls examples/v1/*/*.java | xargs javac -cp "target/lib/*" -sourcepath src/main/java/
 if [ $? -ne 0 ]; then
-    echo -e "Failed to build examples"
+    echo -e "Failed to build v1 examples"
+    exit 1
+fi
+
+ls examples/v2/*/*.java | xargs javac -cp "target/lib/*" -sourcepath src/main/java/
+if [ $? -ne 0 ]; then
+    echo -e "Failed to build v2 examples"
     exit 1
 fi
