@@ -435,6 +435,22 @@ public class ServiceLevelObjectivesApi {
         false);
   }
 
+  /** Manage optional parameters to getSLO. */
+  public static class GetSLOOptionalParameters {
+    private Boolean withConfiguredAlertIds;
+
+    /**
+     * Set withConfiguredAlertIds
+     *
+     * @param withConfiguredAlertIds Get the IDs of SLO monitors that reference this SLO. (optional)
+     * @return GetSLOOptionalParameters
+     */
+    public GetSLOOptionalParameters withConfiguredAlertIds(Boolean withConfiguredAlertIds) {
+      this.withConfiguredAlertIds = withConfiguredAlertIds;
+      return this;
+    }
+  }
+
   /**
    * Get an SLO&#39;s details Get a service level objective object.
    *
@@ -450,13 +466,33 @@ public class ServiceLevelObjectivesApi {
    *     </table>
    */
   public SLOResponse getSLO(String sloId) throws ApiException {
-    return getSLOWithHttpInfo(sloId).getData();
+    return getSLOWithHttpInfo(sloId, new GetSLOOptionalParameters()).getData();
   }
 
   /**
    * Get an SLO&#39;s details Get a service level objective object.
    *
    * @param sloId The ID of the service level objective object. (required)
+   * @param parameters Optional parameters for the request.
+   * @return SLOResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public SLOResponse getSLO(String sloId, GetSLOOptionalParameters parameters) throws ApiException {
+    return getSLOWithHttpInfo(sloId, parameters).getData();
+  }
+
+  /**
+   * Get an SLO&#39;s details Get a service level objective object.
+   *
+   * @param sloId The ID of the service level objective object. (required)
+   * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;SLOResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -467,13 +503,15 @@ public class ServiceLevelObjectivesApi {
    *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<SLOResponse> getSLOWithHttpInfo(String sloId) throws ApiException {
+  public ApiResponse<SLOResponse> getSLOWithHttpInfo(
+      String sloId, GetSLOOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'sloId' is set
     if (sloId == null) {
       throw new ApiException(400, "Missing the required parameter 'sloId' when calling getSLO");
     }
+    Boolean withConfiguredAlertIds = parameters.withConfiguredAlertIds;
     // create path and map variables
     String localVarPath =
         "/api/v1/slo/{slo_id}"
@@ -484,6 +522,9 @@ public class ServiceLevelObjectivesApi {
     Map<String, String> localVarHeaderParams = new HashMap<String, String>();
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "with_configured_alert_ids", withConfiguredAlertIds));
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getSLO");
