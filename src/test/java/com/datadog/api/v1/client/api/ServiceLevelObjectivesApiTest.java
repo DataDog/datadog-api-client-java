@@ -140,7 +140,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
 
     // Get SLO
     SLOResponse oneSLO = api.getSLO(edited.getId());
-    assertEquals(edited, oneSLO.getData());
+    assertEquals(edited.getID(), oneSLO.getData().getId());
 
     // Delete SLO
     SLODeleteResponse deletedResp = api.deleteSLO(edited.getId());
@@ -169,7 +169,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
 
     // Get SLO
     SLOResponse oneSLO = api.getSLO(edited.getId());
-    assertEquals(edited, oneSLO.getData());
+    assertEquals(edited.getId(), oneSLO.getData().getId());
 
     // Get SLO history
     // the contents of history really depend on the org that this test is running in, so we just
