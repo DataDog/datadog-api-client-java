@@ -140,7 +140,7 @@ public class ServiceLevelObjectivesApiTest extends V1ApiTest {
 
     // Get SLO
     SLOResponse oneSLO = api.getSLO(edited.getId());
-    assertEquals(edited.getID(), oneSLO.getData().getId());
+    assertEquals(edited.getId(), oneSLO.getData().getId());
 
     // Delete SLO
     SLODeleteResponse deletedResp = api.deleteSLO(edited.getId());
