@@ -18,7 +18,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 public enum SecurityMonitoringRuleDetectionMethod {
   THRESHOLD("threshold"),
 
-  NEW_VALUE("new_value");
+  NEW_VALUE("new_value"),
+
+  ANOMALY_DETECTION("anomaly_detection");
 
   private String value;
 
