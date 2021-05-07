@@ -151,13 +151,12 @@ public class SyntheticsTestOptions {
   }
 
   /**
-   * Whether or not to disable CORS mechanism. Currently only available for Chrome.
+   * Whether or not to disable CORS mechanism.
    *
    * @return disableCors
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "Whether or not to disable CORS mechanism. Currently only available for Chrome.")
+  @ApiModelProperty(value = "Whether or not to disable CORS mechanism.")
   @JsonProperty(JSON_PROPERTY_DISABLE_CORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getDisableCors() {
