@@ -5,6 +5,8 @@
 ## Enum
 
 
+* `THIRTY_SECONDS` (value: `30l`)
+
 * `MINUTE` (value: `60l`)
 
 * `FIVE_MINUTES` (value: `300l`)
