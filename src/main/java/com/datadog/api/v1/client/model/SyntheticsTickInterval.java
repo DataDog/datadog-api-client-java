@@ -16,6 +16,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 /** The frequency at which to run the Synthetic test (in seconds). */
 public enum SyntheticsTickInterval {
+  THIRTY_SECONDS(30l),
+
   MINUTE(60l),
 
   FIVE_MINUTES(300l),
