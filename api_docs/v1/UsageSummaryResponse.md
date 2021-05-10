@@ -36,6 +36,7 @@ Name | Type | Description | Notes
 **lastUpdated** | **OffsetDateTime** | Shows the the most recent hour in the current months for all organizations for which all usages were calculated. |  [optional]
 **liveIndexedEventsAggSum** | **Long** | Shows the sum of all live logs indexed over all hours in the current months for all organizations (data available as of December 1, 2020). |  [optional]
 **liveIngestedBytesAggSum** | **Long** | Shows the sum of all live logs bytes ingested over all hours in the current months for all organizations (data available as of December 1, 2020). |  [optional]
+**logsByRetention** | [**LogsByRetention**](LogsByRetention.md) |  |  [optional]
 **mobileRumSessionCountAggSum** | **Long** | Shows the sum of all mobile RUM Sessions over all hours in the current months for all organizations. |  [optional]
 **mobileRumSessionCountAndroidAggSum** | **Long** | Shows the sum of all mobile RUM Sessions on Android over all hours in the current months for all organizations. |  [optional]
 **mobileRumSessionCountIosAggSum** | **Long** | Shows the sum of all mobile RUM Sessions on iOS over all hours in the current months for all organizations. |  [optional]
