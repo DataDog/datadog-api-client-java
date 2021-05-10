@@ -472,7 +472,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
   @Test
   public void getUsageAttributionTest() throws ApiException {
     generalApiClient.setUnstableOperationEnabled("getUsageAttribution", true);
-    UsageAttributionResponse usage = api.getUsageAttribution(startMonth, "*");
+    UsageAttributionResponse usage = api.getUsageAttribution(startMonth, UsageAttributionSupportedMetrics.ALL);
 
     assertNotNull(usage.getUsage());
     assertNotNull(usage.getMetadata());
@@ -1019,7 +1019,7 @@ public class UsageMeteringApiTest extends V1ApiTest {
   public void getUsageAttributionErrorsTest() throws IOException {
     try {
       generalFakeAuthApiClient.setUnstableOperationEnabled("getUsageAttribution", true);
-      fakeAuthApi.getUsageAttribution(startMonth, "*");
+      fakeAuthApi.getUsageAttribution(startMonth, UsageAttributionSupportedMetrics.ALL);
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
