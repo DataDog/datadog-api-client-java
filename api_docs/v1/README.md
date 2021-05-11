@@ -600,6 +600,7 @@ Class | Method | HTTP request | Description
  - [UsageAttributionPagination](UsageAttributionPagination.md)
  - [UsageAttributionResponse](UsageAttributionResponse.md)
  - [UsageAttributionSort](UsageAttributionSort.md)
+ - [UsageAttributionSupportedMetrics](UsageAttributionSupportedMetrics.md)
  - [UsageAttributionValues](UsageAttributionValues.md)
  - [UsageBillableSummaryBody](UsageBillableSummaryBody.md)
  - [UsageBillableSummaryHour](UsageBillableSummaryHour.md)
