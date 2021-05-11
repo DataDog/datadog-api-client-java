@@ -26,12 +26,12 @@ import java.util.Objects;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SLOResponse {
   public static final String JSON_PROPERTY_DATA = "data";
-  private ServiceLevelObjective data;
+  private SLOResponseData data;
 
   public static final String JSON_PROPERTY_ERRORS = "errors";
   private List<String> errors = null;
 
-  public SLOResponse data(ServiceLevelObjective data) {
+  public SLOResponse data(SLOResponseData data) {
     this.data = data;
     return this;
   }
@@ -45,11 +45,11 @@ public class SLOResponse {
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ServiceLevelObjective getData() {
+  public SLOResponseData getData() {
     return data;
   }
 
-  public void setData(ServiceLevelObjective data) {
+  public void setData(SLOResponseData data) {
     this.data = data;
   }
 

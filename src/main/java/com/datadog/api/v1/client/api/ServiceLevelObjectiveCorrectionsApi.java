@@ -57,6 +57,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> SLO Not Found </td><td>  -  </td></tr>
    *     </table>
    */
   public SLOCorrectionResponse createSLOCorrection(SLOCorrectionCreateRequest body)
@@ -76,6 +77,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> SLO Not Found </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<SLOCorrectionResponse> createSLOCorrectionWithHttpInfo(

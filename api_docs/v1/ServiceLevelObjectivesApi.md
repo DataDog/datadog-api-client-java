@@ -302,7 +302,7 @@ Name | Type | Description  | Notes
 
 ## getSLO
 
-> SLOResponse getSLO(sloId);
+> SLOResponse getSLO(sloId, parameters);
 
 Get an SLO&#39;s details
 
@@ -326,8 +326,10 @@ public class Example {
 
         ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
         String sloId = "sloId_example"; // String | The ID of the service level objective object.
+        Boolean withConfiguredAlertIds = true; // Boolean | Get the IDs of SLO monitors that reference this SLO.
         try {
-            SLOResponse result = apiInstance.getSLO(sloId);
+	    SLOResponse result = apiInstance.getSLO(sloId, new ServiceLevelObjectivesApi.GetSLOOptionalParameters()
+                .withConfiguredAlertIds(withConfiguredAlertIds));
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ServiceLevelObjectivesApi#getSLO");
@@ -346,6 +348,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **sloId** | **String**| The ID of the service level objective object. |
+ **withConfiguredAlertIds** | **Boolean**| Get the IDs of SLO monitors that reference this SLO. | [optional]
 
 ### Return type
 
