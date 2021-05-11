@@ -8,6 +8,7 @@ import com.datadog.api.v1.client.Pair;
 import com.datadog.api.v1.client.model.UsageAnalyzedLogsResponse;
 import com.datadog.api.v1.client.model.UsageAttributionResponse;
 import com.datadog.api.v1.client.model.UsageAttributionSort;
+import com.datadog.api.v1.client.model.UsageAttributionSupportedMetrics;
 import com.datadog.api.v1.client.model.UsageBillableSummaryResponse;
 import com.datadog.api.v1.client.model.UsageComplianceResponse;
 import com.datadog.api.v1.client.model.UsageCustomReportsResponse;
@@ -1133,7 +1134,8 @@ public class UsageMeteringApi {
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
    *     usage beginning in this month. Maximum of 15 months ago. (required)
-   * @param fields The specified field to search results for. (required)
+   * @param fields Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage
+   *     types. (required)
    * @return UsageAttributionResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1143,8 +1145,8 @@ public class UsageMeteringApi {
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *     </table>
    */
-  public UsageAttributionResponse getUsageAttribution(OffsetDateTime startMonth, String fields)
-      throws ApiException {
+  public UsageAttributionResponse getUsageAttribution(
+      OffsetDateTime startMonth, UsageAttributionSupportedMetrics fields) throws ApiException {
     return getUsageAttributionWithHttpInfo(
             startMonth, fields, new GetUsageAttributionOptionalParameters())
         .getData();
@@ -1155,7 +1157,8 @@ public class UsageMeteringApi {
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
    *     usage beginning in this month. Maximum of 15 months ago. (required)
-   * @param fields The specified field to search results for. (required)
+   * @param fields Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage
+   *     types. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageAttributionResponse
    * @throws ApiException if fails to make API call
@@ -1167,7 +1170,9 @@ public class UsageMeteringApi {
    *     </table>
    */
   public UsageAttributionResponse getUsageAttribution(
-      OffsetDateTime startMonth, String fields, GetUsageAttributionOptionalParameters parameters)
+      OffsetDateTime startMonth,
+      UsageAttributionSupportedMetrics fields,
+      GetUsageAttributionOptionalParameters parameters)
       throws ApiException {
     return getUsageAttributionWithHttpInfo(startMonth, fields, parameters).getData();
   }
@@ -1177,7 +1182,8 @@ public class UsageMeteringApi {
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
    *     usage beginning in this month. Maximum of 15 months ago. (required)
-   * @param fields The specified field to search results for. (required)
+   * @param fields Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage
+   *     types. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;UsageAttributionResponse&gt;
    * @throws ApiException if fails to make API call
@@ -1189,7 +1195,9 @@ public class UsageMeteringApi {
    *     </table>
    */
   public ApiResponse<UsageAttributionResponse> getUsageAttributionWithHttpInfo(
-      OffsetDateTime startMonth, String fields, GetUsageAttributionOptionalParameters parameters)
+      OffsetDateTime startMonth,
+      UsageAttributionSupportedMetrics fields,
+      GetUsageAttributionOptionalParameters parameters)
       throws ApiException {
     Object localVarPostBody = null;
 
