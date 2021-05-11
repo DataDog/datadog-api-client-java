@@ -1,0 +1,123 @@
+[{
+  "id" : "0aef2462-3ce3-4f17-8bbf-5dd8b1207aca",
+  "httpRequest" : {
+    "method" : "POST",
+    "path" : "/api/v2/security_monitoring/configuration/security_filters",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "Delete_a_security_filter_returns_No_Content_response" ],
+      "DD-OPERATION-ID" : [ "createSecurityFilter" ],
+      "Content-Type" : [ "application/json" ]
+    },
+    "keepAlive" : false,
+    "secure" : true,
+    "body" : {
+      "type" : "JSON",
+      "json" : "{\"data\":{\"attributes\":{\"exclusion_filters\":[{\"name\":\"Exclude logs from staging\",\"query\":\"source:staging\"}],\"filtered_data_type\":\"logs\",\"is_enabled\":true,\"name\":\"Custom security filter\",\"query\":\"service:api\"},\"type\":\"security_filters\"}}"
+    }
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 200,
+    "reasonPhrase" : "OK",
+    "headers" : {
+      "Date" : [ "Mon, 10 May 2021 08:56:08 GMT" ],
+      "Content-Type" : [ "application/json;charset=utf-8" ],
+      "Connection" : [ "keep-alive" ],
+      "vary" : [ "Accept-Encoding" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "x-dd-version" : [ "35.4493583" ],
+      "content-disposition" : [ "inline" ],
+      "x-dd-debug" : [ "LcgNasIYBRkNppmD6mCKE9J6iv0eEjosuuHR5V5zw2fWbR54i39C8dhdK8zDq/40" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ],
+      "content-length" : [ "266" ]
+    },
+    "body" : "{\"data\":{\"attributes\":{\"is_enabled\":true,\"name\":\"Custom security filter\",\"filtered_data_type\":\"logs\",\"exclusion_filters\":[{\"query\":\"source:staging\",\"name\":\"Exclude logs from staging\"}],\"version\":1,\"query\":\"service:api\"},\"type\":\"security_filters\",\"id\":\"vxt-m6h-nk2\"}}"
+  }
+}, {
+  "id" : "6478a361-e8cd-460d-9cee-900f90394dda",
+  "httpRequest" : {
+    "method" : "DELETE",
+    "path" : "/api/v2/security_monitoring/configuration/security_filters/vxt-m6h-nk2",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "Delete_a_security_filter_returns_No_Content_response" ],
+      "DD-OPERATION-ID" : [ "deleteSecurityFilter" ],
+      "Content-Type" : [ "application/json" ]
+    },
+    "keepAlive" : false,
+    "secure" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 204,
+    "reasonPhrase" : "No Content",
+    "headers" : {
+      "Date" : [ "Mon, 10 May 2021 08:56:09 GMT" ],
+      "Content-Length" : [ "0" ],
+      "Connection" : [ "keep-alive" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "x-dd-version" : [ "35.4493583" ],
+      "content-disposition" : [ "inline" ],
+      "x-dd-debug" : [ "tpRCH6w417YjBovRJ8VmtuXmNONVYiRp2c8d2AxjPdGBn8PCtgG4vAztrx3qUZAN" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ]
+    }
+  }
+}, {
+  "id" : "74ff5bfd-b743-4b83-b9d5-b5c1aaff3253",
+  "httpRequest" : {
+    "method" : "DELETE",
+    "path" : "/api/v2/security_monitoring/configuration/security_filters/vxt-m6h-nk2",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "Delete_a_security_filter_returns_No_Content_response" ],
+      "DD-OPERATION-ID" : [ "deleteSecurityFilter" ],
+      "Content-Type" : [ "application/json" ]
+    },
+    "keepAlive" : false,
+    "secure" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 404,
+    "reasonPhrase" : "Not Found",
+    "headers" : {
+      "Date" : [ "Mon, 10 May 2021 08:56:09 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "keep-alive" ],
+      "vary" : [ "Accept-Encoding" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "x-dd-version" : [ "35.4493583" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ],
+      "content-length" : [ "73" ]
+    },
+    "body" : "{\"errors\":[\"not_found(Security filter with id 'vxt-m6h-nk2' not found)\"]}"
+  }
+}]
