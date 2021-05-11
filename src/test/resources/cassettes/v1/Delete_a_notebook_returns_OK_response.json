@@ -1,1 +1,134 @@
-[]
+[{
+  "id" : "a3a570b4-0dab-4955-9eeb-47625e8b47ac",
+  "httpRequest" : {
+    "method" : "POST",
+    "path" : "/api/v1/notebooks",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "Delete_a_notebook_returns_OK_response" ],
+      "DD-OPERATION-ID" : [ "createNotebook" ],
+      "Content-Type" : [ "application/json" ]
+    },
+    "keepAlive" : false,
+    "secure" : true,
+    "body" : {
+      "type" : "JSON",
+      "json" : "{\"data\":{\"attributes\":{\"cells\":[{\"attributes\":{\"definition\":{\"text\":\"# Test-Delete_a_notebook_returns_OK_response-1620747447 notebook text\",\"type\":\"markdown\"}},\"type\":\"notebook_cells\"}],\"name\":\"Test-Delete_a_notebook_returns_OK_response-1620747447\",\"status\":\"published\",\"time\":{\"live_span\":\"1h\"}},\"type\":\"notebooks\"}}"
+    }
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 200,
+    "reasonPhrase" : "OK",
+    "headers" : {
+      "Date" : [ "Tue, 11 May 2021 15:37:27 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "keep-alive" ],
+      "vary" : [ "Accept-Encoding" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "x-dd-version" : [ "35.4506591" ],
+      "x-ratelimit-limit" : [ "30" ],
+      "x-ratelimit-period" : [ "60" ],
+      "x-ratelimit-reset" : [ "33" ],
+      "x-ratelimit-remaining" : [ "28" ],
+      "x-dd-debug" : [ "5gfwVh/5HZ+AnGd/Di93w3NEWC6KMHT9KzmHEiRJmNdOjBtAsbOcgVFyqEChw71h" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ],
+      "content-length" : [ "672" ]
+    },
+    "body" : "{\"data\":{\"type\":\"notebooks\",\"id\":775878,\"attributes\":{\"name\":\"Test-Delete_a_notebook_returns_OK_response-1620747447\",\"cells\":[{\"attributes\":{\"definition\":{\"text\":\"# Test-Delete_a_notebook_returns_OK_response-1620747447 notebook text\",\"type\":\"markdown\"}},\"type\":\"notebook_cells\",\"id\":\"m0gd6pr5\"}],\"time\":{\"live_span\":\"1h\"},\"status\":\"published\",\"modified\":\"2021-05-11T15:37:27.937233+00:00\",\"created\":\"2021-05-11T15:37:27.937233+00:00\",\"author\":{\"name\":null,\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro\",\"title\":null,\"verified\":true,\"disabled\":false,\"status\":\"Active\"}}}}"
+  }
+}, {
+  "id" : "90ea998c-a7f7-462a-bed8-7f24f268dfe4",
+  "httpRequest" : {
+    "method" : "DELETE",
+    "path" : "/api/v1/notebooks/775878",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "Delete_a_notebook_returns_OK_response" ],
+      "DD-OPERATION-ID" : [ "deleteNotebook" ],
+      "Content-Type" : [ "application/json" ]
+    },
+    "keepAlive" : false,
+    "secure" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 204,
+    "reasonPhrase" : "No Content",
+    "headers" : {
+      "Date" : [ "Tue, 11 May 2021 15:37:28 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Content-Length" : [ "0" ],
+      "Connection" : [ "keep-alive" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "x-dd-version" : [ "35.4506591" ],
+      "x-ratelimit-limit" : [ "30" ],
+      "x-ratelimit-period" : [ "60" ],
+      "x-ratelimit-reset" : [ "32" ],
+      "x-ratelimit-remaining" : [ "27" ],
+      "x-dd-debug" : [ "dCmL/3rURV6BPeaqeP3Rxigq41m5CAb17XjrRE42uZ01zpr07HVhbL5/3TWMkvgu" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ]
+    }
+  }
+}, {
+  "id" : "b5e041df-2c30-4c23-88f9-6bea5d35b76e",
+  "httpRequest" : {
+    "method" : "DELETE",
+    "path" : "/api/v1/notebooks/775878",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "Delete_a_notebook_returns_OK_response" ],
+      "DD-OPERATION-ID" : [ "deleteNotebook" ],
+      "Content-Type" : [ "application/json" ]
+    },
+    "keepAlive" : false,
+    "secure" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 404,
+    "reasonPhrase" : "Not Found",
+    "headers" : {
+      "Date" : [ "Tue, 11 May 2021 15:37:28 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "keep-alive" ],
+      "vary" : [ "Accept-Encoding" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "x-ratelimit-limit" : [ "30" ],
+      "x-ratelimit-period" : [ "60" ],
+      "x-ratelimit-reset" : [ "32" ],
+      "x-ratelimit-remaining" : [ "26" ],
+      "x-dd-version" : [ "35.4506591" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ],
+      "content-length" : [ "34" ]
+    },
+    "body" : "{\"errors\": [\"Notebook not found\"]}"
+  }
+}]
