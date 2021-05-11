@@ -6265,14 +6265,14 @@ components:
       - METRICTAG
       - AUTOCOMPLETE
     IncidentIntegrationMetadataType:
-      default: incident_integration_metadata
+      default: incident_integrations
       description: Integration metadata resource type.
       enum:
-      - incident_integration_metadata
-      example: incident_integration_metadata
+      - incident_integrations
+      example: incident_integrations
       type: string
       x-enum-varnames:
-      - INCIDENT_INTEGRATION_METADATA
+      - INCIDENT_INTEGRATIONS
     IncidentPostmortemType:
       default: incident_postmortems
       description: Incident postmortem resource type.
