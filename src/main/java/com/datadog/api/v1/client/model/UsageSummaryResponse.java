@@ -54,6 +54,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   UsageSummaryResponse.JSON_PROPERTY_LAST_UPDATED,
   UsageSummaryResponse.JSON_PROPERTY_LIVE_INDEXED_EVENTS_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_LIVE_INGESTED_BYTES_AGG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_LOGS_BY_RETENTION,
   UsageSummaryResponse.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ANDROID_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_IOS_AGG_SUM,
@@ -171,6 +172,9 @@ public class UsageSummaryResponse {
   public static final String JSON_PROPERTY_LIVE_INGESTED_BYTES_AGG_SUM =
       "live_ingested_bytes_agg_sum";
   private Long liveIngestedBytesAggSum;
+
+  public static final String JSON_PROPERTY_LOGS_BY_RETENTION = "logs_by_retention";
+  private LogsByRetention logsByRetention;
 
   public static final String JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_AGG_SUM =
       "mobile_rum_session_count_agg_sum";
@@ -981,6 +985,28 @@ public class UsageSummaryResponse {
     this.liveIngestedBytesAggSum = liveIngestedBytesAggSum;
   }
 
+  public UsageSummaryResponse logsByRetention(LogsByRetention logsByRetention) {
+    this.logsByRetention = logsByRetention;
+    return this;
+  }
+
+  /**
+   * Get logsByRetention
+   *
+   * @return logsByRetention
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_LOGS_BY_RETENTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogsByRetention getLogsByRetention() {
+    return logsByRetention;
+  }
+
+  public void setLogsByRetention(LogsByRetention logsByRetention) {
+    this.logsByRetention = logsByRetention;
+  }
+
   public UsageSummaryResponse mobileRumSessionCountAggSum(Long mobileRumSessionCountAggSum) {
     this.mobileRumSessionCountAggSum = mobileRumSessionCountAggSum;
     return this;
@@ -1536,6 +1562,7 @@ public class UsageSummaryResponse {
             this.liveIndexedEventsAggSum, usageSummaryResponse.liveIndexedEventsAggSum)
         && Objects.equals(
             this.liveIngestedBytesAggSum, usageSummaryResponse.liveIngestedBytesAggSum)
+        && Objects.equals(this.logsByRetention, usageSummaryResponse.logsByRetention)
         && Objects.equals(
             this.mobileRumSessionCountAggSum, usageSummaryResponse.mobileRumSessionCountAggSum)
         && Objects.equals(
@@ -1609,6 +1636,7 @@ public class UsageSummaryResponse {
         lastUpdated,
         liveIndexedEventsAggSum,
         liveIngestedBytesAggSum,
+        logsByRetention,
         mobileRumSessionCountAggSum,
         mobileRumSessionCountAndroidAggSum,
         mobileRumSessionCountIosAggSum,
@@ -1690,6 +1718,7 @@ public class UsageSummaryResponse {
     sb.append("    liveIngestedBytesAggSum: ")
         .append(toIndentedString(liveIngestedBytesAggSum))
         .append("\n");
+    sb.append("    logsByRetention: ").append(toIndentedString(logsByRetention)).append("\n");
     sb.append("    mobileRumSessionCountAggSum: ")
         .append(toIndentedString(mobileRumSessionCountAggSum))
         .append("\n");

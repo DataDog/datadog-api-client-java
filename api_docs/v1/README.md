@@ -169,6 +169,7 @@ Class | Method | HTTP request | Description
 *UsageMeteringApi* | [**getUsageLambda**](UsageMeteringApi.md#getUsageLambda) | **GET** /api/v1/usage/aws_lambda | Get hourly usage for Lambda
 *UsageMeteringApi* | [**getUsageLogs**](UsageMeteringApi.md#getUsageLogs) | **GET** /api/v1/usage/logs | Get hourly usage for Logs
 *UsageMeteringApi* | [**getUsageLogsByIndex**](UsageMeteringApi.md#getUsageLogsByIndex) | **GET** /api/v1/usage/logs_by_index | Get hourly usage for Logs by Index
+*UsageMeteringApi* | [**getUsageLogsByRetention**](UsageMeteringApi.md#getUsageLogsByRetention) | **GET** /api/v1/usage/logs-by-retention | Get hourly logs usage by retention
 *UsageMeteringApi* | [**getUsageNetworkFlows**](UsageMeteringApi.md#getUsageNetworkFlows) | **GET** /api/v1/usage/network_flows | Get hourly usage for Network Flows
 *UsageMeteringApi* | [**getUsageNetworkHosts**](UsageMeteringApi.md#getUsageNetworkHosts) | **GET** /api/v1/usage/network_hosts | Get hourly usage for Network Hosts
 *UsageMeteringApi* | [**getUsageProfiling**](UsageMeteringApi.md#getUsageProfiling) | **GET** /api/v1/usage/profiling | Get hourly usage for profiled hosts
@@ -340,6 +341,10 @@ Class | Method | HTTP request | Description
  - [LogsArithmeticProcessorType](LogsArithmeticProcessorType.md)
  - [LogsAttributeRemapper](LogsAttributeRemapper.md)
  - [LogsAttributeRemapperType](LogsAttributeRemapperType.md)
+ - [LogsByRetention](LogsByRetention.md)
+ - [LogsByRetentionMonthlyUsage](LogsByRetentionMonthlyUsage.md)
+ - [LogsByRetentionOrgUsage](LogsByRetentionOrgUsage.md)
+ - [LogsByRetentionOrgs](LogsByRetentionOrgs.md)
  - [LogsCategoryProcessor](LogsCategoryProcessor.md)
  - [LogsCategoryProcessorCategory](LogsCategoryProcessorCategory.md)
  - [LogsCategoryProcessorType](LogsCategoryProcessorType.md)
@@ -370,6 +375,8 @@ Class | Method | HTTP request | Description
  - [LogsPipelinesOrder](LogsPipelinesOrder.md)
  - [LogsProcessor](LogsProcessor.md)
  - [LogsQueryCompute](LogsQueryCompute.md)
+ - [LogsRetentionAggSumUsage](LogsRetentionAggSumUsage.md)
+ - [LogsRetentionSumUsage](LogsRetentionSumUsage.md)
  - [LogsServiceRemapper](LogsServiceRemapper.md)
  - [LogsServiceRemapperType](LogsServiceRemapperType.md)
  - [LogsSort](LogsSort.md)
@@ -593,6 +600,7 @@ Class | Method | HTTP request | Description
  - [UsageAttributionPagination](UsageAttributionPagination.md)
  - [UsageAttributionResponse](UsageAttributionResponse.md)
  - [UsageAttributionSort](UsageAttributionSort.md)
+ - [UsageAttributionSupportedMetrics](UsageAttributionSupportedMetrics.md)
  - [UsageAttributionValues](UsageAttributionValues.md)
  - [UsageBillableSummaryBody](UsageBillableSummaryBody.md)
  - [UsageBillableSummaryHour](UsageBillableSummaryHour.md)
@@ -621,6 +629,8 @@ Class | Method | HTTP request | Description
  - [UsageLambdaResponse](UsageLambdaResponse.md)
  - [UsageLogsByIndexHour](UsageLogsByIndexHour.md)
  - [UsageLogsByIndexResponse](UsageLogsByIndexResponse.md)
+ - [UsageLogsByRetentionHour](UsageLogsByRetentionHour.md)
+ - [UsageLogsByRetentionResponse](UsageLogsByRetentionResponse.md)
  - [UsageLogsHour](UsageLogsHour.md)
  - [UsageLogsResponse](UsageLogsResponse.md)
  - [UsageMetricCategory](UsageMetricCategory.md)

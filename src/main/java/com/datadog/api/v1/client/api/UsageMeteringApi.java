@@ -8,6 +8,7 @@ import com.datadog.api.v1.client.Pair;
 import com.datadog.api.v1.client.model.UsageAnalyzedLogsResponse;
 import com.datadog.api.v1.client.model.UsageAttributionResponse;
 import com.datadog.api.v1.client.model.UsageAttributionSort;
+import com.datadog.api.v1.client.model.UsageAttributionSupportedMetrics;
 import com.datadog.api.v1.client.model.UsageBillableSummaryResponse;
 import com.datadog.api.v1.client.model.UsageComplianceResponse;
 import com.datadog.api.v1.client.model.UsageCustomReportsResponse;
@@ -19,6 +20,7 @@ import com.datadog.api.v1.client.model.UsageIngestedSpansResponse;
 import com.datadog.api.v1.client.model.UsageIoTResponse;
 import com.datadog.api.v1.client.model.UsageLambdaResponse;
 import com.datadog.api.v1.client.model.UsageLogsByIndexResponse;
+import com.datadog.api.v1.client.model.UsageLogsByRetentionResponse;
 import com.datadog.api.v1.client.model.UsageLogsResponse;
 import com.datadog.api.v1.client.model.UsageNetworkFlowsResponse;
 import com.datadog.api.v1.client.model.UsageNetworkHostsResponse;
@@ -1132,7 +1134,8 @@ public class UsageMeteringApi {
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
    *     usage beginning in this month. Maximum of 15 months ago. (required)
-   * @param fields The specified field to search results for. (required)
+   * @param fields Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage
+   *     types. (required)
    * @return UsageAttributionResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1142,8 +1145,8 @@ public class UsageMeteringApi {
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *     </table>
    */
-  public UsageAttributionResponse getUsageAttribution(OffsetDateTime startMonth, String fields)
-      throws ApiException {
+  public UsageAttributionResponse getUsageAttribution(
+      OffsetDateTime startMonth, UsageAttributionSupportedMetrics fields) throws ApiException {
     return getUsageAttributionWithHttpInfo(
             startMonth, fields, new GetUsageAttributionOptionalParameters())
         .getData();
@@ -1154,7 +1157,8 @@ public class UsageMeteringApi {
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
    *     usage beginning in this month. Maximum of 15 months ago. (required)
-   * @param fields The specified field to search results for. (required)
+   * @param fields Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage
+   *     types. (required)
    * @param parameters Optional parameters for the request.
    * @return UsageAttributionResponse
    * @throws ApiException if fails to make API call
@@ -1166,7 +1170,9 @@ public class UsageMeteringApi {
    *     </table>
    */
   public UsageAttributionResponse getUsageAttribution(
-      OffsetDateTime startMonth, String fields, GetUsageAttributionOptionalParameters parameters)
+      OffsetDateTime startMonth,
+      UsageAttributionSupportedMetrics fields,
+      GetUsageAttributionOptionalParameters parameters)
       throws ApiException {
     return getUsageAttributionWithHttpInfo(startMonth, fields, parameters).getData();
   }
@@ -1176,7 +1182,8 @@ public class UsageMeteringApi {
    *
    * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
    *     usage beginning in this month. Maximum of 15 months ago. (required)
-   * @param fields The specified field to search results for. (required)
+   * @param fields Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage
+   *     types. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;UsageAttributionResponse&gt;
    * @throws ApiException if fails to make API call
@@ -1188,7 +1195,9 @@ public class UsageMeteringApi {
    *     </table>
    */
   public ApiResponse<UsageAttributionResponse> getUsageAttributionWithHttpInfo(
-      OffsetDateTime startMonth, String fields, GetUsageAttributionOptionalParameters parameters)
+      OffsetDateTime startMonth,
+      UsageAttributionSupportedMetrics fields,
+      GetUsageAttributionOptionalParameters parameters)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -2390,6 +2399,137 @@ public class UsageMeteringApi {
 
     return apiClient.invokeAPI(
         "UsageMeteringApi.getUsageLogsByIndex",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /** Manage optional parameters to getUsageLogsByRetention. */
+  public static class GetUsageLogsByRetentionOptionalParameters {
+    private OffsetDateTime endHr;
+
+    /**
+     * Set endHr
+     *
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+     *     for usage ending **before** this hour. (optional)
+     * @return GetUsageLogsByRetentionOptionalParameters
+     */
+    public GetUsageLogsByRetentionOptionalParameters endHr(OffsetDateTime endHr) {
+      this.endHr = endHr;
+      return this;
+    }
+  }
+
+  /**
+   * Get hourly logs usage by retention Get hourly usage for indexed logs by retention period.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @return UsageLogsByRetentionResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public UsageLogsByRetentionResponse getUsageLogsByRetention(OffsetDateTime startHr)
+      throws ApiException {
+    return getUsageLogsByRetentionWithHttpInfo(
+            startHr, new GetUsageLogsByRetentionOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get hourly logs usage by retention Get hourly usage for indexed logs by retention period.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return UsageLogsByRetentionResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public UsageLogsByRetentionResponse getUsageLogsByRetention(
+      OffsetDateTime startHr, GetUsageLogsByRetentionOptionalParameters parameters)
+      throws ApiException {
+    return getUsageLogsByRetentionWithHttpInfo(startHr, parameters).getData();
+  }
+
+  /**
+   * Get hourly logs usage by retention Get hourly usage for indexed logs by retention period.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;UsageLogsByRetentionResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UsageLogsByRetentionResponse> getUsageLogsByRetentionWithHttpInfo(
+      OffsetDateTime startHr, GetUsageLogsByRetentionOptionalParameters parameters)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'startHr' is set
+    if (startHr == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'startHr' when calling getUsageLogsByRetention");
+    }
+    OffsetDateTime endHr = parameters.endHr;
+    // create path and map variables
+    String localVarPath = "/api/v1/usage/logs-by-retention";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageLogsByRetention");
+
+    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    GenericType<UsageLogsByRetentionResponse> localVarReturnType =
+        new GenericType<UsageLogsByRetentionResponse>() {};
+
+    return apiClient.invokeAPI(
+        "UsageMeteringApi.getUsageLogsByRetention",
         localVarPath,
         "GET",
         localVarQueryParams,
