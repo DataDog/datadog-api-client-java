@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -26,6 +27,14 @@ import java.util.Objects;
 public class LogsIndexesOrder {
   public static final String JSON_PROPERTY_INDEX_NAMES = "index_names";
   private List<String> indexNames = new ArrayList<>();
+
+  public LogsIndexesOrder() {}
+
+  @JsonCreator
+  public LogsIndexesOrder(
+      @JsonProperty(required = true, value = JSON_PROPERTY_INDEX_NAMES) List<String> indexNames) {
+    this.indexNames = indexNames;
+  }
 
   public LogsIndexesOrder indexNames(List<String> indexNames) {
     this.indexNames = indexNames;

@@ -10,7 +10,6 @@
 
 package com.datadog.api.v1.client.model;
 
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 

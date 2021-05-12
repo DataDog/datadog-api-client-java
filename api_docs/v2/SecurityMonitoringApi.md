@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+Method        | HTTP request | Description
+------------- | ------------ | ------------
 [**createSecurityMonitoringRule**](SecurityMonitoringApi.md#createSecurityMonitoringRule) | **POST** /api/v2/security_monitoring/rules | Create a detection rule
 [**deleteSecurityMonitoringRule**](SecurityMonitoringApi.md#deleteSecurityMonitoringRule) | **DELETE** /api/v2/security_monitoring/rules/{rule_id} | Delete an existing rule
 [**getSecurityMonitoringRule**](SecurityMonitoringApi.md#getSecurityMonitoringRule) | **GET** /api/v2/security_monitoring/rules/{rule_id} | Get a rule&#39;s details
@@ -18,19 +18,15 @@ Method | HTTP request | Description
 
 > SecurityMonitoringRuleResponse createSecurityMonitoringRule(body);
 
-Create a detection rule
-
 Create a detection rule.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.SecurityMonitoringApi;
 
@@ -86,19 +82,15 @@ Name | Type | Description  | Notes
 
 > deleteSecurityMonitoringRule(ruleId);
 
-Delete an existing rule
-
 Delete an existing rule. Default rules cannot be deleted.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.SecurityMonitoringApi;
 
@@ -153,19 +145,15 @@ null (empty response body)
 
 > SecurityMonitoringRuleResponse getSecurityMonitoringRule(ruleId);
 
-Get a rule&#39;s details
-
 Get a rule's details.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.SecurityMonitoringApi;
 
@@ -220,19 +208,15 @@ Name | Type | Description  | Notes
 
 > SecurityMonitoringListRulesResponse listSecurityMonitoringRules(parameters);
 
-List rules
-
 List rules.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.SecurityMonitoringApi;
 
@@ -291,8 +275,6 @@ Name | Type | Description  | Notes
 
 > SecurityMonitoringSignalsListResponse listSecurityMonitoringSignals(parameters);
 
-Get a quick list of security signals
-
 The list endpoint returns security signals that match a search query.
 Both this endpoint and the POST endpoint can be used interchangeably when listing
 security signals.
@@ -301,12 +283,10 @@ security signals.
 
 ```java
 import java.time.OffsetDateTime;
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.SecurityMonitoringApi;
 
@@ -378,8 +358,6 @@ Name | Type | Description  | Notes
 
 > SecurityMonitoringSignalsListResponse searchSecurityMonitoringSignals(parameters);
 
-Get a list of security signals
-
 Returns security signals that match a search query.
 Both this endpoint and the GET endpoint can be used interchangeably for listing
 security signals.
@@ -387,12 +365,10 @@ security signals.
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.SecurityMonitoringApi;
 
@@ -449,8 +425,6 @@ Name | Type | Description  | Notes
 
 > SecurityMonitoringRuleResponse updateSecurityMonitoringRule(ruleId, body);
 
-Update an existing rule
-
 Update an existing rule. When updating `cases`, `queries` or `options`, the whole field
 must be included. For example, when modifying a query all queries must be included.
 Default rules can only be updated to be enabled and to change notifications.
@@ -458,12 +432,10 @@ Default rules can only be updated to be enabled and to change notifications.
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.SecurityMonitoringApi;
 

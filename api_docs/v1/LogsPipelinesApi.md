@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+Method        | HTTP request | Description
+------------- | ------------ | ------------
 [**createLogsPipeline**](LogsPipelinesApi.md#createLogsPipeline) | **POST** /api/v1/logs/config/pipelines | Create a pipeline
 [**deleteLogsPipeline**](LogsPipelinesApi.md#deleteLogsPipeline) | **DELETE** /api/v1/logs/config/pipelines/{pipeline_id} | Delete a pipeline
 [**getLogsPipeline**](LogsPipelinesApi.md#getLogsPipeline) | **GET** /api/v1/logs/config/pipelines/{pipeline_id} | Get a pipeline
@@ -18,19 +18,15 @@ Method | HTTP request | Description
 
 > LogsPipeline createLogsPipeline(body);
 
-Create a pipeline
-
 Create a pipeline in your organization.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.LogsPipelinesApi;
 
@@ -86,20 +82,16 @@ Name | Type | Description  | Notes
 
 > deleteLogsPipeline(pipelineId);
 
-Delete a pipeline
-
 Delete a given pipeline from your organization.
 This endpoint takes no JSON arguments.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.LogsPipelinesApi;
 
@@ -154,20 +146,16 @@ null (empty response body)
 
 > LogsPipeline getLogsPipeline(pipelineId);
 
-Get a pipeline
-
 Get a specific pipeline from your organization.
 This endpoint takes no JSON arguments.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.LogsPipelinesApi;
 
@@ -223,20 +211,16 @@ Name | Type | Description  | Notes
 
 > LogsPipelinesOrder getLogsPipelineOrder();
 
-Get pipeline order
-
 Get the current order of your pipelines.
 This endpoint takes no JSON arguments.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.LogsPipelinesApi;
 
@@ -287,20 +271,16 @@ This endpoint does not need any parameter.
 
 > List&lt;LogsPipeline&gt; listLogsPipelines();
 
-Get all pipelines
-
 Get all pipelines from your organization.
 This endpoint takes no JSON arguments.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.LogsPipelinesApi;
 
@@ -351,8 +331,6 @@ This endpoint does not need any parameter.
 
 > LogsPipeline updateLogsPipeline(pipelineId, body);
 
-Update a pipeline
-
 Update a given pipeline configuration to change it’s processors or their order.
 
 **Note**: Using this method updates your pipeline configuration by **replacing**
@@ -361,12 +339,10 @@ your current configuration with the new one sent to your Datadog organization.
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.LogsPipelinesApi;
 
@@ -424,8 +400,6 @@ Name | Type | Description  | Notes
 
 > LogsPipelinesOrder updateLogsPipelineOrder(body);
 
-Update pipeline order
-
 Update the order of your pipelines. Since logs are processed sequentially, reordering a pipeline may change
 the structure and content of the data processed by other pipelines and their processors.
 
@@ -435,12 +409,10 @@ with the new one sent to your Datadog organization.
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.LogsPipelinesApi;
 

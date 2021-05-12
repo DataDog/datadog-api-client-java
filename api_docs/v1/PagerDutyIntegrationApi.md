@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+Method        | HTTP request | Description
+------------- | ------------ | ------------
 [**createPagerDutyIntegrationService**](PagerDutyIntegrationApi.md#createPagerDutyIntegrationService) | **POST** /api/v1/integration/pagerduty/configuration/services | Create a new service object
 [**deletePagerDutyIntegrationService**](PagerDutyIntegrationApi.md#deletePagerDutyIntegrationService) | **DELETE** /api/v1/integration/pagerduty/configuration/services/{service_name} | Delete a single service object
 [**getPagerDutyIntegrationService**](PagerDutyIntegrationApi.md#getPagerDutyIntegrationService) | **GET** /api/v1/integration/pagerduty/configuration/services/{service_name} | Get a single service object
@@ -15,19 +15,15 @@ Method | HTTP request | Description
 
 > PagerDutyServiceName createPagerDutyIntegrationService(body);
 
-Create a new service object
-
 Create a new service object in the PagerDuty integration.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.PagerDutyIntegrationApi;
 
@@ -83,19 +79,15 @@ Name | Type | Description  | Notes
 
 > deletePagerDutyIntegrationService(serviceName);
 
-Delete a single service object
-
 Delete a single service object in the Datadog-PagerDuty integration.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.PagerDutyIntegrationApi;
 
@@ -150,19 +142,15 @@ null (empty response body)
 
 > PagerDutyServiceName getPagerDutyIntegrationService(serviceName);
 
-Get a single service object
-
 Get service name in the Datadog-PagerDuty integration.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.PagerDutyIntegrationApi;
 
@@ -218,19 +206,15 @@ Name | Type | Description  | Notes
 
 > updatePagerDutyIntegrationService(serviceName, body);
 
-Update a single service object
-
 Update a single service object in the Datadog-PagerDuty integration.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.PagerDutyIntegrationApi;
 

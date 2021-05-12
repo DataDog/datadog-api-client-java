@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,6 +31,15 @@ public class LogsMetricCompute {
 
   public static final String JSON_PROPERTY_PATH = "path";
   private String path;
+
+  public LogsMetricCompute() {}
+
+  @JsonCreator
+  public LogsMetricCompute(
+      @JsonProperty(required = true, value = JSON_PROPERTY_AGGREGATION_TYPE)
+          LogsMetricComputeAggregationType aggregationType) {
+    this.aggregationType = aggregationType;
+  }
 
   public LogsMetricCompute aggregationType(LogsMetricComputeAggregationType aggregationType) {
     this.aggregationType = aggregationType;

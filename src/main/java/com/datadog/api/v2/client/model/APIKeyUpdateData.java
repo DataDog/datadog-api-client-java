@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -34,6 +35,19 @@ public class APIKeyUpdateData {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private APIKeysType type = APIKeysType.API_KEYS;
+
+  public APIKeyUpdateData() {}
+
+  @JsonCreator
+  public APIKeyUpdateData(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
+          APIKeyUpdateAttributes attributes,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) APIKeysType type) {
+    this.attributes = attributes;
+    this.id = id;
+    this.type = type;
+  }
 
   public APIKeyUpdateData attributes(APIKeyUpdateAttributes attributes) {
     this.attributes = attributes;

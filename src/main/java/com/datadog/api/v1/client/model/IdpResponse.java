@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -24,6 +25,13 @@ import java.util.Objects;
 public class IdpResponse {
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
+
+  public IdpResponse() {}
+
+  @JsonCreator
+  public IdpResponse(@JsonProperty(required = true, value = JSON_PROPERTY_MESSAGE) String message) {
+    this.message = message;
+  }
 
   public IdpResponse message(String message) {
     this.message = message;

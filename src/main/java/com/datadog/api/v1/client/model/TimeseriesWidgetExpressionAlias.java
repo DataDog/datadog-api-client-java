@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,6 +31,14 @@ public class TimeseriesWidgetExpressionAlias {
 
   public static final String JSON_PROPERTY_EXPRESSION = "expression";
   private String expression;
+
+  public TimeseriesWidgetExpressionAlias() {}
+
+  @JsonCreator
+  public TimeseriesWidgetExpressionAlias(
+      @JsonProperty(required = true, value = JSON_PROPERTY_EXPRESSION) String expression) {
+    this.expression = expression;
+  }
 
   public TimeseriesWidgetExpressionAlias aliasName(String aliasName) {
     this.aliasName = aliasName;

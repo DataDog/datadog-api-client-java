@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -34,6 +35,14 @@ public class UserCreateAttributes {
 
   public static final String JSON_PROPERTY_TITLE = "title";
   private String title;
+
+  public UserCreateAttributes() {}
+
+  @JsonCreator
+  public UserCreateAttributes(
+      @JsonProperty(required = true, value = JSON_PROPERTY_EMAIL) String email) {
+    this.email = email;
+  }
 
   public UserCreateAttributes email(String email) {
     this.email = email;

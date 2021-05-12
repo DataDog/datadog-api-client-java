@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -58,6 +59,18 @@ public class WidgetConditionalFormat {
 
   public static final String JSON_PROPERTY_VALUE = "value";
   private Double value;
+
+  public WidgetConditionalFormat() {}
+
+  @JsonCreator
+  public WidgetConditionalFormat(
+      @JsonProperty(required = true, value = JSON_PROPERTY_COMPARATOR) WidgetComparator comparator,
+      @JsonProperty(required = true, value = JSON_PROPERTY_PALETTE) WidgetPalette palette,
+      @JsonProperty(required = true, value = JSON_PROPERTY_VALUE) Double value) {
+    this.comparator = comparator;
+    this.palette = palette;
+    this.value = value;
+  }
 
   public WidgetConditionalFormat comparator(WidgetComparator comparator) {
     this.comparator = comparator;

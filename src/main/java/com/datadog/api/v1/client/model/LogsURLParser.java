@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -52,6 +53,18 @@ public class LogsURLParser {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private LogsURLParserType type = LogsURLParserType.URL_PARSER;
+
+  public LogsURLParser() {}
+
+  @JsonCreator
+  public LogsURLParser(
+      @JsonProperty(required = true, value = JSON_PROPERTY_SOURCES) List<String> sources,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TARGET) String target,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) LogsURLParserType type) {
+    this.sources = sources;
+    this.target = target;
+    this.type = type;
+  }
 
   public LogsURLParser isEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;

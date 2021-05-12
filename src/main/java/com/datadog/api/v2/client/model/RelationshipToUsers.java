@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -26,6 +27,15 @@ import java.util.Objects;
 public class RelationshipToUsers {
   public static final String JSON_PROPERTY_DATA = "data";
   private List<RelationshipToUserData> data = new ArrayList<>();
+
+  public RelationshipToUsers() {}
+
+  @JsonCreator
+  public RelationshipToUsers(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
+          List<RelationshipToUserData> data) {
+    this.data = data;
+  }
 
   public RelationshipToUsers data(List<RelationshipToUserData> data) {
     this.data = data;

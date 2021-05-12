@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -92,6 +93,19 @@ public class Dashboard {
 
   public static final String JSON_PROPERTY_WIDGETS = "widgets";
   private List<Widget> widgets = new ArrayList<>();
+
+  public Dashboard() {}
+
+  @JsonCreator
+  public Dashboard(
+      @JsonProperty(required = true, value = JSON_PROPERTY_LAYOUT_TYPE)
+          DashboardLayoutType layoutType,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TITLE) String title,
+      @JsonProperty(required = true, value = JSON_PROPERTY_WIDGETS) List<Widget> widgets) {
+    this.layoutType = layoutType;
+    this.title = title;
+    this.widgets = widgets;
+  }
 
   /**
    * Identifier of the dashboard author.

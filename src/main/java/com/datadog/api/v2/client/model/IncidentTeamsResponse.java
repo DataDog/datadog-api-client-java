@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -36,6 +37,15 @@ public class IncidentTeamsResponse {
 
   public static final String JSON_PROPERTY_META = "meta";
   private IncidentServicesResponseMeta meta;
+
+  public IncidentTeamsResponse() {}
+
+  @JsonCreator
+  public IncidentTeamsResponse(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
+          List<IncidentTeamResponseData> data) {
+    this.data = data;
+  }
 
   public IncidentTeamsResponse data(List<IncidentTeamResponseData> data) {
     this.data = data;

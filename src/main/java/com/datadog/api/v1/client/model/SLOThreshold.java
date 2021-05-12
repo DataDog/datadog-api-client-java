@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -42,6 +43,16 @@ public class SLOThreshold {
 
   public static final String JSON_PROPERTY_WARNING_DISPLAY = "warning_display";
   private String warningDisplay;
+
+  public SLOThreshold() {}
+
+  @JsonCreator
+  public SLOThreshold(
+      @JsonProperty(required = true, value = JSON_PROPERTY_TARGET) Double target,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TIMEFRAME) SLOTimeframe timeframe) {
+    this.target = target;
+    this.timeframe = timeframe;
+  }
 
   public SLOThreshold target(Double target) {
     this.target = target;

@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+Method        | HTTP request | Description
+------------- | ------------ | ------------
 [**createAPIKey**](KeyManagementApi.md#createAPIKey) | **POST** /api/v2/api_keys | Create an API key
 [**createCurrentUserApplicationKey**](KeyManagementApi.md#createCurrentUserApplicationKey) | **POST** /api/v2/current_user/application_keys | Create an application key for current user
 [**deleteAPIKey**](KeyManagementApi.md#deleteAPIKey) | **DELETE** /api/v2/api_keys/{api_key_id} | Delete an API key
@@ -24,19 +24,15 @@ Method | HTTP request | Description
 
 > APIKeyResponse createAPIKey(body);
 
-Create an API key
-
 Create an API key.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.KeyManagementApi;
 
@@ -94,17 +90,13 @@ Name | Type | Description  | Notes
 
 Create an application key for current user
 
-Create an application key for current user
-
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.KeyManagementApi;
 
@@ -160,19 +152,15 @@ Name | Type | Description  | Notes
 
 > deleteAPIKey(apiKeyId);
 
-Delete an API key
-
 Delete an API key.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.KeyManagementApi;
 
@@ -229,17 +217,13 @@ null (empty response body)
 
 Delete an application key
 
-Delete an application key
-
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.KeyManagementApi;
 
@@ -296,17 +280,13 @@ null (empty response body)
 
 Delete an application key owned by current user
 
-Delete an application key owned by current user
-
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.KeyManagementApi;
 
@@ -361,19 +341,15 @@ null (empty response body)
 
 > APIKeyResponse getAPIKey(apiKeyId, parameters);
 
-Get API key
-
 Get an API key.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.KeyManagementApi;
 
@@ -432,19 +408,15 @@ Name | Type | Description  | Notes
 
 > ApplicationKeyResponse getCurrentUserApplicationKey(appKeyId);
 
-Get one application key owned by current user
-
 Get an application key owned by current user
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.KeyManagementApi;
 
@@ -500,19 +472,15 @@ Name | Type | Description  | Notes
 
 > APIKeysResponse listAPIKeys(parameters);
 
-Get all API keys
-
 List all API keys available for your account.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.KeyManagementApi;
 
@@ -593,19 +561,15 @@ Name | Type | Description  | Notes
 
 > ListApplicationKeysResponse listApplicationKeys(parameters);
 
-Get all application keys
-
 List all application keys available for your org
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.KeyManagementApi;
 
@@ -678,19 +642,15 @@ Name | Type | Description  | Notes
 
 > ListApplicationKeysResponse listCurrentUserApplicationKeys(parameters);
 
-Get all application keys owned by current user
-
 List all application keys available for current user
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.KeyManagementApi;
 
@@ -763,19 +723,15 @@ Name | Type | Description  | Notes
 
 > APIKeyResponse updateAPIKey(apiKeyId, body);
 
-Edit an API key
-
 Update an API key.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.KeyManagementApi;
 
@@ -836,17 +792,13 @@ Name | Type | Description  | Notes
 
 Edit an application key
 
-Edit an application key
-
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.KeyManagementApi;
 
@@ -907,17 +859,13 @@ Name | Type | Description  | Notes
 
 Edit an application key owned by current user
 
-Edit an application key owned by current user
-
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.KeyManagementApi;
 

@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -71,6 +72,16 @@ public class DashboardListItem {
 
   public static final String JSON_PROPERTY_URL = "url";
   private String url;
+
+  public DashboardListItem() {}
+
+  @JsonCreator
+  public DashboardListItem(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) DashboardType type) {
+    this.id = id;
+    this.type = type;
+  }
 
   public DashboardListItem author(Creator author) {
     this.author = author;

@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -60,6 +61,17 @@ public class EventStreamWidgetDefinition {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private EventStreamWidgetDefinitionType type = EventStreamWidgetDefinitionType.EVENT_STREAM;
+
+  public EventStreamWidgetDefinition() {}
+
+  @JsonCreator
+  public EventStreamWidgetDefinition(
+      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          EventStreamWidgetDefinitionType type) {
+    this.query = query;
+    this.type = type;
+  }
 
   public EventStreamWidgetDefinition eventSize(WidgetEventSize eventSize) {
     this.eventSize = eventSize;

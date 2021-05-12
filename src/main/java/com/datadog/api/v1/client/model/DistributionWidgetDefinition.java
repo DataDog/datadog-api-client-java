@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -76,6 +77,18 @@ public class DistributionWidgetDefinition {
 
   public static final String JSON_PROPERTY_YAXIS = "yaxis";
   private DistributionWidgetYAxis yaxis;
+
+  public DistributionWidgetDefinition() {}
+
+  @JsonCreator
+  public DistributionWidgetDefinition(
+      @JsonProperty(required = true, value = JSON_PROPERTY_REQUESTS)
+          List<DistributionWidgetRequest> requests,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          DistributionWidgetDefinitionType type) {
+    this.requests = requests;
+    this.type = type;
+  }
 
   public DistributionWidgetDefinition legendSize(String legendSize) {
     this.legendSize = legendSize;

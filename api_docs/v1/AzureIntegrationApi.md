@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+Method        | HTTP request | Description
+------------- | ------------ | ------------
 [**createAzureIntegration**](AzureIntegrationApi.md#createAzureIntegration) | **POST** /api/v1/integration/azure | Create an Azure integration
 [**deleteAzureIntegration**](AzureIntegrationApi.md#deleteAzureIntegration) | **DELETE** /api/v1/integration/azure | Delete an Azure integration
 [**listAzureIntegration**](AzureIntegrationApi.md#listAzureIntegration) | **GET** /api/v1/integration/azure | List all Azure integrations
@@ -16,8 +16,6 @@ Method | HTTP request | Description
 
 > Object createAzureIntegration(body);
 
-Create an Azure integration
-
 Create a Datadog-Azure integration.
 
 Using the `POST` method updates your integration configuration by adding your new
@@ -29,12 +27,10 @@ current configuration with the new one sent to your Datadog organization.
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.AzureIntegrationApi;
 
@@ -90,19 +86,15 @@ Name | Type | Description  | Notes
 
 > Object deleteAzureIntegration(body);
 
-Delete an Azure integration
-
 Delete a given Datadog-Azure integration from your Datadog account.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.AzureIntegrationApi;
 
@@ -158,19 +150,15 @@ Name | Type | Description  | Notes
 
 > List&lt;AzureAccount&gt; listAzureIntegration();
 
-List all Azure integrations
-
 List all Datadog-Azure integrations configured in your Datadog account.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.AzureIntegrationApi;
 
@@ -222,19 +210,15 @@ This endpoint does not need any parameter.
 
 > Object updateAzureHostFilters(body);
 
-Update Azure integration host filters
-
 Update the defined list of host filters for a given Datadog-Azure integration.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.AzureIntegrationApi;
 
@@ -290,8 +274,6 @@ Name | Type | Description  | Notes
 
 > Object updateAzureIntegration(body);
 
-Update an Azure integration
-
 Update a Datadog-Azure integration. Requires an existing `tenant_name` and `client_id`.
 Any other fields supplied will overwrite existing values. To overwrite `tenant_name` or `client_id`,
 use `new_tenant_name` and `new_client_id`. To leave a field unchanged, do not supply that field in the payload.
@@ -299,12 +281,10 @@ use `new_tenant_name` and `new_client_id`. To leave a field unchanged, do not su
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.AzureIntegrationApi;
 

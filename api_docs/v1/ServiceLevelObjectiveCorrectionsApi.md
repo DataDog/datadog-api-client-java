@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+Method        | HTTP request | Description
+------------- | ------------ | ------------
 [**createSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#createSLOCorrection) | **POST** /api/v1/slo/correction | Create an SLO correction
 [**deleteSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#deleteSLOCorrection) | **DELETE** /api/v1/slo/correction/{slo_correction_id} | Delete an SLO correction
 [**getSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#getSLOCorrection) | **GET** /api/v1/slo/correction/{slo_correction_id} | Get an SLO correction for an SLO
@@ -16,19 +16,15 @@ Method | HTTP request | Description
 
 > SLOCorrectionResponse createSLOCorrection(body);
 
-Create an SLO correction
-
 Create an SLO Correction
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.ServiceLevelObjectiveCorrectionsApi;
 
@@ -85,19 +81,15 @@ Name | Type | Description  | Notes
 
 > deleteSLOCorrection(sloCorrectionId);
 
-Delete an SLO correction
-
 Permanently delete the specified SLO correction object
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.ServiceLevelObjectiveCorrectionsApi;
 
@@ -152,19 +144,15 @@ null (empty response body)
 
 > SLOCorrectionResponse getSLOCorrection(sloCorrectionId);
 
-Get an SLO correction for an SLO
-
 Get an SLO correction
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.ServiceLevelObjectiveCorrectionsApi;
 
@@ -220,19 +208,15 @@ Name | Type | Description  | Notes
 
 > SLOCorrectionListResponse listSLOCorrection();
 
-Get all SLO corrections
-
 Get all Service Level Objective corrections
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.ServiceLevelObjectiveCorrectionsApi;
 
@@ -283,19 +267,15 @@ This endpoint does not need any parameter.
 
 > SLOCorrectionResponse updateSLOCorrection(sloCorrectionId, body);
 
-Update an SLO correction
-
 Update the specified SLO correction object object
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.ServiceLevelObjectiveCorrectionsApi;
 

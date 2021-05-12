@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -34,6 +35,14 @@ public class LogsQueryCompute {
 
   public static final String JSON_PROPERTY_INTERVAL = "interval";
   private Long interval;
+
+  public LogsQueryCompute() {}
+
+  @JsonCreator
+  public LogsQueryCompute(
+      @JsonProperty(required = true, value = JSON_PROPERTY_AGGREGATION) String aggregation) {
+    this.aggregation = aggregation;
+  }
 
   public LogsQueryCompute aggregation(String aggregation) {
     this.aggregation = aggregation;

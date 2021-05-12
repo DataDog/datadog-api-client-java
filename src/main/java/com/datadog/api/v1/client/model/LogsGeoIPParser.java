@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -50,6 +51,18 @@ public class LogsGeoIPParser {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private LogsGeoIPParserType type = LogsGeoIPParserType.GEO_IP_PARSER;
+
+  public LogsGeoIPParser() {}
+
+  @JsonCreator
+  public LogsGeoIPParser(
+      @JsonProperty(required = true, value = JSON_PROPERTY_SOURCES) List<String> sources,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TARGET) String target,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) LogsGeoIPParserType type) {
+    this.sources = sources;
+    this.target = target;
+    this.type = type;
+  }
 
   public LogsGeoIPParser isEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;

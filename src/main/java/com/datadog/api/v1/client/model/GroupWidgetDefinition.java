@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -62,6 +63,18 @@ public class GroupWidgetDefinition {
 
   public static final String JSON_PROPERTY_WIDGETS = "widgets";
   private List<Widget> widgets = new ArrayList<>();
+
+  public GroupWidgetDefinition() {}
+
+  @JsonCreator
+  public GroupWidgetDefinition(
+      @JsonProperty(required = true, value = JSON_PROPERTY_LAYOUT_TYPE) WidgetLayoutType layoutType,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) GroupWidgetDefinitionType type,
+      @JsonProperty(required = true, value = JSON_PROPERTY_WIDGETS) List<Widget> widgets) {
+    this.layoutType = layoutType;
+    this.type = type;
+    this.widgets = widgets;
+  }
 
   public GroupWidgetDefinition backgroundColor(String backgroundColor) {
     this.backgroundColor = backgroundColor;

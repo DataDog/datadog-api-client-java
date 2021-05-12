@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -38,6 +39,18 @@ public class SyntheticsBrowserError {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private SyntheticsBrowserErrorType type;
+
+  public SyntheticsBrowserError() {}
+
+  @JsonCreator
+  public SyntheticsBrowserError(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DESCRIPTION) String description,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SyntheticsBrowserErrorType type) {
+    this.description = description;
+    this.name = name;
+    this.type = type;
+  }
 
   public SyntheticsBrowserError description(String description) {
     this.description = description;

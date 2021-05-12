@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -82,6 +83,15 @@ public class LogStreamWidgetDefinition {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private LogStreamWidgetDefinitionType type = LogStreamWidgetDefinitionType.LOG_STREAM;
+
+  public LogStreamWidgetDefinition() {}
+
+  @JsonCreator
+  public LogStreamWidgetDefinition(
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          LogStreamWidgetDefinitionType type) {
+    this.type = type;
+  }
 
   public LogStreamWidgetDefinition columns(List<String> columns) {
     this.columns = columns;

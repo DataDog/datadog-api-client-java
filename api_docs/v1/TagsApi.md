@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+Method        | HTTP request | Description
+------------- | ------------ | ------------
 [**createHostTags**](TagsApi.md#createHostTags) | **POST** /api/v1/tags/hosts/{host_name} | Add tags to a host
 [**deleteHostTags**](TagsApi.md#deleteHostTags) | **DELETE** /api/v1/tags/hosts/{host_name} | Remove host tags
 [**getHostTags**](TagsApi.md#getHostTags) | **GET** /api/v1/tags/hosts/{host_name} | Get host tags
@@ -16,20 +16,16 @@ Method | HTTP request | Description
 
 > HostTags createHostTags(hostName, body, parameters);
 
-Add tags to a host
-
 This endpoint allows you to add new tags to a host,
 optionally specifying where these tags come from.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.TagsApi;
 
@@ -90,20 +86,16 @@ Name | Type | Description  | Notes
 
 > deleteHostTags(hostName, parameters);
 
-Remove host tags
-
 This endpoint allows you to remove all user-assigned tags
 for a single host.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.TagsApi;
 
@@ -161,19 +153,15 @@ null (empty response body)
 
 > HostTags getHostTags(hostName, parameters);
 
-Get host tags
-
 Return the list of tags that apply to a given host.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.TagsApi;
 
@@ -232,19 +220,15 @@ Name | Type | Description  | Notes
 
 > TagToHosts listHostTags(parameters);
 
-Get Tags
-
 Return a mapping of tags to hosts for your whole infrastructure.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.TagsApi;
 
@@ -301,20 +285,16 @@ Name | Type | Description  | Notes
 
 > HostTags updateHostTags(hostName, body, parameters);
 
-Update host tags
-
 This endpoint allows you to update/replace all tags in
 an integration source with those supplied in the request.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.TagsApi;
 

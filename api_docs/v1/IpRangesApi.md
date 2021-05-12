@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+Method        | HTTP request | Description
+------------- | ------------ | ------------
 [**getIPRanges**](IpRangesApi.md#getIPRanges) | **GET** / | List IP Ranges
 
 
@@ -12,14 +12,11 @@ Method | HTTP request | Description
 
 > IPRanges getIPRanges();
 
-List IP Ranges
-
 Get information about Datadog IP ranges.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;

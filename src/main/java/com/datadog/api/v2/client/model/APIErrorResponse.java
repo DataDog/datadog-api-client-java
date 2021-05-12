@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -26,6 +27,14 @@ import java.util.Objects;
 public class APIErrorResponse {
   public static final String JSON_PROPERTY_ERRORS = "errors";
   private List<String> errors = new ArrayList<>();
+
+  public APIErrorResponse() {}
+
+  @JsonCreator
+  public APIErrorResponse(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ERRORS) List<String> errors) {
+    this.errors = errors;
+  }
 
   public APIErrorResponse errors(List<String> errors) {
     this.errors = errors;

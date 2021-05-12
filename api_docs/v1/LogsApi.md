@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+Method        | HTTP request | Description
+------------- | ------------ | ------------
 [**listLogs**](LogsApi.md#listLogs) | **POST** /api/v1/logs-queries/list | Search logs
 [**submitLog**](LogsApi.md#submitLog) | **POST** /v1/input | Send logs
 
@@ -12,8 +12,6 @@ Method | HTTP request | Description
 ## listLogs
 
 > LogsListResponse listLogs(body);
-
-Search logs
 
 List endpoint returns logs that match a log search query.
 [Results are paginated][1].
@@ -28,12 +26,10 @@ See [Datadog Logs Archive documentation][2].**
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.LogsApi;
 
@@ -89,8 +85,6 @@ Name | Type | Description  | Notes
 
 > Object submitLog(body, parameters);
 
-Send logs
-
 Send your logs to your Datadog platform over HTTP. Limits per HTTP request are:
 
 - Maximum content size per payload (uncompressed): 5MB
@@ -114,12 +108,10 @@ The status codes answered by the HTTP API are:
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.LogsApi;
 

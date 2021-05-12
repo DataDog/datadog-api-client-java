@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -38,6 +39,14 @@ public class ApmStatsQueryColumnType {
 
   public static final String JSON_PROPERTY_ORDER = "order";
   private WidgetSort order;
+
+  public ApmStatsQueryColumnType() {}
+
+  @JsonCreator
+  public ApmStatsQueryColumnType(
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
+    this.name = name;
+  }
 
   public ApmStatsQueryColumnType alias(String alias) {
     this.alias = alias;

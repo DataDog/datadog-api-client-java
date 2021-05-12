@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -74,6 +75,17 @@ public class HeatMapWidgetDefinition {
 
   public static final String JSON_PROPERTY_YAXIS = "yaxis";
   private WidgetAxis yaxis;
+
+  public HeatMapWidgetDefinition() {}
+
+  @JsonCreator
+  public HeatMapWidgetDefinition(
+      @JsonProperty(required = true, value = JSON_PROPERTY_REQUESTS)
+          List<HeatMapWidgetRequest> requests,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) HeatMapWidgetDefinitionType type) {
+    this.requests = requests;
+    this.type = type;
+  }
 
   public HeatMapWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;

@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -37,6 +38,17 @@ public class MetricTagConfigurationCreateAttributes {
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = new ArrayList<>();
+
+  public MetricTagConfigurationCreateAttributes() {}
+
+  @JsonCreator
+  public MetricTagConfigurationCreateAttributes(
+      @JsonProperty(required = true, value = JSON_PROPERTY_METRIC_TYPE)
+          MetricTagConfigurationMetricTypes metricType,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TAGS) List<String> tags) {
+    this.metricType = metricType;
+    this.tags = tags;
+  }
 
   public MetricTagConfigurationCreateAttributes includePercentiles(Boolean includePercentiles) {
     this.includePercentiles = includePercentiles;

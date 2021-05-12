@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -84,6 +85,19 @@ public class ServiceLevelObjective {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private SLOType type;
+
+  public ServiceLevelObjective() {}
+
+  @JsonCreator
+  public ServiceLevelObjective(
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_THRESHOLDS)
+          List<SLOThreshold> thresholds,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SLOType type) {
+    this.name = name;
+    this.thresholds = thresholds;
+    this.type = type;
+  }
 
   /**
    * Creation timestamp (UNIX time in seconds) Always included in service level objective responses.

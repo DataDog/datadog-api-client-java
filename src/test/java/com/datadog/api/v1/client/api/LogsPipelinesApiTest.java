@@ -178,15 +178,6 @@ public class LogsPipelinesApiTest extends V1ApiTest {
   @Test
   public void orderUpdateLogsPipelineErrorsTest() throws IOException {
     try {
-      api.updateLogsPipelineOrder(new LogsPipelinesOrder().pipelineIds(null));
-      fail("Expected ApiException not thrown");
-    } catch (ApiException e) {
-      assertEquals(400, e.getCode());
-      APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
-      assertNotNull(error.getErrors());
-    }
-
-    try {
       fakeAuthApi.updateLogsPipelineOrder(new LogsPipelinesOrder());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {

@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -71,6 +72,16 @@ public class LogsStatusRemapper {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private LogsStatusRemapperType type = LogsStatusRemapperType.STATUS_REMAPPER;
+
+  public LogsStatusRemapper() {}
+
+  @JsonCreator
+  public LogsStatusRemapper(
+      @JsonProperty(required = true, value = JSON_PROPERTY_SOURCES) List<String> sources,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) LogsStatusRemapperType type) {
+    this.sources = sources;
+    this.type = type;
+  }
 
   public LogsStatusRemapper isEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;

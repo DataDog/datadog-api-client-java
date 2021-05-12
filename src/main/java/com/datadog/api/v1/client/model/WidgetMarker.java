@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -38,6 +39,13 @@ public class WidgetMarker {
 
   public static final String JSON_PROPERTY_VALUE = "value";
   private String value;
+
+  public WidgetMarker() {}
+
+  @JsonCreator
+  public WidgetMarker(@JsonProperty(required = true, value = JSON_PROPERTY_VALUE) String value) {
+    this.value = value;
+  }
 
   public WidgetMarker displayType(String displayType) {
     this.displayType = displayType;

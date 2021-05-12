@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -64,6 +65,16 @@ public class ImageWidgetDefinition {
 
   public static final String JSON_PROPERTY_VERTICAL_ALIGN = "vertical_align";
   private WidgetVerticalAlign verticalAlign;
+
+  public ImageWidgetDefinition() {}
+
+  @JsonCreator
+  public ImageWidgetDefinition(
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) ImageWidgetDefinitionType type,
+      @JsonProperty(required = true, value = JSON_PROPERTY_URL) String url) {
+    this.type = type;
+    this.url = url;
+  }
 
   public ImageWidgetDefinition hasBackground(Boolean hasBackground) {
     this.hasBackground = hasBackground;

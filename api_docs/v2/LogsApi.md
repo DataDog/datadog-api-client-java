@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+Method        | HTTP request | Description
+------------- | ------------ | ------------
 [**aggregateLogs**](LogsApi.md#aggregateLogs) | **POST** /api/v2/logs/analytics/aggregate | Aggregate events
 [**listLogs**](LogsApi.md#listLogs) | **POST** /api/v2/logs/events/search | Search logs
 [**listLogsGet**](LogsApi.md#listLogsGet) | **GET** /api/v2/logs/events | Get a list of logs
@@ -14,19 +14,15 @@ Method | HTTP request | Description
 
 > LogsAggregateResponse aggregateLogs(body);
 
-Aggregate events
-
 The API endpoint to aggregate events into buckets and compute metrics and timeseries.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.LogsApi;
 
@@ -82,8 +78,6 @@ Name | Type | Description  | Notes
 
 > LogsListResponse listLogs(parameters);
 
-Search logs
-
 List endpoint returns logs that match a log search query.
 [Results are paginated][1].
 
@@ -99,12 +93,10 @@ See [Datadog Logs Archive documentation][2].**
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.LogsApi;
 
@@ -161,8 +153,6 @@ Name | Type | Description  | Notes
 
 > LogsListResponse listLogsGet(parameters);
 
-Get a list of logs
-
 List endpoint returns logs that match a log search query.
 [Results are paginated][1].
 
@@ -179,12 +169,10 @@ See [Datadog Logs Archive documentation][2].**
 
 ```java
 import java.time.OffsetDateTime;
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.LogsApi;
 

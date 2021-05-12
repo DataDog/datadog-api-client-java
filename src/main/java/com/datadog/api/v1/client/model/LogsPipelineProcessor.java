@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -56,6 +57,14 @@ public class LogsPipelineProcessor {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private LogsPipelineProcessorType type = LogsPipelineProcessorType.PIPELINE;
+
+  public LogsPipelineProcessor() {}
+
+  @JsonCreator
+  public LogsPipelineProcessor(
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) LogsPipelineProcessorType type) {
+    this.type = type;
+  }
 
   public LogsPipelineProcessor filter(LogsFilter filter) {
     this.filter = filter;

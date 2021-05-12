@@ -97,6 +97,20 @@ public class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{{#vendorE
   {{/discriminator}}
   {{/gson}}
   {{/parcelableModel}}
+  {{#hasRequired}}
+  public {{classname}}() {}
+
+  @JsonCreator
+  public {{classname}}(
+            {{#requiredVars}}
+            @JsonProperty(required=true, value=JSON_PROPERTY_{{nameInSnakeCase}}) {{#vendorExtensions.x-is-jackson-optional-nullable}}JsonNullable<{{{datatypeWithEnum}}}>{{/vendorExtensions.x-is-jackson-optional-nullable}}{{^vendorExtensions.x-is-jackson-optional-nullable}}{{{datatypeWithEnum}}}{{/vendorExtensions.x-is-jackson-optional-nullable}} {{name}}{{^-last}},{{/-last}}
+            {{/requiredVars}}
+            ) {
+        {{#requiredVars}}
+        this.{{name}} = {{name}};
+        {{/requiredVars}}
+  }
+  {{/hasRequired}}
   {{#vars}}
 
   {{^isReadOnly}}

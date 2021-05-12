@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -38,6 +39,17 @@ public class SyntheticsAssertionTarget {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private SyntheticsAssertionType type;
+
+  public SyntheticsAssertionTarget() {}
+
+  @JsonCreator
+  public SyntheticsAssertionTarget(
+      @JsonProperty(required = true, value = JSON_PROPERTY_OPERATOR)
+          SyntheticsAssertionOperator operator,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SyntheticsAssertionType type) {
+    this.operator = operator;
+    this.type = type;
+  }
 
   public SyntheticsAssertionTarget operator(SyntheticsAssertionOperator operator) {
     this.operator = operator;

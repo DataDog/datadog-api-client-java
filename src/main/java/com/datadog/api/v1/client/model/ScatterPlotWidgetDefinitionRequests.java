@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,6 +31,16 @@ public class ScatterPlotWidgetDefinitionRequests {
 
   public static final String JSON_PROPERTY_Y = "y";
   private ScatterPlotRequest y;
+
+  public ScatterPlotWidgetDefinitionRequests() {}
+
+  @JsonCreator
+  public ScatterPlotWidgetDefinitionRequests(
+      @JsonProperty(required = true, value = JSON_PROPERTY_X) ScatterPlotRequest x,
+      @JsonProperty(required = true, value = JSON_PROPERTY_Y) ScatterPlotRequest y) {
+    this.x = x;
+    this.y = y;
+  }
 
   public ScatterPlotWidgetDefinitionRequests x(ScatterPlotRequest x) {
     this.x = x;

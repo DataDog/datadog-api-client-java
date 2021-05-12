@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -34,6 +35,16 @@ public class AWSLogsServicesRequest {
 
   public static final String JSON_PROPERTY_SERVICES = "services";
   private List<String> services = new ArrayList<>();
+
+  public AWSLogsServicesRequest() {}
+
+  @JsonCreator
+  public AWSLogsServicesRequest(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ACCOUNT_ID) String accountId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SERVICES) List<String> services) {
+    this.accountId = accountId;
+    this.services = services;
+  }
 
   public AWSLogsServicesRequest accountId(String accountId) {
     this.accountId = accountId;

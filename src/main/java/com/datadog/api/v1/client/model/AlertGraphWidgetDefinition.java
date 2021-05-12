@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -56,6 +57,19 @@ public class AlertGraphWidgetDefinition {
 
   public static final String JSON_PROPERTY_VIZ_TYPE = "viz_type";
   private WidgetVizType vizType;
+
+  public AlertGraphWidgetDefinition() {}
+
+  @JsonCreator
+  public AlertGraphWidgetDefinition(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ALERT_ID) String alertId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          AlertGraphWidgetDefinitionType type,
+      @JsonProperty(required = true, value = JSON_PROPERTY_VIZ_TYPE) WidgetVizType vizType) {
+    this.alertId = alertId;
+    this.type = type;
+    this.vizType = vizType;
+  }
 
   public AlertGraphWidgetDefinition alertId(String alertId) {
     this.alertId = alertId;

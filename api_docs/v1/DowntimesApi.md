@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+Method        | HTTP request | Description
+------------- | ------------ | ------------
 [**cancelDowntime**](DowntimesApi.md#cancelDowntime) | **DELETE** /api/v1/downtime/{downtime_id} | Cancel a downtime
 [**cancelDowntimesByScope**](DowntimesApi.md#cancelDowntimesByScope) | **POST** /api/v1/downtime/cancel/by_scope | Cancel downtimes by scope
 [**createDowntime**](DowntimesApi.md#createDowntime) | **POST** /api/v1/downtime | Schedule a downtime
@@ -18,19 +18,15 @@ Method | HTTP request | Description
 
 > cancelDowntime(downtimeId);
 
-Cancel a downtime
-
 Cancel a downtime.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.DowntimesApi;
 
@@ -85,19 +81,15 @@ null (empty response body)
 
 > CanceledDowntimesIds cancelDowntimesByScope(body);
 
-Cancel downtimes by scope
-
 Delete all downtimes that match the scope of `X`.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.DowntimesApi;
 
@@ -154,19 +146,15 @@ Name | Type | Description  | Notes
 
 > Downtime createDowntime(body);
 
-Schedule a downtime
-
 Schedule a downtime.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.DowntimesApi;
 
@@ -222,19 +210,15 @@ Name | Type | Description  | Notes
 
 > Downtime getDowntime(downtimeId);
 
-Get a downtime
-
 Get downtime detail by `downtime_id`.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.DowntimesApi;
 
@@ -290,19 +274,15 @@ Name | Type | Description  | Notes
 
 > List&lt;Downtime&gt; listDowntimes(parameters);
 
-Get all downtimes
-
 Get all scheduled downtimes.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.DowntimesApi;
 
@@ -358,19 +338,15 @@ Name | Type | Description  | Notes
 
 > List&lt;Downtime&gt; listMonitorDowntimes(monitorId);
 
-Get all downtimes for a monitor
-
 Get all downtimes for the specified monitor
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.DowntimesApi;
 
@@ -426,19 +402,15 @@ Name | Type | Description  | Notes
 
 > Downtime updateDowntime(downtimeId, body);
 
-Update a downtime
-
 Update a single downtime by `downtime_id`.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.DowntimesApi;
 
