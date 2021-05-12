@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+Method        | HTTP request | Description
+------------- | ------------ | ------------
 [**createEvent**](EventsApi.md#createEvent) | **POST** /api/v1/events | Post an event
 [**getEvent**](EventsApi.md#getEvent) | **GET** /api/v1/events/{event_id} | Get an event
 [**listEvents**](EventsApi.md#listEvents) | **GET** /api/v1/events | Query the event stream
@@ -14,20 +14,16 @@ Method | HTTP request | Description
 
 > EventCreateResponse createEvent(body);
 
-Post an event
-
 This endpoint allows you to post events to the stream.
 Tag them, set priority and event aggregate them with other events.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.EventsApi;
 
@@ -82,8 +78,6 @@ Name | Type | Description  | Notes
 
 > EventResponse getEvent(eventId);
 
-Get an event
-
 This endpoint allows you to query for event details.
 
 **Note**: If the event you’re querying contains markdown formatting of any kind,
@@ -92,12 +86,10 @@ you may see characters such as `%`,`\`,`n` in your output.
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.EventsApi;
 
@@ -153,8 +145,6 @@ Name | Type | Description  | Notes
 
 > EventListResponse listEvents(start, end, parameters);
 
-Query the event stream
-
 The event stream can be queried and filtered by time, priority, sources and tags.
 
 **Notes**:
@@ -168,12 +158,10 @@ paginate the results. You can also use the page parameter to specify which set o
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.EventsApi;
 

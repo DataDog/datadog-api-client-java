@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+Method        | HTTP request | Description
+------------- | ------------ | ------------
 [**createIncident**](IncidentsApi.md#createIncident) | **POST** /api/v2/incidents | Create an incident
 [**deleteIncident**](IncidentsApi.md#deleteIncident) | **DELETE** /api/v2/incidents/{incident_id} | Delete an existing incident
 [**getIncident**](IncidentsApi.md#getIncident) | **GET** /api/v2/incidents/{incident_id} | Get the details of an incident
@@ -16,19 +16,15 @@ Method | HTTP request | Description
 
 > IncidentResponse createIncident(body);
 
-Create an incident
-
 Create an incident.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.IncidentsApi;
 
@@ -86,19 +82,15 @@ Name | Type | Description  | Notes
 
 > deleteIncident(incidentId);
 
-Delete an existing incident
-
 Deletes an existing incident from the users organization.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.IncidentsApi;
 
@@ -155,19 +147,15 @@ null (empty response body)
 
 > IncidentResponse getIncident(incidentId, parameters);
 
-Get the details of an incident
-
 Get the details of an incident by `incident_id`.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.IncidentsApi;
 
@@ -228,19 +216,15 @@ Name | Type | Description  | Notes
 
 > IncidentsResponse listIncidents(parameters);
 
-Get a list of incidents
-
 Get all incidents for the user's organization.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.IncidentsApi;
 
@@ -305,19 +289,15 @@ Name | Type | Description  | Notes
 
 > IncidentResponse updateIncident(incidentId, body);
 
-Update an existing incident
-
 Updates an incident. Provide only the attributes that should be updated as this request is a partial update.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.IncidentsApi;
 

@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+Method        | HTTP request | Description
+------------- | ------------ | ------------
 [**createLogsIndex**](LogsIndexesApi.md#createLogsIndex) | **POST** /api/v1/logs/config/indexes | Create an index
 [**getLogsIndex**](LogsIndexesApi.md#getLogsIndex) | **GET** /api/v1/logs/config/indexes/{name} | Get an index
 [**getLogsIndexOrder**](LogsIndexesApi.md#getLogsIndexOrder) | **GET** /api/v1/logs/config/index-order | Get indexes order
@@ -17,19 +17,15 @@ Method | HTTP request | Description
 
 > LogsIndex createLogsIndex(body);
 
-Create an index
-
 Creates a new index. Returns the Index object passed in the request body when the request is successful.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.LogsIndexesApi;
 
@@ -85,19 +81,15 @@ Name | Type | Description  | Notes
 
 > LogsIndex getLogsIndex(name);
 
-Get an index
-
 Get one log index from your organization. This endpoint takes no JSON arguments.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.LogsIndexesApi;
 
@@ -153,19 +145,15 @@ Name | Type | Description  | Notes
 
 > LogsIndexesOrder getLogsIndexOrder();
 
-Get indexes order
-
 Get the current order of your log indexes. This endpoint takes no JSON arguments.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.LogsIndexesApi;
 
@@ -216,20 +204,16 @@ This endpoint does not need any parameter.
 
 > LogsIndexListResponse listLogIndexes();
 
-Get all indexes
-
 The Index object describes the configuration of a log index.
 This endpoint returns an array of the `LogIndex` objects of your organization.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.LogsIndexesApi;
 
@@ -280,8 +264,6 @@ This endpoint does not need any parameter.
 
 > LogsIndex updateLogsIndex(name, body);
 
-Update an index
-
 Update an index as identified by its name.
 Returns the Index object passed in the request body when the request is successful.
 
@@ -291,12 +273,10 @@ your current configuration with the new one sent to your Datadog organization.
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.LogsIndexesApi;
 
@@ -355,20 +335,16 @@ Name | Type | Description  | Notes
 
 > LogsIndexesOrder updateLogsIndexOrder(body);
 
-Update indexes order
-
 This endpoint updates the index order of your organization.
 It returns the index order object passed in the request body when the request is successful.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.LogsIndexesApi;
 

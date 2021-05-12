@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -46,6 +47,15 @@ public class Widget {
 
   public static final String JSON_PROPERTY_LAYOUT = "layout";
   private WidgetLayout layout;
+
+  public Widget() {}
+
+  @JsonCreator
+  public Widget(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DEFINITION)
+          WidgetDefinition definition) {
+    this.definition = definition;
+  }
 
   public Widget definition(WidgetDefinition definition) {
     this.definition = definition;

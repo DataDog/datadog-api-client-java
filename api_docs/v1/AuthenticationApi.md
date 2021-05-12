@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+Method        | HTTP request | Description
+------------- | ------------ | ------------
 [**validate**](AuthenticationApi.md#validate) | **GET** /api/v1/validate | Validate API key
 
 
@@ -12,19 +12,15 @@ Method | HTTP request | Description
 
 > AuthenticationValidationResponse validate();
 
-Validate API key
-
 Check if the API key (not the APP key) is valid. If invalid, a 403 is returned.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.AuthenticationApi;
 

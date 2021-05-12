@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -93,6 +94,21 @@ public class ServiceSummaryWidgetDefinition {
   public static final String JSON_PROPERTY_TYPE = "type";
   private ServiceSummaryWidgetDefinitionType type =
       ServiceSummaryWidgetDefinitionType.TRACE_SERVICE;
+
+  public ServiceSummaryWidgetDefinition() {}
+
+  @JsonCreator
+  public ServiceSummaryWidgetDefinition(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ENV) String env,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SERVICE) String service,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SPAN_NAME) String spanName,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          ServiceSummaryWidgetDefinitionType type) {
+    this.env = env;
+    this.service = service;
+    this.spanName = spanName;
+    this.type = type;
+  }
 
   public ServiceSummaryWidgetDefinition displayFormat(
       WidgetServiceSummaryDisplayFormat displayFormat) {

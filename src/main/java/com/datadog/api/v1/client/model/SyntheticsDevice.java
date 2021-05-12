@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -42,6 +43,20 @@ public class SyntheticsDevice {
 
   public static final String JSON_PROPERTY_WIDTH = "width";
   private Long width;
+
+  public SyntheticsDevice() {}
+
+  @JsonCreator
+  public SyntheticsDevice(
+      @JsonProperty(required = true, value = JSON_PROPERTY_HEIGHT) Long height,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) SyntheticsDeviceID id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_WIDTH) Long width) {
+    this.height = height;
+    this.id = id;
+    this.name = name;
+    this.width = width;
+  }
 
   public SyntheticsDevice height(Long height) {
     this.height = height;

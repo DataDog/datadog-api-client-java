@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,6 +31,16 @@ public class EventQueryDefinition {
 
   public static final String JSON_PROPERTY_TAGS_EXECUTION = "tags_execution";
   private String tagsExecution;
+
+  public EventQueryDefinition() {}
+
+  @JsonCreator
+  public EventQueryDefinition(
+      @JsonProperty(required = true, value = JSON_PROPERTY_SEARCH) String search,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TAGS_EXECUTION) String tagsExecution) {
+    this.search = search;
+    this.tagsExecution = tagsExecution;
+  }
 
   public EventQueryDefinition search(String search) {
     this.search = search;

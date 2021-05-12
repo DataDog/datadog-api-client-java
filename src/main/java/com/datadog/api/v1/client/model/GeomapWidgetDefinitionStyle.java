@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,6 +31,16 @@ public class GeomapWidgetDefinitionStyle {
 
   public static final String JSON_PROPERTY_PALETTE_FLIP = "palette_flip";
   private Boolean paletteFlip;
+
+  public GeomapWidgetDefinitionStyle() {}
+
+  @JsonCreator
+  public GeomapWidgetDefinitionStyle(
+      @JsonProperty(required = true, value = JSON_PROPERTY_PALETTE) String palette,
+      @JsonProperty(required = true, value = JSON_PROPERTY_PALETTE_FLIP) Boolean paletteFlip) {
+    this.palette = palette;
+    this.paletteFlip = paletteFlip;
+  }
 
   public GeomapWidgetDefinitionStyle palette(String palette) {
     this.palette = palette;

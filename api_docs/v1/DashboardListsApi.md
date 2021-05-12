@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+Method        | HTTP request | Description
+------------- | ------------ | ------------
 [**createDashboardList**](DashboardListsApi.md#createDashboardList) | **POST** /api/v1/dashboard/lists/manual | Create a dashboard list
 [**deleteDashboardList**](DashboardListsApi.md#deleteDashboardList) | **DELETE** /api/v1/dashboard/lists/manual/{list_id} | Delete a dashboard list
 [**getDashboardList**](DashboardListsApi.md#getDashboardList) | **GET** /api/v1/dashboard/lists/manual/{list_id} | Get a dashboard list
@@ -16,19 +16,15 @@ Method | HTTP request | Description
 
 > DashboardList createDashboardList(body);
 
-Create a dashboard list
-
 Create an empty dashboard list.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.DashboardListsApi;
 
@@ -84,19 +80,15 @@ Name | Type | Description  | Notes
 
 > DashboardListDeleteResponse deleteDashboardList(listId);
 
-Delete a dashboard list
-
 Delete a dashboard list.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.DashboardListsApi;
 
@@ -152,19 +144,15 @@ Name | Type | Description  | Notes
 
 > DashboardList getDashboardList(listId);
 
-Get a dashboard list
-
 Fetch an existing dashboard list's definition.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.DashboardListsApi;
 
@@ -220,19 +208,15 @@ Name | Type | Description  | Notes
 
 > DashboardListListResponse listDashboardLists();
 
-Get all dashboard lists
-
 Fetch all of your existing dashboard list definitions.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.DashboardListsApi;
 
@@ -283,19 +267,15 @@ This endpoint does not need any parameter.
 
 > DashboardList updateDashboardList(listId, body);
 
-Update a dashboard list
-
 Update the name of a dashboard list.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.DashboardListsApi;
 

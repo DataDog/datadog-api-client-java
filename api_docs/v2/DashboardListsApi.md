@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+Method        | HTTP request | Description
+------------- | ------------ | ------------
 [**createDashboardListItems**](DashboardListsApi.md#createDashboardListItems) | **POST** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Add Items to a Dashboard List
 [**deleteDashboardListItems**](DashboardListsApi.md#deleteDashboardListItems) | **DELETE** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Delete items from a dashboard list
 [**getDashboardListItems**](DashboardListsApi.md#getDashboardListItems) | **GET** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Get items of a Dashboard List
@@ -15,19 +15,15 @@ Method | HTTP request | Description
 
 > DashboardListAddItemsResponse createDashboardListItems(dashboardListId, body);
 
-Add Items to a Dashboard List
-
 Add dashboards to an existing dashboard list.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.DashboardListsApi;
 
@@ -86,19 +82,15 @@ Name | Type | Description  | Notes
 
 > DashboardListDeleteItemsResponse deleteDashboardListItems(dashboardListId, body);
 
-Delete items from a dashboard list
-
 Delete dashboards from an existing dashboard list.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.DashboardListsApi;
 
@@ -157,19 +149,15 @@ Name | Type | Description  | Notes
 
 > DashboardListItems getDashboardListItems(dashboardListId);
 
-Get items of a Dashboard List
-
 Fetch the dashboard list’s dashboard definitions.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.DashboardListsApi;
 
@@ -225,19 +213,15 @@ Name | Type | Description  | Notes
 
 > DashboardListUpdateItemsResponse updateDashboardListItems(dashboardListId, body);
 
-Update items of a dashboard list
-
 Update dashboards of an existing dashboard list.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.DashboardListsApi;
 

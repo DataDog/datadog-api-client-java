@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -36,6 +37,14 @@ public class LogsMetricCreateAttributes {
 
   public static final String JSON_PROPERTY_GROUP_BY = "group_by";
   private List<LogsMetricGroupBy> groupBy = null;
+
+  public LogsMetricCreateAttributes() {}
+
+  @JsonCreator
+  public LogsMetricCreateAttributes(
+      @JsonProperty(required = true, value = JSON_PROPERTY_COMPUTE) LogsMetricCompute compute) {
+    this.compute = compute;
+  }
 
   public LogsMetricCreateAttributes compute(LogsMetricCompute compute) {
     this.compute = compute;

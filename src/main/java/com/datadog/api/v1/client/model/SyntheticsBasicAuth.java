@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,6 +31,16 @@ public class SyntheticsBasicAuth {
 
   public static final String JSON_PROPERTY_USERNAME = "username";
   private String username;
+
+  public SyntheticsBasicAuth() {}
+
+  @JsonCreator
+  public SyntheticsBasicAuth(
+      @JsonProperty(required = true, value = JSON_PROPERTY_PASSWORD) String password,
+      @JsonProperty(required = true, value = JSON_PROPERTY_USERNAME) String username) {
+    this.password = password;
+    this.username = username;
+  }
 
   public SyntheticsBasicAuth password(String password) {
     this.password = password;

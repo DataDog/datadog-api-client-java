@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -48,6 +49,20 @@ public class FormulaAndFunctionEventQueryDefinition {
 
   public static final String JSON_PROPERTY_SEARCH = "search";
   private FormulaAndFunctionEventQueryDefinitionSearch search;
+
+  public FormulaAndFunctionEventQueryDefinition() {}
+
+  @JsonCreator
+  public FormulaAndFunctionEventQueryDefinition(
+      @JsonProperty(required = true, value = JSON_PROPERTY_COMPUTE)
+          FormulaAndFunctionEventQueryDefinitionCompute compute,
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA_SOURCE)
+          FormulaAndFunctionEventsDataSource dataSource,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
+    this.compute = compute;
+    this.dataSource = dataSource;
+    this.name = name;
+  }
 
   public FormulaAndFunctionEventQueryDefinition compute(
       FormulaAndFunctionEventQueryDefinitionCompute compute) {

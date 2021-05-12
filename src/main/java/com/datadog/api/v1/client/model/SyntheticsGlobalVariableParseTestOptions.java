@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -40,6 +41,17 @@ public class SyntheticsGlobalVariableParseTestOptions {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private SyntheticsGlobalVariableParseTestOptionsType type;
+
+  public SyntheticsGlobalVariableParseTestOptions() {}
+
+  @JsonCreator
+  public SyntheticsGlobalVariableParseTestOptions(
+      @JsonProperty(required = true, value = JSON_PROPERTY_PARSER) SyntheticsVariableParser parser,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          SyntheticsGlobalVariableParseTestOptionsType type) {
+    this.parser = parser;
+    this.type = type;
+  }
 
   public SyntheticsGlobalVariableParseTestOptions field(String field) {
     this.field = field;

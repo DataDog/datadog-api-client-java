@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -34,6 +35,14 @@ public class FormulaAndFunctionEventQueryGroupBy {
 
   public static final String JSON_PROPERTY_SORT = "sort";
   private FormulaAndFunctionEventQueryGroupBySort sort;
+
+  public FormulaAndFunctionEventQueryGroupBy() {}
+
+  @JsonCreator
+  public FormulaAndFunctionEventQueryGroupBy(
+      @JsonProperty(required = true, value = JSON_PROPERTY_FACET) String facet) {
+    this.facet = facet;
+  }
 
   public FormulaAndFunctionEventQueryGroupBy facet(String facet) {
     this.facet = facet;

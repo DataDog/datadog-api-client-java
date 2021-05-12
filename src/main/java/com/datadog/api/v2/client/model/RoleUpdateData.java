@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -34,6 +35,19 @@ public class RoleUpdateData {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private RolesType type = RolesType.ROLES;
+
+  public RoleUpdateData() {}
+
+  @JsonCreator
+  public RoleUpdateData(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
+          RoleUpdateAttributes attributes,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) RolesType type) {
+    this.attributes = attributes;
+    this.id = id;
+    this.type = type;
+  }
 
   public RoleUpdateData attributes(RoleUpdateAttributes attributes) {
     this.attributes = attributes;

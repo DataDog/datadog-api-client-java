@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+Method        | HTTP request | Description
+------------- | ------------ | ------------
 [**addReadRoleToArchive**](LogsArchivesApi.md#addReadRoleToArchive) | **POST** /api/v2/logs/config/archives/{archive_id}/readers | Grant role to an archive
 [**createLogsArchive**](LogsArchivesApi.md#createLogsArchive) | **POST** /api/v2/logs/config/archives | Create an archive
 [**deleteLogsArchive**](LogsArchivesApi.md#deleteLogsArchive) | **DELETE** /api/v2/logs/config/archives/{archive_id} | Delete an archive
@@ -21,19 +21,15 @@ Method | HTTP request | Description
 
 > addReadRoleToArchive(archiveId, body);
 
-Grant role to an archive
-
 Adds a read role to an archive. ([Roles API](https://docs.datadoghq.com/api/v2/roles/))
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.LogsArchivesApi;
 
@@ -91,19 +87,15 @@ null (empty response body)
 
 > LogsArchive createLogsArchive(body);
 
-Create an archive
-
 Create an archive in your organization.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.LogsArchivesApi;
 
@@ -159,19 +151,15 @@ Name | Type | Description  | Notes
 
 > deleteLogsArchive(archiveId);
 
-Delete an archive
-
 Delete a given archive from your organization.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.LogsArchivesApi;
 
@@ -227,19 +215,15 @@ null (empty response body)
 
 > LogsArchive getLogsArchive(archiveId);
 
-Get an archive
-
 Get a specific archive from your organization.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.LogsArchivesApi;
 
@@ -296,20 +280,16 @@ Name | Type | Description  | Notes
 
 > LogsArchiveOrder getLogsArchiveOrder();
 
-Get archive order
-
 Get the current order of your archives.
 This endpoint takes no JSON arguments.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.LogsArchivesApi;
 
@@ -360,19 +340,15 @@ This endpoint does not need any parameter.
 
 > RolesResponse listArchiveReadRoles(archiveId);
 
-List read roles for an archive
-
 Returns all read roles a given archive is restricted to.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.LogsArchivesApi;
 
@@ -429,19 +405,15 @@ Name | Type | Description  | Notes
 
 > LogsArchives listLogsArchives();
 
-Get all archives
-
 Get the list of configured logs archives with their definitions.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.LogsArchivesApi;
 
@@ -492,19 +464,15 @@ This endpoint does not need any parameter.
 
 > removeRoleFromArchive(archiveId, body);
 
-Revoke role from an archive
-
 Removes a role from an archive. ([Roles API](https://docs.datadoghq.com/api/v2/roles/))
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.LogsArchivesApi;
 
@@ -562,8 +530,6 @@ null (empty response body)
 
 > LogsArchive updateLogsArchive(archiveId, body);
 
-Update an archive
-
 Update a given archive configuration.
 
 **Note**: Using this method updates your archive configuration by **replacing**
@@ -572,12 +538,10 @@ your current configuration with the new one sent to your Datadog organization.
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.LogsArchivesApi;
 
@@ -636,8 +600,6 @@ Name | Type | Description  | Notes
 
 > LogsArchiveOrder updateLogsArchiveOrder(body);
 
-Update archive order
-
 Update the order of your archives. Since logs are processed sequentially, reordering an archive may change
 the structure and content of the data processed by other archives.
 
@@ -647,12 +609,10 @@ with the new one.
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.LogsArchivesApi;
 

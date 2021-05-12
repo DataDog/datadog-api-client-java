@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -56,6 +57,16 @@ public class Series {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private String type = "gauge";
+
+  public Series() {}
+
+  @JsonCreator
+  public Series(
+      @JsonProperty(required = true, value = JSON_PROPERTY_METRIC) String metric,
+      @JsonProperty(required = true, value = JSON_PROPERTY_POINTS) List<List<Double>> points) {
+    this.metric = metric;
+    this.points = points;
+  }
 
   public Series host(String host) {
     this.host = host;

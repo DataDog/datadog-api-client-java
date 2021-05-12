@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -26,6 +27,14 @@ import java.util.Objects;
 public class MetricsPayload {
   public static final String JSON_PROPERTY_SERIES = "series";
   private List<Series> series = new ArrayList<>();
+
+  public MetricsPayload() {}
+
+  @JsonCreator
+  public MetricsPayload(
+      @JsonProperty(required = true, value = JSON_PROPERTY_SERIES) List<Series> series) {
+    this.series = series;
+  }
 
   public MetricsPayload series(List<Series> series) {
     this.series = series;

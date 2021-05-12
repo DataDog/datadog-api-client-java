@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -40,6 +41,15 @@ public class SecurityMonitoringRuleCaseCreate {
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private SecurityMonitoringRuleSeverity status;
+
+  public SecurityMonitoringRuleCaseCreate() {}
+
+  @JsonCreator
+  public SecurityMonitoringRuleCaseCreate(
+      @JsonProperty(required = true, value = JSON_PROPERTY_STATUS)
+          SecurityMonitoringRuleSeverity status) {
+    this.status = status;
+  }
 
   public SecurityMonitoringRuleCaseCreate condition(String condition) {
     this.condition = condition;

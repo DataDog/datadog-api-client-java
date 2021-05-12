@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,6 +31,16 @@ public class AWSAccountAndLambdaRequest {
 
   public static final String JSON_PROPERTY_LAMBDA_ARN = "lambda_arn";
   private String lambdaArn;
+
+  public AWSAccountAndLambdaRequest() {}
+
+  @JsonCreator
+  public AWSAccountAndLambdaRequest(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ACCOUNT_ID) String accountId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_LAMBDA_ARN) String lambdaArn) {
+    this.accountId = accountId;
+    this.lambdaArn = lambdaArn;
+  }
 
   public AWSAccountAndLambdaRequest accountId(String accountId) {
     this.accountId = accountId;

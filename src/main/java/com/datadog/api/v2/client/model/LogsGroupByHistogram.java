@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -40,6 +41,18 @@ public class LogsGroupByHistogram {
 
   public static final String JSON_PROPERTY_MIN = "min";
   private Double min;
+
+  public LogsGroupByHistogram() {}
+
+  @JsonCreator
+  public LogsGroupByHistogram(
+      @JsonProperty(required = true, value = JSON_PROPERTY_INTERVAL) Double interval,
+      @JsonProperty(required = true, value = JSON_PROPERTY_MAX) Double max,
+      @JsonProperty(required = true, value = JSON_PROPERTY_MIN) Double min) {
+    this.interval = interval;
+    this.max = max;
+    this.min = min;
+  }
 
   public LogsGroupByHistogram interval(Double interval) {
     this.interval = interval;

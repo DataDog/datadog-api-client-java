@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -44,6 +45,18 @@ public class SyntheticsPrivateLocation {
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = new ArrayList<>();
+
+  public SyntheticsPrivateLocation() {}
+
+  @JsonCreator
+  public SyntheticsPrivateLocation(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DESCRIPTION) String description,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TAGS) List<String> tags) {
+    this.description = description;
+    this.name = name;
+    this.tags = tags;
+  }
 
   public SyntheticsPrivateLocation description(String description) {
     this.description = description;

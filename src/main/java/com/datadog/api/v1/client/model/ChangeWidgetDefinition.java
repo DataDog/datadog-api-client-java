@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -53,6 +54,17 @@ public class ChangeWidgetDefinition {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private ChangeWidgetDefinitionType type = ChangeWidgetDefinitionType.CHANGE;
+
+  public ChangeWidgetDefinition() {}
+
+  @JsonCreator
+  public ChangeWidgetDefinition(
+      @JsonProperty(required = true, value = JSON_PROPERTY_REQUESTS)
+          List<ChangeWidgetRequest> requests,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) ChangeWidgetDefinitionType type) {
+    this.requests = requests;
+    this.type = type;
+  }
 
   public ChangeWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;

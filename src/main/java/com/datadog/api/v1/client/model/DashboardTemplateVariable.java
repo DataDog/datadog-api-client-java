@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -36,6 +37,14 @@ public class DashboardTemplateVariable {
 
   public static final String JSON_PROPERTY_PREFIX = "prefix";
   private JsonNullable<String> prefix = JsonNullable.<String>undefined();
+
+  public DashboardTemplateVariable() {}
+
+  @JsonCreator
+  public DashboardTemplateVariable(
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
+    this.name = name;
+  }
 
   public DashboardTemplateVariable _default(String _default) {
     this._default = JsonNullable.<String>of(_default);

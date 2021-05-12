@@ -93,6 +93,11 @@ Class | Method | HTTP request | Description
 *MonitorsApi* | [**listMonitors**](MonitorsApi.md#listMonitors) | **GET** /api/v1/monitor | Get all monitor details
 *MonitorsApi* | [**updateMonitor**](MonitorsApi.md#updateMonitor) | **PUT** /api/v1/monitor/{monitor_id} | Edit a monitor
 *MonitorsApi* | [**validateMonitor**](MonitorsApi.md#validateMonitor) | **POST** /api/v1/monitor/validate | Validate a monitor
+*NotebooksApi* | [**createNotebook**](NotebooksApi.md#createNotebook) | **POST** /api/v1/notebooks | Create a notebook
+*NotebooksApi* | [**deleteNotebook**](NotebooksApi.md#deleteNotebook) | **DELETE** /api/v1/notebooks/{notebook_id} | Delete a notebook
+*NotebooksApi* | [**getNotebook**](NotebooksApi.md#getNotebook) | **GET** /api/v1/notebooks/{notebook_id} | Get a notebook
+*NotebooksApi* | [**listNotebooks**](NotebooksApi.md#listNotebooks) | **GET** /api/v1/notebooks | Get all notebooks
+*NotebooksApi* | [**updateNotebook**](NotebooksApi.md#updateNotebook) | **PUT** /api/v1/notebooks/{notebook_id} | Update a notebook
 *OrganizationsApi* | [**createChildOrg**](OrganizationsApi.md#createChildOrg) | **POST** /api/v1/org | Create a child organization
 *OrganizationsApi* | [**getOrg**](OrganizationsApi.md#getOrg) | **GET** /api/v1/org/{public_id} | Get organization information
 *OrganizationsApi* | [**listOrgs**](OrganizationsApi.md#listOrgs) | **GET** /api/v1/org | List your managed organizations
@@ -413,6 +418,43 @@ Class | Method | HTTP request | Description
  - [MonitorUpdateRequest](MonitorUpdateRequest.md)
  - [NoteWidgetDefinition](NoteWidgetDefinition.md)
  - [NoteWidgetDefinitionType](NoteWidgetDefinitionType.md)
+ - [NotebookAbsoluteTime](NotebookAbsoluteTime.md)
+ - [NotebookAuthor](NotebookAuthor.md)
+ - [NotebookCellCreateRequest](NotebookCellCreateRequest.md)
+ - [NotebookCellCreateRequestAttributes](NotebookCellCreateRequestAttributes.md)
+ - [NotebookCellResourceType](NotebookCellResourceType.md)
+ - [NotebookCellResponse](NotebookCellResponse.md)
+ - [NotebookCellResponseAttributes](NotebookCellResponseAttributes.md)
+ - [NotebookCellTime](NotebookCellTime.md)
+ - [NotebookCellUpdateRequest](NotebookCellUpdateRequest.md)
+ - [NotebookCellUpdateRequestAttributes](NotebookCellUpdateRequestAttributes.md)
+ - [NotebookCreateData](NotebookCreateData.md)
+ - [NotebookCreateDataAttributes](NotebookCreateDataAttributes.md)
+ - [NotebookCreateRequest](NotebookCreateRequest.md)
+ - [NotebookDistributionCellAttributes](NotebookDistributionCellAttributes.md)
+ - [NotebookGlobalTime](NotebookGlobalTime.md)
+ - [NotebookGraphSize](NotebookGraphSize.md)
+ - [NotebookHeatMapCellAttributes](NotebookHeatMapCellAttributes.md)
+ - [NotebookLogStreamCellAttributes](NotebookLogStreamCellAttributes.md)
+ - [NotebookMarkdownCellAttributes](NotebookMarkdownCellAttributes.md)
+ - [NotebookMarkdownCellDefinition](NotebookMarkdownCellDefinition.md)
+ - [NotebookMarkdownCellDefinitionType](NotebookMarkdownCellDefinitionType.md)
+ - [NotebookRelativeTime](NotebookRelativeTime.md)
+ - [NotebookResourceType](NotebookResourceType.md)
+ - [NotebookResponse](NotebookResponse.md)
+ - [NotebookResponseData](NotebookResponseData.md)
+ - [NotebookResponseDataAttributes](NotebookResponseDataAttributes.md)
+ - [NotebookSplitBy](NotebookSplitBy.md)
+ - [NotebookStatus](NotebookStatus.md)
+ - [NotebookTimeseriesCellAttributes](NotebookTimeseriesCellAttributes.md)
+ - [NotebookToplistCellAttributes](NotebookToplistCellAttributes.md)
+ - [NotebookUpdateCell](NotebookUpdateCell.md)
+ - [NotebookUpdateData](NotebookUpdateData.md)
+ - [NotebookUpdateDataAttributes](NotebookUpdateDataAttributes.md)
+ - [NotebookUpdateRequest](NotebookUpdateRequest.md)
+ - [NotebooksResponse](NotebooksResponse.md)
+ - [NotebooksResponseMeta](NotebooksResponseMeta.md)
+ - [NotebooksResponsePage](NotebooksResponsePage.md)
  - [Organization](Organization.md)
  - [OrganizationBilling](OrganizationBilling.md)
  - [OrganizationCreateBody](OrganizationCreateBody.md)

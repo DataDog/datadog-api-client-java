@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,6 +31,16 @@ public class WidgetCustomLink {
 
   public static final String JSON_PROPERTY_LINK = "link";
   private String link;
+
+  public WidgetCustomLink() {}
+
+  @JsonCreator
+  public WidgetCustomLink(
+      @JsonProperty(required = true, value = JSON_PROPERTY_LABEL) String label,
+      @JsonProperty(required = true, value = JSON_PROPERTY_LINK) String link) {
+    this.label = label;
+    this.link = link;
+  }
 
   public WidgetCustomLink label(String label) {
     this.label = label;

@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -38,6 +39,19 @@ public class SyntheticsConfigVariable {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private SyntheticsConfigVariableType type;
+
+  public SyntheticsConfigVariable() {}
+
+  @JsonCreator
+  public SyntheticsConfigVariable(
+      @JsonProperty(required = true, value = JSON_PROPERTY_EXAMPLE) String example,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          SyntheticsConfigVariableType type) {
+    this.example = example;
+    this.name = name;
+    this.type = type;
+  }
 
   public SyntheticsConfigVariable example(String example) {
     this.example = example;

@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+Method        | HTTP request | Description
+------------- | ------------ | ------------
 [**createChildOrg**](OrganizationsApi.md#createChildOrg) | **POST** /api/v1/org | Create a child organization
 [**getOrg**](OrganizationsApi.md#getOrg) | **GET** /api/v1/org/{public_id} | Get organization information
 [**listOrgs**](OrganizationsApi.md#listOrgs) | **GET** /api/v1/org | List your managed organizations
@@ -15,8 +15,6 @@ Method | HTTP request | Description
 ## createChildOrg
 
 > OrganizationCreateResponse createChildOrg(body);
-
-Create a child organization
 
 Create a child organization.
 
@@ -32,12 +30,10 @@ by using the `org.public_id`, `pi_key.key`, and
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.OrganizationsApi;
 
@@ -93,19 +89,15 @@ Name | Type | Description  | Notes
 
 > OrganizationResponse getOrg(publicId);
 
-Get organization information
-
 Get organization information.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.OrganizationsApi;
 
@@ -161,19 +153,15 @@ Name | Type | Description  | Notes
 
 > OrganizationListResponse listOrgs();
 
-List your managed organizations
-
 List your managed organizations.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.OrganizationsApi;
 
@@ -224,19 +212,15 @@ This endpoint does not need any parameter.
 
 > OrganizationResponse updateOrg(publicId, body);
 
-Update your organization
-
 Update your organization.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.OrganizationsApi;
 
@@ -294,8 +278,6 @@ Name | Type | Description  | Notes
 
 > IdpResponse uploadIdPForOrg(publicId, idpFile);
 
-Upload IdP metadata
-
 There are a couple of options for updating the Identity Provider (IdP)
 metadata from your SAML IdP.
 
@@ -307,12 +289,10 @@ metadata from your SAML IdP.
 
 ```java
 import java.io.File;
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.OrganizationsApi;
 

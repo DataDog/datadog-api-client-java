@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+Method        | HTTP request | Description
+------------- | ------------ | ------------
 [**checkCanDeleteMonitor**](MonitorsApi.md#checkCanDeleteMonitor) | **GET** /api/v1/monitor/can_delete | Check if a monitor can be deleted
 [**createMonitor**](MonitorsApi.md#createMonitor) | **POST** /api/v1/monitor | Create a monitor
 [**deleteMonitor**](MonitorsApi.md#deleteMonitor) | **DELETE** /api/v1/monitor/{monitor_id} | Delete a monitor
@@ -18,19 +18,15 @@ Method | HTTP request | Description
 
 > CheckCanDeleteMonitorResponse checkCanDeleteMonitor(monitorIds);
 
-Check if a monitor can be deleted
-
 Check if the given monitors can be deleted.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.MonitorsApi;
 
@@ -86,8 +82,6 @@ Name | Type | Description  | Notes
 ## createMonitor
 
 > Monitor createMonitor(body);
-
-Create a monitor
 
 Create a monitor using the specified options.
 
@@ -223,12 +217,10 @@ Example: `error_budget("slo_id").over("time_window") operator #`
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.MonitorsApi;
 
@@ -284,19 +276,15 @@ Name | Type | Description  | Notes
 
 > DeletedMonitor deleteMonitor(monitorId, parameters);
 
-Delete a monitor
-
 Delete the specified monitor
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.MonitorsApi;
 
@@ -357,19 +345,15 @@ Name | Type | Description  | Notes
 
 > Monitor getMonitor(monitorId, parameters);
 
-Get a monitor&#39;s details
-
 Get details about the specified monitor from your organization.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.MonitorsApi;
 
@@ -429,19 +413,15 @@ Name | Type | Description  | Notes
 
 > List&lt;Monitor&gt; listMonitors(parameters);
 
-Get all monitor details
-
 Get details about the specified monitor from your organization.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.MonitorsApi;
 
@@ -519,19 +499,15 @@ Name | Type | Description  | Notes
 
 > Monitor updateMonitor(monitorId, body);
 
-Edit a monitor
-
 Edit the specified monitor.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.MonitorsApi;
 
@@ -591,19 +567,15 @@ Name | Type | Description  | Notes
 
 > Monitor validateMonitor(body);
 
-Validate a monitor
-
 Validate the monitor provided in the request.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.MonitorsApi;
 

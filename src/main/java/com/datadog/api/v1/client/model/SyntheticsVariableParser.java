@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,6 +31,15 @@ public class SyntheticsVariableParser {
 
   public static final String JSON_PROPERTY_VALUE = "value";
   private String value;
+
+  public SyntheticsVariableParser() {}
+
+  @JsonCreator
+  public SyntheticsVariableParser(
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          SyntheticsGlobalVariableParserType type) {
+    this.type = type;
+  }
 
   public SyntheticsVariableParser type(SyntheticsGlobalVariableParserType type) {
     this.type = type;

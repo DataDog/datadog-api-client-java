@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,6 +31,16 @@ public class LogsArchiveIntegrationS3 {
 
   public static final String JSON_PROPERTY_ROLE_NAME = "role_name";
   private String roleName;
+
+  public LogsArchiveIntegrationS3() {}
+
+  @JsonCreator
+  public LogsArchiveIntegrationS3(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ACCOUNT_ID) String accountId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ROLE_NAME) String roleName) {
+    this.accountId = accountId;
+    this.roleName = roleName;
+  }
 
   public LogsArchiveIntegrationS3 accountId(String accountId) {
     this.accountId = accountId;

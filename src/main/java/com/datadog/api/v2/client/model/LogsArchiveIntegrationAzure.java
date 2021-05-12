@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,6 +31,16 @@ public class LogsArchiveIntegrationAzure {
 
   public static final String JSON_PROPERTY_TENANT_ID = "tenant_id";
   private String tenantId;
+
+  public LogsArchiveIntegrationAzure() {}
+
+  @JsonCreator
+  public LogsArchiveIntegrationAzure(
+      @JsonProperty(required = true, value = JSON_PROPERTY_CLIENT_ID) String clientId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TENANT_ID) String tenantId) {
+    this.clientId = clientId;
+    this.tenantId = tenantId;
+  }
 
   public LogsArchiveIntegrationAzure clientId(String clientId) {
     this.clientId = clientId;

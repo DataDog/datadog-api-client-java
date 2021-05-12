@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,6 +31,14 @@ public class LogsGrokParserRules {
 
   public static final String JSON_PROPERTY_SUPPORT_RULES = "support_rules";
   private String supportRules = "";
+
+  public LogsGrokParserRules() {}
+
+  @JsonCreator
+  public LogsGrokParserRules(
+      @JsonProperty(required = true, value = JSON_PROPERTY_MATCH_RULES) String matchRules) {
+    this.matchRules = matchRules;
+  }
 
   public LogsGrokParserRules matchRules(String matchRules) {
     this.matchRules = matchRules;

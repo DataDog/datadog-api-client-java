@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+Method        | HTTP request | Description
+------------- | ------------ | ------------
 [**createLogsMetric**](LogsMetricsApi.md#createLogsMetric) | **POST** /api/v2/logs/config/metrics | Create a log-based metric
 [**deleteLogsMetric**](LogsMetricsApi.md#deleteLogsMetric) | **DELETE** /api/v2/logs/config/metrics/{metric_id} | Delete a log-based metric
 [**getLogsMetric**](LogsMetricsApi.md#getLogsMetric) | **GET** /api/v2/logs/config/metrics/{metric_id} | Get a log-based metric
@@ -16,20 +16,16 @@ Method | HTTP request | Description
 
 > LogsMetricResponse createLogsMetric(body);
 
-Create a log-based metric
-
 Create a metric based on your ingested logs in your organization.
 Returns the log-based metric object from the request body when the request is successful.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.LogsMetricsApi;
 
@@ -87,19 +83,15 @@ Name | Type | Description  | Notes
 
 > deleteLogsMetric(metricId);
 
-Delete a log-based metric
-
 Delete a specific log-based metric from your organization.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.LogsMetricsApi;
 
@@ -155,19 +147,15 @@ null (empty response body)
 
 > LogsMetricResponse getLogsMetric(metricId);
 
-Get a log-based metric
-
 Get a specific log-based metric from your organization.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.LogsMetricsApi;
 
@@ -224,19 +212,15 @@ Name | Type | Description  | Notes
 
 > LogsMetricsResponse listLogsMetrics();
 
-Get all log-based metrics
-
 Get the list of configured log-based metrics with their definitions.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.LogsMetricsApi;
 
@@ -288,20 +272,16 @@ This endpoint does not need any parameter.
 
 > LogsMetricResponse updateLogsMetric(metricId, body);
 
-Update a log-based metric
-
 Update a specific log-based metric from your organization.
 Returns the log-based metric object from the request body when the request is successful.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.LogsMetricsApi;
 

@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -62,6 +63,28 @@ public class SLOHistoryMetrics {
 
   public static final String JSON_PROPERTY_TIMES = "times";
   private List<Double> times = new ArrayList<>();
+
+  public SLOHistoryMetrics() {}
+
+  @JsonCreator
+  public SLOHistoryMetrics(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DENOMINATOR)
+          SLOHistoryMetricsSeries denominator,
+      @JsonProperty(required = true, value = JSON_PROPERTY_INTERVAL) Long interval,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NUMERATOR)
+          SLOHistoryMetricsSeries numerator,
+      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query,
+      @JsonProperty(required = true, value = JSON_PROPERTY_RES_TYPE) String resType,
+      @JsonProperty(required = true, value = JSON_PROPERTY_RESP_VERSION) Long respVersion,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TIMES) List<Double> times) {
+    this.denominator = denominator;
+    this.interval = interval;
+    this.numerator = numerator;
+    this.query = query;
+    this.resType = resType;
+    this.respVersion = respVersion;
+    this.times = times;
+  }
 
   public SLOHistoryMetrics denominator(SLOHistoryMetricsSeries denominator) {
     this.denominator = denominator;

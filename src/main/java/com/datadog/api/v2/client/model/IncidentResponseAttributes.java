@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -102,6 +103,14 @@ public class IncidentResponseAttributes {
 
   public static final String JSON_PROPERTY_TITLE = "title";
   private String title;
+
+  public IncidentResponseAttributes() {}
+
+  @JsonCreator
+  public IncidentResponseAttributes(
+      @JsonProperty(required = true, value = JSON_PROPERTY_TITLE) String title) {
+    this.title = title;
+  }
 
   /**
    * Timestamp when the incident was created.

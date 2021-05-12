@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,6 +31,16 @@ public class LogsArchiveIntegrationGCS {
 
   public static final String JSON_PROPERTY_PROJECT_ID = "project_id";
   private String projectId;
+
+  public LogsArchiveIntegrationGCS() {}
+
+  @JsonCreator
+  public LogsArchiveIntegrationGCS(
+      @JsonProperty(required = true, value = JSON_PROPERTY_CLIENT_EMAIL) String clientEmail,
+      @JsonProperty(required = true, value = JSON_PROPERTY_PROJECT_ID) String projectId) {
+    this.clientEmail = clientEmail;
+    this.projectId = projectId;
+  }
 
   public LogsArchiveIntegrationGCS clientEmail(String clientEmail) {
     this.clientEmail = clientEmail;

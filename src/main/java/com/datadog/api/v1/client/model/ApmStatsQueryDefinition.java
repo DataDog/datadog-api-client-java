@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -52,6 +53,22 @@ public class ApmStatsQueryDefinition {
 
   public static final String JSON_PROPERTY_SERVICE = "service";
   private String service;
+
+  public ApmStatsQueryDefinition() {}
+
+  @JsonCreator
+  public ApmStatsQueryDefinition(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ENV) String env,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_PRIMARY_TAG) String primaryTag,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ROW_TYPE) ApmStatsQueryRowType rowType,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SERVICE) String service) {
+    this.env = env;
+    this.name = name;
+    this.primaryTag = primaryTag;
+    this.rowType = rowType;
+    this.service = service;
+  }
 
   public ApmStatsQueryDefinition columns(List<ApmStatsQueryColumnType> columns) {
     this.columns = columns;

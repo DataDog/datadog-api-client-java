@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -52,6 +53,21 @@ public class SyntheticsGlobalVariable {
 
   public static final String JSON_PROPERTY_VALUE = "value";
   private SyntheticsGlobalVariableValue value;
+
+  public SyntheticsGlobalVariable() {}
+
+  @JsonCreator
+  public SyntheticsGlobalVariable(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DESCRIPTION) String description,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TAGS) List<String> tags,
+      @JsonProperty(required = true, value = JSON_PROPERTY_VALUE)
+          SyntheticsGlobalVariableValue value) {
+    this.description = description;
+    this.name = name;
+    this.tags = tags;
+    this.value = value;
+  }
 
   public SyntheticsGlobalVariable description(String description) {
     this.description = description;

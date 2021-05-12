@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -52,6 +53,14 @@ public class SecurityMonitoringRuleQueryCreate {
 
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
+
+  public SecurityMonitoringRuleQueryCreate() {}
+
+  @JsonCreator
+  public SecurityMonitoringRuleQueryCreate(
+      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query) {
+    this.query = query;
+  }
 
   public SecurityMonitoringRuleQueryCreate agentRule(SecurityMonitoringRuntimeAgentRule agentRule) {
     this.agentRule = agentRule;

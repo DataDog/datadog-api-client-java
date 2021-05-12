@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -46,6 +47,20 @@ public class SLOCorrectionCreateRequestAttributes {
 
   public static final String JSON_PROPERTY_TIMEZONE = "timezone";
   private String timezone;
+
+  public SLOCorrectionCreateRequestAttributes() {}
+
+  @JsonCreator
+  public SLOCorrectionCreateRequestAttributes(
+      @JsonProperty(required = true, value = JSON_PROPERTY_CATEGORY) SLOCorrectionCategory category,
+      @JsonProperty(required = true, value = JSON_PROPERTY_END) Long end,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SLO_ID) String sloId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_START) Long start) {
+    this.category = category;
+    this.end = end;
+    this.sloId = sloId;
+    this.start = start;
+  }
 
   public SLOCorrectionCreateRequestAttributes category(SLOCorrectionCategory category) {
     this.category = category;

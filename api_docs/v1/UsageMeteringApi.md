@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+Method        | HTTP request | Description
+------------- | ------------ | ------------
 [**getDailyCustomReports**](UsageMeteringApi.md#getDailyCustomReports) | **GET** /api/v1/daily_custom_reports | Get the list of available daily custom reports
 [**getIncidentManagement**](UsageMeteringApi.md#getIncidentManagement) | **GET** /api/v1/usage/incident-management | Get hourly usage for incident management
 [**getIngestedSpans**](UsageMeteringApi.md#getIngestedSpans) | **GET** /api/v1/usage/ingested-spans | Get hourly usage for ingested spans
@@ -42,19 +42,15 @@ Method | HTTP request | Description
 
 > UsageCustomReportsResponse getDailyCustomReports(parameters);
 
-Get the list of available daily custom reports
-
 Get daily custom reports.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.UsageMeteringApi;
 
@@ -119,20 +115,16 @@ Name | Type | Description  | Notes
 
 > UsageIncidentManagementResponse getIncidentManagement(startHr, parameters);
 
-Get hourly usage for incident management
-
 Get hourly usage for incident management.
 
 ### Example
 
 ```java
 import java.time.OffsetDateTime;
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.UsageMeteringApi;
 
@@ -191,20 +183,16 @@ Name | Type | Description  | Notes
 
 > UsageIngestedSpansResponse getIngestedSpans(startHr, parameters);
 
-Get hourly usage for ingested spans
-
 Get hourly usage for ingested spans.
 
 ### Example
 
 ```java
 import java.time.OffsetDateTime;
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.UsageMeteringApi;
 
@@ -263,19 +251,15 @@ Name | Type | Description  | Notes
 
 > UsageCustomReportsResponse getMonthlyCustomReports(parameters);
 
-Get the list of available monthly custom reports
-
 Get monthly custom reports.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.UsageMeteringApi;
 
@@ -340,19 +324,15 @@ Name | Type | Description  | Notes
 
 > UsageSpecifiedCustomReportsResponse getSpecifiedDailyCustomReports(reportId);
 
-Get specified daily custom reports
-
 Get specified daily custom reports.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.UsageMeteringApi;
 
@@ -408,19 +388,15 @@ Name | Type | Description  | Notes
 
 > UsageSpecifiedCustomReportsResponse getSpecifiedMonthlyCustomReports(reportId);
 
-Get specified monthly custom reports
-
 Get specified monthly custom reports.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.UsageMeteringApi;
 
@@ -477,8 +453,6 @@ Name | Type | Description  | Notes
 
 > UsageTracingWithoutLimitsResponse getTracingWithoutLimits(startHr, parameters);
 
-Get hourly usage for tracing without limits
-
 Get hourly usage for tracing without limits.
 
 **Note** This endpoint has been renamed to `/api/v1/usage/ingested-spans`.
@@ -487,12 +461,10 @@ Get hourly usage for tracing without limits.
 
 ```java
 import java.time.OffsetDateTime;
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.UsageMeteringApi;
 
@@ -551,20 +523,16 @@ Name | Type | Description  | Notes
 
 > UsageAnalyzedLogsResponse getUsageAnalyzedLogs(startHr, parameters);
 
-Get hourly usage for analyzed logs
-
 Get hourly usage for analyzed logs (Security Monitoring).
 
 ### Example
 
 ```java
 import java.time.OffsetDateTime;
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.UsageMeteringApi;
 
@@ -623,20 +591,16 @@ Name | Type | Description  | Notes
 
 > UsageAttributionResponse getUsageAttribution(startMonth, fields, parameters);
 
-Get Usage Attribution
-
 Get Usage Attribution.
 
 ### Example
 
 ```java
 import java.time.OffsetDateTime;
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.UsageMeteringApi;
 
@@ -702,20 +666,16 @@ Name | Type | Description  | Notes
 
 > UsageBillableSummaryResponse getUsageBillableSummary(parameters);
 
-Get billable usage across your account
-
 Get billable usage across your account.
 
 ### Example
 
 ```java
 import java.time.OffsetDateTime;
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.UsageMeteringApi;
 
@@ -772,20 +732,16 @@ Name | Type | Description  | Notes
 
 > UsageComplianceResponse getUsageComplianceMonitoring(startHr, parameters);
 
-Get hourly usage for Compliance Monitoring
-
 Get hourly usage for Compliance Monitoring.
 
 ### Example
 
 ```java
 import java.time.OffsetDateTime;
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.UsageMeteringApi;
 
@@ -844,20 +800,16 @@ Name | Type | Description  | Notes
 
 > UsageFargateResponse getUsageFargate(startHr, parameters);
 
-Get hourly usage for Fargate
-
 Get hourly usage for [Fargate](https://docs.datadoghq.com/integrations/ecs_fargate/).
 
 ### Example
 
 ```java
 import java.time.OffsetDateTime;
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.UsageMeteringApi;
 
@@ -916,20 +868,16 @@ Name | Type | Description  | Notes
 
 > UsageHostsResponse getUsageHosts(startHr, parameters);
 
-Get hourly usage for hosts and containers
-
 Get hourly usage for hosts and containers.
 
 ### Example
 
 ```java
 import java.time.OffsetDateTime;
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.UsageMeteringApi;
 
@@ -988,20 +936,16 @@ Name | Type | Description  | Notes
 
 > UsageIndexedSpansResponse getUsageIndexedSpans(startHr, parameters);
 
-Get hourly usage for indexed spans
-
 Get hourly usage for indexed spans.
 
 ### Example
 
 ```java
 import java.time.OffsetDateTime;
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.UsageMeteringApi;
 
@@ -1060,20 +1004,16 @@ Name | Type | Description  | Notes
 
 > UsageIoTResponse getUsageInternetOfThings(startHr, parameters);
 
-Get hourly usage for IoT
-
 Get hourly usage for IoT.
 
 ### Example
 
 ```java
 import java.time.OffsetDateTime;
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.UsageMeteringApi;
 
@@ -1132,20 +1072,16 @@ Name | Type | Description  | Notes
 
 > UsageLambdaResponse getUsageLambda(startHr, parameters);
 
-Get hourly usage for Lambda
-
 Get hourly usage for lambda.
 
 ### Example
 
 ```java
 import java.time.OffsetDateTime;
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.UsageMeteringApi;
 
@@ -1204,20 +1140,16 @@ Name | Type | Description  | Notes
 
 > UsageLogsResponse getUsageLogs(startHr, parameters);
 
-Get hourly usage for Logs
-
 Get hourly usage for logs.
 
 ### Example
 
 ```java
 import java.time.OffsetDateTime;
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.UsageMeteringApi;
 
@@ -1276,20 +1208,16 @@ Name | Type | Description  | Notes
 
 > UsageLogsByIndexResponse getUsageLogsByIndex(startHr, parameters);
 
-Get hourly usage for Logs by Index
-
 Get hourly usage for logs by index.
 
 ### Example
 
 ```java
 import java.time.OffsetDateTime;
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.UsageMeteringApi;
 
@@ -1351,20 +1279,16 @@ Name | Type | Description  | Notes
 
 > UsageLogsByRetentionResponse getUsageLogsByRetention(startHr, parameters);
 
-Get hourly logs usage by retention
-
 Get hourly usage for indexed logs by retention period.
 
 ### Example
 
 ```java
 import java.time.OffsetDateTime;
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.UsageMeteringApi;
 
@@ -1423,20 +1347,16 @@ Name | Type | Description  | Notes
 
 > UsageNetworkFlowsResponse getUsageNetworkFlows(startHr, parameters);
 
-Get hourly usage for Network Flows
-
 Get hourly usage for network flows.
 
 ### Example
 
 ```java
 import java.time.OffsetDateTime;
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.UsageMeteringApi;
 
@@ -1495,20 +1415,16 @@ Name | Type | Description  | Notes
 
 > UsageNetworkHostsResponse getUsageNetworkHosts(startHr, parameters);
 
-Get hourly usage for Network Hosts
-
 Get hourly usage for network hosts.
 
 ### Example
 
 ```java
 import java.time.OffsetDateTime;
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.UsageMeteringApi;
 
@@ -1567,20 +1483,16 @@ Name | Type | Description  | Notes
 
 > UsageProfilingResponse getUsageProfiling(startHr, parameters);
 
-Get hourly usage for profiled hosts
-
 Get hourly usage for profiled hosts.
 
 ### Example
 
 ```java
 import java.time.OffsetDateTime;
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.UsageMeteringApi;
 
@@ -1639,20 +1551,16 @@ Name | Type | Description  | Notes
 
 > UsageRumSessionsResponse getUsageRumSessions(startHr, parameters);
 
-Get hourly usage for RUM Sessions
-
 Get hourly usage for [RUM](https://docs.datadoghq.com/real_user_monitoring/) Sessions.
 
 ### Example
 
 ```java
 import java.time.OffsetDateTime;
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.UsageMeteringApi;
 
@@ -1714,20 +1622,16 @@ Name | Type | Description  | Notes
 
 > UsageSNMPResponse getUsageSNMP(startHr, parameters);
 
-Get hourly usage for SNMP devices
-
 Get hourly usage for SNMP devices.
 
 ### Example
 
 ```java
 import java.time.OffsetDateTime;
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.UsageMeteringApi;
 
@@ -1786,20 +1690,16 @@ Name | Type | Description  | Notes
 
 > UsageSummaryResponse getUsageSummary(startMonth, parameters);
 
-Get usage across your multi-org account
-
 Get usage across your multi-org account. You must have the multi-org feature enabled.
 
 ### Example
 
 ```java
 import java.time.OffsetDateTime;
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.UsageMeteringApi;
 
@@ -1861,20 +1761,16 @@ Name | Type | Description  | Notes
 
 > UsageSyntheticsResponse getUsageSynthetics(startHr, parameters);
 
-Get hourly usage for Synthetics Checks
-
 Get hourly usage for [Synthetics checks](https://docs.datadoghq.com/synthetics/).
 
 ### Example
 
 ```java
 import java.time.OffsetDateTime;
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.UsageMeteringApi;
 
@@ -1933,20 +1829,16 @@ Name | Type | Description  | Notes
 
 > UsageSyntheticsAPIResponse getUsageSyntheticsAPI(startHr, parameters);
 
-Get hourly usage for Synthetics API Checks
-
 Get hourly usage for [synthetics API checks](https://docs.datadoghq.com/synthetics/).
 
 ### Example
 
 ```java
 import java.time.OffsetDateTime;
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.UsageMeteringApi;
 
@@ -2005,20 +1897,16 @@ Name | Type | Description  | Notes
 
 > UsageSyntheticsBrowserResponse getUsageSyntheticsBrowser(startHr, parameters);
 
-Get hourly usage for Synthetics Browser Checks
-
 Get hourly usage for synthetics browser checks.
 
 ### Example
 
 ```java
 import java.time.OffsetDateTime;
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.UsageMeteringApi;
 
@@ -2077,20 +1965,16 @@ Name | Type | Description  | Notes
 
 > UsageTimeseriesResponse getUsageTimeseries(startHr, parameters);
 
-Get hourly usage for custom metrics
-
 Get hourly usage for [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/).
 
 ### Example
 
 ```java
 import java.time.OffsetDateTime;
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.UsageMeteringApi;
 
@@ -2149,20 +2033,16 @@ Name | Type | Description  | Notes
 
 > UsageTopAvgMetricsResponse getUsageTopAvgMetrics(parameters);
 
-Get top custom metrics by hourly average
-
 Get top [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average. Use the month parameter to get a month-to-date data resolution or use the day parameter to get a daily resolution. One of the two is required, and only one of the two is allowed.
 
 ### Example
 
 ```java
 import java.time.OffsetDateTime;
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.UsageMeteringApi;
 
@@ -2228,8 +2108,6 @@ Name | Type | Description  | Notes
 
 > UsageTraceResponse getUsageTrace(startHr, parameters);
 
-Get hourly usage for Trace Search
-
 Get hourly usage for trace search.
 
 **Note** This endpoint has been renamed to `/api/v1/usage/indexed-spans`.
@@ -2238,12 +2116,10 @@ Get hourly usage for trace search.
 
 ```java
 import java.time.OffsetDateTime;
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.UsageMeteringApi;
 

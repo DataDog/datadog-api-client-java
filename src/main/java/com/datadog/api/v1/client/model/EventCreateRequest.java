@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -80,6 +81,16 @@ public class EventCreateRequest {
 
   public static final String JSON_PROPERTY_URL = "url";
   private String url;
+
+  public EventCreateRequest() {}
+
+  @JsonCreator
+  public EventCreateRequest(
+      @JsonProperty(required = true, value = JSON_PROPERTY_TEXT) String text,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TITLE) String title) {
+    this.text = text;
+    this.title = title;
+  }
 
   public EventCreateRequest aggregationKey(String aggregationKey) {
     this.aggregationKey = aggregationKey;

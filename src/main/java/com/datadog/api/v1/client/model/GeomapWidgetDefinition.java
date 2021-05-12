@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -60,6 +61,21 @@ public class GeomapWidgetDefinition {
 
   public static final String JSON_PROPERTY_VIEW = "view";
   private GeomapWidgetDefinitionView view;
+
+  public GeomapWidgetDefinition() {}
+
+  @JsonCreator
+  public GeomapWidgetDefinition(
+      @JsonProperty(required = true, value = JSON_PROPERTY_REQUESTS)
+          List<GeomapWidgetRequest> requests,
+      @JsonProperty(required = true, value = JSON_PROPERTY_STYLE) GeomapWidgetDefinitionStyle style,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) GeomapWidgetDefinitionType type,
+      @JsonProperty(required = true, value = JSON_PROPERTY_VIEW) GeomapWidgetDefinitionView view) {
+    this.requests = requests;
+    this.style = style;
+    this.type = type;
+    this.view = view;
+  }
 
   public GeomapWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;

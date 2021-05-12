@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+Method        | HTTP request | Description
+------------- | ------------ | ------------
 [**checkCanDeleteSLO**](ServiceLevelObjectivesApi.md#checkCanDeleteSLO) | **GET** /api/v1/slo/can_delete | Check if SLOs can be safely deleted
 [**createSLO**](ServiceLevelObjectivesApi.md#createSLO) | **POST** /api/v1/slo | Create an SLO object
 [**deleteSLO**](ServiceLevelObjectivesApi.md#deleteSLO) | **DELETE** /api/v1/slo/{slo_id} | Delete an SLO
@@ -19,20 +19,16 @@ Method | HTTP request | Description
 
 > CheckCanDeleteSLOResponse checkCanDeleteSLO(ids);
 
-Check if SLOs can be safely deleted
-
 Check if an SLO can be safely deleted. For example,
 assure an SLO can be deleted without disrupting a dashboard.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.ServiceLevelObjectivesApi;
 
@@ -89,19 +85,15 @@ Name | Type | Description  | Notes
 
 > SLOListResponse createSLO(body);
 
-Create an SLO object
-
 Create a service level objective object.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.ServiceLevelObjectivesApi;
 
@@ -157,8 +149,6 @@ Name | Type | Description  | Notes
 
 > SLODeleteResponse deleteSLO(sloId, parameters);
 
-Delete an SLO
-
 Permanently delete the specified service level objective object.
 
 If an SLO is used in a dashboard, the `DELETE /v1/slo/` endpoint returns
@@ -167,12 +157,10 @@ a 409 conflict error because the SLO is referenced in a dashboard.
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.ServiceLevelObjectivesApi;
 
@@ -232,8 +220,6 @@ Name | Type | Description  | Notes
 
 > SLOBulkDeleteResponse deleteSLOTimeframeInBulk(body);
 
-Bulk Delete SLO Timeframes
-
 Delete (or partially delete) multiple service level objective objects.
 
 This endpoint facilitates deletion of one or more thresholds for one or more
@@ -243,12 +229,10 @@ objective object is deleted as well.
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.ServiceLevelObjectivesApi;
 
@@ -304,19 +288,15 @@ Name | Type | Description  | Notes
 
 > SLOResponse getSLO(sloId, parameters);
 
-Get an SLO&#39;s details
-
 Get a service level objective object.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.ServiceLevelObjectivesApi;
 
@@ -375,8 +355,6 @@ Name | Type | Description  | Notes
 
 > SLOHistoryResponse getSLOHistory(sloId, fromTs, toTs, parameters);
 
-Get an SLO&#39;s history
-
 Get a specific SLO’s history, regardless of its SLO type.
 
 The detailed history data is structured according to the source data type.
@@ -389,12 +367,10 @@ Examples of both are shown.
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.ServiceLevelObjectivesApi;
 
@@ -458,19 +434,15 @@ Name | Type | Description  | Notes
 
 > SLOListResponse listSLOs(parameters);
 
-Get all SLOs
-
 Get a list of service level objective objects for your organization.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.ServiceLevelObjectivesApi;
 
@@ -537,19 +509,15 @@ Name | Type | Description  | Notes
 
 > SLOListResponse updateSLO(sloId, body);
 
-Update an SLO
-
 Update the specified service level objective object.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.ServiceLevelObjectivesApi;
 

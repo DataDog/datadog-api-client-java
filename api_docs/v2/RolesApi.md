@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+Method        | HTTP request | Description
+------------- | ------------ | ------------
 [**addPermissionToRole**](RolesApi.md#addPermissionToRole) | **POST** /api/v2/roles/{role_id}/permissions | Grant permission to a role
 [**addUserToRole**](RolesApi.md#addUserToRole) | **POST** /api/v2/roles/{role_id}/users | Add a user to a role
 [**createRole**](RolesApi.md#createRole) | **POST** /api/v2/roles | Create role
@@ -23,19 +23,15 @@ Method | HTTP request | Description
 
 > PermissionsResponse addPermissionToRole(roleId, body);
 
-Grant permission to a role
-
 Adds a permission to a role.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.RolesApi;
 
@@ -94,19 +90,15 @@ Name | Type | Description  | Notes
 
 > UsersResponse addUserToRole(roleId, body);
 
-Add a user to a role
-
 Adds a user to a role.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.RolesApi;
 
@@ -165,19 +157,15 @@ Name | Type | Description  | Notes
 
 > RoleCreateResponse createRole(body);
 
-Create role
-
 Create a new role for your organization.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.RolesApi;
 
@@ -233,19 +221,15 @@ Name | Type | Description  | Notes
 
 > deleteRole(roleId);
 
-Delete role
-
 Disables a role.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.RolesApi;
 
@@ -300,19 +284,15 @@ null (empty response body)
 
 > RoleResponse getRole(roleId);
 
-Get a role
-
 Get a role in the organization specified by the role’s `role_id`.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.RolesApi;
 
@@ -368,19 +348,15 @@ Name | Type | Description  | Notes
 
 > PermissionsResponse listPermissions();
 
-List permissions
-
 Returns a list of all permissions, including name, description, and ID.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.RolesApi;
 
@@ -432,19 +408,15 @@ This endpoint does not need any parameter.
 
 > PermissionsResponse listRolePermissions(roleId);
 
-List permissions for a role
-
 Returns a list of all permissions for a single role.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.RolesApi;
 
@@ -500,19 +472,15 @@ Name | Type | Description  | Notes
 
 > UsersResponse listRoleUsers(roleId, parameters);
 
-Get all users of a role
-
 Gets all users of a role.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.RolesApi;
 
@@ -580,19 +548,15 @@ Name | Type | Description  | Notes
 
 > RolesResponse listRoles(parameters);
 
-List roles
-
 Returns all roles, including their names and IDs.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.RolesApi;
 
@@ -657,19 +621,15 @@ Name | Type | Description  | Notes
 
 > PermissionsResponse removePermissionFromRole(roleId, body);
 
-Revoke permission
-
 Removes a permission from a role.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.RolesApi;
 
@@ -728,19 +688,15 @@ Name | Type | Description  | Notes
 
 > UsersResponse removeUserFromRole(roleId, body);
 
-Remove a user from a role
-
 Removes a user from a role.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.RolesApi;
 
@@ -799,19 +755,15 @@ Name | Type | Description  | Notes
 
 > RoleUpdateResponse updateRole(roleId, body);
 
-Update a role
-
 Edit a role. Can only be used with application keys belonging to administrators.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.RolesApi;
 

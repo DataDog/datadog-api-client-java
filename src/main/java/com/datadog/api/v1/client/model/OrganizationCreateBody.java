@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -34,6 +35,14 @@ public class OrganizationCreateBody {
 
   public static final String JSON_PROPERTY_SUBSCRIPTION = "subscription";
   private OrganizationSubscription subscription;
+
+  public OrganizationCreateBody() {}
+
+  @JsonCreator
+  public OrganizationCreateBody(
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
+    this.name = name;
+  }
 
   public OrganizationCreateBody billing(OrganizationBilling billing) {
     this.billing = billing;

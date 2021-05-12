@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+Method        | HTTP request | Description
+------------- | ------------ | ------------
 [**createSlackIntegrationChannel**](SlackIntegrationApi.md#createSlackIntegrationChannel) | **POST** /api/v1/integration/slack/configuration/accounts/{account_name}/channels | Create a Slack integration channel
 [**getSlackIntegrationChannel**](SlackIntegrationApi.md#getSlackIntegrationChannel) | **GET** /api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name} | Get a Slack integration channel
 [**getSlackIntegrationChannels**](SlackIntegrationApi.md#getSlackIntegrationChannels) | **GET** /api/v1/integration/slack/configuration/accounts/{account_name}/channels | Get all channels in a Slack integration
@@ -16,19 +16,15 @@ Method | HTTP request | Description
 
 > SlackIntegrationChannel createSlackIntegrationChannel(accountName, body);
 
-Create a Slack integration channel
-
 Add a channel to your Datadog-Slack integration.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.SlackIntegrationApi;
 
@@ -87,19 +83,15 @@ Name | Type | Description  | Notes
 
 > SlackIntegrationChannel getSlackIntegrationChannel(accountName, channelName);
 
-Get a Slack integration channel
-
 Get a channel configured for your Datadog-Slack integration.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.SlackIntegrationApi;
 
@@ -158,19 +150,15 @@ Name | Type | Description  | Notes
 
 > List&lt;SlackIntegrationChannel&gt; getSlackIntegrationChannels(accountName);
 
-Get all channels in a Slack integration
-
 Get a list of all channels configured for your Datadog-Slack integration.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.SlackIntegrationApi;
 
@@ -227,19 +215,15 @@ Name | Type | Description  | Notes
 
 > removeSlackIntegrationChannel(accountName, channelName);
 
-Remove a Slack integration channel
-
 Remove a channel from your Datadog-Slack integration.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.SlackIntegrationApi;
 
@@ -297,19 +281,15 @@ null (empty response body)
 
 > SlackIntegrationChannel updateSlackIntegrationChannel(accountName, channelName, body);
 
-Update a Slack integration channel
-
 Update a channel used in your Datadog-Slack integration.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.SlackIntegrationApi;
 

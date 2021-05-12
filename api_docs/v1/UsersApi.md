@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+Method        | HTTP request | Description
+------------- | ------------ | ------------
 [**createUser**](UsersApi.md#createUser) | **POST** /api/v1/user | Create a user
 [**disableUser**](UsersApi.md#disableUser) | **DELETE** /api/v1/user/{user_handle} | Disable a user
 [**getUser**](UsersApi.md#getUser) | **GET** /api/v1/user/{user_handle} | Get user details
@@ -16,8 +16,6 @@ Method | HTTP request | Description
 
 > UserResponse createUser(body);
 
-Create a user
-
 Create a user for your organization.
 
 **Note**: Users can only be created with the admin access role
@@ -26,12 +24,10 @@ if application keys belong to administrators.
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.UsersApi;
 
@@ -88,8 +84,6 @@ Name | Type | Description  | Notes
 
 > UserDisableResponse disableUser(userHandle);
 
-Disable a user
-
 Delete a user from an organization.
 
 **Note**: This endpoint can only be used with application keys belonging to
@@ -98,12 +92,10 @@ administrators.
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.UsersApi;
 
@@ -160,19 +152,15 @@ Name | Type | Description  | Notes
 
 > UserResponse getUser(userHandle);
 
-Get user details
-
 Get a user's details.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.UsersApi;
 
@@ -228,19 +216,15 @@ Name | Type | Description  | Notes
 
 > UserListResponse listUsers();
 
-List all users
-
 List all users for your organization.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.UsersApi;
 
@@ -291,8 +275,6 @@ This endpoint does not need any parameter.
 
 > UserResponse updateUser(userHandle, body);
 
-Update a user
-
 Update a user information.
 
 **Note**: It can only be used with application keys belonging to administrators.
@@ -300,12 +282,10 @@ Update a user information.
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.UsersApi;
 

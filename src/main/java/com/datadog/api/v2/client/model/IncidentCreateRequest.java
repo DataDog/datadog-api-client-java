@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -24,6 +25,14 @@ import java.util.Objects;
 public class IncidentCreateRequest {
   public static final String JSON_PROPERTY_DATA = "data";
   private IncidentCreateData data;
+
+  public IncidentCreateRequest() {}
+
+  @JsonCreator
+  public IncidentCreateRequest(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) IncidentCreateData data) {
+    this.data = data;
+  }
 
   public IncidentCreateRequest data(IncidentCreateData data) {
     this.data = data;

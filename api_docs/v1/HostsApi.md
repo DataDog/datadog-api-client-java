@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+Method        | HTTP request | Description
+------------- | ------------ | ------------
 [**getHostTotals**](HostsApi.md#getHostTotals) | **GET** /api/v1/hosts/totals | Get the total number of active hosts
 [**listHosts**](HostsApi.md#listHosts) | **GET** /api/v1/hosts | Get all hosts for your organization
 [**muteHost**](HostsApi.md#muteHost) | **POST** /api/v1/host/{host_name}/mute | Mute a host
@@ -15,20 +15,16 @@ Method | HTTP request | Description
 
 > HostTotals getHostTotals(parameters);
 
-Get the total number of active hosts
-
 This endpoint returns the total number of active and up hosts in your Datadog account.
 Active means the host has reported in the past hour, and up means it has reported in the past two hours.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.HostsApi;
 
@@ -85,8 +81,6 @@ Name | Type | Description  | Notes
 
 > HostListResponse listHosts(parameters);
 
-Get all hosts for your organization
-
 This endpoint allows searching for hosts by name, alias, or tag.
 Hosts live within the past 3 hours are included by default.
 Retention is 7 days.
@@ -95,12 +89,10 @@ Results are paginated with a max of 1000 results at a time.
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.HostsApi;
 
@@ -178,19 +170,15 @@ Name | Type | Description  | Notes
 
 > HostMuteResponse muteHost(hostName, body);
 
-Mute a host
-
 Mute a host.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.HostsApi;
 
@@ -248,19 +236,15 @@ Name | Type | Description  | Notes
 
 > HostMuteResponse unmuteHost(hostName);
 
-Unmute a host
-
 Unmutes a host. This endpoint takes no JSON arguments.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.HostsApi;
 

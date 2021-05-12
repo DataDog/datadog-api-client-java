@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -34,6 +35,14 @@ public class WidgetFormula {
 
   public static final String JSON_PROPERTY_LIMIT = "limit";
   private WidgetFormulaLimit limit;
+
+  public WidgetFormula() {}
+
+  @JsonCreator
+  public WidgetFormula(
+      @JsonProperty(required = true, value = JSON_PROPERTY_FORMULA) String formula) {
+    this.formula = formula;
+  }
 
   public WidgetFormula alias(String alias) {
     this.alias = alias;

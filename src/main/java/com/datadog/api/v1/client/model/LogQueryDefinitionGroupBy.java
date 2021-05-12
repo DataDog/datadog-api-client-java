@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -34,6 +35,14 @@ public class LogQueryDefinitionGroupBy {
 
   public static final String JSON_PROPERTY_SORT = "sort";
   private LogQueryDefinitionGroupBySort sort;
+
+  public LogQueryDefinitionGroupBy() {}
+
+  @JsonCreator
+  public LogQueryDefinitionGroupBy(
+      @JsonProperty(required = true, value = JSON_PROPERTY_FACET) String facet) {
+    this.facet = facet;
+  }
 
   public LogQueryDefinitionGroupBy facet(String facet) {
     this.facet = facet;

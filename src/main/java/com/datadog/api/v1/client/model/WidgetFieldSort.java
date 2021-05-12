@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -27,6 +28,16 @@ public class WidgetFieldSort {
 
   public static final String JSON_PROPERTY_ORDER = "order";
   private WidgetSort order;
+
+  public WidgetFieldSort() {}
+
+  @JsonCreator
+  public WidgetFieldSort(
+      @JsonProperty(required = true, value = JSON_PROPERTY_COLUMN) String column,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ORDER) WidgetSort order) {
+    this.column = column;
+    this.order = order;
+  }
 
   public WidgetFieldSort column(String column) {
     this.column = column;

@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -56,6 +57,27 @@ public class SecurityMonitoringRuleCreatePayload {
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
+
+  public SecurityMonitoringRuleCreatePayload() {}
+
+  @JsonCreator
+  public SecurityMonitoringRuleCreatePayload(
+      @JsonProperty(required = true, value = JSON_PROPERTY_CASES)
+          List<SecurityMonitoringRuleCaseCreate> cases,
+      @JsonProperty(required = true, value = JSON_PROPERTY_IS_ENABLED) Boolean isEnabled,
+      @JsonProperty(required = true, value = JSON_PROPERTY_MESSAGE) String message,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_OPTIONS)
+          SecurityMonitoringRuleOptions options,
+      @JsonProperty(required = true, value = JSON_PROPERTY_QUERIES)
+          List<SecurityMonitoringRuleQueryCreate> queries) {
+    this.cases = cases;
+    this.isEnabled = isEnabled;
+    this.message = message;
+    this.name = name;
+    this.options = options;
+    this.queries = queries;
+  }
 
   public SecurityMonitoringRuleCreatePayload cases(List<SecurityMonitoringRuleCaseCreate> cases) {
     this.cases = cases;

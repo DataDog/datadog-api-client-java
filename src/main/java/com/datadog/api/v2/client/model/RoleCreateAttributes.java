@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -35,6 +36,14 @@ public class RoleCreateAttributes {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public RoleCreateAttributes() {}
+
+  @JsonCreator
+  public RoleCreateAttributes(
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
+    this.name = name;
+  }
 
   /**
    * Creation time of the role.

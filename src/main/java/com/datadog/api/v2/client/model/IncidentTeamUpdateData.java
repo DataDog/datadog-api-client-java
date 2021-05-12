@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -38,6 +39,14 @@ public class IncidentTeamUpdateData {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private IncidentTeamType type = IncidentTeamType.TEAMS;
+
+  public IncidentTeamUpdateData() {}
+
+  @JsonCreator
+  public IncidentTeamUpdateData(
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) IncidentTeamType type) {
+    this.type = type;
+  }
 
   public IncidentTeamUpdateData attributes(IncidentTeamUpdateAttributes attributes) {
     this.attributes = attributes;

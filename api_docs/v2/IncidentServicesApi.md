@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+Method        | HTTP request | Description
+------------- | ------------ | ------------
 [**createIncidentService**](IncidentServicesApi.md#createIncidentService) | **POST** /api/v2/services | Create a new incident service
 [**deleteIncidentService**](IncidentServicesApi.md#deleteIncidentService) | **DELETE** /api/v2/services/{service_id} | Delete an existing incident service
 [**getIncidentService**](IncidentServicesApi.md#getIncidentService) | **GET** /api/v2/services/{service_id} | Get details of an incident service
@@ -16,19 +16,15 @@ Method | HTTP request | Description
 
 > IncidentServiceResponse createIncidentService(body);
 
-Create a new incident service
-
 Creates a new incident service.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.IncidentServicesApi;
 
@@ -86,19 +82,15 @@ Name | Type | Description  | Notes
 
 > deleteIncidentService(serviceId);
 
-Delete an existing incident service
-
 Deletes an existing incident service.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.IncidentServicesApi;
 
@@ -155,20 +147,16 @@ null (empty response body)
 
 > IncidentServiceResponse getIncidentService(serviceId, parameters);
 
-Get details of an incident service
-
 Get details of an incident service. If the `include[users]` query parameter is provided,
 the included attribute will contain the users related to these incident services.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.IncidentServicesApi;
 
@@ -229,19 +217,15 @@ Name | Type | Description  | Notes
 
 > IncidentServicesResponse listIncidentServices(parameters);
 
-Get a list of all incident services
-
 Get all incident services uploaded for the requesting user's organization. If the `include[users]` query parameter is provided, the included attribute will contain the users related to these incident services.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.IncidentServicesApi;
 
@@ -309,19 +293,15 @@ Name | Type | Description  | Notes
 
 > IncidentServiceResponse updateIncidentService(serviceId, body);
 
-Update an existing incident service
-
 Updates an existing incident service. Only provide the attributes which should be updated as this request is a partial update.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.IncidentServicesApi;
 
