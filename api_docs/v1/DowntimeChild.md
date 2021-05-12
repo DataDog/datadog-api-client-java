@@ -1,15 +1,14 @@
 
 
-# Downtime
+# DowntimeChild
 
-Downtiming gives you greater control over monitor notifications by allowing you to globally exclude scopes from alerting. Downtime settings, which can be scheduled with start and end times, prevent all alerting related to specified Datadog tags.
+The downtime object definition of the active child for the original parent recurring downtime. This field will only exist on recurring downtimes.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **active** | **Boolean** | If a scheduled downtime currently exists. |  [optional] [readonly]
-**activeChild** | [**DowntimeChild**](DowntimeChild.md) |  |  [optional]
 **canceled** | **Long** | If a scheduled downtime is canceled. |  [optional] [readonly]
 **creatorId** | **Integer** | User ID of the downtime creator. |  [optional] [readonly]
 **disabled** | **Boolean** | If a downtime has been disabled. |  [optional]
