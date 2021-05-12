@@ -33,7 +33,7 @@ public class WidgetLayout {
   private Long height;
 
   public static final String JSON_PROPERTY_IS_COLUMN_BREAK = "is_column_break";
-  private Boolean isColumnBreak = false;
+  private Boolean isColumnBreak;
 
   public static final String JSON_PROPERTY_WIDTH = "width";
   private Long width;
