@@ -22,41 +22,35 @@ import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
- * Downtiming gives you greater control over monitor notifications by allowing you to globally
- * exclude scopes from alerting. Downtime settings, which can be scheduled with start and end times,
- * prevent all alerting related to specified Datadog tags.
+ * The downtime object definition of the active child for the original parent recurring downtime.
+ * This field will only exist on recurring downtimes.
  */
 @ApiModel(
     description =
-        "Downtiming gives you greater control over monitor notifications by allowing you to"
-            + " globally exclude scopes from alerting. Downtime settings, which can be scheduled"
-            + " with start and end times, prevent all alerting related to specified Datadog tags.")
+        "The downtime object definition of the active child for the original parent recurring"
+            + " downtime. This field will only exist on recurring downtimes.")
 @JsonPropertyOrder({
-  Downtime.JSON_PROPERTY_ACTIVE,
-  Downtime.JSON_PROPERTY_ACTIVE_CHILD,
-  Downtime.JSON_PROPERTY_CANCELED,
-  Downtime.JSON_PROPERTY_CREATOR_ID,
-  Downtime.JSON_PROPERTY_DISABLED,
-  Downtime.JSON_PROPERTY_DOWNTIME_TYPE,
-  Downtime.JSON_PROPERTY_END,
-  Downtime.JSON_PROPERTY_ID,
-  Downtime.JSON_PROPERTY_MESSAGE,
-  Downtime.JSON_PROPERTY_MONITOR_ID,
-  Downtime.JSON_PROPERTY_MONITOR_TAGS,
-  Downtime.JSON_PROPERTY_PARENT_ID,
-  Downtime.JSON_PROPERTY_RECURRENCE,
-  Downtime.JSON_PROPERTY_SCOPE,
-  Downtime.JSON_PROPERTY_START,
-  Downtime.JSON_PROPERTY_TIMEZONE,
-  Downtime.JSON_PROPERTY_UPDATER_ID
+  DowntimeChild.JSON_PROPERTY_ACTIVE,
+  DowntimeChild.JSON_PROPERTY_CANCELED,
+  DowntimeChild.JSON_PROPERTY_CREATOR_ID,
+  DowntimeChild.JSON_PROPERTY_DISABLED,
+  DowntimeChild.JSON_PROPERTY_DOWNTIME_TYPE,
+  DowntimeChild.JSON_PROPERTY_END,
+  DowntimeChild.JSON_PROPERTY_ID,
+  DowntimeChild.JSON_PROPERTY_MESSAGE,
+  DowntimeChild.JSON_PROPERTY_MONITOR_ID,
+  DowntimeChild.JSON_PROPERTY_MONITOR_TAGS,
+  DowntimeChild.JSON_PROPERTY_PARENT_ID,
+  DowntimeChild.JSON_PROPERTY_RECURRENCE,
+  DowntimeChild.JSON_PROPERTY_SCOPE,
+  DowntimeChild.JSON_PROPERTY_START,
+  DowntimeChild.JSON_PROPERTY_TIMEZONE,
+  DowntimeChild.JSON_PROPERTY_UPDATER_ID
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class Downtime {
+public class DowntimeChild {
   public static final String JSON_PROPERTY_ACTIVE = "active";
   private Boolean active;
-
-  public static final String JSON_PROPERTY_ACTIVE_CHILD = "active_child";
-  private JsonNullable<DowntimeChild> activeChild = JsonNullable.<DowntimeChild>undefined();
 
   public static final String JSON_PROPERTY_CANCELED = "canceled";
   private JsonNullable<Long> canceled = JsonNullable.<Long>undefined();
@@ -117,38 +111,6 @@ public class Downtime {
     return active;
   }
 
-  public Downtime activeChild(DowntimeChild activeChild) {
-    this.activeChild = JsonNullable.<DowntimeChild>of(activeChild);
-    return this;
-  }
-
-  /**
-   * Get activeChild
-   *
-   * @return activeChild
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonIgnore
-  public DowntimeChild getActiveChild() {
-    return activeChild.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_ACTIVE_CHILD)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<DowntimeChild> getActiveChild_JsonNullable() {
-    return activeChild;
-  }
-
-  @JsonProperty(JSON_PROPERTY_ACTIVE_CHILD)
-  public void setActiveChild_JsonNullable(JsonNullable<DowntimeChild> activeChild) {
-    this.activeChild = activeChild;
-  }
-
-  public void setActiveChild(DowntimeChild activeChild) {
-    this.activeChild = JsonNullable.<DowntimeChild>of(activeChild);
-  }
-
   /**
    * If a scheduled downtime is canceled.
    *
@@ -189,7 +151,7 @@ public class Downtime {
     return creatorId;
   }
 
-  public Downtime disabled(Boolean disabled) {
+  public DowntimeChild disabled(Boolean disabled) {
     this.disabled = disabled;
     return this;
   }
@@ -230,7 +192,7 @@ public class Downtime {
     return downtimeType;
   }
 
-  public Downtime end(Long end) {
+  public DowntimeChild end(Long end) {
     this.end = JsonNullable.<Long>of(end);
     return this;
   }
@@ -273,14 +235,14 @@ public class Downtime {
    * @return id
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1625", value = "The downtime ID.")
+  @ApiModelProperty(example = "1626", value = "The downtime ID.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getId() {
     return id;
   }
 
-  public Downtime message(String message) {
+  public DowntimeChild message(String message) {
     this.message = message;
     return this;
   }
@@ -307,7 +269,7 @@ public class Downtime {
     this.message = message;
   }
 
-  public Downtime monitorId(Long monitorId) {
+  public DowntimeChild monitorId(Long monitorId) {
     this.monitorId = JsonNullable.<Long>of(monitorId);
     return this;
   }
@@ -344,12 +306,12 @@ public class Downtime {
     this.monitorId = JsonNullable.<Long>of(monitorId);
   }
 
-  public Downtime monitorTags(List<String> monitorTags) {
+  public DowntimeChild monitorTags(List<String> monitorTags) {
     this.monitorTags = monitorTags;
     return this;
   }
 
-  public Downtime addMonitorTagsItem(String monitorTagsItem) {
+  public DowntimeChild addMonitorTagsItem(String monitorTagsItem) {
     if (this.monitorTags == null) {
       this.monitorTags = new ArrayList<>();
     }
@@ -385,7 +347,7 @@ public class Downtime {
     this.monitorTags = monitorTags;
   }
 
-  public Downtime parentId(Long parentId) {
+  public DowntimeChild parentId(Long parentId) {
     this.parentId = JsonNullable.<Long>of(parentId);
     return this;
   }
@@ -417,7 +379,7 @@ public class Downtime {
     this.parentId = JsonNullable.<Long>of(parentId);
   }
 
-  public Downtime recurrence(DowntimeRecurrence recurrence) {
+  public DowntimeChild recurrence(DowntimeRecurrence recurrence) {
     this.recurrence = JsonNullable.<DowntimeRecurrence>of(recurrence);
     return this;
   }
@@ -449,12 +411,12 @@ public class Downtime {
     this.recurrence = JsonNullable.<DowntimeRecurrence>of(recurrence);
   }
 
-  public Downtime scope(List<String> scope) {
+  public DowntimeChild scope(List<String> scope) {
     this.scope = scope;
     return this;
   }
 
-  public Downtime addScopeItem(String scopeItem) {
+  public DowntimeChild addScopeItem(String scopeItem) {
     if (this.scope == null) {
       this.scope = new ArrayList<>();
     }
@@ -488,7 +450,7 @@ public class Downtime {
     this.scope = scope;
   }
 
-  public Downtime start(Long start) {
+  public DowntimeChild start(Long start) {
     this.start = start;
     return this;
   }
@@ -515,7 +477,7 @@ public class Downtime {
     this.start = start;
   }
 
-  public Downtime timezone(String timezone) {
+  public DowntimeChild timezone(String timezone) {
     this.timezone = timezone;
     return this;
   }
@@ -569,7 +531,7 @@ public class Downtime {
     this.updaterId = updaterId;
   }
 
-  /** Return true if this Downtime object is equal to o. */
+  /** Return true if this DowntimeChild object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -578,31 +540,29 @@ public class Downtime {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Downtime downtime = (Downtime) o;
-    return Objects.equals(this.active, downtime.active)
-        && Objects.equals(this.activeChild, downtime.activeChild)
-        && Objects.equals(this.canceled, downtime.canceled)
-        && Objects.equals(this.creatorId, downtime.creatorId)
-        && Objects.equals(this.disabled, downtime.disabled)
-        && Objects.equals(this.downtimeType, downtime.downtimeType)
-        && Objects.equals(this.end, downtime.end)
-        && Objects.equals(this.id, downtime.id)
-        && Objects.equals(this.message, downtime.message)
-        && Objects.equals(this.monitorId, downtime.monitorId)
-        && Objects.equals(this.monitorTags, downtime.monitorTags)
-        && Objects.equals(this.parentId, downtime.parentId)
-        && Objects.equals(this.recurrence, downtime.recurrence)
-        && Objects.equals(this.scope, downtime.scope)
-        && Objects.equals(this.start, downtime.start)
-        && Objects.equals(this.timezone, downtime.timezone)
-        && Objects.equals(this.updaterId, downtime.updaterId);
+    DowntimeChild downtimeChild = (DowntimeChild) o;
+    return Objects.equals(this.active, downtimeChild.active)
+        && Objects.equals(this.canceled, downtimeChild.canceled)
+        && Objects.equals(this.creatorId, downtimeChild.creatorId)
+        && Objects.equals(this.disabled, downtimeChild.disabled)
+        && Objects.equals(this.downtimeType, downtimeChild.downtimeType)
+        && Objects.equals(this.end, downtimeChild.end)
+        && Objects.equals(this.id, downtimeChild.id)
+        && Objects.equals(this.message, downtimeChild.message)
+        && Objects.equals(this.monitorId, downtimeChild.monitorId)
+        && Objects.equals(this.monitorTags, downtimeChild.monitorTags)
+        && Objects.equals(this.parentId, downtimeChild.parentId)
+        && Objects.equals(this.recurrence, downtimeChild.recurrence)
+        && Objects.equals(this.scope, downtimeChild.scope)
+        && Objects.equals(this.start, downtimeChild.start)
+        && Objects.equals(this.timezone, downtimeChild.timezone)
+        && Objects.equals(this.updaterId, downtimeChild.updaterId);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         active,
-        activeChild,
         canceled,
         creatorId,
         disabled,
@@ -623,9 +583,8 @@ public class Downtime {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Downtime {\n");
+    sb.append("class DowntimeChild {\n");
     sb.append("    active: ").append(toIndentedString(active)).append("\n");
-    sb.append("    activeChild: ").append(toIndentedString(activeChild)).append("\n");
     sb.append("    canceled: ").append(toIndentedString(canceled)).append("\n");
     sb.append("    creatorId: ").append(toIndentedString(creatorId)).append("\n");
     sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
