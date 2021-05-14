@@ -72,7 +72,7 @@ public class MonitorsApiTest extends V1ApiTest {
                                 }
                               })
                           .method(HTTPMethod.GET)
-                          .timeout(10L)
+                          .timeout(10.0)
                           .url("https://datadoghq.com")))
           .locations(Arrays.asList("aws:us-east-2"))
           .message("testing Synthetics API test - this is message")
@@ -83,7 +83,7 @@ public class MonitorsApiTest extends V1ApiTest {
                   .followRedirects(true)
                   .minFailureDuration(10L)
                   .minLocationFailed(1L)
-                  .retry(new SyntheticsTestOptionsRetry().count(3L).interval(10L))
+                  .retry(new SyntheticsTestOptionsRetry().count(3L).interval(10.0))
                   .tickEvery(SyntheticsTickInterval.MINUTE))
           .subtype(SyntheticsTestDetailsSubType.HTTP)
           .tags(Arrays.asList("testing:api"))
