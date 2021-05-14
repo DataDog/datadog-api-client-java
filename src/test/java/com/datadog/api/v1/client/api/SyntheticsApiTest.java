@@ -58,7 +58,7 @@ public class SyntheticsApiTest extends V1ApiTest {
                                 }
                               })
                           .method(HTTPMethod.GET)
-                          .timeout(10.0)
+                          .timeout(10L)
                           .url("https://datadoghq.com")))
           .locations(Arrays.asList("aws:us-east-2"))
           .message("testing Synthetics API test - this is message")
@@ -69,7 +69,7 @@ public class SyntheticsApiTest extends V1ApiTest {
                   .followRedirects(true)
                   .minFailureDuration(10L)
                   .minLocationFailed(1L)
-                  .retry(new SyntheticsTestOptionsRetry().count(3L).interval(10.0))
+                  .retry(new SyntheticsTestOptionsRetry().count(3L).interval(10L))
                   .tickEvery(SyntheticsTickInterval.MINUTE))
           .subtype(SyntheticsTestDetailsSubType.HTTP)
           .tags(Arrays.asList("testing:api"))
@@ -114,7 +114,7 @@ public class SyntheticsApiTest extends V1ApiTest {
                   .followRedirects(true)
                   .minFailureDuration(10L)
                   .minLocationFailed(1L)
-                  .retry(new SyntheticsTestOptionsRetry().count(3L).interval(10.0))
+                  .retry(new SyntheticsTestOptionsRetry().count(3L).interval(10L))
                   .tickEvery(SyntheticsTickInterval.FIVE_MINUTES))
           .tags(Arrays.asList("testing:browser"))
           .type(SyntheticsBrowserTestType.BROWSER);
@@ -178,10 +178,6 @@ public class SyntheticsApiTest extends V1ApiTest {
 
     // Update API test
     synt.setName(apiTestConfig.getName() + "-updated");
-    // if we want to reuse the entity returned by the API, we must set these fields to null, as they
-    // can't be sent back
-    synt.setMonitorId(null);
-    synt.setPublicId(null);
     synt = api.updateAPITest(publicId, synt);
     assertEquals(apiTestConfig.getName() + "-updated", synt.getName());
 
@@ -285,10 +281,6 @@ public class SyntheticsApiTest extends V1ApiTest {
 
     // Update API test
     synt.setName(subtypeTcpApiTestConfig.getName() + "-updated");
-    // if we want to reuse the entity returned by the API, we must set these fields to null, as they
-    // can't be sent back
-    synt.setMonitorId(null);
-    synt.setPublicId(null);
     synt = api.updateAPITest(publicId, synt);
     assertEquals(subtypeTcpApiTestConfig.getName() + "-updated", synt.getName());
 
@@ -393,10 +385,6 @@ public class SyntheticsApiTest extends V1ApiTest {
 
     // Update Browser test
     synt.setName(browserTestConfig.getName() + "-updated");
-    // if we want to reuse the entity returned by the API, we must set these fields to null, as they
-    // can't be sent back
-    synt.setMonitorId(null);
-    synt.setPublicId(null);
     synt = api.updateBrowserTest(publicId, synt);
     assertEquals(browserTestConfig.getName() + "-updated", synt.getName());
 
