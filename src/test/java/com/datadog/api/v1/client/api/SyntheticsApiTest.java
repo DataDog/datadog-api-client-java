@@ -35,99 +35,97 @@ public class SyntheticsApiTest extends V1ApiTest {
   private SyntheticsAPITest apiTestConfig = buildAPITestConfig();
 
   private SyntheticsAPITest buildAPITestConfig() {
-      return new SyntheticsAPITest()
-          .config(
-              new SyntheticsAPITestConfig()
-                  .assertions(
-                      Arrays.asList(
-                          new SyntheticsAssertion(
-                              new SyntheticsAssertionTarget()
-                                  .operator(SyntheticsAssertionOperator.IS)
-                                  .property("content-type")
-                                  .target("text/html")
-                                  .type(SyntheticsAssertionType.HEADER)),
-                          new SyntheticsAssertion(
-                              new SyntheticsAssertionTarget()
-                                  .operator(SyntheticsAssertionOperator.LESS_THAN)
-                                  .target(2000)
-                                  .type(SyntheticsAssertionType.RESPONSE_TIME))))
-                  .request(
-                      new SyntheticsTestRequest()
-                          .headers(
-                              new HashMap<String, String>() {
-                                {
-                                  put("testingJavaClient", "true");
-                                }
-                              })
-                          .method(HTTPMethod.GET)
-                          .timeout(10.0)
-                          .url("https://datadoghq.com")))
-          .locations(Arrays.asList("aws:us-east-2"))
-          .message("testing Synthetics API test - this is message")
-          .options(
-              new SyntheticsTestOptions()
-                  .acceptSelfSigned(false)
-                  .allowInsecure(true)
-                  .followRedirects(true)
-                  .minFailureDuration(10L)
-                  .minLocationFailed(1L)
-                  .retry(new SyntheticsTestOptionsRetry().count(3L).interval(10.0))
-                  .tickEvery(SyntheticsTickInterval.MINUTE))
-          .subtype(SyntheticsTestDetailsSubType.HTTP)
-          .tags(Arrays.asList("testing:api"))
-          .type(SyntheticsAPITestType.API);
+    return new SyntheticsAPITest()
+        .config(
+            new SyntheticsAPITestConfig()
+                .assertions(
+                    Arrays.asList(
+                        new SyntheticsAssertion(
+                            new SyntheticsAssertionTarget()
+                                .operator(SyntheticsAssertionOperator.IS)
+                                .property("content-type")
+                                .target("text/html")
+                                .type(SyntheticsAssertionType.HEADER)),
+                        new SyntheticsAssertion(
+                            new SyntheticsAssertionTarget()
+                                .operator(SyntheticsAssertionOperator.LESS_THAN)
+                                .target(2000)
+                                .type(SyntheticsAssertionType.RESPONSE_TIME))))
+                .request(
+                    new SyntheticsTestRequest()
+                        .headers(
+                            new HashMap<String, String>() {
+                              {
+                                put("testingJavaClient", "true");
+                              }
+                            })
+                        .method(HTTPMethod.GET)
+                        .timeout(10.0)
+                        .url("https://datadoghq.com")))
+        .locations(Arrays.asList("aws:us-east-2"))
+        .message("testing Synthetics API test - this is message")
+        .options(
+            new SyntheticsTestOptions()
+                .acceptSelfSigned(false)
+                .allowInsecure(true)
+                .followRedirects(true)
+                .minFailureDuration(10L)
+                .minLocationFailed(1L)
+                .retry(new SyntheticsTestOptionsRetry().count(3L).interval(10.0))
+                .tickEvery(SyntheticsTickInterval.MINUTE))
+        .subtype(SyntheticsTestDetailsSubType.HTTP)
+        .tags(Arrays.asList("testing:api"))
+        .type(SyntheticsAPITestType.API);
   }
 
   private SyntheticsAPITest subtypeTcpApiTestConfig = buildAPITCPTestConfig();
 
   private SyntheticsAPITest buildAPITCPTestConfig() {
-      return new SyntheticsAPITest()
-          .config(
-              new SyntheticsAPITestConfig()
-                  .assertions(
-                      Arrays.asList(
-                          new SyntheticsAssertion(
-                              new SyntheticsAssertionTarget()
-                                  .operator(SyntheticsAssertionOperator.LESS_THAN)
-                                  .target(2000)
-                                  .type(SyntheticsAssertionType.RESPONSE_TIME))))
-                  .request(
-                      new SyntheticsTestRequest()
-                          .host("agent-intake.logs.datadoghq.com")
-                          .port(443L)))
-          .locations(Arrays.asList("aws:us-east-2"))
-          .message("testing Synthetics API test Subtype TCP - this is message")
-          .options(new SyntheticsTestOptions().tickEvery(SyntheticsTickInterval.MINUTE))
-          .subtype(SyntheticsTestDetailsSubType.TCP)
-          .tags(Arrays.asList("testing:api-tcp"))
-          .type(SyntheticsAPITestType.API);
+    return new SyntheticsAPITest()
+        .config(
+            new SyntheticsAPITestConfig()
+                .assertions(
+                    Arrays.asList(
+                        new SyntheticsAssertion(
+                            new SyntheticsAssertionTarget()
+                                .operator(SyntheticsAssertionOperator.LESS_THAN)
+                                .target(2000)
+                                .type(SyntheticsAssertionType.RESPONSE_TIME))))
+                .request(
+                    new SyntheticsTestRequest().host("agent-intake.logs.datadoghq.com").port(443L)))
+        .locations(Arrays.asList("aws:us-east-2"))
+        .message("testing Synthetics API test Subtype TCP - this is message")
+        .options(new SyntheticsTestOptions().tickEvery(SyntheticsTickInterval.MINUTE))
+        .subtype(SyntheticsTestDetailsSubType.TCP)
+        .tags(Arrays.asList("testing:api-tcp"))
+        .type(SyntheticsAPITestType.API);
   }
 
   private SyntheticsBrowserTest browserTestConfig = buildBrowserTestConfig();
 
   private SyntheticsBrowserTest buildBrowserTestConfig() {
-      return new SyntheticsBrowserTest()
-          .config(
-              new SyntheticsBrowserTestConfig()
-                  .assertions(Arrays.<SyntheticsAssertion>asList())
-                  .request(
-                      new SyntheticsTestRequest()
-                          .method(HTTPMethod.GET)
-                          .url("https://datadoghq.com")))
-          .locations(Arrays.asList("aws:us-east-2"))
-          .message("testing Synthetics Browser test - this is message")
-          .options(
-              new SyntheticsTestOptions()
-                  .acceptSelfSigned(false)
-                  .allowInsecure(true)
-                  .deviceIds(Arrays.asList(SyntheticsDeviceID.TABLET))
-                  .followRedirects(true)
-                  .minFailureDuration(10L)
-                  .minLocationFailed(1L)
-                  .retry(new SyntheticsTestOptionsRetry().count(3L).interval(10.0))
-                  .tickEvery(SyntheticsTickInterval.FIVE_MINUTES))
-          .tags(Arrays.asList("testing:browser"))
-          .type(SyntheticsBrowserTestType.BROWSER);
+    return new SyntheticsBrowserTest()
+        .config(
+            new SyntheticsBrowserTestConfig()
+                .assertions(Arrays.<SyntheticsAssertion>asList())
+                .request(
+                    new SyntheticsTestRequest()
+                        .method(HTTPMethod.GET)
+                        .url("https://datadoghq.com")))
+        .locations(Arrays.asList("aws:us-east-2"))
+        .message("testing Synthetics Browser test - this is message")
+        .options(
+            new SyntheticsTestOptions()
+                .acceptSelfSigned(false)
+                .allowInsecure(true)
+                .deviceIds(Arrays.asList(SyntheticsDeviceID.TABLET))
+                .followRedirects(true)
+                .minFailureDuration(10L)
+                .minLocationFailed(1L)
+                .retry(new SyntheticsTestOptionsRetry().count(3L).interval(10.0))
+                .tickEvery(SyntheticsTickInterval.FIVE_MINUTES))
+        .tags(Arrays.asList("testing:browser"))
+        .type(SyntheticsBrowserTestType.BROWSER);
   }
 
   @Override
@@ -292,7 +290,7 @@ public class SyntheticsApiTest extends V1ApiTest {
     assertEquals(apiTestName, synt.getName());
 
     // Update API test
-    SyntheticsAPITest updatedSynt = buildAPITCPTestConfig(); 
+    SyntheticsAPITest updatedSynt = buildAPITCPTestConfig();
     updatedSynt.setName(subtypeTcpApiTestConfig.getName() + "-updated");
     synt = api.updateAPITest(publicId, updatedSynt);
     assertEquals(subtypeTcpApiTestConfig.getName() + "-updated", synt.getName());

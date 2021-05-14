@@ -147,11 +147,6 @@ public class SyntheticsTestDetails {
     this.message = message;
   }
 
-  public SyntheticsTestDetails monitorId(Long monitorId) {
-    this.monitorId = monitorId;
-    return this;
-  }
-
   /**
    * The associated monitor ID.
    *
@@ -163,10 +158,6 @@ public class SyntheticsTestDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getMonitorId() {
     return monitorId;
-  }
-
-  public void setMonitorId(Long monitorId) {
-    this.monitorId = monitorId;
   }
 
   public SyntheticsTestDetails name(String name) {
@@ -213,11 +204,6 @@ public class SyntheticsTestDetails {
     this.options = options;
   }
 
-  public SyntheticsTestDetails publicId(String publicId) {
-    this.publicId = publicId;
-    return this;
-  }
-
   /**
    * The test public ID.
    *
@@ -229,10 +215,6 @@ public class SyntheticsTestDetails {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {
     return publicId;
-  }
-
-  public void setPublicId(String publicId) {
-    this.publicId = publicId;
   }
 
   public SyntheticsTestDetails status(SyntheticsTestPauseStatus status) {

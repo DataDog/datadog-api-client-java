@@ -10,7 +10,6 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -31,14 +30,6 @@ public class SyntheticsGlobalVariableValue {
 
   public static final String JSON_PROPERTY_VALUE = "value";
   private String value;
-
-  public SyntheticsGlobalVariableValue() {}
-
-  @JsonCreator
-  public SyntheticsGlobalVariableValue(
-      @JsonProperty(required = true, value = JSON_PROPERTY_VALUE) String value) {
-    this.value = value;
-  }
 
   public SyntheticsGlobalVariableValue secure(Boolean secure) {
     this.secure = secure;
@@ -73,14 +64,14 @@ public class SyntheticsGlobalVariableValue {
    *
    * @return value
    */
+  @javax.annotation.Nullable
   @ApiModelProperty(
       example = "example-value",
-      required = true,
       value =
           "Value of the global variable. When reading a global variable, the value will not be"
               + " present if the variable is secure.")
   @JsonProperty(JSON_PROPERTY_VALUE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getValue() {
     return value;
   }
