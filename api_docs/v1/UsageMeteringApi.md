@@ -33,7 +33,7 @@ Method        | HTTP request | Description
 [**getUsageSyntheticsAPI**](UsageMeteringApi.md#getUsageSyntheticsAPI) | **GET** /api/v1/usage/synthetics_api | Get hourly usage for Synthetics API Checks
 [**getUsageSyntheticsBrowser**](UsageMeteringApi.md#getUsageSyntheticsBrowser) | **GET** /api/v1/usage/synthetics_browser | Get hourly usage for Synthetics Browser Checks
 [**getUsageTimeseries**](UsageMeteringApi.md#getUsageTimeseries) | **GET** /api/v1/usage/timeseries | Get hourly usage for custom metrics
-[**getUsageTopAvgMetrics**](UsageMeteringApi.md#getUsageTopAvgMetrics) | **GET** /api/v1/usage/top_avg_metrics | Get top custom metrics by hourly average
+[**getUsageTopAvgMetrics**](UsageMeteringApi.md#getUsageTopAvgMetrics) | **GET** /api/v1/usage/top_avg_metrics | Get all custom metrics by hourly average
 [**getUsageTrace**](UsageMeteringApi.md#getUsageTrace) | **GET** /api/v1/usage/traces | Get hourly usage for Trace Search
 
 
@@ -2033,7 +2033,7 @@ Name | Type | Description  | Notes
 
 > UsageTopAvgMetricsResponse getUsageTopAvgMetrics(parameters);
 
-Get top [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average. Use the month parameter to get a month-to-date data resolution or use the day parameter to get a daily resolution. One of the two is required, and only one of the two is allowed.
+Get all [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average. Use the month parameter to get a month-to-date data resolution or use the day parameter to get a daily resolution. One of the two is required, and only one of the two is allowed.
 
 ### Example
 
@@ -2055,12 +2055,14 @@ public class Example {
         OffsetDateTime day = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to day: [YYYY-MM-DD] for usage beginning at this hour. (Either month or day should be specified, but not both)
         List<String> names = Arrays.asList(); // List<String> | Comma-separated list of metric names.
         Integer limit = 500; // Integer | Maximum number of results to return (between 1 and 5000) - defaults to 500 results if limit not specified.
+        String nextRecordId = "nextRecordId_example"; // String | List following results with a next_record_id provided in the previous query.
         try {
 	    UsageTopAvgMetricsResponse result = apiInstance.getUsageTopAvgMetrics(new UsageMeteringApi.GetUsageTopAvgMetricsOptionalParameters()
                 .month(month)
                 .day(day)
                 .names(names)
-                .limit(limit));
+                .limit(limit)
+                .nextRecordId(nextRecordId));
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsageMeteringApi#getUsageTopAvgMetrics");
@@ -2082,6 +2084,7 @@ Name | Type | Description  | Notes
  **day** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to day: [YYYY-MM-DD] for usage beginning at this hour. (Either month or day should be specified, but not both) | [optional]
  **names** | **List&lt;String&gt;**| Comma-separated list of metric names. | [optional]
  **limit** | **Integer**| Maximum number of results to return (between 1 and 5000) - defaults to 500 results if limit not specified. | [optional] [default to 500]
+ **nextRecordId** | **String**| List following results with a next_record_id provided in the previous query. | [optional]
 
 ### Return type
 

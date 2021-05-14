@@ -3887,6 +3887,7 @@ public class UsageMeteringApi {
     private OffsetDateTime day;
     private List<String> names;
     private Integer limit;
+    private String nextRecordId;
 
     /**
      * Set month
@@ -3935,10 +3936,22 @@ public class UsageMeteringApi {
       this.limit = limit;
       return this;
     }
+
+    /**
+     * Set nextRecordId
+     *
+     * @param nextRecordId List following results with a next_record_id provided in the previous
+     *     query. (optional)
+     * @return GetUsageTopAvgMetricsOptionalParameters
+     */
+    public GetUsageTopAvgMetricsOptionalParameters nextRecordId(String nextRecordId) {
+      this.nextRecordId = nextRecordId;
+      return this;
+    }
   }
 
   /**
-   * Get top custom metrics by hourly average Get top [custom
+   * Get all custom metrics by hourly average Get all [custom
    * metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average. Use
    * the month parameter to get a month-to-date data resolution or use the day parameter to get a
    * daily resolution. One of the two is required, and only one of the two is allowed.
@@ -3959,7 +3972,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get top custom metrics by hourly average Get top [custom
+   * Get all custom metrics by hourly average Get all [custom
    * metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average. Use
    * the month parameter to get a month-to-date data resolution or use the day parameter to get a
    * daily resolution. One of the two is required, and only one of the two is allowed.
@@ -3981,7 +3994,7 @@ public class UsageMeteringApi {
   }
 
   /**
-   * Get top custom metrics by hourly average Get top [custom
+   * Get all custom metrics by hourly average Get all [custom
    * metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average. Use
    * the month parameter to get a month-to-date data resolution or use the day parameter to get a
    * daily resolution. One of the two is required, and only one of the two is allowed.
@@ -4004,6 +4017,7 @@ public class UsageMeteringApi {
     OffsetDateTime day = parameters.day;
     List<String> names = parameters.names;
     Integer limit = parameters.limit;
+    String nextRecordId = parameters.nextRecordId;
     // create path and map variables
     String localVarPath = "/api/v1/usage/top_avg_metrics";
 
@@ -4017,6 +4031,7 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "day", day));
     localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "names", names));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "next_record_id", nextRecordId));
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageTopAvgMetrics");
