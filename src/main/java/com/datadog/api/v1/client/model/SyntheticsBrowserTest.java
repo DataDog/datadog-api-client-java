@@ -156,11 +156,6 @@ public class SyntheticsBrowserTest {
     this.message = message;
   }
 
-  public SyntheticsBrowserTest monitorId(Long monitorId) {
-    this.monitorId = monitorId;
-    return this;
-  }
-
   /**
    * The associated monitor ID.
    *
@@ -172,10 +167,6 @@ public class SyntheticsBrowserTest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getMonitorId() {
     return monitorId;
-  }
-
-  public void setMonitorId(Long monitorId) {
-    this.monitorId = monitorId;
   }
 
   public SyntheticsBrowserTest name(String name) {
@@ -222,11 +213,6 @@ public class SyntheticsBrowserTest {
     this.options = options;
   }
 
-  public SyntheticsBrowserTest publicId(String publicId) {
-    this.publicId = publicId;
-    return this;
-  }
-
   /**
    * The public ID of the test.
    *
@@ -238,10 +224,6 @@ public class SyntheticsBrowserTest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {
     return publicId;
-  }
-
-  public void setPublicId(String publicId) {
-    this.publicId = publicId;
   }
 
   public SyntheticsBrowserTest status(SyntheticsTestPauseStatus status) {

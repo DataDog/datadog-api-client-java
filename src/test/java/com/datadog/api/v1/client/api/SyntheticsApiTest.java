@@ -32,92 +32,101 @@ public class SyntheticsApiTest extends V1ApiTest {
   private final String apiUri = "/api/v1/synthetics";
   private final String fixturePrefix = "v1/client/api/synthetics_fixtures";
   private ArrayList<String> deleteSyntheticsTests = null;
-  private SyntheticsAPITest apiTestConfig =
-      new SyntheticsAPITest()
-          .config(
-              new SyntheticsAPITestConfig()
-                  .assertions(
-                      Arrays.asList(
-                          new SyntheticsAssertion(
-                              new SyntheticsAssertionTarget()
-                                  .operator(SyntheticsAssertionOperator.IS)
-                                  .property("content-type")
-                                  .target("text/html")
-                                  .type(SyntheticsAssertionType.HEADER)),
-                          new SyntheticsAssertion(
-                              new SyntheticsAssertionTarget()
-                                  .operator(SyntheticsAssertionOperator.LESS_THAN)
-                                  .target(2000)
-                                  .type(SyntheticsAssertionType.RESPONSE_TIME))))
-                  .request(
-                      new SyntheticsTestRequest()
-                          .headers(
-                              new HashMap<String, String>() {
-                                {
-                                  put("testingJavaClient", "true");
-                                }
-                              })
-                          .method(HTTPMethod.GET)
-                          .timeout(10.0)
-                          .url("https://datadoghq.com")))
-          .locations(Arrays.asList("aws:us-east-2"))
-          .message("testing Synthetics API test - this is message")
-          .options(
-              new SyntheticsTestOptions()
-                  .acceptSelfSigned(false)
-                  .allowInsecure(true)
-                  .followRedirects(true)
-                  .minFailureDuration(10L)
-                  .minLocationFailed(1L)
-                  .retry(new SyntheticsTestOptionsRetry().count(3L).interval(10.0))
-                  .tickEvery(SyntheticsTickInterval.MINUTE))
-          .subtype(SyntheticsTestDetailsSubType.HTTP)
-          .tags(Arrays.asList("testing:api"))
-          .type(SyntheticsAPITestType.API);
-  private SyntheticsAPITest subtypeTcpApiTestConfig =
-      new SyntheticsAPITest()
-          .config(
-              new SyntheticsAPITestConfig()
-                  .assertions(
-                      Arrays.asList(
-                          new SyntheticsAssertion(
-                              new SyntheticsAssertionTarget()
-                                  .operator(SyntheticsAssertionOperator.LESS_THAN)
-                                  .target(2000)
-                                  .type(SyntheticsAssertionType.RESPONSE_TIME))))
-                  .request(
-                      new SyntheticsTestRequest()
-                          .host("agent-intake.logs.datadoghq.com")
-                          .port(443L)))
-          .locations(Arrays.asList("aws:us-east-2"))
-          .message("testing Synthetics API test Subtype TCP - this is message")
-          .options(new SyntheticsTestOptions().tickEvery(SyntheticsTickInterval.MINUTE))
-          .subtype(SyntheticsTestDetailsSubType.TCP)
-          .tags(Arrays.asList("testing:api-tcp"))
-          .type(SyntheticsAPITestType.API);
-  private SyntheticsBrowserTest browserTestConfig =
-      new SyntheticsBrowserTest()
-          .config(
-              new SyntheticsBrowserTestConfig()
-                  .assertions(Arrays.<SyntheticsAssertion>asList())
-                  .request(
-                      new SyntheticsTestRequest()
-                          .method(HTTPMethod.GET)
-                          .url("https://datadoghq.com")))
-          .locations(Arrays.asList("aws:us-east-2"))
-          .message("testing Synthetics Browser test - this is message")
-          .options(
-              new SyntheticsTestOptions()
-                  .acceptSelfSigned(false)
-                  .allowInsecure(true)
-                  .deviceIds(Arrays.asList(SyntheticsDeviceID.TABLET))
-                  .followRedirects(true)
-                  .minFailureDuration(10L)
-                  .minLocationFailed(1L)
-                  .retry(new SyntheticsTestOptionsRetry().count(3L).interval(10.0))
-                  .tickEvery(SyntheticsTickInterval.FIVE_MINUTES))
-          .tags(Arrays.asList("testing:browser"))
-          .type(SyntheticsBrowserTestType.BROWSER);
+  private SyntheticsAPITest apiTestConfig = buildAPITestConfig();
+
+  private SyntheticsAPITest buildAPITestConfig() {
+    return new SyntheticsAPITest()
+        .config(
+            new SyntheticsAPITestConfig()
+                .assertions(
+                    Arrays.asList(
+                        new SyntheticsAssertion(
+                            new SyntheticsAssertionTarget()
+                                .operator(SyntheticsAssertionOperator.IS)
+                                .property("content-type")
+                                .target("text/html")
+                                .type(SyntheticsAssertionType.HEADER)),
+                        new SyntheticsAssertion(
+                            new SyntheticsAssertionTarget()
+                                .operator(SyntheticsAssertionOperator.LESS_THAN)
+                                .target(2000)
+                                .type(SyntheticsAssertionType.RESPONSE_TIME))))
+                .request(
+                    new SyntheticsTestRequest()
+                        .headers(
+                            new HashMap<String, String>() {
+                              {
+                                put("testingJavaClient", "true");
+                              }
+                            })
+                        .method(HTTPMethod.GET)
+                        .timeout(10.0)
+                        .url("https://datadoghq.com")))
+        .locations(Arrays.asList("aws:us-east-2"))
+        .message("testing Synthetics API test - this is message")
+        .options(
+            new SyntheticsTestOptions()
+                .acceptSelfSigned(false)
+                .allowInsecure(true)
+                .followRedirects(true)
+                .minFailureDuration(10L)
+                .minLocationFailed(1L)
+                .retry(new SyntheticsTestOptionsRetry().count(3L).interval(10.0))
+                .tickEvery(SyntheticsTickInterval.MINUTE))
+        .subtype(SyntheticsTestDetailsSubType.HTTP)
+        .tags(Arrays.asList("testing:api"))
+        .type(SyntheticsAPITestType.API);
+  }
+
+  private SyntheticsAPITest subtypeTcpApiTestConfig = buildAPITCPTestConfig();
+
+  private SyntheticsAPITest buildAPITCPTestConfig() {
+    return new SyntheticsAPITest()
+        .config(
+            new SyntheticsAPITestConfig()
+                .assertions(
+                    Arrays.asList(
+                        new SyntheticsAssertion(
+                            new SyntheticsAssertionTarget()
+                                .operator(SyntheticsAssertionOperator.LESS_THAN)
+                                .target(2000)
+                                .type(SyntheticsAssertionType.RESPONSE_TIME))))
+                .request(
+                    new SyntheticsTestRequest().host("agent-intake.logs.datadoghq.com").port(443L)))
+        .locations(Arrays.asList("aws:us-east-2"))
+        .message("testing Synthetics API test Subtype TCP - this is message")
+        .options(new SyntheticsTestOptions().tickEvery(SyntheticsTickInterval.MINUTE))
+        .subtype(SyntheticsTestDetailsSubType.TCP)
+        .tags(Arrays.asList("testing:api-tcp"))
+        .type(SyntheticsAPITestType.API);
+  }
+
+  private SyntheticsBrowserTest browserTestConfig = buildBrowserTestConfig();
+
+  private SyntheticsBrowserTest buildBrowserTestConfig() {
+    return new SyntheticsBrowserTest()
+        .config(
+            new SyntheticsBrowserTestConfig()
+                .assertions(Arrays.<SyntheticsAssertion>asList())
+                .request(
+                    new SyntheticsTestRequest()
+                        .method(HTTPMethod.GET)
+                        .url("https://datadoghq.com")))
+        .locations(Arrays.asList("aws:us-east-2"))
+        .message("testing Synthetics Browser test - this is message")
+        .options(
+            new SyntheticsTestOptions()
+                .acceptSelfSigned(false)
+                .allowInsecure(true)
+                .deviceIds(Arrays.asList(SyntheticsDeviceID.TABLET))
+                .followRedirects(true)
+                .minFailureDuration(10L)
+                .minLocationFailed(1L)
+                .retry(new SyntheticsTestOptionsRetry().count(3L).interval(10.0))
+                .tickEvery(SyntheticsTickInterval.FIVE_MINUTES))
+        .tags(Arrays.asList("testing:browser"))
+        .type(SyntheticsBrowserTestType.BROWSER);
+  }
 
   @Override
   public String getTracingEndpoint() {
@@ -177,12 +186,9 @@ public class SyntheticsApiTest extends V1ApiTest {
     assertEquals(apiTestName, synt.getName());
 
     // Update API test
-    synt.setName(apiTestConfig.getName() + "-updated");
-    // if we want to reuse the entity returned by the API, we must set these fields to null, as they
-    // can't be sent back
-    synt.setMonitorId(null);
-    synt.setPublicId(null);
-    synt = api.updateAPITest(publicId, synt);
+    SyntheticsAPITest updatedSynt = buildAPITestConfig();
+    updatedSynt.setName(apiTestConfig.getName() + "-updated");
+    synt = api.updateAPITest(publicId, updatedSynt);
     assertEquals(apiTestConfig.getName() + "-updated", synt.getName());
 
     // Get API test
@@ -284,12 +290,9 @@ public class SyntheticsApiTest extends V1ApiTest {
     assertEquals(apiTestName, synt.getName());
 
     // Update API test
-    synt.setName(subtypeTcpApiTestConfig.getName() + "-updated");
-    // if we want to reuse the entity returned by the API, we must set these fields to null, as they
-    // can't be sent back
-    synt.setMonitorId(null);
-    synt.setPublicId(null);
-    synt = api.updateAPITest(publicId, synt);
+    SyntheticsAPITest updatedSynt = buildAPITCPTestConfig();
+    updatedSynt.setName(subtypeTcpApiTestConfig.getName() + "-updated");
+    synt = api.updateAPITest(publicId, updatedSynt);
     assertEquals(subtypeTcpApiTestConfig.getName() + "-updated", synt.getName());
 
     assertEquals(1, synt.getConfig().getAssertions().size());
@@ -392,12 +395,9 @@ public class SyntheticsApiTest extends V1ApiTest {
     assertEquals(browserTestName, synt.getName());
 
     // Update Browser test
-    synt.setName(browserTestConfig.getName() + "-updated");
-    // if we want to reuse the entity returned by the API, we must set these fields to null, as they
-    // can't be sent back
-    synt.setMonitorId(null);
-    synt.setPublicId(null);
-    synt = api.updateBrowserTest(publicId, synt);
+    SyntheticsBrowserTest updatedSynt = buildBrowserTestConfig();
+    updatedSynt.setName(browserTestConfig.getName() + "-updated");
+    synt = api.updateBrowserTest(publicId, updatedSynt);
     assertEquals(browserTestConfig.getName() + "-updated", synt.getName());
 
     // Get Browser test
