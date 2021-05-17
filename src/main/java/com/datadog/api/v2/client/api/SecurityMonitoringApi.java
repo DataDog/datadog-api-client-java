@@ -5,6 +5,11 @@ import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.ApiResponse;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.Pair;
+import com.datadog.api.v2.client.model.SecurityFilterCreateRequest;
+import com.datadog.api.v2.client.model.SecurityFilterDeleteResponse;
+import com.datadog.api.v2.client.model.SecurityFilterResponse;
+import com.datadog.api.v2.client.model.SecurityFilterUpdateRequest;
+import com.datadog.api.v2.client.model.SecurityFiltersResponse;
 import com.datadog.api.v2.client.model.SecurityMonitoringListRulesResponse;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleCreatePayload;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleResponse;
@@ -47,6 +52,91 @@ public class SecurityMonitoringApi {
    */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
+  }
+
+  /**
+   * Create a security filter Create a security filter.
+   *
+   * @param body The definition of the new security filter. (required)
+   * @return SecurityFilterResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public SecurityFilterResponse createSecurityFilter(SecurityFilterCreateRequest body)
+      throws ApiException {
+    return createSecurityFilterWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create a security filter Create a security filter.
+   *
+   * @param body The definition of the new security filter. (required)
+   * @return ApiResponse&lt;SecurityFilterResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityFilterResponse> createSecurityFilterWithHttpInfo(
+      SecurityFilterCreateRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createSecurityFilter");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/configuration/security_filters";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "createSecurityFilter");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {"application/json"};
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    GenericType<SecurityFilterResponse> localVarReturnType =
+        new GenericType<SecurityFilterResponse>() {};
+
+    return apiClient.invokeAPI(
+        "SecurityMonitoringApi.createSecurityFilter",
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
   }
 
   /**
@@ -118,6 +208,97 @@ public class SecurityMonitoringApi {
         "SecurityMonitoringApi.createSecurityMonitoringRule",
         localVarPath,
         "POST",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
+   * Delete a security filter Delete a specific security filter.
+   *
+   * @param securityFilterId The ID of the security filter. (required)
+   * @return SecurityFilterDeleteResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public SecurityFilterDeleteResponse deleteSecurityFilter(String securityFilterId)
+      throws ApiException {
+    return deleteSecurityFilterWithHttpInfo(securityFilterId).getData();
+  }
+
+  /**
+   * Delete a security filter Delete a specific security filter.
+   *
+   * @param securityFilterId The ID of the security filter. (required)
+   * @return ApiResponse&lt;SecurityFilterDeleteResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityFilterDeleteResponse> deleteSecurityFilterWithHttpInfo(
+      String securityFilterId) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'securityFilterId' is set
+    if (securityFilterId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'securityFilterId' when calling deleteSecurityFilter");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/configuration/security_filters/{security_filter_id}"
+            .replaceAll(
+                "\\{" + "security_filter_id" + "\\}",
+                apiClient.escapeString(securityFilterId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "deleteSecurityFilter");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    GenericType<SecurityFilterDeleteResponse> localVarReturnType =
+        new GenericType<SecurityFilterDeleteResponse>() {};
+
+    return apiClient.invokeAPI(
+        "SecurityMonitoringApi.deleteSecurityFilter",
+        localVarPath,
+        "DELETE",
         localVarQueryParams,
         localVarPostBody,
         localVarHeaderParams,
@@ -210,6 +391,93 @@ public class SecurityMonitoringApi {
   }
 
   /**
+   * Get a security filter Get the details of a specific security filter.
+   *
+   * @param securityFilterId The ID of the security filter. (required)
+   * @return SecurityFilterResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public SecurityFilterResponse getSecurityFilter(String securityFilterId) throws ApiException {
+    return getSecurityFilterWithHttpInfo(securityFilterId).getData();
+  }
+
+  /**
+   * Get a security filter Get the details of a specific security filter.
+   *
+   * @param securityFilterId The ID of the security filter. (required)
+   * @return ApiResponse&lt;SecurityFilterResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityFilterResponse> getSecurityFilterWithHttpInfo(String securityFilterId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'securityFilterId' is set
+    if (securityFilterId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'securityFilterId' when calling getSecurityFilter");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/configuration/security_filters/{security_filter_id}"
+            .replaceAll(
+                "\\{" + "security_filter_id" + "\\}",
+                apiClient.escapeString(securityFilterId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getSecurityFilter");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    GenericType<SecurityFilterResponse> localVarReturnType =
+        new GenericType<SecurityFilterResponse>() {};
+
+    return apiClient.invokeAPI(
+        "SecurityMonitoringApi.getSecurityFilter",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
    * Get a rule&#39;s details Get a rule&#39;s details.
    *
    * @param ruleId The ID of the rule. (required)
@@ -277,6 +545,79 @@ public class SecurityMonitoringApi {
 
     return apiClient.invokeAPI(
         "SecurityMonitoringApi.getSecurityMonitoringRule",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
+   * Get all security filters Get the list of configured security filters with their definitions.
+   *
+   * @return SecurityFiltersResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public SecurityFiltersResponse listSecurityFilters() throws ApiException {
+    return listSecurityFiltersWithHttpInfo().getData();
+  }
+
+  /**
+   * Get all security filters Get the list of configured security filters with their definitions.
+   *
+   * @return ApiResponse&lt;SecurityFiltersResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityFiltersResponse> listSecurityFiltersWithHttpInfo()
+      throws ApiException {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/security_monitoring/configuration/security_filters";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listSecurityFilters");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    GenericType<SecurityFiltersResponse> localVarReturnType =
+        new GenericType<SecurityFiltersResponse>() {};
+
+    return apiClient.invokeAPI(
+        "SecurityMonitoringApi.listSecurityFilters",
         localVarPath,
         "GET",
         localVarQueryParams,
@@ -714,6 +1055,108 @@ public class SecurityMonitoringApi {
         "SecurityMonitoringApi.searchSecurityMonitoringSignals",
         localVarPath,
         "POST",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
+   * Update a security filter Update a specific security filter. Returns the security filter object
+   * when the request is successful.
+   *
+   * @param securityFilterId The ID of the security filter. (required)
+   * @param body New definition of the security filter. (required)
+   * @return SecurityFilterResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Concurrent Modification </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public SecurityFilterResponse updateSecurityFilter(
+      String securityFilterId, SecurityFilterUpdateRequest body) throws ApiException {
+    return updateSecurityFilterWithHttpInfo(securityFilterId, body).getData();
+  }
+
+  /**
+   * Update a security filter Update a specific security filter. Returns the security filter object
+   * when the request is successful.
+   *
+   * @param securityFilterId The ID of the security filter. (required)
+   * @param body New definition of the security filter. (required)
+   * @return ApiResponse&lt;SecurityFilterResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Concurrent Modification </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SecurityFilterResponse> updateSecurityFilterWithHttpInfo(
+      String securityFilterId, SecurityFilterUpdateRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'securityFilterId' is set
+    if (securityFilterId == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'securityFilterId' when calling updateSecurityFilter");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling updateSecurityFilter");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/security_monitoring/configuration/security_filters/{security_filter_id}"
+            .replaceAll(
+                "\\{" + "security_filter_id" + "\\}",
+                apiClient.escapeString(securityFilterId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "updateSecurityFilter");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {"application/json"};
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    GenericType<SecurityFilterResponse> localVarReturnType =
+        new GenericType<SecurityFilterResponse>() {};
+
+    return apiClient.invokeAPI(
+        "SecurityMonitoringApi.updateSecurityFilter",
+        localVarPath,
+        "PATCH",
         localVarQueryParams,
         localVarPostBody,
         localVarHeaderParams,
