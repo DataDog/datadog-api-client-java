@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -25,6 +26,13 @@ import java.util.Objects;
 public class IdpFormData {
   public static final String JSON_PROPERTY_IDP_FILE = "idp_file";
   private File idpFile;
+
+  public IdpFormData() {}
+
+  @JsonCreator
+  public IdpFormData(@JsonProperty(required = true, value = JSON_PROPERTY_IDP_FILE) File idpFile) {
+    this.idpFile = idpFile;
+  }
 
   public IdpFormData idpFile(File idpFile) {
     this.idpFile = idpFile;

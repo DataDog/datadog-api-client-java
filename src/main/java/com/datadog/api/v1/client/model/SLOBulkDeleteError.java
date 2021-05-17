@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -34,6 +35,18 @@ public class SLOBulkDeleteError {
 
   public static final String JSON_PROPERTY_TIMEFRAME = "timeframe";
   private SLOErrorTimeframe timeframe;
+
+  public SLOBulkDeleteError() {}
+
+  @JsonCreator
+  public SLOBulkDeleteError(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_MESSAGE) String message,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TIMEFRAME) SLOErrorTimeframe timeframe) {
+    this.id = id;
+    this.message = message;
+    this.timeframe = timeframe;
+  }
 
   public SLOBulkDeleteError id(String id) {
     this.id = id;

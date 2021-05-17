@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -70,6 +71,16 @@ public class SLOWidgetDefinition {
 
   public static final String JSON_PROPERTY_VIEW_TYPE = "view_type";
   private String viewType = "detail";
+
+  public SLOWidgetDefinition() {}
+
+  @JsonCreator
+  public SLOWidgetDefinition(
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SLOWidgetDefinitionType type,
+      @JsonProperty(required = true, value = JSON_PROPERTY_VIEW_TYPE) String viewType) {
+    this.type = type;
+    this.viewType = viewType;
+  }
 
   public SLOWidgetDefinition globalTimeTarget(String globalTimeTarget) {
     this.globalTimeTarget = globalTimeTarget;

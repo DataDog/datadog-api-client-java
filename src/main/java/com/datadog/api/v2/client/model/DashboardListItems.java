@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -32,6 +33,15 @@ public class DashboardListItems {
 
   public static final String JSON_PROPERTY_TOTAL = "total";
   private Long total;
+
+  public DashboardListItems() {}
+
+  @JsonCreator
+  public DashboardListItems(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DASHBOARDS)
+          List<DashboardListItem> dashboards) {
+    this.dashboards = dashboards;
+  }
 
   public DashboardListItems dashboards(List<DashboardListItem> dashboards) {
     this.dashboards = dashboards;

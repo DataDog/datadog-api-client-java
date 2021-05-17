@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+Method        | HTTP request | Description
+------------- | ------------ | ------------
 [**createIncidentTeam**](IncidentTeamsApi.md#createIncidentTeam) | **POST** /api/v2/teams | Create a new incident team
 [**deleteIncidentTeam**](IncidentTeamsApi.md#deleteIncidentTeam) | **DELETE** /api/v2/teams/{team_id} | Delete an existing incident team
 [**getIncidentTeam**](IncidentTeamsApi.md#getIncidentTeam) | **GET** /api/v2/teams/{team_id} | Get details of an incident team
@@ -16,19 +16,15 @@ Method | HTTP request | Description
 
 > IncidentTeamResponse createIncidentTeam(body);
 
-Create a new incident team
-
 Creates a new incident team.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.IncidentTeamsApi;
 
@@ -86,19 +82,15 @@ Name | Type | Description  | Notes
 
 > deleteIncidentTeam(teamId);
 
-Delete an existing incident team
-
 Deletes an existing incident team.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.IncidentTeamsApi;
 
@@ -155,20 +147,16 @@ null (empty response body)
 
 > IncidentTeamResponse getIncidentTeam(teamId, parameters);
 
-Get details of an incident team
-
 Get details of an incident team. If the `include[users]` query parameter is provided,
 the included attribute will contain the users related to these incident teams.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.IncidentTeamsApi;
 
@@ -229,19 +217,15 @@ Name | Type | Description  | Notes
 
 > IncidentTeamsResponse listIncidentTeams(parameters);
 
-Get a list of all incident teams
-
 Get all incident teams for the requesting user's organization. If the `include[users]` query parameter is provided, the included attribute will contain the users related to these incident teams.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.IncidentTeamsApi;
 
@@ -309,19 +293,15 @@ Name | Type | Description  | Notes
 
 > IncidentTeamResponse updateIncidentTeam(teamId, body);
 
-Update an existing incident team
-
 Updates an existing incident team. Only provide the attributes which should be updated as this request is a partial update.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.IncidentTeamsApi;
 

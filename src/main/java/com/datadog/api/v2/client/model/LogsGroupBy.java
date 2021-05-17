@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -46,6 +47,13 @@ public class LogsGroupBy {
 
   public static final String JSON_PROPERTY_TOTAL = "total";
   private LogsGroupByTotal total = null;
+
+  public LogsGroupBy() {}
+
+  @JsonCreator
+  public LogsGroupBy(@JsonProperty(required = true, value = JSON_PROPERTY_FACET) String facet) {
+    this.facet = facet;
+  }
 
   public LogsGroupBy facet(String facet) {
     this.facet = facet;

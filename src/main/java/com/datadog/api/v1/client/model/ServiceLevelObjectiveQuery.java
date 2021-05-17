@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -38,6 +39,16 @@ public class ServiceLevelObjectiveQuery {
 
   public static final String JSON_PROPERTY_NUMERATOR = "numerator";
   private String numerator;
+
+  public ServiceLevelObjectiveQuery() {}
+
+  @JsonCreator
+  public ServiceLevelObjectiveQuery(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DENOMINATOR) String denominator,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NUMERATOR) String numerator) {
+    this.denominator = denominator;
+    this.numerator = numerator;
+  }
 
   public ServiceLevelObjectiveQuery denominator(String denominator) {
     this.denominator = denominator;

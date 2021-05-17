@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -24,6 +25,14 @@ import java.util.Objects;
 public class PagerDutyServiceName {
   public static final String JSON_PROPERTY_SERVICE_NAME = "service_name";
   private String serviceName;
+
+  public PagerDutyServiceName() {}
+
+  @JsonCreator
+  public PagerDutyServiceName(
+      @JsonProperty(required = true, value = JSON_PROPERTY_SERVICE_NAME) String serviceName) {
+    this.serviceName = serviceName;
+  }
 
   public PagerDutyServiceName serviceName(String serviceName) {
     this.serviceName = serviceName;

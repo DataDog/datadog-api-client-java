@@ -33,6 +33,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
             + " with start and end times, prevent all alerting related to specified Datadog tags.")
 @JsonPropertyOrder({
   Downtime.JSON_PROPERTY_ACTIVE,
+  Downtime.JSON_PROPERTY_ACTIVE_CHILD,
   Downtime.JSON_PROPERTY_CANCELED,
   Downtime.JSON_PROPERTY_CREATOR_ID,
   Downtime.JSON_PROPERTY_DISABLED,
@@ -53,6 +54,9 @@ import org.openapitools.jackson.nullable.JsonNullable;
 public class Downtime {
   public static final String JSON_PROPERTY_ACTIVE = "active";
   private Boolean active;
+
+  public static final String JSON_PROPERTY_ACTIVE_CHILD = "active_child";
+  private JsonNullable<DowntimeChild> activeChild = JsonNullable.<DowntimeChild>undefined();
 
   public static final String JSON_PROPERTY_CANCELED = "canceled";
   private JsonNullable<Long> canceled = JsonNullable.<Long>undefined();
@@ -111,6 +115,38 @@ public class Downtime {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getActive() {
     return active;
+  }
+
+  public Downtime activeChild(DowntimeChild activeChild) {
+    this.activeChild = JsonNullable.<DowntimeChild>of(activeChild);
+    return this;
+  }
+
+  /**
+   * Get activeChild
+   *
+   * @return activeChild
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonIgnore
+  public DowntimeChild getActiveChild() {
+    return activeChild.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_ACTIVE_CHILD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<DowntimeChild> getActiveChild_JsonNullable() {
+    return activeChild;
+  }
+
+  @JsonProperty(JSON_PROPERTY_ACTIVE_CHILD)
+  public void setActiveChild_JsonNullable(JsonNullable<DowntimeChild> activeChild) {
+    this.activeChild = activeChild;
+  }
+
+  public void setActiveChild(DowntimeChild activeChild) {
+    this.activeChild = JsonNullable.<DowntimeChild>of(activeChild);
   }
 
   /**
@@ -544,6 +580,7 @@ public class Downtime {
     }
     Downtime downtime = (Downtime) o;
     return Objects.equals(this.active, downtime.active)
+        && Objects.equals(this.activeChild, downtime.activeChild)
         && Objects.equals(this.canceled, downtime.canceled)
         && Objects.equals(this.creatorId, downtime.creatorId)
         && Objects.equals(this.disabled, downtime.disabled)
@@ -565,6 +602,7 @@ public class Downtime {
   public int hashCode() {
     return Objects.hash(
         active,
+        activeChild,
         canceled,
         creatorId,
         disabled,
@@ -587,6 +625,7 @@ public class Downtime {
     StringBuilder sb = new StringBuilder();
     sb.append("class Downtime {\n");
     sb.append("    active: ").append(toIndentedString(active)).append("\n");
+    sb.append("    activeChild: ").append(toIndentedString(activeChild)).append("\n");
     sb.append("    canceled: ").append(toIndentedString(canceled)).append("\n");
     sb.append("    creatorId: ").append(toIndentedString(creatorId)).append("\n");
     sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");

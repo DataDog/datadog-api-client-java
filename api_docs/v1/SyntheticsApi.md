@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+Method        | HTTP request | Description
+------------- | ------------ | ------------
 [**createGlobalVariable**](SyntheticsApi.md#createGlobalVariable) | **POST** /api/v1/synthetics/variables | Create a global variable
 [**createPrivateLocation**](SyntheticsApi.md#createPrivateLocation) | **POST** /api/v1/synthetics/private-locations | Create a private location
 [**createSyntheticsAPITest**](SyntheticsApi.md#createSyntheticsAPITest) | **POST** /api/v1/synthetics/tests/api | Create an API test
@@ -35,19 +35,15 @@ Method | HTTP request | Description
 
 > SyntheticsGlobalVariable createGlobalVariable(body);
 
-Create a global variable
-
 Create a Synthetics global variable.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.SyntheticsApi;
 
@@ -103,19 +99,15 @@ Name | Type | Description  | Notes
 
 > SyntheticsPrivateLocationCreationResponse createPrivateLocation(body);
 
-Create a private location
-
 Create a new Synthetics private location.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.SyntheticsApi;
 
@@ -171,19 +163,15 @@ Name | Type | Description  | Notes
 
 > SyntheticsAPITest createSyntheticsAPITest(body);
 
-Create an API test
-
 Create a Synthetic API test.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.SyntheticsApi;
 
@@ -240,19 +228,15 @@ Name | Type | Description  | Notes
 
 > SyntheticsBrowserTest createSyntheticsBrowserTest(body);
 
-Create a browser test
-
 Create a Synthetic browser test.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.SyntheticsApi;
 
@@ -309,19 +293,15 @@ Name | Type | Description  | Notes
 
 > deleteGlobalVariable(variableId);
 
-Delete a global variable
-
 Delete a Synthetics global variable.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.SyntheticsApi;
 
@@ -377,19 +357,15 @@ null (empty response body)
 
 > deletePrivateLocation(locationId);
 
-Delete a private location
-
 Delete a Synthetics private location.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.SyntheticsApi;
 
@@ -443,19 +419,15 @@ null (empty response body)
 
 > SyntheticsDeleteTestsResponse deleteTests(body);
 
-Delete tests
-
 Delete multiple Synthetic tests by ID.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.SyntheticsApi;
 
@@ -512,19 +484,15 @@ Name | Type | Description  | Notes
 
 > SyntheticsGlobalVariable editGlobalVariable(variableId, body);
 
-Edit a global variable
-
 Edit a Synthetics global variable.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.SyntheticsApi;
 
@@ -582,20 +550,16 @@ Name | Type | Description  | Notes
 
 > SyntheticsAPITest getAPITest(publicId);
 
-Get an API test
-
 Get the detailed configuration associated with
 a Synthetic API test.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.SyntheticsApi;
 
@@ -651,19 +615,15 @@ Name | Type | Description  | Notes
 
 > SyntheticsGetAPITestLatestResultsResponse getAPITestLatestResults(publicId, parameters);
 
-Get an API test&#39;s latest results summaries
-
 Get the last 50 test results summaries for a given Synthetics API test.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.SyntheticsApi;
 
@@ -728,19 +688,15 @@ Name | Type | Description  | Notes
 
 > SyntheticsAPITestResultFull getAPITestResult(publicId, resultId);
 
-Get an API test result
-
 Get a specific full result from a given (API) Synthetic test.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.SyntheticsApi;
 
@@ -798,20 +754,16 @@ Name | Type | Description  | Notes
 
 > SyntheticsBrowserTest getBrowserTest(publicId);
 
-Get a browser test
-
 Get the detailed configuration (including steps) associated with
 a Synthetic browser test.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.SyntheticsApi;
 
@@ -867,19 +819,15 @@ Name | Type | Description  | Notes
 
 > SyntheticsGetBrowserTestLatestResultsResponse getBrowserTestLatestResults(publicId, parameters);
 
-Get a browser test&#39;s latest results summaries
-
 Get the last 50 test results summaries for a given Synthetics Browser test.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.SyntheticsApi;
 
@@ -944,19 +892,15 @@ Name | Type | Description  | Notes
 
 > SyntheticsBrowserTestResultFull getBrowserTestResult(publicId, resultId);
 
-Get a browser test result
-
 Get a specific full result from a given (browser) Synthetic test.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.SyntheticsApi;
 
@@ -1014,19 +958,15 @@ Name | Type | Description  | Notes
 
 > SyntheticsGlobalVariable getGlobalVariable(variableId);
 
-Get a global variable
-
 Get the detailed configuration of a global variable.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.SyntheticsApi;
 
@@ -1082,19 +1022,15 @@ Name | Type | Description  | Notes
 
 > SyntheticsPrivateLocation getPrivateLocation(locationId);
 
-Get a private location
-
 Get a Synthetics private location.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.SyntheticsApi;
 
@@ -1149,19 +1085,15 @@ Name | Type | Description  | Notes
 
 > SyntheticsTestDetails getTest(publicId);
 
-Get a test configuration
-
 Get the detailed configuration associated with a Synthetics test.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.SyntheticsApi;
 
@@ -1217,20 +1149,16 @@ Name | Type | Description  | Notes
 
 > SyntheticsLocations listLocations();
 
-Get all locations (public and private)
-
 Get the list of public and private locations available for Synthetic
 tests. No arguments required.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.SyntheticsApi;
 
@@ -1280,19 +1208,15 @@ This endpoint does not need any parameter.
 
 > SyntheticsListTestsResponse listTests();
 
-Get the list of all tests
-
 Get the list of all Synthetic tests.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.SyntheticsApi;
 
@@ -1344,19 +1268,15 @@ This endpoint does not need any parameter.
 
 > SyntheticsTriggerCITestsResponse triggerCITests(body);
 
-Trigger tests from CI/CD pipelines
-
 Trigger a set of Synthetics tests for continuous integration.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.SyntheticsApi;
 
@@ -1411,19 +1331,15 @@ Name | Type | Description  | Notes
 
 > SyntheticsAPITest updateAPITest(publicId, body);
 
-Edit an API test
-
 Edit the configuration of a Synthetic API test.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.SyntheticsApi;
 
@@ -1482,19 +1398,15 @@ Name | Type | Description  | Notes
 
 > SyntheticsBrowserTest updateBrowserTest(publicId, body);
 
-Edit a browser test
-
 Edit the configuration of a Synthetic browser test.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.SyntheticsApi;
 
@@ -1553,19 +1465,15 @@ Name | Type | Description  | Notes
 
 > SyntheticsPrivateLocation updatePrivateLocation(locationId, body);
 
-Edit a private location
-
 Edit a Synthetics private location.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.SyntheticsApi;
 
@@ -1622,19 +1530,15 @@ Name | Type | Description  | Notes
 
 > Boolean updateTestPauseStatus(publicId, body);
 
-Pause or start a test
-
 Pause or start a Synthetics test by changing the status.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.SyntheticsApi;
 

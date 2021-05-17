@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -24,6 +25,14 @@ import java.util.Objects;
 public class GeomapWidgetDefinitionView {
   public static final String JSON_PROPERTY_FOCUS = "focus";
   private String focus;
+
+  public GeomapWidgetDefinitionView() {}
+
+  @JsonCreator
+  public GeomapWidgetDefinitionView(
+      @JsonProperty(required = true, value = JSON_PROPERTY_FOCUS) String focus) {
+    this.focus = focus;
+  }
 
   public GeomapWidgetDefinitionView focus(String focus) {
     this.focus = focus;

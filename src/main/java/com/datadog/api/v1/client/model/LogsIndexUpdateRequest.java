@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -44,6 +45,14 @@ public class LogsIndexUpdateRequest {
 
   public static final String JSON_PROPERTY_NUM_RETENTION_DAYS = "num_retention_days";
   private Long numRetentionDays;
+
+  public LogsIndexUpdateRequest() {}
+
+  @JsonCreator
+  public LogsIndexUpdateRequest(
+      @JsonProperty(required = true, value = JSON_PROPERTY_FILTER) LogsFilter filter) {
+    this.filter = filter;
+  }
 
   public LogsIndexUpdateRequest dailyLimit(Long dailyLimit) {
     this.dailyLimit = dailyLimit;

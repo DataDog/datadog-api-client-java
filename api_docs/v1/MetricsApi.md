@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+Method        | HTTP request | Description
+------------- | ------------ | ------------
 [**getMetricMetadata**](MetricsApi.md#getMetricMetadata) | **GET** /api/v1/metrics/{metric_name} | Get metric metadata
 [**listActiveMetrics**](MetricsApi.md#listActiveMetrics) | **GET** /api/v1/metrics | Get active metrics list
 [**listMetrics**](MetricsApi.md#listMetrics) | **GET** /api/v1/search | Search metrics
@@ -17,19 +17,15 @@ Method | HTTP request | Description
 
 > MetricMetadata getMetricMetadata(metricName);
 
-Get metric metadata
-
 Get metadata about a specific metric.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.MetricsApi;
 
@@ -85,19 +81,15 @@ Name | Type | Description  | Notes
 
 > MetricsListResponse listActiveMetrics(from, parameters);
 
-Get active metrics list
-
 Get the list of actively reporting metrics from a given time until now.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.MetricsApi;
 
@@ -159,19 +151,15 @@ Name | Type | Description  | Notes
 
 > MetricSearchResponse listMetrics(q);
 
-Search metrics
-
 Search for metrics from the last 24 hours in Datadog.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.MetricsApi;
 
@@ -227,19 +215,15 @@ Name | Type | Description  | Notes
 
 > MetricsQueryResponse queryMetrics(from, to, query);
 
-Query timeseries points
-
 Query timeseries points.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.MetricsApi;
 
@@ -299,8 +283,6 @@ Name | Type | Description  | Notes
 
 > IntakePayloadAccepted submitMetrics(body);
 
-Submit metrics
-
 The metrics end-point allows you to post time-series data that can be graphed on Datadog’s dashboards.
 The maximum payload size is 3.2 megabytes (3200000). Compressed payloads must have a decompressed size of up to 62 megabytes (62914560).
 
@@ -316,12 +298,10 @@ compression is applied, which reduces the payload size.
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.MetricsApi;
 
@@ -379,19 +359,15 @@ Name | Type | Description  | Notes
 
 > MetricMetadata updateMetricMetadata(metricName, body);
 
-Edit metric metadata
-
 Edit metadata of a specific metric. Find out more about [supported types](https://docs.datadoghq.com/developers/metrics).
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.MetricsApi;
 

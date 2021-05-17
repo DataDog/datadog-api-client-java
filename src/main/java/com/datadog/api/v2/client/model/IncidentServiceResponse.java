@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -31,6 +32,14 @@ public class IncidentServiceResponse {
 
   public static final String JSON_PROPERTY_INCLUDED = "included";
   private List<IncidentServiceIncludedItems> included = null;
+
+  public IncidentServiceResponse() {}
+
+  @JsonCreator
+  public IncidentServiceResponse(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) IncidentServiceResponseData data) {
+    this.data = data;
+  }
 
   public IncidentServiceResponse data(IncidentServiceResponseData data) {
     this.data = data;

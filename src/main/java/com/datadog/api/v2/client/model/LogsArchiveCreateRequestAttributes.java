@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -44,6 +45,19 @@ public class LogsArchiveCreateRequestAttributes {
 
   public static final String JSON_PROPERTY_REHYDRATION_TAGS = "rehydration_tags";
   private List<String> rehydrationTags = null;
+
+  public LogsArchiveCreateRequestAttributes() {}
+
+  @JsonCreator
+  public LogsArchiveCreateRequestAttributes(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DESTINATION)
+          LogsArchiveCreateRequestDestination destination,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query) {
+    this.destination = destination;
+    this.name = name;
+    this.query = query;
+  }
 
   public LogsArchiveCreateRequestAttributes destination(
       LogsArchiveCreateRequestDestination destination) {

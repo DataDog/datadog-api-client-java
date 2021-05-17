@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -43,6 +44,20 @@ public class WidgetLayout {
 
   public static final String JSON_PROPERTY_Y = "y";
   private Long y;
+
+  public WidgetLayout() {}
+
+  @JsonCreator
+  public WidgetLayout(
+      @JsonProperty(required = true, value = JSON_PROPERTY_HEIGHT) Long height,
+      @JsonProperty(required = true, value = JSON_PROPERTY_WIDTH) Long width,
+      @JsonProperty(required = true, value = JSON_PROPERTY_X) Long x,
+      @JsonProperty(required = true, value = JSON_PROPERTY_Y) Long y) {
+    this.height = height;
+    this.width = width;
+    this.x = x;
+    this.y = y;
+  }
 
   public WidgetLayout height(Long height) {
     this.height = height;

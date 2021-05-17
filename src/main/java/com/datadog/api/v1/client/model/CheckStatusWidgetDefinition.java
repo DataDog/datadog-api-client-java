@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -66,6 +67,19 @@ public class CheckStatusWidgetDefinition {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private CheckStatusWidgetDefinitionType type = CheckStatusWidgetDefinitionType.CHECK_STATUS;
+
+  public CheckStatusWidgetDefinition() {}
+
+  @JsonCreator
+  public CheckStatusWidgetDefinition(
+      @JsonProperty(required = true, value = JSON_PROPERTY_CHECK) String check,
+      @JsonProperty(required = true, value = JSON_PROPERTY_GROUPING) WidgetGrouping grouping,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          CheckStatusWidgetDefinitionType type) {
+    this.check = check;
+    this.grouping = grouping;
+    this.type = type;
+  }
 
   public CheckStatusWidgetDefinition check(String check) {
     this.check = check;

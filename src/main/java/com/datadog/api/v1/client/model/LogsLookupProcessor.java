@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -65,6 +66,20 @@ public class LogsLookupProcessor {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private LogsLookupProcessorType type = LogsLookupProcessorType.LOOKUP_PROCESSOR;
+
+  public LogsLookupProcessor() {}
+
+  @JsonCreator
+  public LogsLookupProcessor(
+      @JsonProperty(required = true, value = JSON_PROPERTY_LOOKUP_TABLE) List<String> lookupTable,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SOURCE) String source,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TARGET) String target,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) LogsLookupProcessorType type) {
+    this.lookupTable = lookupTable;
+    this.source = source;
+    this.target = target;
+    this.type = type;
+  }
 
   public LogsLookupProcessor defaultLookup(String defaultLookup) {
     this.defaultLookup = defaultLookup;

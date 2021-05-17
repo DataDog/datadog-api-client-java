@@ -27,6 +27,7 @@ import {{import}};
 import java.io.Serializable;
 {{/serializableModel}}
 {{#jackson}}
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 {{#withXml}}
 import com.fasterxml.jackson.dataformat.xml.annotation.*;

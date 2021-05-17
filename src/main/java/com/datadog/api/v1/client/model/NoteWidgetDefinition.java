@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -68,6 +69,16 @@ public class NoteWidgetDefinition {
 
   public static final String JSON_PROPERTY_VERTICAL_ALIGN = "vertical_align";
   private WidgetVerticalAlign verticalAlign;
+
+  public NoteWidgetDefinition() {}
+
+  @JsonCreator
+  public NoteWidgetDefinition(
+      @JsonProperty(required = true, value = JSON_PROPERTY_CONTENT) String content,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) NoteWidgetDefinitionType type) {
+    this.content = content;
+    this.type = type;
+  }
 
   public NoteWidgetDefinition backgroundColor(String backgroundColor) {
     this.backgroundColor = backgroundColor;

@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+Method        | HTTP request | Description
+------------- | ------------ | ------------
 [**createGCPIntegration**](GcpIntegrationApi.md#createGCPIntegration) | **POST** /api/v1/integration/gcp | Create a GCP integration
 [**deleteGCPIntegration**](GcpIntegrationApi.md#deleteGCPIntegration) | **DELETE** /api/v1/integration/gcp | Delete a GCP integration
 [**listGCPIntegration**](GcpIntegrationApi.md#listGCPIntegration) | **GET** /api/v1/integration/gcp | List all GCP integrations
@@ -15,19 +15,15 @@ Method | HTTP request | Description
 
 > Object createGCPIntegration(body);
 
-Create a GCP integration
-
 Create a Datadog-GCP integration.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.GcpIntegrationApi;
 
@@ -83,19 +79,15 @@ Name | Type | Description  | Notes
 
 > Object deleteGCPIntegration(body);
 
-Delete a GCP integration
-
 Delete a given Datadog-GCP integration.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.GcpIntegrationApi;
 
@@ -151,19 +143,15 @@ Name | Type | Description  | Notes
 
 > List&lt;GCPAccount&gt; listGCPIntegration();
 
-List all GCP integrations
-
 List all Datadog-GCP integrations configured in your Datadog account.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.GcpIntegrationApi;
 
@@ -215,8 +203,6 @@ This endpoint does not need any parameter.
 
 > Object updateGCPIntegration(body);
 
-Update a GCP integration
-
 Update a Datadog-GCP integrations host_filters and/or auto-mute.
 Requires a `project_id` and `client_email`, however these fields cannot be updated.
 If you need to update these fields, delete and use the create (`POST`) endpoint.
@@ -225,12 +211,10 @@ The unspecified fields will keep their original values.
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.GcpIntegrationApi;
 

@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -57,6 +58,18 @@ public class LogsGrokParser {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private LogsGrokParserType type = LogsGrokParserType.GROK_PARSER;
+
+  public LogsGrokParser() {}
+
+  @JsonCreator
+  public LogsGrokParser(
+      @JsonProperty(required = true, value = JSON_PROPERTY_GROK) LogsGrokParserRules grok,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SOURCE) String source,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) LogsGrokParserType type) {
+    this.grok = grok;
+    this.source = source;
+    this.type = type;
+  }
 
   public LogsGrokParser grok(LogsGrokParserRules grok) {
     this.grok = grok;

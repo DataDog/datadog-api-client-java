@@ -17,13 +17,11 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
-/** The page count for the current pagination. */
-@ApiModel(description = "The page count for the current pagination.")
+/** The metadata for the current pagination. */
+@ApiModel(description = "The metadata for the current pagination.")
 @JsonPropertyOrder({
   UsageAttributionPagination.JSON_PROPERTY_LIMIT,
-  UsageAttributionPagination.JSON_PROPERTY_OFFSET,
-  UsageAttributionPagination.JSON_PROPERTY_SORT_DIRECTION,
-  UsageAttributionPagination.JSON_PROPERTY_SORT_NAME,
+  UsageAttributionPagination.JSON_PROPERTY_NEXT_RECORD_ID,
   UsageAttributionPagination.JSON_PROPERTY_TOTAL_NUMBER_OF_RECORDS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -31,14 +29,8 @@ public class UsageAttributionPagination {
   public static final String JSON_PROPERTY_LIMIT = "limit";
   private Long limit;
 
-  public static final String JSON_PROPERTY_OFFSET = "offset";
-  private Long offset;
-
-  public static final String JSON_PROPERTY_SORT_DIRECTION = "sort_direction";
-  private String sortDirection;
-
-  public static final String JSON_PROPERTY_SORT_NAME = "sort_name";
-  private String sortName;
+  public static final String JSON_PROPERTY_NEXT_RECORD_ID = "next_record_id";
+  private String nextRecordId;
 
   public static final String JSON_PROPERTY_TOTAL_NUMBER_OF_RECORDS = "total_number_of_records";
   private Long totalNumberOfRecords;
@@ -65,70 +57,30 @@ public class UsageAttributionPagination {
     this.limit = limit;
   }
 
-  public UsageAttributionPagination offset(Long offset) {
-    this.offset = offset;
+  public UsageAttributionPagination nextRecordId(String nextRecordId) {
+    this.nextRecordId = nextRecordId;
     return this;
   }
 
   /**
-   * Records to be skipped before beginning to return.
+   * The cursor to use to get the next results, if any. To make the next request, use the same
+   * parameters with the addition of this next_record_id.
    *
-   * @return offset
+   * @return nextRecordId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Records to be skipped before beginning to return.")
-  @JsonProperty(JSON_PROPERTY_OFFSET)
+  @ApiModelProperty(
+      value =
+          "The cursor to use to get the next results, if any. To make the next request, use the"
+              + " same parameters with the addition of this next_record_id.")
+  @JsonProperty(JSON_PROPERTY_NEXT_RECORD_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getOffset() {
-    return offset;
+  public String getNextRecordId() {
+    return nextRecordId;
   }
 
-  public void setOffset(Long offset) {
-    this.offset = offset;
-  }
-
-  public UsageAttributionPagination sortDirection(String sortDirection) {
-    this.sortDirection = sortDirection;
-    return this;
-  }
-
-  /**
-   * Direction to sort by.
-   *
-   * @return sortDirection
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Direction to sort by.")
-  @JsonProperty(JSON_PROPERTY_SORT_DIRECTION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getSortDirection() {
-    return sortDirection;
-  }
-
-  public void setSortDirection(String sortDirection) {
-    this.sortDirection = sortDirection;
-  }
-
-  public UsageAttributionPagination sortName(String sortName) {
-    this.sortName = sortName;
-    return this;
-  }
-
-  /**
-   * Field to sort by.
-   *
-   * @return sortName
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Field to sort by.")
-  @JsonProperty(JSON_PROPERTY_SORT_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getSortName() {
-    return sortName;
-  }
-
-  public void setSortName(String sortName) {
-    this.sortName = sortName;
+  public void setNextRecordId(String nextRecordId) {
+    this.nextRecordId = nextRecordId;
   }
 
   public UsageAttributionPagination totalNumberOfRecords(Long totalNumberOfRecords) {
@@ -137,12 +89,12 @@ public class UsageAttributionPagination {
   }
 
   /**
-   * Total number of records.
+   * Total number of records. (deprecated after May 1st, 2021)
    *
    * @return totalNumberOfRecords
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Total number of records.")
+  @ApiModelProperty(value = "Total number of records. (deprecated after May 1st, 2021)")
   @JsonProperty(JSON_PROPERTY_TOTAL_NUMBER_OF_RECORDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getTotalNumberOfRecords() {
@@ -164,16 +116,14 @@ public class UsageAttributionPagination {
     }
     UsageAttributionPagination usageAttributionPagination = (UsageAttributionPagination) o;
     return Objects.equals(this.limit, usageAttributionPagination.limit)
-        && Objects.equals(this.offset, usageAttributionPagination.offset)
-        && Objects.equals(this.sortDirection, usageAttributionPagination.sortDirection)
-        && Objects.equals(this.sortName, usageAttributionPagination.sortName)
+        && Objects.equals(this.nextRecordId, usageAttributionPagination.nextRecordId)
         && Objects.equals(
             this.totalNumberOfRecords, usageAttributionPagination.totalNumberOfRecords);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(limit, offset, sortDirection, sortName, totalNumberOfRecords);
+    return Objects.hash(limit, nextRecordId, totalNumberOfRecords);
   }
 
   @Override
@@ -181,9 +131,7 @@ public class UsageAttributionPagination {
     StringBuilder sb = new StringBuilder();
     sb.append("class UsageAttributionPagination {\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
-    sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
-    sb.append("    sortDirection: ").append(toIndentedString(sortDirection)).append("\n");
-    sb.append("    sortName: ").append(toIndentedString(sortName)).append("\n");
+    sb.append("    nextRecordId: ").append(toIndentedString(nextRecordId)).append("\n");
     sb.append("    totalNumberOfRecords: ")
         .append(toIndentedString(totalNumberOfRecords))
         .append("\n");

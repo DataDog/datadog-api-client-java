@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -48,6 +49,20 @@ public class ServiceCheck {
 
   public static final String JSON_PROPERTY_TIMESTAMP = "timestamp";
   private Long timestamp;
+
+  public ServiceCheck() {}
+
+  @JsonCreator
+  public ServiceCheck(
+      @JsonProperty(required = true, value = JSON_PROPERTY_CHECK) String check,
+      @JsonProperty(required = true, value = JSON_PROPERTY_HOST_NAME) String hostName,
+      @JsonProperty(required = true, value = JSON_PROPERTY_STATUS) ServiceCheckStatus status,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TAGS) List<String> tags) {
+    this.check = check;
+    this.hostName = hostName;
+    this.status = status;
+    this.tags = tags;
+  }
 
   public ServiceCheck check(String check) {
     this.check = check;

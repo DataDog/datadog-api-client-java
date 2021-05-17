@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -35,6 +36,18 @@ public class IncidentTimelineCellMarkdownCreateAttributes {
 
   public static final String JSON_PROPERTY_IMPORTANT = "important";
   private Boolean important = false;
+
+  public IncidentTimelineCellMarkdownCreateAttributes() {}
+
+  @JsonCreator
+  public IncidentTimelineCellMarkdownCreateAttributes(
+      @JsonProperty(required = true, value = JSON_PROPERTY_CELL_TYPE)
+          IncidentTimelineCellMarkdownContentType cellType,
+      @JsonProperty(required = true, value = JSON_PROPERTY_CONTENT)
+          IncidentTimelineCellMarkdownCreateAttributesContent content) {
+    this.cellType = cellType;
+    this.content = content;
+  }
 
   public IncidentTimelineCellMarkdownCreateAttributes cellType(
       IncidentTimelineCellMarkdownContentType cellType) {

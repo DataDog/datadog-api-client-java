@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+Method        | HTTP request | Description
+------------- | ------------ | ------------
 [**createUser**](UsersApi.md#createUser) | **POST** /api/v2/users | Create a user
 [**disableUser**](UsersApi.md#disableUser) | **DELETE** /api/v2/users/{user_id} | Disable a user
 [**getInvitation**](UsersApi.md#getInvitation) | **GET** /api/v2/user_invitations/{user_invitation_uuid} | Get a user invitation
@@ -20,19 +20,15 @@ Method | HTTP request | Description
 
 > UserResponse createUser(body);
 
-Create a user
-
 Create a user for your organization.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.UsersApi;
 
@@ -88,20 +84,16 @@ Name | Type | Description  | Notes
 
 > disableUser(userId);
 
-Disable a user
-
 Disable a user. Can only be used with an application key belonging
 to an administrator user.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.UsersApi;
 
@@ -156,19 +148,15 @@ null (empty response body)
 
 > UserInvitationResponse getInvitation(userInvitationUuid);
 
-Get a user invitation
-
 Returns a single user invitation by its UUID.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.UsersApi;
 
@@ -224,19 +212,15 @@ Name | Type | Description  | Notes
 
 > UserResponse getUser(userId);
 
-Get user details
-
 Get a user in the organization specified by the user’s `user_id`.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.UsersApi;
 
@@ -292,20 +276,16 @@ Name | Type | Description  | Notes
 
 > UserResponse listUserOrganizations(userId);
 
-Get a user organization
-
 Get a user organization. Returns the user information and all organizations
 joined by this user.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.UsersApi;
 
@@ -361,20 +341,16 @@ Name | Type | Description  | Notes
 
 > PermissionsResponse listUserPermissions(userId);
 
-Get a user permissions
-
 Get a user permission set. Returns a list of the user’s permissions
 granted by the associated user's roles.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.UsersApi;
 
@@ -430,20 +406,16 @@ Name | Type | Description  | Notes
 
 > UsersResponse listUsers(parameters);
 
-List all users
-
 Get the list of all users in the organization. This list includes
 all users even if they are deactivated or unverified.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.UsersApi;
 
@@ -515,19 +487,15 @@ Name | Type | Description  | Notes
 
 > UserInvitationsResponse sendInvitations(body);
 
-Send invitation emails
-
 Sends emails to one or more users inviting them to join the organization.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.UsersApi;
 
@@ -583,20 +551,16 @@ Name | Type | Description  | Notes
 
 > UserResponse updateUser(userId, body);
 
-Update a user
-
 Edit a user. Can only be used with an application key belonging
 to an administrator user.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.UsersApi;
 

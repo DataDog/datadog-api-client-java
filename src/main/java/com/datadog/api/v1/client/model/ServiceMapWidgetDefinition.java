@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -58,6 +59,19 @@ public class ServiceMapWidgetDefinition {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private ServiceMapWidgetDefinitionType type = ServiceMapWidgetDefinitionType.SERVICEMAP;
+
+  public ServiceMapWidgetDefinition() {}
+
+  @JsonCreator
+  public ServiceMapWidgetDefinition(
+      @JsonProperty(required = true, value = JSON_PROPERTY_FILTERS) List<String> filters,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SERVICE) String service,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          ServiceMapWidgetDefinitionType type) {
+    this.filters = filters;
+    this.service = service;
+    this.type = type;
+  }
 
   public ServiceMapWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;

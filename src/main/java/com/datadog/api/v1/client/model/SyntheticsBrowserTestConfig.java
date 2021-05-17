@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -40,6 +41,17 @@ public class SyntheticsBrowserTestConfig {
 
   public static final String JSON_PROPERTY_VARIABLES = "variables";
   private List<SyntheticsBrowserVariable> variables = null;
+
+  public SyntheticsBrowserTestConfig() {}
+
+  @JsonCreator
+  public SyntheticsBrowserTestConfig(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ASSERTIONS)
+          List<SyntheticsAssertion> assertions,
+      @JsonProperty(required = true, value = JSON_PROPERTY_REQUEST) SyntheticsTestRequest request) {
+    this.assertions = assertions;
+    this.request = request;
+  }
 
   public SyntheticsBrowserTestConfig assertions(List<SyntheticsAssertion> assertions) {
     this.assertions = assertions;

@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -46,6 +47,21 @@ public class SLOHistoryMetricsSeries {
 
   public static final String JSON_PROPERTY_VALUES = "values";
   private List<Double> values = new ArrayList<>();
+
+  public SLOHistoryMetricsSeries() {}
+
+  @JsonCreator
+  public SLOHistoryMetricsSeries(
+      @JsonProperty(required = true, value = JSON_PROPERTY_COUNT) Long count,
+      @JsonProperty(required = true, value = JSON_PROPERTY_METADATA)
+          SLOHistoryMetricsSeriesMetadata metadata,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SUM) Double sum,
+      @JsonProperty(required = true, value = JSON_PROPERTY_VALUES) List<Double> values) {
+    this.count = count;
+    this.metadata = metadata;
+    this.sum = sum;
+    this.values = values;
+  }
 
   public SLOHistoryMetricsSeries count(Long count) {
     this.count = count;

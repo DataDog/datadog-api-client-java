@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -48,6 +49,14 @@ public class LogsListRequest {
 
   public static final String JSON_PROPERTY_TIME = "time";
   private LogsListRequestTime time;
+
+  public LogsListRequest() {}
+
+  @JsonCreator
+  public LogsListRequest(
+      @JsonProperty(required = true, value = JSON_PROPERTY_TIME) LogsListRequestTime time) {
+    this.time = time;
+  }
 
   public LogsListRequest index(String index) {
     this.index = index;

@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -69,6 +70,18 @@ public class QueryValueWidgetDefinition {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private QueryValueWidgetDefinitionType type = QueryValueWidgetDefinitionType.QUERY_VALUE;
+
+  public QueryValueWidgetDefinition() {}
+
+  @JsonCreator
+  public QueryValueWidgetDefinition(
+      @JsonProperty(required = true, value = JSON_PROPERTY_REQUESTS)
+          List<QueryValueWidgetRequest> requests,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          QueryValueWidgetDefinitionType type) {
+    this.requests = requests;
+    this.type = type;
+  }
 
   public QueryValueWidgetDefinition autoscale(Boolean autoscale) {
     this.autoscale = autoscale;

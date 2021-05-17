@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -27,6 +28,16 @@ public class HTTPLogError {
 
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
+
+  public HTTPLogError() {}
+
+  @JsonCreator
+  public HTTPLogError(
+      @JsonProperty(required = true, value = JSON_PROPERTY_CODE) Integer code,
+      @JsonProperty(required = true, value = JSON_PROPERTY_MESSAGE) String message) {
+    this.code = code;
+    this.message = message;
+  }
 
   public HTTPLogError code(Integer code) {
     this.code = code;

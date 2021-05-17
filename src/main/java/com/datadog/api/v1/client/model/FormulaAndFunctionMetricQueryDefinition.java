@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -38,6 +39,19 @@ public class FormulaAndFunctionMetricQueryDefinition {
 
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
+
+  public FormulaAndFunctionMetricQueryDefinition() {}
+
+  @JsonCreator
+  public FormulaAndFunctionMetricQueryDefinition(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA_SOURCE)
+          FormulaAndFunctionMetricDataSource dataSource,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query) {
+    this.dataSource = dataSource;
+    this.name = name;
+    this.query = query;
+  }
 
   public FormulaAndFunctionMetricQueryDefinition aggregator(
       FormulaAndFunctionMetricAggregation aggregator) {

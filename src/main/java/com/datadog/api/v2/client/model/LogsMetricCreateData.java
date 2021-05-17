@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -34,6 +35,19 @@ public class LogsMetricCreateData {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private LogsMetricType type = LogsMetricType.LOGS_METRICS;
+
+  public LogsMetricCreateData() {}
+
+  @JsonCreator
+  public LogsMetricCreateData(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
+          LogsMetricCreateAttributes attributes,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) LogsMetricType type) {
+    this.attributes = attributes;
+    this.id = id;
+    this.type = type;
+  }
 
   public LogsMetricCreateData attributes(LogsMetricCreateAttributes attributes) {
     this.attributes = attributes;

@@ -64,14 +64,14 @@ public class SyntheticsGlobalVariableValue {
    *
    * @return value
    */
+  @javax.annotation.Nullable
   @ApiModelProperty(
       example = "example-value",
-      required = true,
       value =
           "Value of the global variable. When reading a global variable, the value will not be"
               + " present if the variable is secure.")
   @JsonProperty(JSON_PROPERTY_VALUE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getValue() {
     return value;
   }

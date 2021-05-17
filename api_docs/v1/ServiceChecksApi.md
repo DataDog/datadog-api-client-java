@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+Method        | HTTP request | Description
+------------- | ------------ | ------------
 [**submitServiceCheck**](ServiceChecksApi.md#submitServiceCheck) | **POST** /api/v1/check_run | Submit a Service Check
 
 
@@ -12,8 +12,6 @@ Method | HTTP request | Description
 
 > IntakePayloadAccepted submitServiceCheck(body);
 
-Submit a Service Check
-
 Submit a list of Service Checks.
 
 **Note**: A valid API key is required.
@@ -21,12 +19,10 @@ Submit a list of Service Checks.
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.ServiceChecksApi;
 

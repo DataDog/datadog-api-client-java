@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+Method        | HTTP request | Description
+------------- | ------------ | ------------
 [**createTagConfiguration**](MetricsApi.md#createTagConfiguration) | **POST** /api/v2/metrics/{metric_name}/tags | Create a tag configuration
 [**deleteTagConfiguration**](MetricsApi.md#deleteTagConfiguration) | **DELETE** /api/v2/metrics/{metric_name}/tags | Delete a tag configuration
 [**listTagConfigurationByName**](MetricsApi.md#listTagConfigurationByName) | **GET** /api/v2/metrics/{metric_name}/tags | List tag configuration by name
@@ -18,20 +18,16 @@ Method | HTTP request | Description
 
 > MetricTagConfigurationResponse createTagConfiguration(metricName, body);
 
-Create a tag configuration
-
 Create and define a list of queryable tag keys for an existing count/gauge/rate/distribution metric. Optionally, include percentile aggregations on any distribution metric.
 Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.MetricsApi;
 
@@ -91,20 +87,16 @@ Name | Type | Description  | Notes
 
 > deleteTagConfiguration(metricName);
 
-Delete a tag configuration
-
 Deletes a metric's tag configuration. Can only be used with application
 keys from users with the `Manage Tags for Metrics` permission.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.MetricsApi;
 
@@ -160,19 +152,15 @@ null (empty response body)
 
 > MetricTagConfigurationResponse listTagConfigurationByName(metricName);
 
-List tag configuration by name
-
 Returns the tag configuration for the given metric name.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.MetricsApi;
 
@@ -229,20 +217,16 @@ Name | Type | Description  | Notes
 
 > MetricsAndMetricTagConfigurationsResponse listTagConfigurations(parameters);
 
-List tag configurations
-
 Returns all configured count/gauge/rate/distribution metric names
 (with additional filters if specified).
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.MetricsApi;
 
@@ -315,19 +299,15 @@ Name | Type | Description  | Notes
 
 > MetricAllTagsResponse listTagsByMetricName(metricName);
 
-List tags by metric name
-
 View indexed tag key-value pairs for a given metric name.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.MetricsApi;
 
@@ -385,8 +365,6 @@ Name | Type | Description  | Notes
 
 > MetricVolumesResponse listVolumesByMetricName(metricName);
 
-List distinct metric volumes by metric name
-
 View distinct metrics volumes for the given metric name.
 
 Custom distribution metrics will return both ingested and indexed custom metric volumes.
@@ -396,12 +374,10 @@ Custom metrics generated in-app from other products will return `null` for inges
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.MetricsApi;
 
@@ -459,20 +435,16 @@ Name | Type | Description  | Notes
 
 > MetricTagConfigurationResponse updateTagConfiguration(metricName, body);
 
-Update a tag configuration
-
 Update the tag configuration of a metric or percentile aggregations of a distribution metric. Can only be used with
 application keys from users with the `Manage Tags for Metrics` permission.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.MetricsApi;
 

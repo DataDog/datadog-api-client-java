@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+Method        | HTTP request | Description
+------------- | ------------ | ------------
 [**createAWSAccount**](AwsIntegrationApi.md#createAWSAccount) | **POST** /api/v1/integration/aws | Create an AWS integration
 [**createAWSTagFilter**](AwsIntegrationApi.md#createAWSTagFilter) | **POST** /api/v1/integration/aws/filtering | Set an AWS tag filter
 [**createNewAWSExternalID**](AwsIntegrationApi.md#createNewAWSExternalID) | **PUT** /api/v1/integration/aws/generate_new_external_id | Generate a new external ID
@@ -20,8 +20,6 @@ Method | HTTP request | Description
 
 > AWSAccountCreateResponse createAWSAccount(body);
 
-Create an AWS integration
-
 Create a Datadog-Amazon Web Services integration.
 Using the `POST` method updates your integration configuration
 by adding your new configuration to the existing one in your Datadog organization.
@@ -30,12 +28,10 @@ A unique AWS Account ID for role based authentication.
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.AwsIntegrationApi;
 
@@ -92,19 +88,15 @@ Name | Type | Description  | Notes
 
 > Object createAWSTagFilter(body);
 
-Set an AWS tag filter
-
 Set an AWS tag filter.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.AwsIntegrationApi;
 
@@ -160,19 +152,15 @@ Name | Type | Description  | Notes
 
 > AWSAccountCreateResponse createNewAWSExternalID(body);
 
-Generate a new external ID
-
 Generate a new AWS external ID for a given AWS account ID and role name pair.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.AwsIntegrationApi;
 
@@ -228,19 +216,15 @@ Name | Type | Description  | Notes
 
 > Object deleteAWSAccount(body);
 
-Delete an AWS integration
-
 Delete a Datadog-AWS integration matching the specified `account_id` and `role_name parameters`.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.AwsIntegrationApi;
 
@@ -297,19 +281,15 @@ Name | Type | Description  | Notes
 
 > Object deleteAWSTagFilter(body);
 
-Delete a tag filtering entry
-
 Delete a tag filtering entry.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.AwsIntegrationApi;
 
@@ -365,19 +345,15 @@ Name | Type | Description  | Notes
 
 > AWSAccountListResponse listAWSAccounts(parameters);
 
-List all AWS integrations
-
 List all Datadog-AWS integrations available in your Datadog organization.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.AwsIntegrationApi;
 
@@ -440,19 +416,15 @@ Name | Type | Description  | Notes
 
 > AWSTagFilterListResponse listAWSTagFilters(accountId);
 
-Get all AWS tag filters
-
 Get all AWS tag filters.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.AwsIntegrationApi;
 
@@ -508,19 +480,15 @@ Name | Type | Description  | Notes
 
 > List&lt;String&gt; listAvailableAWSNamespaces();
 
-List namespace rules
-
 List all namespace rules for a given Datadog-AWS integration. This endpoint takes no arguments.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.AwsIntegrationApi;
 
@@ -571,19 +539,15 @@ This endpoint does not need any parameter.
 
 > Object updateAWSAccount(body, parameters);
 
-Update an AWS integration
-
 Update a Datadog-Amazon Web Services integration.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.AwsIntegrationApi;
 

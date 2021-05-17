@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+Method        | HTTP request | Description
+------------- | ------------ | ------------
 [**listProcesses**](ProcessesApi.md#listProcesses) | **GET** /api/v2/processes | Get all processes
 
 
@@ -12,19 +12,15 @@ Method | HTTP request | Description
 
 > ProcessSummariesResponse listProcesses(parameters);
 
-Get all processes
-
 Get all processes for your organization.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.auth.*;
 import com.datadog.api.v2.client.model.*;
 import com.datadog.api.v2.client.api.ProcessesApi;
 

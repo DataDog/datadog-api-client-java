@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -26,6 +27,14 @@ import java.util.Objects;
 public class LogsPipelinesOrder {
   public static final String JSON_PROPERTY_PIPELINE_IDS = "pipeline_ids";
   private List<String> pipelineIds = new ArrayList<>();
+
+  public LogsPipelinesOrder() {}
+
+  @JsonCreator
+  public LogsPipelinesOrder(
+      @JsonProperty(required = true, value = JSON_PROPERTY_PIPELINE_IDS) List<String> pipelineIds) {
+    this.pipelineIds = pipelineIds;
+  }
 
   public LogsPipelinesOrder pipelineIds(List<String> pipelineIds) {
     this.pipelineIds = pipelineIds;

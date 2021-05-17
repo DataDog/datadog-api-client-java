@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -68,6 +69,14 @@ public class SyntheticsBrowserTest {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private SyntheticsBrowserTestType type = SyntheticsBrowserTestType.BROWSER;
+
+  public SyntheticsBrowserTest() {}
+
+  @JsonCreator
+  public SyntheticsBrowserTest(
+      @JsonProperty(required = true, value = JSON_PROPERTY_MESSAGE) String message) {
+    this.message = message;
+  }
 
   public SyntheticsBrowserTest config(SyntheticsBrowserTestConfig config) {
     this.config = config;
@@ -147,11 +156,6 @@ public class SyntheticsBrowserTest {
     this.message = message;
   }
 
-  public SyntheticsBrowserTest monitorId(Long monitorId) {
-    this.monitorId = monitorId;
-    return this;
-  }
-
   /**
    * The associated monitor ID.
    *
@@ -163,10 +167,6 @@ public class SyntheticsBrowserTest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getMonitorId() {
     return monitorId;
-  }
-
-  public void setMonitorId(Long monitorId) {
-    this.monitorId = monitorId;
   }
 
   public SyntheticsBrowserTest name(String name) {
@@ -213,11 +213,6 @@ public class SyntheticsBrowserTest {
     this.options = options;
   }
 
-  public SyntheticsBrowserTest publicId(String publicId) {
-    this.publicId = publicId;
-    return this;
-  }
-
   /**
    * The public ID of the test.
    *
@@ -229,10 +224,6 @@ public class SyntheticsBrowserTest {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {
     return publicId;
-  }
-
-  public void setPublicId(String publicId) {
-    this.publicId = publicId;
   }
 
   public SyntheticsBrowserTest status(SyntheticsTestPauseStatus status) {

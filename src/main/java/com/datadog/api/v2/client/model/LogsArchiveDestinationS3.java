@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -38,6 +39,20 @@ public class LogsArchiveDestinationS3 {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private LogsArchiveDestinationS3Type type = LogsArchiveDestinationS3Type.S3;
+
+  public LogsArchiveDestinationS3() {}
+
+  @JsonCreator
+  public LogsArchiveDestinationS3(
+      @JsonProperty(required = true, value = JSON_PROPERTY_BUCKET) String bucket,
+      @JsonProperty(required = true, value = JSON_PROPERTY_INTEGRATION)
+          LogsArchiveIntegrationS3 integration,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          LogsArchiveDestinationS3Type type) {
+    this.bucket = bucket;
+    this.integration = integration;
+    this.type = type;
+  }
 
   public LogsArchiveDestinationS3 bucket(String bucket) {
     this.bucket = bucket;

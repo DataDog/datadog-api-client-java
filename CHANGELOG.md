@@ -1,5 +1,27 @@
 # CHANGELOG
 
+## 1.0.0-beta11 / 2021-05-12
+
+* [Added] Add `logs_by_retention` usage property and `GetUsageLogsByRetention` endpoint. See [#809](https://github.com/DataDog/datadog-api-client-java/pull/809).
+* [Added] Add anomaly detection method to `SecurityMonitoringRuleDetectionMethod` enum. See [#808](https://github.com/DataDog/datadog-api-client-java/pull/808).
+* [Added] Add `with_configured_alert_ids` parameter to get a SLO details endpoint. See [#805](https://github.com/DataDog/datadog-api-client-java/pull/805).
+* [Added] Add `setCookie`, `dnsServerPort`,  `allowFailure ` and `isCritical` fields for Synthetics tests. See [#800](https://github.com/DataDog/datadog-api-client-java/pull/800).
+* [Added] Add `metadata` property with pagination info to `SLOList` endpoint response. See [#796](https://github.com/DataDog/datadog-api-client-java/pull/796).
+* [Added] Add new properties to group widget, note widget and image widget. See [#793](https://github.com/DataDog/datadog-api-client-java/pull/793).
+* [Added] Add support for a `rate` metric type in manage metric tags v2 endpoint. See [#791](https://github.com/DataDog/datadog-api-client-java/pull/791).
+* [Added] Add support for ICMP Synthetics tests. See [#788](https://github.com/DataDog/datadog-api-client-java/pull/788).
+* [Added] Add vSphere usage information. See [#783](https://github.com/DataDog/datadog-api-client-java/pull/783).
+* [Added] Mark metric volumes and ingested tags endpoints as stable. See [#779](https://github.com/DataDog/datadog-api-client-java/pull/779).
+* [Added] Add `filter[shared]` query parameter for searching dashboards. See [#772](https://github.com/DataDog/datadog-api-client-java/pull/772).
+* [Added] Add profiling product fields in usage metering endpoint. See [#771](https://github.com/DataDog/datadog-api-client-java/pull/771).
+* [Added] Add `title` and `background_color` properties to dashboard group widget. See [#770](https://github.com/DataDog/datadog-api-client-java/pull/770).
+* [Added] Add `marker`, `xaxis` and `yaxis` properties on distribution widgets. See [#782](https://github.com/DataDog/datadog-api-client-java/pull/782).
+* [Fixed] Remove default value of `is_column_break` layout property of dashboard. See [#816](https://github.com/DataDog/datadog-api-client-java/pull/816).
+* [Changed] Enumerate accepted values for fields parameter in usage attribution requests. See [#813](https://github.com/DataDog/datadog-api-client-java/pull/813).
+* [Changed] Add new value tick interval and remove `request` as required field from synthetics test. See [#810](https://github.com/DataDog/datadog-api-client-java/pull/810).
+* [Deprecated] Deprecate `legend_size` and `show_legend` properties on distribution widgets. See [#782](https://github.com/DataDog/datadog-api-client-java/pull/782).
+* [Removed] Remove deprecated Synthetics methods `CreateTest` and `UpdateTest`. See [#785](https://github.com/DataDog/datadog-api-client-java/pull/785).
+
 ## 1.0.0-beta10 / 2021-04-15
 
 * [Added] Add `reflow_type` property to dashboard object. See [#742](https://github.com/DataDog/datadog-api-client-java/pull/742).

@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -46,6 +47,22 @@ public class LogsArchiveDestinationAzure {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private LogsArchiveDestinationAzureType type = LogsArchiveDestinationAzureType.AZURE;
+
+  public LogsArchiveDestinationAzure() {}
+
+  @JsonCreator
+  public LogsArchiveDestinationAzure(
+      @JsonProperty(required = true, value = JSON_PROPERTY_CONTAINER) String container,
+      @JsonProperty(required = true, value = JSON_PROPERTY_INTEGRATION)
+          LogsArchiveIntegrationAzure integration,
+      @JsonProperty(required = true, value = JSON_PROPERTY_STORAGE_ACCOUNT) String storageAccount,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          LogsArchiveDestinationAzureType type) {
+    this.container = container;
+    this.integration = integration;
+    this.storageAccount = storageAccount;
+    this.type = type;
+  }
 
   public LogsArchiveDestinationAzure container(String container) {
     this.container = container;

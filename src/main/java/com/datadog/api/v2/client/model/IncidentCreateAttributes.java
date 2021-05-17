@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -46,6 +47,17 @@ public class IncidentCreateAttributes {
 
   public static final String JSON_PROPERTY_TITLE = "title";
   private String title;
+
+  public IncidentCreateAttributes() {}
+
+  @JsonCreator
+  public IncidentCreateAttributes(
+      @JsonProperty(required = true, value = JSON_PROPERTY_CUSTOMER_IMPACTED)
+          Boolean customerImpacted,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TITLE) String title) {
+    this.customerImpacted = customerImpacted;
+    this.title = title;
+  }
 
   public IncidentCreateAttributes customerImpacted(Boolean customerImpacted) {
     this.customerImpacted = customerImpacted;

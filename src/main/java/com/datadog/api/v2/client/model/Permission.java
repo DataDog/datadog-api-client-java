@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -34,6 +35,14 @@ public class Permission {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private PermissionsType type = PermissionsType.PERMISSIONS;
+
+  public Permission() {}
+
+  @JsonCreator
+  public Permission(
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) PermissionsType type) {
+    this.type = type;
+  }
 
   public Permission attributes(PermissionAttributes attributes) {
     this.attributes = attributes;

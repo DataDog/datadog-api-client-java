@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -66,6 +67,19 @@ public class LogsCategoryProcessor {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private LogsCategoryProcessorType type = LogsCategoryProcessorType.CATEGORY_PROCESSOR;
+
+  public LogsCategoryProcessor() {}
+
+  @JsonCreator
+  public LogsCategoryProcessor(
+      @JsonProperty(required = true, value = JSON_PROPERTY_CATEGORIES)
+          List<LogsCategoryProcessorCategory> categories,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TARGET) String target,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) LogsCategoryProcessorType type) {
+    this.categories = categories;
+    this.target = target;
+    this.type = type;
+  }
 
   public LogsCategoryProcessor categories(List<LogsCategoryProcessorCategory> categories) {
     this.categories = categories;

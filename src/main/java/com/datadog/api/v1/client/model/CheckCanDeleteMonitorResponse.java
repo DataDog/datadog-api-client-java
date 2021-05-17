@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -33,6 +34,15 @@ public class CheckCanDeleteMonitorResponse {
 
   public static final String JSON_PROPERTY_ERRORS = "errors";
   private Map<String, List<String>> errors = null;
+
+  public CheckCanDeleteMonitorResponse() {}
+
+  @JsonCreator
+  public CheckCanDeleteMonitorResponse(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
+          CheckCanDeleteMonitorResponseData data) {
+    this.data = data;
+  }
 
   public CheckCanDeleteMonitorResponse data(CheckCanDeleteMonitorResponseData data) {
     this.data = data;

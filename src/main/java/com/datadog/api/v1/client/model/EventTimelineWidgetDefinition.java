@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -56,6 +57,17 @@ public class EventTimelineWidgetDefinition {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private EventTimelineWidgetDefinitionType type = EventTimelineWidgetDefinitionType.EVENT_TIMELINE;
+
+  public EventTimelineWidgetDefinition() {}
+
+  @JsonCreator
+  public EventTimelineWidgetDefinition(
+      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          EventTimelineWidgetDefinitionType type) {
+    this.query = query;
+    this.type = type;
+  }
 
   public EventTimelineWidgetDefinition query(String query) {
     this.query = query;

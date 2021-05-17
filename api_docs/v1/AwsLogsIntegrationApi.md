@@ -2,8 +2,8 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
+Method        | HTTP request | Description
+------------- | ------------ | ------------
 [**checkAWSLogsLambdaAsync**](AwsLogsIntegrationApi.md#checkAWSLogsLambdaAsync) | **POST** /api/v1/integration/aws/logs/check_async | Check that an AWS Lambda Function exists
 [**checkAWSLogsServicesAsync**](AwsLogsIntegrationApi.md#checkAWSLogsServicesAsync) | **POST** /api/v1/integration/aws/logs/services_async | Check permissions for log services
 [**createAWSLambdaARN**](AwsLogsIntegrationApi.md#createAWSLambdaARN) | **POST** /api/v1/integration/aws/logs | Add AWS Log Lambda ARN
@@ -18,8 +18,6 @@ Method | HTTP request | Description
 
 > AWSLogsAsyncResponse checkAWSLogsLambdaAsync(body);
 
-Check that an AWS Lambda Function exists
-
 Test if permissions are present to add a log-forwarding triggers for the given services and AWS account. The input
 is the same as for Enable an AWS service log collection. Subsequent requests will always repeat the above, so this
 endpoint can be polled intermittently instead of blocking.
@@ -32,12 +30,10 @@ endpoint can be polled intermittently instead of blocking.
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.AwsLogsIntegrationApi;
 
@@ -93,8 +89,6 @@ Name | Type | Description  | Notes
 
 > AWSLogsAsyncResponse checkAWSLogsServicesAsync(body);
 
-Check permissions for log services
-
 Test if permissions are present to add log-forwarding triggers for the
 given services and AWS account. Input is the same as for `EnableAWSLogServices`.
 Done async, so can be repeatedly polled in a non-blocking fashion until
@@ -109,12 +103,10 @@ the async request completes.
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.AwsLogsIntegrationApi;
 
@@ -170,19 +162,15 @@ Name | Type | Description  | Notes
 
 > Object createAWSLambdaARN(body);
 
-Add AWS Log Lambda ARN
-
 Attach the Lambda ARN of the Lambda created for the Datadog-AWS log collection to your AWS account ID to enable log collection.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.AwsLogsIntegrationApi;
 
@@ -238,19 +226,15 @@ Name | Type | Description  | Notes
 
 > Object deleteAWSLambdaARN(body);
 
-Delete an AWS Logs integration
-
 Delete a Datadog-AWS logs configuration by removing the specific Lambda ARN associated with a given AWS account.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.AwsLogsIntegrationApi;
 
@@ -306,19 +290,15 @@ Name | Type | Description  | Notes
 
 > Object enableAWSLogServices(body);
 
-Enable an AWS Logs integration
-
 Enable automatic log collection for a list of services. This should be run after running `CreateAWSLambdaARN` to save the configuration.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.AwsLogsIntegrationApi;
 
@@ -374,19 +354,15 @@ Name | Type | Description  | Notes
 
 > List&lt;AWSLogsListResponse&gt; listAWSLogsIntegrations();
 
-List all AWS Logs integrations
-
 List all Datadog-AWS Logs integrations configured in your Datadog account.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.AwsLogsIntegrationApi;
 
@@ -438,19 +414,15 @@ This endpoint does not need any parameter.
 
 > List&lt;AWSLogsListServicesResponse&gt; listAWSLogsServices();
 
-Get list of AWS log ready services
-
 Get the list of current AWS services that Datadog offers automatic log collection. Use returned service IDs with the services parameter for the Enable an AWS service log collection API endpoint.
 
 ### Example
 
 ```java
-// Import classes:
 import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.auth.*;
 import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.AwsLogsIntegrationApi;
 

@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -40,6 +41,14 @@ public class ProcessQueryDefinition {
 
   public static final String JSON_PROPERTY_SEARCH_BY = "search_by";
   private String searchBy;
+
+  public ProcessQueryDefinition() {}
+
+  @JsonCreator
+  public ProcessQueryDefinition(
+      @JsonProperty(required = true, value = JSON_PROPERTY_METRIC) String metric) {
+    this.metric = metric;
+  }
 
   public ProcessQueryDefinition filterBy(List<String> filterBy) {
     this.filterBy = filterBy;
