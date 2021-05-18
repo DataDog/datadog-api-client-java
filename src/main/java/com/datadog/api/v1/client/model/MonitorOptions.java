@@ -175,16 +175,22 @@ public class MonitorOptions {
   }
 
   /**
-   * A message to include with a re-notification. Supports the &#x60;@username&#x60; notification we
-   * allow elsewhere. Not applicable if &#x60;renotify_interval&#x60; is &#x60;None&#x60;.
+   * We recommend using the
+   * [is_renotify](https://docs.datadoghq.com/monitors/notifications/?tab&#x3D;is_alert#renotify),
+   * block in the original message instead. A message to include with a re-notification. Supports
+   * the &#x60;@username&#x60; notification we allow elsewhere. Not applicable if
+   * &#x60;renotify_interval&#x60; is &#x60;None&#x60;.
    *
    * @return escalationMessage
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "A message to include with a re-notification. Supports the `@username` notification we"
-              + " allow elsewhere. Not applicable if `renotify_interval` is `None`.")
+          "We recommend using the"
+              + " [is_renotify](https://docs.datadoghq.com/monitors/notifications/?tab=is_alert#renotify),"
+              + " block in the original message instead. A message to include with a"
+              + " re-notification. Supports the `@username` notification we allow elsewhere. Not"
+              + " applicable if `renotify_interval` is `None`.")
   @JsonProperty(JSON_PROPERTY_ESCALATION_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getEscalationMessage() {
