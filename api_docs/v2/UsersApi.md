@@ -102,7 +102,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        String userId = "userId_example"; // String | The ID of the user.
+        String userId = "00000000-0000-0000-0000-000000000000"; // String | The ID of the user.
         try {
             apiInstance.disableUser(userId);
         } catch (ApiException e) {
@@ -165,7 +165,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        String userInvitationUuid = "userInvitationUuid_example"; // String | The UUID of the user invitation.
+        String userInvitationUuid = "00000000-0000-0000-0000-000000000000"; // String | The UUID of the user invitation.
         try {
             UserInvitationResponse result = apiInstance.getInvitation(userInvitationUuid);
             System.out.println(result);
@@ -229,7 +229,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        String userId = "userId_example"; // String | The ID of the user.
+        String userId = "00000000-0000-0000-0000-000000000000"; // String | The ID of the user.
         try {
             UserResponse result = apiInstance.getUser(userId);
             System.out.println(result);
@@ -294,7 +294,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        String userId = "userId_example"; // String | The ID of the user.
+        String userId = "00000000-0000-0000-0000-000000000000"; // String | The ID of the user.
         try {
             UserResponse result = apiInstance.listUserOrganizations(userId);
             System.out.println(result);
@@ -359,7 +359,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        String userId = "userId_example"; // String | The ID of the user.
+        String userId = "00000000-0000-0000-0000-000000000000"; // String | The ID of the user.
         try {
             PermissionsResponse result = apiInstance.listUserPermissions(userId);
             System.out.println(result);
@@ -429,7 +429,7 @@ public class Example {
         String sort = "name"; // String | User attribute to order results by. Sort order is ascending by default. Sort order is descending if the field is prefixed by a negative sign, for example `sort=-name`. Options: `name`, `modified_at`, `user_count`.
         QuerySortOrder sortDir = QuerySortOrder.fromValue("asc"); // QuerySortOrder | Direction of sort. Options: `asc`, `desc`.
         String filter = "filter_example"; // String | Filter all users by the given string. Defaults to no filtering.
-        String filterStatus = "filterStatus_example"; // String | Filter on status attribute. Comma separated list, with possible values `Active`, `Pending`, and `Disabled`. Defaults to no filtering.
+        String filterStatus = "Active"; // String | Filter on status attribute. Comma separated list, with possible values `Active`, `Pending`, and `Disabled`. Defaults to no filtering.
         try {
 	    UsersResponse result = apiInstance.listUsers(new UsersApi.ListUsersOptionalParameters()
                 .pageSize(pageSize)
@@ -569,7 +569,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        String userId = "userId_example"; // String | The ID of the user.
+        String userId = "00000000-0000-0000-0000-000000000000"; // String | The ID of the user.
         UserUpdateRequest body = new UserUpdateRequest(); // UserUpdateRequest | 
         try {
             UserResponse result = apiInstance.updateUser(userId, body);
