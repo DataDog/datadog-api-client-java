@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 /** Integration metadata resource type. */
 public enum IncidentIntegrationMetadataType {
-  INCIDENT_INTEGRATION_METADATA("incident_integration_metadata");
+  INCIDENT_INTEGRATIONS("incident_integrations");
 
   private String value;
 
