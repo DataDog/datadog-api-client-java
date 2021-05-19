@@ -31,7 +31,7 @@ public class RelationshipToIncidentIntegrationMetadataData {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private IncidentIntegrationMetadataType type =
-      IncidentIntegrationMetadataType.INCIDENT_INTEGRATION_METADATA;
+      IncidentIntegrationMetadataType.INCIDENT_INTEGRATIONS;
 
   public RelationshipToIncidentIntegrationMetadataData() {}
 

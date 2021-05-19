@@ -56,7 +56,7 @@ public class RelationshipToIncidentIntegrationMetadatas {
    */
   @ApiModelProperty(
       example =
-          "[{\"id\":\"00000000-0000-0000-0000-000000000000\",\"type\":\"incident_integration_metadata\"},{\"id\":\"00000000-0000-0000-0000-000000000000\",\"type\":\"incident_integration_metadata\"}]",
+          "[{\"id\":\"00000000-0000-0000-0000-000000000000\",\"type\":\"incident_integrations\"},{\"id\":\"00000000-0000-0000-0000-000000000000\",\"type\":\"incident_integrations\"}]",
       required = true,
       value = "The integration metadata relationship array")
   @JsonProperty(JSON_PROPERTY_DATA)
