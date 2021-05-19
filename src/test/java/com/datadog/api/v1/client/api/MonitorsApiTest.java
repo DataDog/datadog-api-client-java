@@ -267,7 +267,7 @@ public class MonitorsApiTest extends V1ApiTest {
   @Test
   public void monitorsCreateErrorsTest() throws IOException {
     try {
-      api.createMonitor(new Monitor());
+      api.createMonitor(new Monitor().type(testingMonitorType).query("wrong query"));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -276,7 +276,7 @@ public class MonitorsApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.createMonitor(new Monitor());
+      fakeAuthApi.createMonitor(new Monitor().type(testingMonitorType).query(testingMonitorQuery));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
@@ -517,7 +517,7 @@ public class MonitorsApiTest extends V1ApiTest {
   @Test
   public void monitorValidateErrorsTest() throws IOException {
     try {
-      api.validateMonitor(new Monitor());
+      api.validateMonitor(new Monitor().type(testingMonitorType).query("wrong query"));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -526,7 +526,9 @@ public class MonitorsApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.validateMonitor(new Monitor());
+      fakeAuthApi.validateMonitor(
+          new Monitor().type(testingMonitorType).query(testingMonitorQuery));
+      api.validateMonitor(new Monitor().type(testingMonitorType).query(testingMonitorQuery));
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());

@@ -1,5 +1,5 @@
 [{
-  "id" : "62bc9a10-b220-4450-9988-8c7d0dcf2d2c",
+  "id" : "b7069adb-cc2e-4b97-a7ab-ad203672b2d4",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/monitor",
@@ -7,15 +7,13 @@
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "monitorUpdateErrorsTest" ],
       "DD-OPERATION-ID" : [ "createMonitor" ],
-      "Content-Type" : [ "application/json" ],
-      "Connection" : [ "close" ],
-      "Content-Length" : [ "252" ]
+      "Content-Type" : [ "application/json" ]
     },
     "keepAlive" : false,
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"message\":\"We may need to add web hosts if this is consistently high.\",\"name\":\"java-monitorUpdateErrorsTest-local-1595946760\",\"query\":\"avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100\",\"tags\":[\"app:webserver\",\"frontend\"],\"type\":\"metric alert\"}"
+      "json" : "{\"message\":\"We may need to add web hosts if this is consistently high.\",\"name\":\"java-monitorUpdateErrorsTest-local-1621440718\",\"query\":\"avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100\",\"tags\":[\"app:webserver\",\"frontend\"],\"type\":\"metric alert\"}"
     }
   },
   "times" : {
@@ -28,43 +26,35 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Tue, 28 Jul 2020 14:32:42 GMT" ],
-      "Content-Type" : [ "application/json; charset=utf-8" ],
+      "Date" : [ "Wed, 19 May 2021 16:12:01 GMT" ],
+      "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
-      "Vary" : [ "Accept-Encoding" ],
-      "Pragma" : [ "no-cache" ],
-      "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 04-Aug-2020 14:32:42 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2796999" ],
-      "X-RateLimit-Limit" : [ "500" ],
-      "X-RateLimit-Period" : [ "10" ],
-      "X-RateLimit-Reset" : [ "8" ],
-      "X-RateLimit-Remaining" : [ "499" ],
-      "X-DD-Debug" : [ "ih8D2DI88YBr9uheAcyKM+xFyCR2kwWLXMfdwAji5BvDeYf1FN7WbTAPRh8jSibT" ],
-      "DD-POOL" : [ "dogweb" ],
-      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "X-Frame-Options" : [ "SAMEORIGIN" ],
-      "X-Content-Type-Options" : [ "nosniff" ],
-      "Strict-Transport-Security" : [ "max-age=15724800;" ],
-      "content-length" : [ "760" ]
+      "vary" : [ "Accept-Encoding" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "x-dd-version" : [ "35.4564459" ],
+      "x-ratelimit-limit" : [ "500" ],
+      "x-ratelimit-period" : [ "10" ],
+      "x-ratelimit-reset" : [ "9" ],
+      "x-ratelimit-remaining" : [ "499" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ],
+      "content-length" : [ "747" ]
     },
-    "cookies" : {
-      "DD-PSHARD" : "233"
-    },
-    "body" : "{\"restricted_roles\":null,\"tags\":[\"app:webserver\",\"frontend\"],\"deleted\":null,\"query\":\"avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100\",\"message\":\"We may need to add web hosts if this is consistently high.\",\"id\":20529050,\"multi\":false,\"name\":\"java-monitorUpdateErrorsTest-local-1595946760\",\"created\":\"2020-07-28T14:32:42.923297+00:00\",\"created_at\":1595946762000,\"creator\":{\"id\":1379826,\"handle\":\"slavek.kabrda@datadoghq.com\",\"name\":\"Slavek Kabrda\",\"email\":\"slavek.kabrda@datadoghq.com\"},\"org_id\":321813,\"modified\":\"2020-07-28T14:32:42.923297+00:00\",\"overall_state_modified\":null,\"overall_state\":\"No Data\",\"type\":\"metric alert\",\"options\":{\"notify_audit\":false,\"locked\":false,\"silenced\":{},\"include_tags\":true,\"new_host_delay\":300,\"notify_no_data\":false}}"
+    "body" : "{\"restricted_roles\":null,\"tags\":[\"app:webserver\",\"frontend\"],\"deleted\":null,\"query\":\"avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100\",\"message\":\"We may need to add web hosts if this is consistently high.\",\"id\":35689775,\"multi\":false,\"name\":\"java-monitorUpdateErrorsTest-local-1621440718\",\"created\":\"2021-05-19T16:12:01.320649+00:00\",\"created_at\":1621440721000,\"creator\":{\"id\":1445416,\"handle\":\"frog@datadoghq.com\",\"name\":null,\"email\":\"frog@datadoghq.com\"},\"org_id\":321813,\"modified\":\"2021-05-19T16:12:01.320649+00:00\",\"priority\":null,\"overall_state_modified\":null,\"overall_state\":\"No Data\",\"type\":\"metric alert\",\"options\":{\"notify_audit\":false,\"locked\":false,\"silenced\":{},\"include_tags\":true,\"new_host_delay\":300,\"notify_no_data\":false}}"
   }
 }, {
-  "id" : "72b6fcce-a8c8-464f-9a56-8c281167b50f",
+  "id" : "18a2b64f-54f2-40bc-aa37-e2d605c15734",
   "httpRequest" : {
     "method" : "PUT",
-    "path" : "/api/v1/monitor/20529050",
+    "path" : "/api/v1/monitor/35689775",
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "monitorUpdateErrorsTest" ],
       "DD-OPERATION-ID" : [ "updateMonitor" ],
-      "Content-Type" : [ "application/json" ],
-      "Connection" : [ "close" ],
-      "Content-Length" : [ "20" ]
+      "Content-Type" : [ "application/json" ]
     },
     "keepAlive" : false,
     "secure" : true,
@@ -83,27 +73,26 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Tue, 28 Jul 2020 14:32:44 GMT" ],
+      "Date" : [ "Wed, 19 May 2021 16:12:02 GMT" ],
       "Content-Type" : [ "application/json" ],
-      "Content-Length" : [ "46" ],
+      "Content-Length" : [ "47" ],
       "Connection" : [ "keep-alive" ],
-      "Pragma" : [ "no-cache" ],
-      "Cache-Control" : [ "no-cache" ],
-      "X-RateLimit-Limit" : [ "500" ],
-      "X-RateLimit-Period" : [ "10" ],
-      "X-RateLimit-Reset" : [ "6" ],
-      "X-RateLimit-Remaining" : [ "499" ],
-      "X-DD-VERSION" : [ "35.2796999" ],
-      "DD-POOL" : [ "dogweb" ],
-      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "X-Frame-Options" : [ "SAMEORIGIN" ],
-      "X-Content-Type-Options" : [ "nosniff" ],
-      "Strict-Transport-Security" : [ "max-age=15724800;" ]
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "x-ratelimit-limit" : [ "500" ],
+      "x-ratelimit-period" : [ "10" ],
+      "x-ratelimit-reset" : [ "8" ],
+      "x-ratelimit-remaining" : [ "499" ],
+      "x-dd-version" : [ "35.4564459" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ]
     },
-    "body" : "{\"errors\":[\"Monitor type change not allowed\"]}"
+    "body" : "{\"errors\": [\"Monitor type change not allowed\"]}"
   }
 }, {
-  "id" : "a605130f-6be8-42f5-879a-41ade325e490",
+  "id" : "47c229d6-fce8-45db-955d-aee7041114cb",
   "httpRequest" : {
     "method" : "PUT",
     "path" : "/api/v1/monitor/1234",
@@ -111,9 +100,7 @@
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "monitorUpdateErrorsTest" ],
       "DD-OPERATION-ID" : [ "updateMonitor" ],
-      "Content-Type" : [ "application/json" ],
-      "Connection" : [ "close" ],
-      "Content-Length" : [ "2" ]
+      "Content-Type" : [ "application/json" ]
     },
     "keepAlive" : false,
     "secure" : true,
@@ -132,17 +119,17 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Tue, 28 Jul 2020 14:32:45 GMT" ],
+      "Date" : [ "Wed, 19 May 2021 16:12:02 GMT" ],
       "Content-Type" : [ "application/json" ],
+      "Content-Length" : [ "170" ],
       "Connection" : [ "keep-alive" ],
-      "Cache-Control" : [ "no-cache" ],
-      "Via" : [ "1.1 haproxy" ],
-      "content-length" : [ "170" ]
+      "cache-control" : [ "no-cache" ],
+      "via" : [ "haproxy" ]
     },
     "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
   }
 }, {
-  "id" : "7fac9ab6-1786-40ef-ad7e-a48bc2bdcfba",
+  "id" : "3a494da0-706f-4032-82aa-0534efb592f4",
   "httpRequest" : {
     "method" : "PUT",
     "path" : "/api/v1/monitor/1234",
@@ -150,9 +137,7 @@
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "monitorUpdateErrorsTest" ],
       "DD-OPERATION-ID" : [ "updateMonitor" ],
-      "Content-Type" : [ "application/json" ],
-      "Connection" : [ "close" ],
-      "Content-Length" : [ "2" ]
+      "Content-Type" : [ "application/json" ]
     },
     "keepAlive" : false,
     "secure" : true,
@@ -171,31 +156,30 @@
     "statusCode" : 404,
     "reasonPhrase" : "Not Found",
     "headers" : {
-      "Date" : [ "Tue, 28 Jul 2020 14:32:46 GMT" ],
+      "Date" : [ "Wed, 19 May 2021 16:12:03 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
-      "Vary" : [ "Accept-Encoding" ],
-      "Pragma" : [ "no-cache" ],
-      "Cache-Control" : [ "no-cache" ],
-      "X-RateLimit-Limit" : [ "500" ],
-      "X-RateLimit-Period" : [ "10" ],
-      "X-RateLimit-Reset" : [ "5" ],
-      "X-RateLimit-Remaining" : [ "498" ],
-      "X-DD-VERSION" : [ "35.2796999" ],
-      "DD-POOL" : [ "dogweb" ],
-      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "X-Frame-Options" : [ "SAMEORIGIN" ],
-      "X-Content-Type-Options" : [ "nosniff" ],
-      "Strict-Transport-Security" : [ "max-age=15724800;" ],
-      "content-length" : [ "32" ]
+      "vary" : [ "Accept-Encoding" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "x-ratelimit-limit" : [ "500" ],
+      "x-ratelimit-period" : [ "10" ],
+      "x-ratelimit-reset" : [ "7" ],
+      "x-ratelimit-remaining" : [ "498" ],
+      "x-dd-version" : [ "35.4564459" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ],
+      "content-length" : [ "33" ]
     },
-    "body" : "{\"errors\":[\"Monitor not found\"]}"
+    "body" : "{\"errors\": [\"Monitor not found\"]}"
   }
 }, {
-  "id" : "5afb3d6a-827b-4acd-8c41-c7bb5c1814c2",
+  "id" : "01de37bb-5e2c-4b91-bbbb-4c6c4aa8fb7e",
   "httpRequest" : {
     "method" : "GET",
-    "path" : "/api/v1/monitor/20529050",
+    "path" : "/api/v1/monitor/35689775",
     "queryStringParameters" : {
       "group_states" : [ "all" ]
     },
@@ -203,7 +187,6 @@
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "monitorUpdateErrorsTest" ],
       "DD-OPERATION-ID" : [ "getMonitor" ],
-      "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
     "keepAlive" : false,
@@ -219,43 +202,35 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Tue, 28 Jul 2020 14:32:46 GMT" ],
-      "Content-Type" : [ "application/json; charset=utf-8" ],
+      "Date" : [ "Wed, 19 May 2021 16:12:03 GMT" ],
+      "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
-      "Vary" : [ "Accept-Encoding" ],
-      "Pragma" : [ "no-cache" ],
-      "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 04-Aug-2020 14:32:46 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2796999" ],
-      "X-RateLimit-Limit" : [ "3000" ],
-      "X-RateLimit-Period" : [ "10" ],
-      "X-RateLimit-Reset" : [ "4" ],
-      "X-RateLimit-Remaining" : [ "2999" ],
-      "X-DD-Debug" : [ "8isA5EInG6RyRAkRdGaBktQQOyPFCgHfxTGHtQxzP0s3SmVZ1HwE+efQQ6T72ktD" ],
-      "DD-POOL" : [ "dogweb" ],
-      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "X-Frame-Options" : [ "SAMEORIGIN" ],
-      "X-Content-Type-Options" : [ "nosniff" ],
-      "Strict-Transport-Security" : [ "max-age=15724800;" ],
-      "content-length" : [ "782" ]
+      "vary" : [ "Accept-Encoding" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "x-dd-version" : [ "35.4564459" ],
+      "x-ratelimit-limit" : [ "3000" ],
+      "x-ratelimit-period" : [ "10" ],
+      "x-ratelimit-reset" : [ "7" ],
+      "x-ratelimit-remaining" : [ "2999" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ],
+      "content-length" : [ "769" ]
     },
-    "cookies" : {
-      "DD-PSHARD" : "233"
-    },
-    "body" : "{\"restricted_roles\":null,\"tags\":[\"app:webserver\",\"frontend\"],\"deleted\":null,\"query\":\"avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100\",\"message\":\"We may need to add web hosts if this is consistently high.\",\"id\":20529050,\"multi\":false,\"name\":\"java-monitorUpdateErrorsTest-local-1595946760\",\"created\":\"2020-07-28T14:32:42.923297+00:00\",\"created_at\":1595946762000,\"creator\":{\"id\":1379826,\"handle\":\"slavek.kabrda@datadoghq.com\",\"name\":\"Slavek Kabrda\",\"email\":\"slavek.kabrda@datadoghq.com\"},\"org_id\":321813,\"modified\":\"2020-07-28T14:32:42.923297+00:00\",\"state\":{\"groups\":{}},\"overall_state_modified\":null,\"overall_state\":\"No Data\",\"type\":\"metric alert\",\"options\":{\"notify_audit\":false,\"locked\":false,\"silenced\":{},\"include_tags\":true,\"new_host_delay\":300,\"notify_no_data\":false}}"
+    "body" : "{\"restricted_roles\":null,\"tags\":[\"app:webserver\",\"frontend\"],\"deleted\":null,\"query\":\"avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100\",\"message\":\"We may need to add web hosts if this is consistently high.\",\"id\":35689775,\"multi\":false,\"name\":\"java-monitorUpdateErrorsTest-local-1621440718\",\"created\":\"2021-05-19T16:12:01.320649+00:00\",\"created_at\":1621440721000,\"creator\":{\"id\":1445416,\"handle\":\"frog@datadoghq.com\",\"name\":null,\"email\":\"frog@datadoghq.com\"},\"org_id\":321813,\"modified\":\"2021-05-19T16:12:01.320649+00:00\",\"priority\":null,\"state\":{\"groups\":{}},\"overall_state_modified\":null,\"overall_state\":\"No Data\",\"type\":\"metric alert\",\"options\":{\"notify_audit\":false,\"locked\":false,\"silenced\":{},\"include_tags\":true,\"new_host_delay\":300,\"notify_no_data\":false}}"
   }
 }, {
-  "id" : "36e30834-c9cf-4853-85b4-b27775326b83",
+  "id" : "2cae6fb9-a3b1-4e93-8cb7-9e8e2fd1a766",
   "httpRequest" : {
     "method" : "DELETE",
-    "path" : "/api/v1/monitor/20529050",
+    "path" : "/api/v1/monitor/35689775",
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "monitorUpdateErrorsTest" ],
       "DD-OPERATION-ID" : [ "deleteMonitor" ],
-      "Content-Type" : [ "application/json" ],
-      "Connection" : [ "close" ],
-      "Content-Length" : [ "0" ]
+      "Content-Type" : [ "application/json" ]
     },
     "keepAlive" : false,
     "secure" : true
@@ -270,25 +245,19 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Tue, 28 Jul 2020 14:32:47 GMT" ],
-      "Content-Type" : [ "application/json; charset=utf-8" ],
+      "Date" : [ "Wed, 19 May 2021 16:12:04 GMT" ],
+      "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
-      "Vary" : [ "Accept-Encoding" ],
-      "Pragma" : [ "no-cache" ],
-      "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 04-Aug-2020 14:32:47 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2796999" ],
-      "X-DD-Debug" : [ "uV2tDlZxIEhM1kSWYQgSR0tOtBynZg6q5sYeRM2YbwZKhz6AI9mw/2dZH+DD0e2l" ],
-      "DD-POOL" : [ "dogweb" ],
-      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "X-Frame-Options" : [ "SAMEORIGIN" ],
-      "X-Content-Type-Options" : [ "nosniff" ],
-      "Strict-Transport-Security" : [ "max-age=15724800;" ],
+      "vary" : [ "Accept-Encoding" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "x-dd-version" : [ "35.4564459" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ],
       "content-length" : [ "31" ]
     },
-    "cookies" : {
-      "DD-PSHARD" : "233"
-    },
-    "body" : "{\"deleted_monitor_id\":20529050}"
+    "body" : "{\"deleted_monitor_id\":35689775}"
   }
 }]
