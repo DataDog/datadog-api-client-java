@@ -20,8 +20,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The attributes of a notebook toplist cell. */
-@ApiModel(description = "The attributes of a notebook toplist cell.")
+/** The attributes of a notebook &#x60;toplist&#x60; cell. */
+@ApiModel(description = "The attributes of a notebook `toplist` cell.")
 @JsonPropertyOrder({
   NotebookToplistCellAttributes.JSON_PROPERTY_DEFINITION,
   NotebookToplistCellAttributes.JSON_PROPERTY_GRAPH_SIZE,

@@ -18,8 +18,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
-/** The attributes of a notebooks markdown cell. */
-@ApiModel(description = "The attributes of a notebooks markdown cell.")
+/** The attributes of a notebook &#x60;markdown&#x60; cell. */
+@ApiModel(description = "The attributes of a notebook `markdown` cell.")
 @JsonPropertyOrder({NotebookMarkdownCellAttributes.JSON_PROPERTY_DEFINITION})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class NotebookMarkdownCellAttributes {

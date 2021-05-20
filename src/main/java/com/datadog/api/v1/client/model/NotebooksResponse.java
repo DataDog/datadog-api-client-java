@@ -25,17 +25,17 @@ import java.util.Objects;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class NotebooksResponse {
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<NotebookResponseData> data = null;
+  private List<NotebooksResponseData> data = null;
 
   public static final String JSON_PROPERTY_META = "meta";
   private NotebooksResponseMeta meta;
 
-  public NotebooksResponse data(List<NotebookResponseData> data) {
+  public NotebooksResponse data(List<NotebooksResponseData> data) {
     this.data = data;
     return this;
   }
 
-  public NotebooksResponse addDataItem(NotebookResponseData dataItem) {
+  public NotebooksResponse addDataItem(NotebooksResponseData dataItem) {
     if (this.data == null) {
       this.data = new ArrayList<>();
     }
@@ -52,11 +52,11 @@ public class NotebooksResponse {
   @ApiModelProperty(value = "List of notebook definitions.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<NotebookResponseData> getData() {
+  public List<NotebooksResponseData> getData() {
     return data;
   }
 
-  public void setData(List<NotebookResponseData> data) {
+  public void setData(List<NotebooksResponseData> data) {
     this.data = data;
   }
 

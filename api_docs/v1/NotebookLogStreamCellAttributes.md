@@ -2,7 +2,7 @@
 
 # NotebookLogStreamCellAttributes
 
-The attributes of a notebook log stream cell.
+The attributes of a notebook `log_stream` cell.
 
 ## Properties
 
