@@ -20,8 +20,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The attributes of a notebook heat map cell. */
-@ApiModel(description = "The attributes of a notebook heat map cell.")
+/** The attributes of a notebook &#x60;heatmap&#x60; cell. */
+@ApiModel(description = "The attributes of a notebook `heatmap` cell.")
 @JsonPropertyOrder({
   NotebookHeatMapCellAttributes.JSON_PROPERTY_DEFINITION,
   NotebookHeatMapCellAttributes.JSON_PROPERTY_GRAPH_SIZE,

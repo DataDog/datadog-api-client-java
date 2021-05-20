@@ -21,24 +21,24 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/** The attributes of a notebook. */
-@ApiModel(description = "The attributes of a notebook.")
+/** The attributes of a notebook in get all response. */
+@ApiModel(description = "The attributes of a notebook in get all response.")
 @JsonPropertyOrder({
-  NotebookResponseDataAttributes.JSON_PROPERTY_AUTHOR,
-  NotebookResponseDataAttributes.JSON_PROPERTY_CELLS,
-  NotebookResponseDataAttributes.JSON_PROPERTY_CREATED,
-  NotebookResponseDataAttributes.JSON_PROPERTY_MODIFIED,
-  NotebookResponseDataAttributes.JSON_PROPERTY_NAME,
-  NotebookResponseDataAttributes.JSON_PROPERTY_STATUS,
-  NotebookResponseDataAttributes.JSON_PROPERTY_TIME
+  NotebooksResponseDataAttributes.JSON_PROPERTY_AUTHOR,
+  NotebooksResponseDataAttributes.JSON_PROPERTY_CELLS,
+  NotebooksResponseDataAttributes.JSON_PROPERTY_CREATED,
+  NotebooksResponseDataAttributes.JSON_PROPERTY_MODIFIED,
+  NotebooksResponseDataAttributes.JSON_PROPERTY_NAME,
+  NotebooksResponseDataAttributes.JSON_PROPERTY_STATUS,
+  NotebooksResponseDataAttributes.JSON_PROPERTY_TIME
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class NotebookResponseDataAttributes {
+public class NotebooksResponseDataAttributes {
   public static final String JSON_PROPERTY_AUTHOR = "author";
   private NotebookAuthor author;
 
   public static final String JSON_PROPERTY_CELLS = "cells";
-  private List<NotebookCellResponse> cells = new ArrayList<>();
+  private List<NotebookCellResponse> cells = null;
 
   public static final String JSON_PROPERTY_CREATED = "created";
   private OffsetDateTime created;
@@ -55,19 +55,15 @@ public class NotebookResponseDataAttributes {
   public static final String JSON_PROPERTY_TIME = "time";
   private NotebookGlobalTime time;
 
-  public NotebookResponseDataAttributes() {}
+  public NotebooksResponseDataAttributes() {}
 
   @JsonCreator
-  public NotebookResponseDataAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_CELLS) List<NotebookCellResponse> cells,
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TIME) NotebookGlobalTime time) {
-    this.cells = cells;
+  public NotebooksResponseDataAttributes(
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
     this.name = name;
-    this.time = time;
   }
 
-  public NotebookResponseDataAttributes author(NotebookAuthor author) {
+  public NotebooksResponseDataAttributes author(NotebookAuthor author) {
     this.author = author;
     return this;
   }
@@ -89,12 +85,15 @@ public class NotebookResponseDataAttributes {
     this.author = author;
   }
 
-  public NotebookResponseDataAttributes cells(List<NotebookCellResponse> cells) {
+  public NotebooksResponseDataAttributes cells(List<NotebookCellResponse> cells) {
     this.cells = cells;
     return this;
   }
 
-  public NotebookResponseDataAttributes addCellsItem(NotebookCellResponse cellsItem) {
+  public NotebooksResponseDataAttributes addCellsItem(NotebookCellResponse cellsItem) {
+    if (this.cells == null) {
+      this.cells = new ArrayList<>();
+    }
     this.cells.add(cellsItem);
     return this;
   }
@@ -104,19 +103,10 @@ public class NotebookResponseDataAttributes {
    *
    * @return cells
    */
-  @ApiModelProperty(
-      example =
-          "[{\"attributes\":{\"definition\":{\"text\":\"## Some test markdown\\n"
-              + "\\n"
-              + "```js\\n"
-              + "var x, y;\\n"
-              + "x = 5;\\n"
-              + "y = 6;\\n"
-              + "```\",\"type\":\"markdown\"}},\"id\":\"bzbycoya\",\"type\":\"notebook_cells\"},{\"attributes\":{\"definition\":{\"requests\":[{\"display_type\":\"line\",\"q\":\"avg:system.load.1{*}\",\"style\":{\"line_type\":\"solid\",\"line_width\":\"normal\",\"palette\":\"dog_classic\"}}],\"show_legend\":true,\"type\":\"timeseries\",\"yaxis\":{\"scale\":\"linear\"}},\"graph_size\":\"m\",\"split_by\":{\"keys\":[],\"tags\":[]},\"time\":null},\"id\":\"9k6bc6xc\",\"type\":\"notebook_cells\"}]",
-      required = true,
-      value = "List of cells to display in the notebook.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of cells to display in the notebook.")
   @JsonProperty(JSON_PROPERTY_CELLS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<NotebookCellResponse> getCells() {
     return cells;
   }
@@ -155,7 +145,7 @@ public class NotebookResponseDataAttributes {
     return modified;
   }
 
-  public NotebookResponseDataAttributes name(String name) {
+  public NotebooksResponseDataAttributes name(String name) {
     this.name = name;
     return this;
   }
@@ -179,7 +169,7 @@ public class NotebookResponseDataAttributes {
     this.name = name;
   }
 
-  public NotebookResponseDataAttributes status(NotebookStatus status) {
+  public NotebooksResponseDataAttributes status(NotebookStatus status) {
     this.status = status;
     return this;
   }
@@ -201,7 +191,7 @@ public class NotebookResponseDataAttributes {
     this.status = status;
   }
 
-  public NotebookResponseDataAttributes time(NotebookGlobalTime time) {
+  public NotebooksResponseDataAttributes time(NotebookGlobalTime time) {
     this.time = time;
     return this;
   }
@@ -211,9 +201,10 @@ public class NotebookResponseDataAttributes {
    *
    * @return time
    */
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TIME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public NotebookGlobalTime getTime() {
     return time;
   }
@@ -222,7 +213,7 @@ public class NotebookResponseDataAttributes {
     this.time = time;
   }
 
-  /** Return true if this NotebookResponseDataAttributes object is equal to o. */
+  /** Return true if this NotebooksResponseDataAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -231,15 +222,15 @@ public class NotebookResponseDataAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    NotebookResponseDataAttributes notebookResponseDataAttributes =
-        (NotebookResponseDataAttributes) o;
-    return Objects.equals(this.author, notebookResponseDataAttributes.author)
-        && Objects.equals(this.cells, notebookResponseDataAttributes.cells)
-        && Objects.equals(this.created, notebookResponseDataAttributes.created)
-        && Objects.equals(this.modified, notebookResponseDataAttributes.modified)
-        && Objects.equals(this.name, notebookResponseDataAttributes.name)
-        && Objects.equals(this.status, notebookResponseDataAttributes.status)
-        && Objects.equals(this.time, notebookResponseDataAttributes.time);
+    NotebooksResponseDataAttributes notebooksResponseDataAttributes =
+        (NotebooksResponseDataAttributes) o;
+    return Objects.equals(this.author, notebooksResponseDataAttributes.author)
+        && Objects.equals(this.cells, notebooksResponseDataAttributes.cells)
+        && Objects.equals(this.created, notebooksResponseDataAttributes.created)
+        && Objects.equals(this.modified, notebooksResponseDataAttributes.modified)
+        && Objects.equals(this.name, notebooksResponseDataAttributes.name)
+        && Objects.equals(this.status, notebooksResponseDataAttributes.status)
+        && Objects.equals(this.time, notebooksResponseDataAttributes.time);
   }
 
   @Override
@@ -250,7 +241,7 @@ public class NotebookResponseDataAttributes {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class NotebookResponseDataAttributes {\n");
+    sb.append("class NotebooksResponseDataAttributes {\n");
     sb.append("    author: ").append(toIndentedString(author)).append("\n");
     sb.append("    cells: ").append(toIndentedString(cells)).append("\n");
     sb.append("    created: ").append(toIndentedString(created)).append("\n");

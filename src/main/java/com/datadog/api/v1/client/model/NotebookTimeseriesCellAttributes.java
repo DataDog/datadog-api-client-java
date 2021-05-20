@@ -20,8 +20,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The attributes of a notebook timeseries cell. */
-@ApiModel(description = "The attributes of a notebook timeseries cell.")
+/** The attributes of a notebook &#x60;timeseries&#x60; cell. */
+@ApiModel(description = "The attributes of a notebook `timeseries` cell.")
 @JsonPropertyOrder({
   NotebookTimeseriesCellAttributes.JSON_PROPERTY_DEFINITION,
   NotebookTimeseriesCellAttributes.JSON_PROPERTY_GRAPH_SIZE,

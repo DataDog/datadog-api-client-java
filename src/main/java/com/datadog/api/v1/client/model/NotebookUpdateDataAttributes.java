@@ -96,11 +96,14 @@ public class NotebookUpdateDataAttributes {
   }
 
   /**
-   * Notebook name.
+   * The name of the notebook.
    *
    * @return name
    */
-  @ApiModelProperty(example = "Example Notebook", required = true, value = "Notebook name.")
+  @ApiModelProperty(
+      example = "Example Notebook",
+      required = true,
+      value = "The name of the notebook.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {
