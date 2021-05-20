@@ -20,8 +20,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The attributes of a notebook log stream cell. */
-@ApiModel(description = "The attributes of a notebook log stream cell.")
+/** The attributes of a notebook &#x60;log_stream&#x60; cell. */
+@ApiModel(description = "The attributes of a notebook `log_stream` cell.")
 @JsonPropertyOrder({
   NotebookLogStreamCellAttributes.JSON_PROPERTY_DEFINITION,
   NotebookLogStreamCellAttributes.JSON_PROPERTY_GRAPH_SIZE,

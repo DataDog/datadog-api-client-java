@@ -20,8 +20,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** The attributes of a notebook distribution cell. */
-@ApiModel(description = "The attributes of a notebook distribution cell.")
+/** The attributes of a notebook &#x60;distribution&#x60; cell. */
+@ApiModel(description = "The attributes of a notebook `distribution` cell.")
 @JsonPropertyOrder({
   NotebookDistributionCellAttributes.JSON_PROPERTY_DEFINITION,
   NotebookDistributionCellAttributes.JSON_PROPERTY_GRAPH_SIZE,
