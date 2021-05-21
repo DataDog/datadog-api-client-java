@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -91,6 +92,16 @@ public class Monitor {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private MonitorType type;
+
+  public Monitor() {}
+
+  @JsonCreator
+  public Monitor(
+      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) MonitorType type) {
+    this.query = query;
+    this.type = type;
+  }
 
   /**
    * Timestamp of the monitor creation.
@@ -313,10 +324,12 @@ public class Monitor {
    *
    * @return query
    */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The monitor query.")
+  @ApiModelProperty(
+      example = "avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100",
+      required = true,
+      value = "The monitor query.")
   @JsonProperty(JSON_PROPERTY_QUERY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getQuery() {
     return query;
   }
@@ -421,10 +434,9 @@ public class Monitor {
    *
    * @return type
    */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public MonitorType getType() {
     return type;
   }

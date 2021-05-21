@@ -294,7 +294,7 @@ public class Example {
 
         MonitorsApi apiInstance = new MonitorsApi(defaultClient);
         Long monitorId = 56L; // Long | The ID of the monitor.
-        String force = "force_example"; // String | Delete the monitor even if it's referenced by other resources (e.g. SLO, composite monitor).
+        String force = "false"; // String | Delete the monitor even if it's referenced by other resources (e.g. SLO, composite monitor).
         try {
 	    DeletedMonitor result = apiInstance.deleteMonitor(monitorId, new MonitorsApi.DeleteMonitorOptionalParameters()
                 .force(force));
@@ -430,14 +430,14 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         MonitorsApi apiInstance = new MonitorsApi(defaultClient);
-        String groupStates = "groupStates_example"; // String | When specified, shows additional information about the group states. Choose one or more from `all`, `alert`, `warn`, and `no data`.
+        String groupStates = "alert"; // String | When specified, shows additional information about the group states. Choose one or more from `all`, `alert`, `warn`, and `no data`.
         String name = "name_example"; // String | A string to filter monitors by name.
-        String tags = "tags_example"; // String | A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope. For example, `host:host0`.
-        String monitorTags = "monitorTags_example"; // String | A comma separated list indicating what service and/or custom tags, if any, should be used to filter the list of monitors. Tags created in the Datadog UI automatically have the service key prepended. For example, `service:my-app`.
+        String tags = "host:host0"; // String | A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope. For example, `host:host0`.
+        String monitorTags = "service:my-app"; // String | A comma separated list indicating what service and/or custom tags, if any, should be used to filter the list of monitors. Tags created in the Datadog UI automatically have the service key prepended. For example, `service:my-app`.
         Boolean withDowntimes = true; // Boolean | If this argument is set to true, then the returned data includes all current downtimes for each monitor.
         Long idOffset = 56L; // Long | Monitor ID offset.
-        Long page = 56L; // Long | The page to start paginating from. If this argument is not specified, the request returns all monitors without pagination.
-        Integer pageSize = 56; // Integer | The number of monitors to return per page. If the page argument is not specified, the default behavior returns all monitors without a `page_size` limit. However, if page is specified and `page_size` is not, the argument defaults to 100.
+        Long page = 0L; // Long | The page to start paginating from. If this argument is not specified, the request returns all monitors without pagination.
+        Integer pageSize = 20; // Integer | The number of monitors to return per page. If the page argument is not specified, the default behavior returns all monitors without a `page_size` limit. However, if page is specified and `page_size` is not, the argument defaults to 100.
         try {
 	    List<Monitor> result = apiInstance.listMonitors(new MonitorsApi.ListMonitorsOptionalParameters()
                 .groupStates(groupStates)
@@ -565,7 +565,7 @@ Name | Type | Description  | Notes
 
 ## validateMonitor
 
-> Monitor validateMonitor(body);
+> Object validateMonitor(body);
 
 Validate the monitor provided in the request.
 
@@ -586,7 +586,7 @@ public class Example {
         MonitorsApi apiInstance = new MonitorsApi(defaultClient);
         Monitor body = new Monitor(); // Monitor | Monitor request object
         try {
-            Monitor result = apiInstance.validateMonitor(body);
+            Object result = apiInstance.validateMonitor(body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling MonitorsApi#validateMonitor");
@@ -608,7 +608,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Monitor**](Monitor.md)
+**Object**
 
 ### Authorization
 

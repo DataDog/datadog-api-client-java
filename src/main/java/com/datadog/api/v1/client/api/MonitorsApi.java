@@ -963,7 +963,7 @@ public class MonitorsApi {
    * Validate a monitor Validate the monitor provided in the request.
    *
    * @param body Monitor request object (required)
-   * @return Monitor
+   * @return Object
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table summary="Response Details" border="1">
@@ -973,7 +973,7 @@ public class MonitorsApi {
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *     </table>
    */
-  public Monitor validateMonitor(Monitor body) throws ApiException {
+  public Object validateMonitor(Monitor body) throws ApiException {
     return validateMonitorWithHttpInfo(body).getData();
   }
 
@@ -981,7 +981,7 @@ public class MonitorsApi {
    * Validate a monitor Validate the monitor provided in the request.
    *
    * @param body Monitor request object (required)
-   * @return ApiResponse&lt;Monitor&gt;
+   * @return ApiResponse&lt;Object&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table summary="Response Details" border="1">
@@ -991,7 +991,7 @@ public class MonitorsApi {
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Monitor> validateMonitorWithHttpInfo(Monitor body) throws ApiException {
+  public ApiResponse<Object> validateMonitorWithHttpInfo(Monitor body) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -1019,7 +1019,7 @@ public class MonitorsApi {
 
     String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
 
-    GenericType<Monitor> localVarReturnType = new GenericType<Monitor>() {};
+    GenericType<Object> localVarReturnType = new GenericType<Object>() {};
 
     return apiClient.invokeAPI(
         "MonitorsApi.validateMonitor",
