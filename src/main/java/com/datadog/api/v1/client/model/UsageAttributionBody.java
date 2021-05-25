@@ -27,6 +27,7 @@ import java.util.Objects;
   UsageAttributionBody.JSON_PROPERTY_MONTH,
   UsageAttributionBody.JSON_PROPERTY_ORG_NAME,
   UsageAttributionBody.JSON_PROPERTY_PUBLIC_ID,
+  UsageAttributionBody.JSON_PROPERTY_TAG_CONFIG_SOURCE,
   UsageAttributionBody.JSON_PROPERTY_TAGS,
   UsageAttributionBody.JSON_PROPERTY_UPDATED_AT,
   UsageAttributionBody.JSON_PROPERTY_VALUES
@@ -41,6 +42,9 @@ public class UsageAttributionBody {
 
   public static final String JSON_PROPERTY_PUBLIC_ID = "public_id";
   private String publicId;
+
+  public static final String JSON_PROPERTY_TAG_CONFIG_SOURCE = "tag_config_source";
+  private String tagConfigSource;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private Map<String, List<String>> tags = null;
@@ -115,6 +119,33 @@ public class UsageAttributionBody {
 
   public void setPublicId(String publicId) {
     this.publicId = publicId;
+  }
+
+  public UsageAttributionBody tagConfigSource(String tagConfigSource) {
+    this.tagConfigSource = tagConfigSource;
+    return this;
+  }
+
+  /**
+   * The source of the usage attribution tag configuration and the selected tags in the format
+   * &#x60;&lt;source_org_name&gt;:&lt;selected tag 1&gt;-&lt;selected tag 2&gt;-&lt;selected tag
+   * 3&gt;&#x60;.
+   *
+   * @return tagConfigSource
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "The source of the usage attribution tag configuration and the selected tags in the"
+              + " format `<source_org_name>:<selected tag 1>-<selected tag 2>-<selected tag 3>`.")
+  @JsonProperty(JSON_PROPERTY_TAG_CONFIG_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTagConfigSource() {
+    return tagConfigSource;
+  }
+
+  public void setTagConfigSource(String tagConfigSource) {
+    this.tagConfigSource = tagConfigSource;
   }
 
   public UsageAttributionBody tags(Map<String, List<String>> tags) {
@@ -208,6 +239,7 @@ public class UsageAttributionBody {
     return Objects.equals(this.month, usageAttributionBody.month)
         && Objects.equals(this.orgName, usageAttributionBody.orgName)
         && Objects.equals(this.publicId, usageAttributionBody.publicId)
+        && Objects.equals(this.tagConfigSource, usageAttributionBody.tagConfigSource)
         && Objects.equals(this.tags, usageAttributionBody.tags)
         && Objects.equals(this.updatedAt, usageAttributionBody.updatedAt)
         && Objects.equals(this.values, usageAttributionBody.values);
@@ -215,7 +247,7 @@ public class UsageAttributionBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(month, orgName, publicId, tags, updatedAt, values);
+    return Objects.hash(month, orgName, publicId, tagConfigSource, tags, updatedAt, values);
   }
 
   @Override
@@ -225,6 +257,7 @@ public class UsageAttributionBody {
     sb.append("    month: ").append(toIndentedString(month)).append("\n");
     sb.append("    orgName: ").append(toIndentedString(orgName)).append("\n");
     sb.append("    publicId: ").append(toIndentedString(publicId)).append("\n");
+    sb.append("    tagConfigSource: ").append(toIndentedString(tagConfigSource)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    values: ").append(toIndentedString(values)).append("\n");
