@@ -91,6 +91,8 @@ Class | Method | HTTP request | Description
 *MonitorsApi* | [**deleteMonitor**](MonitorsApi.md#deleteMonitor) | **DELETE** /api/v1/monitor/{monitor_id} | Delete a monitor
 *MonitorsApi* | [**getMonitor**](MonitorsApi.md#getMonitor) | **GET** /api/v1/monitor/{monitor_id} | Get a monitor&#39;s details
 *MonitorsApi* | [**listMonitors**](MonitorsApi.md#listMonitors) | **GET** /api/v1/monitor | Get all monitor details
+*MonitorsApi* | [**searchMonitorGroups**](MonitorsApi.md#searchMonitorGroups) | **GET** /api/v1/monitor/groups/search | Monitors group search
+*MonitorsApi* | [**searchMonitors**](MonitorsApi.md#searchMonitors) | **GET** /api/v1/monitor/search | Monitors search
 *MonitorsApi* | [**updateMonitor**](MonitorsApi.md#updateMonitor) | **PUT** /api/v1/monitor/{monitor_id} | Edit a monitor
 *MonitorsApi* | [**validateMonitor**](MonitorsApi.md#validateMonitor) | **POST** /api/v1/monitor/validate | Validate a monitor
 *NotebooksApi* | [**createNotebook**](NotebooksApi.md#createNotebook) | **POST** /api/v1/notebooks | Create a notebook
@@ -406,9 +408,17 @@ Class | Method | HTTP request | Description
  - [MetricsQueryUnit](MetricsQueryUnit.md)
  - [Monitor](Monitor.md)
  - [MonitorDeviceID](MonitorDeviceID.md)
+ - [MonitorGroupSearchResponse](MonitorGroupSearchResponse.md)
+ - [MonitorGroupSearchResponseCounts](MonitorGroupSearchResponseCounts.md)
+ - [MonitorGroupSearchResult](MonitorGroupSearchResult.md)
  - [MonitorOptions](MonitorOptions.md)
  - [MonitorOptionsAggregation](MonitorOptionsAggregation.md)
  - [MonitorOverallStates](MonitorOverallStates.md)
+ - [MonitorSearchResponse](MonitorSearchResponse.md)
+ - [MonitorSearchResponseCounts](MonitorSearchResponseCounts.md)
+ - [MonitorSearchResponseMetadata](MonitorSearchResponseMetadata.md)
+ - [MonitorSearchResult](MonitorSearchResult.md)
+ - [MonitorSearchResultNotification](MonitorSearchResultNotification.md)
  - [MonitorState](MonitorState.md)
  - [MonitorStateGroup](MonitorStateGroup.md)
  - [MonitorSummaryWidgetDefinition](MonitorSummaryWidgetDefinition.md)

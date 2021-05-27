@@ -9,6 +9,8 @@ Method        | HTTP request | Description
 [**deleteMonitor**](MonitorsApi.md#deleteMonitor) | **DELETE** /api/v1/monitor/{monitor_id} | Delete a monitor
 [**getMonitor**](MonitorsApi.md#getMonitor) | **GET** /api/v1/monitor/{monitor_id} | Get a monitor&#39;s details
 [**listMonitors**](MonitorsApi.md#listMonitors) | **GET** /api/v1/monitor | Get all monitor details
+[**searchMonitorGroups**](MonitorsApi.md#searchMonitorGroups) | **GET** /api/v1/monitor/groups/search | Monitors group search
+[**searchMonitors**](MonitorsApi.md#searchMonitors) | **GET** /api/v1/monitor/search | Monitors search
 [**updateMonitor**](MonitorsApi.md#updateMonitor) | **PUT** /api/v1/monitor/{monitor_id} | Edit a monitor
 [**validateMonitor**](MonitorsApi.md#validateMonitor) | **POST** /api/v1/monitor/validate | Validate a monitor
 
@@ -477,6 +479,154 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**List&lt;Monitor&gt;**](Monitor.md)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+
+
+## searchMonitorGroups
+
+> MonitorGroupSearchResponse searchMonitorGroups(parameters);
+
+Search and filter your monitor groups details.
+
+### Example
+
+```java
+import java.util.*;
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.Configuration;
+import com.datadog.api.v1.client.model.*;
+import com.datadog.api.v1.client.api.MonitorsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+        MonitorsApi apiInstance = new MonitorsApi(defaultClient);
+        String query = "query_example"; // String | After entering a search query in your [Manage Monitor page][1] use the query parameter value in the URL of the page as value for this parameter. Consult the dedicated [manage monitor documentation][2] page to learn more.  The query can contain any number of space-separated monitor attributes, for instance `query=\"type:metric status:alert\"`.  [1]: https://app.datadoghq.com/monitors/manage [2]: /monitors/manage_monitor/#find-the-monitors
+        Long page = 0L; // Long | Page to start paginating from.
+        Long perPage = 30L; // Long | Number of monitors to return per page.
+        String sort = "sort_example"; // String | String for sort order, composed of field and sort order separate by a comma, e.g. `name,asc`. Supported sort directions: `asc`, `desc`. Supported fields:  * `name` * `status` * `tags`
+        try {
+	    MonitorGroupSearchResponse result = apiInstance.searchMonitorGroups(new MonitorsApi.SearchMonitorGroupsOptionalParameters()
+                .query(query)
+                .page(page)
+                .perPage(perPage)
+                .sort(sort));
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MonitorsApi#searchMonitorGroups");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **query** | **String**| After entering a search query in your [Manage Monitor page][1] use the query parameter value in the URL of the page as value for this parameter. Consult the dedicated [manage monitor documentation][2] page to learn more.  The query can contain any number of space-separated monitor attributes, for instance &#x60;query&#x3D;\&quot;type:metric status:alert\&quot;&#x60;.  [1]: https://app.datadoghq.com/monitors/manage [2]: /monitors/manage_monitor/#find-the-monitors | [optional]
+ **page** | **Long**| Page to start paginating from. | [optional] [default to 0]
+ **perPage** | **Long**| Number of monitors to return per page. | [optional] [default to 30]
+ **sort** | **String**| String for sort order, composed of field and sort order separate by a comma, e.g. &#x60;name,asc&#x60;. Supported sort directions: &#x60;asc&#x60;, &#x60;desc&#x60;. Supported fields:  * &#x60;name&#x60; * &#x60;status&#x60; * &#x60;tags&#x60; | [optional]
+
+### Return type
+
+[**MonitorGroupSearchResponse**](MonitorGroupSearchResponse.md)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+
+
+## searchMonitors
+
+> MonitorSearchResponse searchMonitors(parameters);
+
+Search and filter your monitors details.
+
+### Example
+
+```java
+import java.util.*;
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.Configuration;
+import com.datadog.api.v1.client.model.*;
+import com.datadog.api.v1.client.api.MonitorsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+        MonitorsApi apiInstance = new MonitorsApi(defaultClient);
+        String query = "query_example"; // String | After entering a search query in your [Manage Monitor page][1] use the query parameter value in the URL of the page as value for this parameter. Consult the dedicated [manage monitor documentation][2] page to learn more.  The query can contain any number of space-separated monitor attributes, for instance `query=\"type:metric status:alert\"`.  [1]: https://app.datadoghq.com/monitors/manage [2]: /monitors/manage_monitor/#find-the-monitors
+        Long page = 0L; // Long | Page to start paginating from.
+        Long perPage = 30L; // Long | Number of monitors to return per page.
+        String sort = "sort_example"; // String | String for sort order, composed of field and sort order separate by a comma, e.g. `name,asc`. Supported sort directions: `asc`, `desc`. Supported fields:  * `name` * `status` * `tags`
+        try {
+	    MonitorSearchResponse result = apiInstance.searchMonitors(new MonitorsApi.SearchMonitorsOptionalParameters()
+                .query(query)
+                .page(page)
+                .perPage(perPage)
+                .sort(sort));
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MonitorsApi#searchMonitors");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **query** | **String**| After entering a search query in your [Manage Monitor page][1] use the query parameter value in the URL of the page as value for this parameter. Consult the dedicated [manage monitor documentation][2] page to learn more.  The query can contain any number of space-separated monitor attributes, for instance &#x60;query&#x3D;\&quot;type:metric status:alert\&quot;&#x60;.  [1]: https://app.datadoghq.com/monitors/manage [2]: /monitors/manage_monitor/#find-the-monitors | [optional]
+ **page** | **Long**| Page to start paginating from. | [optional] [default to 0]
+ **perPage** | **Long**| Number of monitors to return per page. | [optional] [default to 30]
+ **sort** | **String**| String for sort order, composed of field and sort order separate by a comma, e.g. &#x60;name,asc&#x60;. Supported sort directions: &#x60;asc&#x60;, &#x60;desc&#x60;. Supported fields:  * &#x60;name&#x60; * &#x60;status&#x60; * &#x60;tags&#x60; | [optional]
+
+### Return type
+
+[**MonitorSearchResponse**](MonitorSearchResponse.md)
 
 ### Authorization
 
