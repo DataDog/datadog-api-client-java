@@ -10,7 +10,6 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -31,7 +30,7 @@ import java.util.Objects;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsAPITestConfig {
   public static final String JSON_PROPERTY_ASSERTIONS = "assertions";
-  private List<SyntheticsAssertion> assertions = new ArrayList<>();
+  private List<SyntheticsAssertion> assertions = null;
 
   public static final String JSON_PROPERTY_CONFIG_VARIABLES = "configVariables";
   private List<SyntheticsConfigVariable> configVariables = null;
@@ -42,21 +41,15 @@ public class SyntheticsAPITestConfig {
   public static final String JSON_PROPERTY_STEPS = "steps";
   private List<SyntheticsAPIStep> steps = null;
 
-  public SyntheticsAPITestConfig() {}
-
-  @JsonCreator
-  public SyntheticsAPITestConfig(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ASSERTIONS)
-          List<SyntheticsAssertion> assertions) {
-    this.assertions = assertions;
-  }
-
   public SyntheticsAPITestConfig assertions(List<SyntheticsAssertion> assertions) {
     this.assertions = assertions;
     return this;
   }
 
   public SyntheticsAPITestConfig addAssertionsItem(SyntheticsAssertion assertionsItem) {
+    if (this.assertions == null) {
+      this.assertions = new ArrayList<>();
+    }
     this.assertions.add(assertionsItem);
     return this;
   }
@@ -66,12 +59,10 @@ public class SyntheticsAPITestConfig {
    *
    * @return assertions
    */
-  @ApiModelProperty(
-      example = "[]",
-      required = true,
-      value = "Array of assertions used for the test.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "[]", value = "Array of assertions used for the test.")
   @JsonProperty(JSON_PROPERTY_ASSERTIONS)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsAssertion> getAssertions() {
     return assertions;
   }

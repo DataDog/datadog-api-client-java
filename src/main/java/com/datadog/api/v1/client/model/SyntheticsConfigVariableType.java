@@ -15,6 +15,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 /** Type of the configuration variable. */
 public enum SyntheticsConfigVariableType {
+  GLOBAL("global"),
+
   TEXT("text");
 
   private String value;
