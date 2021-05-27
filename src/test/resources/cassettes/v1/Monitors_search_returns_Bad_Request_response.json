@@ -1,0 +1,46 @@
+[{
+  "id" : "842186eb-bc9c-4b4c-9483-82d3e1f69395",
+  "httpRequest" : {
+    "method" : "GET",
+    "path" : "/api/v1/monitor/search",
+    "queryStringParameters" : {
+      "query" : [ "status:notastatus" ]
+    },
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "Monitors_search_returns_Bad_Request_response" ],
+      "DD-OPERATION-ID" : [ "searchMonitors" ],
+      "content-length" : [ "0" ]
+    },
+    "keepAlive" : false,
+    "secure" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 400,
+    "reasonPhrase" : "Bad Request",
+    "headers" : {
+      "Date" : [ "Tue, 25 May 2021 10:16:20 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Content-Length" : [ "79" ],
+      "Connection" : [ "keep-alive" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "x-ratelimit-limit" : [ "120" ],
+      "x-ratelimit-period" : [ "10" ],
+      "x-ratelimit-reset" : [ "10" ],
+      "x-ratelimit-remaining" : [ "119" ],
+      "x-dd-version" : [ "35.4600240" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ]
+    },
+    "body" : "{\"errors\": [\"Query parsing error: 'notastatus' is not a valid monitor status\"]}"
+  }
+}]
