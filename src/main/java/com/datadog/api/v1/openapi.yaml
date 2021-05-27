@@ -19849,9 +19849,11 @@ components:
           configVariables:
           - name: VARIABLE_NAME
             pattern: pattern
+            id: id
             example: example
           - name: VARIABLE_NAME
             pattern: pattern
+            id: id
             example: example
         public_id: public_id
         tags:
@@ -20012,9 +20014,11 @@ components:
         configVariables:
         - name: VARIABLE_NAME
           pattern: pattern
+          id: id
           example: example
         - name: VARIABLE_NAME
           pattern: pattern
+          id: id
           example: example
       properties:
         assertions:
@@ -20036,8 +20040,6 @@ components:
           items:
             $ref: '#/components/schemas/SyntheticsAPIStep'
           type: array
-      required:
-      - assertions
       type: object
     SyntheticsAPITestResultData:
       description: Object containing results for your Synthetic API test.
@@ -20218,9 +20220,11 @@ components:
             configVariables:
             - name: VARIABLE_NAME
               pattern: pattern
+              id: id
               example: example
             - name: VARIABLE_NAME
               pattern: pattern
+              id: id
               example: example
         check_time: 0.8008281904610115
       properties:
@@ -20882,9 +20886,11 @@ components:
             configVariables:
             - name: VARIABLE_NAME
               pattern: pattern
+              id: id
               example: example
             - name: VARIABLE_NAME
               pattern: pattern
+              id: id
               example: example
         check_time: 0.8008281904610115
       properties:
@@ -21195,10 +21201,14 @@ components:
       example:
         name: VARIABLE_NAME
         pattern: pattern
+        id: id
         example: example
       properties:
         example:
           description: Example for the variable.
+          type: string
+        id:
+          description: ID of the variable for global variables.
           type: string
         name:
           description: Name of the variable.
@@ -21210,16 +21220,17 @@ components:
         type:
           $ref: '#/components/schemas/SyntheticsConfigVariableType'
       required:
-      - example
       - name
       - type
       type: object
     SyntheticsConfigVariableType:
       description: Type of the configuration variable.
       enum:
+      - global
       - text
       type: string
       x-enum-varnames:
+      - GLOBAL
       - TEXT
     SyntheticsCoreWebVitals:
       description: Core Web Vitals attached to a browser test step.
@@ -21611,9 +21622,11 @@ components:
             configVariables:
             - name: VARIABLE_NAME
               pattern: pattern
+              id: id
               example: example
             - name: VARIABLE_NAME
               pattern: pattern
+              id: id
               example: example
           steps:
           - allowFailure: true
@@ -21690,9 +21703,11 @@ components:
             configVariables:
             - name: VARIABLE_NAME
               pattern: pattern
+              id: id
               example: example
             - name: VARIABLE_NAME
               pattern: pattern
+              id: id
               example: example
           steps:
           - allowFailure: true
@@ -22159,9 +22174,11 @@ components:
         configVariables:
         - name: VARIABLE_NAME
           pattern: pattern
+          id: id
           example: example
         - name: VARIABLE_NAME
           pattern: pattern
+          id: id
           example: example
       properties:
         assertions:
@@ -22183,8 +22200,6 @@ components:
           items:
             $ref: '#/components/schemas/SyntheticsBrowserVariable'
           type: array
-      required:
-      - assertions
       type: object
     SyntheticsTestDetails:
       description: Object containing details about your Synthetic test.
@@ -22251,9 +22266,11 @@ components:
           configVariables:
           - name: VARIABLE_NAME
             pattern: pattern
+            id: id
             example: example
           - name: VARIABLE_NAME
             pattern: pattern
+            id: id
             example: example
         steps:
         - allowFailure: true
@@ -28627,9 +28644,11 @@ components:
           configVariables:
           - name: VARIABLE_NAME
             pattern: pattern
+            id: id
             example: example
           - name: VARIABLE_NAME
             pattern: pattern
+            id: id
             example: example
       properties:
         config:
@@ -28714,9 +28733,11 @@ components:
           configVariables:
           - name: VARIABLE_NAME
             pattern: pattern
+            id: id
             example: example
           - name: VARIABLE_NAME
             pattern: pattern
+            id: id
             example: example
       properties:
         config:
