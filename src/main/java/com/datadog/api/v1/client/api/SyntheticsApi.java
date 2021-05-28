@@ -15,6 +15,7 @@ import com.datadog.api.v1.client.model.SyntheticsDeleteTestsResponse;
 import com.datadog.api.v1.client.model.SyntheticsGetAPITestLatestResultsResponse;
 import com.datadog.api.v1.client.model.SyntheticsGetBrowserTestLatestResultsResponse;
 import com.datadog.api.v1.client.model.SyntheticsGlobalVariable;
+import com.datadog.api.v1.client.model.SyntheticsListGlobalVariablesResponse;
 import com.datadog.api.v1.client.model.SyntheticsListTestsResponse;
 import com.datadog.api.v1.client.model.SyntheticsLocations;
 import com.datadog.api.v1.client.model.SyntheticsPrivateLocation;
@@ -1624,6 +1625,77 @@ public class SyntheticsApi {
 
     return apiClient.invokeAPI(
         "SyntheticsApi.getTest",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
+   * Get all global variables Get the list of all Synthetics global variables.
+   *
+   * @return SyntheticsListGlobalVariablesResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public SyntheticsListGlobalVariablesResponse listGlobalVariables() throws ApiException {
+    return listGlobalVariablesWithHttpInfo().getData();
+  }
+
+  /**
+   * Get all global variables Get the list of all Synthetics global variables.
+   *
+   * @return ApiResponse&lt;SyntheticsListGlobalVariablesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SyntheticsListGlobalVariablesResponse> listGlobalVariablesWithHttpInfo()
+      throws ApiException {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v1/synthetics/variables";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listGlobalVariables");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    GenericType<SyntheticsListGlobalVariablesResponse> localVarReturnType =
+        new GenericType<SyntheticsListGlobalVariablesResponse>() {};
+
+    return apiClient.invokeAPI(
+        "SyntheticsApi.listGlobalVariables",
         localVarPath,
         "GET",
         localVarQueryParams,
