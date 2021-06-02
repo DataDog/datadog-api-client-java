@@ -10,14 +10,12 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Global hourly report of all data billed by Datadog for a given organization. */
 @ApiModel(
@@ -26,15 +24,17 @@ import org.openapitools.jackson.nullable.JsonNullable;
   UsageSummaryDateOrg.JSON_PROPERTY_AGENT_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_APM_HOST_TOP99P,
+  UsageSummaryDateOrg.JSON_PROPERTY_AUDIT_LOGS_LINES_INDEXED_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_AWS_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_AWS_LAMBDA_FUNC_COUNT,
   UsageSummaryDateOrg.JSON_PROPERTY_AWS_LAMBDA_INVOCATIONS_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_AZURE_APP_SERVICE_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_BILLABLE_INGESTED_BYTES_SUM,
-  UsageSummaryDateOrg.JSON_PROPERTY_COMPLIANCE_CONTAINER_AGG_SUM,
-  UsageSummaryDateOrg.JSON_PROPERTY_COMPLIANCE_HOST_AGG_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_CONTAINER_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_CONTAINER_HWM,
+  UsageSummaryDateOrg.JSON_PROPERTY_CSPM_CONTAINER_AVG,
+  UsageSummaryDateOrg.JSON_PROPERTY_CSPM_CONTAINER_HWM,
+  UsageSummaryDateOrg.JSON_PROPERTY_CSPM_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_CUSTOM_TS_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_FARGATE_TASKS_COUNT_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_FARGATE_TASKS_COUNT_HWM,
@@ -76,6 +76,10 @@ public class UsageSummaryDateOrg {
   public static final String JSON_PROPERTY_APM_HOST_TOP99P = "apm_host_top99p";
   private Long apmHostTop99p;
 
+  public static final String JSON_PROPERTY_AUDIT_LOGS_LINES_INDEXED_SUM =
+      "audit_logs_lines_indexed_sum";
+  private Long auditLogsLinesIndexedSum;
+
   public static final String JSON_PROPERTY_AWS_HOST_TOP99P = "aws_host_top99p";
   private Long awsHostTop99p;
 
@@ -93,18 +97,20 @@ public class UsageSummaryDateOrg {
       "billable_ingested_bytes_sum";
   private Long billableIngestedBytesSum;
 
-  public static final String JSON_PROPERTY_COMPLIANCE_CONTAINER_AGG_SUM =
-      "compliance_container_agg_sum";
-  private JsonNullable<Object> complianceContainerAggSum = JsonNullable.<Object>of(null);
-
-  public static final String JSON_PROPERTY_COMPLIANCE_HOST_AGG_SUM = "compliance_host_agg_sum";
-  private Long complianceHostAggSum;
-
   public static final String JSON_PROPERTY_CONTAINER_AVG = "container_avg";
   private Long containerAvg;
 
   public static final String JSON_PROPERTY_CONTAINER_HWM = "container_hwm";
   private Long containerHwm;
+
+  public static final String JSON_PROPERTY_CSPM_CONTAINER_AVG = "cspm_container_avg";
+  private Long cspmContainerAvg;
+
+  public static final String JSON_PROPERTY_CSPM_CONTAINER_HWM = "cspm_container_hwm";
+  private Long cspmContainerHwm;
+
+  public static final String JSON_PROPERTY_CSPM_HOST_TOP99P = "cspm_host_top99p";
+  private Long cspmHostTop99p;
 
   public static final String JSON_PROPERTY_CUSTOM_TS_AVG = "custom_ts_avg";
   private Long customTsAvg;
@@ -278,6 +284,32 @@ public class UsageSummaryDateOrg {
     this.apmHostTop99p = apmHostTop99p;
   }
 
+  public UsageSummaryDateOrg auditLogsLinesIndexedSum(Long auditLogsLinesIndexedSum) {
+    this.auditLogsLinesIndexedSum = auditLogsLinesIndexedSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all audit logs lines indexed over all hours in the current date for the given
+   * org.
+   *
+   * @return auditLogsLinesIndexedSum
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the sum of all audit logs lines indexed over all hours in the current date for"
+              + " the given org.")
+  @JsonProperty(JSON_PROPERTY_AUDIT_LOGS_LINES_INDEXED_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getAuditLogsLinesIndexedSum() {
+    return auditLogsLinesIndexedSum;
+  }
+
+  public void setAuditLogsLinesIndexedSum(Long auditLogsLinesIndexedSum) {
+    this.auditLogsLinesIndexedSum = auditLogsLinesIndexedSum;
+  }
+
   public UsageSummaryDateOrg awsHostTop99p(Long awsHostTop99p) {
     this.awsHostTop99p = awsHostTop99p;
     return this;
@@ -407,68 +439,6 @@ public class UsageSummaryDateOrg {
     this.billableIngestedBytesSum = billableIngestedBytesSum;
   }
 
-  public UsageSummaryDateOrg complianceContainerAggSum(Object complianceContainerAggSum) {
-    this.complianceContainerAggSum = JsonNullable.<Object>of(complianceContainerAggSum);
-    return this;
-  }
-
-  /**
-   * Shows the sum of all compliance containers over all hours in the current date for the given
-   * org.
-   *
-   * @return complianceContainerAggSum
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the sum of all compliance containers over all hours in the current date for the"
-              + " given org.")
-  @JsonIgnore
-  public Object getComplianceContainerAggSum() {
-    return complianceContainerAggSum.orElse(null);
-  }
-
-  @JsonProperty(JSON_PROPERTY_COMPLIANCE_CONTAINER_AGG_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Object> getComplianceContainerAggSum_JsonNullable() {
-    return complianceContainerAggSum;
-  }
-
-  @JsonProperty(JSON_PROPERTY_COMPLIANCE_CONTAINER_AGG_SUM)
-  public void setComplianceContainerAggSum_JsonNullable(
-      JsonNullable<Object> complianceContainerAggSum) {
-    this.complianceContainerAggSum = complianceContainerAggSum;
-  }
-
-  public void setComplianceContainerAggSum(Object complianceContainerAggSum) {
-    this.complianceContainerAggSum = JsonNullable.<Object>of(complianceContainerAggSum);
-  }
-
-  public UsageSummaryDateOrg complianceHostAggSum(Long complianceHostAggSum) {
-    this.complianceHostAggSum = complianceHostAggSum;
-    return this;
-  }
-
-  /**
-   * Shows the sum of all compliance hosts over all hours in the current date for the given org.
-   *
-   * @return complianceHostAggSum
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Shows the sum of all compliance hosts over all hours in the current date for the given"
-              + " org.")
-  @JsonProperty(JSON_PROPERTY_COMPLIANCE_HOST_AGG_SUM)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getComplianceHostAggSum() {
-    return complianceHostAggSum;
-  }
-
-  public void setComplianceHostAggSum(Long complianceHostAggSum) {
-    this.complianceHostAggSum = complianceHostAggSum;
-  }
-
   public UsageSummaryDateOrg containerAvg(Long containerAvg) {
     this.containerAvg = containerAvg;
     return this;
@@ -519,6 +489,84 @@ public class UsageSummaryDateOrg {
 
   public void setContainerHwm(Long containerHwm) {
     this.containerHwm = containerHwm;
+  }
+
+  public UsageSummaryDateOrg cspmContainerAvg(Long cspmContainerAvg) {
+    this.cspmContainerAvg = cspmContainerAvg;
+    return this;
+  }
+
+  /**
+   * Shows the average number of Cloud Security Posture Management containers over all hours in the
+   * current date for the given org.
+   *
+   * @return cspmContainerAvg
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the average number of Cloud Security Posture Management containers over all hours"
+              + " in the current date for the given org.")
+  @JsonProperty(JSON_PROPERTY_CSPM_CONTAINER_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCspmContainerAvg() {
+    return cspmContainerAvg;
+  }
+
+  public void setCspmContainerAvg(Long cspmContainerAvg) {
+    this.cspmContainerAvg = cspmContainerAvg;
+  }
+
+  public UsageSummaryDateOrg cspmContainerHwm(Long cspmContainerHwm) {
+    this.cspmContainerHwm = cspmContainerHwm;
+    return this;
+  }
+
+  /**
+   * Shows the high-water mark of Cloud Security Posture Management containers over all hours in the
+   * current date for the given org.
+   *
+   * @return cspmContainerHwm
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the high-water mark of Cloud Security Posture Management containers over all"
+              + " hours in the current date for the given org.")
+  @JsonProperty(JSON_PROPERTY_CSPM_CONTAINER_HWM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCspmContainerHwm() {
+    return cspmContainerHwm;
+  }
+
+  public void setCspmContainerHwm(Long cspmContainerHwm) {
+    this.cspmContainerHwm = cspmContainerHwm;
+  }
+
+  public UsageSummaryDateOrg cspmHostTop99p(Long cspmHostTop99p) {
+    this.cspmHostTop99p = cspmHostTop99p;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all Cloud Security Posture Management hosts over all hours in the
+   * current date for the given org.
+   *
+   * @return cspmHostTop99p
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the 99th percentile of all Cloud Security Posture Management hosts over all hours"
+              + " in the current date for the given org.")
+  @JsonProperty(JSON_PROPERTY_CSPM_HOST_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCspmHostTop99p() {
+    return cspmHostTop99p;
+  }
+
+  public void setCspmHostTop99p(Long cspmHostTop99p) {
+    this.cspmHostTop99p = cspmHostTop99p;
   }
 
   public UsageSummaryDateOrg customTsAvg(Long customTsAvg) {
@@ -1244,17 +1292,19 @@ public class UsageSummaryDateOrg {
         && Objects.equals(
             this.apmAzureAppServiceHostTop99p, usageSummaryDateOrg.apmAzureAppServiceHostTop99p)
         && Objects.equals(this.apmHostTop99p, usageSummaryDateOrg.apmHostTop99p)
+        && Objects.equals(
+            this.auditLogsLinesIndexedSum, usageSummaryDateOrg.auditLogsLinesIndexedSum)
         && Objects.equals(this.awsHostTop99p, usageSummaryDateOrg.awsHostTop99p)
         && Objects.equals(this.awsLambdaFuncCount, usageSummaryDateOrg.awsLambdaFuncCount)
         && Objects.equals(this.awsLambdaInvocationsSum, usageSummaryDateOrg.awsLambdaInvocationsSum)
         && Objects.equals(this.azureAppServiceTop99p, usageSummaryDateOrg.azureAppServiceTop99p)
         && Objects.equals(
             this.billableIngestedBytesSum, usageSummaryDateOrg.billableIngestedBytesSum)
-        && Objects.equals(
-            this.complianceContainerAggSum, usageSummaryDateOrg.complianceContainerAggSum)
-        && Objects.equals(this.complianceHostAggSum, usageSummaryDateOrg.complianceHostAggSum)
         && Objects.equals(this.containerAvg, usageSummaryDateOrg.containerAvg)
         && Objects.equals(this.containerHwm, usageSummaryDateOrg.containerHwm)
+        && Objects.equals(this.cspmContainerAvg, usageSummaryDateOrg.cspmContainerAvg)
+        && Objects.equals(this.cspmContainerHwm, usageSummaryDateOrg.cspmContainerHwm)
+        && Objects.equals(this.cspmHostTop99p, usageSummaryDateOrg.cspmHostTop99p)
         && Objects.equals(this.customTsAvg, usageSummaryDateOrg.customTsAvg)
         && Objects.equals(this.fargateTasksCountAvg, usageSummaryDateOrg.fargateTasksCountAvg)
         && Objects.equals(this.fargateTasksCountHwm, usageSummaryDateOrg.fargateTasksCountHwm)
@@ -1304,15 +1354,17 @@ public class UsageSummaryDateOrg {
         agentHostTop99p,
         apmAzureAppServiceHostTop99p,
         apmHostTop99p,
+        auditLogsLinesIndexedSum,
         awsHostTop99p,
         awsLambdaFuncCount,
         awsLambdaInvocationsSum,
         azureAppServiceTop99p,
         billableIngestedBytesSum,
-        complianceContainerAggSum,
-        complianceHostAggSum,
         containerAvg,
         containerHwm,
+        cspmContainerAvg,
+        cspmContainerHwm,
+        cspmHostTop99p,
         customTsAvg,
         fargateTasksCountAvg,
         fargateTasksCountHwm,
@@ -1352,6 +1404,9 @@ public class UsageSummaryDateOrg {
         .append(toIndentedString(apmAzureAppServiceHostTop99p))
         .append("\n");
     sb.append("    apmHostTop99p: ").append(toIndentedString(apmHostTop99p)).append("\n");
+    sb.append("    auditLogsLinesIndexedSum: ")
+        .append(toIndentedString(auditLogsLinesIndexedSum))
+        .append("\n");
     sb.append("    awsHostTop99p: ").append(toIndentedString(awsHostTop99p)).append("\n");
     sb.append("    awsLambdaFuncCount: ").append(toIndentedString(awsLambdaFuncCount)).append("\n");
     sb.append("    awsLambdaInvocationsSum: ")
@@ -1363,14 +1418,11 @@ public class UsageSummaryDateOrg {
     sb.append("    billableIngestedBytesSum: ")
         .append(toIndentedString(billableIngestedBytesSum))
         .append("\n");
-    sb.append("    complianceContainerAggSum: ")
-        .append(toIndentedString(complianceContainerAggSum))
-        .append("\n");
-    sb.append("    complianceHostAggSum: ")
-        .append(toIndentedString(complianceHostAggSum))
-        .append("\n");
     sb.append("    containerAvg: ").append(toIndentedString(containerAvg)).append("\n");
     sb.append("    containerHwm: ").append(toIndentedString(containerHwm)).append("\n");
+    sb.append("    cspmContainerAvg: ").append(toIndentedString(cspmContainerAvg)).append("\n");
+    sb.append("    cspmContainerHwm: ").append(toIndentedString(cspmContainerHwm)).append("\n");
+    sb.append("    cspmHostTop99p: ").append(toIndentedString(cspmHostTop99p)).append("\n");
     sb.append("    customTsAvg: ").append(toIndentedString(customTsAvg)).append("\n");
     sb.append("    fargateTasksCountAvg: ")
         .append(toIndentedString(fargateTasksCountAvg))
