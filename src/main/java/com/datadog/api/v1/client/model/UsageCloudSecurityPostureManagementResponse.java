@@ -20,24 +20,27 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * The response containing the Compliance Monitoring usage for each hour for a given organization.
+ * The response containing the Cloud Security Posture Management usage for each hour for a given
+ * organization.
  */
 @ApiModel(
     description =
-        "The response containing the Compliance Monitoring usage for each hour for a given"
-            + " organization.")
-@JsonPropertyOrder({UsageComplianceResponse.JSON_PROPERTY_USAGE})
+        "The response containing the Cloud Security Posture Management usage for each hour for a"
+            + " given organization.")
+@JsonPropertyOrder({UsageCloudSecurityPostureManagementResponse.JSON_PROPERTY_USAGE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class UsageComplianceResponse {
+public class UsageCloudSecurityPostureManagementResponse {
   public static final String JSON_PROPERTY_USAGE = "usage";
-  private List<UsageComplianceHour> usage = null;
+  private List<UsageCloudSecurityPostureManagementHour> usage = null;
 
-  public UsageComplianceResponse usage(List<UsageComplianceHour> usage) {
+  public UsageCloudSecurityPostureManagementResponse usage(
+      List<UsageCloudSecurityPostureManagementHour> usage) {
     this.usage = usage;
     return this;
   }
 
-  public UsageComplianceResponse addUsageItem(UsageComplianceHour usageItem) {
+  public UsageCloudSecurityPostureManagementResponse addUsageItem(
+      UsageCloudSecurityPostureManagementHour usageItem) {
     if (this.usage == null) {
       this.usage = new ArrayList<>();
     }
@@ -46,23 +49,23 @@ public class UsageComplianceResponse {
   }
 
   /**
-   * Get hourly usage for Compliance Monitoring.
+   * Get hourly usage for Cloud Security Posture Management.
    *
    * @return usage
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Get hourly usage for Compliance Monitoring.")
+  @ApiModelProperty(value = "Get hourly usage for Cloud Security Posture Management.")
   @JsonProperty(JSON_PROPERTY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<UsageComplianceHour> getUsage() {
+  public List<UsageCloudSecurityPostureManagementHour> getUsage() {
     return usage;
   }
 
-  public void setUsage(List<UsageComplianceHour> usage) {
+  public void setUsage(List<UsageCloudSecurityPostureManagementHour> usage) {
     this.usage = usage;
   }
 
-  /** Return true if this UsageComplianceResponse object is equal to o. */
+  /** Return true if this UsageCloudSecurityPostureManagementResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -71,8 +74,9 @@ public class UsageComplianceResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UsageComplianceResponse usageComplianceResponse = (UsageComplianceResponse) o;
-    return Objects.equals(this.usage, usageComplianceResponse.usage);
+    UsageCloudSecurityPostureManagementResponse usageCloudSecurityPostureManagementResponse =
+        (UsageCloudSecurityPostureManagementResponse) o;
+    return Objects.equals(this.usage, usageCloudSecurityPostureManagementResponse.usage);
   }
 
   @Override
@@ -83,7 +87,7 @@ public class UsageComplianceResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UsageComplianceResponse {\n");
+    sb.append("class UsageCloudSecurityPostureManagementResponse {\n");
     sb.append("    usage: ").append(toIndentedString(usage)).append("\n");
     sb.append("}");
     return sb.toString();
