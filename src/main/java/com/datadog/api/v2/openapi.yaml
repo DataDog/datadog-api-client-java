@@ -3507,7 +3507,11 @@ paths:
         type: safe
       x-accepts: application/json
     post:
-      description: Create a security filter.
+      description: |-
+        Create a security filter.
+
+        See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/)
+        for more examples.
       operationId: CreateSecurityFilter
       requestBody:
         content:
@@ -3629,7 +3633,11 @@ paths:
         type: idempotent
       x-accepts: application/json
     get:
-      description: Get the details of a specific security filter.
+      description: |-
+        Get the details of a specific security filter.
+
+        See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/)
+        for more examples.
       operationId: GetSecurityFilter
       parameters:
       - description: The ID of the security filter.
