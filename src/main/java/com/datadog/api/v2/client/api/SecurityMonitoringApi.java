@@ -55,7 +55,9 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Create a security filter Create a security filter.
+   * Create a security filter Create a security filter. See the [security filter
+   * guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/)
+   * for more examples.
    *
    * @param body The definition of the new security filter. (required)
    * @return SecurityFilterResponse
@@ -76,7 +78,9 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Create a security filter Create a security filter.
+   * Create a security filter Create a security filter. See the [security filter
+   * guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/)
+   * for more examples.
    *
    * @param body The definition of the new security filter. (required)
    * @return ApiResponse&lt;SecurityFilterResponse&gt;
@@ -391,7 +395,9 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get a security filter Get the details of a specific security filter.
+   * Get a security filter Get the details of a specific security filter. See the [security filter
+   * guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/)
+   * for more examples.
    *
    * @param securityFilterId The ID of the security filter. (required)
    * @return SecurityFilterResponse
@@ -410,7 +416,9 @@ public class SecurityMonitoringApi {
   }
 
   /**
-   * Get a security filter Get the details of a specific security filter.
+   * Get a security filter Get the details of a specific security filter. See the [security filter
+   * guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/)
+   * for more examples.
    *
    * @param securityFilterId The ID of the security filter. (required)
    * @return ApiResponse&lt;SecurityFilterResponse&gt;
