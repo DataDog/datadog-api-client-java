@@ -40,6 +40,8 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_CSPM_CONTAINER_HWM_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CSPM_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CUSTOM_TS_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_CWS_CONTAINERS_AVG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_CWS_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_END_DATE,
   UsageSummaryResponse.JSON_PROPERTY_FARGATE_TASKS_COUNT_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_FARGATE_TASKS_COUNT_HWM_SUM,
@@ -129,6 +131,12 @@ public class UsageSummaryResponse {
 
   public static final String JSON_PROPERTY_CUSTOM_TS_SUM = "custom_ts_sum";
   private Long customTsSum;
+
+  public static final String JSON_PROPERTY_CWS_CONTAINERS_AVG_SUM = "cws_containers_avg_sum";
+  private Long cwsContainersAvgSum;
+
+  public static final String JSON_PROPERTY_CWS_HOST_TOP99P_SUM = "cws_host_top99p_sum";
+  private Long cwsHostTop99pSum;
 
   public static final String JSON_PROPERTY_END_DATE = "end_date";
   private OffsetDateTime endDate;
@@ -668,6 +676,58 @@ public class UsageSummaryResponse {
 
   public void setCustomTsSum(Long customTsSum) {
     this.customTsSum = customTsSum;
+  }
+
+  public UsageSummaryResponse cwsContainersAvgSum(Long cwsContainersAvgSum) {
+    this.cwsContainersAvgSum = cwsContainersAvgSum;
+    return this;
+  }
+
+  /**
+   * Shows the average of all distinct Cloud Workload Security containers over all hours in the
+   * current months for all organizations.
+   *
+   * @return cwsContainersAvgSum
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the average of all distinct Cloud Workload Security containers over all hours in"
+              + " the current months for all organizations.")
+  @JsonProperty(JSON_PROPERTY_CWS_CONTAINERS_AVG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCwsContainersAvgSum() {
+    return cwsContainersAvgSum;
+  }
+
+  public void setCwsContainersAvgSum(Long cwsContainersAvgSum) {
+    this.cwsContainersAvgSum = cwsContainersAvgSum;
+  }
+
+  public UsageSummaryResponse cwsHostTop99pSum(Long cwsHostTop99pSum) {
+    this.cwsHostTop99pSum = cwsHostTop99pSum;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all Cloud Workload Security hosts over all hours in the current
+   * months for all organizations.
+   *
+   * @return cwsHostTop99pSum
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the 99th percentile of all Cloud Workload Security hosts over all hours in the"
+              + " current months for all organizations.")
+  @JsonProperty(JSON_PROPERTY_CWS_HOST_TOP99P_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCwsHostTop99pSum() {
+    return cwsHostTop99pSum;
+  }
+
+  public void setCwsHostTop99pSum(Long cwsHostTop99pSum) {
+    this.cwsHostTop99pSum = cwsHostTop99pSum;
   }
 
   public UsageSummaryResponse endDate(OffsetDateTime endDate) {
@@ -1589,6 +1649,8 @@ public class UsageSummaryResponse {
         && Objects.equals(this.cspmContainerHwmSum, usageSummaryResponse.cspmContainerHwmSum)
         && Objects.equals(this.cspmHostTop99pSum, usageSummaryResponse.cspmHostTop99pSum)
         && Objects.equals(this.customTsSum, usageSummaryResponse.customTsSum)
+        && Objects.equals(this.cwsContainersAvgSum, usageSummaryResponse.cwsContainersAvgSum)
+        && Objects.equals(this.cwsHostTop99pSum, usageSummaryResponse.cwsHostTop99pSum)
         && Objects.equals(this.endDate, usageSummaryResponse.endDate)
         && Objects.equals(
             this.fargateTasksCountAvgSum, usageSummaryResponse.fargateTasksCountAvgSum)
@@ -1673,6 +1735,8 @@ public class UsageSummaryResponse {
         cspmContainerHwmSum,
         cspmHostTop99pSum,
         customTsSum,
+        cwsContainersAvgSum,
+        cwsHostTop99pSum,
         endDate,
         fargateTasksCountAvgSum,
         fargateTasksCountHwmSum,
@@ -1743,6 +1807,10 @@ public class UsageSummaryResponse {
         .append("\n");
     sb.append("    cspmHostTop99pSum: ").append(toIndentedString(cspmHostTop99pSum)).append("\n");
     sb.append("    customTsSum: ").append(toIndentedString(customTsSum)).append("\n");
+    sb.append("    cwsContainersAvgSum: ")
+        .append(toIndentedString(cwsContainersAvgSum))
+        .append("\n");
+    sb.append("    cwsHostTop99pSum: ").append(toIndentedString(cwsHostTop99pSum)).append("\n");
     sb.append("    endDate: ").append(toIndentedString(endDate)).append("\n");
     sb.append("    fargateTasksCountAvgSum: ")
         .append(toIndentedString(fargateTasksCountAvgSum))

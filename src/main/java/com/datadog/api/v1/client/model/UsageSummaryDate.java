@@ -39,6 +39,8 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_CSPM_CONTAINER_HWM,
   UsageSummaryDate.JSON_PROPERTY_CSPM_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_CUSTOM_TS_AVG,
+  UsageSummaryDate.JSON_PROPERTY_CWS_CONTAINER_COUNT_AVG,
+  UsageSummaryDate.JSON_PROPERTY_CWS_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_DATE,
   UsageSummaryDate.JSON_PROPERTY_FARGATE_TASKS_COUNT_AVG,
   UsageSummaryDate.JSON_PROPERTY_FARGATE_TASKS_COUNT_HWM,
@@ -116,6 +118,12 @@ public class UsageSummaryDate {
 
   public static final String JSON_PROPERTY_CUSTOM_TS_AVG = "custom_ts_avg";
   private Long customTsAvg;
+
+  public static final String JSON_PROPERTY_CWS_CONTAINER_COUNT_AVG = "cws_container_count_avg";
+  private Long cwsContainerCountAvg;
+
+  public static final String JSON_PROPERTY_CWS_HOST_TOP99P = "cws_host_top99p";
+  private Long cwsHostTop99p;
 
   public static final String JSON_PROPERTY_DATE = "date";
   private OffsetDateTime date;
@@ -593,6 +601,58 @@ public class UsageSummaryDate {
 
   public void setCustomTsAvg(Long customTsAvg) {
     this.customTsAvg = customTsAvg;
+  }
+
+  public UsageSummaryDate cwsContainerCountAvg(Long cwsContainerCountAvg) {
+    this.cwsContainerCountAvg = cwsContainerCountAvg;
+    return this;
+  }
+
+  /**
+   * Shows the average of all distinct Cloud Workload Security containers over all hours in the
+   * current date for all organizations.
+   *
+   * @return cwsContainerCountAvg
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the average of all distinct Cloud Workload Security containers over all hours in"
+              + " the current date for all organizations.")
+  @JsonProperty(JSON_PROPERTY_CWS_CONTAINER_COUNT_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCwsContainerCountAvg() {
+    return cwsContainerCountAvg;
+  }
+
+  public void setCwsContainerCountAvg(Long cwsContainerCountAvg) {
+    this.cwsContainerCountAvg = cwsContainerCountAvg;
+  }
+
+  public UsageSummaryDate cwsHostTop99p(Long cwsHostTop99p) {
+    this.cwsHostTop99p = cwsHostTop99p;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all Cloud Workload Security hosts over all hours in the current
+   * date for all organizations.
+   *
+   * @return cwsHostTop99p
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the 99th percentile of all Cloud Workload Security hosts over all hours in the"
+              + " current date for all organizations.")
+  @JsonProperty(JSON_PROPERTY_CWS_HOST_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCwsHostTop99p() {
+    return cwsHostTop99p;
+  }
+
+  public void setCwsHostTop99p(Long cwsHostTop99p) {
+    this.cwsHostTop99p = cwsHostTop99p;
   }
 
   public UsageSummaryDate date(OffsetDateTime date) {
@@ -1300,6 +1360,8 @@ public class UsageSummaryDate {
         && Objects.equals(this.cspmContainerHwm, usageSummaryDate.cspmContainerHwm)
         && Objects.equals(this.cspmHostTop99p, usageSummaryDate.cspmHostTop99p)
         && Objects.equals(this.customTsAvg, usageSummaryDate.customTsAvg)
+        && Objects.equals(this.cwsContainerCountAvg, usageSummaryDate.cwsContainerCountAvg)
+        && Objects.equals(this.cwsHostTop99p, usageSummaryDate.cwsHostTop99p)
         && Objects.equals(this.date, usageSummaryDate.date)
         && Objects.equals(this.fargateTasksCountAvg, usageSummaryDate.fargateTasksCountAvg)
         && Objects.equals(this.fargateTasksCountHwm, usageSummaryDate.fargateTasksCountHwm)
@@ -1357,6 +1419,8 @@ public class UsageSummaryDate {
         cspmContainerHwm,
         cspmHostTop99p,
         customTsAvg,
+        cwsContainerCountAvg,
+        cwsHostTop99p,
         date,
         fargateTasksCountAvg,
         fargateTasksCountHwm,
@@ -1414,6 +1478,10 @@ public class UsageSummaryDate {
     sb.append("    cspmContainerHwm: ").append(toIndentedString(cspmContainerHwm)).append("\n");
     sb.append("    cspmHostTop99p: ").append(toIndentedString(cspmHostTop99p)).append("\n");
     sb.append("    customTsAvg: ").append(toIndentedString(customTsAvg)).append("\n");
+    sb.append("    cwsContainerCountAvg: ")
+        .append(toIndentedString(cwsContainerCountAvg))
+        .append("\n");
+    sb.append("    cwsHostTop99p: ").append(toIndentedString(cwsHostTop99p)).append("\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
     sb.append("    fargateTasksCountAvg: ")
         .append(toIndentedString(fargateTasksCountAvg))
