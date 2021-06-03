@@ -13,8 +13,10 @@ Method        | HTTP request | Description
 [**getTracingWithoutLimits**](UsageMeteringApi.md#getTracingWithoutLimits) | **GET** /api/v1/usage/tracing-without-limits | Get hourly usage for tracing without limits
 [**getUsageAnalyzedLogs**](UsageMeteringApi.md#getUsageAnalyzedLogs) | **GET** /api/v1/usage/analyzed_logs | Get hourly usage for analyzed logs
 [**getUsageAttribution**](UsageMeteringApi.md#getUsageAttribution) | **GET** /api/v1/usage/attribution | Get Usage Attribution
+[**getUsageAuditLogs**](UsageMeteringApi.md#getUsageAuditLogs) | **GET** /api/v1/usage/audit_logs | Get hourly usage for audit logs
 [**getUsageBillableSummary**](UsageMeteringApi.md#getUsageBillableSummary) | **GET** /api/v1/usage/billable-summary | Get billable usage across your account
-[**getUsageComplianceMonitoring**](UsageMeteringApi.md#getUsageComplianceMonitoring) | **GET** /api/v1/usage/compliance-monitoring | Get hourly usage for Compliance Monitoring
+[**getUsageCWS**](UsageMeteringApi.md#getUsageCWS) | **GET** /api/v1/usage/cws | Get hourly usage for Cloud Workload Security
+[**getUsageCloudSecurityPostureManagement**](UsageMeteringApi.md#getUsageCloudSecurityPostureManagement) | **GET** /api/v1/usage/cspm | Get hourly usage for CSPM
 [**getUsageFargate**](UsageMeteringApi.md#getUsageFargate) | **GET** /api/v1/usage/fargate | Get hourly usage for Fargate
 [**getUsageHosts**](UsageMeteringApi.md#getUsageHosts) | **GET** /api/v1/usage/hosts | Get hourly usage for hosts and containers
 [**getUsageIndexedSpans**](UsageMeteringApi.md#getUsageIndexedSpans) | **GET** /api/v1/usage/indexed-spans | Get hourly usage for indexed spans
@@ -662,6 +664,74 @@ Name | Type | Description  | Notes
 | **403** | Forbidden - User is not authorized |  -  |
 
 
+## getUsageAuditLogs
+
+> UsageAuditLogsResponse getUsageAuditLogs(startHr, parameters);
+
+Get hourly usage for audit logs.
+
+### Example
+
+```java
+import java.time.OffsetDateTime;
+import java.util.*;
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.Configuration;
+import com.datadog.api.v1.client.model.*;
+import com.datadog.api.v1.client.api.UsageMeteringApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+        UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);
+        OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
+        OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
+        try {
+	    UsageAuditLogsResponse result = apiInstance.getUsageAuditLogs(startHr, new UsageMeteringApi.GetUsageAuditLogsOptionalParameters()
+                .endHr(endHr));
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UsageMeteringApi#getUsageAuditLogs");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **startHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. |
+ **endHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional]
+
+### Return type
+
+[**UsageAuditLogsResponse**](UsageAuditLogsResponse.md)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json;datetime-format=rfc3339
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
+
+
 ## getUsageBillableSummary
 
 > UsageBillableSummaryResponse getUsageBillableSummary(parameters);
@@ -728,11 +798,11 @@ Name | Type | Description  | Notes
 | **403** | Forbidden - User is not authorized |  -  |
 
 
-## getUsageComplianceMonitoring
+## getUsageCWS
 
-> UsageComplianceResponse getUsageComplianceMonitoring(startHr, parameters);
+> UsageCWSResponse getUsageCWS(startHr, parameters);
 
-Get hourly usage for Compliance Monitoring.
+Get hourly usage for Cloud Workload Security.
 
 ### Example
 
@@ -753,11 +823,11 @@ public class Example {
         OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
         try {
-	    UsageComplianceResponse result = apiInstance.getUsageComplianceMonitoring(startHr, new UsageMeteringApi.GetUsageComplianceMonitoringOptionalParameters()
+	    UsageCWSResponse result = apiInstance.getUsageCWS(startHr, new UsageMeteringApi.GetUsageCWSOptionalParameters()
                 .endHr(endHr));
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling UsageMeteringApi#getUsageComplianceMonitoring");
+            System.err.println("Exception when calling UsageMeteringApi#getUsageCWS");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -777,7 +847,75 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UsageComplianceResponse**](UsageComplianceResponse.md)
+[**UsageCWSResponse**](UsageCWSResponse.md)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json;datetime-format=rfc3339
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
+
+
+## getUsageCloudSecurityPostureManagement
+
+> UsageCloudSecurityPostureManagementResponse getUsageCloudSecurityPostureManagement(startHr, parameters);
+
+Get hourly usage for Cloud Security Posture Management (CSPM).
+
+### Example
+
+```java
+import java.time.OffsetDateTime;
+import java.util.*;
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.Configuration;
+import com.datadog.api.v1.client.model.*;
+import com.datadog.api.v1.client.api.UsageMeteringApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+        UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);
+        OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
+        OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
+        try {
+	    UsageCloudSecurityPostureManagementResponse result = apiInstance.getUsageCloudSecurityPostureManagement(startHr, new UsageMeteringApi.GetUsageCloudSecurityPostureManagementOptionalParameters()
+                .endHr(endHr));
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UsageMeteringApi#getUsageCloudSecurityPostureManagement");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **startHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. |
+ **endHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional]
+
+### Return type
+
+[**UsageCloudSecurityPostureManagementResponse**](UsageCloudSecurityPostureManagementResponse.md)
 
 ### Authorization
 

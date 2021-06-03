@@ -9,8 +9,10 @@ import com.datadog.api.v1.client.model.UsageAnalyzedLogsResponse;
 import com.datadog.api.v1.client.model.UsageAttributionResponse;
 import com.datadog.api.v1.client.model.UsageAttributionSort;
 import com.datadog.api.v1.client.model.UsageAttributionSupportedMetrics;
+import com.datadog.api.v1.client.model.UsageAuditLogsResponse;
 import com.datadog.api.v1.client.model.UsageBillableSummaryResponse;
-import com.datadog.api.v1.client.model.UsageComplianceResponse;
+import com.datadog.api.v1.client.model.UsageCWSResponse;
+import com.datadog.api.v1.client.model.UsageCloudSecurityPostureManagementResponse;
 import com.datadog.api.v1.client.model.UsageCustomReportsResponse;
 import com.datadog.api.v1.client.model.UsageFargateResponse;
 import com.datadog.api.v1.client.model.UsageHostsResponse;
@@ -1261,6 +1263,133 @@ public class UsageMeteringApi {
         false);
   }
 
+  /** Manage optional parameters to getUsageAuditLogs. */
+  public static class GetUsageAuditLogsOptionalParameters {
+    private OffsetDateTime endHr;
+
+    /**
+     * Set endHr
+     *
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+     *     for usage ending **before** this hour. (optional)
+     * @return GetUsageAuditLogsOptionalParameters
+     */
+    public GetUsageAuditLogsOptionalParameters endHr(OffsetDateTime endHr) {
+      this.endHr = endHr;
+      return this;
+    }
+  }
+
+  /**
+   * Get hourly usage for audit logs Get hourly usage for audit logs.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @return UsageAuditLogsResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public UsageAuditLogsResponse getUsageAuditLogs(OffsetDateTime startHr) throws ApiException {
+    return getUsageAuditLogsWithHttpInfo(startHr, new GetUsageAuditLogsOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get hourly usage for audit logs Get hourly usage for audit logs.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return UsageAuditLogsResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public UsageAuditLogsResponse getUsageAuditLogs(
+      OffsetDateTime startHr, GetUsageAuditLogsOptionalParameters parameters) throws ApiException {
+    return getUsageAuditLogsWithHttpInfo(startHr, parameters).getData();
+  }
+
+  /**
+   * Get hourly usage for audit logs Get hourly usage for audit logs.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;UsageAuditLogsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UsageAuditLogsResponse> getUsageAuditLogsWithHttpInfo(
+      OffsetDateTime startHr, GetUsageAuditLogsOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'startHr' is set
+    if (startHr == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'startHr' when calling getUsageAuditLogs");
+    }
+    OffsetDateTime endHr = parameters.endHr;
+    // create path and map variables
+    String localVarPath = "/api/v1/usage/audit_logs";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageAuditLogs");
+
+    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    GenericType<UsageAuditLogsResponse> localVarReturnType =
+        new GenericType<UsageAuditLogsResponse>() {};
+
+    return apiClient.invokeAPI(
+        "UsageMeteringApi.getUsageAuditLogs",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
   /** Manage optional parameters to getUsageBillableSummary. */
   public static class GetUsageBillableSummaryOptionalParameters {
     private OffsetDateTime month;
@@ -1375,8 +1504,8 @@ public class UsageMeteringApi {
         false);
   }
 
-  /** Manage optional parameters to getUsageComplianceMonitoring. */
-  public static class GetUsageComplianceMonitoringOptionalParameters {
+  /** Manage optional parameters to getUsageCWS. */
+  public static class GetUsageCWSOptionalParameters {
     private OffsetDateTime endHr;
 
     /**
@@ -1384,20 +1513,20 @@ public class UsageMeteringApi {
      *
      * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
      *     for usage ending **before** this hour. (optional)
-     * @return GetUsageComplianceMonitoringOptionalParameters
+     * @return GetUsageCWSOptionalParameters
      */
-    public GetUsageComplianceMonitoringOptionalParameters endHr(OffsetDateTime endHr) {
+    public GetUsageCWSOptionalParameters endHr(OffsetDateTime endHr) {
       this.endHr = endHr;
       return this;
     }
   }
 
   /**
-   * Get hourly usage for Compliance Monitoring Get hourly usage for Compliance Monitoring.
+   * Get hourly usage for Cloud Workload Security Get hourly usage for Cloud Workload Security.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
-   * @return UsageComplianceResponse
+   * @return UsageCWSResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table summary="Response Details" border="1">
@@ -1407,20 +1536,17 @@ public class UsageMeteringApi {
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *     </table>
    */
-  public UsageComplianceResponse getUsageComplianceMonitoring(OffsetDateTime startHr)
-      throws ApiException {
-    return getUsageComplianceMonitoringWithHttpInfo(
-            startHr, new GetUsageComplianceMonitoringOptionalParameters())
-        .getData();
+  public UsageCWSResponse getUsageCWS(OffsetDateTime startHr) throws ApiException {
+    return getUsageCWSWithHttpInfo(startHr, new GetUsageCWSOptionalParameters()).getData();
   }
 
   /**
-   * Get hourly usage for Compliance Monitoring Get hourly usage for Compliance Monitoring.
+   * Get hourly usage for Cloud Workload Security Get hourly usage for Cloud Workload Security.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return UsageComplianceResponse
+   * @return UsageCWSResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table summary="Response Details" border="1">
@@ -1430,19 +1556,18 @@ public class UsageMeteringApi {
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *     </table>
    */
-  public UsageComplianceResponse getUsageComplianceMonitoring(
-      OffsetDateTime startHr, GetUsageComplianceMonitoringOptionalParameters parameters)
-      throws ApiException {
-    return getUsageComplianceMonitoringWithHttpInfo(startHr, parameters).getData();
+  public UsageCWSResponse getUsageCWS(
+      OffsetDateTime startHr, GetUsageCWSOptionalParameters parameters) throws ApiException {
+    return getUsageCWSWithHttpInfo(startHr, parameters).getData();
   }
 
   /**
-   * Get hourly usage for Compliance Monitoring Get hourly usage for Compliance Monitoring.
+   * Get hourly usage for Cloud Workload Security Get hourly usage for Cloud Workload Security.
    *
    * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
    *     for usage beginning at this hour. (required)
    * @param parameters Optional parameters for the request.
-   * @return ApiResponse&lt;UsageComplianceResponse&gt;
+   * @return ApiResponse&lt;UsageCWSResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table summary="Response Details" border="1">
@@ -1452,20 +1577,18 @@ public class UsageMeteringApi {
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<UsageComplianceResponse> getUsageComplianceMonitoringWithHttpInfo(
-      OffsetDateTime startHr, GetUsageComplianceMonitoringOptionalParameters parameters)
-      throws ApiException {
+  public ApiResponse<UsageCWSResponse> getUsageCWSWithHttpInfo(
+      OffsetDateTime startHr, GetUsageCWSOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'startHr' is set
     if (startHr == null) {
       throw new ApiException(
-          400,
-          "Missing the required parameter 'startHr' when calling getUsageComplianceMonitoring");
+          400, "Missing the required parameter 'startHr' when calling getUsageCWS");
     }
     OffsetDateTime endHr = parameters.endHr;
     // create path and map variables
-    String localVarPath = "/api/v1/usage/compliance-monitoring";
+    String localVarPath = "/api/v1/usage/cws";
 
     // query params
     List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1477,7 +1600,7 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
 
     // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageComplianceMonitoring");
+    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageCWS");
 
     final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
@@ -1488,11 +1611,145 @@ public class UsageMeteringApi {
 
     String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
 
-    GenericType<UsageComplianceResponse> localVarReturnType =
-        new GenericType<UsageComplianceResponse>() {};
+    GenericType<UsageCWSResponse> localVarReturnType = new GenericType<UsageCWSResponse>() {};
 
     return apiClient.invokeAPI(
-        "UsageMeteringApi.getUsageComplianceMonitoring",
+        "UsageMeteringApi.getUsageCWS",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /** Manage optional parameters to getUsageCloudSecurityPostureManagement. */
+  public static class GetUsageCloudSecurityPostureManagementOptionalParameters {
+    private OffsetDateTime endHr;
+
+    /**
+     * Set endHr
+     *
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+     *     for usage ending **before** this hour. (optional)
+     * @return GetUsageCloudSecurityPostureManagementOptionalParameters
+     */
+    public GetUsageCloudSecurityPostureManagementOptionalParameters endHr(OffsetDateTime endHr) {
+      this.endHr = endHr;
+      return this;
+    }
+  }
+
+  /**
+   * Get hourly usage for CSPM Get hourly usage for Cloud Security Posture Management (CSPM).
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @return UsageCloudSecurityPostureManagementResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public UsageCloudSecurityPostureManagementResponse getUsageCloudSecurityPostureManagement(
+      OffsetDateTime startHr) throws ApiException {
+    return getUsageCloudSecurityPostureManagementWithHttpInfo(
+            startHr, new GetUsageCloudSecurityPostureManagementOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get hourly usage for CSPM Get hourly usage for Cloud Security Posture Management (CSPM).
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return UsageCloudSecurityPostureManagementResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public UsageCloudSecurityPostureManagementResponse getUsageCloudSecurityPostureManagement(
+      OffsetDateTime startHr, GetUsageCloudSecurityPostureManagementOptionalParameters parameters)
+      throws ApiException {
+    return getUsageCloudSecurityPostureManagementWithHttpInfo(startHr, parameters).getData();
+  }
+
+  /**
+   * Get hourly usage for CSPM Get hourly usage for Cloud Security Posture Management (CSPM).
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;UsageCloudSecurityPostureManagementResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UsageCloudSecurityPostureManagementResponse>
+      getUsageCloudSecurityPostureManagementWithHttpInfo(
+          OffsetDateTime startHr,
+          GetUsageCloudSecurityPostureManagementOptionalParameters parameters)
+          throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'startHr' is set
+    if (startHr == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'startHr' when calling"
+              + " getUsageCloudSecurityPostureManagement");
+    }
+    OffsetDateTime endHr = parameters.endHr;
+    // create path and map variables
+    String localVarPath = "/api/v1/usage/cspm";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageCloudSecurityPostureManagement");
+
+    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    GenericType<UsageCloudSecurityPostureManagementResponse> localVarReturnType =
+        new GenericType<UsageCloudSecurityPostureManagementResponse>() {};
+
+    return apiClient.invokeAPI(
+        "UsageMeteringApi.getUsageCloudSecurityPostureManagement",
         localVarPath,
         "GET",
         localVarQueryParams,

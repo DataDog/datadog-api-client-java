@@ -30,6 +30,10 @@ import java.util.Objects;
   UsageAttributionValues.JSON_PROPERTY_CONTAINER_USAGE,
   UsageAttributionValues.JSON_PROPERTY_CUSTOM_TIMESERIES_PERCENTAGE,
   UsageAttributionValues.JSON_PROPERTY_CUSTOM_TIMESERIES_USAGE,
+  UsageAttributionValues.JSON_PROPERTY_CWS_CONTAINER_PERCENTAGE,
+  UsageAttributionValues.JSON_PROPERTY_CWS_CONTAINER_USAGE,
+  UsageAttributionValues.JSON_PROPERTY_CWS_HOST_PERCENTAGE,
+  UsageAttributionValues.JSON_PROPERTY_CWS_HOST_USAGE,
   UsageAttributionValues.JSON_PROPERTY_INFRA_HOST_PERCENTAGE,
   UsageAttributionValues.JSON_PROPERTY_INFRA_HOST_USAGE,
   UsageAttributionValues.JSON_PROPERTY_LAMBDA_FUNCTIONS_PERCENTAGE,
@@ -79,6 +83,18 @@ public class UsageAttributionValues {
 
   public static final String JSON_PROPERTY_CUSTOM_TIMESERIES_USAGE = "custom_timeseries_usage";
   private Double customTimeseriesUsage;
+
+  public static final String JSON_PROPERTY_CWS_CONTAINER_PERCENTAGE = "cws_container_percentage";
+  private Double cwsContainerPercentage;
+
+  public static final String JSON_PROPERTY_CWS_CONTAINER_USAGE = "cws_container_usage";
+  private Double cwsContainerUsage;
+
+  public static final String JSON_PROPERTY_CWS_HOST_PERCENTAGE = "cws_host_percentage";
+  private Double cwsHostPercentage;
+
+  public static final String JSON_PROPERTY_CWS_HOST_USAGE = "cws_host_usage";
+  private Double cwsHostUsage;
 
   public static final String JSON_PROPERTY_INFRA_HOST_PERCENTAGE = "infra_host_percentage";
   private Double infraHostPercentage;
@@ -349,6 +365,94 @@ public class UsageAttributionValues {
 
   public void setCustomTimeseriesUsage(Double customTimeseriesUsage) {
     this.customTimeseriesUsage = customTimeseriesUsage;
+  }
+
+  public UsageAttributionValues cwsContainerPercentage(Double cwsContainerPercentage) {
+    this.cwsContainerPercentage = cwsContainerPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Cloud Workload Security container usage by tag(s)
+   *
+   * @return cwsContainerPercentage
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The percentage of Cloud Workload Security container usage by tag(s)")
+  @JsonProperty(JSON_PROPERTY_CWS_CONTAINER_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getCwsContainerPercentage() {
+    return cwsContainerPercentage;
+  }
+
+  public void setCwsContainerPercentage(Double cwsContainerPercentage) {
+    this.cwsContainerPercentage = cwsContainerPercentage;
+  }
+
+  public UsageAttributionValues cwsContainerUsage(Double cwsContainerUsage) {
+    this.cwsContainerUsage = cwsContainerUsage;
+    return this;
+  }
+
+  /**
+   * The Cloud Workload Security container usage by tag(s)
+   *
+   * @return cwsContainerUsage
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The Cloud Workload Security container usage by tag(s)")
+  @JsonProperty(JSON_PROPERTY_CWS_CONTAINER_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getCwsContainerUsage() {
+    return cwsContainerUsage;
+  }
+
+  public void setCwsContainerUsage(Double cwsContainerUsage) {
+    this.cwsContainerUsage = cwsContainerUsage;
+  }
+
+  public UsageAttributionValues cwsHostPercentage(Double cwsHostPercentage) {
+    this.cwsHostPercentage = cwsHostPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Cloud Workload Security host usage by tag(s)
+   *
+   * @return cwsHostPercentage
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The percentage of Cloud Workload Security host usage by tag(s)")
+  @JsonProperty(JSON_PROPERTY_CWS_HOST_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getCwsHostPercentage() {
+    return cwsHostPercentage;
+  }
+
+  public void setCwsHostPercentage(Double cwsHostPercentage) {
+    this.cwsHostPercentage = cwsHostPercentage;
+  }
+
+  public UsageAttributionValues cwsHostUsage(Double cwsHostUsage) {
+    this.cwsHostUsage = cwsHostUsage;
+    return this;
+  }
+
+  /**
+   * The Cloud Workload Security host usage by tag(s)
+   *
+   * @return cwsHostUsage
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The Cloud Workload Security host usage by tag(s)")
+  @JsonProperty(JSON_PROPERTY_CWS_HOST_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getCwsHostUsage() {
+    return cwsHostUsage;
+  }
+
+  public void setCwsHostUsage(Double cwsHostUsage) {
+    this.cwsHostUsage = cwsHostUsage;
   }
 
   public UsageAttributionValues infraHostPercentage(Double infraHostPercentage) {
@@ -732,6 +836,11 @@ public class UsageAttributionValues {
         && Objects.equals(
             this.customTimeseriesPercentage, usageAttributionValues.customTimeseriesPercentage)
         && Objects.equals(this.customTimeseriesUsage, usageAttributionValues.customTimeseriesUsage)
+        && Objects.equals(
+            this.cwsContainerPercentage, usageAttributionValues.cwsContainerPercentage)
+        && Objects.equals(this.cwsContainerUsage, usageAttributionValues.cwsContainerUsage)
+        && Objects.equals(this.cwsHostPercentage, usageAttributionValues.cwsHostPercentage)
+        && Objects.equals(this.cwsHostUsage, usageAttributionValues.cwsHostUsage)
         && Objects.equals(this.infraHostPercentage, usageAttributionValues.infraHostPercentage)
         && Objects.equals(this.infraHostUsage, usageAttributionValues.infraHostUsage)
         && Objects.equals(
@@ -769,6 +878,10 @@ public class UsageAttributionValues {
         containerUsage,
         customTimeseriesPercentage,
         customTimeseriesUsage,
+        cwsContainerPercentage,
+        cwsContainerUsage,
+        cwsHostPercentage,
+        cwsHostUsage,
         infraHostPercentage,
         infraHostUsage,
         lambdaFunctionsPercentage,
@@ -807,6 +920,12 @@ public class UsageAttributionValues {
     sb.append("    customTimeseriesUsage: ")
         .append(toIndentedString(customTimeseriesUsage))
         .append("\n");
+    sb.append("    cwsContainerPercentage: ")
+        .append(toIndentedString(cwsContainerPercentage))
+        .append("\n");
+    sb.append("    cwsContainerUsage: ").append(toIndentedString(cwsContainerUsage)).append("\n");
+    sb.append("    cwsHostPercentage: ").append(toIndentedString(cwsHostPercentage)).append("\n");
+    sb.append("    cwsHostUsage: ").append(toIndentedString(cwsHostUsage)).append("\n");
     sb.append("    infraHostPercentage: ")
         .append(toIndentedString(infraHostPercentage))
         .append("\n");
