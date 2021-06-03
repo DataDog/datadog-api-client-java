@@ -24,6 +24,8 @@ Name | Type | Description | Notes
 **cspmContainerHwmSum** | **Long** | Shows the sum of the the high-water marks of Cloud Security Posture Management containers over all hours in the current months for all organizations. |  [optional]
 **cspmHostTop99pSum** | **Long** | Shows the 99th percentile of all Cloud Security Posture Management hosts over all hours in the current months for all organizations. |  [optional]
 **customTsSum** | **Long** | Shows the average number of distinct custom metrics over all hours in the current months for all organizations. |  [optional]
+**cwsContainersAvgSum** | **Long** | Shows the average of all distinct Cloud Workload Security containers over all hours in the current months for all organizations. |  [optional]
+**cwsHostTop99pSum** | **Long** | Shows the 99th percentile of all Cloud Workload Security hosts over all hours in the current months for all organizations. |  [optional]
 **endDate** | **OffsetDateTime** | Shows the last date of usage in the current months for all organizations. |  [optional]
 **fargateTasksCountAvgSum** | **Long** | Shows the average of all Fargate tasks over all hours in the current months for all organizations. |  [optional]
 **fargateTasksCountHwmSum** | **Long** | Shows the sum of the high-water marks of all Fargate tasks over all hours in the current months for all organizations. |  [optional]
