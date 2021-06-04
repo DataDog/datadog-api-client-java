@@ -25,6 +25,9 @@ Method        | HTTP request | Description
 
 Create a security filter.
 
+See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/)
+for more examples.
+
 ### Example
 
 ```java
@@ -283,6 +286,9 @@ null (empty response body)
 > SecurityFilterResponse getSecurityFilter(securityFilterId);
 
 Get the details of a specific security filter.
+
+See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/)
+for more examples.
 
 ### Example
 
