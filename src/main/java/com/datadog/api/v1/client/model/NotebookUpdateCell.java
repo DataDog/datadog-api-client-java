@@ -91,7 +91,8 @@ public class NotebookUpdateCell extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((NotebookCellCreateRequest.class.equals(Float.class)
                         || NotebookCellCreateRequest.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (NotebookCellCreateRequest.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -132,7 +133,8 @@ public class NotebookUpdateCell extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((NotebookCellUpdateRequest.class.equals(Float.class)
                         || NotebookCellUpdateRequest.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (NotebookCellUpdateRequest.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));

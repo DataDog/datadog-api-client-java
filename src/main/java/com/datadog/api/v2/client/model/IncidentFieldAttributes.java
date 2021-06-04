@@ -94,7 +94,8 @@ public class IncidentFieldAttributes extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((IncidentFieldAttributesMultipleValue.class.equals(Float.class)
                         || IncidentFieldAttributesMultipleValue.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (IncidentFieldAttributesMultipleValue.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -139,7 +140,8 @@ public class IncidentFieldAttributes extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((IncidentFieldAttributesSingleValue.class.equals(Float.class)
                         || IncidentFieldAttributesSingleValue.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (IncidentFieldAttributesSingleValue.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));

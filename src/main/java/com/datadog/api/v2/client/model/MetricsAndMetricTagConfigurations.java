@@ -95,7 +95,8 @@ public class MetricsAndMetricTagConfigurations extends AbstractOpenApiSchema {
                     && token == JsonToken.VALUE_NUMBER_INT);
             attemptParsing |=
                 ((Metric.class.equals(Float.class) || Metric.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (Metric.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -135,7 +136,8 @@ public class MetricsAndMetricTagConfigurations extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((MetricTagConfiguration.class.equals(Float.class)
                         || MetricTagConfiguration.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (MetricTagConfiguration.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));

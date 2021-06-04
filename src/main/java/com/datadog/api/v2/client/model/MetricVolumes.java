@@ -91,7 +91,8 @@ public class MetricVolumes extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((MetricDistinctVolume.class.equals(Float.class)
                         || MetricDistinctVolume.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (MetricDistinctVolume.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -132,7 +133,8 @@ public class MetricVolumes extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((MetricIngestedIndexedVolume.class.equals(Float.class)
                         || MetricIngestedIndexedVolume.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (MetricIngestedIndexedVolume.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));

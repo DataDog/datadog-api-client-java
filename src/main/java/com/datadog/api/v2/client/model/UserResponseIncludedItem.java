@@ -92,7 +92,8 @@ public class UserResponseIncludedItem extends AbstractOpenApiSchema {
                     && token == JsonToken.VALUE_NUMBER_INT);
             attemptParsing |=
                 ((Organization.class.equals(Float.class) || Organization.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (Organization.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -130,7 +131,8 @@ public class UserResponseIncludedItem extends AbstractOpenApiSchema {
                     && token == JsonToken.VALUE_NUMBER_INT);
             attemptParsing |=
                 ((Permission.class.equals(Float.class) || Permission.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (Permission.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -168,7 +170,8 @@ public class UserResponseIncludedItem extends AbstractOpenApiSchema {
                     && token == JsonToken.VALUE_NUMBER_INT);
             attemptParsing |=
                 ((Role.class.equals(Float.class) || Role.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (Role.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));

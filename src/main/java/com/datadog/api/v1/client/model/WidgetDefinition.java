@@ -91,7 +91,8 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((AlertGraphWidgetDefinition.class.equals(Float.class)
                         || AlertGraphWidgetDefinition.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (AlertGraphWidgetDefinition.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -132,7 +133,8 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((AlertValueWidgetDefinition.class.equals(Float.class)
                         || AlertValueWidgetDefinition.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (AlertValueWidgetDefinition.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -173,7 +175,8 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((ChangeWidgetDefinition.class.equals(Float.class)
                         || ChangeWidgetDefinition.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (ChangeWidgetDefinition.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -214,7 +217,8 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((CheckStatusWidgetDefinition.class.equals(Float.class)
                         || CheckStatusWidgetDefinition.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (CheckStatusWidgetDefinition.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -256,7 +260,8 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((DistributionWidgetDefinition.class.equals(Float.class)
                         || DistributionWidgetDefinition.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (DistributionWidgetDefinition.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -298,7 +303,8 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((EventStreamWidgetDefinition.class.equals(Float.class)
                         || EventStreamWidgetDefinition.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (EventStreamWidgetDefinition.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -340,7 +346,8 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((EventTimelineWidgetDefinition.class.equals(Float.class)
                         || EventTimelineWidgetDefinition.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (EventTimelineWidgetDefinition.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -382,7 +389,8 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((FreeTextWidgetDefinition.class.equals(Float.class)
                         || FreeTextWidgetDefinition.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (FreeTextWidgetDefinition.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -423,7 +431,8 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((GeomapWidgetDefinition.class.equals(Float.class)
                         || GeomapWidgetDefinition.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (GeomapWidgetDefinition.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -464,7 +473,8 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((GroupWidgetDefinition.class.equals(Float.class)
                         || GroupWidgetDefinition.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (GroupWidgetDefinition.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -505,7 +515,8 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((HeatMapWidgetDefinition.class.equals(Float.class)
                         || HeatMapWidgetDefinition.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (HeatMapWidgetDefinition.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -546,7 +557,8 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((HostMapWidgetDefinition.class.equals(Float.class)
                         || HostMapWidgetDefinition.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (HostMapWidgetDefinition.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -587,7 +599,8 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((IFrameWidgetDefinition.class.equals(Float.class)
                         || IFrameWidgetDefinition.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (IFrameWidgetDefinition.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -628,7 +641,8 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((ImageWidgetDefinition.class.equals(Float.class)
                         || ImageWidgetDefinition.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (ImageWidgetDefinition.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -669,7 +683,8 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((LogStreamWidgetDefinition.class.equals(Float.class)
                         || LogStreamWidgetDefinition.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (LogStreamWidgetDefinition.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -710,7 +725,8 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((MonitorSummaryWidgetDefinition.class.equals(Float.class)
                         || MonitorSummaryWidgetDefinition.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (MonitorSummaryWidgetDefinition.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -753,7 +769,8 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((NoteWidgetDefinition.class.equals(Float.class)
                         || NoteWidgetDefinition.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (NoteWidgetDefinition.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -794,7 +811,8 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((QueryValueWidgetDefinition.class.equals(Float.class)
                         || QueryValueWidgetDefinition.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (QueryValueWidgetDefinition.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -835,7 +853,8 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((SLOWidgetDefinition.class.equals(Float.class)
                         || SLOWidgetDefinition.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (SLOWidgetDefinition.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -875,7 +894,8 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((ScatterPlotWidgetDefinition.class.equals(Float.class)
                         || ScatterPlotWidgetDefinition.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (ScatterPlotWidgetDefinition.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -917,7 +937,8 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((ServiceMapWidgetDefinition.class.equals(Float.class)
                         || ServiceMapWidgetDefinition.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (ServiceMapWidgetDefinition.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -958,7 +979,8 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((ServiceSummaryWidgetDefinition.class.equals(Float.class)
                         || ServiceSummaryWidgetDefinition.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (ServiceSummaryWidgetDefinition.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -1001,7 +1023,8 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((TableWidgetDefinition.class.equals(Float.class)
                         || TableWidgetDefinition.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (TableWidgetDefinition.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -1042,7 +1065,8 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((TimeseriesWidgetDefinition.class.equals(Float.class)
                         || TimeseriesWidgetDefinition.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (TimeseriesWidgetDefinition.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -1083,7 +1107,8 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((ToplistWidgetDefinition.class.equals(Float.class)
                         || ToplistWidgetDefinition.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (ToplistWidgetDefinition.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));

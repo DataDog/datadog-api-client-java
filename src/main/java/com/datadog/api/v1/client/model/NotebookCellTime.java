@@ -91,7 +91,8 @@ public class NotebookCellTime extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((NotebookAbsoluteTime.class.equals(Float.class)
                         || NotebookAbsoluteTime.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (NotebookAbsoluteTime.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -133,7 +134,8 @@ public class NotebookCellTime extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((NotebookRelativeTime.class.equals(Float.class)
                         || NotebookRelativeTime.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (NotebookRelativeTime.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));

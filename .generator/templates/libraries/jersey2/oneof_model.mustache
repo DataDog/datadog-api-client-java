@@ -87,7 +87,7 @@ public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-im
                     attemptParsing = typeCoercion;
                     if (!attemptParsing) {
                         attemptParsing |= (({{{.}}}.class.equals(Integer.class) || {{{.}}}.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
-                        attemptParsing |= (({{{.}}}.class.equals(Float.class) || {{{.}}}.class.equals(Double.class)) && token == JsonToken.VALUE_NUMBER_FLOAT);
+                        attemptParsing |= (({{{.}}}.class.equals(Float.class) || {{{.}}}.class.equals(Double.class)) && (token == JsonToken.VALUE_NUMBER_FLOAT || token == JsonToken.VALUE_NUMBER_INT));
                         attemptParsing |= ({{{.}}}.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
                         attemptParsing |= ({{{.}}}.class.equals(String.class) && token == JsonToken.VALUE_STRING);
                         {{#isNullable}}
