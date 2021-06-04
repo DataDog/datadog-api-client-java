@@ -100,7 +100,8 @@ public class IncidentTimelineCellCreateAttributes extends AbstractOpenApiSchema 
             attemptParsing |=
                 ((IncidentTimelineCellMarkdownCreateAttributes.class.equals(Float.class)
                         || IncidentTimelineCellMarkdownCreateAttributes.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (IncidentTimelineCellMarkdownCreateAttributes.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));

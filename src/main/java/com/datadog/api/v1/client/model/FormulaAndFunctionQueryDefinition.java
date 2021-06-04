@@ -97,7 +97,8 @@ public class FormulaAndFunctionQueryDefinition extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((FormulaAndFunctionEventQueryDefinition.class.equals(Float.class)
                         || FormulaAndFunctionEventQueryDefinition.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (FormulaAndFunctionEventQueryDefinition.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -144,7 +145,8 @@ public class FormulaAndFunctionQueryDefinition extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((FormulaAndFunctionMetricQueryDefinition.class.equals(Float.class)
                         || FormulaAndFunctionMetricQueryDefinition.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (FormulaAndFunctionMetricQueryDefinition.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -191,7 +193,8 @@ public class FormulaAndFunctionQueryDefinition extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((FormulaAndFunctionProcessQueryDefinition.class.equals(Float.class)
                         || FormulaAndFunctionProcessQueryDefinition.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (FormulaAndFunctionProcessQueryDefinition.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));

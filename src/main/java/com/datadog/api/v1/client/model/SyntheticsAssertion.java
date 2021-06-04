@@ -92,7 +92,8 @@ public class SyntheticsAssertion extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((SyntheticsAssertionJSONPathTarget.class.equals(Float.class)
                         || SyntheticsAssertionJSONPathTarget.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (SyntheticsAssertionJSONPathTarget.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -135,7 +136,8 @@ public class SyntheticsAssertion extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((SyntheticsAssertionTarget.class.equals(Float.class)
                         || SyntheticsAssertionTarget.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (SyntheticsAssertionTarget.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));

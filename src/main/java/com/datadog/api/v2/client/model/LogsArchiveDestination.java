@@ -94,7 +94,8 @@ public class LogsArchiveDestination extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((LogsArchiveDestinationAzure.class.equals(Float.class)
                         || LogsArchiveDestinationAzure.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (LogsArchiveDestinationAzure.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -137,7 +138,8 @@ public class LogsArchiveDestination extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((LogsArchiveDestinationGCS.class.equals(Float.class)
                         || LogsArchiveDestinationGCS.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (LogsArchiveDestinationGCS.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -179,7 +181,8 @@ public class LogsArchiveDestination extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((LogsArchiveDestinationS3.class.equals(Float.class)
                         || LogsArchiveDestinationS3.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (LogsArchiveDestinationS3.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));

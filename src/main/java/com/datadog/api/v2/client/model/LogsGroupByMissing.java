@@ -89,7 +89,8 @@ public class LogsGroupByMissing extends AbstractOpenApiSchema {
                     && token == JsonToken.VALUE_NUMBER_INT);
             attemptParsing |=
                 ((Double.class.equals(Float.class) || Double.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (Double.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -127,7 +128,8 @@ public class LogsGroupByMissing extends AbstractOpenApiSchema {
                     && token == JsonToken.VALUE_NUMBER_INT);
             attemptParsing |=
                 ((String.class.equals(Float.class) || String.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (String.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));

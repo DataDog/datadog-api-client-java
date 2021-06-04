@@ -96,7 +96,8 @@ public class ApplicationKeyResponseIncludedItem extends AbstractOpenApiSchema {
                     && token == JsonToken.VALUE_NUMBER_INT);
             attemptParsing |=
                 ((Role.class.equals(Float.class) || Role.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (Role.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -133,7 +134,8 @@ public class ApplicationKeyResponseIncludedItem extends AbstractOpenApiSchema {
                     && token == JsonToken.VALUE_NUMBER_INT);
             attemptParsing |=
                 ((User.class.equals(Float.class) || User.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (User.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));

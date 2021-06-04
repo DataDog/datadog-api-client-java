@@ -91,7 +91,8 @@ public class LogsProcessor extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((LogsArithmeticProcessor.class.equals(Float.class)
                         || LogsArithmeticProcessor.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (LogsArithmeticProcessor.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -132,7 +133,8 @@ public class LogsProcessor extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((LogsAttributeRemapper.class.equals(Float.class)
                         || LogsAttributeRemapper.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (LogsAttributeRemapper.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -173,7 +175,8 @@ public class LogsProcessor extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((LogsCategoryProcessor.class.equals(Float.class)
                         || LogsCategoryProcessor.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (LogsCategoryProcessor.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -214,7 +217,8 @@ public class LogsProcessor extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((LogsDateRemapper.class.equals(Float.class)
                         || LogsDateRemapper.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (LogsDateRemapper.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -254,7 +258,8 @@ public class LogsProcessor extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((LogsGeoIPParser.class.equals(Float.class)
                         || LogsGeoIPParser.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (LogsGeoIPParser.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -294,7 +299,8 @@ public class LogsProcessor extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((LogsGrokParser.class.equals(Float.class)
                         || LogsGrokParser.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (LogsGrokParser.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -334,7 +340,8 @@ public class LogsProcessor extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((LogsLookupProcessor.class.equals(Float.class)
                         || LogsLookupProcessor.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (LogsLookupProcessor.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -374,7 +381,8 @@ public class LogsProcessor extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((LogsMessageRemapper.class.equals(Float.class)
                         || LogsMessageRemapper.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (LogsMessageRemapper.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -414,7 +422,8 @@ public class LogsProcessor extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((LogsPipelineProcessor.class.equals(Float.class)
                         || LogsPipelineProcessor.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (LogsPipelineProcessor.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -455,7 +464,8 @@ public class LogsProcessor extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((LogsServiceRemapper.class.equals(Float.class)
                         || LogsServiceRemapper.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (LogsServiceRemapper.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -495,7 +505,8 @@ public class LogsProcessor extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((LogsStatusRemapper.class.equals(Float.class)
                         || LogsStatusRemapper.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (LogsStatusRemapper.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -535,7 +546,8 @@ public class LogsProcessor extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((LogsStringBuilderProcessor.class.equals(Float.class)
                         || LogsStringBuilderProcessor.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (LogsStringBuilderProcessor.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -576,7 +588,8 @@ public class LogsProcessor extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((LogsTraceRemapper.class.equals(Float.class)
                         || LogsTraceRemapper.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (LogsTraceRemapper.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -616,7 +629,8 @@ public class LogsProcessor extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((LogsURLParser.class.equals(Float.class)
                         || LogsURLParser.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (LogsURLParser.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -656,7 +670,8 @@ public class LogsProcessor extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((LogsUserAgentParser.class.equals(Float.class)
                         || LogsUserAgentParser.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (LogsUserAgentParser.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));

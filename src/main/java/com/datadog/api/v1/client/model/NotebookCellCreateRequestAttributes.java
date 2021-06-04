@@ -99,7 +99,8 @@ public class NotebookCellCreateRequestAttributes extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((NotebookDistributionCellAttributes.class.equals(Float.class)
                         || NotebookDistributionCellAttributes.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (NotebookDistributionCellAttributes.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -144,7 +145,8 @@ public class NotebookCellCreateRequestAttributes extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((NotebookHeatMapCellAttributes.class.equals(Float.class)
                         || NotebookHeatMapCellAttributes.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (NotebookHeatMapCellAttributes.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -186,7 +188,8 @@ public class NotebookCellCreateRequestAttributes extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((NotebookLogStreamCellAttributes.class.equals(Float.class)
                         || NotebookLogStreamCellAttributes.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (NotebookLogStreamCellAttributes.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -229,7 +232,8 @@ public class NotebookCellCreateRequestAttributes extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((NotebookMarkdownCellAttributes.class.equals(Float.class)
                         || NotebookMarkdownCellAttributes.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (NotebookMarkdownCellAttributes.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -272,7 +276,8 @@ public class NotebookCellCreateRequestAttributes extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((NotebookTimeseriesCellAttributes.class.equals(Float.class)
                         || NotebookTimeseriesCellAttributes.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (NotebookTimeseriesCellAttributes.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
@@ -315,7 +320,8 @@ public class NotebookCellCreateRequestAttributes extends AbstractOpenApiSchema {
             attemptParsing |=
                 ((NotebookToplistCellAttributes.class.equals(Float.class)
                         || NotebookToplistCellAttributes.class.equals(Double.class))
-                    && token == JsonToken.VALUE_NUMBER_FLOAT);
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
             attemptParsing |=
                 (NotebookToplistCellAttributes.class.equals(Boolean.class)
                     && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
