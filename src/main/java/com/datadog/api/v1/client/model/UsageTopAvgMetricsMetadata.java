@@ -10,14 +10,13 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.OffsetDateTime;
 import java.util.Objects;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 /** The object containing document metadata. */
 @ApiModel(description = "The object containing document metadata.")
@@ -29,16 +28,16 @@ import org.openapitools.jackson.nullable.JsonNullable;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageTopAvgMetricsMetadata {
   public static final String JSON_PROPERTY_DAY = "day";
-  private JsonNullable<Object> day = JsonNullable.<Object>of(null);
+  private OffsetDateTime day;
 
   public static final String JSON_PROPERTY_MONTH = "month";
-  private JsonNullable<Object> month = JsonNullable.<Object>of(null);
+  private OffsetDateTime month;
 
   public static final String JSON_PROPERTY_PAGINATION = "pagination";
   private UsageAttributionPagination pagination;
 
-  public UsageTopAvgMetricsMetadata day(Object day) {
-    this.day = JsonNullable.<Object>of(day);
+  public UsageTopAvgMetricsMetadata day(OffsetDateTime day) {
+    this.day = day;
     return this;
   }
 
@@ -53,28 +52,18 @@ public class UsageTopAvgMetricsMetadata {
       value =
           "The day value from the user request that contains the returned usage data. (If day was"
               + " used the request)")
-  @JsonIgnore
-  public Object getDay() {
-    return day.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_DAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Object> getDay_JsonNullable() {
+  public OffsetDateTime getDay() {
     return day;
   }
 
-  @JsonProperty(JSON_PROPERTY_DAY)
-  public void setDay_JsonNullable(JsonNullable<Object> day) {
+  public void setDay(OffsetDateTime day) {
     this.day = day;
   }
 
-  public void setDay(Object day) {
-    this.day = JsonNullable.<Object>of(day);
-  }
-
-  public UsageTopAvgMetricsMetadata month(Object month) {
-    this.month = JsonNullable.<Object>of(month);
+  public UsageTopAvgMetricsMetadata month(OffsetDateTime month) {
+    this.month = month;
     return this;
   }
 
@@ -89,24 +78,14 @@ public class UsageTopAvgMetricsMetadata {
       value =
           "The month value from the user request that contains the returned usage data. (If month"
               + " was used the request)")
-  @JsonIgnore
-  public Object getMonth() {
-    return month.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Object> getMonth_JsonNullable() {
+  public OffsetDateTime getMonth() {
     return month;
   }
 
-  @JsonProperty(JSON_PROPERTY_MONTH)
-  public void setMonth_JsonNullable(JsonNullable<Object> month) {
+  public void setMonth(OffsetDateTime month) {
     this.month = month;
-  }
-
-  public void setMonth(Object month) {
-    this.month = JsonNullable.<Object>of(month);
   }
 
   public UsageTopAvgMetricsMetadata pagination(UsageAttributionPagination pagination) {
