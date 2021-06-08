@@ -19844,21 +19844,23 @@ components:
         monitor_id: 0
         name: name
         options:
+          allow_insecure: true
+          accept_self_signed: true
+          monitor_name: monitor_name
           min_location_failed: 7
           monitor_options:
             renotify_interval: 1339
           disableCors: true
           min_failure_duration: 2
-          allow_insecure: true
+          monitor_priority: 2
           noScreenshot: true
           device_ids:
           - null
           - null
           follow_redirects: true
-          accept_self_signed: true
           retry:
-            count: 3
-            interval: 2.027123023002322
+            count: 2
+            interval: 4.145608029883936
         locations:
         - locations
         - locations
@@ -20593,21 +20595,23 @@ components:
         monitor_id: 0
         name: name
         options:
+          allow_insecure: true
+          accept_self_signed: true
+          monitor_name: monitor_name
           min_location_failed: 7
           monitor_options:
             renotify_interval: 1339
           disableCors: true
           min_failure_duration: 2
-          allow_insecure: true
+          monitor_priority: 2
           noScreenshot: true
           device_ids:
           - null
           - null
           follow_redirects: true
-          accept_self_signed: true
           retry:
-            count: 3
-            interval: 2.027123023002322
+            count: 2
+            interval: 4.145608029883936
         locations:
         - locations
         - locations
@@ -20655,11 +20659,11 @@ components:
         - allowFailure: true
           name: name
           params: '{}'
-          timeout: 4
+          timeout: 7
         - allowFailure: true
           name: name
           params: '{}'
-          timeout: 4
+          timeout: 7
         public_id: public_id
         tags:
         - tags
@@ -21163,8 +21167,8 @@ components:
         - locations
         - locations
         retry:
-          count: 3
-          interval: 2.027123023002322
+          count: 2
+          interval: 4.145608029883936
       properties:
         allowInsecureCertificates:
           description: Disable certificate checks in API tests.
@@ -21253,8 +21257,8 @@ components:
           - locations
           - locations
           retry:
-            count: 3
-            interval: 2.027123023002322
+            count: 2
+            interval: 4.145608029883936
         - bodyType: bodyType
           headers:
             key: headers
@@ -21283,8 +21287,8 @@ components:
           - locations
           - locations
           retry:
-            count: 3
-            interval: 2.027123023002322
+            count: 2
+            interval: 4.145608029883936
       properties:
         tests:
           description: Individual synthetics test.
@@ -21733,21 +21737,23 @@ components:
         - monitor_id: 5
           name: name
           options:
+            allow_insecure: true
+            accept_self_signed: true
+            monitor_name: monitor_name
             min_location_failed: 7
             monitor_options:
               renotify_interval: 1339
             disableCors: true
             min_failure_duration: 2
-            allow_insecure: true
+            monitor_priority: 2
             noScreenshot: true
             device_ids:
             - null
             - null
             follow_redirects: true
-            accept_self_signed: true
             retry:
-              count: 3
-              interval: 2.027123023002322
+              count: 2
+              interval: 4.145608029883936
           locations:
           - locations
           - locations
@@ -21802,11 +21808,11 @@ components:
           - allowFailure: true
             name: name
             params: '{}'
-            timeout: 4
+            timeout: 7
           - allowFailure: true
             name: name
             params: '{}'
-            timeout: 4
+            timeout: 7
           public_id: public_id
           tags:
           - tags
@@ -21814,21 +21820,23 @@ components:
         - monitor_id: 5
           name: name
           options:
+            allow_insecure: true
+            accept_self_signed: true
+            monitor_name: monitor_name
             min_location_failed: 7
             monitor_options:
               renotify_interval: 1339
             disableCors: true
             min_failure_duration: 2
-            allow_insecure: true
+            monitor_priority: 2
             noScreenshot: true
             device_ids:
             - null
             - null
             follow_redirects: true
-            accept_self_signed: true
             retry:
-              count: 3
-              interval: 2.027123023002322
+              count: 2
+              interval: 4.145608029883936
           locations:
           - locations
           - locations
@@ -21883,11 +21891,11 @@ components:
           - allowFailure: true
             name: name
             params: '{}'
-            timeout: 4
+            timeout: 7
           - allowFailure: true
             name: name
             params: '{}'
-            timeout: 4
+            timeout: 7
           public_id: public_id
           tags:
           - tags
@@ -22118,7 +22126,7 @@ components:
         allowFailure: true
         name: name
         params: '{}'
-        timeout: 4
+        timeout: 7
       properties:
         allowFailure:
           description: A boolean set to allow this step to fail.
@@ -22377,21 +22385,23 @@ components:
         monitor_id: 5
         name: name
         options:
+          allow_insecure: true
+          accept_self_signed: true
+          monitor_name: monitor_name
           min_location_failed: 7
           monitor_options:
             renotify_interval: 1339
           disableCors: true
           min_failure_duration: 2
-          allow_insecure: true
+          monitor_priority: 2
           noScreenshot: true
           device_ids:
           - null
           - null
           follow_redirects: true
-          accept_self_signed: true
           retry:
-            count: 3
-            interval: 2.027123023002322
+            count: 2
+            interval: 4.145608029883936
         locations:
         - locations
         - locations
@@ -22446,11 +22456,11 @@ components:
         - allowFailure: true
           name: name
           params: '{}'
-          timeout: 4
+          timeout: 7
         - allowFailure: true
           name: name
           params: '{}'
-          timeout: 4
+          timeout: 7
         public_id: public_id
         tags:
         - tags
@@ -22552,21 +22562,23 @@ components:
     SyntheticsTestOptions:
       description: Object describing the extra options for a Synthetic test.
       example:
+        allow_insecure: true
+        accept_self_signed: true
+        monitor_name: monitor_name
         min_location_failed: 7
         monitor_options:
           renotify_interval: 1339
         disableCors: true
         min_failure_duration: 2
-        allow_insecure: true
+        monitor_priority: 2
         noScreenshot: true
         device_ids:
         - null
         - null
         follow_redirects: true
-        accept_self_signed: true
         retry:
-          count: 3
-          interval: 2.027123023002322
+          count: 2
+          interval: 4.145608029883936
       properties:
         accept_self_signed:
           description: |-
@@ -22598,8 +22610,18 @@ components:
             an alert.
           format: int64
           type: integer
+        monitor_name:
+          description: The monitor name is used for the alert title as well as for
+            all monitor dashboard widgets and SLOs.
+          type: string
         monitor_options:
           $ref: '#/components/schemas/SyntheticsTestOptions_monitor_options'
+        monitor_priority:
+          description: Integer from 1 (high) to 5 (low) indicating alert severity.
+          format: int32
+          maximum: 5
+          minimum: 1
+          type: integer
         noScreenshot:
           description: Prevents saving screenshots of the steps.
           type: boolean
@@ -22611,8 +22633,8 @@ components:
     SyntheticsTestOptionsRetry:
       description: Object describing the retry strategy to apply to a Synthetic test.
       example:
-        count: 3
-        interval: 2.027123023002322
+        count: 2
+        interval: 4.145608029883936
       properties:
         count:
           description: |-

@@ -29,7 +29,9 @@ import java.util.Objects;
   SyntheticsTestOptions.JSON_PROPERTY_FOLLOW_REDIRECTS,
   SyntheticsTestOptions.JSON_PROPERTY_MIN_FAILURE_DURATION,
   SyntheticsTestOptions.JSON_PROPERTY_MIN_LOCATION_FAILED,
+  SyntheticsTestOptions.JSON_PROPERTY_MONITOR_NAME,
   SyntheticsTestOptions.JSON_PROPERTY_MONITOR_OPTIONS,
+  SyntheticsTestOptions.JSON_PROPERTY_MONITOR_PRIORITY,
   SyntheticsTestOptions.JSON_PROPERTY_NO_SCREENSHOT,
   SyntheticsTestOptions.JSON_PROPERTY_RETRY,
   SyntheticsTestOptions.JSON_PROPERTY_TICK_EVERY
@@ -57,8 +59,14 @@ public class SyntheticsTestOptions {
   public static final String JSON_PROPERTY_MIN_LOCATION_FAILED = "min_location_failed";
   private Long minLocationFailed;
 
+  public static final String JSON_PROPERTY_MONITOR_NAME = "monitor_name";
+  private String monitorName;
+
   public static final String JSON_PROPERTY_MONITOR_OPTIONS = "monitor_options";
   private SyntheticsTestOptionsMonitorOptions monitorOptions;
+
+  public static final String JSON_PROPERTY_MONITOR_PRIORITY = "monitor_priority";
+  private Integer monitorPriority;
 
   public static final String JSON_PROPERTY_NO_SCREENSHOT = "noScreenshot";
   private Boolean noScreenshot;
@@ -233,6 +241,32 @@ public class SyntheticsTestOptions {
     this.minLocationFailed = minLocationFailed;
   }
 
+  public SyntheticsTestOptions monitorName(String monitorName) {
+    this.monitorName = monitorName;
+    return this;
+  }
+
+  /**
+   * The monitor name is used for the alert title as well as for all monitor dashboard widgets and
+   * SLOs.
+   *
+   * @return monitorName
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "The monitor name is used for the alert title as well as for all monitor dashboard"
+              + " widgets and SLOs.")
+  @JsonProperty(JSON_PROPERTY_MONITOR_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getMonitorName() {
+    return monitorName;
+  }
+
+  public void setMonitorName(String monitorName) {
+    this.monitorName = monitorName;
+  }
+
   public SyntheticsTestOptions monitorOptions(SyntheticsTestOptionsMonitorOptions monitorOptions) {
     this.monitorOptions = monitorOptions;
     return this;
@@ -253,6 +287,28 @@ public class SyntheticsTestOptions {
 
   public void setMonitorOptions(SyntheticsTestOptionsMonitorOptions monitorOptions) {
     this.monitorOptions = monitorOptions;
+  }
+
+  public SyntheticsTestOptions monitorPriority(Integer monitorPriority) {
+    this.monitorPriority = monitorPriority;
+    return this;
+  }
+
+  /**
+   * Integer from 1 (high) to 5 (low) indicating alert severity. minimum: 1 maximum: 5
+   *
+   * @return monitorPriority
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Integer from 1 (high) to 5 (low) indicating alert severity.")
+  @JsonProperty(JSON_PROPERTY_MONITOR_PRIORITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Integer getMonitorPriority() {
+    return monitorPriority;
+  }
+
+  public void setMonitorPriority(Integer monitorPriority) {
+    this.monitorPriority = monitorPriority;
   }
 
   public SyntheticsTestOptions noScreenshot(Boolean noScreenshot) {
@@ -338,7 +394,9 @@ public class SyntheticsTestOptions {
         && Objects.equals(this.followRedirects, syntheticsTestOptions.followRedirects)
         && Objects.equals(this.minFailureDuration, syntheticsTestOptions.minFailureDuration)
         && Objects.equals(this.minLocationFailed, syntheticsTestOptions.minLocationFailed)
+        && Objects.equals(this.monitorName, syntheticsTestOptions.monitorName)
         && Objects.equals(this.monitorOptions, syntheticsTestOptions.monitorOptions)
+        && Objects.equals(this.monitorPriority, syntheticsTestOptions.monitorPriority)
         && Objects.equals(this.noScreenshot, syntheticsTestOptions.noScreenshot)
         && Objects.equals(this.retry, syntheticsTestOptions.retry)
         && Objects.equals(this.tickEvery, syntheticsTestOptions.tickEvery);
@@ -354,7 +412,9 @@ public class SyntheticsTestOptions {
         followRedirects,
         minFailureDuration,
         minLocationFailed,
+        monitorName,
         monitorOptions,
+        monitorPriority,
         noScreenshot,
         retry,
         tickEvery);
@@ -371,7 +431,9 @@ public class SyntheticsTestOptions {
     sb.append("    followRedirects: ").append(toIndentedString(followRedirects)).append("\n");
     sb.append("    minFailureDuration: ").append(toIndentedString(minFailureDuration)).append("\n");
     sb.append("    minLocationFailed: ").append(toIndentedString(minLocationFailed)).append("\n");
+    sb.append("    monitorName: ").append(toIndentedString(monitorName)).append("\n");
     sb.append("    monitorOptions: ").append(toIndentedString(monitorOptions)).append("\n");
+    sb.append("    monitorPriority: ").append(toIndentedString(monitorPriority)).append("\n");
     sb.append("    noScreenshot: ").append(toIndentedString(noScreenshot)).append("\n");
     sb.append("    retry: ").append(toIndentedString(retry)).append("\n");
     sb.append("    tickEvery: ").append(toIndentedString(tickEvery)).append("\n");
