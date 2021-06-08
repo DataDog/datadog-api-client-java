@@ -4,7 +4,7 @@ on:
   pull_request:
     branches:
       - master
-    types: ["review_requested", "opened", "reopened"]
+    types: ["review_requested", "synchronize", "opened", "reopened"]
   pull_request_review:
     types:
       - submitted
