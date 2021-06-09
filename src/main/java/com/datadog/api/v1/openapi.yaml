@@ -24043,7 +24043,7 @@ components:
             first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
             org_billable_usage: 5
             usage_unit: usage_unit
-          iot_top99p:
+          logs_indexed_180day_sum:
             account_billable_usage: 1
             last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
             percentage_in_account: 2.3021358869347655
@@ -24051,15 +24051,7 @@ components:
             first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
             org_billable_usage: 5
             usage_unit: usage_unit
-          synthetics_browser_checks_sum:
-            account_billable_usage: 1
-            last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
-            percentage_in_account: 2.3021358869347655
-            elapsed_usage_hours: 5
-            first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
-            org_billable_usage: 5
-            usage_unit: usage_unit
-          apm_host_top99p:
+          logs_indexed_3day_sum:
             account_billable_usage: 1
             last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
             percentage_in_account: 2.3021358869347655
@@ -24091,6 +24083,118 @@ components:
             first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
             org_billable_usage: 5
             usage_unit: usage_unit
+          prof_container_sum:
+            account_billable_usage: 1
+            last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+            percentage_in_account: 2.3021358869347655
+            elapsed_usage_hours: 5
+            first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+            org_billable_usage: 5
+            usage_unit: usage_unit
+          apm_host_sum:
+            account_billable_usage: 1
+            last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+            percentage_in_account: 2.3021358869347655
+            elapsed_usage_hours: 5
+            first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+            org_billable_usage: 5
+            usage_unit: usage_unit
+          network_device_top99p:
+            account_billable_usage: 1
+            last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+            percentage_in_account: 2.3021358869347655
+            elapsed_usage_hours: 5
+            first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+            org_billable_usage: 5
+            usage_unit: usage_unit
+          logs_indexed_15day_sum:
+            account_billable_usage: 1
+            last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+            percentage_in_account: 2.3021358869347655
+            elapsed_usage_hours: 5
+            first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+            org_billable_usage: 5
+            usage_unit: usage_unit
+          logs_indexed_45day_sum:
+            account_billable_usage: 1
+            last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+            percentage_in_account: 2.3021358869347655
+            elapsed_usage_hours: 5
+            first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+            org_billable_usage: 5
+            usage_unit: usage_unit
+          logs_indexed_30day_sum:
+            account_billable_usage: 1
+            last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+            percentage_in_account: 2.3021358869347655
+            elapsed_usage_hours: 5
+            first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+            org_billable_usage: 5
+            usage_unit: usage_unit
+          npm_host_sum:
+            account_billable_usage: 1
+            last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+            percentage_in_account: 2.3021358869347655
+            elapsed_usage_hours: 5
+            first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+            org_billable_usage: 5
+            usage_unit: usage_unit
+          logs_indexed_custom_retention_sum:
+            account_billable_usage: 1
+            last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+            percentage_in_account: 2.3021358869347655
+            elapsed_usage_hours: 5
+            first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+            org_billable_usage: 5
+            usage_unit: usage_unit
+          prof_host_top99p:
+            account_billable_usage: 1
+            last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+            percentage_in_account: 2.3021358869347655
+            elapsed_usage_hours: 5
+            first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+            org_billable_usage: 5
+            usage_unit: usage_unit
+          iot_top99p:
+            account_billable_usage: 1
+            last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+            percentage_in_account: 2.3021358869347655
+            elapsed_usage_hours: 5
+            first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+            org_billable_usage: 5
+            usage_unit: usage_unit
+          synthetics_browser_checks_sum:
+            account_billable_usage: 1
+            last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+            percentage_in_account: 2.3021358869347655
+            elapsed_usage_hours: 5
+            first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+            org_billable_usage: 5
+            usage_unit: usage_unit
+          apm_host_top99p:
+            account_billable_usage: 1
+            last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+            percentage_in_account: 2.3021358869347655
+            elapsed_usage_hours: 5
+            first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+            org_billable_usage: 5
+            usage_unit: usage_unit
+          logs_indexed_7day_sum:
+            account_billable_usage: 1
+            last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+            percentage_in_account: 2.3021358869347655
+            elapsed_usage_hours: 5
+            first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+            org_billable_usage: 5
+            usage_unit: usage_unit
+          logs_indexed_60day_sum:
+            account_billable_usage: 1
+            last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+            percentage_in_account: 2.3021358869347655
+            elapsed_usage_hours: 5
+            first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+            org_billable_usage: 5
+            usage_unit: usage_unit
           timeseries_average:
             account_billable_usage: 1
             last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
@@ -24100,14 +24204,6 @@ components:
             org_billable_usage: 5
             usage_unit: usage_unit
           infra_host_sum:
-            account_billable_usage: 1
-            last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
-            percentage_in_account: 2.3021358869347655
-            elapsed_usage_hours: 5
-            first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
-            org_billable_usage: 5
-            usage_unit: usage_unit
-          apm_host_sum:
             account_billable_usage: 1
             last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
             percentage_in_account: 2.3021358869347655
@@ -24132,6 +24228,14 @@ components:
             org_billable_usage: 5
             usage_unit: usage_unit
           serverless_invocation_sum:
+            account_billable_usage: 1
+            last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+            percentage_in_account: 2.3021358869347655
+            elapsed_usage_hours: 5
+            first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+            org_billable_usage: 5
+            usage_unit: usage_unit
+          logs_indexed_90day_sum:
             account_billable_usage: 1
             last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
             percentage_in_account: 2.3021358869347655
@@ -24231,7 +24335,7 @@ components:
           first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
           org_billable_usage: 5
           usage_unit: usage_unit
-        iot_top99p:
+        logs_indexed_180day_sum:
           account_billable_usage: 1
           last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
           percentage_in_account: 2.3021358869347655
@@ -24239,15 +24343,7 @@ components:
           first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
           org_billable_usage: 5
           usage_unit: usage_unit
-        synthetics_browser_checks_sum:
-          account_billable_usage: 1
-          last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
-          percentage_in_account: 2.3021358869347655
-          elapsed_usage_hours: 5
-          first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
-          org_billable_usage: 5
-          usage_unit: usage_unit
-        apm_host_top99p:
+        logs_indexed_3day_sum:
           account_billable_usage: 1
           last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
           percentage_in_account: 2.3021358869347655
@@ -24279,6 +24375,118 @@ components:
           first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
           org_billable_usage: 5
           usage_unit: usage_unit
+        prof_container_sum:
+          account_billable_usage: 1
+          last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+          percentage_in_account: 2.3021358869347655
+          elapsed_usage_hours: 5
+          first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+          org_billable_usage: 5
+          usage_unit: usage_unit
+        apm_host_sum:
+          account_billable_usage: 1
+          last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+          percentage_in_account: 2.3021358869347655
+          elapsed_usage_hours: 5
+          first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+          org_billable_usage: 5
+          usage_unit: usage_unit
+        network_device_top99p:
+          account_billable_usage: 1
+          last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+          percentage_in_account: 2.3021358869347655
+          elapsed_usage_hours: 5
+          first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+          org_billable_usage: 5
+          usage_unit: usage_unit
+        logs_indexed_15day_sum:
+          account_billable_usage: 1
+          last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+          percentage_in_account: 2.3021358869347655
+          elapsed_usage_hours: 5
+          first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+          org_billable_usage: 5
+          usage_unit: usage_unit
+        logs_indexed_45day_sum:
+          account_billable_usage: 1
+          last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+          percentage_in_account: 2.3021358869347655
+          elapsed_usage_hours: 5
+          first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+          org_billable_usage: 5
+          usage_unit: usage_unit
+        logs_indexed_30day_sum:
+          account_billable_usage: 1
+          last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+          percentage_in_account: 2.3021358869347655
+          elapsed_usage_hours: 5
+          first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+          org_billable_usage: 5
+          usage_unit: usage_unit
+        npm_host_sum:
+          account_billable_usage: 1
+          last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+          percentage_in_account: 2.3021358869347655
+          elapsed_usage_hours: 5
+          first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+          org_billable_usage: 5
+          usage_unit: usage_unit
+        logs_indexed_custom_retention_sum:
+          account_billable_usage: 1
+          last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+          percentage_in_account: 2.3021358869347655
+          elapsed_usage_hours: 5
+          first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+          org_billable_usage: 5
+          usage_unit: usage_unit
+        prof_host_top99p:
+          account_billable_usage: 1
+          last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+          percentage_in_account: 2.3021358869347655
+          elapsed_usage_hours: 5
+          first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+          org_billable_usage: 5
+          usage_unit: usage_unit
+        iot_top99p:
+          account_billable_usage: 1
+          last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+          percentage_in_account: 2.3021358869347655
+          elapsed_usage_hours: 5
+          first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+          org_billable_usage: 5
+          usage_unit: usage_unit
+        synthetics_browser_checks_sum:
+          account_billable_usage: 1
+          last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+          percentage_in_account: 2.3021358869347655
+          elapsed_usage_hours: 5
+          first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+          org_billable_usage: 5
+          usage_unit: usage_unit
+        apm_host_top99p:
+          account_billable_usage: 1
+          last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+          percentage_in_account: 2.3021358869347655
+          elapsed_usage_hours: 5
+          first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+          org_billable_usage: 5
+          usage_unit: usage_unit
+        logs_indexed_7day_sum:
+          account_billable_usage: 1
+          last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+          percentage_in_account: 2.3021358869347655
+          elapsed_usage_hours: 5
+          first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+          org_billable_usage: 5
+          usage_unit: usage_unit
+        logs_indexed_60day_sum:
+          account_billable_usage: 1
+          last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+          percentage_in_account: 2.3021358869347655
+          elapsed_usage_hours: 5
+          first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+          org_billable_usage: 5
+          usage_unit: usage_unit
         timeseries_average:
           account_billable_usage: 1
           last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
@@ -24288,14 +24496,6 @@ components:
           org_billable_usage: 5
           usage_unit: usage_unit
         infra_host_sum:
-          account_billable_usage: 1
-          last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
-          percentage_in_account: 2.3021358869347655
-          elapsed_usage_hours: 5
-          first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
-          org_billable_usage: 5
-          usage_unit: usage_unit
-        apm_host_sum:
           account_billable_usage: 1
           last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
           percentage_in_account: 2.3021358869347655
@@ -24320,6 +24520,14 @@ components:
           org_billable_usage: 5
           usage_unit: usage_unit
         serverless_invocation_sum:
+          account_billable_usage: 1
+          last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+          percentage_in_account: 2.3021358869347655
+          elapsed_usage_hours: 5
+          first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+          org_billable_usage: 5
+          usage_unit: usage_unit
+        logs_indexed_90day_sum:
           account_billable_usage: 1
           last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
           percentage_in_account: 2.3021358869347655
@@ -24370,13 +24578,39 @@ components:
           $ref: '#/components/schemas/UsageBillableSummaryBody'
         lambda_function_average:
           $ref: '#/components/schemas/UsageBillableSummaryBody'
+        logs_indexed_15day_sum:
+          $ref: '#/components/schemas/UsageBillableSummaryBody'
+        logs_indexed_180day_sum:
+          $ref: '#/components/schemas/UsageBillableSummaryBody'
+        logs_indexed_30day_sum:
+          $ref: '#/components/schemas/UsageBillableSummaryBody'
+        logs_indexed_3day_sum:
+          $ref: '#/components/schemas/UsageBillableSummaryBody'
+        logs_indexed_45day_sum:
+          $ref: '#/components/schemas/UsageBillableSummaryBody'
+        logs_indexed_60day_sum:
+          $ref: '#/components/schemas/UsageBillableSummaryBody'
+        logs_indexed_7day_sum:
+          $ref: '#/components/schemas/UsageBillableSummaryBody'
+        logs_indexed_90day_sum:
+          $ref: '#/components/schemas/UsageBillableSummaryBody'
+        logs_indexed_custom_retention_sum:
+          $ref: '#/components/schemas/UsageBillableSummaryBody'
         logs_indexed_sum:
           $ref: '#/components/schemas/UsageBillableSummaryBody'
         logs_ingested_sum:
           $ref: '#/components/schemas/UsageBillableSummaryBody'
+        network_device_top99p:
+          $ref: '#/components/schemas/UsageBillableSummaryBody'
         npm_flow_sum:
           $ref: '#/components/schemas/UsageBillableSummaryBody'
+        npm_host_sum:
+          $ref: '#/components/schemas/UsageBillableSummaryBody'
         npm_host_top99p:
+          $ref: '#/components/schemas/UsageBillableSummaryBody'
+        prof_container_sum:
+          $ref: '#/components/schemas/UsageBillableSummaryBody'
+        prof_host_top99p:
           $ref: '#/components/schemas/UsageBillableSummaryBody'
         rum_sum:
           $ref: '#/components/schemas/UsageBillableSummaryBody'
@@ -24431,7 +24665,7 @@ components:
               first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
               org_billable_usage: 5
               usage_unit: usage_unit
-            iot_top99p:
+            logs_indexed_180day_sum:
               account_billable_usage: 1
               last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
               percentage_in_account: 2.3021358869347655
@@ -24439,15 +24673,7 @@ components:
               first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
               org_billable_usage: 5
               usage_unit: usage_unit
-            synthetics_browser_checks_sum:
-              account_billable_usage: 1
-              last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
-              percentage_in_account: 2.3021358869347655
-              elapsed_usage_hours: 5
-              first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
-              org_billable_usage: 5
-              usage_unit: usage_unit
-            apm_host_top99p:
+            logs_indexed_3day_sum:
               account_billable_usage: 1
               last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
               percentage_in_account: 2.3021358869347655
@@ -24479,6 +24705,118 @@ components:
               first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
               org_billable_usage: 5
               usage_unit: usage_unit
+            prof_container_sum:
+              account_billable_usage: 1
+              last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              percentage_in_account: 2.3021358869347655
+              elapsed_usage_hours: 5
+              first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              org_billable_usage: 5
+              usage_unit: usage_unit
+            apm_host_sum:
+              account_billable_usage: 1
+              last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              percentage_in_account: 2.3021358869347655
+              elapsed_usage_hours: 5
+              first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              org_billable_usage: 5
+              usage_unit: usage_unit
+            network_device_top99p:
+              account_billable_usage: 1
+              last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              percentage_in_account: 2.3021358869347655
+              elapsed_usage_hours: 5
+              first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              org_billable_usage: 5
+              usage_unit: usage_unit
+            logs_indexed_15day_sum:
+              account_billable_usage: 1
+              last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              percentage_in_account: 2.3021358869347655
+              elapsed_usage_hours: 5
+              first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              org_billable_usage: 5
+              usage_unit: usage_unit
+            logs_indexed_45day_sum:
+              account_billable_usage: 1
+              last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              percentage_in_account: 2.3021358869347655
+              elapsed_usage_hours: 5
+              first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              org_billable_usage: 5
+              usage_unit: usage_unit
+            logs_indexed_30day_sum:
+              account_billable_usage: 1
+              last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              percentage_in_account: 2.3021358869347655
+              elapsed_usage_hours: 5
+              first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              org_billable_usage: 5
+              usage_unit: usage_unit
+            npm_host_sum:
+              account_billable_usage: 1
+              last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              percentage_in_account: 2.3021358869347655
+              elapsed_usage_hours: 5
+              first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              org_billable_usage: 5
+              usage_unit: usage_unit
+            logs_indexed_custom_retention_sum:
+              account_billable_usage: 1
+              last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              percentage_in_account: 2.3021358869347655
+              elapsed_usage_hours: 5
+              first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              org_billable_usage: 5
+              usage_unit: usage_unit
+            prof_host_top99p:
+              account_billable_usage: 1
+              last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              percentage_in_account: 2.3021358869347655
+              elapsed_usage_hours: 5
+              first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              org_billable_usage: 5
+              usage_unit: usage_unit
+            iot_top99p:
+              account_billable_usage: 1
+              last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              percentage_in_account: 2.3021358869347655
+              elapsed_usage_hours: 5
+              first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              org_billable_usage: 5
+              usage_unit: usage_unit
+            synthetics_browser_checks_sum:
+              account_billable_usage: 1
+              last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              percentage_in_account: 2.3021358869347655
+              elapsed_usage_hours: 5
+              first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              org_billable_usage: 5
+              usage_unit: usage_unit
+            apm_host_top99p:
+              account_billable_usage: 1
+              last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              percentage_in_account: 2.3021358869347655
+              elapsed_usage_hours: 5
+              first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              org_billable_usage: 5
+              usage_unit: usage_unit
+            logs_indexed_7day_sum:
+              account_billable_usage: 1
+              last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              percentage_in_account: 2.3021358869347655
+              elapsed_usage_hours: 5
+              first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              org_billable_usage: 5
+              usage_unit: usage_unit
+            logs_indexed_60day_sum:
+              account_billable_usage: 1
+              last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              percentage_in_account: 2.3021358869347655
+              elapsed_usage_hours: 5
+              first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              org_billable_usage: 5
+              usage_unit: usage_unit
             timeseries_average:
               account_billable_usage: 1
               last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
@@ -24488,14 +24826,6 @@ components:
               org_billable_usage: 5
               usage_unit: usage_unit
             infra_host_sum:
-              account_billable_usage: 1
-              last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
-              percentage_in_account: 2.3021358869347655
-              elapsed_usage_hours: 5
-              first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
-              org_billable_usage: 5
-              usage_unit: usage_unit
-            apm_host_sum:
               account_billable_usage: 1
               last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
               percentage_in_account: 2.3021358869347655
@@ -24520,6 +24850,14 @@ components:
               org_billable_usage: 5
               usage_unit: usage_unit
             serverless_invocation_sum:
+              account_billable_usage: 1
+              last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              percentage_in_account: 2.3021358869347655
+              elapsed_usage_hours: 5
+              first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              org_billable_usage: 5
+              usage_unit: usage_unit
+            logs_indexed_90day_sum:
               account_billable_usage: 1
               last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
               percentage_in_account: 2.3021358869347655
@@ -24591,7 +24929,7 @@ components:
               first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
               org_billable_usage: 5
               usage_unit: usage_unit
-            iot_top99p:
+            logs_indexed_180day_sum:
               account_billable_usage: 1
               last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
               percentage_in_account: 2.3021358869347655
@@ -24599,15 +24937,7 @@ components:
               first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
               org_billable_usage: 5
               usage_unit: usage_unit
-            synthetics_browser_checks_sum:
-              account_billable_usage: 1
-              last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
-              percentage_in_account: 2.3021358869347655
-              elapsed_usage_hours: 5
-              first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
-              org_billable_usage: 5
-              usage_unit: usage_unit
-            apm_host_top99p:
+            logs_indexed_3day_sum:
               account_billable_usage: 1
               last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
               percentage_in_account: 2.3021358869347655
@@ -24639,6 +24969,118 @@ components:
               first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
               org_billable_usage: 5
               usage_unit: usage_unit
+            prof_container_sum:
+              account_billable_usage: 1
+              last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              percentage_in_account: 2.3021358869347655
+              elapsed_usage_hours: 5
+              first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              org_billable_usage: 5
+              usage_unit: usage_unit
+            apm_host_sum:
+              account_billable_usage: 1
+              last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              percentage_in_account: 2.3021358869347655
+              elapsed_usage_hours: 5
+              first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              org_billable_usage: 5
+              usage_unit: usage_unit
+            network_device_top99p:
+              account_billable_usage: 1
+              last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              percentage_in_account: 2.3021358869347655
+              elapsed_usage_hours: 5
+              first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              org_billable_usage: 5
+              usage_unit: usage_unit
+            logs_indexed_15day_sum:
+              account_billable_usage: 1
+              last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              percentage_in_account: 2.3021358869347655
+              elapsed_usage_hours: 5
+              first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              org_billable_usage: 5
+              usage_unit: usage_unit
+            logs_indexed_45day_sum:
+              account_billable_usage: 1
+              last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              percentage_in_account: 2.3021358869347655
+              elapsed_usage_hours: 5
+              first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              org_billable_usage: 5
+              usage_unit: usage_unit
+            logs_indexed_30day_sum:
+              account_billable_usage: 1
+              last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              percentage_in_account: 2.3021358869347655
+              elapsed_usage_hours: 5
+              first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              org_billable_usage: 5
+              usage_unit: usage_unit
+            npm_host_sum:
+              account_billable_usage: 1
+              last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              percentage_in_account: 2.3021358869347655
+              elapsed_usage_hours: 5
+              first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              org_billable_usage: 5
+              usage_unit: usage_unit
+            logs_indexed_custom_retention_sum:
+              account_billable_usage: 1
+              last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              percentage_in_account: 2.3021358869347655
+              elapsed_usage_hours: 5
+              first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              org_billable_usage: 5
+              usage_unit: usage_unit
+            prof_host_top99p:
+              account_billable_usage: 1
+              last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              percentage_in_account: 2.3021358869347655
+              elapsed_usage_hours: 5
+              first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              org_billable_usage: 5
+              usage_unit: usage_unit
+            iot_top99p:
+              account_billable_usage: 1
+              last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              percentage_in_account: 2.3021358869347655
+              elapsed_usage_hours: 5
+              first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              org_billable_usage: 5
+              usage_unit: usage_unit
+            synthetics_browser_checks_sum:
+              account_billable_usage: 1
+              last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              percentage_in_account: 2.3021358869347655
+              elapsed_usage_hours: 5
+              first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              org_billable_usage: 5
+              usage_unit: usage_unit
+            apm_host_top99p:
+              account_billable_usage: 1
+              last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              percentage_in_account: 2.3021358869347655
+              elapsed_usage_hours: 5
+              first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              org_billable_usage: 5
+              usage_unit: usage_unit
+            logs_indexed_7day_sum:
+              account_billable_usage: 1
+              last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              percentage_in_account: 2.3021358869347655
+              elapsed_usage_hours: 5
+              first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              org_billable_usage: 5
+              usage_unit: usage_unit
+            logs_indexed_60day_sum:
+              account_billable_usage: 1
+              last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              percentage_in_account: 2.3021358869347655
+              elapsed_usage_hours: 5
+              first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              org_billable_usage: 5
+              usage_unit: usage_unit
             timeseries_average:
               account_billable_usage: 1
               last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
@@ -24648,14 +25090,6 @@ components:
               org_billable_usage: 5
               usage_unit: usage_unit
             infra_host_sum:
-              account_billable_usage: 1
-              last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
-              percentage_in_account: 2.3021358869347655
-              elapsed_usage_hours: 5
-              first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
-              org_billable_usage: 5
-              usage_unit: usage_unit
-            apm_host_sum:
               account_billable_usage: 1
               last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
               percentage_in_account: 2.3021358869347655
@@ -24680,6 +25114,14 @@ components:
               org_billable_usage: 5
               usage_unit: usage_unit
             serverless_invocation_sum:
+              account_billable_usage: 1
+              last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              percentage_in_account: 2.3021358869347655
+              elapsed_usage_hours: 5
+              first_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
+              org_billable_usage: 5
+              usage_unit: usage_unit
+            logs_indexed_90day_sum:
               account_billable_usage: 1
               last_billable_usage_hour: 2000-01-23T04:56:07.000+00:00
               percentage_in_account: 2.3021358869347655
