@@ -1,5 +1,26 @@
 # CHANGELOG
 
+## 1.0.0 / 2021-06-10
+
+* [Added] Add missing fields in usage billable summary keys. See [#861](https://github.com/DataDog/datadog-api-client-java/pull/861).
+* [Added] Add monitor name and priority options. See [#858](https://github.com/DataDog/datadog-api-client-java/pull/858).
+* [Added] Add endpoint to list Synthetics global variables. See [#846](https://github.com/DataDog/datadog-api-client-java/pull/846).
+* [Added] Add monitors search endpoints. See [#842](https://github.com/DataDog/datadog-api-client-java/pull/842).
+* [Added] Add `tag_config_source` to usage attribution response. See [#837](https://github.com/DataDog/datadog-api-client-java/pull/837).
+* [Added] Add endpoints to configure Security Filters. See [#826](https://github.com/DataDog/datadog-api-client-java/pull/826).
+* [Added] Add `active_child` nested downtime object to `Downtime` component for downtime APIs.. See [#820](https://github.com/DataDog/datadog-api-client-java/pull/820).
+* [Added] Add Notebooks API. See [#819](https://github.com/DataDog/datadog-api-client-java/pull/819).
+* [Added] Add `override_label` and `is_hidden` attribute for `WidgetCustomLink`. See [#825](https://github.com/DataDog/datadog-api-client-java/pull/825).
+* [Added] Add CWS to usage metering endpoint. See [#845](https://github.com/DataDog/datadog-api-client-java/pull/845).
+* [Added] Add audit logs to usage endpoints. See [#853](https://github.com/DataDog/datadog-api-client-java/pull/853).
+* [Fixed] Fix type of day/month response attribute in custom metrics usage. See [#856](https://github.com/DataDog/datadog-api-client-java/pull/856).
+* [Fixed] Fix paging attributes of usage attribution endpoints. See [#821](https://github.com/DataDog/datadog-api-client-java/pull/821).
+* [Fixed] Properly mark several synthetics attributes as read only. See [#824](https://github.com/DataDog/datadog-api-client-java/pull/824).
+* [Fixed] Properly mark monitor required fields. See [#836](https://github.com/DataDog/datadog-api-client-java/pull/836).
+* [Fixed] Make `assertions` field optional for multistep synthetics tests, and add `global` config variable type. See [#844](https://github.com/DataDog/datadog-api-client-java/pull/844).
+* [Changed] Rename `compliance` to `CSPM` in usage endpoint. See [#853](https://github.com/DataDog/datadog-api-client-java/pull/853).
+* [Changed] Rename `incident_integration_metadata` to `incident_integrations` to match API. See [#831](https://github.com/DataDog/datadog-api-client-java/pull/831).
+
 ## 1.0.0-beta11 / 2021-05-12
 
 * [Added] Add `logs_by_retention` usage property and `GetUsageLogsByRetention` endpoint. See [#809](https://github.com/DataDog/datadog-api-client-java/pull/809).
