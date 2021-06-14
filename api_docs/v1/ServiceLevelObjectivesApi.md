@@ -455,12 +455,16 @@ public class Example {
         String query = "monitor"; // String | The query string to filter results based on SLO names.
         String tagsQuery = "env:prod"; // String | The query string to filter results based on a single SLO tag.
         String metricsQuery = "aws.elb.request_count"; // String | The query string to filter results based on SLO numerator and denominator.
+        Long limit = 56L; // Long | The number of SLOs to return in the response.
+        Long offset = 56L; // Long | The specific offset to use as the beginning of the returned response.
         try {
 	    SLOListResponse result = apiInstance.listSLOs(new ServiceLevelObjectivesApi.ListSLOsOptionalParameters()
                 .ids(ids)
                 .query(query)
                 .tagsQuery(tagsQuery)
-                .metricsQuery(metricsQuery));
+                .metricsQuery(metricsQuery)
+                .limit(limit)
+                .offset(offset));
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ServiceLevelObjectivesApi#listSLOs");
@@ -482,6 +486,8 @@ Name | Type | Description  | Notes
  **query** | **String**| The query string to filter results based on SLO names. | [optional]
  **tagsQuery** | **String**| The query string to filter results based on a single SLO tag. | [optional]
  **metricsQuery** | **String**| The query string to filter results based on SLO numerator and denominator. | [optional]
+ **limit** | **Long**| The number of SLOs to return in the response. | [optional]
+ **offset** | **Long**| The specific offset to use as the beginning of the returned response. | [optional]
 
 ### Return type
 

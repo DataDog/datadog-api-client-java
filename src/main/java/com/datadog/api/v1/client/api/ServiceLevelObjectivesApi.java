@@ -724,6 +724,8 @@ public class ServiceLevelObjectivesApi {
     private String query;
     private String tagsQuery;
     private String metricsQuery;
+    private Long limit;
+    private Long offset;
 
     /**
      * Set ids
@@ -768,6 +770,29 @@ public class ServiceLevelObjectivesApi {
      */
     public ListSLOsOptionalParameters metricsQuery(String metricsQuery) {
       this.metricsQuery = metricsQuery;
+      return this;
+    }
+
+    /**
+     * Set limit
+     *
+     * @param limit The number of SLOs to return in the response. (optional)
+     * @return ListSLOsOptionalParameters
+     */
+    public ListSLOsOptionalParameters limit(Long limit) {
+      this.limit = limit;
+      return this;
+    }
+
+    /**
+     * Set offset
+     *
+     * @param offset The specific offset to use as the beginning of the returned response.
+     *     (optional)
+     * @return ListSLOsOptionalParameters
+     */
+    public ListSLOsOptionalParameters offset(Long offset) {
+      this.offset = offset;
       return this;
     }
   }
@@ -831,6 +856,8 @@ public class ServiceLevelObjectivesApi {
     String query = parameters.query;
     String tagsQuery = parameters.tagsQuery;
     String metricsQuery = parameters.metricsQuery;
+    Long limit = parameters.limit;
+    Long offset = parameters.offset;
     // create path and map variables
     String localVarPath = "/api/v1/slo";
 
@@ -844,6 +871,8 @@ public class ServiceLevelObjectivesApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "tags_query", tagsQuery));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "metrics_query", metricsQuery));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "listSLOs");
