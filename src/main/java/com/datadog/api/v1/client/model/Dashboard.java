@@ -42,6 +42,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   Dashboard.JSON_PROPERTY_MODIFIED_AT,
   Dashboard.JSON_PROPERTY_NOTIFY_LIST,
   Dashboard.JSON_PROPERTY_REFLOW_TYPE,
+  Dashboard.JSON_PROPERTY_RESTRICTED_ROLES,
   Dashboard.JSON_PROPERTY_TEMPLATE_VARIABLE_PRESETS,
   Dashboard.JSON_PROPERTY_TEMPLATE_VARIABLES,
   Dashboard.JSON_PROPERTY_TITLE,
@@ -76,6 +77,9 @@ public class Dashboard {
 
   public static final String JSON_PROPERTY_REFLOW_TYPE = "reflow_type";
   private DashboardReflowType reflowType;
+
+  public static final String JSON_PROPERTY_RESTRICTED_ROLES = "restricted_roles";
+  private List<String> restrictedRoles = null;
 
   public static final String JSON_PROPERTY_TEMPLATE_VARIABLE_PRESETS = "template_variable_presets";
   private JsonNullable<List<DashboardTemplateVariablePreset>> templateVariablePresets =
@@ -306,6 +310,42 @@ public class Dashboard {
     this.reflowType = reflowType;
   }
 
+  public Dashboard restrictedRoles(List<String> restrictedRoles) {
+    this.restrictedRoles = restrictedRoles;
+    return this;
+  }
+
+  public Dashboard addRestrictedRolesItem(String restrictedRolesItem) {
+    if (this.restrictedRoles == null) {
+      this.restrictedRoles = new ArrayList<>();
+    }
+    this.restrictedRoles.add(restrictedRolesItem);
+    return this;
+  }
+
+  /**
+   * A list of role identifiers. Only the author and users associated with at least one of these
+   * roles can edit this dashboard. Overrides the &#x60;is_read_only&#x60; property if both are
+   * present. **This feature is currently in beta.**
+   *
+   * @return restrictedRoles
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "A list of role identifiers. Only the author and users associated with at least one of"
+              + " these roles can edit this dashboard. Overrides the `is_read_only` property if"
+              + " both are present. **This feature is currently in beta.**")
+  @JsonProperty(JSON_PROPERTY_RESTRICTED_ROLES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getRestrictedRoles() {
+    return restrictedRoles;
+  }
+
+  public void setRestrictedRoles(List<String> restrictedRoles) {
+    this.restrictedRoles = restrictedRoles;
+  }
+
   public Dashboard templateVariablePresets(
       List<DashboardTemplateVariablePreset> templateVariablePresets) {
     this.templateVariablePresets =
@@ -488,6 +528,7 @@ public class Dashboard {
         && Objects.equals(this.modifiedAt, dashboard.modifiedAt)
         && Objects.equals(this.notifyList, dashboard.notifyList)
         && Objects.equals(this.reflowType, dashboard.reflowType)
+        && Objects.equals(this.restrictedRoles, dashboard.restrictedRoles)
         && Objects.equals(this.templateVariablePresets, dashboard.templateVariablePresets)
         && Objects.equals(this.templateVariables, dashboard.templateVariables)
         && Objects.equals(this.title, dashboard.title)
@@ -507,6 +548,7 @@ public class Dashboard {
         modifiedAt,
         notifyList,
         reflowType,
+        restrictedRoles,
         templateVariablePresets,
         templateVariables,
         title,
@@ -527,6 +569,7 @@ public class Dashboard {
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    notifyList: ").append(toIndentedString(notifyList)).append("\n");
     sb.append("    reflowType: ").append(toIndentedString(reflowType)).append("\n");
+    sb.append("    restrictedRoles: ").append(toIndentedString(restrictedRoles)).append("\n");
     sb.append("    templateVariablePresets: ")
         .append(toIndentedString(templateVariablePresets))
         .append("\n");
