@@ -67,33 +67,26 @@ public class World {
       Matcher m = timeRE.matcher(arg);
       if (m.find()) {
         if (m.group(1) != null) {
-          String sign = m.group(2);
-          int num = Integer.parseInt(m.group(3));
+          int num = Integer.parseInt(m.group(2) + m.group(3));
           String unit = m.group(4);
           switch (unit) {
             case "s":
-              if (sign.equals("-")) ret = ret.minusSeconds(num);
-              else ret = ret.plusSeconds(num);
+              ret = ret.plusSeconds(num);
               break;
             case "m":
-              if (sign.equals("-")) ret = ret.minusMinutes(num);
-              else ret = ret.plusMinutes(num);
+              ret = ret.plusMinutes(num);
               break;
             case "h":
-              if (sign.equals("-")) ret = ret.minusHours(num);
-              else ret = ret.plusHours(num);
+              ret = ret.plusHours(num);
               break;
             case "d":
-              if (sign.equals("-")) ret = ret.minusDays(num);
-              else ret = ret.plusDays(num);
+              ret = ret.plusDays(num);
               break;
             case "M":
-              if (sign.equals("-")) ret = ret.minusMonths(num);
-              else ret = ret.plusMonths(num);
+              ret = ret.plusMonths(num);
               break;
             case "y":
-              if (sign.equals("-")) ret = ret.minusYears(num);
-              else ret = ret.plusYears(num);
+              ret = ret.plusYears(num);
               break;
           }
         }
