@@ -542,9 +542,9 @@ public class World {
       throws java.lang.IllegalAccessException, java.lang.NoSuchFieldException {
     return replace(
         source,
-        Pattern.compile("\\{\\{ ?([^ }]+) ?}}"),
+        Pattern.compile("\\{\\{ ?([^}]+) ?}}"),
         m -> {
-          String path = m.group(1);
+          String path = m.group(1).trim();
           Pattern functionRE = Pattern.compile("^(.+)\\((.*)\\)$");
           Matcher funcM = functionRE.matcher(path);
           if (funcM.find()) {
