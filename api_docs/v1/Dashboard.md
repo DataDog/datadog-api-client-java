@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **modifiedAt** | **OffsetDateTime** | Modification date of the dashboard. |  [optional] [readonly]
 **notifyList** | **List&lt;String&gt;** | List of handles of users to notify when changes are made to this dashboard. |  [optional]
 **reflowType** | **DashboardReflowType** |  |  [optional]
+**restrictedRoles** | **List&lt;String&gt;** | A list of role identifiers. Only the author and users associated with at least one of these roles can edit this dashboard. Overrides the &#x60;is_read_only&#x60; property if both are present. **This feature is currently in beta.** |  [optional]
 **templateVariablePresets** | [**List&lt;DashboardTemplateVariablePreset&gt;**](DashboardTemplateVariablePreset.md) | Array of template variables saved views. |  [optional]
 **templateVariables** | [**List&lt;DashboardTemplateVariable&gt;**](DashboardTemplateVariable.md) | List of template variables for this dashboard. |  [optional]
 **title** | **String** | Title of the dashboard. | 
