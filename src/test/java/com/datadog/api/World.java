@@ -4,15 +4,17 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.cucumber.java.Scenario;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.time.Clock;
 import java.time.OffsetDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Callable;
+import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -50,6 +52,58 @@ public class World {
   // Undo
   public List<Callable<?>> undo;
 
+  public static Map<String, BiFunction<Object, String, String>> templateFunctions =
+      new HashMap<String, BiFunction<Object, String, String>>() {
+        {
+          put("timeISO", relativeTime(true));
+          put("timestamp", relativeTime(false));
+        }
+      };
+
+  public static BiFunction<Object, String, String> relativeTime(boolean iso) {
+    final Pattern timeRE = Pattern.compile("now( *([+-]) *(\\d+)([smhdMy]))?");
+    return (context, arg) -> {
+      OffsetDateTime ret = (OffsetDateTime) ((Map<String, Object>) context).get("now");
+      Matcher m = timeRE.matcher(arg);
+      if (m.find()) {
+        if (m.group(1) != null) {
+          String sign = m.group(2);
+          int num = Integer.parseInt(m.group(3));
+          String unit = m.group(4);
+          switch (unit) {
+            case "s":
+              if (sign.equals("-")) ret = ret.minusSeconds(num);
+              else ret = ret.plusSeconds(num);
+              break;
+            case "m":
+              if (sign.equals("-")) ret = ret.minusMinutes(num);
+              else ret = ret.plusMinutes(num);
+              break;
+            case "h":
+              if (sign.equals("-")) ret = ret.minusHours(num);
+              else ret = ret.plusHours(num);
+              break;
+            case "d":
+              if (sign.equals("-")) ret = ret.minusDays(num);
+              else ret = ret.plusDays(num);
+              break;
+            case "M":
+              if (sign.equals("-")) ret = ret.minusMonths(num);
+              else ret = ret.plusMonths(num);
+              break;
+            case "y":
+              if (sign.equals("-")) ret = ret.minusYears(num);
+              else ret = ret.plusYears(num);
+              break;
+          }
+        }
+        if (iso) return ret.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME);
+        return String.valueOf(ret.toEpochSecond());
+      }
+      return null;
+    };
+  }
+
   public World() {
     context = new HashMap<>();
     undo = new ArrayList<>();
@@ -84,7 +138,7 @@ public class World {
 
     String site = System.getenv("DD_TEST_SITE");
     if (site != null) {
-      HashMap<String, String> serverVariables = new HashMap<String, String>();
+      HashMap<String, String> serverVariables = new HashMap<>();
       serverVariables.put("site", site);
 
       clientClass.getMethod("setServerIndex", Integer.class).invoke(client, 2);
@@ -147,8 +201,7 @@ public class World {
 
   public void configureApiKeys(Map<String, String> secrets)
       throws java.lang.reflect.InvocationTargetException, java.lang.IllegalAccessException,
-          java.lang.InstantiationException, java.lang.NoSuchMethodException,
-          java.lang.ClassNotFoundException {
+          java.lang.NoSuchMethodException {
     // client.configureApiKeys(secrets)
     clientClass.getMethod("configureApiKeys", Map.class).invoke(client, secrets);
   }
@@ -176,18 +229,17 @@ public class World {
 
   public void addRequestParameter(String parameterName, String value)
       throws java.lang.IllegalAccessException, java.lang.NoSuchFieldException,
-          java.lang.ClassNotFoundException, java.lang.NoSuchMethodException,
-          java.lang.reflect.InvocationTargetException,
+          java.lang.NoSuchMethodException, java.lang.reflect.InvocationTargetException,
           com.fasterxml.jackson.core.JsonProcessingException {
     String propertyName = toPropertyName(parameterName);
     Class fieldType = null;
-    Boolean isOptional = false;
+    boolean isOptional = false;
     if (requestParametersClass != null) {
       try {
         Field field = requestParametersClass.getDeclaredField(propertyName);
         fieldType = field.getType();
         isOptional = true;
-      } catch (NoSuchFieldException e) {
+      } catch (NoSuchFieldException ignored) {
       }
     }
     if (fieldType == null) {
@@ -213,17 +265,16 @@ public class World {
 
   public void addRequestParameterFixture(String parameterName, String fixturePath)
       throws java.lang.IllegalAccessException, java.lang.NoSuchFieldException,
-          java.lang.ClassNotFoundException, java.lang.NoSuchMethodException,
-          java.lang.reflect.InvocationTargetException {
+          java.lang.NoSuchMethodException, java.lang.reflect.InvocationTargetException {
     String propertyName = toPropertyName(parameterName);
     Class fieldType = null;
-    Boolean isOptional = false;
+    boolean isOptional = false;
     if (requestParametersClass != null) {
       try {
         Field field = requestParametersClass.getDeclaredField(propertyName);
         fieldType = field.getType();
         isOptional = true;
-      } catch (NoSuchFieldException e) {
+      } catch (NoSuchFieldException ignored) {
       }
     }
     if (fieldType == null) {
@@ -439,8 +490,7 @@ public class World {
 
     String prefix =
         TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE) ? "Test-Java" : "Test";
-    String result = String.format("%s-%s-%d", prefix, name, now.toEpochSecond());
-    return result;
+    return String.format("%s-%s-%d", prefix, name, now.toEpochSecond());
   }
 
   /*
@@ -454,10 +504,10 @@ public class World {
   public static Object lookup(Object data, String path)
       throws java.lang.IllegalAccessException, java.lang.NoSuchFieldException {
     Object result = data;
-    for (String dotPart : Arrays.asList(path.split("\\."))) {
-      for (String part : Arrays.asList(dotPart.split("\\["))) {
-        if (part.indexOf("]") != -1) {
-          Integer index = Integer.parseInt(part.replaceAll("]", ""));
+    for (String dotPart : path.split("\\.")) {
+      for (String part : dotPart.split("\\[")) {
+        if (part.contains("]")) {
+          int index = Integer.parseInt(part.replaceAll("]", ""));
           result = List.class.cast(result).get(index);
         } else {
           try {
@@ -469,9 +519,7 @@ public class World {
               // try to handle oneOf models
               try {
                 result = result.getClass().getMethod("getActualInstance").invoke(result);
-              } catch (java.lang.reflect.InvocationTargetException eee) {
-                throw ee;
-              } catch (java.lang.NoSuchMethodException eee) {
+              } catch (InvocationTargetException | NoSuchMethodException eee) {
                 throw ee;
               }
               result = getPropertyValue(result, toPropertyName(part));
@@ -494,10 +542,18 @@ public class World {
       throws java.lang.IllegalAccessException, java.lang.NoSuchFieldException {
     return replace(
         source,
-        Pattern.compile("\\{\\{ ?([^ }]+) ?\\}\\}"),
+        Pattern.compile("\\{\\{ ?([^ }]+) ?}}"),
         m -> {
+          String path = m.group(1);
+          Pattern functionRE = Pattern.compile("^(.+)\\((.*)\\)$");
+          Matcher funcM = functionRE.matcher(path);
+          if (funcM.find()) {
+            String funcName = funcM.group(1);
+            String arg = funcM.group(2);
+            return templateFunctions.get(funcName).apply(context, arg);
+          }
           try {
-            return lookup(context, m.group(1)).toString();
+            return lookup(context, path).toString();
           } catch (Exception e) {
             return null;
           }
@@ -508,19 +564,9 @@ public class World {
    * Convert an identifier to property name.
    */
   public static String toPropertyName(String identifier) {
-    identifier =
-        replace(
-            identifier,
-            Pattern.compile("_(.)"),
-            m -> {
-              return m.group(1).toUpperCase();
-            });
+    identifier = replace(identifier, Pattern.compile("_(.)"), m -> m.group(1).toUpperCase());
     return replace(
-        identifier,
-        Pattern.compile("\\[(.)([^]]*)\\]"),
-        m -> {
-          return m.group(1).toUpperCase() + m.group(2);
-        });
+        identifier, Pattern.compile("\\[(.)([^]]*)]"), m -> m.group(1).toUpperCase() + m.group(2));
   }
 
   /*
@@ -545,21 +591,14 @@ public class World {
     return replace(
         identifier,
         Pattern.compile("([A-Z])([A-Z]+)([A-Z][a-z])"),
-        m -> {
-          return m.group(1) + m.group(2).toLowerCase() + m.group(3);
-        });
+        m -> m.group(1) + m.group(2).toLowerCase() + m.group(3));
   }
 
   /*
    * Convert an identifier to method name.
    */
   public static String toMethodName(String identifier) {
-    return replace(
-        identifier,
-        Pattern.compile("^([A-Z])"),
-        m -> {
-          return m.group(1).toLowerCase();
-        });
+    return replace(identifier, Pattern.compile("^([A-Z])"), m -> m.group(1).toLowerCase());
   }
 
   @SuppressWarnings("unchecked")
