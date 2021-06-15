@@ -24,12 +24,14 @@ import java.util.Objects;
 @JsonPropertyOrder({
   SecurityMonitoringRuleUpdatePayload.JSON_PROPERTY_CASES,
   SecurityMonitoringRuleUpdatePayload.JSON_PROPERTY_FILTERS,
+  SecurityMonitoringRuleUpdatePayload.JSON_PROPERTY_HAS_EXTENDED_TITLE,
   SecurityMonitoringRuleUpdatePayload.JSON_PROPERTY_IS_ENABLED,
   SecurityMonitoringRuleUpdatePayload.JSON_PROPERTY_MESSAGE,
   SecurityMonitoringRuleUpdatePayload.JSON_PROPERTY_NAME,
   SecurityMonitoringRuleUpdatePayload.JSON_PROPERTY_OPTIONS,
   SecurityMonitoringRuleUpdatePayload.JSON_PROPERTY_QUERIES,
-  SecurityMonitoringRuleUpdatePayload.JSON_PROPERTY_TAGS
+  SecurityMonitoringRuleUpdatePayload.JSON_PROPERTY_TAGS,
+  SecurityMonitoringRuleUpdatePayload.JSON_PROPERTY_VERSION
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SecurityMonitoringRuleUpdatePayload {
@@ -38,6 +40,9 @@ public class SecurityMonitoringRuleUpdatePayload {
 
   public static final String JSON_PROPERTY_FILTERS = "filters";
   private List<SecurityMonitoringFilter> filters = null;
+
+  public static final String JSON_PROPERTY_HAS_EXTENDED_TITLE = "hasExtendedTitle";
+  private Boolean hasExtendedTitle;
 
   public static final String JSON_PROPERTY_IS_ENABLED = "isEnabled";
   private Boolean isEnabled;
@@ -56,6 +61,9 @@ public class SecurityMonitoringRuleUpdatePayload {
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
+
+  public static final String JSON_PROPERTY_VERSION = "version";
+  private Integer version;
 
   public SecurityMonitoringRuleUpdatePayload cases(List<SecurityMonitoringRuleCase> cases) {
     this.cases = cases;
@@ -116,6 +124,30 @@ public class SecurityMonitoringRuleUpdatePayload {
 
   public void setFilters(List<SecurityMonitoringFilter> filters) {
     this.filters = filters;
+  }
+
+  public SecurityMonitoringRuleUpdatePayload hasExtendedTitle(Boolean hasExtendedTitle) {
+    this.hasExtendedTitle = hasExtendedTitle;
+    return this;
+  }
+
+  /**
+   * Whether the notifications include the triggering group-by values in their title.
+   *
+   * @return hasExtendedTitle
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      example = "true",
+      value = "Whether the notifications include the triggering group-by values in their title.")
+  @JsonProperty(JSON_PROPERTY_HAS_EXTENDED_TITLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getHasExtendedTitle() {
+    return hasExtendedTitle;
+  }
+
+  public void setHasExtendedTitle(Boolean hasExtendedTitle) {
+    this.hasExtendedTitle = hasExtendedTitle;
   }
 
   public SecurityMonitoringRuleUpdatePayload isEnabled(Boolean isEnabled) {
@@ -267,6 +299,28 @@ public class SecurityMonitoringRuleUpdatePayload {
     this.tags = tags;
   }
 
+  public SecurityMonitoringRuleUpdatePayload version(Integer version) {
+    this.version = version;
+    return this;
+  }
+
+  /**
+   * The version of the rule being updated. maximum: 2147483647
+   *
+   * @return version
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "1", value = "The version of the rule being updated.")
+  @JsonProperty(JSON_PROPERTY_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Integer getVersion() {
+    return version;
+  }
+
+  public void setVersion(Integer version) {
+    this.version = version;
+  }
+
   /** Return true if this SecurityMonitoringRuleUpdatePayload object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -280,17 +334,30 @@ public class SecurityMonitoringRuleUpdatePayload {
         (SecurityMonitoringRuleUpdatePayload) o;
     return Objects.equals(this.cases, securityMonitoringRuleUpdatePayload.cases)
         && Objects.equals(this.filters, securityMonitoringRuleUpdatePayload.filters)
+        && Objects.equals(
+            this.hasExtendedTitle, securityMonitoringRuleUpdatePayload.hasExtendedTitle)
         && Objects.equals(this.isEnabled, securityMonitoringRuleUpdatePayload.isEnabled)
         && Objects.equals(this.message, securityMonitoringRuleUpdatePayload.message)
         && Objects.equals(this.name, securityMonitoringRuleUpdatePayload.name)
         && Objects.equals(this.options, securityMonitoringRuleUpdatePayload.options)
         && Objects.equals(this.queries, securityMonitoringRuleUpdatePayload.queries)
-        && Objects.equals(this.tags, securityMonitoringRuleUpdatePayload.tags);
+        && Objects.equals(this.tags, securityMonitoringRuleUpdatePayload.tags)
+        && Objects.equals(this.version, securityMonitoringRuleUpdatePayload.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cases, filters, isEnabled, message, name, options, queries, tags);
+    return Objects.hash(
+        cases,
+        filters,
+        hasExtendedTitle,
+        isEnabled,
+        message,
+        name,
+        options,
+        queries,
+        tags,
+        version);
   }
 
   @Override
@@ -299,12 +366,14 @@ public class SecurityMonitoringRuleUpdatePayload {
     sb.append("class SecurityMonitoringRuleUpdatePayload {\n");
     sb.append("    cases: ").append(toIndentedString(cases)).append("\n");
     sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
+    sb.append("    hasExtendedTitle: ").append(toIndentedString(hasExtendedTitle)).append("\n");
     sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    options: ").append(toIndentedString(options)).append("\n");
     sb.append("    queries: ").append(toIndentedString(queries)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }

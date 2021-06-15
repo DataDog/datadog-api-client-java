@@ -25,6 +25,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_CASES,
   SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_FILTERS,
+  SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_HAS_EXTENDED_TITLE,
   SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_IS_ENABLED,
   SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_MESSAGE,
   SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_NAME,
@@ -39,6 +40,9 @@ public class SecurityMonitoringRuleCreatePayload {
 
   public static final String JSON_PROPERTY_FILTERS = "filters";
   private List<SecurityMonitoringFilter> filters = null;
+
+  public static final String JSON_PROPERTY_HAS_EXTENDED_TITLE = "hasExtendedTitle";
+  private Boolean hasExtendedTitle;
 
   public static final String JSON_PROPERTY_IS_ENABLED = "isEnabled";
   private Boolean isEnabled;
@@ -137,6 +141,30 @@ public class SecurityMonitoringRuleCreatePayload {
     this.filters = filters;
   }
 
+  public SecurityMonitoringRuleCreatePayload hasExtendedTitle(Boolean hasExtendedTitle) {
+    this.hasExtendedTitle = hasExtendedTitle;
+    return this;
+  }
+
+  /**
+   * Whether the notifications include the triggering group-by values in their title.
+   *
+   * @return hasExtendedTitle
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      example = "true",
+      value = "Whether the notifications include the triggering group-by values in their title.")
+  @JsonProperty(JSON_PROPERTY_HAS_EXTENDED_TITLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getHasExtendedTitle() {
+    return hasExtendedTitle;
+  }
+
+  public void setHasExtendedTitle(Boolean hasExtendedTitle) {
+    this.hasExtendedTitle = hasExtendedTitle;
+  }
+
   public SecurityMonitoringRuleCreatePayload isEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
     return this;
@@ -189,7 +217,10 @@ public class SecurityMonitoringRuleCreatePayload {
    *
    * @return name
    */
-  @ApiModelProperty(example = "", required = true, value = "The name of the rule.")
+  @ApiModelProperty(
+      example = "My security monitoring rule.",
+      required = true,
+      value = "The name of the rule.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {
@@ -297,6 +328,8 @@ public class SecurityMonitoringRuleCreatePayload {
         (SecurityMonitoringRuleCreatePayload) o;
     return Objects.equals(this.cases, securityMonitoringRuleCreatePayload.cases)
         && Objects.equals(this.filters, securityMonitoringRuleCreatePayload.filters)
+        && Objects.equals(
+            this.hasExtendedTitle, securityMonitoringRuleCreatePayload.hasExtendedTitle)
         && Objects.equals(this.isEnabled, securityMonitoringRuleCreatePayload.isEnabled)
         && Objects.equals(this.message, securityMonitoringRuleCreatePayload.message)
         && Objects.equals(this.name, securityMonitoringRuleCreatePayload.name)
@@ -307,7 +340,8 @@ public class SecurityMonitoringRuleCreatePayload {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cases, filters, isEnabled, message, name, options, queries, tags);
+    return Objects.hash(
+        cases, filters, hasExtendedTitle, isEnabled, message, name, options, queries, tags);
   }
 
   @Override
@@ -316,6 +350,7 @@ public class SecurityMonitoringRuleCreatePayload {
     sb.append("class SecurityMonitoringRuleCreatePayload {\n");
     sb.append("    cases: ").append(toIndentedString(cases)).append("\n");
     sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
+    sb.append("    hasExtendedTitle: ").append(toIndentedString(hasExtendedTitle)).append("\n");
     sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
