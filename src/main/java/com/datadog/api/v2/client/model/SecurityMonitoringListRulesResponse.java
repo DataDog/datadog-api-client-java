@@ -47,12 +47,12 @@ public class SecurityMonitoringListRulesResponse {
   }
 
   /**
-   * TODO.
+   * Array containing the list of rules.
    *
    * @return data
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "TODO.")
+  @ApiModelProperty(value = "Array containing the list of rules.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SecurityMonitoringRuleResponse> getData() {

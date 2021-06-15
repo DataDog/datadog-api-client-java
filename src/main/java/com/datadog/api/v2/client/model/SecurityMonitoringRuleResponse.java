@@ -19,13 +19,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/** Detection rule. */
-@ApiModel(description = "Detection rule.")
+/** Rule. */
+@ApiModel(description = "Rule.")
 @JsonPropertyOrder({
   SecurityMonitoringRuleResponse.JSON_PROPERTY_CASES,
   SecurityMonitoringRuleResponse.JSON_PROPERTY_CREATED_AT,
   SecurityMonitoringRuleResponse.JSON_PROPERTY_CREATION_AUTHOR_ID,
   SecurityMonitoringRuleResponse.JSON_PROPERTY_FILTERS,
+  SecurityMonitoringRuleResponse.JSON_PROPERTY_HAS_EXTENDED_TITLE,
   SecurityMonitoringRuleResponse.JSON_PROPERTY_ID,
   SecurityMonitoringRuleResponse.JSON_PROPERTY_IS_DEFAULT,
   SecurityMonitoringRuleResponse.JSON_PROPERTY_IS_DELETED,
@@ -35,6 +36,7 @@ import java.util.Objects;
   SecurityMonitoringRuleResponse.JSON_PROPERTY_OPTIONS,
   SecurityMonitoringRuleResponse.JSON_PROPERTY_QUERIES,
   SecurityMonitoringRuleResponse.JSON_PROPERTY_TAGS,
+  SecurityMonitoringRuleResponse.JSON_PROPERTY_UPDATE_AUTHOR_ID,
   SecurityMonitoringRuleResponse.JSON_PROPERTY_VERSION
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -50,6 +52,9 @@ public class SecurityMonitoringRuleResponse {
 
   public static final String JSON_PROPERTY_FILTERS = "filters";
   private List<SecurityMonitoringFilter> filters = null;
+
+  public static final String JSON_PROPERTY_HAS_EXTENDED_TITLE = "hasExtendedTitle";
+  private Boolean hasExtendedTitle;
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -77,6 +82,9 @@ public class SecurityMonitoringRuleResponse {
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
+
+  public static final String JSON_PROPERTY_UPDATE_AUTHOR_ID = "updateAuthorId";
+  private Long updateAuthorId;
 
   public static final String JSON_PROPERTY_VERSION = "version";
   private Long version;
@@ -184,6 +192,29 @@ public class SecurityMonitoringRuleResponse {
 
   public void setFilters(List<SecurityMonitoringFilter> filters) {
     this.filters = filters;
+  }
+
+  public SecurityMonitoringRuleResponse hasExtendedTitle(Boolean hasExtendedTitle) {
+    this.hasExtendedTitle = hasExtendedTitle;
+    return this;
+  }
+
+  /**
+   * Whether the notifications include the triggering group-by values in their title.
+   *
+   * @return hasExtendedTitle
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value = "Whether the notifications include the triggering group-by values in their title.")
+  @JsonProperty(JSON_PROPERTY_HAS_EXTENDED_TITLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getHasExtendedTitle() {
+    return hasExtendedTitle;
+  }
+
+  public void setHasExtendedTitle(Boolean hasExtendedTitle) {
+    this.hasExtendedTitle = hasExtendedTitle;
   }
 
   public SecurityMonitoringRuleResponse id(String id) {
@@ -400,6 +431,28 @@ public class SecurityMonitoringRuleResponse {
     this.tags = tags;
   }
 
+  public SecurityMonitoringRuleResponse updateAuthorId(Long updateAuthorId) {
+    this.updateAuthorId = updateAuthorId;
+    return this;
+  }
+
+  /**
+   * User ID of the user who updated the rule.
+   *
+   * @return updateAuthorId
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "User ID of the user who updated the rule.")
+  @JsonProperty(JSON_PROPERTY_UPDATE_AUTHOR_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getUpdateAuthorId() {
+    return updateAuthorId;
+  }
+
+  public void setUpdateAuthorId(Long updateAuthorId) {
+    this.updateAuthorId = updateAuthorId;
+  }
+
   public SecurityMonitoringRuleResponse version(Long version) {
     this.version = version;
     return this;
@@ -437,6 +490,7 @@ public class SecurityMonitoringRuleResponse {
         && Objects.equals(this.createdAt, securityMonitoringRuleResponse.createdAt)
         && Objects.equals(this.creationAuthorId, securityMonitoringRuleResponse.creationAuthorId)
         && Objects.equals(this.filters, securityMonitoringRuleResponse.filters)
+        && Objects.equals(this.hasExtendedTitle, securityMonitoringRuleResponse.hasExtendedTitle)
         && Objects.equals(this.id, securityMonitoringRuleResponse.id)
         && Objects.equals(this.isDefault, securityMonitoringRuleResponse.isDefault)
         && Objects.equals(this.isDeleted, securityMonitoringRuleResponse.isDeleted)
@@ -446,6 +500,7 @@ public class SecurityMonitoringRuleResponse {
         && Objects.equals(this.options, securityMonitoringRuleResponse.options)
         && Objects.equals(this.queries, securityMonitoringRuleResponse.queries)
         && Objects.equals(this.tags, securityMonitoringRuleResponse.tags)
+        && Objects.equals(this.updateAuthorId, securityMonitoringRuleResponse.updateAuthorId)
         && Objects.equals(this.version, securityMonitoringRuleResponse.version);
   }
 
@@ -456,6 +511,7 @@ public class SecurityMonitoringRuleResponse {
         createdAt,
         creationAuthorId,
         filters,
+        hasExtendedTitle,
         id,
         isDefault,
         isDeleted,
@@ -465,6 +521,7 @@ public class SecurityMonitoringRuleResponse {
         options,
         queries,
         tags,
+        updateAuthorId,
         version);
   }
 
@@ -476,6 +533,7 @@ public class SecurityMonitoringRuleResponse {
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    creationAuthorId: ").append(toIndentedString(creationAuthorId)).append("\n");
     sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
+    sb.append("    hasExtendedTitle: ").append(toIndentedString(hasExtendedTitle)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    isDefault: ").append(toIndentedString(isDefault)).append("\n");
     sb.append("    isDeleted: ").append(toIndentedString(isDeleted)).append("\n");
@@ -485,6 +543,7 @@ public class SecurityMonitoringRuleResponse {
     sb.append("    options: ").append(toIndentedString(options)).append("\n");
     sb.append("    queries: ").append(toIndentedString(queries)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    updateAuthorId: ").append(toIndentedString(updateAuthorId)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
