@@ -189,7 +189,7 @@ public class SLOHistoryMetricsSeriesMetadata {
   @javax.annotation.Nullable
   @ApiModelProperty(
       example =
-          "[{\"family\":\"bytes\",\"scale_factor\":1.0,\"name\":\"byte\",\"short_name\":\"B\",\"plural\":\"bytes\",\"id\":2},null]",
+          "[{\"family\":\"bytes\",\"id\":2,\"name\":\"byte\",\"plural\":\"bytes\",\"scale_factor\":1.0,\"short_name\":\"B\"},null]",
       value =
           "An array of metric units that contains up to two unit objects. For example, bytes"
               + " represents one unit object and bytes per second represents two unit objects. If"
