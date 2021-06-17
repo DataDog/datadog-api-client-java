@@ -11,7 +11,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -61,14 +60,7 @@ public class ClientSteps {
     world.context.put(
         "unique_lower_alnum", world.context.get("unique_alnum").toString().toLowerCase());
 
-    world.context.put("now_ts", world.now.toEpochSecond());
-    world.context.put("now_iso", world.now.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME));
-    world.context.put("hour_later_ts", world.now.plusHours(1).toEpochSecond());
-    world.context.put(
-        "hour_later_iso", world.now.plusHours(1).format(DateTimeFormatter.ISO_OFFSET_DATE_TIME));
-    world.context.put("hour_ago_ts", world.now.minusHours(1).toEpochSecond());
-    world.context.put(
-        "hour_ago_iso", world.now.minusHours(1).format(DateTimeFormatter.ISO_OFFSET_DATE_TIME));
+    world.context.put("now", world.now);
   }
 
   @After
