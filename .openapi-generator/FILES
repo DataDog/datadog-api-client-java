@@ -269,7 +269,6 @@ docs/SecurityFilterAttributes.md
 docs/SecurityFilterCreateAttributes.md
 docs/SecurityFilterCreateData.md
 docs/SecurityFilterCreateRequest.md
-docs/SecurityFilterDeleteResponse.md
 docs/SecurityFilterExclusionFilter.md
 docs/SecurityFilterExclusionFilterResponse.md
 docs/SecurityFilterFilteredDataType.md
@@ -628,7 +627,6 @@ src/main/java/com/datadog/api/v2/client/model/SecurityFilterAttributes.java
 src/main/java/com/datadog/api/v2/client/model/SecurityFilterCreateAttributes.java
 src/main/java/com/datadog/api/v2/client/model/SecurityFilterCreateData.java
 src/main/java/com/datadog/api/v2/client/model/SecurityFilterCreateRequest.java
-src/main/java/com/datadog/api/v2/client/model/SecurityFilterDeleteResponse.java
 src/main/java/com/datadog/api/v2/client/model/SecurityFilterExclusionFilter.java
 src/main/java/com/datadog/api/v2/client/model/SecurityFilterExclusionFilterResponse.java
 src/main/java/com/datadog/api/v2/client/model/SecurityFilterFilteredDataType.java
@@ -947,7 +945,6 @@ src/test/java/com/datadog/api/v2/client/model/SecurityFilterAttributesTest.java
 src/test/java/com/datadog/api/v2/client/model/SecurityFilterCreateAttributesTest.java
 src/test/java/com/datadog/api/v2/client/model/SecurityFilterCreateDataTest.java
 src/test/java/com/datadog/api/v2/client/model/SecurityFilterCreateRequestTest.java
-src/test/java/com/datadog/api/v2/client/model/SecurityFilterDeleteResponseTest.java
 src/test/java/com/datadog/api/v2/client/model/SecurityFilterExclusionFilterResponseTest.java
 src/test/java/com/datadog/api/v2/client/model/SecurityFilterExclusionFilterTest.java
 src/test/java/com/datadog/api/v2/client/model/SecurityFilterFilteredDataTypeTest.java

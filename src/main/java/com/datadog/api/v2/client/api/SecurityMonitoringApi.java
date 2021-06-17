@@ -6,7 +6,6 @@ import com.datadog.api.v2.client.ApiResponse;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.Pair;
 import com.datadog.api.v2.client.model.SecurityFilterCreateRequest;
-import com.datadog.api.v2.client.model.SecurityFilterDeleteResponse;
 import com.datadog.api.v2.client.model.SecurityFilterResponse;
 import com.datadog.api.v2.client.model.SecurityFilterUpdateRequest;
 import com.datadog.api.v2.client.model.SecurityFiltersResponse;
@@ -228,41 +227,37 @@ public class SecurityMonitoringApi {
    * Delete a security filter Delete a specific security filter.
    *
    * @param securityFilterId The ID of the security filter. (required)
-   * @return SecurityFilterDeleteResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table summary="Response Details" border="1">
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public SecurityFilterDeleteResponse deleteSecurityFilter(String securityFilterId)
-      throws ApiException {
-    return deleteSecurityFilterWithHttpInfo(securityFilterId).getData();
+  public void deleteSecurityFilter(String securityFilterId) throws ApiException {
+    deleteSecurityFilterWithHttpInfo(securityFilterId);
   }
 
   /**
    * Delete a security filter Delete a specific security filter.
    *
    * @param securityFilterId The ID of the security filter. (required)
-   * @return ApiResponse&lt;SecurityFilterDeleteResponse&gt;
+   * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table summary="Response Details" border="1">
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Not Authorized </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
    *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<SecurityFilterDeleteResponse> deleteSecurityFilterWithHttpInfo(
-      String securityFilterId) throws ApiException {
+  public ApiResponse<Void> deleteSecurityFilterWithHttpInfo(String securityFilterId)
+      throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'securityFilterId' is set
@@ -296,9 +291,6 @@ public class SecurityMonitoringApi {
 
     String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
 
-    GenericType<SecurityFilterDeleteResponse> localVarReturnType =
-        new GenericType<SecurityFilterDeleteResponse>() {};
-
     return apiClient.invokeAPI(
         "SecurityMonitoringApi.deleteSecurityFilter",
         localVarPath,
@@ -311,7 +303,7 @@ public class SecurityMonitoringApi {
         localVarAccept,
         localVarContentType,
         localVarAuthNames,
-        localVarReturnType,
+        null,
         false);
   }
 
