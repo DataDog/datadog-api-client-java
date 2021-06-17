@@ -16,8 +16,10 @@ Name | Type | Description | Notes
 **length** | **Long** | Number of data samples. |  [optional] [readonly]
 **metric** | **String** | Metric name. |  [optional] [readonly]
 **pointlist** | **List&lt;List&lt;Double&gt;&gt;** | List of points of the time series. |  [optional] [readonly]
+**queryIndex** | **Long** | The index of the series&#39; query within the request. |  [optional] [readonly]
 **scope** | **String** | Metric scope, comma separated list of tags. |  [optional] [readonly]
 **start** | **Long** | Start of the time window, milliseconds since Unix epoch. |  [optional] [readonly]
+**tagSet** | **List&lt;String&gt;** | Unique tags identifying this series. |  [optional] [readonly]
 **unit** | [**List&lt;MetricsQueryUnit&gt;**](MetricsQueryUnit.md) | Detailed information about the metric unit. First element describes the \&quot;primary unit\&quot; (for example, &#x60;bytes&#x60; in &#x60;bytes per second&#x60;), second describes the \&quot;per unit\&quot; (for example, &#x60;second&#x60; in &#x60;bytes per second&#x60;). |  [optional] [readonly]
 
 

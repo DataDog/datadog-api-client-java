@@ -30,8 +30,10 @@ import java.util.Objects;
   MetricsQueryMetadata.JSON_PROPERTY_LENGTH,
   MetricsQueryMetadata.JSON_PROPERTY_METRIC,
   MetricsQueryMetadata.JSON_PROPERTY_POINTLIST,
+  MetricsQueryMetadata.JSON_PROPERTY_QUERY_INDEX,
   MetricsQueryMetadata.JSON_PROPERTY_SCOPE,
   MetricsQueryMetadata.JSON_PROPERTY_START,
+  MetricsQueryMetadata.JSON_PROPERTY_TAG_SET,
   MetricsQueryMetadata.JSON_PROPERTY_UNIT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -60,11 +62,17 @@ public class MetricsQueryMetadata {
   public static final String JSON_PROPERTY_POINTLIST = "pointlist";
   private List<List<Double>> pointlist = null;
 
+  public static final String JSON_PROPERTY_QUERY_INDEX = "query_index";
+  private Long queryIndex;
+
   public static final String JSON_PROPERTY_SCOPE = "scope";
   private String scope;
 
   public static final String JSON_PROPERTY_START = "start";
   private Long start;
+
+  public static final String JSON_PROPERTY_TAG_SET = "tag_set";
+  private List<String> tagSet = null;
 
   public static final String JSON_PROPERTY_UNIT = "unit";
   private List<MetricsQueryUnit> unit = null;
@@ -174,6 +182,19 @@ public class MetricsQueryMetadata {
   }
 
   /**
+   * The index of the series&#39; query within the request.
+   *
+   * @return queryIndex
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The index of the series' query within the request.")
+  @JsonProperty(JSON_PROPERTY_QUERY_INDEX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getQueryIndex() {
+    return queryIndex;
+  }
+
+  /**
    * Metric scope, comma separated list of tags.
    *
    * @return scope
@@ -199,6 +220,19 @@ public class MetricsQueryMetadata {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getStart() {
     return start;
+  }
+
+  /**
+   * Unique tags identifying this series.
+   *
+   * @return tagSet
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Unique tags identifying this series.")
+  @JsonProperty(JSON_PROPERTY_TAG_SET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getTagSet() {
+    return tagSet;
   }
 
   /**
@@ -238,8 +272,10 @@ public class MetricsQueryMetadata {
         && Objects.equals(this.length, metricsQueryMetadata.length)
         && Objects.equals(this.metric, metricsQueryMetadata.metric)
         && Objects.equals(this.pointlist, metricsQueryMetadata.pointlist)
+        && Objects.equals(this.queryIndex, metricsQueryMetadata.queryIndex)
         && Objects.equals(this.scope, metricsQueryMetadata.scope)
         && Objects.equals(this.start, metricsQueryMetadata.start)
+        && Objects.equals(this.tagSet, metricsQueryMetadata.tagSet)
         && Objects.equals(this.unit, metricsQueryMetadata.unit);
   }
 
@@ -254,8 +290,10 @@ public class MetricsQueryMetadata {
         length,
         metric,
         pointlist,
+        queryIndex,
         scope,
         start,
+        tagSet,
         unit);
   }
 
@@ -271,8 +309,10 @@ public class MetricsQueryMetadata {
     sb.append("    length: ").append(toIndentedString(length)).append("\n");
     sb.append("    metric: ").append(toIndentedString(metric)).append("\n");
     sb.append("    pointlist: ").append(toIndentedString(pointlist)).append("\n");
+    sb.append("    queryIndex: ").append(toIndentedString(queryIndex)).append("\n");
     sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
     sb.append("    start: ").append(toIndentedString(start)).append("\n");
+    sb.append("    tagSet: ").append(toIndentedString(tagSet)).append("\n");
     sb.append("    unit: ").append(toIndentedString(unit)).append("\n");
     sb.append("}");
     return sb.toString();
