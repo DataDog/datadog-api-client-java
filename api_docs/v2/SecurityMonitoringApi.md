@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 
 ## deleteSecurityFilter
 
-> SecurityFilterDeleteResponse deleteSecurityFilter(securityFilterId);
+> deleteSecurityFilter(securityFilterId);
 
 Delete a specific security filter.
 
@@ -175,8 +175,7 @@ public class Example {
         SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
         String securityFilterId = "securityFilterId_example"; // String | The ID of the security filter.
         try {
-            SecurityFilterDeleteResponse result = apiInstance.deleteSecurityFilter(securityFilterId);
-            System.out.println(result);
+            apiInstance.deleteSecurityFilter(securityFilterId);
         } catch (ApiException e) {
             System.err.println("Exception when calling SecurityMonitoringApi#deleteSecurityFilter");
             System.err.println("Status code: " + e.getCode());
@@ -197,7 +196,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SecurityFilterDeleteResponse**](SecurityFilterDeleteResponse.md)
+null (empty response body)
 
 ### Authorization
 
@@ -211,8 +210,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **204** | No Content |  -  |
+| **204** | OK |  -  |
 | **403** | Not Authorized |  -  |
 | **404** | Not Found |  -  |
 | **429** | Too many requests |  -  |
