@@ -72,7 +72,7 @@ public class SyntheticsApiTest extends V1ApiTest {
                 .minFailureDuration(10L)
                 .minLocationFailed(1L)
                 .retry(new SyntheticsTestOptionsRetry().count(3L).interval(10.0))
-                .tickEvery(SyntheticsTickInterval.MINUTE))
+                .tickEvery(60L))
         .subtype(SyntheticsTestDetailsSubType.HTTP)
         .tags(Arrays.asList("testing:api"))
         .type(SyntheticsAPITestType.API);
@@ -95,7 +95,7 @@ public class SyntheticsApiTest extends V1ApiTest {
                     new SyntheticsTestRequest().host("agent-intake.logs.datadoghq.com").port(443L)))
         .locations(Arrays.asList("aws:us-east-2"))
         .message("testing Synthetics API test Subtype TCP - this is message")
-        .options(new SyntheticsTestOptions().tickEvery(SyntheticsTickInterval.MINUTE))
+        .options(new SyntheticsTestOptions().tickEvery(60L))
         .subtype(SyntheticsTestDetailsSubType.TCP)
         .tags(Arrays.asList("testing:api-tcp"))
         .type(SyntheticsAPITestType.API);
@@ -123,7 +123,7 @@ public class SyntheticsApiTest extends V1ApiTest {
                 .minFailureDuration(10L)
                 .minLocationFailed(1L)
                 .retry(new SyntheticsTestOptionsRetry().count(3L).interval(10.0))
-                .tickEvery(SyntheticsTickInterval.FIVE_MINUTES))
+                .tickEvery(300L))
         .tags(Arrays.asList("testing:browser"))
         .type(SyntheticsBrowserTestType.BROWSER);
   }

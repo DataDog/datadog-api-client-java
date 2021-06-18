@@ -84,7 +84,7 @@ public class MonitorsApiTest extends V1ApiTest {
                   .minFailureDuration(10L)
                   .minLocationFailed(1L)
                   .retry(new SyntheticsTestOptionsRetry().count(3L).interval(10.0))
-                  .tickEvery(SyntheticsTickInterval.MINUTE))
+                  .tickEvery(60L))
           .subtype(SyntheticsTestDetailsSubType.HTTP)
           .tags(Arrays.asList("testing:api"))
           .type(SyntheticsAPITestType.API);
