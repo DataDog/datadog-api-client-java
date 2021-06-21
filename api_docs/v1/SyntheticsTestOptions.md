@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **monitorPriority** | **Integer** | Integer from 1 (high) to 5 (low) indicating alert severity. |  [optional]
 **noScreenshot** | **Boolean** | Prevents saving screenshots of the steps. |  [optional]
 **retry** | [**SyntheticsTestOptionsRetry**](SyntheticsTestOptionsRetry.md) |  |  [optional]
-**tickEvery** | **SyntheticsTickInterval** |  |  [optional]
+**tickEvery** | **Long** | The frequency at which to run the Synthetic test (in seconds). |  [optional]
 
 
 
