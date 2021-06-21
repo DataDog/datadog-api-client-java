@@ -10,12 +10,14 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Composed target for &#x60;validatesJSONPath&#x60; operator. */
 @ApiModel(description = "Composed target for `validatesJSONPath` operator.")
@@ -33,7 +35,7 @@ public class SyntheticsAssertionJSONPathTargetTarget {
   private String operator;
 
   public static final String JSON_PROPERTY_TARGET_VALUE = "targetValue";
-  private Object targetValue;
+  private JsonNullable<Object> targetValue = JsonNullable.<Object>of(null);
 
   public SyntheticsAssertionJSONPathTargetTarget jsonPath(String jsonPath) {
     this.jsonPath = jsonPath;
@@ -80,7 +82,7 @@ public class SyntheticsAssertionJSONPathTargetTarget {
   }
 
   public SyntheticsAssertionJSONPathTargetTarget targetValue(Object targetValue) {
-    this.targetValue = targetValue;
+    this.targetValue = JsonNullable.<Object>of(targetValue);
     return this;
   }
 
@@ -91,14 +93,24 @@ public class SyntheticsAssertionJSONPathTargetTarget {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The path target value to compare to.")
+  @JsonIgnore
+  public Object getTargetValue() {
+    return targetValue.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_TARGET_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Object getTargetValue() {
+  public JsonNullable<Object> getTargetValue_JsonNullable() {
     return targetValue;
   }
 
-  public void setTargetValue(Object targetValue) {
+  @JsonProperty(JSON_PROPERTY_TARGET_VALUE)
+  public void setTargetValue_JsonNullable(JsonNullable<Object> targetValue) {
     this.targetValue = targetValue;
+  }
+
+  public void setTargetValue(Object targetValue) {
+    this.targetValue = JsonNullable.<Object>of(targetValue);
   }
 
   /** Return true if this SyntheticsAssertionJSONPathTarget_target object is equal to o. */
