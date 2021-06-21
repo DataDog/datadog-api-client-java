@@ -6979,8 +6979,10 @@ paths:
       x-codegen-request-body-name: body
       x-menu-order: 1
       x-undo:
-        operationId: TODO
-        parameters: []
+        operationId: DeleteTests
+        parameters:
+        - name: body
+          template: '{"public_ids": ["{{ public_id }}"]}'
         type: unsafe
       x-contentType: application/json
       x-accepts: application/json
@@ -29605,7 +29607,6 @@ components:
           type: string
         targetValue:
           description: The path target value to compare to.
-          type: object
       type: object
     SyntheticsBrowserTestResultFull_check:
       description: Object describing the browser test configuration.

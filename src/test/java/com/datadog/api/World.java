@@ -403,7 +403,7 @@ public class World {
         }
       }
       // Build request from undo parameters and response data
-      Map<String, Object> undoRequestParams = undoSettings.undo.getRequestParameters(data);
+      Map<String, Object> undoRequestParams = undoSettings.undo.getRequestParameters(data, undoOperation, getObjectMapper());
 
       // Execute request
       try {
