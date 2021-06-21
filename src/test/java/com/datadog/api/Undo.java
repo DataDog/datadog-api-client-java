@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,22 +20,32 @@ public class Undo {
     public static class Parameter {
       public String name;
       public String source;
+      public String template;
     }
 
     public String type;
     public String operationId;
     public List<Parameter> parameters;
 
-    public Map<String, Object> getRequestParameters(Object data) {
+    public Map<String, Object> getRequestParameters(Object data, Method requestBuilder, ObjectMapper mapper) {
       Map<String, Object> requestParams = new HashMap<String, Object>();
-      for (Undo.UndoMethod.Parameter p : parameters) {
+      for (int i = 0; i < parameters.size(); i++) {
+        Undo.UndoMethod.Parameter p = parameters.get(i);
         try {
-          requestParams.put(World.toPropertyName(p.name), World.lookup(data, p.source));
+          if (p.source != null) {
+            requestParams.put(World.toPropertyName(p.name), World.lookup(data, p.source));
+	  } else if (p.template != null) {
+	    Class<?>[] types = requestBuilder.getParameterTypes();
+            Object param = World.fromJSON(mapper, types[i],  World.templated(p.template, data));
+            requestParams.put(World.toPropertyName(p.name), param);
+          }
         } catch (java.lang.IllegalAccessException e) {
           throw new RuntimeException(e);
         } catch (java.lang.NoSuchFieldException e) {
           throw new RuntimeException(e);
-        }
+        } catch (com.fasterxml.jackson.core.JsonProcessingException e) {
+          throw new RuntimeException(e);
+	}
       }
       return requestParams;
     }
