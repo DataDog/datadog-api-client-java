@@ -75,7 +75,7 @@ public class SyntheticsTestOptions {
   private SyntheticsTestOptionsRetry retry;
 
   public static final String JSON_PROPERTY_TICK_EVERY = "tick_every";
-  private SyntheticsTickInterval tickEvery;
+  private Long tickEvery;
 
   public SyntheticsTestOptions acceptSelfSigned(Boolean acceptSelfSigned) {
     this.acceptSelfSigned = acceptSelfSigned;
@@ -355,25 +355,25 @@ public class SyntheticsTestOptions {
     this.retry = retry;
   }
 
-  public SyntheticsTestOptions tickEvery(SyntheticsTickInterval tickEvery) {
+  public SyntheticsTestOptions tickEvery(Long tickEvery) {
     this.tickEvery = tickEvery;
     return this;
   }
 
   /**
-   * Get tickEvery
+   * The frequency at which to run the Synthetic test (in seconds). minimum: 30 maximum: 604800
    *
    * @return tickEvery
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The frequency at which to run the Synthetic test (in seconds).")
   @JsonProperty(JSON_PROPERTY_TICK_EVERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsTickInterval getTickEvery() {
+  public Long getTickEvery() {
     return tickEvery;
   }
 
-  public void setTickEvery(SyntheticsTickInterval tickEvery) {
+  public void setTickEvery(Long tickEvery) {
     this.tickEvery = tickEvery;
   }
 
