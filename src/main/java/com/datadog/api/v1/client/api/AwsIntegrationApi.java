@@ -226,8 +226,7 @@ public class AwsIntegrationApi {
    *
    * @param body Your Datadog role delegation name. For more information about your AWS account Role
    *     name, see the [Datadog AWS integration configuration
-   *     info](https://github.com/DataDog/documentation/blob/master/integrations/amazon_web_services/#installation).
-   *     (required)
+   *     info](https://docs.datadoghq.com/integrations/amazon_web_services/#setup). (required)
    * @return AWSAccountCreateResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -248,8 +247,7 @@ public class AwsIntegrationApi {
    *
    * @param body Your Datadog role delegation name. For more information about your AWS account Role
    *     name, see the [Datadog AWS integration configuration
-   *     info](https://github.com/DataDog/documentation/blob/master/integrations/amazon_web_services/#installation).
-   *     (required)
+   *     info](https://docs.datadoghq.com/integrations/amazon_web_services/#setup). (required)
    * @return ApiResponse&lt;AWSAccountCreateResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details

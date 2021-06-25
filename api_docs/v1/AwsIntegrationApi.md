@@ -169,7 +169,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
-        AWSAccount body = new AWSAccount(); // AWSAccount | Your Datadog role delegation name. For more information about your AWS account Role name, see the [Datadog AWS integration configuration info](https://github.com/DataDog/documentation/blob/master/integrations/amazon_web_services/#installation).
+        AWSAccount body = new AWSAccount(); // AWSAccount | Your Datadog role delegation name. For more information about your AWS account Role name, see the [Datadog AWS integration configuration info](https://docs.datadoghq.com/integrations/amazon_web_services/#setup).
         try {
             AWSAccountCreateResponse result = apiInstance.createNewAWSExternalID(body);
             System.out.println(result);
@@ -189,7 +189,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**AWSAccount**](AWSAccount.md)| Your Datadog role delegation name. For more information about your AWS account Role name, see the [Datadog AWS integration configuration info](https://github.com/DataDog/documentation/blob/master/integrations/amazon_web_services/#installation). |
+ **body** | [**AWSAccount**](AWSAccount.md)| Your Datadog role delegation name. For more information about your AWS account Role name, see the [Datadog AWS integration configuration info](https://docs.datadoghq.com/integrations/amazon_web_services/#setup). |
 
 ### Return type
 
