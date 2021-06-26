@@ -193,8 +193,8 @@ public class MonitorsApi {
    * syntax](https://docs.datadoghq.com/logs/search_syntax/). - **&#x60;rollup_method&#x60;** The
    * stats roll-up method - supports &#x60;count&#x60;, &#x60;avg&#x60; and &#x60;cardinality&#x60;.
    * - **&#x60;measure&#x60;** For &#x60;avg&#x60; and cardinality &#x60;rollup_method&#x60; -
-   * specify the measure or the facet name you want to use. - **&#x60;time_window&#x60;** #m (5, 10,
-   * 15, or 30), #h (1, 2, or 4, 24). - **&#x60;operator&#x60;** &#x60;&lt;&#x60;,
+   * specify the measure or the facet name you want to use. - **&#x60;time_window&#x60;** #m
+   * (between 1 and 2880), #h (between 1 and 48). - **&#x60;operator&#x60;** &#x60;&lt;&#x60;,
    * &#x60;&lt;&#x3D;&#x60;, &#x60;&gt;&#x60;, &#x60;&gt;&#x3D;&#x60;, &#x60;&#x3D;&#x3D;&#x60;, or
    * &#x60;!&#x3D;&#x60;. - **&#x60;#&#x60;** an integer or decimal number used to set the
    * threshold. **NOTE** Only available on US1-FED, US3, and in closed beta on EU and US1. **Process
@@ -214,7 +214,7 @@ public class MonitorsApi {
    * **&#x60;rollup_method&#x60;** The stats roll-up method - supports &#x60;count&#x60;,
    * &#x60;avg&#x60; and &#x60;cardinality&#x60;. - **&#x60;measure&#x60;** For &#x60;avg&#x60; and
    * cardinality &#x60;rollup_method&#x60; - specify the measure or the facet name you want to use.
-   * - **&#x60;time_window&#x60;** #m (between 1 and 2880), #h (between 1 and 48) -
+   * - **&#x60;time_window&#x60;** #m (between 1 and 2880), #h (between 1 and 48). -
    * **&#x60;operator&#x60;** &#x60;&lt;&#x60;, &#x60;&lt;&#x3D;&#x60;, &#x60;&gt;&#x60;,
    * &#x60;&gt;&#x3D;&#x60;, &#x60;&#x3D;&#x3D;&#x60;, or &#x60;!&#x3D;&#x60;. - **&#x60;#&#x60;**
    * an integer or decimal number used to set the threshold. **Composite Query** Example:
@@ -308,8 +308,8 @@ public class MonitorsApi {
    * syntax](https://docs.datadoghq.com/logs/search_syntax/). - **&#x60;rollup_method&#x60;** The
    * stats roll-up method - supports &#x60;count&#x60;, &#x60;avg&#x60; and &#x60;cardinality&#x60;.
    * - **&#x60;measure&#x60;** For &#x60;avg&#x60; and cardinality &#x60;rollup_method&#x60; -
-   * specify the measure or the facet name you want to use. - **&#x60;time_window&#x60;** #m (5, 10,
-   * 15, or 30), #h (1, 2, or 4, 24). - **&#x60;operator&#x60;** &#x60;&lt;&#x60;,
+   * specify the measure or the facet name you want to use. - **&#x60;time_window&#x60;** #m
+   * (between 1 and 2880), #h (between 1 and 48). - **&#x60;operator&#x60;** &#x60;&lt;&#x60;,
    * &#x60;&lt;&#x3D;&#x60;, &#x60;&gt;&#x60;, &#x60;&gt;&#x3D;&#x60;, &#x60;&#x3D;&#x3D;&#x60;, or
    * &#x60;!&#x3D;&#x60;. - **&#x60;#&#x60;** an integer or decimal number used to set the
    * threshold. **NOTE** Only available on US1-FED, US3, and in closed beta on EU and US1. **Process
@@ -329,7 +329,7 @@ public class MonitorsApi {
    * **&#x60;rollup_method&#x60;** The stats roll-up method - supports &#x60;count&#x60;,
    * &#x60;avg&#x60; and &#x60;cardinality&#x60;. - **&#x60;measure&#x60;** For &#x60;avg&#x60; and
    * cardinality &#x60;rollup_method&#x60; - specify the measure or the facet name you want to use.
-   * - **&#x60;time_window&#x60;** #m (between 1 and 2880), #h (between 1 and 48) -
+   * - **&#x60;time_window&#x60;** #m (between 1 and 2880), #h (between 1 and 48). -
    * **&#x60;operator&#x60;** &#x60;&lt;&#x60;, &#x60;&lt;&#x3D;&#x60;, &#x60;&gt;&#x60;,
    * &#x60;&gt;&#x3D;&#x60;, &#x60;&#x3D;&#x3D;&#x60;, or &#x60;!&#x3D;&#x60;. - **&#x60;#&#x60;**
    * an integer or decimal number used to set the threshold. **Composite Query** Example:
