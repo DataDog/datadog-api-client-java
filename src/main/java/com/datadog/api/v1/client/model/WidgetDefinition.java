@@ -1130,6 +1130,48 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'ToplistWidgetDefinition'", e);
       }
 
+      // deserialize TreeMapWidgetDefinition
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (TreeMapWidgetDefinition.class.equals(Integer.class)
+            || TreeMapWidgetDefinition.class.equals(Long.class)
+            || TreeMapWidgetDefinition.class.equals(Float.class)
+            || TreeMapWidgetDefinition.class.equals(Double.class)
+            || TreeMapWidgetDefinition.class.equals(Boolean.class)
+            || TreeMapWidgetDefinition.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((TreeMapWidgetDefinition.class.equals(Integer.class)
+                        || TreeMapWidgetDefinition.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((TreeMapWidgetDefinition.class.equals(Float.class)
+                        || TreeMapWidgetDefinition.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (TreeMapWidgetDefinition.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (TreeMapWidgetDefinition.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          deserialized = tree.traverse(jp.getCodec()).readValueAs(TreeMapWidgetDefinition.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          match++;
+          log.log(Level.FINER, "Input data matches schema 'TreeMapWidgetDefinition'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'TreeMapWidgetDefinition'", e);
+      }
+
       if (match == 1) {
         WidgetDefinition ret = new WidgetDefinition();
         ret.setActualInstance(deserialized);
@@ -1280,6 +1322,11 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public WidgetDefinition(TreeMapWidgetDefinition o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   static {
     schemas.put("AlertGraphWidgetDefinition", new GenericType<AlertGraphWidgetDefinition>() {});
     schemas.put("AlertValueWidgetDefinition", new GenericType<AlertValueWidgetDefinition>() {});
@@ -1309,6 +1356,7 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
     schemas.put("TableWidgetDefinition", new GenericType<TableWidgetDefinition>() {});
     schemas.put("TimeseriesWidgetDefinition", new GenericType<TimeseriesWidgetDefinition>() {});
     schemas.put("ToplistWidgetDefinition", new GenericType<ToplistWidgetDefinition>() {});
+    schemas.put("TreeMapWidgetDefinition", new GenericType<TreeMapWidgetDefinition>() {});
     JSON.registerDescendants(WidgetDefinition.class, Collections.unmodifiableMap(schemas));
   }
 
@@ -1327,7 +1375,7 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
    * LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition, NoteWidgetDefinition,
    * QueryValueWidgetDefinition, SLOWidgetDefinition, ScatterPlotWidgetDefinition,
    * ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition, TableWidgetDefinition,
-   * TimeseriesWidgetDefinition, ToplistWidgetDefinition
+   * TimeseriesWidgetDefinition, ToplistWidgetDefinition, TreeMapWidgetDefinition
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -1461,6 +1509,11 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
       return;
     }
 
+    if (JSON.isInstanceOf(TreeMapWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+
     throw new RuntimeException(
         "Invalid instance type. Must be AlertGraphWidgetDefinition, AlertValueWidgetDefinition,"
             + " ChangeWidgetDefinition, CheckStatusWidgetDefinition, DistributionWidgetDefinition,"
@@ -1471,7 +1524,7 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
             + " NoteWidgetDefinition, QueryValueWidgetDefinition, SLOWidgetDefinition,"
             + " ScatterPlotWidgetDefinition, ServiceMapWidgetDefinition,"
             + " ServiceSummaryWidgetDefinition, TableWidgetDefinition, TimeseriesWidgetDefinition,"
-            + " ToplistWidgetDefinition");
+            + " ToplistWidgetDefinition, TreeMapWidgetDefinition");
   }
 
   /**
@@ -1483,7 +1536,8 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
    * ImageWidgetDefinition, LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition,
    * NoteWidgetDefinition, QueryValueWidgetDefinition, SLOWidgetDefinition,
    * ScatterPlotWidgetDefinition, ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition,
-   * TableWidgetDefinition, TimeseriesWidgetDefinition, ToplistWidgetDefinition
+   * TableWidgetDefinition, TimeseriesWidgetDefinition, ToplistWidgetDefinition,
+   * TreeMapWidgetDefinition
    *
    * @return The actual instance (AlertGraphWidgetDefinition, AlertValueWidgetDefinition,
    *     ChangeWidgetDefinition, CheckStatusWidgetDefinition, DistributionWidgetDefinition,
@@ -1493,7 +1547,7 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
    *     LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition, NoteWidgetDefinition,
    *     QueryValueWidgetDefinition, SLOWidgetDefinition, ScatterPlotWidgetDefinition,
    *     ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition, TableWidgetDefinition,
-   *     TimeseriesWidgetDefinition, ToplistWidgetDefinition)
+   *     TimeseriesWidgetDefinition, ToplistWidgetDefinition, TreeMapWidgetDefinition)
    */
   @Override
   public Object getActualInstance() {
@@ -1776,5 +1830,16 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
    */
   public ToplistWidgetDefinition getToplistWidgetDefinition() throws ClassCastException {
     return (ToplistWidgetDefinition) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `TreeMapWidgetDefinition`. If the actual instanct is not
+   * `TreeMapWidgetDefinition`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `TreeMapWidgetDefinition`
+   * @throws ClassCastException if the instance is not `TreeMapWidgetDefinition`
+   */
+  public TreeMapWidgetDefinition getTreeMapWidgetDefinition() throws ClassCastException {
+    return (TreeMapWidgetDefinition) super.getActualInstance();
   }
 }

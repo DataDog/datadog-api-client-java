@@ -30,6 +30,7 @@
 * [TableWidgetDefinition](TableWidgetDefinition.md)
 * [TimeseriesWidgetDefinition](TimeseriesWidgetDefinition.md)
 * [ToplistWidgetDefinition](ToplistWidgetDefinition.md)
+* [TreeMapWidgetDefinition](TreeMapWidgetDefinition.md)
 
 ## Example
 ```java
@@ -60,6 +61,7 @@ import com.datadog.api.v1.client.model.ServiceSummaryWidgetDefinition;
 import com.datadog.api.v1.client.model.TableWidgetDefinition;
 import com.datadog.api.v1.client.model.TimeseriesWidgetDefinition;
 import com.datadog.api.v1.client.model.ToplistWidgetDefinition;
+import com.datadog.api.v1.client.model.TreeMapWidgetDefinition;
 
 public class Example {
     public static void main(String[] args) {
@@ -239,6 +241,13 @@ public class Example {
         exampleWidgetDefinition.setActualInstance(exampleToplistWidgetDefinition);
         // to get back the ToplistWidgetDefinition set earlier
         ToplistWidgetDefinition testToplistWidgetDefinition = (ToplistWidgetDefinition) exampleWidgetDefinition.getActualInstance();
+
+        // create a new TreeMapWidgetDefinition
+        TreeMapWidgetDefinition exampleTreeMapWidgetDefinition = new TreeMapWidgetDefinition();
+        // set WidgetDefinition to TreeMapWidgetDefinition
+        exampleWidgetDefinition.setActualInstance(exampleTreeMapWidgetDefinition);
+        // to get back the TreeMapWidgetDefinition set earlier
+        TreeMapWidgetDefinition testTreeMapWidgetDefinition = (TreeMapWidgetDefinition) exampleWidgetDefinition.getActualInstance();
     }
 }
 ```
