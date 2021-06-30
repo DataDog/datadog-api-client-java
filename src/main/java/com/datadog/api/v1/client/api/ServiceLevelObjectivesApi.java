@@ -564,7 +564,7 @@ public class ServiceLevelObjectivesApi {
      * Set target
      *
      * @param target The SLO target. If &#x60;target&#x60; is passed in, the response will include
-     *     the error budget that remains. (optional)
+     *     the remaining error budget and a timeframe value of &#x60;custom&#x60;. (optional)
      * @return GetSLOHistoryOptionalParameters
      */
     public GetSLOHistoryOptionalParameters target(Double target) {

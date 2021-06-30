@@ -382,7 +382,7 @@ public class Example {
         String sloId = "sloId_example"; // String | The ID of the service level objective object.
         Long fromTs = 56L; // Long | The `from` timestamp for the query window in epoch seconds.
         Long toTs = 56L; // Long | The `to` timestamp for the query window in epoch seconds.
-        Double target = 3.4D; // Double | The SLO target. If `target` is passed in, the response will include the error budget that remains.
+        Double target = 3.4D; // Double | The SLO target. If `target` is passed in, the response will include the remaining error budget and a timeframe value of `custom`.
         try {
 	    SLOHistoryResponse result = apiInstance.getSLOHistory(sloId, fromTs, toTs, new ServiceLevelObjectivesApi.GetSLOHistoryOptionalParameters()
                 .target(target));
@@ -406,7 +406,7 @@ Name | Type | Description  | Notes
  **sloId** | **String**| The ID of the service level objective object. |
  **fromTs** | **Long**| The &#x60;from&#x60; timestamp for the query window in epoch seconds. |
  **toTs** | **Long**| The &#x60;to&#x60; timestamp for the query window in epoch seconds. |
- **target** | **Double**| The SLO target. If &#x60;target&#x60; is passed in, the response will include the error budget that remains. | [optional]
+ **target** | **Double**| The SLO target. If &#x60;target&#x60; is passed in, the response will include the remaining error budget and a timeframe value of &#x60;custom&#x60;. | [optional]
 
 ### Return type
 

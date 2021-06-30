@@ -19,7 +19,9 @@ public enum SLOTimeframe {
 
   THIRTY_DAYS("30d"),
 
-  NINETY_DAYS("90d");
+  NINETY_DAYS("90d"),
+
+  CUSTOM("custom");
 
   private String value;
 
