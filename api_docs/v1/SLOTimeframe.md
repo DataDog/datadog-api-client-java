@@ -11,5 +11,7 @@
 
 * `NINETY_DAYS` (value: `"90d"`)
 
+* `CUSTOM` (value: `"custom"`)
+
 
 
