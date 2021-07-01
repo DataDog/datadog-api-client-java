@@ -1,123 +1,200 @@
-[{
-  "id" : "e63a3cd1-de21-4110-a2d2-01595e99f2dd",
-  "httpRequest" : {
-    "method" : "POST",
-    "path" : "/api/v2/security_monitoring/configuration/security_filters",
-    "headers" : {
-      "Accept" : [ "application/json" ],
-      "JAVA-TEST-NAME" : [ "Delete_a_security_filter_returns_No_Content_response" ],
-      "DD-OPERATION-ID" : [ "createSecurityFilter" ],
-      "Content-Type" : [ "application/json" ]
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"exclusion_filters\":[{\"name\":\"Exclude logs from staging\",\"query\":\"source:staging\"}],\"filtered_data_type\":\"logs\",\"is_enabled\":true,\"name\":\"Test-Delete_a_security_filter_returns_No_Content_response-1620751632\",\"query\":\"service:TestDeleteasecurityfilterreturnsNoContentresponse1620751632\"},\"type\":\"security_filters\"}}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Delete_a_security_filter_returns_No_Content_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v2/security_monitoring/configuration/security_filters",
+      "keepAlive": false,
+      "secure": true
     },
-    "keepAlive" : false,
-    "secure" : true,
-    "body" : {
-      "type" : "JSON",
-      "json" : "{\"data\":{\"attributes\":{\"exclusion_filters\":[{\"name\":\"Exclude logs from staging\",\"query\":\"source:staging\"}],\"filtered_data_type\":\"logs\",\"is_enabled\":true,\"name\":\"Test-Delete_a_security_filter_returns_No_Content_response-1620804449\",\"query\":\"service:TestDeleteasecurityfilterreturnsNoContentresponse1620804449\"},\"type\":\"security_filters\"}}"
-    }
-  },
-  "times" : {
-    "remainingTimes" : 1
-  },
-  "timeToLive" : {
-    "unlimited" : true
-  },
-  "httpResponse" : {
-    "statusCode" : 200,
-    "reasonPhrase" : "OK",
-    "headers" : {
-      "Date" : [ "Wed, 12 May 2021 07:27:30 GMT" ],
-      "Content-Type" : [ "application/json;charset=utf-8" ],
-      "Connection" : [ "keep-alive" ],
-      "vary" : [ "Accept-Encoding" ],
-      "pragma" : [ "no-cache" ],
-      "cache-control" : [ "no-cache" ],
-      "x-dd-version" : [ "35.4512853" ],
-      "content-disposition" : [ "inline" ],
-      "x-dd-debug" : [ "B1nwy/pPNqX+q4pQT22cdp1QCexE35IF8qwSHy0Nf7IW0Y881qtn4tXN1lpmzaKc" ],
-      "x-content-type-options" : [ "nosniff" ],
-      "strict-transport-security" : [ "max-age=15724800;" ],
-      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "x-frame-options" : [ "SAMEORIGIN" ],
-      "content-length" : [ "387" ]
+    "httpResponse": {
+      "body": "{\"data\":{\"attributes\":{\"is_enabled\":true,\"name\":\"Test-Delete_a_security_filter_returns_No_Content_response-1620751632\",\"filtered_data_type\":\"logs\",\"exclusion_filters\":[{\"query\":\"source:staging\",\"name\":\"Exclude logs from staging\"}],\"version\":1,\"query\":\"service:TestDeleteasecurityfilterreturnsNoContentresponse1620751632\",\"is_builtin\":false},\"type\":\"security_filters\",\"id\":\"sqg-5rq-5qc\"}}",
+      "headers": {
+        "Date": [
+          "Wed, 12 May 2021 07:50:04 GMT"
+        ],
+        "Content-Type": [
+          "application/json;charset=utf-8"
+        ],
+        "Content-Length": [
+          "387"
+        ],
+        "Connection": [
+          "close"
+        ],
+        "Vary": [
+          "Accept-Encoding"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "X-Dd-Version": [
+          "35.4512853"
+        ],
+        "Content-Disposition": [
+          "inline"
+        ],
+        "X-Dd-Debug": [
+          "l8RQo2maZqJf6GFThBbKNE6dvthz6njusVtau3dPXJWL2RLFoN81H+BLPB/1xgs1"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=15724800;"
+        ],
+        "Content-Security-Policy": [
+          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
+        ],
+        "X-Frame-Options": [
+          "SAMEORIGIN"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
     },
-    "body" : "{\"data\":{\"attributes\":{\"is_enabled\":true,\"name\":\"Test-Delete_a_security_filter_returns_No_Content_response-1620804449\",\"filtered_data_type\":\"logs\",\"exclusion_filters\":[{\"query\":\"source:staging\",\"name\":\"Exclude logs from staging\"}],\"version\":1,\"query\":\"service:TestDeleteasecurityfilterreturnsNoContentresponse1620804449\",\"is_builtin\":false},\"type\":\"security_filters\",\"id\":\"j5r-s6l-owl\"}}"
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "71bf1a2d-c318-5855-12c7-5e4003a50042"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Delete_a_security_filter_returns_No_Content_response"
+        ]
+      },
+      "method": "DELETE",
+      "path": "/api/v2/security_monitoring/configuration/security_filters/sqg-5rq-5qc",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Date": [
+          "Wed, 12 May 2021 07:50:04 GMT"
+        ],
+        "Content-Length": [
+          "0"
+        ],
+        "Connection": [
+          "close"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "X-Dd-Version": [
+          "35.4512853"
+        ],
+        "Content-Disposition": [
+          "inline"
+        ],
+        "X-Dd-Debug": [
+          "PhosSd3Ch1B6B0DXI71steKUi7XhPDttnPiIP1NdXTw0VJNWpoUnYyBmODS5ne3q"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=15724800;"
+        ],
+        "Content-Security-Policy": [
+          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
+        ],
+        "X-Frame-Options": [
+          "SAMEORIGIN"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "01b8a697-2ad4-fde8-13ae-d9d0987982bd"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Delete_a_security_filter_returns_No_Content_response"
+        ]
+      },
+      "method": "DELETE",
+      "path": "/api/v2/security_monitoring/configuration/security_filters/sqg-5rq-5qc",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"not_found(Security filter with id 'sqg-5rq-5qc' not found)\"]}",
+      "headers": {
+        "Date": [
+          "Wed, 12 May 2021 07:50:04 GMT"
+        ],
+        "Content-Type": [
+          "application/json"
+        ],
+        "Content-Length": [
+          "73"
+        ],
+        "Connection": [
+          "close"
+        ],
+        "Vary": [
+          "Accept-Encoding"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "X-Dd-Version": [
+          "35.4512853"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=15724800;"
+        ],
+        "Content-Security-Policy": [
+          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
+        ],
+        "X-Frame-Options": [
+          "SAMEORIGIN"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "01b8a697-2ad4-fde8-13ae-d9d0987982be"
   }
-}, {
-  "id" : "de935579-07ad-49d7-a1c3-ff3832c86a57",
-  "httpRequest" : {
-    "method" : "DELETE",
-    "path" : "/api/v2/security_monitoring/configuration/security_filters/j5r-s6l-owl",
-    "headers" : {
-      "Accept" : [ "application/json" ],
-      "JAVA-TEST-NAME" : [ "Delete_a_security_filter_returns_No_Content_response" ],
-      "DD-OPERATION-ID" : [ "deleteSecurityFilter" ],
-      "Content-Type" : [ "application/json" ]
-    },
-    "keepAlive" : false,
-    "secure" : true
-  },
-  "times" : {
-    "remainingTimes" : 1
-  },
-  "timeToLive" : {
-    "unlimited" : true
-  },
-  "httpResponse" : {
-    "statusCode" : 204,
-    "reasonPhrase" : "No Content",
-    "headers" : {
-      "Date" : [ "Wed, 12 May 2021 07:27:30 GMT" ],
-      "Content-Length" : [ "0" ],
-      "Connection" : [ "keep-alive" ],
-      "pragma" : [ "no-cache" ],
-      "cache-control" : [ "no-cache" ],
-      "x-dd-version" : [ "35.4512853" ],
-      "content-disposition" : [ "inline" ],
-      "x-dd-debug" : [ "25u1gDlL724DHllbjFT4BhOLorBTilh+aah2uWAUEjFC/+rjczJdiyWrV/HwLwe/" ],
-      "x-content-type-options" : [ "nosniff" ],
-      "strict-transport-security" : [ "max-age=15724800;" ],
-      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "x-frame-options" : [ "SAMEORIGIN" ]
-    }
-  }
-}, {
-  "id" : "db573b9a-4be7-4e5f-90e2-78bd4e18ae38",
-  "httpRequest" : {
-    "method" : "DELETE",
-    "path" : "/api/v2/security_monitoring/configuration/security_filters/j5r-s6l-owl",
-    "headers" : {
-      "Accept" : [ "application/json" ],
-      "JAVA-TEST-NAME" : [ "Delete_a_security_filter_returns_No_Content_response" ],
-      "DD-OPERATION-ID" : [ "deleteSecurityFilter" ],
-      "Content-Type" : [ "application/json" ]
-    },
-    "keepAlive" : false,
-    "secure" : true
-  },
-  "times" : {
-    "remainingTimes" : 1
-  },
-  "timeToLive" : {
-    "unlimited" : true
-  },
-  "httpResponse" : {
-    "statusCode" : 404,
-    "reasonPhrase" : "Not Found",
-    "headers" : {
-      "Date" : [ "Wed, 12 May 2021 07:27:30 GMT" ],
-      "Content-Type" : [ "application/json" ],
-      "Connection" : [ "keep-alive" ],
-      "vary" : [ "Accept-Encoding" ],
-      "pragma" : [ "no-cache" ],
-      "cache-control" : [ "no-cache" ],
-      "x-dd-version" : [ "35.4512853" ],
-      "x-content-type-options" : [ "nosniff" ],
-      "strict-transport-security" : [ "max-age=15724800;" ],
-      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "x-frame-options" : [ "SAMEORIGIN" ],
-      "content-length" : [ "73" ]
-    },
-    "body" : "{\"errors\":[\"not_found(Security filter with id 'j5r-s6l-owl' not found)\"]}"
-  }
-}]
+]

@@ -1,1 +1,77 @@
-[]
+[
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Delete_an_SLO_returns_Not_found_response"
+        ]
+      },
+      "method": "DELETE",
+      "path": "/api/v1/slo/testdeleteansloreturnsnotfoundresponse1618491680",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\": [\"SLO not found: testdeleteansloreturnsnotfoundresponse1618491680 not found\"]}",
+      "headers": {
+        "Date": [
+          "Thu, 15 Apr 2021 13:01:20 GMT"
+        ],
+        "Content-Type": [
+          "application/json"
+        ],
+        "Content-Length": [
+          "89"
+        ],
+        "Connection": [
+          "close"
+        ],
+        "Vary": [
+          "Accept-Encoding"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "X-Ratelimit-Limit": [
+          "3000"
+        ],
+        "X-Ratelimit-Period": [
+          "10"
+        ],
+        "X-Ratelimit-Reset": [
+          "10"
+        ],
+        "X-Ratelimit-Remaining": [
+          "2998"
+        ],
+        "X-Dd-Version": [
+          "35.4318655"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=15724800;"
+        ],
+        "Content-Security-Policy": [
+          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
+        ],
+        "X-Frame-Options": [
+          "SAMEORIGIN"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "605b67a8-bdcd-f0e8-3e2d-cc5435f66fa8"
+  }
+]

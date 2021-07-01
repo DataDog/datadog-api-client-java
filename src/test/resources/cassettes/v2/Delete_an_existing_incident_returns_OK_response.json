@@ -1,133 +1,230 @@
-[{
-  "id" : "b7e8d622-7622-43ea-afa8-a411d22a920d",
-  "httpRequest" : {
-    "method" : "POST",
-    "path" : "/api/v2/incidents",
-    "headers" : {
-      "Accept" : [ "application/json" ],
-      "JAVA-TEST-NAME" : [ "Delete_an_existing_incident_returns_OK_response" ],
-      "DD-OPERATION-ID" : [ "createIncident" ],
-      "Content-Type" : [ "application/json" ]
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"customer_impacted\":false,\"title\":\"Test-Delete_an_existing_incident_returns_OK_response-1618491707\"},\"type\":\"incidents\"}}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Delete_an_existing_incident_returns_OK_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v2/incidents",
+      "keepAlive": false,
+      "secure": true
     },
-    "keepAlive" : false,
-    "secure" : true,
-    "body" : {
-      "type" : "JSON",
-      "json" : "{\"data\":{\"attributes\":{\"customer_impacted\":false,\"title\":\"Test-Delete_an_existing_incident_returns_OK_response-1618083788\"},\"type\":\"incidents\"}}"
-    }
-  },
-  "times" : {
-    "remainingTimes" : 1
-  },
-  "timeToLive" : {
-    "unlimited" : true
-  },
-  "httpResponse" : {
-    "statusCode" : 201,
-    "reasonPhrase" : "Created",
-    "headers" : {
-      "Date" : [ "Sat, 10 Apr 2021 19:43:09 GMT" ],
-      "Content-Type" : [ "application/json" ],
-      "Content-Length" : [ "2823" ],
-      "Connection" : [ "keep-alive" ],
-      "pragma" : [ "no-cache" ],
-      "cache-control" : [ "no-cache" ],
-      "x-dd-version" : [ "35.4281284" ],
-      "x-ratelimit-limit" : [ "400" ],
-      "x-ratelimit-period" : [ "3600" ],
-      "x-ratelimit-reset" : [ "1011" ],
-      "x-ratelimit-remaining" : [ "388" ],
-      "x-dd-debug" : [ "twvpGlmuom5y6A0pjGtXzTf554cmwJgTcCZ71fK4H/RDi+v5ehBK0zQiRcTJQG5C" ],
-      "x-content-type-options" : [ "nosniff" ],
-      "strict-transport-security" : [ "max-age=15724800;" ],
-      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "x-frame-options" : [ "SAMEORIGIN" ]
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"incidents\",\"id\":\"3002d31f-1c9c-56b5-ae84-8363d9c3ee05\",\"attributes\":{\"public_id\":36217,\"title\":\"Test-Delete_an_existing_incident_returns_OK_response-1618491707\",\"resolved\":null,\"customer_impact_scope\":null,\"customer_impact_start\":null,\"customer_impact_end\":null,\"customer_impacted\":false,\"notification_handles\":null,\"last_modified_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"attributes\":{\"uuid\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\",\"name\":null,\"icon\":\"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro\"}}},\"last_modified_by_uuid\":null,\"created\":\"2021-04-15T13:01:47.910027+00:00\",\"modified\":\"2021-04-15T13:01:47.910027+00:00\",\"commander\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"attributes\":{\"uuid\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\",\"name\":null,\"icon\":\"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro\"}}},\"detected\":\"2021-04-15T13:01:47.908164+00:00\",\"created_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"attributes\":{\"uuid\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\",\"name\":null,\"icon\":\"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro\"}}},\"created_by_uuid\":null,\"creation_idempotency_key\":null,\"customer_impact_duration\":0,\"time_to_detect\":0,\"time_to_repair\":0,\"time_to_internal_response\":0,\"time_to_resolve\":0,\"fields\":{\"severity\":{\"type\":\"dropdown\",\"value\":\"UNKNOWN\"},\"detection_method\":{\"type\":\"dropdown\",\"value\":\"unknown\"},\"root_cause\":{\"type\":\"textbox\",\"value\":null},\"teams\":{\"type\":\"autocomplete\",\"value\":null},\"state\":{\"type\":\"dropdown\",\"value\":\"active\"},\"services\":{\"type\":\"autocomplete\",\"value\":null}},\"field_analytics\":null,\"severity\":\"UNKNOWN\",\"state\":\"active\",\"non_datadog_creator\":null},\"relationships\":{\"created_by_user\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}},\"last_modified_by_user\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}},\"commander_user\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}},\"user_defined_fields\":{\"data\":[{\"type\":\"user_defined_field\",\"id\":\"4148ead2-da45-548e-b6be-8e319bafc425\"},{\"type\":\"user_defined_field\",\"id\":\"66b62f59-48f6-5fee-969a-0886b1db6dcd\"},{\"type\":\"user_defined_field\",\"id\":\"299616f7-8acd-5403-886b-991656d6b982\"},{\"type\":\"user_defined_field\",\"id\":\"ad2b9456-eaec-5bbd-9bae-e502d74e23f8\"},{\"type\":\"user_defined_field\",\"id\":\"d8a54f16-8b2a-5ab4-87b8-5f0fa575c83e\"},{\"type\":\"user_defined_field\",\"id\":\"623af0a5-f30c-577e-8146-09b8324bdb2d\"}]},\"integrations\":{\"data\":[]},\"attachments\":{\"data\":[]},\"responders\":{\"data\":[]}}}}",
+      "headers": {
+        "Date": [
+          "Thu, 15 Apr 2021 13:01:48 GMT"
+        ],
+        "Content-Type": [
+          "application/json"
+        ],
+        "Content-Length": [
+          "2823"
+        ],
+        "Connection": [
+          "close"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "X-Dd-Version": [
+          "35.4318655"
+        ],
+        "X-Ratelimit-Limit": [
+          "400"
+        ],
+        "X-Ratelimit-Period": [
+          "3600"
+        ],
+        "X-Ratelimit-Reset": [
+          "3493"
+        ],
+        "X-Ratelimit-Remaining": [
+          "398"
+        ],
+        "X-Dd-Debug": [
+          "gYZcaADwbKcv7Hm19HJx6WsLoKuOijDWAt2viPeCfWqUgyKY+9e1xZdmMJeXV3YV"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=15724800;"
+        ],
+        "Content-Security-Policy": [
+          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
+        ],
+        "X-Frame-Options": [
+          "SAMEORIGIN"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
     },
-    "body" : "{\"data\":{\"type\":\"incidents\",\"id\":\"f708257d-f78a-5d84-9c50-72f16e2cc0b6\",\"attributes\":{\"public_id\":34638,\"title\":\"Test-Delete_an_existing_incident_returns_OK_response-1618083788\",\"resolved\":null,\"customer_impact_scope\":null,\"customer_impact_start\":null,\"customer_impact_end\":null,\"customer_impacted\":false,\"notification_handles\":null,\"last_modified_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"attributes\":{\"uuid\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\",\"name\":null,\"icon\":\"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro\"}}},\"last_modified_by_uuid\":null,\"created\":\"2021-04-10T19:43:09.166311+00:00\",\"modified\":\"2021-04-10T19:43:09.166311+00:00\",\"commander\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"attributes\":{\"uuid\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\",\"name\":null,\"icon\":\"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro\"}}},\"detected\":\"2021-04-10T19:43:09.164718+00:00\",\"created_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"attributes\":{\"uuid\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\",\"name\":null,\"icon\":\"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro\"}}},\"created_by_uuid\":null,\"creation_idempotency_key\":null,\"customer_impact_duration\":0,\"time_to_detect\":0,\"time_to_repair\":0,\"time_to_internal_response\":0,\"time_to_resolve\":0,\"fields\":{\"severity\":{\"type\":\"dropdown\",\"value\":\"UNKNOWN\"},\"detection_method\":{\"type\":\"dropdown\",\"value\":\"unknown\"},\"root_cause\":{\"type\":\"textbox\",\"value\":null},\"teams\":{\"type\":\"autocomplete\",\"value\":null},\"state\":{\"type\":\"dropdown\",\"value\":\"active\"},\"services\":{\"type\":\"autocomplete\",\"value\":null}},\"field_analytics\":null,\"severity\":\"UNKNOWN\",\"state\":\"active\",\"non_datadog_creator\":null},\"relationships\":{\"created_by_user\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}},\"last_modified_by_user\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}},\"commander_user\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}},\"user_defined_fields\":{\"data\":[{\"type\":\"user_defined_field\",\"id\":\"4148ead2-da45-548e-b6be-8e319bafc425\"},{\"type\":\"user_defined_field\",\"id\":\"66b62f59-48f6-5fee-969a-0886b1db6dcd\"},{\"type\":\"user_defined_field\",\"id\":\"299616f7-8acd-5403-886b-991656d6b982\"},{\"type\":\"user_defined_field\",\"id\":\"ad2b9456-eaec-5bbd-9bae-e502d74e23f8\"},{\"type\":\"user_defined_field\",\"id\":\"d8a54f16-8b2a-5ab4-87b8-5f0fa575c83e\"},{\"type\":\"user_defined_field\",\"id\":\"623af0a5-f30c-577e-8146-09b8324bdb2d\"}]},\"integrations\":{\"data\":[]},\"attachments\":{\"data\":[]},\"responders\":{\"data\":[]}}}}"
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "fa2ea9bc-7f52-5e32-f45d-e3e3886ea340"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Delete_an_existing_incident_returns_OK_response"
+        ]
+      },
+      "method": "DELETE",
+      "path": "/api/v2/incidents/3002d31f-1c9c-56b5-ae84-8363d9c3ee05",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Date": [
+          "Thu, 15 Apr 2021 13:01:48 GMT"
+        ],
+        "Content-Type": [
+          "application/json"
+        ],
+        "Content-Length": [
+          "0"
+        ],
+        "Connection": [
+          "close"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "X-Dd-Version": [
+          "35.4318655"
+        ],
+        "X-Ratelimit-Limit": [
+          "400"
+        ],
+        "X-Ratelimit-Period": [
+          "60"
+        ],
+        "X-Ratelimit-Reset": [
+          "12"
+        ],
+        "X-Ratelimit-Remaining": [
+          "398"
+        ],
+        "X-Dd-Debug": [
+          "nLnnBNvlCFDECRnZvzDb0z4sAO35G+IMidcAs8vrCKyjvsKWE8Yd9S3n6OjZ1qRN"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=15724800;"
+        ],
+        "Content-Security-Policy": [
+          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
+        ],
+        "X-Frame-Options": [
+          "SAMEORIGIN"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "23bd90c5-eb41-39b2-ed02-5b44911d0efc"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Delete_an_existing_incident_returns_OK_response"
+        ]
+      },
+      "method": "DELETE",
+      "path": "/api/v2/incidents/3002d31f-1c9c-56b5-ae84-8363d9c3ee05",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\": [\"incident 3002d31f-1c9c-56b5-ae84-8363d9c3ee05 not found\"]}",
+      "headers": {
+        "Date": [
+          "Thu, 15 Apr 2021 13:01:49 GMT"
+        ],
+        "Content-Type": [
+          "application/json"
+        ],
+        "Content-Length": [
+          "71"
+        ],
+        "Connection": [
+          "close"
+        ],
+        "Vary": [
+          "Accept-Encoding"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "X-Ratelimit-Limit": [
+          "400"
+        ],
+        "X-Ratelimit-Period": [
+          "60"
+        ],
+        "X-Ratelimit-Reset": [
+          "11"
+        ],
+        "X-Ratelimit-Remaining": [
+          "397"
+        ],
+        "X-Dd-Version": [
+          "35.4318655"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=15724800;"
+        ],
+        "Content-Security-Policy": [
+          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
+        ],
+        "X-Frame-Options": [
+          "SAMEORIGIN"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "23bd90c5-eb41-39b2-ed02-5b44911d0efd"
   }
-}, {
-  "id" : "380d8504-5750-4ef6-8da7-ece84302a9ed",
-  "httpRequest" : {
-    "method" : "DELETE",
-    "path" : "/api/v2/incidents/f708257d-f78a-5d84-9c50-72f16e2cc0b6",
-    "headers" : {
-      "Accept" : [ "application/json" ],
-      "JAVA-TEST-NAME" : [ "Delete_an_existing_incident_returns_OK_response" ],
-      "DD-OPERATION-ID" : [ "deleteIncident" ],
-      "Content-Type" : [ "application/json" ]
-    },
-    "keepAlive" : false,
-    "secure" : true
-  },
-  "times" : {
-    "remainingTimes" : 1
-  },
-  "timeToLive" : {
-    "unlimited" : true
-  },
-  "httpResponse" : {
-    "statusCode" : 204,
-    "reasonPhrase" : "No Content",
-    "headers" : {
-      "Date" : [ "Sat, 10 Apr 2021 19:43:09 GMT" ],
-      "Content-Type" : [ "application/json" ],
-      "Content-Length" : [ "0" ],
-      "Connection" : [ "keep-alive" ],
-      "pragma" : [ "no-cache" ],
-      "cache-control" : [ "no-cache" ],
-      "x-dd-version" : [ "35.4281284" ],
-      "x-ratelimit-limit" : [ "400" ],
-      "x-ratelimit-period" : [ "60" ],
-      "x-ratelimit-reset" : [ "51" ],
-      "x-ratelimit-remaining" : [ "398" ],
-      "x-dd-debug" : [ "Wjq53IVIwnB4SiR238oOYgHFMq/ZYP0LQ/Dv8C2fFLBwTje/dWJHu6pI6vIOK1zG" ],
-      "x-content-type-options" : [ "nosniff" ],
-      "strict-transport-security" : [ "max-age=15724800;" ],
-      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "x-frame-options" : [ "SAMEORIGIN" ]
-    }
-  }
-}, {
-  "id" : "15137ea1-ed09-4ea5-9bc9-f6e621862a76",
-  "httpRequest" : {
-    "method" : "DELETE",
-    "path" : "/api/v2/incidents/f708257d-f78a-5d84-9c50-72f16e2cc0b6",
-    "headers" : {
-      "Accept" : [ "application/json" ],
-      "JAVA-TEST-NAME" : [ "Delete_an_existing_incident_returns_OK_response" ],
-      "DD-OPERATION-ID" : [ "deleteIncident" ],
-      "Content-Type" : [ "application/json" ]
-    },
-    "keepAlive" : false,
-    "secure" : true
-  },
-  "times" : {
-    "remainingTimes" : 1
-  },
-  "timeToLive" : {
-    "unlimited" : true
-  },
-  "httpResponse" : {
-    "statusCode" : 404,
-    "reasonPhrase" : "Not Found",
-    "headers" : {
-      "Date" : [ "Sat, 10 Apr 2021 19:43:10 GMT" ],
-      "Content-Type" : [ "application/json" ],
-      "Connection" : [ "keep-alive" ],
-      "vary" : [ "Accept-Encoding" ],
-      "pragma" : [ "no-cache" ],
-      "cache-control" : [ "no-cache" ],
-      "x-ratelimit-limit" : [ "400" ],
-      "x-ratelimit-period" : [ "60" ],
-      "x-ratelimit-reset" : [ "50" ],
-      "x-ratelimit-remaining" : [ "397" ],
-      "x-dd-version" : [ "35.4281284" ],
-      "x-content-type-options" : [ "nosniff" ],
-      "strict-transport-security" : [ "max-age=15724800;" ],
-      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "x-frame-options" : [ "SAMEORIGIN" ],
-      "content-length" : [ "71" ]
-    },
-    "body" : "{\"errors\": [\"incident f708257d-f78a-5d84-9c50-72f16e2cc0b6 not found\"]}"
-  }
-}]
+]
