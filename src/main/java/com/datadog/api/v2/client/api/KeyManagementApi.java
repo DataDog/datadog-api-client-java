@@ -572,6 +572,134 @@ public class KeyManagementApi {
         false);
   }
 
+  /** Manage optional parameters to getApplicationKey. */
+  public static class GetApplicationKeyOptionalParameters {
+    private String include;
+
+    /**
+     * Set include
+     *
+     * @param include Resource path for related resources to include in the response. Only
+     *     &#x60;owned_by&#x60; is supported. (optional)
+     * @return GetApplicationKeyOptionalParameters
+     */
+    public GetApplicationKeyOptionalParameters include(String include) {
+      this.include = include;
+      return this;
+    }
+  }
+
+  /**
+   * Get an application key Get an application key for your org.
+   *
+   * @param appKeyId The ID of the application key. (required)
+   * @return ApplicationKeyResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApplicationKeyResponse getApplicationKey(String appKeyId) throws ApiException {
+    return getApplicationKeyWithHttpInfo(appKeyId, new GetApplicationKeyOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get an application key Get an application key for your org.
+   *
+   * @param appKeyId The ID of the application key. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApplicationKeyResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApplicationKeyResponse getApplicationKey(
+      String appKeyId, GetApplicationKeyOptionalParameters parameters) throws ApiException {
+    return getApplicationKeyWithHttpInfo(appKeyId, parameters).getData();
+  }
+
+  /**
+   * Get an application key Get an application key for your org.
+   *
+   * @param appKeyId The ID of the application key. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;ApplicationKeyResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ApplicationKeyResponse> getApplicationKeyWithHttpInfo(
+      String appKeyId, GetApplicationKeyOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'appKeyId' is set
+    if (appKeyId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'appKeyId' when calling getApplicationKey");
+    }
+    String include = parameters.include;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/application_keys/{app_key_id}"
+            .replaceAll("\\{" + "app_key_id" + "\\}", apiClient.escapeString(appKeyId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include", include));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getApplicationKey");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    GenericType<ApplicationKeyResponse> localVarReturnType =
+        new GenericType<ApplicationKeyResponse>() {};
+
+    return apiClient.invokeAPI(
+        "KeyManagementApi.getApplicationKey",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
   /**
    * Get one application key owned by current user Get an application key owned by current user
    *
