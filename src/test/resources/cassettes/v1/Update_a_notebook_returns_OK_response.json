@@ -1,139 +1,240 @@
-[{
-  "id" : "1ec52cc4-6f34-4171-80cd-308f1fe063f2",
-  "httpRequest" : {
-    "method" : "POST",
-    "path" : "/api/v1/notebooks",
-    "headers" : {
-      "Accept" : [ "application/json" ],
-      "JAVA-TEST-NAME" : [ "Update_a_notebook_returns_OK_response" ],
-      "DD-OPERATION-ID" : [ "createNotebook" ],
-      "Content-Type" : [ "application/json" ]
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"cells\":[{\"attributes\":{\"definition\":{\"text\":\"# Test-Update_a_notebook_returns_OK_response-1620731122 notebook text\",\"type\":\"markdown\"}},\"type\":\"notebook_cells\"}],\"name\":\"Test-Update_a_notebook_returns_OK_response-1620731122\",\"time\":{\"live_span\":\"1h\"}},\"type\":\"notebooks\"}}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Update_a_notebook_returns_OK_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v1/notebooks",
+      "keepAlive": false,
+      "secure": true
     },
-    "keepAlive" : false,
-    "secure" : true,
-    "body" : {
-      "type" : "JSON",
-      "json" : "{\"data\":{\"attributes\":{\"cells\":[{\"attributes\":{\"definition\":{\"text\":\"# Test-Update_a_notebook_returns_OK_response-1620747451 notebook text\",\"type\":\"markdown\"}},\"type\":\"notebook_cells\"}],\"name\":\"Test-Update_a_notebook_returns_OK_response-1620747451\",\"status\":\"published\",\"time\":{\"live_span\":\"1h\"}},\"type\":\"notebooks\"}}"
-    }
-  },
-  "times" : {
-    "remainingTimes" : 1
-  },
-  "timeToLive" : {
-    "unlimited" : true
-  },
-  "httpResponse" : {
-    "statusCode" : 200,
-    "reasonPhrase" : "OK",
-    "headers" : {
-      "Date" : [ "Tue, 11 May 2021 15:37:31 GMT" ],
-      "Content-Type" : [ "application/json" ],
-      "Connection" : [ "keep-alive" ],
-      "vary" : [ "Accept-Encoding" ],
-      "pragma" : [ "no-cache" ],
-      "cache-control" : [ "no-cache" ],
-      "x-dd-version" : [ "35.4506591" ],
-      "x-ratelimit-limit" : [ "30" ],
-      "x-ratelimit-period" : [ "60" ],
-      "x-ratelimit-reset" : [ "29" ],
-      "x-ratelimit-remaining" : [ "26" ],
-      "x-dd-debug" : [ "LcgNasIYBRkNppmD6mCKE9J6iv0eEjosuuHR5V5zw2fWbR54i39C8dhdK8zDq/40" ],
-      "x-content-type-options" : [ "nosniff" ],
-      "strict-transport-security" : [ "max-age=15724800;" ],
-      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "x-frame-options" : [ "SAMEORIGIN" ],
-      "content-length" : [ "672" ]
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"notebooks\",\"id\":774485,\"attributes\":{\"name\":\"Test-Update_a_notebook_returns_OK_response-1620731122\",\"cells\":[{\"attributes\":{\"definition\":{\"text\":\"# Test-Update_a_notebook_returns_OK_response-1620731122 notebook text\",\"type\":\"markdown\"}},\"type\":\"notebook_cells\",\"id\":\"fba7ha9z\"}],\"time\":{\"live_span\":\"1h\"},\"status\":\"published\",\"modified\":\"2021-05-11T11:05:22.614667+00:00\",\"created\":\"2021-05-11T11:05:22.614667+00:00\",\"author\":{\"name\":null,\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro\",\"title\":null,\"verified\":true,\"disabled\":false,\"status\":\"Active\"}}}}",
+      "headers": {
+        "Date": [
+          "Tue, 11 May 2021 11:05:22 GMT"
+        ],
+        "Content-Type": [
+          "application/json"
+        ],
+        "Content-Length": [
+          "672"
+        ],
+        "Connection": [
+          "close"
+        ],
+        "Vary": [
+          "Accept-Encoding"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "X-Dd-Version": [
+          "35.4504344"
+        ],
+        "X-Ratelimit-Limit": [
+          "30"
+        ],
+        "X-Ratelimit-Period": [
+          "60"
+        ],
+        "X-Ratelimit-Reset": [
+          "38"
+        ],
+        "X-Ratelimit-Remaining": [
+          "29"
+        ],
+        "X-Dd-Debug": [
+          "l4HFlaRP3QwYSqoGKhzbYfv7zgkK63HIRR7YkyVYZspq0lGjjTBwoK8V/alf+XYt"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=15724800;"
+        ],
+        "Content-Security-Policy": [
+          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
+        ],
+        "X-Frame-Options": [
+          "SAMEORIGIN"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
     },
-    "body" : "{\"data\":{\"type\":\"notebooks\",\"id\":775880,\"attributes\":{\"name\":\"Test-Update_a_notebook_returns_OK_response-1620747451\",\"cells\":[{\"attributes\":{\"definition\":{\"text\":\"# Test-Update_a_notebook_returns_OK_response-1620747451 notebook text\",\"type\":\"markdown\"}},\"type\":\"notebook_cells\",\"id\":\"v2hojp19\"}],\"time\":{\"live_span\":\"1h\"},\"status\":\"published\",\"modified\":\"2021-05-11T15:37:31.674577+00:00\",\"created\":\"2021-05-11T15:37:31.674577+00:00\",\"author\":{\"name\":null,\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro\",\"title\":null,\"verified\":true,\"disabled\":false,\"status\":\"Active\"}}}}"
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "9982d6d9-04d4-4e25-8143-ffa122438d3e"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"cells\":[{\"attributes\":{\"definition\":{\"text\":\"## Some test markdown\\n\\n```js\\nvar x, y;\\nx = 5;\\ny = 6;\\n```\",\"type\":\"markdown\"}},\"type\":\"notebook_cells\"},{\"attributes\":{\"definition\":{\"requests\":[{\"display_type\":\"line\",\"q\":\"avg:system.load.1{*}\",\"style\":{\"line_type\":\"solid\",\"line_width\":\"normal\",\"palette\":\"dog_classic\"}}],\"show_legend\":true,\"type\":\"timeseries\",\"yaxis\":{\"scale\":\"linear\"}},\"graph_size\":\"m\",\"split_by\":{\"keys\":[],\"tags\":[]},\"time\":null},\"type\":\"notebook_cells\"}],\"name\":\"Test-Update_a_notebook_returns_OK_response-1620731122-updated\",\"status\":\"published\",\"time\":{\"live_span\":\"1h\"}},\"type\":\"notebooks\"}}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Update_a_notebook_returns_OK_response"
+        ]
+      },
+      "method": "PUT",
+      "path": "/api/v1/notebooks/774485",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"notebooks\",\"id\":774485,\"attributes\":{\"name\":\"Test-Update_a_notebook_returns_OK_response-1620731122-updated\",\"cells\":[{\"attributes\":{\"definition\":{\"text\":\"## Some test markdown\\n\\n```js\\nvar x, y;\\nx = 5;\\ny = 6;\\n```\",\"type\":\"markdown\"}},\"type\":\"notebook_cells\",\"id\":\"j5oy1chn\"},{\"attributes\":{\"definition\":{\"requests\":[{\"q\":\"avg:system.load.1{*}\",\"style\":{\"line_width\":\"normal\",\"palette\":\"dog_classic\",\"line_type\":\"solid\"},\"display_type\":\"line\"}],\"type\":\"timeseries\",\"show_legend\":true,\"yaxis\":{\"scale\":\"linear\"}},\"graph_size\":\"m\",\"split_by\":{\"keys\":[],\"tags\":[]},\"time\":null},\"type\":\"notebook_cells\",\"id\":\"8s9f0zci\"}],\"time\":{\"live_span\":\"1h\"},\"status\":\"published\",\"modified\":\"2021-05-11T11:05:23.057423+00:00\",\"created\":\"2021-05-11T11:05:22.614667+00:00\",\"author\":{\"name\":null,\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro\",\"title\":null,\"verified\":true,\"disabled\":false,\"status\":\"Active\"}}}}",
+      "headers": {
+        "Date": [
+          "Tue, 11 May 2021 11:05:23 GMT"
+        ],
+        "Content-Type": [
+          "application/json"
+        ],
+        "Content-Length": [
+          "1013"
+        ],
+        "Connection": [
+          "close"
+        ],
+        "Vary": [
+          "Accept-Encoding"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "X-Dd-Version": [
+          "35.4504344"
+        ],
+        "X-Ratelimit-Limit": [
+          "30"
+        ],
+        "X-Ratelimit-Period": [
+          "60"
+        ],
+        "X-Ratelimit-Reset": [
+          "37"
+        ],
+        "X-Ratelimit-Remaining": [
+          "29"
+        ],
+        "X-Dd-Debug": [
+          "Um4CoU685QqAscnxhS5BD+goWu2yX1Jd4zCfGzSsEvPPIm1qURZaF8dlLl/OEY4I"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=15724800;"
+        ],
+        "Content-Security-Policy": [
+          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
+        ],
+        "X-Frame-Options": [
+          "SAMEORIGIN"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b96dd7d0-e910-0e5a-fb84-9f59e9a72878"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Update_a_notebook_returns_OK_response"
+        ]
+      },
+      "method": "DELETE",
+      "path": "/api/v1/notebooks/774485",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Date": [
+          "Tue, 11 May 2021 11:05:23 GMT"
+        ],
+        "Content-Type": [
+          "application/json"
+        ],
+        "Content-Length": [
+          "0"
+        ],
+        "Connection": [
+          "close"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "X-Dd-Version": [
+          "35.4504344"
+        ],
+        "X-Ratelimit-Limit": [
+          "30"
+        ],
+        "X-Ratelimit-Period": [
+          "60"
+        ],
+        "X-Ratelimit-Reset": [
+          "37"
+        ],
+        "X-Ratelimit-Remaining": [
+          "29"
+        ],
+        "X-Dd-Debug": [
+          "twvpGlmuom5y6A0pjGtXzTf554cmwJgTcCZ71fK4H/RDi+v5ehBK0zQiRcTJQG5C"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=15724800;"
+        ],
+        "Content-Security-Policy": [
+          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
+        ],
+        "X-Frame-Options": [
+          "SAMEORIGIN"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "7e0e27ea-a9f7-c70c-58a5-c94a0a40fb2f"
   }
-}, {
-  "id" : "4d9a44c5-0314-4522-95ea-dc43dd449ef8",
-  "httpRequest" : {
-    "method" : "PUT",
-    "path" : "/api/v1/notebooks/775880",
-    "headers" : {
-      "Accept" : [ "application/json" ],
-      "JAVA-TEST-NAME" : [ "Update_a_notebook_returns_OK_response" ],
-      "DD-OPERATION-ID" : [ "updateNotebook" ],
-      "Content-Type" : [ "application/json" ]
-    },
-    "keepAlive" : false,
-    "secure" : true,
-    "body" : {
-      "type" : "JSON",
-      "json" : "{\"data\":{\"attributes\":{\"cells\":[{\"attributes\":{\"definition\":{\"text\":\"## Some test markdown\\n\\n```js\\nvar x, y;\\nx = 5;\\ny = 6;\\n```\",\"type\":\"markdown\"}},\"type\":\"notebook_cells\"},{\"attributes\":{\"definition\":{\"requests\":[{\"display_type\":\"line\",\"q\":\"avg:system.load.1{*}\",\"style\":{\"line_type\":\"solid\",\"line_width\":\"normal\",\"palette\":\"dog_classic\"}}],\"show_legend\":true,\"type\":\"timeseries\",\"yaxis\":{\"max\":\"auto\",\"min\":\"auto\",\"scale\":\"linear\"}},\"graph_size\":\"m\",\"split_by\":{\"keys\":[],\"tags\":[]},\"time\":null},\"type\":\"notebook_cells\"}],\"name\":\"Test-Update_a_notebook_returns_OK_response-1620747451-updated\",\"status\":\"published\",\"time\":{\"live_span\":\"1h\"}},\"type\":\"notebooks\"}}"
-    }
-  },
-  "times" : {
-    "remainingTimes" : 1
-  },
-  "timeToLive" : {
-    "unlimited" : true
-  },
-  "httpResponse" : {
-    "statusCode" : 200,
-    "reasonPhrase" : "OK",
-    "headers" : {
-      "Date" : [ "Tue, 11 May 2021 15:37:32 GMT" ],
-      "Content-Type" : [ "application/json" ],
-      "Connection" : [ "keep-alive" ],
-      "vary" : [ "Accept-Encoding" ],
-      "pragma" : [ "no-cache" ],
-      "cache-control" : [ "no-cache" ],
-      "x-dd-version" : [ "35.4506591" ],
-      "x-ratelimit-limit" : [ "30" ],
-      "x-ratelimit-period" : [ "60" ],
-      "x-ratelimit-reset" : [ "28" ],
-      "x-ratelimit-remaining" : [ "29" ],
-      "x-dd-debug" : [ "gYZcaADwbKcv7Hm19HJx6WsLoKuOijDWAt2viPeCfWqUgyKY+9e1xZdmMJeXV3YV" ],
-      "x-content-type-options" : [ "nosniff" ],
-      "strict-transport-security" : [ "max-age=15724800;" ],
-      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "x-frame-options" : [ "SAMEORIGIN" ],
-      "content-length" : [ "1039" ]
-    },
-    "body" : "{\"data\":{\"type\":\"notebooks\",\"id\":775880,\"attributes\":{\"name\":\"Test-Update_a_notebook_returns_OK_response-1620747451-updated\",\"cells\":[{\"attributes\":{\"definition\":{\"text\":\"## Some test markdown\\n\\n```js\\nvar x, y;\\nx = 5;\\ny = 6;\\n```\",\"type\":\"markdown\"}},\"type\":\"notebook_cells\",\"id\":\"6vopbkqc\"},{\"attributes\":{\"definition\":{\"requests\":[{\"q\":\"avg:system.load.1{*}\",\"style\":{\"line_width\":\"normal\",\"palette\":\"dog_classic\",\"line_type\":\"solid\"},\"display_type\":\"line\"}],\"type\":\"timeseries\",\"show_legend\":true,\"yaxis\":{\"max\":\"auto\",\"scale\":\"linear\",\"min\":\"auto\"}},\"graph_size\":\"m\",\"split_by\":{\"keys\":[],\"tags\":[]},\"time\":null},\"type\":\"notebook_cells\",\"id\":\"qjjjktvl\"}],\"time\":{\"live_span\":\"1h\"},\"status\":\"published\",\"modified\":\"2021-05-11T15:37:32.172905+00:00\",\"created\":\"2021-05-11T15:37:31.674577+00:00\",\"author\":{\"name\":null,\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro\",\"title\":null,\"verified\":true,\"disabled\":false,\"status\":\"Active\"}}}}"
-  }
-}, {
-  "id" : "94e89269-e988-4fcb-8d28-055679e3f5aa",
-  "httpRequest" : {
-    "method" : "DELETE",
-    "path" : "/api/v1/notebooks/775880",
-    "headers" : {
-      "Accept" : [ "application/json" ],
-      "JAVA-TEST-NAME" : [ "Update_a_notebook_returns_OK_response" ],
-      "DD-OPERATION-ID" : [ "deleteNotebook" ],
-      "Content-Type" : [ "application/json" ]
-    },
-    "keepAlive" : false,
-    "secure" : true
-  },
-  "times" : {
-    "remainingTimes" : 1
-  },
-  "timeToLive" : {
-    "unlimited" : true
-  },
-  "httpResponse" : {
-    "statusCode" : 204,
-    "reasonPhrase" : "No Content",
-    "headers" : {
-      "Date" : [ "Tue, 11 May 2021 15:37:32 GMT" ],
-      "Content-Type" : [ "application/json" ],
-      "Content-Length" : [ "0" ],
-      "Connection" : [ "keep-alive" ],
-      "pragma" : [ "no-cache" ],
-      "cache-control" : [ "no-cache" ],
-      "x-dd-version" : [ "35.4506591" ],
-      "x-ratelimit-limit" : [ "30" ],
-      "x-ratelimit-period" : [ "60" ],
-      "x-ratelimit-reset" : [ "28" ],
-      "x-ratelimit-remaining" : [ "24" ],
-      "x-dd-debug" : [ "vdJ3/nHEY1ioXQ6pQrBVvsQK1s4yyc+wufBMPSoXql71qZVuP/xMdtNo6DafhOAk" ],
-      "x-content-type-options" : [ "nosniff" ],
-      "strict-transport-security" : [ "max-age=15724800;" ],
-      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "x-frame-options" : [ "SAMEORIGIN" ]
-    }
-  }
-}]
+]

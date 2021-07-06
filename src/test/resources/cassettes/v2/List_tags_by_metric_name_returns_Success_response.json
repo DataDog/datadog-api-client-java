@@ -1,116 +1,233 @@
-[{
-  "id" : "525a2b4c-8b98-453e-813c-49c1960d4ada",
-  "httpRequest" : {
-    "method" : "POST",
-    "path" : "/api/v2/metrics/TestListtagsbymetricnamereturnsSuccessresponse1618083821/tags",
-    "headers" : {
-      "Accept" : [ "application/json" ],
-      "JAVA-TEST-NAME" : [ "List_tags_by_metric_name_returns_Success_response" ],
-      "DD-OPERATION-ID" : [ "createTagConfiguration" ],
-      "Content-Type" : [ "application/json" ]
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"metric_type\":\"distribution\",\"tags\":[\"app\",\"datacenter\",\"TestListtagsbymetricnamereturnsSuccessresponse1618491744\"]},\"id\":\"TestListtagsbymetricnamereturnsSuccessresponse1618491744\",\"type\":\"manage_tags\"}}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "List_tags_by_metric_name_returns_Success_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v2/metrics/TestListtagsbymetricnamereturnsSuccessresponse1618491744/tags",
+      "keepAlive": false,
+      "secure": true
     },
-    "keepAlive" : false,
-    "secure" : true,
-    "body" : {
-      "type" : "JSON",
-      "json" : "{\"data\":{\"attributes\":{\"include_percentiles\":false,\"metric_type\":\"distribution\",\"tags\":[\"app\",\"datacenter\",\"TestListtagsbymetricnamereturnsSuccessresponse1618083821\"]},\"id\":\"TestListtagsbymetricnamereturnsSuccessresponse1618083821\",\"type\":\"manage_tags\"}}"
-    }
-  },
-  "times" : {
-    "remainingTimes" : 1
-  },
-  "timeToLive" : {
-    "unlimited" : true
-  },
-  "httpResponse" : {
-    "statusCode" : 201,
-    "reasonPhrase" : "Created",
-    "headers" : {
-      "Date" : [ "Sat, 10 Apr 2021 19:43:42 GMT" ],
-      "Content-Type" : [ "application/json" ],
-      "Content-Length" : [ "350" ],
-      "Connection" : [ "keep-alive" ],
-      "pragma" : [ "no-cache" ],
-      "cache-control" : [ "no-cache" ],
-      "x-dd-version" : [ "35.4281284" ],
-      "x-ratelimit-limit" : [ "50" ],
-      "x-ratelimit-period" : [ "60" ],
-      "x-ratelimit-reset" : [ "18" ],
-      "x-ratelimit-remaining" : [ "35" ],
-      "x-dd-debug" : [ "vdJ3/nHEY1ioXQ6pQrBVvsQK1s4yyc+wufBMPSoXql71qZVuP/xMdtNo6DafhOAk" ],
-      "x-content-type-options" : [ "nosniff" ],
-      "strict-transport-security" : [ "max-age=15724800;" ],
-      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "x-frame-options" : [ "SAMEORIGIN" ]
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"manage_tags\",\"id\":\"TestListtagsbymetricnamereturnsSuccessresponse1618491744\",\"attributes\":{\"tags\":[\"TestListtagsbymetricnamereturnsSuccessresponse1618491744\",\"app\",\"datacenter\"],\"include_percentiles\":false,\"created_at\":\"2021-04-15T13:02:25.592352+00:00\",\"updated_at\":\"2021-04-15T13:02:25.592352+00:00\",\"metric_type\":\"distribution\"}}}",
+      "headers": {
+        "Date": [
+          "Thu, 15 Apr 2021 13:02:25 GMT"
+        ],
+        "Content-Type": [
+          "application/json"
+        ],
+        "Content-Length": [
+          "350"
+        ],
+        "Connection": [
+          "close"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "X-Dd-Version": [
+          "35.4318655"
+        ],
+        "X-Ratelimit-Limit": [
+          "50"
+        ],
+        "X-Ratelimit-Period": [
+          "60"
+        ],
+        "X-Ratelimit-Reset": [
+          "35"
+        ],
+        "X-Ratelimit-Remaining": [
+          "35"
+        ],
+        "X-Dd-Debug": [
+          "PhosSd3Ch1B6B0DXI71steKUi7XhPDttnPiIP1NdXTw0VJNWpoUnYyBmODS5ne3q"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=15724800;"
+        ],
+        "Content-Security-Policy": [
+          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
+        ],
+        "X-Frame-Options": [
+          "SAMEORIGIN"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
     },
-    "body" : "{\"data\":{\"type\":\"manage_tags\",\"id\":\"TestListtagsbymetricnamereturnsSuccessresponse1618083821\",\"attributes\":{\"tags\":[\"datacenter\",\"app\",\"TestListtagsbymetricnamereturnsSuccessresponse1618083821\"],\"include_percentiles\":false,\"created_at\":\"2021-04-10T19:43:42.330061+00:00\",\"updated_at\":\"2021-04-10T19:43:42.330061+00:00\",\"metric_type\":\"distribution\"}}}"
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "4306b759-03a0-6286-ad39-c0c286ba79be"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "List_tags_by_metric_name_returns_Success_response"
+        ]
+      },
+      "method": "GET",
+      "path": "/api/v2/metrics/TestListtagsbymetricnamereturnsSuccessresponse1618491744/all-tags",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"metrics\",\"id\":\"TestListtagsbymetricnamereturnsSuccessresponse1618491744\",\"attributes\":{\"tags\":[]}}}",
+      "headers": {
+        "Date": [
+          "Thu, 15 Apr 2021 13:02:26 GMT"
+        ],
+        "Content-Type": [
+          "application/json"
+        ],
+        "Content-Length": [
+          "116"
+        ],
+        "Connection": [
+          "close"
+        ],
+        "Vary": [
+          "Accept-Encoding"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "X-Dd-Version": [
+          "35.4318655"
+        ],
+        "X-Ratelimit-Limit": [
+          "600"
+        ],
+        "X-Ratelimit-Period": [
+          "3600"
+        ],
+        "X-Ratelimit-Reset": [
+          "3455"
+        ],
+        "X-Ratelimit-Remaining": [
+          "598"
+        ],
+        "X-Dd-Debug": [
+          "bgHykj7A9bfZx0Y5ZO3swhhp5tGUSNJHqFWR868+qg087CYrDOd5hQslC+noiEtH"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=15724800;"
+        ],
+        "Content-Security-Policy": [
+          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
+        ],
+        "X-Frame-Options": [
+          "SAMEORIGIN"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "5c34f0dc-ac95-9096-0516-5e19ea48cf32"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "List_tags_by_metric_name_returns_Success_response"
+        ]
+      },
+      "method": "DELETE",
+      "path": "/api/v2/metrics/TestListtagsbymetricnamereturnsSuccessresponse1618491744/tags",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Date": [
+          "Thu, 15 Apr 2021 13:02:26 GMT"
+        ],
+        "Content-Type": [
+          "application/json"
+        ],
+        "Content-Length": [
+          "0"
+        ],
+        "Connection": [
+          "close"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "X-Dd-Version": [
+          "35.4318655"
+        ],
+        "X-Ratelimit-Limit": [
+          "50"
+        ],
+        "X-Ratelimit-Period": [
+          "60"
+        ],
+        "X-Ratelimit-Reset": [
+          "34"
+        ],
+        "X-Ratelimit-Remaining": [
+          "34"
+        ],
+        "X-Dd-Debug": [
+          "nLnnBNvlCFDECRnZvzDb0z4sAO35G+IMidcAs8vrCKyjvsKWE8Yd9S3n6OjZ1qRN"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=15724800;"
+        ],
+        "Content-Security-Policy": [
+          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
+        ],
+        "X-Frame-Options": [
+          "SAMEORIGIN"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "59181b5c-1068-4cac-3438-a21e42c0e7e3"
   }
-}, {
-  "id" : "28b24616-4262-4b5a-a96a-546d3bbeb27a",
-  "httpRequest" : {
-    "method" : "GET",
-    "path" : "/api/v2/metrics/TestListtagsbymetricnamereturnsSuccessresponse1618083821/all-tags",
-    "headers" : {
-      "Accept" : [ "application/json" ],
-      "JAVA-TEST-NAME" : [ "List_tags_by_metric_name_returns_Success_response" ],
-      "DD-OPERATION-ID" : [ "listTagsByMetricName" ],
-      "content-length" : [ "0" ]
-    },
-    "keepAlive" : false,
-    "secure" : true
-  },
-  "times" : {
-    "remainingTimes" : 1
-  },
-  "timeToLive" : {
-    "unlimited" : true
-  },
-  "httpResponse" : {
-    "statusCode" : 200,
-    "reasonPhrase" : "OK",
-    "headers" : {
-      "Date" : [ "Sat, 10 Apr 2021 19:43:42 GMT" ],
-      "Content-Type" : [ "application/json" ],
-      "Connection" : [ "keep-alive" ],
-      "vary" : [ "Accept-Encoding" ],
-      "pragma" : [ "no-cache" ],
-      "cache-control" : [ "no-cache" ],
-      "x-dd-version" : [ "35.4281284" ],
-      "x-ratelimit-limit" : [ "600" ],
-      "x-ratelimit-period" : [ "3600" ],
-      "x-ratelimit-reset" : [ "978" ],
-      "x-ratelimit-remaining" : [ "590" ],
-      "x-dd-debug" : [ "fIO2C4qGDheGHy4YbS+r3a3CXbh4cbRo7roILOimQyiHGjQdOat0cIpWCkupM1uX" ],
-      "x-content-type-options" : [ "nosniff" ],
-      "strict-transport-security" : [ "max-age=15724800;" ],
-      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "x-frame-options" : [ "SAMEORIGIN" ],
-      "content-length" : [ "116" ]
-    },
-    "body" : "{\"data\":{\"type\":\"metrics\",\"id\":\"TestListtagsbymetricnamereturnsSuccessresponse1618083821\",\"attributes\":{\"tags\":[]}}}"
-  }
-}, {
-  "id" : "f551d26b-ebac-418b-9dbc-200f85cc322f",
-  "httpRequest" : {
-    "method" : "DELETE",
-    "path" : "/api/v2/metrics/TestListtagsbymetricnamereturnsSuccessresponse1618083821/tags",
-    "headers" : {
-      "Accept" : [ "application/json" ],
-      "JAVA-TEST-NAME" : [ "List_tags_by_metric_name_returns_Success_response" ],
-      "DD-OPERATION-ID" : [ "deleteTagConfiguration" ],
-      "Content-Type" : [ "application/json" ]
-    },
-    "keepAlive" : false,
-    "secure" : true
-  },
-  "times" : {
-    "remainingTimes" : 1
-  },
-  "timeToLive" : {
-    "unlimited" : true
-  },
-  "httpResponse" : {
-    "statusCode" : 404,
-    "reasonPhrase" : "Not Found"
-  }
-}]
+]
