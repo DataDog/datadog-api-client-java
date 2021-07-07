@@ -343,7 +343,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);
-        String reportId = "reportId_example"; // String | The specified ID to search results for.
+        String reportId = "reportId_example"; // String | Date of the report in the format `YYYY-MM-DD`.
         try {
             UsageSpecifiedCustomReportsResponse result = apiInstance.getSpecifiedDailyCustomReports(reportId);
             System.out.println(result);
@@ -363,7 +363,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **reportId** | **String**| The specified ID to search results for. |
+ **reportId** | **String**| Date of the report in the format &#x60;YYYY-MM-DD&#x60;. |
 
 ### Return type
 
@@ -407,7 +407,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);
-        String reportId = "reportId_example"; // String | The specified ID to search results for.
+        String reportId = "reportId_example"; // String | Date of the report in the format `YYYY-MM-DD`.
         try {
             UsageSpecifiedCustomReportsResponse result = apiInstance.getSpecifiedMonthlyCustomReports(reportId);
             System.out.println(result);
@@ -427,7 +427,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **reportId** | **String**| The specified ID to search results for. |
+ **reportId** | **String**| Date of the report in the format &#x60;YYYY-MM-DD&#x60;. |
 
 ### Return type
 
