@@ -647,7 +647,7 @@ public class UsageMeteringApi {
   /**
    * Get specified daily custom reports Get specified daily custom reports.
    *
-   * @param reportId The specified ID to search results for. (required)
+   * @param reportId Date of the report in the format &#x60;YYYY-MM-DD&#x60;. (required)
    * @return UsageSpecifiedCustomReportsResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -666,7 +666,7 @@ public class UsageMeteringApi {
   /**
    * Get specified daily custom reports Get specified daily custom reports.
    *
-   * @param reportId The specified ID to search results for. (required)
+   * @param reportId Date of the report in the format &#x60;YYYY-MM-DD&#x60;. (required)
    * @return ApiResponse&lt;UsageSpecifiedCustomReportsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -732,7 +732,7 @@ public class UsageMeteringApi {
   /**
    * Get specified monthly custom reports Get specified monthly custom reports.
    *
-   * @param reportId The specified ID to search results for. (required)
+   * @param reportId Date of the report in the format &#x60;YYYY-MM-DD&#x60;. (required)
    * @return UsageSpecifiedCustomReportsResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -752,7 +752,7 @@ public class UsageMeteringApi {
   /**
    * Get specified monthly custom reports Get specified monthly custom reports.
    *
-   * @param reportId The specified ID to search results for. (required)
+   * @param reportId Date of the report in the format &#x60;YYYY-MM-DD&#x60;. (required)
    * @return ApiResponse&lt;UsageSpecifiedCustomReportsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
