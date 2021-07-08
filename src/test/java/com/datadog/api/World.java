@@ -403,7 +403,14 @@ public class World {
         }
       }
       // Build request from undo parameters and response data
-      Map<String, Object> undoRequestParams = undoSettings.undo.getRequestParameters(data, undoOperation, getObjectMapper());
+      Map<String, Object> undoRequestParams =
+          undoSettings.undo.getRequestParameters(data, undoOperation, getObjectMapper());
+      for (Class c : undoAPIClass.getClasses()) {
+        if (c.getName().endsWith(undoSettings.undo.operationId + "OptionalParameters")) {
+          undoRequestParams.put("parameters", c.getConstructor().newInstance());
+          break;
+        }
+      }
 
       // Execute request
       try {
