@@ -70,7 +70,10 @@ public class HTTPLogError {
    *
    * @return message
    */
-  @ApiModelProperty(example = "", required = true, value = "Error message.")
+  @ApiModelProperty(
+      example = "Your browser sent an invalid request.",
+      required = true,
+      value = "Error message.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getMessage() {
