@@ -1,5 +1,5 @@
 [{
-  "id" : "2982d4a7-4529-4aa0-a217-1f4da4514867",
+  "id" : "0d6939d8-ec9c-4b22-9acd-de3ba5d121fb",
   "httpRequest" : {
     "method" : "DELETE",
     "path" : "/api/v1/integration/aws/logs",
@@ -7,9 +7,7 @@
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "logsDelete403ErrorTest" ],
       "DD-OPERATION-ID" : [ "deleteAWSLambdaARN" ],
-      "Content-Type" : [ "application/json" ],
-      "Connection" : [ "close" ],
-      "Content-Length" : [ "37" ]
+      "Content-Type" : [ "application/json" ]
     },
     "keepAlive" : false,
     "secure" : true,
@@ -28,12 +26,12 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:12:49 GMT" ],
+      "Date" : [ "Tue, 13 Jul 2021 17:36:53 GMT" ],
       "Content-Type" : [ "application/json" ],
+      "Content-Length" : [ "170" ],
       "Connection" : [ "keep-alive" ],
-      "Cache-Control" : [ "no-cache" ],
-      "Via" : [ "1.1 haproxy" ],
-      "content-length" : [ "170" ]
+      "cache-control" : [ "no-cache" ],
+      "via" : [ "haproxy" ]
     },
     "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
   }

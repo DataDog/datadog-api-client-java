@@ -112,12 +112,16 @@ public class AwsIntegrationApiTest extends V1ApiTest {
   @After
   public void removeAccounts() throws TestUtils.RetryException {
     for (AWSAccount account : accountsToDelete) {
+      AWSAccountDeleteRequest body = new AWSAccountDeleteRequest();
+      body.setAccountId(account.getAccountId());
+      body.setRoleName(account.getRoleName());
+
       TestUtils.retry(
           random.nextInt(10),
           20,
           () -> {
             try {
-              api.deleteAWSAccount(account);
+              api.deleteAWSAccount(body);
             } catch (ApiException e) {
               System.out.println(String.format("Error deleting AWS Account: %s", e));
               return false;
@@ -428,7 +432,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
   @Test
   public void deleteErrorsAWSTest() throws IOException {
     try {
-      api.deleteAWSAccount(new AWSAccount());
+      api.deleteAWSAccount(new AWSAccountDeleteRequest());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(400, e.getCode());
@@ -437,7 +441,7 @@ public class AwsIntegrationApiTest extends V1ApiTest {
     }
 
     try {
-      fakeAuthApi.deleteAWSAccount(new AWSAccount());
+      fakeAuthApi.deleteAWSAccount(new AWSAccountDeleteRequest());
       fail("Expected ApiException not thrown");
     } catch (ApiException e) {
       assertEquals(403, e.getCode());
