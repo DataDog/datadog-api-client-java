@@ -22,6 +22,7 @@ import java.util.Objects;
 /** Object describing the Synthetic test request. */
 @ApiModel(description = "Object describing the Synthetic test request.")
 @JsonPropertyOrder({
+  SyntheticsTestRequest.JSON_PROPERTY_ALLOW_INSECURE,
   SyntheticsTestRequest.JSON_PROPERTY_BASIC_AUTH,
   SyntheticsTestRequest.JSON_PROPERTY_BODY,
   SyntheticsTestRequest.JSON_PROPERTY_CERTIFICATE,
@@ -40,6 +41,9 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsTestRequest {
+  public static final String JSON_PROPERTY_ALLOW_INSECURE = "allow_insecure";
+  private Boolean allowInsecure;
+
   public static final String JSON_PROPERTY_BASIC_AUTH = "basicAuth";
   private SyntheticsBasicAuth basicAuth;
 
@@ -84,6 +88,29 @@ public class SyntheticsTestRequest {
 
   public static final String JSON_PROPERTY_URL = "url";
   private String url;
+
+  public SyntheticsTestRequest allowInsecure(Boolean allowInsecure) {
+    this.allowInsecure = allowInsecure;
+    return this;
+  }
+
+  /**
+   * Allows loading insecure content for an HTTP request in a multistep test step.
+   *
+   * @return allowInsecure
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value = "Allows loading insecure content for an HTTP request in a multistep test step.")
+  @JsonProperty(JSON_PROPERTY_ALLOW_INSECURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getAllowInsecure() {
+    return allowInsecure;
+  }
+
+  public void setAllowInsecure(Boolean allowInsecure) {
+    this.allowInsecure = allowInsecure;
+  }
 
   public SyntheticsTestRequest basicAuth(SyntheticsBasicAuth basicAuth) {
     this.basicAuth = basicAuth;
@@ -436,7 +463,8 @@ public class SyntheticsTestRequest {
       return false;
     }
     SyntheticsTestRequest syntheticsTestRequest = (SyntheticsTestRequest) o;
-    return Objects.equals(this.basicAuth, syntheticsTestRequest.basicAuth)
+    return Objects.equals(this.allowInsecure, syntheticsTestRequest.allowInsecure)
+        && Objects.equals(this.basicAuth, syntheticsTestRequest.basicAuth)
         && Objects.equals(this.body, syntheticsTestRequest.body)
         && Objects.equals(this.certificate, syntheticsTestRequest.certificate)
         && Objects.equals(this.dnsServer, syntheticsTestRequest.dnsServer)
@@ -456,6 +484,7 @@ public class SyntheticsTestRequest {
   @Override
   public int hashCode() {
     return Objects.hash(
+        allowInsecure,
         basicAuth,
         body,
         certificate,
@@ -477,6 +506,7 @@ public class SyntheticsTestRequest {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SyntheticsTestRequest {\n");
+    sb.append("    allowInsecure: ").append(toIndentedString(allowInsecure)).append("\n");
     sb.append("    basicAuth: ").append(toIndentedString(basicAuth)).append("\n");
     sb.append("    body: ").append(toIndentedString(body)).append("\n");
     sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
