@@ -10,7 +10,6 @@ Method        | HTTP request | Description
 [**getMonthlyCustomReports**](UsageMeteringApi.md#getMonthlyCustomReports) | **GET** /api/v1/monthly_custom_reports | Get the list of available monthly custom reports
 [**getSpecifiedDailyCustomReports**](UsageMeteringApi.md#getSpecifiedDailyCustomReports) | **GET** /api/v1/daily_custom_reports/{report_id} | Get specified daily custom reports
 [**getSpecifiedMonthlyCustomReports**](UsageMeteringApi.md#getSpecifiedMonthlyCustomReports) | **GET** /api/v1/monthly_custom_reports/{report_id} | Get specified monthly custom reports
-[**getTracingWithoutLimits**](UsageMeteringApi.md#getTracingWithoutLimits) | **GET** /api/v1/usage/tracing-without-limits | Get hourly usage for tracing without limits
 [**getUsageAnalyzedLogs**](UsageMeteringApi.md#getUsageAnalyzedLogs) | **GET** /api/v1/usage/analyzed_logs | Get hourly usage for analyzed logs
 [**getUsageAttribution**](UsageMeteringApi.md#getUsageAttribution) | **GET** /api/v1/usage/attribution | Get Usage Attribution
 [**getUsageAuditLogs**](UsageMeteringApi.md#getUsageAuditLogs) | **GET** /api/v1/usage/audit_logs | Get hourly usage for audit logs
@@ -36,7 +35,6 @@ Method        | HTTP request | Description
 [**getUsageSyntheticsBrowser**](UsageMeteringApi.md#getUsageSyntheticsBrowser) | **GET** /api/v1/usage/synthetics_browser | Get hourly usage for Synthetics Browser Checks
 [**getUsageTimeseries**](UsageMeteringApi.md#getUsageTimeseries) | **GET** /api/v1/usage/timeseries | Get hourly usage for custom metrics
 [**getUsageTopAvgMetrics**](UsageMeteringApi.md#getUsageTopAvgMetrics) | **GET** /api/v1/usage/top_avg_metrics | Get all custom metrics by hourly average
-[**getUsageTrace**](UsageMeteringApi.md#getUsageTrace) | **GET** /api/v1/usage/traces | Get hourly usage for Trace Search
 
 
 
@@ -449,76 +447,6 @@ Name | Type | Description  | Notes
 | **400** | Bad Request |  -  |
 | **403** | Forbidden - User is not authorized |  -  |
 | **404** | Not Found |  -  |
-
-
-## getTracingWithoutLimits
-
-> UsageTracingWithoutLimitsResponse getTracingWithoutLimits(startHr, parameters);
-
-Get hourly usage for tracing without limits.
-
-**Note** This endpoint has been renamed to `/api/v1/usage/ingested-spans`.
-
-### Example
-
-```java
-import java.time.OffsetDateTime;
-import java.util.*;
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.model.*;
-import com.datadog.api.v1.client.api.UsageMeteringApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-        UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);
-        OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
-        OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
-        try {
-	    UsageTracingWithoutLimitsResponse result = apiInstance.getTracingWithoutLimits(startHr, new UsageMeteringApi.GetTracingWithoutLimitsOptionalParameters()
-                .endHr(endHr));
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling UsageMeteringApi#getTracingWithoutLimits");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **startHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. |
- **endHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional]
-
-### Return type
-
-[**UsageTracingWithoutLimitsResponse**](UsageTracingWithoutLimitsResponse.md)
-
-### Authorization
-
-[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden - User is not authorized |  -  |
 
 
 ## getUsageAnalyzedLogs
@@ -2227,76 +2155,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**UsageTopAvgMetricsResponse**](UsageTopAvgMetricsResponse.md)
-
-### Authorization
-
-[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden - User is not authorized |  -  |
-
-
-## getUsageTrace
-
-> UsageTraceResponse getUsageTrace(startHr, parameters);
-
-Get hourly usage for trace search.
-
-**Note** This endpoint has been renamed to `/api/v1/usage/indexed-spans`.
-
-### Example
-
-```java
-import java.time.OffsetDateTime;
-import java.util.*;
-import com.datadog.api.v1.client.ApiClient;
-import com.datadog.api.v1.client.ApiException;
-import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.model.*;
-import com.datadog.api.v1.client.api.UsageMeteringApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-        UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);
-        OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
-        OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
-        try {
-	    UsageTraceResponse result = apiInstance.getUsageTrace(startHr, new UsageMeteringApi.GetUsageTraceOptionalParameters()
-                .endHr(endHr));
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling UsageMeteringApi#getUsageTrace");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **startHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour. |
- **endHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional]
-
-### Return type
-
-[**UsageTraceResponse**](UsageTraceResponse.md)
 
 ### Authorization
 

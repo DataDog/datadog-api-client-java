@@ -165,7 +165,6 @@ Class | Method | HTTP request | Description
 *UsageMeteringApi* | [**getMonthlyCustomReports**](UsageMeteringApi.md#getMonthlyCustomReports) | **GET** /api/v1/monthly_custom_reports | Get the list of available monthly custom reports
 *UsageMeteringApi* | [**getSpecifiedDailyCustomReports**](UsageMeteringApi.md#getSpecifiedDailyCustomReports) | **GET** /api/v1/daily_custom_reports/{report_id} | Get specified daily custom reports
 *UsageMeteringApi* | [**getSpecifiedMonthlyCustomReports**](UsageMeteringApi.md#getSpecifiedMonthlyCustomReports) | **GET** /api/v1/monthly_custom_reports/{report_id} | Get specified monthly custom reports
-*UsageMeteringApi* | [**getTracingWithoutLimits**](UsageMeteringApi.md#getTracingWithoutLimits) | **GET** /api/v1/usage/tracing-without-limits | Get hourly usage for tracing without limits
 *UsageMeteringApi* | [**getUsageAnalyzedLogs**](UsageMeteringApi.md#getUsageAnalyzedLogs) | **GET** /api/v1/usage/analyzed_logs | Get hourly usage for analyzed logs
 *UsageMeteringApi* | [**getUsageAttribution**](UsageMeteringApi.md#getUsageAttribution) | **GET** /api/v1/usage/attribution | Get Usage Attribution
 *UsageMeteringApi* | [**getUsageAuditLogs**](UsageMeteringApi.md#getUsageAuditLogs) | **GET** /api/v1/usage/audit_logs | Get hourly usage for audit logs
@@ -191,7 +190,6 @@ Class | Method | HTTP request | Description
 *UsageMeteringApi* | [**getUsageSyntheticsBrowser**](UsageMeteringApi.md#getUsageSyntheticsBrowser) | **GET** /api/v1/usage/synthetics_browser | Get hourly usage for Synthetics Browser Checks
 *UsageMeteringApi* | [**getUsageTimeseries**](UsageMeteringApi.md#getUsageTimeseries) | **GET** /api/v1/usage/timeseries | Get hourly usage for custom metrics
 *UsageMeteringApi* | [**getUsageTopAvgMetrics**](UsageMeteringApi.md#getUsageTopAvgMetrics) | **GET** /api/v1/usage/top_avg_metrics | Get all custom metrics by hourly average
-*UsageMeteringApi* | [**getUsageTrace**](UsageMeteringApi.md#getUsageTrace) | **GET** /api/v1/usage/traces | Get hourly usage for Trace Search
 *UsersApi* | [**createUser**](UsersApi.md#createUser) | **POST** /api/v1/user | Create a user
 *UsersApi* | [**disableUser**](UsersApi.md#disableUser) | **DELETE** /api/v1/user/{user_handle} | Disable a user
 *UsersApi* | [**getUser**](UsersApi.md#getUser) | **GET** /api/v1/user/{user_handle} | Get user details
@@ -736,10 +734,6 @@ Class | Method | HTTP request | Description
  - [UsageTopAvgMetricsHour](UsageTopAvgMetricsHour.md)
  - [UsageTopAvgMetricsMetadata](UsageTopAvgMetricsMetadata.md)
  - [UsageTopAvgMetricsResponse](UsageTopAvgMetricsResponse.md)
- - [UsageTraceHour](UsageTraceHour.md)
- - [UsageTraceResponse](UsageTraceResponse.md)
- - [UsageTracingWithoutLimitsHour](UsageTracingWithoutLimitsHour.md)
- - [UsageTracingWithoutLimitsResponse](UsageTracingWithoutLimitsResponse.md)
  - [User](User.md)
  - [UserDisableResponse](UserDisableResponse.md)
  - [UserListResponse](UserListResponse.md)
