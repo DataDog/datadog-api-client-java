@@ -23,7 +23,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   SyntheticsBrowserError.JSON_PROPERTY_DESCRIPTION,
   SyntheticsBrowserError.JSON_PROPERTY_NAME,
-  SyntheticsBrowserError.JSON_PROPERTY_STATUS_CODE,
+  SyntheticsBrowserError.JSON_PROPERTY_STATUS,
   SyntheticsBrowserError.JSON_PROPERTY_TYPE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -34,8 +34,8 @@ public class SyntheticsBrowserError {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  public static final String JSON_PROPERTY_STATUS_CODE = "statusCode";
-  private Long statusCode;
+  public static final String JSON_PROPERTY_STATUS = "status";
+  private Long status;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private SyntheticsBrowserErrorType type;
@@ -94,26 +94,26 @@ public class SyntheticsBrowserError {
     this.name = name;
   }
 
-  public SyntheticsBrowserError statusCode(Long statusCode) {
-    this.statusCode = statusCode;
+  public SyntheticsBrowserError status(Long status) {
+    this.status = status;
     return this;
   }
 
   /**
    * Status Code of the error.
    *
-   * @return statusCode
+   * @return status
    */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Status Code of the error.")
-  @JsonProperty(JSON_PROPERTY_STATUS_CODE)
+  @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getStatusCode() {
-    return statusCode;
+  public Long getStatus() {
+    return status;
   }
 
-  public void setStatusCode(Long statusCode) {
-    this.statusCode = statusCode;
+  public void setStatus(Long status) {
+    this.status = status;
   }
 
   public SyntheticsBrowserError type(SyntheticsBrowserErrorType type) {
@@ -149,13 +149,13 @@ public class SyntheticsBrowserError {
     SyntheticsBrowserError syntheticsBrowserError = (SyntheticsBrowserError) o;
     return Objects.equals(this.description, syntheticsBrowserError.description)
         && Objects.equals(this.name, syntheticsBrowserError.name)
-        && Objects.equals(this.statusCode, syntheticsBrowserError.statusCode)
+        && Objects.equals(this.status, syntheticsBrowserError.status)
         && Objects.equals(this.type, syntheticsBrowserError.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, name, statusCode, type);
+    return Objects.hash(description, name, status, type);
   }
 
   @Override
@@ -164,7 +164,7 @@ public class SyntheticsBrowserError {
     sb.append("class SyntheticsBrowserError {\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    statusCode: ").append(toIndentedString(statusCode)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
