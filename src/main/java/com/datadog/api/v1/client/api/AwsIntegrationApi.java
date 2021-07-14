@@ -7,6 +7,7 @@ import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.Pair;
 import com.datadog.api.v1.client.model.AWSAccount;
 import com.datadog.api.v1.client.model.AWSAccountCreateResponse;
+import com.datadog.api.v1.client.model.AWSAccountDeleteRequest;
 import com.datadog.api.v1.client.model.AWSAccountListResponse;
 import com.datadog.api.v1.client.model.AWSTagFilterCreateRequest;
 import com.datadog.api.v1.client.model.AWSTagFilterDeleteRequest;
@@ -322,7 +323,7 @@ public class AwsIntegrationApi {
    *       <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
    *     </table>
    */
-  public Object deleteAWSAccount(AWSAccount body) throws ApiException {
+  public Object deleteAWSAccount(AWSAccountDeleteRequest body) throws ApiException {
     return deleteAWSAccountWithHttpInfo(body).getData();
   }
 
@@ -342,7 +343,8 @@ public class AwsIntegrationApi {
    *       <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<Object> deleteAWSAccountWithHttpInfo(AWSAccount body) throws ApiException {
+  public ApiResponse<Object> deleteAWSAccountWithHttpInfo(AWSAccountDeleteRequest body)
+      throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set

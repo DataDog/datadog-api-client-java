@@ -233,7 +233,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         AwsIntegrationApi apiInstance = new AwsIntegrationApi(defaultClient);
-        AWSAccount body = new AWSAccount(); // AWSAccount | AWS request object
+        AWSAccountDeleteRequest body = new AWSAccountDeleteRequest(); // AWSAccountDeleteRequest | AWS request object
         try {
             Object result = apiInstance.deleteAWSAccount(body);
             System.out.println(result);
@@ -253,7 +253,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**AWSAccount**](AWSAccount.md)| AWS request object |
+ **body** | [**AWSAccountDeleteRequest**](AWSAccountDeleteRequest.md)| AWS request object |
 
 ### Return type
 
