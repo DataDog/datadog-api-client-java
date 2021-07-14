@@ -44,10 +44,10 @@ import java.util.Objects;
   UsageAttributionValues.JSON_PROPERTY_LAMBDA_USAGE,
   UsageAttributionValues.JSON_PROPERTY_NPM_HOST_PERCENTAGE,
   UsageAttributionValues.JSON_PROPERTY_NPM_HOST_USAGE,
-  UsageAttributionValues.JSON_PROPERTY_PROFILED_CONTAINERS_PERCENTAGE,
-  UsageAttributionValues.JSON_PROPERTY_PROFILED_CONTAINERS_USAGE,
-  UsageAttributionValues.JSON_PROPERTY_PROFILED_HOSTS_PERCENTAGE,
-  UsageAttributionValues.JSON_PROPERTY_PROFILED_HOSTS_USAGE,
+  UsageAttributionValues.JSON_PROPERTY_PROFILED_CONTAINER_PERCENTAGE,
+  UsageAttributionValues.JSON_PROPERTY_PROFILED_CONTAINER_USAGE,
+  UsageAttributionValues.JSON_PROPERTY_PROFILED_HOST_PERCENTAGE,
+  UsageAttributionValues.JSON_PROPERTY_PROFILED_HOST_USAGE,
   UsageAttributionValues.JSON_PROPERTY_SNMP_PERCENTAGE,
   UsageAttributionValues.JSON_PROPERTY_SNMP_USAGE
 })
@@ -128,18 +128,18 @@ public class UsageAttributionValues {
   public static final String JSON_PROPERTY_NPM_HOST_USAGE = "npm_host_usage";
   private Double npmHostUsage;
 
-  public static final String JSON_PROPERTY_PROFILED_CONTAINERS_PERCENTAGE =
-      "profiled_containers_percentage";
-  private Double profiledContainersPercentage;
+  public static final String JSON_PROPERTY_PROFILED_CONTAINER_PERCENTAGE =
+      "profiled_container_percentage";
+  private Double profiledContainerPercentage;
 
-  public static final String JSON_PROPERTY_PROFILED_CONTAINERS_USAGE = "profiled_containers_usage";
-  private Double profiledContainersUsage;
+  public static final String JSON_PROPERTY_PROFILED_CONTAINER_USAGE = "profiled_container_usage";
+  private Double profiledContainerUsage;
 
-  public static final String JSON_PROPERTY_PROFILED_HOSTS_PERCENTAGE = "profiled_hosts_percentage";
-  private Double profiledHostsPercentage;
+  public static final String JSON_PROPERTY_PROFILED_HOST_PERCENTAGE = "profiled_host_percentage";
+  private Double profiledHostPercentage;
 
-  public static final String JSON_PROPERTY_PROFILED_HOSTS_USAGE = "profiled_hosts_usage";
-  private Double profiledHostsUsage;
+  public static final String JSON_PROPERTY_PROFILED_HOST_USAGE = "profiled_host_usage";
+  private Double profiledHostUsage;
 
   public static final String JSON_PROPERTY_SNMP_PERCENTAGE = "snmp_percentage";
   private Double snmpPercentage;
@@ -683,92 +683,92 @@ public class UsageAttributionValues {
     this.npmHostUsage = npmHostUsage;
   }
 
-  public UsageAttributionValues profiledContainersPercentage(Double profiledContainersPercentage) {
-    this.profiledContainersPercentage = profiledContainersPercentage;
+  public UsageAttributionValues profiledContainerPercentage(Double profiledContainerPercentage) {
+    this.profiledContainerPercentage = profiledContainerPercentage;
     return this;
   }
 
   /**
    * The percentage of profiled containers usage by tag(s).
    *
-   * @return profiledContainersPercentage
+   * @return profiledContainerPercentage
    */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The percentage of profiled containers usage by tag(s).")
-  @JsonProperty(JSON_PROPERTY_PROFILED_CONTAINERS_PERCENTAGE)
+  @JsonProperty(JSON_PROPERTY_PROFILED_CONTAINER_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getProfiledContainersPercentage() {
-    return profiledContainersPercentage;
+  public Double getProfiledContainerPercentage() {
+    return profiledContainerPercentage;
   }
 
-  public void setProfiledContainersPercentage(Double profiledContainersPercentage) {
-    this.profiledContainersPercentage = profiledContainersPercentage;
+  public void setProfiledContainerPercentage(Double profiledContainerPercentage) {
+    this.profiledContainerPercentage = profiledContainerPercentage;
   }
 
-  public UsageAttributionValues profiledContainersUsage(Double profiledContainersUsage) {
-    this.profiledContainersUsage = profiledContainersUsage;
+  public UsageAttributionValues profiledContainerUsage(Double profiledContainerUsage) {
+    this.profiledContainerUsage = profiledContainerUsage;
     return this;
   }
 
   /**
    * The profiled container usage by tag(s).
    *
-   * @return profiledContainersUsage
+   * @return profiledContainerUsage
    */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The profiled container usage by tag(s).")
-  @JsonProperty(JSON_PROPERTY_PROFILED_CONTAINERS_USAGE)
+  @JsonProperty(JSON_PROPERTY_PROFILED_CONTAINER_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getProfiledContainersUsage() {
-    return profiledContainersUsage;
+  public Double getProfiledContainerUsage() {
+    return profiledContainerUsage;
   }
 
-  public void setProfiledContainersUsage(Double profiledContainersUsage) {
-    this.profiledContainersUsage = profiledContainersUsage;
+  public void setProfiledContainerUsage(Double profiledContainerUsage) {
+    this.profiledContainerUsage = profiledContainerUsage;
   }
 
-  public UsageAttributionValues profiledHostsPercentage(Double profiledHostsPercentage) {
-    this.profiledHostsPercentage = profiledHostsPercentage;
+  public UsageAttributionValues profiledHostPercentage(Double profiledHostPercentage) {
+    this.profiledHostPercentage = profiledHostPercentage;
     return this;
   }
 
   /**
    * The percentage of profiled hosts usage by tag(s).
    *
-   * @return profiledHostsPercentage
+   * @return profiledHostPercentage
    */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The percentage of profiled hosts usage by tag(s).")
-  @JsonProperty(JSON_PROPERTY_PROFILED_HOSTS_PERCENTAGE)
+  @JsonProperty(JSON_PROPERTY_PROFILED_HOST_PERCENTAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getProfiledHostsPercentage() {
-    return profiledHostsPercentage;
+  public Double getProfiledHostPercentage() {
+    return profiledHostPercentage;
   }
 
-  public void setProfiledHostsPercentage(Double profiledHostsPercentage) {
-    this.profiledHostsPercentage = profiledHostsPercentage;
+  public void setProfiledHostPercentage(Double profiledHostPercentage) {
+    this.profiledHostPercentage = profiledHostPercentage;
   }
 
-  public UsageAttributionValues profiledHostsUsage(Double profiledHostsUsage) {
-    this.profiledHostsUsage = profiledHostsUsage;
+  public UsageAttributionValues profiledHostUsage(Double profiledHostUsage) {
+    this.profiledHostUsage = profiledHostUsage;
     return this;
   }
 
   /**
    * The profiled host usage by tag(s).
    *
-   * @return profiledHostsUsage
+   * @return profiledHostUsage
    */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The profiled host usage by tag(s).")
-  @JsonProperty(JSON_PROPERTY_PROFILED_HOSTS_USAGE)
+  @JsonProperty(JSON_PROPERTY_PROFILED_HOST_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Double getProfiledHostsUsage() {
-    return profiledHostsUsage;
+  public Double getProfiledHostUsage() {
+    return profiledHostUsage;
   }
 
-  public void setProfiledHostsUsage(Double profiledHostsUsage) {
-    this.profiledHostsUsage = profiledHostsUsage;
+  public void setProfiledHostUsage(Double profiledHostUsage) {
+    this.profiledHostUsage = profiledHostUsage;
   }
 
   public UsageAttributionValues snmpPercentage(Double snmpPercentage) {
@@ -855,12 +855,12 @@ public class UsageAttributionValues {
         && Objects.equals(this.npmHostPercentage, usageAttributionValues.npmHostPercentage)
         && Objects.equals(this.npmHostUsage, usageAttributionValues.npmHostUsage)
         && Objects.equals(
-            this.profiledContainersPercentage, usageAttributionValues.profiledContainersPercentage)
+            this.profiledContainerPercentage, usageAttributionValues.profiledContainerPercentage)
         && Objects.equals(
-            this.profiledContainersUsage, usageAttributionValues.profiledContainersUsage)
+            this.profiledContainerUsage, usageAttributionValues.profiledContainerUsage)
         && Objects.equals(
-            this.profiledHostsPercentage, usageAttributionValues.profiledHostsPercentage)
-        && Objects.equals(this.profiledHostsUsage, usageAttributionValues.profiledHostsUsage)
+            this.profiledHostPercentage, usageAttributionValues.profiledHostPercentage)
+        && Objects.equals(this.profiledHostUsage, usageAttributionValues.profiledHostUsage)
         && Objects.equals(this.snmpPercentage, usageAttributionValues.snmpPercentage)
         && Objects.equals(this.snmpUsage, usageAttributionValues.snmpUsage);
   }
@@ -892,10 +892,10 @@ public class UsageAttributionValues {
         lambdaUsage,
         npmHostPercentage,
         npmHostUsage,
-        profiledContainersPercentage,
-        profiledContainersUsage,
-        profiledHostsPercentage,
-        profiledHostsUsage,
+        profiledContainerPercentage,
+        profiledContainerUsage,
+        profiledHostPercentage,
+        profiledHostUsage,
         snmpPercentage,
         snmpUsage);
   }
@@ -946,16 +946,16 @@ public class UsageAttributionValues {
     sb.append("    lambdaUsage: ").append(toIndentedString(lambdaUsage)).append("\n");
     sb.append("    npmHostPercentage: ").append(toIndentedString(npmHostPercentage)).append("\n");
     sb.append("    npmHostUsage: ").append(toIndentedString(npmHostUsage)).append("\n");
-    sb.append("    profiledContainersPercentage: ")
-        .append(toIndentedString(profiledContainersPercentage))
+    sb.append("    profiledContainerPercentage: ")
+        .append(toIndentedString(profiledContainerPercentage))
         .append("\n");
-    sb.append("    profiledContainersUsage: ")
-        .append(toIndentedString(profiledContainersUsage))
+    sb.append("    profiledContainerUsage: ")
+        .append(toIndentedString(profiledContainerUsage))
         .append("\n");
-    sb.append("    profiledHostsPercentage: ")
-        .append(toIndentedString(profiledHostsPercentage))
+    sb.append("    profiledHostPercentage: ")
+        .append(toIndentedString(profiledHostPercentage))
         .append("\n");
-    sb.append("    profiledHostsUsage: ").append(toIndentedString(profiledHostsUsage)).append("\n");
+    sb.append("    profiledHostUsage: ").append(toIndentedString(profiledHostUsage)).append("\n");
     sb.append("    snmpPercentage: ").append(toIndentedString(snmpPercentage)).append("\n");
     sb.append("    snmpUsage: ").append(toIndentedString(snmpUsage)).append("\n");
     sb.append("}");
