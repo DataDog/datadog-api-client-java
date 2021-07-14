@@ -1,5 +1,5 @@
 [{
-  "id" : "d739b62a-1361-428e-8475-13900f851cd9",
+  "id" : "7849e87b-9d96-4975-83d6-4b18815f6894",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/integration/aws/logs/services",
@@ -7,7 +7,6 @@
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "logsServicesListErrorsTest" ],
       "DD-OPERATION-ID" : [ "listAWSLogsServices" ],
-      "Connection" : [ "close" ],
       "content-length" : [ "0" ]
     },
     "keepAlive" : false,
@@ -23,12 +22,12 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Mon, 01 Jun 2020 11:13:45 GMT" ],
+      "Date" : [ "Tue, 13 Jul 2021 17:37:37 GMT" ],
       "Content-Type" : [ "application/json" ],
+      "Content-Length" : [ "170" ],
       "Connection" : [ "keep-alive" ],
-      "Cache-Control" : [ "no-cache" ],
-      "Via" : [ "1.1 haproxy" ],
-      "content-length" : [ "170" ]
+      "cache-control" : [ "no-cache" ],
+      "via" : [ "haproxy" ]
     },
     "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
   }

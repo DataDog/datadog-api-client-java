@@ -203,6 +203,7 @@ Class | Method | HTTP request | Description
  - [AWSAccount](AWSAccount.md)
  - [AWSAccountAndLambdaRequest](AWSAccountAndLambdaRequest.md)
  - [AWSAccountCreateResponse](AWSAccountCreateResponse.md)
+ - [AWSAccountDeleteRequest](AWSAccountDeleteRequest.md)
  - [AWSAccountListResponse](AWSAccountListResponse.md)
  - [AWSLogsAsyncError](AWSLogsAsyncError.md)
  - [AWSLogsAsyncResponse](AWSLogsAsyncResponse.md)
