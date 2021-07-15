@@ -24,6 +24,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   QueryValueWidgetRequest.JSON_PROPERTY_AGGREGATOR,
   QueryValueWidgetRequest.JSON_PROPERTY_APM_QUERY,
+  QueryValueWidgetRequest.JSON_PROPERTY_AUDIT_QUERY,
   QueryValueWidgetRequest.JSON_PROPERTY_CONDITIONAL_FORMATS,
   QueryValueWidgetRequest.JSON_PROPERTY_EVENT_QUERY,
   QueryValueWidgetRequest.JSON_PROPERTY_FORMULAS,
@@ -44,6 +45,9 @@ public class QueryValueWidgetRequest {
 
   public static final String JSON_PROPERTY_APM_QUERY = "apm_query";
   private LogQueryDefinition apmQuery;
+
+  public static final String JSON_PROPERTY_AUDIT_QUERY = "audit_query";
+  private LogQueryDefinition auditQuery;
 
   public static final String JSON_PROPERTY_CONDITIONAL_FORMATS = "conditional_formats";
   private List<WidgetConditionalFormat> conditionalFormats = null;
@@ -123,6 +127,28 @@ public class QueryValueWidgetRequest {
 
   public void setApmQuery(LogQueryDefinition apmQuery) {
     this.apmQuery = apmQuery;
+  }
+
+  public QueryValueWidgetRequest auditQuery(LogQueryDefinition auditQuery) {
+    this.auditQuery = auditQuery;
+    return this;
+  }
+
+  /**
+   * Get auditQuery
+   *
+   * @return auditQuery
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_AUDIT_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogQueryDefinition getAuditQuery() {
+    return auditQuery;
+  }
+
+  public void setAuditQuery(LogQueryDefinition auditQuery) {
+    this.auditQuery = auditQuery;
   }
 
   public QueryValueWidgetRequest conditionalFormats(
@@ -432,6 +458,7 @@ public class QueryValueWidgetRequest {
     QueryValueWidgetRequest queryValueWidgetRequest = (QueryValueWidgetRequest) o;
     return Objects.equals(this.aggregator, queryValueWidgetRequest.aggregator)
         && Objects.equals(this.apmQuery, queryValueWidgetRequest.apmQuery)
+        && Objects.equals(this.auditQuery, queryValueWidgetRequest.auditQuery)
         && Objects.equals(this.conditionalFormats, queryValueWidgetRequest.conditionalFormats)
         && Objects.equals(this.eventQuery, queryValueWidgetRequest.eventQuery)
         && Objects.equals(this.formulas, queryValueWidgetRequest.formulas)
@@ -451,6 +478,7 @@ public class QueryValueWidgetRequest {
     return Objects.hash(
         aggregator,
         apmQuery,
+        auditQuery,
         conditionalFormats,
         eventQuery,
         formulas,
@@ -471,6 +499,7 @@ public class QueryValueWidgetRequest {
     sb.append("class QueryValueWidgetRequest {\n");
     sb.append("    aggregator: ").append(toIndentedString(aggregator)).append("\n");
     sb.append("    apmQuery: ").append(toIndentedString(apmQuery)).append("\n");
+    sb.append("    auditQuery: ").append(toIndentedString(auditQuery)).append("\n");
     sb.append("    conditionalFormats: ").append(toIndentedString(conditionalFormats)).append("\n");
     sb.append("    eventQuery: ").append(toIndentedString(eventQuery)).append("\n");
     sb.append("    formulas: ").append(toIndentedString(formulas)).append("\n");

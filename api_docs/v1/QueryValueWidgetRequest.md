@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **aggregator** | **WidgetAggregator** |  |  [optional]
 **apmQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]
+**auditQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]
 **conditionalFormats** | [**List&lt;WidgetConditionalFormat&gt;**](WidgetConditionalFormat.md) | List of conditional formats. |  [optional]
 **eventQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]
 **formulas** | [**List&lt;WidgetFormula&gt;**](WidgetFormula.md) | List of formulas that operate on queries. **This feature is currently in beta.** |  [optional]
