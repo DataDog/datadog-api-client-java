@@ -6,7 +6,9 @@ import com.datadog.api.v1.client.ApiResponse;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.Pair;
 import com.datadog.api.v1.client.model.Dashboard;
+import com.datadog.api.v1.client.model.DashboardBulkDeleteRequest;
 import com.datadog.api.v1.client.model.DashboardDeleteResponse;
+import com.datadog.api.v1.client.model.DashboardRestoreRequest;
 import com.datadog.api.v1.client.model.DashboardSummary;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -215,6 +217,86 @@ public class DashboardsApi {
   }
 
   /**
+   * Delete dashboards Delete dashboards using the specified IDs. If there are any failures, no
+   * dashboards will be deleted (partial success is not allowed).
+   *
+   * @param body Delete dashboards request body. (required)
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Dashboards Not Found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public void deleteDashboards(DashboardBulkDeleteRequest body) throws ApiException {
+    deleteDashboardsWithHttpInfo(body);
+  }
+
+  /**
+   * Delete dashboards Delete dashboards using the specified IDs. If there are any failures, no
+   * dashboards will be deleted (partial success is not allowed).
+   *
+   * @param body Delete dashboards request body. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Dashboards Not Found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> deleteDashboardsWithHttpInfo(DashboardBulkDeleteRequest body)
+      throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling deleteDashboards");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v1/dashboard";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "deleteDashboards");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {"application/json"};
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    return apiClient.invokeAPI(
+        "DashboardsApi.deleteDashboards",
+        localVarPath,
+        "DELETE",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        null,
+        false);
+  }
+
+  /**
    * Get a dashboard Get a dashboard using the specified ID.
    *
    * @param dashboardId The ID of the dashboard. (required)
@@ -405,6 +487,86 @@ public class DashboardsApi {
         localVarContentType,
         localVarAuthNames,
         localVarReturnType,
+        false);
+  }
+
+  /**
+   * Restore deleted dashboards Restore dashboards using the specified IDs. If there are any
+   * failures, no dashboards will be restored (partial success is not allowed).
+   *
+   * @param body Restore dashboards request body. (required)
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Dashboards Not Found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public void restoreDashboards(DashboardRestoreRequest body) throws ApiException {
+    restoreDashboardsWithHttpInfo(body);
+  }
+
+  /**
+   * Restore deleted dashboards Restore dashboards using the specified IDs. If there are any
+   * failures, no dashboards will be restored (partial success is not allowed).
+   *
+   * @param body Restore dashboards request body. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Dashboards Not Found </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<Void> restoreDashboardsWithHttpInfo(DashboardRestoreRequest body)
+      throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling restoreDashboards");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v1/dashboard";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "restoreDashboards");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {"application/json"};
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    return apiClient.invokeAPI(
+        "DashboardsApi.restoreDashboards",
+        localVarPath,
+        "PATCH",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        null,
         false);
   }
 

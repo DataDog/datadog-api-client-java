@@ -6,8 +6,10 @@ Method        | HTTP request | Description
 ------------- | ------------ | ------------
 [**createDashboard**](DashboardsApi.md#createDashboard) | **POST** /api/v1/dashboard | Create a new dashboard
 [**deleteDashboard**](DashboardsApi.md#deleteDashboard) | **DELETE** /api/v1/dashboard/{dashboard_id} | Delete a dashboard
+[**deleteDashboards**](DashboardsApi.md#deleteDashboards) | **DELETE** /api/v1/dashboard | Delete dashboards
 [**getDashboard**](DashboardsApi.md#getDashboard) | **GET** /api/v1/dashboard/{dashboard_id} | Get a dashboard
 [**listDashboards**](DashboardsApi.md#listDashboards) | **GET** /api/v1/dashboard | Get all dashboards
+[**restoreDashboards**](DashboardsApi.md#restoreDashboards) | **PATCH** /api/v1/dashboard | Restore deleted dashboards
 [**updateDashboard**](DashboardsApi.md#updateDashboard) | **PUT** /api/v1/dashboard/{dashboard_id} | Update a dashboard
 
 
@@ -141,6 +143,70 @@ Name | Type | Description  | Notes
 | **404** | Dashboards Not Found |  -  |
 
 
+## deleteDashboards
+
+> deleteDashboards(body);
+
+Delete dashboards using the specified IDs. If there are any failures, no dashboards will be deleted (partial success is not allowed).
+
+### Example
+
+```java
+import java.util.*;
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.Configuration;
+import com.datadog.api.v1.client.model.*;
+import com.datadog.api.v1.client.api.DashboardsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+        DashboardsApi apiInstance = new DashboardsApi(defaultClient);
+        DashboardBulkDeleteRequest body = new DashboardBulkDeleteRequest(); // DashboardBulkDeleteRequest | Delete dashboards request body.
+        try {
+            apiInstance.deleteDashboards(body);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DashboardsApi#deleteDashboards");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**DashboardBulkDeleteRequest**](DashboardBulkDeleteRequest.md)| Delete dashboards request body. |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Dashboards Not Found |  -  |
+
+
 ## getDashboard
 
 > Dashboard getDashboard(dashboardId);
@@ -270,6 +336,70 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **403** | Authentication Error |  -  |
+
+
+## restoreDashboards
+
+> restoreDashboards(body);
+
+Restore dashboards using the specified IDs. If there are any failures, no dashboards will be restored (partial success is not allowed).
+
+### Example
+
+```java
+import java.util.*;
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.Configuration;
+import com.datadog.api.v1.client.model.*;
+import com.datadog.api.v1.client.api.DashboardsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+        DashboardsApi apiInstance = new DashboardsApi(defaultClient);
+        DashboardRestoreRequest body = new DashboardRestoreRequest(); // DashboardRestoreRequest | Restore dashboards request body.
+        try {
+            apiInstance.restoreDashboards(body);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DashboardsApi#restoreDashboards");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**DashboardRestoreRequest**](DashboardRestoreRequest.md)| Restore dashboards request body. |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Dashboards Not Found |  -  |
 
 
 ## updateDashboard
