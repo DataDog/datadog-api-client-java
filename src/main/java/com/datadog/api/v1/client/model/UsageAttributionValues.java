@@ -28,6 +28,10 @@ import java.util.Objects;
   UsageAttributionValues.JSON_PROPERTY_BROWSER_USAGE,
   UsageAttributionValues.JSON_PROPERTY_CONTAINER_PERCENTAGE,
   UsageAttributionValues.JSON_PROPERTY_CONTAINER_USAGE,
+  UsageAttributionValues.JSON_PROPERTY_CSPM_CONTAINER_PERCENTAGE,
+  UsageAttributionValues.JSON_PROPERTY_CSPM_CONTAINER_USAGE,
+  UsageAttributionValues.JSON_PROPERTY_CSPM_HOST_PERCENTAGE,
+  UsageAttributionValues.JSON_PROPERTY_CSPM_HOST_USAGE,
   UsageAttributionValues.JSON_PROPERTY_CUSTOM_TIMESERIES_PERCENTAGE,
   UsageAttributionValues.JSON_PROPERTY_CUSTOM_TIMESERIES_USAGE,
   UsageAttributionValues.JSON_PROPERTY_CWS_CONTAINER_PERCENTAGE,
@@ -76,6 +80,18 @@ public class UsageAttributionValues {
 
   public static final String JSON_PROPERTY_CONTAINER_USAGE = "container_usage";
   private Double containerUsage;
+
+  public static final String JSON_PROPERTY_CSPM_CONTAINER_PERCENTAGE = "cspm_container_percentage";
+  private Double cspmContainerPercentage;
+
+  public static final String JSON_PROPERTY_CSPM_CONTAINER_USAGE = "cspm_container_usage";
+  private Double cspmContainerUsage;
+
+  public static final String JSON_PROPERTY_CSPM_HOST_PERCENTAGE = "cspm_host_percentage";
+  private Double cspmHostPercentage;
+
+  public static final String JSON_PROPERTY_CSPM_HOST_USAGE = "cspm_host_usage";
+  private Double cspmHostUsage;
 
   public static final String JSON_PROPERTY_CUSTOM_TIMESERIES_PERCENTAGE =
       "custom_timeseries_percentage";
@@ -321,6 +337,96 @@ public class UsageAttributionValues {
 
   public void setContainerUsage(Double containerUsage) {
     this.containerUsage = containerUsage;
+  }
+
+  public UsageAttributionValues cspmContainerPercentage(Double cspmContainerPercentage) {
+    this.cspmContainerPercentage = cspmContainerPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Cloud Security Posture Management container usage by tag(s)
+   *
+   * @return cspmContainerPercentage
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value = "The percentage of Cloud Security Posture Management container usage by tag(s)")
+  @JsonProperty(JSON_PROPERTY_CSPM_CONTAINER_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getCspmContainerPercentage() {
+    return cspmContainerPercentage;
+  }
+
+  public void setCspmContainerPercentage(Double cspmContainerPercentage) {
+    this.cspmContainerPercentage = cspmContainerPercentage;
+  }
+
+  public UsageAttributionValues cspmContainerUsage(Double cspmContainerUsage) {
+    this.cspmContainerUsage = cspmContainerUsage;
+    return this;
+  }
+
+  /**
+   * The Cloud Security Posture Management container usage by tag(s)
+   *
+   * @return cspmContainerUsage
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The Cloud Security Posture Management container usage by tag(s)")
+  @JsonProperty(JSON_PROPERTY_CSPM_CONTAINER_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getCspmContainerUsage() {
+    return cspmContainerUsage;
+  }
+
+  public void setCspmContainerUsage(Double cspmContainerUsage) {
+    this.cspmContainerUsage = cspmContainerUsage;
+  }
+
+  public UsageAttributionValues cspmHostPercentage(Double cspmHostPercentage) {
+    this.cspmHostPercentage = cspmHostPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Cloud Security Posture Management host usage by tag(s)
+   *
+   * @return cspmHostPercentage
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value = "The percentage of Cloud Security Posture Management host usage by tag(s)")
+  @JsonProperty(JSON_PROPERTY_CSPM_HOST_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getCspmHostPercentage() {
+    return cspmHostPercentage;
+  }
+
+  public void setCspmHostPercentage(Double cspmHostPercentage) {
+    this.cspmHostPercentage = cspmHostPercentage;
+  }
+
+  public UsageAttributionValues cspmHostUsage(Double cspmHostUsage) {
+    this.cspmHostUsage = cspmHostUsage;
+    return this;
+  }
+
+  /**
+   * The Cloud Security Posture Management host usage by tag(s)
+   *
+   * @return cspmHostUsage
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The Cloud Security Posture Management host usage by tag(s)")
+  @JsonProperty(JSON_PROPERTY_CSPM_HOST_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getCspmHostUsage() {
+    return cspmHostUsage;
+  }
+
+  public void setCspmHostUsage(Double cspmHostUsage) {
+    this.cspmHostUsage = cspmHostUsage;
   }
 
   public UsageAttributionValues customTimeseriesPercentage(Double customTimeseriesPercentage) {
@@ -834,6 +940,11 @@ public class UsageAttributionValues {
         && Objects.equals(this.containerPercentage, usageAttributionValues.containerPercentage)
         && Objects.equals(this.containerUsage, usageAttributionValues.containerUsage)
         && Objects.equals(
+            this.cspmContainerPercentage, usageAttributionValues.cspmContainerPercentage)
+        && Objects.equals(this.cspmContainerUsage, usageAttributionValues.cspmContainerUsage)
+        && Objects.equals(this.cspmHostPercentage, usageAttributionValues.cspmHostPercentage)
+        && Objects.equals(this.cspmHostUsage, usageAttributionValues.cspmHostUsage)
+        && Objects.equals(
             this.customTimeseriesPercentage, usageAttributionValues.customTimeseriesPercentage)
         && Objects.equals(this.customTimeseriesUsage, usageAttributionValues.customTimeseriesUsage)
         && Objects.equals(
@@ -876,6 +987,10 @@ public class UsageAttributionValues {
         browserUsage,
         containerPercentage,
         containerUsage,
+        cspmContainerPercentage,
+        cspmContainerUsage,
+        cspmHostPercentage,
+        cspmHostUsage,
         customTimeseriesPercentage,
         customTimeseriesUsage,
         cwsContainerPercentage,
@@ -914,6 +1029,12 @@ public class UsageAttributionValues {
         .append(toIndentedString(containerPercentage))
         .append("\n");
     sb.append("    containerUsage: ").append(toIndentedString(containerUsage)).append("\n");
+    sb.append("    cspmContainerPercentage: ")
+        .append(toIndentedString(cspmContainerPercentage))
+        .append("\n");
+    sb.append("    cspmContainerUsage: ").append(toIndentedString(cspmContainerUsage)).append("\n");
+    sb.append("    cspmHostPercentage: ").append(toIndentedString(cspmHostPercentage)).append("\n");
+    sb.append("    cspmHostUsage: ").append(toIndentedString(cspmHostUsage)).append("\n");
     sb.append("    customTimeseriesPercentage: ")
         .append(toIndentedString(customTimeseriesPercentage))
         .append("\n");
