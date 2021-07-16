@@ -23,6 +23,7 @@ import java.util.Objects;
 @ApiModel(description = "Updated top list widget.")
 @JsonPropertyOrder({
   ToplistWidgetRequest.JSON_PROPERTY_APM_QUERY,
+  ToplistWidgetRequest.JSON_PROPERTY_AUDIT_QUERY,
   ToplistWidgetRequest.JSON_PROPERTY_CONDITIONAL_FORMATS,
   ToplistWidgetRequest.JSON_PROPERTY_EVENT_QUERY,
   ToplistWidgetRequest.JSON_PROPERTY_FORMULAS,
@@ -41,6 +42,9 @@ import java.util.Objects;
 public class ToplistWidgetRequest {
   public static final String JSON_PROPERTY_APM_QUERY = "apm_query";
   private LogQueryDefinition apmQuery;
+
+  public static final String JSON_PROPERTY_AUDIT_QUERY = "audit_query";
+  private LogQueryDefinition auditQuery;
 
   public static final String JSON_PROPERTY_CONDITIONAL_FORMATS = "conditional_formats";
   private List<WidgetConditionalFormat> conditionalFormats = null;
@@ -101,6 +105,28 @@ public class ToplistWidgetRequest {
 
   public void setApmQuery(LogQueryDefinition apmQuery) {
     this.apmQuery = apmQuery;
+  }
+
+  public ToplistWidgetRequest auditQuery(LogQueryDefinition auditQuery) {
+    this.auditQuery = auditQuery;
+    return this;
+  }
+
+  /**
+   * Get auditQuery
+   *
+   * @return auditQuery
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_AUDIT_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogQueryDefinition getAuditQuery() {
+    return auditQuery;
+  }
+
+  public void setAuditQuery(LogQueryDefinition auditQuery) {
+    this.auditQuery = auditQuery;
   }
 
   public ToplistWidgetRequest conditionalFormats(List<WidgetConditionalFormat> conditionalFormats) {
@@ -432,6 +458,7 @@ public class ToplistWidgetRequest {
     }
     ToplistWidgetRequest toplistWidgetRequest = (ToplistWidgetRequest) o;
     return Objects.equals(this.apmQuery, toplistWidgetRequest.apmQuery)
+        && Objects.equals(this.auditQuery, toplistWidgetRequest.auditQuery)
         && Objects.equals(this.conditionalFormats, toplistWidgetRequest.conditionalFormats)
         && Objects.equals(this.eventQuery, toplistWidgetRequest.eventQuery)
         && Objects.equals(this.formulas, toplistWidgetRequest.formulas)
@@ -451,6 +478,7 @@ public class ToplistWidgetRequest {
   public int hashCode() {
     return Objects.hash(
         apmQuery,
+        auditQuery,
         conditionalFormats,
         eventQuery,
         formulas,
@@ -471,6 +499,7 @@ public class ToplistWidgetRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class ToplistWidgetRequest {\n");
     sb.append("    apmQuery: ").append(toIndentedString(apmQuery)).append("\n");
+    sb.append("    auditQuery: ").append(toIndentedString(auditQuery)).append("\n");
     sb.append("    conditionalFormats: ").append(toIndentedString(conditionalFormats)).append("\n");
     sb.append("    eventQuery: ").append(toIndentedString(eventQuery)).append("\n");
     sb.append("    formulas: ").append(toIndentedString(formulas)).append("\n");

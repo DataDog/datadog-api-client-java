@@ -23,6 +23,7 @@ import java.util.Objects;
 @ApiModel(description = "Updated timeseries widget.")
 @JsonPropertyOrder({
   TimeseriesWidgetRequest.JSON_PROPERTY_APM_QUERY,
+  TimeseriesWidgetRequest.JSON_PROPERTY_AUDIT_QUERY,
   TimeseriesWidgetRequest.JSON_PROPERTY_DISPLAY_TYPE,
   TimeseriesWidgetRequest.JSON_PROPERTY_EVENT_QUERY,
   TimeseriesWidgetRequest.JSON_PROPERTY_FORMULAS,
@@ -43,6 +44,9 @@ import java.util.Objects;
 public class TimeseriesWidgetRequest {
   public static final String JSON_PROPERTY_APM_QUERY = "apm_query";
   private LogQueryDefinition apmQuery;
+
+  public static final String JSON_PROPERTY_AUDIT_QUERY = "audit_query";
+  private LogQueryDefinition auditQuery;
 
   public static final String JSON_PROPERTY_DISPLAY_TYPE = "display_type";
   private WidgetDisplayType displayType;
@@ -109,6 +113,28 @@ public class TimeseriesWidgetRequest {
 
   public void setApmQuery(LogQueryDefinition apmQuery) {
     this.apmQuery = apmQuery;
+  }
+
+  public TimeseriesWidgetRequest auditQuery(LogQueryDefinition auditQuery) {
+    this.auditQuery = auditQuery;
+    return this;
+  }
+
+  /**
+   * Get auditQuery
+   *
+   * @return auditQuery
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_AUDIT_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogQueryDefinition getAuditQuery() {
+    return auditQuery;
+  }
+
+  public void setAuditQuery(LogQueryDefinition auditQuery) {
+    this.auditQuery = auditQuery;
   }
 
   public TimeseriesWidgetRequest displayType(WidgetDisplayType displayType) {
@@ -481,6 +507,7 @@ public class TimeseriesWidgetRequest {
     }
     TimeseriesWidgetRequest timeseriesWidgetRequest = (TimeseriesWidgetRequest) o;
     return Objects.equals(this.apmQuery, timeseriesWidgetRequest.apmQuery)
+        && Objects.equals(this.auditQuery, timeseriesWidgetRequest.auditQuery)
         && Objects.equals(this.displayType, timeseriesWidgetRequest.displayType)
         && Objects.equals(this.eventQuery, timeseriesWidgetRequest.eventQuery)
         && Objects.equals(this.formulas, timeseriesWidgetRequest.formulas)
@@ -502,6 +529,7 @@ public class TimeseriesWidgetRequest {
   public int hashCode() {
     return Objects.hash(
         apmQuery,
+        auditQuery,
         displayType,
         eventQuery,
         formulas,
@@ -524,6 +552,7 @@ public class TimeseriesWidgetRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class TimeseriesWidgetRequest {\n");
     sb.append("    apmQuery: ").append(toIndentedString(apmQuery)).append("\n");
+    sb.append("    auditQuery: ").append(toIndentedString(auditQuery)).append("\n");
     sb.append("    displayType: ").append(toIndentedString(displayType)).append("\n");
     sb.append("    eventQuery: ").append(toIndentedString(eventQuery)).append("\n");
     sb.append("    formulas: ").append(toIndentedString(formulas)).append("\n");

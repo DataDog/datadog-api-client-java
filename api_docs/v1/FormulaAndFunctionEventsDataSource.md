@@ -17,5 +17,7 @@
 
 * `PROFILES` (value: `"profiles"`)
 
+* `AUDIT` (value: `"audit"`)
+
 
 

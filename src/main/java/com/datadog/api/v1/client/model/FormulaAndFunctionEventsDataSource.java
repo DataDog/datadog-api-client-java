@@ -25,7 +25,9 @@ public enum FormulaAndFunctionEventsDataSource {
 
   SECURITY_SIGNALS("security_signals"),
 
-  PROFILES("profiles");
+  PROFILES("profiles"),
+
+  AUDIT("audit");
 
   private String value;
 
