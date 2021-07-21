@@ -1,5 +1,28 @@
 # CHANGELOG
 
+## 1.1.0 / 2021-07-21
+
+* [Added] Extend table widget requests to support formulas and functions. See [#909](https://github.com/DataDog/datadog-api-client-java/pull/909).
+* [Added] Add CSPM to usage attribution. See [#901](https://github.com/DataDog/datadog-api-client-java/pull/901).
+* [Added] Add support for dashboard bulk delete, restore endpoints. See [#885](https://github.com/DataDog/datadog-api-client-java/pull/885).
+* [Added] Add support for audit logs data source in dashboards. See [#904](https://github.com/DataDog/datadog-api-client-java/pull/904).
+* [Added] Add `allow_insecure` option for multistep steps in Synthetics. See [#898](https://github.com/DataDog/datadog-api-client-java/pull/898).
+* [Added] Add support for ` GET /api/v2/application_keys/{app_key_id}`. See [#886](https://github.com/DataDog/datadog-api-client-java/pull/886).
+* [Added] Add `meta` property with pagination info to SLOCorrectionList endpoint response. See [#884](https://github.com/DataDog/datadog-api-client-java/pull/884).
+* [Added] Add support for treemap widget. See [#878](https://github.com/DataDog/datadog-api-client-java/pull/878).
+* [Added] Add missing properties `query_index` and `tag_set` to `MetricsQueryMetadata`. See [#854](https://github.com/DataDog/datadog-api-client-java/pull/854).
+* [Added] Add missing fields `hasExtendedTitle`, `type`, `version` and `updateAuthorId` for Security Monitoring Rule endpoints. See [#867](https://github.com/DataDog/datadog-api-client-java/pull/867).
+* [Added] Dashboard RBAC role support. See [#863](https://github.com/DataDog/datadog-api-client-java/pull/863).
+* [Fixed] Fix serialization of query metrics response containing nullable points. See [#899](https://github.com/DataDog/datadog-api-client-java/pull/899).
+* [Fixed] Fix `status` property name for browser error status in Synthetics. See [#900](https://github.com/DataDog/datadog-api-client-java/pull/900).
+* [Fixed] Remove US only constraint for AWS tag filtering. See [#874](https://github.com/DataDog/datadog-api-client-java/pull/874).
+* [Fixed] Add BDD tests to synthetics. See [#873](https://github.com/DataDog/datadog-api-client-java/pull/873).
+* [Fixed] Fix security filter delete response. See [#871](https://github.com/DataDog/datadog-api-client-java/pull/871).
+* [Fixed] Handle null in query metrics unit. See [#870](https://github.com/DataDog/datadog-api-client-java/pull/870).
+* [Changed] Add separate schema for deleting AWS account. See [#897](https://github.com/DataDog/datadog-api-client-java/pull/897).
+* [Changed] Remove Synthetics tick interval enum. See [#872](https://github.com/DataDog/datadog-api-client-java/pull/872).
+* [Removed] Remove deprecated endpoints `/api/v1/usage/traces` and `/api/v1/usage/tracing-without-limits`. See [#902](https://github.com/DataDog/datadog-api-client-java/pull/902).
+
 ## 1.0.0 / 2021-06-10
 
 * [Added] Add missing fields in usage billable summary keys. See [#861](https://github.com/DataDog/datadog-api-client-java/pull/861).
