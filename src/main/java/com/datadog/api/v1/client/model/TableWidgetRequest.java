@@ -29,6 +29,7 @@ import java.util.Objects;
   TableWidgetRequest.JSON_PROPERTY_CELL_DISPLAY_MODE,
   TableWidgetRequest.JSON_PROPERTY_CONDITIONAL_FORMATS,
   TableWidgetRequest.JSON_PROPERTY_EVENT_QUERY,
+  TableWidgetRequest.JSON_PROPERTY_FORMULAS,
   TableWidgetRequest.JSON_PROPERTY_LIMIT,
   TableWidgetRequest.JSON_PROPERTY_LOG_QUERY,
   TableWidgetRequest.JSON_PROPERTY_NETWORK_QUERY,
@@ -36,6 +37,8 @@ import java.util.Objects;
   TableWidgetRequest.JSON_PROPERTY_PROCESS_QUERY,
   TableWidgetRequest.JSON_PROPERTY_PROFILE_METRICS_QUERY,
   TableWidgetRequest.JSON_PROPERTY_Q,
+  TableWidgetRequest.JSON_PROPERTY_QUERIES,
+  TableWidgetRequest.JSON_PROPERTY_RESPONSE_FORMAT,
   TableWidgetRequest.JSON_PROPERTY_RUM_QUERY,
   TableWidgetRequest.JSON_PROPERTY_SECURITY_QUERY
 })
@@ -62,6 +65,9 @@ public class TableWidgetRequest {
   public static final String JSON_PROPERTY_EVENT_QUERY = "event_query";
   private LogQueryDefinition eventQuery;
 
+  public static final String JSON_PROPERTY_FORMULAS = "formulas";
+  private List<WidgetFormula> formulas = null;
+
   public static final String JSON_PROPERTY_LIMIT = "limit";
   private Long limit;
 
@@ -82,6 +88,12 @@ public class TableWidgetRequest {
 
   public static final String JSON_PROPERTY_Q = "q";
   private String q;
+
+  public static final String JSON_PROPERTY_QUERIES = "queries";
+  private List<FormulaAndFunctionQueryDefinition> queries = null;
+
+  public static final String JSON_PROPERTY_RESPONSE_FORMAT = "response_format";
+  private FormulaAndFunctionResponseFormat responseFormat;
 
   public static final String JSON_PROPERTY_RUM_QUERY = "rum_query";
   private LogQueryDefinition rumQuery;
@@ -260,6 +272,37 @@ public class TableWidgetRequest {
     this.eventQuery = eventQuery;
   }
 
+  public TableWidgetRequest formulas(List<WidgetFormula> formulas) {
+    this.formulas = formulas;
+    return this;
+  }
+
+  public TableWidgetRequest addFormulasItem(WidgetFormula formulasItem) {
+    if (this.formulas == null) {
+      this.formulas = new ArrayList<>();
+    }
+    this.formulas.add(formulasItem);
+    return this;
+  }
+
+  /**
+   * List of formulas that operate on queries. **This feature is currently in beta.**
+   *
+   * @return formulas
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value = "List of formulas that operate on queries. **This feature is currently in beta.**")
+  @JsonProperty(JSON_PROPERTY_FORMULAS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<WidgetFormula> getFormulas() {
+    return formulas;
+  }
+
+  public void setFormulas(List<WidgetFormula> formulas) {
+    this.formulas = formulas;
+  }
+
   public TableWidgetRequest limit(Long limit) {
     this.limit = limit;
     return this;
@@ -418,6 +461,62 @@ public class TableWidgetRequest {
     this.q = q;
   }
 
+  public TableWidgetRequest queries(List<FormulaAndFunctionQueryDefinition> queries) {
+    this.queries = queries;
+    return this;
+  }
+
+  public TableWidgetRequest addQueriesItem(FormulaAndFunctionQueryDefinition queriesItem) {
+    if (this.queries == null) {
+      this.queries = new ArrayList<>();
+    }
+    this.queries.add(queriesItem);
+    return this;
+  }
+
+  /**
+   * List of queries that can be returned directly or used in formulas. **This feature is currently
+   * in beta.**
+   *
+   * @return queries
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "List of queries that can be returned directly or used in formulas. **This feature is"
+              + " currently in beta.**")
+  @JsonProperty(JSON_PROPERTY_QUERIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<FormulaAndFunctionQueryDefinition> getQueries() {
+    return queries;
+  }
+
+  public void setQueries(List<FormulaAndFunctionQueryDefinition> queries) {
+    this.queries = queries;
+  }
+
+  public TableWidgetRequest responseFormat(FormulaAndFunctionResponseFormat responseFormat) {
+    this.responseFormat = responseFormat;
+    return this;
+  }
+
+  /**
+   * Get responseFormat
+   *
+   * @return responseFormat
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_RESPONSE_FORMAT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public FormulaAndFunctionResponseFormat getResponseFormat() {
+    return responseFormat;
+  }
+
+  public void setResponseFormat(FormulaAndFunctionResponseFormat responseFormat) {
+    this.responseFormat = responseFormat;
+  }
+
   public TableWidgetRequest rumQuery(LogQueryDefinition rumQuery) {
     this.rumQuery = rumQuery;
     return this;
@@ -479,6 +578,7 @@ public class TableWidgetRequest {
         && Objects.equals(this.cellDisplayMode, tableWidgetRequest.cellDisplayMode)
         && Objects.equals(this.conditionalFormats, tableWidgetRequest.conditionalFormats)
         && Objects.equals(this.eventQuery, tableWidgetRequest.eventQuery)
+        && Objects.equals(this.formulas, tableWidgetRequest.formulas)
         && Objects.equals(this.limit, tableWidgetRequest.limit)
         && Objects.equals(this.logQuery, tableWidgetRequest.logQuery)
         && Objects.equals(this.networkQuery, tableWidgetRequest.networkQuery)
@@ -486,6 +586,8 @@ public class TableWidgetRequest {
         && Objects.equals(this.processQuery, tableWidgetRequest.processQuery)
         && Objects.equals(this.profileMetricsQuery, tableWidgetRequest.profileMetricsQuery)
         && Objects.equals(this.q, tableWidgetRequest.q)
+        && Objects.equals(this.queries, tableWidgetRequest.queries)
+        && Objects.equals(this.responseFormat, tableWidgetRequest.responseFormat)
         && Objects.equals(this.rumQuery, tableWidgetRequest.rumQuery)
         && Objects.equals(this.securityQuery, tableWidgetRequest.securityQuery);
   }
@@ -500,6 +602,7 @@ public class TableWidgetRequest {
         cellDisplayMode,
         conditionalFormats,
         eventQuery,
+        formulas,
         limit,
         logQuery,
         networkQuery,
@@ -507,6 +610,8 @@ public class TableWidgetRequest {
         processQuery,
         profileMetricsQuery,
         q,
+        queries,
+        responseFormat,
         rumQuery,
         securityQuery);
   }
@@ -522,6 +627,7 @@ public class TableWidgetRequest {
     sb.append("    cellDisplayMode: ").append(toIndentedString(cellDisplayMode)).append("\n");
     sb.append("    conditionalFormats: ").append(toIndentedString(conditionalFormats)).append("\n");
     sb.append("    eventQuery: ").append(toIndentedString(eventQuery)).append("\n");
+    sb.append("    formulas: ").append(toIndentedString(formulas)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    logQuery: ").append(toIndentedString(logQuery)).append("\n");
     sb.append("    networkQuery: ").append(toIndentedString(networkQuery)).append("\n");
@@ -531,6 +637,8 @@ public class TableWidgetRequest {
         .append(toIndentedString(profileMetricsQuery))
         .append("\n");
     sb.append("    q: ").append(toIndentedString(q)).append("\n");
+    sb.append("    queries: ").append(toIndentedString(queries)).append("\n");
+    sb.append("    responseFormat: ").append(toIndentedString(responseFormat)).append("\n");
     sb.append("    rumQuery: ").append(toIndentedString(rumQuery)).append("\n");
     sb.append("    securityQuery: ").append(toIndentedString(securityQuery)).append("\n");
     sb.append("}");

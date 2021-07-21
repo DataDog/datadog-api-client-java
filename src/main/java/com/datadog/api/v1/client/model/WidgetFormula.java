@@ -16,12 +16,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /** Formula to be used in a widget query. */
 @ApiModel(description = "Formula to be used in a widget query.")
 @JsonPropertyOrder({
   WidgetFormula.JSON_PROPERTY_ALIAS,
+  WidgetFormula.JSON_PROPERTY_CELL_DISPLAY_MODE,
+  WidgetFormula.JSON_PROPERTY_CONDITIONAL_FORMATS,
   WidgetFormula.JSON_PROPERTY_FORMULA,
   WidgetFormula.JSON_PROPERTY_LIMIT
 })
@@ -29,6 +33,12 @@ import java.util.Objects;
 public class WidgetFormula {
   public static final String JSON_PROPERTY_ALIAS = "alias";
   private String alias;
+
+  public static final String JSON_PROPERTY_CELL_DISPLAY_MODE = "cell_display_mode";
+  private TableWidgetCellDisplayMode cellDisplayMode;
+
+  public static final String JSON_PROPERTY_CONDITIONAL_FORMATS = "conditional_formats";
+  private List<WidgetConditionalFormat> conditionalFormats = null;
 
   public static final String JSON_PROPERTY_FORMULA = "formula";
   private String formula;
@@ -64,6 +74,58 @@ public class WidgetFormula {
 
   public void setAlias(String alias) {
     this.alias = alias;
+  }
+
+  public WidgetFormula cellDisplayMode(TableWidgetCellDisplayMode cellDisplayMode) {
+    this.cellDisplayMode = cellDisplayMode;
+    return this;
+  }
+
+  /**
+   * Get cellDisplayMode
+   *
+   * @return cellDisplayMode
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_CELL_DISPLAY_MODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public TableWidgetCellDisplayMode getCellDisplayMode() {
+    return cellDisplayMode;
+  }
+
+  public void setCellDisplayMode(TableWidgetCellDisplayMode cellDisplayMode) {
+    this.cellDisplayMode = cellDisplayMode;
+  }
+
+  public WidgetFormula conditionalFormats(List<WidgetConditionalFormat> conditionalFormats) {
+    this.conditionalFormats = conditionalFormats;
+    return this;
+  }
+
+  public WidgetFormula addConditionalFormatsItem(WidgetConditionalFormat conditionalFormatsItem) {
+    if (this.conditionalFormats == null) {
+      this.conditionalFormats = new ArrayList<>();
+    }
+    this.conditionalFormats.add(conditionalFormatsItem);
+    return this;
+  }
+
+  /**
+   * List of conditional formats.
+   *
+   * @return conditionalFormats
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of conditional formats.")
+  @JsonProperty(JSON_PROPERTY_CONDITIONAL_FORMATS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<WidgetConditionalFormat> getConditionalFormats() {
+    return conditionalFormats;
+  }
+
+  public void setConditionalFormats(List<WidgetConditionalFormat> conditionalFormats) {
+    this.conditionalFormats = conditionalFormats;
   }
 
   public WidgetFormula formula(String formula) {
@@ -123,13 +185,15 @@ public class WidgetFormula {
     }
     WidgetFormula widgetFormula = (WidgetFormula) o;
     return Objects.equals(this.alias, widgetFormula.alias)
+        && Objects.equals(this.cellDisplayMode, widgetFormula.cellDisplayMode)
+        && Objects.equals(this.conditionalFormats, widgetFormula.conditionalFormats)
         && Objects.equals(this.formula, widgetFormula.formula)
         && Objects.equals(this.limit, widgetFormula.limit);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(alias, formula, limit);
+    return Objects.hash(alias, cellDisplayMode, conditionalFormats, formula, limit);
   }
 
   @Override
@@ -137,6 +201,8 @@ public class WidgetFormula {
     StringBuilder sb = new StringBuilder();
     sb.append("class WidgetFormula {\n");
     sb.append("    alias: ").append(toIndentedString(alias)).append("\n");
+    sb.append("    cellDisplayMode: ").append(toIndentedString(cellDisplayMode)).append("\n");
+    sb.append("    conditionalFormats: ").append(toIndentedString(conditionalFormats)).append("\n");
     sb.append("    formula: ").append(toIndentedString(formula)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("}");
