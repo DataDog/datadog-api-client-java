@@ -5,6 +5,7 @@ import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.ApiResponse;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.Pair;
+import com.datadog.api.v2.client.model.OrganizationsResponse;
 import com.datadog.api.v2.client.model.PermissionsResponse;
 import com.datadog.api.v2.client.model.QuerySortOrder;
 import com.datadog.api.v2.client.model.UserCreateRequest;
@@ -378,7 +379,7 @@ public class UsersApi {
    * organizations joined by this user.
    *
    * @param userId The ID of the user. (required)
-   * @return UserResponse
+   * @return OrganizationsResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table summary="Response Details" border="1">
@@ -388,7 +389,7 @@ public class UsersApi {
    *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
    *     </table>
    */
-  public UserResponse listUserOrganizations(String userId) throws ApiException {
+  public OrganizationsResponse listUserOrganizations(String userId) throws ApiException {
     return listUserOrganizationsWithHttpInfo(userId).getData();
   }
 
@@ -397,7 +398,7 @@ public class UsersApi {
    * organizations joined by this user.
    *
    * @param userId The ID of the user. (required)
-   * @return ApiResponse&lt;UserResponse&gt;
+   * @return ApiResponse&lt;OrganizationsResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table summary="Response Details" border="1">
@@ -407,7 +408,7 @@ public class UsersApi {
    *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<UserResponse> listUserOrganizationsWithHttpInfo(String userId)
+  public ApiResponse<OrganizationsResponse> listUserOrganizationsWithHttpInfo(String userId)
       throws ApiException {
     Object localVarPostBody = null;
 
@@ -439,7 +440,8 @@ public class UsersApi {
 
     String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
 
-    GenericType<UserResponse> localVarReturnType = new GenericType<UserResponse>() {};
+    GenericType<OrganizationsResponse> localVarReturnType =
+        new GenericType<OrganizationsResponse>() {};
 
     return apiClient.invokeAPI(
         "UsersApi.listUserOrganizations",

@@ -274,7 +274,7 @@ Name | Type | Description  | Notes
 
 ## listUserOrganizations
 
-> UserResponse listUserOrganizations(userId);
+> OrganizationsResponse listUserOrganizations(userId);
 
 Get a user organization. Returns the user information and all organizations
 joined by this user.
@@ -296,7 +296,7 @@ public class Example {
         UsersApi apiInstance = new UsersApi(defaultClient);
         String userId = "00000000-0000-0000-0000-000000000000"; // String | The ID of the user.
         try {
-            UserResponse result = apiInstance.listUserOrganizations(userId);
+            OrganizationsResponse result = apiInstance.listUserOrganizations(userId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsersApi#listUserOrganizations");
@@ -318,7 +318,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserResponse**](UserResponse.md)
+[**OrganizationsResponse**](OrganizationsResponse.md)
 
 ### Authorization
 

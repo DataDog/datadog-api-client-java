@@ -210,6 +210,7 @@ docs/MetricsAndMetricTagConfigurationsResponse.md
 docs/MetricsApi.md
 docs/Organization.md
 docs/OrganizationAttributes.md
+docs/OrganizationsResponse.md
 docs/OrganizationsType.md
 docs/Pagination.md
 docs/PartialAPIKey.md
@@ -570,6 +571,7 @@ src/main/java/com/datadog/api/v2/client/model/MetricsAndMetricTagConfigurations.
 src/main/java/com/datadog/api/v2/client/model/MetricsAndMetricTagConfigurationsResponse.java
 src/main/java/com/datadog/api/v2/client/model/Organization.java
 src/main/java/com/datadog/api/v2/client/model/OrganizationAttributes.java
+src/main/java/com/datadog/api/v2/client/model/OrganizationsResponse.java
 src/main/java/com/datadog/api/v2/client/model/OrganizationsType.java
 src/main/java/com/datadog/api/v2/client/model/Pagination.java
 src/main/java/com/datadog/api/v2/client/model/PartialAPIKey.java
@@ -889,6 +891,7 @@ src/test/java/com/datadog/api/v2/client/model/MetricsAndMetricTagConfigurationsR
 src/test/java/com/datadog/api/v2/client/model/MetricsAndMetricTagConfigurationsTest.java
 src/test/java/com/datadog/api/v2/client/model/OrganizationAttributesTest.java
 src/test/java/com/datadog/api/v2/client/model/OrganizationTest.java
+src/test/java/com/datadog/api/v2/client/model/OrganizationsResponseTest.java
 src/test/java/com/datadog/api/v2/client/model/OrganizationsTypeTest.java
 src/test/java/com/datadog/api/v2/client/model/PaginationTest.java
 src/test/java/com/datadog/api/v2/client/model/PartialAPIKeyAttributesTest.java
