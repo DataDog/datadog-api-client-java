@@ -100,7 +100,7 @@ public class RecorderSteps {
     LogEventRequestAndResponse[] requestsAndResponses =
         mockServer.retrieveRecordedRequestsAndResponses(null);
     for (LogEventRequestAndResponse requestAndResponse : requestsAndResponses) {
-      HttpRequest req = requestAndResponse.getHttpRequest();
+      HttpRequest req = (HttpRequest) requestAndResponse.getHttpRequest();
       List<Parameter> params = req.getQueryStringParameterList();
       List<Parameter> cleanParams = new ArrayList<>();
       List<Header> headers = req.getHeaderList();
