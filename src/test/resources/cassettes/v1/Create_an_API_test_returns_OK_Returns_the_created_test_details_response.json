@@ -1,166 +1,269 @@
-[
-  {
-    "httpRequest": {
-      "body": {
-        "type": "JSON",
-        "json": "{\"config\":{\"assertions\":[{\"operator\":\"contains\",\"property\":\"content-type\",\"target\":\"application/json\",\"type\":\"header\"},{\"operator\":\"is\",\"target\":200,\"type\":\"statusCode\"},{\"operator\":\"validatesJSONPath\",\"target\":{\"jsonPath\":\"topKey\",\"operator\":\"isNot\",\"targetValue\":\"0\"},\"type\":\"body\"},{\"operator\":\"validatesJSONPath\",\"target\":{\"jsonPath\":\"something\",\"operator\":\"moreThan\",\"targetValue\":5},\"type\":\"body\"},{\"operator\":\"isNot\",\"target\":200,\"type\":\"statusCode\"},{\"operator\":\"matches\",\"target\":\"20[04]\",\"type\":\"statusCode\"},{\"operator\":\"doesNotMatch\",\"target\":\"20[04]\",\"type\":\"statusCode\"}],\"configVariables\":[],\"request\":{\"basicAuth\":{\"password\":\"secret\",\"username\":\"admin\"},\"body\":\"this is a body\",\"headers\":{\"Accept\":\"application/json\"},\"method\":\"GET\",\"query\":{\"foo\":\"bar\"},\"timeout\":30,\"url\":\"https://www.datadoghq.com\"}},\"locations\":[\"aws:eu-central-1\"],\"message\":\"Notify @datadog.user\",\"name\":\"Test-Create_an_API_test_returns_OK_Returns_the_created_test_details_response-1624001346\",\"options\":{\"follow_redirects\":true,\"min_location_failed\":1,\"monitor_options\":{\"renotify_interval\":100},\"tick_every\":60},\"status\":\"paused\",\"subtype\":\"http\",\"tags\":[\"foo:bar\",\"baz\"],\"type\":\"api\"}"
-      },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_an_API_test_returns_OK_Returns_the_created_test_details_response"
-        ]
-      },
-      "method": "POST",
-      "path": "/api/v1/synthetics/tests/api",
-      "keepAlive": false,
-      "secure": true
+[{
+  "id" : "9cb5dfbd-9e61-42c7-a5aa-87d9c867ef9c",
+  "priority" : 0,
+  "httpRequest" : {
+    "method" : "POST",
+    "path" : "/api/v1/synthetics/tests/api",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "Create_an_API_test_returns_OK_Returns_the_created_test_details_response" ],
+      "DD-OPERATION-ID" : [ "createSyntheticsAPITest" ],
+      "Content-Type" : [ "application/json" ]
     },
-    "httpResponse": {
-      "body": "{\"status\":\"paused\",\"public_id\":\"e99-ien-3xn\",\"tags\":[\"foo:bar\",\"baz\"],\"org_id\":321813,\"locations\":[\"aws:eu-central-1\"],\"message\":\"Notify @datadog.user\",\"deleted_at\":null,\"name\":\"Test-Create_an_API_test_returns_OK_Returns_the_created_test_details_response-1624001346\",\"monitor_id\":38892202,\"type\":\"api\",\"created_at\":\"2021-06-18T07:29:07.196479+00:00\",\"modified_at\":\"2021-06-18T07:29:07.196479+00:00\",\"subtype\":\"http\",\"config\":{\"request\":{\"body\":\"this is a body\",\"url\":\"https://www.datadoghq.com\",\"basicAuth\":{\"username\":\"admin\",\"password\":\"secret\"},\"headers\":{\"Accept\":\"application/json\"},\"timeout\":30,\"query\":{\"foo\":\"bar\"},\"method\":\"GET\"},\"assertions\":[{\"operator\":\"contains\",\"property\":\"content-type\",\"type\":\"header\",\"target\":\"application/json\"},{\"operator\":\"is\",\"type\":\"statusCode\",\"target\":200},{\"operator\":\"validatesJSONPath\",\"type\":\"body\",\"target\":{\"operator\":\"isNot\",\"targetValue\":\"0\",\"jsonPath\":\"topKey\"}},{\"operator\":\"validatesJSONPath\",\"type\":\"body\",\"target\":{\"operator\":\"moreThan\",\"targetValue\":5,\"jsonPath\":\"something\"}},{\"operator\":\"isNot\",\"type\":\"statusCode\",\"target\":200},{\"operator\":\"matches\",\"type\":\"statusCode\",\"target\":\"20[04]\"},{\"operator\":\"doesNotMatch\",\"type\":\"statusCode\",\"target\":\"20[04]\"}],\"configVariables\":[]},\"options\":{\"follow_redirects\":true,\"monitor_options\":{\"notify_audit\":false,\"locked\":false,\"include_tags\":true,\"new_host_delay\":300,\"notify_no_data\":false,\"renotify_interval\":100},\"min_location_failed\":1,\"tick_every\":60}}",
-      "headers": {
-        "Date": [
-          "Fri, 18 Jun 2021 07:29:07 GMT"
-        ],
-        "Content-Type": [
-          "application/json"
-        ],
-        "Content-Length": [
-          "1456"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "Vary": [
-          "Accept-Encoding"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "X-Dd-Version": [
-          "35.4779795"
-        ],
-        "X-Ratelimit-Limit": [
-          "120"
-        ],
-        "X-Ratelimit-Period": [
-          "60"
-        ],
-        "X-Ratelimit-Reset": [
-          "53"
-        ],
-        "X-Ratelimit-Remaining": [
-          "119"
-        ],
-        "X-Dd-Debug": [
-          "S1wfaMZOKGT/IoMw6fqAwAwGWo2vQ44sjF3YzuETnQfxZO2T5eJbs0aX3UKb9Dwu"
-        ],
-        "X-Content-Type-Options": [
-          "nosniff"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=15724800;"
-        ],
-        "Content-Security-Policy": [
-          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
-        ],
-        "X-Frame-Options": [
-          "SAMEORIGIN"
-        ]
-      },
-      "statusCode": 200,
-      "reasonPhrase": "OK"
-    },
-    "times": {
-      "remainingTimes": 1
-    },
-    "timeToLive": {
-      "unlimited": true
-    },
-    "id": "c890555f-efb2-3005-2fb1-672828b6e353"
+    "keepAlive" : false,
+    "secure" : true,
+    "body" : {
+      "contentType" : "application/json",
+      "type" : "JSON",
+      "json" : {
+        "config" : {
+          "assertions" : [ {
+            "operator" : "contains",
+            "property" : "content-type",
+            "target" : "application/json",
+            "type" : "header"
+          }, {
+            "operator" : "is",
+            "target" : 200,
+            "type" : "statusCode"
+          }, {
+            "operator" : "validatesJSONPath",
+            "target" : {
+              "jsonPath" : "topKey",
+              "operator" : "isNot",
+              "targetValue" : "0"
+            },
+            "type" : "body"
+          }, {
+            "operator" : "validatesJSONPath",
+            "target" : {
+              "jsonPath" : "something",
+              "operator" : "moreThan",
+              "targetValue" : 5
+            },
+            "type" : "body"
+          }, {
+            "operator" : "isNot",
+            "target" : 200,
+            "type" : "statusCode"
+          }, {
+            "operator" : "matches",
+            "target" : "20[04]",
+            "type" : "statusCode"
+          }, {
+            "operator" : "doesNotMatch",
+            "target" : "20[04]",
+            "type" : "statusCode"
+          } ],
+          "configVariables" : [ ],
+          "request" : {
+            "basicAuth" : {
+              "password" : "secret",
+              "username" : "admin"
+            },
+            "body" : "this is a body",
+            "headers" : {
+              "Accept" : "application/json"
+            },
+            "method" : "GET",
+            "query" : {
+              "foo" : "bar"
+            },
+            "timeout" : 30.0,
+            "url" : "https://www.datadoghq.com"
+          }
+        },
+        "locations" : [ "aws:eu-central-1" ],
+        "message" : "Notify @datadog.user",
+        "name" : "Test-Create_an_API_test_returns_OK_Returns_the_created_test_details_response-1626963947",
+        "options" : {
+          "follow_redirects" : true,
+          "min_location_failed" : 1,
+          "monitor_options" : {
+            "renotify_interval" : 100
+          },
+          "tick_every" : 60
+        },
+        "status" : "paused",
+        "subtype" : "http",
+        "tags" : [ "foo:bar", "baz" ],
+        "type" : "api"
+      }
+    }
   },
-  {
-    "httpRequest": {
-      "body": {
-        "type": "JSON",
-        "json": "{\"public_ids\":[\"e99-ien-3xn\"]}"
-      },
-      "headers": {
-        "JAVA-TEST-NAME": [
-          "Create_an_API_test_returns_OK_Returns_the_created_test_details_response"
-        ]
-      },
-      "method": "POST",
-      "path": "/api/v1/synthetics/tests/delete",
-      "keepAlive": false,
-      "secure": true
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 200,
+    "reasonPhrase" : "OK",
+    "headers" : {
+      "Date" : [ "Thu, 22 Jul 2021 14:25:50 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "keep-alive" ],
+      "vary" : [ "Accept-Encoding" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "x-ratelimit-limit" : [ "120" ],
+      "x-ratelimit-period" : [ "60" ],
+      "x-ratelimit-reset" : [ "10" ],
+      "x-ratelimit-remaining" : [ "119" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ],
+      "content-length" : [ "1458" ]
     },
-    "httpResponse": {
-      "body": "{\"deleted_tests\":[{\"deleted_at\":\"2021-06-18T07:29:07.707546+00:00\",\"public_id\":\"e99-ien-3xn\"}]}",
-      "headers": {
-        "Date": [
-          "Fri, 18 Jun 2021 07:29:07 GMT"
-        ],
-        "Content-Type": [
-          "application/json"
-        ],
-        "Content-Length": [
-          "95"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "Vary": [
-          "Accept-Encoding"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "X-Dd-Version": [
-          "35.4779795"
-        ],
-        "X-Ratelimit-Limit": [
-          "120"
-        ],
-        "X-Ratelimit-Period": [
-          "60"
-        ],
-        "X-Ratelimit-Reset": [
-          "53"
-        ],
-        "X-Ratelimit-Remaining": [
-          "119"
-        ],
-        "X-Dd-Debug": [
-          "vdJ3/nHEY1ioXQ6pQrBVvsQK1s4yyc+wufBMPSoXql71qZVuP/xMdtNo6DafhOAk"
-        ],
-        "X-Content-Type-Options": [
-          "nosniff"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=15724800;"
-        ],
-        "Content-Security-Policy": [
-          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
-        ],
-        "X-Frame-Options": [
-          "SAMEORIGIN"
-        ]
-      },
-      "statusCode": 200,
-      "reasonPhrase": "OK"
-    },
-    "times": {
-      "remainingTimes": 1
-    },
-    "timeToLive": {
-      "unlimited": true
-    },
-    "id": "83ba6aa2-3e56-a377-b5c1-619a29b55426"
+    "body" : {
+      "contentType" : "application/json",
+      "type" : "JSON",
+      "json" : {
+        "status" : "paused",
+        "public_id" : "jp2-cyp-p57",
+        "tags" : [ "foo:bar", "baz" ],
+        "org_id" : 321813,
+        "locations" : [ "aws:eu-central-1" ],
+        "message" : "Notify @datadog.user",
+        "deleted_at" : null,
+        "name" : "Test-Create_an_API_test_returns_OK_Returns_the_created_test_details_response-1626963947",
+        "monitor_id" : 42092250,
+        "type" : "api",
+        "created_at" : "2021-07-22T14:25:50.562703+00:00",
+        "modified_at" : "2021-07-22T14:25:50.562703+00:00",
+        "subtype" : "http",
+        "config" : {
+          "request" : {
+            "body" : "this is a body",
+            "url" : "https://www.datadoghq.com",
+            "basicAuth" : {
+              "username" : "admin",
+              "password" : "secret"
+            },
+            "headers" : {
+              "Accept" : "application/json"
+            },
+            "timeout" : 30.0,
+            "query" : {
+              "foo" : "bar"
+            },
+            "method" : "GET"
+          },
+          "assertions" : [ {
+            "operator" : "contains",
+            "property" : "content-type",
+            "type" : "header",
+            "target" : "application/json"
+          }, {
+            "operator" : "is",
+            "type" : "statusCode",
+            "target" : 200
+          }, {
+            "operator" : "validatesJSONPath",
+            "type" : "body",
+            "target" : {
+              "operator" : "isNot",
+              "targetValue" : "0",
+              "jsonPath" : "topKey"
+            }
+          }, {
+            "operator" : "validatesJSONPath",
+            "type" : "body",
+            "target" : {
+              "operator" : "moreThan",
+              "targetValue" : 5,
+              "jsonPath" : "something"
+            }
+          }, {
+            "operator" : "isNot",
+            "type" : "statusCode",
+            "target" : 200
+          }, {
+            "operator" : "matches",
+            "type" : "statusCode",
+            "target" : "20[04]"
+          }, {
+            "operator" : "doesNotMatch",
+            "type" : "statusCode",
+            "target" : "20[04]"
+          } ],
+          "configVariables" : [ ]
+        },
+        "options" : {
+          "follow_redirects" : true,
+          "monitor_options" : {
+            "notify_audit" : false,
+            "locked" : false,
+            "include_tags" : true,
+            "new_host_delay" : 300,
+            "notify_no_data" : false,
+            "renotify_interval" : 100
+          },
+          "min_location_failed" : 1,
+          "tick_every" : 60
+        }
+      }
+    }
   }
-]
+}, {
+  "id" : "bebaf7b3-bc75-408a-9086-33ed82d0d3bf",
+  "priority" : 0,
+  "httpRequest" : {
+    "method" : "POST",
+    "path" : "/api/v1/synthetics/tests/delete",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "Create_an_API_test_returns_OK_Returns_the_created_test_details_response" ],
+      "DD-OPERATION-ID" : [ "deleteTests" ],
+      "Content-Type" : [ "application/json" ]
+    },
+    "keepAlive" : false,
+    "secure" : true,
+    "body" : {
+      "contentType" : "application/json",
+      "type" : "JSON",
+      "json" : {
+        "public_ids" : [ "jp2-cyp-p57" ]
+      }
+    }
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 200,
+    "reasonPhrase" : "OK",
+    "headers" : {
+      "Date" : [ "Thu, 22 Jul 2021 14:25:52 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Connection" : [ "keep-alive" ],
+      "vary" : [ "Accept-Encoding" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "x-ratelimit-limit" : [ "120" ],
+      "x-ratelimit-period" : [ "60" ],
+      "x-ratelimit-reset" : [ "9" ],
+      "x-ratelimit-remaining" : [ "119" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ],
+      "content-length" : [ "95" ]
+    },
+    "body" : {
+      "contentType" : "application/json",
+      "type" : "JSON",
+      "json" : {
+        "deleted_tests" : [ {
+          "deleted_at" : "2021-07-22T14:25:51.283322+00:00",
+          "public_id" : "jp2-cyp-p57"
+        } ]
+      }
+    }
+  }
+}]
