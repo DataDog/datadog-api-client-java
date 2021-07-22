@@ -54,7 +54,7 @@
                         <version>2.19.1</version>
                         <configuration>
                             <runOrder>random</runOrder>
-                            <argLine>-DloggerPath=conf/log4j.properties -Ddd.integration.junit.enabled=true -Ddd.prioritization.type=ENSURE_TRACE -Ddd.jmxfetch.enabled=false -javaagent:${basedir}/target/dd-java-agent-${dd-java-agent-version}.jar ${argLine} -Xms512m -Xmx3500m -DsurefireForkNumber=${surefire.forkNumber} --add-exports java.base/sun.security.x509=ALL-UNNAMED --add-opens java.base/sun.net.www.protocol.https=ALL-UNNAMED --add-opens java.base/java.net=ALL-UNNAMED</argLine>
+                            <argLine>-DloggerPath=conf/log4j.properties -Ddd.integration.junit.enabled=true -Ddd.prioritization.type=ENSURE_TRACE -Ddd.jmxfetch.enabled=false -javaagent:${basedir}/target/dd-java-agent-${dd-java-agent-version}.jar ${argLine} -Xms512m -Xmx3500m -DsurefireForkNumber=${surefire.forkNumber} --add-exports java.base/sun.security.x509=ALL-UNNAMED --add-opens=java.base/sun.security.x509=ALL-UNNAMED --add-opens java.base/sun.net.www.protocol.https=ALL-UNNAMED --add-opens java.base/java.net=ALL-UNNAMED</argLine>
                         </configuration>
                     </plugin>
                 </plugins>
