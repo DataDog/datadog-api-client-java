@@ -34,8 +34,8 @@ jobs:
         # of JDKs to run unit tests on
         java-version:
           [
-            "adopt@1.8.0-275",
-            "1.16.0=tgz+https://download.oracle.com/otn-pub/java/jdk/16.0.1+9/7147401fd7354114ac51ef3e1328291f/jdk-16.0.1_linux-x64_bin.tar.gz",
+            "adopt@1.8.0-292",
+            "openjdk@1.16.0-1",
           ]
 
     runs-on: ubuntu-18.04
