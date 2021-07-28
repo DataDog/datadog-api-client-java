@@ -5,6 +5,7 @@ import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.ApiResponse;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.Pair;
+import com.datadog.api.v1.client.model.ChargebackSummaryResponse;
 import com.datadog.api.v1.client.model.UsageAnalyzedLogsResponse;
 import com.datadog.api.v1.client.model.UsageAttributionResponse;
 import com.datadog.api.v1.client.model.UsageAttributionSort;
@@ -73,6 +74,137 @@ public class UsageMeteringApi {
    */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
+  }
+
+  /** Manage optional parameters to getChargebackSummary. */
+  public static class GetChargebackSummaryOptionalParameters {
+    private OffsetDateTime endMonth;
+
+    /**
+     * Set endMonth
+     *
+     * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
+     *     usage ending this month. (optional)
+     * @return GetChargebackSummaryOptionalParameters
+     */
+    public GetChargebackSummaryOptionalParameters endMonth(OffsetDateTime endMonth) {
+      this.endMonth = endMonth;
+      return this;
+    }
+  }
+
+  /**
+   * Get cost by sub-org Get usage cost per product for each sub-org across your multi-org account.
+   *
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
+   *     usage beginning in this month. Maximum of 15 months ago. (required)
+   * @return ChargebackSummaryResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ChargebackSummaryResponse getChargebackSummary(OffsetDateTime startMonth)
+      throws ApiException {
+    return getChargebackSummaryWithHttpInfo(
+            startMonth, new GetChargebackSummaryOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get cost by sub-org Get usage cost per product for each sub-org across your multi-org account.
+   *
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
+   *     usage beginning in this month. Maximum of 15 months ago. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ChargebackSummaryResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ChargebackSummaryResponse getChargebackSummary(
+      OffsetDateTime startMonth, GetChargebackSummaryOptionalParameters parameters)
+      throws ApiException {
+    return getChargebackSummaryWithHttpInfo(startMonth, parameters).getData();
+  }
+
+  /**
+   * Get cost by sub-org Get usage cost per product for each sub-org across your multi-org account.
+   *
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
+   *     usage beginning in this month. Maximum of 15 months ago. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;ChargebackSummaryResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<ChargebackSummaryResponse> getChargebackSummaryWithHttpInfo(
+      OffsetDateTime startMonth, GetChargebackSummaryOptionalParameters parameters)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'startMonth' is set
+    if (startMonth == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'startMonth' when calling getChargebackSummary");
+    }
+    OffsetDateTime endMonth = parameters.endMonth;
+    // create path and map variables
+    String localVarPath = "/api/v1/usage/chargeback-summary";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_month", startMonth));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_month", endMonth));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getChargebackSummary");
+
+    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    GenericType<ChargebackSummaryResponse> localVarReturnType =
+        new GenericType<ChargebackSummaryResponse>() {};
+
+    return apiClient.invokeAPI(
+        "UsageMeteringApi.getChargebackSummary",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
   }
 
   /** Manage optional parameters to getDailyCustomReports. */
