@@ -35,7 +35,7 @@ public class SyntheticsAssertionTarget {
   private String property;
 
   public static final String JSON_PROPERTY_TARGET = "target";
-  private Object target;
+  private Object target = null;
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private SyntheticsAssertionType type;
