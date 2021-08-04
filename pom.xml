@@ -463,7 +463,7 @@
         <http-signature-version>1.3</http-signature-version>
         <maven-plugin-version>1.0.0</maven-plugin-version>
         <junit-version>4.13.1</junit-version>
-        <dd-java-agent-version>0.72.0</dd-java-agent-version>
+        <dd-java-agent-version>0.84.0</dd-java-agent-version>
         <project.scm.id>github</project.scm.id>
     </properties>
 </project>
