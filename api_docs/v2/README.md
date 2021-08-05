@@ -87,6 +87,12 @@ Class | Method | HTTP request | Description
 *SecurityMonitoringApi* | [**searchSecurityMonitoringSignals**](SecurityMonitoringApi.md#searchSecurityMonitoringSignals) | **POST** /api/v2/security_monitoring/signals/search | Get a list of security signals
 *SecurityMonitoringApi* | [**updateSecurityFilter**](SecurityMonitoringApi.md#updateSecurityFilter) | **PATCH** /api/v2/security_monitoring/configuration/security_filters/{security_filter_id} | Update a security filter
 *SecurityMonitoringApi* | [**updateSecurityMonitoringRule**](SecurityMonitoringApi.md#updateSecurityMonitoringRule) | **PUT** /api/v2/security_monitoring/rules/{rule_id} | Update an existing rule
+*ServiceAccountsApi* | [**createServiceAccountApplicationKey**](ServiceAccountsApi.md#createServiceAccountApplicationKey) | **POST** /api/v2/service_accounts/{service_account_id}/application_keys | Create an application key for this service account
+*ServiceAccountsApi* | [**deleteServiceAccountApplicationKey**](ServiceAccountsApi.md#deleteServiceAccountApplicationKey) | **DELETE** /api/v2/service_accounts/{service_account_id}/application_keys/{app_key_id} | Delete an application key for this service account
+*ServiceAccountsApi* | [**getServiceAccountApplicationKey**](ServiceAccountsApi.md#getServiceAccountApplicationKey) | **GET** /api/v2/service_accounts/{service_account_id}/application_keys/{app_key_id} | Get one application key for this service account
+*ServiceAccountsApi* | [**listServiceAccountApplicationKeys**](ServiceAccountsApi.md#listServiceAccountApplicationKeys) | **GET** /api/v2/service_accounts/{service_account_id}/application_keys | List application keys for this service account
+*ServiceAccountsApi* | [**updateServiceAccountApplicationKey**](ServiceAccountsApi.md#updateServiceAccountApplicationKey) | **PATCH** /api/v2/service_accounts/{service_account_id}/application_keys/{app_key_id} | Edit an application key for this service account
+*UsersApi* | [**createServiceAccount**](UsersApi.md#createServiceAccount) | **POST** /api/v2/service_accounts | Create a service account
 *UsersApi* | [**createUser**](UsersApi.md#createUser) | **POST** /api/v2/users | Create a user
 *UsersApi* | [**disableUser**](UsersApi.md#disableUser) | **DELETE** /api/v2/users/{user_id} | Disable a user
 *UsersApi* | [**getInvitation**](UsersApi.md#getInvitation) | **GET** /api/v2/user_invitations/{user_invitation_uuid} | Get a user invitation
@@ -304,6 +310,7 @@ Class | Method | HTTP request | Description
  - [PartialAPIKeyAttributes](PartialAPIKeyAttributes.md)
  - [PartialApplicationKey](PartialApplicationKey.md)
  - [PartialApplicationKeyAttributes](PartialApplicationKeyAttributes.md)
+ - [PartialApplicationKeyResponse](PartialApplicationKeyResponse.md)
  - [Permission](Permission.md)
  - [PermissionAttributes](PermissionAttributes.md)
  - [PermissionsResponse](PermissionsResponse.md)
@@ -397,6 +404,9 @@ Class | Method | HTTP request | Description
  - [SecurityMonitoringSignalsListResponseMeta](SecurityMonitoringSignalsListResponseMeta.md)
  - [SecurityMonitoringSignalsListResponseMetaPage](SecurityMonitoringSignalsListResponseMetaPage.md)
  - [SecurityMonitoringSignalsSort](SecurityMonitoringSignalsSort.md)
+ - [ServiceAccountCreateAttributes](ServiceAccountCreateAttributes.md)
+ - [ServiceAccountCreateData](ServiceAccountCreateData.md)
+ - [ServiceAccountCreateRequest](ServiceAccountCreateRequest.md)
  - [User](User.md)
  - [UserAttributes](UserAttributes.md)
  - [UserCreateAttributes](UserCreateAttributes.md)

@@ -28,6 +28,7 @@ import java.util.Objects;
   UserAttributes.JSON_PROPERTY_ICON,
   UserAttributes.JSON_PROPERTY_MODIFIED_AT,
   UserAttributes.JSON_PROPERTY_NAME,
+  UserAttributes.JSON_PROPERTY_SERVICE_ACCOUNT,
   UserAttributes.JSON_PROPERTY_STATUS,
   UserAttributes.JSON_PROPERTY_TITLE,
   UserAttributes.JSON_PROPERTY_VERIFIED
@@ -54,6 +55,9 @@ public class UserAttributes {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_SERVICE_ACCOUNT = "service_account";
+  private Boolean serviceAccount;
 
   public static final String JSON_PROPERTY_STATUS = "status";
   private String status;
@@ -218,6 +222,28 @@ public class UserAttributes {
     this.name = name;
   }
 
+  public UserAttributes serviceAccount(Boolean serviceAccount) {
+    this.serviceAccount = serviceAccount;
+    return this;
+  }
+
+  /**
+   * Whether the user is a service account.
+   *
+   * @return serviceAccount
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Whether the user is a service account.")
+  @JsonProperty(JSON_PROPERTY_SERVICE_ACCOUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getServiceAccount() {
+    return serviceAccount;
+  }
+
+  public void setServiceAccount(Boolean serviceAccount) {
+    this.serviceAccount = serviceAccount;
+  }
+
   public UserAttributes status(String status) {
     this.status = status;
     return this;
@@ -301,6 +327,7 @@ public class UserAttributes {
         && Objects.equals(this.icon, userAttributes.icon)
         && Objects.equals(this.modifiedAt, userAttributes.modifiedAt)
         && Objects.equals(this.name, userAttributes.name)
+        && Objects.equals(this.serviceAccount, userAttributes.serviceAccount)
         && Objects.equals(this.status, userAttributes.status)
         && Objects.equals(this.title, userAttributes.title)
         && Objects.equals(this.verified, userAttributes.verified);
@@ -309,7 +336,17 @@ public class UserAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
-        createdAt, disabled, email, handle, icon, modifiedAt, name, status, title, verified);
+        createdAt,
+        disabled,
+        email,
+        handle,
+        icon,
+        modifiedAt,
+        name,
+        serviceAccount,
+        status,
+        title,
+        verified);
   }
 
   @Override
@@ -323,6 +360,7 @@ public class UserAttributes {
     sb.append("    icon: ").append(toIndentedString(icon)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    serviceAccount: ").append(toIndentedString(serviceAccount)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
     sb.append("    verified: ").append(toIndentedString(verified)).append("\n");

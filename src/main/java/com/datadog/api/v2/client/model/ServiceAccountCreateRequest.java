@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -17,37 +18,44 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
-/** Resources related to the application key. */
-@ApiModel(description = "Resources related to the application key.")
-@JsonPropertyOrder({ApplicationKeyRelationships.JSON_PROPERTY_OWNED_BY})
+/** Create a service account. */
+@ApiModel(description = "Create a service account.")
+@JsonPropertyOrder({ServiceAccountCreateRequest.JSON_PROPERTY_DATA})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class ApplicationKeyRelationships {
-  public static final String JSON_PROPERTY_OWNED_BY = "owned_by";
-  private RelationshipToUser ownedBy;
+public class ServiceAccountCreateRequest {
+  public static final String JSON_PROPERTY_DATA = "data";
+  private ServiceAccountCreateData data;
 
-  public ApplicationKeyRelationships ownedBy(RelationshipToUser ownedBy) {
-    this.ownedBy = ownedBy;
+  public ServiceAccountCreateRequest() {}
+
+  @JsonCreator
+  public ServiceAccountCreateRequest(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) ServiceAccountCreateData data) {
+    this.data = data;
+  }
+
+  public ServiceAccountCreateRequest data(ServiceAccountCreateData data) {
+    this.data = data;
     return this;
   }
 
   /**
-   * Get ownedBy
+   * Get data
    *
-   * @return ownedBy
+   * @return data
    */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_OWNED_BY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RelationshipToUser getOwnedBy() {
-    return ownedBy;
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public ServiceAccountCreateData getData() {
+    return data;
   }
 
-  public void setOwnedBy(RelationshipToUser ownedBy) {
-    this.ownedBy = ownedBy;
+  public void setData(ServiceAccountCreateData data) {
+    this.data = data;
   }
 
-  /** Return true if this ApplicationKeyRelationships object is equal to o. */
+  /** Return true if this ServiceAccountCreateRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -56,20 +64,20 @@ public class ApplicationKeyRelationships {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ApplicationKeyRelationships applicationKeyRelationships = (ApplicationKeyRelationships) o;
-    return Objects.equals(this.ownedBy, applicationKeyRelationships.ownedBy);
+    ServiceAccountCreateRequest serviceAccountCreateRequest = (ServiceAccountCreateRequest) o;
+    return Objects.equals(this.data, serviceAccountCreateRequest.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ownedBy);
+    return Objects.hash(data);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ApplicationKeyRelationships {\n");
-    sb.append("    ownedBy: ").append(toIndentedString(ownedBy)).append("\n");
+    sb.append("class ServiceAccountCreateRequest {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }

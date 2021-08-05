@@ -7,6 +7,7 @@ import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.Pair;
 import com.datadog.api.v2.client.model.PermissionsResponse;
 import com.datadog.api.v2.client.model.QuerySortOrder;
+import com.datadog.api.v2.client.model.ServiceAccountCreateRequest;
 import com.datadog.api.v2.client.model.UserCreateRequest;
 import com.datadog.api.v2.client.model.UserInvitationResponse;
 import com.datadog.api.v2.client.model.UserInvitationsRequest;
@@ -48,6 +49,85 @@ public class UsersApi {
    */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
+  }
+
+  /**
+   * Create a service account Create a service account for your organization.
+   *
+   * @param body (required)
+   * @return UserResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public UserResponse createServiceAccount(ServiceAccountCreateRequest body) throws ApiException {
+    return createServiceAccountWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Create a service account Create a service account for your organization.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;UserResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UserResponse> createServiceAccountWithHttpInfo(
+      ServiceAccountCreateRequest body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling createServiceAccount");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/service_accounts";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "createServiceAccount");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {"application/json"};
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    GenericType<UserResponse> localVarReturnType = new GenericType<UserResponse>() {};
+
+    return apiClient.invokeAPI(
+        "UsersApi.createServiceAccount",
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
   }
 
   /**
