@@ -50,10 +50,12 @@ jobs:
           status: pending
           context: integration
       - name: Install Java
-        uses: actions/setup-java@v2
+        # the setup-scala action is the only available action that allows us to access
+        # https://github.com/shyiko/jabba - a tool that can install various JDKs
+        uses: olafurpg/setup-scala@v10
         with:
-          distribution: "adopt"
-          java-version: "16"
+          java-version: openjdk@1.16.0-1
+          jabba-version: 0.11.2
       - name: Run integration tests
         run: ./run-tests.sh
         env:

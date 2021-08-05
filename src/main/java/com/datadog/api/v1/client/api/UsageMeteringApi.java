@@ -950,6 +950,7 @@ public class UsageMeteringApi {
     private OffsetDateTime endMonth;
     private UsageSortDirection sortDirection;
     private UsageAttributionSort sortName;
+    private Boolean includeDescendants;
 
     /**
      * Set endMonth
@@ -982,6 +983,18 @@ public class UsageMeteringApi {
      */
     public GetUsageAttributionOptionalParameters sortName(UsageAttributionSort sortName) {
       this.sortName = sortName;
+      return this;
+    }
+
+    /**
+     * Set includeDescendants
+     *
+     * @param includeDescendants Include child org usage in the response. Defaults to false.
+     *     (optional, default to false)
+     * @return GetUsageAttributionOptionalParameters
+     */
+    public GetUsageAttributionOptionalParameters includeDescendants(Boolean includeDescendants) {
+      this.includeDescendants = includeDescendants;
       return this;
     }
   }
@@ -1072,6 +1085,7 @@ public class UsageMeteringApi {
     OffsetDateTime endMonth = parameters.endMonth;
     UsageSortDirection sortDirection = parameters.sortDirection;
     UsageAttributionSort sortName = parameters.sortName;
+    Boolean includeDescendants = parameters.includeDescendants;
     // create path and map variables
     String localVarPath = "/api/v1/usage/attribution";
 
@@ -1086,6 +1100,8 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_month", endMonth));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_direction", sortDirection));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_name", sortName));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "include_descendants", includeDescendants));
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageAttribution");

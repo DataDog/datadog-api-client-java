@@ -544,11 +544,13 @@ public class Example {
         OffsetDateTime endMonth = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage ending this month.
         UsageSortDirection sortDirection = UsageSortDirection.fromValue("desc"); // UsageSortDirection | The direction to sort by: `[desc, asc]`.
         UsageAttributionSort sortName = UsageAttributionSort.fromValue("api_percentage"); // UsageAttributionSort | The field to sort by.
+        Boolean includeDescendants = false; // Boolean | Include child org usage in the response. Defaults to false.
         try {
 	    UsageAttributionResponse result = apiInstance.getUsageAttribution(startMonth, fields, new UsageMeteringApi.GetUsageAttributionOptionalParameters()
                 .endMonth(endMonth)
                 .sortDirection(sortDirection)
-                .sortName(sortName));
+                .sortName(sortName)
+                .includeDescendants(includeDescendants));
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UsageMeteringApi#getUsageAttribution");
@@ -571,6 +573,7 @@ Name | Type | Description  | Notes
  **endMonth** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month. | [optional]
  **sortDirection** | **UsageSortDirection**| The direction to sort by: &#x60;[desc, asc]&#x60;. | [optional] [enum: desc, asc]
  **sortName** | **UsageAttributionSort**| The field to sort by. | [optional] [enum: api_percentage, snmp_usage, apm_host_usage, api_usage, container_usage, custom_timeseries_percentage, container_percentage, apm_host_percentage, npm_host_percentage, browser_percentage, browser_usage, infra_host_percentage, snmp_percentage, npm_host_usage, infra_host_usage, custom_timeseries_usage, lambda_functions_usage, lambda_functions_percentage, lambda_invocations_usage, lambda_invocations_percentage, lambda_usage, lambda_percentage]
+ **includeDescendants** | **Boolean**| Include child org usage in the response. Defaults to false. | [optional] [default to false]
 
 ### Return type
 

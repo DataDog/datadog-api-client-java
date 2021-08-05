@@ -22,15 +22,16 @@ import java.util.Objects;
 
 /**
  * Create custom grok rules to parse the full message or [a specific attribute of your raw
- * event](https://docs.datadoghq.com/logs/processing/parsing/#advanced-settings). For more
- * information, see the [parsing section](https://docs.datadoghq.com/logs/processing/parsing).
+ * event](https://docs.datadoghq.com/logs/log_configuration/parsing/#advanced-settings). For more
+ * information, see the [parsing
+ * section](https://docs.datadoghq.com/logs/log_configuration/parsing).
  */
 @ApiModel(
     description =
         "Create custom grok rules to parse the full message or [a specific attribute of your raw"
-            + " event](https://docs.datadoghq.com/logs/processing/parsing/#advanced-settings). For"
-            + " more information, see the [parsing"
-            + " section](https://docs.datadoghq.com/logs/processing/parsing).")
+            + " event](https://docs.datadoghq.com/logs/log_configuration/parsing/#advanced-settings)."
+            + " For more information, see the [parsing"
+            + " section](https://docs.datadoghq.com/logs/log_configuration/parsing).")
 @JsonPropertyOrder({
   LogsGrokParser.JSON_PROPERTY_GROK,
   LogsGrokParser.JSON_PROPERTY_IS_ENABLED,
