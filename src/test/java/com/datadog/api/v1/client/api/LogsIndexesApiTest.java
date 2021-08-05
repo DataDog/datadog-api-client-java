@@ -69,7 +69,7 @@ public class LogsIndexesApiTest extends V1ApiTest {
     assertEquals(INDEXNAME, response.getName());
     assertEquals("", response.getFilter().getQuery());
     assertNotNull(response.getExclusionFilters().size());
-    assertNotNull(response.getDailyLimit());
+    // assertNotNull(response.getDailyLimit());
     assertNotNull(response.getIsRateLimited());
     assertNotNull(response.getNumRetentionDays());
   }
