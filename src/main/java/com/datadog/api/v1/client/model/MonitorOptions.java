@@ -35,6 +35,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   MonitorOptions.JSON_PROPERTY_LOCKED,
   MonitorOptions.JSON_PROPERTY_MIN_FAILURE_DURATION,
   MonitorOptions.JSON_PROPERTY_MIN_LOCATION_FAILED,
+  MonitorOptions.JSON_PROPERTY_NEW_GROUP_DELAY,
   MonitorOptions.JSON_PROPERTY_NEW_HOST_DELAY,
   MonitorOptions.JSON_PROPERTY_NO_DATA_TIMEFRAME,
   MonitorOptions.JSON_PROPERTY_NOTIFY_AUDIT,
@@ -78,6 +79,9 @@ public class MonitorOptions {
 
   public static final String JSON_PROPERTY_MIN_LOCATION_FAILED = "min_location_failed";
   private JsonNullable<Long> minLocationFailed = JsonNullable.<Long>of(1l);
+
+  public static final String JSON_PROPERTY_NEW_GROUP_DELAY = "new_group_delay";
+  private JsonNullable<Long> newGroupDelay = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_NEW_HOST_DELAY = "new_host_delay";
   private JsonNullable<Long> newHostDelay = JsonNullable.<Long>of(300l);
@@ -395,6 +399,43 @@ public class MonitorOptions {
     this.minLocationFailed = JsonNullable.<Long>of(minLocationFailed);
   }
 
+  public MonitorOptions newGroupDelay(Long newGroupDelay) {
+    this.newGroupDelay = JsonNullable.<Long>of(newGroupDelay);
+    return this;
+  }
+
+  /**
+   * Time (in seconds) to skip evaluations for new groups. For example, this option can be used to
+   * skip evaluations for new hosts while they initialize. Must be a non negative integer.
+   *
+   * @return newGroupDelay
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Time (in seconds) to skip evaluations for new groups.  For example, this option can be"
+              + " used to skip evaluations for new hosts while they initialize.  Must be a non"
+              + " negative integer.")
+  @JsonIgnore
+  public Long getNewGroupDelay() {
+    return newGroupDelay.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_NEW_GROUP_DELAY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Long> getNewGroupDelay_JsonNullable() {
+    return newGroupDelay;
+  }
+
+  @JsonProperty(JSON_PROPERTY_NEW_GROUP_DELAY)
+  public void setNewGroupDelay_JsonNullable(JsonNullable<Long> newGroupDelay) {
+    this.newGroupDelay = newGroupDelay;
+  }
+
+  public void setNewGroupDelay(Long newGroupDelay) {
+    this.newGroupDelay = JsonNullable.<Long>of(newGroupDelay);
+  }
+
   public MonitorOptions newHostDelay(Long newHostDelay) {
     this.newHostDelay = JsonNullable.<Long>of(newHostDelay);
     return this;
@@ -402,7 +443,7 @@ public class MonitorOptions {
 
   /**
    * Time (in seconds) to allow a host to boot and applications to fully start before starting the
-   * evaluation of monitor results. Should be a non negative integer.
+   * evaluation of monitor results. Should be a non negative integer. Use new_group_delay instead.
    *
    * @return newHostDelay
    */
@@ -410,7 +451,8 @@ public class MonitorOptions {
   @ApiModelProperty(
       value =
           "Time (in seconds) to allow a host to boot and applications to fully start before"
-              + " starting the evaluation of monitor results. Should be a non negative integer.")
+              + " starting the evaluation of monitor results. Should be a non negative integer. "
+              + " Use new_group_delay instead.")
   @JsonIgnore
   public Long getNewHostDelay() {
     return newHostDelay.orElse(null);
@@ -743,6 +785,7 @@ public class MonitorOptions {
         && Objects.equals(this.locked, monitorOptions.locked)
         && Objects.equals(this.minFailureDuration, monitorOptions.minFailureDuration)
         && Objects.equals(this.minLocationFailed, monitorOptions.minLocationFailed)
+        && Objects.equals(this.newGroupDelay, monitorOptions.newGroupDelay)
         && Objects.equals(this.newHostDelay, monitorOptions.newHostDelay)
         && Objects.equals(this.noDataTimeframe, monitorOptions.noDataTimeframe)
         && Objects.equals(this.notifyAudit, monitorOptions.notifyAudit)
@@ -769,6 +812,7 @@ public class MonitorOptions {
         locked,
         minFailureDuration,
         minLocationFailed,
+        newGroupDelay,
         newHostDelay,
         noDataTimeframe,
         notifyAudit,
@@ -798,6 +842,7 @@ public class MonitorOptions {
     sb.append("    locked: ").append(toIndentedString(locked)).append("\n");
     sb.append("    minFailureDuration: ").append(toIndentedString(minFailureDuration)).append("\n");
     sb.append("    minLocationFailed: ").append(toIndentedString(minLocationFailed)).append("\n");
+    sb.append("    newGroupDelay: ").append(toIndentedString(newGroupDelay)).append("\n");
     sb.append("    newHostDelay: ").append(toIndentedString(newHostDelay)).append("\n");
     sb.append("    noDataTimeframe: ").append(toIndentedString(noDataTimeframe)).append("\n");
     sb.append("    notifyAudit: ").append(toIndentedString(notifyAudit)).append("\n");
