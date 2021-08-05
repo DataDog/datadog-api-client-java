@@ -4,6 +4,7 @@ All URIs are relative to *https://api.datadoghq.com*
 
 Method        | HTTP request | Description
 ------------- | ------------ | ------------
+[**createServiceAccount**](UsersApi.md#createServiceAccount) | **POST** /api/v2/service_accounts | Create a service account
 [**createUser**](UsersApi.md#createUser) | **POST** /api/v2/users | Create a user
 [**disableUser**](UsersApi.md#disableUser) | **DELETE** /api/v2/users/{user_id} | Disable a user
 [**getInvitation**](UsersApi.md#getInvitation) | **GET** /api/v2/user_invitations/{user_invitation_uuid} | Get a user invitation
@@ -14,6 +15,70 @@ Method        | HTTP request | Description
 [**sendInvitations**](UsersApi.md#sendInvitations) | **POST** /api/v2/user_invitations | Send invitation emails
 [**updateUser**](UsersApi.md#updateUser) | **PATCH** /api/v2/users/{user_id} | Update a user
 
+
+
+## createServiceAccount
+
+> UserResponse createServiceAccount(body);
+
+Create a service account for your organization.
+
+### Example
+
+```java
+import java.util.*;
+import com.datadog.api.v2.client.ApiClient;
+import com.datadog.api.v2.client.ApiException;
+import com.datadog.api.v2.client.Configuration;
+import com.datadog.api.v2.client.model.*;
+import com.datadog.api.v2.client.api.UsersApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+        UsersApi apiInstance = new UsersApi(defaultClient);
+        ServiceAccountCreateRequest body = new ServiceAccountCreateRequest(); // ServiceAccountCreateRequest | 
+        try {
+            UserResponse result = apiInstance.createServiceAccount(body);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UsersApi#createServiceAccount");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**ServiceAccountCreateRequest**](ServiceAccountCreateRequest.md)|  |
+
+### Return type
+
+[**UserResponse**](UserResponse.md)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication error |  -  |
 
 
 ## createUser

@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **icon** | **String** | URL of the user&#39;s icon. |  [optional]
 **modifiedAt** | **OffsetDateTime** | Time that the user was last modified. |  [optional]
 **name** | **String** | Name of the user. |  [optional]
+**serviceAccount** | **Boolean** | Whether the user is a service account. |  [optional]
 **status** | **String** | Status of the user. |  [optional]
 **title** | **String** | Title of the user. |  [optional]
 **verified** | **Boolean** | Whether the user is verified. |  [optional]
