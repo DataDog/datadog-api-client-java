@@ -101,7 +101,7 @@ public class LogsApiTest extends V1ApiTest {
 
     // Make sure that both log items are indexed
     TestUtils.retry(
-        5,
+        15,
         10,
         () -> {
           try {
@@ -113,7 +113,7 @@ public class LogsApiTest extends V1ApiTest {
         });
 
     TestUtils.retry(
-        5,
+        15,
         10,
         () -> {
           try {

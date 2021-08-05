@@ -40,13 +40,13 @@ public class LogsGroupBy {
   private Long limit = 10l;
 
   public static final String JSON_PROPERTY_MISSING = "missing";
-  private LogsGroupByMissing missing = null;
+  private LogsGroupByMissing missing;
 
   public static final String JSON_PROPERTY_SORT = "sort";
   private LogsAggregateSort sort;
 
   public static final String JSON_PROPERTY_TOTAL = "total";
-  private LogsGroupByTotal total = null;
+  private LogsGroupByTotal total;
 
   public LogsGroupBy() {}
 

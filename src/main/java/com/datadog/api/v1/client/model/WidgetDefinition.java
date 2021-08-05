@@ -664,6 +664,48 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'ImageWidgetDefinition'", e);
       }
 
+      // deserialize ListStreamWidgetDefinition
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (ListStreamWidgetDefinition.class.equals(Integer.class)
+            || ListStreamWidgetDefinition.class.equals(Long.class)
+            || ListStreamWidgetDefinition.class.equals(Float.class)
+            || ListStreamWidgetDefinition.class.equals(Double.class)
+            || ListStreamWidgetDefinition.class.equals(Boolean.class)
+            || ListStreamWidgetDefinition.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((ListStreamWidgetDefinition.class.equals(Integer.class)
+                        || ListStreamWidgetDefinition.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((ListStreamWidgetDefinition.class.equals(Float.class)
+                        || ListStreamWidgetDefinition.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (ListStreamWidgetDefinition.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (ListStreamWidgetDefinition.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          deserialized = tree.traverse(jp.getCodec()).readValueAs(ListStreamWidgetDefinition.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          match++;
+          log.log(Level.FINER, "Input data matches schema 'ListStreamWidgetDefinition'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'ListStreamWidgetDefinition'", e);
+      }
+
       // deserialize LogStreamWidgetDefinition
       try {
         boolean attemptParsing = true;
@@ -1267,6 +1309,11 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public WidgetDefinition(ListStreamWidgetDefinition o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   public WidgetDefinition(LogStreamWidgetDefinition o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
@@ -1343,6 +1390,7 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
     schemas.put("HostMapWidgetDefinition", new GenericType<HostMapWidgetDefinition>() {});
     schemas.put("IFrameWidgetDefinition", new GenericType<IFrameWidgetDefinition>() {});
     schemas.put("ImageWidgetDefinition", new GenericType<ImageWidgetDefinition>() {});
+    schemas.put("ListStreamWidgetDefinition", new GenericType<ListStreamWidgetDefinition>() {});
     schemas.put("LogStreamWidgetDefinition", new GenericType<LogStreamWidgetDefinition>() {});
     schemas.put(
         "MonitorSummaryWidgetDefinition", new GenericType<MonitorSummaryWidgetDefinition>() {});
@@ -1372,10 +1420,11 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
    * EventStreamWidgetDefinition, EventTimelineWidgetDefinition, FreeTextWidgetDefinition,
    * GeomapWidgetDefinition, GroupWidgetDefinition, HeatMapWidgetDefinition,
    * HostMapWidgetDefinition, IFrameWidgetDefinition, ImageWidgetDefinition,
-   * LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition, NoteWidgetDefinition,
-   * QueryValueWidgetDefinition, SLOWidgetDefinition, ScatterPlotWidgetDefinition,
-   * ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition, TableWidgetDefinition,
-   * TimeseriesWidgetDefinition, ToplistWidgetDefinition, TreeMapWidgetDefinition
+   * ListStreamWidgetDefinition, LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition,
+   * NoteWidgetDefinition, QueryValueWidgetDefinition, SLOWidgetDefinition,
+   * ScatterPlotWidgetDefinition, ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition,
+   * TableWidgetDefinition, TimeseriesWidgetDefinition, ToplistWidgetDefinition,
+   * TreeMapWidgetDefinition
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -1452,6 +1501,11 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
       return;
     }
 
+    if (JSON.isInstanceOf(ListStreamWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+
     if (JSON.isInstanceOf(LogStreamWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
@@ -1520,9 +1574,9 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
             + " EventStreamWidgetDefinition, EventTimelineWidgetDefinition,"
             + " FreeTextWidgetDefinition, GeomapWidgetDefinition, GroupWidgetDefinition,"
             + " HeatMapWidgetDefinition, HostMapWidgetDefinition, IFrameWidgetDefinition,"
-            + " ImageWidgetDefinition, LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition,"
-            + " NoteWidgetDefinition, QueryValueWidgetDefinition, SLOWidgetDefinition,"
-            + " ScatterPlotWidgetDefinition, ServiceMapWidgetDefinition,"
+            + " ImageWidgetDefinition, ListStreamWidgetDefinition, LogStreamWidgetDefinition,"
+            + " MonitorSummaryWidgetDefinition, NoteWidgetDefinition, QueryValueWidgetDefinition,"
+            + " SLOWidgetDefinition, ScatterPlotWidgetDefinition, ServiceMapWidgetDefinition,"
             + " ServiceSummaryWidgetDefinition, TableWidgetDefinition, TimeseriesWidgetDefinition,"
             + " ToplistWidgetDefinition, TreeMapWidgetDefinition");
   }
@@ -1533,21 +1587,22 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
    * DistributionWidgetDefinition, EventStreamWidgetDefinition, EventTimelineWidgetDefinition,
    * FreeTextWidgetDefinition, GeomapWidgetDefinition, GroupWidgetDefinition,
    * HeatMapWidgetDefinition, HostMapWidgetDefinition, IFrameWidgetDefinition,
-   * ImageWidgetDefinition, LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition,
-   * NoteWidgetDefinition, QueryValueWidgetDefinition, SLOWidgetDefinition,
-   * ScatterPlotWidgetDefinition, ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition,
-   * TableWidgetDefinition, TimeseriesWidgetDefinition, ToplistWidgetDefinition,
-   * TreeMapWidgetDefinition
+   * ImageWidgetDefinition, ListStreamWidgetDefinition, LogStreamWidgetDefinition,
+   * MonitorSummaryWidgetDefinition, NoteWidgetDefinition, QueryValueWidgetDefinition,
+   * SLOWidgetDefinition, ScatterPlotWidgetDefinition, ServiceMapWidgetDefinition,
+   * ServiceSummaryWidgetDefinition, TableWidgetDefinition, TimeseriesWidgetDefinition,
+   * ToplistWidgetDefinition, TreeMapWidgetDefinition
    *
    * @return The actual instance (AlertGraphWidgetDefinition, AlertValueWidgetDefinition,
    *     ChangeWidgetDefinition, CheckStatusWidgetDefinition, DistributionWidgetDefinition,
    *     EventStreamWidgetDefinition, EventTimelineWidgetDefinition, FreeTextWidgetDefinition,
    *     GeomapWidgetDefinition, GroupWidgetDefinition, HeatMapWidgetDefinition,
    *     HostMapWidgetDefinition, IFrameWidgetDefinition, ImageWidgetDefinition,
-   *     LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition, NoteWidgetDefinition,
-   *     QueryValueWidgetDefinition, SLOWidgetDefinition, ScatterPlotWidgetDefinition,
-   *     ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition, TableWidgetDefinition,
-   *     TimeseriesWidgetDefinition, ToplistWidgetDefinition, TreeMapWidgetDefinition)
+   *     ListStreamWidgetDefinition, LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition,
+   *     NoteWidgetDefinition, QueryValueWidgetDefinition, SLOWidgetDefinition,
+   *     ScatterPlotWidgetDefinition, ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition,
+   *     TableWidgetDefinition, TimeseriesWidgetDefinition, ToplistWidgetDefinition,
+   *     TreeMapWidgetDefinition)
    */
   @Override
   public Object getActualInstance() {
@@ -1707,6 +1762,17 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
    */
   public ImageWidgetDefinition getImageWidgetDefinition() throws ClassCastException {
     return (ImageWidgetDefinition) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `ListStreamWidgetDefinition`. If the actual instanct is not
+   * `ListStreamWidgetDefinition`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `ListStreamWidgetDefinition`
+   * @throws ClassCastException if the instance is not `ListStreamWidgetDefinition`
+   */
+  public ListStreamWidgetDefinition getListStreamWidgetDefinition() throws ClassCastException {
+    return (ListStreamWidgetDefinition) super.getActualInstance();
   }
 
   /**

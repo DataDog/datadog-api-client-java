@@ -19,6 +19,7 @@
 * [HostMapWidgetDefinition](HostMapWidgetDefinition.md)
 * [IFrameWidgetDefinition](IFrameWidgetDefinition.md)
 * [ImageWidgetDefinition](ImageWidgetDefinition.md)
+* [ListStreamWidgetDefinition](ListStreamWidgetDefinition.md)
 * [LogStreamWidgetDefinition](LogStreamWidgetDefinition.md)
 * [MonitorSummaryWidgetDefinition](MonitorSummaryWidgetDefinition.md)
 * [NoteWidgetDefinition](NoteWidgetDefinition.md)
@@ -50,6 +51,7 @@ import com.datadog.api.v1.client.model.HeatMapWidgetDefinition;
 import com.datadog.api.v1.client.model.HostMapWidgetDefinition;
 import com.datadog.api.v1.client.model.IFrameWidgetDefinition;
 import com.datadog.api.v1.client.model.ImageWidgetDefinition;
+import com.datadog.api.v1.client.model.ListStreamWidgetDefinition;
 import com.datadog.api.v1.client.model.LogStreamWidgetDefinition;
 import com.datadog.api.v1.client.model.MonitorSummaryWidgetDefinition;
 import com.datadog.api.v1.client.model.NoteWidgetDefinition;
@@ -164,6 +166,13 @@ public class Example {
         exampleWidgetDefinition.setActualInstance(exampleImageWidgetDefinition);
         // to get back the ImageWidgetDefinition set earlier
         ImageWidgetDefinition testImageWidgetDefinition = (ImageWidgetDefinition) exampleWidgetDefinition.getActualInstance();
+
+        // create a new ListStreamWidgetDefinition
+        ListStreamWidgetDefinition exampleListStreamWidgetDefinition = new ListStreamWidgetDefinition();
+        // set WidgetDefinition to ListStreamWidgetDefinition
+        exampleWidgetDefinition.setActualInstance(exampleListStreamWidgetDefinition);
+        // to get back the ListStreamWidgetDefinition set earlier
+        ListStreamWidgetDefinition testListStreamWidgetDefinition = (ListStreamWidgetDefinition) exampleWidgetDefinition.getActualInstance();
 
         // create a new LogStreamWidgetDefinition
         LogStreamWidgetDefinition exampleLogStreamWidgetDefinition = new LogStreamWidgetDefinition();
