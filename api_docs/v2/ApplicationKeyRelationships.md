@@ -8,7 +8,7 @@ Resources related to the application key.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**createdBy** | [**RelationshipToUser**](RelationshipToUser.md) |  |  [optional]
+**ownedBy** | [**RelationshipToUser**](RelationshipToUser.md) |  |  [optional]
 
 
 
