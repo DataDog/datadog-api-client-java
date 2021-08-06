@@ -416,11 +416,11 @@ public class DashboardsApiTest extends V1ApiTest {
                     .x(
                         new ScatterPlotRequest()
                             .q("avg:system.load.1{*}")
-                            .aggregator(WidgetAggregator.AVERAGE))
+                            .aggregator(ScatterplotWidgetAggregator.AVERAGE))
                     .y(
                         new ScatterPlotRequest()
                             .q("avg:system.load.1{*}")
-                            .aggregator(WidgetAggregator.AVERAGE)))
+                            .aggregator(ScatterplotWidgetAggregator.AVERAGE)))
             .xaxis(new WidgetAxis().scale("linear").min("0").max("100").includeZero(true))
             .yaxis(new WidgetAxis().scale("linear").min("0").max("100").includeZero(true))
             .addColorByGroupsItem("env")

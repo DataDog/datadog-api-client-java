@@ -27,6 +27,7 @@ import java.util.Objects;
   Event.JSON_PROPERTY_DEVICE_NAME,
   Event.JSON_PROPERTY_HOST,
   Event.JSON_PROPERTY_ID,
+  Event.JSON_PROPERTY_ID_STR,
   Event.JSON_PROPERTY_PAYLOAD,
   Event.JSON_PROPERTY_PRIORITY,
   Event.JSON_PROPERTY_SOURCE_TYPE_NAME,
@@ -51,6 +52,9 @@ public class Event {
 
   public static final String JSON_PROPERTY_ID = "id";
   private Long id;
+
+  public static final String JSON_PROPERTY_ID_STR = "id_str";
+  private String idStr;
 
   public static final String JSON_PROPERTY_PAYLOAD = "payload";
   private String payload;
@@ -180,6 +184,24 @@ public class Event {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getId() {
     return id;
+  }
+
+  /**
+   * Handling IDs as large 64-bit numbers can cause loss of accuracy issues with some programming
+   * languages. Instead, use the string representation of the Event ID to avoid losing accuracy.
+   *
+   * @return idStr
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Handling IDs as large 64-bit numbers can cause loss of accuracy issues with some"
+              + " programming languages. Instead, use the string representation of the Event ID to"
+              + " avoid losing accuracy.")
+  @JsonProperty(JSON_PROPERTY_ID_STR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getIdStr() {
+    return idStr;
   }
 
   /**
@@ -363,6 +385,7 @@ public class Event {
         && Objects.equals(this.deviceName, event.deviceName)
         && Objects.equals(this.host, event.host)
         && Objects.equals(this.id, event.id)
+        && Objects.equals(this.idStr, event.idStr)
         && Objects.equals(this.payload, event.payload)
         && Objects.equals(this.priority, event.priority)
         && Objects.equals(this.sourceTypeName, event.sourceTypeName)
@@ -380,6 +403,7 @@ public class Event {
         deviceName,
         host,
         id,
+        idStr,
         payload,
         priority,
         sourceTypeName,
@@ -398,6 +422,7 @@ public class Event {
     sb.append("    deviceName: ").append(toIndentedString(deviceName)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    idStr: ").append(toIndentedString(idStr)).append("\n");
     sb.append("    payload: ").append(toIndentedString(payload)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    sourceTypeName: ").append(toIndentedString(sourceTypeName)).append("\n");

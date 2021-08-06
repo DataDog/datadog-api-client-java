@@ -8,7 +8,7 @@ Updated scatter plot.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**aggregator** | **WidgetAggregator** |  |  [optional]
+**aggregator** | **ScatterplotWidgetAggregator** |  |  [optional]
 **apmQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]
 **eventQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]
 **logQuery** | [**LogQueryDefinition**](LogQueryDefinition.md) |  |  [optional]

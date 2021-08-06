@@ -17,7 +17,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 public enum ListStreamSource {
   ISSUE_STREAM("issue_stream"),
 
-  LOGS_STREAM("logs_stream");
+  LOGS_STREAM("logs_stream"),
+
+  AUDIT_STREAM("audit_stream");
 
   private String value;
 

@@ -1,0 +1,123 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Create_a_new_dashboard_with_a_query_value_widget_using_the_percentile_aggregator-1628096386 with QVW Percentile Aggregator\",\"widgets\":[{\"definition\":{\"autoscale\":true,\"precision\":2,\"requests\":[{\"formulas\":[{\"formula\":\"query1\"}],\"queries\":[{\"aggregator\":\"percentile\",\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"p90:dist.dd.dogweb.latency{*}\"}],\"response_format\":\"scalar\"}],\"time\":{},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"query_value\"},\"layout\":{\"height\":2,\"width\":2,\"x\":0,\"y\":0}}]}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Create_a_new_dashboard_with_a_query_value_widget_using_the_percentile_aggregator"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v1/dashboard",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"notify_list\":null,\"description\":null,\"restricted_roles\":[],\"author_name\":null,\"template_variables\":null,\"is_read_only\":false,\"id\":\"dsd-9b4-xda\",\"title\":\"Test-Create_a_new_dashboard_with_a_query_value_widget_using_the_percentile_aggregator-1628096386 with QVW Percentile Aggregator\",\"url\":\"/dashboard/dsd-9b4-xda/test-createanewdashboardwithaqueryvaluewidgetusingthepercentileaggregator-162809\",\"created_at\":\"2021-08-04T16:59:47.151534+00:00\",\"modified_at\":\"2021-08-04T16:59:47.151534+00:00\",\"author_handle\":\"frog@datadoghq.com\",\"widgets\":[{\"definition\":{\"autoscale\":true,\"title\":\"\",\"title_align\":\"left\",\"precision\":2,\"time\":{},\"title_size\":\"16\",\"requests\":[{\"formulas\":[{\"formula\":\"query1\"}],\"response_format\":\"scalar\",\"queries\":[{\"aggregator\":\"percentile\",\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"p90:dist.dd.dogweb.latency{*}\"}]}],\"type\":\"query_value\"},\"layout\":{\"y\":0,\"width\":2,\"x\":0,\"height\":2},\"id\":5855020884531801}],\"layout_type\":\"ordered\"}",
+      "headers": {
+        "Date": [
+          "Wed, 04 Aug 2021 16:59:47 GMT"
+        ],
+        "Content-Type": [
+          "application/json"
+        ],
+        "Content-Length": [
+          "957"
+        ],
+        "Connection": [
+          "close"
+        ],
+        "Vary": [
+          "Accept-Encoding"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=15724800;"
+        ],
+        "Content-Security-Policy": [
+          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
+        ],
+        "X-Frame-Options": [
+          "SAMEORIGIN"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "a7a8add0-20c6-091c-581c-b7c9079cec02"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Create_a_new_dashboard_with_a_query_value_widget_using_the_percentile_aggregator"
+        ]
+      },
+      "method": "DELETE",
+      "path": "/api/v1/dashboard/dsd-9b4-xda",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"deleted_dashboard_id\":\"dsd-9b4-xda\"}",
+      "headers": {
+        "Date": [
+          "Wed, 04 Aug 2021 16:59:47 GMT"
+        ],
+        "Content-Type": [
+          "application/json"
+        ],
+        "Content-Length": [
+          "38"
+        ],
+        "Connection": [
+          "close"
+        ],
+        "Vary": [
+          "Accept-Encoding"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Content-Security-Policy": [
+          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
+        ],
+        "X-Frame-Options": [
+          "SAMEORIGIN"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "addac86a-e84f-1cb5-e728-de0160947523"
+  }
+]

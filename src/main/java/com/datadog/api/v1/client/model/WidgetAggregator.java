@@ -23,7 +23,9 @@ public enum WidgetAggregator {
 
   MINIMUM("min"),
 
-  SUM("sum");
+  SUM("sum"),
+
+  PERCENTILE("percentile");
 
   private String value;
 
