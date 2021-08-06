@@ -34,7 +34,7 @@ import java.util.Objects;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ScatterPlotRequest {
   public static final String JSON_PROPERTY_AGGREGATOR = "aggregator";
-  private WidgetAggregator aggregator;
+  private ScatterplotWidgetAggregator aggregator;
 
   public static final String JSON_PROPERTY_APM_QUERY = "apm_query";
   private LogQueryDefinition apmQuery;
@@ -63,7 +63,7 @@ public class ScatterPlotRequest {
   public static final String JSON_PROPERTY_SECURITY_QUERY = "security_query";
   private LogQueryDefinition securityQuery;
 
-  public ScatterPlotRequest aggregator(WidgetAggregator aggregator) {
+  public ScatterPlotRequest aggregator(ScatterplotWidgetAggregator aggregator) {
     this.aggregator = aggregator;
     return this;
   }
@@ -77,11 +77,11 @@ public class ScatterPlotRequest {
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AGGREGATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public WidgetAggregator getAggregator() {
+  public ScatterplotWidgetAggregator getAggregator() {
     return aggregator;
   }
 
-  public void setAggregator(WidgetAggregator aggregator) {
+  public void setAggregator(ScatterplotWidgetAggregator aggregator) {
     this.aggregator = aggregator;
   }
 
