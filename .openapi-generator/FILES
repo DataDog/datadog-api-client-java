@@ -216,6 +216,7 @@ docs/PartialAPIKey.md
 docs/PartialAPIKeyAttributes.md
 docs/PartialApplicationKey.md
 docs/PartialApplicationKeyAttributes.md
+docs/PartialApplicationKeyResponse.md
 docs/Permission.md
 docs/PermissionAttributes.md
 docs/PermissionsResponse.md
@@ -312,6 +313,10 @@ docs/SecurityMonitoringSignalsListResponseLinks.md
 docs/SecurityMonitoringSignalsListResponseMeta.md
 docs/SecurityMonitoringSignalsListResponseMetaPage.md
 docs/SecurityMonitoringSignalsSort.md
+docs/ServiceAccountCreateAttributes.md
+docs/ServiceAccountCreateData.md
+docs/ServiceAccountCreateRequest.md
+docs/ServiceAccountsApi.md
 docs/User.md
 docs/UserAttributes.md
 docs/UserCreateAttributes.md
@@ -366,6 +371,7 @@ src/main/java/com/datadog/api/v2/client/api/MetricsApi.java
 src/main/java/com/datadog/api/v2/client/api/ProcessesApi.java
 src/main/java/com/datadog/api/v2/client/api/RolesApi.java
 src/main/java/com/datadog/api/v2/client/api/SecurityMonitoringApi.java
+src/main/java/com/datadog/api/v2/client/api/ServiceAccountsApi.java
 src/main/java/com/datadog/api/v2/client/api/UsersApi.java
 src/main/java/com/datadog/api/v2/client/auth/ApiKeyAuth.java
 src/main/java/com/datadog/api/v2/client/auth/Authentication.java
@@ -576,6 +582,7 @@ src/main/java/com/datadog/api/v2/client/model/PartialAPIKey.java
 src/main/java/com/datadog/api/v2/client/model/PartialAPIKeyAttributes.java
 src/main/java/com/datadog/api/v2/client/model/PartialApplicationKey.java
 src/main/java/com/datadog/api/v2/client/model/PartialApplicationKeyAttributes.java
+src/main/java/com/datadog/api/v2/client/model/PartialApplicationKeyResponse.java
 src/main/java/com/datadog/api/v2/client/model/Permission.java
 src/main/java/com/datadog/api/v2/client/model/PermissionAttributes.java
 src/main/java/com/datadog/api/v2/client/model/PermissionsResponse.java
@@ -669,6 +676,9 @@ src/main/java/com/datadog/api/v2/client/model/SecurityMonitoringSignalsListRespo
 src/main/java/com/datadog/api/v2/client/model/SecurityMonitoringSignalsListResponseMeta.java
 src/main/java/com/datadog/api/v2/client/model/SecurityMonitoringSignalsListResponseMetaPage.java
 src/main/java/com/datadog/api/v2/client/model/SecurityMonitoringSignalsSort.java
+src/main/java/com/datadog/api/v2/client/model/ServiceAccountCreateAttributes.java
+src/main/java/com/datadog/api/v2/client/model/ServiceAccountCreateData.java
+src/main/java/com/datadog/api/v2/client/model/ServiceAccountCreateRequest.java
 src/main/java/com/datadog/api/v2/client/model/User.java
 src/main/java/com/datadog/api/v2/client/model/UserAttributes.java
 src/main/java/com/datadog/api/v2/client/model/UserCreateAttributes.java
@@ -894,6 +904,7 @@ src/test/java/com/datadog/api/v2/client/model/PaginationTest.java
 src/test/java/com/datadog/api/v2/client/model/PartialAPIKeyAttributesTest.java
 src/test/java/com/datadog/api/v2/client/model/PartialAPIKeyTest.java
 src/test/java/com/datadog/api/v2/client/model/PartialApplicationKeyAttributesTest.java
+src/test/java/com/datadog/api/v2/client/model/PartialApplicationKeyResponseTest.java
 src/test/java/com/datadog/api/v2/client/model/PartialApplicationKeyTest.java
 src/test/java/com/datadog/api/v2/client/model/PermissionAttributesTest.java
 src/test/java/com/datadog/api/v2/client/model/PermissionTest.java
@@ -988,6 +999,9 @@ src/test/java/com/datadog/api/v2/client/model/SecurityMonitoringSignalsListRespo
 src/test/java/com/datadog/api/v2/client/model/SecurityMonitoringSignalsListResponseMetaTest.java
 src/test/java/com/datadog/api/v2/client/model/SecurityMonitoringSignalsListResponseTest.java
 src/test/java/com/datadog/api/v2/client/model/SecurityMonitoringSignalsSortTest.java
+src/test/java/com/datadog/api/v2/client/model/ServiceAccountCreateAttributesTest.java
+src/test/java/com/datadog/api/v2/client/model/ServiceAccountCreateDataTest.java
+src/test/java/com/datadog/api/v2/client/model/ServiceAccountCreateRequestTest.java
 src/test/java/com/datadog/api/v2/client/model/UserAttributesTest.java
 src/test/java/com/datadog/api/v2/client/model/UserCreateAttributesTest.java
 src/test/java/com/datadog/api/v2/client/model/UserCreateDataTest.java

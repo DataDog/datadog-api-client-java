@@ -32,7 +32,7 @@ import java.util.Objects;
  * result of the formula. - Results are rounded up to the 9th decimal. For example, if the result of
  * the formula is &#x60;0.1234567891&#x60;, the actual value stored for the attribute is
  * &#x60;0.123456789&#x60;. - If you need to scale a unit of measure, see [Scale
- * Filter](https://docs.datadoghq.com/logs/processing/parsing/?tab&#x3D;filter#matcher-and-filter).
+ * Filter](https://docs.datadoghq.com/logs/log_configuration/parsing/?tab&#x3D;filter#matcher-and-filter).
  */
 @ApiModel(
     description =
@@ -51,7 +51,7 @@ import java.util.Objects;
             + " decimal. For example, if the result of the formula is `0.1234567891`,   the actual"
             + " value stored for the attribute is `0.123456789`. - If you need to scale a unit of"
             + " measure,   see [Scale"
-            + " Filter](https://docs.datadoghq.com/logs/processing/parsing/?tab=filter#matcher-and-filter).")
+            + " Filter](https://docs.datadoghq.com/logs/log_configuration/parsing/?tab=filter#matcher-and-filter).")
 @JsonPropertyOrder({
   LogsArithmeticProcessor.JSON_PROPERTY_EXPRESSION,
   LogsArithmeticProcessor.JSON_PROPERTY_IS_ENABLED,
