@@ -23,5 +23,11 @@
 
 * `FIREFOX_MOBILE_SMALL` (value: `"firefox.mobile_small"`)
 
+* `EDGE_LAPTOP_LARGE` (value: `"edge.laptop_large"`)
+
+* `EDGE_TABLET` (value: `"edge.tablet"`)
+
+* `EDGE_MOBILE_SMALL` (value: `"edge.mobile_small"`)
+
 
 
