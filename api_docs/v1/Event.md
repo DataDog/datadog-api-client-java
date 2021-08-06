@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **deviceName** | **String** | A device name. |  [optional]
 **host** | **String** | Host name to associate with the event. Any tags associated with the host are also applied to this event. |  [optional]
 **id** | **Long** | Integer ID of the event. |  [optional] [readonly]
+**idStr** | **String** | Handling IDs as large 64-bit numbers can cause loss of accuracy issues with some programming languages. Instead, use the string representation of the Event ID to avoid losing accuracy. |  [optional] [readonly]
 **payload** | **String** | Payload of the event. |  [optional] [readonly]
 **priority** | **EventPriority** |  |  [optional]
 **sourceTypeName** | **String** | The type of event being posted. Option examples include nagios, hudson, jenkins, my_apps, chef, puppet, git, bitbucket, etc. A complete list of source attribute values [available here](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value). |  [optional]
