@@ -19,5 +19,7 @@
 
 * `L2NORM` (value: `"l2norm"`)
 
+* `PERCENTILE` (value: `"percentile"`)
+
 
 

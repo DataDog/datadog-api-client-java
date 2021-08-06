@@ -1,6 +1,6 @@
 
 
-# WidgetAggregator
+# ScatterplotWidgetAggregator
 
 ## Enum
 
@@ -14,8 +14,6 @@
 * `MINIMUM` (value: `"min"`)
 
 * `SUM` (value: `"sum"`)
-
-* `PERCENTILE` (value: `"percentile"`)
 
 
 

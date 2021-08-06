@@ -13,27 +13,21 @@ package com.datadog.api.v1.client.model;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/** The aggregation methods available for metrics queries. */
-public enum FormulaAndFunctionMetricAggregation {
-  AVG("avg"),
-
-  MIN("min"),
-
-  MAX("max"),
-
-  SUM("sum"),
+/** Aggregator used for the request. */
+public enum ScatterplotWidgetAggregator {
+  AVERAGE("avg"),
 
   LAST("last"),
 
-  AREA("area"),
+  MAXIMUM("max"),
 
-  L2NORM("l2norm"),
+  MINIMUM("min"),
 
-  PERCENTILE("percentile");
+  SUM("sum");
 
   private String value;
 
-  FormulaAndFunctionMetricAggregation(String value) {
+  ScatterplotWidgetAggregator(String value) {
     this.value = value;
   }
 
@@ -48,8 +42,8 @@ public enum FormulaAndFunctionMetricAggregation {
   }
 
   @JsonCreator
-  public static FormulaAndFunctionMetricAggregation fromValue(String value) {
-    for (FormulaAndFunctionMetricAggregation b : FormulaAndFunctionMetricAggregation.values()) {
+  public static ScatterplotWidgetAggregator fromValue(String value) {
+    for (ScatterplotWidgetAggregator b : ScatterplotWidgetAggregator.values()) {
       if (b.value.equals(value)) {
         return b;
       }
