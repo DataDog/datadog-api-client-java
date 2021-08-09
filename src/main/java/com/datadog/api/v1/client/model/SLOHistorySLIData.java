@@ -186,13 +186,18 @@ public class SLOHistorySLIData {
   }
 
   /**
-   * For &#x60;monitor&#x60; based SLOs, this includes the aggregated history uptime time series.
+   * For &#x60;monitor&#x60; based SLOs, this includes the aggregated history as arrays that include
+   * time series and uptime data where &#x60;0&#x3D;monitor&#x60; is in &#x60;OK&#x60; state and
+   * &#x60;1&#x3D;monitor&#x60; is in &#x60;alert&#x60; state.
    *
    * @return history
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
-      value = "For `monitor` based SLOs, this includes the aggregated history uptime time series.")
+      value =
+          "For `monitor` based SLOs, this includes the aggregated history as arrays that include"
+              + " time series and uptime data where `0=monitor` is in `OK` state and `1=monitor`"
+              + " is in `alert` state.")
   @JsonProperty(JSON_PROPERTY_HISTORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<List<Double>> getHistory() {
