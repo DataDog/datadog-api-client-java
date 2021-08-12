@@ -22,12 +22,14 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import {{invokerPackage}}.JSON;
+import {{{package}}}.UnparsedObject;
 
 {{>additionalModelTypeAnnotations}}{{>generatedAnnotation}}{{>xmlAnnotation}}
 @JsonDeserialize(using = {{classname}}.{{classname}}Deserializer.class)
 @JsonSerialize(using = {{classname}}.{{classname}}Serializer.class)
 public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-implements}}, {{{.}}}{{/vendorExtensions.x-implements}} {
     private static final Logger log = Logger.getLogger({{classname}}.class.getName());
+    public boolean unparsed = false;
 
     public static class {{classname}}Serializer extends StdSerializer<{{classname}}> {
         public {{classname}}Serializer(Class<{{classname}}> t) {
@@ -100,7 +102,9 @@ public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-im
                     // TODO: there is no validation against JSON schema constraints
                     // (min, max, enum, pattern...), this does not perform a strict JSON
                     // validation, which means the 'match' count may be higher than it should be.
-                    match++;
+                    if (!(({{classname}})deserialized).unparsed) {
+                        match++;
+                    }
                     log.log(Level.FINER, "Input data matches schema '{{{.}}}'");
                 }
             } catch (Exception e) {
@@ -109,12 +113,14 @@ public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-im
             }
 
             {{/oneOf}}
+            {{classname}} ret = new {{classname}}();
             if (match == 1) {
-                {{classname}} ret = new {{classname}}();
                 ret.setActualInstance(deserialized);
-                return ret;
+            } else {
+                ret.setActualInstance(new UnparsedObject(deserialized));
             }
-            throw new IOException(String.format("Failed deserialization for {{classname}}: %d classes match result, expected 1", match));
+            return ret;
+            // throw new IOException(String.format("Failed deserialization for {{classname: %d classes match result, expected 1", match)); }}
         }
 
         /**
