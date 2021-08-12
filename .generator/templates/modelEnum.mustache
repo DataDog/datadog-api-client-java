@@ -63,10 +63,7 @@ import java.util.HashSet;
   @JsonCreator
 {{/jackson}}
   public static {{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{{classname}}}{{/datatypeWithEnum}} fromValue({{{dataType}}} value) {
-    if (allowedValues.contains(value)) {
-      return new {{{classname}}}(value);
-    }
-    {{#isNullable}}return null;{{/isNullable}}{{^isNullable}}//throw new IllegalArgumentException("Unexpected value '" + value + "'");{{/isNullable}}
+    return new {{{classname}}}(value);
   }
 {{#gson}}
 

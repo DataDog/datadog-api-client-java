@@ -224,9 +224,6 @@ public class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{{#vendorE
     this.{{name}} = JsonNullable.<{{{datatypeWithEnum}}}>of({{name}});
     {{/vendorExtensions.x-is-jackson-optional-nullable}}
     {{^vendorExtensions.x-is-jackson-optional-nullable}}
-    if (!{{{datatypeWithEnum}}}.isValid({{name}}))) {
-      this.unparsedObject = true;
-    }
     this.{{name}} = {{name}};
     {{/vendorExtensions.x-is-jackson-optional-nullable}}
   }
