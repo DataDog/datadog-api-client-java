@@ -1,5 +1,7 @@
 package {{modelPackage}};
 
+import java.util.Objects;
+
 public class UnparsedObject {
     Object data;
 
@@ -19,4 +21,18 @@ public class UnparsedObject {
     public String toString() {
         return data.toString();
     }
+
+    /**
+    * Return true if this UnparsedObject object is equal to o.
+    */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+        return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+        return false;
+        }
+        return Objects.equals(this.data, ((UnparsedObject) o).data);
+  }
 }
