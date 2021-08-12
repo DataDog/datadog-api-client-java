@@ -21,6 +21,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import {{invokerPackage}}.JSON;
 import {{{package}}}.UnparsedObject;
 
@@ -29,6 +30,8 @@ import {{{package}}}.UnparsedObject;
 @JsonSerialize(using = {{classname}}.{{classname}}Serializer.class)
 public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-implements}}, {{{.}}}{{/vendorExtensions.x-implements}} {
     private static final Logger log = Logger.getLogger({{classname}}.class.getName());
+
+    @JsonIgnore
     public boolean unparsed = false;
 
     public static class {{classname}}Serializer extends StdSerializer<{{classname}}> {
@@ -42,6 +45,7 @@ public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-im
 
         @Override
         public void serialize({{classname}} value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+
             jgen.writeObject(value.getActualInstance());
         }
     }
