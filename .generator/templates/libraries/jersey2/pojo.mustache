@@ -11,6 +11,7 @@
 {{/jackson}}
 {{>additionalModelTypeAnnotations}}{{>generatedAnnotation}}{{#discriminator}}{{>typeInfoAnnotation}}{{/discriminator}}{{>xmlAnnotation}}
 public class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{{#vendorExtensions.x-implements}}{{#-first}}implements {{{.}}}{{/-first}}{{^-first}}, {{{.}}}{{/-first}}{{#-last}} {{/-last}}{{/vendorExtensions.x-implements}}{
+  public boolean unparsed = false;
 {{#serializableModel}}
   private static final long serialVersionUID = 1L;
 
@@ -256,7 +257,7 @@ public class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{{#vendorE
     {{/vendorExtensions.x-enum-as-string}}
 
 
-    {{#allowableValues}}{{#-first}}if (!({{{datatypeWithEnum}}}).isValid({{name}})) {
+    {{#allowableValues}}{{#-first}}if (!{{name}}.isValid()) {
         this.unparsed = true;
       }{{/-first}}{{/allowableValues}}
 

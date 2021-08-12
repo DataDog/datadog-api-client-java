@@ -39,8 +39,8 @@ import java.util.HashSet;
 
   private {{{dataType}}} value;
 
-  public static boolean isValid({{{dataType}}} value) {
-    return allowedValues.contains(value);
+  public boolean isValid() {
+    return allowedValues.contains(this.value);
   }
 
   {{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{{classname}}}{{/datatypeWithEnum}}({{{dataType}}} value) {

@@ -204,6 +204,10 @@ public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-im
         }
 
         {{/isNullable}}
+        if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
+            super.setActualInstance(instance);
+            return;
+        }
         {{#oneOf}}
         if (JSON.isInstanceOf({{{.}}}.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
