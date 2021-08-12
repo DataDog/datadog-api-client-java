@@ -47,6 +47,20 @@ import java.util.HashSet;
     this.value = value;
   }
 
+  /**
+   * Return true if this {{classname}} object is equal to o.
+   */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    return Objects.equals(this.value, (({{classname}}) o).value);
+  }
+
 {{#jackson}}
   @JsonValue
 {{/jackson}}
