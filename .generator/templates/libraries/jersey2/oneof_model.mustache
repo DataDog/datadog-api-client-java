@@ -45,7 +45,6 @@ public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-im
 
         @Override
         public void serialize({{classname}} value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-
             jgen.writeObject(value.getActualInstance());
         }
     }
@@ -208,11 +207,14 @@ public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-im
         }
 
         {{/isNullable}}
+        {{#oneOf}}
+        {{#-first}}
         if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
-        {{#oneOf}}
+        {{/-first}}
+
         if (JSON.isInstanceOf({{{.}}}.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
