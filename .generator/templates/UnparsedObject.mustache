@@ -1,12 +1,34 @@
 package {{modelPackage}};
 
 import java.util.Objects;
+import java.io.IOException;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 
+@JsonSerialize(using = UnparsedObject.UnparsedObjectSerializer.class)
 public class UnparsedObject {
     Object data;
 
     public UnparsedObject(Object data) {
         this.data = data;
+    }
+
+    public static class UnparsedObjectSerializer extends StdSerializer<UnparsedObject> {
+        public UnparsedObjectSerializer(Class<UnparsedObject> t) {
+            super(t);
+        }
+
+        public UnparsedObjectSerializer() {
+            this(null);
+        }
+
+        @Override
+        public void serialize(UnparsedObject value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+            jgen.writeObject(value.data);
+        }
     }
 
     public Object getData() {
