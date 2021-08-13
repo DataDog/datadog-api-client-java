@@ -1,0 +1,120 @@
+[{
+  "id" : "302a4f55-d563-47fd-9402-8007d9e32c3a",
+  "httpRequest" : {
+    "method" : "POST",
+    "path" : "/api/v1/integration/webhooks/configuration/custom-variables",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "Delete_a_custom_variable_returns_OK_response" ],
+      "DD-OPERATION-ID" : [ "createWebhooksIntegrationCustomVariable" ],
+      "Content-Type" : [ "application/json" ],
+      "x-datadog-origin" : [ "ciapp-test" ]
+    },
+    "keepAlive" : false,
+    "secure" : true,
+    "body" : {
+      "type" : "JSON",
+      "json" : "{\"is_secret\":false,\"name\":\"TESTDELETEACUSTOMVARIABLERETURNSOKRESPONSE1628844421\",\"value\":\"variable-value\"}"
+    }
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 201,
+    "reasonPhrase" : "Created",
+    "headers" : {
+      "Date" : [ "Fri, 13 Aug 2021 08:47:02 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Content-Length" : [ "106" ],
+      "Connection" : [ "keep-alive" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "location" : [ "https://app.datadoghq.com/api/v1/integration/webhooks/configuration/custom-variables/TESTDELETEACUSTOMVARIABLERETURNSOKRESPONSE1628844421" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ]
+    },
+    "body" : "{\"is_secret\":false,\"name\":\"TESTDELETEACUSTOMVARIABLERETURNSOKRESPONSE1628844421\",\"value\":\"variable-value\"}"
+  }
+}, {
+  "id" : "38d8d2d9-4a60-40e4-bbee-136a983bcc03",
+  "httpRequest" : {
+    "method" : "DELETE",
+    "path" : "/api/v1/integration/webhooks/configuration/custom-variables/TESTDELETEACUSTOMVARIABLERETURNSOKRESPONSE1628844421",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "Delete_a_custom_variable_returns_OK_response" ],
+      "DD-OPERATION-ID" : [ "deleteWebhooksIntegrationCustomVariable" ],
+      "Content-Type" : [ "application/json" ],
+      "x-datadog-origin" : [ "ciapp-test" ]
+    },
+    "keepAlive" : false,
+    "secure" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 200,
+    "reasonPhrase" : "OK",
+    "headers" : {
+      "Date" : [ "Fri, 13 Aug 2021 08:47:02 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Content-Length" : [ "2" ],
+      "Connection" : [ "keep-alive" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ]
+    },
+    "body" : "{}"
+  }
+}, {
+  "id" : "87953afd-5da8-40df-a976-3a754288027d",
+  "httpRequest" : {
+    "method" : "DELETE",
+    "path" : "/api/v1/integration/webhooks/configuration/custom-variables/TESTDELETEACUSTOMVARIABLERETURNSOKRESPONSE1628844421",
+    "headers" : {
+      "Accept" : [ "application/json" ],
+      "JAVA-TEST-NAME" : [ "Delete_a_custom_variable_returns_OK_response" ],
+      "DD-OPERATION-ID" : [ "deleteWebhooksIntegrationCustomVariable" ],
+      "Content-Type" : [ "application/json" ],
+      "x-datadog-origin" : [ "ciapp-test" ]
+    },
+    "keepAlive" : false,
+    "secure" : true
+  },
+  "times" : {
+    "remainingTimes" : 1
+  },
+  "timeToLive" : {
+    "unlimited" : true
+  },
+  "httpResponse" : {
+    "statusCode" : 400,
+    "reasonPhrase" : "Bad Request",
+    "headers" : {
+      "Date" : [ "Fri, 13 Aug 2021 08:47:03 GMT" ],
+      "Content-Type" : [ "application/json" ],
+      "Content-Length" : [ "46" ],
+      "Connection" : [ "keep-alive" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ]
+    },
+    "body" : "{\"errors\": [\"Custom variable does not exist\"]}"
+  }
+}]
