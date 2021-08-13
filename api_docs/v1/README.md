@@ -197,6 +197,14 @@ Class | Method | HTTP request | Description
 *UsersApi* | [**getUser**](UsersApi.md#getUser) | **GET** /api/v1/user/{user_handle} | Get user details
 *UsersApi* | [**listUsers**](UsersApi.md#listUsers) | **GET** /api/v1/user | List all users
 *UsersApi* | [**updateUser**](UsersApi.md#updateUser) | **PUT** /api/v1/user/{user_handle} | Update a user
+*WebhooksIntegrationApi* | [**createWebhooksIntegration**](WebhooksIntegrationApi.md#createWebhooksIntegration) | **POST** /api/v1/integration/webhooks/configuration/webhooks | Create a webhooks integration
+*WebhooksIntegrationApi* | [**createWebhooksIntegrationCustomVariable**](WebhooksIntegrationApi.md#createWebhooksIntegrationCustomVariable) | **POST** /api/v1/integration/webhooks/configuration/custom-variables | Create a custom variable
+*WebhooksIntegrationApi* | [**deleteWebhooksIntegration**](WebhooksIntegrationApi.md#deleteWebhooksIntegration) | **DELETE** /api/v1/integration/webhooks/configuration/webhooks/{webhook_name} | Delete a webhook
+*WebhooksIntegrationApi* | [**deleteWebhooksIntegrationCustomVariable**](WebhooksIntegrationApi.md#deleteWebhooksIntegrationCustomVariable) | **DELETE** /api/v1/integration/webhooks/configuration/custom-variables/{custom_variable_name} | Delete a custom variable
+*WebhooksIntegrationApi* | [**getWebhooksIntegration**](WebhooksIntegrationApi.md#getWebhooksIntegration) | **GET** /api/v1/integration/webhooks/configuration/webhooks/{webhook_name} | Get a webhook integration
+*WebhooksIntegrationApi* | [**getWebhooksIntegrationCustomVariable**](WebhooksIntegrationApi.md#getWebhooksIntegrationCustomVariable) | **GET** /api/v1/integration/webhooks/configuration/custom-variables/{custom_variable_name} | Get a custom variable
+*WebhooksIntegrationApi* | [**updateWebhooksIntegration**](WebhooksIntegrationApi.md#updateWebhooksIntegration) | **PUT** /api/v1/integration/webhooks/configuration/webhooks/{webhook_name} | Update a webhook
+*WebhooksIntegrationApi* | [**updateWebhooksIntegrationCustomVariable**](WebhooksIntegrationApi.md#updateWebhooksIntegrationCustomVariable) | **PUT** /api/v1/integration/webhooks/configuration/custom-variables/{custom_variable_name} | Update a custom variable
 
 
 ## Documentation for Models
@@ -754,6 +762,12 @@ Class | Method | HTTP request | Description
  - [UserDisableResponse](UserDisableResponse.md)
  - [UserListResponse](UserListResponse.md)
  - [UserResponse](UserResponse.md)
+ - [WebhooksIntegration](WebhooksIntegration.md)
+ - [WebhooksIntegrationCustomVariable](WebhooksIntegrationCustomVariable.md)
+ - [WebhooksIntegrationCustomVariableResponse](WebhooksIntegrationCustomVariableResponse.md)
+ - [WebhooksIntegrationCustomVariableUpdateRequest](WebhooksIntegrationCustomVariableUpdateRequest.md)
+ - [WebhooksIntegrationEncoding](WebhooksIntegrationEncoding.md)
+ - [WebhooksIntegrationUpdateRequest](WebhooksIntegrationUpdateRequest.md)
  - [Widget](Widget.md)
  - [WidgetAggregator](WidgetAggregator.md)
  - [WidgetAxis](WidgetAxis.md)
