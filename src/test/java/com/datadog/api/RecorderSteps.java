@@ -53,6 +53,14 @@ public class RecorderSteps {
     }
   }
 
+  @Before(value = "@replay-only", order = 0)
+  public void skipReplayOnly() {
+    if (!TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {
+      // don't record replay-only tests
+      throw new AssumptionViolatedException("Only supported in replay mode");
+    }
+  }
+
   @Before(order = 1)
   public void setupClock() throws java.io.IOException {
     if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
