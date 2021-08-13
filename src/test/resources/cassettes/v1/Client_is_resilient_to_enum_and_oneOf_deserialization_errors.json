@@ -1,5 +1,5 @@
 [{
-  "id" : "f94ec922-9b69-4349-875a-baa09324b052",
+  "id" : "8f4ebb04-fb15-411a-af77-aa8861b1543f",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/synthetics/tests",
@@ -23,7 +23,7 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Fri, 06 Aug 2021 17:34:09 GMT" ],
+      "Date" : [ "Fri, 13 Aug 2021 12:54:38 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
       "vary" : [ "Accept-Encoding" ],
@@ -31,7 +31,7 @@
       "cache-control" : [ "no-cache" ],
       "x-ratelimit-limit" : [ "12000" ],
       "x-ratelimit-period" : [ "60" ],
-      "x-ratelimit-reset" : [ "51" ],
+      "x-ratelimit-reset" : [ "23" ],
       "x-ratelimit-remaining" : [ "11999" ],
       "x-content-type-options" : [ "nosniff" ],
       "strict-transport-security" : [ "max-age=15724800;" ],
