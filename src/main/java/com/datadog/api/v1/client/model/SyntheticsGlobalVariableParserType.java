@@ -19,7 +19,9 @@ public enum SyntheticsGlobalVariableParserType {
 
   JSON_PATH("json_path"),
 
-  REGEX("regex");
+  REGEX("regex"),
+
+  X_PATH("x_path");
 
   private String value;
 
