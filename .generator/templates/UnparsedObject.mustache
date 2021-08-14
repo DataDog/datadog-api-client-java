@@ -4,8 +4,9 @@ import java.util.Objects;
 import java.io.IOException;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 
 @JsonSerialize(using = UnparsedObject.UnparsedObjectSerializer.class)
@@ -56,5 +57,10 @@ public class UnparsedObject {
             return false;
         }
         return Objects.equals(this.data, ((UnparsedObject) o).data);
-  }
+    }
+
+    @JsonCreator
+    public static UnparsedObject fromValue(Object value) {
+        return new UnparsedObject(value);
+    }
 }

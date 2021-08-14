@@ -208,18 +208,17 @@ public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-im
 
         {{/isNullable}}
         {{#oneOf}}
-        {{#-first}}
-        if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
-            super.setActualInstance(instance);
-            return;
-        }
-        {{/-first}}
-
         if (JSON.isInstanceOf({{{.}}}.class, instance, new HashSet<Class<?>>())) {
             super.setActualInstance(instance);
             return;
         }
 
+        {{#-last}}
+        if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
+            super.setActualInstance(instance);
+            return;
+        }
+        {{/-last}}
         {{/oneOf}}
         throw new RuntimeException("Invalid instance type. Must be {{#oneOf}}{{{.}}}{{^-last}}, {{/-last}}{{/oneOf}}");
     }
