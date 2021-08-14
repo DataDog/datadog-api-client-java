@@ -516,11 +516,25 @@ public class World {
             try {
               result = getPropertyValue(result, toPropertyName(part));
             } catch (java.lang.NoSuchFieldException ee) {
+              // try to access data if it's an UnparsedObject
+              try {
+                result = getPropertyValue(result, "data");
+              } catch (Exception ex) {
+                // ignore
+              }
+
               // try to handle oneOf models
               try {
                 result = result.getClass().getMethod("getActualInstance").invoke(result);
               } catch (InvocationTargetException | NoSuchMethodException eee) {
                 throw ee;
+              }
+
+              // try to access data if it's an UnparsedObject
+              try {
+                result = getPropertyValue(result, "data");
+              } catch (Exception ex) {
+                // ignore
               }
               result = getPropertyValue(result, toPropertyName(part));
             }
