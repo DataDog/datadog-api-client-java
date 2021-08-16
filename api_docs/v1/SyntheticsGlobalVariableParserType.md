@@ -11,5 +11,7 @@
 
 * `REGEX` (value: `"regex"`)
 
+* `X_PATH` (value: `"x_path"`)
+
 
 

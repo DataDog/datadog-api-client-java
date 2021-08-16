@@ -2,6 +2,8 @@ package com.datadog.api;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
+import io.cucumber.java.Status;
 import io.cucumber.java.en.When;
 import java.io.File;
 import java.io.IOException;
@@ -53,6 +55,14 @@ public class RecorderSteps {
     }
   }
 
+  @Before(value = "@replay-only", order = 0)
+  public void skipReplayOnly() {
+    if (!TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {
+      // don't record replay-only tests
+      throw new AssumptionViolatedException("Only supported in replay mode");
+    }
+  }
+
   @Before(order = 1)
   public void setupClock() throws java.io.IOException {
     if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
@@ -88,11 +98,12 @@ public class RecorderSteps {
   }
 
   @After
-  public void cleanAndSendExpectations() throws IOException {
+  public void cleanAndSendExpectations(Scenario scenario) throws IOException {
     // Cleanup the recorded requests from sensitive information (API keys in headers and query
     // params),
     // create the associated expectations and save them to disk in the `cassettes/**/*.json` files
-    if (!TestUtils.getRecordingMode().equals(RecordingMode.MODE_RECORDING)) {
+    if (!TestUtils.getRecordingMode().equals(RecordingMode.MODE_RECORDING)
+        || scenario.getStatus() == Status.SKIPPED) {
       System.out.printf("Skipping saving the cassette");
       return;
     }
