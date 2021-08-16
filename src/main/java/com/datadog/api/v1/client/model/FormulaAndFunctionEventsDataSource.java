@@ -27,7 +27,9 @@ public enum FormulaAndFunctionEventsDataSource {
 
   PROFILES("profiles"),
 
-  AUDIT("audit");
+  AUDIT("audit"),
+
+  EVENTS("events");
 
   private String value;
 
