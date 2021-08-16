@@ -258,9 +258,9 @@ public class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{{#vendorE
     {{/vendorExtensions.x-enum-as-string}}
 
 
-    {{#allowableValues}}{{#-first}}if (!{{name}}.isValid()) {
+    {{#allowableValues}}if (!{{name}}.isValid()) {
         this.unparsed = true;
-      }{{/-first}}{{/allowableValues}}
+    }{{/allowableValues}}
 
     {{#vendorExtensions.x-is-jackson-optional-nullable}}
     this.{{name}} = JsonNullable.<{{{datatypeWithEnum}}}>of({{name}});
