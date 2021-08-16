@@ -1,6 +1,13 @@
 {{#jackson}}
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import java.io.IOException;
+
 {{/jackson}}
 {{#gson}}
 import java.io.IOException;
@@ -23,6 +30,9 @@ import java.util.HashSet;
 @JsonbTypeSerializer({{datatypeWithEnum}}.Serializer.class)
 @JsonbTypeDeserializer({{datatypeWithEnum}}.Deserializer.class)
 {{/jsonb}}
+{{#jackson}}
+@JsonSerialize(using = {{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{{classname}}}{{/datatypeWithEnum}}.{{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{{classname}}}{{/datatypeWithEnum}}Serializer.class)
+{{/jackson}}
 {{>additionalEnumTypeAnnotations}}public class {{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{{classname}}}{{/datatypeWithEnum}} {
   {{#allowableValues}}{{#enumVars}}
     {{#enumDescription}}
@@ -37,6 +47,9 @@ import java.util.HashSet;
 
   private static final Set<{{{dataType}}}> allowedValues = new HashSet<{{{dataType}}}>(Arrays.asList({{#allowableValues}}{{#enumVars}}{{{value}}}{{^-last}},{{/-last}}{{/enumVars}}{{/allowableValues}}));
 
+  {{#jackson}}
+  @JsonValue
+  {{/jackson}}
   private {{{dataType}}} value;
 
   public boolean isValid() {
@@ -44,6 +57,32 @@ import java.util.HashSet;
   }
 
   {{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{{classname}}}{{/datatypeWithEnum}}({{{dataType}}} value) {
+    this.value = value;
+  }
+
+  public static class {{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{{classname}}}{{/datatypeWithEnum}}Serializer extends StdSerializer<{{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{{classname}}}{{/datatypeWithEnum}}> {
+      public {{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{{classname}}}{{/datatypeWithEnum}}Serializer(Class<{{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{{classname}}}{{/datatypeWithEnum}}> t) {
+          super(t);
+      }
+
+      public {{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{{classname}}}{{/datatypeWithEnum}}Serializer() {
+          this(null);
+      }
+
+      @Override
+      public void serialize({{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{{classname}}}{{/datatypeWithEnum}} value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
+  }
+
+  {{#jackson}}
+  @JsonValue
+  {{/jackson}}
+  public {{{dataType}}} getValue() {
+    return this.value;
+  }
+
+  public void setValue({{{dataType}}} value) {
     this.value = value;
   }
 
@@ -59,13 +98,6 @@ import java.util.HashSet;
       return false;
     }
     return Objects.equals(this.value, (({{classname}}) o).value);
-  }
-
-{{#jackson}}
-  @JsonValue
-{{/jackson}}
-  public {{{dataType}}} getValue() {
-    return value;
   }
 
   @Override
