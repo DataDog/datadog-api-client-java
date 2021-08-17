@@ -47,9 +47,6 @@ import java.util.HashSet;
 
   private static final Set<{{{dataType}}}> allowedValues = new HashSet<{{{dataType}}}>(Arrays.asList({{#allowableValues}}{{#enumVars}}{{{value}}}{{^-last}},{{/-last}}{{/enumVars}}{{/allowableValues}}));
 
-  {{#jackson}}
-  @JsonValue
-  {{/jackson}}
   private {{{dataType}}} value;
 
   public boolean isValid() {
