@@ -13,27 +13,15 @@ package com.datadog.api.v1.client.model;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-/** Data source for event platform-based queries. */
-public enum FormulaAndFunctionEventsDataSource {
-  LOGS("logs"),
+/** Encoding type. Can be given either &#x60;json&#x60; or &#x60;form&#x60;. */
+public enum WebhooksIntegrationEncoding {
+  JSON("json"),
 
-  SPANS("spans"),
-
-  NETWORK("network"),
-
-  RUM("rum"),
-
-  SECURITY_SIGNALS("security_signals"),
-
-  PROFILES("profiles"),
-
-  AUDIT("audit"),
-
-  EVENTS("events");
+  FORM("form");
 
   private String value;
 
-  FormulaAndFunctionEventsDataSource(String value) {
+  WebhooksIntegrationEncoding(String value) {
     this.value = value;
   }
 
@@ -48,8 +36,8 @@ public enum FormulaAndFunctionEventsDataSource {
   }
 
   @JsonCreator
-  public static FormulaAndFunctionEventsDataSource fromValue(String value) {
-    for (FormulaAndFunctionEventsDataSource b : FormulaAndFunctionEventsDataSource.values()) {
+  public static WebhooksIntegrationEncoding fromValue(String value) {
+    for (WebhooksIntegrationEncoding b : WebhooksIntegrationEncoding.values()) {
       if (b.value.equals(value)) {
         return b;
       }

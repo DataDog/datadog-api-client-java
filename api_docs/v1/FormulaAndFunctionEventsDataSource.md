@@ -19,5 +19,7 @@
 
 * `AUDIT` (value: `"audit"`)
 
+* `EVENTS` (value: `"events"`)
+
 
 
