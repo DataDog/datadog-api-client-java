@@ -111,6 +111,8 @@ public class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{{#vendorE
         {{#requiredVars}}
         this.{{name}} = {{name}};
         {{/requiredVars}}
+
+        this.unparsed = {{#requiredVars}}{{#allowableValues}}!{{name}}.isValid() || {{/allowableValues}}{{/requiredVars}} false;
   }
   {{/hasRequired}}
   {{#vars}}
