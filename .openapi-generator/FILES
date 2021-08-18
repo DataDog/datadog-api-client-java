@@ -54,6 +54,7 @@ docs/IncidentFieldAttributesSingleValue.md
 docs/IncidentFieldAttributesSingleValueType.md
 docs/IncidentFieldAttributesValueType.md
 docs/IncidentIntegrationMetadataType.md
+docs/IncidentNotificationHandle.md
 docs/IncidentPostmortemType.md
 docs/IncidentRelatedObject.md
 docs/IncidentResponse.md
@@ -428,6 +429,7 @@ src/main/java/com/datadog/api/v2/client/model/IncidentFieldAttributesSingleValue
 src/main/java/com/datadog/api/v2/client/model/IncidentFieldAttributesSingleValueType.java
 src/main/java/com/datadog/api/v2/client/model/IncidentFieldAttributesValueType.java
 src/main/java/com/datadog/api/v2/client/model/IncidentIntegrationMetadataType.java
+src/main/java/com/datadog/api/v2/client/model/IncidentNotificationHandle.java
 src/main/java/com/datadog/api/v2/client/model/IncidentPostmortemType.java
 src/main/java/com/datadog/api/v2/client/model/IncidentRelatedObject.java
 src/main/java/com/datadog/api/v2/client/model/IncidentResponse.java
@@ -751,6 +753,7 @@ src/test/java/com/datadog/api/v2/client/model/IncidentFieldAttributesSingleValue
 src/test/java/com/datadog/api/v2/client/model/IncidentFieldAttributesTest.java
 src/test/java/com/datadog/api/v2/client/model/IncidentFieldAttributesValueTypeTest.java
 src/test/java/com/datadog/api/v2/client/model/IncidentIntegrationMetadataTypeTest.java
+src/test/java/com/datadog/api/v2/client/model/IncidentNotificationHandleTest.java
 src/test/java/com/datadog/api/v2/client/model/IncidentPostmortemTypeTest.java
 src/test/java/com/datadog/api/v2/client/model/IncidentRelatedObjectTest.java
 src/test/java/com/datadog/api/v2/client/model/IncidentResponseAttributesTest.java
