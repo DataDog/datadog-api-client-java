@@ -129,7 +129,7 @@ public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-im
                 ret.setActualInstance(deserialized);
             } else {
                 ObjectMapper mapper = new ObjectMapper();
-                Map<String, Object> res = mapper.convertValue(tree.traverse(jp.getCodec()).readValueAs(new TypeReference<HashMap<String,Object>>() {}));
+                Map<String, Object> res = mapper.convertValue(tree.traverse(jp.getCodec()).getText(), Map.class);
                 ret.setActualInstance(new UnparsedObject(res));
             }
             return ret;

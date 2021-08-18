@@ -113,7 +113,7 @@ public class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{{#vendorE
         {{/requiredVars}}
 
         this.unparsed |= {{#requiredVars}}{{#allowableValues}}!{{name}}.isValid() || {{/allowableValues}}{{/requiredVars}} false;
-        this.unparsed |= {{#requiredVars}}{{#isModel}}{{^isPrimitiveType}}{{name}}.unparsed() || {{/isPrimitiveType}}{{/isModel}}{{/requiredVars}} false;
+        this.unparsed |= {{#requiredVars}}{{#isModel}}{{^isPrimitiveType}}{{name}}.unparsed || {{/isPrimitiveType}}{{/isModel}}{{/requiredVars}} false;
   }
   {{/hasRequired}}
   {{#vars}}
