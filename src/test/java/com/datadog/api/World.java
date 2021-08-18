@@ -532,7 +532,7 @@ public class World {
                   continue;
                 } else {
                   if (null != mp.get(toPropertyName(part))) {
-                    result = mp.get(mp.get(toPropertyName(part)));
+                    result = mp.get(toPropertyName(part));
                     continue;
                   }
                 }
@@ -551,6 +551,23 @@ public class World {
               } catch (Exception ex) {
                 // ignore
               }
+
+              if (result instanceof Map) {
+                ObjectMapper mapper = new ObjectMapper();
+                Map<String, Object> mp = mapper.convertValue(result, Map.class);
+
+                if (null != mp.get(part)) {
+                  result = mp.get(part);
+                  continue;
+                } else {
+                  if (null != mp.get(toPropertyName(part))) {
+                    result = mp.get(toPropertyName(part));
+                    continue;
+                  }
+                }
+              }
+
+
               result = getPropertyValue(result, toPropertyName(part));
             }
           }
