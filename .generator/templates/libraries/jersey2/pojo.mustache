@@ -155,12 +155,12 @@ public class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{{#vendorE
     for ({{items.dataType}} item : {{name}}) {
       {{#items.isEnum}}
       {{^items.isPrimitiveType}}
-      this.unparsed |= !{{name}}.isValid();
+      this.unparsed |= !item.isValid();
       {{/items.isPrimitiveType}}
       {{/items.isEnum}}
       {{#items.isModel}}
       {{^items.isPrimitiveType}}
-      this.unparsed |= {{name}}.unparsed;
+      this.unparsed |= item.unparsed;
       {{/items.isPrimitiveType}}
       {{/items.isModel}}
     }
