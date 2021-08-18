@@ -78,7 +78,7 @@ public class IncidentResponseAttributes {
   private OffsetDateTime modified;
 
   public static final String JSON_PROPERTY_NOTIFICATION_HANDLES = "notification_handles";
-  private List<String> notificationHandles = null;
+  private List<IncidentNotificationHandle> notificationHandles = null;
 
   public static final String JSON_PROPERTY_POSTMORTEM_ID = "postmortem_id";
   private String postmortemId;
@@ -342,12 +342,14 @@ public class IncidentResponseAttributes {
     return modified;
   }
 
-  public IncidentResponseAttributes notificationHandles(List<String> notificationHandles) {
+  public IncidentResponseAttributes notificationHandles(
+      List<IncidentNotificationHandle> notificationHandles) {
     this.notificationHandles = notificationHandles;
     return this;
   }
 
-  public IncidentResponseAttributes addNotificationHandlesItem(String notificationHandlesItem) {
+  public IncidentResponseAttributes addNotificationHandlesItem(
+      IncidentNotificationHandle notificationHandlesItem) {
     if (this.notificationHandles == null) {
       this.notificationHandles = new ArrayList<>();
     }
@@ -365,11 +367,11 @@ public class IncidentResponseAttributes {
       value = "Notification handles that will be notified of the incident during update.")
   @JsonProperty(JSON_PROPERTY_NOTIFICATION_HANDLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getNotificationHandles() {
+  public List<IncidentNotificationHandle> getNotificationHandles() {
     return notificationHandles;
   }
 
-  public void setNotificationHandles(List<String> notificationHandles) {
+  public void setNotificationHandles(List<IncidentNotificationHandle> notificationHandles) {
     this.notificationHandles = notificationHandles;
   }
 

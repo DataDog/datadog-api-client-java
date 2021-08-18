@@ -27,7 +27,7 @@ import java.util.Objects;
 @JsonPropertyOrder({
   IncidentCreateAttributes.JSON_PROPERTY_CUSTOMER_IMPACTED,
   IncidentCreateAttributes.JSON_PROPERTY_FIELDS,
-  IncidentCreateAttributes.JSON_PROPERTY_INITIAL_TIMELINE_CELLS,
+  IncidentCreateAttributes.JSON_PROPERTY_INITIAL_CELLS,
   IncidentCreateAttributes.JSON_PROPERTY_NOTIFICATION_HANDLES,
   IncidentCreateAttributes.JSON_PROPERTY_TITLE
 })
@@ -39,11 +39,11 @@ public class IncidentCreateAttributes {
   public static final String JSON_PROPERTY_FIELDS = "fields";
   private Map<String, IncidentFieldAttributes> fields = null;
 
-  public static final String JSON_PROPERTY_INITIAL_TIMELINE_CELLS = "initial_timeline_cells";
-  private List<IncidentTimelineCellCreateAttributes> initialTimelineCells = null;
+  public static final String JSON_PROPERTY_INITIAL_CELLS = "initial_cells";
+  private List<IncidentTimelineCellCreateAttributes> initialCells = null;
 
   public static final String JSON_PROPERTY_NOTIFICATION_HANDLES = "notification_handles";
-  private List<String> notificationHandles = null;
+  private List<IncidentNotificationHandle> notificationHandles = null;
 
   public static final String JSON_PROPERTY_TITLE = "title";
   private String title;
@@ -115,48 +115,49 @@ public class IncidentCreateAttributes {
     this.fields = fields;
   }
 
-  public IncidentCreateAttributes initialTimelineCells(
-      List<IncidentTimelineCellCreateAttributes> initialTimelineCells) {
-    this.initialTimelineCells = initialTimelineCells;
+  public IncidentCreateAttributes initialCells(
+      List<IncidentTimelineCellCreateAttributes> initialCells) {
+    this.initialCells = initialCells;
     return this;
   }
 
-  public IncidentCreateAttributes addInitialTimelineCellsItem(
-      IncidentTimelineCellCreateAttributes initialTimelineCellsItem) {
-    if (this.initialTimelineCells == null) {
-      this.initialTimelineCells = new ArrayList<>();
+  public IncidentCreateAttributes addInitialCellsItem(
+      IncidentTimelineCellCreateAttributes initialCellsItem) {
+    if (this.initialCells == null) {
+      this.initialCells = new ArrayList<>();
     }
-    this.initialTimelineCells.add(initialTimelineCellsItem);
+    this.initialCells.add(initialCellsItem);
     return this;
   }
 
   /**
    * An array of initial timeline cells to be placed at the beginning of the incident timeline.
    *
-   * @return initialTimelineCells
+   * @return initialCells
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
           "An array of initial timeline cells to be placed at the beginning of the incident"
               + " timeline.")
-  @JsonProperty(JSON_PROPERTY_INITIAL_TIMELINE_CELLS)
+  @JsonProperty(JSON_PROPERTY_INITIAL_CELLS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<IncidentTimelineCellCreateAttributes> getInitialTimelineCells() {
-    return initialTimelineCells;
+  public List<IncidentTimelineCellCreateAttributes> getInitialCells() {
+    return initialCells;
   }
 
-  public void setInitialTimelineCells(
-      List<IncidentTimelineCellCreateAttributes> initialTimelineCells) {
-    this.initialTimelineCells = initialTimelineCells;
+  public void setInitialCells(List<IncidentTimelineCellCreateAttributes> initialCells) {
+    this.initialCells = initialCells;
   }
 
-  public IncidentCreateAttributes notificationHandles(List<String> notificationHandles) {
+  public IncidentCreateAttributes notificationHandles(
+      List<IncidentNotificationHandle> notificationHandles) {
     this.notificationHandles = notificationHandles;
     return this;
   }
 
-  public IncidentCreateAttributes addNotificationHandlesItem(String notificationHandlesItem) {
+  public IncidentCreateAttributes addNotificationHandlesItem(
+      IncidentNotificationHandle notificationHandlesItem) {
     if (this.notificationHandles == null) {
       this.notificationHandles = new ArrayList<>();
     }
@@ -174,11 +175,11 @@ public class IncidentCreateAttributes {
       value = "Notification handles that will be notified of the incident at creation.")
   @JsonProperty(JSON_PROPERTY_NOTIFICATION_HANDLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getNotificationHandles() {
+  public List<IncidentNotificationHandle> getNotificationHandles() {
     return notificationHandles;
   }
 
-  public void setNotificationHandles(List<String> notificationHandles) {
+  public void setNotificationHandles(List<IncidentNotificationHandle> notificationHandles) {
     this.notificationHandles = notificationHandles;
   }
 
@@ -218,14 +219,14 @@ public class IncidentCreateAttributes {
     IncidentCreateAttributes incidentCreateAttributes = (IncidentCreateAttributes) o;
     return Objects.equals(this.customerImpacted, incidentCreateAttributes.customerImpacted)
         && Objects.equals(this.fields, incidentCreateAttributes.fields)
-        && Objects.equals(this.initialTimelineCells, incidentCreateAttributes.initialTimelineCells)
+        && Objects.equals(this.initialCells, incidentCreateAttributes.initialCells)
         && Objects.equals(this.notificationHandles, incidentCreateAttributes.notificationHandles)
         && Objects.equals(this.title, incidentCreateAttributes.title);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(customerImpacted, fields, initialTimelineCells, notificationHandles, title);
+    return Objects.hash(customerImpacted, fields, initialCells, notificationHandles, title);
   }
 
   @Override
@@ -234,9 +235,7 @@ public class IncidentCreateAttributes {
     sb.append("class IncidentCreateAttributes {\n");
     sb.append("    customerImpacted: ").append(toIndentedString(customerImpacted)).append("\n");
     sb.append("    fields: ").append(toIndentedString(fields)).append("\n");
-    sb.append("    initialTimelineCells: ")
-        .append(toIndentedString(initialTimelineCells))
-        .append("\n");
+    sb.append("    initialCells: ").append(toIndentedString(initialCells)).append("\n");
     sb.append("    notificationHandles: ")
         .append(toIndentedString(notificationHandles))
         .append("\n");

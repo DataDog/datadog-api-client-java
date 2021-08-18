@@ -59,7 +59,7 @@ public class IncidentUpdateAttributes {
   private Map<String, IncidentFieldAttributes> fields = null;
 
   public static final String JSON_PROPERTY_NOTIFICATION_HANDLES = "notification_handles";
-  private List<String> notificationHandles = null;
+  private List<IncidentNotificationHandle> notificationHandles = null;
 
   public static final String JSON_PROPERTY_RESOLVED = "resolved";
   private JsonNullable<OffsetDateTime> resolved = JsonNullable.<OffsetDateTime>undefined();
@@ -244,12 +244,14 @@ public class IncidentUpdateAttributes {
     this.fields = fields;
   }
 
-  public IncidentUpdateAttributes notificationHandles(List<String> notificationHandles) {
+  public IncidentUpdateAttributes notificationHandles(
+      List<IncidentNotificationHandle> notificationHandles) {
     this.notificationHandles = notificationHandles;
     return this;
   }
 
-  public IncidentUpdateAttributes addNotificationHandlesItem(String notificationHandlesItem) {
+  public IncidentUpdateAttributes addNotificationHandlesItem(
+      IncidentNotificationHandle notificationHandlesItem) {
     if (this.notificationHandles == null) {
       this.notificationHandles = new ArrayList<>();
     }
@@ -267,11 +269,11 @@ public class IncidentUpdateAttributes {
       value = "Notification handles that will be notified of the incident during update.")
   @JsonProperty(JSON_PROPERTY_NOTIFICATION_HANDLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getNotificationHandles() {
+  public List<IncidentNotificationHandle> getNotificationHandles() {
     return notificationHandles;
   }
 
-  public void setNotificationHandles(List<String> notificationHandles) {
+  public void setNotificationHandles(List<IncidentNotificationHandle> notificationHandles) {
     this.notificationHandles = notificationHandles;
   }
 
