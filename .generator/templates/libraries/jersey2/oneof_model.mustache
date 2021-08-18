@@ -107,7 +107,8 @@ public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-im
                     // TODO: there is no validation against JSON schema constraints
                     // (min, max, enum, pattern...), this does not perform a strict JSON
                     // validation, which means the 'match' count may be higher than it should be.
-                    {{#isModel}}
+
+                    {{#.}}
                     {{^isPrimitiveType}}
                     if (!(({{{.}}})tmp).unparsed) {
                         // deep copy tmp
@@ -115,7 +116,8 @@ public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-im
                         match++;
                     }
                     {{/isPrimitiveType}}
-                    {{/isModel}}
+                    {{/.}}
+
                     log.log(Level.FINER, "Input data matches schema '{{{.}}}'");
                 }
             } catch (Exception e) {
