@@ -112,7 +112,8 @@ public class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{{#vendorE
         this.{{name}} = {{name}};
         {{/requiredVars}}
 
-        this.unparsed = {{#requiredVars}}{{#allowableValues}}!{{name}}.isValid() || {{/allowableValues}}{{/requiredVars}} false;
+        this.unparsed |= {{#requiredVars}}{{#allowableValues}}!{{name}}.isValid() || {{/allowableValues}}{{/requiredVars}} false;
+        this.unparsed |= {{#requiredVars}}{{#isModel}}{{^isPrimitiveType}}{{name}}.unparsed() || {{/isPrimitiveType}}{{/isModel}}{{/requiredVars}} false;
   }
   {{/hasRequired}}
   {{#vars}}
@@ -136,6 +137,36 @@ public class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{{#vendorE
     {{/vendorExtensions.x-is-jackson-optional-nullable}}
     {{^vendorExtensions.x-is-jackson-optional-nullable}}
     this.{{name}} = {{name}};
+    {{^isArray}}
+    {{#isEnum}}
+    {{^isPrimitiveType}}
+    this.unparsed |= !{{name}}.isValid();
+    {{/isPrimitiveType}}
+    {{/isEnum}}
+    {{#isModel}}
+    {{^isPrimitiveType}}
+    this.unparsed |= {{name}}.unparsed;
+    {{/isPrimitiveType}}
+    {{/isModel}}
+    {{/isArray}}
+    {{#isArray}}
+    {{#items.isModel}}
+    {{^items.isPrimitiveType}}
+    for ({{items.dataType}} item : {{name}}) {
+      {{#isEnum}}
+      {{^isPrimitiveType}}
+      this.unparsed |= !{{name}}.isValid();
+      {{/isPrimitiveType}}
+      {{/isEnum}}
+      {{#isModel}}
+      {{^isPrimitiveType}}
+      this.unparsed |= {{name}}.unparsed;
+      {{/isPrimitiveType}}
+      {{/isModel}}
+    }
+    {{/items.isPrimitiveType}}
+    {{/items.isModel}}
+    {{/isArray}}
     {{/vendorExtensions.x-is-jackson-optional-nullable}}
     return this;
   }
