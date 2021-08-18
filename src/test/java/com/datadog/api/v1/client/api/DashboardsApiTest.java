@@ -10,10 +10,12 @@
 
 package com.datadog.api.v1.client.api;
 
+import static com.datadog.api.World.fromJSON;
 import static org.junit.Assert.*;
 
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.*;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
@@ -90,6 +92,20 @@ public class DashboardsApiTest extends V1ApiTest {
         deleteSLO = null;
       }
     }
+  }
+
+  /**
+   * Tests the lifecycle of a dashbaord Includes creating an example of each widget and creating an
+   * example of a FREE and ORDERED dashboard
+   *
+   * @throws ApiException
+   */
+  @Test
+  public void dashboardDeserialize() throws ApiException, JsonProcessingException {
+      String body = "{\"status\":\"live\",\"public_id\":\"g6d-gcm-pdq\",\"tags\":[],\"locations\":[\"aws:eu-central-1\",\"aws:ap-northeast-1\"],\"message\":\"\",\"name\":\"Check on www.10.0.0.1.xip.io\",\"monitor_id\":7464050,\"type\":\"A non existent test type\",\"created_at\":\"2018-12-07T17:30:49.785089+00:00\",\"modified_at\":\"2019-09-04T17:01:09.921070+00:00\",\"subtype\":\"http\",\"config\":{\"request\":{\"url\":\"https://www.10.0.0.1.xip.io\",\"method\":\"GET\",\"timeout\":30},\"assertions\":[{\"operator\":\"is\",\"type\":\"statusCode\",\"target\":200}]},\"options\":{\"tick_every\":60}}";
+      ObjectMapper mapper = generalApiClient.getJSON().getMapper();
+      Object res = fromJSON(mapper, SyntheticsBrowserTest.class, body);
+      assertEquals(((SyntheticsBrowserTest)res).unparsed, true);
   }
 
   /**
