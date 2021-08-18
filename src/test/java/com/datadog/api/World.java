@@ -523,6 +523,21 @@ public class World {
                 // ignore
               }
 
+              if (result instanceof Map) {
+                ObjectMapper mapper = new ObjectMapper();
+                Map<String, Object> mp = mapper.convertValue(result, Map.class);
+
+                if (null != mp.get(part)) {
+                  result = mp.get(part);
+                  continue;
+                } else {
+                  if (null != mp.get(toPropertyName(part))) {
+                    result = mp.get(mp.get(toPropertyName(part)));
+                    continue;
+                  }
+                }
+              }
+
               // try to handle oneOf models
               try {
                 result = result.getClass().getMethod("getActualInstance").invoke(result);
