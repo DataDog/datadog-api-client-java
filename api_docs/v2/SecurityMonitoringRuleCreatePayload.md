@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **options** | [**SecurityMonitoringRuleOptions**](SecurityMonitoringRuleOptions.md) |  | 
 **queries** | [**List&lt;SecurityMonitoringRuleQueryCreate&gt;**](SecurityMonitoringRuleQueryCreate.md) | Queries for selecting logs which are part of the rule. | 
 **tags** | **List&lt;String&gt;** | Tags for generated signals. |  [optional]
+**type** | **SecurityMonitoringRuleTypeCreate** |  |  [optional]
 
 
 

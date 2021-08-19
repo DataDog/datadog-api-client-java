@@ -31,7 +31,8 @@ import java.util.Objects;
   SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_NAME,
   SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_OPTIONS,
   SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_QUERIES,
-  SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_TAGS
+  SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_TAGS,
+  SecurityMonitoringRuleCreatePayload.JSON_PROPERTY_TYPE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SecurityMonitoringRuleCreatePayload {
@@ -61,6 +62,9 @@ public class SecurityMonitoringRuleCreatePayload {
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
+
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private SecurityMonitoringRuleTypeCreate type;
 
   public SecurityMonitoringRuleCreatePayload() {}
 
@@ -315,6 +319,28 @@ public class SecurityMonitoringRuleCreatePayload {
     this.tags = tags;
   }
 
+  public SecurityMonitoringRuleCreatePayload type(SecurityMonitoringRuleTypeCreate type) {
+    this.type = type;
+    return this;
+  }
+
+  /**
+   * Get type
+   *
+   * @return type
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SecurityMonitoringRuleTypeCreate getType() {
+    return type;
+  }
+
+  public void setType(SecurityMonitoringRuleTypeCreate type) {
+    this.type = type;
+  }
+
   /** Return true if this SecurityMonitoringRuleCreatePayload object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -335,13 +361,14 @@ public class SecurityMonitoringRuleCreatePayload {
         && Objects.equals(this.name, securityMonitoringRuleCreatePayload.name)
         && Objects.equals(this.options, securityMonitoringRuleCreatePayload.options)
         && Objects.equals(this.queries, securityMonitoringRuleCreatePayload.queries)
-        && Objects.equals(this.tags, securityMonitoringRuleCreatePayload.tags);
+        && Objects.equals(this.tags, securityMonitoringRuleCreatePayload.tags)
+        && Objects.equals(this.type, securityMonitoringRuleCreatePayload.type);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        cases, filters, hasExtendedTitle, isEnabled, message, name, options, queries, tags);
+        cases, filters, hasExtendedTitle, isEnabled, message, name, options, queries, tags, type);
   }
 
   @Override
@@ -357,6 +384,7 @@ public class SecurityMonitoringRuleCreatePayload {
     sb.append("    options: ").append(toIndentedString(options)).append("\n");
     sb.append("    queries: ").append(toIndentedString(queries)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }
