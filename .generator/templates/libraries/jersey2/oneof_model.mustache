@@ -85,45 +85,45 @@ public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-im
             boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
             int match = 0;
             JsonToken token = tree.traverse(jp.getCodec()).nextToken();
-            {{#oneOf}}
-            // deserialize {{{.}}}
+            {{#vendorExtensions.x-oneOf-as-properties}}
+            // deserialize {{dataType}}
             try {
                 boolean attemptParsing = true;
                 // ensure that we respect type coercion as set on the client ObjectMapper
-                if ({{{.}}}.class.equals(Integer.class) || {{{.}}}.class.equals(Long.class) || {{{.}}}.class.equals(Float.class) || {{{.}}}.class.equals(Double.class) || {{{.}}}.class.equals(Boolean.class) || {{{.}}}.class.equals(String.class)) {
+                if ({{dataType}}.class.equals(Integer.class) || {{dataType}}.class.equals(Long.class) || {{dataType}}.class.equals(Float.class) || {{dataType}}.class.equals(Double.class) || {{dataType}}.class.equals(Boolean.class) || {{dataType}}.class.equals(String.class)) {
                     attemptParsing = typeCoercion;
                     if (!attemptParsing) {
-                        attemptParsing |= (({{{.}}}.class.equals(Integer.class) || {{{.}}}.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
-                        attemptParsing |= (({{{.}}}.class.equals(Float.class) || {{{.}}}.class.equals(Double.class)) && (token == JsonToken.VALUE_NUMBER_FLOAT || token == JsonToken.VALUE_NUMBER_INT));
-                        attemptParsing |= ({{{.}}}.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-                        attemptParsing |= ({{{.}}}.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+                        attemptParsing |= (({{dataType}}.class.equals(Integer.class) || {{dataType}}.class.equals(Long.class)) && token == JsonToken.VALUE_NUMBER_INT);
+                        attemptParsing |= (({{dataType}}.class.equals(Float.class) || {{dataType}}.class.equals(Double.class)) && (token == JsonToken.VALUE_NUMBER_FLOAT || token == JsonToken.VALUE_NUMBER_INT));
+                        attemptParsing |= ({{dataType}}.class.equals(Boolean.class) && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+                        attemptParsing |= ({{dataType}}.class.equals(String.class) && token == JsonToken.VALUE_STRING);
                         {{#isNullable}}
                         attemptParsing |= (token == JsonToken.VALUE_NULL);
                         {{/isNullable}}
                     }
                 }
                 if (attemptParsing) {
-                    tmp = tree.traverse(jp.getCodec()).readValueAs({{{.}}}.class);
+                    tmp = tree.traverse(jp.getCodec()).readValueAs({{dataType}}.class);
                     // TODO: there is no validation against JSON schema constraints
                     // (min, max, enum, pattern...), this does not perform a strict JSON
                     // validation, which means the 'match' count may be higher than it should be.
-
                     {{^isPrimitiveType}}
-                    if (!(({{{.}}})tmp).unparsed) {
+
+                    if (!(({{dataType}})tmp).unparsed) {
                         // deep copy tmp
-                        deserialized = tree.traverse(jp.getCodec()).readValueAs({{{.}}}.class);
+                        deserialized = tree.traverse(jp.getCodec()).readValueAs({{dataType}}.class);
                         match++;
                     }
-                    {{/isPrimitiveType}}
 
-                    log.log(Level.FINER, "Input data matches schema '{{{.}}}'");
+                    {{/isPrimitiveType}}
+                    log.log(Level.FINER, "Input data matches schema '{{dataType}}'");
                 }
             } catch (Exception e) {
                 // deserialization failed, continue
-                log.log(Level.FINER, "Input data does not match schema '{{{.}}}'", e);
+                log.log(Level.FINER, "Input data does not match schema '{{dataType}}'", e);
             }
 
-            {{/oneOf}}
+            {{/vendorExtensions.x-oneOf-as-properties}}
             {{classname}} ret = new {{classname}}();
             if (match == 1) {
                 ret.setActualInstance(deserialized);
