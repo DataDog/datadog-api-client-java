@@ -516,28 +516,6 @@ public class World {
             try {
               result = getPropertyValue(result, toPropertyName(part));
             } catch (java.lang.NoSuchFieldException ee) {
-              // try to access data if it's an UnparsedObject
-              try {
-                result = getPropertyValue(result, "data");
-              } catch (Exception ex) {
-                // ignore
-              }
-
-              if (result instanceof Map) {
-                ObjectMapper mapper = new ObjectMapper();
-                Map<String, Object> mp = mapper.convertValue(result, Map.class);
-
-                if (null != mp.get(part)) {
-                  result = mp.get(part);
-                  continue;
-                } else {
-                  if (null != mp.get(toPropertyName(part))) {
-                    result = mp.get(toPropertyName(part));
-                    continue;
-                  }
-                }
-              }
-
               // try to handle oneOf models
               try {
                 result = result.getClass().getMethod("getActualInstance").invoke(result);
@@ -552,6 +530,7 @@ public class World {
                 // ignore
               }
 
+              // try to access UnparsedObject's raw data
               if (result instanceof Map) {
                 ObjectMapper mapper = new ObjectMapper();
                 Map<String, Object> mp = mapper.convertValue(result, Map.class);
@@ -566,7 +545,6 @@ public class World {
                   }
                 }
               }
-
 
               result = getPropertyValue(result, toPropertyName(part));
             }
