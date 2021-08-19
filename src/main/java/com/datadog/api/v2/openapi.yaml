@@ -6841,16 +6841,18 @@ components:
     IncidentCreateAttributes:
       description: The incident's attributes for a create request.
       example:
-        initial_timeline_cells:
-        - null
-        - null
         notification_handles:
-        - '@test.user@test.com'
-        - '@test.user@test.com'
+        - handle: '@test.user@test.com'
+          display_name: Jane Doe
+        - handle: '@test.user@test.com'
+          display_name: Jane Doe
         fields:
           severity:
             type: dropdown
             value: SEV-5
+        initial_cells:
+        - null
+        - null
         title: A test incident title
         customer_impacted: false
       properties:
@@ -6868,7 +6870,7 @@ components:
               type: dropdown
               value: SEV-5
           type: object
-        initial_timeline_cells:
+        initial_cells:
           description: An array of initial timeline cells to be placed at the beginning
             of the incident timeline.
           items:
@@ -6878,9 +6880,7 @@ components:
           description: Notification handles that will be notified of the incident
             at creation.
           items:
-            description: A notification handle that will be notified at incident creation.
-            example: '@test.user@test.com'
-            type: string
+            $ref: '#/components/schemas/IncidentNotificationHandle'
           type: array
         title:
           description: The title of the incident, which summarizes what happened.
@@ -6899,16 +6899,18 @@ components:
               id: 00000000-0000-0000-0000-000000000000
               type: users
         attributes:
-          initial_timeline_cells:
-          - null
-          - null
           notification_handles:
-          - '@test.user@test.com'
-          - '@test.user@test.com'
+          - handle: '@test.user@test.com'
+            display_name: Jane Doe
+          - handle: '@test.user@test.com'
+            display_name: Jane Doe
           fields:
             severity:
               type: dropdown
               value: SEV-5
+          initial_cells:
+          - null
+          - null
           title: A test incident title
           customer_impacted: false
         type: incidents
@@ -6947,16 +6949,18 @@ components:
                 id: 00000000-0000-0000-0000-000000000000
                 type: users
           attributes:
-            initial_timeline_cells:
-            - null
-            - null
             notification_handles:
-            - '@test.user@test.com'
-            - '@test.user@test.com'
+            - handle: '@test.user@test.com'
+              display_name: Jane Doe
+            - handle: '@test.user@test.com'
+              display_name: Jane Doe
             fields:
               severity:
                 type: dropdown
                 value: SEV-5
+            initial_cells:
+            - null
+            - null
             title: A test incident title
             customer_impacted: false
           type: incidents
@@ -7036,6 +7040,21 @@ components:
       type: string
       x-enum-varnames:
       - INCIDENT_INTEGRATIONS
+    IncidentNotificationHandle:
+      description: A notification handle that will be notified at incident creation.
+      example:
+        handle: '@test.user@test.com'
+        display_name: Jane Doe
+      properties:
+        display_name:
+          description: The name of the notified handle.
+          example: Jane Doe
+          type: string
+        handle:
+          description: The email address used for the notification.
+          example: '@test.user@test.com'
+          type: string
+      type: object
     IncidentPostmortemType:
       default: incident_postmortems
       description: Incident postmortem resource type.
@@ -7084,8 +7103,10 @@ components:
             created: 2000-01-23T04:56:07.000+00:00
             time_to_internal_response: 1
             notification_handles:
-            - '@test.user@test.com'
-            - '@test.user@test.com'
+            - handle: '@test.user@test.com'
+              display_name: Jane Doe
+            - handle: '@test.user@test.com'
+              display_name: Jane Doe
             customer_impact_duration: 0
             title: A test incident title
             public_id: 1
@@ -7127,8 +7148,10 @@ components:
         created: 2000-01-23T04:56:07.000+00:00
         time_to_internal_response: 1
         notification_handles:
-        - '@test.user@test.com'
-        - '@test.user@test.com'
+        - handle: '@test.user@test.com'
+          display_name: Jane Doe
+        - handle: '@test.user@test.com'
+          display_name: Jane Doe
         customer_impact_duration: 0
         title: A test incident title
         public_id: 1
@@ -7201,10 +7224,7 @@ components:
           description: Notification handles that will be notified of the incident
             during update.
           items:
-            description: A notification handle that will be notified during incident
-              update.
-            example: '@test.user@test.com'
-            type: string
+            $ref: '#/components/schemas/IncidentNotificationHandle'
           type: array
         postmortem_id:
           description: The UUID of the postmortem object attached to the incident.
@@ -7284,8 +7304,10 @@ components:
           created: 2000-01-23T04:56:07.000+00:00
           time_to_internal_response: 1
           notification_handles:
-          - '@test.user@test.com'
-          - '@test.user@test.com'
+          - handle: '@test.user@test.com'
+            display_name: Jane Doe
+          - handle: '@test.user@test.com'
+            display_name: Jane Doe
           customer_impact_duration: 0
           title: A test incident title
           public_id: 1
@@ -7969,8 +7991,10 @@ components:
         customer_impact_scope: Example customer impact scope
         customer_impact_end: 2000-01-23T04:56:07.000+00:00
         notification_handles:
-        - '@test.user@test.com'
-        - '@test.user@test.com'
+        - handle: '@test.user@test.com'
+          display_name: Jane Doe
+        - handle: '@test.user@test.com'
+          display_name: Jane Doe
         customer_impact_start: 2000-01-23T04:56:07.000+00:00
         detected: 2000-01-23T04:56:07.000+00:00
         fields:
@@ -8018,10 +8042,7 @@ components:
           description: Notification handles that will be notified of the incident
             during update.
           items:
-            description: A notification handle that will be notified during incident
-              update.
-            example: '@test.user@test.com'
-            type: string
+            $ref: '#/components/schemas/IncidentNotificationHandle'
           type: array
         resolved:
           description: Timestamp when the incident's state was set to resolved.
@@ -8063,8 +8084,10 @@ components:
           customer_impact_scope: Example customer impact scope
           customer_impact_end: 2000-01-23T04:56:07.000+00:00
           notification_handles:
-          - '@test.user@test.com'
-          - '@test.user@test.com'
+          - handle: '@test.user@test.com'
+            display_name: Jane Doe
+          - handle: '@test.user@test.com'
+            display_name: Jane Doe
           customer_impact_start: 2000-01-23T04:56:07.000+00:00
           detected: 2000-01-23T04:56:07.000+00:00
           fields:
@@ -8159,8 +8182,10 @@ components:
             customer_impact_scope: Example customer impact scope
             customer_impact_end: 2000-01-23T04:56:07.000+00:00
             notification_handles:
-            - '@test.user@test.com'
-            - '@test.user@test.com'
+            - handle: '@test.user@test.com'
+              display_name: Jane Doe
+            - handle: '@test.user@test.com'
+              display_name: Jane Doe
             customer_impact_start: 2000-01-23T04:56:07.000+00:00
             detected: 2000-01-23T04:56:07.000+00:00
             fields:
