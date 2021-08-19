@@ -301,6 +301,8 @@ docs/SecurityMonitoringRuleQueryAggregation.md
 docs/SecurityMonitoringRuleQueryCreate.md
 docs/SecurityMonitoringRuleResponse.md
 docs/SecurityMonitoringRuleSeverity.md
+docs/SecurityMonitoringRuleTypeCreate.md
+docs/SecurityMonitoringRuleTypeRead.md
 docs/SecurityMonitoringRuleUpdatePayload.md
 docs/SecurityMonitoringRuntimeAgentRule.md
 docs/SecurityMonitoringSignal.md
@@ -665,6 +667,8 @@ src/main/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleQueryAggrega
 src/main/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleQueryCreate.java
 src/main/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleResponse.java
 src/main/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleSeverity.java
+src/main/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleTypeCreate.java
+src/main/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleTypeRead.java
 src/main/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleUpdatePayload.java
 src/main/java/com/datadog/api/v2/client/model/SecurityMonitoringRuntimeAgentRule.java
 src/main/java/com/datadog/api/v2/client/model/SecurityMonitoringSignal.java
@@ -989,6 +993,8 @@ src/test/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleQueryCreateT
 src/test/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleQueryTest.java
 src/test/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleResponseTest.java
 src/test/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleSeverityTest.java
+src/test/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleTypeCreateTest.java
+src/test/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleTypeReadTest.java
 src/test/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleUpdatePayloadTest.java
 src/test/java/com/datadog/api/v2/client/model/SecurityMonitoringRuntimeAgentRuleTest.java
 src/test/java/com/datadog/api/v2/client/model/SecurityMonitoringSignalAttributesTest.java
