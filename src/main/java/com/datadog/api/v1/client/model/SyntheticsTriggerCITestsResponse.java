@@ -22,12 +22,16 @@ import java.util.Objects;
 /** Object containing information about the tests triggered. */
 @ApiModel(description = "Object containing information about the tests triggered.")
 @JsonPropertyOrder({
+  SyntheticsTriggerCITestsResponse.JSON_PROPERTY_BATCH_ID,
   SyntheticsTriggerCITestsResponse.JSON_PROPERTY_LOCATIONS,
   SyntheticsTriggerCITestsResponse.JSON_PROPERTY_RESULTS,
   SyntheticsTriggerCITestsResponse.JSON_PROPERTY_TRIGGERED_CHECK_IDS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsTriggerCITestsResponse {
+  public static final String JSON_PROPERTY_BATCH_ID = "batch_id";
+  private String batchId;
+
   public static final String JSON_PROPERTY_LOCATIONS = "locations";
   private List<SyntheticsTriggerCITestLocation> locations = null;
 
@@ -36,6 +40,28 @@ public class SyntheticsTriggerCITestsResponse {
 
   public static final String JSON_PROPERTY_TRIGGERED_CHECK_IDS = "triggered_check_ids";
   private List<String> triggeredCheckIds = null;
+
+  public SyntheticsTriggerCITestsResponse batchId(String batchId) {
+    this.batchId = batchId;
+    return this;
+  }
+
+  /**
+   * The public ID of the batch triggered.
+   *
+   * @return batchId
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The public ID of the batch triggered.")
+  @JsonProperty(JSON_PROPERTY_BATCH_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getBatchId() {
+    return batchId;
+  }
+
+  public void setBatchId(String batchId) {
+    this.batchId = batchId;
+  }
 
   public SyntheticsTriggerCITestsResponse locations(
       List<SyntheticsTriggerCITestLocation> locations) {
@@ -141,7 +167,8 @@ public class SyntheticsTriggerCITestsResponse {
     }
     SyntheticsTriggerCITestsResponse syntheticsTriggerCITestsResponse =
         (SyntheticsTriggerCITestsResponse) o;
-    return Objects.equals(this.locations, syntheticsTriggerCITestsResponse.locations)
+    return Objects.equals(this.batchId, syntheticsTriggerCITestsResponse.batchId)
+        && Objects.equals(this.locations, syntheticsTriggerCITestsResponse.locations)
         && Objects.equals(this.results, syntheticsTriggerCITestsResponse.results)
         && Objects.equals(
             this.triggeredCheckIds, syntheticsTriggerCITestsResponse.triggeredCheckIds);
@@ -149,13 +176,14 @@ public class SyntheticsTriggerCITestsResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(locations, results, triggeredCheckIds);
+    return Objects.hash(batchId, locations, results, triggeredCheckIds);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SyntheticsTriggerCITestsResponse {\n");
+    sb.append("    batchId: ").append(toIndentedString(batchId)).append("\n");
     sb.append("    locations: ").append(toIndentedString(locations)).append("\n");
     sb.append("    results: ").append(toIndentedString(results)).append("\n");
     sb.append("    triggeredCheckIds: ").append(toIndentedString(triggeredCheckIds)).append("\n");
