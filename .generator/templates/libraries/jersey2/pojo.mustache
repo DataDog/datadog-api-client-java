@@ -153,15 +153,15 @@ public class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{{#vendorE
     {{#items.isModel}}
     {{^items.isPrimitiveType}}
     for ({{items.dataType}} item : {{name}}) {
-      {{#items.isEnum}}
-      {{^items.isPrimitiveType}}
+      {{#items.allowableValues}}
+      {{^isPrimitiveType}}
       this.unparsed |= !item.isValid();
-      {{/items.isPrimitiveType}}
-      {{/items.isEnum}}
+      {{/isPrimitiveType}}
+      {{/items.allowableValues}}
       {{#items.isModel}}
-      {{^items.isPrimitiveType}}
+      {{^isPrimitiveType}}
       this.unparsed |= item.unparsed;
-      {{/items.isPrimitiveType}}
+      {{/isPrimitiveType}}
       {{/items.isModel}}
     }
     {{/items.isPrimitiveType}}
