@@ -138,11 +138,11 @@ public class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{{#vendorE
     {{^vendorExtensions.x-is-jackson-optional-nullable}}
     this.{{name}} = {{name}};
     {{^isArray}}
-    {{#isEnum}}
+    {{#allowableValues}}
     {{^isPrimitiveType}}
     this.unparsed |= !{{name}}.isValid();
     {{/isPrimitiveType}}
-    {{/isEnum}}
+    {{/allowableValues}}
     {{#isModel}}
     {{^isPrimitiveType}}
     this.unparsed |= {{name}}.unparsed;
