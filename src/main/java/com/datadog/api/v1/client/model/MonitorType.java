@@ -40,7 +40,9 @@ public enum MonitorType {
 
   SLO_ALERT("slo alert"),
 
-  EVENT_V2_ALERT("event-v2 alert");
+  EVENT_V2_ALERT("event-v2 alert"),
+
+  AUDIT_ALERT("audit alert");
 
   private String value;
 
