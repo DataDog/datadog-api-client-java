@@ -191,6 +191,16 @@ public class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{{#vendorE
     }
     {{/required}}
     this.{{name}}.add({{name}}Item);
+    {{#items.allowableValues}}
+    {{^isPrimitiveType}}
+    this.unparsed |= !{{name}}Item.isValid();
+    {{/isPrimitiveType}}
+    {{/items.allowableValues}}
+    {{#items.isModel}}
+    {{^isPrimitiveType}}
+    this.unparsed |= {{name}}Item.unparsed;
+    {{/isPrimitiveType}}
+    {{/items.isModel}}
     return this;
     {{/vendorExtensions.x-is-jackson-optional-nullable}}
   }
