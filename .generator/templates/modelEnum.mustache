@@ -94,7 +94,12 @@ import java.util.HashSet;
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return Objects.equals(this.value, (({{classname}}) o).value);
+    return this.value.equals((({{classname}}) o).value);
+  }
+
+  @Override
+  public int hashCode() {
+      return Objects.hash(value);
   }
 
   @Override
