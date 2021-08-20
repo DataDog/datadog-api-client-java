@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **customerImpacted** | **Boolean** | A flag indicating whether the incident caused customer impact. |  [optional]
 **detected** | **OffsetDateTime** | Timestamp when the incident was detected. |  [optional]
 **fields** | [**Map&lt;String, IncidentFieldAttributes&gt;**](IncidentFieldAttributes.md) | A condensed view of the user-defined fields for which to update selections. |  [optional]
-**notificationHandles** | **List&lt;String&gt;** | Notification handles that will be notified of the incident during update. |  [optional]
+**notificationHandles** | [**List&lt;IncidentNotificationHandle&gt;**](IncidentNotificationHandle.md) | Notification handles that will be notified of the incident during update. |  [optional]
 **resolved** | **OffsetDateTime** | Timestamp when the incident&#39;s state was set to resolved. |  [optional]
 **title** | **String** | The title of the incident, which summarizes what happened. |  [optional]
 

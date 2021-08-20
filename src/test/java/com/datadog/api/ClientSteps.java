@@ -49,6 +49,7 @@ public class ClientSteps {
     String unique = world.getUniqueEntityName();
     world.context.put("unique", unique);
     world.context.put("unique_lower", unique.toLowerCase());
+    world.context.put("unique_upper", unique.toUpperCase());
     world.context.put(
         "unique_alnum",
         World.replace(
@@ -59,6 +60,8 @@ public class ClientSteps {
             }));
     world.context.put(
         "unique_lower_alnum", world.context.get("unique_alnum").toString().toLowerCase());
+    world.context.put(
+        "unique_upper_alnum", world.context.get("unique_alnum").toString().toUpperCase());
 
     world.context.put("now", world.now);
   }

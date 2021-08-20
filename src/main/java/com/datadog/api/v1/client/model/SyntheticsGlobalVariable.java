@@ -23,6 +23,7 @@ import java.util.Objects;
 /** Synthetics global variable. */
 @ApiModel(description = "Synthetics global variable.")
 @JsonPropertyOrder({
+  SyntheticsGlobalVariable.JSON_PROPERTY_ATTRIBUTES,
   SyntheticsGlobalVariable.JSON_PROPERTY_DESCRIPTION,
   SyntheticsGlobalVariable.JSON_PROPERTY_ID,
   SyntheticsGlobalVariable.JSON_PROPERTY_NAME,
@@ -33,6 +34,9 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsGlobalVariable {
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private SyntheticsGlobalVariableAttributes attributes;
+
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
@@ -67,6 +71,28 @@ public class SyntheticsGlobalVariable {
     this.name = name;
     this.tags = tags;
     this.value = value;
+  }
+
+  public SyntheticsGlobalVariable attributes(SyntheticsGlobalVariableAttributes attributes) {
+    this.attributes = attributes;
+    return this;
+  }
+
+  /**
+   * Get attributes
+   *
+   * @return attributes
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsGlobalVariableAttributes getAttributes() {
+    return attributes;
+  }
+
+  public void setAttributes(SyntheticsGlobalVariableAttributes attributes) {
+    this.attributes = attributes;
   }
 
   public SyntheticsGlobalVariable description(String description) {
@@ -237,7 +263,8 @@ public class SyntheticsGlobalVariable {
       return false;
     }
     SyntheticsGlobalVariable syntheticsGlobalVariable = (SyntheticsGlobalVariable) o;
-    return Objects.equals(this.description, syntheticsGlobalVariable.description)
+    return Objects.equals(this.attributes, syntheticsGlobalVariable.attributes)
+        && Objects.equals(this.description, syntheticsGlobalVariable.description)
         && Objects.equals(this.id, syntheticsGlobalVariable.id)
         && Objects.equals(this.name, syntheticsGlobalVariable.name)
         && Objects.equals(this.parseTestOptions, syntheticsGlobalVariable.parseTestOptions)
@@ -248,13 +275,15 @@ public class SyntheticsGlobalVariable {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, id, name, parseTestOptions, parseTestPublicId, tags, value);
+    return Objects.hash(
+        attributes, description, id, name, parseTestOptions, parseTestPublicId, tags, value);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SyntheticsGlobalVariable {\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");

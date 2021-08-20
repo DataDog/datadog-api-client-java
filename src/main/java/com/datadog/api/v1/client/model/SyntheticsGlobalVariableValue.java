@@ -37,12 +37,12 @@ public class SyntheticsGlobalVariableValue {
   }
 
   /**
-   * Determines if the variable is secure.
+   * Determines if the value of the variable is hidden.
    *
    * @return secure
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Determines if the variable is secure.")
+  @ApiModelProperty(value = "Determines if the value of the variable is hidden.")
   @JsonProperty(JSON_PROPERTY_SECURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getSecure() {
@@ -60,7 +60,7 @@ public class SyntheticsGlobalVariableValue {
 
   /**
    * Value of the global variable. When reading a global variable, the value will not be present if
-   * the variable is secure.
+   * the variable is hidden with the &#x60;secure&#x60; property.
    *
    * @return value
    */
@@ -69,7 +69,7 @@ public class SyntheticsGlobalVariableValue {
       example = "example-value",
       value =
           "Value of the global variable. When reading a global variable, the value will not be"
-              + " present if the variable is secure.")
+              + " present if the variable is hidden with the `secure` property.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getValue() {

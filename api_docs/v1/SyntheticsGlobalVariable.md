@@ -8,6 +8,7 @@ Synthetics global variable.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**attributes** | [**SyntheticsGlobalVariableAttributes**](SyntheticsGlobalVariableAttributes.md) |  |  [optional]
 **description** | **String** | Description of the global variable. | 
 **id** | **String** | Unique identifier of the global variable. |  [optional] [readonly]
 **name** | **String** | Name of the global variable. | 

@@ -54,6 +54,7 @@ docs/IncidentFieldAttributesSingleValue.md
 docs/IncidentFieldAttributesSingleValueType.md
 docs/IncidentFieldAttributesValueType.md
 docs/IncidentIntegrationMetadataType.md
+docs/IncidentNotificationHandle.md
 docs/IncidentPostmortemType.md
 docs/IncidentRelatedObject.md
 docs/IncidentResponse.md
@@ -300,6 +301,8 @@ docs/SecurityMonitoringRuleQueryAggregation.md
 docs/SecurityMonitoringRuleQueryCreate.md
 docs/SecurityMonitoringRuleResponse.md
 docs/SecurityMonitoringRuleSeverity.md
+docs/SecurityMonitoringRuleTypeCreate.md
+docs/SecurityMonitoringRuleTypeRead.md
 docs/SecurityMonitoringRuleUpdatePayload.md
 docs/SecurityMonitoringRuntimeAgentRule.md
 docs/SecurityMonitoringSignal.md
@@ -428,6 +431,7 @@ src/main/java/com/datadog/api/v2/client/model/IncidentFieldAttributesSingleValue
 src/main/java/com/datadog/api/v2/client/model/IncidentFieldAttributesSingleValueType.java
 src/main/java/com/datadog/api/v2/client/model/IncidentFieldAttributesValueType.java
 src/main/java/com/datadog/api/v2/client/model/IncidentIntegrationMetadataType.java
+src/main/java/com/datadog/api/v2/client/model/IncidentNotificationHandle.java
 src/main/java/com/datadog/api/v2/client/model/IncidentPostmortemType.java
 src/main/java/com/datadog/api/v2/client/model/IncidentRelatedObject.java
 src/main/java/com/datadog/api/v2/client/model/IncidentResponse.java
@@ -663,6 +667,8 @@ src/main/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleQueryAggrega
 src/main/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleQueryCreate.java
 src/main/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleResponse.java
 src/main/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleSeverity.java
+src/main/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleTypeCreate.java
+src/main/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleTypeRead.java
 src/main/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleUpdatePayload.java
 src/main/java/com/datadog/api/v2/client/model/SecurityMonitoringRuntimeAgentRule.java
 src/main/java/com/datadog/api/v2/client/model/SecurityMonitoringSignal.java
@@ -751,6 +757,7 @@ src/test/java/com/datadog/api/v2/client/model/IncidentFieldAttributesSingleValue
 src/test/java/com/datadog/api/v2/client/model/IncidentFieldAttributesTest.java
 src/test/java/com/datadog/api/v2/client/model/IncidentFieldAttributesValueTypeTest.java
 src/test/java/com/datadog/api/v2/client/model/IncidentIntegrationMetadataTypeTest.java
+src/test/java/com/datadog/api/v2/client/model/IncidentNotificationHandleTest.java
 src/test/java/com/datadog/api/v2/client/model/IncidentPostmortemTypeTest.java
 src/test/java/com/datadog/api/v2/client/model/IncidentRelatedObjectTest.java
 src/test/java/com/datadog/api/v2/client/model/IncidentResponseAttributesTest.java
@@ -986,6 +993,8 @@ src/test/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleQueryCreateT
 src/test/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleQueryTest.java
 src/test/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleResponseTest.java
 src/test/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleSeverityTest.java
+src/test/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleTypeCreateTest.java
+src/test/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleTypeReadTest.java
 src/test/java/com/datadog/api/v2/client/model/SecurityMonitoringRuleUpdatePayloadTest.java
 src/test/java/com/datadog/api/v2/client/model/SecurityMonitoringRuntimeAgentRuleTest.java
 src/test/java/com/datadog/api/v2/client/model/SecurityMonitoringSignalAttributesTest.java

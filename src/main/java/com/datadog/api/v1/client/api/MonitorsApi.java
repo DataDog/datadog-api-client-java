@@ -145,17 +145,17 @@ public class MonitorsApi {
    * &#x60;event alert&#x60; - event-v2: &#x60;event-v2 alert&#x60; #### Query Types **Metric Alert
    * Query** Example: &#x60;time_aggr(time_window):space_aggr:metric{tags} [by {key}] operator
    * #&#x60; - &#x60;time_aggr&#x60;: avg, sum, max, min, change, or pct_change -
-   * &#x60;time_window&#x60;: &#x60;last_#m&#x60; (with &#x60;#&#x60; between 1 and 2880 depending
-   * on the monitor type) or &#x60;last_#h&#x60;(with &#x60;#&#x60; between 1 and 48 depending on
-   * the monitor type), or &#x60;last_1d&#x60; - &#x60;space_aggr&#x60;: avg, sum, min, or max -
-   * &#x60;tags&#x60;: one or more tags (comma-separated), or * - &#x60;key&#x60;: a &#39;key&#39;
-   * in key:value tag syntax; defines a separate alert for each tag in the group (multi-alert) -
-   * &#x60;operator&#x60;: &lt;, &lt;&#x3D;, &gt;, &gt;&#x3D;, &#x3D;&#x3D;, or !&#x3D; -
-   * &#x60;#&#x60;: an integer or decimal number used to set the threshold If you are using the
-   * &#x60;_change_&#x60; or &#x60;_pct_change_&#x60; time aggregator, instead use
-   * &#x60;change_aggr(time_aggr(time_window), timeshift):space_aggr:metric{tags} [by {key}]
-   * operator #&#x60; with: - &#x60;change_aggr&#x60; change, pct_change - &#x60;time_aggr&#x60;
-   * avg, sum, max, min [Learn
+   * &#x60;time_window&#x60;: &#x60;last_#m&#x60; (with &#x60;#&#x60; between 1 and 10080 depending
+   * on the monitor type) or &#x60;last_#h&#x60;(with &#x60;#&#x60; between 1 and 168 depending on
+   * the monitor type) or &#x60;last_1d&#x60;, or &#x60;last_1w&#x60; - &#x60;space_aggr&#x60;: avg,
+   * sum, min, or max - &#x60;tags&#x60;: one or more tags (comma-separated), or * -
+   * &#x60;key&#x60;: a &#39;key&#39; in key:value tag syntax; defines a separate alert for each tag
+   * in the group (multi-alert) - &#x60;operator&#x60;: &lt;, &lt;&#x3D;, &gt;, &gt;&#x3D;,
+   * &#x3D;&#x3D;, or !&#x3D; - &#x60;#&#x60;: an integer or decimal number used to set the
+   * threshold If you are using the &#x60;_change_&#x60; or &#x60;_pct_change_&#x60; time
+   * aggregator, instead use &#x60;change_aggr(time_aggr(time_window),
+   * timeshift):space_aggr:metric{tags} [by {key}] operator #&#x60; with: - &#x60;change_aggr&#x60;
+   * change, pct_change - &#x60;time_aggr&#x60; avg, sum, max, min [Learn
    * more](https://docs.datadoghq.com/monitors/monitor_types/#define-the-conditions) -
    * &#x60;time_window&#x60; last\\_#m (between 1 and 2880 depending on the monitor type), last\\_#h
    * (between 1 and 48 depending on the monitor type), or last_#d (1 or 2) - &#x60;timeshift&#x60;
@@ -260,17 +260,17 @@ public class MonitorsApi {
    * &#x60;event alert&#x60; - event-v2: &#x60;event-v2 alert&#x60; #### Query Types **Metric Alert
    * Query** Example: &#x60;time_aggr(time_window):space_aggr:metric{tags} [by {key}] operator
    * #&#x60; - &#x60;time_aggr&#x60;: avg, sum, max, min, change, or pct_change -
-   * &#x60;time_window&#x60;: &#x60;last_#m&#x60; (with &#x60;#&#x60; between 1 and 2880 depending
-   * on the monitor type) or &#x60;last_#h&#x60;(with &#x60;#&#x60; between 1 and 48 depending on
-   * the monitor type), or &#x60;last_1d&#x60; - &#x60;space_aggr&#x60;: avg, sum, min, or max -
-   * &#x60;tags&#x60;: one or more tags (comma-separated), or * - &#x60;key&#x60;: a &#39;key&#39;
-   * in key:value tag syntax; defines a separate alert for each tag in the group (multi-alert) -
-   * &#x60;operator&#x60;: &lt;, &lt;&#x3D;, &gt;, &gt;&#x3D;, &#x3D;&#x3D;, or !&#x3D; -
-   * &#x60;#&#x60;: an integer or decimal number used to set the threshold If you are using the
-   * &#x60;_change_&#x60; or &#x60;_pct_change_&#x60; time aggregator, instead use
-   * &#x60;change_aggr(time_aggr(time_window), timeshift):space_aggr:metric{tags} [by {key}]
-   * operator #&#x60; with: - &#x60;change_aggr&#x60; change, pct_change - &#x60;time_aggr&#x60;
-   * avg, sum, max, min [Learn
+   * &#x60;time_window&#x60;: &#x60;last_#m&#x60; (with &#x60;#&#x60; between 1 and 10080 depending
+   * on the monitor type) or &#x60;last_#h&#x60;(with &#x60;#&#x60; between 1 and 168 depending on
+   * the monitor type) or &#x60;last_1d&#x60;, or &#x60;last_1w&#x60; - &#x60;space_aggr&#x60;: avg,
+   * sum, min, or max - &#x60;tags&#x60;: one or more tags (comma-separated), or * -
+   * &#x60;key&#x60;: a &#39;key&#39; in key:value tag syntax; defines a separate alert for each tag
+   * in the group (multi-alert) - &#x60;operator&#x60;: &lt;, &lt;&#x3D;, &gt;, &gt;&#x3D;,
+   * &#x3D;&#x3D;, or !&#x3D; - &#x60;#&#x60;: an integer or decimal number used to set the
+   * threshold If you are using the &#x60;_change_&#x60; or &#x60;_pct_change_&#x60; time
+   * aggregator, instead use &#x60;change_aggr(time_aggr(time_window),
+   * timeshift):space_aggr:metric{tags} [by {key}] operator #&#x60; with: - &#x60;change_aggr&#x60;
+   * change, pct_change - &#x60;time_aggr&#x60; avg, sum, max, min [Learn
    * more](https://docs.datadoghq.com/monitors/monitor_types/#define-the-conditions) -
    * &#x60;time_window&#x60; last\\_#m (between 1 and 2880 depending on the monitor type), last\\_#h
    * (between 1 and 48 depending on the monitor type), or last_#d (1 or 2) - &#x60;timeshift&#x60;

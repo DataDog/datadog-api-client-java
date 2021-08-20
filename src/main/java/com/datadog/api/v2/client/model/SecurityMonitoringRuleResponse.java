@@ -36,6 +36,7 @@ import java.util.Objects;
   SecurityMonitoringRuleResponse.JSON_PROPERTY_OPTIONS,
   SecurityMonitoringRuleResponse.JSON_PROPERTY_QUERIES,
   SecurityMonitoringRuleResponse.JSON_PROPERTY_TAGS,
+  SecurityMonitoringRuleResponse.JSON_PROPERTY_TYPE,
   SecurityMonitoringRuleResponse.JSON_PROPERTY_UPDATE_AUTHOR_ID,
   SecurityMonitoringRuleResponse.JSON_PROPERTY_VERSION
 })
@@ -82,6 +83,9 @@ public class SecurityMonitoringRuleResponse {
 
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
+
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private SecurityMonitoringRuleTypeRead type;
 
   public static final String JSON_PROPERTY_UPDATE_AUTHOR_ID = "updateAuthorId";
   private Long updateAuthorId;
@@ -431,6 +435,28 @@ public class SecurityMonitoringRuleResponse {
     this.tags = tags;
   }
 
+  public SecurityMonitoringRuleResponse type(SecurityMonitoringRuleTypeRead type) {
+    this.type = type;
+    return this;
+  }
+
+  /**
+   * Get type
+   *
+   * @return type
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SecurityMonitoringRuleTypeRead getType() {
+    return type;
+  }
+
+  public void setType(SecurityMonitoringRuleTypeRead type) {
+    this.type = type;
+  }
+
   public SecurityMonitoringRuleResponse updateAuthorId(Long updateAuthorId) {
     this.updateAuthorId = updateAuthorId;
     return this;
@@ -500,6 +526,7 @@ public class SecurityMonitoringRuleResponse {
         && Objects.equals(this.options, securityMonitoringRuleResponse.options)
         && Objects.equals(this.queries, securityMonitoringRuleResponse.queries)
         && Objects.equals(this.tags, securityMonitoringRuleResponse.tags)
+        && Objects.equals(this.type, securityMonitoringRuleResponse.type)
         && Objects.equals(this.updateAuthorId, securityMonitoringRuleResponse.updateAuthorId)
         && Objects.equals(this.version, securityMonitoringRuleResponse.version);
   }
@@ -521,6 +548,7 @@ public class SecurityMonitoringRuleResponse {
         options,
         queries,
         tags,
+        type,
         updateAuthorId,
         version);
   }
@@ -543,6 +571,7 @@ public class SecurityMonitoringRuleResponse {
     sb.append("    options: ").append(toIndentedString(options)).append("\n");
     sb.append("    queries: ").append(toIndentedString(queries)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    updateAuthorId: ").append(toIndentedString(updateAuthorId)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
