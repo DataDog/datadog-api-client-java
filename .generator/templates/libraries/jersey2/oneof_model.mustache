@@ -108,16 +108,13 @@ public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-im
                     // (min, max, enum, pattern...), this does not perform a strict JSON
                     // validation, which means the 'match' count may be higher than it should be.
                     {{^isPrimitiveType}}
-
                     if (!(({{dataType}})tmp).unparsed) {
-                        // deep copy tmp
-                        deserialized = tree.traverse(jp.getCodec()).readValueAs({{dataType}}.class);
+                        deserialized = tmp;
                         match++;
                     }
-
                     {{/isPrimitiveType}}
                     {{#isPrimitiveType}}
-                    deserialized = tree.traverse(jp.getCodec()).readValueAs({{dataType}}.class);
+                    deserialized = tmp;
                     match++;
                     {{/isPrimitiveType}}
                     log.log(Level.FINER, "Input data matches schema '{{dataType}}'");
