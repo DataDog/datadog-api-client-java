@@ -116,6 +116,10 @@ public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-im
                     }
 
                     {{/isPrimitiveType}}
+                    {{#isPrimitiveType}}
+                    deserialized = tree.traverse(jp.getCodec()).readValueAs({{dataType}}.class);
+                    match++;
+                    {{/isPrimitiveType}}
                     log.log(Level.FINER, "Input data matches schema '{{dataType}}'");
                 }
             } catch (Exception e) {
