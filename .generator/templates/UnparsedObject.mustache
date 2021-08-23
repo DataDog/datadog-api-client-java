@@ -56,7 +56,7 @@ public class UnparsedObject {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        return this.equals(((UnparsedObject)o).data);
+        return this.data.equals(((UnparsedObject)o).data);
     }
 
     @JsonCreator
