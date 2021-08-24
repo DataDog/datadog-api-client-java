@@ -809,7 +809,7 @@ public class SyntheticsApi {
     /**
      * Set fromTs
      *
-     * @param fromTs Timestamp from which to start querying results. (optional)
+     * @param fromTs Timestamp in milliseconds from which to start querying results. (optional)
      * @return GetAPITestLatestResultsOptionalParameters
      */
     public GetAPITestLatestResultsOptionalParameters fromTs(Long fromTs) {
@@ -820,7 +820,7 @@ public class SyntheticsApi {
     /**
      * Set toTs
      *
-     * @param toTs Timestamp up to which to query results. (optional)
+     * @param toTs Timestamp in milliseconds up to which to query results. (optional)
      * @return GetAPITestLatestResultsOptionalParameters
      */
     public GetAPITestLatestResultsOptionalParameters toTs(Long toTs) {
@@ -1144,7 +1144,7 @@ public class SyntheticsApi {
     /**
      * Set fromTs
      *
-     * @param fromTs Timestamp from which to start querying results. (optional)
+     * @param fromTs Timestamp in milliseconds from which to start querying results. (optional)
      * @return GetBrowserTestLatestResultsOptionalParameters
      */
     public GetBrowserTestLatestResultsOptionalParameters fromTs(Long fromTs) {
@@ -1155,7 +1155,7 @@ public class SyntheticsApi {
     /**
      * Set toTs
      *
-     * @param toTs Timestamp up to which to query results. (optional)
+     * @param toTs Timestamp in milliseconds up to which to query results. (optional)
      * @return GetBrowserTestLatestResultsOptionalParameters
      */
     public GetBrowserTestLatestResultsOptionalParameters toTs(Long toTs) {
