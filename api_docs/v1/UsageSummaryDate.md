@@ -26,6 +26,8 @@ Name | Type | Description | Notes
 **cwsContainerCountAvg** | **Long** | Shows the average of all distinct Cloud Workload Security containers over all hours in the current date for all organizations. |  [optional]
 **cwsHostTop99p** | **Long** | Shows the 99th percentile of all Cloud Workload Security hosts over all hours in the current date for all organizations. |  [optional]
 **date** | **OffsetDateTime** | The date for the usage. |  [optional]
+**dbmHostTop99p** | **Long** | Shows the 99th percentile of all Database Monitoring hosts over all hours in the current date for all organizations. |  [optional]
+**dbmQueriesCountAvg** | **Long** | Shows the average of all normalized Database Monitoring queries over all hours in the current date for all organizations. |  [optional]
 **fargateTasksCountAvg** | **Long** | Shows the high-watermark of all Fargate tasks over all hours in the current date for all organizations. |  [optional]
 **fargateTasksCountHwm** | **Long** | Shows the average of all Fargate tasks over all hours in the current date for all organizations. |  [optional]
 **gcpHostTop99p** | **Long** | Shows the 99th percentile of all GCP hosts over all hours in the current date for all organizations. |  [optional]

@@ -42,6 +42,8 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_CUSTOM_TS_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CWS_CONTAINERS_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CWS_HOST_TOP99P_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_DBM_HOST_TOP99P_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_DBM_QUERIES_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_END_DATE,
   UsageSummaryResponse.JSON_PROPERTY_FARGATE_TASKS_COUNT_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_FARGATE_TASKS_COUNT_HWM_SUM,
@@ -137,6 +139,12 @@ public class UsageSummaryResponse {
 
   public static final String JSON_PROPERTY_CWS_HOST_TOP99P_SUM = "cws_host_top99p_sum";
   private Long cwsHostTop99pSum;
+
+  public static final String JSON_PROPERTY_DBM_HOST_TOP99P_SUM = "dbm_host_top99p_sum";
+  private Long dbmHostTop99pSum;
+
+  public static final String JSON_PROPERTY_DBM_QUERIES_AGG_SUM = "dbm_queries_agg_sum";
+  private Long dbmQueriesAggSum;
 
   public static final String JSON_PROPERTY_END_DATE = "end_date";
   private OffsetDateTime endDate;
@@ -728,6 +736,58 @@ public class UsageSummaryResponse {
 
   public void setCwsHostTop99pSum(Long cwsHostTop99pSum) {
     this.cwsHostTop99pSum = cwsHostTop99pSum;
+  }
+
+  public UsageSummaryResponse dbmHostTop99pSum(Long dbmHostTop99pSum) {
+    this.dbmHostTop99pSum = dbmHostTop99pSum;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all Database Monitoring hosts over all hours in the current month
+   * for all organizations.
+   *
+   * @return dbmHostTop99pSum
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the 99th percentile of all Database Monitoring hosts over all hours in the"
+              + " current month for all organizations.")
+  @JsonProperty(JSON_PROPERTY_DBM_HOST_TOP99P_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getDbmHostTop99pSum() {
+    return dbmHostTop99pSum;
+  }
+
+  public void setDbmHostTop99pSum(Long dbmHostTop99pSum) {
+    this.dbmHostTop99pSum = dbmHostTop99pSum;
+  }
+
+  public UsageSummaryResponse dbmQueriesAggSum(Long dbmQueriesAggSum) {
+    this.dbmQueriesAggSum = dbmQueriesAggSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all distinct Database Monitoring Normalized Queries over all hours in the
+   * current month for all organizations.
+   *
+   * @return dbmQueriesAggSum
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the sum of all distinct Database Monitoring Normalized Queries over all hours in"
+              + " the current month for all organizations.")
+  @JsonProperty(JSON_PROPERTY_DBM_QUERIES_AGG_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getDbmQueriesAggSum() {
+    return dbmQueriesAggSum;
+  }
+
+  public void setDbmQueriesAggSum(Long dbmQueriesAggSum) {
+    this.dbmQueriesAggSum = dbmQueriesAggSum;
   }
 
   public UsageSummaryResponse endDate(OffsetDateTime endDate) {
@@ -1651,6 +1711,8 @@ public class UsageSummaryResponse {
         && Objects.equals(this.customTsSum, usageSummaryResponse.customTsSum)
         && Objects.equals(this.cwsContainersAvgSum, usageSummaryResponse.cwsContainersAvgSum)
         && Objects.equals(this.cwsHostTop99pSum, usageSummaryResponse.cwsHostTop99pSum)
+        && Objects.equals(this.dbmHostTop99pSum, usageSummaryResponse.dbmHostTop99pSum)
+        && Objects.equals(this.dbmQueriesAggSum, usageSummaryResponse.dbmQueriesAggSum)
         && Objects.equals(this.endDate, usageSummaryResponse.endDate)
         && Objects.equals(
             this.fargateTasksCountAvgSum, usageSummaryResponse.fargateTasksCountAvgSum)
@@ -1737,6 +1799,8 @@ public class UsageSummaryResponse {
         customTsSum,
         cwsContainersAvgSum,
         cwsHostTop99pSum,
+        dbmHostTop99pSum,
+        dbmQueriesAggSum,
         endDate,
         fargateTasksCountAvgSum,
         fargateTasksCountHwmSum,
@@ -1811,6 +1875,8 @@ public class UsageSummaryResponse {
         .append(toIndentedString(cwsContainersAvgSum))
         .append("\n");
     sb.append("    cwsHostTop99pSum: ").append(toIndentedString(cwsHostTop99pSum)).append("\n");
+    sb.append("    dbmHostTop99pSum: ").append(toIndentedString(dbmHostTop99pSum)).append("\n");
+    sb.append("    dbmQueriesAggSum: ").append(toIndentedString(dbmQueriesAggSum)).append("\n");
     sb.append("    endDate: ").append(toIndentedString(endDate)).append("\n");
     sb.append("    fargateTasksCountAvgSum: ")
         .append(toIndentedString(fargateTasksCountAvgSum))

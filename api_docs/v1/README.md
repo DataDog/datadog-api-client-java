@@ -173,6 +173,7 @@ Class | Method | HTTP request | Description
 *UsageMeteringApi* | [**getUsageBillableSummary**](UsageMeteringApi.md#getUsageBillableSummary) | **GET** /api/v1/usage/billable-summary | Get billable usage across your account
 *UsageMeteringApi* | [**getUsageCWS**](UsageMeteringApi.md#getUsageCWS) | **GET** /api/v1/usage/cws | Get hourly usage for Cloud Workload Security
 *UsageMeteringApi* | [**getUsageCloudSecurityPostureManagement**](UsageMeteringApi.md#getUsageCloudSecurityPostureManagement) | **GET** /api/v1/usage/cspm | Get hourly usage for CSPM
+*UsageMeteringApi* | [**getUsageDBM**](UsageMeteringApi.md#getUsageDBM) | **GET** /api/v1/usage/dbm | Get hourly usage for Database Monitoring
 *UsageMeteringApi* | [**getUsageFargate**](UsageMeteringApi.md#getUsageFargate) | **GET** /api/v1/usage/fargate | Get hourly usage for Fargate
 *UsageMeteringApi* | [**getUsageHosts**](UsageMeteringApi.md#getUsageHosts) | **GET** /api/v1/usage/hosts | Get hourly usage for hosts and containers
 *UsageMeteringApi* | [**getUsageIndexedSpans**](UsageMeteringApi.md#getUsageIndexedSpans) | **GET** /api/v1/usage/indexed-spans | Get hourly usage for indexed spans
@@ -706,6 +707,8 @@ Class | Method | HTTP request | Description
  - [UsageCustomReportsMeta](UsageCustomReportsMeta.md)
  - [UsageCustomReportsPage](UsageCustomReportsPage.md)
  - [UsageCustomReportsResponse](UsageCustomReportsResponse.md)
+ - [UsageDBMHour](UsageDBMHour.md)
+ - [UsageDBMResponse](UsageDBMResponse.md)
  - [UsageFargateHour](UsageFargateHour.md)
  - [UsageFargateResponse](UsageFargateResponse.md)
  - [UsageHostHour](UsageHostHour.md)
