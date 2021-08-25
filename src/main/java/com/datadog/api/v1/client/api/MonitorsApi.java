@@ -142,20 +142,21 @@ public class MonitorsApi {
    * live process: &#x60;process alert&#x60; - logs: &#x60;log alert&#x60; - metric: &#x60;metric
    * alert&#x60; - network: &#x60;service check&#x60; - outlier: &#x60;query alert&#x60; - process:
    * &#x60;service check&#x60; - rum: &#x60;rum alert&#x60; - SLO: &#x60;slo alert&#x60; - watchdog:
-   * &#x60;event alert&#x60; - event-v2: &#x60;event-v2 alert&#x60; #### Query Types **Metric Alert
-   * Query** Example: &#x60;time_aggr(time_window):space_aggr:metric{tags} [by {key}] operator
-   * #&#x60; - &#x60;time_aggr&#x60;: avg, sum, max, min, change, or pct_change -
-   * &#x60;time_window&#x60;: &#x60;last_#m&#x60; (with &#x60;#&#x60; between 1 and 10080 depending
-   * on the monitor type) or &#x60;last_#h&#x60;(with &#x60;#&#x60; between 1 and 168 depending on
-   * the monitor type) or &#x60;last_1d&#x60;, or &#x60;last_1w&#x60; - &#x60;space_aggr&#x60;: avg,
-   * sum, min, or max - &#x60;tags&#x60;: one or more tags (comma-separated), or * -
-   * &#x60;key&#x60;: a &#39;key&#39; in key:value tag syntax; defines a separate alert for each tag
-   * in the group (multi-alert) - &#x60;operator&#x60;: &lt;, &lt;&#x3D;, &gt;, &gt;&#x3D;,
-   * &#x3D;&#x3D;, or !&#x3D; - &#x60;#&#x60;: an integer or decimal number used to set the
-   * threshold If you are using the &#x60;_change_&#x60; or &#x60;_pct_change_&#x60; time
-   * aggregator, instead use &#x60;change_aggr(time_aggr(time_window),
-   * timeshift):space_aggr:metric{tags} [by {key}] operator #&#x60; with: - &#x60;change_aggr&#x60;
-   * change, pct_change - &#x60;time_aggr&#x60; avg, sum, max, min [Learn
+   * &#x60;event alert&#x60; - event-v2: &#x60;event-v2 alert&#x60; - audit: &#x60;audit alert&#x60;
+   * #### Query Types **Metric Alert Query** Example:
+   * &#x60;time_aggr(time_window):space_aggr:metric{tags} [by {key}] operator #&#x60; -
+   * &#x60;time_aggr&#x60;: avg, sum, max, min, change, or pct_change - &#x60;time_window&#x60;:
+   * &#x60;last_#m&#x60; (with &#x60;#&#x60; between 1 and 10080 depending on the monitor type) or
+   * &#x60;last_#h&#x60;(with &#x60;#&#x60; between 1 and 168 depending on the monitor type) or
+   * &#x60;last_1d&#x60;, or &#x60;last_1w&#x60; - &#x60;space_aggr&#x60;: avg, sum, min, or max -
+   * &#x60;tags&#x60;: one or more tags (comma-separated), or * - &#x60;key&#x60;: a &#39;key&#39;
+   * in key:value tag syntax; defines a separate alert for each tag in the group (multi-alert) -
+   * &#x60;operator&#x60;: &lt;, &lt;&#x3D;, &gt;, &gt;&#x3D;, &#x3D;&#x3D;, or !&#x3D; -
+   * &#x60;#&#x60;: an integer or decimal number used to set the threshold If you are using the
+   * &#x60;_change_&#x60; or &#x60;_pct_change_&#x60; time aggregator, instead use
+   * &#x60;change_aggr(time_aggr(time_window), timeshift):space_aggr:metric{tags} [by {key}]
+   * operator #&#x60; with: - &#x60;change_aggr&#x60; change, pct_change - &#x60;time_aggr&#x60;
+   * avg, sum, max, min [Learn
    * more](https://docs.datadoghq.com/monitors/monitor_types/#define-the-conditions) -
    * &#x60;time_window&#x60; last\\_#m (between 1 and 2880 depending on the monitor type), last\\_#h
    * (between 1 and 48 depending on the monitor type), or last_#d (1 or 2) - &#x60;timeshift&#x60;
@@ -231,7 +232,17 @@ public class MonitorsApi {
    * **&#x60;slo_id&#x60;**: The alphanumeric SLO ID of the SLO you are configuring the alert for. -
    * **&#x60;time_window&#x60;**: The time window of the SLO target you wish to alert on. Valid
    * options: &#x60;7d&#x60;, &#x60;30d&#x60;, &#x60;90d&#x60;. - **&#x60;operator&#x60;**:
-   * &#x60;&gt;&#x3D;&#x60; or &#x60;&gt;&#x60;
+   * &#x60;&gt;&#x3D;&#x60; or &#x60;&gt;&#x60; **Audit Alert Query** Example:
+   * &#x60;audits(query).rollup(rollup_method[, measure]).last(time_window) operator #&#x60; -
+   * **&#x60;query&#x60;** The search query - following the [Log search
+   * syntax](https://docs.datadoghq.com/logs/search_syntax/). - **&#x60;rollup_method&#x60;** The
+   * stats roll-up method - supports &#x60;count&#x60;, &#x60;avg&#x60; and &#x60;cardinality&#x60;.
+   * - **&#x60;measure&#x60;** For &#x60;avg&#x60; and cardinality &#x60;rollup_method&#x60; -
+   * specify the measure or the facet name you want to use. - **&#x60;time_window&#x60;** #m
+   * (between 1 and 2880), #h (between 1 and 48). - **&#x60;operator&#x60;** &#x60;&lt;&#x60;,
+   * &#x60;&lt;&#x3D;&#x60;, &#x60;&gt;&#x60;, &#x60;&gt;&#x3D;&#x60;, &#x60;&#x3D;&#x3D;&#x60;, or
+   * &#x60;!&#x3D;&#x60;. - **&#x60;#&#x60;** an integer or decimal number used to set the
+   * threshold. **NOTE** Only available on US1-FED and in closed beta on EU, US3, and US1.
    *
    * @param body Create a monitor request body. (required)
    * @return Monitor
@@ -257,20 +268,21 @@ public class MonitorsApi {
    * live process: &#x60;process alert&#x60; - logs: &#x60;log alert&#x60; - metric: &#x60;metric
    * alert&#x60; - network: &#x60;service check&#x60; - outlier: &#x60;query alert&#x60; - process:
    * &#x60;service check&#x60; - rum: &#x60;rum alert&#x60; - SLO: &#x60;slo alert&#x60; - watchdog:
-   * &#x60;event alert&#x60; - event-v2: &#x60;event-v2 alert&#x60; #### Query Types **Metric Alert
-   * Query** Example: &#x60;time_aggr(time_window):space_aggr:metric{tags} [by {key}] operator
-   * #&#x60; - &#x60;time_aggr&#x60;: avg, sum, max, min, change, or pct_change -
-   * &#x60;time_window&#x60;: &#x60;last_#m&#x60; (with &#x60;#&#x60; between 1 and 10080 depending
-   * on the monitor type) or &#x60;last_#h&#x60;(with &#x60;#&#x60; between 1 and 168 depending on
-   * the monitor type) or &#x60;last_1d&#x60;, or &#x60;last_1w&#x60; - &#x60;space_aggr&#x60;: avg,
-   * sum, min, or max - &#x60;tags&#x60;: one or more tags (comma-separated), or * -
-   * &#x60;key&#x60;: a &#39;key&#39; in key:value tag syntax; defines a separate alert for each tag
-   * in the group (multi-alert) - &#x60;operator&#x60;: &lt;, &lt;&#x3D;, &gt;, &gt;&#x3D;,
-   * &#x3D;&#x3D;, or !&#x3D; - &#x60;#&#x60;: an integer or decimal number used to set the
-   * threshold If you are using the &#x60;_change_&#x60; or &#x60;_pct_change_&#x60; time
-   * aggregator, instead use &#x60;change_aggr(time_aggr(time_window),
-   * timeshift):space_aggr:metric{tags} [by {key}] operator #&#x60; with: - &#x60;change_aggr&#x60;
-   * change, pct_change - &#x60;time_aggr&#x60; avg, sum, max, min [Learn
+   * &#x60;event alert&#x60; - event-v2: &#x60;event-v2 alert&#x60; - audit: &#x60;audit alert&#x60;
+   * #### Query Types **Metric Alert Query** Example:
+   * &#x60;time_aggr(time_window):space_aggr:metric{tags} [by {key}] operator #&#x60; -
+   * &#x60;time_aggr&#x60;: avg, sum, max, min, change, or pct_change - &#x60;time_window&#x60;:
+   * &#x60;last_#m&#x60; (with &#x60;#&#x60; between 1 and 10080 depending on the monitor type) or
+   * &#x60;last_#h&#x60;(with &#x60;#&#x60; between 1 and 168 depending on the monitor type) or
+   * &#x60;last_1d&#x60;, or &#x60;last_1w&#x60; - &#x60;space_aggr&#x60;: avg, sum, min, or max -
+   * &#x60;tags&#x60;: one or more tags (comma-separated), or * - &#x60;key&#x60;: a &#39;key&#39;
+   * in key:value tag syntax; defines a separate alert for each tag in the group (multi-alert) -
+   * &#x60;operator&#x60;: &lt;, &lt;&#x3D;, &gt;, &gt;&#x3D;, &#x3D;&#x3D;, or !&#x3D; -
+   * &#x60;#&#x60;: an integer or decimal number used to set the threshold If you are using the
+   * &#x60;_change_&#x60; or &#x60;_pct_change_&#x60; time aggregator, instead use
+   * &#x60;change_aggr(time_aggr(time_window), timeshift):space_aggr:metric{tags} [by {key}]
+   * operator #&#x60; with: - &#x60;change_aggr&#x60; change, pct_change - &#x60;time_aggr&#x60;
+   * avg, sum, max, min [Learn
    * more](https://docs.datadoghq.com/monitors/monitor_types/#define-the-conditions) -
    * &#x60;time_window&#x60; last\\_#m (between 1 and 2880 depending on the monitor type), last\\_#h
    * (between 1 and 48 depending on the monitor type), or last_#d (1 or 2) - &#x60;timeshift&#x60;
@@ -346,7 +358,17 @@ public class MonitorsApi {
    * **&#x60;slo_id&#x60;**: The alphanumeric SLO ID of the SLO you are configuring the alert for. -
    * **&#x60;time_window&#x60;**: The time window of the SLO target you wish to alert on. Valid
    * options: &#x60;7d&#x60;, &#x60;30d&#x60;, &#x60;90d&#x60;. - **&#x60;operator&#x60;**:
-   * &#x60;&gt;&#x3D;&#x60; or &#x60;&gt;&#x60;
+   * &#x60;&gt;&#x3D;&#x60; or &#x60;&gt;&#x60; **Audit Alert Query** Example:
+   * &#x60;audits(query).rollup(rollup_method[, measure]).last(time_window) operator #&#x60; -
+   * **&#x60;query&#x60;** The search query - following the [Log search
+   * syntax](https://docs.datadoghq.com/logs/search_syntax/). - **&#x60;rollup_method&#x60;** The
+   * stats roll-up method - supports &#x60;count&#x60;, &#x60;avg&#x60; and &#x60;cardinality&#x60;.
+   * - **&#x60;measure&#x60;** For &#x60;avg&#x60; and cardinality &#x60;rollup_method&#x60; -
+   * specify the measure or the facet name you want to use. - **&#x60;time_window&#x60;** #m
+   * (between 1 and 2880), #h (between 1 and 48). - **&#x60;operator&#x60;** &#x60;&lt;&#x60;,
+   * &#x60;&lt;&#x3D;&#x60;, &#x60;&gt;&#x60;, &#x60;&gt;&#x3D;&#x60;, &#x60;&#x3D;&#x3D;&#x60;, or
+   * &#x60;!&#x3D;&#x60;. - **&#x60;#&#x60;** an integer or decimal number used to set the
+   * threshold. **NOTE** Only available on US1-FED and in closed beta on EU, US3, and US1.
    *
    * @param body Create a monitor request body. (required)
    * @return ApiResponse&lt;Monitor&gt;

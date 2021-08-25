@@ -26,6 +26,8 @@ Name | Type | Description | Notes
 **customTsSum** | **Long** | Shows the average number of distinct custom metrics over all hours in the current months for all organizations. |  [optional]
 **cwsContainersAvgSum** | **Long** | Shows the average of all distinct Cloud Workload Security containers over all hours in the current months for all organizations. |  [optional]
 **cwsHostTop99pSum** | **Long** | Shows the 99th percentile of all Cloud Workload Security hosts over all hours in the current months for all organizations. |  [optional]
+**dbmHostTop99pSum** | **Long** | Shows the 99th percentile of all Database Monitoring hosts over all hours in the current month for all organizations. |  [optional]
+**dbmQueriesAggSum** | **Long** | Shows the sum of all distinct Database Monitoring Normalized Queries over all hours in the current month for all organizations. |  [optional]
 **endDate** | **OffsetDateTime** | Shows the last date of usage in the current months for all organizations. |  [optional]
 **fargateTasksCountAvgSum** | **Long** | Shows the average of all Fargate tasks over all hours in the current months for all organizations. |  [optional]
 **fargateTasksCountHwmSum** | **Long** | Shows the sum of the high-water marks of all Fargate tasks over all hours in the current months for all organizations. |  [optional]

@@ -634,8 +634,8 @@ public class Example {
 
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
         String publicId = "publicId_example"; // String | The public ID of the test for which to search results for.
-        Long fromTs = 56L; // Long | Timestamp from which to start querying results.
-        Long toTs = 56L; // Long | Timestamp up to which to query results.
+        Long fromTs = 56L; // Long | Timestamp in milliseconds from which to start querying results.
+        Long toTs = 56L; // Long | Timestamp in milliseconds up to which to query results.
         List<String> probeDc = Arrays.asList(); // List<String> | Locations for which to query results.
         try {
 	    SyntheticsGetAPITestLatestResultsResponse result = apiInstance.getAPITestLatestResults(publicId, new SyntheticsApi.GetAPITestLatestResultsOptionalParameters()
@@ -660,8 +660,8 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **publicId** | **String**| The public ID of the test for which to search results for. |
- **fromTs** | **Long**| Timestamp from which to start querying results. | [optional]
- **toTs** | **Long**| Timestamp up to which to query results. | [optional]
+ **fromTs** | **Long**| Timestamp in milliseconds from which to start querying results. | [optional]
+ **toTs** | **Long**| Timestamp in milliseconds up to which to query results. | [optional]
  **probeDc** | **List&lt;String&gt;**| Locations for which to query results. | [optional]
 
 ### Return type
@@ -838,8 +838,8 @@ public class Example {
 
         SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
         String publicId = "publicId_example"; // String | The public ID of the browser test for which to search results for.
-        Long fromTs = 56L; // Long | Timestamp from which to start querying results.
-        Long toTs = 56L; // Long | Timestamp up to which to query results.
+        Long fromTs = 56L; // Long | Timestamp in milliseconds from which to start querying results.
+        Long toTs = 56L; // Long | Timestamp in milliseconds up to which to query results.
         List<String> probeDc = Arrays.asList(); // List<String> | Locations for which to query results.
         try {
 	    SyntheticsGetBrowserTestLatestResultsResponse result = apiInstance.getBrowserTestLatestResults(publicId, new SyntheticsApi.GetBrowserTestLatestResultsOptionalParameters()
@@ -864,8 +864,8 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **publicId** | **String**| The public ID of the browser test for which to search results for. |
- **fromTs** | **Long**| Timestamp from which to start querying results. | [optional]
- **toTs** | **Long**| Timestamp up to which to query results. | [optional]
+ **fromTs** | **Long**| Timestamp in milliseconds from which to start querying results. | [optional]
+ **toTs** | **Long**| Timestamp in milliseconds up to which to query results. | [optional]
  **probeDc** | **List&lt;String&gt;**| Locations for which to query results. | [optional]
 
 ### Return type

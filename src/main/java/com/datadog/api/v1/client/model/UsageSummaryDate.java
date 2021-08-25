@@ -42,6 +42,8 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_CWS_CONTAINER_COUNT_AVG,
   UsageSummaryDate.JSON_PROPERTY_CWS_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_DATE,
+  UsageSummaryDate.JSON_PROPERTY_DBM_HOST_TOP99P,
+  UsageSummaryDate.JSON_PROPERTY_DBM_QUERIES_COUNT_AVG,
   UsageSummaryDate.JSON_PROPERTY_FARGATE_TASKS_COUNT_AVG,
   UsageSummaryDate.JSON_PROPERTY_FARGATE_TASKS_COUNT_HWM,
   UsageSummaryDate.JSON_PROPERTY_GCP_HOST_TOP99P,
@@ -127,6 +129,12 @@ public class UsageSummaryDate {
 
   public static final String JSON_PROPERTY_DATE = "date";
   private OffsetDateTime date;
+
+  public static final String JSON_PROPERTY_DBM_HOST_TOP99P = "dbm_host_top99p";
+  private Long dbmHostTop99p;
+
+  public static final String JSON_PROPERTY_DBM_QUERIES_COUNT_AVG = "dbm_queries_count_avg";
+  private Long dbmQueriesCountAvg;
 
   public static final String JSON_PROPERTY_FARGATE_TASKS_COUNT_AVG = "fargate_tasks_count_avg";
   private Long fargateTasksCountAvg;
@@ -675,6 +683,58 @@ public class UsageSummaryDate {
 
   public void setDate(OffsetDateTime date) {
     this.date = date;
+  }
+
+  public UsageSummaryDate dbmHostTop99p(Long dbmHostTop99p) {
+    this.dbmHostTop99p = dbmHostTop99p;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all Database Monitoring hosts over all hours in the current date
+   * for all organizations.
+   *
+   * @return dbmHostTop99p
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the 99th percentile of all Database Monitoring hosts over all hours in the"
+              + " current date for all organizations.")
+  @JsonProperty(JSON_PROPERTY_DBM_HOST_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getDbmHostTop99p() {
+    return dbmHostTop99p;
+  }
+
+  public void setDbmHostTop99p(Long dbmHostTop99p) {
+    this.dbmHostTop99p = dbmHostTop99p;
+  }
+
+  public UsageSummaryDate dbmQueriesCountAvg(Long dbmQueriesCountAvg) {
+    this.dbmQueriesCountAvg = dbmQueriesCountAvg;
+    return this;
+  }
+
+  /**
+   * Shows the average of all normalized Database Monitoring queries over all hours in the current
+   * date for all organizations.
+   *
+   * @return dbmQueriesCountAvg
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the average of all normalized Database Monitoring queries over all hours in the"
+              + " current date for all organizations.")
+  @JsonProperty(JSON_PROPERTY_DBM_QUERIES_COUNT_AVG)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getDbmQueriesCountAvg() {
+    return dbmQueriesCountAvg;
+  }
+
+  public void setDbmQueriesCountAvg(Long dbmQueriesCountAvg) {
+    this.dbmQueriesCountAvg = dbmQueriesCountAvg;
   }
 
   public UsageSummaryDate fargateTasksCountAvg(Long fargateTasksCountAvg) {
@@ -1363,6 +1423,8 @@ public class UsageSummaryDate {
         && Objects.equals(this.cwsContainerCountAvg, usageSummaryDate.cwsContainerCountAvg)
         && Objects.equals(this.cwsHostTop99p, usageSummaryDate.cwsHostTop99p)
         && Objects.equals(this.date, usageSummaryDate.date)
+        && Objects.equals(this.dbmHostTop99p, usageSummaryDate.dbmHostTop99p)
+        && Objects.equals(this.dbmQueriesCountAvg, usageSummaryDate.dbmQueriesCountAvg)
         && Objects.equals(this.fargateTasksCountAvg, usageSummaryDate.fargateTasksCountAvg)
         && Objects.equals(this.fargateTasksCountHwm, usageSummaryDate.fargateTasksCountHwm)
         && Objects.equals(this.gcpHostTop99p, usageSummaryDate.gcpHostTop99p)
@@ -1422,6 +1484,8 @@ public class UsageSummaryDate {
         cwsContainerCountAvg,
         cwsHostTop99p,
         date,
+        dbmHostTop99p,
+        dbmQueriesCountAvg,
         fargateTasksCountAvg,
         fargateTasksCountHwm,
         gcpHostTop99p,
@@ -1483,6 +1547,8 @@ public class UsageSummaryDate {
         .append("\n");
     sb.append("    cwsHostTop99p: ").append(toIndentedString(cwsHostTop99p)).append("\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
+    sb.append("    dbmHostTop99p: ").append(toIndentedString(dbmHostTop99p)).append("\n");
+    sb.append("    dbmQueriesCountAvg: ").append(toIndentedString(dbmQueriesCountAvg)).append("\n");
     sb.append("    fargateTasksCountAvg: ")
         .append(toIndentedString(fargateTasksCountAvg))
         .append("\n");
