@@ -38,6 +38,10 @@ import java.util.Objects;
   UsageAttributionValues.JSON_PROPERTY_CWS_CONTAINER_USAGE,
   UsageAttributionValues.JSON_PROPERTY_CWS_HOST_PERCENTAGE,
   UsageAttributionValues.JSON_PROPERTY_CWS_HOST_USAGE,
+  UsageAttributionValues.JSON_PROPERTY_DBM_HOST_PERCENTAGE,
+  UsageAttributionValues.JSON_PROPERTY_DBM_HOST_USAGE,
+  UsageAttributionValues.JSON_PROPERTY_DBM_QUERIES_PERCENTAGE,
+  UsageAttributionValues.JSON_PROPERTY_DBM_QUERIES_USAGE,
   UsageAttributionValues.JSON_PROPERTY_INFRA_HOST_PERCENTAGE,
   UsageAttributionValues.JSON_PROPERTY_INFRA_HOST_USAGE,
   UsageAttributionValues.JSON_PROPERTY_LAMBDA_FUNCTIONS_PERCENTAGE,
@@ -111,6 +115,18 @@ public class UsageAttributionValues {
 
   public static final String JSON_PROPERTY_CWS_HOST_USAGE = "cws_host_usage";
   private Double cwsHostUsage;
+
+  public static final String JSON_PROPERTY_DBM_HOST_PERCENTAGE = "dbm_host_percentage";
+  private Double dbmHostPercentage;
+
+  public static final String JSON_PROPERTY_DBM_HOST_USAGE = "dbm_host_usage";
+  private Double dbmHostUsage;
+
+  public static final String JSON_PROPERTY_DBM_QUERIES_PERCENTAGE = "dbm_queries_percentage";
+  private Double dbmQueriesPercentage;
+
+  public static final String JSON_PROPERTY_DBM_QUERIES_USAGE = "dbm_queries_usage";
+  private Double dbmQueriesUsage;
 
   public static final String JSON_PROPERTY_INFRA_HOST_PERCENTAGE = "infra_host_percentage";
   private Double infraHostPercentage;
@@ -561,6 +577,95 @@ public class UsageAttributionValues {
     this.cwsHostUsage = cwsHostUsage;
   }
 
+  public UsageAttributionValues dbmHostPercentage(Double dbmHostPercentage) {
+    this.dbmHostPercentage = dbmHostPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Database Monitoring host usage by tag(s).
+   *
+   * @return dbmHostPercentage
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The percentage of Database Monitoring host usage by tag(s).")
+  @JsonProperty(JSON_PROPERTY_DBM_HOST_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getDbmHostPercentage() {
+    return dbmHostPercentage;
+  }
+
+  public void setDbmHostPercentage(Double dbmHostPercentage) {
+    this.dbmHostPercentage = dbmHostPercentage;
+  }
+
+  public UsageAttributionValues dbmHostUsage(Double dbmHostUsage) {
+    this.dbmHostUsage = dbmHostUsage;
+    return this;
+  }
+
+  /**
+   * The Database Monitoring host usage by tag(s).
+   *
+   * @return dbmHostUsage
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The Database Monitoring host usage by tag(s).")
+  @JsonProperty(JSON_PROPERTY_DBM_HOST_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getDbmHostUsage() {
+    return dbmHostUsage;
+  }
+
+  public void setDbmHostUsage(Double dbmHostUsage) {
+    this.dbmHostUsage = dbmHostUsage;
+  }
+
+  public UsageAttributionValues dbmQueriesPercentage(Double dbmQueriesPercentage) {
+    this.dbmQueriesPercentage = dbmQueriesPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of Database Monitoring normalized queries usage by tag(s).
+   *
+   * @return dbmQueriesPercentage
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value = "The percentage of Database Monitoring normalized queries usage by tag(s).")
+  @JsonProperty(JSON_PROPERTY_DBM_QUERIES_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getDbmQueriesPercentage() {
+    return dbmQueriesPercentage;
+  }
+
+  public void setDbmQueriesPercentage(Double dbmQueriesPercentage) {
+    this.dbmQueriesPercentage = dbmQueriesPercentage;
+  }
+
+  public UsageAttributionValues dbmQueriesUsage(Double dbmQueriesUsage) {
+    this.dbmQueriesUsage = dbmQueriesUsage;
+    return this;
+  }
+
+  /**
+   * The Database Monitoring normalized queries usage by tag(s).
+   *
+   * @return dbmQueriesUsage
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The Database Monitoring normalized queries usage by tag(s).")
+  @JsonProperty(JSON_PROPERTY_DBM_QUERIES_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getDbmQueriesUsage() {
+    return dbmQueriesUsage;
+  }
+
+  public void setDbmQueriesUsage(Double dbmQueriesUsage) {
+    this.dbmQueriesUsage = dbmQueriesUsage;
+  }
+
   public UsageAttributionValues infraHostPercentage(Double infraHostPercentage) {
     this.infraHostPercentage = infraHostPercentage;
     return this;
@@ -952,6 +1057,10 @@ public class UsageAttributionValues {
         && Objects.equals(this.cwsContainerUsage, usageAttributionValues.cwsContainerUsage)
         && Objects.equals(this.cwsHostPercentage, usageAttributionValues.cwsHostPercentage)
         && Objects.equals(this.cwsHostUsage, usageAttributionValues.cwsHostUsage)
+        && Objects.equals(this.dbmHostPercentage, usageAttributionValues.dbmHostPercentage)
+        && Objects.equals(this.dbmHostUsage, usageAttributionValues.dbmHostUsage)
+        && Objects.equals(this.dbmQueriesPercentage, usageAttributionValues.dbmQueriesPercentage)
+        && Objects.equals(this.dbmQueriesUsage, usageAttributionValues.dbmQueriesUsage)
         && Objects.equals(this.infraHostPercentage, usageAttributionValues.infraHostPercentage)
         && Objects.equals(this.infraHostUsage, usageAttributionValues.infraHostUsage)
         && Objects.equals(
@@ -997,6 +1106,10 @@ public class UsageAttributionValues {
         cwsContainerUsage,
         cwsHostPercentage,
         cwsHostUsage,
+        dbmHostPercentage,
+        dbmHostUsage,
+        dbmQueriesPercentage,
+        dbmQueriesUsage,
         infraHostPercentage,
         infraHostUsage,
         lambdaFunctionsPercentage,
@@ -1047,6 +1160,12 @@ public class UsageAttributionValues {
     sb.append("    cwsContainerUsage: ").append(toIndentedString(cwsContainerUsage)).append("\n");
     sb.append("    cwsHostPercentage: ").append(toIndentedString(cwsHostPercentage)).append("\n");
     sb.append("    cwsHostUsage: ").append(toIndentedString(cwsHostUsage)).append("\n");
+    sb.append("    dbmHostPercentage: ").append(toIndentedString(dbmHostPercentage)).append("\n");
+    sb.append("    dbmHostUsage: ").append(toIndentedString(dbmHostUsage)).append("\n");
+    sb.append("    dbmQueriesPercentage: ")
+        .append(toIndentedString(dbmQueriesPercentage))
+        .append("\n");
+    sb.append("    dbmQueriesUsage: ").append(toIndentedString(dbmQueriesUsage)).append("\n");
     sb.append("    infraHostPercentage: ")
         .append(toIndentedString(infraHostPercentage))
         .append("\n");
