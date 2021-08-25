@@ -85,12 +85,12 @@ public class SyntheticsTestConfig {
   }
 
   /**
-   * API tests only - array of variables used for the test.
+   * Array of variables used for the test.
    *
    * @return configVariables
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "API tests only - array of variables used for the test.")
+  @ApiModelProperty(value = "Array of variables used for the test.")
   @JsonProperty(JSON_PROPERTY_CONFIG_VARIABLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsConfigVariable> getConfigVariables() {

@@ -21409,6 +21409,15 @@ components:
             example: example
           setCookie: setCookie
           assertions: []
+          configVariables:
+          - name: VARIABLE_NAME
+            pattern: pattern
+            id: id
+            example: example
+          - name: VARIABLE_NAME
+            pattern: pattern
+            id: id
+            example: example
         steps:
         - allowFailure: true
           name: name
@@ -21509,6 +21518,15 @@ components:
           example: example
         setCookie: setCookie
         assertions: []
+        configVariables:
+        - name: VARIABLE_NAME
+          pattern: pattern
+          id: id
+          example: example
+        - name: VARIABLE_NAME
+          pattern: pattern
+          id: id
+          example: example
       properties:
         assertions:
           default: []
@@ -21516,6 +21534,11 @@ components:
           example: []
           items:
             $ref: '#/components/schemas/SyntheticsAssertion'
+          type: array
+        configVariables:
+          description: Array of variables used for the test.
+          items:
+            $ref: '#/components/schemas/SyntheticsConfigVariable'
           type: array
         request:
           $ref: '#/components/schemas/SyntheticsTestRequest'
@@ -23150,7 +23173,7 @@ components:
             $ref: '#/components/schemas/SyntheticsAssertion'
           type: array
         configVariables:
-          description: API tests only - array of variables used for the test.
+          description: Array of variables used for the test.
           items:
             $ref: '#/components/schemas/SyntheticsConfigVariable'
           type: array
