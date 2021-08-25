@@ -74,6 +74,14 @@ public enum UsageAttributionSupportedMetrics {
 
   PROFILED_CONTAINER_PERCENTAGE("profiled_container_percentage"),
 
+  DBM_HOST_USAGE("dbm_host_usage"),
+
+  DBM_HOST_PERCENTAGE("dbm_host_percentage"),
+
+  DBM_QUERIES_USAGE("dbm_queries_usage"),
+
+  DBM_QUERIES_PERCENTAGE("dbm_queries_percentage"),
+
   ALL("*");
 
   private String value;

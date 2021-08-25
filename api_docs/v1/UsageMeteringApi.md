@@ -16,6 +16,7 @@ Method        | HTTP request | Description
 [**getUsageBillableSummary**](UsageMeteringApi.md#getUsageBillableSummary) | **GET** /api/v1/usage/billable-summary | Get billable usage across your account
 [**getUsageCWS**](UsageMeteringApi.md#getUsageCWS) | **GET** /api/v1/usage/cws | Get hourly usage for Cloud Workload Security
 [**getUsageCloudSecurityPostureManagement**](UsageMeteringApi.md#getUsageCloudSecurityPostureManagement) | **GET** /api/v1/usage/cspm | Get hourly usage for CSPM
+[**getUsageDBM**](UsageMeteringApi.md#getUsageDBM) | **GET** /api/v1/usage/dbm | Get hourly usage for Database Monitoring
 [**getUsageFargate**](UsageMeteringApi.md#getUsageFargate) | **GET** /api/v1/usage/fargate | Get hourly usage for Fargate
 [**getUsageHosts**](UsageMeteringApi.md#getUsageHosts) | **GET** /api/v1/usage/hosts | Get hourly usage for hosts and containers
 [**getUsageIndexedSpans**](UsageMeteringApi.md#getUsageIndexedSpans) | **GET** /api/v1/usage/indexed-spans | Get hourly usage for indexed spans
@@ -569,7 +570,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **startMonth** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago. |
- **fields** | **UsageAttributionSupportedMetrics**| Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage types. | [enum: custom_timeseries_usage, container_usage, snmp_percentage, apm_host_usage, browser_usage, npm_host_percentage, infra_host_usage, custom_timeseries_percentage, container_percentage, lambda_usage, api_usage, apm_host_percentage, infra_host_percentage, snmp_usage, browser_percentage, api_percentage, lambda_percentage, npm_host_usage, lambda_functions_usage, lambda_functions_percentage, lambda_invocations_usage, lambda_invocations_percentage, fargate_usage, fargate_percentage, profiled_host_usage, profiled_host_percentage, profiled_container_usage, profiled_container_percentage, *]
+ **fields** | **UsageAttributionSupportedMetrics**| Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage types. | [enum: custom_timeseries_usage, container_usage, snmp_percentage, apm_host_usage, browser_usage, npm_host_percentage, infra_host_usage, custom_timeseries_percentage, container_percentage, lambda_usage, api_usage, apm_host_percentage, infra_host_percentage, snmp_usage, browser_percentage, api_percentage, lambda_percentage, npm_host_usage, lambda_functions_usage, lambda_functions_percentage, lambda_invocations_usage, lambda_invocations_percentage, fargate_usage, fargate_percentage, profiled_host_usage, profiled_host_percentage, profiled_container_usage, profiled_container_percentage, dbm_host_usage, dbm_host_percentage, dbm_queries_usage, dbm_queries_percentage, *]
  **endMonth** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month. | [optional]
  **sortDirection** | **UsageSortDirection**| The direction to sort by: &#x60;[desc, asc]&#x60;. | [optional] [enum: desc, asc]
  **sortName** | **UsageAttributionSort**| The field to sort by. | [optional] [enum: api_percentage, snmp_usage, apm_host_usage, api_usage, container_usage, custom_timeseries_percentage, container_percentage, apm_host_percentage, npm_host_percentage, browser_percentage, browser_usage, infra_host_percentage, snmp_percentage, npm_host_usage, infra_host_usage, custom_timeseries_usage, lambda_functions_usage, lambda_functions_percentage, lambda_invocations_usage, lambda_invocations_percentage, lambda_usage, lambda_percentage]
@@ -847,6 +848,74 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**UsageCloudSecurityPostureManagementResponse**](UsageCloudSecurityPostureManagementResponse.md)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json;datetime-format=rfc3339
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
+
+
+## getUsageDBM
+
+> UsageDBMResponse getUsageDBM(startHr, parameters);
+
+Get hourly usage for Database Monitoring
+
+### Example
+
+```java
+import java.time.OffsetDateTime;
+import java.util.*;
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.Configuration;
+import com.datadog.api.v1.client.model.*;
+import com.datadog.api.v1.client.api.UsageMeteringApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+        UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);
+        OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
+        OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
+        try {
+	    UsageDBMResponse result = apiInstance.getUsageDBM(startHr, new UsageMeteringApi.GetUsageDBMOptionalParameters()
+                .endHr(endHr));
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UsageMeteringApi#getUsageDBM");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **startHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. |
+ **endHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional]
+
+### Return type
+
+[**UsageDBMResponse**](UsageDBMResponse.md)
 
 ### Authorization
 
