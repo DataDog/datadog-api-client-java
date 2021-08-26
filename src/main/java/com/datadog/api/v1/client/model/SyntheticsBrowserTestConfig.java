@@ -24,6 +24,7 @@ import java.util.Objects;
 @ApiModel(description = "Configuration object for a Synthetic browser test.")
 @JsonPropertyOrder({
   SyntheticsBrowserTestConfig.JSON_PROPERTY_ASSERTIONS,
+  SyntheticsBrowserTestConfig.JSON_PROPERTY_CONFIG_VARIABLES,
   SyntheticsBrowserTestConfig.JSON_PROPERTY_REQUEST,
   SyntheticsBrowserTestConfig.JSON_PROPERTY_SET_COOKIE,
   SyntheticsBrowserTestConfig.JSON_PROPERTY_VARIABLES
@@ -32,6 +33,9 @@ import java.util.Objects;
 public class SyntheticsBrowserTestConfig {
   public static final String JSON_PROPERTY_ASSERTIONS = "assertions";
   private List<SyntheticsAssertion> assertions = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_CONFIG_VARIABLES = "configVariables";
+  private List<SyntheticsConfigVariable> configVariables = null;
 
   public static final String JSON_PROPERTY_REQUEST = "request";
   private SyntheticsTestRequest request;
@@ -80,6 +84,38 @@ public class SyntheticsBrowserTestConfig {
 
   public void setAssertions(List<SyntheticsAssertion> assertions) {
     this.assertions = assertions;
+  }
+
+  public SyntheticsBrowserTestConfig configVariables(
+      List<SyntheticsConfigVariable> configVariables) {
+    this.configVariables = configVariables;
+    return this;
+  }
+
+  public SyntheticsBrowserTestConfig addConfigVariablesItem(
+      SyntheticsConfigVariable configVariablesItem) {
+    if (this.configVariables == null) {
+      this.configVariables = new ArrayList<>();
+    }
+    this.configVariables.add(configVariablesItem);
+    return this;
+  }
+
+  /**
+   * Array of variables used for the test.
+   *
+   * @return configVariables
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Array of variables used for the test.")
+  @JsonProperty(JSON_PROPERTY_CONFIG_VARIABLES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<SyntheticsConfigVariable> getConfigVariables() {
+    return configVariables;
+  }
+
+  public void setConfigVariables(List<SyntheticsConfigVariable> configVariables) {
+    this.configVariables = configVariables;
   }
 
   public SyntheticsBrowserTestConfig request(SyntheticsTestRequest request) {
@@ -171,6 +207,7 @@ public class SyntheticsBrowserTestConfig {
     }
     SyntheticsBrowserTestConfig syntheticsBrowserTestConfig = (SyntheticsBrowserTestConfig) o;
     return Objects.equals(this.assertions, syntheticsBrowserTestConfig.assertions)
+        && Objects.equals(this.configVariables, syntheticsBrowserTestConfig.configVariables)
         && Objects.equals(this.request, syntheticsBrowserTestConfig.request)
         && Objects.equals(this.setCookie, syntheticsBrowserTestConfig.setCookie)
         && Objects.equals(this.variables, syntheticsBrowserTestConfig.variables);
@@ -178,7 +215,7 @@ public class SyntheticsBrowserTestConfig {
 
   @Override
   public int hashCode() {
-    return Objects.hash(assertions, request, setCookie, variables);
+    return Objects.hash(assertions, configVariables, request, setCookie, variables);
   }
 
   @Override
@@ -186,6 +223,7 @@ public class SyntheticsBrowserTestConfig {
     StringBuilder sb = new StringBuilder();
     sb.append("class SyntheticsBrowserTestConfig {\n");
     sb.append("    assertions: ").append(toIndentedString(assertions)).append("\n");
+    sb.append("    configVariables: ").append(toIndentedString(configVariables)).append("\n");
     sb.append("    request: ").append(toIndentedString(request)).append("\n");
     sb.append("    setCookie: ").append(toIndentedString(setCookie)).append("\n");
     sb.append("    variables: ").append(toIndentedString(variables)).append("\n");
