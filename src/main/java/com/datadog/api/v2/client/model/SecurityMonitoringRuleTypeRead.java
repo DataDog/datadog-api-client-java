@@ -12,26 +12,91 @@ package com.datadog.api.v2.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 /** The rule type. */
-public enum SecurityMonitoringRuleTypeRead {
-  LOG_DETECTION("log_detection"),
+@JsonSerialize(
+    using = SecurityMonitoringRuleTypeRead.SecurityMonitoringRuleTypeReadSerializer.class)
+public class SecurityMonitoringRuleTypeRead {
 
-  INFRASTRUCTURE_CONFIGURATION("infrastructure_configuration"),
+  public static final SecurityMonitoringRuleTypeRead LOG_DETECTION =
+      new SecurityMonitoringRuleTypeRead("log_detection");
+  public static final SecurityMonitoringRuleTypeRead INFRASTRUCTURE_CONFIGURATION =
+      new SecurityMonitoringRuleTypeRead("infrastructure_configuration");
+  public static final SecurityMonitoringRuleTypeRead WORKLOAD_SECURITY =
+      new SecurityMonitoringRuleTypeRead("workload_security");
+  public static final SecurityMonitoringRuleTypeRead CLOUD_CONFIGURATION =
+      new SecurityMonitoringRuleTypeRead("cloud_configuration");
 
-  WORKLOAD_SECURITY("workload_security"),
-
-  CLOUD_CONFIGURATION("cloud_configuration");
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "log_detection",
+              "infrastructure_configuration",
+              "workload_security",
+              "cloud_configuration"));
 
   private String value;
+
+  public boolean isValid() {
+    return allowedValues.contains(this.value);
+  }
 
   SecurityMonitoringRuleTypeRead(String value) {
     this.value = value;
   }
 
+  public static class SecurityMonitoringRuleTypeReadSerializer
+      extends StdSerializer<SecurityMonitoringRuleTypeRead> {
+    public SecurityMonitoringRuleTypeReadSerializer(Class<SecurityMonitoringRuleTypeRead> t) {
+      super(t);
+    }
+
+    public SecurityMonitoringRuleTypeReadSerializer() {
+      this(null);
+    }
+
+    @Override
+    public void serialize(
+        SecurityMonitoringRuleTypeRead value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
+  }
+
   @JsonValue
   public String getValue() {
-    return value;
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  /** Return true if this SecurityMonitoringRuleTypeRead object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    return this.value.equals(((SecurityMonitoringRuleTypeRead) o).value);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(value);
   }
 
   @Override
@@ -41,11 +106,6 @@ public enum SecurityMonitoringRuleTypeRead {
 
   @JsonCreator
   public static SecurityMonitoringRuleTypeRead fromValue(String value) {
-    for (SecurityMonitoringRuleTypeRead b : SecurityMonitoringRuleTypeRead.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
-    }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    return new SecurityMonitoringRuleTypeRead(value);
   }
 }

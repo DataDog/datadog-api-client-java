@@ -47,6 +47,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SLOResponseData {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CONFIGURED_ALERT_IDS = "configured_alert_ids";
   private List<Long> configuredAlertIds = null;
 
@@ -142,6 +143,7 @@ public class SLOResponseData {
 
   public SLOResponseData creator(Creator creator) {
     this.creator = creator;
+    this.unparsed |= creator.unparsed;
     return this;
   }
 
@@ -372,6 +374,7 @@ public class SLOResponseData {
 
   public SLOResponseData query(ServiceLevelObjectiveQuery query) {
     this.query = query;
+    this.unparsed |= query.unparsed;
     return this;
   }
 
@@ -430,6 +433,9 @@ public class SLOResponseData {
 
   public SLOResponseData thresholds(List<SLOThreshold> thresholds) {
     this.thresholds = thresholds;
+    for (SLOThreshold item : thresholds) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -438,6 +444,7 @@ public class SLOResponseData {
       this.thresholds = new ArrayList<>();
     }
     this.thresholds.add(thresholdsItem);
+    this.unparsed |= thresholdsItem.unparsed;
     return this;
   }
 
@@ -465,6 +472,7 @@ public class SLOResponseData {
 
   public SLOResponseData type(SLOType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -482,6 +490,9 @@ public class SLOResponseData {
   }
 
   public void setType(SLOType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

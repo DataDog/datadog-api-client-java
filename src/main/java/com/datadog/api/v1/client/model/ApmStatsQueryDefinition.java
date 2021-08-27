@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -33,6 +34,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ApmStatsQueryDefinition {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COLUMNS = "columns";
   private List<ApmStatsQueryColumnType> columns = null;
 
@@ -67,11 +69,15 @@ public class ApmStatsQueryDefinition {
     this.name = name;
     this.primaryTag = primaryTag;
     this.rowType = rowType;
+    this.unparsed |= !rowType.isValid();
     this.service = service;
   }
 
   public ApmStatsQueryDefinition columns(List<ApmStatsQueryColumnType> columns) {
     this.columns = columns;
+    for (ApmStatsQueryColumnType item : columns) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -80,6 +86,7 @@ public class ApmStatsQueryDefinition {
       this.columns = new ArrayList<>();
     }
     this.columns.add(columnsItem);
+    this.unparsed |= columnsItem.unparsed;
     return this;
   }
 
@@ -193,6 +200,7 @@ public class ApmStatsQueryDefinition {
 
   public ApmStatsQueryDefinition rowType(ApmStatsQueryRowType rowType) {
     this.rowType = rowType;
+    this.unparsed |= !rowType.isValid();
     return this;
   }
 
@@ -209,6 +217,9 @@ public class ApmStatsQueryDefinition {
   }
 
   public void setRowType(ApmStatsQueryRowType rowType) {
+    if (!rowType.isValid()) {
+      this.unparsed = true;
+    }
     this.rowType = rowType;
   }
 

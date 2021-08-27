@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -72,6 +73,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageSummaryDate {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGENT_HOST_TOP99P = "agent_host_top99p";
   private Long agentHostTop99p;
 
@@ -1157,6 +1159,9 @@ public class UsageSummaryDate {
 
   public UsageSummaryDate orgs(List<UsageSummaryDateOrg> orgs) {
     this.orgs = orgs;
+    for (UsageSummaryDateOrg item : orgs) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -1165,6 +1170,7 @@ public class UsageSummaryDate {
       this.orgs = new ArrayList<>();
     }
     this.orgs.add(orgsItem);
+    this.unparsed |= orgsItem.unparsed;
     return this;
   }
 

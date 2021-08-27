@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -38,6 +39,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ChangeWidgetRequest {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_APM_QUERY = "apm_query";
   private LogQueryDefinition apmQuery;
 
@@ -85,6 +87,7 @@ public class ChangeWidgetRequest {
 
   public ChangeWidgetRequest apmQuery(LogQueryDefinition apmQuery) {
     this.apmQuery = apmQuery;
+    this.unparsed |= apmQuery.unparsed;
     return this;
   }
 
@@ -107,6 +110,7 @@ public class ChangeWidgetRequest {
 
   public ChangeWidgetRequest changeType(WidgetChangeType changeType) {
     this.changeType = changeType;
+    this.unparsed |= !changeType.isValid();
     return this;
   }
 
@@ -124,11 +128,15 @@ public class ChangeWidgetRequest {
   }
 
   public void setChangeType(WidgetChangeType changeType) {
+    if (!changeType.isValid()) {
+      this.unparsed = true;
+    }
     this.changeType = changeType;
   }
 
   public ChangeWidgetRequest compareTo(WidgetCompareTo compareTo) {
     this.compareTo = compareTo;
+    this.unparsed |= !compareTo.isValid();
     return this;
   }
 
@@ -146,11 +154,15 @@ public class ChangeWidgetRequest {
   }
 
   public void setCompareTo(WidgetCompareTo compareTo) {
+    if (!compareTo.isValid()) {
+      this.unparsed = true;
+    }
     this.compareTo = compareTo;
   }
 
   public ChangeWidgetRequest eventQuery(LogQueryDefinition eventQuery) {
     this.eventQuery = eventQuery;
+    this.unparsed |= eventQuery.unparsed;
     return this;
   }
 
@@ -195,6 +207,7 @@ public class ChangeWidgetRequest {
 
   public ChangeWidgetRequest logQuery(LogQueryDefinition logQuery) {
     this.logQuery = logQuery;
+    this.unparsed |= logQuery.unparsed;
     return this;
   }
 
@@ -217,6 +230,7 @@ public class ChangeWidgetRequest {
 
   public ChangeWidgetRequest networkQuery(LogQueryDefinition networkQuery) {
     this.networkQuery = networkQuery;
+    this.unparsed |= networkQuery.unparsed;
     return this;
   }
 
@@ -239,6 +253,7 @@ public class ChangeWidgetRequest {
 
   public ChangeWidgetRequest orderBy(WidgetOrderBy orderBy) {
     this.orderBy = orderBy;
+    this.unparsed |= !orderBy.isValid();
     return this;
   }
 
@@ -256,11 +271,15 @@ public class ChangeWidgetRequest {
   }
 
   public void setOrderBy(WidgetOrderBy orderBy) {
+    if (!orderBy.isValid()) {
+      this.unparsed = true;
+    }
     this.orderBy = orderBy;
   }
 
   public ChangeWidgetRequest orderDir(WidgetSort orderDir) {
     this.orderDir = orderDir;
+    this.unparsed |= !orderDir.isValid();
     return this;
   }
 
@@ -278,11 +297,15 @@ public class ChangeWidgetRequest {
   }
 
   public void setOrderDir(WidgetSort orderDir) {
+    if (!orderDir.isValid()) {
+      this.unparsed = true;
+    }
     this.orderDir = orderDir;
   }
 
   public ChangeWidgetRequest processQuery(ProcessQueryDefinition processQuery) {
     this.processQuery = processQuery;
+    this.unparsed |= processQuery.unparsed;
     return this;
   }
 
@@ -305,6 +328,7 @@ public class ChangeWidgetRequest {
 
   public ChangeWidgetRequest profileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
     this.profileMetricsQuery = profileMetricsQuery;
+    this.unparsed |= profileMetricsQuery.unparsed;
     return this;
   }
 
@@ -349,6 +373,7 @@ public class ChangeWidgetRequest {
 
   public ChangeWidgetRequest rumQuery(LogQueryDefinition rumQuery) {
     this.rumQuery = rumQuery;
+    this.unparsed |= rumQuery.unparsed;
     return this;
   }
 
@@ -371,6 +396,7 @@ public class ChangeWidgetRequest {
 
   public ChangeWidgetRequest securityQuery(LogQueryDefinition securityQuery) {
     this.securityQuery = securityQuery;
+    this.unparsed |= securityQuery.unparsed;
     return this;
   }
 

@@ -12,25 +12,82 @@ package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 /**
  * Define whether you want to start (&#x60;live&#x60;) or pause (&#x60;paused&#x60;) a Synthetic
  * test.
  */
-public enum SyntheticsTestPauseStatus {
-  LIVE("live"),
+@JsonSerialize(using = SyntheticsTestPauseStatus.SyntheticsTestPauseStatusSerializer.class)
+public class SyntheticsTestPauseStatus {
 
-  PAUSED("paused");
+  public static final SyntheticsTestPauseStatus LIVE = new SyntheticsTestPauseStatus("live");
+  public static final SyntheticsTestPauseStatus PAUSED = new SyntheticsTestPauseStatus("paused");
+
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("live", "paused"));
 
   private String value;
+
+  public boolean isValid() {
+    return allowedValues.contains(this.value);
+  }
 
   SyntheticsTestPauseStatus(String value) {
     this.value = value;
   }
 
+  public static class SyntheticsTestPauseStatusSerializer
+      extends StdSerializer<SyntheticsTestPauseStatus> {
+    public SyntheticsTestPauseStatusSerializer(Class<SyntheticsTestPauseStatus> t) {
+      super(t);
+    }
+
+    public SyntheticsTestPauseStatusSerializer() {
+      this(null);
+    }
+
+    @Override
+    public void serialize(
+        SyntheticsTestPauseStatus value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
+  }
+
   @JsonValue
   public String getValue() {
-    return value;
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  /** Return true if this SyntheticsTestPauseStatus object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    return this.value.equals(((SyntheticsTestPauseStatus) o).value);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(value);
   }
 
   @Override
@@ -40,11 +97,6 @@ public enum SyntheticsTestPauseStatus {
 
   @JsonCreator
   public static SyntheticsTestPauseStatus fromValue(String value) {
-    for (SyntheticsTestPauseStatus b : SyntheticsTestPauseStatus.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
-    }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    return new SyntheticsTestPauseStatus(value);
   }
 }

@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,6 +31,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class NotebookUpdateDataAttributes {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CELLS = "cells";
   private List<NotebookUpdateCell> cells = new ArrayList<>();
 
@@ -52,15 +54,20 @@ public class NotebookUpdateDataAttributes {
     this.cells = cells;
     this.name = name;
     this.time = time;
+    this.unparsed |= time.unparsed;
   }
 
   public NotebookUpdateDataAttributes cells(List<NotebookUpdateCell> cells) {
     this.cells = cells;
+    for (NotebookUpdateCell item : cells) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
   public NotebookUpdateDataAttributes addCellsItem(NotebookUpdateCell cellsItem) {
     this.cells.add(cellsItem);
+    this.unparsed |= cellsItem.unparsed;
     return this;
   }
 
@@ -116,6 +123,7 @@ public class NotebookUpdateDataAttributes {
 
   public NotebookUpdateDataAttributes status(NotebookStatus status) {
     this.status = status;
+    this.unparsed |= !status.isValid();
     return this;
   }
 
@@ -133,11 +141,15 @@ public class NotebookUpdateDataAttributes {
   }
 
   public void setStatus(NotebookStatus status) {
+    if (!status.isValid()) {
+      this.unparsed = true;
+    }
     this.status = status;
   }
 
   public NotebookUpdateDataAttributes time(NotebookGlobalTime time) {
     this.time = time;
+    this.unparsed |= time.unparsed;
     return this;
   }
 

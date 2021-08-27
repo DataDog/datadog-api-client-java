@@ -12,22 +12,87 @@ package com.datadog.api.v2.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 /** Type of the single value field definitions. */
-public enum IncidentFieldAttributesSingleValueType {
-  DROPDOWN("dropdown"),
+@JsonSerialize(
+    using =
+        IncidentFieldAttributesSingleValueType.IncidentFieldAttributesSingleValueTypeSerializer
+            .class)
+public class IncidentFieldAttributesSingleValueType {
 
-  TEXTBOX("textbox");
+  public static final IncidentFieldAttributesSingleValueType DROPDOWN =
+      new IncidentFieldAttributesSingleValueType("dropdown");
+  public static final IncidentFieldAttributesSingleValueType TEXTBOX =
+      new IncidentFieldAttributesSingleValueType("textbox");
+
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("dropdown", "textbox"));
 
   private String value;
+
+  public boolean isValid() {
+    return allowedValues.contains(this.value);
+  }
 
   IncidentFieldAttributesSingleValueType(String value) {
     this.value = value;
   }
 
+  public static class IncidentFieldAttributesSingleValueTypeSerializer
+      extends StdSerializer<IncidentFieldAttributesSingleValueType> {
+    public IncidentFieldAttributesSingleValueTypeSerializer(
+        Class<IncidentFieldAttributesSingleValueType> t) {
+      super(t);
+    }
+
+    public IncidentFieldAttributesSingleValueTypeSerializer() {
+      this(null);
+    }
+
+    @Override
+    public void serialize(
+        IncidentFieldAttributesSingleValueType value,
+        JsonGenerator jgen,
+        SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
+  }
+
   @JsonValue
   public String getValue() {
-    return value;
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  /** Return true if this IncidentFieldAttributesSingleValueType object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    return this.value.equals(((IncidentFieldAttributesSingleValueType) o).value);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(value);
   }
 
   @Override
@@ -37,12 +102,6 @@ public enum IncidentFieldAttributesSingleValueType {
 
   @JsonCreator
   public static IncidentFieldAttributesSingleValueType fromValue(String value) {
-    for (IncidentFieldAttributesSingleValueType b :
-        IncidentFieldAttributesSingleValueType.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
-    }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    return new IncidentFieldAttributesSingleValueType(value);
   }
 }

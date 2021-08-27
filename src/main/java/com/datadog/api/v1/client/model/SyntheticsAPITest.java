@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -36,6 +37,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsAPITest {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CONFIG = "config";
   private SyntheticsAPITestConfig config;
 
@@ -71,6 +73,7 @@ public class SyntheticsAPITest {
 
   public SyntheticsAPITest config(SyntheticsAPITestConfig config) {
     this.config = config;
+    this.unparsed |= config.unparsed;
     return this;
   }
 
@@ -180,6 +183,7 @@ public class SyntheticsAPITest {
 
   public SyntheticsAPITest options(SyntheticsTestOptions options) {
     this.options = options;
+    this.unparsed |= options.unparsed;
     return this;
   }
 
@@ -215,6 +219,7 @@ public class SyntheticsAPITest {
 
   public SyntheticsAPITest status(SyntheticsTestPauseStatus status) {
     this.status = status;
+    this.unparsed |= !status.isValid();
     return this;
   }
 
@@ -232,11 +237,15 @@ public class SyntheticsAPITest {
   }
 
   public void setStatus(SyntheticsTestPauseStatus status) {
+    if (!status.isValid()) {
+      this.unparsed = true;
+    }
     this.status = status;
   }
 
   public SyntheticsAPITest subtype(SyntheticsTestDetailsSubType subtype) {
     this.subtype = subtype;
+    this.unparsed |= !subtype.isValid();
     return this;
   }
 
@@ -254,6 +263,9 @@ public class SyntheticsAPITest {
   }
 
   public void setSubtype(SyntheticsTestDetailsSubType subtype) {
+    if (!subtype.isValid()) {
+      this.unparsed = true;
+    }
     this.subtype = subtype;
   }
 
@@ -289,6 +301,7 @@ public class SyntheticsAPITest {
 
   public SyntheticsAPITest type(SyntheticsAPITestType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -306,6 +319,9 @@ public class SyntheticsAPITest {
   }
 
   public void setType(SyntheticsAPITestType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

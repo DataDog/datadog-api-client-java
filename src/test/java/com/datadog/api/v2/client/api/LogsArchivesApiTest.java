@@ -7,6 +7,8 @@
 
 package com.datadog.api.v2.client.api;
 
+import static com.datadog.api.World.fromJSON;
+import static com.datadog.api.World.lookup;
 import static com.github.tomakehurst.wiremock.client.WireMock.delete;
 import static com.github.tomakehurst.wiremock.client.WireMock.equalToJson;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
@@ -16,8 +18,6 @@ import static com.github.tomakehurst.wiremock.client.WireMock.put;
 import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static org.junit.Assert.assertEquals;
-import static com.datadog.api.World.fromJSON;
-import static com.datadog.api.World.lookup;
 import static org.junit.Assert.assertFalse;
 
 import com.datadog.api.TestUtils;
@@ -350,13 +350,20 @@ public class LogsArchivesApiTest extends V2APITest {
   }
 
   @Test
-  public void TestDeserializationUnknownNestedOneOf() throws JsonProcessingException, NoSuchFieldException, IllegalAccessException {
-    String body = "{\"data\":{\"type\":\"archives\",\"id\":\"n_XDSxVpScepiBnyhysj_A\",\"attributes\":{\"name\":\"my first azure archive\",\"query\":\"service:toto\",\"state\":\"UNKNOWN\",\"destination\":{\"container\":\"my-container\",\"storage_account\":\"storageaccount\",\"path\":\"/path/blou\",\"type\":\"A non existent destination\",\"integration\":{\"tenant_id\":\"tf-TestAccDatadogLogsArchiveAzure_basic-local-1624981538\",\"client_id\":\"testc7f6-1234-5678-9101-3fcbf464test\"}},\"rehydration_tags\":[],\"include_tags\":false}}}";
+  public void TestDeserializationUnknownNestedOneOf()
+      throws JsonProcessingException, NoSuchFieldException, IllegalAccessException {
+    String body =
+        "{\"data\":{\"type\":\"archives\",\"id\":\"n_XDSxVpScepiBnyhysj_A\",\"attributes\":{\"name\":\"my"
+            + " first azure"
+            + " archive\",\"query\":\"service:toto\",\"state\":\"UNKNOWN\",\"destination\":{\"container\":\"my-container\",\"storage_account\":\"storageaccount\",\"path\":\"/path/blou\",\"type\":\"A"
+            + " non existent"
+            + " destination\",\"integration\":{\"tenant_id\":\"tf-TestAccDatadogLogsArchiveAzure_basic-local-1624981538\",\"client_id\":\"testc7f6-1234-5678-9101-3fcbf464test\"}},\"rehydration_tags\":[],\"include_tags\":false}}}";
     ObjectMapper mapper = generalApiClient.getJSON().getMapper();
     Object res = fromJSON(mapper, LogsArchive.class, body);
 
-    assertFalse(((LogsArchive)res).unparsed);
+    assertFalse(((LogsArchive) res).unparsed);
     assertFalse((Boolean) lookup(res, "data.attributes.unparsed"));
-    assertEquals("A non existent destination", lookup(res, "data.attributes.destination.type").toString());
+    assertEquals(
+        "A non existent destination", lookup(res, "data.attributes.destination.type").toString());
   }
 }

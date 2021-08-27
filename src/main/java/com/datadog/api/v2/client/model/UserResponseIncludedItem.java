@@ -11,6 +11,7 @@
 package com.datadog.api.v2.client.model;
 
 import com.datadog.api.v2.client.JSON;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -19,6 +20,7 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -38,6 +40,8 @@ import javax.ws.rs.core.GenericType;
 @JsonSerialize(using = UserResponseIncludedItem.UserResponseIncludedItemSerializer.class)
 public class UserResponseIncludedItem extends AbstractOpenApiSchema {
   private static final Logger log = Logger.getLogger(UserResponseIncludedItem.class.getName());
+
+  @JsonIgnore public boolean unparsed = false;
 
   public static class UserResponseIncludedItemSerializer
       extends StdSerializer<UserResponseIncludedItem> {
@@ -72,6 +76,7 @@ public class UserResponseIncludedItem extends AbstractOpenApiSchema {
         throws IOException, JsonProcessingException {
       JsonNode tree = jp.readValueAsTree();
       Object deserialized = null;
+      Object tmp = null;
       boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
       int match = 0;
       JsonToken token = tree.traverse(jp.getCodec()).nextToken();
@@ -102,11 +107,14 @@ public class UserResponseIncludedItem extends AbstractOpenApiSchema {
           }
         }
         if (attemptParsing) {
-          deserialized = tree.traverse(jp.getCodec()).readValueAs(Organization.class);
+          tmp = tree.traverse(jp.getCodec()).readValueAs(Organization.class);
           // TODO: there is no validation against JSON schema constraints
           // (min, max, enum, pattern...), this does not perform a strict JSON
           // validation, which means the 'match' count may be higher than it should be.
-          match++;
+          if (!((Organization) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
           log.log(Level.FINER, "Input data matches schema 'Organization'");
         }
       } catch (Exception e) {
@@ -141,11 +149,14 @@ public class UserResponseIncludedItem extends AbstractOpenApiSchema {
           }
         }
         if (attemptParsing) {
-          deserialized = tree.traverse(jp.getCodec()).readValueAs(Permission.class);
+          tmp = tree.traverse(jp.getCodec()).readValueAs(Permission.class);
           // TODO: there is no validation against JSON schema constraints
           // (min, max, enum, pattern...), this does not perform a strict JSON
           // validation, which means the 'match' count may be higher than it should be.
-          match++;
+          if (!((Permission) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
           log.log(Level.FINER, "Input data matches schema 'Permission'");
         }
       } catch (Exception e) {
@@ -179,11 +190,14 @@ public class UserResponseIncludedItem extends AbstractOpenApiSchema {
           }
         }
         if (attemptParsing) {
-          deserialized = tree.traverse(jp.getCodec()).readValueAs(Role.class);
+          tmp = tree.traverse(jp.getCodec()).readValueAs(Role.class);
           // TODO: there is no validation against JSON schema constraints
           // (min, max, enum, pattern...), this does not perform a strict JSON
           // validation, which means the 'match' count may be higher than it should be.
-          match++;
+          if (!((Role) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
           log.log(Level.FINER, "Input data matches schema 'Role'");
         }
       } catch (Exception e) {
@@ -191,16 +205,17 @@ public class UserResponseIncludedItem extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'Role'", e);
       }
 
+      UserResponseIncludedItem ret = new UserResponseIncludedItem();
       if (match == 1) {
-        UserResponseIncludedItem ret = new UserResponseIncludedItem();
         ret.setActualInstance(deserialized);
-        return ret;
+      } else {
+        Map<String, Object> res =
+            new ObjectMapper()
+                .readValue(
+                    tree.traverse(jp.getCodec()).readValueAsTree().toString(), HashMap.class);
+        ret.setActualInstance(new UnparsedObject(res));
       }
-      throw new IOException(
-          String.format(
-              "Failed deserialization for UserResponseIncludedItem: %d classes match result,"
-                  + " expected 1",
-              match));
+      return ret;
     }
 
     /** Handle deserialization of the 'null' value. */
@@ -269,6 +284,10 @@ public class UserResponseIncludedItem extends AbstractOpenApiSchema {
       return;
     }
 
+    if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
     throw new RuntimeException("Invalid instance type. Must be Organization, Permission, Role");
   }
 

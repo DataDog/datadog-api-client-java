@@ -12,20 +12,77 @@ package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 /** Type of the Synthetic test, &#x60;browser&#x60;. */
-public enum SyntheticsBrowserTestType {
-  BROWSER("browser");
+@JsonSerialize(using = SyntheticsBrowserTestType.SyntheticsBrowserTestTypeSerializer.class)
+public class SyntheticsBrowserTestType {
+
+  public static final SyntheticsBrowserTestType BROWSER = new SyntheticsBrowserTestType("browser");
+
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("browser"));
 
   private String value;
+
+  public boolean isValid() {
+    return allowedValues.contains(this.value);
+  }
 
   SyntheticsBrowserTestType(String value) {
     this.value = value;
   }
 
+  public static class SyntheticsBrowserTestTypeSerializer
+      extends StdSerializer<SyntheticsBrowserTestType> {
+    public SyntheticsBrowserTestTypeSerializer(Class<SyntheticsBrowserTestType> t) {
+      super(t);
+    }
+
+    public SyntheticsBrowserTestTypeSerializer() {
+      this(null);
+    }
+
+    @Override
+    public void serialize(
+        SyntheticsBrowserTestType value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
+  }
+
   @JsonValue
   public String getValue() {
-    return value;
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  /** Return true if this SyntheticsBrowserTestType object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    return this.value.equals(((SyntheticsBrowserTestType) o).value);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(value);
   }
 
   @Override
@@ -35,11 +92,6 @@ public enum SyntheticsBrowserTestType {
 
   @JsonCreator
   public static SyntheticsBrowserTestType fromValue(String value) {
-    for (SyntheticsBrowserTestType b : SyntheticsBrowserTestType.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
-    }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    return new SyntheticsBrowserTestType(value);
   }
 }

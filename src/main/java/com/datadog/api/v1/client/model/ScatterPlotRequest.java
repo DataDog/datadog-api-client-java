@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -33,6 +34,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ScatterPlotRequest {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATOR = "aggregator";
   private ScatterplotWidgetAggregator aggregator;
 
@@ -65,6 +67,7 @@ public class ScatterPlotRequest {
 
   public ScatterPlotRequest aggregator(ScatterplotWidgetAggregator aggregator) {
     this.aggregator = aggregator;
+    this.unparsed |= !aggregator.isValid();
     return this;
   }
 
@@ -82,11 +85,15 @@ public class ScatterPlotRequest {
   }
 
   public void setAggregator(ScatterplotWidgetAggregator aggregator) {
+    if (!aggregator.isValid()) {
+      this.unparsed = true;
+    }
     this.aggregator = aggregator;
   }
 
   public ScatterPlotRequest apmQuery(LogQueryDefinition apmQuery) {
     this.apmQuery = apmQuery;
+    this.unparsed |= apmQuery.unparsed;
     return this;
   }
 
@@ -109,6 +116,7 @@ public class ScatterPlotRequest {
 
   public ScatterPlotRequest eventQuery(LogQueryDefinition eventQuery) {
     this.eventQuery = eventQuery;
+    this.unparsed |= eventQuery.unparsed;
     return this;
   }
 
@@ -131,6 +139,7 @@ public class ScatterPlotRequest {
 
   public ScatterPlotRequest logQuery(LogQueryDefinition logQuery) {
     this.logQuery = logQuery;
+    this.unparsed |= logQuery.unparsed;
     return this;
   }
 
@@ -153,6 +162,7 @@ public class ScatterPlotRequest {
 
   public ScatterPlotRequest networkQuery(LogQueryDefinition networkQuery) {
     this.networkQuery = networkQuery;
+    this.unparsed |= networkQuery.unparsed;
     return this;
   }
 
@@ -175,6 +185,7 @@ public class ScatterPlotRequest {
 
   public ScatterPlotRequest processQuery(ProcessQueryDefinition processQuery) {
     this.processQuery = processQuery;
+    this.unparsed |= processQuery.unparsed;
     return this;
   }
 
@@ -197,6 +208,7 @@ public class ScatterPlotRequest {
 
   public ScatterPlotRequest profileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
     this.profileMetricsQuery = profileMetricsQuery;
+    this.unparsed |= profileMetricsQuery.unparsed;
     return this;
   }
 
@@ -241,6 +253,7 @@ public class ScatterPlotRequest {
 
   public ScatterPlotRequest rumQuery(LogQueryDefinition rumQuery) {
     this.rumQuery = rumQuery;
+    this.unparsed |= rumQuery.unparsed;
     return this;
   }
 
@@ -263,6 +276,7 @@ public class ScatterPlotRequest {
 
   public ScatterPlotRequest securityQuery(LogQueryDefinition securityQuery) {
     this.securityQuery = securityQuery;
+    this.unparsed |= securityQuery.unparsed;
     return this;
   }
 

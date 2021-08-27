@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -29,6 +30,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ListStreamWidgetRequest {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COLUMNS = "columns";
   private List<ListStreamColumn> columns = new ArrayList<>();
 
@@ -48,16 +50,22 @@ public class ListStreamWidgetRequest {
           ListStreamResponseFormat responseFormat) {
     this.columns = columns;
     this.query = query;
+    this.unparsed |= query.unparsed;
     this.responseFormat = responseFormat;
+    this.unparsed |= !responseFormat.isValid();
   }
 
   public ListStreamWidgetRequest columns(List<ListStreamColumn> columns) {
     this.columns = columns;
+    for (ListStreamColumn item : columns) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
   public ListStreamWidgetRequest addColumnsItem(ListStreamColumn columnsItem) {
     this.columns.add(columnsItem);
+    this.unparsed |= columnsItem.unparsed;
     return this;
   }
 
@@ -83,6 +91,7 @@ public class ListStreamWidgetRequest {
 
   public ListStreamWidgetRequest query(ListStreamQuery query) {
     this.query = query;
+    this.unparsed |= query.unparsed;
     return this;
   }
 
@@ -104,6 +113,7 @@ public class ListStreamWidgetRequest {
 
   public ListStreamWidgetRequest responseFormat(ListStreamResponseFormat responseFormat) {
     this.responseFormat = responseFormat;
+    this.unparsed |= !responseFormat.isValid();
     return this;
   }
 
@@ -120,6 +130,9 @@ public class ListStreamWidgetRequest {
   }
 
   public void setResponseFormat(ListStreamResponseFormat responseFormat) {
+    if (!responseFormat.isValid()) {
+      this.unparsed = true;
+    }
     this.responseFormat = responseFormat;
   }
 

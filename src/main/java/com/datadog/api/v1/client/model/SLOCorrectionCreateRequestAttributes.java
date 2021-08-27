@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,6 +31,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SLOCorrectionCreateRequestAttributes {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CATEGORY = "category";
   private SLOCorrectionCategory category;
 
@@ -57,6 +59,7 @@ public class SLOCorrectionCreateRequestAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_SLO_ID) String sloId,
       @JsonProperty(required = true, value = JSON_PROPERTY_START) Long start) {
     this.category = category;
+    this.unparsed |= !category.isValid();
     this.end = end;
     this.sloId = sloId;
     this.start = start;
@@ -64,6 +67,7 @@ public class SLOCorrectionCreateRequestAttributes {
 
   public SLOCorrectionCreateRequestAttributes category(SLOCorrectionCategory category) {
     this.category = category;
+    this.unparsed |= !category.isValid();
     return this;
   }
 
@@ -80,6 +84,9 @@ public class SLOCorrectionCreateRequestAttributes {
   }
 
   public void setCategory(SLOCorrectionCategory category) {
+    if (!category.isValid()) {
+      this.unparsed = true;
+    }
     this.category = category;
   }
 

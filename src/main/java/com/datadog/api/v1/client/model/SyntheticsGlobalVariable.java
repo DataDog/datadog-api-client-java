@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -34,6 +35,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsGlobalVariable {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private SyntheticsGlobalVariableAttributes attributes;
 
@@ -71,10 +73,12 @@ public class SyntheticsGlobalVariable {
     this.name = name;
     this.tags = tags;
     this.value = value;
+    this.unparsed |= value.unparsed;
   }
 
   public SyntheticsGlobalVariable attributes(SyntheticsGlobalVariableAttributes attributes) {
     this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
     return this;
   }
 
@@ -159,6 +163,7 @@ public class SyntheticsGlobalVariable {
   public SyntheticsGlobalVariable parseTestOptions(
       SyntheticsGlobalVariableParseTestOptions parseTestOptions) {
     this.parseTestOptions = parseTestOptions;
+    this.unparsed |= parseTestOptions.unparsed;
     return this;
   }
 
@@ -234,6 +239,7 @@ public class SyntheticsGlobalVariable {
 
   public SyntheticsGlobalVariable value(SyntheticsGlobalVariableValue value) {
     this.value = value;
+    this.unparsed |= value.unparsed;
     return this;
   }
 

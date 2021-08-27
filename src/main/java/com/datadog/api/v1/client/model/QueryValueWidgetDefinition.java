@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -38,6 +39,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class QueryValueWidgetDefinition {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTOSCALE = "autoscale";
   private Boolean autoscale;
 
@@ -81,6 +83,7 @@ public class QueryValueWidgetDefinition {
           QueryValueWidgetDefinitionType type) {
     this.requests = requests;
     this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   public QueryValueWidgetDefinition autoscale(Boolean autoscale) {
@@ -107,6 +110,9 @@ public class QueryValueWidgetDefinition {
 
   public QueryValueWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
+    for (WidgetCustomLink item : customLinks) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -115,6 +121,7 @@ public class QueryValueWidgetDefinition {
       this.customLinks = new ArrayList<>();
     }
     this.customLinks.add(customLinksItem);
+    this.unparsed |= customLinksItem.unparsed;
     return this;
   }
 
@@ -182,11 +189,15 @@ public class QueryValueWidgetDefinition {
 
   public QueryValueWidgetDefinition requests(List<QueryValueWidgetRequest> requests) {
     this.requests = requests;
+    for (QueryValueWidgetRequest item : requests) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
   public QueryValueWidgetDefinition addRequestsItem(QueryValueWidgetRequest requestsItem) {
     this.requests.add(requestsItem);
+    this.unparsed |= requestsItem.unparsed;
     return this;
   }
 
@@ -211,6 +222,7 @@ public class QueryValueWidgetDefinition {
 
   public QueryValueWidgetDefinition textAlign(WidgetTextAlign textAlign) {
     this.textAlign = textAlign;
+    this.unparsed |= !textAlign.isValid();
     return this;
   }
 
@@ -228,11 +240,15 @@ public class QueryValueWidgetDefinition {
   }
 
   public void setTextAlign(WidgetTextAlign textAlign) {
+    if (!textAlign.isValid()) {
+      this.unparsed = true;
+    }
     this.textAlign = textAlign;
   }
 
   public QueryValueWidgetDefinition time(WidgetTime time) {
     this.time = time;
+    this.unparsed |= time.unparsed;
     return this;
   }
 
@@ -277,6 +293,7 @@ public class QueryValueWidgetDefinition {
 
   public QueryValueWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
+    this.unparsed |= !titleAlign.isValid();
     return this;
   }
 
@@ -294,6 +311,9 @@ public class QueryValueWidgetDefinition {
   }
 
   public void setTitleAlign(WidgetTextAlign titleAlign) {
+    if (!titleAlign.isValid()) {
+      this.unparsed = true;
+    }
     this.titleAlign = titleAlign;
   }
 
@@ -321,6 +341,7 @@ public class QueryValueWidgetDefinition {
 
   public QueryValueWidgetDefinition type(QueryValueWidgetDefinitionType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -337,6 +358,9 @@ public class QueryValueWidgetDefinition {
   }
 
   public void setType(QueryValueWidgetDefinitionType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

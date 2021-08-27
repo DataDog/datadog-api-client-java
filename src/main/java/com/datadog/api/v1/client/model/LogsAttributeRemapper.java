@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -49,6 +50,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsAttributeRemapper {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
   private Boolean isEnabled = false;
 
@@ -89,6 +91,7 @@ public class LogsAttributeRemapper {
     this.sources = sources;
     this.target = target;
     this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   public LogsAttributeRemapper isEnabled(Boolean isEnabled) {
@@ -256,6 +259,7 @@ public class LogsAttributeRemapper {
 
   public LogsAttributeRemapper targetFormat(TargetFormatType targetFormat) {
     this.targetFormat = targetFormat;
+    this.unparsed |= !targetFormat.isValid();
     return this;
   }
 
@@ -273,6 +277,9 @@ public class LogsAttributeRemapper {
   }
 
   public void setTargetFormat(TargetFormatType targetFormat) {
+    if (!targetFormat.isValid()) {
+      this.unparsed = true;
+    }
     this.targetFormat = targetFormat;
   }
 
@@ -302,6 +309,7 @@ public class LogsAttributeRemapper {
 
   public LogsAttributeRemapper type(LogsAttributeRemapperType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -318,6 +326,9 @@ public class LogsAttributeRemapper {
   }
 
   public void setType(LogsAttributeRemapperType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -27,6 +28,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageAttributionResponse {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_METADATA = "metadata";
   private UsageAttributionMetadata metadata;
 
@@ -35,6 +37,7 @@ public class UsageAttributionResponse {
 
   public UsageAttributionResponse metadata(UsageAttributionMetadata metadata) {
     this.metadata = metadata;
+    this.unparsed |= metadata.unparsed;
     return this;
   }
 
@@ -57,6 +60,9 @@ public class UsageAttributionResponse {
 
   public UsageAttributionResponse usage(List<UsageAttributionBody> usage) {
     this.usage = usage;
+    for (UsageAttributionBody item : usage) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -65,6 +71,7 @@ public class UsageAttributionResponse {
       this.usage = new ArrayList<>();
     }
     this.usage.add(usageItem);
+    this.unparsed |= usageItem.unparsed;
     return this;
   }
 

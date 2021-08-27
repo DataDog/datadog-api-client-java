@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -26,6 +27,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsStepDetailWarning {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
 
@@ -40,6 +42,7 @@ public class SyntheticsStepDetailWarning {
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SyntheticsWarningType type) {
     this.message = message;
     this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   public SyntheticsStepDetailWarning message(String message) {
@@ -65,6 +68,7 @@ public class SyntheticsStepDetailWarning {
 
   public SyntheticsStepDetailWarning type(SyntheticsWarningType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -81,6 +85,9 @@ public class SyntheticsStepDetailWarning {
   }
 
   public void setType(SyntheticsWarningType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -32,6 +33,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IPRanges {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGENTS = "agents";
   private IPPrefixesAgents agents;
 
@@ -61,6 +63,7 @@ public class IPRanges {
 
   public IPRanges agents(IPPrefixesAgents agents) {
     this.agents = agents;
+    this.unparsed |= agents.unparsed;
     return this;
   }
 
@@ -83,6 +86,7 @@ public class IPRanges {
 
   public IPRanges api(IPPrefixesAPI api) {
     this.api = api;
+    this.unparsed |= api.unparsed;
     return this;
   }
 
@@ -105,6 +109,7 @@ public class IPRanges {
 
   public IPRanges apm(IPPrefixesAPM apm) {
     this.apm = apm;
+    this.unparsed |= apm.unparsed;
     return this;
   }
 
@@ -127,6 +132,7 @@ public class IPRanges {
 
   public IPRanges logs(IPPrefixesLogs logs) {
     this.logs = logs;
+    this.unparsed |= logs.unparsed;
     return this;
   }
 
@@ -173,6 +179,7 @@ public class IPRanges {
 
   public IPRanges process(IPPrefixesProcess process) {
     this.process = process;
+    this.unparsed |= process.unparsed;
     return this;
   }
 
@@ -195,6 +202,7 @@ public class IPRanges {
 
   public IPRanges synthetics(IPPrefixesSynthetics synthetics) {
     this.synthetics = synthetics;
+    this.unparsed |= synthetics.unparsed;
     return this;
   }
 
@@ -239,6 +247,7 @@ public class IPRanges {
 
   public IPRanges webhooks(IPPrefixesWebhooks webhooks) {
     this.webhooks = webhooks;
+    this.unparsed |= webhooks.unparsed;
     return this;
   }
 

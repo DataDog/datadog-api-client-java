@@ -12,41 +12,101 @@ package com.datadog.api.v2.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 /**
  * Once a signal is generated, the signal will remain “open” if a case is matched at least once
  * within this keep alive window.
  */
-public enum SecurityMonitoringRuleKeepAlive {
-  ZERO_MINUTES(0),
+@JsonSerialize(
+    using = SecurityMonitoringRuleKeepAlive.SecurityMonitoringRuleKeepAliveSerializer.class)
+public class SecurityMonitoringRuleKeepAlive {
 
-  ONE_MINUTE(60),
+  public static final SecurityMonitoringRuleKeepAlive ZERO_MINUTES =
+      new SecurityMonitoringRuleKeepAlive(0);
+  public static final SecurityMonitoringRuleKeepAlive ONE_MINUTE =
+      new SecurityMonitoringRuleKeepAlive(60);
+  public static final SecurityMonitoringRuleKeepAlive FIVE_MINUTES =
+      new SecurityMonitoringRuleKeepAlive(300);
+  public static final SecurityMonitoringRuleKeepAlive TEN_MINUTES =
+      new SecurityMonitoringRuleKeepAlive(600);
+  public static final SecurityMonitoringRuleKeepAlive FIFTEEN_MINUTES =
+      new SecurityMonitoringRuleKeepAlive(900);
+  public static final SecurityMonitoringRuleKeepAlive THIRTY_MINUTES =
+      new SecurityMonitoringRuleKeepAlive(1800);
+  public static final SecurityMonitoringRuleKeepAlive ONE_HOUR =
+      new SecurityMonitoringRuleKeepAlive(3600);
+  public static final SecurityMonitoringRuleKeepAlive TWO_HOURS =
+      new SecurityMonitoringRuleKeepAlive(7200);
+  public static final SecurityMonitoringRuleKeepAlive THREE_HOURS =
+      new SecurityMonitoringRuleKeepAlive(10800);
+  public static final SecurityMonitoringRuleKeepAlive SIX_HOURS =
+      new SecurityMonitoringRuleKeepAlive(21600);
 
-  FIVE_MINUTES(300),
-
-  TEN_MINUTES(600),
-
-  FIFTEEN_MINUTES(900),
-
-  THIRTY_MINUTES(1800),
-
-  ONE_HOUR(3600),
-
-  TWO_HOURS(7200),
-
-  THREE_HOURS(10800),
-
-  SIX_HOURS(21600);
+  private static final Set<Integer> allowedValues =
+      new HashSet<Integer>(Arrays.asList(0, 60, 300, 600, 900, 1800, 3600, 7200, 10800, 21600));
 
   private Integer value;
+
+  public boolean isValid() {
+    return allowedValues.contains(this.value);
+  }
 
   SecurityMonitoringRuleKeepAlive(Integer value) {
     this.value = value;
   }
 
+  public static class SecurityMonitoringRuleKeepAliveSerializer
+      extends StdSerializer<SecurityMonitoringRuleKeepAlive> {
+    public SecurityMonitoringRuleKeepAliveSerializer(Class<SecurityMonitoringRuleKeepAlive> t) {
+      super(t);
+    }
+
+    public SecurityMonitoringRuleKeepAliveSerializer() {
+      this(null);
+    }
+
+    @Override
+    public void serialize(
+        SecurityMonitoringRuleKeepAlive value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
+  }
+
   @JsonValue
   public Integer getValue() {
-    return value;
+    return this.value;
+  }
+
+  public void setValue(Integer value) {
+    this.value = value;
+  }
+
+  /** Return true if this SecurityMonitoringRuleKeepAlive object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    return this.value.equals(((SecurityMonitoringRuleKeepAlive) o).value);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(value);
   }
 
   @Override
@@ -56,11 +116,6 @@ public enum SecurityMonitoringRuleKeepAlive {
 
   @JsonCreator
   public static SecurityMonitoringRuleKeepAlive fromValue(Integer value) {
-    for (SecurityMonitoringRuleKeepAlive b : SecurityMonitoringRuleKeepAlive.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
-    }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    return new SecurityMonitoringRuleKeepAlive(value);
   }
 }

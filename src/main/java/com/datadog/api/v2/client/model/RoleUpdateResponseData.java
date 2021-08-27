@@ -11,6 +11,7 @@
 package com.datadog.api.v2.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -28,6 +29,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class RoleUpdateResponseData {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private RoleUpdateAttributes attributes;
 
@@ -46,10 +48,12 @@ public class RoleUpdateResponseData {
   public RoleUpdateResponseData(
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) RolesType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   public RoleUpdateResponseData attributes(RoleUpdateAttributes attributes) {
     this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
     return this;
   }
 
@@ -94,6 +98,7 @@ public class RoleUpdateResponseData {
 
   public RoleUpdateResponseData relationships(RoleResponseRelationships relationships) {
     this.relationships = relationships;
+    this.unparsed |= relationships.unparsed;
     return this;
   }
 
@@ -116,6 +121,7 @@ public class RoleUpdateResponseData {
 
   public RoleUpdateResponseData type(RolesType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -132,6 +138,9 @@ public class RoleUpdateResponseData {
   }
 
   public void setType(RolesType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

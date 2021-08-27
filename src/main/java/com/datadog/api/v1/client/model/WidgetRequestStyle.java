@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -26,6 +27,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WidgetRequestStyle {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_LINE_TYPE = "line_type";
   private WidgetLineType lineType;
 
@@ -37,6 +39,7 @@ public class WidgetRequestStyle {
 
   public WidgetRequestStyle lineType(WidgetLineType lineType) {
     this.lineType = lineType;
+    this.unparsed |= !lineType.isValid();
     return this;
   }
 
@@ -54,11 +57,15 @@ public class WidgetRequestStyle {
   }
 
   public void setLineType(WidgetLineType lineType) {
+    if (!lineType.isValid()) {
+      this.unparsed = true;
+    }
     this.lineType = lineType;
   }
 
   public WidgetRequestStyle lineWidth(WidgetLineWidth lineWidth) {
     this.lineWidth = lineWidth;
+    this.unparsed |= !lineWidth.isValid();
     return this;
   }
 
@@ -76,6 +83,9 @@ public class WidgetRequestStyle {
   }
 
   public void setLineWidth(WidgetLineWidth lineWidth) {
+    if (!lineWidth.isValid()) {
+      this.unparsed = true;
+    }
     this.lineWidth = lineWidth;
   }
 

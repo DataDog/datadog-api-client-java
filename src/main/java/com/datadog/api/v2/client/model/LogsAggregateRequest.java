@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -32,6 +33,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsAggregateRequest {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMPUTE = "compute";
   private List<LogsCompute> compute = null;
 
@@ -49,6 +51,9 @@ public class LogsAggregateRequest {
 
   public LogsAggregateRequest compute(List<LogsCompute> compute) {
     this.compute = compute;
+    for (LogsCompute item : compute) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -57,6 +62,7 @@ public class LogsAggregateRequest {
       this.compute = new ArrayList<>();
     }
     this.compute.add(computeItem);
+    this.unparsed |= computeItem.unparsed;
     return this;
   }
 
@@ -80,6 +86,7 @@ public class LogsAggregateRequest {
 
   public LogsAggregateRequest filter(LogsQueryFilter filter) {
     this.filter = filter;
+    this.unparsed |= filter.unparsed;
     return this;
   }
 
@@ -102,6 +109,9 @@ public class LogsAggregateRequest {
 
   public LogsAggregateRequest groupBy(List<LogsGroupBy> groupBy) {
     this.groupBy = groupBy;
+    for (LogsGroupBy item : groupBy) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -110,6 +120,7 @@ public class LogsAggregateRequest {
       this.groupBy = new ArrayList<>();
     }
     this.groupBy.add(groupByItem);
+    this.unparsed |= groupByItem.unparsed;
     return this;
   }
 
@@ -132,6 +143,7 @@ public class LogsAggregateRequest {
 
   public LogsAggregateRequest options(LogsQueryOptions options) {
     this.options = options;
+    this.unparsed |= options.unparsed;
     return this;
   }
 
@@ -154,6 +166,7 @@ public class LogsAggregateRequest {
 
   public LogsAggregateRequest page(LogsAggregateRequestPage page) {
     this.page = page;
+    this.unparsed |= page.unparsed;
     return this;
   }
 

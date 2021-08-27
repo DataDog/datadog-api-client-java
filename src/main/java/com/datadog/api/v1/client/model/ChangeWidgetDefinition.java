@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -34,6 +35,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ChangeWidgetDefinition {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
   private List<WidgetCustomLink> customLinks = null;
 
@@ -64,10 +66,14 @@ public class ChangeWidgetDefinition {
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) ChangeWidgetDefinitionType type) {
     this.requests = requests;
     this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   public ChangeWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
+    for (WidgetCustomLink item : customLinks) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -76,6 +82,7 @@ public class ChangeWidgetDefinition {
       this.customLinks = new ArrayList<>();
     }
     this.customLinks.add(customLinksItem);
+    this.unparsed |= customLinksItem.unparsed;
     return this;
   }
 
@@ -98,11 +105,15 @@ public class ChangeWidgetDefinition {
 
   public ChangeWidgetDefinition requests(List<ChangeWidgetRequest> requests) {
     this.requests = requests;
+    for (ChangeWidgetRequest item : requests) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
   public ChangeWidgetDefinition addRequestsItem(ChangeWidgetRequest requestsItem) {
     this.requests.add(requestsItem);
+    this.unparsed |= requestsItem.unparsed;
     return this;
   }
 
@@ -133,6 +144,7 @@ public class ChangeWidgetDefinition {
 
   public ChangeWidgetDefinition time(WidgetTime time) {
     this.time = time;
+    this.unparsed |= time.unparsed;
     return this;
   }
 
@@ -177,6 +189,7 @@ public class ChangeWidgetDefinition {
 
   public ChangeWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
+    this.unparsed |= !titleAlign.isValid();
     return this;
   }
 
@@ -194,6 +207,9 @@ public class ChangeWidgetDefinition {
   }
 
   public void setTitleAlign(WidgetTextAlign titleAlign) {
+    if (!titleAlign.isValid()) {
+      this.unparsed = true;
+    }
     this.titleAlign = titleAlign;
   }
 
@@ -221,6 +237,7 @@ public class ChangeWidgetDefinition {
 
   public ChangeWidgetDefinition type(ChangeWidgetDefinitionType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -237,6 +254,9 @@ public class ChangeWidgetDefinition {
   }
 
   public void setType(ChangeWidgetDefinitionType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

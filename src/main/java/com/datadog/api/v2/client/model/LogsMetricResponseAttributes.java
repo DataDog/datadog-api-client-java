@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -28,6 +29,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsMetricResponseAttributes {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMPUTE = "compute";
   private LogsMetricResponseCompute compute;
 
@@ -39,6 +41,7 @@ public class LogsMetricResponseAttributes {
 
   public LogsMetricResponseAttributes compute(LogsMetricResponseCompute compute) {
     this.compute = compute;
+    this.unparsed |= compute.unparsed;
     return this;
   }
 
@@ -61,6 +64,7 @@ public class LogsMetricResponseAttributes {
 
   public LogsMetricResponseAttributes filter(LogsMetricResponseFilter filter) {
     this.filter = filter;
+    this.unparsed |= filter.unparsed;
     return this;
   }
 
@@ -83,6 +87,9 @@ public class LogsMetricResponseAttributes {
 
   public LogsMetricResponseAttributes groupBy(List<LogsMetricResponseGroupBy> groupBy) {
     this.groupBy = groupBy;
+    for (LogsMetricResponseGroupBy item : groupBy) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -91,6 +98,7 @@ public class LogsMetricResponseAttributes {
       this.groupBy = new ArrayList<>();
     }
     this.groupBy.add(groupByItem);
+    this.unparsed |= groupByItem.unparsed;
     return this;
   }
 

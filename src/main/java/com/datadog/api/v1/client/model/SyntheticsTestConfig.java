@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -29,6 +30,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsTestConfig {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ASSERTIONS = "assertions";
   private List<SyntheticsAssertion> assertions = null;
 
@@ -43,6 +45,9 @@ public class SyntheticsTestConfig {
 
   public SyntheticsTestConfig assertions(List<SyntheticsAssertion> assertions) {
     this.assertions = assertions;
+    for (SyntheticsAssertion item : assertions) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -51,6 +56,7 @@ public class SyntheticsTestConfig {
       this.assertions = new ArrayList<>();
     }
     this.assertions.add(assertionsItem);
+    this.unparsed |= assertionsItem.unparsed;
     return this;
   }
 
@@ -73,6 +79,9 @@ public class SyntheticsTestConfig {
 
   public SyntheticsTestConfig configVariables(List<SyntheticsConfigVariable> configVariables) {
     this.configVariables = configVariables;
+    for (SyntheticsConfigVariable item : configVariables) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -81,6 +90,7 @@ public class SyntheticsTestConfig {
       this.configVariables = new ArrayList<>();
     }
     this.configVariables.add(configVariablesItem);
+    this.unparsed |= configVariablesItem.unparsed;
     return this;
   }
 
@@ -103,6 +113,7 @@ public class SyntheticsTestConfig {
 
   public SyntheticsTestConfig request(SyntheticsTestRequest request) {
     this.request = request;
+    this.unparsed |= request.unparsed;
     return this;
   }
 
@@ -125,6 +136,9 @@ public class SyntheticsTestConfig {
 
   public SyntheticsTestConfig variables(List<SyntheticsBrowserVariable> variables) {
     this.variables = variables;
+    for (SyntheticsBrowserVariable item : variables) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -133,6 +147,7 @@ public class SyntheticsTestConfig {
       this.variables = new ArrayList<>();
     }
     this.variables.add(variablesItem);
+    this.unparsed |= variablesItem.unparsed;
     return this;
   }
 

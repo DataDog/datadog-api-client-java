@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -43,6 +44,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class HeatMapWidgetDefinition {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
   private List<WidgetCustomLink> customLinks = null;
 
@@ -85,10 +87,14 @@ public class HeatMapWidgetDefinition {
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) HeatMapWidgetDefinitionType type) {
     this.requests = requests;
     this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   public HeatMapWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
+    for (WidgetCustomLink item : customLinks) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -97,6 +103,7 @@ public class HeatMapWidgetDefinition {
       this.customLinks = new ArrayList<>();
     }
     this.customLinks.add(customLinksItem);
+    this.unparsed |= customLinksItem.unparsed;
     return this;
   }
 
@@ -119,6 +126,9 @@ public class HeatMapWidgetDefinition {
 
   public HeatMapWidgetDefinition events(List<WidgetEvent> events) {
     this.events = events;
+    for (WidgetEvent item : events) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -127,6 +137,7 @@ public class HeatMapWidgetDefinition {
       this.events = new ArrayList<>();
     }
     this.events.add(eventsItem);
+    this.unparsed |= eventsItem.unparsed;
     return this;
   }
 
@@ -175,11 +186,15 @@ public class HeatMapWidgetDefinition {
 
   public HeatMapWidgetDefinition requests(List<HeatMapWidgetRequest> requests) {
     this.requests = requests;
+    for (HeatMapWidgetRequest item : requests) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
   public HeatMapWidgetDefinition addRequestsItem(HeatMapWidgetRequest requestsItem) {
     this.requests.add(requestsItem);
+    this.unparsed |= requestsItem.unparsed;
     return this;
   }
 
@@ -226,6 +241,7 @@ public class HeatMapWidgetDefinition {
 
   public HeatMapWidgetDefinition time(WidgetTime time) {
     this.time = time;
+    this.unparsed |= time.unparsed;
     return this;
   }
 
@@ -270,6 +286,7 @@ public class HeatMapWidgetDefinition {
 
   public HeatMapWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
+    this.unparsed |= !titleAlign.isValid();
     return this;
   }
 
@@ -287,6 +304,9 @@ public class HeatMapWidgetDefinition {
   }
 
   public void setTitleAlign(WidgetTextAlign titleAlign) {
+    if (!titleAlign.isValid()) {
+      this.unparsed = true;
+    }
     this.titleAlign = titleAlign;
   }
 
@@ -314,6 +334,7 @@ public class HeatMapWidgetDefinition {
 
   public HeatMapWidgetDefinition type(HeatMapWidgetDefinitionType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -330,11 +351,15 @@ public class HeatMapWidgetDefinition {
   }
 
   public void setType(HeatMapWidgetDefinitionType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 
   public HeatMapWidgetDefinition yaxis(WidgetAxis yaxis) {
     this.yaxis = yaxis;
+    this.unparsed |= yaxis.unparsed;
     return this;
   }
 

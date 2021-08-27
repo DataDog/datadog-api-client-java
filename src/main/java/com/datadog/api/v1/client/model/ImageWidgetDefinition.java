@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -39,6 +40,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ImageWidgetDefinition {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_HAS_BACKGROUND = "has_background";
   private Boolean hasBackground = true;
 
@@ -73,6 +75,7 @@ public class ImageWidgetDefinition {
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) ImageWidgetDefinitionType type,
       @JsonProperty(required = true, value = JSON_PROPERTY_URL) String url) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     this.url = url;
   }
 
@@ -122,6 +125,7 @@ public class ImageWidgetDefinition {
 
   public ImageWidgetDefinition horizontalAlign(WidgetHorizontalAlign horizontalAlign) {
     this.horizontalAlign = horizontalAlign;
+    this.unparsed |= !horizontalAlign.isValid();
     return this;
   }
 
@@ -139,11 +143,15 @@ public class ImageWidgetDefinition {
   }
 
   public void setHorizontalAlign(WidgetHorizontalAlign horizontalAlign) {
+    if (!horizontalAlign.isValid()) {
+      this.unparsed = true;
+    }
     this.horizontalAlign = horizontalAlign;
   }
 
   public ImageWidgetDefinition margin(WidgetMargin margin) {
     this.margin = margin;
+    this.unparsed |= !margin.isValid();
     return this;
   }
 
@@ -161,11 +169,15 @@ public class ImageWidgetDefinition {
   }
 
   public void setMargin(WidgetMargin margin) {
+    if (!margin.isValid()) {
+      this.unparsed = true;
+    }
     this.margin = margin;
   }
 
   public ImageWidgetDefinition sizing(WidgetImageSizing sizing) {
     this.sizing = sizing;
+    this.unparsed |= !sizing.isValid();
     return this;
   }
 
@@ -183,11 +195,15 @@ public class ImageWidgetDefinition {
   }
 
   public void setSizing(WidgetImageSizing sizing) {
+    if (!sizing.isValid()) {
+      this.unparsed = true;
+    }
     this.sizing = sizing;
   }
 
   public ImageWidgetDefinition type(ImageWidgetDefinitionType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -204,6 +220,9 @@ public class ImageWidgetDefinition {
   }
 
   public void setType(ImageWidgetDefinitionType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 
@@ -257,6 +276,7 @@ public class ImageWidgetDefinition {
 
   public ImageWidgetDefinition verticalAlign(WidgetVerticalAlign verticalAlign) {
     this.verticalAlign = verticalAlign;
+    this.unparsed |= !verticalAlign.isValid();
     return this;
   }
 
@@ -274,6 +294,9 @@ public class ImageWidgetDefinition {
   }
 
   public void setVerticalAlign(WidgetVerticalAlign verticalAlign) {
+    if (!verticalAlign.isValid()) {
+      this.unparsed = true;
+    }
     this.verticalAlign = verticalAlign;
   }
 

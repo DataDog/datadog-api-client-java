@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -28,6 +29,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsAssertionJSONPathTarget {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_OPERATOR = "operator";
   private SyntheticsAssertionJSONPathOperator operator;
 
@@ -48,11 +50,14 @@ public class SyntheticsAssertionJSONPathTarget {
           SyntheticsAssertionJSONPathOperator operator,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SyntheticsAssertionType type) {
     this.operator = operator;
+    this.unparsed |= !operator.isValid();
     this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   public SyntheticsAssertionJSONPathTarget operator(SyntheticsAssertionJSONPathOperator operator) {
     this.operator = operator;
+    this.unparsed |= !operator.isValid();
     return this;
   }
 
@@ -69,6 +74,9 @@ public class SyntheticsAssertionJSONPathTarget {
   }
 
   public void setOperator(SyntheticsAssertionJSONPathOperator operator) {
+    if (!operator.isValid()) {
+      this.unparsed = true;
+    }
     this.operator = operator;
   }
 
@@ -96,6 +104,7 @@ public class SyntheticsAssertionJSONPathTarget {
 
   public SyntheticsAssertionJSONPathTarget target(SyntheticsAssertionJSONPathTargetTarget target) {
     this.target = target;
+    this.unparsed |= target.unparsed;
     return this;
   }
 
@@ -118,6 +127,7 @@ public class SyntheticsAssertionJSONPathTarget {
 
   public SyntheticsAssertionJSONPathTarget type(SyntheticsAssertionType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -134,6 +144,9 @@ public class SyntheticsAssertionJSONPathTarget {
   }
 
   public void setType(SyntheticsAssertionType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

@@ -11,6 +11,7 @@
 package com.datadog.api.v2.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,6 +31,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SecurityMonitoringRuleCaseCreate {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CONDITION = "condition";
   private String condition;
 
@@ -49,6 +51,7 @@ public class SecurityMonitoringRuleCaseCreate {
       @JsonProperty(required = true, value = JSON_PROPERTY_STATUS)
           SecurityMonitoringRuleSeverity status) {
     this.status = status;
+    this.unparsed |= !status.isValid();
   }
 
   public SecurityMonitoringRuleCaseCreate condition(String condition) {
@@ -133,6 +136,7 @@ public class SecurityMonitoringRuleCaseCreate {
 
   public SecurityMonitoringRuleCaseCreate status(SecurityMonitoringRuleSeverity status) {
     this.status = status;
+    this.unparsed |= !status.isValid();
     return this;
   }
 
@@ -149,6 +153,9 @@ public class SecurityMonitoringRuleCaseCreate {
   }
 
   public void setStatus(SecurityMonitoringRuleSeverity status) {
+    if (!status.isValid()) {
+      this.unparsed = true;
+    }
     this.status = status;
   }
 

@@ -29,6 +29,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DashboardTemplateVariable {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DEFAULT = "default";
   private JsonNullable<String> _default = JsonNullable.<String>undefined();
 

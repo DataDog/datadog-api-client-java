@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -29,6 +30,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsAPITestConfig {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ASSERTIONS = "assertions";
   private List<SyntheticsAssertion> assertions = null;
 
@@ -43,6 +45,9 @@ public class SyntheticsAPITestConfig {
 
   public SyntheticsAPITestConfig assertions(List<SyntheticsAssertion> assertions) {
     this.assertions = assertions;
+    for (SyntheticsAssertion item : assertions) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -51,6 +56,7 @@ public class SyntheticsAPITestConfig {
       this.assertions = new ArrayList<>();
     }
     this.assertions.add(assertionsItem);
+    this.unparsed |= assertionsItem.unparsed;
     return this;
   }
 
@@ -73,6 +79,9 @@ public class SyntheticsAPITestConfig {
 
   public SyntheticsAPITestConfig configVariables(List<SyntheticsConfigVariable> configVariables) {
     this.configVariables = configVariables;
+    for (SyntheticsConfigVariable item : configVariables) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -82,6 +91,7 @@ public class SyntheticsAPITestConfig {
       this.configVariables = new ArrayList<>();
     }
     this.configVariables.add(configVariablesItem);
+    this.unparsed |= configVariablesItem.unparsed;
     return this;
   }
 
@@ -104,6 +114,7 @@ public class SyntheticsAPITestConfig {
 
   public SyntheticsAPITestConfig request(SyntheticsTestRequest request) {
     this.request = request;
+    this.unparsed |= request.unparsed;
     return this;
   }
 
@@ -126,6 +137,9 @@ public class SyntheticsAPITestConfig {
 
   public SyntheticsAPITestConfig steps(List<SyntheticsAPIStep> steps) {
     this.steps = steps;
+    for (SyntheticsAPIStep item : steps) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -134,6 +148,7 @@ public class SyntheticsAPITestConfig {
       this.steps = new ArrayList<>();
     }
     this.steps.add(stepsItem);
+    this.unparsed |= stepsItem.unparsed;
     return this;
   }
 

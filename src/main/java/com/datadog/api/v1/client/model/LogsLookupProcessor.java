@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -46,6 +47,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsLookupProcessor {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DEFAULT_LOOKUP = "default_lookup";
   private String defaultLookup;
 
@@ -79,6 +81,7 @@ public class LogsLookupProcessor {
     this.source = source;
     this.target = target;
     this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   public LogsLookupProcessor defaultLookup(String defaultLookup) {
@@ -235,6 +238,7 @@ public class LogsLookupProcessor {
 
   public LogsLookupProcessor type(LogsLookupProcessorType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -251,6 +255,9 @@ public class LogsLookupProcessor {
   }
 
   public void setType(LogsLookupProcessorType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

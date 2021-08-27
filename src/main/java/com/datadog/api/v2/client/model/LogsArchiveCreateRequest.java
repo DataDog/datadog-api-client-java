@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -22,11 +23,13 @@ import java.util.Objects;
 @JsonPropertyOrder({LogsArchiveCreateRequest.JSON_PROPERTY_DATA})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsArchiveCreateRequest {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private LogsArchiveCreateRequestDefinition data;
 
   public LogsArchiveCreateRequest data(LogsArchiveCreateRequestDefinition data) {
     this.data = data;
+    this.unparsed |= data.unparsed;
     return this;
   }
 

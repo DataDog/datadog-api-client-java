@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -46,6 +47,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ServiceSummaryWidgetDefinition {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DISPLAY_FORMAT = "display_format";
   private WidgetServiceSummaryDisplayFormat displayFormat;
 
@@ -108,11 +110,13 @@ public class ServiceSummaryWidgetDefinition {
     this.service = service;
     this.spanName = spanName;
     this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   public ServiceSummaryWidgetDefinition displayFormat(
       WidgetServiceSummaryDisplayFormat displayFormat) {
     this.displayFormat = displayFormat;
+    this.unparsed |= !displayFormat.isValid();
     return this;
   }
 
@@ -130,6 +134,9 @@ public class ServiceSummaryWidgetDefinition {
   }
 
   public void setDisplayFormat(WidgetServiceSummaryDisplayFormat displayFormat) {
+    if (!displayFormat.isValid()) {
+      this.unparsed = true;
+    }
     this.displayFormat = displayFormat;
   }
 
@@ -309,6 +316,7 @@ public class ServiceSummaryWidgetDefinition {
 
   public ServiceSummaryWidgetDefinition sizeFormat(WidgetSizeFormat sizeFormat) {
     this.sizeFormat = sizeFormat;
+    this.unparsed |= !sizeFormat.isValid();
     return this;
   }
 
@@ -326,6 +334,9 @@ public class ServiceSummaryWidgetDefinition {
   }
 
   public void setSizeFormat(WidgetSizeFormat sizeFormat) {
+    if (!sizeFormat.isValid()) {
+      this.unparsed = true;
+    }
     this.sizeFormat = sizeFormat;
   }
 
@@ -352,6 +363,7 @@ public class ServiceSummaryWidgetDefinition {
 
   public ServiceSummaryWidgetDefinition time(WidgetTime time) {
     this.time = time;
+    this.unparsed |= time.unparsed;
     return this;
   }
 
@@ -396,6 +408,7 @@ public class ServiceSummaryWidgetDefinition {
 
   public ServiceSummaryWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
+    this.unparsed |= !titleAlign.isValid();
     return this;
   }
 
@@ -413,6 +426,9 @@ public class ServiceSummaryWidgetDefinition {
   }
 
   public void setTitleAlign(WidgetTextAlign titleAlign) {
+    if (!titleAlign.isValid()) {
+      this.unparsed = true;
+    }
     this.titleAlign = titleAlign;
   }
 
@@ -440,6 +456,7 @@ public class ServiceSummaryWidgetDefinition {
 
   public ServiceSummaryWidgetDefinition type(ServiceSummaryWidgetDefinitionType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -456,6 +473,9 @@ public class ServiceSummaryWidgetDefinition {
   }
 
   public void setType(ServiceSummaryWidgetDefinitionType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

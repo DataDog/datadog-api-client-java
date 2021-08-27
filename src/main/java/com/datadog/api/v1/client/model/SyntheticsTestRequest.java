@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -41,6 +42,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsTestRequest {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ALLOW_INSECURE = "allow_insecure";
   private Boolean allowInsecure;
 
@@ -114,6 +116,7 @@ public class SyntheticsTestRequest {
 
   public SyntheticsTestRequest basicAuth(SyntheticsBasicAuth basicAuth) {
     this.basicAuth = basicAuth;
+    this.unparsed |= basicAuth.unparsed;
     return this;
   }
 
@@ -158,6 +161,7 @@ public class SyntheticsTestRequest {
 
   public SyntheticsTestRequest certificate(SyntheticsTestRequestCertificate certificate) {
     this.certificate = certificate;
+    this.unparsed |= certificate.unparsed;
     return this;
   }
 
@@ -276,6 +280,7 @@ public class SyntheticsTestRequest {
 
   public SyntheticsTestRequest method(HTTPMethod method) {
     this.method = method;
+    this.unparsed |= !method.isValid();
     return this;
   }
 
@@ -293,6 +298,9 @@ public class SyntheticsTestRequest {
   }
 
   public void setMethod(HTTPMethod method) {
+    if (!method.isValid()) {
+      this.unparsed = true;
+    }
     this.method = method;
   }
 

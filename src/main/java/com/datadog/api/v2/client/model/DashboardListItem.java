@@ -11,6 +11,7 @@
 package com.datadog.api.v2.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -37,6 +38,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DashboardListItem {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTHOR = "author";
   private Creator author;
 
@@ -81,10 +83,12 @@ public class DashboardListItem {
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) DashboardType type) {
     this.id = id;
     this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   public DashboardListItem author(Creator author) {
     this.author = author;
+    this.unparsed |= author.unparsed;
     return this;
   }
 
@@ -232,6 +236,7 @@ public class DashboardListItem {
 
   public DashboardListItem type(DashboardType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -248,6 +253,9 @@ public class DashboardListItem {
   }
 
   public void setType(DashboardType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

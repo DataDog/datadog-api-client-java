@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -55,6 +56,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageBillableSummaryKeys {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_APM_HOST_SUM = "apm_host_sum";
   private UsageBillableSummaryBody apmHostSum;
 
@@ -155,6 +157,7 @@ public class UsageBillableSummaryKeys {
 
   public UsageBillableSummaryKeys apmHostSum(UsageBillableSummaryBody apmHostSum) {
     this.apmHostSum = apmHostSum;
+    this.unparsed |= apmHostSum.unparsed;
     return this;
   }
 
@@ -177,6 +180,7 @@ public class UsageBillableSummaryKeys {
 
   public UsageBillableSummaryKeys apmHostTop99p(UsageBillableSummaryBody apmHostTop99p) {
     this.apmHostTop99p = apmHostTop99p;
+    this.unparsed |= apmHostTop99p.unparsed;
     return this;
   }
 
@@ -199,6 +203,7 @@ public class UsageBillableSummaryKeys {
 
   public UsageBillableSummaryKeys apmTraceSearchSum(UsageBillableSummaryBody apmTraceSearchSum) {
     this.apmTraceSearchSum = apmTraceSearchSum;
+    this.unparsed |= apmTraceSearchSum.unparsed;
     return this;
   }
 
@@ -222,6 +227,7 @@ public class UsageBillableSummaryKeys {
   public UsageBillableSummaryKeys fargateContainerAverage(
       UsageBillableSummaryBody fargateContainerAverage) {
     this.fargateContainerAverage = fargateContainerAverage;
+    this.unparsed |= fargateContainerAverage.unparsed;
     return this;
   }
 
@@ -244,6 +250,7 @@ public class UsageBillableSummaryKeys {
 
   public UsageBillableSummaryKeys infraContainerSum(UsageBillableSummaryBody infraContainerSum) {
     this.infraContainerSum = infraContainerSum;
+    this.unparsed |= infraContainerSum.unparsed;
     return this;
   }
 
@@ -266,6 +273,7 @@ public class UsageBillableSummaryKeys {
 
   public UsageBillableSummaryKeys infraHostSum(UsageBillableSummaryBody infraHostSum) {
     this.infraHostSum = infraHostSum;
+    this.unparsed |= infraHostSum.unparsed;
     return this;
   }
 
@@ -288,6 +296,7 @@ public class UsageBillableSummaryKeys {
 
   public UsageBillableSummaryKeys infraHostTop99p(UsageBillableSummaryBody infraHostTop99p) {
     this.infraHostTop99p = infraHostTop99p;
+    this.unparsed |= infraHostTop99p.unparsed;
     return this;
   }
 
@@ -310,6 +319,7 @@ public class UsageBillableSummaryKeys {
 
   public UsageBillableSummaryKeys iotTop99p(UsageBillableSummaryBody iotTop99p) {
     this.iotTop99p = iotTop99p;
+    this.unparsed |= iotTop99p.unparsed;
     return this;
   }
 
@@ -333,6 +343,7 @@ public class UsageBillableSummaryKeys {
   public UsageBillableSummaryKeys lambdaFunctionAverage(
       UsageBillableSummaryBody lambdaFunctionAverage) {
     this.lambdaFunctionAverage = lambdaFunctionAverage;
+    this.unparsed |= lambdaFunctionAverage.unparsed;
     return this;
   }
 
@@ -356,6 +367,7 @@ public class UsageBillableSummaryKeys {
   public UsageBillableSummaryKeys logsIndexed15daySum(
       UsageBillableSummaryBody logsIndexed15daySum) {
     this.logsIndexed15daySum = logsIndexed15daySum;
+    this.unparsed |= logsIndexed15daySum.unparsed;
     return this;
   }
 
@@ -379,6 +391,7 @@ public class UsageBillableSummaryKeys {
   public UsageBillableSummaryKeys logsIndexed180daySum(
       UsageBillableSummaryBody logsIndexed180daySum) {
     this.logsIndexed180daySum = logsIndexed180daySum;
+    this.unparsed |= logsIndexed180daySum.unparsed;
     return this;
   }
 
@@ -402,6 +415,7 @@ public class UsageBillableSummaryKeys {
   public UsageBillableSummaryKeys logsIndexed30daySum(
       UsageBillableSummaryBody logsIndexed30daySum) {
     this.logsIndexed30daySum = logsIndexed30daySum;
+    this.unparsed |= logsIndexed30daySum.unparsed;
     return this;
   }
 
@@ -424,6 +438,7 @@ public class UsageBillableSummaryKeys {
 
   public UsageBillableSummaryKeys logsIndexed3daySum(UsageBillableSummaryBody logsIndexed3daySum) {
     this.logsIndexed3daySum = logsIndexed3daySum;
+    this.unparsed |= logsIndexed3daySum.unparsed;
     return this;
   }
 
@@ -447,6 +462,7 @@ public class UsageBillableSummaryKeys {
   public UsageBillableSummaryKeys logsIndexed45daySum(
       UsageBillableSummaryBody logsIndexed45daySum) {
     this.logsIndexed45daySum = logsIndexed45daySum;
+    this.unparsed |= logsIndexed45daySum.unparsed;
     return this;
   }
 
@@ -470,6 +486,7 @@ public class UsageBillableSummaryKeys {
   public UsageBillableSummaryKeys logsIndexed60daySum(
       UsageBillableSummaryBody logsIndexed60daySum) {
     this.logsIndexed60daySum = logsIndexed60daySum;
+    this.unparsed |= logsIndexed60daySum.unparsed;
     return this;
   }
 
@@ -492,6 +509,7 @@ public class UsageBillableSummaryKeys {
 
   public UsageBillableSummaryKeys logsIndexed7daySum(UsageBillableSummaryBody logsIndexed7daySum) {
     this.logsIndexed7daySum = logsIndexed7daySum;
+    this.unparsed |= logsIndexed7daySum.unparsed;
     return this;
   }
 
@@ -515,6 +533,7 @@ public class UsageBillableSummaryKeys {
   public UsageBillableSummaryKeys logsIndexed90daySum(
       UsageBillableSummaryBody logsIndexed90daySum) {
     this.logsIndexed90daySum = logsIndexed90daySum;
+    this.unparsed |= logsIndexed90daySum.unparsed;
     return this;
   }
 
@@ -538,6 +557,7 @@ public class UsageBillableSummaryKeys {
   public UsageBillableSummaryKeys logsIndexedCustomRetentionSum(
       UsageBillableSummaryBody logsIndexedCustomRetentionSum) {
     this.logsIndexedCustomRetentionSum = logsIndexedCustomRetentionSum;
+    this.unparsed |= logsIndexedCustomRetentionSum.unparsed;
     return this;
   }
 
@@ -561,6 +581,7 @@ public class UsageBillableSummaryKeys {
 
   public UsageBillableSummaryKeys logsIndexedSum(UsageBillableSummaryBody logsIndexedSum) {
     this.logsIndexedSum = logsIndexedSum;
+    this.unparsed |= logsIndexedSum.unparsed;
     return this;
   }
 
@@ -583,6 +604,7 @@ public class UsageBillableSummaryKeys {
 
   public UsageBillableSummaryKeys logsIngestedSum(UsageBillableSummaryBody logsIngestedSum) {
     this.logsIngestedSum = logsIngestedSum;
+    this.unparsed |= logsIngestedSum.unparsed;
     return this;
   }
 
@@ -606,6 +628,7 @@ public class UsageBillableSummaryKeys {
   public UsageBillableSummaryKeys networkDeviceTop99p(
       UsageBillableSummaryBody networkDeviceTop99p) {
     this.networkDeviceTop99p = networkDeviceTop99p;
+    this.unparsed |= networkDeviceTop99p.unparsed;
     return this;
   }
 
@@ -628,6 +651,7 @@ public class UsageBillableSummaryKeys {
 
   public UsageBillableSummaryKeys npmFlowSum(UsageBillableSummaryBody npmFlowSum) {
     this.npmFlowSum = npmFlowSum;
+    this.unparsed |= npmFlowSum.unparsed;
     return this;
   }
 
@@ -650,6 +674,7 @@ public class UsageBillableSummaryKeys {
 
   public UsageBillableSummaryKeys npmHostSum(UsageBillableSummaryBody npmHostSum) {
     this.npmHostSum = npmHostSum;
+    this.unparsed |= npmHostSum.unparsed;
     return this;
   }
 
@@ -672,6 +697,7 @@ public class UsageBillableSummaryKeys {
 
   public UsageBillableSummaryKeys npmHostTop99p(UsageBillableSummaryBody npmHostTop99p) {
     this.npmHostTop99p = npmHostTop99p;
+    this.unparsed |= npmHostTop99p.unparsed;
     return this;
   }
 
@@ -694,6 +720,7 @@ public class UsageBillableSummaryKeys {
 
   public UsageBillableSummaryKeys profContainerSum(UsageBillableSummaryBody profContainerSum) {
     this.profContainerSum = profContainerSum;
+    this.unparsed |= profContainerSum.unparsed;
     return this;
   }
 
@@ -716,6 +743,7 @@ public class UsageBillableSummaryKeys {
 
   public UsageBillableSummaryKeys profHostTop99p(UsageBillableSummaryBody profHostTop99p) {
     this.profHostTop99p = profHostTop99p;
+    this.unparsed |= profHostTop99p.unparsed;
     return this;
   }
 
@@ -738,6 +766,7 @@ public class UsageBillableSummaryKeys {
 
   public UsageBillableSummaryKeys rumSum(UsageBillableSummaryBody rumSum) {
     this.rumSum = rumSum;
+    this.unparsed |= rumSum.unparsed;
     return this;
   }
 
@@ -761,6 +790,7 @@ public class UsageBillableSummaryKeys {
   public UsageBillableSummaryKeys serverlessInvocationSum(
       UsageBillableSummaryBody serverlessInvocationSum) {
     this.serverlessInvocationSum = serverlessInvocationSum;
+    this.unparsed |= serverlessInvocationSum.unparsed;
     return this;
   }
 
@@ -783,6 +813,7 @@ public class UsageBillableSummaryKeys {
 
   public UsageBillableSummaryKeys siemSum(UsageBillableSummaryBody siemSum) {
     this.siemSum = siemSum;
+    this.unparsed |= siemSum.unparsed;
     return this;
   }
 
@@ -806,6 +837,7 @@ public class UsageBillableSummaryKeys {
   public UsageBillableSummaryKeys syntheticsApiTestsSum(
       UsageBillableSummaryBody syntheticsApiTestsSum) {
     this.syntheticsApiTestsSum = syntheticsApiTestsSum;
+    this.unparsed |= syntheticsApiTestsSum.unparsed;
     return this;
   }
 
@@ -829,6 +861,7 @@ public class UsageBillableSummaryKeys {
   public UsageBillableSummaryKeys syntheticsBrowserChecksSum(
       UsageBillableSummaryBody syntheticsBrowserChecksSum) {
     this.syntheticsBrowserChecksSum = syntheticsBrowserChecksSum;
+    this.unparsed |= syntheticsBrowserChecksSum.unparsed;
     return this;
   }
 
@@ -851,6 +884,7 @@ public class UsageBillableSummaryKeys {
 
   public UsageBillableSummaryKeys timeseriesAverage(UsageBillableSummaryBody timeseriesAverage) {
     this.timeseriesAverage = timeseriesAverage;
+    this.unparsed |= timeseriesAverage.unparsed;
     return this;
   }
 

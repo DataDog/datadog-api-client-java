@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -34,6 +35,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class NotebooksResponseDataAttributes {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTHOR = "author";
   private NotebookAuthor author;
 
@@ -65,6 +67,7 @@ public class NotebooksResponseDataAttributes {
 
   public NotebooksResponseDataAttributes author(NotebookAuthor author) {
     this.author = author;
+    this.unparsed |= author.unparsed;
     return this;
   }
 
@@ -87,6 +90,9 @@ public class NotebooksResponseDataAttributes {
 
   public NotebooksResponseDataAttributes cells(List<NotebookCellResponse> cells) {
     this.cells = cells;
+    for (NotebookCellResponse item : cells) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -95,6 +101,7 @@ public class NotebooksResponseDataAttributes {
       this.cells = new ArrayList<>();
     }
     this.cells.add(cellsItem);
+    this.unparsed |= cellsItem.unparsed;
     return this;
   }
 
@@ -171,6 +178,7 @@ public class NotebooksResponseDataAttributes {
 
   public NotebooksResponseDataAttributes status(NotebookStatus status) {
     this.status = status;
+    this.unparsed |= !status.isValid();
     return this;
   }
 
@@ -188,11 +196,15 @@ public class NotebooksResponseDataAttributes {
   }
 
   public void setStatus(NotebookStatus status) {
+    if (!status.isValid()) {
+      this.unparsed = true;
+    }
     this.status = status;
   }
 
   public NotebooksResponseDataAttributes time(NotebookGlobalTime time) {
     this.time = time;
+    this.unparsed |= time.unparsed;
     return this;
   }
 

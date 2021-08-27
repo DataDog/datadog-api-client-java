@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -32,6 +33,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IFrameWidgetDefinition {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_TYPE = "type";
   private IFrameWidgetDefinitionType type = IFrameWidgetDefinitionType.IFRAME;
 
@@ -45,11 +47,13 @@ public class IFrameWidgetDefinition {
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) IFrameWidgetDefinitionType type,
       @JsonProperty(required = true, value = JSON_PROPERTY_URL) String url) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     this.url = url;
   }
 
   public IFrameWidgetDefinition type(IFrameWidgetDefinitionType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -66,6 +70,9 @@ public class IFrameWidgetDefinition {
   }
 
   public void setType(IFrameWidgetDefinitionType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

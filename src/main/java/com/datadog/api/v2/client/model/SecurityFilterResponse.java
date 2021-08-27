@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -25,6 +26,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SecurityFilterResponse {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private SecurityFilter data;
 
@@ -33,6 +35,7 @@ public class SecurityFilterResponse {
 
   public SecurityFilterResponse data(SecurityFilter data) {
     this.data = data;
+    this.unparsed |= data.unparsed;
     return this;
   }
 
@@ -55,6 +58,7 @@ public class SecurityFilterResponse {
 
   public SecurityFilterResponse meta(SecurityFilterMeta meta) {
     this.meta = meta;
+    this.unparsed |= meta.unparsed;
     return this;
   }
 

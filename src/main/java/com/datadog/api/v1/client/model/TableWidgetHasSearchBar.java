@@ -12,24 +12,80 @@ package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 /** Controls the display of the search bar. */
-public enum TableWidgetHasSearchBar {
-  ALWAYS("always"),
+@JsonSerialize(using = TableWidgetHasSearchBar.TableWidgetHasSearchBarSerializer.class)
+public class TableWidgetHasSearchBar {
 
-  NEVER("never"),
+  public static final TableWidgetHasSearchBar ALWAYS = new TableWidgetHasSearchBar("always");
+  public static final TableWidgetHasSearchBar NEVER = new TableWidgetHasSearchBar("never");
+  public static final TableWidgetHasSearchBar AUTO = new TableWidgetHasSearchBar("auto");
 
-  AUTO("auto");
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("always", "never", "auto"));
 
   private String value;
+
+  public boolean isValid() {
+    return allowedValues.contains(this.value);
+  }
 
   TableWidgetHasSearchBar(String value) {
     this.value = value;
   }
 
+  public static class TableWidgetHasSearchBarSerializer
+      extends StdSerializer<TableWidgetHasSearchBar> {
+    public TableWidgetHasSearchBarSerializer(Class<TableWidgetHasSearchBar> t) {
+      super(t);
+    }
+
+    public TableWidgetHasSearchBarSerializer() {
+      this(null);
+    }
+
+    @Override
+    public void serialize(
+        TableWidgetHasSearchBar value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
+  }
+
   @JsonValue
   public String getValue() {
-    return value;
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  /** Return true if this TableWidgetHasSearchBar object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    return this.value.equals(((TableWidgetHasSearchBar) o).value);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(value);
   }
 
   @Override
@@ -39,11 +95,6 @@ public enum TableWidgetHasSearchBar {
 
   @JsonCreator
   public static TableWidgetHasSearchBar fromValue(String value) {
-    for (TableWidgetHasSearchBar b : TableWidgetHasSearchBar.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
-    }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    return new TableWidgetHasSearchBar(value);
   }
 }

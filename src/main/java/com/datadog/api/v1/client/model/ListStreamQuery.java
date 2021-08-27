@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -29,6 +30,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ListStreamQuery {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA_SOURCE = "data_source";
   private ListStreamSource dataSource = ListStreamSource.ISSUE_STREAM;
 
@@ -45,11 +47,13 @@ public class ListStreamQuery {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA_SOURCE) ListStreamSource dataSource,
       @JsonProperty(required = true, value = JSON_PROPERTY_QUERY_STRING) String queryString) {
     this.dataSource = dataSource;
+    this.unparsed |= !dataSource.isValid();
     this.queryString = queryString;
   }
 
   public ListStreamQuery dataSource(ListStreamSource dataSource) {
     this.dataSource = dataSource;
+    this.unparsed |= !dataSource.isValid();
     return this;
   }
 
@@ -66,6 +70,9 @@ public class ListStreamQuery {
   }
 
   public void setDataSource(ListStreamSource dataSource) {
+    if (!dataSource.isValid()) {
+      this.unparsed = true;
+    }
     this.dataSource = dataSource;
   }
 

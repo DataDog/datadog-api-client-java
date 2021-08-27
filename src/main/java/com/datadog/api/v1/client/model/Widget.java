@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -39,6 +40,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Widget {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DEFINITION = "definition";
   private WidgetDefinition definition;
 
@@ -55,10 +57,12 @@ public class Widget {
       @JsonProperty(required = true, value = JSON_PROPERTY_DEFINITION)
           WidgetDefinition definition) {
     this.definition = definition;
+    this.unparsed |= definition.unparsed;
   }
 
   public Widget definition(WidgetDefinition definition) {
     this.definition = definition;
+    this.unparsed |= definition.unparsed;
     return this;
   }
 
@@ -102,6 +106,7 @@ public class Widget {
 
   public Widget layout(WidgetLayout layout) {
     this.layout = layout;
+    this.unparsed |= layout.unparsed;
     return this;
   }
 

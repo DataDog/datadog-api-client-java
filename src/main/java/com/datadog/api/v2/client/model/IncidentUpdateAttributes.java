@@ -39,6 +39,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IncidentUpdateAttributes {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOMER_IMPACT_END = "customer_impact_end";
   private JsonNullable<OffsetDateTime> customerImpactEnd = JsonNullable.<OffsetDateTime>undefined();
 
@@ -247,6 +248,9 @@ public class IncidentUpdateAttributes {
   public IncidentUpdateAttributes notificationHandles(
       List<IncidentNotificationHandle> notificationHandles) {
     this.notificationHandles = notificationHandles;
+    for (IncidentNotificationHandle item : notificationHandles) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -256,6 +260,7 @@ public class IncidentUpdateAttributes {
       this.notificationHandles = new ArrayList<>();
     }
     this.notificationHandles.add(notificationHandlesItem);
+    this.unparsed |= notificationHandlesItem.unparsed;
     return this;
   }
 

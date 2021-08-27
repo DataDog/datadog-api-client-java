@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -28,6 +29,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SLOListResponse {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<ServiceLevelObjective> data = null;
 
@@ -39,6 +41,9 @@ public class SLOListResponse {
 
   public SLOListResponse data(List<ServiceLevelObjective> data) {
     this.data = data;
+    for (ServiceLevelObjective item : data) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -47,6 +52,7 @@ public class SLOListResponse {
       this.data = new ArrayList<>();
     }
     this.data.add(dataItem);
+    this.unparsed |= dataItem.unparsed;
     return this;
   }
 
@@ -100,6 +106,7 @@ public class SLOListResponse {
 
   public SLOListResponse metadata(SLOListResponseMetadata metadata) {
     this.metadata = metadata;
+    this.unparsed |= metadata.unparsed;
     return this;
   }
 

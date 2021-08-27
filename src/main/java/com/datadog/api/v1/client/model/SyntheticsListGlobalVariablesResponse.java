@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -24,11 +25,15 @@ import java.util.Objects;
 @JsonPropertyOrder({SyntheticsListGlobalVariablesResponse.JSON_PROPERTY_VARIABLES})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsListGlobalVariablesResponse {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_VARIABLES = "variables";
   private List<SyntheticsGlobalVariable> variables = null;
 
   public SyntheticsListGlobalVariablesResponse variables(List<SyntheticsGlobalVariable> variables) {
     this.variables = variables;
+    for (SyntheticsGlobalVariable item : variables) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -38,6 +43,7 @@ public class SyntheticsListGlobalVariablesResponse {
       this.variables = new ArrayList<>();
     }
     this.variables.add(variablesItem);
+    this.unparsed |= variablesItem.unparsed;
     return this;
   }
 

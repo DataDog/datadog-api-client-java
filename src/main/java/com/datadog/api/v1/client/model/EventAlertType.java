@@ -12,36 +12,88 @@ package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 /**
  * If an alert event is enabled, set its type. For example, &#x60;error&#x60;, &#x60;warning&#x60;,
  * &#x60;info&#x60;, &#x60;success&#x60;, &#x60;user_update&#x60;, &#x60;recommendation&#x60;, and
  * &#x60;snapshot&#x60;.
  */
-public enum EventAlertType {
-  ERROR("error"),
+@JsonSerialize(using = EventAlertType.EventAlertTypeSerializer.class)
+public class EventAlertType {
 
-  WARNING("warning"),
+  public static final EventAlertType ERROR = new EventAlertType("error");
+  public static final EventAlertType WARNING = new EventAlertType("warning");
+  public static final EventAlertType INFO = new EventAlertType("info");
+  public static final EventAlertType SUCCESS = new EventAlertType("success");
+  public static final EventAlertType USER_UPDATE = new EventAlertType("user_update");
+  public static final EventAlertType RECOMMENDATION = new EventAlertType("recommendation");
+  public static final EventAlertType SNAPSHOT = new EventAlertType("snapshot");
 
-  INFO("info"),
-
-  SUCCESS("success"),
-
-  USER_UPDATE("user_update"),
-
-  RECOMMENDATION("recommendation"),
-
-  SNAPSHOT("snapshot");
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "error", "warning", "info", "success", "user_update", "recommendation", "snapshot"));
 
   private String value;
+
+  public boolean isValid() {
+    return allowedValues.contains(this.value);
+  }
 
   EventAlertType(String value) {
     this.value = value;
   }
 
+  public static class EventAlertTypeSerializer extends StdSerializer<EventAlertType> {
+    public EventAlertTypeSerializer(Class<EventAlertType> t) {
+      super(t);
+    }
+
+    public EventAlertTypeSerializer() {
+      this(null);
+    }
+
+    @Override
+    public void serialize(EventAlertType value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
+  }
+
   @JsonValue
   public String getValue() {
-    return value;
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  /** Return true if this EventAlertType object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    return this.value.equals(((EventAlertType) o).value);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(value);
   }
 
   @Override
@@ -51,11 +103,6 @@ public enum EventAlertType {
 
   @JsonCreator
   public static EventAlertType fromValue(String value) {
-    for (EventAlertType b : EventAlertType.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
-    }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    return new EventAlertType(value);
   }
 }

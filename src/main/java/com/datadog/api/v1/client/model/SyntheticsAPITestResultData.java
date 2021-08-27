@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -35,6 +36,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsAPITestResultData {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CERT = "cert";
   private SyntheticsSSLCertificate cert;
 
@@ -67,6 +69,7 @@ public class SyntheticsAPITestResultData {
 
   public SyntheticsAPITestResultData cert(SyntheticsSSLCertificate cert) {
     this.cert = cert;
+    this.unparsed |= cert.unparsed;
     return this;
   }
 
@@ -89,6 +92,7 @@ public class SyntheticsAPITestResultData {
 
   public SyntheticsAPITestResultData errorCode(SyntheticsErrorCode errorCode) {
     this.errorCode = errorCode;
+    this.unparsed |= !errorCode.isValid();
     return this;
   }
 
@@ -106,6 +110,9 @@ public class SyntheticsAPITestResultData {
   }
 
   public void setErrorCode(SyntheticsErrorCode errorCode) {
+    if (!errorCode.isValid()) {
+      this.unparsed = true;
+    }
     this.errorCode = errorCode;
   }
 
@@ -133,6 +140,7 @@ public class SyntheticsAPITestResultData {
 
   public SyntheticsAPITestResultData eventType(SyntheticsTestProcessStatus eventType) {
     this.eventType = eventType;
+    this.unparsed |= !eventType.isValid();
     return this;
   }
 
@@ -150,6 +158,9 @@ public class SyntheticsAPITestResultData {
   }
 
   public void setEventType(SyntheticsTestProcessStatus eventType) {
+    if (!eventType.isValid()) {
+      this.unparsed = true;
+    }
     this.eventType = eventType;
   }
 
@@ -282,6 +293,7 @@ public class SyntheticsAPITestResultData {
 
   public SyntheticsAPITestResultData timings(SyntheticsTiming timings) {
     this.timings = timings;
+    this.unparsed |= timings.unparsed;
     return this;
   }
 

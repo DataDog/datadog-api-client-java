@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -23,6 +24,7 @@ import java.util.Objects;
 @JsonPropertyOrder({NotebookRelativeTime.JSON_PROPERTY_LIVE_SPAN})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class NotebookRelativeTime {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_LIVE_SPAN = "live_span";
   private WidgetLiveSpan liveSpan;
 
@@ -32,10 +34,12 @@ public class NotebookRelativeTime {
   public NotebookRelativeTime(
       @JsonProperty(required = true, value = JSON_PROPERTY_LIVE_SPAN) WidgetLiveSpan liveSpan) {
     this.liveSpan = liveSpan;
+    this.unparsed |= !liveSpan.isValid();
   }
 
   public NotebookRelativeTime liveSpan(WidgetLiveSpan liveSpan) {
     this.liveSpan = liveSpan;
+    this.unparsed |= !liveSpan.isValid();
     return this;
   }
 
@@ -52,6 +56,9 @@ public class NotebookRelativeTime {
   }
 
   public void setLiveSpan(WidgetLiveSpan liveSpan) {
+    if (!liveSpan.isValid()) {
+      this.unparsed = true;
+    }
     this.liveSpan = liveSpan;
   }
 

@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -38,6 +39,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GCPAccount {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTH_PROVIDER_X509_CERT_URL =
       "auth_provider_x509_cert_url";
   private String authProviderX509CertUrl;

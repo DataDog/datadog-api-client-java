@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -40,6 +41,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class NoteWidgetDefinition {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BACKGROUND_COLOR = "background_color";
   private String backgroundColor;
 
@@ -78,6 +80,7 @@ public class NoteWidgetDefinition {
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) NoteWidgetDefinitionType type) {
     this.content = content;
     this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   public NoteWidgetDefinition backgroundColor(String backgroundColor) {
@@ -191,6 +194,7 @@ public class NoteWidgetDefinition {
 
   public NoteWidgetDefinition textAlign(WidgetTextAlign textAlign) {
     this.textAlign = textAlign;
+    this.unparsed |= !textAlign.isValid();
     return this;
   }
 
@@ -208,11 +212,15 @@ public class NoteWidgetDefinition {
   }
 
   public void setTextAlign(WidgetTextAlign textAlign) {
+    if (!textAlign.isValid()) {
+      this.unparsed = true;
+    }
     this.textAlign = textAlign;
   }
 
   public NoteWidgetDefinition tickEdge(WidgetTickEdge tickEdge) {
     this.tickEdge = tickEdge;
+    this.unparsed |= !tickEdge.isValid();
     return this;
   }
 
@@ -230,6 +238,9 @@ public class NoteWidgetDefinition {
   }
 
   public void setTickEdge(WidgetTickEdge tickEdge) {
+    if (!tickEdge.isValid()) {
+      this.unparsed = true;
+    }
     this.tickEdge = tickEdge;
   }
 
@@ -257,6 +268,7 @@ public class NoteWidgetDefinition {
 
   public NoteWidgetDefinition type(NoteWidgetDefinitionType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -273,11 +285,15 @@ public class NoteWidgetDefinition {
   }
 
   public void setType(NoteWidgetDefinitionType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 
   public NoteWidgetDefinition verticalAlign(WidgetVerticalAlign verticalAlign) {
     this.verticalAlign = verticalAlign;
+    this.unparsed |= !verticalAlign.isValid();
     return this;
   }
 
@@ -295,6 +311,9 @@ public class NoteWidgetDefinition {
   }
 
   public void setVerticalAlign(WidgetVerticalAlign verticalAlign) {
+    if (!verticalAlign.isValid()) {
+      this.unparsed = true;
+    }
     this.verticalAlign = verticalAlign;
   }
 

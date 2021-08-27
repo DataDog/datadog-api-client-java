@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -40,6 +41,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ToplistWidgetRequest {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_APM_QUERY = "apm_query";
   private LogQueryDefinition apmQuery;
 
@@ -87,6 +89,7 @@ public class ToplistWidgetRequest {
 
   public ToplistWidgetRequest apmQuery(LogQueryDefinition apmQuery) {
     this.apmQuery = apmQuery;
+    this.unparsed |= apmQuery.unparsed;
     return this;
   }
 
@@ -109,6 +112,7 @@ public class ToplistWidgetRequest {
 
   public ToplistWidgetRequest auditQuery(LogQueryDefinition auditQuery) {
     this.auditQuery = auditQuery;
+    this.unparsed |= auditQuery.unparsed;
     return this;
   }
 
@@ -131,6 +135,9 @@ public class ToplistWidgetRequest {
 
   public ToplistWidgetRequest conditionalFormats(List<WidgetConditionalFormat> conditionalFormats) {
     this.conditionalFormats = conditionalFormats;
+    for (WidgetConditionalFormat item : conditionalFormats) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -140,6 +147,7 @@ public class ToplistWidgetRequest {
       this.conditionalFormats = new ArrayList<>();
     }
     this.conditionalFormats.add(conditionalFormatsItem);
+    this.unparsed |= conditionalFormatsItem.unparsed;
     return this;
   }
 
@@ -164,6 +172,7 @@ public class ToplistWidgetRequest {
 
   public ToplistWidgetRequest eventQuery(LogQueryDefinition eventQuery) {
     this.eventQuery = eventQuery;
+    this.unparsed |= eventQuery.unparsed;
     return this;
   }
 
@@ -186,6 +195,9 @@ public class ToplistWidgetRequest {
 
   public ToplistWidgetRequest formulas(List<WidgetFormula> formulas) {
     this.formulas = formulas;
+    for (WidgetFormula item : formulas) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -194,6 +206,7 @@ public class ToplistWidgetRequest {
       this.formulas = new ArrayList<>();
     }
     this.formulas.add(formulasItem);
+    this.unparsed |= formulasItem.unparsed;
     return this;
   }
 
@@ -217,6 +230,7 @@ public class ToplistWidgetRequest {
 
   public ToplistWidgetRequest logQuery(LogQueryDefinition logQuery) {
     this.logQuery = logQuery;
+    this.unparsed |= logQuery.unparsed;
     return this;
   }
 
@@ -239,6 +253,7 @@ public class ToplistWidgetRequest {
 
   public ToplistWidgetRequest networkQuery(LogQueryDefinition networkQuery) {
     this.networkQuery = networkQuery;
+    this.unparsed |= networkQuery.unparsed;
     return this;
   }
 
@@ -261,6 +276,7 @@ public class ToplistWidgetRequest {
 
   public ToplistWidgetRequest processQuery(ProcessQueryDefinition processQuery) {
     this.processQuery = processQuery;
+    this.unparsed |= processQuery.unparsed;
     return this;
   }
 
@@ -283,6 +299,7 @@ public class ToplistWidgetRequest {
 
   public ToplistWidgetRequest profileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
     this.profileMetricsQuery = profileMetricsQuery;
+    this.unparsed |= profileMetricsQuery.unparsed;
     return this;
   }
 
@@ -327,6 +344,9 @@ public class ToplistWidgetRequest {
 
   public ToplistWidgetRequest queries(List<FormulaAndFunctionQueryDefinition> queries) {
     this.queries = queries;
+    for (FormulaAndFunctionQueryDefinition item : queries) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -335,6 +355,7 @@ public class ToplistWidgetRequest {
       this.queries = new ArrayList<>();
     }
     this.queries.add(queriesItem);
+    this.unparsed |= queriesItem.unparsed;
     return this;
   }
 
@@ -361,6 +382,7 @@ public class ToplistWidgetRequest {
 
   public ToplistWidgetRequest responseFormat(FormulaAndFunctionResponseFormat responseFormat) {
     this.responseFormat = responseFormat;
+    this.unparsed |= !responseFormat.isValid();
     return this;
   }
 
@@ -378,11 +400,15 @@ public class ToplistWidgetRequest {
   }
 
   public void setResponseFormat(FormulaAndFunctionResponseFormat responseFormat) {
+    if (!responseFormat.isValid()) {
+      this.unparsed = true;
+    }
     this.responseFormat = responseFormat;
   }
 
   public ToplistWidgetRequest rumQuery(LogQueryDefinition rumQuery) {
     this.rumQuery = rumQuery;
+    this.unparsed |= rumQuery.unparsed;
     return this;
   }
 
@@ -405,6 +431,7 @@ public class ToplistWidgetRequest {
 
   public ToplistWidgetRequest securityQuery(LogQueryDefinition securityQuery) {
     this.securityQuery = securityQuery;
+    this.unparsed |= securityQuery.unparsed;
     return this;
   }
 
@@ -427,6 +454,7 @@ public class ToplistWidgetRequest {
 
   public ToplistWidgetRequest style(WidgetRequestStyle style) {
     this.style = style;
+    this.unparsed |= style.unparsed;
     return this;
   }
 

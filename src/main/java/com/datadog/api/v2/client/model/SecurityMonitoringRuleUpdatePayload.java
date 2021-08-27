@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -35,6 +36,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SecurityMonitoringRuleUpdatePayload {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CASES = "cases";
   private List<SecurityMonitoringRuleCase> cases = null;
 
@@ -67,6 +69,9 @@ public class SecurityMonitoringRuleUpdatePayload {
 
   public SecurityMonitoringRuleUpdatePayload cases(List<SecurityMonitoringRuleCase> cases) {
     this.cases = cases;
+    for (SecurityMonitoringRuleCase item : cases) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -75,6 +80,7 @@ public class SecurityMonitoringRuleUpdatePayload {
       this.cases = new ArrayList<>();
     }
     this.cases.add(casesItem);
+    this.unparsed |= casesItem.unparsed;
     return this;
   }
 
@@ -97,6 +103,9 @@ public class SecurityMonitoringRuleUpdatePayload {
 
   public SecurityMonitoringRuleUpdatePayload filters(List<SecurityMonitoringFilter> filters) {
     this.filters = filters;
+    for (SecurityMonitoringFilter item : filters) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -105,6 +114,7 @@ public class SecurityMonitoringRuleUpdatePayload {
       this.filters = new ArrayList<>();
     }
     this.filters.add(filtersItem);
+    this.unparsed |= filtersItem.unparsed;
     return this;
   }
 
@@ -218,6 +228,7 @@ public class SecurityMonitoringRuleUpdatePayload {
 
   public SecurityMonitoringRuleUpdatePayload options(SecurityMonitoringRuleOptions options) {
     this.options = options;
+    this.unparsed |= options.unparsed;
     return this;
   }
 
@@ -240,6 +251,9 @@ public class SecurityMonitoringRuleUpdatePayload {
 
   public SecurityMonitoringRuleUpdatePayload queries(List<SecurityMonitoringRuleQuery> queries) {
     this.queries = queries;
+    for (SecurityMonitoringRuleQuery item : queries) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -249,6 +263,7 @@ public class SecurityMonitoringRuleUpdatePayload {
       this.queries = new ArrayList<>();
     }
     this.queries.add(queriesItem);
+    this.unparsed |= queriesItem.unparsed;
     return this;
   }
 

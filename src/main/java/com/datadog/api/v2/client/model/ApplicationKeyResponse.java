@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -27,6 +28,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ApplicationKeyResponse {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private FullApplicationKey data;
 
@@ -35,6 +37,7 @@ public class ApplicationKeyResponse {
 
   public ApplicationKeyResponse data(FullApplicationKey data) {
     this.data = data;
+    this.unparsed |= data.unparsed;
     return this;
   }
 
@@ -57,6 +60,9 @@ public class ApplicationKeyResponse {
 
   public ApplicationKeyResponse included(List<ApplicationKeyResponseIncludedItem> included) {
     this.included = included;
+    for (ApplicationKeyResponseIncludedItem item : included) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -65,6 +71,7 @@ public class ApplicationKeyResponse {
       this.included = new ArrayList<>();
     }
     this.included.add(includedItem);
+    this.unparsed |= includedItem.unparsed;
     return this;
   }
 

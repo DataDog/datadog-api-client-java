@@ -12,24 +12,80 @@ package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 /** Amount of log lines to display */
-public enum WidgetMessageDisplay {
-  INLINE("inline"),
+@JsonSerialize(using = WidgetMessageDisplay.WidgetMessageDisplaySerializer.class)
+public class WidgetMessageDisplay {
 
-  EXPANDED_MEDIUM("expanded-md"),
+  public static final WidgetMessageDisplay INLINE = new WidgetMessageDisplay("inline");
+  public static final WidgetMessageDisplay EXPANDED_MEDIUM =
+      new WidgetMessageDisplay("expanded-md");
+  public static final WidgetMessageDisplay EXPANDED_LARGE = new WidgetMessageDisplay("expanded-lg");
 
-  EXPANDED_LARGE("expanded-lg");
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("inline", "expanded-md", "expanded-lg"));
 
   private String value;
+
+  public boolean isValid() {
+    return allowedValues.contains(this.value);
+  }
 
   WidgetMessageDisplay(String value) {
     this.value = value;
   }
 
+  public static class WidgetMessageDisplaySerializer extends StdSerializer<WidgetMessageDisplay> {
+    public WidgetMessageDisplaySerializer(Class<WidgetMessageDisplay> t) {
+      super(t);
+    }
+
+    public WidgetMessageDisplaySerializer() {
+      this(null);
+    }
+
+    @Override
+    public void serialize(
+        WidgetMessageDisplay value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
+  }
+
   @JsonValue
   public String getValue() {
-    return value;
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  /** Return true if this WidgetMessageDisplay object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    return this.value.equals(((WidgetMessageDisplay) o).value);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(value);
   }
 
   @Override
@@ -39,11 +95,6 @@ public enum WidgetMessageDisplay {
 
   @JsonCreator
   public static WidgetMessageDisplay fromValue(String value) {
-    for (WidgetMessageDisplay b : WidgetMessageDisplay.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
-    }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    return new WidgetMessageDisplay(value);
   }
 }

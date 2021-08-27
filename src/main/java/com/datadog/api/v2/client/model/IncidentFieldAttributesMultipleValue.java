@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -27,6 +28,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IncidentFieldAttributesMultipleValue {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_TYPE = "type";
   private IncidentFieldAttributesValueType type = IncidentFieldAttributesValueType.MULTISELECT;
 
@@ -35,6 +37,7 @@ public class IncidentFieldAttributesMultipleValue {
 
   public IncidentFieldAttributesMultipleValue type(IncidentFieldAttributesValueType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -52,6 +55,9 @@ public class IncidentFieldAttributesMultipleValue {
   }
 
   public void setType(IncidentFieldAttributesValueType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

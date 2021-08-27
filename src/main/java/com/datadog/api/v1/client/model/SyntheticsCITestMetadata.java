@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -25,6 +26,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsCITestMetadata {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CI = "ci";
   private SyntheticsCITestMetadataCi ci;
 
@@ -33,6 +35,7 @@ public class SyntheticsCITestMetadata {
 
   public SyntheticsCITestMetadata ci(SyntheticsCITestMetadataCi ci) {
     this.ci = ci;
+    this.unparsed |= ci.unparsed;
     return this;
   }
 
@@ -55,6 +58,7 @@ public class SyntheticsCITestMetadata {
 
   public SyntheticsCITestMetadata git(SyntheticsCITestMetadataGit git) {
     this.git = git;
+    this.unparsed |= git.unparsed;
     return this;
   }
 

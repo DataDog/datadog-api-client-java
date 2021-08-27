@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -45,6 +46,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogStreamWidgetDefinition {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COLUMNS = "columns";
   private List<String> columns = null;
 
@@ -91,6 +93,7 @@ public class LogStreamWidgetDefinition {
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           LogStreamWidgetDefinitionType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   public LogStreamWidgetDefinition columns(List<String> columns) {
@@ -180,6 +183,7 @@ public class LogStreamWidgetDefinition {
 
   public LogStreamWidgetDefinition messageDisplay(WidgetMessageDisplay messageDisplay) {
     this.messageDisplay = messageDisplay;
+    this.unparsed |= !messageDisplay.isValid();
     return this;
   }
 
@@ -197,6 +201,9 @@ public class LogStreamWidgetDefinition {
   }
 
   public void setMessageDisplay(WidgetMessageDisplay messageDisplay) {
+    if (!messageDisplay.isValid()) {
+      this.unparsed = true;
+    }
     this.messageDisplay = messageDisplay;
   }
 
@@ -268,6 +275,7 @@ public class LogStreamWidgetDefinition {
 
   public LogStreamWidgetDefinition sort(WidgetFieldSort sort) {
     this.sort = sort;
+    this.unparsed |= sort.unparsed;
     return this;
   }
 
@@ -290,6 +298,7 @@ public class LogStreamWidgetDefinition {
 
   public LogStreamWidgetDefinition time(WidgetTime time) {
     this.time = time;
+    this.unparsed |= time.unparsed;
     return this;
   }
 
@@ -334,6 +343,7 @@ public class LogStreamWidgetDefinition {
 
   public LogStreamWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
+    this.unparsed |= !titleAlign.isValid();
     return this;
   }
 
@@ -351,6 +361,9 @@ public class LogStreamWidgetDefinition {
   }
 
   public void setTitleAlign(WidgetTextAlign titleAlign) {
+    if (!titleAlign.isValid()) {
+      this.unparsed = true;
+    }
     this.titleAlign = titleAlign;
   }
 
@@ -378,6 +391,7 @@ public class LogStreamWidgetDefinition {
 
   public LogStreamWidgetDefinition type(LogStreamWidgetDefinitionType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -394,6 +408,9 @@ public class LogStreamWidgetDefinition {
   }
 
   public void setType(LogStreamWidgetDefinitionType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

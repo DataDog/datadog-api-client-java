@@ -12,32 +12,86 @@ package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 /** Error code that can be returned by a Synthetic test. */
-public enum SyntheticsErrorCode {
-  NO_ERROR("NO_ERROR"),
+@JsonSerialize(using = SyntheticsErrorCode.SyntheticsErrorCodeSerializer.class)
+public class SyntheticsErrorCode {
 
-  UNKNOWN("UNKNOWN"),
+  public static final SyntheticsErrorCode NO_ERROR = new SyntheticsErrorCode("NO_ERROR");
+  public static final SyntheticsErrorCode UNKNOWN = new SyntheticsErrorCode("UNKNOWN");
+  public static final SyntheticsErrorCode DNS = new SyntheticsErrorCode("DNS");
+  public static final SyntheticsErrorCode SSL = new SyntheticsErrorCode("SSL");
+  public static final SyntheticsErrorCode TIMEOUT = new SyntheticsErrorCode("TIMEOUT");
+  public static final SyntheticsErrorCode DENIED = new SyntheticsErrorCode("DENIED");
+  public static final SyntheticsErrorCode INCORRECT_ASSERTION =
+      new SyntheticsErrorCode("INCORRECT_ASSERTION");
 
-  DNS("DNS"),
-
-  SSL("SSL"),
-
-  TIMEOUT("TIMEOUT"),
-
-  DENIED("DENIED"),
-
-  INCORRECT_ASSERTION("INCORRECT_ASSERTION");
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "NO_ERROR", "UNKNOWN", "DNS", "SSL", "TIMEOUT", "DENIED", "INCORRECT_ASSERTION"));
 
   private String value;
+
+  public boolean isValid() {
+    return allowedValues.contains(this.value);
+  }
 
   SyntheticsErrorCode(String value) {
     this.value = value;
   }
 
+  public static class SyntheticsErrorCodeSerializer extends StdSerializer<SyntheticsErrorCode> {
+    public SyntheticsErrorCodeSerializer(Class<SyntheticsErrorCode> t) {
+      super(t);
+    }
+
+    public SyntheticsErrorCodeSerializer() {
+      this(null);
+    }
+
+    @Override
+    public void serialize(
+        SyntheticsErrorCode value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
+  }
+
   @JsonValue
   public String getValue() {
-    return value;
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  /** Return true if this SyntheticsErrorCode object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    return this.value.equals(((SyntheticsErrorCode) o).value);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(value);
   }
 
   @Override
@@ -47,11 +101,6 @@ public enum SyntheticsErrorCode {
 
   @JsonCreator
   public static SyntheticsErrorCode fromValue(String value) {
-    for (SyntheticsErrorCode b : SyntheticsErrorCode.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
-    }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    return new SyntheticsErrorCode(value);
   }
 }

@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -33,6 +34,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class NotebookMarkdownCellDefinition {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_TEXT = "text";
   private String text;
 
@@ -48,6 +50,7 @@ public class NotebookMarkdownCellDefinition {
           NotebookMarkdownCellDefinitionType type) {
     this.text = text;
     this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   public NotebookMarkdownCellDefinition text(String text) {
@@ -76,6 +79,7 @@ public class NotebookMarkdownCellDefinition {
 
   public NotebookMarkdownCellDefinition type(NotebookMarkdownCellDefinitionType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -92,6 +96,9 @@ public class NotebookMarkdownCellDefinition {
   }
 
   public void setType(NotebookMarkdownCellDefinitionType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

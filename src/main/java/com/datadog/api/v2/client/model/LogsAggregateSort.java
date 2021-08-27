@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -27,6 +28,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsAggregateSort {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
   private LogsAggregationFunction aggregation;
 
@@ -41,6 +43,7 @@ public class LogsAggregateSort {
 
   public LogsAggregateSort aggregation(LogsAggregationFunction aggregation) {
     this.aggregation = aggregation;
+    this.unparsed |= !aggregation.isValid();
     return this;
   }
 
@@ -58,6 +61,9 @@ public class LogsAggregateSort {
   }
 
   public void setAggregation(LogsAggregationFunction aggregation) {
+    if (!aggregation.isValid()) {
+      this.unparsed = true;
+    }
     this.aggregation = aggregation;
   }
 
@@ -87,6 +93,7 @@ public class LogsAggregateSort {
 
   public LogsAggregateSort order(LogsSortOrder order) {
     this.order = order;
+    this.unparsed |= !order.isValid();
     return this;
   }
 
@@ -104,11 +111,15 @@ public class LogsAggregateSort {
   }
 
   public void setOrder(LogsSortOrder order) {
+    if (!order.isValid()) {
+      this.unparsed = true;
+    }
     this.order = order;
   }
 
   public LogsAggregateSort type(LogsAggregateSortType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -126,6 +137,9 @@ public class LogsAggregateSort {
   }
 
   public void setType(LogsAggregateSortType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 
