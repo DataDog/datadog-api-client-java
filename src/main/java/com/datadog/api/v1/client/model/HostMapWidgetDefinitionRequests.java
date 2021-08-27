@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -25,6 +26,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class HostMapWidgetDefinitionRequests {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FILL = "fill";
   private HostMapRequest fill;
 
@@ -33,6 +35,7 @@ public class HostMapWidgetDefinitionRequests {
 
   public HostMapWidgetDefinitionRequests fill(HostMapRequest fill) {
     this.fill = fill;
+    this.unparsed |= fill.unparsed;
     return this;
   }
 
@@ -55,6 +58,7 @@ public class HostMapWidgetDefinitionRequests {
 
   public HostMapWidgetDefinitionRequests size(HostMapRequest size) {
     this.size = size;
+    this.unparsed |= size.unparsed;
     return this;
   }
 

@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -25,6 +26,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IncidentFieldAttributesSingleValue {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_TYPE = "type";
   private IncidentFieldAttributesSingleValueType type =
       IncidentFieldAttributesSingleValueType.DROPDOWN;
@@ -34,6 +36,7 @@ public class IncidentFieldAttributesSingleValue {
 
   public IncidentFieldAttributesSingleValue type(IncidentFieldAttributesSingleValueType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -51,6 +54,9 @@ public class IncidentFieldAttributesSingleValue {
   }
 
   public void setType(IncidentFieldAttributesSingleValueType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

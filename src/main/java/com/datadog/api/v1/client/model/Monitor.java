@@ -45,6 +45,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Monitor {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED = "created";
   private OffsetDateTime created;
 
@@ -101,6 +102,7 @@ public class Monitor {
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) MonitorType type) {
     this.query = query;
     this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   /**
@@ -118,6 +120,7 @@ public class Monitor {
 
   public Monitor creator(Creator creator) {
     this.creator = creator;
+    this.unparsed |= creator.unparsed;
     return this;
   }
 
@@ -250,6 +253,7 @@ public class Monitor {
 
   public Monitor options(MonitorOptions options) {
     this.options = options;
+    this.unparsed |= options.unparsed;
     return this;
   }
 
@@ -272,6 +276,7 @@ public class Monitor {
 
   public Monitor overallState(MonitorOverallStates overallState) {
     this.overallState = overallState;
+    this.unparsed |= !overallState.isValid();
     return this;
   }
 
@@ -289,6 +294,9 @@ public class Monitor {
   }
 
   public void setOverallState(MonitorOverallStates overallState) {
+    if (!overallState.isValid()) {
+      this.unparsed = true;
+    }
     this.overallState = overallState;
   }
 
@@ -374,6 +382,7 @@ public class Monitor {
 
   public Monitor state(MonitorState state) {
     this.state = state;
+    this.unparsed |= state.unparsed;
     return this;
   }
 
@@ -426,6 +435,7 @@ public class Monitor {
 
   public Monitor type(MonitorType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -442,6 +452,9 @@ public class Monitor {
   }
 
   public void setType(MonitorType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

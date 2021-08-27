@@ -12,45 +12,111 @@ package com.datadog.api.v2.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 /**
  * A signal will “close” regardless of the query being matched once the time exceeds the maximum
  * duration. This time is calculated from the first seen timestamp.
  */
-public enum SecurityMonitoringRuleMaxSignalDuration {
-  ZERO_MINUTES(0),
+@JsonSerialize(
+    using =
+        SecurityMonitoringRuleMaxSignalDuration.SecurityMonitoringRuleMaxSignalDurationSerializer
+            .class)
+public class SecurityMonitoringRuleMaxSignalDuration {
 
-  ONE_MINUTE(60),
+  public static final SecurityMonitoringRuleMaxSignalDuration ZERO_MINUTES =
+      new SecurityMonitoringRuleMaxSignalDuration(0);
+  public static final SecurityMonitoringRuleMaxSignalDuration ONE_MINUTE =
+      new SecurityMonitoringRuleMaxSignalDuration(60);
+  public static final SecurityMonitoringRuleMaxSignalDuration FIVE_MINUTES =
+      new SecurityMonitoringRuleMaxSignalDuration(300);
+  public static final SecurityMonitoringRuleMaxSignalDuration TEN_MINUTES =
+      new SecurityMonitoringRuleMaxSignalDuration(600);
+  public static final SecurityMonitoringRuleMaxSignalDuration FIFTEEN_MINUTES =
+      new SecurityMonitoringRuleMaxSignalDuration(900);
+  public static final SecurityMonitoringRuleMaxSignalDuration THIRTY_MINUTES =
+      new SecurityMonitoringRuleMaxSignalDuration(1800);
+  public static final SecurityMonitoringRuleMaxSignalDuration ONE_HOUR =
+      new SecurityMonitoringRuleMaxSignalDuration(3600);
+  public static final SecurityMonitoringRuleMaxSignalDuration TWO_HOURS =
+      new SecurityMonitoringRuleMaxSignalDuration(7200);
+  public static final SecurityMonitoringRuleMaxSignalDuration THREE_HOURS =
+      new SecurityMonitoringRuleMaxSignalDuration(10800);
+  public static final SecurityMonitoringRuleMaxSignalDuration SIX_HOURS =
+      new SecurityMonitoringRuleMaxSignalDuration(21600);
+  public static final SecurityMonitoringRuleMaxSignalDuration TWELVE_HOURS =
+      new SecurityMonitoringRuleMaxSignalDuration(43200);
+  public static final SecurityMonitoringRuleMaxSignalDuration ONE_DAY =
+      new SecurityMonitoringRuleMaxSignalDuration(86400);
 
-  FIVE_MINUTES(300),
-
-  TEN_MINUTES(600),
-
-  FIFTEEN_MINUTES(900),
-
-  THIRTY_MINUTES(1800),
-
-  ONE_HOUR(3600),
-
-  TWO_HOURS(7200),
-
-  THREE_HOURS(10800),
-
-  SIX_HOURS(21600),
-
-  TWELVE_HOURS(43200),
-
-  ONE_DAY(86400);
+  private static final Set<Integer> allowedValues =
+      new HashSet<Integer>(
+          Arrays.asList(0, 60, 300, 600, 900, 1800, 3600, 7200, 10800, 21600, 43200, 86400));
 
   private Integer value;
+
+  public boolean isValid() {
+    return allowedValues.contains(this.value);
+  }
 
   SecurityMonitoringRuleMaxSignalDuration(Integer value) {
     this.value = value;
   }
 
+  public static class SecurityMonitoringRuleMaxSignalDurationSerializer
+      extends StdSerializer<SecurityMonitoringRuleMaxSignalDuration> {
+    public SecurityMonitoringRuleMaxSignalDurationSerializer(
+        Class<SecurityMonitoringRuleMaxSignalDuration> t) {
+      super(t);
+    }
+
+    public SecurityMonitoringRuleMaxSignalDurationSerializer() {
+      this(null);
+    }
+
+    @Override
+    public void serialize(
+        SecurityMonitoringRuleMaxSignalDuration value,
+        JsonGenerator jgen,
+        SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
+  }
+
   @JsonValue
   public Integer getValue() {
-    return value;
+    return this.value;
+  }
+
+  public void setValue(Integer value) {
+    this.value = value;
+  }
+
+  /** Return true if this SecurityMonitoringRuleMaxSignalDuration object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    return this.value.equals(((SecurityMonitoringRuleMaxSignalDuration) o).value);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(value);
   }
 
   @Override
@@ -60,12 +126,6 @@ public enum SecurityMonitoringRuleMaxSignalDuration {
 
   @JsonCreator
   public static SecurityMonitoringRuleMaxSignalDuration fromValue(Integer value) {
-    for (SecurityMonitoringRuleMaxSignalDuration b :
-        SecurityMonitoringRuleMaxSignalDuration.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
-    }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    return new SecurityMonitoringRuleMaxSignalDuration(value);
   }
 }

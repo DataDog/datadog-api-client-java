@@ -28,6 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsAssertionJSONPathTargetTarget {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_JSON_PATH = "jsonPath";
   private String jsonPath;
 

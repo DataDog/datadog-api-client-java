@@ -12,20 +12,81 @@ package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 /** Type of the service summary widget. */
-public enum ServiceSummaryWidgetDefinitionType {
-  TRACE_SERVICE("trace_service");
+@JsonSerialize(
+    using = ServiceSummaryWidgetDefinitionType.ServiceSummaryWidgetDefinitionTypeSerializer.class)
+public class ServiceSummaryWidgetDefinitionType {
+
+  public static final ServiceSummaryWidgetDefinitionType TRACE_SERVICE =
+      new ServiceSummaryWidgetDefinitionType("trace_service");
+
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("trace_service"));
 
   private String value;
+
+  public boolean isValid() {
+    return allowedValues.contains(this.value);
+  }
 
   ServiceSummaryWidgetDefinitionType(String value) {
     this.value = value;
   }
 
+  public static class ServiceSummaryWidgetDefinitionTypeSerializer
+      extends StdSerializer<ServiceSummaryWidgetDefinitionType> {
+    public ServiceSummaryWidgetDefinitionTypeSerializer(
+        Class<ServiceSummaryWidgetDefinitionType> t) {
+      super(t);
+    }
+
+    public ServiceSummaryWidgetDefinitionTypeSerializer() {
+      this(null);
+    }
+
+    @Override
+    public void serialize(
+        ServiceSummaryWidgetDefinitionType value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
+  }
+
   @JsonValue
   public String getValue() {
-    return value;
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  /** Return true if this ServiceSummaryWidgetDefinitionType object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    return this.value.equals(((ServiceSummaryWidgetDefinitionType) o).value);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(value);
   }
 
   @Override
@@ -35,11 +96,6 @@ public enum ServiceSummaryWidgetDefinitionType {
 
   @JsonCreator
   public static ServiceSummaryWidgetDefinitionType fromValue(String value) {
-    for (ServiceSummaryWidgetDefinitionType b : ServiceSummaryWidgetDefinitionType.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
-    }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    return new ServiceSummaryWidgetDefinitionType(value);
   }
 }

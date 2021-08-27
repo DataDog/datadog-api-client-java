@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -29,6 +30,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MonitorStateGroup {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_LAST_NODATA_TS = "last_nodata_ts";
   private Long lastNodataTs;
 
@@ -159,6 +161,7 @@ public class MonitorStateGroup {
 
   public MonitorStateGroup status(MonitorOverallStates status) {
     this.status = status;
+    this.unparsed |= !status.isValid();
     return this;
   }
 
@@ -176,6 +179,9 @@ public class MonitorStateGroup {
   }
 
   public void setStatus(MonitorOverallStates status) {
+    if (!status.isValid()) {
+      this.unparsed = true;
+    }
     this.status = status;
   }
 

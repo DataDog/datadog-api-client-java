@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -38,6 +39,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AlertValueWidgetDefinition {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ALERT_ID = "alert_id";
   private String alertId;
 
@@ -71,6 +73,7 @@ public class AlertValueWidgetDefinition {
           AlertValueWidgetDefinitionType type) {
     this.alertId = alertId;
     this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   public AlertValueWidgetDefinition alertId(String alertId) {
@@ -118,6 +121,7 @@ public class AlertValueWidgetDefinition {
 
   public AlertValueWidgetDefinition textAlign(WidgetTextAlign textAlign) {
     this.textAlign = textAlign;
+    this.unparsed |= !textAlign.isValid();
     return this;
   }
 
@@ -135,6 +139,9 @@ public class AlertValueWidgetDefinition {
   }
 
   public void setTextAlign(WidgetTextAlign textAlign) {
+    if (!textAlign.isValid()) {
+      this.unparsed = true;
+    }
     this.textAlign = textAlign;
   }
 
@@ -162,6 +169,7 @@ public class AlertValueWidgetDefinition {
 
   public AlertValueWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
+    this.unparsed |= !titleAlign.isValid();
     return this;
   }
 
@@ -179,6 +187,9 @@ public class AlertValueWidgetDefinition {
   }
 
   public void setTitleAlign(WidgetTextAlign titleAlign) {
+    if (!titleAlign.isValid()) {
+      this.unparsed = true;
+    }
     this.titleAlign = titleAlign;
   }
 
@@ -206,6 +217,7 @@ public class AlertValueWidgetDefinition {
 
   public AlertValueWidgetDefinition type(AlertValueWidgetDefinitionType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -222,6 +234,9 @@ public class AlertValueWidgetDefinition {
   }
 
   public void setType(AlertValueWidgetDefinitionType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

@@ -47,6 +47,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ServiceLevelObjective {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private Long createdAt;
 
@@ -97,6 +98,7 @@ public class ServiceLevelObjective {
     this.name = name;
     this.thresholds = thresholds;
     this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   /**
@@ -117,6 +119,7 @@ public class ServiceLevelObjective {
 
   public ServiceLevelObjective creator(Creator creator) {
     this.creator = creator;
+    this.unparsed |= creator.unparsed;
     return this;
   }
 
@@ -347,6 +350,7 @@ public class ServiceLevelObjective {
 
   public ServiceLevelObjective query(ServiceLevelObjectiveQuery query) {
     this.query = query;
+    this.unparsed |= query.unparsed;
     return this;
   }
 
@@ -405,11 +409,15 @@ public class ServiceLevelObjective {
 
   public ServiceLevelObjective thresholds(List<SLOThreshold> thresholds) {
     this.thresholds = thresholds;
+    for (SLOThreshold item : thresholds) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
   public ServiceLevelObjective addThresholdsItem(SLOThreshold thresholdsItem) {
     this.thresholds.add(thresholdsItem);
+    this.unparsed |= thresholdsItem.unparsed;
     return this;
   }
 
@@ -437,6 +445,7 @@ public class ServiceLevelObjective {
 
   public ServiceLevelObjective type(SLOType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -453,6 +462,9 @@ public class ServiceLevelObjective {
   }
 
   public void setType(SLOType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

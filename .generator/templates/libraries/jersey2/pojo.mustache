@@ -11,6 +11,8 @@
 {{/jackson}}
 {{>additionalModelTypeAnnotations}}{{>generatedAnnotation}}{{#discriminator}}{{>typeInfoAnnotation}}{{/discriminator}}{{>xmlAnnotation}}
 public class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{{#vendorExtensions.x-implements}}{{#-first}}implements {{{.}}}{{/-first}}{{^-first}}, {{{.}}}{{/-first}}{{#-last}} {{/-last}}{{/vendorExtensions.x-implements}}{
+  @JsonIgnore
+  public boolean unparsed = false;
 {{#serializableModel}}
   private static final long serialVersionUID = 1L;
 
@@ -107,7 +109,9 @@ public class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{{#vendorE
             {{/requiredVars}}
             ) {
         {{#requiredVars}}
-        this.{{name}} = {{name}};
+        this.{{name}} = {{name}};{{#allowableValues}}
+        this.unparsed |= !{{name}}.isValid();{{/allowableValues}}{{#isModel}}{{^isPrimitiveType}}
+        this.unparsed |= {{name}}.unparsed;{{/isPrimitiveType}}{{/isModel}}
         {{/requiredVars}}
   }
   {{/hasRequired}}
@@ -132,6 +136,36 @@ public class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{{#vendorE
     {{/vendorExtensions.x-is-jackson-optional-nullable}}
     {{^vendorExtensions.x-is-jackson-optional-nullable}}
     this.{{name}} = {{name}};
+    {{^isArray}}
+    {{#allowableValues}}
+    {{^isPrimitiveType}}
+    this.unparsed |= !{{name}}.isValid();
+    {{/isPrimitiveType}}
+    {{/allowableValues}}
+    {{#isModel}}
+    {{^isPrimitiveType}}
+    this.unparsed |= {{name}}.unparsed;
+    {{/isPrimitiveType}}
+    {{/isModel}}
+    {{/isArray}}
+    {{#isArray}}
+    {{#items.isModel}}
+    {{^items.isPrimitiveType}}
+    for ({{items.dataType}} item : {{name}}) {
+      {{#items.allowableValues}}
+      {{^items.isPrimitiveType}}
+      this.unparsed |= !item.isValid();
+      {{/items.isPrimitiveType}}
+      {{/items.allowableValues}}
+      {{#items.isModel}}
+      {{^items.isPrimitiveType}}
+      this.unparsed |= item.unparsed;
+      {{/items.isPrimitiveType}}
+      {{/items.isModel}}
+    }
+    {{/items.isPrimitiveType}}
+    {{/items.isModel}}
+    {{/isArray}}
     {{/vendorExtensions.x-is-jackson-optional-nullable}}
     return this;
   }
@@ -156,6 +190,16 @@ public class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{{#vendorE
     }
     {{/required}}
     this.{{name}}.add({{name}}Item);
+    {{#items.allowableValues}}
+    {{^isPrimitiveType}}
+    this.unparsed |= !{{name}}Item.isValid();
+    {{/isPrimitiveType}}
+    {{/items.allowableValues}}
+    {{#items.isModel}}
+    {{^isPrimitiveType}}
+    this.unparsed |= {{name}}Item.unparsed;
+    {{/isPrimitiveType}}
+    {{/items.isModel}}
     return this;
     {{/vendorExtensions.x-is-jackson-optional-nullable}}
   }
@@ -254,6 +298,11 @@ public class {{classname}} {{#parent}}extends {{{parent}}} {{/parent}}{{#vendorE
     }
 
     {{/vendorExtensions.x-enum-as-string}}
+    {{#allowableValues}}
+    if (!{{name}}.isValid()) {
+        this.unparsed = true;
+    }
+    {{/allowableValues}}
     {{#vendorExtensions.x-is-jackson-optional-nullable}}
     this.{{name}} = JsonNullable.<{{{datatypeWithEnum}}}>of({{name}});
     {{/vendorExtensions.x-is-jackson-optional-nullable}}

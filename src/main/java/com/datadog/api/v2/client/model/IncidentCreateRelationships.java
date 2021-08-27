@@ -11,6 +11,7 @@
 package com.datadog.api.v2.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -24,6 +25,7 @@ import java.util.Objects;
 @JsonPropertyOrder({IncidentCreateRelationships.JSON_PROPERTY_COMMANDER})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IncidentCreateRelationships {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMMANDER = "commander";
   private RelationshipToUser commander;
 
@@ -34,10 +36,12 @@ public class IncidentCreateRelationships {
       @JsonProperty(required = true, value = JSON_PROPERTY_COMMANDER)
           RelationshipToUser commander) {
     this.commander = commander;
+    this.unparsed |= commander.unparsed;
   }
 
   public IncidentCreateRelationships commander(RelationshipToUser commander) {
     this.commander = commander;
+    this.unparsed |= commander.unparsed;
     return this;
   }
 

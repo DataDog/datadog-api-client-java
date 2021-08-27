@@ -50,6 +50,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MonitorOptions {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
   private MonitorOptionsAggregation aggregation;
 
@@ -118,6 +119,7 @@ public class MonitorOptions {
 
   public MonitorOptions aggregation(MonitorOptionsAggregation aggregation) {
     this.aggregation = aggregation;
+    this.unparsed |= aggregation.unparsed;
     return this;
   }
 
@@ -687,6 +689,7 @@ public class MonitorOptions {
 
   public MonitorOptions thresholdWindows(MonitorThresholdWindowOptions thresholdWindows) {
     this.thresholdWindows = thresholdWindows;
+    this.unparsed |= thresholdWindows.unparsed;
     return this;
   }
 
@@ -709,6 +712,7 @@ public class MonitorOptions {
 
   public MonitorOptions thresholds(MonitorThresholds thresholds) {
     this.thresholds = thresholds;
+    this.unparsed |= thresholds.unparsed;
     return this;
   }
 

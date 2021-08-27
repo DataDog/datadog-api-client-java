@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -41,6 +42,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Host {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ALIASES = "aliases";
   private List<String> aliases = null;
 
@@ -257,6 +259,7 @@ public class Host {
 
   public Host meta(HostMeta meta) {
     this.meta = meta;
+    this.unparsed |= meta.unparsed;
     return this;
   }
 
@@ -279,6 +282,7 @@ public class Host {
 
   public Host metrics(HostMetrics metrics) {
     this.metrics = metrics;
+    this.unparsed |= metrics.unparsed;
     return this;
   }
 

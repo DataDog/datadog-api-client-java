@@ -1,6 +1,13 @@
 {{#jackson}}
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import java.io.IOException;
+
 {{/jackson}}
 {{#gson}}
 import java.io.IOException;
@@ -9,6 +16,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 {{/gson}}
+
+import java.util.Set;
+import java.util.HashSet;
 
 /**
  * {{^description}}Gets or Sets {{{name}}}{{/description}}{{#description}}{{description}}{{/description}}
@@ -20,7 +30,10 @@ import com.google.gson.stream.JsonWriter;
 @JsonbTypeSerializer({{datatypeWithEnum}}.Serializer.class)
 @JsonbTypeDeserializer({{datatypeWithEnum}}.Deserializer.class)
 {{/jsonb}}
-{{>additionalEnumTypeAnnotations}}public enum {{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{{classname}}}{{/datatypeWithEnum}} {
+{{#jackson}}
+@JsonSerialize(using = {{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{{classname}}}{{/datatypeWithEnum}}.{{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{{classname}}}{{/datatypeWithEnum}}Serializer.class)
+{{/jackson}}
+{{>additionalEnumTypeAnnotations}}public class {{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{{classname}}}{{/datatypeWithEnum}} {
   {{#allowableValues}}{{#enumVars}}
     {{#enumDescription}}
   /**
@@ -30,20 +43,63 @@ import com.google.gson.stream.JsonWriter;
   {{#withXml}}
   @XmlEnumValue({{#isInteger}}"{{/isInteger}}{{#isDouble}}"{{/isDouble}}{{#isLong}}"{{/isLong}}{{#isFloat}}"{{/isFloat}}{{{value}}}{{#isInteger}}"{{/isInteger}}{{#isDouble}}"{{/isDouble}}{{#isLong}}"{{/isLong}}{{#isFloat}}"{{/isFloat}})
   {{/withXml}}
-  {{{name}}}({{{value}}}){{^-last}},
-  {{/-last}}{{#-last}};{{/-last}}{{/enumVars}}{{/allowableValues}}
+  public static final {{{classname}}} {{{name}}} = new {{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{{classname}}}{{/datatypeWithEnum}}({{{value}}});{{/enumVars}}{{/allowableValues}}
+
+  private static final Set<{{{dataType}}}> allowedValues = new HashSet<{{{dataType}}}>(Arrays.asList({{#allowableValues}}{{#enumVars}}{{{value}}}{{^-last}},{{/-last}}{{/enumVars}}{{/allowableValues}}));
 
   private {{{dataType}}} value;
+
+  public boolean isValid() {
+    return allowedValues.contains(this.value);
+  }
 
   {{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{{classname}}}{{/datatypeWithEnum}}({{{dataType}}} value) {
     this.value = value;
   }
 
-{{#jackson}}
+  public static class {{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{{classname}}}{{/datatypeWithEnum}}Serializer extends StdSerializer<{{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{{classname}}}{{/datatypeWithEnum}}> {
+      public {{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{{classname}}}{{/datatypeWithEnum}}Serializer(Class<{{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{{classname}}}{{/datatypeWithEnum}}> t) {
+          super(t);
+      }
+
+      public {{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{{classname}}}{{/datatypeWithEnum}}Serializer() {
+          this(null);
+      }
+
+      @Override
+      public void serialize({{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{{classname}}}{{/datatypeWithEnum}} value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
+  }
+
+  {{#jackson}}
   @JsonValue
-{{/jackson}}
+  {{/jackson}}
   public {{{dataType}}} getValue() {
-    return value;
+    return this.value;
+  }
+
+  public void setValue({{{dataType}}} value) {
+    this.value = value;
+  }
+
+  /**
+   * Return true if this {{classname}} object is equal to o.
+   */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    return this.value.equals((({{classname}}) o).value);
+  }
+
+  @Override
+  public int hashCode() {
+      return Objects.hash(value);
   }
 
   @Override
@@ -55,12 +111,7 @@ import com.google.gson.stream.JsonWriter;
   @JsonCreator
 {{/jackson}}
   public static {{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{{classname}}}{{/datatypeWithEnum}} fromValue({{{dataType}}} value) {
-    for ({{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{{classname}}}{{/datatypeWithEnum}} b : {{#datatypeWithEnum}}{{{.}}}{{/datatypeWithEnum}}{{^datatypeWithEnum}}{{{classname}}}{{/datatypeWithEnum}}.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
-    }
-    {{#isNullable}}return null;{{/isNullable}}{{^isNullable}}throw new IllegalArgumentException("Unexpected value '" + value + "'");{{/isNullable}}
+    return new {{{classname}}}(value);
   }
 {{#gson}}
 

@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -37,6 +38,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsBrowserTest {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CONFIG = "config";
   private SyntheticsBrowserTestConfig config;
 
@@ -80,6 +82,7 @@ public class SyntheticsBrowserTest {
 
   public SyntheticsBrowserTest config(SyntheticsBrowserTestConfig config) {
     this.config = config;
+    this.unparsed |= config.unparsed;
     return this;
   }
 
@@ -193,6 +196,7 @@ public class SyntheticsBrowserTest {
 
   public SyntheticsBrowserTest options(SyntheticsTestOptions options) {
     this.options = options;
+    this.unparsed |= options.unparsed;
     return this;
   }
 
@@ -228,6 +232,7 @@ public class SyntheticsBrowserTest {
 
   public SyntheticsBrowserTest status(SyntheticsTestPauseStatus status) {
     this.status = status;
+    this.unparsed |= !status.isValid();
     return this;
   }
 
@@ -245,11 +250,17 @@ public class SyntheticsBrowserTest {
   }
 
   public void setStatus(SyntheticsTestPauseStatus status) {
+    if (!status.isValid()) {
+      this.unparsed = true;
+    }
     this.status = status;
   }
 
   public SyntheticsBrowserTest steps(List<SyntheticsStep> steps) {
     this.steps = steps;
+    for (SyntheticsStep item : steps) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -258,6 +269,7 @@ public class SyntheticsBrowserTest {
       this.steps = new ArrayList<>();
     }
     this.steps.add(stepsItem);
+    this.unparsed |= stepsItem.unparsed;
     return this;
   }
 
@@ -310,6 +322,7 @@ public class SyntheticsBrowserTest {
 
   public SyntheticsBrowserTest type(SyntheticsBrowserTestType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -327,6 +340,9 @@ public class SyntheticsBrowserTest {
   }
 
   public void setType(SyntheticsBrowserTestType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

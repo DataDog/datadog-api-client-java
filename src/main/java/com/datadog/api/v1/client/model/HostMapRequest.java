@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -32,6 +33,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class HostMapRequest {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_APM_QUERY = "apm_query";
   private LogQueryDefinition apmQuery;
 
@@ -61,6 +63,7 @@ public class HostMapRequest {
 
   public HostMapRequest apmQuery(LogQueryDefinition apmQuery) {
     this.apmQuery = apmQuery;
+    this.unparsed |= apmQuery.unparsed;
     return this;
   }
 
@@ -83,6 +86,7 @@ public class HostMapRequest {
 
   public HostMapRequest eventQuery(LogQueryDefinition eventQuery) {
     this.eventQuery = eventQuery;
+    this.unparsed |= eventQuery.unparsed;
     return this;
   }
 
@@ -105,6 +109,7 @@ public class HostMapRequest {
 
   public HostMapRequest logQuery(LogQueryDefinition logQuery) {
     this.logQuery = logQuery;
+    this.unparsed |= logQuery.unparsed;
     return this;
   }
 
@@ -127,6 +132,7 @@ public class HostMapRequest {
 
   public HostMapRequest networkQuery(LogQueryDefinition networkQuery) {
     this.networkQuery = networkQuery;
+    this.unparsed |= networkQuery.unparsed;
     return this;
   }
 
@@ -149,6 +155,7 @@ public class HostMapRequest {
 
   public HostMapRequest processQuery(ProcessQueryDefinition processQuery) {
     this.processQuery = processQuery;
+    this.unparsed |= processQuery.unparsed;
     return this;
   }
 
@@ -171,6 +178,7 @@ public class HostMapRequest {
 
   public HostMapRequest profileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
     this.profileMetricsQuery = profileMetricsQuery;
+    this.unparsed |= profileMetricsQuery.unparsed;
     return this;
   }
 
@@ -215,6 +223,7 @@ public class HostMapRequest {
 
   public HostMapRequest rumQuery(LogQueryDefinition rumQuery) {
     this.rumQuery = rumQuery;
+    this.unparsed |= rumQuery.unparsed;
     return this;
   }
 
@@ -237,6 +246,7 @@ public class HostMapRequest {
 
   public HostMapRequest securityQuery(LogQueryDefinition securityQuery) {
     this.securityQuery = securityQuery;
+    this.unparsed |= securityQuery.unparsed;
     return this;
   }
 

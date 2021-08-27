@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -33,6 +34,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class OrganizationSettings {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_PRIVATE_WIDGET_SHARE = "private_widget_share";
   private Boolean privateWidgetShare;
 
@@ -92,6 +94,7 @@ public class OrganizationSettings {
 
   public OrganizationSettings saml(OrganizationSettingsSaml saml) {
     this.saml = saml;
+    this.unparsed |= saml.unparsed;
     return this;
   }
 
@@ -114,6 +117,7 @@ public class OrganizationSettings {
 
   public OrganizationSettings samlAutocreateAccessRole(AccessRole samlAutocreateAccessRole) {
     this.samlAutocreateAccessRole = samlAutocreateAccessRole;
+    this.unparsed |= !samlAutocreateAccessRole.isValid();
     return this;
   }
 
@@ -131,12 +135,16 @@ public class OrganizationSettings {
   }
 
   public void setSamlAutocreateAccessRole(AccessRole samlAutocreateAccessRole) {
+    if (!samlAutocreateAccessRole.isValid()) {
+      this.unparsed = true;
+    }
     this.samlAutocreateAccessRole = samlAutocreateAccessRole;
   }
 
   public OrganizationSettings samlAutocreateUsersDomains(
       OrganizationSettingsSamlAutocreateUsersDomains samlAutocreateUsersDomains) {
     this.samlAutocreateUsersDomains = samlAutocreateUsersDomains;
+    this.unparsed |= samlAutocreateUsersDomains.unparsed;
     return this;
   }
 
@@ -209,6 +217,7 @@ public class OrganizationSettings {
   public OrganizationSettings samlIdpInitiatedLogin(
       OrganizationSettingsSamlIdpInitiatedLogin samlIdpInitiatedLogin) {
     this.samlIdpInitiatedLogin = samlIdpInitiatedLogin;
+    this.unparsed |= samlIdpInitiatedLogin.unparsed;
     return this;
   }
 
@@ -280,6 +289,7 @@ public class OrganizationSettings {
 
   public OrganizationSettings samlStrictMode(OrganizationSettingsSamlStrictMode samlStrictMode) {
     this.samlStrictMode = samlStrictMode;
+    this.unparsed |= samlStrictMode.unparsed;
     return this;
   }
 

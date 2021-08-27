@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -38,6 +39,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsTestOptions {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACCEPT_SELF_SIGNED = "accept_self_signed";
   private Boolean acceptSelfSigned;
 
@@ -132,6 +134,7 @@ public class SyntheticsTestOptions {
       this.deviceIds = new ArrayList<>();
     }
     this.deviceIds.add(deviceIdsItem);
+    this.unparsed |= !deviceIdsItem.isValid();
     return this;
   }
 
@@ -269,6 +272,7 @@ public class SyntheticsTestOptions {
 
   public SyntheticsTestOptions monitorOptions(SyntheticsTestOptionsMonitorOptions monitorOptions) {
     this.monitorOptions = monitorOptions;
+    this.unparsed |= monitorOptions.unparsed;
     return this;
   }
 
@@ -335,6 +339,7 @@ public class SyntheticsTestOptions {
 
   public SyntheticsTestOptions retry(SyntheticsTestOptionsRetry retry) {
     this.retry = retry;
+    this.unparsed |= retry.unparsed;
     return this;
   }
 

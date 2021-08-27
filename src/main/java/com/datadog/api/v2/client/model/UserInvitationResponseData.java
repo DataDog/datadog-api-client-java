@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -26,6 +27,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UserInvitationResponseData {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private UserInvitationDataAttributes attributes;
 
@@ -37,6 +39,7 @@ public class UserInvitationResponseData {
 
   public UserInvitationResponseData attributes(UserInvitationDataAttributes attributes) {
     this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
     return this;
   }
 
@@ -81,6 +84,7 @@ public class UserInvitationResponseData {
 
   public UserInvitationResponseData type(UserInvitationsType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -98,6 +102,9 @@ public class UserInvitationResponseData {
   }
 
   public void setType(UserInvitationsType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -34,6 +35,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class NotebookResponseDataAttributes {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTHOR = "author";
   private NotebookAuthor author;
 
@@ -65,10 +67,12 @@ public class NotebookResponseDataAttributes {
     this.cells = cells;
     this.name = name;
     this.time = time;
+    this.unparsed |= time.unparsed;
   }
 
   public NotebookResponseDataAttributes author(NotebookAuthor author) {
     this.author = author;
+    this.unparsed |= author.unparsed;
     return this;
   }
 
@@ -91,11 +95,15 @@ public class NotebookResponseDataAttributes {
 
   public NotebookResponseDataAttributes cells(List<NotebookCellResponse> cells) {
     this.cells = cells;
+    for (NotebookCellResponse item : cells) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
   public NotebookResponseDataAttributes addCellsItem(NotebookCellResponse cellsItem) {
     this.cells.add(cellsItem);
+    this.unparsed |= cellsItem.unparsed;
     return this;
   }
 
@@ -181,6 +189,7 @@ public class NotebookResponseDataAttributes {
 
   public NotebookResponseDataAttributes status(NotebookStatus status) {
     this.status = status;
+    this.unparsed |= !status.isValid();
     return this;
   }
 
@@ -198,11 +207,15 @@ public class NotebookResponseDataAttributes {
   }
 
   public void setStatus(NotebookStatus status) {
+    if (!status.isValid()) {
+      this.unparsed = true;
+    }
     this.status = status;
   }
 
   public NotebookResponseDataAttributes time(NotebookGlobalTime time) {
     this.time = time;
+    this.unparsed |= time.unparsed;
     return this;
   }
 

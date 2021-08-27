@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -31,6 +32,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsBrowserTestConfig {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ASSERTIONS = "assertions";
   private List<SyntheticsAssertion> assertions = new ArrayList<>();
 
@@ -55,15 +57,20 @@ public class SyntheticsBrowserTestConfig {
       @JsonProperty(required = true, value = JSON_PROPERTY_REQUEST) SyntheticsTestRequest request) {
     this.assertions = assertions;
     this.request = request;
+    this.unparsed |= request.unparsed;
   }
 
   public SyntheticsBrowserTestConfig assertions(List<SyntheticsAssertion> assertions) {
     this.assertions = assertions;
+    for (SyntheticsAssertion item : assertions) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
   public SyntheticsBrowserTestConfig addAssertionsItem(SyntheticsAssertion assertionsItem) {
     this.assertions.add(assertionsItem);
+    this.unparsed |= assertionsItem.unparsed;
     return this;
   }
 
@@ -89,6 +96,9 @@ public class SyntheticsBrowserTestConfig {
   public SyntheticsBrowserTestConfig configVariables(
       List<SyntheticsConfigVariable> configVariables) {
     this.configVariables = configVariables;
+    for (SyntheticsConfigVariable item : configVariables) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -98,6 +108,7 @@ public class SyntheticsBrowserTestConfig {
       this.configVariables = new ArrayList<>();
     }
     this.configVariables.add(configVariablesItem);
+    this.unparsed |= configVariablesItem.unparsed;
     return this;
   }
 
@@ -120,6 +131,7 @@ public class SyntheticsBrowserTestConfig {
 
   public SyntheticsBrowserTestConfig request(SyntheticsTestRequest request) {
     this.request = request;
+    this.unparsed |= request.unparsed;
     return this;
   }
 
@@ -168,6 +180,9 @@ public class SyntheticsBrowserTestConfig {
 
   public SyntheticsBrowserTestConfig variables(List<SyntheticsBrowserVariable> variables) {
     this.variables = variables;
+    for (SyntheticsBrowserVariable item : variables) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -176,6 +191,7 @@ public class SyntheticsBrowserTestConfig {
       this.variables = new ArrayList<>();
     }
     this.variables.add(variablesItem);
+    this.unparsed |= variablesItem.unparsed;
     return this;
   }
 

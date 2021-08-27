@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,11 +31,15 @@ import java.util.Objects;
 @JsonPropertyOrder({UsageSyntheticsAPIResponse.JSON_PROPERTY_USAGE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageSyntheticsAPIResponse {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_USAGE = "usage";
   private List<UsageSyntheticsAPIHour> usage = null;
 
   public UsageSyntheticsAPIResponse usage(List<UsageSyntheticsAPIHour> usage) {
     this.usage = usage;
+    for (UsageSyntheticsAPIHour item : usage) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -43,6 +48,7 @@ public class UsageSyntheticsAPIResponse {
       this.usage = new ArrayList<>();
     }
     this.usage.add(usageItem);
+    this.unparsed |= usageItem.unparsed;
     return this;
   }
 

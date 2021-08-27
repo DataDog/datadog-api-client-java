@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -27,6 +28,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SLOBulkDeleteError {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
@@ -46,6 +48,7 @@ public class SLOBulkDeleteError {
     this.id = id;
     this.message = message;
     this.timeframe = timeframe;
+    this.unparsed |= !timeframe.isValid();
   }
 
   public SLOBulkDeleteError id(String id) {
@@ -95,6 +98,7 @@ public class SLOBulkDeleteError {
 
   public SLOBulkDeleteError timeframe(SLOErrorTimeframe timeframe) {
     this.timeframe = timeframe;
+    this.unparsed |= !timeframe.isValid();
     return this;
   }
 
@@ -111,6 +115,9 @@ public class SLOBulkDeleteError {
   }
 
   public void setTimeframe(SLOErrorTimeframe timeframe) {
+    if (!timeframe.isValid()) {
+      this.unparsed = true;
+    }
     this.timeframe = timeframe;
   }
 

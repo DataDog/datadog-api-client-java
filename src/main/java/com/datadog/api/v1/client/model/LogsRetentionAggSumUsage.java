@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -33,6 +34,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsRetentionAggSumUsage {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_LOGS_INDEXED_LOGS_USAGE_AGG_SUM =
       "logs_indexed_logs_usage_agg_sum";
   private Long logsIndexedLogsUsageAggSum;

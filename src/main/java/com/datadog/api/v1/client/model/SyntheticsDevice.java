@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -29,6 +30,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsDevice {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_HEIGHT = "height";
   private Long height;
 
@@ -54,6 +56,7 @@ public class SyntheticsDevice {
       @JsonProperty(required = true, value = JSON_PROPERTY_WIDTH) Long width) {
     this.height = height;
     this.id = id;
+    this.unparsed |= !id.isValid();
     this.name = name;
     this.width = width;
   }
@@ -81,6 +84,7 @@ public class SyntheticsDevice {
 
   public SyntheticsDevice id(SyntheticsDeviceID id) {
     this.id = id;
+    this.unparsed |= !id.isValid();
     return this;
   }
 
@@ -97,6 +101,9 @@ public class SyntheticsDevice {
   }
 
   public void setId(SyntheticsDeviceID id) {
+    if (!id.isValid()) {
+      this.unparsed = true;
+    }
     this.id = id;
   }
 

@@ -11,6 +11,7 @@
 package com.datadog.api.v2.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -23,6 +24,7 @@ import java.util.Objects;
 @JsonPropertyOrder({APIKeyCreateData.JSON_PROPERTY_ATTRIBUTES, APIKeyCreateData.JSON_PROPERTY_TYPE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class APIKeyCreateData {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private APIKeyCreateAttributes attributes;
 
@@ -37,11 +39,14 @@ public class APIKeyCreateData {
           APIKeyCreateAttributes attributes,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) APIKeysType type) {
     this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
     this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   public APIKeyCreateData attributes(APIKeyCreateAttributes attributes) {
     this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
     return this;
   }
 
@@ -63,6 +68,7 @@ public class APIKeyCreateData {
 
   public APIKeyCreateData type(APIKeysType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -79,6 +85,9 @@ public class APIKeyCreateData {
   }
 
   public void setType(APIKeysType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

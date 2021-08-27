@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -32,6 +33,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ServiceCheck {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CHECK = "check";
   private String check;
 
@@ -61,6 +63,7 @@ public class ServiceCheck {
     this.check = check;
     this.hostName = hostName;
     this.status = status;
+    this.unparsed |= !status.isValid();
     this.tags = tags;
   }
 
@@ -133,6 +136,7 @@ public class ServiceCheck {
 
   public ServiceCheck status(ServiceCheckStatus status) {
     this.status = status;
+    this.unparsed |= !status.isValid();
     return this;
   }
 
@@ -149,6 +153,9 @@ public class ServiceCheck {
   }
 
   public void setStatus(ServiceCheckStatus status) {
+    if (!status.isValid()) {
+      this.unparsed = true;
+    }
     this.status = status;
   }
 

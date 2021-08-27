@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -22,11 +23,13 @@ import java.util.Objects;
 @JsonPropertyOrder({SyntheticsUpdateTestPauseStatusPayload.JSON_PROPERTY_NEW_STATUS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsUpdateTestPauseStatusPayload {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_NEW_STATUS = "new_status";
   private SyntheticsTestPauseStatus newStatus;
 
   public SyntheticsUpdateTestPauseStatusPayload newStatus(SyntheticsTestPauseStatus newStatus) {
     this.newStatus = newStatus;
+    this.unparsed |= !newStatus.isValid();
     return this;
   }
 
@@ -44,6 +47,9 @@ public class SyntheticsUpdateTestPauseStatusPayload {
   }
 
   public void setNewStatus(SyntheticsTestPauseStatus newStatus) {
+    if (!newStatus.isValid()) {
+      this.unparsed = true;
+    }
     this.newStatus = newStatus;
   }
 

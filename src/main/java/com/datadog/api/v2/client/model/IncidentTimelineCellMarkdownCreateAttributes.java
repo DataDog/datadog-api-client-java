@@ -11,6 +11,7 @@
 package com.datadog.api.v2.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -27,6 +28,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IncidentTimelineCellMarkdownCreateAttributes {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CELL_TYPE = "cell_type";
   private IncidentTimelineCellMarkdownContentType cellType =
       IncidentTimelineCellMarkdownContentType.MARKDOWN;
@@ -46,12 +48,15 @@ public class IncidentTimelineCellMarkdownCreateAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_CONTENT)
           IncidentTimelineCellMarkdownCreateAttributesContent content) {
     this.cellType = cellType;
+    this.unparsed |= !cellType.isValid();
     this.content = content;
+    this.unparsed |= content.unparsed;
   }
 
   public IncidentTimelineCellMarkdownCreateAttributes cellType(
       IncidentTimelineCellMarkdownContentType cellType) {
     this.cellType = cellType;
+    this.unparsed |= !cellType.isValid();
     return this;
   }
 
@@ -68,12 +73,16 @@ public class IncidentTimelineCellMarkdownCreateAttributes {
   }
 
   public void setCellType(IncidentTimelineCellMarkdownContentType cellType) {
+    if (!cellType.isValid()) {
+      this.unparsed = true;
+    }
     this.cellType = cellType;
   }
 
   public IncidentTimelineCellMarkdownCreateAttributes content(
       IncidentTimelineCellMarkdownCreateAttributesContent content) {
     this.content = content;
+    this.unparsed |= content.unparsed;
     return this;
   }
 

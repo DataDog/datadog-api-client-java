@@ -33,6 +33,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DowntimeRecurrence {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_PERIOD = "period";
   private Integer period;
 

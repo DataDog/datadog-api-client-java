@@ -6,12 +6,15 @@
 
 package com.datadog.api.v1.client.api;
 
+import static com.datadog.api.World.fromJSON;
+import static com.datadog.api.World.lookup;
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static org.junit.Assert.*;
 
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.*;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
@@ -731,5 +734,76 @@ public class SyntheticsApiTest extends V1ApiTest {
   public void syntheticsListLocationsTest() throws ApiException {
     SyntheticsLocations locations = api.listLocations();
     assertTrue(locations.getLocations().size() > 0);
+  }
+
+  @Test
+  public void TestDeserializationUnknownNestedOneOfInList()
+      throws JsonProcessingException, NoSuchFieldException, IllegalAccessException {
+    String body =
+        "{\"status\":\"paused\",\"public_id\":\"jv7-wfd-kvt\",\"tags\":[],\"locations\":[\"pl:pl-kevin-y-6382df0d72d4588e1817f090b131541f\"],\"message\":\"\",\"name\":\"Test"
+            + " on www.example.com\",\"monitor_id\":28558768,\"type\":\"api\",\"created_at\":\"2021-01-12T10:11:40.802074+00:00\",\"modified_at\":\"2021-01-22T16:42:10.520384+00:00\",\"subtype\":\"http\",\"config\":{\"request\":{\"url\":\"https://www.example.com\",\"method\":\"GET\",\"timeout\":30},\"assertions\":[{\"operator\":\"lessThan\",\"type\":\"responseTime\",\"target\":1000},{\"operator\":\"is\",\"type\":\"statusCode\",\"target\":200},{\"operator\":\"A"
+            + " non existent"
+            + " operator\",\"type\":\"body\",\"target\":{\"xPath\":\"//html/head/title\",\"operator\":\"contains\",\"targetValue\":\"Example\"}}],\"configVariables\":[]},\"options\":{\"monitor_options\":{\"notify_audit\":false,\"locked\":false,\"include_tags\":true,\"new_host_delay\":300,\"notify_no_data\":false,\"renotify_interval\":0},\"retry\":{\"count\":0,\"interval\":300},\"min_location_failed\":1,\"min_failure_duration\":0,\"tick_every\":60}}";
+    ObjectMapper mapper = generalApiClient.getJSON().getMapper();
+    Object res = fromJSON(mapper, SyntheticsAPITest.class, body);
+    List<SyntheticsAssertion> assertions =
+        (List<SyntheticsAssertion>) (lookup(res, "config.assertions"));
+
+    assertFalse(((SyntheticsAPITest) res).unparsed);
+    assertEquals(3, assertions.size());
+    assertEquals("A non existent operator", lookup(assertions.get(2), "operator"));
+  }
+
+  @Test
+  public void TestDeserializationUnknownNestedEnumInList()
+      throws JsonProcessingException, NoSuchFieldException, IllegalAccessException {
+    String body =
+        "{\"status\":\"live\",\"public_id\":\"2fx-64b-fb8\",\"tags\":[\"mini-website\",\"team:synthetics\",\"firefox\",\"synthetics-ci-browser\",\"edge\",\"chrome\"],\"locations\":[\"aws:ap-northeast-1\",\"aws:eu-north-1\",\"aws:eu-west-3\",\"aws:eu-central-1\"],\"message\":\"This"
+            + " mini-website check failed, please investigate why."
+            + " @slack-synthetics-ops-worker\",\"name\":\"Mini Website - Click"
+            + " Trap\",\"monitor_id\":7647262,\"type\":\"browser\",\"created_at\":\"2018-12-20T13:19:23.734004+00:00\",\"modified_at\":\"2021-06-30T15:46:49.387631+00:00\",\"config\":{\"variables\":[],\"setCookie\":\"\",\"request\":{\"url\":\"http://34.95.79.70/click-trap\",\"headers\":{},\"method\":\"GET\"},\"assertions\":[],\"configVariables\":[]},\"options\":{\"ci\":{\"executionRule\":\"blocking\"},\"retry\":{\"count\":1,\"interval\":1000},\"min_location_failed\":1,\"min_failure_duration\":0,\"noScreenshot\":false,\"tick_every\":300,\"forwardProxy\":false,\"disableCors\":false,\"device_ids\":[\"chrome.laptop_large\",\"firefox.laptop_large\",\"A"
+            + " non existent device"
+            + " ID\"],\"monitor_options\":{\"renotify_interval\":360},\"ignoreServerCertificateError\":true}}";
+    ObjectMapper mapper = generalApiClient.getJSON().getMapper();
+    Object res = fromJSON(mapper, SyntheticsBrowserTest.class, body);
+    List<SyntheticsDeviceID> deviceIds =
+        (List<SyntheticsDeviceID>) (lookup(res, "options.deviceIds"));
+
+    assertFalse(((SyntheticsBrowserTest) res).unparsed);
+    assertEquals(3, deviceIds.size());
+    assertEquals("A non existent device ID", deviceIds.get(2).toString());
+  }
+
+  @Test
+  public void TestDeserializationUnknownTopLevelEnum()
+      throws JsonProcessingException, NoSuchFieldException, IllegalAccessException {
+    String body =
+        "{\"status\":\"live\",\"public_id\":\"g6d-gcm-pdq\",\"tags\":[],\"locations\":[\"aws:eu-central-1\",\"aws:ap-northeast-1\"],\"message\":\"\",\"name\":\"Check"
+            + " on www.10.0.0.1.xip.io\",\"monitor_id\":7464050,\"type\":\"A non existent test"
+            + " type\",\"created_at\":\"2018-12-07T17:30:49.785089+00:00\",\"modified_at\":\"2019-09-04T17:01:09.921070+00:00\",\"subtype\":\"http\",\"config\":{\"request\":{\"url\":\"https://www.10.0.0.1.xip.io\",\"method\":\"GET\",\"timeout\":30},\"assertions\":[{\"operator\":\"is\",\"type\":\"statusCode\",\"target\":200}]},\"options\":{\"tick_every\":60}}";
+    ObjectMapper mapper = generalApiClient.getJSON().getMapper();
+    Object res = fromJSON(mapper, SyntheticsBrowserTest.class, body);
+
+    assertTrue(((SyntheticsBrowserTest) res).unparsed);
+    assertEquals("A non existent test type", lookup(res, "type").toString());
+    assertEquals("Check on www.10.0.0.1.xip.io", lookup(res, "name").toString());
+  }
+
+  @Test
+  public void TestDeserializationUnknownNestedEnum()
+      throws JsonProcessingException, NoSuchFieldException, IllegalAccessException {
+    String body =
+        "{\"status\":\"live\",\"public_id\":\"g6d-gcm-pdq\",\"tags\":[],\"locations\":[\"aws:eu-central-1\",\"aws:ap-northeast-1\"],\"message\":\"\",\"name\":\"Check"
+            + " on www.10.0.0.1.xip.io\",\"monitor_id\":7464050,\"type\":\"api\",\"created_at\":\"2018-12-07T17:30:49.785089+00:00\",\"modified_at\":\"2019-09-04T17:01:09.921070+00:00\",\"subtype\":\"http\",\"config\":{\"request\":{\"url\":\"https://www.10.0.0.1.xip.io\",\"method\":\"A"
+            + " non existent"
+            + " method\",\"timeout\":30},\"assertions\":[{\"operator\":\"is\",\"type\":\"statusCode\",\"target\":200}]},\"options\":{\"tick_every\":60}}";
+    ObjectMapper mapper = generalApiClient.getJSON().getMapper();
+    Object res = fromJSON(mapper, SyntheticsAPITest.class, body);
+
+    assertFalse(((SyntheticsAPITest) res).unparsed);
+    assertFalse((Boolean) lookup(res, "config.unparsed"));
+    assertTrue((Boolean) lookup(res, "config.request.unparsed"));
+    assertEquals("A non existent method", lookup(res, "config.request.method").toString());
+    assertEquals(30.0, lookup(res, "config.request.timeout"));
   }
 }

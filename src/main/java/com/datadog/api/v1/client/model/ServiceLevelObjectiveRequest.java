@@ -42,6 +42,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ServiceLevelObjectiveRequest {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private JsonNullable<String> description = JsonNullable.<String>undefined();
 
@@ -77,6 +78,7 @@ public class ServiceLevelObjectiveRequest {
     this.name = name;
     this.thresholds = thresholds;
     this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   public ServiceLevelObjectiveRequest description(String description) {
@@ -215,6 +217,7 @@ public class ServiceLevelObjectiveRequest {
 
   public ServiceLevelObjectiveRequest query(ServiceLevelObjectiveQuery query) {
     this.query = query;
+    this.unparsed |= query.unparsed;
     return this;
   }
 
@@ -273,11 +276,15 @@ public class ServiceLevelObjectiveRequest {
 
   public ServiceLevelObjectiveRequest thresholds(List<SLOThreshold> thresholds) {
     this.thresholds = thresholds;
+    for (SLOThreshold item : thresholds) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
   public ServiceLevelObjectiveRequest addThresholdsItem(SLOThreshold thresholdsItem) {
     this.thresholds.add(thresholdsItem);
+    this.unparsed |= thresholdsItem.unparsed;
     return this;
   }
 
@@ -305,6 +312,7 @@ public class ServiceLevelObjectiveRequest {
 
   public ServiceLevelObjectiveRequest type(SLOType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -321,6 +329,9 @@ public class ServiceLevelObjectiveRequest {
   }
 
   public void setType(SLOType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

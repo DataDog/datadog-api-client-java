@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -42,6 +43,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SLOWidgetDefinition {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_GLOBAL_TIME_TARGET = "global_time_target";
   private String globalTimeTarget;
 
@@ -79,6 +81,7 @@ public class SLOWidgetDefinition {
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SLOWidgetDefinitionType type,
       @JsonProperty(required = true, value = JSON_PROPERTY_VIEW_TYPE) String viewType) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     this.viewType = viewType;
   }
 
@@ -158,6 +161,7 @@ public class SLOWidgetDefinition {
       this.timeWindows = new ArrayList<>();
     }
     this.timeWindows.add(timeWindowsItem);
+    this.unparsed |= !timeWindowsItem.isValid();
     return this;
   }
 
@@ -202,6 +206,7 @@ public class SLOWidgetDefinition {
 
   public SLOWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
+    this.unparsed |= !titleAlign.isValid();
     return this;
   }
 
@@ -219,6 +224,9 @@ public class SLOWidgetDefinition {
   }
 
   public void setTitleAlign(WidgetTextAlign titleAlign) {
+    if (!titleAlign.isValid()) {
+      this.unparsed = true;
+    }
     this.titleAlign = titleAlign;
   }
 
@@ -246,6 +254,7 @@ public class SLOWidgetDefinition {
 
   public SLOWidgetDefinition type(SLOWidgetDefinitionType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -262,11 +271,15 @@ public class SLOWidgetDefinition {
   }
 
   public void setType(SLOWidgetDefinitionType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 
   public SLOWidgetDefinition viewMode(WidgetViewMode viewMode) {
     this.viewMode = viewMode;
+    this.unparsed |= !viewMode.isValid();
     return this;
   }
 
@@ -284,6 +297,9 @@ public class SLOWidgetDefinition {
   }
 
   public void setViewMode(WidgetViewMode viewMode) {
+    if (!viewMode.isValid()) {
+      this.unparsed = true;
+    }
     this.viewMode = viewMode;
   }
 

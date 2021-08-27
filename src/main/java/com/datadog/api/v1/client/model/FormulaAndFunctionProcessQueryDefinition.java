@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -35,6 +36,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FormulaAndFunctionProcessQueryDefinition {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATOR = "aggregator";
   private FormulaAndFunctionMetricAggregation aggregator;
 
@@ -71,6 +73,7 @@ public class FormulaAndFunctionProcessQueryDefinition {
       @JsonProperty(required = true, value = JSON_PROPERTY_METRIC) String metric,
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
     this.dataSource = dataSource;
+    this.unparsed |= !dataSource.isValid();
     this.metric = metric;
     this.name = name;
   }
@@ -78,6 +81,7 @@ public class FormulaAndFunctionProcessQueryDefinition {
   public FormulaAndFunctionProcessQueryDefinition aggregator(
       FormulaAndFunctionMetricAggregation aggregator) {
     this.aggregator = aggregator;
+    this.unparsed |= !aggregator.isValid();
     return this;
   }
 
@@ -95,12 +99,16 @@ public class FormulaAndFunctionProcessQueryDefinition {
   }
 
   public void setAggregator(FormulaAndFunctionMetricAggregation aggregator) {
+    if (!aggregator.isValid()) {
+      this.unparsed = true;
+    }
     this.aggregator = aggregator;
   }
 
   public FormulaAndFunctionProcessQueryDefinition dataSource(
       FormulaAndFunctionProcessQueryDataSource dataSource) {
     this.dataSource = dataSource;
+    this.unparsed |= !dataSource.isValid();
     return this;
   }
 
@@ -117,6 +125,9 @@ public class FormulaAndFunctionProcessQueryDefinition {
   }
 
   public void setDataSource(FormulaAndFunctionProcessQueryDataSource dataSource) {
+    if (!dataSource.isValid()) {
+      this.unparsed = true;
+    }
     this.dataSource = dataSource;
   }
 
@@ -214,6 +225,7 @@ public class FormulaAndFunctionProcessQueryDefinition {
 
   public FormulaAndFunctionProcessQueryDefinition sort(QuerySortOrder sort) {
     this.sort = sort;
+    this.unparsed |= !sort.isValid();
     return this;
   }
 
@@ -231,6 +243,9 @@ public class FormulaAndFunctionProcessQueryDefinition {
   }
 
   public void setSort(QuerySortOrder sort) {
+    if (!sort.isValid()) {
+      this.unparsed = true;
+    }
     this.sort = sort;
   }
 

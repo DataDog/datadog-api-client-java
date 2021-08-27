@@ -51,6 +51,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Dashboard {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTHOR_HANDLE = "author_handle";
   private String authorHandle;
 
@@ -107,6 +108,7 @@ public class Dashboard {
       @JsonProperty(required = true, value = JSON_PROPERTY_TITLE) String title,
       @JsonProperty(required = true, value = JSON_PROPERTY_WIDGETS) List<Widget> widgets) {
     this.layoutType = layoutType;
+    this.unparsed |= !layoutType.isValid();
     this.title = title;
     this.widgets = widgets;
   }
@@ -211,6 +213,7 @@ public class Dashboard {
 
   public Dashboard layoutType(DashboardLayoutType layoutType) {
     this.layoutType = layoutType;
+    this.unparsed |= !layoutType.isValid();
     return this;
   }
 
@@ -227,6 +230,9 @@ public class Dashboard {
   }
 
   public void setLayoutType(DashboardLayoutType layoutType) {
+    if (!layoutType.isValid()) {
+      this.unparsed = true;
+    }
     this.layoutType = layoutType;
   }
 
@@ -290,6 +296,7 @@ public class Dashboard {
 
   public Dashboard reflowType(DashboardReflowType reflowType) {
     this.reflowType = reflowType;
+    this.unparsed |= !reflowType.isValid();
     return this;
   }
 
@@ -307,6 +314,9 @@ public class Dashboard {
   }
 
   public void setReflowType(DashboardReflowType reflowType) {
+    if (!reflowType.isValid()) {
+      this.unparsed = true;
+    }
     this.reflowType = reflowType;
   }
 
@@ -481,11 +491,15 @@ public class Dashboard {
 
   public Dashboard widgets(List<Widget> widgets) {
     this.widgets = widgets;
+    for (Widget item : widgets) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
   public Dashboard addWidgetsItem(Widget widgetsItem) {
     this.widgets.add(widgetsItem);
+    this.unparsed |= widgetsItem.unparsed;
     return this;
   }
 

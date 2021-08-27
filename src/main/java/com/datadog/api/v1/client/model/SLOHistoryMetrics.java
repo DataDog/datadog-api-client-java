@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -40,6 +41,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SLOHistoryMetrics {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DENOMINATOR = "denominator";
   private SLOHistoryMetricsSeries denominator;
 
@@ -78,8 +80,10 @@ public class SLOHistoryMetrics {
       @JsonProperty(required = true, value = JSON_PROPERTY_RESP_VERSION) Long respVersion,
       @JsonProperty(required = true, value = JSON_PROPERTY_TIMES) List<Double> times) {
     this.denominator = denominator;
+    this.unparsed |= denominator.unparsed;
     this.interval = interval;
     this.numerator = numerator;
+    this.unparsed |= numerator.unparsed;
     this.query = query;
     this.resType = resType;
     this.respVersion = respVersion;
@@ -88,6 +92,7 @@ public class SLOHistoryMetrics {
 
   public SLOHistoryMetrics denominator(SLOHistoryMetricsSeries denominator) {
     this.denominator = denominator;
+    this.unparsed |= denominator.unparsed;
     return this;
   }
 
@@ -160,6 +165,7 @@ public class SLOHistoryMetrics {
 
   public SLOHistoryMetrics numerator(SLOHistoryMetricsSeries numerator) {
     this.numerator = numerator;
+    this.unparsed |= numerator.unparsed;
     return this;
   }
 

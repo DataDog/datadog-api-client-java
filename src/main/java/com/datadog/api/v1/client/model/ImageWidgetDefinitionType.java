@@ -12,20 +12,77 @@ package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 /** Type of the image widget. */
-public enum ImageWidgetDefinitionType {
-  IMAGE("image");
+@JsonSerialize(using = ImageWidgetDefinitionType.ImageWidgetDefinitionTypeSerializer.class)
+public class ImageWidgetDefinitionType {
+
+  public static final ImageWidgetDefinitionType IMAGE = new ImageWidgetDefinitionType("image");
+
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("image"));
 
   private String value;
+
+  public boolean isValid() {
+    return allowedValues.contains(this.value);
+  }
 
   ImageWidgetDefinitionType(String value) {
     this.value = value;
   }
 
+  public static class ImageWidgetDefinitionTypeSerializer
+      extends StdSerializer<ImageWidgetDefinitionType> {
+    public ImageWidgetDefinitionTypeSerializer(Class<ImageWidgetDefinitionType> t) {
+      super(t);
+    }
+
+    public ImageWidgetDefinitionTypeSerializer() {
+      this(null);
+    }
+
+    @Override
+    public void serialize(
+        ImageWidgetDefinitionType value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
+  }
+
   @JsonValue
   public String getValue() {
-    return value;
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  /** Return true if this ImageWidgetDefinitionType object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    return this.value.equals(((ImageWidgetDefinitionType) o).value);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(value);
   }
 
   @Override
@@ -35,11 +92,6 @@ public enum ImageWidgetDefinitionType {
 
   @JsonCreator
   public static ImageWidgetDefinitionType fromValue(String value) {
-    for (ImageWidgetDefinitionType b : ImageWidgetDefinitionType.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
-    }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    return new ImageWidgetDefinitionType(value);
   }
 }

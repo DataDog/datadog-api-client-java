@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -24,6 +25,7 @@ import java.util.Objects;
 @JsonPropertyOrder({EventListResponse.JSON_PROPERTY_EVENTS, EventListResponse.JSON_PROPERTY_STATUS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class EventListResponse {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_EVENTS = "events";
   private List<Event> events = null;
 
@@ -32,6 +34,9 @@ public class EventListResponse {
 
   public EventListResponse events(List<Event> events) {
     this.events = events;
+    for (Event item : events) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -40,6 +45,7 @@ public class EventListResponse {
       this.events = new ArrayList<>();
     }
     this.events.add(eventsItem);
+    this.unparsed |= eventsItem.unparsed;
     return this;
   }
 

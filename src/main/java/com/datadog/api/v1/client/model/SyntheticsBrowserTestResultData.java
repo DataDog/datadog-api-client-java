@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -36,6 +37,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsBrowserTestResultData {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BROWSER_TYPE = "browserType";
   private String browserType;
 
@@ -115,6 +117,7 @@ public class SyntheticsBrowserTestResultData {
 
   public SyntheticsBrowserTestResultData device(SyntheticsDevice device) {
     this.device = device;
+    this.unparsed |= device.unparsed;
     return this;
   }
 
@@ -247,6 +250,9 @@ public class SyntheticsBrowserTestResultData {
 
   public SyntheticsBrowserTestResultData stepDetails(List<SyntheticsStepDetail> stepDetails) {
     this.stepDetails = stepDetails;
+    for (SyntheticsStepDetail item : stepDetails) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -255,6 +261,7 @@ public class SyntheticsBrowserTestResultData {
       this.stepDetails = new ArrayList<>();
     }
     this.stepDetails.add(stepDetailsItem);
+    this.unparsed |= stepDetailsItem.unparsed;
     return this;
   }
 

@@ -11,6 +11,7 @@
 package com.datadog.api.v2.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,6 +31,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsArchiveDestinationAzure {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CONTAINER = "container";
   private String container;
 
@@ -60,8 +62,10 @@ public class LogsArchiveDestinationAzure {
           LogsArchiveDestinationAzureType type) {
     this.container = container;
     this.integration = integration;
+    this.unparsed |= integration.unparsed;
     this.storageAccount = storageAccount;
     this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   public LogsArchiveDestinationAzure container(String container) {
@@ -90,6 +94,7 @@ public class LogsArchiveDestinationAzure {
 
   public LogsArchiveDestinationAzure integration(LogsArchiveIntegrationAzure integration) {
     this.integration = integration;
+    this.unparsed |= integration.unparsed;
     return this;
   }
 
@@ -179,6 +184,7 @@ public class LogsArchiveDestinationAzure {
 
   public LogsArchiveDestinationAzure type(LogsArchiveDestinationAzureType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -195,6 +201,9 @@ public class LogsArchiveDestinationAzure {
   }
 
   public void setType(LogsArchiveDestinationAzureType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

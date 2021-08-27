@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,6 +31,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsResponseMetadata {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ELAPSED = "elapsed";
   private Long elapsed;
 
@@ -69,6 +71,7 @@ public class LogsResponseMetadata {
 
   public LogsResponseMetadata page(LogsResponseMetadataPage page) {
     this.page = page;
+    this.unparsed |= page.unparsed;
     return this;
   }
 
@@ -115,6 +118,7 @@ public class LogsResponseMetadata {
 
   public LogsResponseMetadata status(LogsAggregateResponseStatus status) {
     this.status = status;
+    this.unparsed |= !status.isValid();
     return this;
   }
 
@@ -132,11 +136,17 @@ public class LogsResponseMetadata {
   }
 
   public void setStatus(LogsAggregateResponseStatus status) {
+    if (!status.isValid()) {
+      this.unparsed = true;
+    }
     this.status = status;
   }
 
   public LogsResponseMetadata warnings(List<LogsWarning> warnings) {
     this.warnings = warnings;
+    for (LogsWarning item : warnings) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -145,6 +155,7 @@ public class LogsResponseMetadata {
       this.warnings = new ArrayList<>();
     }
     this.warnings.add(warningsItem);
+    this.unparsed |= warningsItem.unparsed;
     return this;
   }
 

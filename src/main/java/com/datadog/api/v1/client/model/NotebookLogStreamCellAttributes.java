@@ -29,6 +29,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class NotebookLogStreamCellAttributes {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DEFINITION = "definition";
   private LogStreamWidgetDefinition definition;
 
@@ -45,10 +46,12 @@ public class NotebookLogStreamCellAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_DEFINITION)
           LogStreamWidgetDefinition definition) {
     this.definition = definition;
+    this.unparsed |= definition.unparsed;
   }
 
   public NotebookLogStreamCellAttributes definition(LogStreamWidgetDefinition definition) {
     this.definition = definition;
+    this.unparsed |= definition.unparsed;
     return this;
   }
 
@@ -70,6 +73,7 @@ public class NotebookLogStreamCellAttributes {
 
   public NotebookLogStreamCellAttributes graphSize(NotebookGraphSize graphSize) {
     this.graphSize = graphSize;
+    this.unparsed |= !graphSize.isValid();
     return this;
   }
 
@@ -87,6 +91,9 @@ public class NotebookLogStreamCellAttributes {
   }
 
   public void setGraphSize(NotebookGraphSize graphSize) {
+    if (!graphSize.isValid()) {
+      this.unparsed = true;
+    }
     this.graphSize = graphSize;
   }
 

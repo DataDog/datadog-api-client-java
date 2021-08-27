@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -40,6 +41,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ListStreamWidgetDefinition {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_LEGEND_SIZE = "legend_size";
   private String legendSize;
 
@@ -74,6 +76,7 @@ public class ListStreamWidgetDefinition {
           ListStreamWidgetDefinitionType type) {
     this.requests = requests;
     this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   public ListStreamWidgetDefinition legendSize(String legendSize) {
@@ -104,11 +107,15 @@ public class ListStreamWidgetDefinition {
 
   public ListStreamWidgetDefinition requests(List<ListStreamWidgetRequest> requests) {
     this.requests = requests;
+    for (ListStreamWidgetRequest item : requests) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
   public ListStreamWidgetDefinition addRequestsItem(ListStreamWidgetRequest requestsItem) {
     this.requests.add(requestsItem);
+    this.unparsed |= requestsItem.unparsed;
     return this;
   }
 
@@ -156,6 +163,7 @@ public class ListStreamWidgetDefinition {
 
   public ListStreamWidgetDefinition time(WidgetTime time) {
     this.time = time;
+    this.unparsed |= time.unparsed;
     return this;
   }
 
@@ -200,6 +208,7 @@ public class ListStreamWidgetDefinition {
 
   public ListStreamWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
+    this.unparsed |= !titleAlign.isValid();
     return this;
   }
 
@@ -217,6 +226,9 @@ public class ListStreamWidgetDefinition {
   }
 
   public void setTitleAlign(WidgetTextAlign titleAlign) {
+    if (!titleAlign.isValid()) {
+      this.unparsed = true;
+    }
     this.titleAlign = titleAlign;
   }
 
@@ -244,6 +256,7 @@ public class ListStreamWidgetDefinition {
 
   public ListStreamWidgetDefinition type(ListStreamWidgetDefinitionType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -260,6 +273,9 @@ public class ListStreamWidgetDefinition {
   }
 
   public void setType(ListStreamWidgetDefinitionType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

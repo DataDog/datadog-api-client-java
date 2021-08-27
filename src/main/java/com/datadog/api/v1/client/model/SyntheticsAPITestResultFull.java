@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,6 +31,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsAPITestResultFull {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CHECK = "check";
   private SyntheticsAPITestResultFullCheck check;
 
@@ -53,6 +55,7 @@ public class SyntheticsAPITestResultFull {
 
   public SyntheticsAPITestResultFull check(SyntheticsAPITestResultFullCheck check) {
     this.check = check;
+    this.unparsed |= check.unparsed;
     return this;
   }
 
@@ -141,6 +144,7 @@ public class SyntheticsAPITestResultFull {
 
   public SyntheticsAPITestResultFull result(SyntheticsAPITestResultData result) {
     this.result = result;
+    this.unparsed |= result.unparsed;
     return this;
   }
 
@@ -185,6 +189,7 @@ public class SyntheticsAPITestResultFull {
 
   public SyntheticsAPITestResultFull status(SyntheticsTestMonitorStatus status) {
     this.status = status;
+    this.unparsed |= !status.isValid();
     return this;
   }
 
@@ -202,6 +207,9 @@ public class SyntheticsAPITestResultFull {
   }
 
   public void setStatus(SyntheticsTestMonitorStatus status) {
+    if (!status.isValid()) {
+      this.unparsed = true;
+    }
     this.status = status;
   }
 

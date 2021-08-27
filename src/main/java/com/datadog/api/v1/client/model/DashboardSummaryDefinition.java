@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -33,6 +34,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DashboardSummaryDefinition {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTHOR_HANDLE = "author_handle";
   private String authorHandle;
 
@@ -176,6 +178,7 @@ public class DashboardSummaryDefinition {
 
   public DashboardSummaryDefinition layoutType(DashboardLayoutType layoutType) {
     this.layoutType = layoutType;
+    this.unparsed |= !layoutType.isValid();
     return this;
   }
 
@@ -193,6 +196,9 @@ public class DashboardSummaryDefinition {
   }
 
   public void setLayoutType(DashboardLayoutType layoutType) {
+    if (!layoutType.isValid()) {
+      this.unparsed = true;
+    }
     this.layoutType = layoutType;
   }
 

@@ -12,20 +12,79 @@ package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 /** Type of logs User-Agent parser. */
-public enum LogsUserAgentParserType {
-  USER_AGENT_PARSER("user-agent-parser");
+@JsonSerialize(using = LogsUserAgentParserType.LogsUserAgentParserTypeSerializer.class)
+public class LogsUserAgentParserType {
+
+  public static final LogsUserAgentParserType USER_AGENT_PARSER =
+      new LogsUserAgentParserType("user-agent-parser");
+
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("user-agent-parser"));
 
   private String value;
+
+  public boolean isValid() {
+    return allowedValues.contains(this.value);
+  }
 
   LogsUserAgentParserType(String value) {
     this.value = value;
   }
 
+  public static class LogsUserAgentParserTypeSerializer
+      extends StdSerializer<LogsUserAgentParserType> {
+    public LogsUserAgentParserTypeSerializer(Class<LogsUserAgentParserType> t) {
+      super(t);
+    }
+
+    public LogsUserAgentParserTypeSerializer() {
+      this(null);
+    }
+
+    @Override
+    public void serialize(
+        LogsUserAgentParserType value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
+  }
+
   @JsonValue
   public String getValue() {
-    return value;
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  /** Return true if this LogsUserAgentParserType object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    return this.value.equals(((LogsUserAgentParserType) o).value);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(value);
   }
 
   @Override
@@ -35,11 +94,6 @@ public enum LogsUserAgentParserType {
 
   @JsonCreator
   public static LogsUserAgentParserType fromValue(String value) {
-    for (LogsUserAgentParserType b : LogsUserAgentParserType.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
-    }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    return new LogsUserAgentParserType(value);
   }
 }

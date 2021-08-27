@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -31,6 +32,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsPrivateLocationSecrets {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTHENTICATION = "authentication";
   private SyntheticsPrivateLocationSecretsAuthentication authentication;
 
@@ -40,6 +42,7 @@ public class SyntheticsPrivateLocationSecrets {
   public SyntheticsPrivateLocationSecrets authentication(
       SyntheticsPrivateLocationSecretsAuthentication authentication) {
     this.authentication = authentication;
+    this.unparsed |= authentication.unparsed;
     return this;
   }
 
@@ -63,6 +66,7 @@ public class SyntheticsPrivateLocationSecrets {
   public SyntheticsPrivateLocationSecrets configDecryption(
       SyntheticsPrivateLocationSecretsConfigDecryption configDecryption) {
     this.configDecryption = configDecryption;
+    this.unparsed |= configDecryption.unparsed;
     return this;
   }
 

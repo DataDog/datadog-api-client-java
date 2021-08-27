@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -24,11 +25,15 @@ import java.util.Objects;
 @JsonPropertyOrder({LogsIndexListResponse.JSON_PROPERTY_INDEXES})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsIndexListResponse {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_INDEXES = "indexes";
   private List<LogsIndex> indexes = null;
 
   public LogsIndexListResponse indexes(List<LogsIndex> indexes) {
     this.indexes = indexes;
+    for (LogsIndex item : indexes) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -37,6 +42,7 @@ public class LogsIndexListResponse {
       this.indexes = new ArrayList<>();
     }
     this.indexes.add(indexesItem);
+    this.unparsed |= indexesItem.unparsed;
     return this;
   }
 

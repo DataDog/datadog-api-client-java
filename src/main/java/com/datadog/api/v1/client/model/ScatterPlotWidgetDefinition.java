@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -42,6 +43,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ScatterPlotWidgetDefinition {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COLOR_BY_GROUPS = "color_by_groups";
   private List<String> colorByGroups = null;
 
@@ -81,7 +83,9 @@ public class ScatterPlotWidgetDefinition {
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           ScatterPlotWidgetDefinitionType type) {
     this.requests = requests;
+    this.unparsed |= requests.unparsed;
     this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   public ScatterPlotWidgetDefinition colorByGroups(List<String> colorByGroups) {
@@ -116,6 +120,9 @@ public class ScatterPlotWidgetDefinition {
 
   public ScatterPlotWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
+    for (WidgetCustomLink item : customLinks) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -124,6 +131,7 @@ public class ScatterPlotWidgetDefinition {
       this.customLinks = new ArrayList<>();
     }
     this.customLinks.add(customLinksItem);
+    this.unparsed |= customLinksItem.unparsed;
     return this;
   }
 
@@ -146,6 +154,7 @@ public class ScatterPlotWidgetDefinition {
 
   public ScatterPlotWidgetDefinition requests(ScatterPlotWidgetDefinitionRequests requests) {
     this.requests = requests;
+    this.unparsed |= requests.unparsed;
     return this;
   }
 
@@ -167,6 +176,7 @@ public class ScatterPlotWidgetDefinition {
 
   public ScatterPlotWidgetDefinition time(WidgetTime time) {
     this.time = time;
+    this.unparsed |= time.unparsed;
     return this;
   }
 
@@ -211,6 +221,7 @@ public class ScatterPlotWidgetDefinition {
 
   public ScatterPlotWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
+    this.unparsed |= !titleAlign.isValid();
     return this;
   }
 
@@ -228,6 +239,9 @@ public class ScatterPlotWidgetDefinition {
   }
 
   public void setTitleAlign(WidgetTextAlign titleAlign) {
+    if (!titleAlign.isValid()) {
+      this.unparsed = true;
+    }
     this.titleAlign = titleAlign;
   }
 
@@ -255,6 +269,7 @@ public class ScatterPlotWidgetDefinition {
 
   public ScatterPlotWidgetDefinition type(ScatterPlotWidgetDefinitionType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -271,11 +286,15 @@ public class ScatterPlotWidgetDefinition {
   }
 
   public void setType(ScatterPlotWidgetDefinitionType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 
   public ScatterPlotWidgetDefinition xaxis(WidgetAxis xaxis) {
     this.xaxis = xaxis;
+    this.unparsed |= xaxis.unparsed;
     return this;
   }
 
@@ -298,6 +317,7 @@ public class ScatterPlotWidgetDefinition {
 
   public ScatterPlotWidgetDefinition yaxis(WidgetAxis yaxis) {
     this.yaxis = yaxis;
+    this.unparsed |= yaxis.unparsed;
     return this;
   }
 

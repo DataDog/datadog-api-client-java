@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -27,6 +28,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsMetricUpdateAttributes {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FILTER = "filter";
   private LogsMetricFilter filter;
 
@@ -35,6 +37,7 @@ public class LogsMetricUpdateAttributes {
 
   public LogsMetricUpdateAttributes filter(LogsMetricFilter filter) {
     this.filter = filter;
+    this.unparsed |= filter.unparsed;
     return this;
   }
 
@@ -57,6 +60,9 @@ public class LogsMetricUpdateAttributes {
 
   public LogsMetricUpdateAttributes groupBy(List<LogsMetricGroupBy> groupBy) {
     this.groupBy = groupBy;
+    for (LogsMetricGroupBy item : groupBy) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -65,6 +71,7 @@ public class LogsMetricUpdateAttributes {
       this.groupBy = new ArrayList<>();
     }
     this.groupBy.add(groupByItem);
+    this.unparsed |= groupByItem.unparsed;
     return this;
   }
 

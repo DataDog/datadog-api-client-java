@@ -52,6 +52,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Downtime {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACTIVE = "active";
   private Boolean active;
 

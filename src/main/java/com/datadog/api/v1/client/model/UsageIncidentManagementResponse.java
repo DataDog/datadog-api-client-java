@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -26,11 +27,15 @@ import java.util.Objects;
 @JsonPropertyOrder({UsageIncidentManagementResponse.JSON_PROPERTY_USAGE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageIncidentManagementResponse {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_USAGE = "usage";
   private List<UsageIncidentManagementHour> usage = null;
 
   public UsageIncidentManagementResponse usage(List<UsageIncidentManagementHour> usage) {
     this.usage = usage;
+    for (UsageIncidentManagementHour item : usage) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -39,6 +44,7 @@ public class UsageIncidentManagementResponse {
       this.usage = new ArrayList<>();
     }
     this.usage.add(usageItem);
+    this.unparsed |= usageItem.unparsed;
     return this;
   }
 

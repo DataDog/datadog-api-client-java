@@ -11,6 +11,7 @@
 package com.datadog.api.v2.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -36,6 +37,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SecurityMonitoringRuleCreatePayload {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CASES = "cases";
   private List<SecurityMonitoringRuleCaseCreate> cases = new ArrayList<>();
 
@@ -84,17 +86,22 @@ public class SecurityMonitoringRuleCreatePayload {
     this.message = message;
     this.name = name;
     this.options = options;
+    this.unparsed |= options.unparsed;
     this.queries = queries;
   }
 
   public SecurityMonitoringRuleCreatePayload cases(List<SecurityMonitoringRuleCaseCreate> cases) {
     this.cases = cases;
+    for (SecurityMonitoringRuleCaseCreate item : cases) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
   public SecurityMonitoringRuleCreatePayload addCasesItem(
       SecurityMonitoringRuleCaseCreate casesItem) {
     this.cases.add(casesItem);
+    this.unparsed |= casesItem.unparsed;
     return this;
   }
 
@@ -116,6 +123,9 @@ public class SecurityMonitoringRuleCreatePayload {
 
   public SecurityMonitoringRuleCreatePayload filters(List<SecurityMonitoringFilter> filters) {
     this.filters = filters;
+    for (SecurityMonitoringFilter item : filters) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -124,6 +134,7 @@ public class SecurityMonitoringRuleCreatePayload {
       this.filters = new ArrayList<>();
     }
     this.filters.add(filtersItem);
+    this.unparsed |= filtersItem.unparsed;
     return this;
   }
 
@@ -237,6 +248,7 @@ public class SecurityMonitoringRuleCreatePayload {
 
   public SecurityMonitoringRuleCreatePayload options(SecurityMonitoringRuleOptions options) {
     this.options = options;
+    this.unparsed |= options.unparsed;
     return this;
   }
 
@@ -259,12 +271,16 @@ public class SecurityMonitoringRuleCreatePayload {
   public SecurityMonitoringRuleCreatePayload queries(
       List<SecurityMonitoringRuleQueryCreate> queries) {
     this.queries = queries;
+    for (SecurityMonitoringRuleQueryCreate item : queries) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
   public SecurityMonitoringRuleCreatePayload addQueriesItem(
       SecurityMonitoringRuleQueryCreate queriesItem) {
     this.queries.add(queriesItem);
+    this.unparsed |= queriesItem.unparsed;
     return this;
   }
 
@@ -321,6 +337,7 @@ public class SecurityMonitoringRuleCreatePayload {
 
   public SecurityMonitoringRuleCreatePayload type(SecurityMonitoringRuleTypeCreate type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -338,6 +355,9 @@ public class SecurityMonitoringRuleCreatePayload {
   }
 
   public void setType(SecurityMonitoringRuleTypeCreate type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

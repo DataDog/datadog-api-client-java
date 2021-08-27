@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -37,6 +38,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class EventTimelineWidgetDefinition {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
 
@@ -67,6 +69,7 @@ public class EventTimelineWidgetDefinition {
           EventTimelineWidgetDefinitionType type) {
     this.query = query;
     this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   public EventTimelineWidgetDefinition query(String query) {
@@ -118,6 +121,7 @@ public class EventTimelineWidgetDefinition {
 
   public EventTimelineWidgetDefinition time(WidgetTime time) {
     this.time = time;
+    this.unparsed |= time.unparsed;
     return this;
   }
 
@@ -162,6 +166,7 @@ public class EventTimelineWidgetDefinition {
 
   public EventTimelineWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
+    this.unparsed |= !titleAlign.isValid();
     return this;
   }
 
@@ -179,6 +184,9 @@ public class EventTimelineWidgetDefinition {
   }
 
   public void setTitleAlign(WidgetTextAlign titleAlign) {
+    if (!titleAlign.isValid()) {
+      this.unparsed = true;
+    }
     this.titleAlign = titleAlign;
   }
 
@@ -206,6 +214,7 @@ public class EventTimelineWidgetDefinition {
 
   public EventTimelineWidgetDefinition type(EventTimelineWidgetDefinitionType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -222,6 +231,9 @@ public class EventTimelineWidgetDefinition {
   }
 
   public void setType(EventTimelineWidgetDefinitionType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

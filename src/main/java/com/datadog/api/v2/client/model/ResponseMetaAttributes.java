@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -22,11 +23,13 @@ import java.util.Objects;
 @JsonPropertyOrder({ResponseMetaAttributes.JSON_PROPERTY_PAGE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ResponseMetaAttributes {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_PAGE = "page";
   private Pagination page;
 
   public ResponseMetaAttributes page(Pagination page) {
     this.page = page;
+    this.unparsed |= page.unparsed;
     return this;
   }
 

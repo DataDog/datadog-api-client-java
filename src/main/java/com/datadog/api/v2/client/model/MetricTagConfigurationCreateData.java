@@ -11,6 +11,7 @@
 package com.datadog.api.v2.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -27,6 +28,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MetricTagConfigurationCreateData {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private MetricTagConfigurationCreateAttributes attributes;
 
@@ -44,11 +46,13 @@ public class MetricTagConfigurationCreateData {
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) MetricTagConfigurationType type) {
     this.id = id;
     this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   public MetricTagConfigurationCreateData attributes(
       MetricTagConfigurationCreateAttributes attributes) {
     this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
     return this;
   }
 
@@ -95,6 +99,7 @@ public class MetricTagConfigurationCreateData {
 
   public MetricTagConfigurationCreateData type(MetricTagConfigurationType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -111,6 +116,9 @@ public class MetricTagConfigurationCreateData {
   }
 
   public void setType(MetricTagConfigurationType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

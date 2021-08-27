@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -32,6 +33,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsAPIStep {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ALLOW_FAILURE = "allowFailure";
   private Boolean allowFailure;
 
@@ -77,6 +79,9 @@ public class SyntheticsAPIStep {
 
   public SyntheticsAPIStep assertions(List<SyntheticsAssertion> assertions) {
     this.assertions = assertions;
+    for (SyntheticsAssertion item : assertions) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -85,6 +90,7 @@ public class SyntheticsAPIStep {
       this.assertions = new ArrayList<>();
     }
     this.assertions.add(assertionsItem);
+    this.unparsed |= assertionsItem.unparsed;
     return this;
   }
 
@@ -107,6 +113,9 @@ public class SyntheticsAPIStep {
 
   public SyntheticsAPIStep extractedValues(List<SyntheticsParsingOptions> extractedValues) {
     this.extractedValues = extractedValues;
+    for (SyntheticsParsingOptions item : extractedValues) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -115,6 +124,7 @@ public class SyntheticsAPIStep {
       this.extractedValues = new ArrayList<>();
     }
     this.extractedValues.add(extractedValuesItem);
+    this.unparsed |= extractedValuesItem.unparsed;
     return this;
   }
 
@@ -185,6 +195,7 @@ public class SyntheticsAPIStep {
 
   public SyntheticsAPIStep request(SyntheticsTestRequest request) {
     this.request = request;
+    this.unparsed |= request.unparsed;
     return this;
   }
 
@@ -207,6 +218,7 @@ public class SyntheticsAPIStep {
 
   public SyntheticsAPIStep subtype(SyntheticsAPIStepSubtype subtype) {
     this.subtype = subtype;
+    this.unparsed |= !subtype.isValid();
     return this;
   }
 
@@ -224,6 +236,9 @@ public class SyntheticsAPIStep {
   }
 
   public void setSubtype(SyntheticsAPIStepSubtype subtype) {
+    if (!subtype.isValid()) {
+      this.unparsed = true;
+    }
     this.subtype = subtype;
   }
 

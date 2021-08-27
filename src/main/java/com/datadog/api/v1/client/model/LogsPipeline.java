@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -42,6 +43,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsPipeline {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FILTER = "filter";
   private LogsFilter filter;
 
@@ -72,6 +74,7 @@ public class LogsPipeline {
 
   public LogsPipeline filter(LogsFilter filter) {
     this.filter = filter;
+    this.unparsed |= filter.unparsed;
     return this;
   }
 
@@ -163,6 +166,9 @@ public class LogsPipeline {
 
   public LogsPipeline processors(List<LogsProcessor> processors) {
     this.processors = processors;
+    for (LogsProcessor item : processors) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -171,6 +177,7 @@ public class LogsPipeline {
       this.processors = new ArrayList<>();
     }
     this.processors.add(processorsItem);
+    this.unparsed |= processorsItem.unparsed;
     return this;
   }
 

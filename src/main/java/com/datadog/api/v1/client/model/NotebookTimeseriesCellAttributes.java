@@ -30,6 +30,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class NotebookTimeseriesCellAttributes {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DEFINITION = "definition";
   private TimeseriesWidgetDefinition definition;
 
@@ -49,10 +50,12 @@ public class NotebookTimeseriesCellAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_DEFINITION)
           TimeseriesWidgetDefinition definition) {
     this.definition = definition;
+    this.unparsed |= definition.unparsed;
   }
 
   public NotebookTimeseriesCellAttributes definition(TimeseriesWidgetDefinition definition) {
     this.definition = definition;
+    this.unparsed |= definition.unparsed;
     return this;
   }
 
@@ -74,6 +77,7 @@ public class NotebookTimeseriesCellAttributes {
 
   public NotebookTimeseriesCellAttributes graphSize(NotebookGraphSize graphSize) {
     this.graphSize = graphSize;
+    this.unparsed |= !graphSize.isValid();
     return this;
   }
 
@@ -91,11 +95,15 @@ public class NotebookTimeseriesCellAttributes {
   }
 
   public void setGraphSize(NotebookGraphSize graphSize) {
+    if (!graphSize.isValid()) {
+      this.unparsed = true;
+    }
     this.graphSize = graphSize;
   }
 
   public NotebookTimeseriesCellAttributes splitBy(NotebookSplitBy splitBy) {
     this.splitBy = splitBy;
+    this.unparsed |= splitBy.unparsed;
     return this;
   }
 

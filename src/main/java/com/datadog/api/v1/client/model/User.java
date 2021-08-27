@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,6 +31,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class User {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACCESS_ROLE = "access_role";
   private AccessRole accessRole = AccessRole.STANDARD;
 
@@ -53,6 +55,7 @@ public class User {
 
   public User accessRole(AccessRole accessRole) {
     this.accessRole = accessRole;
+    this.unparsed |= !accessRole.isValid();
     return this;
   }
 
@@ -70,6 +73,9 @@ public class User {
   }
 
   public void setAccessRole(AccessRole accessRole) {
+    if (!accessRole.isValid()) {
+      this.unparsed = true;
+    }
     this.accessRole = accessRole;
   }
 

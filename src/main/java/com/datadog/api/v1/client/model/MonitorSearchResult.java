@@ -39,6 +39,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MonitorSearchResult {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CLASSIFICATION = "classification";
   private String classification;
 
@@ -90,6 +91,7 @@ public class MonitorSearchResult {
 
   public MonitorSearchResult creator(Creator creator) {
     this.creator = creator;
+    this.unparsed |= creator.unparsed;
     return this;
   }
 
@@ -243,6 +245,7 @@ public class MonitorSearchResult {
 
   public MonitorSearchResult status(MonitorOverallStates status) {
     this.status = status;
+    this.unparsed |= !status.isValid();
     return this;
   }
 
@@ -260,6 +263,9 @@ public class MonitorSearchResult {
   }
 
   public void setStatus(MonitorOverallStates status) {
+    if (!status.isValid()) {
+      this.unparsed = true;
+    }
     this.status = status;
   }
 
@@ -278,6 +284,7 @@ public class MonitorSearchResult {
 
   public MonitorSearchResult type(MonitorType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -295,6 +302,9 @@ public class MonitorSearchResult {
   }
 
   public void setType(MonitorType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

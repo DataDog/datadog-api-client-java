@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -32,6 +33,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsListRequest {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_INDEX = "index";
   private String index;
 
@@ -56,6 +58,7 @@ public class LogsListRequest {
   public LogsListRequest(
       @JsonProperty(required = true, value = JSON_PROPERTY_TIME) LogsListRequestTime time) {
     this.time = time;
+    this.unparsed |= time.unparsed;
   }
 
   public LogsListRequest index(String index) {
@@ -134,6 +137,7 @@ public class LogsListRequest {
 
   public LogsListRequest sort(LogsSort sort) {
     this.sort = sort;
+    this.unparsed |= !sort.isValid();
     return this;
   }
 
@@ -151,6 +155,9 @@ public class LogsListRequest {
   }
 
   public void setSort(LogsSort sort) {
+    if (!sort.isValid()) {
+      this.unparsed = true;
+    }
     this.sort = sort;
   }
 
@@ -185,6 +192,7 @@ public class LogsListRequest {
 
   public LogsListRequest time(LogsListRequestTime time) {
     this.time = time;
+    this.unparsed |= time.unparsed;
     return this;
   }
 

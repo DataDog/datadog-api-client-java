@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -27,6 +28,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogQueryDefinitionGroupBySort {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
   private String aggregation;
 
@@ -44,6 +46,7 @@ public class LogQueryDefinitionGroupBySort {
       @JsonProperty(required = true, value = JSON_PROPERTY_ORDER) WidgetSort order) {
     this.aggregation = aggregation;
     this.order = order;
+    this.unparsed |= !order.isValid();
   }
 
   public LogQueryDefinitionGroupBySort aggregation(String aggregation) {
@@ -91,6 +94,7 @@ public class LogQueryDefinitionGroupBySort {
 
   public LogQueryDefinitionGroupBySort order(WidgetSort order) {
     this.order = order;
+    this.unparsed |= !order.isValid();
     return this;
   }
 
@@ -107,6 +111,9 @@ public class LogQueryDefinitionGroupBySort {
   }
 
   public void setOrder(WidgetSort order) {
+    if (!order.isValid()) {
+      this.unparsed = true;
+    }
     this.order = order;
   }
 

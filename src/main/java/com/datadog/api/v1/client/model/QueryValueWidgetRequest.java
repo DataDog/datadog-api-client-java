@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -40,6 +41,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class QueryValueWidgetRequest {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATOR = "aggregator";
   private WidgetAggregator aggregator;
 
@@ -87,6 +89,7 @@ public class QueryValueWidgetRequest {
 
   public QueryValueWidgetRequest aggregator(WidgetAggregator aggregator) {
     this.aggregator = aggregator;
+    this.unparsed |= !aggregator.isValid();
     return this;
   }
 
@@ -104,11 +107,15 @@ public class QueryValueWidgetRequest {
   }
 
   public void setAggregator(WidgetAggregator aggregator) {
+    if (!aggregator.isValid()) {
+      this.unparsed = true;
+    }
     this.aggregator = aggregator;
   }
 
   public QueryValueWidgetRequest apmQuery(LogQueryDefinition apmQuery) {
     this.apmQuery = apmQuery;
+    this.unparsed |= apmQuery.unparsed;
     return this;
   }
 
@@ -131,6 +138,7 @@ public class QueryValueWidgetRequest {
 
   public QueryValueWidgetRequest auditQuery(LogQueryDefinition auditQuery) {
     this.auditQuery = auditQuery;
+    this.unparsed |= auditQuery.unparsed;
     return this;
   }
 
@@ -154,6 +162,9 @@ public class QueryValueWidgetRequest {
   public QueryValueWidgetRequest conditionalFormats(
       List<WidgetConditionalFormat> conditionalFormats) {
     this.conditionalFormats = conditionalFormats;
+    for (WidgetConditionalFormat item : conditionalFormats) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -163,6 +174,7 @@ public class QueryValueWidgetRequest {
       this.conditionalFormats = new ArrayList<>();
     }
     this.conditionalFormats.add(conditionalFormatsItem);
+    this.unparsed |= conditionalFormatsItem.unparsed;
     return this;
   }
 
@@ -185,6 +197,7 @@ public class QueryValueWidgetRequest {
 
   public QueryValueWidgetRequest eventQuery(LogQueryDefinition eventQuery) {
     this.eventQuery = eventQuery;
+    this.unparsed |= eventQuery.unparsed;
     return this;
   }
 
@@ -207,6 +220,9 @@ public class QueryValueWidgetRequest {
 
   public QueryValueWidgetRequest formulas(List<WidgetFormula> formulas) {
     this.formulas = formulas;
+    for (WidgetFormula item : formulas) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -215,6 +231,7 @@ public class QueryValueWidgetRequest {
       this.formulas = new ArrayList<>();
     }
     this.formulas.add(formulasItem);
+    this.unparsed |= formulasItem.unparsed;
     return this;
   }
 
@@ -238,6 +255,7 @@ public class QueryValueWidgetRequest {
 
   public QueryValueWidgetRequest logQuery(LogQueryDefinition logQuery) {
     this.logQuery = logQuery;
+    this.unparsed |= logQuery.unparsed;
     return this;
   }
 
@@ -260,6 +278,7 @@ public class QueryValueWidgetRequest {
 
   public QueryValueWidgetRequest networkQuery(LogQueryDefinition networkQuery) {
     this.networkQuery = networkQuery;
+    this.unparsed |= networkQuery.unparsed;
     return this;
   }
 
@@ -282,6 +301,7 @@ public class QueryValueWidgetRequest {
 
   public QueryValueWidgetRequest processQuery(ProcessQueryDefinition processQuery) {
     this.processQuery = processQuery;
+    this.unparsed |= processQuery.unparsed;
     return this;
   }
 
@@ -304,6 +324,7 @@ public class QueryValueWidgetRequest {
 
   public QueryValueWidgetRequest profileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
     this.profileMetricsQuery = profileMetricsQuery;
+    this.unparsed |= profileMetricsQuery.unparsed;
     return this;
   }
 
@@ -348,6 +369,9 @@ public class QueryValueWidgetRequest {
 
   public QueryValueWidgetRequest queries(List<FormulaAndFunctionQueryDefinition> queries) {
     this.queries = queries;
+    for (FormulaAndFunctionQueryDefinition item : queries) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -356,6 +380,7 @@ public class QueryValueWidgetRequest {
       this.queries = new ArrayList<>();
     }
     this.queries.add(queriesItem);
+    this.unparsed |= queriesItem.unparsed;
     return this;
   }
 
@@ -382,6 +407,7 @@ public class QueryValueWidgetRequest {
 
   public QueryValueWidgetRequest responseFormat(FormulaAndFunctionResponseFormat responseFormat) {
     this.responseFormat = responseFormat;
+    this.unparsed |= !responseFormat.isValid();
     return this;
   }
 
@@ -399,11 +425,15 @@ public class QueryValueWidgetRequest {
   }
 
   public void setResponseFormat(FormulaAndFunctionResponseFormat responseFormat) {
+    if (!responseFormat.isValid()) {
+      this.unparsed = true;
+    }
     this.responseFormat = responseFormat;
   }
 
   public QueryValueWidgetRequest rumQuery(LogQueryDefinition rumQuery) {
     this.rumQuery = rumQuery;
+    this.unparsed |= rumQuery.unparsed;
     return this;
   }
 
@@ -426,6 +456,7 @@ public class QueryValueWidgetRequest {
 
   public QueryValueWidgetRequest securityQuery(LogQueryDefinition securityQuery) {
     this.securityQuery = securityQuery;
+    this.unparsed |= securityQuery.unparsed;
     return this;
   }
 

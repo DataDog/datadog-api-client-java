@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -37,6 +38,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SLOHistoryResponseData {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FROM_TS = "from_ts";
   private Long fromTs;
 
@@ -128,6 +130,9 @@ public class SLOHistoryResponseData {
 
   public SLOHistoryResponseData groups(List<SLOHistorySLIData> groups) {
     this.groups = groups;
+    for (SLOHistorySLIData item : groups) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -136,6 +141,7 @@ public class SLOHistoryResponseData {
       this.groups = new ArrayList<>();
     }
     this.groups.add(groupsItem);
+    this.unparsed |= groupsItem.unparsed;
     return this;
   }
 
@@ -163,6 +169,9 @@ public class SLOHistoryResponseData {
 
   public SLOHistoryResponseData monitors(List<SLOHistorySLIData> monitors) {
     this.monitors = monitors;
+    for (SLOHistorySLIData item : monitors) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -171,6 +180,7 @@ public class SLOHistoryResponseData {
       this.monitors = new ArrayList<>();
     }
     this.monitors.add(monitorsItem);
+    this.unparsed |= monitorsItem.unparsed;
     return this;
   }
 
@@ -198,6 +208,7 @@ public class SLOHistoryResponseData {
 
   public SLOHistoryResponseData overall(SLOHistorySLIData overall) {
     this.overall = overall;
+    this.unparsed |= overall.unparsed;
     return this;
   }
 
@@ -220,6 +231,7 @@ public class SLOHistoryResponseData {
 
   public SLOHistoryResponseData series(SLOHistoryMetrics series) {
     this.series = series;
+    this.unparsed |= series.unparsed;
     return this;
   }
 
@@ -294,6 +306,7 @@ public class SLOHistoryResponseData {
 
   public SLOHistoryResponseData type(SLOType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -311,11 +324,15 @@ public class SLOHistoryResponseData {
   }
 
   public void setType(SLOType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 
   public SLOHistoryResponseData typeId(SLOTypeNumeric typeId) {
     this.typeId = typeId;
+    this.unparsed |= !typeId.isValid();
     return this;
   }
 
@@ -333,6 +350,9 @@ public class SLOHistoryResponseData {
   }
 
   public void setTypeId(SLOTypeNumeric typeId) {
+    if (!typeId.isValid()) {
+      this.unparsed = true;
+    }
     this.typeId = typeId;
   }
 

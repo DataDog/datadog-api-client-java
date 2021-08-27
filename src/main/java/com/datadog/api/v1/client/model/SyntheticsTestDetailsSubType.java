@@ -12,33 +12,87 @@ package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 /**
  * The subtype of the Synthetic API test, &#x60;http&#x60;, &#x60;ssl&#x60;, &#x60;tcp&#x60;,
  * &#x60;dns&#x60;, &#x60;icmp&#x60; or &#x60;multi&#x60;.
  */
-public enum SyntheticsTestDetailsSubType {
-  HTTP("http"),
+@JsonSerialize(using = SyntheticsTestDetailsSubType.SyntheticsTestDetailsSubTypeSerializer.class)
+public class SyntheticsTestDetailsSubType {
 
-  SSL("ssl"),
+  public static final SyntheticsTestDetailsSubType HTTP = new SyntheticsTestDetailsSubType("http");
+  public static final SyntheticsTestDetailsSubType SSL = new SyntheticsTestDetailsSubType("ssl");
+  public static final SyntheticsTestDetailsSubType TCP = new SyntheticsTestDetailsSubType("tcp");
+  public static final SyntheticsTestDetailsSubType DNS = new SyntheticsTestDetailsSubType("dns");
+  public static final SyntheticsTestDetailsSubType MULTI =
+      new SyntheticsTestDetailsSubType("multi");
+  public static final SyntheticsTestDetailsSubType ICMP = new SyntheticsTestDetailsSubType("icmp");
 
-  TCP("tcp"),
-
-  DNS("dns"),
-
-  MULTI("multi"),
-
-  ICMP("icmp");
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("http", "ssl", "tcp", "dns", "multi", "icmp"));
 
   private String value;
+
+  public boolean isValid() {
+    return allowedValues.contains(this.value);
+  }
 
   SyntheticsTestDetailsSubType(String value) {
     this.value = value;
   }
 
+  public static class SyntheticsTestDetailsSubTypeSerializer
+      extends StdSerializer<SyntheticsTestDetailsSubType> {
+    public SyntheticsTestDetailsSubTypeSerializer(Class<SyntheticsTestDetailsSubType> t) {
+      super(t);
+    }
+
+    public SyntheticsTestDetailsSubTypeSerializer() {
+      this(null);
+    }
+
+    @Override
+    public void serialize(
+        SyntheticsTestDetailsSubType value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
+  }
+
   @JsonValue
   public String getValue() {
-    return value;
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  /** Return true if this SyntheticsTestDetailsSubType object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    return this.value.equals(((SyntheticsTestDetailsSubType) o).value);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(value);
   }
 
   @Override
@@ -48,11 +102,6 @@ public enum SyntheticsTestDetailsSubType {
 
   @JsonCreator
   public static SyntheticsTestDetailsSubType fromValue(String value) {
-    for (SyntheticsTestDetailsSubType b : SyntheticsTestDetailsSubType.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
-    }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    return new SyntheticsTestDetailsSubType(value);
   }
 }

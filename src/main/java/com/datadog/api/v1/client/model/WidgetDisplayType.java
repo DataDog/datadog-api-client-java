@@ -12,24 +12,78 @@ package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 /** Type of display to use for the request. */
-public enum WidgetDisplayType {
-  AREA("area"),
+@JsonSerialize(using = WidgetDisplayType.WidgetDisplayTypeSerializer.class)
+public class WidgetDisplayType {
 
-  BARS("bars"),
+  public static final WidgetDisplayType AREA = new WidgetDisplayType("area");
+  public static final WidgetDisplayType BARS = new WidgetDisplayType("bars");
+  public static final WidgetDisplayType LINE = new WidgetDisplayType("line");
 
-  LINE("line");
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("area", "bars", "line"));
 
   private String value;
+
+  public boolean isValid() {
+    return allowedValues.contains(this.value);
+  }
 
   WidgetDisplayType(String value) {
     this.value = value;
   }
 
+  public static class WidgetDisplayTypeSerializer extends StdSerializer<WidgetDisplayType> {
+    public WidgetDisplayTypeSerializer(Class<WidgetDisplayType> t) {
+      super(t);
+    }
+
+    public WidgetDisplayTypeSerializer() {
+      this(null);
+    }
+
+    @Override
+    public void serialize(WidgetDisplayType value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
+  }
+
   @JsonValue
   public String getValue() {
-    return value;
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  /** Return true if this WidgetDisplayType object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    return this.value.equals(((WidgetDisplayType) o).value);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(value);
   }
 
   @Override
@@ -39,11 +93,6 @@ public enum WidgetDisplayType {
 
   @JsonCreator
   public static WidgetDisplayType fromValue(String value) {
-    for (WidgetDisplayType b : WidgetDisplayType.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
-    }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    return new WidgetDisplayType(value);
   }
 }

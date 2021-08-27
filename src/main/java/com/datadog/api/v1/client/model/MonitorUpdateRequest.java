@@ -44,6 +44,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MonitorUpdateRequest {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED = "created";
   private OffsetDateTime created;
 
@@ -107,6 +108,7 @@ public class MonitorUpdateRequest {
 
   public MonitorUpdateRequest creator(Creator creator) {
     this.creator = creator;
+    this.unparsed |= creator.unparsed;
     return this;
   }
 
@@ -239,6 +241,7 @@ public class MonitorUpdateRequest {
 
   public MonitorUpdateRequest options(MonitorOptions options) {
     this.options = options;
+    this.unparsed |= options.unparsed;
     return this;
   }
 
@@ -261,6 +264,7 @@ public class MonitorUpdateRequest {
 
   public MonitorUpdateRequest overallState(MonitorOverallStates overallState) {
     this.overallState = overallState;
+    this.unparsed |= !overallState.isValid();
     return this;
   }
 
@@ -278,6 +282,9 @@ public class MonitorUpdateRequest {
   }
 
   public void setOverallState(MonitorOverallStates overallState) {
+    if (!overallState.isValid()) {
+      this.unparsed = true;
+    }
     this.overallState = overallState;
   }
 
@@ -361,6 +368,7 @@ public class MonitorUpdateRequest {
 
   public MonitorUpdateRequest state(MonitorState state) {
     this.state = state;
+    this.unparsed |= state.unparsed;
     return this;
   }
 
@@ -413,6 +421,7 @@ public class MonitorUpdateRequest {
 
   public MonitorUpdateRequest type(MonitorType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -430,6 +439,9 @@ public class MonitorUpdateRequest {
   }
 
   public void setType(MonitorType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

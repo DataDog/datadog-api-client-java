@@ -11,6 +11,7 @@
 package com.datadog.api.v2.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -23,6 +24,7 @@ import java.util.Objects;
 @JsonPropertyOrder({UserInvitationRelationships.JSON_PROPERTY_USER})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UserInvitationRelationships {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_USER = "user";
   private RelationshipToUser user;
 
@@ -32,10 +34,12 @@ public class UserInvitationRelationships {
   public UserInvitationRelationships(
       @JsonProperty(required = true, value = JSON_PROPERTY_USER) RelationshipToUser user) {
     this.user = user;
+    this.unparsed |= user.unparsed;
   }
 
   public UserInvitationRelationships user(RelationshipToUser user) {
     this.user = user;
+    this.unparsed |= user.unparsed;
     return this;
   }
 

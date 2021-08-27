@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -23,6 +24,7 @@ import java.util.Objects;
 @JsonPropertyOrder({ListStreamColumn.JSON_PROPERTY_FIELD, ListStreamColumn.JSON_PROPERTY_WIDTH})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ListStreamColumn {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FIELD = "field";
   private String field;
 
@@ -37,6 +39,7 @@ public class ListStreamColumn {
       @JsonProperty(required = true, value = JSON_PROPERTY_WIDTH) ListStreamColumnWidth width) {
     this.field = field;
     this.width = width;
+    this.unparsed |= !width.isValid();
   }
 
   public ListStreamColumn field(String field) {
@@ -62,6 +65,7 @@ public class ListStreamColumn {
 
   public ListStreamColumn width(ListStreamColumnWidth width) {
     this.width = width;
+    this.unparsed |= !width.isValid();
     return this;
   }
 
@@ -78,6 +82,9 @@ public class ListStreamColumn {
   }
 
   public void setWidth(ListStreamColumnWidth width) {
+    if (!width.isValid()) {
+      this.unparsed = true;
+    }
     this.width = width;
   }
 

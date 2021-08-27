@@ -12,26 +12,79 @@ package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 /** Comparator to apply. */
-public enum WidgetComparator {
-  GREATER_THAN(">"),
+@JsonSerialize(using = WidgetComparator.WidgetComparatorSerializer.class)
+public class WidgetComparator {
 
-  GREATER_THAN_OR_EQUAL_TO(">="),
+  public static final WidgetComparator GREATER_THAN = new WidgetComparator(">");
+  public static final WidgetComparator GREATER_THAN_OR_EQUAL_TO = new WidgetComparator(">=");
+  public static final WidgetComparator LESS_THAN = new WidgetComparator("<");
+  public static final WidgetComparator LESS_THAN_OR_EQUAL_TO = new WidgetComparator("<=");
 
-  LESS_THAN("<"),
-
-  LESS_THAN_OR_EQUAL_TO("<=");
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList(">", ">=", "<", "<="));
 
   private String value;
+
+  public boolean isValid() {
+    return allowedValues.contains(this.value);
+  }
 
   WidgetComparator(String value) {
     this.value = value;
   }
 
+  public static class WidgetComparatorSerializer extends StdSerializer<WidgetComparator> {
+    public WidgetComparatorSerializer(Class<WidgetComparator> t) {
+      super(t);
+    }
+
+    public WidgetComparatorSerializer() {
+      this(null);
+    }
+
+    @Override
+    public void serialize(WidgetComparator value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
+  }
+
   @JsonValue
   public String getValue() {
-    return value;
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  /** Return true if this WidgetComparator object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    return this.value.equals(((WidgetComparator) o).value);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(value);
   }
 
   @Override
@@ -41,11 +94,6 @@ public enum WidgetComparator {
 
   @JsonCreator
   public static WidgetComparator fromValue(String value) {
-    for (WidgetComparator b : WidgetComparator.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
-    }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    return new WidgetComparator(value);
   }
 }

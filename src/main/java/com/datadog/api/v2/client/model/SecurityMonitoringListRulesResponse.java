@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -27,6 +28,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SecurityMonitoringListRulesResponse {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<SecurityMonitoringRuleResponse> data = null;
 
@@ -35,6 +37,9 @@ public class SecurityMonitoringListRulesResponse {
 
   public SecurityMonitoringListRulesResponse data(List<SecurityMonitoringRuleResponse> data) {
     this.data = data;
+    for (SecurityMonitoringRuleResponse item : data) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -43,6 +48,7 @@ public class SecurityMonitoringListRulesResponse {
       this.data = new ArrayList<>();
     }
     this.data.add(dataItem);
+    this.unparsed |= dataItem.unparsed;
     return this;
   }
 
@@ -65,6 +71,7 @@ public class SecurityMonitoringListRulesResponse {
 
   public SecurityMonitoringListRulesResponse meta(ResponseMetaAttributes meta) {
     this.meta = meta;
+    this.unparsed |= meta.unparsed;
     return this;
   }
 

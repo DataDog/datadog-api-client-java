@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -27,6 +28,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class PartialApplicationKey {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private PartialApplicationKeyAttributes attributes;
 
@@ -41,6 +43,7 @@ public class PartialApplicationKey {
 
   public PartialApplicationKey attributes(PartialApplicationKeyAttributes attributes) {
     this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
     return this;
   }
 
@@ -85,6 +88,7 @@ public class PartialApplicationKey {
 
   public PartialApplicationKey relationships(ApplicationKeyRelationships relationships) {
     this.relationships = relationships;
+    this.unparsed |= relationships.unparsed;
     return this;
   }
 
@@ -107,6 +111,7 @@ public class PartialApplicationKey {
 
   public PartialApplicationKey type(ApplicationKeysType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -124,6 +129,9 @@ public class PartialApplicationKey {
   }
 
   public void setType(ApplicationKeysType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -40,6 +41,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GroupWidgetDefinition {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BACKGROUND_COLOR = "background_color";
   private String backgroundColor;
 
@@ -72,7 +74,9 @@ public class GroupWidgetDefinition {
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) GroupWidgetDefinitionType type,
       @JsonProperty(required = true, value = JSON_PROPERTY_WIDGETS) List<Widget> widgets) {
     this.layoutType = layoutType;
+    this.unparsed |= !layoutType.isValid();
     this.type = type;
+    this.unparsed |= !type.isValid();
     this.widgets = widgets;
   }
 
@@ -122,6 +126,7 @@ public class GroupWidgetDefinition {
 
   public GroupWidgetDefinition layoutType(WidgetLayoutType layoutType) {
     this.layoutType = layoutType;
+    this.unparsed |= !layoutType.isValid();
     return this;
   }
 
@@ -138,6 +143,9 @@ public class GroupWidgetDefinition {
   }
 
   public void setLayoutType(WidgetLayoutType layoutType) {
+    if (!layoutType.isValid()) {
+      this.unparsed = true;
+    }
     this.layoutType = layoutType;
   }
 
@@ -187,6 +195,7 @@ public class GroupWidgetDefinition {
 
   public GroupWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
+    this.unparsed |= !titleAlign.isValid();
     return this;
   }
 
@@ -204,11 +213,15 @@ public class GroupWidgetDefinition {
   }
 
   public void setTitleAlign(WidgetTextAlign titleAlign) {
+    if (!titleAlign.isValid()) {
+      this.unparsed = true;
+    }
     this.titleAlign = titleAlign;
   }
 
   public GroupWidgetDefinition type(GroupWidgetDefinitionType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -225,16 +238,23 @@ public class GroupWidgetDefinition {
   }
 
   public void setType(GroupWidgetDefinitionType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 
   public GroupWidgetDefinition widgets(List<Widget> widgets) {
     this.widgets = widgets;
+    for (Widget item : widgets) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
   public GroupWidgetDefinition addWidgetsItem(Widget widgetsItem) {
     this.widgets.add(widgetsItem);
+    this.unparsed |= widgetsItem.unparsed;
     return this;
   }
 

@@ -11,6 +11,7 @@
 package com.datadog.api.v2.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -24,6 +25,7 @@ import java.util.Objects;
 @JsonPropertyOrder({IncidentResponse.JSON_PROPERTY_DATA, IncidentResponse.JSON_PROPERTY_INCLUDED})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IncidentResponse {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private IncidentResponseData data;
 
@@ -36,10 +38,12 @@ public class IncidentResponse {
   public IncidentResponse(
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA) IncidentResponseData data) {
     this.data = data;
+    this.unparsed |= data.unparsed;
   }
 
   public IncidentResponse data(IncidentResponseData data) {
     this.data = data;
+    this.unparsed |= data.unparsed;
     return this;
   }
 

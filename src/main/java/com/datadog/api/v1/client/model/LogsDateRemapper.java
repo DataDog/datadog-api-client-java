@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -51,6 +52,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsDateRemapper {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
   private Boolean isEnabled = false;
 
@@ -71,6 +73,7 @@ public class LogsDateRemapper {
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) LogsDateRemapperType type) {
     this.sources = sources;
     this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   public LogsDateRemapper isEnabled(Boolean isEnabled) {
@@ -148,6 +151,7 @@ public class LogsDateRemapper {
 
   public LogsDateRemapper type(LogsDateRemapperType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -164,6 +168,9 @@ public class LogsDateRemapper {
   }
 
   public void setType(LogsDateRemapperType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -25,6 +26,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class APIKeyRelationships {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED_BY = "created_by";
   private RelationshipToUser createdBy;
 
@@ -33,6 +35,7 @@ public class APIKeyRelationships {
 
   public APIKeyRelationships createdBy(RelationshipToUser createdBy) {
     this.createdBy = createdBy;
+    this.unparsed |= createdBy.unparsed;
     return this;
   }
 
@@ -55,6 +58,7 @@ public class APIKeyRelationships {
 
   public APIKeyRelationships modifiedBy(RelationshipToUser modifiedBy) {
     this.modifiedBy = modifiedBy;
+    this.unparsed |= modifiedBy.unparsed;
     return this;
   }
 

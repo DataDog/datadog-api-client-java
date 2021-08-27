@@ -31,6 +31,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SLOHistoryMetricsSeriesMetadataUnit {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FAMILY = "family";
   private String family;
 

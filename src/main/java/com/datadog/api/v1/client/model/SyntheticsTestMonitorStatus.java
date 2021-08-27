@@ -12,27 +12,82 @@ package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 /**
  * The status of your Synthetic monitor. * &#x60;O&#x60; for not triggered * &#x60;1&#x60; for
  * triggered * &#x60;2&#x60; for no data
  */
-public enum SyntheticsTestMonitorStatus {
-  UNTRIGGERED(0l),
+@JsonSerialize(using = SyntheticsTestMonitorStatus.SyntheticsTestMonitorStatusSerializer.class)
+public class SyntheticsTestMonitorStatus {
 
-  TRIGGERED(1l),
+  public static final SyntheticsTestMonitorStatus UNTRIGGERED = new SyntheticsTestMonitorStatus(0l);
+  public static final SyntheticsTestMonitorStatus TRIGGERED = new SyntheticsTestMonitorStatus(1l);
+  public static final SyntheticsTestMonitorStatus NO_DATA = new SyntheticsTestMonitorStatus(2l);
 
-  NO_DATA(2l);
+  private static final Set<Long> allowedValues = new HashSet<Long>(Arrays.asList(0l, 1l, 2l));
 
   private Long value;
+
+  public boolean isValid() {
+    return allowedValues.contains(this.value);
+  }
 
   SyntheticsTestMonitorStatus(Long value) {
     this.value = value;
   }
 
+  public static class SyntheticsTestMonitorStatusSerializer
+      extends StdSerializer<SyntheticsTestMonitorStatus> {
+    public SyntheticsTestMonitorStatusSerializer(Class<SyntheticsTestMonitorStatus> t) {
+      super(t);
+    }
+
+    public SyntheticsTestMonitorStatusSerializer() {
+      this(null);
+    }
+
+    @Override
+    public void serialize(
+        SyntheticsTestMonitorStatus value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
+  }
+
   @JsonValue
   public Long getValue() {
-    return value;
+    return this.value;
+  }
+
+  public void setValue(Long value) {
+    this.value = value;
+  }
+
+  /** Return true if this SyntheticsTestMonitorStatus object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    return this.value.equals(((SyntheticsTestMonitorStatus) o).value);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(value);
   }
 
   @Override
@@ -42,11 +97,6 @@ public enum SyntheticsTestMonitorStatus {
 
   @JsonCreator
   public static SyntheticsTestMonitorStatus fromValue(Long value) {
-    for (SyntheticsTestMonitorStatus b : SyntheticsTestMonitorStatus.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
-    }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    return new SyntheticsTestMonitorStatus(value);
   }
 }

@@ -11,6 +11,7 @@
 package com.datadog.api.v2.client.model;
 
 import com.datadog.api.v2.client.JSON;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -19,6 +20,7 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -41,6 +43,8 @@ import javax.ws.rs.core.GenericType;
 public class ApplicationKeyResponseIncludedItem extends AbstractOpenApiSchema {
   private static final Logger log =
       Logger.getLogger(ApplicationKeyResponseIncludedItem.class.getName());
+
+  @JsonIgnore public boolean unparsed = false;
 
   public static class ApplicationKeyResponseIncludedItemSerializer
       extends StdSerializer<ApplicationKeyResponseIncludedItem> {
@@ -76,47 +80,10 @@ public class ApplicationKeyResponseIncludedItem extends AbstractOpenApiSchema {
         JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
       JsonNode tree = jp.readValueAsTree();
       Object deserialized = null;
+      Object tmp = null;
       boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
       int match = 0;
       JsonToken token = tree.traverse(jp.getCodec()).nextToken();
-      // deserialize Role
-      try {
-        boolean attemptParsing = true;
-        // ensure that we respect type coercion as set on the client ObjectMapper
-        if (Role.class.equals(Integer.class)
-            || Role.class.equals(Long.class)
-            || Role.class.equals(Float.class)
-            || Role.class.equals(Double.class)
-            || Role.class.equals(Boolean.class)
-            || Role.class.equals(String.class)) {
-          attemptParsing = typeCoercion;
-          if (!attemptParsing) {
-            attemptParsing |=
-                ((Role.class.equals(Integer.class) || Role.class.equals(Long.class))
-                    && token == JsonToken.VALUE_NUMBER_INT);
-            attemptParsing |=
-                ((Role.class.equals(Float.class) || Role.class.equals(Double.class))
-                    && (token == JsonToken.VALUE_NUMBER_FLOAT
-                        || token == JsonToken.VALUE_NUMBER_INT));
-            attemptParsing |=
-                (Role.class.equals(Boolean.class)
-                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-            attemptParsing |= (Role.class.equals(String.class) && token == JsonToken.VALUE_STRING);
-          }
-        }
-        if (attemptParsing) {
-          deserialized = tree.traverse(jp.getCodec()).readValueAs(Role.class);
-          // TODO: there is no validation against JSON schema constraints
-          // (min, max, enum, pattern...), this does not perform a strict JSON
-          // validation, which means the 'match' count may be higher than it should be.
-          match++;
-          log.log(Level.FINER, "Input data matches schema 'Role'");
-        }
-      } catch (Exception e) {
-        // deserialization failed, continue
-        log.log(Level.FINER, "Input data does not match schema 'Role'", e);
-      }
-
       // deserialize User
       try {
         boolean attemptParsing = true;
@@ -143,11 +110,14 @@ public class ApplicationKeyResponseIncludedItem extends AbstractOpenApiSchema {
           }
         }
         if (attemptParsing) {
-          deserialized = tree.traverse(jp.getCodec()).readValueAs(User.class);
+          tmp = tree.traverse(jp.getCodec()).readValueAs(User.class);
           // TODO: there is no validation against JSON schema constraints
           // (min, max, enum, pattern...), this does not perform a strict JSON
           // validation, which means the 'match' count may be higher than it should be.
-          match++;
+          if (!((User) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
           log.log(Level.FINER, "Input data matches schema 'User'");
         }
       } catch (Exception e) {
@@ -155,16 +125,58 @@ public class ApplicationKeyResponseIncludedItem extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'User'", e);
       }
 
-      if (match == 1) {
-        ApplicationKeyResponseIncludedItem ret = new ApplicationKeyResponseIncludedItem();
-        ret.setActualInstance(deserialized);
-        return ret;
+      // deserialize Role
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (Role.class.equals(Integer.class)
+            || Role.class.equals(Long.class)
+            || Role.class.equals(Float.class)
+            || Role.class.equals(Double.class)
+            || Role.class.equals(Boolean.class)
+            || Role.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((Role.class.equals(Integer.class) || Role.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((Role.class.equals(Float.class) || Role.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (Role.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |= (Role.class.equals(String.class) && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(Role.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((Role) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'Role'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'Role'", e);
       }
-      throw new IOException(
-          String.format(
-              "Failed deserialization for ApplicationKeyResponseIncludedItem: %d classes match"
-                  + " result, expected 1",
-              match));
+
+      ApplicationKeyResponseIncludedItem ret = new ApplicationKeyResponseIncludedItem();
+      if (match == 1) {
+        ret.setActualInstance(deserialized);
+      } else {
+        Map<String, Object> res =
+            new ObjectMapper()
+                .readValue(
+                    tree.traverse(jp.getCodec()).readValueAsTree().toString(), HashMap.class);
+        ret.setActualInstance(new UnparsedObject(res));
+      }
+      return ret;
     }
 
     /** Handle deserialization of the 'null' value. */
@@ -224,6 +236,10 @@ public class ApplicationKeyResponseIncludedItem extends AbstractOpenApiSchema {
       return;
     }
 
+    if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
     throw new RuntimeException("Invalid instance type. Must be Role, User");
   }
 

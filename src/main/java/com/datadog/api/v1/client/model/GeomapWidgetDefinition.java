@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -35,6 +36,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GeomapWidgetDefinition {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
   private List<WidgetCustomLink> customLinks = null;
 
@@ -73,12 +75,18 @@ public class GeomapWidgetDefinition {
       @JsonProperty(required = true, value = JSON_PROPERTY_VIEW) GeomapWidgetDefinitionView view) {
     this.requests = requests;
     this.style = style;
+    this.unparsed |= style.unparsed;
     this.type = type;
+    this.unparsed |= !type.isValid();
     this.view = view;
+    this.unparsed |= view.unparsed;
   }
 
   public GeomapWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
+    for (WidgetCustomLink item : customLinks) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -87,6 +95,7 @@ public class GeomapWidgetDefinition {
       this.customLinks = new ArrayList<>();
     }
     this.customLinks.add(customLinksItem);
+    this.unparsed |= customLinksItem.unparsed;
     return this;
   }
 
@@ -109,11 +118,15 @@ public class GeomapWidgetDefinition {
 
   public GeomapWidgetDefinition requests(List<GeomapWidgetRequest> requests) {
     this.requests = requests;
+    for (GeomapWidgetRequest item : requests) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
   public GeomapWidgetDefinition addRequestsItem(GeomapWidgetRequest requestsItem) {
     this.requests.add(requestsItem);
+    this.unparsed |= requestsItem.unparsed;
     return this;
   }
 
@@ -145,6 +158,7 @@ public class GeomapWidgetDefinition {
 
   public GeomapWidgetDefinition style(GeomapWidgetDefinitionStyle style) {
     this.style = style;
+    this.unparsed |= style.unparsed;
     return this;
   }
 
@@ -166,6 +180,7 @@ public class GeomapWidgetDefinition {
 
   public GeomapWidgetDefinition time(WidgetTime time) {
     this.time = time;
+    this.unparsed |= time.unparsed;
     return this;
   }
 
@@ -210,6 +225,7 @@ public class GeomapWidgetDefinition {
 
   public GeomapWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
+    this.unparsed |= !titleAlign.isValid();
     return this;
   }
 
@@ -227,6 +243,9 @@ public class GeomapWidgetDefinition {
   }
 
   public void setTitleAlign(WidgetTextAlign titleAlign) {
+    if (!titleAlign.isValid()) {
+      this.unparsed = true;
+    }
     this.titleAlign = titleAlign;
   }
 
@@ -254,6 +273,7 @@ public class GeomapWidgetDefinition {
 
   public GeomapWidgetDefinition type(GeomapWidgetDefinitionType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -270,11 +290,15 @@ public class GeomapWidgetDefinition {
   }
 
   public void setType(GeomapWidgetDefinitionType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 
   public GeomapWidgetDefinition view(GeomapWidgetDefinitionView view) {
     this.view = view;
+    this.unparsed |= view.unparsed;
     return this;
   }
 

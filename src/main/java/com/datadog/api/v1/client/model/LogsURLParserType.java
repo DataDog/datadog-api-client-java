@@ -12,20 +12,75 @@ package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 /** Type of logs URL parser. */
-public enum LogsURLParserType {
-  URL_PARSER("url-parser");
+@JsonSerialize(using = LogsURLParserType.LogsURLParserTypeSerializer.class)
+public class LogsURLParserType {
+
+  public static final LogsURLParserType URL_PARSER = new LogsURLParserType("url-parser");
+
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("url-parser"));
 
   private String value;
+
+  public boolean isValid() {
+    return allowedValues.contains(this.value);
+  }
 
   LogsURLParserType(String value) {
     this.value = value;
   }
 
+  public static class LogsURLParserTypeSerializer extends StdSerializer<LogsURLParserType> {
+    public LogsURLParserTypeSerializer(Class<LogsURLParserType> t) {
+      super(t);
+    }
+
+    public LogsURLParserTypeSerializer() {
+      this(null);
+    }
+
+    @Override
+    public void serialize(LogsURLParserType value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
+  }
+
   @JsonValue
   public String getValue() {
-    return value;
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  /** Return true if this LogsURLParserType object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    return this.value.equals(((LogsURLParserType) o).value);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(value);
   }
 
   @Override
@@ -35,11 +90,6 @@ public enum LogsURLParserType {
 
   @JsonCreator
   public static LogsURLParserType fromValue(String value) {
-    for (LogsURLParserType b : LogsURLParserType.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
-    }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    return new LogsURLParserType(value);
   }
 }

@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.datadog.api.v1.client.JSON;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -19,6 +20,7 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -41,6 +43,8 @@ import javax.ws.rs.core.GenericType;
 public class FormulaAndFunctionQueryDefinition extends AbstractOpenApiSchema {
   private static final Logger log =
       Logger.getLogger(FormulaAndFunctionQueryDefinition.class.getName());
+
+  @JsonIgnore public boolean unparsed = false;
 
   public static class FormulaAndFunctionQueryDefinitionSerializer
       extends StdSerializer<FormulaAndFunctionQueryDefinition> {
@@ -75,57 +79,10 @@ public class FormulaAndFunctionQueryDefinition extends AbstractOpenApiSchema {
         throws IOException, JsonProcessingException {
       JsonNode tree = jp.readValueAsTree();
       Object deserialized = null;
+      Object tmp = null;
       boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
       int match = 0;
       JsonToken token = tree.traverse(jp.getCodec()).nextToken();
-      // deserialize FormulaAndFunctionEventQueryDefinition
-      try {
-        boolean attemptParsing = true;
-        // ensure that we respect type coercion as set on the client ObjectMapper
-        if (FormulaAndFunctionEventQueryDefinition.class.equals(Integer.class)
-            || FormulaAndFunctionEventQueryDefinition.class.equals(Long.class)
-            || FormulaAndFunctionEventQueryDefinition.class.equals(Float.class)
-            || FormulaAndFunctionEventQueryDefinition.class.equals(Double.class)
-            || FormulaAndFunctionEventQueryDefinition.class.equals(Boolean.class)
-            || FormulaAndFunctionEventQueryDefinition.class.equals(String.class)) {
-          attemptParsing = typeCoercion;
-          if (!attemptParsing) {
-            attemptParsing |=
-                ((FormulaAndFunctionEventQueryDefinition.class.equals(Integer.class)
-                        || FormulaAndFunctionEventQueryDefinition.class.equals(Long.class))
-                    && token == JsonToken.VALUE_NUMBER_INT);
-            attemptParsing |=
-                ((FormulaAndFunctionEventQueryDefinition.class.equals(Float.class)
-                        || FormulaAndFunctionEventQueryDefinition.class.equals(Double.class))
-                    && (token == JsonToken.VALUE_NUMBER_FLOAT
-                        || token == JsonToken.VALUE_NUMBER_INT));
-            attemptParsing |=
-                (FormulaAndFunctionEventQueryDefinition.class.equals(Boolean.class)
-                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-            attemptParsing |=
-                (FormulaAndFunctionEventQueryDefinition.class.equals(String.class)
-                    && token == JsonToken.VALUE_STRING);
-          }
-        }
-        if (attemptParsing) {
-          deserialized =
-              tree.traverse(jp.getCodec())
-                  .readValueAs(FormulaAndFunctionEventQueryDefinition.class);
-          // TODO: there is no validation against JSON schema constraints
-          // (min, max, enum, pattern...), this does not perform a strict JSON
-          // validation, which means the 'match' count may be higher than it should be.
-          match++;
-          log.log(
-              Level.FINER, "Input data matches schema 'FormulaAndFunctionEventQueryDefinition'");
-        }
-      } catch (Exception e) {
-        // deserialization failed, continue
-        log.log(
-            Level.FINER,
-            "Input data does not match schema 'FormulaAndFunctionEventQueryDefinition'",
-            e);
-      }
-
       // deserialize FormulaAndFunctionMetricQueryDefinition
       try {
         boolean attemptParsing = true;
@@ -156,13 +113,16 @@ public class FormulaAndFunctionQueryDefinition extends AbstractOpenApiSchema {
           }
         }
         if (attemptParsing) {
-          deserialized =
+          tmp =
               tree.traverse(jp.getCodec())
                   .readValueAs(FormulaAndFunctionMetricQueryDefinition.class);
           // TODO: there is no validation against JSON schema constraints
           // (min, max, enum, pattern...), this does not perform a strict JSON
           // validation, which means the 'match' count may be higher than it should be.
-          match++;
+          if (!((FormulaAndFunctionMetricQueryDefinition) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
           log.log(
               Level.FINER, "Input data matches schema 'FormulaAndFunctionMetricQueryDefinition'");
         }
@@ -171,6 +131,57 @@ public class FormulaAndFunctionQueryDefinition extends AbstractOpenApiSchema {
         log.log(
             Level.FINER,
             "Input data does not match schema 'FormulaAndFunctionMetricQueryDefinition'",
+            e);
+      }
+
+      // deserialize FormulaAndFunctionEventQueryDefinition
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (FormulaAndFunctionEventQueryDefinition.class.equals(Integer.class)
+            || FormulaAndFunctionEventQueryDefinition.class.equals(Long.class)
+            || FormulaAndFunctionEventQueryDefinition.class.equals(Float.class)
+            || FormulaAndFunctionEventQueryDefinition.class.equals(Double.class)
+            || FormulaAndFunctionEventQueryDefinition.class.equals(Boolean.class)
+            || FormulaAndFunctionEventQueryDefinition.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((FormulaAndFunctionEventQueryDefinition.class.equals(Integer.class)
+                        || FormulaAndFunctionEventQueryDefinition.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((FormulaAndFunctionEventQueryDefinition.class.equals(Float.class)
+                        || FormulaAndFunctionEventQueryDefinition.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (FormulaAndFunctionEventQueryDefinition.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (FormulaAndFunctionEventQueryDefinition.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(FormulaAndFunctionEventQueryDefinition.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((FormulaAndFunctionEventQueryDefinition) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER, "Input data matches schema 'FormulaAndFunctionEventQueryDefinition'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'FormulaAndFunctionEventQueryDefinition'",
             e);
       }
 
@@ -204,13 +215,16 @@ public class FormulaAndFunctionQueryDefinition extends AbstractOpenApiSchema {
           }
         }
         if (attemptParsing) {
-          deserialized =
+          tmp =
               tree.traverse(jp.getCodec())
                   .readValueAs(FormulaAndFunctionProcessQueryDefinition.class);
           // TODO: there is no validation against JSON schema constraints
           // (min, max, enum, pattern...), this does not perform a strict JSON
           // validation, which means the 'match' count may be higher than it should be.
-          match++;
+          if (!((FormulaAndFunctionProcessQueryDefinition) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
           log.log(
               Level.FINER, "Input data matches schema 'FormulaAndFunctionProcessQueryDefinition'");
         }
@@ -222,16 +236,17 @@ public class FormulaAndFunctionQueryDefinition extends AbstractOpenApiSchema {
             e);
       }
 
+      FormulaAndFunctionQueryDefinition ret = new FormulaAndFunctionQueryDefinition();
       if (match == 1) {
-        FormulaAndFunctionQueryDefinition ret = new FormulaAndFunctionQueryDefinition();
         ret.setActualInstance(deserialized);
-        return ret;
+      } else {
+        Map<String, Object> res =
+            new ObjectMapper()
+                .readValue(
+                    tree.traverse(jp.getCodec()).readValueAsTree().toString(), HashMap.class);
+        ret.setActualInstance(new UnparsedObject(res));
       }
-      throw new IOException(
-          String.format(
-              "Failed deserialization for FormulaAndFunctionQueryDefinition: %d classes match"
-                  + " result, expected 1",
-              match));
+      return ret;
     }
 
     /** Handle deserialization of the 'null' value. */
@@ -312,6 +327,10 @@ public class FormulaAndFunctionQueryDefinition extends AbstractOpenApiSchema {
       return;
     }
 
+    if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
     throw new RuntimeException(
         "Invalid instance type. Must be FormulaAndFunctionEventQueryDefinition,"
             + " FormulaAndFunctionMetricQueryDefinition,"

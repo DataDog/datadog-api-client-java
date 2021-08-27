@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -28,6 +29,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IncidentUpdateRelationships {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMMANDER_USER = "commander_user";
   private RelationshipToUser commanderUser;
 
@@ -45,6 +47,7 @@ public class IncidentUpdateRelationships {
 
   public IncidentUpdateRelationships commanderUser(RelationshipToUser commanderUser) {
     this.commanderUser = commanderUser;
+    this.unparsed |= commanderUser.unparsed;
     return this;
   }
 
@@ -67,6 +70,7 @@ public class IncidentUpdateRelationships {
 
   public IncidentUpdateRelationships createdByUser(RelationshipToUser createdByUser) {
     this.createdByUser = createdByUser;
+    this.unparsed |= createdByUser.unparsed;
     return this;
   }
 
@@ -90,6 +94,7 @@ public class IncidentUpdateRelationships {
   public IncidentUpdateRelationships integrations(
       RelationshipToIncidentIntegrationMetadatas integrations) {
     this.integrations = integrations;
+    this.unparsed |= integrations.unparsed;
     return this;
   }
 
@@ -112,6 +117,7 @@ public class IncidentUpdateRelationships {
 
   public IncidentUpdateRelationships lastModifiedByUser(RelationshipToUser lastModifiedByUser) {
     this.lastModifiedByUser = lastModifiedByUser;
+    this.unparsed |= lastModifiedByUser.unparsed;
     return this;
   }
 
@@ -134,6 +140,7 @@ public class IncidentUpdateRelationships {
 
   public IncidentUpdateRelationships postmortem(RelationshipToIncidentPostmortem postmortem) {
     this.postmortem = postmortem;
+    this.unparsed |= postmortem.unparsed;
     return this;
   }
 

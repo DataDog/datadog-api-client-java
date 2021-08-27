@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -27,6 +28,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsGetBrowserTestLatestResultsResponse {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_LAST_TIMESTAMP_FETCHED = "last_timestamp_fetched";
   private Long lastTimestampFetched;
 
@@ -59,6 +61,9 @@ public class SyntheticsGetBrowserTestLatestResultsResponse {
   public SyntheticsGetBrowserTestLatestResultsResponse results(
       List<SyntheticsBrowserTestResultShort> results) {
     this.results = results;
+    for (SyntheticsBrowserTestResultShort item : results) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -68,6 +73,7 @@ public class SyntheticsGetBrowserTestLatestResultsResponse {
       this.results = new ArrayList<>();
     }
     this.results.add(resultsItem);
+    this.unparsed |= resultsItem.unparsed;
     return this;
   }
 

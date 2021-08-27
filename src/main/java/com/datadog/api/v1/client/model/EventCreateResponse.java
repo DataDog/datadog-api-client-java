@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -39,6 +40,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class EventCreateResponse {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ALERT_TYPE = "alert_type";
   private EventAlertType alertType;
 
@@ -83,6 +85,7 @@ public class EventCreateResponse {
 
   public EventCreateResponse alertType(EventAlertType alertType) {
     this.alertType = alertType;
+    this.unparsed |= !alertType.isValid();
     return this;
   }
 
@@ -100,6 +103,9 @@ public class EventCreateResponse {
   }
 
   public void setAlertType(EventAlertType alertType) {
+    if (!alertType.isValid()) {
+      this.unparsed = true;
+    }
     this.alertType = alertType;
   }
 
@@ -205,6 +211,7 @@ public class EventCreateResponse {
 
   public EventCreateResponse priority(EventPriority priority) {
     this.priority = priority;
+    this.unparsed |= !priority.isValid();
     return this;
   }
 
@@ -222,6 +229,9 @@ public class EventCreateResponse {
   }
 
   public void setPriority(EventPriority priority) {
+    if (!priority.isValid()) {
+      this.unparsed = true;
+    }
     this.priority = priority;
   }
 

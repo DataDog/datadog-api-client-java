@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -24,11 +25,15 @@ import java.util.Objects;
 @JsonPropertyOrder({SyntheticsListTestsResponse.JSON_PROPERTY_TESTS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsListTestsResponse {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_TESTS = "tests";
   private List<SyntheticsTestDetails> tests = null;
 
   public SyntheticsListTestsResponse tests(List<SyntheticsTestDetails> tests) {
     this.tests = tests;
+    for (SyntheticsTestDetails item : tests) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -37,6 +42,7 @@ public class SyntheticsListTestsResponse {
       this.tests = new ArrayList<>();
     }
     this.tests.add(testsItem);
+    this.unparsed |= testsItem.unparsed;
     return this;
   }
 

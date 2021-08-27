@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -47,6 +48,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SLOHistorySLIData {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ERROR_BUDGET_REMAINING = "error_budget_remaining";
   private Map<String, Double> errorBudgetRemaining = null;
 
@@ -118,6 +120,9 @@ public class SLOHistorySLIData {
 
   public SLOHistorySLIData errors(List<SLOHistoryResponseError> errors) {
     this.errors = errors;
+    for (SLOHistoryResponseError item : errors) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -126,6 +131,7 @@ public class SLOHistorySLIData {
       this.errors = new ArrayList<>();
     }
     this.errors.add(errorsItem);
+    this.unparsed |= errorsItem.unparsed;
     return this;
   }
 

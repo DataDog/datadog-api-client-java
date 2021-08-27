@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -27,6 +28,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageAttributionMetadata {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATES = "aggregates";
   private List<UsageAttributionAggregatesBody> aggregates = null;
 
@@ -35,6 +37,9 @@ public class UsageAttributionMetadata {
 
   public UsageAttributionMetadata aggregates(List<UsageAttributionAggregatesBody> aggregates) {
     this.aggregates = aggregates;
+    for (UsageAttributionAggregatesBody item : aggregates) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -43,6 +48,7 @@ public class UsageAttributionMetadata {
       this.aggregates = new ArrayList<>();
     }
     this.aggregates.add(aggregatesItem);
+    this.unparsed |= aggregatesItem.unparsed;
     return this;
   }
 
@@ -65,6 +71,7 @@ public class UsageAttributionMetadata {
 
   public UsageAttributionMetadata pagination(UsageAttributionPagination pagination) {
     this.pagination = pagination;
+    this.unparsed |= pagination.unparsed;
     return this;
   }
 

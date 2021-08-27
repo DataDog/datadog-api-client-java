@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -33,6 +34,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WidgetConditionalFormat {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMPARATOR = "comparator";
   private WidgetComparator comparator;
 
@@ -68,12 +70,15 @@ public class WidgetConditionalFormat {
       @JsonProperty(required = true, value = JSON_PROPERTY_PALETTE) WidgetPalette palette,
       @JsonProperty(required = true, value = JSON_PROPERTY_VALUE) Double value) {
     this.comparator = comparator;
+    this.unparsed |= !comparator.isValid();
     this.palette = palette;
+    this.unparsed |= !palette.isValid();
     this.value = value;
   }
 
   public WidgetConditionalFormat comparator(WidgetComparator comparator) {
     this.comparator = comparator;
+    this.unparsed |= !comparator.isValid();
     return this;
   }
 
@@ -90,6 +95,9 @@ public class WidgetConditionalFormat {
   }
 
   public void setComparator(WidgetComparator comparator) {
+    if (!comparator.isValid()) {
+      this.unparsed = true;
+    }
     this.comparator = comparator;
   }
 
@@ -207,6 +215,7 @@ public class WidgetConditionalFormat {
 
   public WidgetConditionalFormat palette(WidgetPalette palette) {
     this.palette = palette;
+    this.unparsed |= !palette.isValid();
     return this;
   }
 
@@ -223,6 +232,9 @@ public class WidgetConditionalFormat {
   }
 
   public void setPalette(WidgetPalette palette) {
+    if (!palette.isValid()) {
+      this.unparsed = true;
+    }
     this.palette = palette;
   }
 

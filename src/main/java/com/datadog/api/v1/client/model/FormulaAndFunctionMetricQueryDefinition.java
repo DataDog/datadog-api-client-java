@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -28,6 +29,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FormulaAndFunctionMetricQueryDefinition {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATOR = "aggregator";
   private FormulaAndFunctionMetricAggregation aggregator;
 
@@ -49,6 +51,7 @@ public class FormulaAndFunctionMetricQueryDefinition {
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
       @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query) {
     this.dataSource = dataSource;
+    this.unparsed |= !dataSource.isValid();
     this.name = name;
     this.query = query;
   }
@@ -56,6 +59,7 @@ public class FormulaAndFunctionMetricQueryDefinition {
   public FormulaAndFunctionMetricQueryDefinition aggregator(
       FormulaAndFunctionMetricAggregation aggregator) {
     this.aggregator = aggregator;
+    this.unparsed |= !aggregator.isValid();
     return this;
   }
 
@@ -73,12 +77,16 @@ public class FormulaAndFunctionMetricQueryDefinition {
   }
 
   public void setAggregator(FormulaAndFunctionMetricAggregation aggregator) {
+    if (!aggregator.isValid()) {
+      this.unparsed = true;
+    }
     this.aggregator = aggregator;
   }
 
   public FormulaAndFunctionMetricQueryDefinition dataSource(
       FormulaAndFunctionMetricDataSource dataSource) {
     this.dataSource = dataSource;
+    this.unparsed |= !dataSource.isValid();
     return this;
   }
 
@@ -95,6 +103,9 @@ public class FormulaAndFunctionMetricQueryDefinition {
   }
 
   public void setDataSource(FormulaAndFunctionMetricDataSource dataSource) {
+    if (!dataSource.isValid()) {
+      this.unparsed = true;
+    }
     this.dataSource = dataSource;
   }
 

@@ -31,6 +31,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WebhooksIntegration {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOM_HEADERS = "custom_headers";
   private JsonNullable<String> customHeaders = JsonNullable.<String>undefined();
 
@@ -94,6 +95,7 @@ public class WebhooksIntegration {
 
   public WebhooksIntegration encodeAs(WebhooksIntegrationEncoding encodeAs) {
     this.encodeAs = encodeAs;
+    this.unparsed |= !encodeAs.isValid();
     return this;
   }
 
@@ -111,6 +113,9 @@ public class WebhooksIntegration {
   }
 
   public void setEncodeAs(WebhooksIntegrationEncoding encodeAs) {
+    if (!encodeAs.isValid()) {
+      this.unparsed = true;
+    }
     this.encodeAs = encodeAs;
   }
 

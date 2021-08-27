@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -29,6 +30,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsTriggerCITestsResponse {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BATCH_ID = "batch_id";
   private String batchId;
 
@@ -66,6 +68,9 @@ public class SyntheticsTriggerCITestsResponse {
   public SyntheticsTriggerCITestsResponse locations(
       List<SyntheticsTriggerCITestLocation> locations) {
     this.locations = locations;
+    for (SyntheticsTriggerCITestLocation item : locations) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -75,6 +80,7 @@ public class SyntheticsTriggerCITestsResponse {
       this.locations = new ArrayList<>();
     }
     this.locations.add(locationsItem);
+    this.unparsed |= locationsItem.unparsed;
     return this;
   }
 
@@ -97,6 +103,9 @@ public class SyntheticsTriggerCITestsResponse {
 
   public SyntheticsTriggerCITestsResponse results(List<SyntheticsTriggerCITestRunResult> results) {
     this.results = results;
+    for (SyntheticsTriggerCITestRunResult item : results) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -106,6 +115,7 @@ public class SyntheticsTriggerCITestsResponse {
       this.results = new ArrayList<>();
     }
     this.results.add(resultsItem);
+    this.unparsed |= resultsItem.unparsed;
     return this;
   }
 
