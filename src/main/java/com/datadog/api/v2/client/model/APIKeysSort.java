@@ -12,34 +12,92 @@ package com.datadog.api.v2.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 /** Sorting options */
-public enum APIKeysSort {
-  CREATED_AT_ASCENDING("created_at"),
+@JsonSerialize(using = APIKeysSort.APIKeysSortSerializer.class)
+public class APIKeysSort {
 
-  CREATED_AT_DESCENDING("-created_at"),
+  public static final APIKeysSort CREATED_AT_ASCENDING = new APIKeysSort("created_at");
+  public static final APIKeysSort CREATED_AT_DESCENDING = new APIKeysSort("-created_at");
+  public static final APIKeysSort LAST4_ASCENDING = new APIKeysSort("last4");
+  public static final APIKeysSort LAST4_DESCENDING = new APIKeysSort("-last4");
+  public static final APIKeysSort MODIFIED_AT_ASCENDING = new APIKeysSort("modified_at");
+  public static final APIKeysSort MODIFIED_AT_DESCENDING = new APIKeysSort("-modified_at");
+  public static final APIKeysSort NAME_ASCENDING = new APIKeysSort("name");
+  public static final APIKeysSort NAME_DESCENDING = new APIKeysSort("-name");
 
-  LAST4_ASCENDING("last4"),
-
-  LAST4_DESCENDING("-last4"),
-
-  MODIFIED_AT_ASCENDING("modified_at"),
-
-  MODIFIED_AT_DESCENDING("-modified_at"),
-
-  NAME_ASCENDING("name"),
-
-  NAME_DESCENDING("-name");
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "created_at",
+              "-created_at",
+              "last4",
+              "-last4",
+              "modified_at",
+              "-modified_at",
+              "name",
+              "-name"));
 
   private String value;
+
+  public boolean isValid() {
+    return allowedValues.contains(this.value);
+  }
 
   APIKeysSort(String value) {
     this.value = value;
   }
 
+  public static class APIKeysSortSerializer extends StdSerializer<APIKeysSort> {
+    public APIKeysSortSerializer(Class<APIKeysSort> t) {
+      super(t);
+    }
+
+    public APIKeysSortSerializer() {
+      this(null);
+    }
+
+    @Override
+    public void serialize(APIKeysSort value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
+  }
+
   @JsonValue
   public String getValue() {
-    return value;
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  /** Return true if this APIKeysSort object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    return this.value.equals(((APIKeysSort) o).value);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(value);
   }
 
   @Override
@@ -49,11 +107,6 @@ public enum APIKeysSort {
 
   @JsonCreator
   public static APIKeysSort fromValue(String value) {
-    for (APIKeysSort b : APIKeysSort.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
-    }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    return new APIKeysSort(value);
   }
 }

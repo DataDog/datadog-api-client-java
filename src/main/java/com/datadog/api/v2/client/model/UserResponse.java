@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -24,6 +25,7 @@ import java.util.Objects;
 @JsonPropertyOrder({UserResponse.JSON_PROPERTY_DATA, UserResponse.JSON_PROPERTY_INCLUDED})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UserResponse {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private User data;
 
@@ -32,6 +34,7 @@ public class UserResponse {
 
   public UserResponse data(User data) {
     this.data = data;
+    this.unparsed |= data.unparsed;
     return this;
   }
 
@@ -54,6 +57,9 @@ public class UserResponse {
 
   public UserResponse included(List<UserResponseIncludedItem> included) {
     this.included = included;
+    for (UserResponseIncludedItem item : included) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -62,6 +68,7 @@ public class UserResponse {
       this.included = new ArrayList<>();
     }
     this.included.add(includedItem);
+    this.unparsed |= includedItem.unparsed;
     return this;
   }
 

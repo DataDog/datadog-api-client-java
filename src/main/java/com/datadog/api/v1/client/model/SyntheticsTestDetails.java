@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -37,6 +38,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsTestDetails {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CONFIG = "config";
   private SyntheticsTestConfig config;
 
@@ -75,6 +77,7 @@ public class SyntheticsTestDetails {
 
   public SyntheticsTestDetails config(SyntheticsTestConfig config) {
     this.config = config;
+    this.unparsed |= config.unparsed;
     return this;
   }
 
@@ -184,6 +187,7 @@ public class SyntheticsTestDetails {
 
   public SyntheticsTestDetails options(SyntheticsTestOptions options) {
     this.options = options;
+    this.unparsed |= options.unparsed;
     return this;
   }
 
@@ -219,6 +223,7 @@ public class SyntheticsTestDetails {
 
   public SyntheticsTestDetails status(SyntheticsTestPauseStatus status) {
     this.status = status;
+    this.unparsed |= !status.isValid();
     return this;
   }
 
@@ -236,11 +241,17 @@ public class SyntheticsTestDetails {
   }
 
   public void setStatus(SyntheticsTestPauseStatus status) {
+    if (!status.isValid()) {
+      this.unparsed = true;
+    }
     this.status = status;
   }
 
   public SyntheticsTestDetails steps(List<SyntheticsStep> steps) {
     this.steps = steps;
+    for (SyntheticsStep item : steps) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -249,6 +260,7 @@ public class SyntheticsTestDetails {
       this.steps = new ArrayList<>();
     }
     this.steps.add(stepsItem);
+    this.unparsed |= stepsItem.unparsed;
     return this;
   }
 
@@ -271,6 +283,7 @@ public class SyntheticsTestDetails {
 
   public SyntheticsTestDetails subtype(SyntheticsTestDetailsSubType subtype) {
     this.subtype = subtype;
+    this.unparsed |= !subtype.isValid();
     return this;
   }
 
@@ -288,6 +301,9 @@ public class SyntheticsTestDetails {
   }
 
   public void setSubtype(SyntheticsTestDetailsSubType subtype) {
+    if (!subtype.isValid()) {
+      this.unparsed = true;
+    }
     this.subtype = subtype;
   }
 
@@ -323,6 +339,7 @@ public class SyntheticsTestDetails {
 
   public SyntheticsTestDetails type(SyntheticsTestDetailsType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -340,6 +357,9 @@ public class SyntheticsTestDetails {
   }
 
   public void setType(SyntheticsTestDetailsType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

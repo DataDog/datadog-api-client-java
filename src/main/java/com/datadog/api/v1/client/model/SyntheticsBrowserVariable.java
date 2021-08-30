@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -36,6 +37,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsBrowserVariable {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_EXAMPLE = "example";
   private String example;
 
@@ -60,6 +62,7 @@ public class SyntheticsBrowserVariable {
           SyntheticsBrowserVariableType type) {
     this.name = name;
     this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   public SyntheticsBrowserVariable example(String example) {
@@ -151,6 +154,7 @@ public class SyntheticsBrowserVariable {
 
   public SyntheticsBrowserVariable type(SyntheticsBrowserVariableType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -167,6 +171,9 @@ public class SyntheticsBrowserVariable {
   }
 
   public void setType(SyntheticsBrowserVariableType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

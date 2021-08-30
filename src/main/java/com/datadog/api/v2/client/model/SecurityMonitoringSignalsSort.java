@@ -12,22 +12,81 @@ package com.datadog.api.v2.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 /** The sort parameters used for querying security signals. */
-public enum SecurityMonitoringSignalsSort {
-  TIMESTAMP_ASCENDING("timestamp"),
+@JsonSerialize(using = SecurityMonitoringSignalsSort.SecurityMonitoringSignalsSortSerializer.class)
+public class SecurityMonitoringSignalsSort {
 
-  TIMESTAMP_DESCENDING("-timestamp");
+  public static final SecurityMonitoringSignalsSort TIMESTAMP_ASCENDING =
+      new SecurityMonitoringSignalsSort("timestamp");
+  public static final SecurityMonitoringSignalsSort TIMESTAMP_DESCENDING =
+      new SecurityMonitoringSignalsSort("-timestamp");
+
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("timestamp", "-timestamp"));
 
   private String value;
+
+  public boolean isValid() {
+    return allowedValues.contains(this.value);
+  }
 
   SecurityMonitoringSignalsSort(String value) {
     this.value = value;
   }
 
+  public static class SecurityMonitoringSignalsSortSerializer
+      extends StdSerializer<SecurityMonitoringSignalsSort> {
+    public SecurityMonitoringSignalsSortSerializer(Class<SecurityMonitoringSignalsSort> t) {
+      super(t);
+    }
+
+    public SecurityMonitoringSignalsSortSerializer() {
+      this(null);
+    }
+
+    @Override
+    public void serialize(
+        SecurityMonitoringSignalsSort value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
+  }
+
   @JsonValue
   public String getValue() {
-    return value;
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  /** Return true if this SecurityMonitoringSignalsSort object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    return this.value.equals(((SecurityMonitoringSignalsSort) o).value);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(value);
   }
 
   @Override
@@ -37,11 +96,6 @@ public enum SecurityMonitoringSignalsSort {
 
   @JsonCreator
   public static SecurityMonitoringSignalsSort fromValue(String value) {
-    for (SecurityMonitoringSignalsSort b : SecurityMonitoringSignalsSort.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
-    }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    return new SecurityMonitoringSignalsSort(value);
   }
 }

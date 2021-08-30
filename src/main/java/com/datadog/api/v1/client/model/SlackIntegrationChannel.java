@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -25,6 +26,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SlackIntegrationChannel {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DISPLAY = "display";
   private SlackIntegrationChannelDisplay display;
 
@@ -33,6 +35,7 @@ public class SlackIntegrationChannel {
 
   public SlackIntegrationChannel display(SlackIntegrationChannelDisplay display) {
     this.display = display;
+    this.unparsed |= display.unparsed;
     return this;
   }
 

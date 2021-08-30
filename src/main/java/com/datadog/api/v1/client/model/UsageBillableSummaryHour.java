@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -32,6 +33,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageBillableSummaryHour {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BILLING_PLAN = "billing_plan";
   private String billingPlan;
 
@@ -212,6 +214,7 @@ public class UsageBillableSummaryHour {
 
   public UsageBillableSummaryHour usage(UsageBillableSummaryKeys usage) {
     this.usage = usage;
+    this.unparsed |= usage.unparsed;
     return this;
   }
 

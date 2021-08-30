@@ -522,6 +522,30 @@ public class World {
               } catch (InvocationTargetException | NoSuchMethodException eee) {
                 throw ee;
               }
+
+              // try to access data if it's an UnparsedObject
+              try {
+                result = getPropertyValue(result, "data");
+              } catch (Exception ex) {
+                // ignore
+              }
+
+              // try to access UnparsedObject's raw data
+              if (result instanceof Map) {
+                ObjectMapper mapper = new ObjectMapper();
+                Map<String, Object> mp = mapper.convertValue(result, Map.class);
+
+                if (null != mp.get(part)) {
+                  result = mp.get(part);
+                  continue;
+                } else {
+                  if (null != mp.get(toPropertyName(part))) {
+                    result = mp.get(toPropertyName(part));
+                    continue;
+                  }
+                }
+              }
+
               result = getPropertyValue(result, toPropertyName(part));
             }
           }

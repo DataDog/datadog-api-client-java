@@ -11,6 +11,7 @@
 package com.datadog.api.v2.client.model;
 
 import com.datadog.api.v2.client.JSON;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -19,6 +20,7 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -38,6 +40,8 @@ import javax.ws.rs.core.GenericType;
 @JsonSerialize(using = IncidentFieldAttributes.IncidentFieldAttributesSerializer.class)
 public class IncidentFieldAttributes extends AbstractOpenApiSchema {
   private static final Logger log = Logger.getLogger(IncidentFieldAttributes.class.getName());
+
+  @JsonIgnore public boolean unparsed = false;
 
   public static class IncidentFieldAttributesSerializer
       extends StdSerializer<IncidentFieldAttributes> {
@@ -72,55 +76,10 @@ public class IncidentFieldAttributes extends AbstractOpenApiSchema {
         throws IOException, JsonProcessingException {
       JsonNode tree = jp.readValueAsTree();
       Object deserialized = null;
+      Object tmp = null;
       boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
       int match = 0;
       JsonToken token = tree.traverse(jp.getCodec()).nextToken();
-      // deserialize IncidentFieldAttributesMultipleValue
-      try {
-        boolean attemptParsing = true;
-        // ensure that we respect type coercion as set on the client ObjectMapper
-        if (IncidentFieldAttributesMultipleValue.class.equals(Integer.class)
-            || IncidentFieldAttributesMultipleValue.class.equals(Long.class)
-            || IncidentFieldAttributesMultipleValue.class.equals(Float.class)
-            || IncidentFieldAttributesMultipleValue.class.equals(Double.class)
-            || IncidentFieldAttributesMultipleValue.class.equals(Boolean.class)
-            || IncidentFieldAttributesMultipleValue.class.equals(String.class)) {
-          attemptParsing = typeCoercion;
-          if (!attemptParsing) {
-            attemptParsing |=
-                ((IncidentFieldAttributesMultipleValue.class.equals(Integer.class)
-                        || IncidentFieldAttributesMultipleValue.class.equals(Long.class))
-                    && token == JsonToken.VALUE_NUMBER_INT);
-            attemptParsing |=
-                ((IncidentFieldAttributesMultipleValue.class.equals(Float.class)
-                        || IncidentFieldAttributesMultipleValue.class.equals(Double.class))
-                    && (token == JsonToken.VALUE_NUMBER_FLOAT
-                        || token == JsonToken.VALUE_NUMBER_INT));
-            attemptParsing |=
-                (IncidentFieldAttributesMultipleValue.class.equals(Boolean.class)
-                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-            attemptParsing |=
-                (IncidentFieldAttributesMultipleValue.class.equals(String.class)
-                    && token == JsonToken.VALUE_STRING);
-          }
-        }
-        if (attemptParsing) {
-          deserialized =
-              tree.traverse(jp.getCodec()).readValueAs(IncidentFieldAttributesMultipleValue.class);
-          // TODO: there is no validation against JSON schema constraints
-          // (min, max, enum, pattern...), this does not perform a strict JSON
-          // validation, which means the 'match' count may be higher than it should be.
-          match++;
-          log.log(Level.FINER, "Input data matches schema 'IncidentFieldAttributesMultipleValue'");
-        }
-      } catch (Exception e) {
-        // deserialization failed, continue
-        log.log(
-            Level.FINER,
-            "Input data does not match schema 'IncidentFieldAttributesMultipleValue'",
-            e);
-      }
-
       // deserialize IncidentFieldAttributesSingleValue
       try {
         boolean attemptParsing = true;
@@ -151,12 +110,14 @@ public class IncidentFieldAttributes extends AbstractOpenApiSchema {
           }
         }
         if (attemptParsing) {
-          deserialized =
-              tree.traverse(jp.getCodec()).readValueAs(IncidentFieldAttributesSingleValue.class);
+          tmp = tree.traverse(jp.getCodec()).readValueAs(IncidentFieldAttributesSingleValue.class);
           // TODO: there is no validation against JSON schema constraints
           // (min, max, enum, pattern...), this does not perform a strict JSON
           // validation, which means the 'match' count may be higher than it should be.
-          match++;
+          if (!((IncidentFieldAttributesSingleValue) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
           log.log(Level.FINER, "Input data matches schema 'IncidentFieldAttributesSingleValue'");
         }
       } catch (Exception e) {
@@ -167,16 +128,66 @@ public class IncidentFieldAttributes extends AbstractOpenApiSchema {
             e);
       }
 
-      if (match == 1) {
-        IncidentFieldAttributes ret = new IncidentFieldAttributes();
-        ret.setActualInstance(deserialized);
-        return ret;
+      // deserialize IncidentFieldAttributesMultipleValue
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (IncidentFieldAttributesMultipleValue.class.equals(Integer.class)
+            || IncidentFieldAttributesMultipleValue.class.equals(Long.class)
+            || IncidentFieldAttributesMultipleValue.class.equals(Float.class)
+            || IncidentFieldAttributesMultipleValue.class.equals(Double.class)
+            || IncidentFieldAttributesMultipleValue.class.equals(Boolean.class)
+            || IncidentFieldAttributesMultipleValue.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((IncidentFieldAttributesMultipleValue.class.equals(Integer.class)
+                        || IncidentFieldAttributesMultipleValue.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((IncidentFieldAttributesMultipleValue.class.equals(Float.class)
+                        || IncidentFieldAttributesMultipleValue.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (IncidentFieldAttributesMultipleValue.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (IncidentFieldAttributesMultipleValue.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec()).readValueAs(IncidentFieldAttributesMultipleValue.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((IncidentFieldAttributesMultipleValue) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'IncidentFieldAttributesMultipleValue'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'IncidentFieldAttributesMultipleValue'",
+            e);
       }
-      throw new IOException(
-          String.format(
-              "Failed deserialization for IncidentFieldAttributes: %d classes match result,"
-                  + " expected 1",
-              match));
+
+      IncidentFieldAttributes ret = new IncidentFieldAttributes();
+      if (match == 1) {
+        ret.setActualInstance(deserialized);
+      } else {
+        Map<String, Object> res =
+            new ObjectMapper()
+                .readValue(
+                    tree.traverse(jp.getCodec()).readValueAsTree().toString(), HashMap.class);
+        ret.setActualInstance(new UnparsedObject(res));
+      }
+      return ret;
     }
 
     /** Handle deserialization of the 'null' value. */
@@ -241,6 +252,10 @@ public class IncidentFieldAttributes extends AbstractOpenApiSchema {
       return;
     }
 
+    if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
     throw new RuntimeException(
         "Invalid instance type. Must be IncidentFieldAttributesMultipleValue,"
             + " IncidentFieldAttributesSingleValue");

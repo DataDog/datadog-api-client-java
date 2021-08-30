@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -24,11 +25,15 @@ import java.util.Objects;
 @JsonPropertyOrder({LogsAggregateResponseData.JSON_PROPERTY_BUCKETS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsAggregateResponseData {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BUCKETS = "buckets";
   private List<LogsAggregateBucket> buckets = null;
 
   public LogsAggregateResponseData buckets(List<LogsAggregateBucket> buckets) {
     this.buckets = buckets;
+    for (LogsAggregateBucket item : buckets) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -37,6 +42,7 @@ public class LogsAggregateResponseData {
       this.buckets = new ArrayList<>();
     }
     this.buckets.add(bucketsItem);
+    this.unparsed |= bucketsItem.unparsed;
     return this;
   }
 

@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -25,6 +26,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SecurityMonitoringRuleNewValueOptions {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FORGET_AFTER = "forgetAfter";
   private SecurityMonitoringRuleNewValueOptionsForgetAfter forgetAfter;
 
@@ -34,6 +36,7 @@ public class SecurityMonitoringRuleNewValueOptions {
   public SecurityMonitoringRuleNewValueOptions forgetAfter(
       SecurityMonitoringRuleNewValueOptionsForgetAfter forgetAfter) {
     this.forgetAfter = forgetAfter;
+    this.unparsed |= !forgetAfter.isValid();
     return this;
   }
 
@@ -51,12 +54,16 @@ public class SecurityMonitoringRuleNewValueOptions {
   }
 
   public void setForgetAfter(SecurityMonitoringRuleNewValueOptionsForgetAfter forgetAfter) {
+    if (!forgetAfter.isValid()) {
+      this.unparsed = true;
+    }
     this.forgetAfter = forgetAfter;
   }
 
   public SecurityMonitoringRuleNewValueOptions learningDuration(
       SecurityMonitoringRuleNewValueOptionsLearningDuration learningDuration) {
     this.learningDuration = learningDuration;
+    this.unparsed |= !learningDuration.isValid();
     return this;
   }
 
@@ -75,6 +82,9 @@ public class SecurityMonitoringRuleNewValueOptions {
 
   public void setLearningDuration(
       SecurityMonitoringRuleNewValueOptionsLearningDuration learningDuration) {
+    if (!learningDuration.isValid()) {
+      this.unparsed = true;
+    }
     this.learningDuration = learningDuration;
   }
 

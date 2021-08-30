@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -24,11 +25,15 @@ import java.util.Objects;
 @JsonPropertyOrder({PermissionsResponse.JSON_PROPERTY_DATA})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class PermissionsResponse {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<Permission> data = null;
 
   public PermissionsResponse data(List<Permission> data) {
     this.data = data;
+    for (Permission item : data) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -37,6 +42,7 @@ public class PermissionsResponse {
       this.data = new ArrayList<>();
     }
     this.data.add(dataItem);
+    this.unparsed |= dataItem.unparsed;
     return this;
   }
 

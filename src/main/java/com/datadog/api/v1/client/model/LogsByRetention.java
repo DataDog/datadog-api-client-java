@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -28,6 +29,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsByRetention {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ORGS = "orgs";
   private LogsByRetentionOrgs orgs;
 
@@ -39,6 +41,7 @@ public class LogsByRetention {
 
   public LogsByRetention orgs(LogsByRetentionOrgs orgs) {
     this.orgs = orgs;
+    this.unparsed |= orgs.unparsed;
     return this;
   }
 
@@ -61,6 +64,9 @@ public class LogsByRetention {
 
   public LogsByRetention usage(List<LogsRetentionAggSumUsage> usage) {
     this.usage = usage;
+    for (LogsRetentionAggSumUsage item : usage) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -69,6 +75,7 @@ public class LogsByRetention {
       this.usage = new ArrayList<>();
     }
     this.usage.add(usageItem);
+    this.unparsed |= usageItem.unparsed;
     return this;
   }
 
@@ -91,6 +98,7 @@ public class LogsByRetention {
 
   public LogsByRetention usageByMonth(LogsByRetentionMonthlyUsage usageByMonth) {
     this.usageByMonth = usageByMonth;
+    this.unparsed |= usageByMonth.unparsed;
     return this;
   }
 

@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -27,6 +28,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsParsingOptions {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FIELD = "field";
   private String field;
 
@@ -87,6 +89,7 @@ public class SyntheticsParsingOptions {
 
   public SyntheticsParsingOptions parser(SyntheticsVariableParser parser) {
     this.parser = parser;
+    this.unparsed |= parser.unparsed;
     return this;
   }
 
@@ -109,6 +112,7 @@ public class SyntheticsParsingOptions {
 
   public SyntheticsParsingOptions type(SyntheticsGlobalVariableParseTestOptionsType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -126,6 +130,9 @@ public class SyntheticsParsingOptions {
   }
 
   public void setType(SyntheticsGlobalVariableParseTestOptionsType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

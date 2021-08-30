@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -38,6 +39,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsSSLCertificate {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CIPHER = "cipher";
   private String cipher;
 
@@ -194,6 +196,7 @@ public class SyntheticsSSLCertificate {
 
   public SyntheticsSSLCertificate issuer(SyntheticsSSLCertificateIssuer issuer) {
     this.issuer = issuer;
+    this.unparsed |= issuer.unparsed;
     return this;
   }
 
@@ -282,6 +285,7 @@ public class SyntheticsSSLCertificate {
 
   public SyntheticsSSLCertificate subject(SyntheticsSSLCertificateSubject subject) {
     this.subject = subject;
+    this.unparsed |= subject.unparsed;
     return this;
   }
 

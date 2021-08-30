@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -53,6 +54,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsCategoryProcessor {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CATEGORIES = "categories";
   private List<LogsCategoryProcessorCategory> categories = new ArrayList<>();
 
@@ -79,15 +81,20 @@ public class LogsCategoryProcessor {
     this.categories = categories;
     this.target = target;
     this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   public LogsCategoryProcessor categories(List<LogsCategoryProcessorCategory> categories) {
     this.categories = categories;
+    for (LogsCategoryProcessorCategory item : categories) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
   public LogsCategoryProcessor addCategoriesItem(LogsCategoryProcessorCategory categoriesItem) {
     this.categories.add(categoriesItem);
+    this.unparsed |= categoriesItem.unparsed;
     return this;
   }
 
@@ -183,6 +190,7 @@ public class LogsCategoryProcessor {
 
   public LogsCategoryProcessor type(LogsCategoryProcessorType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -199,6 +207,9 @@ public class LogsCategoryProcessor {
   }
 
   public void setType(LogsCategoryProcessorType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,6 +31,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogQueryDefinition {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMPUTE = "compute";
   private LogsQueryCompute compute;
 
@@ -47,6 +49,7 @@ public class LogQueryDefinition {
 
   public LogQueryDefinition compute(LogsQueryCompute compute) {
     this.compute = compute;
+    this.unparsed |= compute.unparsed;
     return this;
   }
 
@@ -69,6 +72,9 @@ public class LogQueryDefinition {
 
   public LogQueryDefinition groupBy(List<LogQueryDefinitionGroupBy> groupBy) {
     this.groupBy = groupBy;
+    for (LogQueryDefinitionGroupBy item : groupBy) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -77,6 +83,7 @@ public class LogQueryDefinition {
       this.groupBy = new ArrayList<>();
     }
     this.groupBy.add(groupByItem);
+    this.unparsed |= groupByItem.unparsed;
     return this;
   }
 
@@ -126,6 +133,9 @@ public class LogQueryDefinition {
 
   public LogQueryDefinition multiCompute(List<LogsQueryCompute> multiCompute) {
     this.multiCompute = multiCompute;
+    for (LogsQueryCompute item : multiCompute) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -134,6 +144,7 @@ public class LogQueryDefinition {
       this.multiCompute = new ArrayList<>();
     }
     this.multiCompute.add(multiComputeItem);
+    this.unparsed |= multiComputeItem.unparsed;
     return this;
   }
 
@@ -156,6 +167,7 @@ public class LogQueryDefinition {
 
   public LogQueryDefinition search(LogQueryDefinitionSearch search) {
     this.search = search;
+    this.unparsed |= search.unparsed;
     return this;
   }
 

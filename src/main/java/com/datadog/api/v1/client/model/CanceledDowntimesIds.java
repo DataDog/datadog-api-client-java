@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -24,6 +25,7 @@ import java.util.Objects;
 @JsonPropertyOrder({CanceledDowntimesIds.JSON_PROPERTY_CANCELLED_IDS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CanceledDowntimesIds {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CANCELLED_IDS = "cancelled_ids";
   private List<Long> cancelledIds = null;
 

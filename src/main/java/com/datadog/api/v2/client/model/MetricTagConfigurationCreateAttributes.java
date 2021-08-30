@@ -11,6 +11,7 @@
 package com.datadog.api.v2.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,6 +31,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MetricTagConfigurationCreateAttributes {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_INCLUDE_PERCENTILES = "include_percentiles";
   private Boolean includePercentiles = false;
 
@@ -47,6 +49,7 @@ public class MetricTagConfigurationCreateAttributes {
           MetricTagConfigurationMetricTypes metricType,
       @JsonProperty(required = true, value = JSON_PROPERTY_TAGS) List<String> tags) {
     this.metricType = metricType;
+    this.unparsed |= !metricType.isValid();
     this.tags = tags;
   }
 
@@ -80,6 +83,7 @@ public class MetricTagConfigurationCreateAttributes {
   public MetricTagConfigurationCreateAttributes metricType(
       MetricTagConfigurationMetricTypes metricType) {
     this.metricType = metricType;
+    this.unparsed |= !metricType.isValid();
     return this;
   }
 
@@ -96,6 +100,9 @@ public class MetricTagConfigurationCreateAttributes {
   }
 
   public void setMetricType(MetricTagConfigurationMetricTypes metricType) {
+    if (!metricType.isValid()) {
+      this.unparsed = true;
+    }
     this.metricType = metricType;
   }
 

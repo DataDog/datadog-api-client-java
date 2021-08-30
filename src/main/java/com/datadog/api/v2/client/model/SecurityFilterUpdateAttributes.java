@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -31,6 +32,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SecurityFilterUpdateAttributes {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_EXCLUSION_FILTERS = "exclusion_filters";
   private List<SecurityFilterExclusionFilter> exclusionFilters = null;
 
@@ -52,6 +54,9 @@ public class SecurityFilterUpdateAttributes {
   public SecurityFilterUpdateAttributes exclusionFilters(
       List<SecurityFilterExclusionFilter> exclusionFilters) {
     this.exclusionFilters = exclusionFilters;
+    for (SecurityFilterExclusionFilter item : exclusionFilters) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -61,6 +66,7 @@ public class SecurityFilterUpdateAttributes {
       this.exclusionFilters = new ArrayList<>();
     }
     this.exclusionFilters.add(exclusionFiltersItem);
+    this.unparsed |= exclusionFiltersItem.unparsed;
     return this;
   }
 
@@ -86,6 +92,7 @@ public class SecurityFilterUpdateAttributes {
   public SecurityFilterUpdateAttributes filteredDataType(
       SecurityFilterFilteredDataType filteredDataType) {
     this.filteredDataType = filteredDataType;
+    this.unparsed |= !filteredDataType.isValid();
     return this;
   }
 
@@ -103,6 +110,9 @@ public class SecurityFilterUpdateAttributes {
   }
 
   public void setFilteredDataType(SecurityFilterFilteredDataType filteredDataType) {
+    if (!filteredDataType.isValid()) {
+      this.unparsed = true;
+    }
     this.filteredDataType = filteredDataType;
   }
 

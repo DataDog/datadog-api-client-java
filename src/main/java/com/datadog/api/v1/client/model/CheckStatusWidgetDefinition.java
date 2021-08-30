@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -38,6 +39,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CheckStatusWidgetDefinition {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CHECK = "check";
   private String check;
 
@@ -78,7 +80,9 @@ public class CheckStatusWidgetDefinition {
           CheckStatusWidgetDefinitionType type) {
     this.check = check;
     this.grouping = grouping;
+    this.unparsed |= !grouping.isValid();
     this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   public CheckStatusWidgetDefinition check(String check) {
@@ -159,6 +163,7 @@ public class CheckStatusWidgetDefinition {
 
   public CheckStatusWidgetDefinition grouping(WidgetGrouping grouping) {
     this.grouping = grouping;
+    this.unparsed |= !grouping.isValid();
     return this;
   }
 
@@ -175,6 +180,9 @@ public class CheckStatusWidgetDefinition {
   }
 
   public void setGrouping(WidgetGrouping grouping) {
+    if (!grouping.isValid()) {
+      this.unparsed = true;
+    }
     this.grouping = grouping;
   }
 
@@ -210,6 +218,7 @@ public class CheckStatusWidgetDefinition {
 
   public CheckStatusWidgetDefinition time(WidgetTime time) {
     this.time = time;
+    this.unparsed |= time.unparsed;
     return this;
   }
 
@@ -254,6 +263,7 @@ public class CheckStatusWidgetDefinition {
 
   public CheckStatusWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
+    this.unparsed |= !titleAlign.isValid();
     return this;
   }
 
@@ -271,6 +281,9 @@ public class CheckStatusWidgetDefinition {
   }
 
   public void setTitleAlign(WidgetTextAlign titleAlign) {
+    if (!titleAlign.isValid()) {
+      this.unparsed = true;
+    }
     this.titleAlign = titleAlign;
   }
 
@@ -298,6 +311,7 @@ public class CheckStatusWidgetDefinition {
 
   public CheckStatusWidgetDefinition type(CheckStatusWidgetDefinitionType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -314,6 +328,9 @@ public class CheckStatusWidgetDefinition {
   }
 
   public void setType(CheckStatusWidgetDefinitionType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

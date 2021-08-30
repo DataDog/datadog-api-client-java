@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -24,6 +25,7 @@ import java.util.Objects;
 @JsonPropertyOrder({NotebooksResponse.JSON_PROPERTY_DATA, NotebooksResponse.JSON_PROPERTY_META})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class NotebooksResponse {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<NotebooksResponseData> data = null;
 
@@ -32,6 +34,9 @@ public class NotebooksResponse {
 
   public NotebooksResponse data(List<NotebooksResponseData> data) {
     this.data = data;
+    for (NotebooksResponseData item : data) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -40,6 +45,7 @@ public class NotebooksResponse {
       this.data = new ArrayList<>();
     }
     this.data.add(dataItem);
+    this.unparsed |= dataItem.unparsed;
     return this;
   }
 
@@ -62,6 +68,7 @@ public class NotebooksResponse {
 
   public NotebooksResponse meta(NotebooksResponseMeta meta) {
     this.meta = meta;
+    this.unparsed |= meta.unparsed;
     return this;
   }
 

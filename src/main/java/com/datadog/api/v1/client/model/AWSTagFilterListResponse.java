@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -24,11 +25,15 @@ import java.util.Objects;
 @JsonPropertyOrder({AWSTagFilterListResponse.JSON_PROPERTY_FILTERS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AWSTagFilterListResponse {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FILTERS = "filters";
   private List<AWSTagFilter> filters = null;
 
   public AWSTagFilterListResponse filters(List<AWSTagFilter> filters) {
     this.filters = filters;
+    for (AWSTagFilter item : filters) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -37,6 +42,7 @@ public class AWSTagFilterListResponse {
       this.filters = new ArrayList<>();
     }
     this.filters.add(filtersItem);
+    this.unparsed |= filtersItem.unparsed;
     return this;
   }
 

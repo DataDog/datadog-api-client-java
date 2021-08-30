@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -27,6 +28,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UserResponseRelationships {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ORG = "org";
   private RelationshipToOrganization org;
 
@@ -41,6 +43,7 @@ public class UserResponseRelationships {
 
   public UserResponseRelationships org(RelationshipToOrganization org) {
     this.org = org;
+    this.unparsed |= org.unparsed;
     return this;
   }
 
@@ -63,6 +66,7 @@ public class UserResponseRelationships {
 
   public UserResponseRelationships otherOrgs(RelationshipToOrganizations otherOrgs) {
     this.otherOrgs = otherOrgs;
+    this.unparsed |= otherOrgs.unparsed;
     return this;
   }
 
@@ -85,6 +89,7 @@ public class UserResponseRelationships {
 
   public UserResponseRelationships otherUsers(RelationshipToUsers otherUsers) {
     this.otherUsers = otherUsers;
+    this.unparsed |= otherUsers.unparsed;
     return this;
   }
 
@@ -107,6 +112,7 @@ public class UserResponseRelationships {
 
   public UserResponseRelationships roles(RelationshipToRoles roles) {
     this.roles = roles;
+    this.unparsed |= roles.unparsed;
     return this;
   }
 

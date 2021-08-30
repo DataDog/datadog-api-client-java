@@ -30,6 +30,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class NotebookDistributionCellAttributes {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DEFINITION = "definition";
   private DistributionWidgetDefinition definition;
 
@@ -49,10 +50,12 @@ public class NotebookDistributionCellAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_DEFINITION)
           DistributionWidgetDefinition definition) {
     this.definition = definition;
+    this.unparsed |= definition.unparsed;
   }
 
   public NotebookDistributionCellAttributes definition(DistributionWidgetDefinition definition) {
     this.definition = definition;
+    this.unparsed |= definition.unparsed;
     return this;
   }
 
@@ -74,6 +77,7 @@ public class NotebookDistributionCellAttributes {
 
   public NotebookDistributionCellAttributes graphSize(NotebookGraphSize graphSize) {
     this.graphSize = graphSize;
+    this.unparsed |= !graphSize.isValid();
     return this;
   }
 
@@ -91,11 +95,15 @@ public class NotebookDistributionCellAttributes {
   }
 
   public void setGraphSize(NotebookGraphSize graphSize) {
+    if (!graphSize.isValid()) {
+      this.unparsed = true;
+    }
     this.graphSize = graphSize;
   }
 
   public NotebookDistributionCellAttributes splitBy(NotebookSplitBy splitBy) {
     this.splitBy = splitBy;
+    this.unparsed |= splitBy.unparsed;
     return this;
   }
 

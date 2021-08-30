@@ -12,20 +12,77 @@ package com.datadog.api.v2.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 /** The type of the resource. The value should always be &#x60;security_filters&#x60;. */
-public enum SecurityFilterType {
-  SECURITY_FILTERS("security_filters");
+@JsonSerialize(using = SecurityFilterType.SecurityFilterTypeSerializer.class)
+public class SecurityFilterType {
+
+  public static final SecurityFilterType SECURITY_FILTERS =
+      new SecurityFilterType("security_filters");
+
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("security_filters"));
 
   private String value;
+
+  public boolean isValid() {
+    return allowedValues.contains(this.value);
+  }
 
   SecurityFilterType(String value) {
     this.value = value;
   }
 
+  public static class SecurityFilterTypeSerializer extends StdSerializer<SecurityFilterType> {
+    public SecurityFilterTypeSerializer(Class<SecurityFilterType> t) {
+      super(t);
+    }
+
+    public SecurityFilterTypeSerializer() {
+      this(null);
+    }
+
+    @Override
+    public void serialize(SecurityFilterType value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
+  }
+
   @JsonValue
   public String getValue() {
-    return value;
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  /** Return true if this SecurityFilterType object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    return this.value.equals(((SecurityFilterType) o).value);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(value);
   }
 
   @Override
@@ -35,11 +92,6 @@ public enum SecurityFilterType {
 
   @JsonCreator
   public static SecurityFilterType fromValue(String value) {
-    for (SecurityFilterType b : SecurityFilterType.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
-    }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    return new SecurityFilterType(value);
   }
 }

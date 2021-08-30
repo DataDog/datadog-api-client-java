@@ -11,6 +11,7 @@
 package com.datadog.api.v2.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -33,6 +34,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IncidentCreateAttributes {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOMER_IMPACTED = "customer_impacted";
   private Boolean customerImpacted;
 
@@ -118,6 +120,9 @@ public class IncidentCreateAttributes {
   public IncidentCreateAttributes initialCells(
       List<IncidentTimelineCellCreateAttributes> initialCells) {
     this.initialCells = initialCells;
+    for (IncidentTimelineCellCreateAttributes item : initialCells) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -127,6 +132,7 @@ public class IncidentCreateAttributes {
       this.initialCells = new ArrayList<>();
     }
     this.initialCells.add(initialCellsItem);
+    this.unparsed |= initialCellsItem.unparsed;
     return this;
   }
 
@@ -153,6 +159,9 @@ public class IncidentCreateAttributes {
   public IncidentCreateAttributes notificationHandles(
       List<IncidentNotificationHandle> notificationHandles) {
     this.notificationHandles = notificationHandles;
+    for (IncidentNotificationHandle item : notificationHandles) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -162,6 +171,7 @@ public class IncidentCreateAttributes {
       this.notificationHandles = new ArrayList<>();
     }
     this.notificationHandles.add(notificationHandlesItem);
+    this.unparsed |= notificationHandlesItem.unparsed;
     return this;
   }
 

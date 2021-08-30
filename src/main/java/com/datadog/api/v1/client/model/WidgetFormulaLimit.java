@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -22,6 +23,7 @@ import java.util.Objects;
 @JsonPropertyOrder({WidgetFormulaLimit.JSON_PROPERTY_COUNT, WidgetFormulaLimit.JSON_PROPERTY_ORDER})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WidgetFormulaLimit {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COUNT = "count";
   private Long count;
 
@@ -52,6 +54,7 @@ public class WidgetFormulaLimit {
 
   public WidgetFormulaLimit order(QuerySortOrder order) {
     this.order = order;
+    this.unparsed |= !order.isValid();
     return this;
   }
 
@@ -69,6 +72,9 @@ public class WidgetFormulaLimit {
   }
 
   public void setOrder(QuerySortOrder order) {
+    if (!order.isValid()) {
+      this.unparsed = true;
+    }
     this.order = order;
   }
 

@@ -685,6 +685,7 @@ src/main/java/com/datadog/api/v2/client/model/SecurityMonitoringSignalsSort.java
 src/main/java/com/datadog/api/v2/client/model/ServiceAccountCreateAttributes.java
 src/main/java/com/datadog/api/v2/client/model/ServiceAccountCreateData.java
 src/main/java/com/datadog/api/v2/client/model/ServiceAccountCreateRequest.java
+src/main/java/com/datadog/api/v2/client/model/UnparsedObject.java
 src/main/java/com/datadog/api/v2/client/model/User.java
 src/main/java/com/datadog/api/v2/client/model/UserAttributes.java
 src/main/java/com/datadog/api/v2/client/model/UserCreateAttributes.java

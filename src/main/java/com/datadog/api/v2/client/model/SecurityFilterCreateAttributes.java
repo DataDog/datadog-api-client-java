@@ -11,6 +11,7 @@
 package com.datadog.api.v2.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -31,6 +32,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SecurityFilterCreateAttributes {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_EXCLUSION_FILTERS = "exclusion_filters";
   private List<SecurityFilterExclusionFilter> exclusionFilters = new ArrayList<>();
 
@@ -59,6 +61,7 @@ public class SecurityFilterCreateAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query) {
     this.exclusionFilters = exclusionFilters;
     this.filteredDataType = filteredDataType;
+    this.unparsed |= !filteredDataType.isValid();
     this.isEnabled = isEnabled;
     this.name = name;
     this.query = query;
@@ -67,12 +70,16 @@ public class SecurityFilterCreateAttributes {
   public SecurityFilterCreateAttributes exclusionFilters(
       List<SecurityFilterExclusionFilter> exclusionFilters) {
     this.exclusionFilters = exclusionFilters;
+    for (SecurityFilterExclusionFilter item : exclusionFilters) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
   public SecurityFilterCreateAttributes addExclusionFiltersItem(
       SecurityFilterExclusionFilter exclusionFiltersItem) {
     this.exclusionFilters.add(exclusionFiltersItem);
+    this.unparsed |= exclusionFiltersItem.unparsed;
     return this;
   }
 
@@ -98,6 +105,7 @@ public class SecurityFilterCreateAttributes {
   public SecurityFilterCreateAttributes filteredDataType(
       SecurityFilterFilteredDataType filteredDataType) {
     this.filteredDataType = filteredDataType;
+    this.unparsed |= !filteredDataType.isValid();
     return this;
   }
 
@@ -114,6 +122,9 @@ public class SecurityFilterCreateAttributes {
   }
 
   public void setFilteredDataType(SecurityFilterFilteredDataType filteredDataType) {
+    if (!filteredDataType.isValid()) {
+      this.unparsed = true;
+    }
     this.filteredDataType = filteredDataType;
   }
 

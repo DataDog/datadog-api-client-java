@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -42,6 +43,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsCITest {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ALLOW_INSECURE_CERTIFICATES =
       "allowInsecureCertificates";
   private Boolean allowInsecureCertificates;
@@ -117,6 +119,7 @@ public class SyntheticsCITest {
 
   public SyntheticsCITest basicAuth(SyntheticsBasicAuth basicAuth) {
     this.basicAuth = basicAuth;
+    this.unparsed |= basicAuth.unparsed;
     return this;
   }
 
@@ -213,6 +216,7 @@ public class SyntheticsCITest {
       this.deviceIds = new ArrayList<>();
     }
     this.deviceIds.add(deviceIdsItem);
+    this.unparsed |= !deviceIdsItem.isValid();
     return this;
   }
 
@@ -318,6 +322,7 @@ public class SyntheticsCITest {
 
   public SyntheticsCITest metadata(SyntheticsCITestMetadata metadata) {
     this.metadata = metadata;
+    this.unparsed |= metadata.unparsed;
     return this;
   }
 
@@ -364,6 +369,7 @@ public class SyntheticsCITest {
 
   public SyntheticsCITest retry(SyntheticsTestOptionsRetry retry) {
     this.retry = retry;
+    this.unparsed |= retry.unparsed;
     return this;
   }
 

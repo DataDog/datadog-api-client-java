@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,6 +31,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SLOCorrectionResponseAttributes {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CATEGORY = "category";
   private SLOCorrectionCategory category;
 
@@ -53,6 +55,7 @@ public class SLOCorrectionResponseAttributes {
 
   public SLOCorrectionResponseAttributes category(SLOCorrectionCategory category) {
     this.category = category;
+    this.unparsed |= !category.isValid();
     return this;
   }
 
@@ -70,11 +73,15 @@ public class SLOCorrectionResponseAttributes {
   }
 
   public void setCategory(SLOCorrectionCategory category) {
+    if (!category.isValid()) {
+      this.unparsed = true;
+    }
     this.category = category;
   }
 
   public SLOCorrectionResponseAttributes creator(Creator creator) {
     this.creator = creator;
+    this.unparsed |= creator.unparsed;
     return this;
   }
 

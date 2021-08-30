@@ -12,26 +12,79 @@ package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 /** Define how you want to align the text on the widget. */
-public enum WidgetTickEdge {
-  BOTTOM("bottom"),
+@JsonSerialize(using = WidgetTickEdge.WidgetTickEdgeSerializer.class)
+public class WidgetTickEdge {
 
-  LEFT("left"),
+  public static final WidgetTickEdge BOTTOM = new WidgetTickEdge("bottom");
+  public static final WidgetTickEdge LEFT = new WidgetTickEdge("left");
+  public static final WidgetTickEdge RIGHT = new WidgetTickEdge("right");
+  public static final WidgetTickEdge TOP = new WidgetTickEdge("top");
 
-  RIGHT("right"),
-
-  TOP("top");
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("bottom", "left", "right", "top"));
 
   private String value;
+
+  public boolean isValid() {
+    return allowedValues.contains(this.value);
+  }
 
   WidgetTickEdge(String value) {
     this.value = value;
   }
 
+  public static class WidgetTickEdgeSerializer extends StdSerializer<WidgetTickEdge> {
+    public WidgetTickEdgeSerializer(Class<WidgetTickEdge> t) {
+      super(t);
+    }
+
+    public WidgetTickEdgeSerializer() {
+      this(null);
+    }
+
+    @Override
+    public void serialize(WidgetTickEdge value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
+  }
+
   @JsonValue
   public String getValue() {
-    return value;
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  /** Return true if this WidgetTickEdge object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    return this.value.equals(((WidgetTickEdge) o).value);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(value);
   }
 
   @Override
@@ -41,11 +94,6 @@ public enum WidgetTickEdge {
 
   @JsonCreator
   public static WidgetTickEdge fromValue(String value) {
-    for (WidgetTickEdge b : WidgetTickEdge.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
-    }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    return new WidgetTickEdge(value);
   }
 }

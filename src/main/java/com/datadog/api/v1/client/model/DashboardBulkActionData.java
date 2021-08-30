@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -26,6 +27,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DashboardBulkActionData {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
@@ -40,6 +42,7 @@ public class DashboardBulkActionData {
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) DashboardResourceType type) {
     this.id = id;
     this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   public DashboardBulkActionData id(String id) {
@@ -65,6 +68,7 @@ public class DashboardBulkActionData {
 
   public DashboardBulkActionData type(DashboardResourceType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -81,6 +85,9 @@ public class DashboardBulkActionData {
   }
 
   public void setType(DashboardResourceType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

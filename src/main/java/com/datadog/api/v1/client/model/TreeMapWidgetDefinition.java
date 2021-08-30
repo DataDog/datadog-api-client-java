@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -42,6 +43,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TreeMapWidgetDefinition {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COLOR_BY = "color_by";
   private TreeMapColorBy colorBy = TreeMapColorBy.USER;
 
@@ -71,14 +73,19 @@ public class TreeMapWidgetDefinition {
       @JsonProperty(required = true, value = JSON_PROPERTY_SIZE_BY) TreeMapSizeBy sizeBy,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) TreeMapWidgetDefinitionType type) {
     this.colorBy = colorBy;
+    this.unparsed |= !colorBy.isValid();
     this.groupBy = groupBy;
+    this.unparsed |= !groupBy.isValid();
     this.requests = requests;
     this.sizeBy = sizeBy;
+    this.unparsed |= !sizeBy.isValid();
     this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   public TreeMapWidgetDefinition colorBy(TreeMapColorBy colorBy) {
     this.colorBy = colorBy;
+    this.unparsed |= !colorBy.isValid();
     return this;
   }
 
@@ -95,11 +102,15 @@ public class TreeMapWidgetDefinition {
   }
 
   public void setColorBy(TreeMapColorBy colorBy) {
+    if (!colorBy.isValid()) {
+      this.unparsed = true;
+    }
     this.colorBy = colorBy;
   }
 
   public TreeMapWidgetDefinition groupBy(TreeMapGroupBy groupBy) {
     this.groupBy = groupBy;
+    this.unparsed |= !groupBy.isValid();
     return this;
   }
 
@@ -116,16 +127,23 @@ public class TreeMapWidgetDefinition {
   }
 
   public void setGroupBy(TreeMapGroupBy groupBy) {
+    if (!groupBy.isValid()) {
+      this.unparsed = true;
+    }
     this.groupBy = groupBy;
   }
 
   public TreeMapWidgetDefinition requests(List<TreeMapWidgetRequest> requests) {
     this.requests = requests;
+    for (TreeMapWidgetRequest item : requests) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
   public TreeMapWidgetDefinition addRequestsItem(TreeMapWidgetRequest requestsItem) {
     this.requests.add(requestsItem);
+    this.unparsed |= requestsItem.unparsed;
     return this;
   }
 
@@ -150,6 +168,7 @@ public class TreeMapWidgetDefinition {
 
   public TreeMapWidgetDefinition sizeBy(TreeMapSizeBy sizeBy) {
     this.sizeBy = sizeBy;
+    this.unparsed |= !sizeBy.isValid();
     return this;
   }
 
@@ -166,6 +185,9 @@ public class TreeMapWidgetDefinition {
   }
 
   public void setSizeBy(TreeMapSizeBy sizeBy) {
+    if (!sizeBy.isValid()) {
+      this.unparsed = true;
+    }
     this.sizeBy = sizeBy;
   }
 
@@ -193,6 +215,7 @@ public class TreeMapWidgetDefinition {
 
   public TreeMapWidgetDefinition type(TreeMapWidgetDefinitionType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -209,6 +232,9 @@ public class TreeMapWidgetDefinition {
   }
 
   public void setType(TreeMapWidgetDefinitionType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

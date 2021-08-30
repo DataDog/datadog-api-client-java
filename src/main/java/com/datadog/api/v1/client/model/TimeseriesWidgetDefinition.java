@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -47,6 +48,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TimeseriesWidgetDefinition {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
   private List<WidgetCustomLink> customLinks = null;
 
@@ -102,10 +104,14 @@ public class TimeseriesWidgetDefinition {
           TimeseriesWidgetDefinitionType type) {
     this.requests = requests;
     this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   public TimeseriesWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
+    for (WidgetCustomLink item : customLinks) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -114,6 +120,7 @@ public class TimeseriesWidgetDefinition {
       this.customLinks = new ArrayList<>();
     }
     this.customLinks.add(customLinksItem);
+    this.unparsed |= customLinksItem.unparsed;
     return this;
   }
 
@@ -136,6 +143,9 @@ public class TimeseriesWidgetDefinition {
 
   public TimeseriesWidgetDefinition events(List<WidgetEvent> events) {
     this.events = events;
+    for (WidgetEvent item : events) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -144,6 +154,7 @@ public class TimeseriesWidgetDefinition {
       this.events = new ArrayList<>();
     }
     this.events.add(eventsItem);
+    this.unparsed |= eventsItem.unparsed;
     return this;
   }
 
@@ -176,6 +187,7 @@ public class TimeseriesWidgetDefinition {
       this.legendColumns = new ArrayList<>();
     }
     this.legendColumns.add(legendColumnsItem);
+    this.unparsed |= !legendColumnsItem.isValid();
     return this;
   }
 
@@ -198,6 +210,7 @@ public class TimeseriesWidgetDefinition {
 
   public TimeseriesWidgetDefinition legendLayout(TimeseriesWidgetLegendLayout legendLayout) {
     this.legendLayout = legendLayout;
+    this.unparsed |= !legendLayout.isValid();
     return this;
   }
 
@@ -215,6 +228,9 @@ public class TimeseriesWidgetDefinition {
   }
 
   public void setLegendLayout(TimeseriesWidgetLegendLayout legendLayout) {
+    if (!legendLayout.isValid()) {
+      this.unparsed = true;
+    }
     this.legendLayout = legendLayout;
   }
 
@@ -246,6 +262,9 @@ public class TimeseriesWidgetDefinition {
 
   public TimeseriesWidgetDefinition markers(List<WidgetMarker> markers) {
     this.markers = markers;
+    for (WidgetMarker item : markers) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -254,6 +273,7 @@ public class TimeseriesWidgetDefinition {
       this.markers = new ArrayList<>();
     }
     this.markers.add(markersItem);
+    this.unparsed |= markersItem.unparsed;
     return this;
   }
 
@@ -276,11 +296,15 @@ public class TimeseriesWidgetDefinition {
 
   public TimeseriesWidgetDefinition requests(List<TimeseriesWidgetRequest> requests) {
     this.requests = requests;
+    for (TimeseriesWidgetRequest item : requests) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
   public TimeseriesWidgetDefinition addRequestsItem(TimeseriesWidgetRequest requestsItem) {
     this.requests.add(requestsItem);
+    this.unparsed |= requestsItem.unparsed;
     return this;
   }
 
@@ -305,6 +329,7 @@ public class TimeseriesWidgetDefinition {
 
   public TimeseriesWidgetDefinition rightYaxis(WidgetAxis rightYaxis) {
     this.rightYaxis = rightYaxis;
+    this.unparsed |= rightYaxis.unparsed;
     return this;
   }
 
@@ -349,6 +374,7 @@ public class TimeseriesWidgetDefinition {
 
   public TimeseriesWidgetDefinition time(WidgetTime time) {
     this.time = time;
+    this.unparsed |= time.unparsed;
     return this;
   }
 
@@ -393,6 +419,7 @@ public class TimeseriesWidgetDefinition {
 
   public TimeseriesWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
+    this.unparsed |= !titleAlign.isValid();
     return this;
   }
 
@@ -410,6 +437,9 @@ public class TimeseriesWidgetDefinition {
   }
 
   public void setTitleAlign(WidgetTextAlign titleAlign) {
+    if (!titleAlign.isValid()) {
+      this.unparsed = true;
+    }
     this.titleAlign = titleAlign;
   }
 
@@ -437,6 +467,7 @@ public class TimeseriesWidgetDefinition {
 
   public TimeseriesWidgetDefinition type(TimeseriesWidgetDefinitionType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -453,11 +484,15 @@ public class TimeseriesWidgetDefinition {
   }
 
   public void setType(TimeseriesWidgetDefinitionType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 
   public TimeseriesWidgetDefinition yaxis(WidgetAxis yaxis) {
     this.yaxis = yaxis;
+    this.unparsed |= yaxis.unparsed;
     return this;
   }
 

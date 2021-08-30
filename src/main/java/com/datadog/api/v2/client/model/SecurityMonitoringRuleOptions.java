@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -28,6 +29,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SecurityMonitoringRuleOptions {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DETECTION_METHOD = "detectionMethod";
   private SecurityMonitoringRuleDetectionMethod detectionMethod;
 
@@ -46,6 +48,7 @@ public class SecurityMonitoringRuleOptions {
   public SecurityMonitoringRuleOptions detectionMethod(
       SecurityMonitoringRuleDetectionMethod detectionMethod) {
     this.detectionMethod = detectionMethod;
+    this.unparsed |= !detectionMethod.isValid();
     return this;
   }
 
@@ -63,12 +66,16 @@ public class SecurityMonitoringRuleOptions {
   }
 
   public void setDetectionMethod(SecurityMonitoringRuleDetectionMethod detectionMethod) {
+    if (!detectionMethod.isValid()) {
+      this.unparsed = true;
+    }
     this.detectionMethod = detectionMethod;
   }
 
   public SecurityMonitoringRuleOptions evaluationWindow(
       SecurityMonitoringRuleEvaluationWindow evaluationWindow) {
     this.evaluationWindow = evaluationWindow;
+    this.unparsed |= !evaluationWindow.isValid();
     return this;
   }
 
@@ -86,11 +93,15 @@ public class SecurityMonitoringRuleOptions {
   }
 
   public void setEvaluationWindow(SecurityMonitoringRuleEvaluationWindow evaluationWindow) {
+    if (!evaluationWindow.isValid()) {
+      this.unparsed = true;
+    }
     this.evaluationWindow = evaluationWindow;
   }
 
   public SecurityMonitoringRuleOptions keepAlive(SecurityMonitoringRuleKeepAlive keepAlive) {
     this.keepAlive = keepAlive;
+    this.unparsed |= !keepAlive.isValid();
     return this;
   }
 
@@ -108,12 +119,16 @@ public class SecurityMonitoringRuleOptions {
   }
 
   public void setKeepAlive(SecurityMonitoringRuleKeepAlive keepAlive) {
+    if (!keepAlive.isValid()) {
+      this.unparsed = true;
+    }
     this.keepAlive = keepAlive;
   }
 
   public SecurityMonitoringRuleOptions maxSignalDuration(
       SecurityMonitoringRuleMaxSignalDuration maxSignalDuration) {
     this.maxSignalDuration = maxSignalDuration;
+    this.unparsed |= !maxSignalDuration.isValid();
     return this;
   }
 
@@ -131,12 +146,16 @@ public class SecurityMonitoringRuleOptions {
   }
 
   public void setMaxSignalDuration(SecurityMonitoringRuleMaxSignalDuration maxSignalDuration) {
+    if (!maxSignalDuration.isValid()) {
+      this.unparsed = true;
+    }
     this.maxSignalDuration = maxSignalDuration;
   }
 
   public SecurityMonitoringRuleOptions newValueOptions(
       SecurityMonitoringRuleNewValueOptions newValueOptions) {
     this.newValueOptions = newValueOptions;
+    this.unparsed |= newValueOptions.unparsed;
     return this;
   }
 

@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -24,12 +25,16 @@ import java.util.Objects;
 @JsonPropertyOrder({DashboardListAddItemsResponse.JSON_PROPERTY_ADDED_DASHBOARDS_TO_LIST})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DashboardListAddItemsResponse {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ADDED_DASHBOARDS_TO_LIST = "added_dashboards_to_list";
   private List<DashboardListItemResponse> addedDashboardsToList = null;
 
   public DashboardListAddItemsResponse addedDashboardsToList(
       List<DashboardListItemResponse> addedDashboardsToList) {
     this.addedDashboardsToList = addedDashboardsToList;
+    for (DashboardListItemResponse item : addedDashboardsToList) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -39,6 +44,7 @@ public class DashboardListAddItemsResponse {
       this.addedDashboardsToList = new ArrayList<>();
     }
     this.addedDashboardsToList.add(addedDashboardsToListItem);
+    this.unparsed |= addedDashboardsToListItem.unparsed;
     return this;
   }
 

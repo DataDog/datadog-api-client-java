@@ -12,20 +12,78 @@ package com.datadog.api.v2.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 /** User invitations type. */
-public enum UserInvitationsType {
-  USER_INVITATIONS("user_invitations");
+@JsonSerialize(using = UserInvitationsType.UserInvitationsTypeSerializer.class)
+public class UserInvitationsType {
+
+  public static final UserInvitationsType USER_INVITATIONS =
+      new UserInvitationsType("user_invitations");
+
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("user_invitations"));
 
   private String value;
+
+  public boolean isValid() {
+    return allowedValues.contains(this.value);
+  }
 
   UserInvitationsType(String value) {
     this.value = value;
   }
 
+  public static class UserInvitationsTypeSerializer extends StdSerializer<UserInvitationsType> {
+    public UserInvitationsTypeSerializer(Class<UserInvitationsType> t) {
+      super(t);
+    }
+
+    public UserInvitationsTypeSerializer() {
+      this(null);
+    }
+
+    @Override
+    public void serialize(
+        UserInvitationsType value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
+  }
+
   @JsonValue
   public String getValue() {
-    return value;
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  /** Return true if this UserInvitationsType object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    return this.value.equals(((UserInvitationsType) o).value);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(value);
   }
 
   @Override
@@ -35,11 +93,6 @@ public enum UserInvitationsType {
 
   @JsonCreator
   public static UserInvitationsType fromValue(String value) {
-    for (UserInvitationsType b : UserInvitationsType.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
-    }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    return new UserInvitationsType(value);
   }
 }

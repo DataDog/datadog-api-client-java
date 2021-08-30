@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -32,6 +33,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsIndex {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DAILY_LIMIT = "daily_limit";
   private Long dailyLimit;
 
@@ -57,6 +59,7 @@ public class LogsIndex {
       @JsonProperty(required = true, value = JSON_PROPERTY_FILTER) LogsFilter filter,
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
     this.filter = filter;
+    this.unparsed |= filter.unparsed;
     this.name = name;
   }
 
@@ -88,6 +91,9 @@ public class LogsIndex {
 
   public LogsIndex exclusionFilters(List<LogsExclusion> exclusionFilters) {
     this.exclusionFilters = exclusionFilters;
+    for (LogsExclusion item : exclusionFilters) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -96,6 +102,7 @@ public class LogsIndex {
       this.exclusionFilters = new ArrayList<>();
     }
     this.exclusionFilters.add(exclusionFiltersItem);
+    this.unparsed |= exclusionFiltersItem.unparsed;
     return this;
   }
 
@@ -124,6 +131,7 @@ public class LogsIndex {
 
   public LogsIndex filter(LogsFilter filter) {
     this.filter = filter;
+    this.unparsed |= filter.unparsed;
     return this;
   }
 

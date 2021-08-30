@@ -11,6 +11,7 @@
 package com.datadog.api.v2.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -27,6 +28,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class APIKeyUpdateData {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private APIKeyUpdateAttributes attributes;
 
@@ -45,12 +47,15 @@ public class APIKeyUpdateData {
       @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) APIKeysType type) {
     this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
     this.id = id;
     this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   public APIKeyUpdateData attributes(APIKeyUpdateAttributes attributes) {
     this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
     return this;
   }
 
@@ -96,6 +101,7 @@ public class APIKeyUpdateData {
 
   public APIKeyUpdateData type(APIKeysType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -112,6 +118,9 @@ public class APIKeyUpdateData {
   }
 
   public void setType(APIKeysType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -27,6 +28,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageTopAvgMetricsHour {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AVG_METRIC_HOUR = "avg_metric_hour";
   private Long avgMetricHour;
 
@@ -85,6 +87,7 @@ public class UsageTopAvgMetricsHour {
 
   public UsageTopAvgMetricsHour metricCategory(UsageMetricCategory metricCategory) {
     this.metricCategory = metricCategory;
+    this.unparsed |= !metricCategory.isValid();
     return this;
   }
 
@@ -102,6 +105,9 @@ public class UsageTopAvgMetricsHour {
   }
 
   public void setMetricCategory(UsageMetricCategory metricCategory) {
+    if (!metricCategory.isValid()) {
+      this.unparsed = true;
+    }
     this.metricCategory = metricCategory;
   }
 

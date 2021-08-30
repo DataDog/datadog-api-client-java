@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -41,6 +42,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ToplistWidgetDefinition {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
   private List<WidgetCustomLink> customLinks = null;
 
@@ -71,10 +73,14 @@ public class ToplistWidgetDefinition {
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) ToplistWidgetDefinitionType type) {
     this.requests = requests;
     this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   public ToplistWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
+    for (WidgetCustomLink item : customLinks) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -83,6 +89,7 @@ public class ToplistWidgetDefinition {
       this.customLinks = new ArrayList<>();
     }
     this.customLinks.add(customLinksItem);
+    this.unparsed |= customLinksItem.unparsed;
     return this;
   }
 
@@ -105,11 +112,15 @@ public class ToplistWidgetDefinition {
 
   public ToplistWidgetDefinition requests(List<ToplistWidgetRequest> requests) {
     this.requests = requests;
+    for (ToplistWidgetRequest item : requests) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
   public ToplistWidgetDefinition addRequestsItem(ToplistWidgetRequest requestsItem) {
     this.requests.add(requestsItem);
+    this.unparsed |= requestsItem.unparsed;
     return this;
   }
 
@@ -134,6 +145,7 @@ public class ToplistWidgetDefinition {
 
   public ToplistWidgetDefinition time(WidgetTime time) {
     this.time = time;
+    this.unparsed |= time.unparsed;
     return this;
   }
 
@@ -178,6 +190,7 @@ public class ToplistWidgetDefinition {
 
   public ToplistWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
+    this.unparsed |= !titleAlign.isValid();
     return this;
   }
 
@@ -195,6 +208,9 @@ public class ToplistWidgetDefinition {
   }
 
   public void setTitleAlign(WidgetTextAlign titleAlign) {
+    if (!titleAlign.isValid()) {
+      this.unparsed = true;
+    }
     this.titleAlign = titleAlign;
   }
 
@@ -222,6 +238,7 @@ public class ToplistWidgetDefinition {
 
   public ToplistWidgetDefinition type(ToplistWidgetDefinitionType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -238,6 +255,9 @@ public class ToplistWidgetDefinition {
   }
 
   public void setType(ToplistWidgetDefinitionType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

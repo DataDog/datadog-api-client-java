@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -42,6 +43,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsStepDetail {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BROWSER_ERRORS = "browserErrors";
   private List<SyntheticsBrowserError> browserErrors = null;
 
@@ -95,6 +97,9 @@ public class SyntheticsStepDetail {
 
   public SyntheticsStepDetail browserErrors(List<SyntheticsBrowserError> browserErrors) {
     this.browserErrors = browserErrors;
+    for (SyntheticsBrowserError item : browserErrors) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -103,6 +108,7 @@ public class SyntheticsStepDetail {
       this.browserErrors = new ArrayList<>();
     }
     this.browserErrors.add(browserErrorsItem);
+    this.unparsed |= browserErrorsItem.unparsed;
     return this;
   }
 
@@ -125,6 +131,7 @@ public class SyntheticsStepDetail {
 
   public SyntheticsStepDetail checkType(SyntheticsCheckType checkType) {
     this.checkType = checkType;
+    this.unparsed |= !checkType.isValid();
     return this;
   }
 
@@ -142,6 +149,9 @@ public class SyntheticsStepDetail {
   }
 
   public void setCheckType(SyntheticsCheckType checkType) {
+    if (!checkType.isValid()) {
+      this.unparsed = true;
+    }
     this.checkType = checkType;
   }
 
@@ -213,6 +223,7 @@ public class SyntheticsStepDetail {
 
   public SyntheticsStepDetail playingTab(SyntheticsPlayingTab playingTab) {
     this.playingTab = playingTab;
+    this.unparsed |= !playingTab.isValid();
     return this;
   }
 
@@ -230,6 +241,9 @@ public class SyntheticsStepDetail {
   }
 
   public void setPlayingTab(SyntheticsPlayingTab playingTab) {
+    if (!playingTab.isValid()) {
+      this.unparsed = true;
+    }
     this.playingTab = playingTab;
   }
 
@@ -323,6 +337,9 @@ public class SyntheticsStepDetail {
 
   public SyntheticsStepDetail subTestStepDetails(List<SyntheticsStepDetail> subTestStepDetails) {
     this.subTestStepDetails = subTestStepDetails;
+    for (SyntheticsStepDetail item : subTestStepDetails) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -332,6 +349,7 @@ public class SyntheticsStepDetail {
       this.subTestStepDetails = new ArrayList<>();
     }
     this.subTestStepDetails.add(subTestStepDetailsItem);
+    this.unparsed |= subTestStepDetailsItem.unparsed;
     return this;
   }
 
@@ -380,6 +398,7 @@ public class SyntheticsStepDetail {
 
   public SyntheticsStepDetail type(SyntheticsStepType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -397,6 +416,9 @@ public class SyntheticsStepDetail {
   }
 
   public void setType(SyntheticsStepType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 
@@ -446,6 +468,9 @@ public class SyntheticsStepDetail {
 
   public SyntheticsStepDetail vitalsMetrics(List<SyntheticsCoreWebVitals> vitalsMetrics) {
     this.vitalsMetrics = vitalsMetrics;
+    for (SyntheticsCoreWebVitals item : vitalsMetrics) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -454,6 +479,7 @@ public class SyntheticsStepDetail {
       this.vitalsMetrics = new ArrayList<>();
     }
     this.vitalsMetrics.add(vitalsMetricsItem);
+    this.unparsed |= vitalsMetricsItem.unparsed;
     return this;
   }
 
@@ -476,6 +502,9 @@ public class SyntheticsStepDetail {
 
   public SyntheticsStepDetail warnings(List<SyntheticsStepDetailWarning> warnings) {
     this.warnings = warnings;
+    for (SyntheticsStepDetailWarning item : warnings) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -484,6 +513,7 @@ public class SyntheticsStepDetail {
       this.warnings = new ArrayList<>();
     }
     this.warnings.add(warningsItem);
+    this.unparsed |= warningsItem.unparsed;
     return this;
   }
 

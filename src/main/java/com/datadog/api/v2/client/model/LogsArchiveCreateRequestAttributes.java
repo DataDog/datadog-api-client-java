@@ -11,6 +11,7 @@
 package com.datadog.api.v2.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -31,6 +32,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsArchiveCreateRequestAttributes {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DESTINATION = "destination";
   private LogsArchiveCreateRequestDestination destination;
 
@@ -55,6 +57,7 @@ public class LogsArchiveCreateRequestAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
       @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query) {
     this.destination = destination;
+    this.unparsed |= destination.unparsed;
     this.name = name;
     this.query = query;
   }
@@ -62,6 +65,7 @@ public class LogsArchiveCreateRequestAttributes {
   public LogsArchiveCreateRequestAttributes destination(
       LogsArchiveCreateRequestDestination destination) {
     this.destination = destination;
+    this.unparsed |= destination.unparsed;
     return this;
   }
 

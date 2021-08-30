@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -45,6 +46,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DistributionWidgetDefinition {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_LEGEND_SIZE = "legend_size";
   private String legendSize;
 
@@ -88,6 +90,7 @@ public class DistributionWidgetDefinition {
           DistributionWidgetDefinitionType type) {
     this.requests = requests;
     this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   public DistributionWidgetDefinition legendSize(String legendSize) {
@@ -114,6 +117,9 @@ public class DistributionWidgetDefinition {
 
   public DistributionWidgetDefinition markers(List<WidgetMarker> markers) {
     this.markers = markers;
+    for (WidgetMarker item : markers) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -122,6 +128,7 @@ public class DistributionWidgetDefinition {
       this.markers = new ArrayList<>();
     }
     this.markers.add(markersItem);
+    this.unparsed |= markersItem.unparsed;
     return this;
   }
 
@@ -144,11 +151,15 @@ public class DistributionWidgetDefinition {
 
   public DistributionWidgetDefinition requests(List<DistributionWidgetRequest> requests) {
     this.requests = requests;
+    for (DistributionWidgetRequest item : requests) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
   public DistributionWidgetDefinition addRequestsItem(DistributionWidgetRequest requestsItem) {
     this.requests.add(requestsItem);
+    this.unparsed |= requestsItem.unparsed;
     return this;
   }
 
@@ -201,6 +212,7 @@ public class DistributionWidgetDefinition {
 
   public DistributionWidgetDefinition time(WidgetTime time) {
     this.time = time;
+    this.unparsed |= time.unparsed;
     return this;
   }
 
@@ -245,6 +257,7 @@ public class DistributionWidgetDefinition {
 
   public DistributionWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
+    this.unparsed |= !titleAlign.isValid();
     return this;
   }
 
@@ -262,6 +275,9 @@ public class DistributionWidgetDefinition {
   }
 
   public void setTitleAlign(WidgetTextAlign titleAlign) {
+    if (!titleAlign.isValid()) {
+      this.unparsed = true;
+    }
     this.titleAlign = titleAlign;
   }
 
@@ -289,6 +305,7 @@ public class DistributionWidgetDefinition {
 
   public DistributionWidgetDefinition type(DistributionWidgetDefinitionType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -305,11 +322,15 @@ public class DistributionWidgetDefinition {
   }
 
   public void setType(DistributionWidgetDefinitionType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 
   public DistributionWidgetDefinition xaxis(DistributionWidgetXAxis xaxis) {
     this.xaxis = xaxis;
+    this.unparsed |= xaxis.unparsed;
     return this;
   }
 
@@ -332,6 +353,7 @@ public class DistributionWidgetDefinition {
 
   public DistributionWidgetDefinition yaxis(DistributionWidgetYAxis yaxis) {
     this.yaxis = yaxis;
+    this.unparsed |= yaxis.unparsed;
     return this;
   }
 

@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -24,11 +25,15 @@ import java.util.Objects;
 @JsonPropertyOrder({SyntheticsDeleteTestsResponse.JSON_PROPERTY_DELETED_TESTS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsDeleteTestsResponse {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DELETED_TESTS = "deleted_tests";
   private List<SyntheticsDeletedTest> deletedTests = null;
 
   public SyntheticsDeleteTestsResponse deletedTests(List<SyntheticsDeletedTest> deletedTests) {
     this.deletedTests = deletedTests;
+    for (SyntheticsDeletedTest item : deletedTests) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -37,6 +42,7 @@ public class SyntheticsDeleteTestsResponse {
       this.deletedTests = new ArrayList<>();
     }
     this.deletedTests.add(deletedTestsItem);
+    this.unparsed |= deletedTestsItem.unparsed;
     return this;
   }
 

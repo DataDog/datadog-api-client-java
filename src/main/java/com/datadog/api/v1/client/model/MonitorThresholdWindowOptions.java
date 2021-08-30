@@ -27,6 +27,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MonitorThresholdWindowOptions {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_RECOVERY_WINDOW = "recovery_window";
   private JsonNullable<String> recoveryWindow = JsonNullable.<String>undefined();
 

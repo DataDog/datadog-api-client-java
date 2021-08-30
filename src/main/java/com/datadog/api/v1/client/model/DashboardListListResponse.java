@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -24,11 +25,15 @@ import java.util.Objects;
 @JsonPropertyOrder({DashboardListListResponse.JSON_PROPERTY_DASHBOARD_LISTS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DashboardListListResponse {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DASHBOARD_LISTS = "dashboard_lists";
   private List<DashboardList> dashboardLists = null;
 
   public DashboardListListResponse dashboardLists(List<DashboardList> dashboardLists) {
     this.dashboardLists = dashboardLists;
+    for (DashboardList item : dashboardLists) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -37,6 +42,7 @@ public class DashboardListListResponse {
       this.dashboardLists = new ArrayList<>();
     }
     this.dashboardLists.add(dashboardListsItem);
+    this.unparsed |= dashboardListsItem.unparsed;
     return this;
   }
 

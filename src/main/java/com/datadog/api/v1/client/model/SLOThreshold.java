@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -29,6 +30,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SLOThreshold {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_TARGET = "target";
   private Double target;
 
@@ -52,6 +54,7 @@ public class SLOThreshold {
       @JsonProperty(required = true, value = JSON_PROPERTY_TIMEFRAME) SLOTimeframe timeframe) {
     this.target = target;
     this.timeframe = timeframe;
+    this.unparsed |= !timeframe.isValid();
   }
 
   public SLOThreshold target(Double target) {
@@ -110,6 +113,7 @@ public class SLOThreshold {
 
   public SLOThreshold timeframe(SLOTimeframe timeframe) {
     this.timeframe = timeframe;
+    this.unparsed |= !timeframe.isValid();
     return this;
   }
 
@@ -126,6 +130,9 @@ public class SLOThreshold {
   }
 
   public void setTimeframe(SLOTimeframe timeframe) {
+    if (!timeframe.isValid()) {
+      this.unparsed = true;
+    }
     this.timeframe = timeframe;
   }
 

@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -27,6 +28,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MonitorSearchResponse {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COUNTS = "counts";
   private MonitorSearchResponseCounts counts;
 
@@ -38,6 +40,7 @@ public class MonitorSearchResponse {
 
   public MonitorSearchResponse counts(MonitorSearchResponseCounts counts) {
     this.counts = counts;
+    this.unparsed |= counts.unparsed;
     return this;
   }
 
@@ -60,6 +63,7 @@ public class MonitorSearchResponse {
 
   public MonitorSearchResponse metadata(MonitorSearchResponseMetadata metadata) {
     this.metadata = metadata;
+    this.unparsed |= metadata.unparsed;
     return this;
   }
 

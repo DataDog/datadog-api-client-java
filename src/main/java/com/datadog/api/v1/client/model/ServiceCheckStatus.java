@@ -12,26 +12,78 @@ package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 /** The status of a service check. */
-public enum ServiceCheckStatus {
-  OK(0),
+@JsonSerialize(using = ServiceCheckStatus.ServiceCheckStatusSerializer.class)
+public class ServiceCheckStatus {
 
-  WARNING(1),
+  public static final ServiceCheckStatus OK = new ServiceCheckStatus(0);
+  public static final ServiceCheckStatus WARNING = new ServiceCheckStatus(1);
+  public static final ServiceCheckStatus CRITICAL = new ServiceCheckStatus(2);
+  public static final ServiceCheckStatus UNKNOWN = new ServiceCheckStatus(3);
 
-  CRITICAL(2),
-
-  UNKNOWN(3);
+  private static final Set<Integer> allowedValues = new HashSet<Integer>(Arrays.asList(0, 1, 2, 3));
 
   private Integer value;
+
+  public boolean isValid() {
+    return allowedValues.contains(this.value);
+  }
 
   ServiceCheckStatus(Integer value) {
     this.value = value;
   }
 
+  public static class ServiceCheckStatusSerializer extends StdSerializer<ServiceCheckStatus> {
+    public ServiceCheckStatusSerializer(Class<ServiceCheckStatus> t) {
+      super(t);
+    }
+
+    public ServiceCheckStatusSerializer() {
+      this(null);
+    }
+
+    @Override
+    public void serialize(ServiceCheckStatus value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
+  }
+
   @JsonValue
   public Integer getValue() {
-    return value;
+    return this.value;
+  }
+
+  public void setValue(Integer value) {
+    this.value = value;
+  }
+
+  /** Return true if this ServiceCheckStatus object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    return this.value.equals(((ServiceCheckStatus) o).value);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(value);
   }
 
   @Override
@@ -41,11 +93,6 @@ public enum ServiceCheckStatus {
 
   @JsonCreator
   public static ServiceCheckStatus fromValue(Integer value) {
-    for (ServiceCheckStatus b : ServiceCheckStatus.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
-    }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    return new ServiceCheckStatus(value);
   }
 }

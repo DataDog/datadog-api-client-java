@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -32,6 +33,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GeomapWidgetRequest {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FORMULAS = "formulas";
   private List<WidgetFormula> formulas = null;
 
@@ -55,6 +57,9 @@ public class GeomapWidgetRequest {
 
   public GeomapWidgetRequest formulas(List<WidgetFormula> formulas) {
     this.formulas = formulas;
+    for (WidgetFormula item : formulas) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -63,6 +68,7 @@ public class GeomapWidgetRequest {
       this.formulas = new ArrayList<>();
     }
     this.formulas.add(formulasItem);
+    this.unparsed |= formulasItem.unparsed;
     return this;
   }
 
@@ -86,6 +92,7 @@ public class GeomapWidgetRequest {
 
   public GeomapWidgetRequest logQuery(LogQueryDefinition logQuery) {
     this.logQuery = logQuery;
+    this.unparsed |= logQuery.unparsed;
     return this;
   }
 
@@ -130,6 +137,9 @@ public class GeomapWidgetRequest {
 
   public GeomapWidgetRequest queries(List<FormulaAndFunctionQueryDefinition> queries) {
     this.queries = queries;
+    for (FormulaAndFunctionQueryDefinition item : queries) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -138,6 +148,7 @@ public class GeomapWidgetRequest {
       this.queries = new ArrayList<>();
     }
     this.queries.add(queriesItem);
+    this.unparsed |= queriesItem.unparsed;
     return this;
   }
 
@@ -164,6 +175,7 @@ public class GeomapWidgetRequest {
 
   public GeomapWidgetRequest responseFormat(FormulaAndFunctionResponseFormat responseFormat) {
     this.responseFormat = responseFormat;
+    this.unparsed |= !responseFormat.isValid();
     return this;
   }
 
@@ -181,11 +193,15 @@ public class GeomapWidgetRequest {
   }
 
   public void setResponseFormat(FormulaAndFunctionResponseFormat responseFormat) {
+    if (!responseFormat.isValid()) {
+      this.unparsed = true;
+    }
     this.responseFormat = responseFormat;
   }
 
   public GeomapWidgetRequest rumQuery(LogQueryDefinition rumQuery) {
     this.rumQuery = rumQuery;
+    this.unparsed |= rumQuery.unparsed;
     return this;
   }
 
@@ -208,6 +224,7 @@ public class GeomapWidgetRequest {
 
   public GeomapWidgetRequest securityQuery(LogQueryDefinition securityQuery) {
     this.securityQuery = securityQuery;
+    this.unparsed |= securityQuery.unparsed;
     return this;
   }
 

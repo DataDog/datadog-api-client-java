@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -34,6 +35,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageAttributionBody {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_MONTH = "month";
   private OffsetDateTime month;
 
@@ -206,6 +208,7 @@ public class UsageAttributionBody {
 
   public UsageAttributionBody values(UsageAttributionValues values) {
     this.values = values;
+    this.unparsed |= values.unparsed;
     return this;
   }
 

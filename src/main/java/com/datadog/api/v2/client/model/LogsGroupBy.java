@@ -11,6 +11,7 @@
 package com.datadog.api.v2.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,6 +31,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsGroupBy {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FACET = "facet";
   private String facet;
 
@@ -81,6 +83,7 @@ public class LogsGroupBy {
 
   public LogsGroupBy histogram(LogsGroupByHistogram histogram) {
     this.histogram = histogram;
+    this.unparsed |= histogram.unparsed;
     return this;
   }
 
@@ -125,6 +128,7 @@ public class LogsGroupBy {
 
   public LogsGroupBy missing(LogsGroupByMissing missing) {
     this.missing = missing;
+    this.unparsed |= missing.unparsed;
     return this;
   }
 
@@ -147,6 +151,7 @@ public class LogsGroupBy {
 
   public LogsGroupBy sort(LogsAggregateSort sort) {
     this.sort = sort;
+    this.unparsed |= sort.unparsed;
     return this;
   }
 
@@ -169,6 +174,7 @@ public class LogsGroupBy {
 
   public LogsGroupBy total(LogsGroupByTotal total) {
     this.total = total;
+    this.unparsed |= total.unparsed;
     return this;
   }
 

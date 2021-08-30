@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import java.util.ArrayList;
@@ -21,6 +22,7 @@ import java.util.Objects;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsAggregateBucketValueTimeseries
     extends ArrayList<LogsAggregateBucketValueTimeseriesPoint> {
+  @JsonIgnore public boolean unparsed = false;
 
   /** Return true if this LogsAggregateBucketValueTimeseries object is equal to o. */
   @Override

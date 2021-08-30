@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.datadog.api.v1.client.JSON;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -19,6 +20,7 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -41,6 +43,8 @@ import javax.ws.rs.core.GenericType;
 public class NotebookCellResponseAttributes extends AbstractOpenApiSchema {
   private static final Logger log =
       Logger.getLogger(NotebookCellResponseAttributes.class.getName());
+
+  @JsonIgnore public boolean unparsed = false;
 
   public static class NotebookCellResponseAttributesSerializer
       extends StdSerializer<NotebookCellResponseAttributes> {
@@ -75,142 +79,10 @@ public class NotebookCellResponseAttributes extends AbstractOpenApiSchema {
         throws IOException, JsonProcessingException {
       JsonNode tree = jp.readValueAsTree();
       Object deserialized = null;
+      Object tmp = null;
       boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
       int match = 0;
       JsonToken token = tree.traverse(jp.getCodec()).nextToken();
-      // deserialize NotebookDistributionCellAttributes
-      try {
-        boolean attemptParsing = true;
-        // ensure that we respect type coercion as set on the client ObjectMapper
-        if (NotebookDistributionCellAttributes.class.equals(Integer.class)
-            || NotebookDistributionCellAttributes.class.equals(Long.class)
-            || NotebookDistributionCellAttributes.class.equals(Float.class)
-            || NotebookDistributionCellAttributes.class.equals(Double.class)
-            || NotebookDistributionCellAttributes.class.equals(Boolean.class)
-            || NotebookDistributionCellAttributes.class.equals(String.class)) {
-          attemptParsing = typeCoercion;
-          if (!attemptParsing) {
-            attemptParsing |=
-                ((NotebookDistributionCellAttributes.class.equals(Integer.class)
-                        || NotebookDistributionCellAttributes.class.equals(Long.class))
-                    && token == JsonToken.VALUE_NUMBER_INT);
-            attemptParsing |=
-                ((NotebookDistributionCellAttributes.class.equals(Float.class)
-                        || NotebookDistributionCellAttributes.class.equals(Double.class))
-                    && (token == JsonToken.VALUE_NUMBER_FLOAT
-                        || token == JsonToken.VALUE_NUMBER_INT));
-            attemptParsing |=
-                (NotebookDistributionCellAttributes.class.equals(Boolean.class)
-                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-            attemptParsing |=
-                (NotebookDistributionCellAttributes.class.equals(String.class)
-                    && token == JsonToken.VALUE_STRING);
-          }
-        }
-        if (attemptParsing) {
-          deserialized =
-              tree.traverse(jp.getCodec()).readValueAs(NotebookDistributionCellAttributes.class);
-          // TODO: there is no validation against JSON schema constraints
-          // (min, max, enum, pattern...), this does not perform a strict JSON
-          // validation, which means the 'match' count may be higher than it should be.
-          match++;
-          log.log(Level.FINER, "Input data matches schema 'NotebookDistributionCellAttributes'");
-        }
-      } catch (Exception e) {
-        // deserialization failed, continue
-        log.log(
-            Level.FINER,
-            "Input data does not match schema 'NotebookDistributionCellAttributes'",
-            e);
-      }
-
-      // deserialize NotebookHeatMapCellAttributes
-      try {
-        boolean attemptParsing = true;
-        // ensure that we respect type coercion as set on the client ObjectMapper
-        if (NotebookHeatMapCellAttributes.class.equals(Integer.class)
-            || NotebookHeatMapCellAttributes.class.equals(Long.class)
-            || NotebookHeatMapCellAttributes.class.equals(Float.class)
-            || NotebookHeatMapCellAttributes.class.equals(Double.class)
-            || NotebookHeatMapCellAttributes.class.equals(Boolean.class)
-            || NotebookHeatMapCellAttributes.class.equals(String.class)) {
-          attemptParsing = typeCoercion;
-          if (!attemptParsing) {
-            attemptParsing |=
-                ((NotebookHeatMapCellAttributes.class.equals(Integer.class)
-                        || NotebookHeatMapCellAttributes.class.equals(Long.class))
-                    && token == JsonToken.VALUE_NUMBER_INT);
-            attemptParsing |=
-                ((NotebookHeatMapCellAttributes.class.equals(Float.class)
-                        || NotebookHeatMapCellAttributes.class.equals(Double.class))
-                    && (token == JsonToken.VALUE_NUMBER_FLOAT
-                        || token == JsonToken.VALUE_NUMBER_INT));
-            attemptParsing |=
-                (NotebookHeatMapCellAttributes.class.equals(Boolean.class)
-                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-            attemptParsing |=
-                (NotebookHeatMapCellAttributes.class.equals(String.class)
-                    && token == JsonToken.VALUE_STRING);
-          }
-        }
-        if (attemptParsing) {
-          deserialized =
-              tree.traverse(jp.getCodec()).readValueAs(NotebookHeatMapCellAttributes.class);
-          // TODO: there is no validation against JSON schema constraints
-          // (min, max, enum, pattern...), this does not perform a strict JSON
-          // validation, which means the 'match' count may be higher than it should be.
-          match++;
-          log.log(Level.FINER, "Input data matches schema 'NotebookHeatMapCellAttributes'");
-        }
-      } catch (Exception e) {
-        // deserialization failed, continue
-        log.log(Level.FINER, "Input data does not match schema 'NotebookHeatMapCellAttributes'", e);
-      }
-
-      // deserialize NotebookLogStreamCellAttributes
-      try {
-        boolean attemptParsing = true;
-        // ensure that we respect type coercion as set on the client ObjectMapper
-        if (NotebookLogStreamCellAttributes.class.equals(Integer.class)
-            || NotebookLogStreamCellAttributes.class.equals(Long.class)
-            || NotebookLogStreamCellAttributes.class.equals(Float.class)
-            || NotebookLogStreamCellAttributes.class.equals(Double.class)
-            || NotebookLogStreamCellAttributes.class.equals(Boolean.class)
-            || NotebookLogStreamCellAttributes.class.equals(String.class)) {
-          attemptParsing = typeCoercion;
-          if (!attemptParsing) {
-            attemptParsing |=
-                ((NotebookLogStreamCellAttributes.class.equals(Integer.class)
-                        || NotebookLogStreamCellAttributes.class.equals(Long.class))
-                    && token == JsonToken.VALUE_NUMBER_INT);
-            attemptParsing |=
-                ((NotebookLogStreamCellAttributes.class.equals(Float.class)
-                        || NotebookLogStreamCellAttributes.class.equals(Double.class))
-                    && (token == JsonToken.VALUE_NUMBER_FLOAT
-                        || token == JsonToken.VALUE_NUMBER_INT));
-            attemptParsing |=
-                (NotebookLogStreamCellAttributes.class.equals(Boolean.class)
-                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-            attemptParsing |=
-                (NotebookLogStreamCellAttributes.class.equals(String.class)
-                    && token == JsonToken.VALUE_STRING);
-          }
-        }
-        if (attemptParsing) {
-          deserialized =
-              tree.traverse(jp.getCodec()).readValueAs(NotebookLogStreamCellAttributes.class);
-          // TODO: there is no validation against JSON schema constraints
-          // (min, max, enum, pattern...), this does not perform a strict JSON
-          // validation, which means the 'match' count may be higher than it should be.
-          match++;
-          log.log(Level.FINER, "Input data matches schema 'NotebookLogStreamCellAttributes'");
-        }
-      } catch (Exception e) {
-        // deserialization failed, continue
-        log.log(
-            Level.FINER, "Input data does not match schema 'NotebookLogStreamCellAttributes'", e);
-      }
-
       // deserialize NotebookMarkdownCellAttributes
       try {
         boolean attemptParsing = true;
@@ -241,12 +113,14 @@ public class NotebookCellResponseAttributes extends AbstractOpenApiSchema {
           }
         }
         if (attemptParsing) {
-          deserialized =
-              tree.traverse(jp.getCodec()).readValueAs(NotebookMarkdownCellAttributes.class);
+          tmp = tree.traverse(jp.getCodec()).readValueAs(NotebookMarkdownCellAttributes.class);
           // TODO: there is no validation against JSON schema constraints
           // (min, max, enum, pattern...), this does not perform a strict JSON
           // validation, which means the 'match' count may be higher than it should be.
-          match++;
+          if (!((NotebookMarkdownCellAttributes) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
           log.log(Level.FINER, "Input data matches schema 'NotebookMarkdownCellAttributes'");
         }
       } catch (Exception e) {
@@ -285,12 +159,14 @@ public class NotebookCellResponseAttributes extends AbstractOpenApiSchema {
           }
         }
         if (attemptParsing) {
-          deserialized =
-              tree.traverse(jp.getCodec()).readValueAs(NotebookTimeseriesCellAttributes.class);
+          tmp = tree.traverse(jp.getCodec()).readValueAs(NotebookTimeseriesCellAttributes.class);
           // TODO: there is no validation against JSON schema constraints
           // (min, max, enum, pattern...), this does not perform a strict JSON
           // validation, which means the 'match' count may be higher than it should be.
-          match++;
+          if (!((NotebookTimeseriesCellAttributes) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
           log.log(Level.FINER, "Input data matches schema 'NotebookTimeseriesCellAttributes'");
         }
       } catch (Exception e) {
@@ -329,12 +205,14 @@ public class NotebookCellResponseAttributes extends AbstractOpenApiSchema {
           }
         }
         if (attemptParsing) {
-          deserialized =
-              tree.traverse(jp.getCodec()).readValueAs(NotebookToplistCellAttributes.class);
+          tmp = tree.traverse(jp.getCodec()).readValueAs(NotebookToplistCellAttributes.class);
           // TODO: there is no validation against JSON schema constraints
           // (min, max, enum, pattern...), this does not perform a strict JSON
           // validation, which means the 'match' count may be higher than it should be.
-          match++;
+          if (!((NotebookToplistCellAttributes) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
           log.log(Level.FINER, "Input data matches schema 'NotebookToplistCellAttributes'");
         }
       } catch (Exception e) {
@@ -342,16 +220,156 @@ public class NotebookCellResponseAttributes extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'NotebookToplistCellAttributes'", e);
       }
 
-      if (match == 1) {
-        NotebookCellResponseAttributes ret = new NotebookCellResponseAttributes();
-        ret.setActualInstance(deserialized);
-        return ret;
+      // deserialize NotebookHeatMapCellAttributes
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (NotebookHeatMapCellAttributes.class.equals(Integer.class)
+            || NotebookHeatMapCellAttributes.class.equals(Long.class)
+            || NotebookHeatMapCellAttributes.class.equals(Float.class)
+            || NotebookHeatMapCellAttributes.class.equals(Double.class)
+            || NotebookHeatMapCellAttributes.class.equals(Boolean.class)
+            || NotebookHeatMapCellAttributes.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((NotebookHeatMapCellAttributes.class.equals(Integer.class)
+                        || NotebookHeatMapCellAttributes.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((NotebookHeatMapCellAttributes.class.equals(Float.class)
+                        || NotebookHeatMapCellAttributes.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (NotebookHeatMapCellAttributes.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (NotebookHeatMapCellAttributes.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(NotebookHeatMapCellAttributes.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((NotebookHeatMapCellAttributes) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'NotebookHeatMapCellAttributes'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'NotebookHeatMapCellAttributes'", e);
       }
-      throw new IOException(
-          String.format(
-              "Failed deserialization for NotebookCellResponseAttributes: %d classes match result,"
-                  + " expected 1",
-              match));
+
+      // deserialize NotebookDistributionCellAttributes
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (NotebookDistributionCellAttributes.class.equals(Integer.class)
+            || NotebookDistributionCellAttributes.class.equals(Long.class)
+            || NotebookDistributionCellAttributes.class.equals(Float.class)
+            || NotebookDistributionCellAttributes.class.equals(Double.class)
+            || NotebookDistributionCellAttributes.class.equals(Boolean.class)
+            || NotebookDistributionCellAttributes.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((NotebookDistributionCellAttributes.class.equals(Integer.class)
+                        || NotebookDistributionCellAttributes.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((NotebookDistributionCellAttributes.class.equals(Float.class)
+                        || NotebookDistributionCellAttributes.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (NotebookDistributionCellAttributes.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (NotebookDistributionCellAttributes.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(NotebookDistributionCellAttributes.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((NotebookDistributionCellAttributes) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'NotebookDistributionCellAttributes'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'NotebookDistributionCellAttributes'",
+            e);
+      }
+
+      // deserialize NotebookLogStreamCellAttributes
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (NotebookLogStreamCellAttributes.class.equals(Integer.class)
+            || NotebookLogStreamCellAttributes.class.equals(Long.class)
+            || NotebookLogStreamCellAttributes.class.equals(Float.class)
+            || NotebookLogStreamCellAttributes.class.equals(Double.class)
+            || NotebookLogStreamCellAttributes.class.equals(Boolean.class)
+            || NotebookLogStreamCellAttributes.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((NotebookLogStreamCellAttributes.class.equals(Integer.class)
+                        || NotebookLogStreamCellAttributes.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((NotebookLogStreamCellAttributes.class.equals(Float.class)
+                        || NotebookLogStreamCellAttributes.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (NotebookLogStreamCellAttributes.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (NotebookLogStreamCellAttributes.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(NotebookLogStreamCellAttributes.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((NotebookLogStreamCellAttributes) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'NotebookLogStreamCellAttributes'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER, "Input data does not match schema 'NotebookLogStreamCellAttributes'", e);
+      }
+
+      NotebookCellResponseAttributes ret = new NotebookCellResponseAttributes();
+      if (match == 1) {
+        ret.setActualInstance(deserialized);
+      } else {
+        Map<String, Object> res =
+            new ObjectMapper()
+                .readValue(
+                    tree.traverse(jp.getCodec()).readValueAsTree().toString(), HashMap.class);
+        ret.setActualInstance(new UnparsedObject(res));
+      }
+      return ret;
     }
 
     /** Handle deserialization of the 'null' value. */
@@ -468,6 +486,10 @@ public class NotebookCellResponseAttributes extends AbstractOpenApiSchema {
       return;
     }
 
+    if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
     throw new RuntimeException(
         "Invalid instance type. Must be NotebookDistributionCellAttributes,"
             + " NotebookHeatMapCellAttributes, NotebookLogStreamCellAttributes,"

@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -24,6 +25,7 @@ import java.util.Objects;
 @JsonPropertyOrder({APIKeysResponse.JSON_PROPERTY_DATA, APIKeysResponse.JSON_PROPERTY_INCLUDED})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class APIKeysResponse {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<PartialAPIKey> data = null;
 
@@ -32,6 +34,9 @@ public class APIKeysResponse {
 
   public APIKeysResponse data(List<PartialAPIKey> data) {
     this.data = data;
+    for (PartialAPIKey item : data) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -40,6 +45,7 @@ public class APIKeysResponse {
       this.data = new ArrayList<>();
     }
     this.data.add(dataItem);
+    this.unparsed |= dataItem.unparsed;
     return this;
   }
 
@@ -62,6 +68,9 @@ public class APIKeysResponse {
 
   public APIKeysResponse included(List<APIKeyResponseIncludedItem> included) {
     this.included = included;
+    for (APIKeyResponseIncludedItem item : included) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -70,6 +79,7 @@ public class APIKeysResponse {
       this.included = new ArrayList<>();
     }
     this.included.add(includedItem);
+    this.unparsed |= includedItem.unparsed;
     return this;
   }
 

@@ -10,6 +10,7 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -24,6 +25,7 @@ import java.util.Objects;
 @JsonPropertyOrder({DashboardListDeleteItemsResponse.JSON_PROPERTY_DELETED_DASHBOARDS_FROM_LIST})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DashboardListDeleteItemsResponse {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DELETED_DASHBOARDS_FROM_LIST =
       "deleted_dashboards_from_list";
   private List<DashboardListItemResponse> deletedDashboardsFromList = null;
@@ -31,6 +33,9 @@ public class DashboardListDeleteItemsResponse {
   public DashboardListDeleteItemsResponse deletedDashboardsFromList(
       List<DashboardListItemResponse> deletedDashboardsFromList) {
     this.deletedDashboardsFromList = deletedDashboardsFromList;
+    for (DashboardListItemResponse item : deletedDashboardsFromList) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -40,6 +45,7 @@ public class DashboardListDeleteItemsResponse {
       this.deletedDashboardsFromList = new ArrayList<>();
     }
     this.deletedDashboardsFromList.add(deletedDashboardsFromListItem);
+    this.unparsed |= deletedDashboardsFromListItem.unparsed;
     return this;
   }
 

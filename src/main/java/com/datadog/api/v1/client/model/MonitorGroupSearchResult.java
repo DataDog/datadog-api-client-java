@@ -33,6 +33,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MonitorGroupSearchResult {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_GROUP = "group";
   private String group;
 
@@ -148,6 +149,7 @@ public class MonitorGroupSearchResult {
 
   public MonitorGroupSearchResult status(MonitorOverallStates status) {
     this.status = status;
+    this.unparsed |= !status.isValid();
     return this;
   }
 
@@ -165,6 +167,9 @@ public class MonitorGroupSearchResult {
   }
 
   public void setStatus(MonitorOverallStates status) {
+    if (!status.isValid()) {
+      this.unparsed = true;
+    }
     this.status = status;
   }
 

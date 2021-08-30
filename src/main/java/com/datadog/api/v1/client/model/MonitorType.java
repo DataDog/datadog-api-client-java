@@ -12,47 +12,105 @@ package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 /**
  * The type of the monitor. For more information about &#x60;type&#x60;, see the [monitor
  * options](https://docs.datadoghq.com/monitors/guide/monitor_api_options/) docs.
  */
-public enum MonitorType {
-  COMPOSITE("composite"),
+@JsonSerialize(using = MonitorType.MonitorTypeSerializer.class)
+public class MonitorType {
 
-  EVENT_ALERT("event alert"),
+  public static final MonitorType COMPOSITE = new MonitorType("composite");
+  public static final MonitorType EVENT_ALERT = new MonitorType("event alert");
+  public static final MonitorType LOG_ALERT = new MonitorType("log alert");
+  public static final MonitorType METRIC_ALERT = new MonitorType("metric alert");
+  public static final MonitorType PROCESS_ALERT = new MonitorType("process alert");
+  public static final MonitorType QUERY_ALERT = new MonitorType("query alert");
+  public static final MonitorType RUM_ALERT = new MonitorType("rum alert");
+  public static final MonitorType SERVICE_CHECK = new MonitorType("service check");
+  public static final MonitorType SYNTHETICS_ALERT = new MonitorType("synthetics alert");
+  public static final MonitorType TRACE_ANALYTICS_ALERT = new MonitorType("trace-analytics alert");
+  public static final MonitorType SLO_ALERT = new MonitorType("slo alert");
+  public static final MonitorType EVENT_V2_ALERT = new MonitorType("event-v2 alert");
+  public static final MonitorType AUDIT_ALERT = new MonitorType("audit alert");
 
-  LOG_ALERT("log alert"),
-
-  METRIC_ALERT("metric alert"),
-
-  PROCESS_ALERT("process alert"),
-
-  QUERY_ALERT("query alert"),
-
-  RUM_ALERT("rum alert"),
-
-  SERVICE_CHECK("service check"),
-
-  SYNTHETICS_ALERT("synthetics alert"),
-
-  TRACE_ANALYTICS_ALERT("trace-analytics alert"),
-
-  SLO_ALERT("slo alert"),
-
-  EVENT_V2_ALERT("event-v2 alert"),
-
-  AUDIT_ALERT("audit alert");
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "composite",
+              "event alert",
+              "log alert",
+              "metric alert",
+              "process alert",
+              "query alert",
+              "rum alert",
+              "service check",
+              "synthetics alert",
+              "trace-analytics alert",
+              "slo alert",
+              "event-v2 alert",
+              "audit alert"));
 
   private String value;
+
+  public boolean isValid() {
+    return allowedValues.contains(this.value);
+  }
 
   MonitorType(String value) {
     this.value = value;
   }
 
+  public static class MonitorTypeSerializer extends StdSerializer<MonitorType> {
+    public MonitorTypeSerializer(Class<MonitorType> t) {
+      super(t);
+    }
+
+    public MonitorTypeSerializer() {
+      this(null);
+    }
+
+    @Override
+    public void serialize(MonitorType value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
+  }
+
   @JsonValue
   public String getValue() {
-    return value;
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  /** Return true if this MonitorType object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    return this.value.equals(((MonitorType) o).value);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(value);
   }
 
   @Override
@@ -62,11 +120,6 @@ public enum MonitorType {
 
   @JsonCreator
   public static MonitorType fromValue(String value) {
-    for (MonitorType b : MonitorType.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
-    }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    return new MonitorType(value);
   }
 }

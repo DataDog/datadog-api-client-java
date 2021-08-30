@@ -12,31 +12,83 @@ package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 /**
  * Size of the margins around the image. **Note**: &#x60;small&#x60; and &#x60;large&#x60; values
  * are deprecated.
  */
-public enum WidgetMargin {
-  SM("sm"),
+@JsonSerialize(using = WidgetMargin.WidgetMarginSerializer.class)
+public class WidgetMargin {
 
-  MD("md"),
+  public static final WidgetMargin SM = new WidgetMargin("sm");
+  public static final WidgetMargin MD = new WidgetMargin("md");
+  public static final WidgetMargin LG = new WidgetMargin("lg");
+  public static final WidgetMargin SMALL = new WidgetMargin("small");
+  public static final WidgetMargin LARGE = new WidgetMargin("large");
 
-  LG("lg"),
-
-  SMALL("small"),
-
-  LARGE("large");
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("sm", "md", "lg", "small", "large"));
 
   private String value;
+
+  public boolean isValid() {
+    return allowedValues.contains(this.value);
+  }
 
   WidgetMargin(String value) {
     this.value = value;
   }
 
+  public static class WidgetMarginSerializer extends StdSerializer<WidgetMargin> {
+    public WidgetMarginSerializer(Class<WidgetMargin> t) {
+      super(t);
+    }
+
+    public WidgetMarginSerializer() {
+      this(null);
+    }
+
+    @Override
+    public void serialize(WidgetMargin value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
+  }
+
   @JsonValue
   public String getValue() {
-    return value;
+    return this.value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  /** Return true if this WidgetMargin object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    return this.value.equals(((WidgetMargin) o).value);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(value);
   }
 
   @Override
@@ -46,11 +98,6 @@ public enum WidgetMargin {
 
   @JsonCreator
   public static WidgetMargin fromValue(String value) {
-    for (WidgetMargin b : WidgetMargin.values()) {
-      if (b.value.equals(value)) {
-        return b;
-      }
-    }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    return new WidgetMargin(value);
   }
 }

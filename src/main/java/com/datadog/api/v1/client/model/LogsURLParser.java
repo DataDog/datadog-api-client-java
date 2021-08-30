@@ -36,6 +36,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsURLParser {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
   private Boolean isEnabled = false;
 
@@ -64,6 +65,7 @@ public class LogsURLParser {
     this.sources = sources;
     this.target = target;
     this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   public LogsURLParser isEnabled(Boolean isEnabled) {
@@ -200,6 +202,7 @@ public class LogsURLParser {
 
   public LogsURLParser type(LogsURLParserType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -216,6 +219,9 @@ public class LogsURLParser {
   }
 
   public void setType(LogsURLParserType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

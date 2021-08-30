@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -30,6 +31,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Organization {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BILLING = "billing";
   private OrganizationBilling billing;
 
@@ -53,6 +55,7 @@ public class Organization {
 
   public Organization billing(OrganizationBilling billing) {
     this.billing = billing;
+    this.unparsed |= billing.unparsed;
     return this;
   }
 
@@ -158,6 +161,7 @@ public class Organization {
 
   public Organization settings(OrganizationSettings settings) {
     this.settings = settings;
+    this.unparsed |= settings.unparsed;
     return this;
   }
 
@@ -180,6 +184,7 @@ public class Organization {
 
   public Organization subscription(OrganizationSubscription subscription) {
     this.subscription = subscription;
+    this.unparsed |= subscription.unparsed;
     return this;
   }
 

@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -44,6 +45,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TableWidgetRequest {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATOR = "aggregator";
   private WidgetAggregator aggregator;
 
@@ -103,6 +105,7 @@ public class TableWidgetRequest {
 
   public TableWidgetRequest aggregator(WidgetAggregator aggregator) {
     this.aggregator = aggregator;
+    this.unparsed |= !aggregator.isValid();
     return this;
   }
 
@@ -120,6 +123,9 @@ public class TableWidgetRequest {
   }
 
   public void setAggregator(WidgetAggregator aggregator) {
+    if (!aggregator.isValid()) {
+      this.unparsed = true;
+    }
     this.aggregator = aggregator;
   }
 
@@ -147,6 +153,7 @@ public class TableWidgetRequest {
 
   public TableWidgetRequest apmQuery(LogQueryDefinition apmQuery) {
     this.apmQuery = apmQuery;
+    this.unparsed |= apmQuery.unparsed;
     return this;
   }
 
@@ -169,6 +176,7 @@ public class TableWidgetRequest {
 
   public TableWidgetRequest apmStatsQuery(ApmStatsQueryDefinition apmStatsQuery) {
     this.apmStatsQuery = apmStatsQuery;
+    this.unparsed |= apmStatsQuery.unparsed;
     return this;
   }
 
@@ -199,6 +207,7 @@ public class TableWidgetRequest {
       this.cellDisplayMode = new ArrayList<>();
     }
     this.cellDisplayMode.add(cellDisplayModeItem);
+    this.unparsed |= !cellDisplayModeItem.isValid();
     return this;
   }
 
@@ -221,6 +230,9 @@ public class TableWidgetRequest {
 
   public TableWidgetRequest conditionalFormats(List<WidgetConditionalFormat> conditionalFormats) {
     this.conditionalFormats = conditionalFormats;
+    for (WidgetConditionalFormat item : conditionalFormats) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -230,6 +242,7 @@ public class TableWidgetRequest {
       this.conditionalFormats = new ArrayList<>();
     }
     this.conditionalFormats.add(conditionalFormatsItem);
+    this.unparsed |= conditionalFormatsItem.unparsed;
     return this;
   }
 
@@ -252,6 +265,7 @@ public class TableWidgetRequest {
 
   public TableWidgetRequest eventQuery(LogQueryDefinition eventQuery) {
     this.eventQuery = eventQuery;
+    this.unparsed |= eventQuery.unparsed;
     return this;
   }
 
@@ -274,6 +288,9 @@ public class TableWidgetRequest {
 
   public TableWidgetRequest formulas(List<WidgetFormula> formulas) {
     this.formulas = formulas;
+    for (WidgetFormula item : formulas) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -282,6 +299,7 @@ public class TableWidgetRequest {
       this.formulas = new ArrayList<>();
     }
     this.formulas.add(formulasItem);
+    this.unparsed |= formulasItem.unparsed;
     return this;
   }
 
@@ -331,6 +349,7 @@ public class TableWidgetRequest {
 
   public TableWidgetRequest logQuery(LogQueryDefinition logQuery) {
     this.logQuery = logQuery;
+    this.unparsed |= logQuery.unparsed;
     return this;
   }
 
@@ -353,6 +372,7 @@ public class TableWidgetRequest {
 
   public TableWidgetRequest networkQuery(LogQueryDefinition networkQuery) {
     this.networkQuery = networkQuery;
+    this.unparsed |= networkQuery.unparsed;
     return this;
   }
 
@@ -375,6 +395,7 @@ public class TableWidgetRequest {
 
   public TableWidgetRequest order(WidgetSort order) {
     this.order = order;
+    this.unparsed |= !order.isValid();
     return this;
   }
 
@@ -392,11 +413,15 @@ public class TableWidgetRequest {
   }
 
   public void setOrder(WidgetSort order) {
+    if (!order.isValid()) {
+      this.unparsed = true;
+    }
     this.order = order;
   }
 
   public TableWidgetRequest processQuery(ProcessQueryDefinition processQuery) {
     this.processQuery = processQuery;
+    this.unparsed |= processQuery.unparsed;
     return this;
   }
 
@@ -419,6 +444,7 @@ public class TableWidgetRequest {
 
   public TableWidgetRequest profileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
     this.profileMetricsQuery = profileMetricsQuery;
+    this.unparsed |= profileMetricsQuery.unparsed;
     return this;
   }
 
@@ -463,6 +489,9 @@ public class TableWidgetRequest {
 
   public TableWidgetRequest queries(List<FormulaAndFunctionQueryDefinition> queries) {
     this.queries = queries;
+    for (FormulaAndFunctionQueryDefinition item : queries) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -471,6 +500,7 @@ public class TableWidgetRequest {
       this.queries = new ArrayList<>();
     }
     this.queries.add(queriesItem);
+    this.unparsed |= queriesItem.unparsed;
     return this;
   }
 
@@ -497,6 +527,7 @@ public class TableWidgetRequest {
 
   public TableWidgetRequest responseFormat(FormulaAndFunctionResponseFormat responseFormat) {
     this.responseFormat = responseFormat;
+    this.unparsed |= !responseFormat.isValid();
     return this;
   }
 
@@ -514,11 +545,15 @@ public class TableWidgetRequest {
   }
 
   public void setResponseFormat(FormulaAndFunctionResponseFormat responseFormat) {
+    if (!responseFormat.isValid()) {
+      this.unparsed = true;
+    }
     this.responseFormat = responseFormat;
   }
 
   public TableWidgetRequest rumQuery(LogQueryDefinition rumQuery) {
     this.rumQuery = rumQuery;
+    this.unparsed |= rumQuery.unparsed;
     return this;
   }
 
@@ -541,6 +576,7 @@ public class TableWidgetRequest {
 
   public TableWidgetRequest securityQuery(LogQueryDefinition securityQuery) {
     this.securityQuery = securityQuery;
+    this.unparsed |= securityQuery.unparsed;
     return this;
   }
 

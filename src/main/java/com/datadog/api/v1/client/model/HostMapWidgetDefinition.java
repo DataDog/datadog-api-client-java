@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -45,6 +46,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class HostMapWidgetDefinition {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
   private List<WidgetCustomLink> customLinks = null;
 
@@ -92,11 +94,16 @@ public class HostMapWidgetDefinition {
           HostMapWidgetDefinitionRequests requests,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) HostMapWidgetDefinitionType type) {
     this.requests = requests;
+    this.unparsed |= requests.unparsed;
     this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   public HostMapWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
+    for (WidgetCustomLink item : customLinks) {
+      this.unparsed |= item.unparsed;
+    }
     return this;
   }
 
@@ -105,6 +112,7 @@ public class HostMapWidgetDefinition {
       this.customLinks = new ArrayList<>();
     }
     this.customLinks.add(customLinksItem);
+    this.unparsed |= customLinksItem.unparsed;
     return this;
   }
 
@@ -201,6 +209,7 @@ public class HostMapWidgetDefinition {
 
   public HostMapWidgetDefinition nodeType(WidgetNodeType nodeType) {
     this.nodeType = nodeType;
+    this.unparsed |= !nodeType.isValid();
     return this;
   }
 
@@ -218,6 +227,9 @@ public class HostMapWidgetDefinition {
   }
 
   public void setNodeType(WidgetNodeType nodeType) {
+    if (!nodeType.isValid()) {
+      this.unparsed = true;
+    }
     this.nodeType = nodeType;
   }
 
@@ -245,6 +257,7 @@ public class HostMapWidgetDefinition {
 
   public HostMapWidgetDefinition requests(HostMapWidgetDefinitionRequests requests) {
     this.requests = requests;
+    this.unparsed |= requests.unparsed;
     return this;
   }
 
@@ -296,6 +309,7 @@ public class HostMapWidgetDefinition {
 
   public HostMapWidgetDefinition style(HostMapWidgetDefinitionStyle style) {
     this.style = style;
+    this.unparsed |= style.unparsed;
     return this;
   }
 
@@ -340,6 +354,7 @@ public class HostMapWidgetDefinition {
 
   public HostMapWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
+    this.unparsed |= !titleAlign.isValid();
     return this;
   }
 
@@ -357,6 +372,9 @@ public class HostMapWidgetDefinition {
   }
 
   public void setTitleAlign(WidgetTextAlign titleAlign) {
+    if (!titleAlign.isValid()) {
+      this.unparsed = true;
+    }
     this.titleAlign = titleAlign;
   }
 
@@ -384,6 +402,7 @@ public class HostMapWidgetDefinition {
 
   public HostMapWidgetDefinition type(HostMapWidgetDefinitionType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -400,6 +419,9 @@ public class HostMapWidgetDefinition {
   }
 
   public void setType(HostMapWidgetDefinitionType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

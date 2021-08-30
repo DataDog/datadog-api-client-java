@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -38,6 +39,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class EventStreamWidgetDefinition {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_EVENT_SIZE = "event_size";
   private WidgetEventSize eventSize;
 
@@ -71,10 +73,12 @@ public class EventStreamWidgetDefinition {
           EventStreamWidgetDefinitionType type) {
     this.query = query;
     this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   public EventStreamWidgetDefinition eventSize(WidgetEventSize eventSize) {
     this.eventSize = eventSize;
+    this.unparsed |= !eventSize.isValid();
     return this;
   }
 
@@ -92,6 +96,9 @@ public class EventStreamWidgetDefinition {
   }
 
   public void setEventSize(WidgetEventSize eventSize) {
+    if (!eventSize.isValid()) {
+      this.unparsed = true;
+    }
     this.eventSize = eventSize;
   }
 
@@ -141,6 +148,7 @@ public class EventStreamWidgetDefinition {
 
   public EventStreamWidgetDefinition time(WidgetTime time) {
     this.time = time;
+    this.unparsed |= time.unparsed;
     return this;
   }
 
@@ -185,6 +193,7 @@ public class EventStreamWidgetDefinition {
 
   public EventStreamWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
+    this.unparsed |= !titleAlign.isValid();
     return this;
   }
 
@@ -202,6 +211,9 @@ public class EventStreamWidgetDefinition {
   }
 
   public void setTitleAlign(WidgetTextAlign titleAlign) {
+    if (!titleAlign.isValid()) {
+      this.unparsed = true;
+    }
     this.titleAlign = titleAlign;
   }
 
@@ -229,6 +241,7 @@ public class EventStreamWidgetDefinition {
 
   public EventStreamWidgetDefinition type(EventStreamWidgetDefinitionType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -245,6 +258,9 @@ public class EventStreamWidgetDefinition {
   }
 
   public void setType(EventStreamWidgetDefinitionType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 

@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.datadog.api.v1.client.JSON;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -19,6 +20,7 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -38,6 +40,8 @@ import javax.ws.rs.core.GenericType;
 @JsonSerialize(using = SyntheticsAssertion.SyntheticsAssertionSerializer.class)
 public class SyntheticsAssertion extends AbstractOpenApiSchema {
   private static final Logger log = Logger.getLogger(SyntheticsAssertion.class.getName());
+
+  @JsonIgnore public boolean unparsed = false;
 
   public static class SyntheticsAssertionSerializer extends StdSerializer<SyntheticsAssertion> {
     public SyntheticsAssertionSerializer(Class<SyntheticsAssertion> t) {
@@ -70,53 +74,10 @@ public class SyntheticsAssertion extends AbstractOpenApiSchema {
         throws IOException, JsonProcessingException {
       JsonNode tree = jp.readValueAsTree();
       Object deserialized = null;
+      Object tmp = null;
       boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
       int match = 0;
       JsonToken token = tree.traverse(jp.getCodec()).nextToken();
-      // deserialize SyntheticsAssertionJSONPathTarget
-      try {
-        boolean attemptParsing = true;
-        // ensure that we respect type coercion as set on the client ObjectMapper
-        if (SyntheticsAssertionJSONPathTarget.class.equals(Integer.class)
-            || SyntheticsAssertionJSONPathTarget.class.equals(Long.class)
-            || SyntheticsAssertionJSONPathTarget.class.equals(Float.class)
-            || SyntheticsAssertionJSONPathTarget.class.equals(Double.class)
-            || SyntheticsAssertionJSONPathTarget.class.equals(Boolean.class)
-            || SyntheticsAssertionJSONPathTarget.class.equals(String.class)) {
-          attemptParsing = typeCoercion;
-          if (!attemptParsing) {
-            attemptParsing |=
-                ((SyntheticsAssertionJSONPathTarget.class.equals(Integer.class)
-                        || SyntheticsAssertionJSONPathTarget.class.equals(Long.class))
-                    && token == JsonToken.VALUE_NUMBER_INT);
-            attemptParsing |=
-                ((SyntheticsAssertionJSONPathTarget.class.equals(Float.class)
-                        || SyntheticsAssertionJSONPathTarget.class.equals(Double.class))
-                    && (token == JsonToken.VALUE_NUMBER_FLOAT
-                        || token == JsonToken.VALUE_NUMBER_INT));
-            attemptParsing |=
-                (SyntheticsAssertionJSONPathTarget.class.equals(Boolean.class)
-                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
-            attemptParsing |=
-                (SyntheticsAssertionJSONPathTarget.class.equals(String.class)
-                    && token == JsonToken.VALUE_STRING);
-          }
-        }
-        if (attemptParsing) {
-          deserialized =
-              tree.traverse(jp.getCodec()).readValueAs(SyntheticsAssertionJSONPathTarget.class);
-          // TODO: there is no validation against JSON schema constraints
-          // (min, max, enum, pattern...), this does not perform a strict JSON
-          // validation, which means the 'match' count may be higher than it should be.
-          match++;
-          log.log(Level.FINER, "Input data matches schema 'SyntheticsAssertionJSONPathTarget'");
-        }
-      } catch (Exception e) {
-        // deserialization failed, continue
-        log.log(
-            Level.FINER, "Input data does not match schema 'SyntheticsAssertionJSONPathTarget'", e);
-      }
-
       // deserialize SyntheticsAssertionTarget
       try {
         boolean attemptParsing = true;
@@ -147,11 +108,14 @@ public class SyntheticsAssertion extends AbstractOpenApiSchema {
           }
         }
         if (attemptParsing) {
-          deserialized = tree.traverse(jp.getCodec()).readValueAs(SyntheticsAssertionTarget.class);
+          tmp = tree.traverse(jp.getCodec()).readValueAs(SyntheticsAssertionTarget.class);
           // TODO: there is no validation against JSON schema constraints
           // (min, max, enum, pattern...), this does not perform a strict JSON
           // validation, which means the 'match' count may be higher than it should be.
-          match++;
+          if (!((SyntheticsAssertionTarget) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
           log.log(Level.FINER, "Input data matches schema 'SyntheticsAssertionTarget'");
         }
       } catch (Exception e) {
@@ -159,15 +123,63 @@ public class SyntheticsAssertion extends AbstractOpenApiSchema {
         log.log(Level.FINER, "Input data does not match schema 'SyntheticsAssertionTarget'", e);
       }
 
-      if (match == 1) {
-        SyntheticsAssertion ret = new SyntheticsAssertion();
-        ret.setActualInstance(deserialized);
-        return ret;
+      // deserialize SyntheticsAssertionJSONPathTarget
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (SyntheticsAssertionJSONPathTarget.class.equals(Integer.class)
+            || SyntheticsAssertionJSONPathTarget.class.equals(Long.class)
+            || SyntheticsAssertionJSONPathTarget.class.equals(Float.class)
+            || SyntheticsAssertionJSONPathTarget.class.equals(Double.class)
+            || SyntheticsAssertionJSONPathTarget.class.equals(Boolean.class)
+            || SyntheticsAssertionJSONPathTarget.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((SyntheticsAssertionJSONPathTarget.class.equals(Integer.class)
+                        || SyntheticsAssertionJSONPathTarget.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((SyntheticsAssertionJSONPathTarget.class.equals(Float.class)
+                        || SyntheticsAssertionJSONPathTarget.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (SyntheticsAssertionJSONPathTarget.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (SyntheticsAssertionJSONPathTarget.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(SyntheticsAssertionJSONPathTarget.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((SyntheticsAssertionJSONPathTarget) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'SyntheticsAssertionJSONPathTarget'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER, "Input data does not match schema 'SyntheticsAssertionJSONPathTarget'", e);
       }
-      throw new IOException(
-          String.format(
-              "Failed deserialization for SyntheticsAssertion: %d classes match result, expected 1",
-              match));
+
+      SyntheticsAssertion ret = new SyntheticsAssertion();
+      if (match == 1) {
+        ret.setActualInstance(deserialized);
+      } else {
+        Map<String, Object> res =
+            new ObjectMapper()
+                .readValue(
+                    tree.traverse(jp.getCodec()).readValueAsTree().toString(), HashMap.class);
+        ret.setActualInstance(new UnparsedObject(res));
+      }
+      return ret;
     }
 
     /** Handle deserialization of the 'null' value. */
@@ -228,6 +240,10 @@ public class SyntheticsAssertion extends AbstractOpenApiSchema {
       return;
     }
 
+    if (JSON.isInstanceOf(UnparsedObject.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
     throw new RuntimeException(
         "Invalid instance type. Must be SyntheticsAssertionJSONPathTarget,"
             + " SyntheticsAssertionTarget");

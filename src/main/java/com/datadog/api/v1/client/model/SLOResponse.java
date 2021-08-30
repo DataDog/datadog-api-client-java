@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -25,6 +26,7 @@ import java.util.Objects;
 @JsonPropertyOrder({SLOResponse.JSON_PROPERTY_DATA, SLOResponse.JSON_PROPERTY_ERRORS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SLOResponse {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private SLOResponseData data;
 
@@ -33,6 +35,7 @@ public class SLOResponse {
 
   public SLOResponse data(SLOResponseData data) {
     this.data = data;
+    this.unparsed |= data.unparsed;
     return this;
   }
 

@@ -11,6 +11,7 @@
 package com.datadog.api.v1.client.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -37,6 +38,7 @@ import java.util.Objects;
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AlertGraphWidgetDefinition {
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ALERT_ID = "alert_id";
   private String alertId;
 
@@ -68,7 +70,9 @@ public class AlertGraphWidgetDefinition {
       @JsonProperty(required = true, value = JSON_PROPERTY_VIZ_TYPE) WidgetVizType vizType) {
     this.alertId = alertId;
     this.type = type;
+    this.unparsed |= !type.isValid();
     this.vizType = vizType;
+    this.unparsed |= !vizType.isValid();
   }
 
   public AlertGraphWidgetDefinition alertId(String alertId) {
@@ -94,6 +98,7 @@ public class AlertGraphWidgetDefinition {
 
   public AlertGraphWidgetDefinition time(WidgetTime time) {
     this.time = time;
+    this.unparsed |= time.unparsed;
     return this;
   }
 
@@ -138,6 +143,7 @@ public class AlertGraphWidgetDefinition {
 
   public AlertGraphWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
+    this.unparsed |= !titleAlign.isValid();
     return this;
   }
 
@@ -155,6 +161,9 @@ public class AlertGraphWidgetDefinition {
   }
 
   public void setTitleAlign(WidgetTextAlign titleAlign) {
+    if (!titleAlign.isValid()) {
+      this.unparsed = true;
+    }
     this.titleAlign = titleAlign;
   }
 
@@ -182,6 +191,7 @@ public class AlertGraphWidgetDefinition {
 
   public AlertGraphWidgetDefinition type(AlertGraphWidgetDefinitionType type) {
     this.type = type;
+    this.unparsed |= !type.isValid();
     return this;
   }
 
@@ -198,11 +208,15 @@ public class AlertGraphWidgetDefinition {
   }
 
   public void setType(AlertGraphWidgetDefinitionType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
+    }
     this.type = type;
   }
 
   public AlertGraphWidgetDefinition vizType(WidgetVizType vizType) {
     this.vizType = vizType;
+    this.unparsed |= !vizType.isValid();
     return this;
   }
 
@@ -219,6 +233,9 @@ public class AlertGraphWidgetDefinition {
   }
 
   public void setVizType(WidgetVizType vizType) {
+    if (!vizType.isValid()) {
+      this.unparsed = true;
+    }
     this.vizType = vizType;
   }
 
