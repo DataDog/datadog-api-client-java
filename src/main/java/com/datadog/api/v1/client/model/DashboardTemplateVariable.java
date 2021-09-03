@@ -17,12 +17,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Template variable. */
 @ApiModel(description = "Template variable.")
 @JsonPropertyOrder({
+  DashboardTemplateVariable.JSON_PROPERTY_AVAILABLE_VALUES,
   DashboardTemplateVariable.JSON_PROPERTY_DEFAULT,
   DashboardTemplateVariable.JSON_PROPERTY_NAME,
   DashboardTemplateVariable.JSON_PROPERTY_PREFIX
@@ -30,6 +33,9 @@ import org.openapitools.jackson.nullable.JsonNullable;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DashboardTemplateVariable {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_AVAILABLE_VALUES = "available_values";
+  private JsonNullable<List<String>> availableValues = JsonNullable.<List<String>>undefined();
+
   public static final String JSON_PROPERTY_DEFAULT = "default";
   private JsonNullable<String> _default = JsonNullable.<String>undefined();
 
@@ -45,6 +51,52 @@ public class DashboardTemplateVariable {
   public DashboardTemplateVariable(
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
     this.name = name;
+  }
+
+  public DashboardTemplateVariable availableValues(List<String> availableValues) {
+    this.availableValues = JsonNullable.<List<String>>of(availableValues);
+    return this;
+  }
+
+  public DashboardTemplateVariable addAvailableValuesItem(String availableValuesItem) {
+    if (this.availableValues == null || !this.availableValues.isPresent()) {
+      this.availableValues = JsonNullable.<List<String>>of(new ArrayList<>());
+    }
+    try {
+      this.availableValues.get().add(availableValuesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * The list of values that the template variable drop-down is limited to.
+   *
+   * @return availableValues
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      example = "[\"my-host\",\"host1\",\"host2\"]",
+      value = "The list of values that the template variable drop-down is limited to.")
+  @JsonIgnore
+  public List<String> getAvailableValues() {
+    return availableValues.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_AVAILABLE_VALUES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<List<String>> getAvailableValues_JsonNullable() {
+    return availableValues;
+  }
+
+  @JsonProperty(JSON_PROPERTY_AVAILABLE_VALUES)
+  public void setAvailableValues_JsonNullable(JsonNullable<List<String>> availableValues) {
+    this.availableValues = availableValues;
+  }
+
+  public void setAvailableValues(List<String> availableValues) {
+    this.availableValues = JsonNullable.<List<String>>of(availableValues);
   }
 
   public DashboardTemplateVariable _default(String _default) {
@@ -149,20 +201,22 @@ public class DashboardTemplateVariable {
       return false;
     }
     DashboardTemplateVariable dashboardTemplateVariable = (DashboardTemplateVariable) o;
-    return Objects.equals(this._default, dashboardTemplateVariable._default)
+    return Objects.equals(this.availableValues, dashboardTemplateVariable.availableValues)
+        && Objects.equals(this._default, dashboardTemplateVariable._default)
         && Objects.equals(this.name, dashboardTemplateVariable.name)
         && Objects.equals(this.prefix, dashboardTemplateVariable.prefix);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(_default, name, prefix);
+    return Objects.hash(availableValues, _default, name, prefix);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DashboardTemplateVariable {\n");
+    sb.append("    availableValues: ").append(toIndentedString(availableValues)).append("\n");
     sb.append("    _default: ").append(toIndentedString(_default)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    prefix: ").append(toIndentedString(prefix)).append("\n");
