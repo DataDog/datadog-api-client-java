@@ -2,7 +2,7 @@
 
 # SLOHistoryResponseError
 
-A service level objective response containing the requested history.
+A list of errors while querying the history data for the service level objective.
 
 ## Properties
 
