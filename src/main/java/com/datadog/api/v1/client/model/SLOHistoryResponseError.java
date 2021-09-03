@@ -18,8 +18,10 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
-/** A service level objective response containing the requested history. */
-@ApiModel(description = "A service level objective response containing the requested history.")
+/** A list of errors while querying the history data for the service level objective. */
+@ApiModel(
+    description =
+        "A list of errors while querying the history data for the service level objective.")
 @JsonPropertyOrder({SLOHistoryResponseError.JSON_PROPERTY_ERROR})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SLOHistoryResponseError {

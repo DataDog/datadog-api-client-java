@@ -53,7 +53,7 @@ public class SLOHistorySLIData {
   private Map<String, Double> errorBudgetRemaining = null;
 
   public static final String JSON_PROPERTY_ERRORS = "errors";
-  private List<SLOHistoryResponseError> errors = null;
+  private List<SLOHistoryResponseErrorWithType> errors = null;
 
   public static final String JSON_PROPERTY_GROUP = "group";
   private String group;
@@ -118,15 +118,15 @@ public class SLOHistorySLIData {
     this.errorBudgetRemaining = errorBudgetRemaining;
   }
 
-  public SLOHistorySLIData errors(List<SLOHistoryResponseError> errors) {
+  public SLOHistorySLIData errors(List<SLOHistoryResponseErrorWithType> errors) {
     this.errors = errors;
-    for (SLOHistoryResponseError item : errors) {
+    for (SLOHistoryResponseErrorWithType item : errors) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
-  public SLOHistorySLIData addErrorsItem(SLOHistoryResponseError errorsItem) {
+  public SLOHistorySLIData addErrorsItem(SLOHistoryResponseErrorWithType errorsItem) {
     if (this.errors == null) {
       this.errors = new ArrayList<>();
     }
@@ -136,21 +136,23 @@ public class SLOHistorySLIData {
   }
 
   /**
-   * A list of errors while querying the history data for the service level objective.
+   * An array of error objects returned while querying the history data for the service level
+   * objective.
    *
    * @return errors
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
-      example = "[]",
-      value = "A list of errors while querying the history data for the service level objective.")
+      value =
+          "An array of error objects returned while querying the history data for the service"
+              + " level objective.")
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<SLOHistoryResponseError> getErrors() {
+  public List<SLOHistoryResponseErrorWithType> getErrors() {
     return errors;
   }
 
-  public void setErrors(List<SLOHistoryResponseError> errors) {
+  public void setErrors(List<SLOHistoryResponseErrorWithType> errors) {
     this.errors = errors;
   }
 

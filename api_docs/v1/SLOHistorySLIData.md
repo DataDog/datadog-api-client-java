@@ -9,7 +9,7 @@ An object that holds an SLI value and its associated data. It can represent an S
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **errorBudgetRemaining** | **Map&lt;String, Double&gt;** | A mapping of threshold &#x60;timeframe&#x60; to the remaining error budget. |  [optional]
-**errors** | [**List&lt;SLOHistoryResponseError&gt;**](SLOHistoryResponseError.md) | A list of errors while querying the history data for the service level objective. |  [optional]
+**errors** | [**List&lt;SLOHistoryResponseErrorWithType&gt;**](SLOHistoryResponseErrorWithType.md) | An array of error objects returned while querying the history data for the service level objective. |  [optional]
 **group** | **String** | For groups in a grouped SLO, this is the group name. |  [optional]
 **history** | **List&lt;List&lt;Double&gt;&gt;** | For &#x60;monitor&#x60; based SLOs, this includes the aggregated history as arrays that include time series and uptime data where &#x60;0&#x3D;monitor&#x60; is in &#x60;OK&#x60; state and &#x60;1&#x3D;monitor&#x60; is in &#x60;alert&#x60; state. |  [optional]
 **monitorModified** | **Long** | For &#x60;monitor&#x60; based SLOs, this is the last modified timestamp in epoch seconds of the monitor. |  [optional]
