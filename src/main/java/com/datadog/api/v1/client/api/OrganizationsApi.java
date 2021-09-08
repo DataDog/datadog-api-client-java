@@ -53,7 +53,7 @@ public class OrganizationsApi {
    * [multi-organization account](https://docs.datadoghq.com/account_management/multi_organization/)
    * feature and must be enabled by [contacting support](https://docs.datadoghq.com/help/). Once a
    * new child organization is created, you can interact with it by using the
-   * &#x60;org.public_id&#x60;, &#x60;pi_key.key&#x60;, and &#x60;application_key.hash&#x60;
+   * &#x60;org.public_id&#x60;, &#x60;api_key.key&#x60;, and &#x60;application_key.hash&#x60;
    * provided in the response.
    *
    * @param body Organization object that needs to be created (required)
@@ -77,7 +77,7 @@ public class OrganizationsApi {
    * [multi-organization account](https://docs.datadoghq.com/account_management/multi_organization/)
    * feature and must be enabled by [contacting support](https://docs.datadoghq.com/help/). Once a
    * new child organization is created, you can interact with it by using the
-   * &#x60;org.public_id&#x60;, &#x60;pi_key.key&#x60;, and &#x60;application_key.hash&#x60;
+   * &#x60;org.public_id&#x60;, &#x60;api_key.key&#x60;, and &#x60;application_key.hash&#x60;
    * provided in the response.
    *
    * @param body Organization object that needs to be created (required)
