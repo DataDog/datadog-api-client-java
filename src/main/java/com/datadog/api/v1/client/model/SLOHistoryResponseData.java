@@ -46,10 +46,10 @@ public class SLOHistoryResponseData {
   private List<String> groupBy = null;
 
   public static final String JSON_PROPERTY_GROUPS = "groups";
-  private List<SLOHistorySLIData> groups = null;
+  private List<SLOHistoryMonitor> groups = null;
 
   public static final String JSON_PROPERTY_MONITORS = "monitors";
-  private List<SLOHistorySLIData> monitors = null;
+  private List<SLOHistoryMonitor> monitors = null;
 
   public static final String JSON_PROPERTY_OVERALL = "overall";
   private SLOHistorySLIData overall;
@@ -128,15 +128,15 @@ public class SLOHistoryResponseData {
     this.groupBy = groupBy;
   }
 
-  public SLOHistoryResponseData groups(List<SLOHistorySLIData> groups) {
+  public SLOHistoryResponseData groups(List<SLOHistoryMonitor> groups) {
     this.groups = groups;
-    for (SLOHistorySLIData item : groups) {
+    for (SLOHistoryMonitor item : groups) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
-  public SLOHistoryResponseData addGroupsItem(SLOHistorySLIData groupsItem) {
+  public SLOHistoryResponseData addGroupsItem(SLOHistoryMonitor groupsItem) {
     if (this.groups == null) {
       this.groups = new ArrayList<>();
     }
@@ -159,23 +159,23 @@ public class SLOHistoryResponseData {
               + " in the responses for `metric` based SLOs.")
   @JsonProperty(JSON_PROPERTY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<SLOHistorySLIData> getGroups() {
+  public List<SLOHistoryMonitor> getGroups() {
     return groups;
   }
 
-  public void setGroups(List<SLOHistorySLIData> groups) {
+  public void setGroups(List<SLOHistoryMonitor> groups) {
     this.groups = groups;
   }
 
-  public SLOHistoryResponseData monitors(List<SLOHistorySLIData> monitors) {
+  public SLOHistoryResponseData monitors(List<SLOHistoryMonitor> monitors) {
     this.monitors = monitors;
-    for (SLOHistorySLIData item : monitors) {
+    for (SLOHistoryMonitor item : monitors) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
-  public SLOHistoryResponseData addMonitorsItem(SLOHistorySLIData monitorsItem) {
+  public SLOHistoryResponseData addMonitorsItem(SLOHistoryMonitor monitorsItem) {
     if (this.monitors == null) {
       this.monitors = new ArrayList<>();
     }
@@ -198,11 +198,11 @@ public class SLOHistoryResponseData {
               + " included in the responses for `metric` based SLOs.")
   @JsonProperty(JSON_PROPERTY_MONITORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<SLOHistorySLIData> getMonitors() {
+  public List<SLOHistoryMonitor> getMonitors() {
     return monitors;
   }
 
-  public void setMonitors(List<SLOHistorySLIData> monitors) {
+  public void setMonitors(List<SLOHistoryMonitor> monitors) {
     this.monitors = monitors;
   }
 
