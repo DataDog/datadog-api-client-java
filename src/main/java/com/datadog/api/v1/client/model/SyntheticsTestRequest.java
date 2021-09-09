@@ -29,6 +29,7 @@ import java.util.Objects;
   SyntheticsTestRequest.JSON_PROPERTY_CERTIFICATE,
   SyntheticsTestRequest.JSON_PROPERTY_DNS_SERVER,
   SyntheticsTestRequest.JSON_PROPERTY_DNS_SERVER_PORT,
+  SyntheticsTestRequest.JSON_PROPERTY_FOLLOW_REDIRECTS,
   SyntheticsTestRequest.JSON_PROPERTY_HEADERS,
   SyntheticsTestRequest.JSON_PROPERTY_HOST,
   SyntheticsTestRequest.JSON_PROPERTY_METHOD,
@@ -60,6 +61,9 @@ public class SyntheticsTestRequest {
 
   public static final String JSON_PROPERTY_DNS_SERVER_PORT = "dnsServerPort";
   private Integer dnsServerPort;
+
+  public static final String JSON_PROPERTY_FOLLOW_REDIRECTS = "follow_redirects";
+  private Boolean followRedirects;
 
   public static final String JSON_PROPERTY_HEADERS = "headers";
   private Map<String, String> headers = null;
@@ -224,6 +228,28 @@ public class SyntheticsTestRequest {
 
   public void setDnsServerPort(Integer dnsServerPort) {
     this.dnsServerPort = dnsServerPort;
+  }
+
+  public SyntheticsTestRequest followRedirects(Boolean followRedirects) {
+    this.followRedirects = followRedirects;
+    return this;
+  }
+
+  /**
+   * Specifies whether or not the request follows redirects.
+   *
+   * @return followRedirects
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Specifies whether or not the request follows redirects.")
+  @JsonProperty(JSON_PROPERTY_FOLLOW_REDIRECTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getFollowRedirects() {
+    return followRedirects;
+  }
+
+  public void setFollowRedirects(Boolean followRedirects) {
+    this.followRedirects = followRedirects;
   }
 
   public SyntheticsTestRequest headers(Map<String, String> headers) {
@@ -477,6 +503,7 @@ public class SyntheticsTestRequest {
         && Objects.equals(this.certificate, syntheticsTestRequest.certificate)
         && Objects.equals(this.dnsServer, syntheticsTestRequest.dnsServer)
         && Objects.equals(this.dnsServerPort, syntheticsTestRequest.dnsServerPort)
+        && Objects.equals(this.followRedirects, syntheticsTestRequest.followRedirects)
         && Objects.equals(this.headers, syntheticsTestRequest.headers)
         && Objects.equals(this.host, syntheticsTestRequest.host)
         && Objects.equals(this.method, syntheticsTestRequest.method)
@@ -498,6 +525,7 @@ public class SyntheticsTestRequest {
         certificate,
         dnsServer,
         dnsServerPort,
+        followRedirects,
         headers,
         host,
         method,
@@ -520,6 +548,7 @@ public class SyntheticsTestRequest {
     sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
     sb.append("    dnsServer: ").append(toIndentedString(dnsServer)).append("\n");
     sb.append("    dnsServerPort: ").append(toIndentedString(dnsServerPort)).append("\n");
+    sb.append("    followRedirects: ").append(toIndentedString(followRedirects)).append("\n");
     sb.append("    headers: ").append(toIndentedString(headers)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    method: ").append(toIndentedString(method)).append("\n");
