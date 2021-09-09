@@ -258,7 +258,7 @@ public class MetricsAndMetricTagConfigurations extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `Metric`. If the actual instanct is not `Metric`, the
+   * Get the actual instance of `Metric`. If the actual instance is not `Metric`, the
    * ClassCastException will be thrown.
    *
    * @return The actual instance of `Metric`
@@ -269,7 +269,7 @@ public class MetricsAndMetricTagConfigurations extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `MetricTagConfiguration`. If the actual instanct is not
+   * Get the actual instance of `MetricTagConfiguration`. If the actual instance is not
    * `MetricTagConfiguration`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `MetricTagConfiguration`

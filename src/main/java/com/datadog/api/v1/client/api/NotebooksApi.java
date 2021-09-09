@@ -28,7 +28,7 @@ public class NotebooksApi {
   }
 
   /**
-   * Get the API cilent
+   * Get the API client
    *
    * @return API client
    */
@@ -37,7 +37,7 @@ public class NotebooksApi {
   }
 
   /**
-   * Set the API cilent
+   * Set the API client
    *
    * @param apiClient an instance of API client
    */
@@ -423,7 +423,7 @@ public class NotebooksApi {
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>

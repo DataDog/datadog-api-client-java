@@ -238,7 +238,7 @@ public class Example {
         String filterCreatedAtStart = "2020-11-24T18:46:21+00:00"; // String | Only include application keys created on or after the specified date.
         String filterCreatedAtEnd = "2020-11-24T18:46:21+00:00"; // String | Only include application keys created on or before the specified date.
         try {
-	    ListApplicationKeysResponse result = apiInstance.listServiceAccountApplicationKeys(serviceAccountId, new ServiceAccountsApi.ListServiceAccountApplicationKeysOptionalParameters()
+            ListApplicationKeysResponse result = apiInstance.listServiceAccountApplicationKeys(serviceAccountId, new ServiceAccountsApi.ListServiceAccountApplicationKeysOptionalParameters()
                 .pageSize(pageSize)
                 .pageNumber(pageNumber)
                 .sort(sort)

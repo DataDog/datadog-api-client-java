@@ -304,7 +304,9 @@ public class SLOHistoryMonitor {
    * &#x60;&amp;&amp;&#x60; to timestamp. Use &#x60;span_precision&#x60; instead.
    *
    * @return precision
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   @ApiModelProperty(
       example = "2",
@@ -408,7 +410,9 @@ public class SLOHistoryMonitor {
    * Use &#x60;sli_value&#x60; instead.
    *
    * @return uptime
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   @ApiModelProperty(example = "99.99", value = "Use `sli_value` instead.")
   @JsonProperty(JSON_PROPERTY_UPTIME)

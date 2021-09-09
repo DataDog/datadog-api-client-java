@@ -314,7 +314,7 @@ public class Example {
         Long monitorId = 56L; // Long | The ID of the monitor.
         String force = "false"; // String | Delete the monitor even if it's referenced by other resources (e.g. SLO, composite monitor).
         try {
-	    DeletedMonitor result = apiInstance.deleteMonitor(monitorId, new MonitorsApi.DeleteMonitorOptionalParameters()
+            DeletedMonitor result = apiInstance.deleteMonitor(monitorId, new MonitorsApi.DeleteMonitorOptionalParameters()
                 .force(force));
             System.out.println(result);
         } catch (ApiException e) {
@@ -383,7 +383,7 @@ public class Example {
         Long monitorId = 56L; // Long | The ID of the monitor
         String groupStates = "groupStates_example"; // String | When specified, shows additional information about the group states. Choose one or more from `all`, `alert`, `warn`, and `no data`.
         try {
-	    Monitor result = apiInstance.getMonitor(monitorId, new MonitorsApi.GetMonitorOptionalParameters()
+            Monitor result = apiInstance.getMonitor(monitorId, new MonitorsApi.GetMonitorOptionalParameters()
                 .groupStates(groupStates));
             System.out.println(result);
         } catch (ApiException e) {
@@ -457,7 +457,7 @@ public class Example {
         Long page = 0L; // Long | The page to start paginating from. If this argument is not specified, the request returns all monitors without pagination.
         Integer pageSize = 20; // Integer | The number of monitors to return per page. If the page argument is not specified, the default behavior returns all monitors without a `page_size` limit. However, if page is specified and `page_size` is not, the argument defaults to 100.
         try {
-	    List<Monitor> result = apiInstance.listMonitors(new MonitorsApi.ListMonitorsOptionalParameters()
+            List<Monitor> result = apiInstance.listMonitors(new MonitorsApi.ListMonitorsOptionalParameters()
                 .groupStates(groupStates)
                 .name(name)
                 .tags(tags)
@@ -539,7 +539,7 @@ public class Example {
         Long perPage = 30L; // Long | Number of monitors to return per page.
         String sort = "sort_example"; // String | String for sort order, composed of field and sort order separate by a comma, e.g. `name,asc`. Supported sort directions: `asc`, `desc`. Supported fields:  * `name` * `status` * `tags`
         try {
-	    MonitorGroupSearchResponse result = apiInstance.searchMonitorGroups(new MonitorsApi.SearchMonitorGroupsOptionalParameters()
+            MonitorGroupSearchResponse result = apiInstance.searchMonitorGroups(new MonitorsApi.SearchMonitorGroupsOptionalParameters()
                 .query(query)
                 .page(page)
                 .perPage(perPage)
@@ -613,7 +613,7 @@ public class Example {
         Long perPage = 30L; // Long | Number of monitors to return per page.
         String sort = "sort_example"; // String | String for sort order, composed of field and sort order separate by a comma, e.g. `name,asc`. Supported sort directions: `asc`, `desc`. Supported fields:  * `name` * `status` * `tags`
         try {
-	    MonitorSearchResponse result = apiInstance.searchMonitors(new MonitorsApi.SearchMonitorsOptionalParameters()
+            MonitorSearchResponse result = apiInstance.searchMonitors(new MonitorsApi.SearchMonitorsOptionalParameters()
                 .query(query)
                 .page(page)
                 .perPage(perPage)

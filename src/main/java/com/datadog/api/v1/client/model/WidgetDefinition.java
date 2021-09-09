@@ -1695,7 +1695,7 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `AlertGraphWidgetDefinition`. If the actual instanct is not
+   * Get the actual instance of `AlertGraphWidgetDefinition`. If the actual instance is not
    * `AlertGraphWidgetDefinition`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `AlertGraphWidgetDefinition`
@@ -1706,7 +1706,7 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `AlertValueWidgetDefinition`. If the actual instanct is not
+   * Get the actual instance of `AlertValueWidgetDefinition`. If the actual instance is not
    * `AlertValueWidgetDefinition`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `AlertValueWidgetDefinition`
@@ -1717,7 +1717,7 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `ChangeWidgetDefinition`. If the actual instanct is not
+   * Get the actual instance of `ChangeWidgetDefinition`. If the actual instance is not
    * `ChangeWidgetDefinition`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `ChangeWidgetDefinition`
@@ -1728,7 +1728,7 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `CheckStatusWidgetDefinition`. If the actual instanct is not
+   * Get the actual instance of `CheckStatusWidgetDefinition`. If the actual instance is not
    * `CheckStatusWidgetDefinition`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `CheckStatusWidgetDefinition`
@@ -1739,7 +1739,7 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `DistributionWidgetDefinition`. If the actual instanct is not
+   * Get the actual instance of `DistributionWidgetDefinition`. If the actual instance is not
    * `DistributionWidgetDefinition`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `DistributionWidgetDefinition`
@@ -1750,7 +1750,7 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `EventStreamWidgetDefinition`. If the actual instanct is not
+   * Get the actual instance of `EventStreamWidgetDefinition`. If the actual instance is not
    * `EventStreamWidgetDefinition`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `EventStreamWidgetDefinition`
@@ -1761,7 +1761,7 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `EventTimelineWidgetDefinition`. If the actual instanct is not
+   * Get the actual instance of `EventTimelineWidgetDefinition`. If the actual instance is not
    * `EventTimelineWidgetDefinition`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `EventTimelineWidgetDefinition`
@@ -1773,7 +1773,7 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `FreeTextWidgetDefinition`. If the actual instanct is not
+   * Get the actual instance of `FreeTextWidgetDefinition`. If the actual instance is not
    * `FreeTextWidgetDefinition`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `FreeTextWidgetDefinition`
@@ -1784,7 +1784,7 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `GeomapWidgetDefinition`. If the actual instanct is not
+   * Get the actual instance of `GeomapWidgetDefinition`. If the actual instance is not
    * `GeomapWidgetDefinition`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `GeomapWidgetDefinition`
@@ -1795,7 +1795,7 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `GroupWidgetDefinition`. If the actual instanct is not
+   * Get the actual instance of `GroupWidgetDefinition`. If the actual instance is not
    * `GroupWidgetDefinition`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `GroupWidgetDefinition`
@@ -1806,7 +1806,7 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `HeatMapWidgetDefinition`. If the actual instanct is not
+   * Get the actual instance of `HeatMapWidgetDefinition`. If the actual instance is not
    * `HeatMapWidgetDefinition`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `HeatMapWidgetDefinition`
@@ -1817,7 +1817,7 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `HostMapWidgetDefinition`. If the actual instanct is not
+   * Get the actual instance of `HostMapWidgetDefinition`. If the actual instance is not
    * `HostMapWidgetDefinition`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `HostMapWidgetDefinition`
@@ -1828,7 +1828,7 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `IFrameWidgetDefinition`. If the actual instanct is not
+   * Get the actual instance of `IFrameWidgetDefinition`. If the actual instance is not
    * `IFrameWidgetDefinition`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `IFrameWidgetDefinition`
@@ -1839,7 +1839,7 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `ImageWidgetDefinition`. If the actual instanct is not
+   * Get the actual instance of `ImageWidgetDefinition`. If the actual instance is not
    * `ImageWidgetDefinition`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `ImageWidgetDefinition`
@@ -1850,7 +1850,7 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `ListStreamWidgetDefinition`. If the actual instanct is not
+   * Get the actual instance of `ListStreamWidgetDefinition`. If the actual instance is not
    * `ListStreamWidgetDefinition`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `ListStreamWidgetDefinition`
@@ -1861,7 +1861,7 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `LogStreamWidgetDefinition`. If the actual instanct is not
+   * Get the actual instance of `LogStreamWidgetDefinition`. If the actual instance is not
    * `LogStreamWidgetDefinition`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `LogStreamWidgetDefinition`
@@ -1872,7 +1872,7 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `MonitorSummaryWidgetDefinition`. If the actual instanct is not
+   * Get the actual instance of `MonitorSummaryWidgetDefinition`. If the actual instance is not
    * `MonitorSummaryWidgetDefinition`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `MonitorSummaryWidgetDefinition`
@@ -1884,7 +1884,7 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `NoteWidgetDefinition`. If the actual instanct is not
+   * Get the actual instance of `NoteWidgetDefinition`. If the actual instance is not
    * `NoteWidgetDefinition`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `NoteWidgetDefinition`
@@ -1895,7 +1895,7 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `QueryValueWidgetDefinition`. If the actual instanct is not
+   * Get the actual instance of `QueryValueWidgetDefinition`. If the actual instance is not
    * `QueryValueWidgetDefinition`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `QueryValueWidgetDefinition`
@@ -1906,7 +1906,7 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `SLOWidgetDefinition`. If the actual instanct is not
+   * Get the actual instance of `SLOWidgetDefinition`. If the actual instance is not
    * `SLOWidgetDefinition`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `SLOWidgetDefinition`
@@ -1917,7 +1917,7 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `ScatterPlotWidgetDefinition`. If the actual instanct is not
+   * Get the actual instance of `ScatterPlotWidgetDefinition`. If the actual instance is not
    * `ScatterPlotWidgetDefinition`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `ScatterPlotWidgetDefinition`
@@ -1928,7 +1928,7 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `ServiceMapWidgetDefinition`. If the actual instanct is not
+   * Get the actual instance of `ServiceMapWidgetDefinition`. If the actual instance is not
    * `ServiceMapWidgetDefinition`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `ServiceMapWidgetDefinition`
@@ -1939,7 +1939,7 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `ServiceSummaryWidgetDefinition`. If the actual instanct is not
+   * Get the actual instance of `ServiceSummaryWidgetDefinition`. If the actual instance is not
    * `ServiceSummaryWidgetDefinition`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `ServiceSummaryWidgetDefinition`
@@ -1951,7 +1951,7 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `TableWidgetDefinition`. If the actual instanct is not
+   * Get the actual instance of `TableWidgetDefinition`. If the actual instance is not
    * `TableWidgetDefinition`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `TableWidgetDefinition`
@@ -1962,7 +1962,7 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `TimeseriesWidgetDefinition`. If the actual instanct is not
+   * Get the actual instance of `TimeseriesWidgetDefinition`. If the actual instance is not
    * `TimeseriesWidgetDefinition`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `TimeseriesWidgetDefinition`
@@ -1973,7 +1973,7 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `ToplistWidgetDefinition`. If the actual instanct is not
+   * Get the actual instance of `ToplistWidgetDefinition`. If the actual instance is not
    * `ToplistWidgetDefinition`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `ToplistWidgetDefinition`
@@ -1984,7 +1984,7 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `TreeMapWidgetDefinition`. If the actual instanct is not
+   * Get the actual instance of `TreeMapWidgetDefinition`. If the actual instance is not
    * `TreeMapWidgetDefinition`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `TreeMapWidgetDefinition`

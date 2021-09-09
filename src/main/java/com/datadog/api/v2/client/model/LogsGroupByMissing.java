@@ -243,7 +243,7 @@ public class LogsGroupByMissing extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `Double`. If the actual instanct is not `Double`, the
+   * Get the actual instance of `Double`. If the actual instance is not `Double`, the
    * ClassCastException will be thrown.
    *
    * @return The actual instance of `Double`
@@ -254,7 +254,7 @@ public class LogsGroupByMissing extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `String`. If the actual instanct is not `String`, the
+   * Get the actual instance of `String`. If the actual instance is not `String`, the
    * ClassCastException will be thrown.
    *
    * @return The actual instance of `String`

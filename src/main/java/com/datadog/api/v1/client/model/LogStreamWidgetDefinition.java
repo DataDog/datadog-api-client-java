@@ -168,7 +168,9 @@ public class LogStreamWidgetDefinition {
    * ID of the log set to use.
    *
    * @return logset
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   @ApiModelProperty(value = "ID of the log set to use.")
   @JsonProperty(JSON_PROPERTY_LOGSET)

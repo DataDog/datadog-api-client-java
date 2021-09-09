@@ -638,7 +638,7 @@ public class Example {
         Long toTs = 56L; // Long | Timestamp in milliseconds up to which to query results.
         List<String> probeDc = Arrays.asList(); // List<String> | Locations for which to query results.
         try {
-	    SyntheticsGetAPITestLatestResultsResponse result = apiInstance.getAPITestLatestResults(publicId, new SyntheticsApi.GetAPITestLatestResultsOptionalParameters()
+            SyntheticsGetAPITestLatestResultsResponse result = apiInstance.getAPITestLatestResults(publicId, new SyntheticsApi.GetAPITestLatestResultsOptionalParameters()
                 .fromTs(fromTs)
                 .toTs(toTs)
                 .probeDc(probeDc));
@@ -842,7 +842,7 @@ public class Example {
         Long toTs = 56L; // Long | Timestamp in milliseconds up to which to query results.
         List<String> probeDc = Arrays.asList(); // List<String> | Locations for which to query results.
         try {
-	    SyntheticsGetBrowserTestLatestResultsResponse result = apiInstance.getBrowserTestLatestResults(publicId, new SyntheticsApi.GetBrowserTestLatestResultsOptionalParameters()
+            SyntheticsGetBrowserTestLatestResultsResponse result = apiInstance.getBrowserTestLatestResults(publicId, new SyntheticsApi.GetBrowserTestLatestResultsOptionalParameters()
                 .fromTs(fromTs)
                 .toTs(toTs)
                 .probeDc(probeDc));

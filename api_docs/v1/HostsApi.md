@@ -35,7 +35,7 @@ public class Example {
         HostsApi apiInstance = new HostsApi(defaultClient);
         Long from = 56L; // Long | Number of seconds from which you want to get total number of active hosts.
         try {
-	    HostTotals result = apiInstance.getHostTotals(new HostsApi.GetHostTotalsOptionalParameters()
+            HostTotals result = apiInstance.getHostTotals(new HostsApi.GetHostTotalsOptionalParameters()
                 .from(from));
             System.out.println(result);
         } catch (ApiException e) {
@@ -110,7 +110,7 @@ public class Example {
         Boolean includeMutedHostsData = true; // Boolean | Include information on the muted status of hosts and when the mute expires.
         Boolean includeHostsMetadata = true; // Boolean | Include additional metadata about the hosts (agent_version, machine, platform, processor, etc.).
         try {
-	    HostListResponse result = apiInstance.listHosts(new HostsApi.ListHostsOptionalParameters()
+            HostListResponse result = apiInstance.listHosts(new HostsApi.ListHostsOptionalParameters()
                 .filter(filter)
                 .sortField(sortField)
                 .sortDir(sortDir)

@@ -986,7 +986,7 @@ public class LogsProcessor extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `LogsArithmeticProcessor`. If the actual instanct is not
+   * Get the actual instance of `LogsArithmeticProcessor`. If the actual instance is not
    * `LogsArithmeticProcessor`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `LogsArithmeticProcessor`
@@ -997,7 +997,7 @@ public class LogsProcessor extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `LogsAttributeRemapper`. If the actual instanct is not
+   * Get the actual instance of `LogsAttributeRemapper`. If the actual instance is not
    * `LogsAttributeRemapper`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `LogsAttributeRemapper`
@@ -1008,7 +1008,7 @@ public class LogsProcessor extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `LogsCategoryProcessor`. If the actual instanct is not
+   * Get the actual instance of `LogsCategoryProcessor`. If the actual instance is not
    * `LogsCategoryProcessor`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `LogsCategoryProcessor`
@@ -1019,7 +1019,7 @@ public class LogsProcessor extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `LogsDateRemapper`. If the actual instanct is not
+   * Get the actual instance of `LogsDateRemapper`. If the actual instance is not
    * `LogsDateRemapper`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `LogsDateRemapper`
@@ -1030,7 +1030,7 @@ public class LogsProcessor extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `LogsGeoIPParser`. If the actual instanct is not `LogsGeoIPParser`,
+   * Get the actual instance of `LogsGeoIPParser`. If the actual instance is not `LogsGeoIPParser`,
    * the ClassCastException will be thrown.
    *
    * @return The actual instance of `LogsGeoIPParser`
@@ -1041,7 +1041,7 @@ public class LogsProcessor extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `LogsGrokParser`. If the actual instanct is not `LogsGrokParser`,
+   * Get the actual instance of `LogsGrokParser`. If the actual instance is not `LogsGrokParser`,
    * the ClassCastException will be thrown.
    *
    * @return The actual instance of `LogsGrokParser`
@@ -1052,7 +1052,7 @@ public class LogsProcessor extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `LogsLookupProcessor`. If the actual instanct is not
+   * Get the actual instance of `LogsLookupProcessor`. If the actual instance is not
    * `LogsLookupProcessor`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `LogsLookupProcessor`
@@ -1063,7 +1063,7 @@ public class LogsProcessor extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `LogsMessageRemapper`. If the actual instanct is not
+   * Get the actual instance of `LogsMessageRemapper`. If the actual instance is not
    * `LogsMessageRemapper`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `LogsMessageRemapper`
@@ -1074,7 +1074,7 @@ public class LogsProcessor extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `LogsPipelineProcessor`. If the actual instanct is not
+   * Get the actual instance of `LogsPipelineProcessor`. If the actual instance is not
    * `LogsPipelineProcessor`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `LogsPipelineProcessor`
@@ -1085,7 +1085,7 @@ public class LogsProcessor extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `LogsServiceRemapper`. If the actual instanct is not
+   * Get the actual instance of `LogsServiceRemapper`. If the actual instance is not
    * `LogsServiceRemapper`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `LogsServiceRemapper`
@@ -1096,7 +1096,7 @@ public class LogsProcessor extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `LogsStatusRemapper`. If the actual instanct is not
+   * Get the actual instance of `LogsStatusRemapper`. If the actual instance is not
    * `LogsStatusRemapper`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `LogsStatusRemapper`
@@ -1107,7 +1107,7 @@ public class LogsProcessor extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `LogsStringBuilderProcessor`. If the actual instanct is not
+   * Get the actual instance of `LogsStringBuilderProcessor`. If the actual instance is not
    * `LogsStringBuilderProcessor`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `LogsStringBuilderProcessor`
@@ -1118,7 +1118,7 @@ public class LogsProcessor extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `LogsTraceRemapper`. If the actual instanct is not
+   * Get the actual instance of `LogsTraceRemapper`. If the actual instance is not
    * `LogsTraceRemapper`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `LogsTraceRemapper`
@@ -1129,7 +1129,7 @@ public class LogsProcessor extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `LogsURLParser`. If the actual instanct is not `LogsURLParser`, the
+   * Get the actual instance of `LogsURLParser`. If the actual instance is not `LogsURLParser`, the
    * ClassCastException will be thrown.
    *
    * @return The actual instance of `LogsURLParser`
@@ -1140,7 +1140,7 @@ public class LogsProcessor extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `LogsUserAgentParser`. If the actual instanct is not
+   * Get the actual instance of `LogsUserAgentParser`. If the actual instance is not
    * `LogsUserAgentParser`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `LogsUserAgentParser`

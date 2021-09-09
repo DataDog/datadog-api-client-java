@@ -179,7 +179,7 @@ public class Example {
         Boolean excludeAggregate = true; // Boolean | Set `exclude_aggregate` to `true` to only return unaggregated events where `is_aggregate=false` in the response. If the `exclude_aggregate` parameter is set to `true`, then the unaggregated parameter is ignored and will be `true` by default.
         Integer page = 56; // Integer | By default 1000 results are returned per request. Set page to the number of the page to return with `0` being the first page. The page parameter can only be used when either unaggregated or exclude_aggregate is set to `true.`
         try {
-	    EventListResponse result = apiInstance.listEvents(start, end, new EventsApi.ListEventsOptionalParameters()
+            EventListResponse result = apiInstance.listEvents(start, end, new EventsApi.ListEventsOptionalParameters()
                 .priority(priority)
                 .sources(sources)
                 .tags(tags)

@@ -25,7 +25,7 @@ public class SlackIntegrationApi {
   }
 
   /**
-   * Get the API cilent
+   * Get the API client
    *
    * @return API client
    */
@@ -34,7 +34,7 @@ public class SlackIntegrationApi {
   }
 
   /**
-   * Set the API cilent
+   * Set the API client
    *
    * @param apiClient an instance of API client
    */

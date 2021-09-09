@@ -38,7 +38,7 @@ public class Example {
         HostTags body = new HostTags(); // HostTags | Update host tags request body.
         String source = "chef"; // String | The source of the tags. [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
         try {
-	    HostTags result = apiInstance.createHostTags(hostName, body, new TagsApi.CreateHostTagsOptionalParameters()
+            HostTags result = apiInstance.createHostTags(hostName, body, new TagsApi.CreateHostTagsOptionalParameters()
                 .source(source));
             System.out.println(result);
         } catch (ApiException e) {
@@ -107,7 +107,7 @@ public class Example {
         String hostName = "hostName_example"; // String | This endpoint allows you to remove all user-assigned tags for a single host.
         String source = "source_example"; // String | The source of the tags (e.g. chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
         try {
-	    apiInstance.deleteHostTags(hostName, new TagsApi.DeleteHostTagsOptionalParameters()
+            apiInstance.deleteHostTags(hostName, new TagsApi.DeleteHostTagsOptionalParameters()
                 .source(source));
         } catch (ApiException e) {
             System.err.println("Exception when calling TagsApi#deleteHostTags");
@@ -173,7 +173,7 @@ public class Example {
         String hostName = "hostName_example"; // String | When specified, filters list of tags to those tags with the specified source.
         String source = "source_example"; // String | Source to filter.
         try {
-	    HostTags result = apiInstance.getHostTags(hostName, new TagsApi.GetHostTagsOptionalParameters()
+            HostTags result = apiInstance.getHostTags(hostName, new TagsApi.GetHostTagsOptionalParameters()
                 .source(source));
             System.out.println(result);
         } catch (ApiException e) {
@@ -239,7 +239,7 @@ public class Example {
         TagsApi apiInstance = new TagsApi(defaultClient);
         String source = "source_example"; // String | When specified, filters host list to those tags with the specified source.
         try {
-	    TagToHosts result = apiInstance.listHostTags(new TagsApi.ListHostTagsOptionalParameters()
+            TagToHosts result = apiInstance.listHostTags(new TagsApi.ListHostTagsOptionalParameters()
                 .source(source));
             System.out.println(result);
         } catch (ApiException e) {
@@ -307,7 +307,7 @@ public class Example {
         HostTags body = new HostTags(); // HostTags | Add tags to host
         String source = "source_example"; // String | The source of the tags (e.g. chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value)
         try {
-	    HostTags result = apiInstance.updateHostTags(hostName, body, new TagsApi.UpdateHostTagsOptionalParameters()
+            HostTags result = apiInstance.updateHostTags(hostName, body, new TagsApi.UpdateHostTagsOptionalParameters()
                 .source(source));
             System.out.println(result);
         } catch (ApiException e) {

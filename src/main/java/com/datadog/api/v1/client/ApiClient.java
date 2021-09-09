@@ -668,6 +668,16 @@ public class ApiClient extends JavaTimeFormatter {
   }
 
   /**
+   * The path of temporary folder used to store downloaded files from endpoints with file response.
+   * The default value is <code>null</code>, i.e. using the system's default temporary folder.
+   *
+   * @return Temp folder path
+   */
+  public String getTempFolderPath() {
+    return tempFolderPath;
+  }
+
+  /**
    * Set temp folder path
    *
    * @param tempFolderPath Temp folder path
@@ -1389,7 +1399,7 @@ public class ApiClient extends JavaTimeFormatter {
   /**
    * Customize the client builder.
    *
-   * <p>This method can be overriden to customize the API client. For example, this can be used to:
+   * <p>This method can be overridden to customize the API client. For example, this can be used to:
    * 1. Set the hostname verifier to be used by the client to verify the endpoint's hostname against
    * its identification information. 2. Set the client-side key store. 3. Set the SSL context that
    * will be used when creating secured transport connections to server endpoints from web targets

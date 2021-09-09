@@ -168,7 +168,7 @@ public class Example {
         String teamId = "teamId_example"; // String | The ID of the incident team.
         IncidentRelatedObject include = IncidentRelatedObject.fromValue("users"); // IncidentRelatedObject | Specifies which types of related objects should be included in the response.
         try {
-	    IncidentTeamResponse result = apiInstance.getIncidentTeam(teamId, new IncidentTeamsApi.GetIncidentTeamOptionalParameters()
+            IncidentTeamResponse result = apiInstance.getIncidentTeam(teamId, new IncidentTeamsApi.GetIncidentTeamOptionalParameters()
                 .include(include));
             System.out.println(result);
         } catch (ApiException e) {
@@ -239,7 +239,7 @@ public class Example {
         Long pageOffset = 0L; // Long | Specific offset to use as the beginning of the returned page.
         String filter = "ExampleTeamName"; // String | A search query that filters teams by name.
         try {
-	    IncidentTeamsResponse result = apiInstance.listIncidentTeams(new IncidentTeamsApi.ListIncidentTeamsOptionalParameters()
+            IncidentTeamsResponse result = apiInstance.listIncidentTeams(new IncidentTeamsApi.ListIncidentTeamsOptionalParameters()
                 .include(include)
                 .pageSize(pageSize)
                 .pageOffset(pageOffset)

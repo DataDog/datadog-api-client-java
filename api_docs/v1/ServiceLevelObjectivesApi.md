@@ -172,7 +172,7 @@ public class Example {
         String sloId = "sloId_example"; // String | The ID of the service level objective.
         String force = "force_example"; // String | Delete the monitor even if it's referenced by other resources (e.g. SLO, composite monitor).
         try {
-	    SLODeleteResponse result = apiInstance.deleteSLO(sloId, new ServiceLevelObjectivesApi.DeleteSLOOptionalParameters()
+            SLODeleteResponse result = apiInstance.deleteSLO(sloId, new ServiceLevelObjectivesApi.DeleteSLOOptionalParameters()
                 .force(force));
             System.out.println(result);
         } catch (ApiException e) {
@@ -308,7 +308,7 @@ public class Example {
         String sloId = "sloId_example"; // String | The ID of the service level objective object.
         Boolean withConfiguredAlertIds = true; // Boolean | Get the IDs of SLO monitors that reference this SLO.
         try {
-	    SLOResponse result = apiInstance.getSLO(sloId, new ServiceLevelObjectivesApi.GetSLOOptionalParameters()
+            SLOResponse result = apiInstance.getSLO(sloId, new ServiceLevelObjectivesApi.GetSLOOptionalParameters()
                 .withConfiguredAlertIds(withConfiguredAlertIds));
             System.out.println(result);
         } catch (ApiException e) {
@@ -384,7 +384,7 @@ public class Example {
         Long toTs = 56L; // Long | The `to` timestamp for the query window in epoch seconds.
         Double target = 3.4D; // Double | The SLO target. If `target` is passed in, the response will include the remaining error budget and a timeframe value of `custom`.
         try {
-	    SLOHistoryResponse result = apiInstance.getSLOHistory(sloId, fromTs, toTs, new ServiceLevelObjectivesApi.GetSLOHistoryOptionalParameters()
+            SLOHistoryResponse result = apiInstance.getSLOHistory(sloId, fromTs, toTs, new ServiceLevelObjectivesApi.GetSLOHistoryOptionalParameters()
                 .target(target));
             System.out.println(result);
         } catch (ApiException e) {
@@ -458,7 +458,7 @@ public class Example {
         Long limit = 56L; // Long | The number of SLOs to return in the response.
         Long offset = 56L; // Long | The specific offset to use as the beginning of the returned response.
         try {
-	    SLOListResponse result = apiInstance.listSLOs(new ServiceLevelObjectivesApi.ListSLOsOptionalParameters()
+            SLOListResponse result = apiInstance.listSLOs(new ServiceLevelObjectivesApi.ListSLOsOptionalParameters()
                 .ids(ids)
                 .query(query)
                 .tagsQuery(tagsQuery)

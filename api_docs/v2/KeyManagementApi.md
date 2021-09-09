@@ -362,7 +362,7 @@ public class Example {
         String apiKeyId = "apiKeyId_example"; // String | The ID of the API key.
         String include = "created_by,modified_by"; // String | Comma separated list of resource paths for related resources to include in the response. Supported resource paths are `created_by` and `modified_by`.
         try {
-	    APIKeyResponse result = apiInstance.getAPIKey(apiKeyId, new KeyManagementApi.GetAPIKeyOptionalParameters()
+            APIKeyResponse result = apiInstance.getAPIKey(apiKeyId, new KeyManagementApi.GetAPIKeyOptionalParameters()
                 .include(include));
             System.out.println(result);
         } catch (ApiException e) {
@@ -429,7 +429,7 @@ public class Example {
         String appKeyId = "appKeyId_example"; // String | The ID of the application key.
         String include = "owned_by"; // String | Resource path for related resources to include in the response. Only `owned_by` is supported.
         try {
-	    ApplicationKeyResponse result = apiInstance.getApplicationKey(appKeyId, new KeyManagementApi.GetApplicationKeyOptionalParameters()
+            ApplicationKeyResponse result = apiInstance.getApplicationKey(appKeyId, new KeyManagementApi.GetApplicationKeyOptionalParameters()
                 .include(include));
             System.out.println(result);
         } catch (ApiException e) {
@@ -568,7 +568,7 @@ public class Example {
         String filterModifiedAtEnd = "2020-11-24T18:46:21+00:00"; // String | Only include API keys modified on or before the specified date.
         String include = "created_by,modified_by"; // String | Comma separated list of resource paths for related resources to include in the response. Supported resource paths are `created_by` and `modified_by`.
         try {
-	    APIKeysResponse result = apiInstance.listAPIKeys(new KeyManagementApi.ListAPIKeysOptionalParameters()
+            APIKeysResponse result = apiInstance.listAPIKeys(new KeyManagementApi.ListAPIKeysOptionalParameters()
                 .pageSize(pageSize)
                 .pageNumber(pageNumber)
                 .sort(sort)
@@ -654,7 +654,7 @@ public class Example {
         String filterCreatedAtStart = "2020-11-24T18:46:21+00:00"; // String | Only include application keys created on or after the specified date.
         String filterCreatedAtEnd = "2020-11-24T18:46:21+00:00"; // String | Only include application keys created on or before the specified date.
         try {
-	    ListApplicationKeysResponse result = apiInstance.listApplicationKeys(new KeyManagementApi.ListApplicationKeysOptionalParameters()
+            ListApplicationKeysResponse result = apiInstance.listApplicationKeys(new KeyManagementApi.ListApplicationKeysOptionalParameters()
                 .pageSize(pageSize)
                 .pageNumber(pageNumber)
                 .sort(sort)
@@ -735,7 +735,7 @@ public class Example {
         String filterCreatedAtStart = "2020-11-24T18:46:21+00:00"; // String | Only include application keys created on or after the specified date.
         String filterCreatedAtEnd = "2020-11-24T18:46:21+00:00"; // String | Only include application keys created on or before the specified date.
         try {
-	    ListApplicationKeysResponse result = apiInstance.listCurrentUserApplicationKeys(new KeyManagementApi.ListCurrentUserApplicationKeysOptionalParameters()
+            ListApplicationKeysResponse result = apiInstance.listCurrentUserApplicationKeys(new KeyManagementApi.ListCurrentUserApplicationKeysOptionalParameters()
                 .pageSize(pageSize)
                 .pageNumber(pageNumber)
                 .sort(sort)
