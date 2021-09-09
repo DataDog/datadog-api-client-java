@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **certificate** | [**SyntheticsTestRequestCertificate**](SyntheticsTestRequestCertificate.md) |  |  [optional]
 **dnsServer** | **String** | DNS server to use for DNS tests. |  [optional]
 **dnsServerPort** | **Integer** | DNS server port to use for DNS tests. |  [optional]
+**followRedirects** | **Boolean** | Specifies whether or not the request follows redirects. |  [optional]
 **headers** | **Map&lt;String, String&gt;** | Headers to include when performing the test. |  [optional]
 **host** | **String** | Host name to perform the test with. |  [optional]
 **method** | **HTTPMethod** |  |  [optional]
