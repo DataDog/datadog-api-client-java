@@ -416,7 +416,9 @@ public class SLOHistorySLIData {
    * Use &#x60;sli_value&#x60; instead.
    *
    * @return uptime
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   @ApiModelProperty(example = "99.99", value = "Use `sli_value` instead.")
   @JsonProperty(JSON_PROPERTY_UPTIME)

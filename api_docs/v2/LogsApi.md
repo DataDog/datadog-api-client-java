@@ -107,7 +107,7 @@ public class Example {
         LogsApi apiInstance = new LogsApi(defaultClient);
         LogsListRequest body = new LogsListRequest(); // LogsListRequest | 
         try {
-	    LogsListResponse result = apiInstance.listLogs(new LogsApi.ListLogsOptionalParameters()
+            LogsListResponse result = apiInstance.listLogs(new LogsApi.ListLogsOptionalParameters()
                 .body(body));
             System.out.println(result);
         } catch (ApiException e) {
@@ -189,7 +189,7 @@ public class Example {
         String pageCursor = "eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ=="; // String | List following results with a cursor provided in the previous query.
         Integer pageLimit = 10; // Integer | Maximum number of logs in the response.
         try {
-	    LogsListResponse result = apiInstance.listLogsGet(new LogsApi.ListLogsGetOptionalParameters()
+            LogsListResponse result = apiInstance.listLogsGet(new LogsApi.ListLogsGetOptionalParameters()
                 .filterQuery(filterQuery)
                 .filterIndex(filterIndex)
                 .filterFrom(filterFrom)

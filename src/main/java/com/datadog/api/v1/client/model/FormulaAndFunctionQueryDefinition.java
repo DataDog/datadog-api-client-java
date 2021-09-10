@@ -350,7 +350,7 @@ public class FormulaAndFunctionQueryDefinition extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `FormulaAndFunctionEventQueryDefinition`. If the actual instanct is
+   * Get the actual instance of `FormulaAndFunctionEventQueryDefinition`. If the actual instance is
    * not `FormulaAndFunctionEventQueryDefinition`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `FormulaAndFunctionEventQueryDefinition`
@@ -362,7 +362,7 @@ public class FormulaAndFunctionQueryDefinition extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `FormulaAndFunctionMetricQueryDefinition`. If the actual instanct is
+   * Get the actual instance of `FormulaAndFunctionMetricQueryDefinition`. If the actual instance is
    * not `FormulaAndFunctionMetricQueryDefinition`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `FormulaAndFunctionMetricQueryDefinition`
@@ -374,7 +374,7 @@ public class FormulaAndFunctionQueryDefinition extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `FormulaAndFunctionProcessQueryDefinition`. If the actual instanct
+   * Get the actual instance of `FormulaAndFunctionProcessQueryDefinition`. If the actual instance
    * is not `FormulaAndFunctionProcessQueryDefinition`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `FormulaAndFunctionProcessQueryDefinition`

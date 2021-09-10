@@ -63,7 +63,9 @@ public class Organization {
    * Get billing
    *
    * @return billing
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_BILLING)
@@ -192,7 +194,9 @@ public class Organization {
    * Get subscription
    *
    * @return subscription
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SUBSCRIPTION)

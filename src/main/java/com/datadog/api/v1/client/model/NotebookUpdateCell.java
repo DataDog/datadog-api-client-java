@@ -255,7 +255,7 @@ public class NotebookUpdateCell extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `NotebookCellCreateRequest`. If the actual instanct is not
+   * Get the actual instance of `NotebookCellCreateRequest`. If the actual instance is not
    * `NotebookCellCreateRequest`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `NotebookCellCreateRequest`
@@ -266,7 +266,7 @@ public class NotebookUpdateCell extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `NotebookCellUpdateRequest`. If the actual instanct is not
+   * Get the actual instance of `NotebookCellUpdateRequest`. If the actual instance is not
    * `NotebookCellUpdateRequest`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `NotebookCellUpdateRequest`

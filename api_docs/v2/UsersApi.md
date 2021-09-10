@@ -496,7 +496,7 @@ public class Example {
         String filter = "filter_example"; // String | Filter all users by the given string. Defaults to no filtering.
         String filterStatus = "Active"; // String | Filter on status attribute. Comma separated list, with possible values `Active`, `Pending`, and `Disabled`. Defaults to no filtering.
         try {
-	    UsersResponse result = apiInstance.listUsers(new UsersApi.ListUsersOptionalParameters()
+            UsersResponse result = apiInstance.listUsers(new UsersApi.ListUsersOptionalParameters()
                 .pageSize(pageSize)
                 .pageNumber(pageNumber)
                 .sort(sort)

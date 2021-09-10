@@ -322,7 +322,7 @@ public class LogsArchiveDestination extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `LogsArchiveDestinationAzure`. If the actual instanct is not
+   * Get the actual instance of `LogsArchiveDestinationAzure`. If the actual instance is not
    * `LogsArchiveDestinationAzure`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `LogsArchiveDestinationAzure`
@@ -333,7 +333,7 @@ public class LogsArchiveDestination extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `LogsArchiveDestinationGCS`. If the actual instanct is not
+   * Get the actual instance of `LogsArchiveDestinationGCS`. If the actual instance is not
    * `LogsArchiveDestinationGCS`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `LogsArchiveDestinationGCS`
@@ -344,7 +344,7 @@ public class LogsArchiveDestination extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `LogsArchiveDestinationS3`. If the actual instanct is not
+   * Get the actual instance of `LogsArchiveDestinationS3`. If the actual instance is not
    * `LogsArchiveDestinationS3`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `LogsArchiveDestinationS3`

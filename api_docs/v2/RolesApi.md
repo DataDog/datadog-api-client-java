@@ -495,7 +495,7 @@ public class Example {
         String sort = "name"; // String | User attribute to order results by. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example `sort=-name`. Options: `name`, `email`, `status`.
         String filter = "filter_example"; // String | Filter all users by the given string. Defaults to no filtering.
         try {
-	    UsersResponse result = apiInstance.listRoleUsers(roleId, new RolesApi.ListRoleUsersOptionalParameters()
+            UsersResponse result = apiInstance.listRoleUsers(roleId, new RolesApi.ListRoleUsersOptionalParameters()
                 .pageSize(pageSize)
                 .pageNumber(pageNumber)
                 .sort(sort)
@@ -570,7 +570,7 @@ public class Example {
         RolesSort sort = RolesSort.fromValue("name"); // RolesSort | Sort roles depending on the given field. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example: `sort=-name`.
         String filter = "filter_example"; // String | Filter all roles by the given string.
         try {
-	    RolesResponse result = apiInstance.listRoles(new RolesApi.ListRolesOptionalParameters()
+            RolesResponse result = apiInstance.listRoles(new RolesApi.ListRolesOptionalParameters()
                 .pageSize(pageSize)
                 .pageNumber(pageNumber)
                 .sort(sort)

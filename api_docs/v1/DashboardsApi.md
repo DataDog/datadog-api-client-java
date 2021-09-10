@@ -297,7 +297,7 @@ public class Example {
         DashboardsApi apiInstance = new DashboardsApi(defaultClient);
         Boolean filterShared = true; // Boolean | When `true`, this query only returns shared custom created or cloned dashboards.
         try {
-	    DashboardSummary result = apiInstance.listDashboards(new DashboardsApi.ListDashboardsOptionalParameters()
+            DashboardSummary result = apiInstance.listDashboards(new DashboardsApi.ListDashboardsOptionalParameters()
                 .filterShared(filterShared));
             System.out.println(result);
         } catch (ApiException e) {

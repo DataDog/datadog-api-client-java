@@ -366,7 +366,7 @@ public class Example {
         String roleName = "roleName_example"; // String | Only return AWS accounts that matches this role_name.
         String accessKeyId = "accessKeyId_example"; // String | Only return AWS accounts that matches this `access_key_id`.
         try {
-	    AWSAccountListResponse result = apiInstance.listAWSAccounts(new AwsIntegrationApi.ListAWSAccountsOptionalParameters()
+            AWSAccountListResponse result = apiInstance.listAWSAccounts(new AwsIntegrationApi.ListAWSAccountsOptionalParameters()
                 .accountId(accountId)
                 .roleName(roleName)
                 .accessKeyId(accessKeyId));
@@ -561,7 +561,7 @@ public class Example {
         String roleName = "roleName_example"; // String | Only return AWS accounts that match this `role_name`. Required if `account_id` is specified.
         String accessKeyId = "accessKeyId_example"; // String | Only return AWS accounts that matches this `access_key_id`. Required if none of the other two options are specified.
         try {
-	    Object result = apiInstance.updateAWSAccount(body, new AwsIntegrationApi.UpdateAWSAccountOptionalParameters()
+            Object result = apiInstance.updateAWSAccount(body, new AwsIntegrationApi.UpdateAWSAccountOptionalParameters()
                 .accountId(accountId)
                 .roleName(roleName)
                 .accessKeyId(accessKeyId));

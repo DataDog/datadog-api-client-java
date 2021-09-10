@@ -258,7 +258,7 @@ public class NotebookCellTime extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `NotebookAbsoluteTime`. If the actual instanct is not
+   * Get the actual instance of `NotebookAbsoluteTime`. If the actual instance is not
    * `NotebookAbsoluteTime`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `NotebookAbsoluteTime`
@@ -269,7 +269,7 @@ public class NotebookCellTime extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `NotebookRelativeTime`. If the actual instanct is not
+   * Get the actual instance of `NotebookRelativeTime`. If the actual instance is not
    * `NotebookRelativeTime`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `NotebookRelativeTime`

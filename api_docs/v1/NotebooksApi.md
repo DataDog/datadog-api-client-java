@@ -236,7 +236,7 @@ public class Example {
         String query = "postmortem"; // String | Return only notebooks with `query` string in notebook name or author handle.
         Boolean includeCells = true; // Boolean | Value of `false` excludes the `cells` and global `time` for each notebook.
         try {
-	    NotebooksResponse result = apiInstance.listNotebooks(new NotebooksApi.ListNotebooksOptionalParameters()
+            NotebooksResponse result = apiInstance.listNotebooks(new NotebooksApi.ListNotebooksOptionalParameters()
                 .authorHandle(authorHandle)
                 .excludeAuthorHandle(excludeAuthorHandle)
                 .start(start)

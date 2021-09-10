@@ -102,7 +102,7 @@ public class Example {
         String host = "host_example"; // String | Hostname for filtering the list of metrics returned. If set, metrics retrieved are those with the corresponding hostname tag.
         String tagFilter = "env IN (staging,test) AND service:web"; // String | Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters.
         try {
-	    MetricsListResponse result = apiInstance.listActiveMetrics(from, new MetricsApi.ListActiveMetricsOptionalParameters()
+            MetricsListResponse result = apiInstance.listActiveMetrics(from, new MetricsApi.ListActiveMetricsOptionalParameters()
                 .host(host)
                 .tagFilter(tagFilter));
             System.out.println(result);

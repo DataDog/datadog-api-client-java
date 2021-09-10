@@ -242,7 +242,7 @@ public class Example {
         String filterTags = "env IN (staging,test) AND service:web"; // String | Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters.
         Long windowSeconds = 3600L; // Long | The number of seconds of look back (from now) to apply to a filter[tag] query. Defaults value is 3600 (1 hour), maximum value is 172,800 (2 days).
         try {
-	    MetricsAndMetricTagConfigurationsResponse result = apiInstance.listTagConfigurations(new MetricsApi.ListTagConfigurationsOptionalParameters()
+            MetricsAndMetricTagConfigurationsResponse result = apiInstance.listTagConfigurations(new MetricsApi.ListTagConfigurationsOptionalParameters()
                 .filterConfigured(filterConfigured)
                 .filterTagsConfigured(filterTagsConfigured)
                 .filterMetricType(filterMetricType)

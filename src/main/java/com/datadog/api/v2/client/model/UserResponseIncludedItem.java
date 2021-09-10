@@ -302,7 +302,7 @@ public class UserResponseIncludedItem extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `Organization`. If the actual instanct is not `Organization`, the
+   * Get the actual instance of `Organization`. If the actual instance is not `Organization`, the
    * ClassCastException will be thrown.
    *
    * @return The actual instance of `Organization`
@@ -313,7 +313,7 @@ public class UserResponseIncludedItem extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `Permission`. If the actual instanct is not `Permission`, the
+   * Get the actual instance of `Permission`. If the actual instance is not `Permission`, the
    * ClassCastException will be thrown.
    *
    * @return The actual instance of `Permission`
@@ -324,7 +324,7 @@ public class UserResponseIncludedItem extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `Role`. If the actual instanct is not `Role`, the ClassCastException
+   * Get the actual instance of `Role`. If the actual instance is not `Role`, the ClassCastException
    * will be thrown.
    *
    * @return The actual instance of `Role`

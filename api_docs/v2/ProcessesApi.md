@@ -36,7 +36,7 @@ public class Example {
         Integer pageLimit = 1000; // Integer | Maximum number of results returned.
         String pageCursor = "pageCursor_example"; // String | String to query the next page of results. This key is provided with each valid response from the API in `meta.page.after`.
         try {
-	    ProcessSummariesResponse result = apiInstance.listProcesses(new ProcessesApi.ListProcessesOptionalParameters()
+            ProcessSummariesResponse result = apiInstance.listProcesses(new ProcessesApi.ListProcessesOptionalParameters()
                 .search(search)
                 .tags(tags)
                 .from(from)
