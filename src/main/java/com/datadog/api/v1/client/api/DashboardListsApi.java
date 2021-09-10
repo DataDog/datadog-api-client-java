@@ -103,7 +103,7 @@ public class DashboardListsApi {
     final String[] localVarContentTypes = {"application/json"};
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<DashboardList> localVarReturnType = new GenericType<DashboardList>() {};
 
@@ -185,7 +185,7 @@ public class DashboardListsApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<DashboardListDeleteResponse> localVarReturnType =
         new GenericType<DashboardListDeleteResponse>() {};
@@ -267,7 +267,7 @@ public class DashboardListsApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<DashboardList> localVarReturnType = new GenericType<DashboardList>() {};
 
@@ -337,7 +337,7 @@ public class DashboardListsApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<DashboardListListResponse> localVarReturnType =
         new GenericType<DashboardListListResponse>() {};
@@ -429,7 +429,7 @@ public class DashboardListsApi {
     final String[] localVarContentTypes = {"application/json"};
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<DashboardList> localVarReturnType = new GenericType<DashboardList>() {};
 

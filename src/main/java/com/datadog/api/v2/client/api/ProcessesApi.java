@@ -210,7 +210,7 @@ public class ProcessesApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<ProcessSummariesResponse> localVarReturnType =
         new GenericType<ProcessSummariesResponse>() {};

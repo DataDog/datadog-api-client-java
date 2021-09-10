@@ -500,7 +500,7 @@ public class MetricsApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<MetricsAndMetricTagConfigurationsResponse> localVarReturnType =
         new GenericType<MetricsAndMetricTagConfigurationsResponse>() {};
@@ -588,7 +588,7 @@ public class MetricsApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<MetricAllTagsResponse> localVarReturnType =
         new GenericType<MetricAllTagsResponse>() {};
@@ -684,7 +684,7 @@ public class MetricsApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<MetricVolumesResponse> localVarReturnType =
         new GenericType<MetricVolumesResponse>() {};

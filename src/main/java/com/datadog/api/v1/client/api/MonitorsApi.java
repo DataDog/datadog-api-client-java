@@ -112,7 +112,7 @@ public class MonitorsApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<CheckCanDeleteMonitorResponse> localVarReturnType =
         new GenericType<CheckCanDeleteMonitorResponse>() {};
@@ -407,7 +407,7 @@ public class MonitorsApi {
     final String[] localVarContentTypes = {"application/json"};
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<Monitor> localVarReturnType = new GenericType<Monitor>() {};
 
@@ -536,7 +536,7 @@ public class MonitorsApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<DeletedMonitor> localVarReturnType = new GenericType<DeletedMonitor>() {};
 
@@ -663,7 +663,7 @@ public class MonitorsApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<Monitor> localVarReturnType = new GenericType<Monitor>() {};
 
@@ -882,7 +882,7 @@ public class MonitorsApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<List<Monitor>> localVarReturnType = new GenericType<List<Monitor>>() {};
 
@@ -1042,7 +1042,7 @@ public class MonitorsApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<MonitorGroupSearchResponse> localVarReturnType =
         new GenericType<MonitorGroupSearchResponse>() {};
@@ -1203,7 +1203,7 @@ public class MonitorsApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<MonitorSearchResponse> localVarReturnType =
         new GenericType<MonitorSearchResponse>() {};
@@ -1297,7 +1297,7 @@ public class MonitorsApi {
     final String[] localVarContentTypes = {"application/json"};
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<Monitor> localVarReturnType = new GenericType<Monitor>() {};
 
@@ -1375,7 +1375,7 @@ public class MonitorsApi {
     final String[] localVarContentTypes = {"application/json"};
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<Object> localVarReturnType = new GenericType<Object>() {};
 

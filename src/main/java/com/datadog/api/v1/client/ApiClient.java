@@ -4,6 +4,8 @@ import com.datadog.api.v1.client.auth.ApiKeyAuth;
 import com.datadog.api.v1.client.auth.Authentication;
 import com.datadog.api.v1.client.auth.HttpBasicAuth;
 import com.datadog.api.v1.client.auth.HttpBearerAuth;
+import com.datadog.api.v1.client.auth.OAuth;
+import com.github.scribejava.core.model.OAuth2AccessToken;
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -312,6 +314,14 @@ public class ApiClient extends JavaTimeFormatter {
     authentications = new HashMap<String, Authentication>();
     Authentication auth = null;
     if (authMap != null) {
+      auth = authMap.get("AuthZ");
+    }
+    if (auth instanceof OAuth) {
+      authentications.put("AuthZ", auth);
+    } else {
+      authentications.put("AuthZ", new OAuth(basePath, "/oauth2/v1/token"));
+    }
+    if (authMap != null) {
       auth = authMap.get("apiKeyAuth");
     }
     if (auth instanceof ApiKeyAuth) {
@@ -386,6 +396,7 @@ public class ApiClient extends JavaTimeFormatter {
    */
   public ApiClient setBasePath(String basePath) {
     this.basePath = basePath;
+    setOauthBasePath(basePath);
     return this;
   }
 
@@ -422,6 +433,14 @@ public class ApiClient extends JavaTimeFormatter {
   private void updateBasePath() {
     if (serverIndex != null) {
       setBasePath(servers.get(serverIndex).URL(serverVariables));
+    }
+  }
+
+  private void setOauthBasePath(String basePath) {
+    for (Authentication auth : authentications.values()) {
+      if (auth instanceof OAuth) {
+        ((OAuth) auth).setBasePath(basePath);
+      }
     }
   }
 
@@ -537,6 +556,83 @@ public class ApiClient extends JavaTimeFormatter {
       }
     }
     throw new RuntimeException("No Bearer authentication configured!");
+  }
+
+  /**
+   * Helper method to set access token for the first OAuth2 authentication.
+   *
+   * @param accessToken Access token
+   */
+  public ApiClient setAccessToken(String accessToken) {
+    for (Authentication auth : authentications.values()) {
+      if (auth instanceof OAuth) {
+        ((OAuth) auth).setAccessToken(accessToken);
+        return this;
+      }
+    }
+    throw new RuntimeException("No OAuth2 authentication configured!");
+  }
+
+  /**
+   * Helper method to set the credentials for the first OAuth2 authentication.
+   *
+   * @param clientId the client ID
+   * @param clientSecret the client secret
+   */
+  public ApiClient setOauthCredentials(String clientId, String clientSecret) {
+    for (Authentication auth : authentications.values()) {
+      if (auth instanceof OAuth) {
+        ((OAuth) auth).setCredentials(clientId, clientSecret, isDebugging());
+        return this;
+      }
+    }
+    throw new RuntimeException("No OAuth2 authentication configured!");
+  }
+
+  /**
+   * Helper method to set the password flow for the first OAuth2 authentication.
+   *
+   * @param username the user name
+   * @param password the user password
+   */
+  public ApiClient setOauthPasswordFlow(String username, String password) {
+    for (Authentication auth : authentications.values()) {
+      if (auth instanceof OAuth) {
+        ((OAuth) auth).usePasswordFlow(username, password);
+        return this;
+      }
+    }
+    throw new RuntimeException("No OAuth2 authentication configured!");
+  }
+
+  /**
+   * Helper method to set the authorization code flow for the first OAuth2 authentication.
+   *
+   * @param code the authorization code
+   */
+  public ApiClient setOauthAuthorizationCodeFlow(String code) {
+    for (Authentication auth : authentications.values()) {
+      if (auth instanceof OAuth) {
+        ((OAuth) auth).useAuthorizationCodeFlow(code);
+        return this;
+      }
+    }
+    throw new RuntimeException("No OAuth2 authentication configured!");
+  }
+
+  /**
+   * Helper method to set the scopes for the first OAuth2 authentication.
+   *
+   * @param scope the oauth scope
+   */
+  public ApiClient setOauthScope(String scope) {
+    for (Authentication auth : authentications.values()) {
+      if (auth instanceof OAuth) {
+        ((OAuth) auth).setScope(scope);
+        return this;
+      }
+    }
+    throw new RuntimeException("No OAuth2 authentication configured!");
   }
 
   /**
@@ -1260,6 +1356,22 @@ public class ApiClient extends JavaTimeFormatter {
 
     try {
       response = sendRequest(method, invocationBuilder, entity);
+
+      // If OAuth is used and a status 401 is received, renew the access token and retry the request
+      if (response.getStatusInfo() == Status.UNAUTHORIZED) {
+        for (String authName : authNames) {
+          Authentication authentication = authentications.get(authName);
+          if (authentication instanceof OAuth) {
+            OAuth2AccessToken accessToken = ((OAuth) authentication).renewAccessToken();
+            if (accessToken != null) {
+              invocationBuilder.header("Authorization", null);
+              invocationBuilder.header("Authorization", "Bearer " + accessToken.getAccessToken());
+              response = sendRequest(method, invocationBuilder, entity);
+            }
+            break;
+          }
+        }
+      }
 
       int statusCode = response.getStatusInfo().getStatusCode();
       Map<String, List<String>> responseHeaders = buildResponseHeaders(response);

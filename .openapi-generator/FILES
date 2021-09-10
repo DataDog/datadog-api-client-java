@@ -380,6 +380,8 @@ src/main/java/com/datadog/api/v2/client/auth/ApiKeyAuth.java
 src/main/java/com/datadog/api/v2/client/auth/Authentication.java
 src/main/java/com/datadog/api/v2/client/auth/HttpBasicAuth.java
 src/main/java/com/datadog/api/v2/client/auth/HttpBearerAuth.java
+src/main/java/com/datadog/api/v2/client/auth/OAuth.java
+src/main/java/com/datadog/api/v2/client/auth/OAuthFlow.java
 src/main/java/com/datadog/api/v2/client/model/APIErrorResponse.java
 src/main/java/com/datadog/api/v2/client/model/APIKeyCreateAttributes.java
 src/main/java/com/datadog/api/v2/client/model/APIKeyCreateData.java

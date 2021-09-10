@@ -203,7 +203,7 @@ public class SnapshotsApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<GraphSnapshot> localVarReturnType = new GenericType<GraphSnapshot>() {};
 

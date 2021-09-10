@@ -536,7 +536,7 @@ public class ServiceLevelObjectivesApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<SLOResponse> localVarReturnType = new GenericType<SLOResponse>() {};
 
@@ -698,7 +698,7 @@ public class ServiceLevelObjectivesApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<SLOHistoryResponse> localVarReturnType = new GenericType<SLOHistoryResponse>() {};
 
@@ -884,7 +884,7 @@ public class ServiceLevelObjectivesApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<SLOListResponse> localVarReturnType = new GenericType<SLOListResponse>() {};
 

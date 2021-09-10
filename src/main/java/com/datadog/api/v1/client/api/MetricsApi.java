@@ -110,7 +110,7 @@ public class MetricsApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<MetricMetadata> localVarReturnType = new GenericType<MetricMetadata>() {};
 
@@ -247,7 +247,7 @@ public class MetricsApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<MetricsListResponse> localVarReturnType = new GenericType<MetricsListResponse>() {};
 
@@ -329,7 +329,7 @@ public class MetricsApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<MetricSearchResponse> localVarReturnType =
         new GenericType<MetricSearchResponse>() {};
@@ -429,7 +429,7 @@ public class MetricsApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<MetricsQueryResponse> localVarReturnType =
         new GenericType<MetricsQueryResponse>() {};
