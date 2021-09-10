@@ -144,7 +144,9 @@ public class MonitorOptions {
    * IDs of the device the Synthetics monitor is running on.
    *
    * @return deviceIds
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   @ApiModelProperty(value = "IDs of the device the Synthetics monitor is running on.")
   @JsonProperty(JSON_PROPERTY_DEVICE_IDS)
@@ -448,7 +450,9 @@ public class MonitorOptions {
    * evaluation of monitor results. Should be a non negative integer. Use new_group_delay instead.
    *
    * @return newHostDelay
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
@@ -642,7 +646,9 @@ public class MonitorOptions {
    * Information about the downtime applied to the monitor.
    *
    * @return silenced
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Information about the downtime applied to the monitor.")
   @JsonProperty(JSON_PROPERTY_SILENCED)
@@ -664,7 +670,9 @@ public class MonitorOptions {
    * ID of the corresponding Synthetic check.
    *
    * @return syntheticsCheckId
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   @ApiModelProperty(value = "ID of the corresponding Synthetic check.")
   @JsonIgnore

@@ -221,7 +221,7 @@ public class IncidentTimelineCellCreateAttributes extends AbstractOpenApiSchema 
 
   /**
    * Get the actual instance of `IncidentTimelineCellMarkdownCreateAttributes`. If the actual
-   * instanct is not `IncidentTimelineCellMarkdownCreateAttributes`, the ClassCastException will be
+   * instance is not `IncidentTimelineCellMarkdownCreateAttributes`, the ClassCastException will be
    * thrown.
    *
    * @return The actual instance of `IncidentTimelineCellMarkdownCreateAttributes`

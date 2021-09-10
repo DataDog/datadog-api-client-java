@@ -55,13 +55,9 @@ public class SLOHistoryMetricsSeries {
   @JsonCreator
   public SLOHistoryMetricsSeries(
       @JsonProperty(required = true, value = JSON_PROPERTY_COUNT) Long count,
-      @JsonProperty(required = true, value = JSON_PROPERTY_METADATA)
-          SLOHistoryMetricsSeriesMetadata metadata,
       @JsonProperty(required = true, value = JSON_PROPERTY_SUM) Double sum,
       @JsonProperty(required = true, value = JSON_PROPERTY_VALUES) List<Double> values) {
     this.count = count;
-    this.metadata = metadata;
-    this.unparsed |= metadata.unparsed;
     this.sum = sum;
     this.values = values;
   }
@@ -98,9 +94,10 @@ public class SLOHistoryMetricsSeries {
    *
    * @return metadata
    */
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_METADATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public SLOHistoryMetricsSeriesMetadata getMetadata() {
     return metadata;
   }

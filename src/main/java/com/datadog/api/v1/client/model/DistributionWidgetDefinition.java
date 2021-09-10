@@ -102,7 +102,9 @@ public class DistributionWidgetDefinition {
    * (Deprecated) The widget legend was replaced by a tooltip and sidebar.
    *
    * @return legendSize
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   @ApiModelProperty(value = "(Deprecated) The widget legend was replaced by a tooltip and sidebar.")
   @JsonProperty(JSON_PROPERTY_LEGEND_SIZE)
@@ -197,7 +199,9 @@ public class DistributionWidgetDefinition {
    * (Deprecated) The widget legend was replaced by a tooltip and sidebar.
    *
    * @return showLegend
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   @ApiModelProperty(value = "(Deprecated) The widget legend was replaced by a tooltip and sidebar.")
   @JsonProperty(JSON_PROPERTY_SHOW_LEGEND)

@@ -199,7 +199,7 @@ public class IncidentServiceIncludedItems extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `User`. If the actual instanct is not `User`, the ClassCastException
+   * Get the actual instance of `User`. If the actual instance is not `User`, the ClassCastException
    * will be thrown.
    *
    * @return The actual instance of `User`

@@ -254,7 +254,7 @@ public class MetricVolumes extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `MetricDistinctVolume`. If the actual instanct is not
+   * Get the actual instance of `MetricDistinctVolume`. If the actual instance is not
    * `MetricDistinctVolume`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `MetricDistinctVolume`
@@ -265,7 +265,7 @@ public class MetricVolumes extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `MetricIngestedIndexedVolume`. If the actual instanct is not
+   * Get the actual instance of `MetricIngestedIndexedVolume`. If the actual instance is not
    * `MetricIngestedIndexedVolume`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `MetricIngestedIndexedVolume`

@@ -9,7 +9,7 @@ A representation of `metric` based SLO time series for the provided queries. Thi
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **count** | **Long** | Count of submitted metrics. | 
-**metadata** | [**SLOHistoryMetricsSeriesMetadata**](SLOHistoryMetricsSeriesMetadata.md) |  | 
+**metadata** | [**SLOHistoryMetricsSeriesMetadata**](SLOHistoryMetricsSeriesMetadata.md) |  |  [optional]
 **sum** | **Double** | Total sum of the query. | 
 **values** | **List&lt;Double&gt;** | The query values for each metric. | 
 

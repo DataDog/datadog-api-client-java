@@ -512,7 +512,7 @@ public class NotebookCellResponseAttributes extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `NotebookDistributionCellAttributes`. If the actual instanct is not
+   * Get the actual instance of `NotebookDistributionCellAttributes`. If the actual instance is not
    * `NotebookDistributionCellAttributes`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `NotebookDistributionCellAttributes`
@@ -524,7 +524,7 @@ public class NotebookCellResponseAttributes extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `NotebookHeatMapCellAttributes`. If the actual instanct is not
+   * Get the actual instance of `NotebookHeatMapCellAttributes`. If the actual instance is not
    * `NotebookHeatMapCellAttributes`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `NotebookHeatMapCellAttributes`
@@ -536,7 +536,7 @@ public class NotebookCellResponseAttributes extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `NotebookLogStreamCellAttributes`. If the actual instanct is not
+   * Get the actual instance of `NotebookLogStreamCellAttributes`. If the actual instance is not
    * `NotebookLogStreamCellAttributes`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `NotebookLogStreamCellAttributes`
@@ -548,7 +548,7 @@ public class NotebookCellResponseAttributes extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `NotebookMarkdownCellAttributes`. If the actual instanct is not
+   * Get the actual instance of `NotebookMarkdownCellAttributes`. If the actual instance is not
    * `NotebookMarkdownCellAttributes`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `NotebookMarkdownCellAttributes`
@@ -560,7 +560,7 @@ public class NotebookCellResponseAttributes extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `NotebookTimeseriesCellAttributes`. If the actual instanct is not
+   * Get the actual instance of `NotebookTimeseriesCellAttributes`. If the actual instance is not
    * `NotebookTimeseriesCellAttributes`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `NotebookTimeseriesCellAttributes`
@@ -572,7 +572,7 @@ public class NotebookCellResponseAttributes extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `NotebookToplistCellAttributes`. If the actual instanct is not
+   * Get the actual instance of `NotebookToplistCellAttributes`. If the actual instance is not
    * `NotebookToplistCellAttributes`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `NotebookToplistCellAttributes`

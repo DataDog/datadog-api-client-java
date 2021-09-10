@@ -168,7 +168,7 @@ public class Example {
         String serviceId = "serviceId_example"; // String | The ID of the incident service.
         IncidentRelatedObject include = IncidentRelatedObject.fromValue("users"); // IncidentRelatedObject | Specifies which types of related objects should be included in the response.
         try {
-	    IncidentServiceResponse result = apiInstance.getIncidentService(serviceId, new IncidentServicesApi.GetIncidentServiceOptionalParameters()
+            IncidentServiceResponse result = apiInstance.getIncidentService(serviceId, new IncidentServicesApi.GetIncidentServiceOptionalParameters()
                 .include(include));
             System.out.println(result);
         } catch (ApiException e) {
@@ -239,7 +239,7 @@ public class Example {
         Long pageOffset = 0L; // Long | Specific offset to use as the beginning of the returned page.
         String filter = "ExampleServiceName"; // String | A search query that filters services by name.
         try {
-	    IncidentServicesResponse result = apiInstance.listIncidentServices(new IncidentServicesApi.ListIncidentServicesOptionalParameters()
+            IncidentServicesResponse result = apiInstance.listIncidentServices(new IncidentServicesApi.ListIncidentServicesOptionalParameters()
                 .include(include)
                 .pageSize(pageSize)
                 .pageOffset(pageOffset)

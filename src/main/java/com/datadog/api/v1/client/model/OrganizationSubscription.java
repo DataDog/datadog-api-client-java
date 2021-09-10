@@ -18,7 +18,12 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
-/** Subscription definition. */
+/**
+ * Subscription definition.
+ *
+ * @deprecated
+ */
+@Deprecated
 @ApiModel(description = "Subscription definition.")
 @JsonPropertyOrder({OrganizationSubscription.JSON_PROPERTY_TYPE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")

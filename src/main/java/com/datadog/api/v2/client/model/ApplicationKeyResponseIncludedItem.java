@@ -254,7 +254,7 @@ public class ApplicationKeyResponseIncludedItem extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `Role`. If the actual instanct is not `Role`, the ClassCastException
+   * Get the actual instance of `Role`. If the actual instance is not `Role`, the ClassCastException
    * will be thrown.
    *
    * @return The actual instance of `Role`
@@ -265,7 +265,7 @@ public class ApplicationKeyResponseIncludedItem extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `User`. If the actual instanct is not `User`, the ClassCastException
+   * Get the actual instance of `User`. If the actual instance is not `User`, the ClassCastException
    * will be thrown.
    *
    * @return The actual instance of `User`

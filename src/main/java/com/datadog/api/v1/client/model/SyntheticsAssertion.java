@@ -261,7 +261,7 @@ public class SyntheticsAssertion extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `SyntheticsAssertionJSONPathTarget`. If the actual instanct is not
+   * Get the actual instance of `SyntheticsAssertionJSONPathTarget`. If the actual instance is not
    * `SyntheticsAssertionJSONPathTarget`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `SyntheticsAssertionJSONPathTarget`
@@ -273,7 +273,7 @@ public class SyntheticsAssertion extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `SyntheticsAssertionTarget`. If the actual instanct is not
+   * Get the actual instance of `SyntheticsAssertionTarget`. If the actual instance is not
    * `SyntheticsAssertionTarget`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `SyntheticsAssertionTarget`

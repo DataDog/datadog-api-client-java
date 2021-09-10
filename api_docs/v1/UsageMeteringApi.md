@@ -65,7 +65,7 @@ public class Example {
         UsageSortDirection sortDir = UsageSortDirection.fromValue("desc"); // UsageSortDirection | The direction to sort by: `[desc, asc]`.
         UsageSort sort = UsageSort.fromValue("computed_on"); // UsageSort | The field to sort by: `[computed_on, size, start_date, end_date]`.
         try {
-	    UsageCustomReportsResponse result = apiInstance.getDailyCustomReports(new UsageMeteringApi.GetDailyCustomReportsOptionalParameters()
+            UsageCustomReportsResponse result = apiInstance.getDailyCustomReports(new UsageMeteringApi.GetDailyCustomReportsOptionalParameters()
                 .pageSize(pageSize)
                 .pageNumber(pageNumber)
                 .sortDir(sortDir)
@@ -137,7 +137,7 @@ public class Example {
         OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
         try {
-	    UsageIncidentManagementResponse result = apiInstance.getIncidentManagement(startHr, new UsageMeteringApi.GetIncidentManagementOptionalParameters()
+            UsageIncidentManagementResponse result = apiInstance.getIncidentManagement(startHr, new UsageMeteringApi.GetIncidentManagementOptionalParameters()
                 .endHr(endHr));
             System.out.println(result);
         } catch (ApiException e) {
@@ -205,7 +205,7 @@ public class Example {
         OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
         try {
-	    UsageIngestedSpansResponse result = apiInstance.getIngestedSpans(startHr, new UsageMeteringApi.GetIngestedSpansOptionalParameters()
+            UsageIngestedSpansResponse result = apiInstance.getIngestedSpans(startHr, new UsageMeteringApi.GetIngestedSpansOptionalParameters()
                 .endHr(endHr));
             System.out.println(result);
         } catch (ApiException e) {
@@ -274,7 +274,7 @@ public class Example {
         UsageSortDirection sortDir = UsageSortDirection.fromValue("desc"); // UsageSortDirection | The direction to sort by: `[desc, asc]`.
         UsageSort sort = UsageSort.fromValue("computed_on"); // UsageSort | The field to sort by: `[computed_on, size, start_date, end_date]`.
         try {
-	    UsageCustomReportsResponse result = apiInstance.getMonthlyCustomReports(new UsageMeteringApi.GetMonthlyCustomReportsOptionalParameters()
+            UsageCustomReportsResponse result = apiInstance.getMonthlyCustomReports(new UsageMeteringApi.GetMonthlyCustomReportsOptionalParameters()
                 .pageSize(pageSize)
                 .pageNumber(pageNumber)
                 .sortDir(sortDir)
@@ -475,7 +475,7 @@ public class Example {
         OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
         try {
-	    UsageAnalyzedLogsResponse result = apiInstance.getUsageAnalyzedLogs(startHr, new UsageMeteringApi.GetUsageAnalyzedLogsOptionalParameters()
+            UsageAnalyzedLogsResponse result = apiInstance.getUsageAnalyzedLogs(startHr, new UsageMeteringApi.GetUsageAnalyzedLogsOptionalParameters()
                 .endHr(endHr));
             System.out.println(result);
         } catch (ApiException e) {
@@ -547,7 +547,7 @@ public class Example {
         UsageAttributionSort sortName = UsageAttributionSort.fromValue("api_percentage"); // UsageAttributionSort | The field to sort by.
         Boolean includeDescendants = false; // Boolean | Include child org usage in the response. Defaults to false.
         try {
-	    UsageAttributionResponse result = apiInstance.getUsageAttribution(startMonth, fields, new UsageMeteringApi.GetUsageAttributionOptionalParameters()
+            UsageAttributionResponse result = apiInstance.getUsageAttribution(startMonth, fields, new UsageMeteringApi.GetUsageAttributionOptionalParameters()
                 .endMonth(endMonth)
                 .sortDirection(sortDirection)
                 .sortName(sortName)
@@ -621,7 +621,7 @@ public class Example {
         OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
         try {
-	    UsageAuditLogsResponse result = apiInstance.getUsageAuditLogs(startHr, new UsageMeteringApi.GetUsageAuditLogsOptionalParameters()
+            UsageAuditLogsResponse result = apiInstance.getUsageAuditLogs(startHr, new UsageMeteringApi.GetUsageAuditLogsOptionalParameters()
                 .endHr(endHr));
             System.out.println(result);
         } catch (ApiException e) {
@@ -688,7 +688,7 @@ public class Example {
         UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);
         OffsetDateTime month = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage starting this month.
         try {
-	    UsageBillableSummaryResponse result = apiInstance.getUsageBillableSummary(new UsageMeteringApi.GetUsageBillableSummaryOptionalParameters()
+            UsageBillableSummaryResponse result = apiInstance.getUsageBillableSummary(new UsageMeteringApi.GetUsageBillableSummaryOptionalParameters()
                 .month(month));
             System.out.println(result);
         } catch (ApiException e) {
@@ -755,7 +755,7 @@ public class Example {
         OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
         try {
-	    UsageCWSResponse result = apiInstance.getUsageCWS(startHr, new UsageMeteringApi.GetUsageCWSOptionalParameters()
+            UsageCWSResponse result = apiInstance.getUsageCWS(startHr, new UsageMeteringApi.GetUsageCWSOptionalParameters()
                 .endHr(endHr));
             System.out.println(result);
         } catch (ApiException e) {
@@ -823,7 +823,7 @@ public class Example {
         OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
         try {
-	    UsageCloudSecurityPostureManagementResponse result = apiInstance.getUsageCloudSecurityPostureManagement(startHr, new UsageMeteringApi.GetUsageCloudSecurityPostureManagementOptionalParameters()
+            UsageCloudSecurityPostureManagementResponse result = apiInstance.getUsageCloudSecurityPostureManagement(startHr, new UsageMeteringApi.GetUsageCloudSecurityPostureManagementOptionalParameters()
                 .endHr(endHr));
             System.out.println(result);
         } catch (ApiException e) {
@@ -891,7 +891,7 @@ public class Example {
         OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
         try {
-	    UsageDBMResponse result = apiInstance.getUsageDBM(startHr, new UsageMeteringApi.GetUsageDBMOptionalParameters()
+            UsageDBMResponse result = apiInstance.getUsageDBM(startHr, new UsageMeteringApi.GetUsageDBMOptionalParameters()
                 .endHr(endHr));
             System.out.println(result);
         } catch (ApiException e) {
@@ -959,7 +959,7 @@ public class Example {
         OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
         try {
-	    UsageFargateResponse result = apiInstance.getUsageFargate(startHr, new UsageMeteringApi.GetUsageFargateOptionalParameters()
+            UsageFargateResponse result = apiInstance.getUsageFargate(startHr, new UsageMeteringApi.GetUsageFargateOptionalParameters()
                 .endHr(endHr));
             System.out.println(result);
         } catch (ApiException e) {
@@ -1027,7 +1027,7 @@ public class Example {
         OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
         try {
-	    UsageHostsResponse result = apiInstance.getUsageHosts(startHr, new UsageMeteringApi.GetUsageHostsOptionalParameters()
+            UsageHostsResponse result = apiInstance.getUsageHosts(startHr, new UsageMeteringApi.GetUsageHostsOptionalParameters()
                 .endHr(endHr));
             System.out.println(result);
         } catch (ApiException e) {
@@ -1095,7 +1095,7 @@ public class Example {
         OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
         try {
-	    UsageIndexedSpansResponse result = apiInstance.getUsageIndexedSpans(startHr, new UsageMeteringApi.GetUsageIndexedSpansOptionalParameters()
+            UsageIndexedSpansResponse result = apiInstance.getUsageIndexedSpans(startHr, new UsageMeteringApi.GetUsageIndexedSpansOptionalParameters()
                 .endHr(endHr));
             System.out.println(result);
         } catch (ApiException e) {
@@ -1163,7 +1163,7 @@ public class Example {
         OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
         try {
-	    UsageIoTResponse result = apiInstance.getUsageInternetOfThings(startHr, new UsageMeteringApi.GetUsageInternetOfThingsOptionalParameters()
+            UsageIoTResponse result = apiInstance.getUsageInternetOfThings(startHr, new UsageMeteringApi.GetUsageInternetOfThingsOptionalParameters()
                 .endHr(endHr));
             System.out.println(result);
         } catch (ApiException e) {
@@ -1231,7 +1231,7 @@ public class Example {
         OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
         try {
-	    UsageLambdaResponse result = apiInstance.getUsageLambda(startHr, new UsageMeteringApi.GetUsageLambdaOptionalParameters()
+            UsageLambdaResponse result = apiInstance.getUsageLambda(startHr, new UsageMeteringApi.GetUsageLambdaOptionalParameters()
                 .endHr(endHr));
             System.out.println(result);
         } catch (ApiException e) {
@@ -1299,7 +1299,7 @@ public class Example {
         OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
         try {
-	    UsageLogsResponse result = apiInstance.getUsageLogs(startHr, new UsageMeteringApi.GetUsageLogsOptionalParameters()
+            UsageLogsResponse result = apiInstance.getUsageLogs(startHr, new UsageMeteringApi.GetUsageLogsOptionalParameters()
                 .endHr(endHr));
             System.out.println(result);
         } catch (ApiException e) {
@@ -1368,7 +1368,7 @@ public class Example {
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
         List<String> indexName = Arrays.asList(); // List<String> | Comma-separated list of log index names.
         try {
-	    UsageLogsByIndexResponse result = apiInstance.getUsageLogsByIndex(startHr, new UsageMeteringApi.GetUsageLogsByIndexOptionalParameters()
+            UsageLogsByIndexResponse result = apiInstance.getUsageLogsByIndex(startHr, new UsageMeteringApi.GetUsageLogsByIndexOptionalParameters()
                 .endHr(endHr)
                 .indexName(indexName));
             System.out.println(result);
@@ -1438,7 +1438,7 @@ public class Example {
         OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
         try {
-	    UsageLogsByRetentionResponse result = apiInstance.getUsageLogsByRetention(startHr, new UsageMeteringApi.GetUsageLogsByRetentionOptionalParameters()
+            UsageLogsByRetentionResponse result = apiInstance.getUsageLogsByRetention(startHr, new UsageMeteringApi.GetUsageLogsByRetentionOptionalParameters()
                 .endHr(endHr));
             System.out.println(result);
         } catch (ApiException e) {
@@ -1506,7 +1506,7 @@ public class Example {
         OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
         try {
-	    UsageNetworkFlowsResponse result = apiInstance.getUsageNetworkFlows(startHr, new UsageMeteringApi.GetUsageNetworkFlowsOptionalParameters()
+            UsageNetworkFlowsResponse result = apiInstance.getUsageNetworkFlows(startHr, new UsageMeteringApi.GetUsageNetworkFlowsOptionalParameters()
                 .endHr(endHr));
             System.out.println(result);
         } catch (ApiException e) {
@@ -1574,7 +1574,7 @@ public class Example {
         OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
         try {
-	    UsageNetworkHostsResponse result = apiInstance.getUsageNetworkHosts(startHr, new UsageMeteringApi.GetUsageNetworkHostsOptionalParameters()
+            UsageNetworkHostsResponse result = apiInstance.getUsageNetworkHosts(startHr, new UsageMeteringApi.GetUsageNetworkHostsOptionalParameters()
                 .endHr(endHr));
             System.out.println(result);
         } catch (ApiException e) {
@@ -1642,7 +1642,7 @@ public class Example {
         OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
         try {
-	    UsageProfilingResponse result = apiInstance.getUsageProfiling(startHr, new UsageMeteringApi.GetUsageProfilingOptionalParameters()
+            UsageProfilingResponse result = apiInstance.getUsageProfiling(startHr, new UsageMeteringApi.GetUsageProfilingOptionalParameters()
                 .endHr(endHr));
             System.out.println(result);
         } catch (ApiException e) {
@@ -1711,7 +1711,7 @@ public class Example {
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
         String type = "type_example"; // String | RUM type: `[browser, mobile]`. Defaults to `browser`.
         try {
-	    UsageRumSessionsResponse result = apiInstance.getUsageRumSessions(startHr, new UsageMeteringApi.GetUsageRumSessionsOptionalParameters()
+            UsageRumSessionsResponse result = apiInstance.getUsageRumSessions(startHr, new UsageMeteringApi.GetUsageRumSessionsOptionalParameters()
                 .endHr(endHr)
                 .type(type));
             System.out.println(result);
@@ -1781,7 +1781,7 @@ public class Example {
         OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
         try {
-	    UsageSNMPResponse result = apiInstance.getUsageSNMP(startHr, new UsageMeteringApi.GetUsageSNMPOptionalParameters()
+            UsageSNMPResponse result = apiInstance.getUsageSNMP(startHr, new UsageMeteringApi.GetUsageSNMPOptionalParameters()
                 .endHr(endHr));
             System.out.println(result);
         } catch (ApiException e) {
@@ -1850,7 +1850,7 @@ public class Example {
         OffsetDateTime endMonth = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage ending this month.
         Boolean includeOrgDetails = true; // Boolean | Include usage summaries for each sub-org.
         try {
-	    UsageSummaryResponse result = apiInstance.getUsageSummary(startMonth, new UsageMeteringApi.GetUsageSummaryOptionalParameters()
+            UsageSummaryResponse result = apiInstance.getUsageSummary(startMonth, new UsageMeteringApi.GetUsageSummaryOptionalParameters()
                 .endMonth(endMonth)
                 .includeOrgDetails(includeOrgDetails));
             System.out.println(result);
@@ -1920,7 +1920,7 @@ public class Example {
         OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
         try {
-	    UsageSyntheticsResponse result = apiInstance.getUsageSynthetics(startHr, new UsageMeteringApi.GetUsageSyntheticsOptionalParameters()
+            UsageSyntheticsResponse result = apiInstance.getUsageSynthetics(startHr, new UsageMeteringApi.GetUsageSyntheticsOptionalParameters()
                 .endHr(endHr));
             System.out.println(result);
         } catch (ApiException e) {
@@ -1988,7 +1988,7 @@ public class Example {
         OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
         try {
-	    UsageSyntheticsAPIResponse result = apiInstance.getUsageSyntheticsAPI(startHr, new UsageMeteringApi.GetUsageSyntheticsAPIOptionalParameters()
+            UsageSyntheticsAPIResponse result = apiInstance.getUsageSyntheticsAPI(startHr, new UsageMeteringApi.GetUsageSyntheticsAPIOptionalParameters()
                 .endHr(endHr));
             System.out.println(result);
         } catch (ApiException e) {
@@ -2056,7 +2056,7 @@ public class Example {
         OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
         try {
-	    UsageSyntheticsBrowserResponse result = apiInstance.getUsageSyntheticsBrowser(startHr, new UsageMeteringApi.GetUsageSyntheticsBrowserOptionalParameters()
+            UsageSyntheticsBrowserResponse result = apiInstance.getUsageSyntheticsBrowser(startHr, new UsageMeteringApi.GetUsageSyntheticsBrowserOptionalParameters()
                 .endHr(endHr));
             System.out.println(result);
         } catch (ApiException e) {
@@ -2124,7 +2124,7 @@ public class Example {
         OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
         OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
         try {
-	    UsageTimeseriesResponse result = apiInstance.getUsageTimeseries(startHr, new UsageMeteringApi.GetUsageTimeseriesOptionalParameters()
+            UsageTimeseriesResponse result = apiInstance.getUsageTimeseries(startHr, new UsageMeteringApi.GetUsageTimeseriesOptionalParameters()
                 .endHr(endHr));
             System.out.println(result);
         } catch (ApiException e) {
@@ -2195,7 +2195,7 @@ public class Example {
         Integer limit = 500; // Integer | Maximum number of results to return (between 1 and 5000) - defaults to 500 results if limit not specified.
         String nextRecordId = "nextRecordId_example"; // String | List following results with a next_record_id provided in the previous query.
         try {
-	    UsageTopAvgMetricsResponse result = apiInstance.getUsageTopAvgMetrics(new UsageMeteringApi.GetUsageTopAvgMetricsOptionalParameters()
+            UsageTopAvgMetricsResponse result = apiInstance.getUsageTopAvgMetrics(new UsageMeteringApi.GetUsageTopAvgMetricsOptionalParameters()
                 .month(month)
                 .day(day)
                 .names(names)

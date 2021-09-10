@@ -494,7 +494,7 @@ public class Example {
         Long pageSize = 10L; // Long | Size for a given page.
         Long pageNumber = 0L; // Long | Specific page number to return.
         try {
-	    SecurityMonitoringListRulesResponse result = apiInstance.listSecurityMonitoringRules(new SecurityMonitoringApi.ListSecurityMonitoringRulesOptionalParameters()
+            SecurityMonitoringListRulesResponse result = apiInstance.listSecurityMonitoringRules(new SecurityMonitoringApi.ListSecurityMonitoringRulesOptionalParameters()
                 .pageSize(pageSize)
                 .pageNumber(pageNumber));
             System.out.println(result);
@@ -568,7 +568,7 @@ public class Example {
         String pageCursor = "eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ=="; // String | A list of results using the cursor provided in the previous query.
         Integer pageLimit = 10; // Integer | The maximum number of security signals in the response.
         try {
-	    SecurityMonitoringSignalsListResponse result = apiInstance.listSecurityMonitoringSignals(new SecurityMonitoringApi.ListSecurityMonitoringSignalsOptionalParameters()
+            SecurityMonitoringSignalsListResponse result = apiInstance.listSecurityMonitoringSignals(new SecurityMonitoringApi.ListSecurityMonitoringSignalsOptionalParameters()
                 .filterQuery(filterQuery)
                 .filterFrom(filterFrom)
                 .filterTo(filterTo)
@@ -645,7 +645,7 @@ public class Example {
         SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
         SecurityMonitoringSignalListRequest body = new SecurityMonitoringSignalListRequest(); // SecurityMonitoringSignalListRequest | 
         try {
-	    SecurityMonitoringSignalsListResponse result = apiInstance.searchSecurityMonitoringSignals(new SecurityMonitoringApi.SearchSecurityMonitoringSignalsOptionalParameters()
+            SecurityMonitoringSignalsListResponse result = apiInstance.searchSecurityMonitoringSignals(new SecurityMonitoringApi.SearchSecurityMonitoringSignalsOptionalParameters()
                 .body(body));
             System.out.println(result);
         } catch (ApiException e) {

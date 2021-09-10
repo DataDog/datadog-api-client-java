@@ -274,7 +274,7 @@ public class IncidentFieldAttributes extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `IncidentFieldAttributesMultipleValue`. If the actual instanct is
+   * Get the actual instance of `IncidentFieldAttributesMultipleValue`. If the actual instance is
    * not `IncidentFieldAttributesMultipleValue`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `IncidentFieldAttributesMultipleValue`
@@ -286,7 +286,7 @@ public class IncidentFieldAttributes extends AbstractOpenApiSchema {
   }
 
   /**
-   * Get the actual instance of `IncidentFieldAttributesSingleValue`. If the actual instanct is not
+   * Get the actual instance of `IncidentFieldAttributesSingleValue`. If the actual instance is not
    * `IncidentFieldAttributesSingleValue`, the ClassCastException will be thrown.
    *
    * @return The actual instance of `IncidentFieldAttributesSingleValue`

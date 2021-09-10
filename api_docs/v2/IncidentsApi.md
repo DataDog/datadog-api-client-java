@@ -167,7 +167,7 @@ public class Example {
         String incidentId = "incidentId_example"; // String | The UUID the incident.
         List<IncidentRelatedObject> include = Arrays.asList(); // List<IncidentRelatedObject> | Specifies which types of related objects should be included in the response.
         try {
-	    IncidentResponse result = apiInstance.getIncident(incidentId, new IncidentsApi.GetIncidentOptionalParameters()
+            IncidentResponse result = apiInstance.getIncident(incidentId, new IncidentsApi.GetIncidentOptionalParameters()
                 .include(include));
             System.out.println(result);
         } catch (ApiException e) {
@@ -237,7 +237,7 @@ public class Example {
         Long pageSize = 10L; // Long | Size for a given page.
         Long pageOffset = 0L; // Long | Specific offset to use as the beginning of the returned page.
         try {
-	    IncidentsResponse result = apiInstance.listIncidents(new IncidentsApi.ListIncidentsOptionalParameters()
+            IncidentsResponse result = apiInstance.listIncidents(new IncidentsApi.ListIncidentsOptionalParameters()
                 .include(include)
                 .pageSize(pageSize)
                 .pageOffset(pageOffset));

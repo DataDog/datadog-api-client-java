@@ -18,7 +18,12 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
-/** A JSON array of billing type. */
+/**
+ * A JSON array of billing type.
+ *
+ * @deprecated
+ */
+@Deprecated
 @ApiModel(description = "A JSON array of billing type.")
 @JsonPropertyOrder({OrganizationBilling.JSON_PROPERTY_TYPE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")

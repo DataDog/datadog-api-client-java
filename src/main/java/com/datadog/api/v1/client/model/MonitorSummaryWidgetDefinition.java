@@ -132,7 +132,9 @@ public class MonitorSummaryWidgetDefinition {
    * The number of monitors to display.
    *
    * @return count
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The number of monitors to display.")
   @JsonProperty(JSON_PROPERTY_COUNT)
@@ -273,7 +275,9 @@ public class MonitorSummaryWidgetDefinition {
    * The start of the list. Typically 0.
    *
    * @return start
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The start of the list. Typically 0.")
   @JsonProperty(JSON_PROPERTY_START)

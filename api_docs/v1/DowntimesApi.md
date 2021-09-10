@@ -293,7 +293,7 @@ public class Example {
         DowntimesApi apiInstance = new DowntimesApi(defaultClient);
         Boolean currentOnly = true; // Boolean | Only return downtimes that are active when the request is made.
         try {
-	    List<Downtime> result = apiInstance.listDowntimes(new DowntimesApi.ListDowntimesOptionalParameters()
+            List<Downtime> result = apiInstance.listDowntimes(new DowntimesApi.ListDowntimesOptionalParameters()
                 .currentOnly(currentOnly));
             System.out.println(result);
         } catch (ApiException e) {
