@@ -202,7 +202,7 @@ public class SecurityMonitoringApi {
     final String[] localVarContentTypes = {"application/json"};
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<SecurityMonitoringRuleResponse> localVarReturnType =
         new GenericType<SecurityMonitoringRuleResponse>() {};
@@ -368,7 +368,7 @@ public class SecurityMonitoringApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     return apiClient.invokeAPI(
         "SecurityMonitoringApi.deleteSecurityMonitoringRule",
@@ -538,7 +538,7 @@ public class SecurityMonitoringApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<SecurityMonitoringRuleResponse> localVarReturnType =
         new GenericType<SecurityMonitoringRuleResponse>() {};
@@ -736,7 +736,7 @@ public class SecurityMonitoringApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<SecurityMonitoringListRulesResponse> localVarReturnType =
         new GenericType<SecurityMonitoringListRulesResponse>() {};
@@ -930,7 +930,7 @@ public class SecurityMonitoringApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<SecurityMonitoringSignalsListResponse> localVarReturnType =
         new GenericType<SecurityMonitoringSignalsListResponse>() {};
@@ -1046,7 +1046,7 @@ public class SecurityMonitoringApi {
     final String[] localVarContentTypes = {"application/json"};
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<SecurityMonitoringSignalsListResponse> localVarReturnType =
         new GenericType<SecurityMonitoringSignalsListResponse>() {};
@@ -1249,7 +1249,7 @@ public class SecurityMonitoringApi {
     final String[] localVarContentTypes = {"application/json"};
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<SecurityMonitoringRuleResponse> localVarReturnType =
         new GenericType<SecurityMonitoringRuleResponse>() {};

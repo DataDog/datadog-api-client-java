@@ -118,7 +118,7 @@ public class AwsLogsIntegrationApi {
     final String[] localVarContentTypes = {"application/json"};
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<AWSLogsAsyncResponse> localVarReturnType =
         new GenericType<AWSLogsAsyncResponse>() {};

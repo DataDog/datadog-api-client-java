@@ -340,7 +340,7 @@ public class UsageMeteringApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<UsageIncidentManagementResponse> localVarReturnType =
         new GenericType<UsageIncidentManagementResponse>() {};
@@ -467,7 +467,7 @@ public class UsageMeteringApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<UsageIngestedSpansResponse> localVarReturnType =
         new GenericType<UsageIngestedSpansResponse>() {};
@@ -925,7 +925,7 @@ public class UsageMeteringApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<UsageAnalyzedLogsResponse> localVarReturnType =
         new GenericType<UsageAnalyzedLogsResponse>() {};
@@ -1114,7 +1114,7 @@ public class UsageMeteringApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<UsageAttributionResponse> localVarReturnType =
         new GenericType<UsageAttributionResponse>() {};
@@ -1355,7 +1355,7 @@ public class UsageMeteringApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<UsageBillableSummaryResponse> localVarReturnType =
         new GenericType<UsageBillableSummaryResponse>() {};
@@ -1481,7 +1481,7 @@ public class UsageMeteringApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<UsageCWSResponse> localVarReturnType = new GenericType<UsageCWSResponse>() {};
 
@@ -1869,7 +1869,7 @@ public class UsageMeteringApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<UsageFargateResponse> localVarReturnType =
         new GenericType<UsageFargateResponse>() {};
@@ -1995,7 +1995,7 @@ public class UsageMeteringApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<UsageHostsResponse> localVarReturnType = new GenericType<UsageHostsResponse>() {};
 
@@ -2124,7 +2124,7 @@ public class UsageMeteringApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<UsageIndexedSpansResponse> localVarReturnType =
         new GenericType<UsageIndexedSpansResponse>() {};
@@ -2254,7 +2254,7 @@ public class UsageMeteringApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<UsageIoTResponse> localVarReturnType = new GenericType<UsageIoTResponse>() {};
 
@@ -2379,7 +2379,7 @@ public class UsageMeteringApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<UsageLambdaResponse> localVarReturnType = new GenericType<UsageLambdaResponse>() {};
 
@@ -2504,7 +2504,7 @@ public class UsageMeteringApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<UsageLogsResponse> localVarReturnType = new GenericType<UsageLogsResponse>() {};
 
@@ -2646,7 +2646,7 @@ public class UsageMeteringApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<UsageLogsByIndexResponse> localVarReturnType =
         new GenericType<UsageLogsByIndexResponse>() {};
@@ -2907,7 +2907,7 @@ public class UsageMeteringApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<UsageNetworkFlowsResponse> localVarReturnType =
         new GenericType<UsageNetworkFlowsResponse>() {};
@@ -3037,7 +3037,7 @@ public class UsageMeteringApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<UsageNetworkHostsResponse> localVarReturnType =
         new GenericType<UsageNetworkHostsResponse>() {};
@@ -3164,7 +3164,7 @@ public class UsageMeteringApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<UsageProfilingResponse> localVarReturnType =
         new GenericType<UsageProfilingResponse>() {};
@@ -3311,7 +3311,7 @@ public class UsageMeteringApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<UsageRumSessionsResponse> localVarReturnType =
         new GenericType<UsageRumSessionsResponse>() {};
@@ -3437,7 +3437,7 @@ public class UsageMeteringApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<UsageSNMPResponse> localVarReturnType = new GenericType<UsageSNMPResponse>() {};
 
@@ -3581,7 +3581,7 @@ public class UsageMeteringApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<UsageSummaryResponse> localVarReturnType =
         new GenericType<UsageSummaryResponse>() {};
@@ -3720,7 +3720,7 @@ public class UsageMeteringApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<UsageSyntheticsResponse> localVarReturnType =
         new GenericType<UsageSyntheticsResponse>() {};
@@ -3853,7 +3853,7 @@ public class UsageMeteringApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<UsageSyntheticsAPIResponse> localVarReturnType =
         new GenericType<UsageSyntheticsAPIResponse>() {};
@@ -3984,7 +3984,7 @@ public class UsageMeteringApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<UsageSyntheticsBrowserResponse> localVarReturnType =
         new GenericType<UsageSyntheticsBrowserResponse>() {};
@@ -4114,7 +4114,7 @@ public class UsageMeteringApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<UsageTimeseriesResponse> localVarReturnType =
         new GenericType<UsageTimeseriesResponse>() {};
@@ -4297,7 +4297,7 @@ public class UsageMeteringApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<UsageTopAvgMetricsResponse> localVarReturnType =
         new GenericType<UsageTopAvgMetricsResponse>() {};

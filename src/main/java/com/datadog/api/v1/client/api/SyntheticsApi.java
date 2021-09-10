@@ -282,7 +282,7 @@ public class SyntheticsApi {
     final String[] localVarContentTypes = {"application/json"};
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<SyntheticsAPITest> localVarReturnType = new GenericType<SyntheticsAPITest>() {};
 
@@ -364,7 +364,7 @@ public class SyntheticsApi {
     final String[] localVarContentTypes = {"application/json"};
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<SyntheticsBrowserTest> localVarReturnType =
         new GenericType<SyntheticsBrowserTest>() {};
@@ -448,7 +448,7 @@ public class SyntheticsApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     return apiClient.invokeAPI(
         "SyntheticsApi.deleteGlobalVariable",
@@ -605,7 +605,7 @@ public class SyntheticsApi {
     final String[] localVarContentTypes = {"application/json"};
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<SyntheticsDeleteTestsResponse> localVarReturnType =
         new GenericType<SyntheticsDeleteTestsResponse>() {};
@@ -780,7 +780,7 @@ public class SyntheticsApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<SyntheticsAPITest> localVarReturnType = new GenericType<SyntheticsAPITest>() {};
 
@@ -936,7 +936,7 @@ public class SyntheticsApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<SyntheticsGetAPITestLatestResultsResponse> localVarReturnType =
         new GenericType<SyntheticsGetAPITestLatestResultsResponse>() {};
@@ -1029,7 +1029,7 @@ public class SyntheticsApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<SyntheticsAPITestResultFull> localVarReturnType =
         new GenericType<SyntheticsAPITestResultFull>() {};
@@ -1114,7 +1114,7 @@ public class SyntheticsApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<SyntheticsBrowserTest> localVarReturnType =
         new GenericType<SyntheticsBrowserTest>() {};
@@ -1275,7 +1275,7 @@ public class SyntheticsApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<SyntheticsGetBrowserTestLatestResultsResponse> localVarReturnType =
         new GenericType<SyntheticsGetBrowserTestLatestResultsResponse>() {};
@@ -1370,7 +1370,7 @@ public class SyntheticsApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<SyntheticsBrowserTestResultFull> localVarReturnType =
         new GenericType<SyntheticsBrowserTestResultFull>() {};
@@ -1454,7 +1454,7 @@ public class SyntheticsApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<SyntheticsGlobalVariable> localVarReturnType =
         new GenericType<SyntheticsGlobalVariable>() {};
@@ -1689,7 +1689,7 @@ public class SyntheticsApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<SyntheticsListGlobalVariablesResponse> localVarReturnType =
         new GenericType<SyntheticsListGlobalVariablesResponse>() {};
@@ -1759,7 +1759,7 @@ public class SyntheticsApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<SyntheticsLocations> localVarReturnType = new GenericType<SyntheticsLocations>() {};
 
@@ -1830,7 +1830,7 @@ public class SyntheticsApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<SyntheticsListTestsResponse> localVarReturnType =
         new GenericType<SyntheticsListTestsResponse>() {};
@@ -2004,7 +2004,7 @@ public class SyntheticsApi {
     final String[] localVarContentTypes = {"application/json"};
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<SyntheticsAPITest> localVarReturnType = new GenericType<SyntheticsAPITest>() {};
 
@@ -2096,7 +2096,7 @@ public class SyntheticsApi {
     final String[] localVarContentTypes = {"application/json"};
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<SyntheticsBrowserTest> localVarReturnType =
         new GenericType<SyntheticsBrowserTest>() {};
@@ -2279,7 +2279,7 @@ public class SyntheticsApi {
     final String[] localVarContentTypes = {"application/json"};
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<Boolean> localVarReturnType = new GenericType<Boolean>() {};
 

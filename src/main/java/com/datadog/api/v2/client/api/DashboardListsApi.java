@@ -305,7 +305,7 @@ public class DashboardListsApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<DashboardListItems> localVarReturnType = new GenericType<DashboardListItems>() {};
 

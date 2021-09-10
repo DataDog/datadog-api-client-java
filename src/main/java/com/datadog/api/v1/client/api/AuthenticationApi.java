@@ -93,7 +93,7 @@ public class AuthenticationApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth"};
 
     GenericType<AuthenticationValidationResponse> localVarReturnType =
         new GenericType<AuthenticationValidationResponse>() {};
