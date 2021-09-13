@@ -90,9 +90,27 @@ public class RecorderSteps {
         world.clock = Clock.fixed(Instant.parse(lines.get(0)), ZoneOffset.UTC);
       } catch (NoSuchFileException e) {
         world.clock = Clock.fixed(Instant.now(), ZoneOffset.UTC);
-        throw new IOException("Time file " + freezeFile + " not found: create one setting `RECORD=true` or ignore it using `RECORD=none`");
+        throw new IOException(
+            "Time file '"
+                + freezeFile
+                + "' not found: create one setting `RECORD=true` or ignore it using `RECORD=none`");
       }
       world.now = OffsetDateTime.ofInstant(Instant.now(world.clock), ZoneOffset.UTC);
+    }
+
+    if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {
+      // write the cassette
+      File cassette =
+          new File(
+              Paths.get(TestUtils.APITest.cassettesDir, world.getVersion(), getCassetteName())
+                  .toString());
+
+      if (!cassette.exists()) {
+        throw new IOException(
+            "Cassette '"
+                + cassette.getPath()
+                + "' not found: create one setting `RECORD=true` or ignore it using `RECORD=none`");
+      }
     }
   }
 
