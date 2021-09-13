@@ -99,7 +99,6 @@ public class RecorderSteps {
     }
 
     if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {
-      // write the cassette
       File cassette =
           new File(
               Paths.get(TestUtils.APITest.cassettesDir, world.getVersion(), getCassetteName())
