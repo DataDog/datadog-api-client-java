@@ -169,7 +169,6 @@ public class Series {
    * @return points
    */
   @ApiModelProperty(
-      example = "[[1575317847,0.5]]",
       required = true,
       value =
           "Points relating to a metric. All points must be tuples with timestamp and a scalar"

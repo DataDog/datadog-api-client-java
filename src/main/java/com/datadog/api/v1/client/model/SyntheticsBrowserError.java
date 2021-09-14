@@ -65,7 +65,10 @@ public class SyntheticsBrowserError {
    *
    * @return description
    */
-  @ApiModelProperty(example = "", required = true, value = "Description of the error.")
+  @ApiModelProperty(
+      example = "Example error message",
+      required = true,
+      value = "Description of the error.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getDescription() {
@@ -86,7 +89,7 @@ public class SyntheticsBrowserError {
    *
    * @return name
    */
-  @ApiModelProperty(example = "", required = true, value = "Name of the error.")
+  @ApiModelProperty(example = "Failed test", required = true, value = "Name of the error.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {
@@ -108,7 +111,7 @@ public class SyntheticsBrowserError {
    * @return status
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Status Code of the error.")
+  @ApiModelProperty(example = "500", value = "Status Code of the error.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getStatus() {
