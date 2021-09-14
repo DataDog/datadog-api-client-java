@@ -58,7 +58,7 @@ public class MetricsPayload {
    * @return series
    */
   @ApiModelProperty(
-      example = "[{\"metric\":\"system.load.1\",\"points\":[[1475317847,0.7]]}]",
+      example = "[{\"metric\":\"system.load.1\",\"points\":[[1.475317847E9,0.7]]}]",
       required = true,
       value = "A list of time series to submit to Datadog.")
   @JsonProperty(JSON_PROPERTY_SERIES)
