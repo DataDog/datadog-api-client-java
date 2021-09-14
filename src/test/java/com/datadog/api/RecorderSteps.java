@@ -64,8 +64,9 @@ public class RecorderSteps {
   }
 
   @Before(order = 1)
-  public void setupClock() throws java.io.IOException {
-    if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
+  public void setupClock(Scenario scenario) throws java.io.IOException {
+    if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE)
+        || scenario.getSourceTagNames().contains("@integration-only")) {
       world.now = OffsetDateTime.now();
       return;
     }
