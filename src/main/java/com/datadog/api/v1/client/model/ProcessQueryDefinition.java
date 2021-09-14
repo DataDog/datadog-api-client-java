@@ -114,7 +114,7 @@ public class ProcessQueryDefinition {
    *
    * @return metric
    */
-  @ApiModelProperty(example = "", required = true, value = "Your chosen metric.")
+  @ApiModelProperty(example = "system.load.1", required = true, value = "Your chosen metric.")
   @JsonProperty(JSON_PROPERTY_METRIC)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getMetric() {

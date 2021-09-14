@@ -100,7 +100,7 @@ public class SyntheticsAPIStep {
    * @return assertions
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "[]", value = "Array of assertions used for the test.")
+  @ApiModelProperty(value = "Array of assertions used for the test.")
   @JsonProperty(JSON_PROPERTY_ASSERTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsAssertion> getAssertions() {

@@ -11828,11 +11828,13 @@ components:
             notifications:
             - notifications
             - notifications
+            status: critical
           - condition: condition
             name: name
             notifications:
             - notifications
             - notifications
+            status: critical
           hasExtendedTitle: true
           updateAuthorId: 1
           filters:
@@ -11883,11 +11885,13 @@ components:
             notifications:
             - notifications
             - notifications
+            status: critical
           - condition: condition
             name: name
             notifications:
             - notifications
             - notifications
+            status: critical
           hasExtendedTitle: true
           updateAuthorId: 1
           filters:
@@ -11953,6 +11957,7 @@ components:
         notifications:
         - notifications
         - notifications
+        status: critical
       properties:
         condition:
           description: |-
@@ -12321,11 +12326,13 @@ components:
           notifications:
           - notifications
           - notifications
+          status: critical
         - condition: condition
           name: name
           notifications:
           - notifications
           - notifications
+          status: critical
         hasExtendedTitle: true
         updateAuthorId: 1
         filters:
@@ -12443,6 +12450,7 @@ components:
       - medium
       - high
       - critical
+      example: critical
       type: string
       x-enum-varnames:
       - INFO
@@ -12481,11 +12489,13 @@ components:
           notifications:
           - notifications
           - notifications
+          status: critical
         - condition: condition
           name: name
           notifications:
           - notifications
           - notifications
+          status: critical
         hasExtendedTitle: true
         isEnabled: true
         name: name
