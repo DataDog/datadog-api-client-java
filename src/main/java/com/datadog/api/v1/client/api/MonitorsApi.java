@@ -748,7 +748,7 @@ public class MonitorsApi {
      * Set withDowntimes
      *
      * @param withDowntimes If this argument is set to true, then the returned data includes all
-     *     current downtimes for each monitor. (optional)
+     *     current active downtimes for each monitor. (optional)
      * @return ListMonitorsOptionalParameters
      */
     public ListMonitorsOptionalParameters withDowntimes(Boolean withDowntimes) {
