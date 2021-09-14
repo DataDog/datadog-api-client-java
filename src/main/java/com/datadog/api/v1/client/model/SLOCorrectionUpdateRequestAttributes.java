@@ -18,8 +18,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
-/** The attribute object associated with the SLO correction to be updated */
-@ApiModel(description = "The attribute object associated with the SLO correction to be updated")
+/** The attribute object associated with the SLO correction to be updated. */
+@ApiModel(description = "The attribute object associated with the SLO correction to be updated.")
 @JsonPropertyOrder({
   SLOCorrectionUpdateRequestAttributes.JSON_PROPERTY_CATEGORY,
   SLOCorrectionUpdateRequestAttributes.JSON_PROPERTY_DESCRIPTION,
@@ -99,14 +99,14 @@ public class SLOCorrectionUpdateRequestAttributes {
   }
 
   /**
-   * Ending time of the correction in epoch seconds
+   * Ending time of the correction in epoch seconds.
    *
    * @return end
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       example = "1600000000",
-      value = "Ending time of the correction in epoch seconds")
+      value = "Ending time of the correction in epoch seconds.")
   @JsonProperty(JSON_PROPERTY_END)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getEnd() {
@@ -123,14 +123,14 @@ public class SLOCorrectionUpdateRequestAttributes {
   }
 
   /**
-   * Starting time of the correction in epoch seconds
+   * Starting time of the correction in epoch seconds.
    *
    * @return start
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       example = "1600000000",
-      value = "Starting time of the correction in epoch seconds")
+      value = "Starting time of the correction in epoch seconds.")
   @JsonProperty(JSON_PROPERTY_START)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getStart() {
@@ -147,14 +147,14 @@ public class SLOCorrectionUpdateRequestAttributes {
   }
 
   /**
-   * The timezone to display in the UI for the correction times (defaults to \&quot;UTC\&quot;)
+   * The timezone to display in the UI for the correction times (defaults to \&quot;UTC\&quot;).
    *
    * @return timezone
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       example = "UTC",
-      value = "The timezone to display in the UI for the correction times (defaults to \"UTC\")")
+      value = "The timezone to display in the UI for the correction times (defaults to \"UTC\").")
   @JsonProperty(JSON_PROPERTY_TIMEZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTimezone() {

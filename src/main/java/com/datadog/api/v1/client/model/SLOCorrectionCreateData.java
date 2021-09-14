@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -18,8 +19,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
-/** The data object associated with the SLO correction to be created */
-@ApiModel(description = "The data object associated with the SLO correction to be created")
+/** The data object associated with the SLO correction to be created. */
+@ApiModel(description = "The data object associated with the SLO correction to be created.")
 @JsonPropertyOrder({
   SLOCorrectionCreateData.JSON_PROPERTY_ATTRIBUTES,
   SLOCorrectionCreateData.JSON_PROPERTY_TYPE
@@ -32,6 +33,15 @@ public class SLOCorrectionCreateData {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private SLOCorrectionType type = SLOCorrectionType.CORRECTION;
+
+  public SLOCorrectionCreateData() {}
+
+  @JsonCreator
+  public SLOCorrectionCreateData(
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SLOCorrectionType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+  }
 
   public SLOCorrectionCreateData attributes(SLOCorrectionCreateRequestAttributes attributes) {
     this.attributes = attributes;
@@ -67,10 +77,9 @@ public class SLOCorrectionCreateData {
    *
    * @return type
    */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SLOCorrectionType getType() {
     return type;
   }

@@ -46,7 +46,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Create an SLO correction Create an SLO Correction
+   * Create an SLO correction Create an SLO Correction.
    *
    * @param body Create an SLO Correction (required)
    * @return SLOCorrectionResponse
@@ -66,7 +66,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Create an SLO correction Create an SLO Correction
+   * Create an SLO correction Create an SLO Correction.
    *
    * @param body Create an SLO Correction (required)
    * @return ApiResponse&lt;SLOCorrectionResponse&gt;
@@ -129,9 +129,9 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Delete an SLO correction Permanently delete the specified SLO correction object
+   * Delete an SLO correction Permanently delete the specified SLO correction object.
    *
-   * @param sloCorrectionId The ID of the SLO correction object (required)
+   * @param sloCorrectionId The ID of the SLO correction object. (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table summary="Response Details" border="1">
@@ -146,9 +146,9 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Delete an SLO correction Permanently delete the specified SLO correction object
+   * Delete an SLO correction Permanently delete the specified SLO correction object.
    *
-   * @param sloCorrectionId The ID of the SLO correction object (required)
+   * @param sloCorrectionId The ID of the SLO correction object. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -210,9 +210,9 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Get an SLO correction for an SLO Get an SLO correction
+   * Get an SLO correction for an SLO Get an SLO correction.
    *
-   * @param sloCorrectionId The ID of the SLO correction object (required)
+   * @param sloCorrectionId The ID of the SLO correction object. (required)
    * @return SLOCorrectionResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -228,9 +228,9 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Get an SLO correction for an SLO Get an SLO correction
+   * Get an SLO correction for an SLO Get an SLO correction.
    *
-   * @param sloCorrectionId The ID of the SLO correction object (required)
+   * @param sloCorrectionId The ID of the SLO correction object. (required)
    * @return ApiResponse&lt;SLOCorrectionResponse&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -295,7 +295,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Get all SLO corrections Get all Service Level Objective corrections
+   * Get all SLO corrections Get all Service Level Objective corrections.
    *
    * @return SLOCorrectionListResponse
    * @throws ApiException if fails to make API call
@@ -311,7 +311,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Get all SLO corrections Get all Service Level Objective corrections
+   * Get all SLO corrections Get all Service Level Objective corrections.
    *
    * @return ApiResponse&lt;SLOCorrectionListResponse&gt;
    * @throws ApiException if fails to make API call
@@ -366,9 +366,9 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Update an SLO correction Update the specified SLO correction object object
+   * Update an SLO correction Update the specified SLO correction object object.
    *
-   * @param sloCorrectionId The ID of the SLO correction object (required)
+   * @param sloCorrectionId The ID of the SLO correction object. (required)
    * @param body The edited SLO correction object. (required)
    * @return SLOCorrectionResponse
    * @throws ApiException if fails to make API call
@@ -387,9 +387,9 @@ public class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Update an SLO correction Update the specified SLO correction object object
+   * Update an SLO correction Update the specified SLO correction object object.
    *
-   * @param sloCorrectionId The ID of the SLO correction object (required)
+   * @param sloCorrectionId The ID of the SLO correction object. (required)
    * @param body The edited SLO correction object. (required)
    * @return ApiResponse&lt;SLOCorrectionResponse&gt;
    * @throws ApiException if fails to make API call

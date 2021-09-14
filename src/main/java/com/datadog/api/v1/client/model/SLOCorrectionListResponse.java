@@ -20,8 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/** A list of SLO correction objects */
-@ApiModel(description = "A list of  SLO correction objects")
+/** A list of SLO correction objects. */
+@ApiModel(description = "A list of  SLO correction objects.")
 @JsonPropertyOrder({
   SLOCorrectionListResponse.JSON_PROPERTY_DATA,
   SLOCorrectionListResponse.JSON_PROPERTY_META
@@ -53,12 +53,12 @@ public class SLOCorrectionListResponse {
   }
 
   /**
-   * The list of of SLO corrections objects
+   * The list of of SLO corrections objects.
    *
    * @return data
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The list of of SLO corrections objects")
+  @ApiModelProperty(value = "The list of of SLO corrections objects.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SLOCorrection> getData() {

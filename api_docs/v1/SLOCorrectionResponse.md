@@ -2,7 +2,7 @@
 
 # SLOCorrectionResponse
 
-The response object of an SLO correction
+The response object of an SLO correction.
 
 ## Properties
 
