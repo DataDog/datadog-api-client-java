@@ -16,7 +16,7 @@ Method        | HTTP request | Description
 
 > SLOCorrectionResponse createSLOCorrection(body);
 
-Create an SLO Correction
+Create an SLO Correction.
 
 ### Example
 
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 
 > deleteSLOCorrection(sloCorrectionId);
 
-Permanently delete the specified SLO correction object
+Permanently delete the specified SLO correction object.
 
 ### Example
 
@@ -98,7 +98,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         ServiceLevelObjectiveCorrectionsApi apiInstance = new ServiceLevelObjectiveCorrectionsApi(defaultClient);
-        String sloCorrectionId = "sloCorrectionId_example"; // String | The ID of the SLO correction object
+        String sloCorrectionId = "sloCorrectionId_example"; // String | The ID of the SLO correction object.
         try {
             apiInstance.deleteSLOCorrection(sloCorrectionId);
         } catch (ApiException e) {
@@ -117,7 +117,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sloCorrectionId** | **String**| The ID of the SLO correction object |
+ **sloCorrectionId** | **String**| The ID of the SLO correction object. |
 
 ### Return type
 
@@ -144,7 +144,7 @@ null (empty response body)
 
 > SLOCorrectionResponse getSLOCorrection(sloCorrectionId);
 
-Get an SLO correction
+Get an SLO correction.
 
 ### Example
 
@@ -161,7 +161,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         ServiceLevelObjectiveCorrectionsApi apiInstance = new ServiceLevelObjectiveCorrectionsApi(defaultClient);
-        String sloCorrectionId = "sloCorrectionId_example"; // String | The ID of the SLO correction object
+        String sloCorrectionId = "sloCorrectionId_example"; // String | The ID of the SLO correction object.
         try {
             SLOCorrectionResponse result = apiInstance.getSLOCorrection(sloCorrectionId);
             System.out.println(result);
@@ -181,7 +181,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sloCorrectionId** | **String**| The ID of the SLO correction object |
+ **sloCorrectionId** | **String**| The ID of the SLO correction object. |
 
 ### Return type
 
@@ -208,7 +208,7 @@ Name | Type | Description  | Notes
 
 > SLOCorrectionListResponse listSLOCorrection();
 
-Get all Service Level Objective corrections
+Get all Service Level Objective corrections.
 
 ### Example
 
@@ -267,7 +267,7 @@ This endpoint does not need any parameter.
 
 > SLOCorrectionResponse updateSLOCorrection(sloCorrectionId, body);
 
-Update the specified SLO correction object object
+Update the specified SLO correction object object.
 
 ### Example
 
@@ -284,7 +284,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         ServiceLevelObjectiveCorrectionsApi apiInstance = new ServiceLevelObjectiveCorrectionsApi(defaultClient);
-        String sloCorrectionId = "sloCorrectionId_example"; // String | The ID of the SLO correction object
+        String sloCorrectionId = "sloCorrectionId_example"; // String | The ID of the SLO correction object.
         SLOCorrectionUpdateRequest body = new SLOCorrectionUpdateRequest(); // SLOCorrectionUpdateRequest | The edited SLO correction object.
         try {
             SLOCorrectionResponse result = apiInstance.updateSLOCorrection(sloCorrectionId, body);
@@ -305,7 +305,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sloCorrectionId** | **String**| The ID of the SLO correction object |
+ **sloCorrectionId** | **String**| The ID of the SLO correction object. |
  **body** | [**SLOCorrectionUpdateRequest**](SLOCorrectionUpdateRequest.md)| The edited SLO correction object. |
 
 ### Return type

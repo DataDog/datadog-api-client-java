@@ -18,8 +18,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
-/** The response object of a list of SLO corrections */
-@ApiModel(description = "The response object of a list of SLO corrections")
+/** The response object of a list of SLO corrections. */
+@ApiModel(description = "The response object of a list of SLO corrections.")
 @JsonPropertyOrder({
   SLOCorrection.JSON_PROPERTY_ATTRIBUTES,
   SLOCorrection.JSON_PROPERTY_ID,
@@ -66,12 +66,12 @@ public class SLOCorrection {
   }
 
   /**
-   * The ID of the SLO correction
+   * The ID of the SLO correction.
    *
    * @return id
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The ID of the SLO correction")
+  @ApiModelProperty(value = "The ID of the SLO correction.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {

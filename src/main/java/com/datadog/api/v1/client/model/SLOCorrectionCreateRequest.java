@@ -18,8 +18,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
-/** An object that defines a correction to be applied to an SLO */
-@ApiModel(description = "An object that defines a correction to be applied to an SLO")
+/** An object that defines a correction to be applied to an SLO. */
+@ApiModel(description = "An object that defines a correction to be applied to an SLO.")
 @JsonPropertyOrder({SLOCorrectionCreateRequest.JSON_PROPERTY_DATA})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SLOCorrectionCreateRequest {

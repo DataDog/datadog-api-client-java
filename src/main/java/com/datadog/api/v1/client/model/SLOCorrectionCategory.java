@@ -23,7 +23,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-/** Category the SLO correction belongs to */
+/** Category the SLO correction belongs to. */
 @JsonSerialize(using = SLOCorrectionCategory.SLOCorrectionCategorySerializer.class)
 public class SLOCorrectionCategory {
 
