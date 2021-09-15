@@ -73,6 +73,7 @@ public class FormulaAndFunctionApmDependencyStatsQueryDefinition {
       @JsonProperty(required = true, value = JSON_PROPERTY_DATA_SOURCE)
           FormulaAndFunctionApmDependencyStatsDataSource dataSource,
       @JsonProperty(required = true, value = JSON_PROPERTY_ENV) String env,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
       @JsonProperty(required = true, value = JSON_PROPERTY_OPERATION_NAME) String operationName,
       @JsonProperty(required = true, value = JSON_PROPERTY_RESOURCE_NAME) String resourceName,
       @JsonProperty(required = true, value = JSON_PROPERTY_SERVICE) String service,
@@ -81,6 +82,7 @@ public class FormulaAndFunctionApmDependencyStatsQueryDefinition {
     this.dataSource = dataSource;
     this.unparsed |= !dataSource.isValid();
     this.env = env;
+    this.name = name;
     this.operationName = operationName;
     this.resourceName = resourceName;
     this.service = service;
@@ -169,10 +171,12 @@ public class FormulaAndFunctionApmDependencyStatsQueryDefinition {
    *
    * @return name
    */
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "query_errors", value = "Name of query to use in formulas.")
+  @ApiModelProperty(
+      example = "query_errors",
+      required = true,
+      value = "Name of query to use in formulas.")
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {
     return name;
   }
