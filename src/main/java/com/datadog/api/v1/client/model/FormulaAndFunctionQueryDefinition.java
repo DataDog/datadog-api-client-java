@@ -291,6 +291,60 @@ public class FormulaAndFunctionQueryDefinition extends AbstractOpenApiSchema {
             e);
       }
 
+      // deserialize FormulaAndFunctionApmResourceStatsQueryDefinition
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (FormulaAndFunctionApmResourceStatsQueryDefinition.class.equals(Integer.class)
+            || FormulaAndFunctionApmResourceStatsQueryDefinition.class.equals(Long.class)
+            || FormulaAndFunctionApmResourceStatsQueryDefinition.class.equals(Float.class)
+            || FormulaAndFunctionApmResourceStatsQueryDefinition.class.equals(Double.class)
+            || FormulaAndFunctionApmResourceStatsQueryDefinition.class.equals(Boolean.class)
+            || FormulaAndFunctionApmResourceStatsQueryDefinition.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((FormulaAndFunctionApmResourceStatsQueryDefinition.class.equals(Integer.class)
+                        || FormulaAndFunctionApmResourceStatsQueryDefinition.class.equals(
+                            Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((FormulaAndFunctionApmResourceStatsQueryDefinition.class.equals(Float.class)
+                        || FormulaAndFunctionApmResourceStatsQueryDefinition.class.equals(
+                            Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (FormulaAndFunctionApmResourceStatsQueryDefinition.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (FormulaAndFunctionApmResourceStatsQueryDefinition.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp =
+              tree.traverse(jp.getCodec())
+                  .readValueAs(FormulaAndFunctionApmResourceStatsQueryDefinition.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((FormulaAndFunctionApmResourceStatsQueryDefinition) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(
+              Level.FINER,
+              "Input data matches schema 'FormulaAndFunctionApmResourceStatsQueryDefinition'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(
+            Level.FINER,
+            "Input data does not match schema 'FormulaAndFunctionApmResourceStatsQueryDefinition'",
+            e);
+      }
+
       FormulaAndFunctionQueryDefinition ret = new FormulaAndFunctionQueryDefinition();
       if (match == 1) {
         ret.setActualInstance(deserialized);
@@ -325,6 +379,11 @@ public class FormulaAndFunctionQueryDefinition extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public FormulaAndFunctionQueryDefinition(FormulaAndFunctionApmResourceStatsQueryDefinition o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   public FormulaAndFunctionQueryDefinition(FormulaAndFunctionEventQueryDefinition o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
@@ -344,6 +403,9 @@ public class FormulaAndFunctionQueryDefinition extends AbstractOpenApiSchema {
     schemas.put(
         "FormulaAndFunctionApmDependencyStatsQueryDefinition",
         new GenericType<FormulaAndFunctionApmDependencyStatsQueryDefinition>() {});
+    schemas.put(
+        "FormulaAndFunctionApmResourceStatsQueryDefinition",
+        new GenericType<FormulaAndFunctionApmResourceStatsQueryDefinition>() {});
     schemas.put(
         "FormulaAndFunctionEventQueryDefinition",
         new GenericType<FormulaAndFunctionEventQueryDefinition>() {});
@@ -365,8 +427,8 @@ public class FormulaAndFunctionQueryDefinition extends AbstractOpenApiSchema {
   /**
    * Set the instance that matches the oneOf child schema, check the instance parameter is valid
    * against the oneOf child schemas: FormulaAndFunctionApmDependencyStatsQueryDefinition,
-   * FormulaAndFunctionEventQueryDefinition, FormulaAndFunctionMetricQueryDefinition,
-   * FormulaAndFunctionProcessQueryDefinition
+   * FormulaAndFunctionApmResourceStatsQueryDefinition, FormulaAndFunctionEventQueryDefinition,
+   * FormulaAndFunctionMetricQueryDefinition, FormulaAndFunctionProcessQueryDefinition
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -375,6 +437,14 @@ public class FormulaAndFunctionQueryDefinition extends AbstractOpenApiSchema {
   public void setActualInstance(Object instance) {
     if (JSON.isInstanceOf(
         FormulaAndFunctionApmDependencyStatsQueryDefinition.class,
+        instance,
+        new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+
+    if (JSON.isInstanceOf(
+        FormulaAndFunctionApmResourceStatsQueryDefinition.class,
         instance,
         new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
@@ -405,18 +475,20 @@ public class FormulaAndFunctionQueryDefinition extends AbstractOpenApiSchema {
     }
     throw new RuntimeException(
         "Invalid instance type. Must be FormulaAndFunctionApmDependencyStatsQueryDefinition,"
+            + " FormulaAndFunctionApmResourceStatsQueryDefinition,"
             + " FormulaAndFunctionEventQueryDefinition, FormulaAndFunctionMetricQueryDefinition,"
             + " FormulaAndFunctionProcessQueryDefinition");
   }
 
   /**
    * Get the actual instance, which can be the following:
-   * FormulaAndFunctionApmDependencyStatsQueryDefinition, FormulaAndFunctionEventQueryDefinition,
+   * FormulaAndFunctionApmDependencyStatsQueryDefinition,
+   * FormulaAndFunctionApmResourceStatsQueryDefinition, FormulaAndFunctionEventQueryDefinition,
    * FormulaAndFunctionMetricQueryDefinition, FormulaAndFunctionProcessQueryDefinition
    *
    * @return The actual instance (FormulaAndFunctionApmDependencyStatsQueryDefinition,
-   *     FormulaAndFunctionEventQueryDefinition, FormulaAndFunctionMetricQueryDefinition,
-   *     FormulaAndFunctionProcessQueryDefinition)
+   *     FormulaAndFunctionApmResourceStatsQueryDefinition, FormulaAndFunctionEventQueryDefinition,
+   *     FormulaAndFunctionMetricQueryDefinition, FormulaAndFunctionProcessQueryDefinition)
    */
   @Override
   public Object getActualInstance() {
@@ -435,6 +507,20 @@ public class FormulaAndFunctionQueryDefinition extends AbstractOpenApiSchema {
   public FormulaAndFunctionApmDependencyStatsQueryDefinition
       getFormulaAndFunctionApmDependencyStatsQueryDefinition() throws ClassCastException {
     return (FormulaAndFunctionApmDependencyStatsQueryDefinition) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `FormulaAndFunctionApmResourceStatsQueryDefinition`. If the actual
+   * instance is not `FormulaAndFunctionApmResourceStatsQueryDefinition`, the ClassCastException
+   * will be thrown.
+   *
+   * @return The actual instance of `FormulaAndFunctionApmResourceStatsQueryDefinition`
+   * @throws ClassCastException if the instance is not
+   *     `FormulaAndFunctionApmResourceStatsQueryDefinition`
+   */
+  public FormulaAndFunctionApmResourceStatsQueryDefinition
+      getFormulaAndFunctionApmResourceStatsQueryDefinition() throws ClassCastException {
+    return (FormulaAndFunctionApmResourceStatsQueryDefinition) super.getActualInstance();
   }
 
   /**
