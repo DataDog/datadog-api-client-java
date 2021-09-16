@@ -18,8 +18,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
-/** The attribute object associated with the SLO correction */
-@ApiModel(description = "The attribute object associated with the SLO correction")
+/** The attribute object associated with the SLO correction. */
+@ApiModel(description = "The attribute object associated with the SLO correction.")
 @JsonPropertyOrder({
   SLOCorrectionResponseAttributes.JSON_PROPERTY_CATEGORY,
   SLOCorrectionResponseAttributes.JSON_PROPERTY_CREATOR,
@@ -130,12 +130,12 @@ public class SLOCorrectionResponseAttributes {
   }
 
   /**
-   * Ending time of the correction in epoch seconds
+   * Ending time of the correction in epoch seconds.
    *
    * @return end
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Ending time of the correction in epoch seconds")
+  @ApiModelProperty(value = "Ending time of the correction in epoch seconds.")
   @JsonProperty(JSON_PROPERTY_END)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getEnd() {
@@ -152,12 +152,12 @@ public class SLOCorrectionResponseAttributes {
   }
 
   /**
-   * ID of the SLO that this correction will be applied to
+   * ID of the SLO that this correction will be applied to.
    *
    * @return sloId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the SLO that this correction will be applied to")
+  @ApiModelProperty(value = "ID of the SLO that this correction will be applied to.")
   @JsonProperty(JSON_PROPERTY_SLO_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getSloId() {
@@ -174,12 +174,12 @@ public class SLOCorrectionResponseAttributes {
   }
 
   /**
-   * Starting time of the correction in epoch seconds
+   * Starting time of the correction in epoch seconds.
    *
    * @return start
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Starting time of the correction in epoch seconds")
+  @ApiModelProperty(value = "Starting time of the correction in epoch seconds.")
   @JsonProperty(JSON_PROPERTY_START)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getStart() {
@@ -196,13 +196,13 @@ public class SLOCorrectionResponseAttributes {
   }
 
   /**
-   * The timezone to display in the UI for the correction times (defaults to \&quot;UTC\&quot;)
+   * The timezone to display in the UI for the correction times (defaults to \&quot;UTC\&quot;).
    *
    * @return timezone
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
-      value = "The timezone to display in the UI for the correction times (defaults to \"UTC\")")
+      value = "The timezone to display in the UI for the correction times (defaults to \"UTC\").")
   @JsonProperty(JSON_PROPERTY_TIMEZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTimezone() {

@@ -2,7 +2,7 @@
 
 # SLOCorrectionCreateRequest
 
-An object that defines a correction to be applied to an SLO
+An object that defines a correction to be applied to an SLO.
 
 ## Properties
 

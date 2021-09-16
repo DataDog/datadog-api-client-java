@@ -18,8 +18,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
-/** The response object of an SLO correction */
-@ApiModel(description = "The response object of an SLO correction")
+/** The response object of an SLO correction. */
+@ApiModel(description = "The response object of an SLO correction.")
 @JsonPropertyOrder({SLOCorrectionResponse.JSON_PROPERTY_DATA})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SLOCorrectionResponse {

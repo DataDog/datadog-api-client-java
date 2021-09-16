@@ -23,20 +23,18 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-/** Category the SLO correction belongs to. */
-@JsonSerialize(using = SLOCorrectionCategory.SLOCorrectionCategorySerializer.class)
-public class SLOCorrectionCategory {
+/** Data source for APM resource stats queries. */
+@JsonSerialize(
+    using =
+        FormulaAndFunctionApmResourceStatsDataSource
+            .FormulaAndFunctionApmResourceStatsDataSourceSerializer.class)
+public class FormulaAndFunctionApmResourceStatsDataSource {
 
-  public static final SLOCorrectionCategory SCHEDULED_MAINTENANCE =
-      new SLOCorrectionCategory("Scheduled Maintenance");
-  public static final SLOCorrectionCategory OUTSIDE_BUSINESS_HOURS =
-      new SLOCorrectionCategory("Outside Business Hours");
-  public static final SLOCorrectionCategory DEPLOYMENT = new SLOCorrectionCategory("Deployment");
-  public static final SLOCorrectionCategory OTHER = new SLOCorrectionCategory("Other");
+  public static final FormulaAndFunctionApmResourceStatsDataSource APM_RESOURCE_STATS =
+      new FormulaAndFunctionApmResourceStatsDataSource("apm_resource_stats");
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList("Scheduled Maintenance", "Outside Business Hours", "Deployment", "Other"));
+      new HashSet<String>(Arrays.asList("apm_resource_stats"));
 
   private String value;
 
@@ -44,22 +42,26 @@ public class SLOCorrectionCategory {
     return allowedValues.contains(this.value);
   }
 
-  SLOCorrectionCategory(String value) {
+  FormulaAndFunctionApmResourceStatsDataSource(String value) {
     this.value = value;
   }
 
-  public static class SLOCorrectionCategorySerializer extends StdSerializer<SLOCorrectionCategory> {
-    public SLOCorrectionCategorySerializer(Class<SLOCorrectionCategory> t) {
+  public static class FormulaAndFunctionApmResourceStatsDataSourceSerializer
+      extends StdSerializer<FormulaAndFunctionApmResourceStatsDataSource> {
+    public FormulaAndFunctionApmResourceStatsDataSourceSerializer(
+        Class<FormulaAndFunctionApmResourceStatsDataSource> t) {
       super(t);
     }
 
-    public SLOCorrectionCategorySerializer() {
+    public FormulaAndFunctionApmResourceStatsDataSourceSerializer() {
       this(null);
     }
 
     @Override
     public void serialize(
-        SLOCorrectionCategory value, JsonGenerator jgen, SerializerProvider provider)
+        FormulaAndFunctionApmResourceStatsDataSource value,
+        JsonGenerator jgen,
+        SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
@@ -74,7 +76,7 @@ public class SLOCorrectionCategory {
     this.value = value;
   }
 
-  /** Return true if this SLOCorrectionCategory object is equal to o. */
+  /** Return true if this FormulaAndFunctionApmResourceStatsDataSource object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -83,7 +85,7 @@ public class SLOCorrectionCategory {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return this.value.equals(((SLOCorrectionCategory) o).value);
+    return this.value.equals(((FormulaAndFunctionApmResourceStatsDataSource) o).value);
   }
 
   @Override
@@ -97,7 +99,7 @@ public class SLOCorrectionCategory {
   }
 
   @JsonCreator
-  public static SLOCorrectionCategory fromValue(String value) {
-    return new SLOCorrectionCategory(value);
+  public static FormulaAndFunctionApmResourceStatsDataSource fromValue(String value) {
+    return new FormulaAndFunctionApmResourceStatsDataSource(value);
   }
 }

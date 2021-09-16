@@ -2,7 +2,7 @@
 
 # SLOCorrectionUpdateData
 
-The data object associated with the SLO correction to be updated
+The data object associated with the SLO correction to be updated.
 
 ## Properties
 

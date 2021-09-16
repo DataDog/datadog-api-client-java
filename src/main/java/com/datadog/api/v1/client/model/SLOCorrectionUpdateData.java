@@ -18,8 +18,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
-/** The data object associated with the SLO correction to be updated */
-@ApiModel(description = "The data object associated with the SLO correction to be updated")
+/** The data object associated with the SLO correction to be updated. */
+@ApiModel(description = "The data object associated with the SLO correction to be updated.")
 @JsonPropertyOrder({
   SLOCorrectionUpdateData.JSON_PROPERTY_ATTRIBUTES,
   SLOCorrectionUpdateData.JSON_PROPERTY_TYPE
