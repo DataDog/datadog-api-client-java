@@ -825,7 +825,7 @@ public class RolesApi {
      *
      * @param sort Sort roles depending on the given field. Sort order is **ascending** by default.
      *     Sort order is **descending** if the field is prefixed by a negative sign, for example:
-     *     &#x60;sort&#x3D;-name&#x60;. (optional)
+     *     &#x60;sort&#x3D;-name&#x60;. (optional, default to name)
      * @return ListRolesOptionalParameters
      */
     public ListRolesOptionalParameters sort(RolesSort sort) {

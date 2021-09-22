@@ -378,7 +378,7 @@ public class ServiceAccountsApi {
      *
      * @param sort Application key attribute used to sort results. Sort order is ascending by
      *     default. In order to specify a descending sort, prefix the attribute with a minus sign.
-     *     (optional)
+     *     (optional, default to name)
      * @return ListServiceAccountApplicationKeysOptionalParameters
      */
     public ListServiceAccountApplicationKeysOptionalParameters sort(ApplicationKeysSort sort) {

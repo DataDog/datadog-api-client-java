@@ -562,8 +562,8 @@ public class Example {
 
         SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
         String filterQuery = "security:attack status:high"; // String | The search query for security signals.
-        OffsetDateTime filterFrom = OffsetDateTime.now(); // OffsetDateTime | The minimum timestamp for requested security signals.
-        OffsetDateTime filterTo = OffsetDateTime.now(); // OffsetDateTime | The maximum timestamp for requested security signals.
+        OffsetDateTime filterFrom = OffsetDateTime.parse("2019-01-02T09:42:36.320Z"); // OffsetDateTime | The minimum timestamp for requested security signals.
+        OffsetDateTime filterTo = OffsetDateTime.parse("2019-01-03T09:42:36.320Z"); // OffsetDateTime | The maximum timestamp for requested security signals.
         SecurityMonitoringSignalsSort sort = SecurityMonitoringSignalsSort.fromValue("timestamp"); // SecurityMonitoringSignalsSort | The order of the security signals in results.
         String pageCursor = "eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ=="; // String | A list of results using the cursor provided in the previous query.
         Integer pageLimit = 10; // Integer | The maximum number of security signals in the response.

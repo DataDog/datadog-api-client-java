@@ -85,7 +85,7 @@ public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-im
             boolean typeCoercion = ctxt.isEnabled(MapperFeature.ALLOW_COERCION_OF_SCALARS);
             int match = 0;
             JsonToken token = tree.traverse(jp.getCodec()).nextToken();
-            {{#vendorExtensions.x-oneOf-as-properties}}
+            {{#oneOfProps}}
             // deserialize {{dataType}}
             try {
                 boolean attemptParsing = true;
@@ -124,7 +124,7 @@ public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-im
                 log.log(Level.FINER, "Input data does not match schema '{{dataType}}'", e);
             }
 
-            {{/vendorExtensions.x-oneOf-as-properties}}
+            {{/oneOfProps}}
             {{classname}} ret = new {{classname}}();
             if (match == 1) {
                 ret.setActualInstance(deserialized);

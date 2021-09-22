@@ -597,7 +597,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pageSize** | **Long**| Size for a given page. | [optional] [default to 10]
  **pageNumber** | **Long**| Specific page number to return. | [optional] [default to 0]
- **sort** | **APIKeysSort**| API key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign. | [optional] [enum: created_at, -created_at, last4, -last4, modified_at, -modified_at, name, -name]
+ **sort** | **APIKeysSort**| API key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign. | [optional] [default to name] [enum: created_at, -created_at, last4, -last4, modified_at, -modified_at, name, -name]
  **filter** | **String**| Filter API keys by the specified string. | [optional]
  **filterCreatedAtStart** | **String**| Only include API keys created on or after the specified date. | [optional]
  **filterCreatedAtEnd** | **String**| Only include API keys created on or before the specified date. | [optional]
@@ -680,7 +680,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pageSize** | **Long**| Size for a given page. | [optional] [default to 10]
  **pageNumber** | **Long**| Specific page number to return. | [optional] [default to 0]
- **sort** | **ApplicationKeysSort**| Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign. | [optional] [enum: created_at, -created_at, last4, -last4, name, -name]
+ **sort** | **ApplicationKeysSort**| Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign. | [optional] [default to name] [enum: created_at, -created_at, last4, -last4, name, -name]
  **filter** | **String**| Filter application keys by the specified string. | [optional]
  **filterCreatedAtStart** | **String**| Only include application keys created on or after the specified date. | [optional]
  **filterCreatedAtEnd** | **String**| Only include application keys created on or before the specified date. | [optional]
@@ -761,7 +761,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pageSize** | **Long**| Size for a given page. | [optional] [default to 10]
  **pageNumber** | **Long**| Specific page number to return. | [optional] [default to 0]
- **sort** | **ApplicationKeysSort**| Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign. | [optional] [enum: created_at, -created_at, last4, -last4, name, -name]
+ **sort** | **ApplicationKeysSort**| Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign. | [optional] [default to name] [enum: created_at, -created_at, last4, -last4, name, -name]
  **filter** | **String**| Filter application keys by the specified string. | [optional]
  **filterCreatedAtStart** | **String**| Only include application keys created on or after the specified date. | [optional]
  **filterCreatedAtEnd** | **String**| Only include application keys created on or before the specified date. | [optional]

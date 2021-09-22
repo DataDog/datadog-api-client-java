@@ -110,7 +110,7 @@ public class UsageMeteringApi {
     /**
      * Set sortDir
      *
-     * @param sortDir The direction to sort by: &#x60;[desc, asc]&#x60;. (optional)
+     * @param sortDir The direction to sort by: &#x60;[desc, asc]&#x60;. (optional, default to desc)
      * @return GetDailyCustomReportsOptionalParameters
      */
     public GetDailyCustomReportsOptionalParameters sortDir(UsageSortDirection sortDir) {
@@ -122,7 +122,7 @@ public class UsageMeteringApi {
      * Set sort
      *
      * @param sort The field to sort by: &#x60;[computed_on, size, start_date, end_date]&#x60;.
-     *     (optional)
+     *     (optional, default to start_date)
      * @return GetDailyCustomReportsOptionalParameters
      */
     public GetDailyCustomReportsOptionalParameters sort(UsageSort sort) {
@@ -522,7 +522,7 @@ public class UsageMeteringApi {
     /**
      * Set sortDir
      *
-     * @param sortDir The direction to sort by: &#x60;[desc, asc]&#x60;. (optional)
+     * @param sortDir The direction to sort by: &#x60;[desc, asc]&#x60;. (optional, default to desc)
      * @return GetMonthlyCustomReportsOptionalParameters
      */
     public GetMonthlyCustomReportsOptionalParameters sortDir(UsageSortDirection sortDir) {
@@ -534,7 +534,7 @@ public class UsageMeteringApi {
      * Set sort
      *
      * @param sort The field to sort by: &#x60;[computed_on, size, start_date, end_date]&#x60;.
-     *     (optional)
+     *     (optional, default to start_date)
      * @return GetMonthlyCustomReportsOptionalParameters
      */
     public GetMonthlyCustomReportsOptionalParameters sort(UsageSort sort) {
@@ -968,7 +968,8 @@ public class UsageMeteringApi {
     /**
      * Set sortDirection
      *
-     * @param sortDirection The direction to sort by: &#x60;[desc, asc]&#x60;. (optional)
+     * @param sortDirection The direction to sort by: &#x60;[desc, asc]&#x60;. (optional, default to
+     *     desc)
      * @return GetUsageAttributionOptionalParameters
      */
     public GetUsageAttributionOptionalParameters sortDirection(UsageSortDirection sortDirection) {
@@ -979,7 +980,7 @@ public class UsageMeteringApi {
     /**
      * Set sortName
      *
-     * @param sortName The field to sort by. (optional)
+     * @param sortName The field to sort by. (optional, default to custom_timeseries_usage)
      * @return GetUsageAttributionOptionalParameters
      */
     public GetUsageAttributionOptionalParameters sortName(UsageAttributionSort sortName) {
