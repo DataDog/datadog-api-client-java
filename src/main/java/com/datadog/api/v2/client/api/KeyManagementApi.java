@@ -822,7 +822,8 @@ public class KeyManagementApi {
      * Set sort
      *
      * @param sort API key attribute used to sort results. Sort order is ascending by default. In
-     *     order to specify a descending sort, prefix the attribute with a minus sign. (optional)
+     *     order to specify a descending sort, prefix the attribute with a minus sign. (optional,
+     *     default to name)
      * @return ListAPIKeysOptionalParameters
      */
     public ListAPIKeysOptionalParameters sort(APIKeysSort sort) {
@@ -1053,7 +1054,7 @@ public class KeyManagementApi {
      *
      * @param sort Application key attribute used to sort results. Sort order is ascending by
      *     default. In order to specify a descending sort, prefix the attribute with a minus sign.
-     *     (optional)
+     *     (optional, default to name)
      * @return ListApplicationKeysOptionalParameters
      */
     public ListApplicationKeysOptionalParameters sort(ApplicationKeysSort sort) {
@@ -1244,7 +1245,7 @@ public class KeyManagementApi {
      *
      * @param sort Application key attribute used to sort results. Sort order is ascending by
      *     default. In order to specify a descending sort, prefix the attribute with a minus sign.
-     *     (optional)
+     *     (optional, default to name)
      * @return ListCurrentUserApplicationKeysOptionalParameters
      */
     public ListCurrentUserApplicationKeysOptionalParameters sort(ApplicationKeysSort sort) {

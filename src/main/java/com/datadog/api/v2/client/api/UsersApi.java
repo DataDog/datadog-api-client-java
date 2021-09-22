@@ -669,7 +669,8 @@ public class UsersApi {
     /**
      * Set sortDir
      *
-     * @param sortDir Direction of sort. Options: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional)
+     * @param sortDir Direction of sort. Options: &#x60;asc&#x60;, &#x60;desc&#x60;. (optional,
+     *     default to desc)
      * @return ListUsersOptionalParameters
      */
     public ListUsersOptionalParameters sortDir(QuerySortOrder sortDir) {
