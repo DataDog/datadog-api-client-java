@@ -13,6 +13,7 @@
 * [EventStreamWidgetDefinition](EventStreamWidgetDefinition.md)
 * [EventTimelineWidgetDefinition](EventTimelineWidgetDefinition.md)
 * [FreeTextWidgetDefinition](FreeTextWidgetDefinition.md)
+* [FunnelWidgetDefinition](FunnelWidgetDefinition.md)
 * [GeomapWidgetDefinition](GeomapWidgetDefinition.md)
 * [GroupWidgetDefinition](GroupWidgetDefinition.md)
 * [HeatMapWidgetDefinition](HeatMapWidgetDefinition.md)
@@ -45,6 +46,7 @@ import com.datadog.api.v1.client.model.DistributionWidgetDefinition;
 import com.datadog.api.v1.client.model.EventStreamWidgetDefinition;
 import com.datadog.api.v1.client.model.EventTimelineWidgetDefinition;
 import com.datadog.api.v1.client.model.FreeTextWidgetDefinition;
+import com.datadog.api.v1.client.model.FunnelWidgetDefinition;
 import com.datadog.api.v1.client.model.GeomapWidgetDefinition;
 import com.datadog.api.v1.client.model.GroupWidgetDefinition;
 import com.datadog.api.v1.client.model.HeatMapWidgetDefinition;
@@ -124,6 +126,13 @@ public class Example {
         exampleWidgetDefinition.setActualInstance(exampleFreeTextWidgetDefinition);
         // to get back the FreeTextWidgetDefinition set earlier
         FreeTextWidgetDefinition testFreeTextWidgetDefinition = (FreeTextWidgetDefinition) exampleWidgetDefinition.getActualInstance();
+
+        // create a new FunnelWidgetDefinition
+        FunnelWidgetDefinition exampleFunnelWidgetDefinition = new FunnelWidgetDefinition();
+        // set WidgetDefinition to FunnelWidgetDefinition
+        exampleWidgetDefinition.setActualInstance(exampleFunnelWidgetDefinition);
+        // to get back the FunnelWidgetDefinition set earlier
+        FunnelWidgetDefinition testFunnelWidgetDefinition = (FunnelWidgetDefinition) exampleWidgetDefinition.getActualInstance();
 
         // create a new GeomapWidgetDefinition
         GeomapWidgetDefinition exampleGeomapWidgetDefinition = new GeomapWidgetDefinition();
