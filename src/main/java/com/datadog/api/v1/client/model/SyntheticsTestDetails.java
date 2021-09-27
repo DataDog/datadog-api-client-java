@@ -24,6 +24,7 @@ import java.util.Objects;
 @ApiModel(description = "Object containing details about your Synthetic test.")
 @JsonPropertyOrder({
   SyntheticsTestDetails.JSON_PROPERTY_CONFIG,
+  SyntheticsTestDetails.JSON_PROPERTY_CREATOR,
   SyntheticsTestDetails.JSON_PROPERTY_LOCATIONS,
   SyntheticsTestDetails.JSON_PROPERTY_MESSAGE,
   SyntheticsTestDetails.JSON_PROPERTY_MONITOR_ID,
@@ -41,6 +42,9 @@ public class SyntheticsTestDetails {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CONFIG = "config";
   private SyntheticsTestConfig config;
+
+  public static final String JSON_PROPERTY_CREATOR = "creator";
+  private Creator creator;
 
   public static final String JSON_PROPERTY_LOCATIONS = "locations";
   private List<String> locations = null;
@@ -96,6 +100,29 @@ public class SyntheticsTestDetails {
 
   public void setConfig(SyntheticsTestConfig config) {
     this.config = config;
+  }
+
+  public SyntheticsTestDetails creator(Creator creator) {
+    this.creator = creator;
+    this.unparsed |= creator.unparsed;
+    return this;
+  }
+
+  /**
+   * Get creator
+   *
+   * @return creator
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_CREATOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Creator getCreator() {
+    return creator;
+  }
+
+  public void setCreator(Creator creator) {
+    this.creator = creator;
   }
 
   public SyntheticsTestDetails locations(List<String> locations) {
@@ -374,6 +401,7 @@ public class SyntheticsTestDetails {
     }
     SyntheticsTestDetails syntheticsTestDetails = (SyntheticsTestDetails) o;
     return Objects.equals(this.config, syntheticsTestDetails.config)
+        && Objects.equals(this.creator, syntheticsTestDetails.creator)
         && Objects.equals(this.locations, syntheticsTestDetails.locations)
         && Objects.equals(this.message, syntheticsTestDetails.message)
         && Objects.equals(this.monitorId, syntheticsTestDetails.monitorId)
@@ -390,8 +418,8 @@ public class SyntheticsTestDetails {
   @Override
   public int hashCode() {
     return Objects.hash(
-        config, locations, message, monitorId, name, options, publicId, status, steps, subtype,
-        tags, type);
+        config, creator, locations, message, monitorId, name, options, publicId, status, steps,
+        subtype, tags, type);
   }
 
   @Override
@@ -399,6 +427,7 @@ public class SyntheticsTestDetails {
     StringBuilder sb = new StringBuilder();
     sb.append("class SyntheticsTestDetails {\n");
     sb.append("    config: ").append(toIndentedString(config)).append("\n");
+    sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
     sb.append("    locations: ").append(toIndentedString(locations)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    monitorId: ").append(toIndentedString(monitorId)).append("\n");
