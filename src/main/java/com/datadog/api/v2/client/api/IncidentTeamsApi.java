@@ -110,7 +110,7 @@ public class IncidentTeamsApi {
     final String[] localVarContentTypes = {"application/json"};
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<IncidentTeamResponse> localVarReturnType =
         new GenericType<IncidentTeamResponse>() {};
@@ -195,7 +195,7 @@ public class IncidentTeamsApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     return apiClient.invokeAPI(
         "IncidentTeamsApi.deleteIncidentTeam",
@@ -328,7 +328,7 @@ public class IncidentTeamsApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<IncidentTeamResponse> localVarReturnType =
         new GenericType<IncidentTeamResponse>() {};
@@ -496,7 +496,7 @@ public class IncidentTeamsApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<IncidentTeamsResponse> localVarReturnType =
         new GenericType<IncidentTeamsResponse>() {};
@@ -593,7 +593,7 @@ public class IncidentTeamsApi {
     final String[] localVarContentTypes = {"application/json"};
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<IncidentTeamResponse> localVarReturnType =
         new GenericType<IncidentTeamResponse>() {};
