@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"series\": [{\"metric\": \"system.load.1\", \"points\": [[1623932501.0, 1.1]], \"tags\": [\"test:TestSubmitmetricsreturnsPayloadacceptedresponse1623932501\"], \"type\": \"gauge\"}]}"
+        "json": "{\"series\": [{\"metric\": \"system.load.1\", \"points\": [[1632824739.0, 1.1]], \"tags\": [\"test:TestSubmitmetricsreturnsPayloadacceptedresponse1632824739\"], \"type\": \"gauge\"}]}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -19,7 +19,7 @@
       "body": "{\"status\": \"ok\"}",
       "headers": {
         "Date": [
-          "Thu, 17 Jun 2021 12:21:42 GMT"
+          "Tue, 28 Sep 2021 10:25:39 GMT"
         ],
         "Content-Type": [
           "text/json"
@@ -52,6 +52,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "dad73a08-7e0c-a1cd-154f-a853488795f1"
+    "id": "699df575-ea6e-a3ce-dcad-7f8c082d9604"
   }
 ]

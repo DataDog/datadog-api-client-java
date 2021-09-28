@@ -100,7 +100,7 @@ public class ServiceChecksApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "submitServiceCheck");
 
-    final String[] localVarAccepts = {"application/json"};
+    final String[] localVarAccepts = {"text/json"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {"application/json"};

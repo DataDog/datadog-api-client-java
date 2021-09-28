@@ -18,6 +18,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.List;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Object containing all metric names returned and their associated metadata. */
 @ApiModel(
@@ -41,7 +42,7 @@ import java.util.Objects;
 public class MetricsQueryMetadata {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGR = "aggr";
-  private String aggr;
+  private JsonNullable<String> aggr = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_DISPLAY_NAME = "display_name";
   private String displayName;
@@ -86,10 +87,24 @@ public class MetricsQueryMetadata {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(example = "avg", value = "Aggregation type.")
+  @JsonIgnore
+  public String getAggr() {
+
+    if (aggr == null) {
+      aggr = JsonNullable.<String>undefined();
+    }
+    return aggr.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_AGGR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getAggr() {
+  public JsonNullable<String> getAggr_JsonNullable() {
     return aggr;
+  }
+
+  @JsonProperty(JSON_PROPERTY_AGGR)
+  private void setAggr_JsonNullable(JsonNullable<String> aggr) {
+    this.aggr = aggr;
   }
 
   /**

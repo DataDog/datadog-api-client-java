@@ -342,8 +342,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: text/json
+- **Accept**: text/json
 
 ### HTTP response details
 | Status code | Description | Response headers |

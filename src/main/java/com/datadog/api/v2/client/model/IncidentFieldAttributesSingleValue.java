@@ -17,6 +17,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** A field with a single value selected. */
 @ApiModel(description = "A field with a single value selected.")
@@ -32,7 +33,7 @@ public class IncidentFieldAttributesSingleValue {
       IncidentFieldAttributesSingleValueType.DROPDOWN;
 
   public static final String JSON_PROPERTY_VALUE = "value";
-  private String value;
+  private JsonNullable<String> value = JsonNullable.<String>undefined();
 
   public IncidentFieldAttributesSingleValue type(IncidentFieldAttributesSingleValueType type) {
     this.type = type;
@@ -61,7 +62,7 @@ public class IncidentFieldAttributesSingleValue {
   }
 
   public IncidentFieldAttributesSingleValue value(String value) {
-    this.value = value;
+    this.value = JsonNullable.<String>of(value);
     return this;
   }
 
@@ -72,14 +73,24 @@ public class IncidentFieldAttributesSingleValue {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(example = "SEV-1", value = "The single value selected for this field.")
+  @JsonIgnore
+  public String getValue() {
+    return value.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getValue() {
+  public JsonNullable<String> getValue_JsonNullable() {
     return value;
   }
 
-  public void setValue(String value) {
+  @JsonProperty(JSON_PROPERTY_VALUE)
+  public void setValue_JsonNullable(JsonNullable<String> value) {
     this.value = value;
+  }
+
+  public void setValue(String value) {
+    this.value = JsonNullable.<String>of(value);
   }
 
   /** Return true if this IncidentFieldAttributesSingleValue object is equal to o. */

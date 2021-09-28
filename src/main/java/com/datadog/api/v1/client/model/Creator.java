@@ -17,6 +17,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Object describing the creator of the shared element. */
 @ApiModel(description = "Object describing the creator of the shared element.")
@@ -35,7 +36,7 @@ public class Creator {
   private String handle;
 
   public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
   public Creator email(String email) {
     this.email = email;
@@ -82,7 +83,7 @@ public class Creator {
   }
 
   public Creator name(String name) {
-    this.name = name;
+    this.name = JsonNullable.<String>of(name);
     return this;
   }
 
@@ -93,14 +94,24 @@ public class Creator {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Name of the creator.")
+  @JsonIgnore
+  public String getName() {
+    return name.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
+  public JsonNullable<String> getName_JsonNullable() {
     return name;
   }
 
-  public void setName(String name) {
+  @JsonProperty(JSON_PROPERTY_NAME)
+  public void setName_JsonNullable(JsonNullable<String> name) {
     this.name = name;
+  }
+
+  public void setName(String name) {
+    this.name = JsonNullable.<String>of(name);
   }
 
   /** Return true if this Creator object is equal to o. */
