@@ -1285,7 +1285,10 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
     ClientBuilder clientBuilder = ClientBuilder.newBuilder();
     customizeClientBuilder(clientBuilder);
     clientBuilder = clientBuilder.withConfig(clientConfig);
-    return clientBuilder.build();
+    Client client = clientBuilder.build();
+    client.register(GZipEncoder.class);
+    client.register(DeflateEncoder.class);
+    return client;
   }
 
   /**
