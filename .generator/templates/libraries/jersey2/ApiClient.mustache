@@ -7,9 +7,11 @@ import javax.ws.rs.client.Invocation;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Form;
 import javax.ws.rs.core.GenericType;
+import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
+import javax.ws.rs.core.Variant;
 
 {{#hasOAuthMethods}}
 import com.github.scribejava.core.model.OAuth2AccessToken;
@@ -22,6 +24,8 @@ import org.glassfish.jersey.media.multipart.FormDataBodyPart;
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 import org.glassfish.jersey.media.multipart.MultiPart;
 import org.glassfish.jersey.media.multipart.MultiPartFeature;
+import org.glassfish.jersey.message.GZipEncoder;
+import org.glassfish.jersey.message.DeflateEncoder;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -971,8 +975,9 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
    * @return Entity
    * @throws ApiException API exception
    */
-  public Entity<?> serialize(Object obj, Map<String, Object> formParams, String contentType, boolean isBodyNullable) throws ApiException {
+  public Entity<?> serialize(Object obj, Map<String, Object> formParams, String contentType, String contentEncoding, boolean isBodyNullable) throws ApiException {
     Entity<?> entity;
+    Variant variant = new Variant(MediaType.valueOf(contentType), "", contentEncoding);
     if (contentType.startsWith("multipart/form-data")) {
       MultiPart multiPart = new MultiPart();
       for (Entry<String, Object> param: formParams.entrySet()) {
@@ -997,15 +1002,15 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
       // We let jersey handle the serialization
       if (isBodyNullable) { // payload is nullable
         if (obj instanceof String) {
-          entity = Entity.entity(obj == null ? "null" : "\"" + ((String)obj).replaceAll("\"", Matcher.quoteReplacement("\\\"")) + "\"", contentType);
+          entity = Entity.entity(obj == null ? "null" : "\"" + ((String)obj).replaceAll("\"", Matcher.quoteReplacement("\\\"")) + "\"", variant);
         } else {
-          entity = Entity.entity(obj == null ? "null" : obj, contentType);
+          entity = Entity.entity(obj == null ? "null" : obj, variant);
         }
       } else {
         if (obj instanceof String) {
-          entity = Entity.entity(obj == null ? "" : "\"" + ((String)obj).replaceAll("\"", Matcher.quoteReplacement("\\\"")) + "\"", contentType);
+          entity = Entity.entity(obj == null ? "" : "\"" + ((String)obj).replaceAll("\"", Matcher.quoteReplacement("\\\"")) + "\"", variant);
         } else {
-          entity = Entity.entity(obj == null ? "" : obj, contentType);
+          entity = Entity.entity(obj == null ? "" : obj, variant);
         }
       }
     }
@@ -1159,7 +1164,9 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
       }
     }
 
-    Entity<?> entity = serialize(body, formParams, contentType, isBodyNullable);
+    String contentEncoding = headerParams.get(HttpHeaders.CONTENT_ENCODING);
+
+    Entity<?> entity = serialize(body, formParams, contentType, contentEncoding, isBodyNullable);
 
     // put all headers in one place
     Map<String, String> allHeaderParams = new HashMap<>(defaultHeaderMap);
@@ -1278,7 +1285,10 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
     ClientBuilder clientBuilder = ClientBuilder.newBuilder();
     customizeClientBuilder(clientBuilder);
     clientBuilder = clientBuilder.withConfig(clientConfig);
-    return clientBuilder.build();
+    Client client = clientBuilder.build();
+    client.register(GZipEncoder.class);
+    client.register(DeflateEncoder.class);
+    return client;
   }
 
   /**

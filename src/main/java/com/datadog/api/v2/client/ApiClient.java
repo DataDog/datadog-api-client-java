@@ -41,9 +41,11 @@ import javax.ws.rs.client.Invocation;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Form;
 import javax.ws.rs.core.GenericType;
+import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
+import javax.ws.rs.core.Variant;
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.client.ClientProperties;
 import org.glassfish.jersey.client.HttpUrlConnectorProvider;
@@ -53,6 +55,8 @@ import org.glassfish.jersey.media.multipart.FormDataBodyPart;
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 import org.glassfish.jersey.media.multipart.MultiPart;
 import org.glassfish.jersey.media.multipart.MultiPartFeature;
+import org.glassfish.jersey.message.DeflateEncoder;
+import org.glassfish.jersey.message.GZipEncoder;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ApiClient extends JavaTimeFormatter {
@@ -970,9 +974,14 @@ public class ApiClient extends JavaTimeFormatter {
    * @throws ApiException API exception
    */
   public Entity<?> serialize(
-      Object obj, Map<String, Object> formParams, String contentType, boolean isBodyNullable)
+      Object obj,
+      Map<String, Object> formParams,
+      String contentType,
+      String contentEncoding,
+      boolean isBodyNullable)
       throws ApiException {
     Entity<?> entity;
+    Variant variant = new Variant(MediaType.valueOf(contentType), "", contentEncoding);
     if (contentType.startsWith("multipart/form-data")) {
       MultiPart multiPart = new MultiPart();
       for (Entry<String, Object> param : formParams.entrySet()) {
@@ -1010,9 +1019,9 @@ public class ApiClient extends JavaTimeFormatter {
                       : "\""
                           + ((String) obj).replaceAll("\"", Matcher.quoteReplacement("\\\""))
                           + "\"",
-                  contentType);
+                  variant);
         } else {
-          entity = Entity.entity(obj == null ? "null" : obj, contentType);
+          entity = Entity.entity(obj == null ? "null" : obj, variant);
         }
       } else {
         if (obj instanceof String) {
@@ -1023,9 +1032,9 @@ public class ApiClient extends JavaTimeFormatter {
                       : "\""
                           + ((String) obj).replaceAll("\"", Matcher.quoteReplacement("\\\""))
                           + "\"",
-                  contentType);
+                  variant);
         } else {
-          entity = Entity.entity(obj == null ? "" : obj, contentType);
+          entity = Entity.entity(obj == null ? "" : obj, variant);
         }
       }
     }
@@ -1194,7 +1203,9 @@ public class ApiClient extends JavaTimeFormatter {
       }
     }
 
-    Entity<?> entity = serialize(body, formParams, contentType, isBodyNullable);
+    String contentEncoding = headerParams.get(HttpHeaders.CONTENT_ENCODING);
+
+    Entity<?> entity = serialize(body, formParams, contentType, contentEncoding, isBodyNullable);
 
     // put all headers in one place
     Map<String, String> allHeaderParams = new HashMap<>(defaultHeaderMap);
@@ -1338,7 +1349,10 @@ public class ApiClient extends JavaTimeFormatter {
     ClientBuilder clientBuilder = ClientBuilder.newBuilder();
     customizeClientBuilder(clientBuilder);
     clientBuilder = clientBuilder.withConfig(clientConfig);
-    return clientBuilder.build();
+    Client client = clientBuilder.build();
+    client.register(GZipEncoder.class);
+    client.register(DeflateEncoder.class);
+    return client;
   }
 
   /**

@@ -5,9 +5,9 @@
 ## Enum
 
 
-* `gzip` (value: `"gzip"`)
+* `GZIP` (value: `"gzip"`)
 
-* `deflate` (value: `"deflate"`)
+* `DEFLATE` (value: `"deflate"`)
 
 
 
