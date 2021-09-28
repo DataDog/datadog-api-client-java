@@ -79,7 +79,8 @@ public class IncidentResponseAttributes {
   private OffsetDateTime modified;
 
   public static final String JSON_PROPERTY_NOTIFICATION_HANDLES = "notification_handles";
-  private List<IncidentNotificationHandle> notificationHandles = null;
+  private JsonNullable<List<IncidentNotificationHandle>> notificationHandles =
+      JsonNullable.<List<IncidentNotificationHandle>>undefined();
 
   public static final String JSON_PROPERTY_POSTMORTEM_ID = "postmortem_id";
   private String postmortemId;
@@ -345,20 +346,22 @@ public class IncidentResponseAttributes {
 
   public IncidentResponseAttributes notificationHandles(
       List<IncidentNotificationHandle> notificationHandles) {
-    this.notificationHandles = notificationHandles;
-    for (IncidentNotificationHandle item : notificationHandles) {
-      this.unparsed |= item.unparsed;
-    }
+    this.notificationHandles =
+        JsonNullable.<List<IncidentNotificationHandle>>of(notificationHandles);
     return this;
   }
 
   public IncidentResponseAttributes addNotificationHandlesItem(
       IncidentNotificationHandle notificationHandlesItem) {
-    if (this.notificationHandles == null) {
-      this.notificationHandles = new ArrayList<>();
+    if (this.notificationHandles == null || !this.notificationHandles.isPresent()) {
+      this.notificationHandles =
+          JsonNullable.<List<IncidentNotificationHandle>>of(new ArrayList<>());
     }
-    this.notificationHandles.add(notificationHandlesItem);
-    this.unparsed |= notificationHandlesItem.unparsed;
+    try {
+      this.notificationHandles.get().add(notificationHandlesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -370,14 +373,26 @@ public class IncidentResponseAttributes {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value = "Notification handles that will be notified of the incident during update.")
+  @JsonIgnore
+  public List<IncidentNotificationHandle> getNotificationHandles() {
+    return notificationHandles.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_NOTIFICATION_HANDLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<IncidentNotificationHandle> getNotificationHandles() {
+  public JsonNullable<List<IncidentNotificationHandle>> getNotificationHandles_JsonNullable() {
     return notificationHandles;
   }
 
-  public void setNotificationHandles(List<IncidentNotificationHandle> notificationHandles) {
+  @JsonProperty(JSON_PROPERTY_NOTIFICATION_HANDLES)
+  public void setNotificationHandles_JsonNullable(
+      JsonNullable<List<IncidentNotificationHandle>> notificationHandles) {
     this.notificationHandles = notificationHandles;
+  }
+
+  public void setNotificationHandles(List<IncidentNotificationHandle> notificationHandles) {
+    this.notificationHandles =
+        JsonNullable.<List<IncidentNotificationHandle>>of(notificationHandles);
   }
 
   public IncidentResponseAttributes postmortemId(String postmortemId) {

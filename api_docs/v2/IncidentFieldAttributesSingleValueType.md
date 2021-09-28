@@ -9,5 +9,7 @@
 
 * `TEXTBOX` (value: `"textbox"`)
 
+* `AUTOCOMPLETE` (value: `"autocomplete"`)
+
 
 
