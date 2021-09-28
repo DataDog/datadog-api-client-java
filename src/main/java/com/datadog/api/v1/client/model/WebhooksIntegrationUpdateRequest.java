@@ -107,7 +107,7 @@ public class WebhooksIntegrationUpdateRequest {
 
   /**
    * The name of the webhook. It corresponds with &#x60;&lt;WEBHOOK_NAME&gt;&#x60;. Learn more on
-   * how to use it in [monitor notifications](https://docs.datadoghq.com/monitors/notifications).
+   * how to use it in [monitor notifications](https://docs.datadoghq.com/monitors/notify).
    *
    * @return name
    */
@@ -116,8 +116,7 @@ public class WebhooksIntegrationUpdateRequest {
       example = "WEBHOOK_NAME",
       value =
           "The name of the webhook. It corresponds with `<WEBHOOK_NAME>`. Learn more on how to use"
-              + " it in [monitor"
-              + " notifications](https://docs.datadoghq.com/monitors/notifications).")
+              + " it in [monitor notifications](https://docs.datadoghq.com/monitors/notify).")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {

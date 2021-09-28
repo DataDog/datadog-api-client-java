@@ -93,7 +93,7 @@ public class DowntimeRecurrence {
    * specifying the duration in &#x60;RRULE&#x60; are not supported (for example,
    * &#x60;DTSTART&#x60;, &#x60;DTEND&#x60;, &#x60;DURATION&#x60;). More examples available in this
    * [downtime
-   * guide](https://docs.datadoghq.com/monitors/guide/supress-alert-with-downtimes/?tab&#x3D;api)
+   * guide](https://docs.datadoghq.com/monitors/guide/suppress-alert-with-downtimes/?tab&#x3D;api)
    *
    * @return rrule
    */
@@ -108,7 +108,7 @@ public class DowntimeRecurrence {
               + " Spec](https://tools.ietf.org/html/rfc5545) are supported.  **Note**: Attributes"
               + " specifying the duration in `RRULE` are not supported (for example, `DTSTART`,"
               + " `DTEND`, `DURATION`). More examples available in this [downtime"
-              + " guide](https://docs.datadoghq.com/monitors/guide/supress-alert-with-downtimes/?tab=api)")
+              + " guide](https://docs.datadoghq.com/monitors/guide/suppress-alert-with-downtimes/?tab=api)")
   @JsonProperty(JSON_PROPERTY_RRULE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRrule() {
