@@ -157,7 +157,7 @@ public class MonitorsApi {
    * &#x60;change_aggr(time_aggr(time_window), timeshift):space_aggr:metric{tags} [by {key}]
    * operator #&#x60; with: - &#x60;change_aggr&#x60; change, pct_change - &#x60;time_aggr&#x60;
    * avg, sum, max, min [Learn
-   * more](https://docs.datadoghq.com/monitors/monitor_types/#define-the-conditions) -
+   * more](https://docs.datadoghq.com/monitors/create/types/#define-the-conditions) -
    * &#x60;time_window&#x60; last\\_#m (between 1 and 2880 depending on the monitor type), last\\_#h
    * (between 1 and 48 depending on the monitor type), or last_#d (1 or 2) - &#x60;timeshift&#x60;
    * #m_ago (5, 10, 15, or 30), #h_ago (1, 2, or 4), or 1d_ago Use this to create an outlier monitor
@@ -283,7 +283,7 @@ public class MonitorsApi {
    * &#x60;change_aggr(time_aggr(time_window), timeshift):space_aggr:metric{tags} [by {key}]
    * operator #&#x60; with: - &#x60;change_aggr&#x60; change, pct_change - &#x60;time_aggr&#x60;
    * avg, sum, max, min [Learn
-   * more](https://docs.datadoghq.com/monitors/monitor_types/#define-the-conditions) -
+   * more](https://docs.datadoghq.com/monitors/create/types/#define-the-conditions) -
    * &#x60;time_window&#x60; last\\_#m (between 1 and 2880 depending on the monitor type), last\\_#h
    * (between 1 and 48 depending on the monitor type), or last_#d (1 or 2) - &#x60;timeshift&#x60;
    * #m_ago (5, 10, 15, or 30), #h_ago (1, 2, or 4), or 1d_ago Use this to create an outlier monitor
@@ -917,7 +917,7 @@ public class MonitorsApi {
      *     [manage monitor documentation][2] page to learn more. The query can contain any number of
      *     space-separated monitor attributes, for instance &#x60;query&#x3D;\&quot;type:metric
      *     status:alert\&quot;&#x60;. [1]: https://app.datadoghq.com/monitors/manage [2]:
-     *     /monitors/manage_monitor/#find-the-monitors (optional)
+     *     /monitors/manage/#find-the-monitors (optional)
      * @return SearchMonitorGroupsOptionalParameters
      */
     public SearchMonitorGroupsOptionalParameters query(String query) {
@@ -1078,7 +1078,7 @@ public class MonitorsApi {
      *     [manage monitor documentation][2] page to learn more. The query can contain any number of
      *     space-separated monitor attributes, for instance &#x60;query&#x3D;\&quot;type:metric
      *     status:alert\&quot;&#x60;. [1]: https://app.datadoghq.com/monitors/manage [2]:
-     *     /monitors/manage_monitor/#find-the-monitors (optional)
+     *     /monitors/manage/#find-the-monitors (optional)
      * @return SearchMonitorsOptionalParameters
      */
     public SearchMonitorsOptionalParameters query(String query) {

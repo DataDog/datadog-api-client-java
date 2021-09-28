@@ -184,9 +184,9 @@ public class MonitorOptions {
 
   /**
    * We recommend using the
-   * [is_renotify](https://docs.datadoghq.com/monitors/notifications/?tab&#x3D;is_alert#renotify),
-   * block in the original message instead. A message to include with a re-notification. Supports
-   * the &#x60;@username&#x60; notification we allow elsewhere. Not applicable if
+   * [is_renotify](https://docs.datadoghq.com/monitors/notify/?tab&#x3D;is_alert#renotify), block in
+   * the original message instead. A message to include with a re-notification. Supports the
+   * &#x60;@username&#x60; notification we allow elsewhere. Not applicable if
    * &#x60;renotify_interval&#x60; is &#x60;None&#x60;.
    *
    * @return escalationMessage
@@ -195,7 +195,7 @@ public class MonitorOptions {
   @ApiModelProperty(
       value =
           "We recommend using the"
-              + " [is_renotify](https://docs.datadoghq.com/monitors/notifications/?tab=is_alert#renotify),"
+              + " [is_renotify](https://docs.datadoghq.com/monitors/notify/?tab=is_alert#renotify),"
               + " block in the original message instead. A message to include with a"
               + " re-notification. Supports the `@username` notification we allow elsewhere. Not"
               + " applicable if `renotify_interval` is `None`.")
