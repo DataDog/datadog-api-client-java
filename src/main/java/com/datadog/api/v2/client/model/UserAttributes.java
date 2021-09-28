@@ -18,6 +18,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Attributes of user object returned by the API. */
 @ApiModel(description = "Attributes of user object returned by the API.")
@@ -56,7 +57,7 @@ public class UserAttributes {
   private OffsetDateTime modifiedAt;
 
   public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+  private JsonNullable<String> name = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SERVICE_ACCOUNT = "service_account";
   private Boolean serviceAccount;
@@ -65,7 +66,7 @@ public class UserAttributes {
   private String status;
 
   public static final String JSON_PROPERTY_TITLE = "title";
-  private String title;
+  private JsonNullable<String> title = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_VERIFIED = "verified";
   private Boolean verified;
@@ -203,7 +204,7 @@ public class UserAttributes {
   }
 
   public UserAttributes name(String name) {
-    this.name = name;
+    this.name = JsonNullable.<String>of(name);
     return this;
   }
 
@@ -214,14 +215,24 @@ public class UserAttributes {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Name of the user.")
+  @JsonIgnore
+  public String getName() {
+    return name.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
+  public JsonNullable<String> getName_JsonNullable() {
     return name;
   }
 
-  public void setName(String name) {
+  @JsonProperty(JSON_PROPERTY_NAME)
+  public void setName_JsonNullable(JsonNullable<String> name) {
     this.name = name;
+  }
+
+  public void setName(String name) {
+    this.name = JsonNullable.<String>of(name);
   }
 
   public UserAttributes serviceAccount(Boolean serviceAccount) {
@@ -269,7 +280,7 @@ public class UserAttributes {
   }
 
   public UserAttributes title(String title) {
-    this.title = title;
+    this.title = JsonNullable.<String>of(title);
     return this;
   }
 
@@ -280,14 +291,24 @@ public class UserAttributes {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Title of the user.")
+  @JsonIgnore
+  public String getTitle() {
+    return title.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTitle() {
+  public JsonNullable<String> getTitle_JsonNullable() {
     return title;
   }
 
-  public void setTitle(String title) {
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  public void setTitle_JsonNullable(JsonNullable<String> title) {
     this.title = title;
+  }
+
+  public void setTitle(String title) {
+    this.title = JsonNullable.<String>of(title);
   }
 
   public UserAttributes verified(Boolean verified) {

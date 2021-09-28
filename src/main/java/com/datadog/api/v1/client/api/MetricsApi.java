@@ -519,10 +519,10 @@ public class MetricsApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "submitMetrics");
 
-    final String[] localVarAccepts = {"application/json"};
+    final String[] localVarAccepts = {"text/json"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
-    final String[] localVarContentTypes = {"application/json"};
+    final String[] localVarContentTypes = {"text/json"};
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
     String[] localVarAuthNames = new String[] {"apiKeyAuth"};

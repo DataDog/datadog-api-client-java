@@ -18,6 +18,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Dashboard definition. */
 @ApiModel(description = "Dashboard definition.")
@@ -42,7 +43,7 @@ public class DashboardSummaryDefinition {
   private OffsetDateTime createdAt;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  private String description;
+  private JsonNullable<String> description = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
@@ -107,7 +108,7 @@ public class DashboardSummaryDefinition {
   }
 
   public DashboardSummaryDefinition description(String description) {
-    this.description = description;
+    this.description = JsonNullable.<String>of(description);
     return this;
   }
 
@@ -118,14 +119,24 @@ public class DashboardSummaryDefinition {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Description of the dashboard.")
+  @JsonIgnore
+  public String getDescription() {
+    return description.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDescription() {
+  public JsonNullable<String> getDescription_JsonNullable() {
     return description;
   }
 
-  public void setDescription(String description) {
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  public void setDescription_JsonNullable(JsonNullable<String> description) {
     this.description = description;
+  }
+
+  public void setDescription(String description) {
+    this.description = JsonNullable.<String>of(description);
   }
 
   public DashboardSummaryDefinition id(String id) {
