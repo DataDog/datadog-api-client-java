@@ -8,8 +8,9 @@ Widget definition.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**x** | [**ScatterPlotRequest**](ScatterPlotRequest.md) |  | 
-**y** | [**ScatterPlotRequest**](ScatterPlotRequest.md) |  | 
+**table** | [**ScatterplotTableRequest**](ScatterplotTableRequest.md) |  |  [optional]
+**x** | [**ScatterPlotRequest**](ScatterPlotRequest.md) |  |  [optional]
+**y** | [**ScatterPlotRequest**](ScatterPlotRequest.md) |  |  [optional]
 
 
 
