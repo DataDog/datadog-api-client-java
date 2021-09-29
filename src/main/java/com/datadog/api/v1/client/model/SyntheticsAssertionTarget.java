@@ -18,6 +18,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** An assertion which uses a simple target. */
 @ApiModel(description = "An assertion which uses a simple target.")
@@ -37,7 +38,7 @@ public class SyntheticsAssertionTarget {
   private String property;
 
   public static final String JSON_PROPERTY_TARGET = "target";
-  private Object target = null;
+  private JsonNullable<Object> target = JsonNullable.<Object>of(null);
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private SyntheticsAssertionType type;
@@ -103,7 +104,7 @@ public class SyntheticsAssertionTarget {
   }
 
   public SyntheticsAssertionTarget target(Object target) {
-    this.target = target;
+    this.target = JsonNullable.<Object>of(target);
     return this;
   }
 
@@ -114,14 +115,24 @@ public class SyntheticsAssertionTarget {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Value used by the operator.")
+  @JsonIgnore
+  public Object getTarget() {
+    return target.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_TARGET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Object getTarget() {
+  public JsonNullable<Object> getTarget_JsonNullable() {
     return target;
   }
 
-  public void setTarget(Object target) {
+  @JsonProperty(JSON_PROPERTY_TARGET)
+  public void setTarget_JsonNullable(JsonNullable<Object> target) {
     this.target = target;
+  }
+
+  public void setTarget(Object target) {
+    this.target = JsonNullable.<Object>of(target);
   }
 
   public SyntheticsAssertionTarget type(SyntheticsAssertionType type) {
