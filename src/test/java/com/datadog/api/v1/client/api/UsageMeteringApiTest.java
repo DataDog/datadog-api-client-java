@@ -329,8 +329,9 @@ public class UsageMeteringApiTest extends V1ApiTest {
 
     stubFor(
         get(urlPathEqualTo("/api/v1/usage/summary"))
-            .withQueryParam("start_month", equalTo(startMonth.toString()))
-            .withQueryParam("end_month", equalTo(endMonth.toString()))
+            .withQueryParam(
+                "start_month", equalTo(generalApiClient.formatOffsetDateTime(startMonth)))
+            .withQueryParam("end_month", equalTo(generalApiClient.formatOffsetDateTime(endMonth)))
             .withQueryParam("include_org_details", equalTo("true"))
             .willReturn(
                 okJson(TestUtils.getFixture("v1/client/api/usage_fixtures/usage_summary.json"))));
