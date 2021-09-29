@@ -44,7 +44,7 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_CWS_CONTAINERS_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CWS_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_DBM_HOST_TOP99P_SUM,
-  UsageSummaryResponse.JSON_PROPERTY_DBM_QUERIES_AGG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_DBM_QUERIES_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_END_DATE,
   UsageSummaryResponse.JSON_PROPERTY_FARGATE_TASKS_COUNT_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_FARGATE_TASKS_COUNT_HWM_SUM,
@@ -145,8 +145,8 @@ public class UsageSummaryResponse {
   public static final String JSON_PROPERTY_DBM_HOST_TOP99P_SUM = "dbm_host_top99p_sum";
   private Long dbmHostTop99pSum;
 
-  public static final String JSON_PROPERTY_DBM_QUERIES_AGG_SUM = "dbm_queries_agg_sum";
-  private Long dbmQueriesAggSum;
+  public static final String JSON_PROPERTY_DBM_QUERIES_AVG_SUM = "dbm_queries_avg_sum";
+  private Long dbmQueriesAvgSum;
 
   public static final String JSON_PROPERTY_END_DATE = "end_date";
   private OffsetDateTime endDate;
@@ -766,30 +766,30 @@ public class UsageSummaryResponse {
     this.dbmHostTop99pSum = dbmHostTop99pSum;
   }
 
-  public UsageSummaryResponse dbmQueriesAggSum(Long dbmQueriesAggSum) {
-    this.dbmQueriesAggSum = dbmQueriesAggSum;
+  public UsageSummaryResponse dbmQueriesAvgSum(Long dbmQueriesAvgSum) {
+    this.dbmQueriesAvgSum = dbmQueriesAvgSum;
     return this;
   }
 
   /**
-   * Shows the sum of all distinct Database Monitoring Normalized Queries over all hours in the
+   * Shows the average of all distinct Database Monitoring Normalized Queries over all hours in the
    * current month for all organizations.
    *
-   * @return dbmQueriesAggSum
+   * @return dbmQueriesAvgSum
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Shows the sum of all distinct Database Monitoring Normalized Queries over all hours in"
-              + " the current month for all organizations.")
-  @JsonProperty(JSON_PROPERTY_DBM_QUERIES_AGG_SUM)
+          "Shows the average of all distinct Database Monitoring Normalized Queries over all hours"
+              + " in the current month for all organizations.")
+  @JsonProperty(JSON_PROPERTY_DBM_QUERIES_AVG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getDbmQueriesAggSum() {
-    return dbmQueriesAggSum;
+  public Long getDbmQueriesAvgSum() {
+    return dbmQueriesAvgSum;
   }
 
-  public void setDbmQueriesAggSum(Long dbmQueriesAggSum) {
-    this.dbmQueriesAggSum = dbmQueriesAggSum;
+  public void setDbmQueriesAvgSum(Long dbmQueriesAvgSum) {
+    this.dbmQueriesAvgSum = dbmQueriesAvgSum;
   }
 
   public UsageSummaryResponse endDate(OffsetDateTime endDate) {
@@ -1719,7 +1719,7 @@ public class UsageSummaryResponse {
         && Objects.equals(this.cwsContainersAvgSum, usageSummaryResponse.cwsContainersAvgSum)
         && Objects.equals(this.cwsHostTop99pSum, usageSummaryResponse.cwsHostTop99pSum)
         && Objects.equals(this.dbmHostTop99pSum, usageSummaryResponse.dbmHostTop99pSum)
-        && Objects.equals(this.dbmQueriesAggSum, usageSummaryResponse.dbmQueriesAggSum)
+        && Objects.equals(this.dbmQueriesAvgSum, usageSummaryResponse.dbmQueriesAvgSum)
         && Objects.equals(this.endDate, usageSummaryResponse.endDate)
         && Objects.equals(
             this.fargateTasksCountAvgSum, usageSummaryResponse.fargateTasksCountAvgSum)
@@ -1807,7 +1807,7 @@ public class UsageSummaryResponse {
         cwsContainersAvgSum,
         cwsHostTop99pSum,
         dbmHostTop99pSum,
-        dbmQueriesAggSum,
+        dbmQueriesAvgSum,
         endDate,
         fargateTasksCountAvgSum,
         fargateTasksCountHwmSum,
@@ -1883,7 +1883,7 @@ public class UsageSummaryResponse {
         .append("\n");
     sb.append("    cwsHostTop99pSum: ").append(toIndentedString(cwsHostTop99pSum)).append("\n");
     sb.append("    dbmHostTop99pSum: ").append(toIndentedString(dbmHostTop99pSum)).append("\n");
-    sb.append("    dbmQueriesAggSum: ").append(toIndentedString(dbmQueriesAggSum)).append("\n");
+    sb.append("    dbmQueriesAvgSum: ").append(toIndentedString(dbmQueriesAvgSum)).append("\n");
     sb.append("    endDate: ").append(toIndentedString(endDate)).append("\n");
     sb.append("    fargateTasksCountAvgSum: ")
         .append(toIndentedString(fargateTasksCountAvgSum))
