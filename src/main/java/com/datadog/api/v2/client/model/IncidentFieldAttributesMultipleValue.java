@@ -19,6 +19,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** A field with potentially multiple values selected. */
 @ApiModel(description = "A field with potentially multiple values selected.")
@@ -33,7 +34,7 @@ public class IncidentFieldAttributesMultipleValue {
   private IncidentFieldAttributesValueType type = IncidentFieldAttributesValueType.MULTISELECT;
 
   public static final String JSON_PROPERTY_VALUE = "value";
-  private List<String> value = null;
+  private JsonNullable<List<String>> value = JsonNullable.<List<String>>undefined();
 
   public IncidentFieldAttributesMultipleValue type(IncidentFieldAttributesValueType type) {
     this.type = type;
@@ -62,15 +63,19 @@ public class IncidentFieldAttributesMultipleValue {
   }
 
   public IncidentFieldAttributesMultipleValue value(List<String> value) {
-    this.value = value;
+    this.value = JsonNullable.<List<String>>of(value);
     return this;
   }
 
   public IncidentFieldAttributesMultipleValue addValueItem(String valueItem) {
-    if (this.value == null) {
-      this.value = new ArrayList<>();
+    if (this.value == null || !this.value.isPresent()) {
+      this.value = JsonNullable.<List<String>>of(new ArrayList<>());
     }
-    this.value.add(valueItem);
+    try {
+      this.value.get().add(valueItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -83,14 +88,24 @@ public class IncidentFieldAttributesMultipleValue {
   @ApiModelProperty(
       example = "[\"1.0\",\"1.1\"]",
       value = "The multiple values selected for this field.")
+  @JsonIgnore
+  public List<String> getValue() {
+    return value.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getValue() {
+  public JsonNullable<List<String>> getValue_JsonNullable() {
     return value;
   }
 
-  public void setValue(List<String> value) {
+  @JsonProperty(JSON_PROPERTY_VALUE)
+  public void setValue_JsonNullable(JsonNullable<List<String>> value) {
     this.value = value;
+  }
+
+  public void setValue(List<String> value) {
+    this.value = JsonNullable.<List<String>>of(value);
   }
 
   /** Return true if this IncidentFieldAttributesMultipleValue object is equal to o. */
