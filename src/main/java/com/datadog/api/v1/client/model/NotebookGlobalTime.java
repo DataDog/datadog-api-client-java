@@ -104,6 +104,7 @@ public class NotebookGlobalTime extends AbstractOpenApiSchema {
             attemptParsing |=
                 (NotebookRelativeTime.class.equals(String.class)
                     && token == JsonToken.VALUE_STRING);
+            attemptParsing |= (token == JsonToken.VALUE_NULL);
           }
         }
         if (attemptParsing) {
