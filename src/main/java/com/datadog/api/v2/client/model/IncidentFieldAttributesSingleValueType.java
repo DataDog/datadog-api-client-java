@@ -34,11 +34,9 @@ public class IncidentFieldAttributesSingleValueType {
       new IncidentFieldAttributesSingleValueType("dropdown");
   public static final IncidentFieldAttributesSingleValueType TEXTBOX =
       new IncidentFieldAttributesSingleValueType("textbox");
-  public static final IncidentFieldAttributesSingleValueType AUTOCOMPLETE =
-      new IncidentFieldAttributesSingleValueType("autocomplete");
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("dropdown", "textbox", "autocomplete"));
+      new HashSet<String>(Arrays.asList("dropdown", "textbox"));
 
   private String value;
 
