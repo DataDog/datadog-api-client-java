@@ -121,7 +121,7 @@ public class SecurityMonitoringApi {
     final String[] localVarContentTypes = {"application/json"};
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<SecurityFilterResponse> localVarReturnType =
         new GenericType<SecurityFilterResponse>() {};
@@ -289,7 +289,7 @@ public class SecurityMonitoringApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     return apiClient.invokeAPI(
         "SecurityMonitoringApi.deleteSecurityFilter",
@@ -456,7 +456,7 @@ public class SecurityMonitoringApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<SecurityFilterResponse> localVarReturnType =
         new GenericType<SecurityFilterResponse>() {};
@@ -611,7 +611,7 @@ public class SecurityMonitoringApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<SecurityFiltersResponse> localVarReturnType =
         new GenericType<SecurityFiltersResponse>() {};
@@ -1148,7 +1148,7 @@ public class SecurityMonitoringApi {
     final String[] localVarContentTypes = {"application/json"};
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<SecurityFilterResponse> localVarReturnType =
         new GenericType<SecurityFilterResponse>() {};
