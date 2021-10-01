@@ -566,7 +566,7 @@ public class World {
       throws java.lang.IllegalAccessException, java.lang.NoSuchFieldException {
     return replace(
         source,
-        Pattern.compile("\\{\\{ ?([^}]+) ?}}"),
+        Pattern.compile("\\{\\{ *([^{}]+|'[^']+'|\"[^\"]+\") *}}"),
         m -> {
           String path = m.group(1).trim();
           Pattern functionRE = Pattern.compile("^(.+)\\((.*)\\)$");
@@ -575,6 +575,9 @@ public class World {
             String funcName = funcM.group(1);
             String arg = funcM.group(2);
             return templateFunctions.get(funcName).apply(context, arg);
+          }
+          if (path.charAt(0) == '\'' || path.charAt(0) == '"') {
+            return path.substring(1, path.length() - 1);
           }
           try {
             return lookup(context, path).toString();
