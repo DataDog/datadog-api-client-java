@@ -281,7 +281,7 @@ Name | Type | Description  | Notes
 
 ## submitMetrics
 
-> IntakePayloadAccepted submitMetrics(body);
+> IntakePayloadAccepted submitMetrics(body, parameters);
 
 The metrics end-point allows you to post time-series data that can be graphed on Datadog’s dashboards.
 The maximum payload size is 3.2 megabytes (3200000 bytes). Compressed payloads must have a decompressed size of less than 62 megabytes (62914560 bytes).
@@ -311,8 +311,10 @@ public class Example {
 
         MetricsApi apiInstance = new MetricsApi(defaultClient);
         MetricsPayload body = new MetricsPayload(); // MetricsPayload | 
+        MetricContentEncoding contentEncoding = MetricContentEncoding.fromValue("deflate"); // MetricContentEncoding | HTTP header used to compress the media-type.
         try {
-            IntakePayloadAccepted result = apiInstance.submitMetrics(body);
+            IntakePayloadAccepted result = apiInstance.submitMetrics(body, new MetricsApi.SubmitMetricsOptionalParameters()
+                .contentEncoding(contentEncoding));
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling MetricsApi#submitMetrics");
@@ -331,6 +333,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**MetricsPayload**](MetricsPayload.md)|  |
+ **contentEncoding** | **MetricContentEncoding**| HTTP header used to compress the media-type. | [optional] [enum: deflate]
 
 ### Return type
 
