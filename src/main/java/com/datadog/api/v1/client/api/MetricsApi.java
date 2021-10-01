@@ -6,6 +6,7 @@ import com.datadog.api.v1.client.ApiResponse;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.Pair;
 import com.datadog.api.v1.client.model.IntakePayloadAccepted;
+import com.datadog.api.v1.client.model.MetricContentEncoding;
 import com.datadog.api.v1.client.model.MetricMetadata;
 import com.datadog.api.v1.client.model.MetricSearchResponse;
 import com.datadog.api.v1.client.model.MetricsListResponse;
@@ -450,6 +451,22 @@ public class MetricsApi {
         false);
   }
 
+  /** Manage optional parameters to submitMetrics. */
+  public static class SubmitMetricsOptionalParameters {
+    private MetricContentEncoding contentEncoding;
+
+    /**
+     * Set contentEncoding
+     *
+     * @param contentEncoding HTTP header used to compress the media-type. (optional)
+     * @return SubmitMetricsOptionalParameters
+     */
+    public SubmitMetricsOptionalParameters contentEncoding(MetricContentEncoding contentEncoding) {
+      this.contentEncoding = contentEncoding;
+      return this;
+    }
+  }
+
   /**
    * Submit metrics The metrics end-point allows you to post time-series data that can be graphed on
    * Datadog’s dashboards. The maximum payload size is 3.2 megabytes (3200000 bytes). Compressed
@@ -473,7 +490,7 @@ public class MetricsApi {
    *     </table>
    */
   public IntakePayloadAccepted submitMetrics(MetricsPayload body) throws ApiException {
-    return submitMetricsWithHttpInfo(body).getData();
+    return submitMetricsWithHttpInfo(body, new SubmitMetricsOptionalParameters()).getData();
   }
 
   /**
@@ -486,6 +503,35 @@ public class MetricsApi {
    * compression is applied, which reduces the payload size.
    *
    * @param body (required)
+   * @param parameters Optional parameters for the request.
+   * @return IntakePayloadAccepted
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
+   *       <tr><td> 202 </td><td> Payload accepted </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 408 </td><td> Request timeout </td><td>  -  </td></tr>
+   *       <tr><td> 413 </td><td> Payload too large </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public IntakePayloadAccepted submitMetrics(
+      MetricsPayload body, SubmitMetricsOptionalParameters parameters) throws ApiException {
+    return submitMetricsWithHttpInfo(body, parameters).getData();
+  }
+
+  /**
+   * Submit metrics The metrics end-point allows you to post time-series data that can be graphed on
+   * Datadog’s dashboards. The maximum payload size is 3.2 megabytes (3200000 bytes). Compressed
+   * payloads must have a decompressed size of less than 62 megabytes (62914560 bytes). If you’re
+   * submitting metrics directly to the Datadog API without using DogStatsD, expect: - 64 bits for
+   * the timestamp - 32 bits for the value - 20 bytes for the metric names - 50 bytes for the
+   * timeseries - The full payload is approximately 100 bytes. However, with the DogStatsD API,
+   * compression is applied, which reduces the payload size.
+   *
+   * @param body (required)
+   * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;IntakePayloadAccepted&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -498,8 +544,8 @@ public class MetricsApi {
    *       <tr><td> 413 </td><td> Payload too large </td><td>  -  </td></tr>
    *     </table>
    */
-  public ApiResponse<IntakePayloadAccepted> submitMetricsWithHttpInfo(MetricsPayload body)
-      throws ApiException {
+  public ApiResponse<IntakePayloadAccepted> submitMetricsWithHttpInfo(
+      MetricsPayload body, SubmitMetricsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = body;
 
     // verify the required parameter 'body' is set
@@ -507,6 +553,7 @@ public class MetricsApi {
       throw new ApiException(
           400, "Missing the required parameter 'body' when calling submitMetrics");
     }
+    MetricContentEncoding contentEncoding = parameters.contentEncoding;
     // create path and map variables
     String localVarPath = "/api/v1/series";
 
@@ -518,6 +565,9 @@ public class MetricsApi {
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "submitMetrics");
+
+    if (contentEncoding != null)
+      localVarHeaderParams.put("Content-Encoding", apiClient.parameterToString(contentEncoding));
 
     final String[] localVarAccepts = {"text/json"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);

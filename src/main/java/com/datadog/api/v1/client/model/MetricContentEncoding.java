@@ -24,14 +24,12 @@ import java.util.Objects;
 import java.util.Set;
 
 /** HTTP header used to compress the media-type. */
-@JsonSerialize(using = ContentEncoding.ContentEncodingSerializer.class)
-public class ContentEncoding {
+@JsonSerialize(using = MetricContentEncoding.MetricContentEncodingSerializer.class)
+public class MetricContentEncoding {
 
-  public static final ContentEncoding GZIP = new ContentEncoding("gzip");
-  public static final ContentEncoding DEFLATE = new ContentEncoding("deflate");
+  public static final MetricContentEncoding DEFLATE = new MetricContentEncoding("deflate");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("gzip", "deflate"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("deflate"));
 
   private String value;
 
@@ -39,21 +37,22 @@ public class ContentEncoding {
     return allowedValues.contains(this.value);
   }
 
-  ContentEncoding(String value) {
+  MetricContentEncoding(String value) {
     this.value = value;
   }
 
-  public static class ContentEncodingSerializer extends StdSerializer<ContentEncoding> {
-    public ContentEncodingSerializer(Class<ContentEncoding> t) {
+  public static class MetricContentEncodingSerializer extends StdSerializer<MetricContentEncoding> {
+    public MetricContentEncodingSerializer(Class<MetricContentEncoding> t) {
       super(t);
     }
 
-    public ContentEncodingSerializer() {
+    public MetricContentEncodingSerializer() {
       this(null);
     }
 
     @Override
-    public void serialize(ContentEncoding value, JsonGenerator jgen, SerializerProvider provider)
+    public void serialize(
+        MetricContentEncoding value, JsonGenerator jgen, SerializerProvider provider)
         throws IOException, JsonProcessingException {
       jgen.writeObject(value.value);
     }
@@ -68,7 +67,7 @@ public class ContentEncoding {
     this.value = value;
   }
 
-  /** Return true if this ContentEncoding object is equal to o. */
+  /** Return true if this MetricContentEncoding object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -77,7 +76,7 @@ public class ContentEncoding {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return this.value.equals(((ContentEncoding) o).value);
+    return this.value.equals(((MetricContentEncoding) o).value);
   }
 
   @Override
@@ -91,7 +90,7 @@ public class ContentEncoding {
   }
 
   @JsonCreator
-  public static ContentEncoding fromValue(String value) {
-    return new ContentEncoding(value);
+  public static MetricContentEncoding fromValue(String value) {
+    return new MetricContentEncoding(value);
   }
 }
