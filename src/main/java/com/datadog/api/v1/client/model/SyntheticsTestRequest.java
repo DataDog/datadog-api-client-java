@@ -37,6 +37,7 @@ import java.util.Objects;
   SyntheticsTestRequest.JSON_PROPERTY_NUMBER_OF_PACKETS,
   SyntheticsTestRequest.JSON_PROPERTY_PORT,
   SyntheticsTestRequest.JSON_PROPERTY_QUERY,
+  SyntheticsTestRequest.JSON_PROPERTY_SERVERNAME,
   SyntheticsTestRequest.JSON_PROPERTY_SHOULD_TRACK_HOPS,
   SyntheticsTestRequest.JSON_PROPERTY_TIMEOUT,
   SyntheticsTestRequest.JSON_PROPERTY_URL
@@ -85,6 +86,9 @@ public class SyntheticsTestRequest {
 
   public static final String JSON_PROPERTY_QUERY = "query";
   private Object query;
+
+  public static final String JSON_PROPERTY_SERVERNAME = "servername";
+  private String servername;
 
   public static final String JSON_PROPERTY_SHOULD_TRACK_HOPS = "shouldTrackHops";
   private Boolean shouldTrackHops;
@@ -418,6 +422,34 @@ public class SyntheticsTestRequest {
     this.query = query;
   }
 
+  public SyntheticsTestRequest servername(String servername) {
+    this.servername = servername;
+    return this;
+  }
+
+  /**
+   * For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing
+   * the server to present one of multiple possible certificates on the same IP address and TCP port
+   * number.
+   *
+   * @return servername
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "For SSL tests, it specifies on which server you want to initiate the TLS handshake,"
+              + " allowing the server to present one of multiple possible certificates on the same"
+              + " IP address and TCP port number.")
+  @JsonProperty(JSON_PROPERTY_SERVERNAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getServername() {
+    return servername;
+  }
+
+  public void setServername(String servername) {
+    this.servername = servername;
+  }
+
   public SyntheticsTestRequest shouldTrackHops(Boolean shouldTrackHops) {
     this.shouldTrackHops = shouldTrackHops;
     return this;
@@ -511,6 +543,7 @@ public class SyntheticsTestRequest {
         && Objects.equals(this.numberOfPackets, syntheticsTestRequest.numberOfPackets)
         && Objects.equals(this.port, syntheticsTestRequest.port)
         && Objects.equals(this.query, syntheticsTestRequest.query)
+        && Objects.equals(this.servername, syntheticsTestRequest.servername)
         && Objects.equals(this.shouldTrackHops, syntheticsTestRequest.shouldTrackHops)
         && Objects.equals(this.timeout, syntheticsTestRequest.timeout)
         && Objects.equals(this.url, syntheticsTestRequest.url);
@@ -533,6 +566,7 @@ public class SyntheticsTestRequest {
         numberOfPackets,
         port,
         query,
+        servername,
         shouldTrackHops,
         timeout,
         url);
@@ -558,6 +592,7 @@ public class SyntheticsTestRequest {
     sb.append("    numberOfPackets: ").append(toIndentedString(numberOfPackets)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("    servername: ").append(toIndentedString(servername)).append("\n");
     sb.append("    shouldTrackHops: ").append(toIndentedString(shouldTrackHops)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
