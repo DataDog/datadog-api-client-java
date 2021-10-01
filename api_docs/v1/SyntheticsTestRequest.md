@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **numberOfPackets** | **Integer** | Number of pings to use per test. |  [optional]
 **port** | **Long** | Port to use when performing the test. |  [optional]
 **query** | **Object** | Query to use for the test. |  [optional]
+**servername** | **String** | For SSL tests, it specifies on which server you want to initiate the TLS handshake, allowing the server to present one of multiple possible certificates on the same IP address and TCP port number. |  [optional]
 **shouldTrackHops** | **Boolean** | Turns on a traceroute probe to discover all gateways along the path to the host destination. |  [optional]
 **timeout** | **Double** | Timeout in seconds for the test. |  [optional]
 **url** | **String** | URL to perform the test with. |  [optional]
