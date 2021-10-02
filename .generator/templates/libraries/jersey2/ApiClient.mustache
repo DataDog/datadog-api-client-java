@@ -18,6 +18,7 @@ import com.github.scribejava.core.model.OAuth2AccessToken;
 {{/hasOAuthMethods}}
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.client.ClientProperties;
+import org.glassfish.jersey.client.filter.EncodingFilter;
 import org.glassfish.jersey.client.HttpUrlConnectorProvider;
 import org.glassfish.jersey.jackson.JacksonFeature;
 import org.glassfish.jersey.media.multipart.FormDataBodyPart;
@@ -162,6 +163,7 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
   protected Map<String, Integer> operationServerIndex = new HashMap<String, Integer>();
   protected Map<String, Map<String, String>> operationServerVariables = new HashMap<String, Map<String, String>>();
   protected boolean debugging = false;
+  protected boolean compress = false;
   protected ClientConfig clientConfig;
   protected int connectionTimeout = 0;
   private int readTimeout = 0;
@@ -649,6 +651,29 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
     this.httpClient = buildHttpClient();
     return this;
   }
+
+  /**
+   * Check that whether compress is enabled for this API client.
+   *
+   * @return True if compress is switched on
+   */
+  public boolean isCompress() {
+    return compress;
+  }
+
+  /**
+   * Enable/disable compress for this API client.
+   *
+   * @param compress To enable (true) or disable (false) compress
+   * @return API client
+   */
+  public ApiClient setCompress(boolean compress) {
+    this.compress = compress;
+    // Rebuild HTTP Client according to the new "compress" value.
+    this.httpClient = buildHttpClient();
+    return this;
+  }
+
 
   /**
    * The path of temporary folder used to store downloaded files from endpoints
@@ -1282,13 +1307,15 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
         clientConfig = getDefaultClientConfig();
     }
 
+    if (compress) {
+      clientConfig.register(EncodingFilter.class);
+    }
+    clientConfig.register(GZipEncoder.class);
+    clientConfig.register(DeflateEncoder.class);
     ClientBuilder clientBuilder = ClientBuilder.newBuilder();
     customizeClientBuilder(clientBuilder);
     clientBuilder = clientBuilder.withConfig(clientConfig);
-    Client client = clientBuilder.build();
-    client.register(GZipEncoder.class);
-    client.register(DeflateEncoder.class);
-    return client;
+    return clientBuilder.build();
   }
 
   /**
