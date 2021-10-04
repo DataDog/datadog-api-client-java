@@ -163,7 +163,7 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
   protected Map<String, Integer> operationServerIndex = new HashMap<String, Integer>();
   protected Map<String, Map<String, String>> operationServerVariables = new HashMap<String, Map<String, String>>();
   protected boolean debugging = false;
-  protected boolean compress = false;
+  protected boolean compress = true;
   protected ClientConfig clientConfig;
   protected int connectionTimeout = 0;
   private int readTimeout = 0;
