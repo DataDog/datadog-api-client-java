@@ -648,7 +648,7 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
   public ApiClient setDebugging(boolean debugging) {
     this.debugging = debugging;
     // Rebuild HTTP Client according to the new "debugging" value.
-    this.httpClient = buildHttpClient();
+    this.setClientConfig(null);
     return this;
   }
 
@@ -670,7 +670,7 @@ public class ApiClient{{#jsr310}} extends JavaTimeFormatter{{/jsr310}} {
   public ApiClient setCompress(boolean compress) {
     this.compress = compress;
     // Rebuild HTTP Client according to the new "compress" value.
-    this.httpClient = buildHttpClient();
+    this.setClientConfig(null);
     return this;
   }
 
