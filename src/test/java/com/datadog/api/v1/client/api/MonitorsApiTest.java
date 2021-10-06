@@ -10,6 +10,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static com.github.tomakehurst.wiremock.client.WireMock.okJson;
 import static org.junit.Assert.*;
 
+import com.datadog.api.RecordingMode;
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.*;
@@ -21,6 +22,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import org.junit.After;
+import org.junit.AssumptionViolatedException;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -241,6 +243,10 @@ public class MonitorsApiTest extends V1ApiTest {
 
   @Test
   public void monitorGetSyntheticsTest() throws ApiException {
+    if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
+      throw new AssumptionViolatedException("Skipping in non-recording mode");
+    }
+
     // Create a synthetics API test to retrieve its corresponding monitor via GetMonitor
     SyntheticsAPITest synt;
     String apiTestName = getUniqueEntityName();
