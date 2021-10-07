@@ -16,6 +16,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -41,6 +42,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
   MonitorOptions.JSON_PROPERTY_NOTIFY_AUDIT,
   MonitorOptions.JSON_PROPERTY_NOTIFY_NO_DATA,
   MonitorOptions.JSON_PROPERTY_RENOTIFY_INTERVAL,
+  MonitorOptions.JSON_PROPERTY_RENOTIFY_OCCURRENCES,
+  MonitorOptions.JSON_PROPERTY_RENOTIFY_STATUSES,
   MonitorOptions.JSON_PROPERTY_REQUIRE_FULL_WINDOW,
   MonitorOptions.JSON_PROPERTY_SILENCED,
   MonitorOptions.JSON_PROPERTY_SYNTHETICS_CHECK_ID,
@@ -98,6 +101,13 @@ public class MonitorOptions {
 
   public static final String JSON_PROPERTY_RENOTIFY_INTERVAL = "renotify_interval";
   private JsonNullable<Long> renotifyInterval = JsonNullable.<Long>undefined();
+
+  public static final String JSON_PROPERTY_RENOTIFY_OCCURRENCES = "renotify_occurrences";
+  private JsonNullable<Long> renotifyOccurrences = JsonNullable.<Long>undefined();
+
+  public static final String JSON_PROPERTY_RENOTIFY_STATUSES = "renotify_statuses";
+  private JsonNullable<List<MonitorRenotifyStatusType>> renotifyStatuses =
+      JsonNullable.<List<MonitorRenotifyStatusType>>undefined();
 
   public static final String JSON_PROPERTY_REQUIRE_FULL_WINDOW = "require_full_window";
   private Boolean requireFullWindow;
@@ -601,6 +611,88 @@ public class MonitorOptions {
     this.renotifyInterval = JsonNullable.<Long>of(renotifyInterval);
   }
 
+  public MonitorOptions renotifyOccurrences(Long renotifyOccurrences) {
+    this.renotifyOccurrences = JsonNullable.<Long>of(renotifyOccurrences);
+    return this;
+  }
+
+  /**
+   * The number of times re-notification messages should be sent on the current status at the
+   * provided re-notification interval.
+   *
+   * @return renotifyOccurrences
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "The number of times re-notification messages should be sent on the current status at"
+              + " the provided re-notification interval.")
+  @JsonIgnore
+  public Long getRenotifyOccurrences() {
+    return renotifyOccurrences.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_RENOTIFY_OCCURRENCES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Long> getRenotifyOccurrences_JsonNullable() {
+    return renotifyOccurrences;
+  }
+
+  @JsonProperty(JSON_PROPERTY_RENOTIFY_OCCURRENCES)
+  public void setRenotifyOccurrences_JsonNullable(JsonNullable<Long> renotifyOccurrences) {
+    this.renotifyOccurrences = renotifyOccurrences;
+  }
+
+  public void setRenotifyOccurrences(Long renotifyOccurrences) {
+    this.renotifyOccurrences = JsonNullable.<Long>of(renotifyOccurrences);
+  }
+
+  public MonitorOptions renotifyStatuses(List<MonitorRenotifyStatusType> renotifyStatuses) {
+    this.renotifyStatuses = JsonNullable.<List<MonitorRenotifyStatusType>>of(renotifyStatuses);
+    return this;
+  }
+
+  public MonitorOptions addRenotifyStatusesItem(MonitorRenotifyStatusType renotifyStatusesItem) {
+    if (this.renotifyStatuses == null || !this.renotifyStatuses.isPresent()) {
+      this.renotifyStatuses = JsonNullable.<List<MonitorRenotifyStatusType>>of(new ArrayList<>());
+    }
+    try {
+      this.renotifyStatuses.get().add(renotifyStatusesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * The types of monitor statuses for which re-notification messages are sent.
+   *
+   * @return renotifyStatuses
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value = "The types of monitor statuses for which re-notification messages are sent.")
+  @JsonIgnore
+  public List<MonitorRenotifyStatusType> getRenotifyStatuses() {
+    return renotifyStatuses.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_RENOTIFY_STATUSES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<List<MonitorRenotifyStatusType>> getRenotifyStatuses_JsonNullable() {
+    return renotifyStatuses;
+  }
+
+  @JsonProperty(JSON_PROPERTY_RENOTIFY_STATUSES)
+  public void setRenotifyStatuses_JsonNullable(
+      JsonNullable<List<MonitorRenotifyStatusType>> renotifyStatuses) {
+    this.renotifyStatuses = renotifyStatuses;
+  }
+
+  public void setRenotifyStatuses(List<MonitorRenotifyStatusType> renotifyStatuses) {
+    this.renotifyStatuses = JsonNullable.<List<MonitorRenotifyStatusType>>of(renotifyStatuses);
+  }
+
   public MonitorOptions requireFullWindow(Boolean requireFullWindow) {
     this.requireFullWindow = requireFullWindow;
     return this;
@@ -803,6 +895,8 @@ public class MonitorOptions {
         && Objects.equals(this.notifyAudit, monitorOptions.notifyAudit)
         && Objects.equals(this.notifyNoData, monitorOptions.notifyNoData)
         && Objects.equals(this.renotifyInterval, monitorOptions.renotifyInterval)
+        && Objects.equals(this.renotifyOccurrences, monitorOptions.renotifyOccurrences)
+        && Objects.equals(this.renotifyStatuses, monitorOptions.renotifyStatuses)
         && Objects.equals(this.requireFullWindow, monitorOptions.requireFullWindow)
         && Objects.equals(this.silenced, monitorOptions.silenced)
         && Objects.equals(this.syntheticsCheckId, monitorOptions.syntheticsCheckId)
@@ -830,6 +924,8 @@ public class MonitorOptions {
         notifyAudit,
         notifyNoData,
         renotifyInterval,
+        renotifyOccurrences,
+        renotifyStatuses,
         requireFullWindow,
         silenced,
         syntheticsCheckId,
@@ -860,6 +956,10 @@ public class MonitorOptions {
     sb.append("    notifyAudit: ").append(toIndentedString(notifyAudit)).append("\n");
     sb.append("    notifyNoData: ").append(toIndentedString(notifyNoData)).append("\n");
     sb.append("    renotifyInterval: ").append(toIndentedString(renotifyInterval)).append("\n");
+    sb.append("    renotifyOccurrences: ")
+        .append(toIndentedString(renotifyOccurrences))
+        .append("\n");
+    sb.append("    renotifyStatuses: ").append(toIndentedString(renotifyStatuses)).append("\n");
     sb.append("    requireFullWindow: ").append(toIndentedString(requireFullWindow)).append("\n");
     sb.append("    silenced: ").append(toIndentedString(silenced)).append("\n");
     sb.append("    syntheticsCheckId: ").append(toIndentedString(syntheticsCheckId)).append("\n");
