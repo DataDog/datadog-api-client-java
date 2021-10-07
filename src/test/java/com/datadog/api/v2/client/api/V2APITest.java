@@ -69,6 +69,7 @@ public abstract class V2APITest extends TestUtils.APITest {
   @BeforeClass
   public static void initGeneralApiUnitTestClient() {
     generalApiUnitTestClient = new ApiClient();
+    generalApiUnitTestClient.setCompress(false);
     generalApiUnitTestClient.setBasePath(String.format("http://localhost:%d", WIREMOCK_PORT));
     // Disable templated servers
     generalApiUnitTestClient.setServerIndex(null);

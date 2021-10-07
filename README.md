@@ -121,6 +121,16 @@ defaultClient.setUnstableOperationEnabled("<OperationName>", true);
 
 where `<OperationName>` is the name of the method used to interact with that endpoint. For example: `listSLOCorrection`, or `getSLOHistory`
 
+### Disable compressed payloads
+
+If you want to disable GZIP compressed responses, set the `compress` flag
+on your configuration object:
+
+```java
+defaultClient.setCompress(false)
+```
+
+
 ## Documentation for API Endpoints and Models
 
 Documentation for API endpoints and models can be found under the [`api_docs`](/api_docs) directory.
