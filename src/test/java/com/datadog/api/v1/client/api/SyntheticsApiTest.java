@@ -11,6 +11,7 @@ import static com.datadog.api.World.lookup;
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static org.junit.Assert.*;
 
+import com.datadog.api.RecordingMode;
 import com.datadog.api.TestUtils;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.model.*;
@@ -180,6 +181,9 @@ public class SyntheticsApiTest extends V1ApiTest {
         new File(
             getClass().getResource("synthetics_fixtures/api_test_single_result.json").getFile());
 
+    if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
+      throw new AssumptionViolatedException("Skipping in non-recording mode");
+    }
     // Create API test
     String apiTestName = getUniqueEntityName();
     apiTestConfig.setName(apiTestName);
@@ -283,6 +287,10 @@ public class SyntheticsApiTest extends V1ApiTest {
             getClass()
                 .getResource("synthetics_fixtures/api_test_subtype_tcp_single_result.json")
                 .getFile());
+
+    if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
+      throw new AssumptionViolatedException("Skipping in non-recording mode");
+    }
 
     // Create API test
     String apiTestName = getUniqueEntityName();
@@ -389,6 +397,10 @@ public class SyntheticsApiTest extends V1ApiTest {
                 .getResource("synthetics_fixtures/browser_test_single_result.json")
                 .getFile());
 
+    if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
+      throw new AssumptionViolatedException("Skipping in non-recording mode");
+    }
+
     // Create Browser test
     String browserTestName = getUniqueEntityName();
     browserTestConfig.setName(browserTestName);
@@ -469,6 +481,10 @@ public class SyntheticsApiTest extends V1ApiTest {
     SyntheticsAPITest syntAPI;
     SyntheticsBrowserTest syntBrowser;
     SyntheticsListTestsResponse allTests;
+
+    if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
+      throw new AssumptionViolatedException("Skipping in non-recording mode");
+    }
 
     apiTestConfig.setName(getUniqueEntityName("api"));
     syntAPI = api.createSyntheticsAPITest(apiTestConfig);
