@@ -151,7 +151,10 @@ public class AwsIntegrationApiTest extends V1ApiTest {
 
   public void assertAccountIn(AWSAccount accountToAssert, List<AWSAccount> accounts) {
     for (AWSAccount account : accounts) {
-      if (account.getAccountId().equals(accountToAssert.getAccountId())) {
+      if (account.getAccessKeyId() != null) {
+        // Skip current account if it uses settings for GovCloud/China where AccountID does not exist
+        continue;
+      } else if (account.getAccountId().equals(accountToAssert.getAccountId())) {
         assertEquals(account.getRoleName(), accountToAssert.getRoleName());
         assertEquals(account.getFilterTags(), accountToAssert.getFilterTags());
         assertEquals(
