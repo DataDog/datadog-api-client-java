@@ -452,6 +452,7 @@ Class | Method | HTTP request | Description
  - [MonitorOptions](MonitorOptions.md)
  - [MonitorOptionsAggregation](MonitorOptionsAggregation.md)
  - [MonitorOverallStates](MonitorOverallStates.md)
+ - [MonitorRenotifyStatusType](MonitorRenotifyStatusType.md)
  - [MonitorSearchResponse](MonitorSearchResponse.md)
  - [MonitorSearchResponseCounts](MonitorSearchResponseCounts.md)
  - [MonitorSearchResponseMetadata](MonitorSearchResponseMetadata.md)
