@@ -647,6 +647,10 @@ public class SyntheticsApiTest extends V1ApiTest {
 
   @Test
   public void updateTestSyntheticsErrorsTest() throws ApiException, IOException {
+    if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE)) {
+      throw new AssumptionViolatedException("Skipping in non-recording mode");
+    }
+
     // Create API test
     apiTestConfig.setName(getUniqueEntityName());
     SyntheticsAPITest synt = api.createSyntheticsAPITest(apiTestConfig);
