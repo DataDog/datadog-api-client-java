@@ -25,6 +25,7 @@ import java.util.Objects;
 @ApiModel(description = "The data attributes of a notebook.")
 @JsonPropertyOrder({
   NotebookCreateDataAttributes.JSON_PROPERTY_CELLS,
+  NotebookCreateDataAttributes.JSON_PROPERTY_METADATA,
   NotebookCreateDataAttributes.JSON_PROPERTY_NAME,
   NotebookCreateDataAttributes.JSON_PROPERTY_STATUS,
   NotebookCreateDataAttributes.JSON_PROPERTY_TIME
@@ -34,6 +35,9 @@ public class NotebookCreateDataAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CELLS = "cells";
   private List<NotebookCellCreateRequest> cells = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_METADATA = "metadata";
+  private NotebookMetadata metadata;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -96,6 +100,29 @@ public class NotebookCreateDataAttributes {
 
   public void setCells(List<NotebookCellCreateRequest> cells) {
     this.cells = cells;
+  }
+
+  public NotebookCreateDataAttributes metadata(NotebookMetadata metadata) {
+    this.metadata = metadata;
+    this.unparsed |= metadata.unparsed;
+    return this;
+  }
+
+  /**
+   * Get metadata
+   *
+   * @return metadata
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public NotebookMetadata getMetadata() {
+    return metadata;
+  }
+
+  public void setMetadata(NotebookMetadata metadata) {
+    this.metadata = metadata;
   }
 
   public NotebookCreateDataAttributes name(String name) {
@@ -181,6 +208,7 @@ public class NotebookCreateDataAttributes {
     }
     NotebookCreateDataAttributes notebookCreateDataAttributes = (NotebookCreateDataAttributes) o;
     return Objects.equals(this.cells, notebookCreateDataAttributes.cells)
+        && Objects.equals(this.metadata, notebookCreateDataAttributes.metadata)
         && Objects.equals(this.name, notebookCreateDataAttributes.name)
         && Objects.equals(this.status, notebookCreateDataAttributes.status)
         && Objects.equals(this.time, notebookCreateDataAttributes.time);
@@ -188,7 +216,7 @@ public class NotebookCreateDataAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cells, name, status, time);
+    return Objects.hash(cells, metadata, name, status, time);
   }
 
   @Override
@@ -196,6 +224,7 @@ public class NotebookCreateDataAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class NotebookCreateDataAttributes {\n");
     sb.append("    cells: ").append(toIndentedString(cells)).append("\n");
+    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    time: ").append(toIndentedString(time)).append("\n");

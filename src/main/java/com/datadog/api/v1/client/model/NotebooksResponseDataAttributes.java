@@ -28,6 +28,7 @@ import java.util.Objects;
   NotebooksResponseDataAttributes.JSON_PROPERTY_AUTHOR,
   NotebooksResponseDataAttributes.JSON_PROPERTY_CELLS,
   NotebooksResponseDataAttributes.JSON_PROPERTY_CREATED,
+  NotebooksResponseDataAttributes.JSON_PROPERTY_METADATA,
   NotebooksResponseDataAttributes.JSON_PROPERTY_MODIFIED,
   NotebooksResponseDataAttributes.JSON_PROPERTY_NAME,
   NotebooksResponseDataAttributes.JSON_PROPERTY_STATUS,
@@ -44,6 +45,9 @@ public class NotebooksResponseDataAttributes {
 
   public static final String JSON_PROPERTY_CREATED = "created";
   private OffsetDateTime created;
+
+  public static final String JSON_PROPERTY_METADATA = "metadata";
+  private NotebookMetadata metadata;
 
   public static final String JSON_PROPERTY_MODIFIED = "modified";
   private OffsetDateTime modified;
@@ -135,6 +139,29 @@ public class NotebooksResponseDataAttributes {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public OffsetDateTime getCreated() {
     return created;
+  }
+
+  public NotebooksResponseDataAttributes metadata(NotebookMetadata metadata) {
+    this.metadata = metadata;
+    this.unparsed |= metadata.unparsed;
+    return this;
+  }
+
+  /**
+   * Get metadata
+   *
+   * @return metadata
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public NotebookMetadata getMetadata() {
+    return metadata;
+  }
+
+  public void setMetadata(NotebookMetadata metadata) {
+    this.metadata = metadata;
   }
 
   /**
@@ -239,6 +266,7 @@ public class NotebooksResponseDataAttributes {
     return Objects.equals(this.author, notebooksResponseDataAttributes.author)
         && Objects.equals(this.cells, notebooksResponseDataAttributes.cells)
         && Objects.equals(this.created, notebooksResponseDataAttributes.created)
+        && Objects.equals(this.metadata, notebooksResponseDataAttributes.metadata)
         && Objects.equals(this.modified, notebooksResponseDataAttributes.modified)
         && Objects.equals(this.name, notebooksResponseDataAttributes.name)
         && Objects.equals(this.status, notebooksResponseDataAttributes.status)
@@ -247,7 +275,7 @@ public class NotebooksResponseDataAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(author, cells, created, modified, name, status, time);
+    return Objects.hash(author, cells, created, metadata, modified, name, status, time);
   }
 
   @Override
@@ -257,6 +285,7 @@ public class NotebooksResponseDataAttributes {
     sb.append("    author: ").append(toIndentedString(author)).append("\n");
     sb.append("    cells: ").append(toIndentedString(cells)).append("\n");
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
+    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    modified: ").append(toIndentedString(modified)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");

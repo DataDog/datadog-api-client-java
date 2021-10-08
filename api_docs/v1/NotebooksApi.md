@@ -231,10 +231,12 @@ public class Example {
         String excludeAuthorHandle = "test@datadoghq.com"; // String | Return notebooks not created by the given `author_handle`.
         Long start = 0L; // Long | The index of the first notebook you want returned.
         Long count = 5L; // Long | The number of notebooks to be returned.
-        String sortField = "modified"; // String | Sort by field `modified` or `name`.
+        String sortField = "modified"; // String | Sort by field `modified`, `name`, or `created`.
         String sortDir = "desc"; // String | Sort by direction `asc` or `desc`.
         String query = "postmortem"; // String | Return only notebooks with `query` string in notebook name or author handle.
         Boolean includeCells = true; // Boolean | Value of `false` excludes the `cells` and global `time` for each notebook.
+        Boolean isTemplate = false; // Boolean | True value returns only template notebooks. Default is false (returns only non-template notebooks).
+        String type = "investigation"; // String | If type is provided, returns only notebooks with that metadata type. Default does not have type filtering.
         try {
             NotebooksResponse result = apiInstance.listNotebooks(new NotebooksApi.ListNotebooksOptionalParameters()
                 .authorHandle(authorHandle)
@@ -244,7 +246,9 @@ public class Example {
                 .sortField(sortField)
                 .sortDir(sortDir)
                 .query(query)
-                .includeCells(includeCells));
+                .includeCells(includeCells)
+                .isTemplate(isTemplate)
+                .type(type));
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling NotebooksApi#listNotebooks");
@@ -266,10 +270,12 @@ Name | Type | Description  | Notes
  **excludeAuthorHandle** | **String**| Return notebooks not created by the given &#x60;author_handle&#x60;. | [optional]
  **start** | **Long**| The index of the first notebook you want returned. | [optional]
  **count** | **Long**| The number of notebooks to be returned. | [optional]
- **sortField** | **String**| Sort by field &#x60;modified&#x60; or &#x60;name&#x60;. | [optional] [default to modified]
+ **sortField** | **String**| Sort by field &#x60;modified&#x60;, &#x60;name&#x60;, or &#x60;created&#x60;. | [optional] [default to modified]
  **sortDir** | **String**| Sort by direction &#x60;asc&#x60; or &#x60;desc&#x60;. | [optional] [default to desc]
  **query** | **String**| Return only notebooks with &#x60;query&#x60; string in notebook name or author handle. | [optional]
  **includeCells** | **Boolean**| Value of &#x60;false&#x60; excludes the &#x60;cells&#x60; and global &#x60;time&#x60; for each notebook. | [optional] [default to true]
+ **isTemplate** | **Boolean**| True value returns only template notebooks. Default is false (returns only non-template notebooks). | [optional] [default to false]
+ **type** | **String**| If type is provided, returns only notebooks with that metadata type. Default does not have type filtering. | [optional]
 
 ### Return type
 
