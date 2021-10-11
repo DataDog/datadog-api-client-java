@@ -148,8 +148,6 @@ If you want to enable requests tracing, set the `debugging` flag on your client:
 defaultClient.setDebugging(true)
 ```
 
-
-
 ## Documentation for API Endpoints and Models
 
 Documentation for API endpoints and models can be found under the [`api_docs`](/api_docs) directory.
