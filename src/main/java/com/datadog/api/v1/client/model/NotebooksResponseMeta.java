@@ -18,8 +18,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
-/** Metadata returned by the API. */
-@ApiModel(description = "Metadata returned by the API.")
+/** Searches metadata returned by the API. */
+@ApiModel(description = "Searches metadata returned by the API.")
 @JsonPropertyOrder({NotebooksResponseMeta.JSON_PROPERTY_PAGE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class NotebooksResponseMeta {

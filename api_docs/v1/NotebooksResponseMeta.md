@@ -2,7 +2,7 @@
 
 # NotebooksResponseMeta
 
-Metadata returned by the API.
+Searches metadata returned by the API.
 
 ## Properties
 
