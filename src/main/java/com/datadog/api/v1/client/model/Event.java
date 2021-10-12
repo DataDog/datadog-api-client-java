@@ -346,17 +346,12 @@ public class Event {
   }
 
   /**
-   * The event title. Limited to 100 characters. Use &#x60;msg_title&#x60; with the Datadog Ruby
-   * library.
+   * The event title.
    *
    * @return title
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "Did you hear the news today?",
-      value =
-          "The event title. Limited to 100 characters. Use `msg_title` with the Datadog Ruby"
-              + " library.")
+  @ApiModelProperty(example = "Did you hear the news today?", value = "The event title.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTitle() {
