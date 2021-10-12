@@ -123,7 +123,7 @@ where `<OperationName>` is the name of the method used to interact with that end
 
 ### Changing Server
 
-When talking to a different server, like the `eu` instance, change the `serverVariables`:
+When talking to a different server, like the `eu` instance, change the `serverVariables` on your client:
 
 ```java
 HashMap<String, String> serverVariables = new HashMap<String, String>();
