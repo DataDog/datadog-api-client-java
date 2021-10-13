@@ -14,7 +14,6 @@
 * [Added] Webhooks integration SDK. See [#936](https://github.com/DataDog/datadog-api-client-java/pull/936).
 * [Added] Add restricted roles for Synthetics global variables. See [#937](https://github.com/DataDog/datadog-api-client-java/pull/937).
 * [Added] Add events data source to Dashboard widgets. See [#932](https://github.com/DataDog/datadog-api-client-java/pull/932).
-* [Added]  Improve resiliency of Ruby SDK when deserializing enums/oneOfs. See [#934](https://github.com/DataDog/datadog-api-client-java/pull/934).
 * [Added] Adding support for security monitoring rule `type` property. See [#931](https://github.com/DataDog/datadog-api-client-java/pull/931).
 * [Added] Add `batch_id` to the synthetics trigger endpoint response. See [#943](https://github.com/DataDog/datadog-api-client-java/pull/943).
 * [Added] Add `audit alert` monitor type. See [#945](https://github.com/DataDog/datadog-api-client-java/pull/945).
