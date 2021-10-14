@@ -1,0 +1,279 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Create_a_monitor_returns_OK_response-1633076914\"},\"type\":\"roles\"}}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Create_a_monitor_returns_OK_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v2/roles",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"roles\",\"id\":\"91315a50-2291-11ec-8baa-da7ad0900002\",\"attributes\":{\"name\":\"Test-Create_a_monitor_returns_OK_response-1633076914\",\"created_at\":\"2021-10-01T08:28:34.316843+00:00\",\"modified_at\":\"2021-10-01T08:28:34.316843+00:00\"},\"relationships\":{\"permissions\":{\"data\":[{\"type\":\"permissions\",\"id\":\"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2\"},{\"type\":\"permissions\",\"id\":\"4441648c-d8b1-11e9-a77a-1b899a04b304\"},{\"type\":\"permissions\",\"id\":\"417ba636-2dce-11eb-84c0-6bce5b0d9de0\"},{\"type\":\"permissions\",\"id\":\"12efc20e-d36c-11eb-a9b8-da7ad0900002\"},{\"type\":\"permissions\",\"id\":\"97971c1c-e895-11eb-b13c-da7ad0900002\"},{\"type\":\"permissions\",\"id\":\"7605ef24-f376-11eb-b90b-da7ad0900002\"}]}}}}",
+      "headers": {
+        "Date": [
+          "Fri, 01 Oct 2021 08:28:34 GMT"
+        ],
+        "Content-Type": [
+          "application/json"
+        ],
+        "Content-Length": [
+          "688"
+        ],
+        "Connection": [
+          "close"
+        ],
+        "Vary": [
+          "Accept-Encoding"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "X-Ratelimit-Limit": [
+          "500"
+        ],
+        "X-Ratelimit-Period": [
+          "60"
+        ],
+        "X-Ratelimit-Reset": [
+          "26"
+        ],
+        "X-Ratelimit-Remaining": [
+          "499"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=15724800;"
+        ],
+        "Content-Security-Policy": [
+          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
+        ],
+        "X-Frame-Options": [
+          "SAMEORIGIN"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "a5afb588-d8a4-8205-22df-306e8bf4c33d"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"message\":\"some message Notify: @hipchat-channel\",\"name\":\"Test-Create_a_monitor_returns_OK_response-1633076914\",\"priority\":3,\"query\":\"logs(\\\"service:foo AND type:error\\\").index(\\\"main\\\").rollup(\\\"count\\\").by(\\\"source\\\").last(\\\"5m\\\") > 2\",\"restricted_roles\":[\"91315a50-2291-11ec-8baa-da7ad0900002\"],\"tags\":[\"test:testcreateamonitorreturnsokresponse1633076914\",\"env:ci\"],\"type\":\"log alert\"}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Create_a_monitor_returns_OK_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v1/monitor",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"restricted_roles\":[\"91315a50-2291-11ec-8baa-da7ad0900002\"],\"tags\":[\"test:testcreateamonitorreturnsokresponse1633076914\",\"env:ci\"],\"deleted\":null,\"query\":\"logs(\\\"service:foo AND type:error\\\").index(\\\"main\\\").rollup(\\\"count\\\").by(\\\"source\\\").last(\\\"5m\\\") > 2\",\"message\":\"some message Notify: @hipchat-channel\",\"id\":48053793,\"multi\":true,\"name\":\"Test-Create_a_monitor_returns_OK_response-1633076914\",\"created\":\"2021-10-01T08:28:34.506181+00:00\",\"created_at\":1633076914000,\"creator\":{\"id\":1445416,\"handle\":\"frog@datadoghq.com\",\"name\":null,\"email\":\"frog@datadoghq.com\"},\"org_id\":321813,\"modified\":\"2021-10-01T08:28:34.506181+00:00\",\"priority\":3,\"overall_state_modified\":null,\"overall_state\":\"No Data\",\"type\":\"log alert\",\"options\":{\"notify_audit\":false,\"locked\":true,\"silenced\":{},\"include_tags\":true,\"new_host_delay\":300,\"notify_no_data\":false,\"groupby_simple_monitor\":false}}",
+      "headers": {
+        "Date": [
+          "Fri, 01 Oct 2021 08:28:34 GMT"
+        ],
+        "Content-Type": [
+          "application/json"
+        ],
+        "Content-Length": [
+          "873"
+        ],
+        "Connection": [
+          "close"
+        ],
+        "Vary": [
+          "Accept-Encoding"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "X-Ratelimit-Limit": [
+          "500"
+        ],
+        "X-Ratelimit-Period": [
+          "10"
+        ],
+        "X-Ratelimit-Reset": [
+          "6"
+        ],
+        "X-Ratelimit-Remaining": [
+          "498"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=15724800;"
+        ],
+        "Content-Security-Policy": [
+          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
+        ],
+        "X-Frame-Options": [
+          "SAMEORIGIN"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "17fff009-f3b2-dc80-df51-091199fd39cd"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Create_a_monitor_returns_OK_response"
+        ]
+      },
+      "method": "DELETE",
+      "path": "/api/v1/monitor/48053793",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"deleted_monitor_id\":48053793}",
+      "headers": {
+        "Date": [
+          "Fri, 01 Oct 2021 08:28:34 GMT"
+        ],
+        "Content-Type": [
+          "application/json"
+        ],
+        "Content-Length": [
+          "31"
+        ],
+        "Connection": [
+          "close"
+        ],
+        "Vary": [
+          "Accept-Encoding"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=15724800;"
+        ],
+        "Content-Security-Policy": [
+          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
+        ],
+        "X-Frame-Options": [
+          "SAMEORIGIN"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "6a0789fd-d0af-c1d7-f846-4fe3a46105e3"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Create_a_monitor_returns_OK_response"
+        ]
+      },
+      "method": "DELETE",
+      "path": "/api/v2/roles/91315a50-2291-11ec-8baa-da7ad0900002",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Date": [
+          "Fri, 01 Oct 2021 08:28:34 GMT"
+        ],
+        "Connection": [
+          "close"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "X-Ratelimit-Limit": [
+          "500"
+        ],
+        "X-Ratelimit-Period": [
+          "60"
+        ],
+        "X-Ratelimit-Reset": [
+          "26"
+        ],
+        "X-Ratelimit-Remaining": [
+          "498"
+        ],
+        "X-Envoy-Upstream-Service-Time": [
+          "98"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=15724800;"
+        ],
+        "Content-Security-Policy": [
+          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
+        ],
+        "X-Frame-Options": [
+          "SAMEORIGIN"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "19fd3aa3-e29f-8fde-1d34-16fed74fd74c"
+  }
+]

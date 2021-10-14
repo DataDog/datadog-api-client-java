@@ -100,7 +100,7 @@ public class MonitorsApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "monitor_ids", monitorIds));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "monitor_ids", monitorIds));
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "checkCanDeleteMonitor");

@@ -1,0 +1,66 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"scope\":\"test:testcanceldowntimesbyscopereturnsdowntimesnotfoundresponse1633076912_invalid\"}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Cancel_downtimes_by_scope_returns_Downtimes_not_found_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v1/downtime/cancel/by_scope",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\": [\"No downtimes found\"]}",
+      "headers": {
+        "Date": [
+          "Fri, 01 Oct 2021 08:28:32 GMT"
+        ],
+        "Content-Type": [
+          "application/json"
+        ],
+        "Content-Length": [
+          "34"
+        ],
+        "Connection": [
+          "close"
+        ],
+        "Vary": [
+          "Accept-Encoding"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=15724800;"
+        ],
+        "Content-Security-Policy": [
+          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
+        ],
+        "X-Frame-Options": [
+          "SAMEORIGIN"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "ae6093c6-26ed-b1fa-4171-ecfddbfc29eb"
+  }
+]

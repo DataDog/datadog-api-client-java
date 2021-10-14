@@ -1,0 +1,66 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"name\":\"Not found\"}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Update_a_dashboard_list_returns_Not_Found_response"
+        ]
+      },
+      "method": "PUT",
+      "path": "/api/v1/dashboard/lists/manual/0",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\": [\"Manual Dashboard List with id 0 not found\"]}",
+      "headers": {
+        "Date": [
+          "Fri, 01 Oct 2021 08:28:31 GMT"
+        ],
+        "Content-Type": [
+          "application/json"
+        ],
+        "Content-Length": [
+          "57"
+        ],
+        "Connection": [
+          "close"
+        ],
+        "Vary": [
+          "Accept-Encoding"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=15724800;"
+        ],
+        "Content-Security-Policy": [
+          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
+        ],
+        "X-Frame-Options": [
+          "SAMEORIGIN"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b6a001b1-2b67-b92d-2700-86c46cc68c26"
+  }
+]
