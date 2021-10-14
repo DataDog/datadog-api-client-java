@@ -5868,7 +5868,7 @@ paths:
           format: int64
           type: integer
         style: form
-      - description: Sort by field `modified` or `name`.
+      - description: Sort by field `modified`, `name`, or `created`.
         explode: true
         in: query
         name: sort_field
@@ -5908,6 +5908,27 @@ paths:
           default: true
           example: false
           type: boolean
+        style: form
+      - description: True value returns only template notebooks. Default is false
+          (returns only non-template notebooks).
+        explode: true
+        in: query
+        name: is_template
+        required: false
+        schema:
+          default: false
+          example: false
+          type: boolean
+        style: form
+      - description: If type is provided, returns only notebooks with that metadata
+          type. Default does not have type filtering.
+        explode: true
+        in: query
+        name: type
+        required: false
+        schema:
+          example: investigation
+          type: string
         style: form
       responses:
         "200":
@@ -12941,10 +12962,8 @@ components:
           maxLength: 4000
           type: string
         title:
-          description: The event title. Limited to 100 characters. Use `msg_title`
-            with the Datadog Ruby library.
+          description: The event title.
           example: Did you hear the news today?
-          maxLength: 100
           type: string
         url:
           description: URL of the event.
@@ -17005,7 +17024,7 @@ components:
         created: 2000-01-23T04:56:07.000+00:00
         query: avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100
         message: message
-        priority: 3
+        priority: 1
         restricted_roles:
         - restricted_roles
         - restricted_roles
@@ -17019,7 +17038,7 @@ components:
         options:
           no_data_timeframe: 7
           silenced:
-            key: 3
+            key: 2
           synthetics_check_id: synthetics_check_id
           notify_no_data: false
           enable_logs_sample: true
@@ -17029,17 +17048,21 @@ components:
             type: count
           evaluation_delay: 6
           groupby_simple_monitor: true
+          renotify_occurrences: 3
           notify_audit: false
           min_location_failed: 5
+          renotify_statuses:
+          - null
+          - null
           new_host_delay: 2
           renotify_interval: 9
           thresholds:
-            critical: 2.027123023002322
-            warning: 1.0246457001441578
-            warning_recovery: 1.4894159098541704
-            ok: 7.386281948385884
-            critical_recovery: 4.145608029883936
-            unknown: 1.2315135367772556
+            critical: 4.145608029883936
+            warning: 1.4894159098541704
+            warning_recovery: 6.84685269835264
+            ok: 1.2315135367772556
+            critical_recovery: 7.386281948385884
+            unknown: 1.0246457001441578
           new_group_delay: 5
           min_failure_duration: 1055
           threshold_windows:
@@ -17051,7 +17074,7 @@ components:
           - null
           - null
           escalation_message: none
-          timeout_h: 6
+          timeout_h: 7
           locked: true
         modified: 2000-01-23T04:56:07.000+00:00
         id: 0
@@ -17059,10 +17082,10 @@ components:
           groups:
             key:
               last_triggered_ts: 9
-              last_notified_ts: 4
+              last_notified_ts: 5
               name: name
-              last_resolved_ts: 5
-              last_nodata_ts: 1
+              last_resolved_ts: 9
+              last_nodata_ts: 4
       properties:
         created:
           description: Timestamp of the monitor creation.
@@ -17243,7 +17266,7 @@ components:
       example:
         no_data_timeframe: 7
         silenced:
-          key: 3
+          key: 2
         synthetics_check_id: synthetics_check_id
         notify_no_data: false
         enable_logs_sample: true
@@ -17253,17 +17276,21 @@ components:
           type: count
         evaluation_delay: 6
         groupby_simple_monitor: true
+        renotify_occurrences: 3
         notify_audit: false
         min_location_failed: 5
+        renotify_statuses:
+        - null
+        - null
         new_host_delay: 2
         renotify_interval: 9
         thresholds:
-          critical: 2.027123023002322
-          warning: 1.0246457001441578
-          warning_recovery: 1.4894159098541704
-          ok: 7.386281948385884
-          critical_recovery: 4.145608029883936
-          unknown: 1.2315135367772556
+          critical: 4.145608029883936
+          warning: 1.4894159098541704
+          warning_recovery: 6.84685269835264
+          ok: 1.2315135367772556
+          critical_recovery: 7.386281948385884
+          unknown: 1.0246457001441578
         new_group_delay: 5
         min_failure_duration: 1055
         threshold_windows:
@@ -17275,7 +17302,7 @@ components:
         - null
         - null
         escalation_message: none
-        timeout_h: 6
+        timeout_h: 7
         locked: true
       properties:
         aggregation:
@@ -17388,6 +17415,19 @@ components:
           format: int64
           nullable: true
           type: integer
+        renotify_occurrences:
+          description: The number of times re-notification messages should be sent
+            on the current status at the provided re-notification interval.
+          format: int64
+          nullable: true
+          type: integer
+        renotify_statuses:
+          description: The types of monitor statuses for which re-notification messages
+            are sent.
+          items:
+            $ref: '#/components/schemas/MonitorRenotifyStatusType'
+          nullable: true
+          type: array
         require_full_window:
           description: |-
             A Boolean indicating whether this monitor needs a full window of data before it’s evaluated.
@@ -17439,6 +17479,17 @@ components:
       - SKIPPED
       - UNKNOWN
       - WARN
+    MonitorRenotifyStatusType:
+      description: The different statuses for which renotification is supported.
+      enum:
+      - alert
+      - warn
+      - no data
+      type: string
+      x-enum-varnames:
+      - ALERT
+      - WARN
+      - NO_DATA
     MonitorSearchCount:
       description: Search facets.
       items:
@@ -17625,10 +17676,10 @@ components:
         groups:
           key:
             last_triggered_ts: 9
-            last_notified_ts: 4
+            last_notified_ts: 5
             name: name
-            last_resolved_ts: 5
-            last_nodata_ts: 1
+            last_resolved_ts: 9
+            last_nodata_ts: 4
       properties:
         groups:
           additionalProperties:
@@ -17643,10 +17694,10 @@ components:
       description: Monitor state for a single group.
       example:
         last_triggered_ts: 9
-        last_notified_ts: 4
+        last_notified_ts: 5
         name: name
-        last_resolved_ts: 5
-        last_nodata_ts: 1
+        last_resolved_ts: 9
+        last_nodata_ts: 4
       properties:
         last_nodata_ts:
           description: Latest timestamp the monitor was in NO_DATA state.
@@ -17748,12 +17799,12 @@ components:
     MonitorThresholds:
       description: List of the different monitor threshold available.
       example:
-        critical: 2.027123023002322
-        warning: 1.0246457001441578
-        warning_recovery: 1.4894159098541704
-        ok: 7.386281948385884
-        critical_recovery: 4.145608029883936
-        unknown: 1.2315135367772556
+        critical: 4.145608029883936
+        warning: 1.4894159098541704
+        warning_recovery: 6.84685269835264
+        ok: 1.2315135367772556
+        critical_recovery: 7.386281948385884
+        unknown: 1.0246457001441578
       properties:
         critical:
           description: The monitor `CRITICAL` threshold.
@@ -17843,7 +17894,7 @@ components:
         options:
           no_data_timeframe: 7
           silenced:
-            key: 3
+            key: 2
           synthetics_check_id: synthetics_check_id
           notify_no_data: false
           enable_logs_sample: true
@@ -17853,17 +17904,21 @@ components:
             type: count
           evaluation_delay: 6
           groupby_simple_monitor: true
+          renotify_occurrences: 3
           notify_audit: false
           min_location_failed: 5
+          renotify_statuses:
+          - null
+          - null
           new_host_delay: 2
           renotify_interval: 9
           thresholds:
-            critical: 2.027123023002322
-            warning: 1.0246457001441578
-            warning_recovery: 1.4894159098541704
-            ok: 7.386281948385884
-            critical_recovery: 4.145608029883936
-            unknown: 1.2315135367772556
+            critical: 4.145608029883936
+            warning: 1.4894159098541704
+            warning_recovery: 6.84685269835264
+            ok: 1.2315135367772556
+            critical_recovery: 7.386281948385884
+            unknown: 1.0246457001441578
           new_group_delay: 5
           min_failure_duration: 1055
           threshold_windows:
@@ -17875,7 +17930,7 @@ components:
           - null
           - null
           escalation_message: none
-          timeout_h: 6
+          timeout_h: 7
           locked: true
         modified: 2000-01-23T04:56:07.000+00:00
         id: 0
@@ -17883,10 +17938,10 @@ components:
           groups:
             key:
               last_triggered_ts: 9
-              last_notified_ts: 4
+              last_notified_ts: 5
               name: name
-              last_resolved_ts: 5
-              last_nodata_ts: 1
+              last_resolved_ts: 9
+              last_nodata_ts: 4
       properties:
         created:
           description: Timestamp of the monitor creation.
@@ -18204,6 +18259,10 @@ components:
       description: The data for a notebook create request.
       example:
         attributes:
+          metadata:
+            is_template: false
+            take_snapshots: false
+            type: investigation
           cells:
           - attributes:
               definition:
@@ -18251,6 +18310,10 @@ components:
     NotebookCreateDataAttributes:
       description: The data attributes of a notebook.
       example:
+        metadata:
+          is_template: false
+          take_snapshots: false
+          type: investigation
         cells:
         - attributes:
             definition:
@@ -18323,6 +18386,8 @@ components:
           items:
             $ref: '#/components/schemas/NotebookCellCreateRequest'
           type: array
+        metadata:
+          $ref: '#/components/schemas/NotebookMetadata'
         name:
           description: The name of the notebook.
           example: Example Notebook
@@ -18343,6 +18408,10 @@ components:
       example:
         data:
           attributes:
+            metadata:
+              is_template: false
+              take_snapshots: false
+              type: investigation
             cells:
             - attributes:
                 definition:
@@ -18478,6 +18547,45 @@ components:
       type: string
       x-enum-varnames:
       - MARKDOWN
+    NotebookMetadata:
+      description: Metadata associated with the notebook.
+      example:
+        is_template: false
+        take_snapshots: false
+        type: investigation
+      properties:
+        is_template:
+          default: false
+          description: Whether or not the notebook is a template.
+          example: false
+          type: boolean
+        take_snapshots:
+          default: false
+          description: Whether or not the notebook takes snapshot image backups of
+            the notebook's fixed-time graphs.
+          example: false
+          type: boolean
+        type:
+          $ref: '#/components/schemas/NotebookMetadataType'
+      type: object
+    NotebookMetadataType:
+      default: "null"
+      description: Metadata type of the notebook.
+      enum:
+      - postmortem
+      - runbook
+      - investigation
+      - documentation
+      - report
+      example: investigation
+      nullable: true
+      type: string
+      x-enum-varnames:
+      - POSTMORTEM
+      - RUNBOOK
+      - INVESTIGATION
+      - DOCUMENTATION
+      - REPORT
     NotebookRelativeTime:
       description: Relative timeframe.
       example:
@@ -18503,6 +18611,10 @@ components:
       example:
         data:
           attributes:
+            metadata:
+              is_template: false
+              take_snapshots: false
+              type: investigation
             cells:
             - attributes:
                 definition:
@@ -18561,6 +18673,10 @@ components:
       description: The data for a notebook.
       example:
         attributes:
+          metadata:
+            is_template: false
+            take_snapshots: false
+            type: investigation
           cells:
           - attributes:
               definition:
@@ -18630,6 +18746,10 @@ components:
     NotebookResponseDataAttributes:
       description: The attributes of a notebook.
       example:
+        metadata:
+          is_template: false
+          take_snapshots: false
+          type: investigation
         cells:
         - attributes:
             definition:
@@ -18726,6 +18846,8 @@ components:
           format: date-time
           readOnly: true
           type: string
+        metadata:
+          $ref: '#/components/schemas/NotebookMetadata'
         modified:
           description: UTC time stamp for when the notebook was last modified.
           example: 2021-02-24T23:15:23.274966Z
@@ -18821,6 +18943,10 @@ components:
       description: The data for a notebook update request.
       example:
         attributes:
+          metadata:
+            is_template: false
+            take_snapshots: false
+            type: investigation
           cells:
           - attributes:
               definition:
@@ -18870,6 +18996,10 @@ components:
     NotebookUpdateDataAttributes:
       description: The data attributes of a notebook.
       example:
+        metadata:
+          is_template: false
+          take_snapshots: false
+          type: investigation
         cells:
         - attributes:
             definition:
@@ -18946,6 +19076,8 @@ components:
           items:
             $ref: '#/components/schemas/NotebookUpdateCell'
           type: array
+        metadata:
+          $ref: '#/components/schemas/NotebookMetadata'
         name:
           description: The name of the notebook.
           example: Example Notebook
@@ -18966,6 +19098,10 @@ components:
       example:
         data:
           attributes:
+            metadata:
+              is_template: false
+              take_snapshots: false
+              type: investigation
             cells:
             - attributes:
                 definition:
@@ -19014,6 +19150,10 @@ components:
       example:
         data:
         - attributes:
+            metadata:
+              is_template: false
+              take_snapshots: false
+              type: investigation
             cells:
             - id: abcd1234
               type: notebook_cells
@@ -19036,6 +19176,10 @@ components:
           id: 123456
           type: notebooks
         - attributes:
+            metadata:
+              is_template: false
+              take_snapshots: false
+              type: investigation
             cells:
             - id: abcd1234
               type: notebook_cells
@@ -19074,6 +19218,10 @@ components:
       description: The data for a notebook in get all response.
       example:
         attributes:
+          metadata:
+            is_template: false
+            take_snapshots: false
+            type: investigation
           cells:
           - id: abcd1234
             type: notebook_cells
@@ -19114,6 +19262,10 @@ components:
     NotebooksResponseDataAttributes:
       description: The attributes of a notebook in get all response.
       example:
+        metadata:
+          is_template: false
+          take_snapshots: false
+          type: investigation
         cells:
         - id: abcd1234
           type: notebook_cells
@@ -19147,6 +19299,8 @@ components:
           format: date-time
           readOnly: true
           type: string
+        metadata:
+          $ref: '#/components/schemas/NotebookMetadata'
         modified:
           description: UTC time stamp for when the notebook was last modified.
           example: 2021-02-24T23:15:23.274966Z
@@ -31156,7 +31310,7 @@ components:
       readOnly: true
       type: object
     NotebooksResponse_meta:
-      description: Metadata returned by the API.
+      description: Searches metadata returned by the API.
       example:
         page:
           total_count: 0

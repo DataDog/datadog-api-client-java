@@ -1,5 +1,52 @@
 # CHANGELOG
 
+## 1.2.0 / 2021-10-13
+
+* [Added] Add support for list widget in dashboards. See [#888](https://github.com/DataDog/datadog-api-client-java/pull/888).
+* [Added] Add `include_descendants` param to usage attribution API. See [#926](https://github.com/DataDog/datadog-api-client-java/pull/926).
+* [Added] Add `new_group_delay` and deprecate `new_host_delay` monitor properties. See [#921](https://github.com/DataDog/datadog-api-client-java/pull/921).
+* [Added] Add endpoints to manage Service Accounts v2. See [#906](https://github.com/DataDog/datadog-api-client-java/pull/906).
+* [Added] Add edge to Synthetics devices. See [#928](https://github.com/DataDog/datadog-api-client-java/pull/928).
+* [Added] Add `id_str` property to Event response. See [#924](https://github.com/DataDog/datadog-api-client-java/pull/924).
+* [Added] Add percentile to dashboard `WidgetAggregator` schema. See [#918](https://github.com/DataDog/datadog-api-client-java/pull/918).
+* [Added] Add `audit_stream` to `ListStreamSource`. See [#922](https://github.com/DataDog/datadog-api-client-java/pull/922).
+* [Added] Add missing synthetics variable parser type `x_path`. See [#935](https://github.com/DataDog/datadog-api-client-java/pull/935).
+* [Added] Webhooks integration SDK. See [#936](https://github.com/DataDog/datadog-api-client-java/pull/936).
+* [Added] Add restricted roles for Synthetics global variables. See [#937](https://github.com/DataDog/datadog-api-client-java/pull/937).
+* [Added] Add events data source to Dashboard widgets. See [#932](https://github.com/DataDog/datadog-api-client-java/pull/932).
+* [Added] Adding support for security monitoring rule `type` property. See [#931](https://github.com/DataDog/datadog-api-client-java/pull/931).
+* [Added] Add `batch_id` to the synthetics trigger endpoint response. See [#943](https://github.com/DataDog/datadog-api-client-java/pull/943).
+* [Added] Add `audit alert` monitor type. See [#945](https://github.com/DataDog/datadog-api-client-java/pull/945).
+* [Added] Add DBM usage endpoint. See [#933](https://github.com/DataDog/datadog-api-client-java/pull/933).
+* [Added] Add config variables to Synthetics browser test config. See [#949](https://github.com/DataDog/datadog-api-client-java/pull/949).
+* [Added] Added `available_values` property to template variables schema. See [#950](https://github.com/DataDog/datadog-api-client-java/pull/950).
+* [Added] Add `follow_redirects` options to test request in Synthetics. See [#955](https://github.com/DataDog/datadog-api-client-java/pull/955).
+* [Added] ApmDependencyStatsQuery for formulas and functions dashboard widgets. See [#962](https://github.com/DataDog/datadog-api-client-java/pull/962).
+* [Added] Add formula and function APM resource stats query definition for dashboards. See [#963](https://github.com/DataDog/datadog-api-client-java/pull/963).
+* [Added] Add support for funnel widget in dashboards. See [#969](https://github.com/DataDog/datadog-api-client-java/pull/969).
+* [Added] Add information about creator to Synthetics tests details. See [#975](https://github.com/DataDog/datadog-api-client-java/pull/975).
+* [Added] Add support for gzip and deflate encoding. See [#972](https://github.com/DataDog/datadog-api-client-java/pull/972).
+* [Added] Add support for formulas and functions in the Scatterplot Widget for dashboards. See [#967](https://github.com/DataDog/datadog-api-client-java/pull/967).
+* [Added] Document encoding in metrics intake. See [#984](https://github.com/DataDog/datadog-api-client-java/pull/984).
+* [Added] Add `servername` property to SSL Synthetics tests request. See [#983](https://github.com/DataDog/datadog-api-client-java/pull/983).
+* [Added] Add `renotify_occurrences` and `renotify_statuses` monitor options. See [#993](https://github.com/DataDog/datadog-api-client-java/pull/993).
+* [Added] Add `type` and `is_template` properties to notebooks. See [#995](https://github.com/DataDog/datadog-api-client-java/pull/995).
+* [Fixed] Minor fixes of the incident schema. See [#939](https://github.com/DataDog/datadog-api-client-java/pull/939).
+* [Fixed] Make SLO history metadata unit nullable. See [#942](https://github.com/DataDog/datadog-api-client-java/pull/942).
+* [Fixed] Fix SLO history error response type for overall errors. See [#954](https://github.com/DataDog/datadog-api-client-java/pull/954).
+* [Fixed] Mark SLO Correction Type as required. See [#953](https://github.com/DataDog/datadog-api-client-java/pull/953).
+* [Fixed] Make the name property required for APM Dependency Stat Query widget. See [#966](https://github.com/DataDog/datadog-api-client-java/pull/966).
+* [Fixed] Fix typo in usage attribution field names for profiled containers. See [#976](https://github.com/DataDog/datadog-api-client-java/pull/976).
+* [Fixed] Make sure that OpenAPI definition are valid with real server responses. See [#974](https://github.com/DataDog/datadog-api-client-java/pull/974).
+* [Fixed] Fix incidents schemas. See [#980](https://github.com/DataDog/datadog-api-client-java/pull/980).
+* [Fixed] `IncidentFieldAttributesMultipleValue` can be nullable. See [#982](https://github.com/DataDog/datadog-api-client-java/pull/982).
+* [Fixed] Allow nullable date in notebook cells. See [#987](https://github.com/DataDog/datadog-api-client-java/pull/987).
+* [Fixed] Remove event title length constraint. See [#977](https://github.com/DataDog/datadog-api-client-java/pull/977).
+* [Changed] Fix SLO history schema for groups and monitors fields. See [#958](https://github.com/DataDog/datadog-api-client-java/pull/958).
+* [Changed] Remove metadata from required list for metric SLO history endpoint. See [#961](https://github.com/DataDog/datadog-api-client-java/pull/961).
+* [Changed] Use AVG aggregation function for DBM queries. See [#971](https://github.com/DataDog/datadog-api-client-java/pull/971).
+* [Changed] Enable compression in responses. See [#992](https://github.com/DataDog/datadog-api-client-java/pull/992).
+
 ## 1.1.0 / 2021-07-21
 
 * [Added] Extend table widget requests to support formulas and functions. See [#909](https://github.com/DataDog/datadog-api-client-java/pull/909).

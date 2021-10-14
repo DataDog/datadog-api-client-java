@@ -300,6 +300,8 @@ public class NotebooksApi {
     private String sortDir;
     private String query;
     private Boolean includeCells;
+    private Boolean isTemplate;
+    private String type;
 
     /**
      * Set authorHandle
@@ -350,8 +352,8 @@ public class NotebooksApi {
     /**
      * Set sortField
      *
-     * @param sortField Sort by field &#x60;modified&#x60; or &#x60;name&#x60;. (optional, default
-     *     to modified)
+     * @param sortField Sort by field &#x60;modified&#x60;, &#x60;name&#x60;, or
+     *     &#x60;created&#x60;. (optional, default to modified)
      * @return ListNotebooksOptionalParameters
      */
     public ListNotebooksOptionalParameters sortField(String sortField) {
@@ -392,6 +394,30 @@ public class NotebooksApi {
      */
     public ListNotebooksOptionalParameters includeCells(Boolean includeCells) {
       this.includeCells = includeCells;
+      return this;
+    }
+
+    /**
+     * Set isTemplate
+     *
+     * @param isTemplate True value returns only template notebooks. Default is false (returns only
+     *     non-template notebooks). (optional, default to false)
+     * @return ListNotebooksOptionalParameters
+     */
+    public ListNotebooksOptionalParameters isTemplate(Boolean isTemplate) {
+      this.isTemplate = isTemplate;
+      return this;
+    }
+
+    /**
+     * Set type
+     *
+     * @param type If type is provided, returns only notebooks with that metadata type. Default does
+     *     not have type filtering. (optional)
+     * @return ListNotebooksOptionalParameters
+     */
+    public ListNotebooksOptionalParameters type(String type) {
+      this.type = type;
       return this;
     }
   }
@@ -460,6 +486,8 @@ public class NotebooksApi {
     String sortDir = parameters.sortDir;
     String query = parameters.query;
     Boolean includeCells = parameters.includeCells;
+    Boolean isTemplate = parameters.isTemplate;
+    String type = parameters.type;
     // create path and map variables
     String localVarPath = "/api/v1/notebooks";
 
@@ -478,6 +506,8 @@ public class NotebooksApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_dir", sortDir));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "include_cells", includeCells));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "is_template", isTemplate));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "type", type));
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "listNotebooks");
