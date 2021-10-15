@@ -73,7 +73,7 @@ public class SyntheticsCITest {
   private List<String> locations = null;
 
   public static final String JSON_PROPERTY_METADATA = "metadata";
-  private SyntheticsCITestMetadata metadata;
+  private SyntheticsCIBatchMetadata metadata;
 
   public static final String JSON_PROPERTY_PUBLIC_ID = "public_id";
   private String publicId;
@@ -320,7 +320,7 @@ public class SyntheticsCITest {
     this.locations = locations;
   }
 
-  public SyntheticsCITest metadata(SyntheticsCITestMetadata metadata) {
+  public SyntheticsCITest metadata(SyntheticsCIBatchMetadata metadata) {
     this.metadata = metadata;
     this.unparsed |= metadata.unparsed;
     return this;
@@ -335,11 +335,11 @@ public class SyntheticsCITest {
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsCITestMetadata getMetadata() {
+  public SyntheticsCIBatchMetadata getMetadata() {
     return metadata;
   }
 
-  public void setMetadata(SyntheticsCITestMetadata metadata) {
+  public void setMetadata(SyntheticsCIBatchMetadata metadata) {
     this.metadata = metadata;
   }
 

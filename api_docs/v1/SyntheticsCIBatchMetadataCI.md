@@ -1,8 +1,8 @@
 
 
-# SyntheticsCITestMetadataCi
+# SyntheticsCIBatchMetadataCI
 
-Describe CI provider.
+Description of the CI provider.
 
 ## Properties
 
