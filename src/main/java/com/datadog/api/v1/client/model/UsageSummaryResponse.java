@@ -77,6 +77,8 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_REHYDRATED_INGESTED_BYTES_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_RUM_SESSION_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_RUM_TOTAL_SESSION_COUNT_AGG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_SDS_LOGS_SCANNED_BYTES_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_SDS_TOTAL_SCANNED_BYTES_SUM,
   UsageSummaryResponse.JSON_PROPERTY_START_DATE,
   UsageSummaryResponse.JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_SYNTHETICS_CHECK_CALLS_COUNT_AGG_SUM,
@@ -250,6 +252,14 @@ public class UsageSummaryResponse {
   public static final String JSON_PROPERTY_RUM_TOTAL_SESSION_COUNT_AGG_SUM =
       "rum_total_session_count_agg_sum";
   private Long rumTotalSessionCountAggSum;
+
+  public static final String JSON_PROPERTY_SDS_LOGS_SCANNED_BYTES_SUM =
+      "sds_logs_scanned_bytes_sum";
+  private Long sdsLogsScannedBytesSum;
+
+  public static final String JSON_PROPERTY_SDS_TOTAL_SCANNED_BYTES_SUM =
+      "sds_total_scanned_bytes_sum";
+  private Long sdsTotalScannedBytesSum;
 
   public static final String JSON_PROPERTY_START_DATE = "start_date";
   private OffsetDateTime startDate;
@@ -1498,6 +1508,58 @@ public class UsageSummaryResponse {
     this.rumTotalSessionCountAggSum = rumTotalSessionCountAggSum;
   }
 
+  public UsageSummaryResponse sdsLogsScannedBytesSum(Long sdsLogsScannedBytesSum) {
+    this.sdsLogsScannedBytesSum = sdsLogsScannedBytesSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all bytes scanned of logs usage by the Sensitive Data Scanner over all hours
+   * in the current month for all organizations.
+   *
+   * @return sdsLogsScannedBytesSum
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the sum of all bytes scanned of logs usage by the Sensitive Data Scanner over all"
+              + " hours in the current month for all organizations.")
+  @JsonProperty(JSON_PROPERTY_SDS_LOGS_SCANNED_BYTES_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getSdsLogsScannedBytesSum() {
+    return sdsLogsScannedBytesSum;
+  }
+
+  public void setSdsLogsScannedBytesSum(Long sdsLogsScannedBytesSum) {
+    this.sdsLogsScannedBytesSum = sdsLogsScannedBytesSum;
+  }
+
+  public UsageSummaryResponse sdsTotalScannedBytesSum(Long sdsTotalScannedBytesSum) {
+    this.sdsTotalScannedBytesSum = sdsTotalScannedBytesSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all bytes scanned across all usage types by the Sensitive Data Scanner over
+   * all hours in the current month for all organizations.
+   *
+   * @return sdsTotalScannedBytesSum
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the sum of all bytes scanned across all usage types by the Sensitive Data Scanner"
+              + " over all hours in the current month for all organizations.")
+  @JsonProperty(JSON_PROPERTY_SDS_TOTAL_SCANNED_BYTES_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getSdsTotalScannedBytesSum() {
+    return sdsTotalScannedBytesSum;
+  }
+
+  public void setSdsTotalScannedBytesSum(Long sdsTotalScannedBytesSum) {
+    this.sdsTotalScannedBytesSum = sdsTotalScannedBytesSum;
+  }
+
   public UsageSummaryResponse startDate(OffsetDateTime startDate) {
     this.startDate = startDate;
     return this;
@@ -1774,6 +1836,9 @@ public class UsageSummaryResponse {
         && Objects.equals(this.rumSessionCountAggSum, usageSummaryResponse.rumSessionCountAggSum)
         && Objects.equals(
             this.rumTotalSessionCountAggSum, usageSummaryResponse.rumTotalSessionCountAggSum)
+        && Objects.equals(this.sdsLogsScannedBytesSum, usageSummaryResponse.sdsLogsScannedBytesSum)
+        && Objects.equals(
+            this.sdsTotalScannedBytesSum, usageSummaryResponse.sdsTotalScannedBytesSum)
         && Objects.equals(this.startDate, usageSummaryResponse.startDate)
         && Objects.equals(
             this.syntheticsBrowserCheckCallsCountAggSum,
@@ -1840,6 +1905,8 @@ public class UsageSummaryResponse {
         rehydratedIngestedBytesAggSum,
         rumSessionCountAggSum,
         rumTotalSessionCountAggSum,
+        sdsLogsScannedBytesSum,
+        sdsTotalScannedBytesSum,
         startDate,
         syntheticsBrowserCheckCallsCountAggSum,
         syntheticsCheckCallsCountAggSum,
@@ -1953,6 +2020,12 @@ public class UsageSummaryResponse {
         .append("\n");
     sb.append("    rumTotalSessionCountAggSum: ")
         .append(toIndentedString(rumTotalSessionCountAggSum))
+        .append("\n");
+    sb.append("    sdsLogsScannedBytesSum: ")
+        .append(toIndentedString(sdsLogsScannedBytesSum))
+        .append("\n");
+    sb.append("    sdsTotalScannedBytesSum: ")
+        .append(toIndentedString(sdsTotalScannedBytesSum))
         .append("\n");
     sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
     sb.append("    syntheticsBrowserCheckCallsCountAggSum: ")

@@ -55,6 +55,8 @@ Name | Type | Description | Notes
 **rehydratedIngestedBytesAggSum** | **Long** | Shows the sum of all rehydrated logs bytes ingested over all hours in the current months for all organizations (data available as of December 1, 2020). |  [optional]
 **rumSessionCountAggSum** | **Long** | Shows the sum of all browser RUM Sessions over all hours in the current months for all organizations. |  [optional]
 **rumTotalSessionCountAggSum** | **Long** | Shows the sum of RUM Sessions (browser and mobile) over all hours in the current months for all organizations. |  [optional]
+**sdsLogsScannedBytesSum** | **Long** | Shows the sum of all bytes scanned of logs usage by the Sensitive Data Scanner over all hours in the current month for all organizations. |  [optional]
+**sdsTotalScannedBytesSum** | **Long** | Shows the sum of all bytes scanned across all usage types by the Sensitive Data Scanner over all hours in the current month for all organizations. |  [optional]
 **startDate** | **OffsetDateTime** | Shows the first date of usage in the current months for all organizations. |  [optional]
 **syntheticsBrowserCheckCallsCountAggSum** | **Long** | Shows the sum of all Synthetic browser tests over all hours in the current months for all organizations. |  [optional]
 **syntheticsCheckCallsCountAggSum** | **Long** | Shows the sum of all Synthetic API tests over all hours in the current months for all organizations. |  [optional]

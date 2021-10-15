@@ -48,6 +48,8 @@ Name | Type | Description | Notes
 **profilingHostTop99p** | **Long** | Shows the 99th percentile of all profiled hosts over all hours in the current date for all organizations. |  [optional]
 **rumSessionCountSum** | **Long** | Shows the sum of all browser RUM Sessions over all hours in the current date for all organizations |  [optional]
 **rumTotalSessionCountSum** | **Long** | Shows the sum of RUM Sessions (browser and mobile) over all hours in the current date for all organizations. |  [optional]
+**sdsLogsScannedBytesSum** | **Long** | Shows the sum of all bytes scanned of logs usage by the Sensitive Data Scanner over all hours in the current month for all organizations. |  [optional]
+**sdsTotalScannedBytesSum** | **Long** | Shows the sum of all bytes scanned across all usage types by the Sensitive Data Scanner over all hours in the current month for all organizations. |  [optional]
 **syntheticsBrowserCheckCallsCountSum** | **Long** | Shows the sum of all Synthetic browser tests over all hours in the current date for all organizations. |  [optional]
 **syntheticsCheckCallsCountSum** | **Long** | Shows the sum of all Synthetic API tests over all hours in the current date for all organizations. |  [optional]
 **traceSearchIndexedEventsCountSum** | **Long** | Shows the sum of all Indexed Spans indexed over all hours in the current date for all organizations. |  [optional]

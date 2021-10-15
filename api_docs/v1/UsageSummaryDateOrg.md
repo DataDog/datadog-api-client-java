@@ -49,6 +49,8 @@ Name | Type | Description | Notes
 **publicId** | **String** | The organization public id. |  [optional]
 **rumSessionCountSum** | **Long** | Shows the sum of all browser RUM Sessions over all hours in the current date for the given org. |  [optional]
 **rumTotalSessionCountSum** | **Long** | Shows the sum of RUM Sessions (browser and mobile) over all hours in the current date for the given org. |  [optional]
+**sdsLogsScannedBytesSum** | **Long** | Shows the sum of all bytes scanned of logs usage by the Sensitive Data Scanner over all hours in the current month for all organizations. |  [optional]
+**sdsTotalScannedBytesSum** | **Long** | Shows the sum of all bytes scanned across all usage types by the Sensitive Data Scanner over all hours in the current month for all organizations. |  [optional]
 **syntheticsBrowserCheckCallsCountSum** | **Long** | Shows the sum of all Synthetic browser tests over all hours in the current date for the given org. |  [optional]
 **syntheticsCheckCallsCountSum** | **Long** | Shows the sum of all Synthetic API tests over all hours in the current date for the given org. |  [optional]
 **traceSearchIndexedEventsCountSum** | **Long** | Shows the sum of all Indexed Spans indexed over all hours in the current date for the given org. |  [optional]
