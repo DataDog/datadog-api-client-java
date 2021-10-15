@@ -21,9 +21,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-/** Response with hourly report of all data billed by Datadog all organizations. */
+/**
+ * Response summarizing all usage aggregated across the months in the request for all organizations,
+ * and broken down by month and by organization.
+ */
 @ApiModel(
-    description = "Response with hourly report of all data billed by Datadog all organizations.")
+    description =
+        "Response summarizing all usage aggregated across the months in the request for all"
+            + " organizations, and broken down by month and by organization.")
 @JsonPropertyOrder({
   UsageSummaryResponse.JSON_PROPERTY_AGENT_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_TOP99P_SUM,
