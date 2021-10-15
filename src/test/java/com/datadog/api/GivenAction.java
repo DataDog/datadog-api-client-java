@@ -18,8 +18,7 @@ public class GivenAction {
 
   private static List<Given> loadGiven(String apiVersion) {
     try {
-      File file =
-          new File("src/test/resources/com/datadog/api/" + apiVersion + "/client/api/given.json");
+      File file = new File("src/test/resources/com/datadog/api/" + apiVersion + "/client/api/given.json");
       return Given.load(file);
     } catch (Exception e) {
       throw new RuntimeException(e);
