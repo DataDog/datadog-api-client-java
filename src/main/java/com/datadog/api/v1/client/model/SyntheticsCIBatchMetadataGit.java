@@ -21,11 +21,11 @@ import java.util.Objects;
 /** Git information. */
 @ApiModel(description = "Git information.")
 @JsonPropertyOrder({
-  SyntheticsCITestMetadataGit.JSON_PROPERTY_BRANCH,
-  SyntheticsCITestMetadataGit.JSON_PROPERTY_COMMIT_SHA
+  SyntheticsCIBatchMetadataGit.JSON_PROPERTY_BRANCH,
+  SyntheticsCIBatchMetadataGit.JSON_PROPERTY_COMMIT_SHA
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class SyntheticsCITestMetadataGit {
+public class SyntheticsCIBatchMetadataGit {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BRANCH = "branch";
   private String branch;
@@ -33,18 +33,18 @@ public class SyntheticsCITestMetadataGit {
   public static final String JSON_PROPERTY_COMMIT_SHA = "commit_sha";
   private String commitSha;
 
-  public SyntheticsCITestMetadataGit branch(String branch) {
+  public SyntheticsCIBatchMetadataGit branch(String branch) {
     this.branch = branch;
     return this;
   }
 
   /**
-   * Branch name.
+   * The branch name.
    *
    * @return branch
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Branch name.")
+  @ApiModelProperty(value = "The branch name.")
   @JsonProperty(JSON_PROPERTY_BRANCH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBranch() {
@@ -55,18 +55,18 @@ public class SyntheticsCITestMetadataGit {
     this.branch = branch;
   }
 
-  public SyntheticsCITestMetadataGit commitSha(String commitSha) {
+  public SyntheticsCIBatchMetadataGit commitSha(String commitSha) {
     this.commitSha = commitSha;
     return this;
   }
 
   /**
-   * Commit SHA.
+   * The commit SHA.
    *
    * @return commitSha
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Commit SHA.")
+  @ApiModelProperty(value = "The commit SHA.")
   @JsonProperty(JSON_PROPERTY_COMMIT_SHA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getCommitSha() {
@@ -77,7 +77,7 @@ public class SyntheticsCITestMetadataGit {
     this.commitSha = commitSha;
   }
 
-  /** Return true if this SyntheticsCITest_metadata_git object is equal to o. */
+  /** Return true if this SyntheticsCIBatchMetadataGit object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -86,9 +86,9 @@ public class SyntheticsCITestMetadataGit {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsCITestMetadataGit syntheticsCITestMetadataGit = (SyntheticsCITestMetadataGit) o;
-    return Objects.equals(this.branch, syntheticsCITestMetadataGit.branch)
-        && Objects.equals(this.commitSha, syntheticsCITestMetadataGit.commitSha);
+    SyntheticsCIBatchMetadataGit syntheticsCIBatchMetadataGit = (SyntheticsCIBatchMetadataGit) o;
+    return Objects.equals(this.branch, syntheticsCIBatchMetadataGit.branch)
+        && Objects.equals(this.commitSha, syntheticsCIBatchMetadataGit.commitSha);
   }
 
   @Override
@@ -99,7 +99,7 @@ public class SyntheticsCITestMetadataGit {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SyntheticsCITestMetadataGit {\n");
+    sb.append("class SyntheticsCIBatchMetadataGit {\n");
     sb.append("    branch: ").append(toIndentedString(branch)).append("\n");
     sb.append("    commitSha: ").append(toIndentedString(commitSha)).append("\n");
     sb.append("}");

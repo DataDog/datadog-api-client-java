@@ -18,66 +18,68 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
-/** Describe CI provider. */
-@ApiModel(description = "Describe CI provider.")
+/** Metadata for the Synthetics tests run. */
+@ApiModel(description = "Metadata for the Synthetics tests run.")
 @JsonPropertyOrder({
-  SyntheticsCITestMetadataCi.JSON_PROPERTY_PIPELINE,
-  SyntheticsCITestMetadataCi.JSON_PROPERTY_PROVIDER
+  SyntheticsCIBatchMetadata.JSON_PROPERTY_CI,
+  SyntheticsCIBatchMetadata.JSON_PROPERTY_GIT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class SyntheticsCITestMetadataCi {
+public class SyntheticsCIBatchMetadata {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_PIPELINE = "pipeline";
-  private String pipeline;
+  public static final String JSON_PROPERTY_CI = "ci";
+  private SyntheticsCIBatchMetadataCI ci;
 
-  public static final String JSON_PROPERTY_PROVIDER = "provider";
-  private String provider;
+  public static final String JSON_PROPERTY_GIT = "git";
+  private SyntheticsCIBatchMetadataGit git;
 
-  public SyntheticsCITestMetadataCi pipeline(String pipeline) {
-    this.pipeline = pipeline;
+  public SyntheticsCIBatchMetadata ci(SyntheticsCIBatchMetadataCI ci) {
+    this.ci = ci;
+    this.unparsed |= ci.unparsed;
     return this;
   }
 
   /**
-   * Name of the pipeline.
+   * Get ci
    *
-   * @return pipeline
+   * @return ci
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the pipeline.")
-  @JsonProperty(JSON_PROPERTY_PIPELINE)
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_CI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getPipeline() {
-    return pipeline;
+  public SyntheticsCIBatchMetadataCI getCi() {
+    return ci;
   }
 
-  public void setPipeline(String pipeline) {
-    this.pipeline = pipeline;
+  public void setCi(SyntheticsCIBatchMetadataCI ci) {
+    this.ci = ci;
   }
 
-  public SyntheticsCITestMetadataCi provider(String provider) {
-    this.provider = provider;
+  public SyntheticsCIBatchMetadata git(SyntheticsCIBatchMetadataGit git) {
+    this.git = git;
+    this.unparsed |= git.unparsed;
     return this;
   }
 
   /**
-   * Name of the CI provider.
+   * Get git
    *
-   * @return provider
+   * @return git
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the CI provider.")
-  @JsonProperty(JSON_PROPERTY_PROVIDER)
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_GIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getProvider() {
-    return provider;
+  public SyntheticsCIBatchMetadataGit getGit() {
+    return git;
   }
 
-  public void setProvider(String provider) {
-    this.provider = provider;
+  public void setGit(SyntheticsCIBatchMetadataGit git) {
+    this.git = git;
   }
 
-  /** Return true if this SyntheticsCITest_metadata_ci object is equal to o. */
+  /** Return true if this SyntheticsCIBatchMetadata object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -86,22 +88,22 @@ public class SyntheticsCITestMetadataCi {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsCITestMetadataCi syntheticsCITestMetadataCi = (SyntheticsCITestMetadataCi) o;
-    return Objects.equals(this.pipeline, syntheticsCITestMetadataCi.pipeline)
-        && Objects.equals(this.provider, syntheticsCITestMetadataCi.provider);
+    SyntheticsCIBatchMetadata syntheticsCIBatchMetadata = (SyntheticsCIBatchMetadata) o;
+    return Objects.equals(this.ci, syntheticsCIBatchMetadata.ci)
+        && Objects.equals(this.git, syntheticsCIBatchMetadata.git);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pipeline, provider);
+    return Objects.hash(ci, git);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SyntheticsCITestMetadataCi {\n");
-    sb.append("    pipeline: ").append(toIndentedString(pipeline)).append("\n");
-    sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
+    sb.append("class SyntheticsCIBatchMetadata {\n");
+    sb.append("    ci: ").append(toIndentedString(ci)).append("\n");
+    sb.append("    git: ").append(toIndentedString(git)).append("\n");
     sb.append("}");
     return sb.toString();
   }

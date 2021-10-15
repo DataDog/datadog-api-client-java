@@ -20,6 +20,7 @@ Method        | HTTP request | Description
 [**getBrowserTestResult**](SyntheticsApi.md#getBrowserTestResult) | **GET** /api/v1/synthetics/tests/browser/{public_id}/results/{result_id} | Get a browser test result
 [**getGlobalVariable**](SyntheticsApi.md#getGlobalVariable) | **GET** /api/v1/synthetics/variables/{variable_id} | Get a global variable
 [**getPrivateLocation**](SyntheticsApi.md#getPrivateLocation) | **GET** /api/v1/synthetics/private-locations/{location_id} | Get a private location
+[**getSyntheticsCIBatch**](SyntheticsApi.md#getSyntheticsCIBatch) | **GET** /api/v1/synthetics/ci/batch/{batch_id} | Get details of batch
 [**getTest**](SyntheticsApi.md#getTest) | **GET** /api/v1/synthetics/tests/{public_id} | Get a test configuration
 [**listGlobalVariables**](SyntheticsApi.md#listGlobalVariables) | **GET** /api/v1/synthetics/variables | Get all global variables
 [**listLocations**](SyntheticsApi.md#listLocations) | **GET** /api/v1/synthetics/locations | Get all locations (public and private)
@@ -1080,6 +1081,69 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **404** | - Synthetic private locations are not activated for the user - Private location does not exist |  -  |
+
+
+## getSyntheticsCIBatch
+
+> SyntheticsBatchDetails getSyntheticsCIBatch(batchId);
+
+Get a batch's updated details.
+
+### Example
+
+```java
+import java.util.*;
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.Configuration;
+import com.datadog.api.v1.client.model.*;
+import com.datadog.api.v1.client.api.SyntheticsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+        SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
+        String batchId = "batchId_example"; // String | The ID of the batch.
+        try {
+            SyntheticsBatchDetails result = apiInstance.getSyntheticsCIBatch(batchId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SyntheticsApi#getSyntheticsCIBatch");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **batchId** | **String**| The ID of the batch. |
+
+### Return type
+
+[**SyntheticsBatchDetails**](SyntheticsBatchDetails.md)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **404** | Batch does not exist. |  -  |
 
 
 ## getTest

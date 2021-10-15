@@ -7,6 +7,7 @@ import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.Pair;
 import com.datadog.api.v1.client.model.SyntheticsAPITest;
 import com.datadog.api.v1.client.model.SyntheticsAPITestResultFull;
+import com.datadog.api.v1.client.model.SyntheticsBatchDetails;
 import com.datadog.api.v1.client.model.SyntheticsBrowserTest;
 import com.datadog.api.v1.client.model.SyntheticsBrowserTestResultFull;
 import com.datadog.api.v1.client.model.SyntheticsCITestBody;
@@ -1543,6 +1544,87 @@ public class SyntheticsApi {
 
     return apiClient.invokeAPI(
         "SyntheticsApi.getPrivateLocation",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
+   * Get details of batch Get a batch&#39;s updated details.
+   *
+   * @param batchId The ID of the batch. (required)
+   * @return SyntheticsBatchDetails
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Batch does not exist. </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public SyntheticsBatchDetails getSyntheticsCIBatch(String batchId) throws ApiException {
+    return getSyntheticsCIBatchWithHttpInfo(batchId).getData();
+  }
+
+  /**
+   * Get details of batch Get a batch&#39;s updated details.
+   *
+   * @param batchId The ID of the batch. (required)
+   * @return ApiResponse&lt;SyntheticsBatchDetails&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Batch does not exist. </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SyntheticsBatchDetails> getSyntheticsCIBatchWithHttpInfo(String batchId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'batchId' is set
+    if (batchId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'batchId' when calling getSyntheticsCIBatch");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/synthetics/ci/batch/{batch_id}"
+            .replaceAll("\\{" + "batch_id" + "\\}", apiClient.escapeString(batchId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getSyntheticsCIBatch");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    GenericType<SyntheticsBatchDetails> localVarReturnType =
+        new GenericType<SyntheticsBatchDetails>() {};
+
+    return apiClient.invokeAPI(
+        "SyntheticsApi.getSyntheticsCIBatch",
         localVarPath,
         "GET",
         localVarQueryParams,

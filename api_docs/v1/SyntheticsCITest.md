@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **followRedirects** | **Boolean** | For API HTTP test, whether or not the test should follow redirects. |  [optional]
 **headers** | **Map&lt;String, String&gt;** | Headers to include when performing the test. |  [optional]
 **locations** | **List&lt;String&gt;** | Array of locations used to run the test. |  [optional]
-**metadata** | [**SyntheticsCITestMetadata**](SyntheticsCITestMetadata.md) |  |  [optional]
+**metadata** | [**SyntheticsCIBatchMetadata**](SyntheticsCIBatchMetadata.md) |  |  [optional]
 **publicId** | **String** | The public ID of the Synthetics test to trigger. | 
 **retry** | [**SyntheticsTestOptionsRetry**](SyntheticsTestOptionsRetry.md) |  |  [optional]
 **startUrl** | **String** | Starting URL for the browser test. |  [optional]
