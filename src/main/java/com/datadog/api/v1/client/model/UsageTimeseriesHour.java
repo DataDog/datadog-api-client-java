@@ -124,12 +124,16 @@ public class UsageTimeseriesHour {
   }
 
   /**
-   * Contains the number of non-aggregation custom metrics.
+   * Contains sum of non-aggregation custom metrics and custom metrics that are outputs for
+   * aggregations.
    *
    * @return numCustomTimeseries
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Contains the number of non-aggregation custom metrics.")
+  @ApiModelProperty(
+      value =
+          "Contains sum of non-aggregation custom metrics and custom metrics that are outputs for"
+              + " aggregations.")
   @JsonProperty(JSON_PROPERTY_NUM_CUSTOM_TIMESERIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getNumCustomTimeseries() {
