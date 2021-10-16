@@ -187,6 +187,7 @@ Class | Method | HTTP request | Description
 *UsageMeteringApi* | [**getUsageNetworkHosts**](UsageMeteringApi.md#getUsageNetworkHosts) | **GET** /api/v1/usage/network_hosts | Get hourly usage for Network Hosts
 *UsageMeteringApi* | [**getUsageProfiling**](UsageMeteringApi.md#getUsageProfiling) | **GET** /api/v1/usage/profiling | Get hourly usage for profiled hosts
 *UsageMeteringApi* | [**getUsageRumSessions**](UsageMeteringApi.md#getUsageRumSessions) | **GET** /api/v1/usage/rum_sessions | Get hourly usage for RUM Sessions
+*UsageMeteringApi* | [**getUsageSDS**](UsageMeteringApi.md#getUsageSDS) | **GET** /api/v1/usage/sds | Get hourly usage for Sensitive Data Scanner
 *UsageMeteringApi* | [**getUsageSNMP**](UsageMeteringApi.md#getUsageSNMP) | **GET** /api/v1/usage/snmp | Get hourly usage for SNMP devices
 *UsageMeteringApi* | [**getUsageSummary**](UsageMeteringApi.md#getUsageSummary) | **GET** /api/v1/usage/summary | Get usage across your multi-org account
 *UsageMeteringApi* | [**getUsageSynthetics**](UsageMeteringApi.md#getUsageSynthetics) | **GET** /api/v1/usage/synthetics | Get hourly usage for Synthetics Checks
@@ -766,6 +767,8 @@ Class | Method | HTTP request | Description
  - [UsageReportsType](UsageReportsType.md)
  - [UsageRumSessionsHour](UsageRumSessionsHour.md)
  - [UsageRumSessionsResponse](UsageRumSessionsResponse.md)
+ - [UsageSDSHour](UsageSDSHour.md)
+ - [UsageSDSResponse](UsageSDSResponse.md)
  - [UsageSNMPHour](UsageSNMPHour.md)
  - [UsageSNMPResponse](UsageSNMPResponse.md)
  - [UsageSort](UsageSort.md)
