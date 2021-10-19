@@ -22,6 +22,7 @@ import java.util.Objects;
 @ApiModel(description = "Updated distribution widget.")
 @JsonPropertyOrder({
   DistributionWidgetRequest.JSON_PROPERTY_APM_QUERY,
+  DistributionWidgetRequest.JSON_PROPERTY_APM_STATS_QUERY,
   DistributionWidgetRequest.JSON_PROPERTY_EVENT_QUERY,
   DistributionWidgetRequest.JSON_PROPERTY_LOG_QUERY,
   DistributionWidgetRequest.JSON_PROPERTY_NETWORK_QUERY,
@@ -37,6 +38,9 @@ public class DistributionWidgetRequest {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_APM_QUERY = "apm_query";
   private LogQueryDefinition apmQuery;
+
+  public static final String JSON_PROPERTY_APM_STATS_QUERY = "apm_stats_query";
+  private ApmStatsQueryDefinition apmStatsQuery;
 
   public static final String JSON_PROPERTY_EVENT_QUERY = "event_query";
   private LogQueryDefinition eventQuery;
@@ -86,6 +90,29 @@ public class DistributionWidgetRequest {
 
   public void setApmQuery(LogQueryDefinition apmQuery) {
     this.apmQuery = apmQuery;
+  }
+
+  public DistributionWidgetRequest apmStatsQuery(ApmStatsQueryDefinition apmStatsQuery) {
+    this.apmStatsQuery = apmStatsQuery;
+    this.unparsed |= apmStatsQuery.unparsed;
+    return this;
+  }
+
+  /**
+   * Get apmStatsQuery
+   *
+   * @return apmStatsQuery
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_APM_STATS_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ApmStatsQueryDefinition getApmStatsQuery() {
+    return apmStatsQuery;
+  }
+
+  public void setApmStatsQuery(ApmStatsQueryDefinition apmStatsQuery) {
+    this.apmStatsQuery = apmStatsQuery;
   }
 
   public DistributionWidgetRequest eventQuery(LogQueryDefinition eventQuery) {
@@ -305,6 +332,7 @@ public class DistributionWidgetRequest {
     }
     DistributionWidgetRequest distributionWidgetRequest = (DistributionWidgetRequest) o;
     return Objects.equals(this.apmQuery, distributionWidgetRequest.apmQuery)
+        && Objects.equals(this.apmStatsQuery, distributionWidgetRequest.apmStatsQuery)
         && Objects.equals(this.eventQuery, distributionWidgetRequest.eventQuery)
         && Objects.equals(this.logQuery, distributionWidgetRequest.logQuery)
         && Objects.equals(this.networkQuery, distributionWidgetRequest.networkQuery)
@@ -320,6 +348,7 @@ public class DistributionWidgetRequest {
   public int hashCode() {
     return Objects.hash(
         apmQuery,
+        apmStatsQuery,
         eventQuery,
         logQuery,
         networkQuery,
@@ -336,6 +365,7 @@ public class DistributionWidgetRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class DistributionWidgetRequest {\n");
     sb.append("    apmQuery: ").append(toIndentedString(apmQuery)).append("\n");
+    sb.append("    apmStatsQuery: ").append(toIndentedString(apmStatsQuery)).append("\n");
     sb.append("    eventQuery: ").append(toIndentedString(eventQuery)).append("\n");
     sb.append("    logQuery: ").append(toIndentedString(logQuery)).append("\n");
     sb.append("    networkQuery: ").append(toIndentedString(networkQuery)).append("\n");
