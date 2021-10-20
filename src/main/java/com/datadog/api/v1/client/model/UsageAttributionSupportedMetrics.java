@@ -87,10 +87,10 @@ public class UsageAttributionSupportedMetrics {
       new UsageAttributionSupportedMetrics("profiled_container_usage");
   public static final UsageAttributionSupportedMetrics PROFILED_CONTAINER_PERCENTAGE =
       new UsageAttributionSupportedMetrics("profiled_container_percentage");
-  public static final UsageAttributionSupportedMetrics DBM_HOST_USAGE =
-      new UsageAttributionSupportedMetrics("dbm_host_usage");
-  public static final UsageAttributionSupportedMetrics DBM_HOST_PERCENTAGE =
-      new UsageAttributionSupportedMetrics("dbm_host_percentage");
+  public static final UsageAttributionSupportedMetrics DBM_HOSTS_USAGE =
+      new UsageAttributionSupportedMetrics("dbm_hosts_usage");
+  public static final UsageAttributionSupportedMetrics DBM_HOSTS_PERCENTAGE =
+      new UsageAttributionSupportedMetrics("dbm_hosts_percentage");
   public static final UsageAttributionSupportedMetrics DBM_QUERIES_USAGE =
       new UsageAttributionSupportedMetrics("dbm_queries_usage");
   public static final UsageAttributionSupportedMetrics DBM_QUERIES_PERCENTAGE =
@@ -129,8 +129,8 @@ public class UsageAttributionSupportedMetrics {
               "profiled_host_percentage",
               "profiled_container_usage",
               "profiled_container_percentage",
-              "dbm_host_usage",
-              "dbm_host_percentage",
+              "dbm_hosts_usage",
+              "dbm_hosts_percentage",
               "dbm_queries_usage",
               "dbm_queries_percentage",
               "*"));
