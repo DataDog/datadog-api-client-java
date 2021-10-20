@@ -21,6 +21,7 @@ import java.util.regex.Pattern;
 import javax.ws.rs.client.Client;
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.client.HttpUrlConnectorProvider;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 public class World {
   // Client information
@@ -538,6 +539,9 @@ public class World {
               result = getPropertyValue(result, toPropertyName(part));
             }
           }
+        }
+        if (result instanceof JsonNullable) {
+          result = ((JsonNullable<?>) result).get();
         }
       }
     }
