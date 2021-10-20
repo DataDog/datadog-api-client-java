@@ -1,0 +1,63 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"end\":1634659062,\"message\":\"Test-Schedule_a_downtime_with_invalid_weekdays-1634655462\",\"recurrence\":{\"period\":1,\"type\":\"weeks\",\"week_days\":[\"mon\",\"tue\"]},\"scope\":[\"*\"],\"start\":1634655462,\"timezone\":\"Etc/UTC\"}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Schedule_a_downtime_with_invalid_weekdays"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v1/downtime",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\": [\"Invalid set of days in week_days. Be sure that the first letter is capitalized.\"]}",
+      "headers": {
+        "Date": [
+          "Tue, 19 Oct 2021 14:57:43 GMT"
+        ],
+        "Content-Type": [
+          "application/json"
+        ],
+        "Content-Length": [
+          "95"
+        ],
+        "Connection": [
+          "close"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=15724800;"
+        ],
+        "Content-Security-Policy": [
+          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
+        ],
+        "X-Frame-Options": [
+          "SAMEORIGIN"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "ff308882-6215-95cd-1777-4d575b6b10a8"
+  }
+]

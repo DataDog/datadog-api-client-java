@@ -1,0 +1,66 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"disabled\":true,\"name\":\"updated\"},\"id\":\"00000000-dead-beef-dead-ffffffffffff\",\"type\":\"users\"}}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Update_a_user_returns_Not_found_response"
+        ]
+      },
+      "method": "PATCH",
+      "path": "/api/v2/users/00000000-dead-beef-dead-ffffffffffff",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\": [\"00000000-dead-beef-dead-ffffffffffff not found\"]}",
+      "headers": {
+        "Date": [
+          "Tue, 19 Oct 2021 14:57:49 GMT"
+        ],
+        "Content-Type": [
+          "application/json"
+        ],
+        "Content-Length": [
+          "62"
+        ],
+        "Connection": [
+          "close"
+        ],
+        "Vary": [
+          "Accept-Encoding"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=15724800;"
+        ],
+        "Content-Security-Policy": [
+          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
+        ],
+        "X-Frame-Options": [
+          "SAMEORIGIN"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b5d4c24b-2a04-867c-c4e9-406fdc7bccf6"
+  }
+]

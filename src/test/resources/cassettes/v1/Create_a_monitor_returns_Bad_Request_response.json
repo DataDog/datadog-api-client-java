@@ -1,0 +1,75 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"query\":\"query\",\"type\":\"log alert\"}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Create_a_monitor_returns_Bad_Request_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v1/monitor",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\": [\"The value provided for parameter 'query' is invalid: invalid operator specified: \"]}",
+      "headers": {
+        "Date": [
+          "Tue, 19 Oct 2021 14:57:44 GMT"
+        ],
+        "Content-Type": [
+          "application/json"
+        ],
+        "Content-Length": [
+          "97"
+        ],
+        "Connection": [
+          "close"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "X-Ratelimit-Limit": [
+          "500"
+        ],
+        "X-Ratelimit-Period": [
+          "10"
+        ],
+        "X-Ratelimit-Reset": [
+          "6"
+        ],
+        "X-Ratelimit-Remaining": [
+          "498"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=15724800;"
+        ],
+        "Content-Security-Policy": [
+          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
+        ],
+        "X-Frame-Options": [
+          "SAMEORIGIN"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "cc978915-3c53-7ff8-c468-48b774543bbf"
+  }
+]
