@@ -57,8 +57,7 @@ public class TracePlugin implements EventListener {
       MutableSpan ms = (MutableSpan) stepSpan;
       ms.setResourceName(name);
       ms.setSpanType(step.getKeyword());
-      stepScope = tracer.activateSpan(scenarioSpan);
-      // stepScope.setAsyncPropagation(true);
+      stepScope = tracer.activateSpan(stepSpan);
     }
   }
 
