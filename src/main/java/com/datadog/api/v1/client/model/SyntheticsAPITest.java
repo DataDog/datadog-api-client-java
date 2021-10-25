@@ -113,9 +113,7 @@ public class SyntheticsAPITest {
    * @return locations
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[\"aws:eu-west-3\"]",
-      value = "Array of locations used to run the test.")
+  @ApiModelProperty(value = "Array of locations used to run the test.")
   @JsonProperty(JSON_PROPERTY_LOCATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getLocations() {
@@ -137,9 +135,7 @@ public class SyntheticsAPITest {
    * @return message
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "Notification message",
-      value = "Notification message associated with the test.")
+  @ApiModelProperty(value = "Notification message associated with the test.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessage() {
@@ -156,7 +152,7 @@ public class SyntheticsAPITest {
    * @return monitorId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "12345678", value = "The associated monitor ID.")
+  @ApiModelProperty(value = "The associated monitor ID.")
   @JsonProperty(JSON_PROPERTY_MONITOR_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getMonitorId() {
@@ -174,7 +170,7 @@ public class SyntheticsAPITest {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Test name", value = "Name of the test.")
+  @ApiModelProperty(value = "Name of the test.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
@@ -214,7 +210,7 @@ public class SyntheticsAPITest {
    * @return publicId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "123-abc-456", value = "The public ID for the test.")
+  @ApiModelProperty(value = "The public ID for the test.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getPublicId() {
@@ -292,7 +288,7 @@ public class SyntheticsAPITest {
    * @return tags
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "[\"env:production\"]", value = "Array of tags attached to the test.")
+  @ApiModelProperty(value = "Array of tags attached to the test.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getTags() {

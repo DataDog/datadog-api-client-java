@@ -508,7 +508,7 @@ public class SyntheticsTestRequest {
    * @return url
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "https://example.com", value = "URL to perform the test with.")
+  @ApiModelProperty(value = "URL to perform the test with.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getUrl() {
