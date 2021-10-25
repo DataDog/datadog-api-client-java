@@ -66,7 +66,9 @@ public class SyntheticsAPITestConfig {
    * @return assertions
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "[]", value = "Array of assertions used for the test.")
+  @ApiModelProperty(
+      example = "[{\"operator\":\"lessThan\",\"target\":1000,\"type\":\"responseTime\"}]",
+      value = "Array of assertions used for the test.")
   @JsonProperty(JSON_PROPERTY_ASSERTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<SyntheticsAssertion> getAssertions() {
