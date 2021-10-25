@@ -186,6 +186,9 @@ docs/Metric.md
 docs/MetricAllTags.md
 docs/MetricAllTagsAttributes.md
 docs/MetricAllTagsResponse.md
+docs/MetricCustomAggregation.md
+docs/MetricCustomSpaceAggregation.md
+docs/MetricCustomTimeAggregation.md
 docs/MetricDistinctVolume.md
 docs/MetricDistinctVolumeAttributes.md
 docs/MetricDistinctVolumeType.md
@@ -558,6 +561,9 @@ src/main/java/com/datadog/api/v2/client/model/Metric.java
 src/main/java/com/datadog/api/v2/client/model/MetricAllTags.java
 src/main/java/com/datadog/api/v2/client/model/MetricAllTagsAttributes.java
 src/main/java/com/datadog/api/v2/client/model/MetricAllTagsResponse.java
+src/main/java/com/datadog/api/v2/client/model/MetricCustomAggregation.java
+src/main/java/com/datadog/api/v2/client/model/MetricCustomSpaceAggregation.java
+src/main/java/com/datadog/api/v2/client/model/MetricCustomTimeAggregation.java
 src/main/java/com/datadog/api/v2/client/model/MetricDistinctVolume.java
 src/main/java/com/datadog/api/v2/client/model/MetricDistinctVolumeAttributes.java
 src/main/java/com/datadog/api/v2/client/model/MetricDistinctVolumeType.java
@@ -884,6 +890,9 @@ src/test/java/com/datadog/api/v2/client/model/LogsWarningTest.java
 src/test/java/com/datadog/api/v2/client/model/MetricAllTagsAttributesTest.java
 src/test/java/com/datadog/api/v2/client/model/MetricAllTagsResponseTest.java
 src/test/java/com/datadog/api/v2/client/model/MetricAllTagsTest.java
+src/test/java/com/datadog/api/v2/client/model/MetricCustomAggregationTest.java
+src/test/java/com/datadog/api/v2/client/model/MetricCustomSpaceAggregationTest.java
+src/test/java/com/datadog/api/v2/client/model/MetricCustomTimeAggregationTest.java
 src/test/java/com/datadog/api/v2/client/model/MetricDistinctVolumeAttributesTest.java
 src/test/java/com/datadog/api/v2/client/model/MetricDistinctVolumeTest.java
 src/test/java/com/datadog/api/v2/client/model/MetricDistinctVolumeTypeTest.java
