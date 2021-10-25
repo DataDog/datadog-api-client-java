@@ -14355,6 +14355,7 @@ components:
       - DELETE
       - HEAD
       - OPTIONS
+      example: GET
       type: string
       x-enum-varnames:
       - GET
@@ -21906,45 +21907,6 @@ components:
       type: array
     SyntheticsAPIStep:
       description: The steps used in a Synthetics multistep API test.
-      example:
-        extractedValues:
-        - {}
-        - {}
-        request:
-          headers:
-            key: headers
-          noSavingResponseBody: true
-          shouldTrackHops: true
-          basicAuth:
-            password: ""
-            username: ""
-          query: '{}'
-          certificate:
-            cert:
-              filename: filename
-              content: content
-              updatedAt: updatedAt
-            key:
-              filename: filename
-              content: content
-              updatedAt: updatedAt
-          allow_insecure: true
-          body: body
-          timeout: 5.962133916683182
-          url: url
-          port: 1
-          dnsServerPort: 5249
-          host: host
-          servername: servername
-          numberOfPackets: 6
-          follow_redirects: true
-          dnsServer: dnsServer
-        allowFailure: true
-        name: name
-        isCritical: true
-        assertions:
-        - null
-        - null
       properties:
         allowFailure:
           description: Determines whether or not to continue with test if this step
@@ -21985,8 +21947,9 @@ components:
     SyntheticsAPITest:
       description: Object containing details about a Synthetic API test.
       example:
-        monitor_id: 0
-        name: name
+        monitor_id: 12345678
+        subtype: http
+        name: Test name
         options:
           allow_insecure: true
           accept_self_signed: true
@@ -22007,157 +21970,51 @@ components:
             count: 2
             interval: 4.145608029883936
         locations:
-        - locations
-        - locations
-        message: message
+        - aws:eu-west-3
+        message: Notification message
         type: api
         config:
+          assertions:
+          - operator: lessThan
+            target: 1000
+            type: responseTime
           request:
-            headers:
-              key: headers
-            noSavingResponseBody: true
-            shouldTrackHops: true
-            basicAuth:
-              password: ""
-              username: ""
-            query: '{}'
-            certificate:
-              cert:
-                filename: filename
-                content: content
-                updatedAt: updatedAt
-              key:
-                filename: filename
-                content: content
-                updatedAt: updatedAt
-            allow_insecure: true
-            body: body
-            timeout: 5.962133916683182
-            url: url
-            port: 1
-            dnsServerPort: 5249
-            host: host
-            servername: servername
-            numberOfPackets: 6
-            follow_redirects: true
-            dnsServer: dnsServer
-          assertions: []
-          steps:
-          - extractedValues:
-            - {}
-            - {}
-            request:
-              headers:
-                key: headers
-              noSavingResponseBody: true
-              shouldTrackHops: true
-              basicAuth:
-                password: ""
-                username: ""
-              query: '{}'
-              certificate:
-                cert:
-                  filename: filename
-                  content: content
-                  updatedAt: updatedAt
-                key:
-                  filename: filename
-                  content: content
-                  updatedAt: updatedAt
-              allow_insecure: true
-              body: body
-              timeout: 5.962133916683182
-              url: url
-              port: 1
-              dnsServerPort: 5249
-              host: host
-              servername: servername
-              numberOfPackets: 6
-              follow_redirects: true
-              dnsServer: dnsServer
-            allowFailure: true
-            name: name
-            isCritical: true
-            assertions:
-            - null
-            - null
-          - extractedValues:
-            - {}
-            - {}
-            request:
-              headers:
-                key: headers
-              noSavingResponseBody: true
-              shouldTrackHops: true
-              basicAuth:
-                password: ""
-                username: ""
-              query: '{}'
-              certificate:
-                cert:
-                  filename: filename
-                  content: content
-                  updatedAt: updatedAt
-                key:
-                  filename: filename
-                  content: content
-                  updatedAt: updatedAt
-              allow_insecure: true
-              body: body
-              timeout: 5.962133916683182
-              url: url
-              port: 1
-              dnsServerPort: 5249
-              host: host
-              servername: servername
-              numberOfPackets: 6
-              follow_redirects: true
-              dnsServer: dnsServer
-            allowFailure: true
-            name: name
-            isCritical: true
-            assertions:
-            - null
-            - null
-          configVariables:
-          - name: VARIABLE_NAME
-            pattern: pattern
-            id: id
-            type: text
-            example: example
-          - name: VARIABLE_NAME
-            pattern: pattern
-            id: id
-            type: text
-            example: example
-        public_id: public_id
+            method: GET
+            url: https://example.com
+        public_id: 123-abc-456
+        status: live
         tags:
-        - tags
-        - tags
+        - env:production
       properties:
         config:
           $ref: '#/components/schemas/SyntheticsAPITestConfig'
         locations:
           description: Array of locations used to run the test.
+          example:
+          - aws:eu-west-3
           items:
             description: A location from which the test was run.
             type: string
           type: array
         message:
           description: Notification message associated with the test.
+          example: Notification message
           type: string
         monitor_id:
           description: The associated monitor ID.
+          example: 12345678
           format: int64
           readOnly: true
           type: integer
         name:
           description: Name of the test.
+          example: Test name
           type: string
         options:
           $ref: '#/components/schemas/SyntheticsTestOptions'
         public_id:
           description: The public ID for the test.
+          example: 123-abc-456
           readOnly: true
           type: string
         status:
@@ -22166,6 +22023,8 @@ components:
           $ref: '#/components/schemas/SyntheticsTestDetailsSubType'
         tags:
           description: Array of tags attached to the test.
+          example:
+          - env:production
           items:
             description: A tag attached to the test.
             type: string
@@ -22176,129 +22035,21 @@ components:
     SyntheticsAPITestConfig:
       description: Configuration object for a Synthetic API test.
       example:
+        assertions:
+        - operator: lessThan
+          target: 1000
+          type: responseTime
         request:
-          headers:
-            key: headers
-          noSavingResponseBody: true
-          shouldTrackHops: true
-          basicAuth:
-            password: ""
-            username: ""
-          query: '{}'
-          certificate:
-            cert:
-              filename: filename
-              content: content
-              updatedAt: updatedAt
-            key:
-              filename: filename
-              content: content
-              updatedAt: updatedAt
-          allow_insecure: true
-          body: body
-          timeout: 5.962133916683182
-          url: url
-          port: 1
-          dnsServerPort: 5249
-          host: host
-          servername: servername
-          numberOfPackets: 6
-          follow_redirects: true
-          dnsServer: dnsServer
-        assertions: []
-        steps:
-        - extractedValues:
-          - {}
-          - {}
-          request:
-            headers:
-              key: headers
-            noSavingResponseBody: true
-            shouldTrackHops: true
-            basicAuth:
-              password: ""
-              username: ""
-            query: '{}'
-            certificate:
-              cert:
-                filename: filename
-                content: content
-                updatedAt: updatedAt
-              key:
-                filename: filename
-                content: content
-                updatedAt: updatedAt
-            allow_insecure: true
-            body: body
-            timeout: 5.962133916683182
-            url: url
-            port: 1
-            dnsServerPort: 5249
-            host: host
-            servername: servername
-            numberOfPackets: 6
-            follow_redirects: true
-            dnsServer: dnsServer
-          allowFailure: true
-          name: name
-          isCritical: true
-          assertions:
-          - null
-          - null
-        - extractedValues:
-          - {}
-          - {}
-          request:
-            headers:
-              key: headers
-            noSavingResponseBody: true
-            shouldTrackHops: true
-            basicAuth:
-              password: ""
-              username: ""
-            query: '{}'
-            certificate:
-              cert:
-                filename: filename
-                content: content
-                updatedAt: updatedAt
-              key:
-                filename: filename
-                content: content
-                updatedAt: updatedAt
-            allow_insecure: true
-            body: body
-            timeout: 5.962133916683182
-            url: url
-            port: 1
-            dnsServerPort: 5249
-            host: host
-            servername: servername
-            numberOfPackets: 6
-            follow_redirects: true
-            dnsServer: dnsServer
-          allowFailure: true
-          name: name
-          isCritical: true
-          assertions:
-          - null
-          - null
-        configVariables:
-        - name: VARIABLE_NAME
-          pattern: pattern
-          id: id
-          type: text
-          example: example
-        - name: VARIABLE_NAME
-          pattern: pattern
-          id: id
-          type: text
-          example: example
+          method: GET
+          url: https://example.com
       properties:
         assertions:
           default: []
           description: Array of assertions used for the test.
-          example: []
+          example:
+          - operator: lessThan
+            target: 1000
+            type: responseTime
           items:
             $ref: '#/components/schemas/SyntheticsAssertion'
           type: array
@@ -22460,6 +22211,7 @@ components:
                 key: headers
               noSavingResponseBody: true
               shouldTrackHops: true
+              method: GET
               basicAuth:
                 password: ""
                 username: ""
@@ -22476,7 +22228,7 @@ components:
               allow_insecure: true
               body: body
               timeout: 5.962133916683182
-              url: url
+              url: https://example.com
               port: 1
               dnsServerPort: 5249
               host: host
@@ -22885,6 +22637,7 @@ components:
               key: headers
             noSavingResponseBody: true
             shouldTrackHops: true
+            method: GET
             basicAuth:
               password: ""
               username: ""
@@ -22901,7 +22654,7 @@ components:
             allow_insecure: true
             body: body
             timeout: 5.962133916683182
-            url: url
+            url: https://example.com
             port: 1
             dnsServerPort: 5249
             host: host
@@ -22945,6 +22698,7 @@ components:
           type: assertElementContent
           timeout: 1
         public_id: public_id
+        status: live
         tags:
         - tags
         - tags
@@ -23002,6 +22756,7 @@ components:
             key: headers
           noSavingResponseBody: true
           shouldTrackHops: true
+          method: GET
           basicAuth:
             password: ""
             username: ""
@@ -23018,7 +22773,7 @@ components:
           allow_insecure: true
           body: body
           timeout: 5.962133916683182
-          url: url
+          url: https://example.com
           port: 1
           dnsServerPort: 5249
           host: host
@@ -23308,6 +23063,7 @@ components:
                 key: headers
               noSavingResponseBody: true
               shouldTrackHops: true
+              method: GET
               basicAuth:
                 password: ""
                 username: ""
@@ -23324,7 +23080,7 @@ components:
               allow_insecure: true
               body: body
               timeout: 5.962133916683182
-              url: url
+              url: https://example.com
               port: 1
               dnsServerPort: 5249
               host: host
@@ -24162,6 +23918,7 @@ components:
           tags:
           - tags
           - tags
+          subtype: http
           name: name
           options:
             allow_insecure: true
@@ -24191,6 +23948,7 @@ components:
                 key: headers
               noSavingResponseBody: true
               shouldTrackHops: true
+              method: GET
               basicAuth:
                 password: ""
                 username: ""
@@ -24207,7 +23965,7 @@ components:
               allow_insecure: true
               body: body
               timeout: 5.962133916683182
-              url: url
+              url: https://example.com
               port: 1
               dnsServerPort: 5249
               host: host
@@ -24238,6 +23996,7 @@ components:
               id: id
               type: text
               example: example
+          status: live
         - creator:
             name: name
             handle: handle
@@ -24259,6 +24018,7 @@ components:
           tags:
           - tags
           - tags
+          subtype: http
           name: name
           options:
             allow_insecure: true
@@ -24288,6 +24048,7 @@ components:
                 key: headers
               noSavingResponseBody: true
               shouldTrackHops: true
+              method: GET
               basicAuth:
                 password: ""
                 username: ""
@@ -24304,7 +24065,7 @@ components:
               allow_insecure: true
               body: body
               timeout: 5.962133916683182
-              url: url
+              url: https://example.com
               port: 1
               dnsServerPort: 5249
               host: host
@@ -24335,6 +24096,7 @@ components:
               id: id
               type: text
               example: example
+          status: live
       properties:
         tests:
           description: Array of Synthetic tests configuration.
@@ -24768,6 +24530,7 @@ components:
             key: headers
           noSavingResponseBody: true
           shouldTrackHops: true
+          method: GET
           basicAuth:
             password: ""
             username: ""
@@ -24784,7 +24547,7 @@ components:
           allow_insecure: true
           body: body
           timeout: 5.962133916683182
-          url: url
+          url: https://example.com
           port: 1
           dnsServerPort: 5249
           host: host
@@ -24860,6 +24623,7 @@ components:
         tags:
         - tags
         - tags
+        subtype: http
         name: name
         options:
           allow_insecure: true
@@ -24889,6 +24653,7 @@ components:
               key: headers
             noSavingResponseBody: true
             shouldTrackHops: true
+            method: GET
             basicAuth:
               password: ""
               username: ""
@@ -24905,7 +24670,7 @@ components:
             allow_insecure: true
             body: body
             timeout: 5.962133916683182
-            url: url
+            url: https://example.com
             port: 1
             dnsServerPort: 5249
             host: host
@@ -24936,6 +24701,7 @@ components:
             id: id
             type: text
             example: example
+        status: live
       properties:
         config:
           $ref: '#/components/schemas/SyntheticsTestConfig'
@@ -24993,6 +24759,7 @@ components:
       - dns
       - multi
       - icmp
+      example: http
       type: string
       x-enum-varnames:
       - HTTP
@@ -25145,6 +24912,7 @@ components:
       enum:
       - live
       - paused
+      example: live
       type: string
       x-enum-varnames:
       - LIVE
@@ -25171,6 +24939,7 @@ components:
           key: headers
         noSavingResponseBody: true
         shouldTrackHops: true
+        method: GET
         basicAuth:
           password: ""
           username: ""
@@ -25187,7 +24956,7 @@ components:
         allow_insecure: true
         body: body
         timeout: 5.962133916683182
-        url: url
+        url: https://example.com
         port: 1
         dnsServerPort: 5249
         host: host
@@ -25262,6 +25031,7 @@ components:
           type: number
         url:
           description: URL to perform the test with.
+          example: https://example.com
           type: string
       type: object
     SyntheticsTestRequestCertificate:
@@ -25429,7 +25199,8 @@ components:
       type: object
     SyntheticsUpdateTestPauseStatusPayload:
       description: Object to start or pause an existing Synthetic test.
-      example: {}
+      example:
+        new_status: live
       properties:
         new_status:
           $ref: '#/components/schemas/SyntheticsTestPauseStatus'
@@ -32448,6 +32219,7 @@ components:
               key: headers
             noSavingResponseBody: true
             shouldTrackHops: true
+            method: GET
             basicAuth:
               password: ""
               username: ""
@@ -32464,7 +32236,7 @@ components:
             allow_insecure: true
             body: body
             timeout: 5.962133916683182
-            url: url
+            url: https://example.com
             port: 1
             dnsServerPort: 5249
             host: host
@@ -32543,6 +32315,7 @@ components:
               key: headers
             noSavingResponseBody: true
             shouldTrackHops: true
+            method: GET
             basicAuth:
               password: ""
               username: ""
@@ -32559,7 +32332,7 @@ components:
             allow_insecure: true
             body: body
             timeout: 5.962133916683182
-            url: url
+            url: https://example.com
             port: 1
             dnsServerPort: 5249
             host: host
