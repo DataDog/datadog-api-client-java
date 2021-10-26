@@ -1,5 +1,11 @@
+
+
 # UserInvitationsType
 
 ## Enum
 
-- `USER_INVITATIONS` (value: `"user_invitations"`)
+
+* `USER_INVITATIONS` (value: `"user_invitations"`)
+
+
+

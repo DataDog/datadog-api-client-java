@@ -2,9 +2,11 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method                                        | HTTP request             | Description      |
-| --------------------------------------------- | ------------------------ | ---------------- |
-| [**validate**](AuthenticationApi.md#validate) | **GET** /api/v1/validate | Validate API key |
+Method        | HTTP request | Description
+------------- | ------------ | ------------
+[**validate**](AuthenticationApi.md#validate) | **GET** /api/v1/validate | Validate API key
+
+
 
 ## validate
 
@@ -59,8 +61,8 @@ This endpoint does not need any parameter.
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Authentication error |  -  |
 
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **200**     | OK                   | -                |
-| **403**     | Authentication error | -                |

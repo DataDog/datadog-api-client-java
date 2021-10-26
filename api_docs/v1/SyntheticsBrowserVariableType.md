@@ -1,13 +1,19 @@
+
+
 # SyntheticsBrowserVariableType
 
 ## Enum
 
-- `ELEMENT` (value: `"element"`)
 
-- `EMAIL` (value: `"email"`)
+* `ELEMENT` (value: `"element"`)
 
-- `GLOBAL` (value: `"global"`)
+* `EMAIL` (value: `"email"`)
 
-- `JAVASCRIPT` (value: `"javascript"`)
+* `GLOBAL` (value: `"global"`)
 
-- `TEXT` (value: `"text"`)
+* `JAVASCRIPT` (value: `"javascript"`)
+
+* `TEXT` (value: `"text"`)
+
+
+

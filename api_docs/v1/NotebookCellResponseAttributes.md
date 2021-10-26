@@ -1,18 +1,18 @@
+
+
 # NotebookCellResponseAttributes
 
 The attributes of a notebook cell response. Valid cell types are `markdown`, `timeseries`, `toplist`, `heatmap`, `distribution`, `log_stream`. [More information on each graph visualization type.](https://docs.datadoghq.com/dashboards/widgets/)
 
 ## oneOf schemas
-
-- [NotebookDistributionCellAttributes](NotebookDistributionCellAttributes.md)
-- [NotebookHeatMapCellAttributes](NotebookHeatMapCellAttributes.md)
-- [NotebookLogStreamCellAttributes](NotebookLogStreamCellAttributes.md)
-- [NotebookMarkdownCellAttributes](NotebookMarkdownCellAttributes.md)
-- [NotebookTimeseriesCellAttributes](NotebookTimeseriesCellAttributes.md)
-- [NotebookToplistCellAttributes](NotebookToplistCellAttributes.md)
+* [NotebookDistributionCellAttributes](NotebookDistributionCellAttributes.md)
+* [NotebookHeatMapCellAttributes](NotebookHeatMapCellAttributes.md)
+* [NotebookLogStreamCellAttributes](NotebookLogStreamCellAttributes.md)
+* [NotebookMarkdownCellAttributes](NotebookMarkdownCellAttributes.md)
+* [NotebookTimeseriesCellAttributes](NotebookTimeseriesCellAttributes.md)
+* [NotebookToplistCellAttributes](NotebookToplistCellAttributes.md)
 
 ## Example
-
 ```java
 // Import classes:
 import com.datadog.api.v1.client.model.NotebookCellResponseAttributes;
@@ -71,3 +71,5 @@ public class Example {
     }
 }
 ```
+
+

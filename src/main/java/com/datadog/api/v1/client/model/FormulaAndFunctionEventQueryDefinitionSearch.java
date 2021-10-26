@@ -8,38 +8,23 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Search options.
- */
+/** Search options. */
 @ApiModel(description = "Search options.")
-@JsonPropertyOrder({
-  FormulaAndFunctionEventQueryDefinitionSearch.JSON_PROPERTY_QUERY
-})
+@JsonPropertyOrder({FormulaAndFunctionEventQueryDefinitionSearch.JSON_PROPERTY_QUERY})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-
 public class FormulaAndFunctionEventQueryDefinitionSearch {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
 
@@ -47,9 +32,8 @@ public class FormulaAndFunctionEventQueryDefinitionSearch {
 
   @JsonCreator
   public FormulaAndFunctionEventQueryDefinitionSearch(
-            @JsonProperty(required=true, value=JSON_PROPERTY_QUERY) String query
-            ) {
-        this.query = query;
+      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query) {
+    this.query = query;
   }
 
   public FormulaAndFunctionEventQueryDefinitionSearch query(String query) {
@@ -57,27 +41,23 @@ public class FormulaAndFunctionEventQueryDefinitionSearch {
     return this;
   }
 
-   /**
+  /**
    * Events search string.
+   *
    * @return query
-  **/
+   */
   @ApiModelProperty(example = "service:query", required = true, value = "Events search string.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getQuery() {
     return query;
   }
-
 
   public void setQuery(String query) {
     this.query = query;
   }
 
-
-  /**
-   * Return true if this FormulaAndFunctionEventQueryDefinition_search object is equal to o.
-   */
+  /** Return true if this FormulaAndFunctionEventQueryDefinition_search object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -86,7 +66,8 @@ public class FormulaAndFunctionEventQueryDefinitionSearch {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FormulaAndFunctionEventQueryDefinitionSearch formulaAndFunctionEventQueryDefinitionSearch = (FormulaAndFunctionEventQueryDefinitionSearch) o;
+    FormulaAndFunctionEventQueryDefinitionSearch formulaAndFunctionEventQueryDefinitionSearch =
+        (FormulaAndFunctionEventQueryDefinitionSearch) o;
     return Objects.equals(this.query, formulaAndFunctionEventQueryDefinitionSearch.query);
   }
 
@@ -105,8 +86,7 @@ public class FormulaAndFunctionEventQueryDefinitionSearch {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -114,6 +94,4 @@ public class FormulaAndFunctionEventQueryDefinitionSearch {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

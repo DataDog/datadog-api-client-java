@@ -10,8 +10,14 @@ done
 
 mvn --batch-mode  dependency:copy-dependencies
 
-ls examples/*/*/*.java | xargs javac -cp "target/dependency/*" -sourcepath src/main/java/
+ls examples/v1/*/*.java | xargs javac -cp "target/dependency/*" -sourcepath src/main/java/
 if [ $? -ne 0 ]; then
-    echo -e "Failed to build examples"
+    echo -e "Failed to build v1 examples"
+    exit 1
+fi
+
+ls examples/v2/*/*.java | xargs javac -cp "target/dependency/*" -sourcepath src/main/java/
+if [ $? -ne 0 ]; then
+    echo -e "Failed to build v2 examples"
     exit 1
 fi

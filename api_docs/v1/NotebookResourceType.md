@@ -1,5 +1,11 @@
+
+
 # NotebookResourceType
 
 ## Enum
 
-- `NOTEBOOKS` (value: `"notebooks"`)
+
+* `NOTEBOOKS` (value: `"notebooks"`)
+
+
+

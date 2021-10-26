@@ -8,49 +8,32 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.UsageAttributionAggregatesBody;
-import com.datadog.api.v1.client.model.UsageAttributionPagination;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * The object containing document metadata.
- */
+/** The object containing document metadata. */
 @ApiModel(description = "The object containing document metadata.")
 @JsonPropertyOrder({
   UsageAttributionMetadata.JSON_PROPERTY_AGGREGATES,
   UsageAttributionMetadata.JSON_PROPERTY_PAGINATION
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-
 public class UsageAttributionMetadata {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGGREGATES = "aggregates";
   private List<UsageAttributionAggregatesBody> aggregates = null;
 
   public static final String JSON_PROPERTY_PAGINATION = "pagination";
   private UsageAttributionPagination pagination;
-
 
   public UsageAttributionMetadata aggregates(List<UsageAttributionAggregatesBody> aggregates) {
     this.aggregates = aggregates;
@@ -69,24 +52,22 @@ public class UsageAttributionMetadata {
     return this;
   }
 
-   /**
+  /**
    * An array of available aggregates.
+   *
    * @return aggregates
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "An array of available aggregates.")
   @JsonProperty(JSON_PROPERTY_AGGREGATES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<UsageAttributionAggregatesBody> getAggregates() {
     return aggregates;
   }
 
-
   public void setAggregates(List<UsageAttributionAggregatesBody> aggregates) {
     this.aggregates = aggregates;
   }
-
 
   public UsageAttributionMetadata pagination(UsageAttributionPagination pagination) {
     this.pagination = pagination;
@@ -94,28 +75,24 @@ public class UsageAttributionMetadata {
     return this;
   }
 
-   /**
+  /**
    * Get pagination
+   *
    * @return pagination
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PAGINATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public UsageAttributionPagination getPagination() {
     return pagination;
   }
-
 
   public void setPagination(UsageAttributionPagination pagination) {
     this.pagination = pagination;
   }
 
-
-  /**
-   * Return true if this UsageAttributionMetadata object is equal to o.
-   */
+  /** Return true if this UsageAttributionMetadata object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -125,8 +102,8 @@ public class UsageAttributionMetadata {
       return false;
     }
     UsageAttributionMetadata usageAttributionMetadata = (UsageAttributionMetadata) o;
-    return Objects.equals(this.aggregates, usageAttributionMetadata.aggregates) &&
-        Objects.equals(this.pagination, usageAttributionMetadata.pagination);
+    return Objects.equals(this.aggregates, usageAttributionMetadata.aggregates)
+        && Objects.equals(this.pagination, usageAttributionMetadata.pagination);
   }
 
   @Override
@@ -145,8 +122,7 @@ public class UsageAttributionMetadata {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -154,6 +130,4 @@ public class UsageAttributionMetadata {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

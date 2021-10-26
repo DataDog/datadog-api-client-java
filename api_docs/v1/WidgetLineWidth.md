@@ -1,9 +1,15 @@
+
+
 # WidgetLineWidth
 
 ## Enum
 
-- `NORMAL` (value: `"normal"`)
 
-- `THICK` (value: `"thick"`)
+* `NORMAL` (value: `"normal"`)
 
-- `THIN` (value: `"thin"`)
+* `THICK` (value: `"thick"`)
+
+* `THIN` (value: `"thin"`)
+
+
+

@@ -8,43 +8,31 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.datadog.api.v1.client.JSON;
-
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
-/**
- * Source from which to query items to display in the stream.
- */
+import java.util.Objects;
+import java.util.Set;
+
+/** Source from which to query items to display in the stream. */
 @JsonSerialize(using = ListStreamSource.ListStreamSourceSerializer.class)
 public class ListStreamSource {
-  
+
   public static final ListStreamSource ISSUE_STREAM = new ListStreamSource("issue_stream");
   public static final ListStreamSource LOGS_STREAM = new ListStreamSource("logs_stream");
   public static final ListStreamSource AUDIT_STREAM = new ListStreamSource("audit_stream");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("issue_stream","logs_stream","audit_stream"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("issue_stream", "logs_stream", "audit_stream"));
 
   private String value;
 
@@ -57,18 +45,19 @@ public class ListStreamSource {
   }
 
   public static class ListStreamSourceSerializer extends StdSerializer<ListStreamSource> {
-      public ListStreamSourceSerializer(Class<ListStreamSource> t) {
-          super(t);
-      }
+    public ListStreamSourceSerializer(Class<ListStreamSource> t) {
+      super(t);
+    }
 
-      public ListStreamSourceSerializer() {
-          this(null);
-      }
+    public ListStreamSourceSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(ListStreamSource value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(ListStreamSource value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonValue
@@ -80,9 +69,7 @@ public class ListStreamSource {
     this.value = value;
   }
 
-  /**
-   * Return true if this ListStreamSource object is equal to o.
-   */
+  /** Return true if this ListStreamSource object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -96,7 +83,7 @@ public class ListStreamSource {
 
   @Override
   public int hashCode() {
-      return Objects.hash(value);
+    return Objects.hash(value);
   }
 
   @Override
@@ -109,4 +96,3 @@ public class ListStreamSource {
     return new ListStreamSource(value);
   }
 }
-

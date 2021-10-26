@@ -8,37 +8,19 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.DistributionWidgetDefinition;
-import com.datadog.api.v1.client.model.NotebookCellTime;
-import com.datadog.api.v1.client.model.NotebookGraphSize;
-import com.datadog.api.v1.client.model.NotebookSplitBy;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.datadog.api.v1.client.JSON;
 
-
-/**
- * The attributes of a notebook &#x60;distribution&#x60; cell.
- */
+/** The attributes of a notebook &#x60;distribution&#x60; cell. */
 @ApiModel(description = "The attributes of a notebook `distribution` cell.")
 @JsonPropertyOrder({
   NotebookDistributionCellAttributes.JSON_PROPERTY_DEFINITION,
@@ -47,10 +29,8 @@ import com.datadog.api.v1.client.JSON;
   NotebookDistributionCellAttributes.JSON_PROPERTY_TIME
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-
 public class NotebookDistributionCellAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DEFINITION = "definition";
   private DistributionWidgetDefinition definition;
 
@@ -67,10 +47,10 @@ public class NotebookDistributionCellAttributes {
 
   @JsonCreator
   public NotebookDistributionCellAttributes(
-            @JsonProperty(required=true, value=JSON_PROPERTY_DEFINITION) DistributionWidgetDefinition definition
-            ) {
-        this.definition = definition;
-        this.unparsed |= definition.unparsed;
+      @JsonProperty(required = true, value = JSON_PROPERTY_DEFINITION)
+          DistributionWidgetDefinition definition) {
+    this.definition = definition;
+    this.unparsed |= definition.unparsed;
   }
 
   public NotebookDistributionCellAttributes definition(DistributionWidgetDefinition definition) {
@@ -79,23 +59,21 @@ public class NotebookDistributionCellAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get definition
+   *
    * @return definition
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DEFINITION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public DistributionWidgetDefinition getDefinition() {
     return definition;
   }
 
-
   public void setDefinition(DistributionWidgetDefinition definition) {
     this.definition = definition;
   }
-
 
   public NotebookDistributionCellAttributes graphSize(NotebookGraphSize graphSize) {
     this.graphSize = graphSize;
@@ -103,27 +81,25 @@ public class NotebookDistributionCellAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get graphSize
+   *
    * @return graphSize
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_GRAPH_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public NotebookGraphSize getGraphSize() {
     return graphSize;
   }
 
-
   public void setGraphSize(NotebookGraphSize graphSize) {
     if (!graphSize.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.graphSize = graphSize;
   }
-
 
   public NotebookDistributionCellAttributes splitBy(NotebookSplitBy splitBy) {
     this.splitBy = splitBy;
@@ -131,49 +107,46 @@ public class NotebookDistributionCellAttributes {
     return this;
   }
 
-   /**
+  /**
    * Get splitBy
+   *
    * @return splitBy
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SPLIT_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public NotebookSplitBy getSplitBy() {
     return splitBy;
   }
 
-
   public void setSplitBy(NotebookSplitBy splitBy) {
     this.splitBy = splitBy;
   }
-
 
   public NotebookDistributionCellAttributes time(NotebookCellTime time) {
     this.time = JsonNullable.<NotebookCellTime>of(time);
     return this;
   }
 
-   /**
+  /**
    * Get time
+   *
    * @return time
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
-
   public NotebookCellTime getTime() {
-        return time.orElse(null);
+    return time.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<NotebookCellTime> getTime_JsonNullable() {
     return time;
   }
-  
+
   @JsonProperty(JSON_PROPERTY_TIME)
   public void setTime_JsonNullable(JsonNullable<NotebookCellTime> time) {
     this.time = time;
@@ -183,10 +156,7 @@ public class NotebookDistributionCellAttributes {
     this.time = JsonNullable.<NotebookCellTime>of(time);
   }
 
-
-  /**
-   * Return true if this NotebookDistributionCellAttributes object is equal to o.
-   */
+  /** Return true if this NotebookDistributionCellAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -195,11 +165,12 @@ public class NotebookDistributionCellAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    NotebookDistributionCellAttributes notebookDistributionCellAttributes = (NotebookDistributionCellAttributes) o;
-    return Objects.equals(this.definition, notebookDistributionCellAttributes.definition) &&
-        Objects.equals(this.graphSize, notebookDistributionCellAttributes.graphSize) &&
-        Objects.equals(this.splitBy, notebookDistributionCellAttributes.splitBy) &&
-        Objects.equals(this.time, notebookDistributionCellAttributes.time);
+    NotebookDistributionCellAttributes notebookDistributionCellAttributes =
+        (NotebookDistributionCellAttributes) o;
+    return Objects.equals(this.definition, notebookDistributionCellAttributes.definition)
+        && Objects.equals(this.graphSize, notebookDistributionCellAttributes.graphSize)
+        && Objects.equals(this.splitBy, notebookDistributionCellAttributes.splitBy)
+        && Objects.equals(this.time, notebookDistributionCellAttributes.time);
   }
 
   @Override
@@ -220,8 +191,7 @@ public class NotebookDistributionCellAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -229,6 +199,4 @@ public class NotebookDistributionCellAttributes {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

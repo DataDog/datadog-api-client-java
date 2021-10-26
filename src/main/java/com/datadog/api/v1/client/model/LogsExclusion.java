@@ -8,30 +8,18 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.LogsExclusionFilter;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Represents the index exclusion filter object from configuration API.
- */
+/** Represents the index exclusion filter object from configuration API. */
 @ApiModel(description = "Represents the index exclusion filter object from configuration API.")
 @JsonPropertyOrder({
   LogsExclusion.JSON_PROPERTY_FILTER,
@@ -39,10 +27,8 @@ import com.datadog.api.v1.client.JSON;
   LogsExclusion.JSON_PROPERTY_NAME
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-
 public class LogsExclusion {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FILTER = "filter";
   private LogsExclusionFilter filter;
 
@@ -55,10 +41,8 @@ public class LogsExclusion {
   public LogsExclusion() {}
 
   @JsonCreator
-  public LogsExclusion(
-            @JsonProperty(required=true, value=JSON_PROPERTY_NAME) String name
-            ) {
-        this.name = name;
+  public LogsExclusion(@JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
+    this.name = name;
   }
 
   public LogsExclusion filter(LogsExclusionFilter filter) {
@@ -67,75 +51,70 @@ public class LogsExclusion {
     return this;
   }
 
-   /**
+  /**
    * Get filter
+   *
    * @return filter
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FILTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public LogsExclusionFilter getFilter() {
     return filter;
   }
 
-
   public void setFilter(LogsExclusionFilter filter) {
     this.filter = filter;
   }
-
 
   public LogsExclusion isEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
     return this;
   }
 
-   /**
+  /**
    * Whether or not the exclusion filter is active.
+   *
    * @return isEnabled
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Whether or not the exclusion filter is active.")
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getIsEnabled() {
     return isEnabled;
   }
 
-
   public void setIsEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
   }
-
 
   public LogsExclusion name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Name of the index exclusion filter.
+   *
    * @return name
-  **/
-  @ApiModelProperty(example = "payment", required = true, value = "Name of the index exclusion filter.")
+   */
+  @ApiModelProperty(
+      example = "payment",
+      required = true,
+      value = "Name of the index exclusion filter.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getName() {
     return name;
   }
-
 
   public void setName(String name) {
     this.name = name;
   }
 
-
-  /**
-   * Return true if this LogsExclusion object is equal to o.
-   */
+  /** Return true if this LogsExclusion object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -145,9 +124,9 @@ public class LogsExclusion {
       return false;
     }
     LogsExclusion logsExclusion = (LogsExclusion) o;
-    return Objects.equals(this.filter, logsExclusion.filter) &&
-        Objects.equals(this.isEnabled, logsExclusion.isEnabled) &&
-        Objects.equals(this.name, logsExclusion.name);
+    return Objects.equals(this.filter, logsExclusion.filter)
+        && Objects.equals(this.isEnabled, logsExclusion.isEnabled)
+        && Objects.equals(this.name, logsExclusion.name);
   }
 
   @Override
@@ -167,8 +146,7 @@ public class LogsExclusion {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -176,6 +154,4 @@ public class LogsExclusion {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

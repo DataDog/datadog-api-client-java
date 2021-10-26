@@ -8,38 +8,25 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.datadog.api.v1.client.JSON;
-
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
-/**
- * The type of reports.
- */
+import java.util.Objects;
+import java.util.Set;
+
+/** The type of reports. */
 @JsonSerialize(using = UsageReportsType.UsageReportsTypeSerializer.class)
 public class UsageReportsType {
-  
+
   public static final UsageReportsType REPORTS = new UsageReportsType("reports");
 
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("reports"));
@@ -55,18 +42,19 @@ public class UsageReportsType {
   }
 
   public static class UsageReportsTypeSerializer extends StdSerializer<UsageReportsType> {
-      public UsageReportsTypeSerializer(Class<UsageReportsType> t) {
-          super(t);
-      }
+    public UsageReportsTypeSerializer(Class<UsageReportsType> t) {
+      super(t);
+    }
 
-      public UsageReportsTypeSerializer() {
-          this(null);
-      }
+    public UsageReportsTypeSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(UsageReportsType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(UsageReportsType value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonValue
@@ -78,9 +66,7 @@ public class UsageReportsType {
     this.value = value;
   }
 
-  /**
-   * Return true if this UsageReportsType object is equal to o.
-   */
+  /** Return true if this UsageReportsType object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -94,7 +80,7 @@ public class UsageReportsType {
 
   @Override
   public int hashCode() {
-      return Objects.hash(value);
+    return Objects.hash(value);
   }
 
   @Override
@@ -107,4 +93,3 @@ public class UsageReportsType {
     return new UsageReportsType(value);
   }
 }
-

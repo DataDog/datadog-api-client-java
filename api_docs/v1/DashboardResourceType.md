@@ -1,5 +1,11 @@
+
+
 # DashboardResourceType
 
 ## Enum
 
-- `DASHBOARD` (value: `"dashboard"`)
+
+* `DASHBOARD` (value: `"dashboard"`)
+
+
+

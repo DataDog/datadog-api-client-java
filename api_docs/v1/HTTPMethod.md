@@ -1,17 +1,23 @@
+
+
 # HTTPMethod
 
 ## Enum
 
-- `GET` (value: `"GET"`)
 
-- `POST` (value: `"POST"`)
+* `GET` (value: `"GET"`)
 
-- `PATCH` (value: `"PATCH"`)
+* `POST` (value: `"POST"`)
 
-- `PUT` (value: `"PUT"`)
+* `PATCH` (value: `"PATCH"`)
 
-- `DELETE` (value: `"DELETE"`)
+* `PUT` (value: `"PUT"`)
 
-- `HEAD` (value: `"HEAD"`)
+* `DELETE` (value: `"DELETE"`)
 
-- `OPTIONS` (value: `"OPTIONS"`)
+* `HEAD` (value: `"HEAD"`)
+
+* `OPTIONS` (value: `"OPTIONS"`)
+
+
+

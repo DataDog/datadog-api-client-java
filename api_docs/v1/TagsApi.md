@@ -2,13 +2,15 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method                                          | HTTP request                              | Description        |
-| ----------------------------------------------- | ----------------------------------------- | ------------------ |
-| [**createHostTags**](TagsApi.md#createHostTags) | **POST** /api/v1/tags/hosts/{host_name}   | Add tags to a host |
-| [**deleteHostTags**](TagsApi.md#deleteHostTags) | **DELETE** /api/v1/tags/hosts/{host_name} | Remove host tags   |
-| [**getHostTags**](TagsApi.md#getHostTags)       | **GET** /api/v1/tags/hosts/{host_name}    | Get host tags      |
-| [**listHostTags**](TagsApi.md#listHostTags)     | **GET** /api/v1/tags/hosts                | Get Tags           |
-| [**updateHostTags**](TagsApi.md#updateHostTags) | **PUT** /api/v1/tags/hosts/{host_name}    | Update host tags   |
+Method        | HTTP request | Description
+------------- | ------------ | ------------
+[**createHostTags**](TagsApi.md#createHostTags) | **POST** /api/v1/tags/hosts/{host_name} | Add tags to a host
+[**deleteHostTags**](TagsApi.md#deleteHostTags) | **DELETE** /api/v1/tags/hosts/{host_name} | Remove host tags
+[**getHostTags**](TagsApi.md#getHostTags) | **GET** /api/v1/tags/hosts/{host_name} | Get host tags
+[**listHostTags**](TagsApi.md#listHostTags) | **GET** /api/v1/tags/hosts | Get Tags
+[**updateHostTags**](TagsApi.md#updateHostTags) | **PUT** /api/v1/tags/hosts/{host_name} | Update host tags
+
+
 
 ## createHostTags
 
@@ -52,11 +54,12 @@ public class Example {
 
 ### Parameters
 
-| Name         | Type                        | Description                                                                                                                                         | Notes      |
-| ------------ | --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| **hostName** | **String**                  | This endpoint allows you to add new tags to a host, optionally specifying where the tags came from.                                                 |
-| **body**     | [**HostTags**](HostTags.md) | Update host tags request body.                                                                                                                      |
-| **source**   | **String**                  | The source of the tags. [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value). | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **hostName** | **String**| This endpoint allows you to add new tags to a host, optionally specifying where the tags came from. |
+ **body** | [**HostTags**](HostTags.md)| Update host tags request body. |
+ **source** | **String**| The source of the tags. [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value). | [optional]
 
 ### Return type
 
@@ -72,12 +75,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **201**     | Created     | -                |
-| **403**     | Forbidden   | -                |
-| **404**     | Not Found   | -                |
+|-------------|-------------|------------------|
+| **201** | Created |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
 
 ## deleteHostTags
 
@@ -119,10 +122,11 @@ public class Example {
 
 ### Parameters
 
-| Name         | Type       | Description                                                                                                                                                             | Notes      |
-| ------------ | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| **hostName** | **String** | This endpoint allows you to remove all user-assigned tags for a single host.                                                                                            |
-| **source**   | **String** | The source of the tags (e.g. chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value). | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **hostName** | **String**| This endpoint allows you to remove all user-assigned tags for a single host. |
+ **source** | **String**| The source of the tags (e.g. chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value). | [optional]
 
 ### Return type
 
@@ -138,12 +142,12 @@ null (empty response body)
 - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **204**     | OK          | -                |
-| **403**     | Forbidden   | -                |
-| **404**     | Not Found   | -                |
+|-------------|-------------|------------------|
+| **204** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
 
 ## getHostTags
 
@@ -185,10 +189,11 @@ public class Example {
 
 ### Parameters
 
-| Name         | Type       | Description                                                                   | Notes      |
-| ------------ | ---------- | ----------------------------------------------------------------------------- | ---------- |
-| **hostName** | **String** | When specified, filters list of tags to those tags with the specified source. |
-| **source**   | **String** | Source to filter.                                                             | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **hostName** | **String**| When specified, filters list of tags to those tags with the specified source. |
+ **source** | **String**| Source to filter. | [optional]
 
 ### Return type
 
@@ -204,12 +209,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **403**     | Forbidden   | -                |
-| **404**     | Not Found   | -                |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
 
 ## listHostTags
 
@@ -250,9 +255,10 @@ public class Example {
 
 ### Parameters
 
-| Name       | Type       | Description                                                                | Notes      |
-| ---------- | ---------- | -------------------------------------------------------------------------- | ---------- |
-| **source** | **String** | When specified, filters host list to those tags with the specified source. | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **source** | **String**| When specified, filters host list to those tags with the specified source. | [optional]
 
 ### Return type
 
@@ -268,12 +274,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **403**     | Forbidden   | -                |
-| **404**     | Not Found   | -                |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
 
 ## updateHostTags
 
@@ -317,11 +323,12 @@ public class Example {
 
 ### Parameters
 
-| Name         | Type                        | Description                                                                                                                                                            | Notes      |
-| ------------ | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| **hostName** | **String**                  | This endpoint allows you to update/replace all in an integration source with those supplied in the request.                                                            |
-| **body**     | [**HostTags**](HostTags.md) | Add tags to host                                                                                                                                                       |
-| **source**   | **String**                  | The source of the tags (e.g. chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value) | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **hostName** | **String**| This endpoint allows you to update/replace all in an integration source with those supplied in the request. |
+ **body** | [**HostTags**](HostTags.md)| Add tags to host |
+ **source** | **String**| The source of the tags (e.g. chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value) | [optional]
 
 ### Return type
 
@@ -337,9 +344,9 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **201**     | OK          | -                |
-| **403**     | Forbidden   | -                |
-| **404**     | Not Found   | -                |
+|-------------|-------------|------------------|
+| **201** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+

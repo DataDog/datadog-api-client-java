@@ -1,9 +1,15 @@
+
+
 # WidgetHorizontalAlign
 
 ## Enum
 
-- `CENTER` (value: `"center"`)
 
-- `LEFT` (value: `"left"`)
+* `CENTER` (value: `"center"`)
 
-- `RIGHT` (value: `"right"`)
+* `LEFT` (value: `"left"`)
+
+* `RIGHT` (value: `"right"`)
+
+
+

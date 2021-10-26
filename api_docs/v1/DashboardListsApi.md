@@ -2,13 +2,15 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method                                                              | HTTP request                                        | Description             |
-| ------------------------------------------------------------------- | --------------------------------------------------- | ----------------------- |
-| [**createDashboardList**](DashboardListsApi.md#createDashboardList) | **POST** /api/v1/dashboard/lists/manual             | Create a dashboard list |
-| [**deleteDashboardList**](DashboardListsApi.md#deleteDashboardList) | **DELETE** /api/v1/dashboard/lists/manual/{list_id} | Delete a dashboard list |
-| [**getDashboardList**](DashboardListsApi.md#getDashboardList)       | **GET** /api/v1/dashboard/lists/manual/{list_id}    | Get a dashboard list    |
-| [**listDashboardLists**](DashboardListsApi.md#listDashboardLists)   | **GET** /api/v1/dashboard/lists/manual              | Get all dashboard lists |
-| [**updateDashboardList**](DashboardListsApi.md#updateDashboardList) | **PUT** /api/v1/dashboard/lists/manual/{list_id}    | Update a dashboard list |
+Method        | HTTP request | Description
+------------- | ------------ | ------------
+[**createDashboardList**](DashboardListsApi.md#createDashboardList) | **POST** /api/v1/dashboard/lists/manual | Create a dashboard list
+[**deleteDashboardList**](DashboardListsApi.md#deleteDashboardList) | **DELETE** /api/v1/dashboard/lists/manual/{list_id} | Delete a dashboard list
+[**getDashboardList**](DashboardListsApi.md#getDashboardList) | **GET** /api/v1/dashboard/lists/manual/{list_id} | Get a dashboard list
+[**listDashboardLists**](DashboardListsApi.md#listDashboardLists) | **GET** /api/v1/dashboard/lists/manual | Get all dashboard lists
+[**updateDashboardList**](DashboardListsApi.md#updateDashboardList) | **PUT** /api/v1/dashboard/lists/manual/{list_id} | Update a dashboard list
+
+
 
 ## createDashboardList
 
@@ -48,9 +50,10 @@ public class Example {
 
 ### Parameters
 
-| Name     | Type                                  | Description                           | Notes |
-| -------- | ------------------------------------- | ------------------------------------- | ----- |
-| **body** | [**DashboardList**](DashboardList.md) | Create a dashboard list request body. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**DashboardList**](DashboardList.md)| Create a dashboard list request body. |
 
 ### Return type
 
@@ -66,12 +69,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **400**     | Bad Request | -                |
-| **403**     | Forbidden   | -                |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+
 
 ## deleteDashboardList
 
@@ -111,9 +114,10 @@ public class Example {
 
 ### Parameters
 
-| Name       | Type     | Description                         | Notes |
-| ---------- | -------- | ----------------------------------- | ----- |
-| **listId** | **Long** | ID of the dashboard list to delete. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **listId** | **Long**| ID of the dashboard list to delete. |
 
 ### Return type
 
@@ -129,12 +133,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **403**     | Forbidden   | -                |
-| **404**     | Not Found   | -                |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
 
 ## getDashboardList
 
@@ -174,9 +178,10 @@ public class Example {
 
 ### Parameters
 
-| Name       | Type     | Description                        | Notes |
-| ---------- | -------- | ---------------------------------- | ----- |
-| **listId** | **Long** | ID of the dashboard list to fetch. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **listId** | **Long**| ID of the dashboard list to fetch. |
 
 ### Return type
 
@@ -192,12 +197,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **403**     | Forbidden   | -                |
-| **404**     | Not Found   | -                |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
 
 ## listDashboardLists
 
@@ -252,11 +257,11 @@ This endpoint does not need any parameter.
 - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **403**     | Forbidden   | -                |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+
 
 ## updateDashboardList
 
@@ -297,10 +302,11 @@ public class Example {
 
 ### Parameters
 
-| Name       | Type                                  | Description                           | Notes |
-| ---------- | ------------------------------------- | ------------------------------------- | ----- |
-| **listId** | **Long**                              | ID of the dashboard list to update.   |
-| **body**   | [**DashboardList**](DashboardList.md) | Update a dashboard list request body. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **listId** | **Long**| ID of the dashboard list to update. |
+ **body** | [**DashboardList**](DashboardList.md)| Update a dashboard list request body. |
 
 ### Return type
 
@@ -316,10 +322,10 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **400**     | Bad Request | -                |
-| **403**     | Forbidden   | -                |
-| **404**     | Not Found   | -                |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+

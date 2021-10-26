@@ -8,42 +8,30 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.datadog.api.v1.client.JSON;
-
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
-/**
- * Direction of sort.
- */
+import java.util.Objects;
+import java.util.Set;
+
+/** Direction of sort. */
 @JsonSerialize(using = QuerySortOrder.QuerySortOrderSerializer.class)
 public class QuerySortOrder {
-  
+
   public static final QuerySortOrder ASC = new QuerySortOrder("asc");
   public static final QuerySortOrder DESC = new QuerySortOrder("desc");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("asc","desc"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("asc", "desc"));
 
   private String value;
 
@@ -56,18 +44,19 @@ public class QuerySortOrder {
   }
 
   public static class QuerySortOrderSerializer extends StdSerializer<QuerySortOrder> {
-      public QuerySortOrderSerializer(Class<QuerySortOrder> t) {
-          super(t);
-      }
+    public QuerySortOrderSerializer(Class<QuerySortOrder> t) {
+      super(t);
+    }
 
-      public QuerySortOrderSerializer() {
-          this(null);
-      }
+    public QuerySortOrderSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(QuerySortOrder value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(QuerySortOrder value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonValue
@@ -79,9 +68,7 @@ public class QuerySortOrder {
     this.value = value;
   }
 
-  /**
-   * Return true if this QuerySortOrder object is equal to o.
-   */
+  /** Return true if this QuerySortOrder object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -95,7 +82,7 @@ public class QuerySortOrder {
 
   @Override
   public int hashCode() {
-      return Objects.hash(value);
+    return Objects.hash(value);
   }
 
   @Override
@@ -108,4 +95,3 @@ public class QuerySortOrder {
     return new QuerySortOrder(value);
   }
 }
-

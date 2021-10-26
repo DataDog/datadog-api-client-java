@@ -1,11 +1,17 @@
+
+
 # ServiceCheckStatus
 
 ## Enum
 
-- `OK` (value: `0`)
 
-- `WARNING` (value: `1`)
+* `OK` (value: `0`)
 
-- `CRITICAL` (value: `2`)
+* `WARNING` (value: `1`)
 
-- `UNKNOWN` (value: `3`)
+* `CRITICAL` (value: `2`)
+
+* `UNKNOWN` (value: `3`)
+
+
+

@@ -1,9 +1,14 @@
+
+
 # NotebookRelativeTime
 
 Relative timeframe.
 
 ## Properties
 
-| Name         | Type               | Description | Notes |
-| ------------ | ------------------ | ----------- | ----- |
-| **liveSpan** | **WidgetLiveSpan** |             |
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**liveSpan** | **WidgetLiveSpan** |  | 
+
+
+

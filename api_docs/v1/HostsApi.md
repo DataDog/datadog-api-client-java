@@ -2,12 +2,14 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method                                         | HTTP request                             | Description                          |
-| ---------------------------------------------- | ---------------------------------------- | ------------------------------------ |
-| [**getHostTotals**](HostsApi.md#getHostTotals) | **GET** /api/v1/hosts/totals             | Get the total number of active hosts |
-| [**listHosts**](HostsApi.md#listHosts)         | **GET** /api/v1/hosts                    | Get all hosts for your organization  |
-| [**muteHost**](HostsApi.md#muteHost)           | **POST** /api/v1/host/{host_name}/mute   | Mute a host                          |
-| [**unmuteHost**](HostsApi.md#unmuteHost)       | **POST** /api/v1/host/{host_name}/unmute | Unmute a host                        |
+Method        | HTTP request | Description
+------------- | ------------ | ------------
+[**getHostTotals**](HostsApi.md#getHostTotals) | **GET** /api/v1/hosts/totals | Get the total number of active hosts
+[**listHosts**](HostsApi.md#listHosts) | **GET** /api/v1/hosts | Get all hosts for your organization
+[**muteHost**](HostsApi.md#muteHost) | **POST** /api/v1/host/{host_name}/mute | Mute a host
+[**unmuteHost**](HostsApi.md#unmuteHost) | **POST** /api/v1/host/{host_name}/unmute | Unmute a host
+
+
 
 ## getHostTotals
 
@@ -49,9 +51,10 @@ public class Example {
 
 ### Parameters
 
-| Name     | Type     | Description                                                                | Notes      |
-| -------- | -------- | -------------------------------------------------------------------------- | ---------- |
-| **from** | **Long** | Number of seconds from which you want to get total number of active hosts. | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **from** | **Long**| Number of seconds from which you want to get total number of active hosts. | [optional]
 
 ### Return type
 
@@ -67,12 +70,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Invalid Parameter Error |  -  |
+| **403** | Forbidden |  -  |
 
-| Status code | Description             | Response headers |
-| ----------- | ----------------------- | ---------------- |
-| **200**     | OK                      | -                |
-| **400**     | Invalid Parameter Error | -                |
-| **403**     | Forbidden               | -                |
 
 ## listHosts
 
@@ -130,16 +133,17 @@ public class Example {
 
 ### Parameters
 
-| Name                      | Type        | Description                                                                                      | Notes      |
-| ------------------------- | ----------- | ------------------------------------------------------------------------------------------------ | ---------- |
-| **filter**                | **String**  | String to filter search results.                                                                 | [optional] |
-| **sortField**             | **String**  | Sort hosts by this field.                                                                        | [optional] |
-| **sortDir**               | **String**  | Direction of sort. Options include &#x60;asc&#x60; and &#x60;desc&#x60;.                         | [optional] |
-| **start**                 | **Long**    | Host result to start search from.                                                                | [optional] |
-| **count**                 | **Long**    | Number of hosts to return. Max 1000.                                                             | [optional] |
-| **from**                  | **Long**    | Number of seconds since UNIX epoch from which you want to search your hosts.                     | [optional] |
-| **includeMutedHostsData** | **Boolean** | Include information on the muted status of hosts and when the mute expires.                      | [optional] |
-| **includeHostsMetadata**  | **Boolean** | Include additional metadata about the hosts (agent_version, machine, platform, processor, etc.). | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **filter** | **String**| String to filter search results. | [optional]
+ **sortField** | **String**| Sort hosts by this field. | [optional]
+ **sortDir** | **String**| Direction of sort. Options include &#x60;asc&#x60; and &#x60;desc&#x60;. | [optional]
+ **start** | **Long**| Host result to start search from. | [optional]
+ **count** | **Long**| Number of hosts to return. Max 1000. | [optional]
+ **from** | **Long**| Number of seconds since UNIX epoch from which you want to search your hosts. | [optional]
+ **includeMutedHostsData** | **Boolean**| Include information on the muted status of hosts and when the mute expires. | [optional]
+ **includeHostsMetadata** | **Boolean**| Include additional metadata about the hosts (agent_version, machine, platform, processor, etc.). | [optional]
 
 ### Return type
 
@@ -155,12 +159,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Invalid Parameter Error |  -  |
+| **403** | Forbidden |  -  |
 
-| Status code | Description             | Response headers |
-| ----------- | ----------------------- | ---------------- |
-| **200**     | OK                      | -                |
-| **400**     | Invalid Parameter Error | -                |
-| **403**     | Forbidden               | -                |
 
 ## muteHost
 
@@ -201,10 +205,11 @@ public class Example {
 
 ### Parameters
 
-| Name         | Type                                        | Description               | Notes |
-| ------------ | ------------------------------------------- | ------------------------- | ----- |
-| **hostName** | **String**                                  | Name of the host to mute. |
-| **body**     | [**HostMuteSettings**](HostMuteSettings.md) | Mute a host request body. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **hostName** | **String**| Name of the host to mute. |
+ **body** | [**HostMuteSettings**](HostMuteSettings.md)| Mute a host request body. |
 
 ### Return type
 
@@ -220,12 +225,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Invalid Parameter Error |  -  |
+| **403** | Forbidden |  -  |
 
-| Status code | Description             | Response headers |
-| ----------- | ----------------------- | ---------------- |
-| **200**     | OK                      | -                |
-| **400**     | Invalid Parameter Error | -                |
-| **403**     | Forbidden               | -                |
 
 ## unmuteHost
 
@@ -265,9 +270,10 @@ public class Example {
 
 ### Parameters
 
-| Name         | Type       | Description                 | Notes |
-| ------------ | ---------- | --------------------------- | ----- |
-| **hostName** | **String** | Name of the host to unmute. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **hostName** | **String**| Name of the host to unmute. |
 
 ### Return type
 
@@ -283,9 +289,9 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Invalid Parameter Error |  -  |
+| **403** | Forbidden |  -  |
 
-| Status code | Description             | Response headers |
-| ----------- | ----------------------- | ---------------- |
-| **200**     | OK                      | -                |
-| **400**     | Invalid Parameter Error | -                |
-| **403**     | Forbidden               | -                |

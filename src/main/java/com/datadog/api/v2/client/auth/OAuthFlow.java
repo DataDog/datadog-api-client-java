@@ -8,9 +8,11 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.auth;
 
 public enum OAuthFlow {
-    accessCode, implicit, password, application
+  accessCode,
+  implicit,
+  password,
+  application
 }

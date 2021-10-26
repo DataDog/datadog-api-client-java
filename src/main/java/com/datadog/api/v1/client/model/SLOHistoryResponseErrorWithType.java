@@ -8,39 +8,26 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * An object describing the error with error type and error message.
- */
+/** An object describing the error with error type and error message. */
 @ApiModel(description = "An object describing the error with error type and error message.")
 @JsonPropertyOrder({
   SLOHistoryResponseErrorWithType.JSON_PROPERTY_ERROR_MESSAGE,
   SLOHistoryResponseErrorWithType.JSON_PROPERTY_ERROR_TYPE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-
 public class SLOHistoryResponseErrorWithType {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ERROR_MESSAGE = "error_message";
   private String errorMessage;
 
@@ -51,11 +38,10 @@ public class SLOHistoryResponseErrorWithType {
 
   @JsonCreator
   public SLOHistoryResponseErrorWithType(
-            @JsonProperty(required=true, value=JSON_PROPERTY_ERROR_MESSAGE) String errorMessage,
-            @JsonProperty(required=true, value=JSON_PROPERTY_ERROR_TYPE) String errorType
-            ) {
-        this.errorMessage = errorMessage;
-        this.errorType = errorType;
+      @JsonProperty(required = true, value = JSON_PROPERTY_ERROR_MESSAGE) String errorMessage,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ERROR_TYPE) String errorType) {
+    this.errorMessage = errorMessage;
+    this.errorType = errorType;
   }
 
   public SLOHistoryResponseErrorWithType errorMessage(String errorMessage) {
@@ -63,50 +49,47 @@ public class SLOHistoryResponseErrorWithType {
     return this;
   }
 
-   /**
+  /**
    * A message with more details about the error.
+   *
    * @return errorMessage
-  **/
-  @ApiModelProperty(example = "", required = true, value = "A message with more details about the error.")
+   */
+  @ApiModelProperty(
+      example = "",
+      required = true,
+      value = "A message with more details about the error.")
   @JsonProperty(JSON_PROPERTY_ERROR_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getErrorMessage() {
     return errorMessage;
   }
 
-
   public void setErrorMessage(String errorMessage) {
     this.errorMessage = errorMessage;
   }
-
 
   public SLOHistoryResponseErrorWithType errorType(String errorType) {
     this.errorType = errorType;
     return this;
   }
 
-   /**
+  /**
    * Type of the error.
+   *
    * @return errorType
-  **/
+   */
   @ApiModelProperty(example = "", required = true, value = "Type of the error.")
   @JsonProperty(JSON_PROPERTY_ERROR_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getErrorType() {
     return errorType;
   }
-
 
   public void setErrorType(String errorType) {
     this.errorType = errorType;
   }
 
-
-  /**
-   * Return true if this SLOHistoryResponseErrorWithType object is equal to o.
-   */
+  /** Return true if this SLOHistoryResponseErrorWithType object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -115,9 +98,10 @@ public class SLOHistoryResponseErrorWithType {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOHistoryResponseErrorWithType slOHistoryResponseErrorWithType = (SLOHistoryResponseErrorWithType) o;
-    return Objects.equals(this.errorMessage, slOHistoryResponseErrorWithType.errorMessage) &&
-        Objects.equals(this.errorType, slOHistoryResponseErrorWithType.errorType);
+    SLOHistoryResponseErrorWithType slOHistoryResponseErrorWithType =
+        (SLOHistoryResponseErrorWithType) o;
+    return Objects.equals(this.errorMessage, slOHistoryResponseErrorWithType.errorMessage)
+        && Objects.equals(this.errorType, slOHistoryResponseErrorWithType.errorType);
   }
 
   @Override
@@ -136,8 +120,7 @@ public class SLOHistoryResponseErrorWithType {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -145,6 +128,4 @@ public class SLOHistoryResponseErrorWithType {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

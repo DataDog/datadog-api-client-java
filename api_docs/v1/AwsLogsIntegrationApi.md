@@ -2,15 +2,17 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method                                                                              | HTTP request                                         | Description                              |
-| ----------------------------------------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------- |
-| [**checkAWSLogsLambdaAsync**](AwsLogsIntegrationApi.md#checkAWSLogsLambdaAsync)     | **POST** /api/v1/integration/aws/logs/check_async    | Check that an AWS Lambda Function exists |
-| [**checkAWSLogsServicesAsync**](AwsLogsIntegrationApi.md#checkAWSLogsServicesAsync) | **POST** /api/v1/integration/aws/logs/services_async | Check permissions for log services       |
-| [**createAWSLambdaARN**](AwsLogsIntegrationApi.md#createAWSLambdaARN)               | **POST** /api/v1/integration/aws/logs                | Add AWS Log Lambda ARN                   |
-| [**deleteAWSLambdaARN**](AwsLogsIntegrationApi.md#deleteAWSLambdaARN)               | **DELETE** /api/v1/integration/aws/logs              | Delete an AWS Logs integration           |
-| [**enableAWSLogServices**](AwsLogsIntegrationApi.md#enableAWSLogServices)           | **POST** /api/v1/integration/aws/logs/services       | Enable an AWS Logs integration           |
-| [**listAWSLogsIntegrations**](AwsLogsIntegrationApi.md#listAWSLogsIntegrations)     | **GET** /api/v1/integration/aws/logs                 | List all AWS Logs integrations           |
-| [**listAWSLogsServices**](AwsLogsIntegrationApi.md#listAWSLogsServices)             | **GET** /api/v1/integration/aws/logs/services        | Get list of AWS log ready services       |
+Method        | HTTP request | Description
+------------- | ------------ | ------------
+[**checkAWSLogsLambdaAsync**](AwsLogsIntegrationApi.md#checkAWSLogsLambdaAsync) | **POST** /api/v1/integration/aws/logs/check_async | Check that an AWS Lambda Function exists
+[**checkAWSLogsServicesAsync**](AwsLogsIntegrationApi.md#checkAWSLogsServicesAsync) | **POST** /api/v1/integration/aws/logs/services_async | Check permissions for log services
+[**createAWSLambdaARN**](AwsLogsIntegrationApi.md#createAWSLambdaARN) | **POST** /api/v1/integration/aws/logs | Add AWS Log Lambda ARN
+[**deleteAWSLambdaARN**](AwsLogsIntegrationApi.md#deleteAWSLambdaARN) | **DELETE** /api/v1/integration/aws/logs | Delete an AWS Logs integration
+[**enableAWSLogServices**](AwsLogsIntegrationApi.md#enableAWSLogServices) | **POST** /api/v1/integration/aws/logs/services | Enable an AWS Logs integration
+[**listAWSLogsIntegrations**](AwsLogsIntegrationApi.md#listAWSLogsIntegrations) | **GET** /api/v1/integration/aws/logs | List all AWS Logs integrations
+[**listAWSLogsServices**](AwsLogsIntegrationApi.md#listAWSLogsServices) | **GET** /api/v1/integration/aws/logs/services | Get list of AWS log ready services
+
+
 
 ## checkAWSLogsLambdaAsync
 
@@ -57,9 +59,10 @@ public class Example {
 
 ### Parameters
 
-| Name     | Type                                                            | Description                              | Notes |
-| -------- | --------------------------------------------------------------- | ---------------------------------------- | ----- |
-| **body** | [**AWSAccountAndLambdaRequest**](AWSAccountAndLambdaRequest.md) | Check AWS Log Lambda Async request body. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**AWSAccountAndLambdaRequest**](AWSAccountAndLambdaRequest.md)| Check AWS Log Lambda Async request body. |
 
 ### Return type
 
@@ -75,12 +78,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication Error |  -  |
 
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **200**     | OK                   | -                |
-| **400**     | Bad Request          | -                |
-| **403**     | Authentication Error | -                |
 
 ## checkAWSLogsServicesAsync
 
@@ -129,9 +132,10 @@ public class Example {
 
 ### Parameters
 
-| Name     | Type                                                    | Description                                 | Notes |
-| -------- | ------------------------------------------------------- | ------------------------------------------- | ----- |
-| **body** | [**AWSLogsServicesRequest**](AWSLogsServicesRequest.md) | Check AWS Logs Async Services request body. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**AWSLogsServicesRequest**](AWSLogsServicesRequest.md)| Check AWS Logs Async Services request body. |
 
 ### Return type
 
@@ -147,12 +151,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication Error |  -  |
 
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **200**     | OK                   | -                |
-| **400**     | Bad Request          | -                |
-| **403**     | Authentication Error | -                |
 
 ## createAWSLambdaARN
 
@@ -192,9 +196,10 @@ public class Example {
 
 ### Parameters
 
-| Name     | Type                                                            | Description                        | Notes |
-| -------- | --------------------------------------------------------------- | ---------------------------------- | ----- |
-| **body** | [**AWSAccountAndLambdaRequest**](AWSAccountAndLambdaRequest.md) | AWS Log Lambda Async request body. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**AWSAccountAndLambdaRequest**](AWSAccountAndLambdaRequest.md)| AWS Log Lambda Async request body. |
 
 ### Return type
 
@@ -210,12 +215,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication Error |  -  |
 
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **200**     | OK                   | -                |
-| **400**     | Bad Request          | -                |
-| **403**     | Authentication Error | -                |
 
 ## deleteAWSLambdaARN
 
@@ -255,9 +260,10 @@ public class Example {
 
 ### Parameters
 
-| Name     | Type                                                            | Description                         | Notes |
-| -------- | --------------------------------------------------------------- | ----------------------------------- | ----- |
-| **body** | [**AWSAccountAndLambdaRequest**](AWSAccountAndLambdaRequest.md) | Delete AWS Lambda ARN request body. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**AWSAccountAndLambdaRequest**](AWSAccountAndLambdaRequest.md)| Delete AWS Lambda ARN request body. |
 
 ### Return type
 
@@ -273,12 +279,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication Error |  -  |
 
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **200**     | OK                   | -                |
-| **400**     | Bad Request          | -                |
-| **403**     | Authentication Error | -                |
 
 ## enableAWSLogServices
 
@@ -318,9 +324,10 @@ public class Example {
 
 ### Parameters
 
-| Name     | Type                                                    | Description                           | Notes |
-| -------- | ------------------------------------------------------- | ------------------------------------- | ----- |
-| **body** | [**AWSLogsServicesRequest**](AWSLogsServicesRequest.md) | Enable AWS Log Services request body. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**AWSLogsServicesRequest**](AWSLogsServicesRequest.md)| Enable AWS Log Services request body. |
 
 ### Return type
 
@@ -336,12 +343,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication Error |  -  |
 
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **200**     | OK                   | -                |
-| **400**     | Bad Request          | -                |
-| **403**     | Authentication Error | -                |
 
 ## listAWSLogsIntegrations
 
@@ -396,12 +403,12 @@ This endpoint does not need any parameter.
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication Error |  -  |
 
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **200**     | OK                   | -                |
-| **400**     | Bad Request          | -                |
-| **403**     | Authentication Error | -                |
 
 ## listAWSLogsServices
 
@@ -456,8 +463,8 @@ This endpoint does not need any parameter.
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Authentication Error |  -  |
 
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **200**     | OK                   | -                |
-| **403**     | Authentication Error | -                |

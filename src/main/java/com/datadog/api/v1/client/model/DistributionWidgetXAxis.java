@@ -8,29 +8,17 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * X Axis controls for the distribution widget.
- */
+/** X Axis controls for the distribution widget. */
 @ApiModel(description = "X Axis controls for the distribution widget.")
 @JsonPropertyOrder({
   DistributionWidgetXAxis.JSON_PROPERTY_INCLUDE_ZERO,
@@ -39,10 +27,8 @@ import com.datadog.api.v1.client.JSON;
   DistributionWidgetXAxis.JSON_PROPERTY_SCALE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-
 public class DistributionWidgetXAxis {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_INCLUDE_ZERO = "include_zero";
   private Boolean includeZero;
 
@@ -55,106 +41,103 @@ public class DistributionWidgetXAxis {
   public static final String JSON_PROPERTY_SCALE = "scale";
   private String scale = "linear";
 
-
   public DistributionWidgetXAxis includeZero(Boolean includeZero) {
     this.includeZero = includeZero;
     return this;
   }
 
-   /**
+  /**
    * True includes zero.
+   *
    * @return includeZero
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "True includes zero.")
   @JsonProperty(JSON_PROPERTY_INCLUDE_ZERO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getIncludeZero() {
     return includeZero;
   }
 
-
   public void setIncludeZero(Boolean includeZero) {
     this.includeZero = includeZero;
   }
-
 
   public DistributionWidgetXAxis max(String max) {
     this.max = max;
     return this;
   }
 
-   /**
-   * Specifies maximum value to show on the x-axis. It takes a number, percentile (p90 &#x3D;&#x3D;&#x3D; 90th percentile), or auto for default behavior.
+  /**
+   * Specifies maximum value to show on the x-axis. It takes a number, percentile (p90
+   * &#x3D;&#x3D;&#x3D; 90th percentile), or auto for default behavior.
+   *
    * @return max
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies maximum value to show on the x-axis. It takes a number, percentile (p90 === 90th percentile), or auto for default behavior.")
+  @ApiModelProperty(
+      value =
+          "Specifies maximum value to show on the x-axis. It takes a number, percentile (p90 ==="
+              + " 90th percentile), or auto for default behavior.")
   @JsonProperty(JSON_PROPERTY_MAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMax() {
     return max;
   }
 
-
   public void setMax(String max) {
     this.max = max;
   }
-
 
   public DistributionWidgetXAxis min(String min) {
     this.min = min;
     return this;
   }
 
-   /**
-   * Specifies minimum value to show on the x-axis. It takes a number, percentile (p90 &#x3D;&#x3D;&#x3D; 90th percentile), or auto for default behavior.
+  /**
+   * Specifies minimum value to show on the x-axis. It takes a number, percentile (p90
+   * &#x3D;&#x3D;&#x3D; 90th percentile), or auto for default behavior.
+   *
    * @return min
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies minimum value to show on the x-axis. It takes a number, percentile (p90 === 90th percentile), or auto for default behavior.")
+  @ApiModelProperty(
+      value =
+          "Specifies minimum value to show on the x-axis. It takes a number, percentile (p90 ==="
+              + " 90th percentile), or auto for default behavior.")
   @JsonProperty(JSON_PROPERTY_MIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMin() {
     return min;
   }
 
-
   public void setMin(String min) {
     this.min = min;
   }
-
 
   public DistributionWidgetXAxis scale(String scale) {
     this.scale = scale;
     return this;
   }
 
-   /**
+  /**
    * Specifies the scale type. Possible values are &#x60;linear&#x60;.
+   *
    * @return scale
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Specifies the scale type. Possible values are `linear`.")
   @JsonProperty(JSON_PROPERTY_SCALE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getScale() {
     return scale;
   }
-
 
   public void setScale(String scale) {
     this.scale = scale;
   }
 
-
-  /**
-   * Return true if this DistributionWidgetXAxis object is equal to o.
-   */
+  /** Return true if this DistributionWidgetXAxis object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -164,10 +147,10 @@ public class DistributionWidgetXAxis {
       return false;
     }
     DistributionWidgetXAxis distributionWidgetXAxis = (DistributionWidgetXAxis) o;
-    return Objects.equals(this.includeZero, distributionWidgetXAxis.includeZero) &&
-        Objects.equals(this.max, distributionWidgetXAxis.max) &&
-        Objects.equals(this.min, distributionWidgetXAxis.min) &&
-        Objects.equals(this.scale, distributionWidgetXAxis.scale);
+    return Objects.equals(this.includeZero, distributionWidgetXAxis.includeZero)
+        && Objects.equals(this.max, distributionWidgetXAxis.max)
+        && Objects.equals(this.min, distributionWidgetXAxis.min)
+        && Objects.equals(this.scale, distributionWidgetXAxis.scale);
   }
 
   @Override
@@ -188,8 +171,7 @@ public class DistributionWidgetXAxis {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -197,6 +179,4 @@ public class DistributionWidgetXAxis {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

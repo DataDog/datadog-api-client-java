@@ -1,27 +1,33 @@
+
+
 # FormulaAndFunctionEventAggregation
 
 ## Enum
 
-- `COUNT` (value: `"count"`)
 
-- `CARDINALITY` (value: `"cardinality"`)
+* `COUNT` (value: `"count"`)
 
-- `MEDIAN` (value: `"median"`)
+* `CARDINALITY` (value: `"cardinality"`)
 
-- `PC75` (value: `"pc75"`)
+* `MEDIAN` (value: `"median"`)
 
-- `PC90` (value: `"pc90"`)
+* `PC75` (value: `"pc75"`)
 
-- `PC95` (value: `"pc95"`)
+* `PC90` (value: `"pc90"`)
 
-- `PC98` (value: `"pc98"`)
+* `PC95` (value: `"pc95"`)
 
-- `PC99` (value: `"pc99"`)
+* `PC98` (value: `"pc98"`)
 
-- `SUM` (value: `"sum"`)
+* `PC99` (value: `"pc99"`)
 
-- `MIN` (value: `"min"`)
+* `SUM` (value: `"sum"`)
 
-- `MAX` (value: `"max"`)
+* `MIN` (value: `"min"`)
 
-- `AVG` (value: `"avg"`)
+* `MAX` (value: `"max"`)
+
+* `AVG` (value: `"avg"`)
+
+
+

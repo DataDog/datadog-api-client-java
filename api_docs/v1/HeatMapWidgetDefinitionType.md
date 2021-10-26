@@ -1,5 +1,11 @@
+
+
 # HeatMapWidgetDefinitionType
 
 ## Enum
 
-- `HEATMAP` (value: `"heatmap"`)
+
+* `HEATMAP` (value: `"heatmap"`)
+
+
+

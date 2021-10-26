@@ -1,40 +1,40 @@
+
+
 # WidgetDefinition
 
 [Definition of the widget](https://docs.datadoghq.com/dashboards/widgets/).
 
 ## oneOf schemas
-
-- [AlertGraphWidgetDefinition](AlertGraphWidgetDefinition.md)
-- [AlertValueWidgetDefinition](AlertValueWidgetDefinition.md)
-- [ChangeWidgetDefinition](ChangeWidgetDefinition.md)
-- [CheckStatusWidgetDefinition](CheckStatusWidgetDefinition.md)
-- [DistributionWidgetDefinition](DistributionWidgetDefinition.md)
-- [EventStreamWidgetDefinition](EventStreamWidgetDefinition.md)
-- [EventTimelineWidgetDefinition](EventTimelineWidgetDefinition.md)
-- [FreeTextWidgetDefinition](FreeTextWidgetDefinition.md)
-- [FunnelWidgetDefinition](FunnelWidgetDefinition.md)
-- [GeomapWidgetDefinition](GeomapWidgetDefinition.md)
-- [GroupWidgetDefinition](GroupWidgetDefinition.md)
-- [HeatMapWidgetDefinition](HeatMapWidgetDefinition.md)
-- [HostMapWidgetDefinition](HostMapWidgetDefinition.md)
-- [IFrameWidgetDefinition](IFrameWidgetDefinition.md)
-- [ImageWidgetDefinition](ImageWidgetDefinition.md)
-- [ListStreamWidgetDefinition](ListStreamWidgetDefinition.md)
-- [LogStreamWidgetDefinition](LogStreamWidgetDefinition.md)
-- [MonitorSummaryWidgetDefinition](MonitorSummaryWidgetDefinition.md)
-- [NoteWidgetDefinition](NoteWidgetDefinition.md)
-- [QueryValueWidgetDefinition](QueryValueWidgetDefinition.md)
-- [SLOWidgetDefinition](SLOWidgetDefinition.md)
-- [ScatterPlotWidgetDefinition](ScatterPlotWidgetDefinition.md)
-- [ServiceMapWidgetDefinition](ServiceMapWidgetDefinition.md)
-- [ServiceSummaryWidgetDefinition](ServiceSummaryWidgetDefinition.md)
-- [TableWidgetDefinition](TableWidgetDefinition.md)
-- [TimeseriesWidgetDefinition](TimeseriesWidgetDefinition.md)
-- [ToplistWidgetDefinition](ToplistWidgetDefinition.md)
-- [TreeMapWidgetDefinition](TreeMapWidgetDefinition.md)
+* [AlertGraphWidgetDefinition](AlertGraphWidgetDefinition.md)
+* [AlertValueWidgetDefinition](AlertValueWidgetDefinition.md)
+* [ChangeWidgetDefinition](ChangeWidgetDefinition.md)
+* [CheckStatusWidgetDefinition](CheckStatusWidgetDefinition.md)
+* [DistributionWidgetDefinition](DistributionWidgetDefinition.md)
+* [EventStreamWidgetDefinition](EventStreamWidgetDefinition.md)
+* [EventTimelineWidgetDefinition](EventTimelineWidgetDefinition.md)
+* [FreeTextWidgetDefinition](FreeTextWidgetDefinition.md)
+* [FunnelWidgetDefinition](FunnelWidgetDefinition.md)
+* [GeomapWidgetDefinition](GeomapWidgetDefinition.md)
+* [GroupWidgetDefinition](GroupWidgetDefinition.md)
+* [HeatMapWidgetDefinition](HeatMapWidgetDefinition.md)
+* [HostMapWidgetDefinition](HostMapWidgetDefinition.md)
+* [IFrameWidgetDefinition](IFrameWidgetDefinition.md)
+* [ImageWidgetDefinition](ImageWidgetDefinition.md)
+* [ListStreamWidgetDefinition](ListStreamWidgetDefinition.md)
+* [LogStreamWidgetDefinition](LogStreamWidgetDefinition.md)
+* [MonitorSummaryWidgetDefinition](MonitorSummaryWidgetDefinition.md)
+* [NoteWidgetDefinition](NoteWidgetDefinition.md)
+* [QueryValueWidgetDefinition](QueryValueWidgetDefinition.md)
+* [SLOWidgetDefinition](SLOWidgetDefinition.md)
+* [ScatterPlotWidgetDefinition](ScatterPlotWidgetDefinition.md)
+* [ServiceMapWidgetDefinition](ServiceMapWidgetDefinition.md)
+* [ServiceSummaryWidgetDefinition](ServiceSummaryWidgetDefinition.md)
+* [TableWidgetDefinition](TableWidgetDefinition.md)
+* [TimeseriesWidgetDefinition](TimeseriesWidgetDefinition.md)
+* [ToplistWidgetDefinition](ToplistWidgetDefinition.md)
+* [TreeMapWidgetDefinition](TreeMapWidgetDefinition.md)
 
 ## Example
-
 ```java
 // Import classes:
 import com.datadog.api.v1.client.model.WidgetDefinition;
@@ -269,3 +269,5 @@ public class Example {
     }
 }
 ```
+
+

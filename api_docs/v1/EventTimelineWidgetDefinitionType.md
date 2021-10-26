@@ -1,5 +1,11 @@
+
+
 # EventTimelineWidgetDefinitionType
 
 ## Enum
 
-- `EVENT_TIMELINE` (value: `"event_timeline"`)
+
+* `EVENT_TIMELINE` (value: `"event_timeline"`)
+
+
+

@@ -2,12 +2,14 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method                                                                                                | HTTP request                                                                   | Description                    |
-| ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ | ------------------------------ |
-| [**createPagerDutyIntegrationService**](PagerDutyIntegrationApi.md#createPagerDutyIntegrationService) | **POST** /api/v1/integration/pagerduty/configuration/services                  | Create a new service object    |
-| [**deletePagerDutyIntegrationService**](PagerDutyIntegrationApi.md#deletePagerDutyIntegrationService) | **DELETE** /api/v1/integration/pagerduty/configuration/services/{service_name} | Delete a single service object |
-| [**getPagerDutyIntegrationService**](PagerDutyIntegrationApi.md#getPagerDutyIntegrationService)       | **GET** /api/v1/integration/pagerduty/configuration/services/{service_name}    | Get a single service object    |
-| [**updatePagerDutyIntegrationService**](PagerDutyIntegrationApi.md#updatePagerDutyIntegrationService) | **PUT** /api/v1/integration/pagerduty/configuration/services/{service_name}    | Update a single service object |
+Method        | HTTP request | Description
+------------- | ------------ | ------------
+[**createPagerDutyIntegrationService**](PagerDutyIntegrationApi.md#createPagerDutyIntegrationService) | **POST** /api/v1/integration/pagerduty/configuration/services | Create a new service object
+[**deletePagerDutyIntegrationService**](PagerDutyIntegrationApi.md#deletePagerDutyIntegrationService) | **DELETE** /api/v1/integration/pagerduty/configuration/services/{service_name} | Delete a single service object
+[**getPagerDutyIntegrationService**](PagerDutyIntegrationApi.md#getPagerDutyIntegrationService) | **GET** /api/v1/integration/pagerduty/configuration/services/{service_name} | Get a single service object
+[**updatePagerDutyIntegrationService**](PagerDutyIntegrationApi.md#updatePagerDutyIntegrationService) | **PUT** /api/v1/integration/pagerduty/configuration/services/{service_name} | Update a single service object
+
+
 
 ## createPagerDutyIntegrationService
 
@@ -47,9 +49,10 @@ public class Example {
 
 ### Parameters
 
-| Name     | Type                                        | Description                               | Notes |
-| -------- | ------------------------------------------- | ----------------------------------------- | ----- |
-| **body** | [**PagerDutyService**](PagerDutyService.md) | Create a new service object request body. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**PagerDutyService**](PagerDutyService.md)| Create a new service object request body. |
 
 ### Return type
 
@@ -65,12 +68,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication error |  -  |
 
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **201**     | OK                   | -                |
-| **400**     | Bad Request          | -                |
-| **403**     | Authentication error | -                |
 
 ## deletePagerDutyIntegrationService
 
@@ -109,9 +112,10 @@ public class Example {
 
 ### Parameters
 
-| Name            | Type       | Description      | Notes |
-| --------------- | ---------- | ---------------- | ----- |
-| **serviceName** | **String** | The service name |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **serviceName** | **String**| The service name |
 
 ### Return type
 
@@ -127,12 +131,12 @@ null (empty response body)
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Authentication error |  -  |
+| **404** | Item Not Found |  -  |
 
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **200**     | OK                   | -                |
-| **403**     | Authentication error | -                |
-| **404**     | Item Not Found       | -                |
 
 ## getPagerDutyIntegrationService
 
@@ -172,9 +176,10 @@ public class Example {
 
 ### Parameters
 
-| Name            | Type       | Description       | Notes |
-| --------------- | ---------- | ----------------- | ----- |
-| **serviceName** | **String** | The service name. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **serviceName** | **String**| The service name. |
 
 ### Return type
 
@@ -190,12 +195,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Authentication error |  -  |
+| **404** | Item Not Found |  -  |
 
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **200**     | OK                   | -                |
-| **403**     | Authentication error | -                |
-| **404**     | Item Not Found       | -                |
 
 ## updatePagerDutyIntegrationService
 
@@ -235,10 +240,11 @@ public class Example {
 
 ### Parameters
 
-| Name            | Type                                              | Description                                     | Notes |
-| --------------- | ------------------------------------------------- | ----------------------------------------------- | ----- |
-| **serviceName** | **String**                                        | The service name                                |
-| **body**        | [**PagerDutyServiceKey**](PagerDutyServiceKey.md) | Update an existing service object request body. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **serviceName** | **String**| The service name |
+ **body** | [**PagerDutyServiceKey**](PagerDutyServiceKey.md)| Update an existing service object request body. |
 
 ### Return type
 
@@ -254,10 +260,10 @@ null (empty response body)
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication error |  -  |
+| **404** | Item Not Found |  -  |
 
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **200**     | OK                   | -                |
-| **400**     | Bad Request          | -                |
-| **403**     | Authentication error | -                |
-| **404**     | Item Not Found       | -                |

@@ -8,29 +8,17 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * List of AWS accounts to delete.
- */
+/** List of AWS accounts to delete. */
 @ApiModel(description = "List of AWS accounts to delete.")
 @JsonPropertyOrder({
   AWSAccountDeleteRequest.JSON_PROPERTY_ACCESS_KEY_ID,
@@ -38,10 +26,8 @@ import com.datadog.api.v1.client.JSON;
   AWSAccountDeleteRequest.JSON_PROPERTY_ROLE_NAME
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-
 public class AWSAccountDeleteRequest {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACCESS_KEY_ID = "access_key_id";
   private String accessKeyId;
 
@@ -51,82 +37,78 @@ public class AWSAccountDeleteRequest {
   public static final String JSON_PROPERTY_ROLE_NAME = "role_name";
   private String roleName;
 
-
   public AWSAccountDeleteRequest accessKeyId(String accessKeyId) {
     this.accessKeyId = accessKeyId;
     return this;
   }
 
-   /**
+  /**
    * Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
+   *
    * @return accessKeyId
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.")
+  @ApiModelProperty(
+      value =
+          "Your AWS access key ID. Only required if your AWS account is a GovCloud or China"
+              + " account.")
   @JsonProperty(JSON_PROPERTY_ACCESS_KEY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAccessKeyId() {
     return accessKeyId;
   }
 
-
   public void setAccessKeyId(String accessKeyId) {
     this.accessKeyId = accessKeyId;
   }
-
 
   public AWSAccountDeleteRequest accountId(String accountId) {
     this.accountId = accountId;
     return this;
   }
 
-   /**
+  /**
    * Your AWS Account ID without dashes.
+   *
    * @return accountId
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(example = "1234567", value = "Your AWS Account ID without dashes.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getAccountId() {
     return accountId;
   }
 
-
   public void setAccountId(String accountId) {
     this.accountId = accountId;
   }
-
 
   public AWSAccountDeleteRequest roleName(String roleName) {
     this.roleName = roleName;
     return this;
   }
 
-   /**
+  /**
    * Your Datadog role delegation name.
+   *
    * @return roleName
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "DatadogAWSIntegrationRole", value = "Your Datadog role delegation name.")
+  @ApiModelProperty(
+      example = "DatadogAWSIntegrationRole",
+      value = "Your Datadog role delegation name.")
   @JsonProperty(JSON_PROPERTY_ROLE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRoleName() {
     return roleName;
   }
-
 
   public void setRoleName(String roleName) {
     this.roleName = roleName;
   }
 
-
-  /**
-   * Return true if this AWSAccountDeleteRequest object is equal to o.
-   */
+  /** Return true if this AWSAccountDeleteRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -136,9 +118,9 @@ public class AWSAccountDeleteRequest {
       return false;
     }
     AWSAccountDeleteRequest awSAccountDeleteRequest = (AWSAccountDeleteRequest) o;
-    return Objects.equals(this.accessKeyId, awSAccountDeleteRequest.accessKeyId) &&
-        Objects.equals(this.accountId, awSAccountDeleteRequest.accountId) &&
-        Objects.equals(this.roleName, awSAccountDeleteRequest.roleName);
+    return Objects.equals(this.accessKeyId, awSAccountDeleteRequest.accessKeyId)
+        && Objects.equals(this.accountId, awSAccountDeleteRequest.accountId)
+        && Objects.equals(this.roleName, awSAccountDeleteRequest.roleName);
   }
 
   @Override
@@ -158,8 +140,7 @@ public class AWSAccountDeleteRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -167,6 +148,4 @@ public class AWSAccountDeleteRequest {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

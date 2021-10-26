@@ -1,7 +1,13 @@
+
+
 # ContentEncoding
 
 ## Enum
 
-- `GZIP` (value: `"gzip"`)
 
-- `DEFLATE` (value: `"deflate"`)
+* `GZIP` (value: `"gzip"`)
+
+* `DEFLATE` (value: `"deflate"`)
+
+
+

@@ -8,38 +8,25 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.datadog.api.v2.client.JSON;
-
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
-/**
- * API Keys resource type.
- */
+import java.util.Objects;
+import java.util.Set;
+
+/** API Keys resource type. */
 @JsonSerialize(using = APIKeysType.APIKeysTypeSerializer.class)
 public class APIKeysType {
-  
+
   public static final APIKeysType API_KEYS = new APIKeysType("api_keys");
 
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("api_keys"));
@@ -55,18 +42,19 @@ public class APIKeysType {
   }
 
   public static class APIKeysTypeSerializer extends StdSerializer<APIKeysType> {
-      public APIKeysTypeSerializer(Class<APIKeysType> t) {
-          super(t);
-      }
+    public APIKeysTypeSerializer(Class<APIKeysType> t) {
+      super(t);
+    }
 
-      public APIKeysTypeSerializer() {
-          this(null);
-      }
+    public APIKeysTypeSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(APIKeysType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(APIKeysType value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonValue
@@ -78,9 +66,7 @@ public class APIKeysType {
     this.value = value;
   }
 
-  /**
-   * Return true if this APIKeysType object is equal to o.
-   */
+  /** Return true if this APIKeysType object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -94,7 +80,7 @@ public class APIKeysType {
 
   @Override
   public int hashCode() {
-      return Objects.hash(value);
+    return Objects.hash(value);
   }
 
   @Override
@@ -107,4 +93,3 @@ public class APIKeysType {
     return new APIKeysType(value);
   }
 }
-

@@ -1,9 +1,15 @@
+
+
 # WidgetLineType
 
 ## Enum
 
-- `DASHED` (value: `"dashed"`)
 
-- `DOTTED` (value: `"dotted"`)
+* `DASHED` (value: `"dashed"`)
 
-- `SOLID` (value: `"solid"`)
+* `DOTTED` (value: `"dotted"`)
+
+* `SOLID` (value: `"solid"`)
+
+
+

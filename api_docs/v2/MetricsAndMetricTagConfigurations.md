@@ -1,14 +1,14 @@
+
+
 # MetricsAndMetricTagConfigurations
 
 Object for a metrics and metric tag configurations.
 
 ## oneOf schemas
-
-- [Metric](Metric.md)
-- [MetricTagConfiguration](MetricTagConfiguration.md)
+* [Metric](Metric.md)
+* [MetricTagConfiguration](MetricTagConfiguration.md)
 
 ## Example
-
 ```java
 // Import classes:
 import com.datadog.api.v2.client.model.MetricsAndMetricTagConfigurations;
@@ -35,3 +35,5 @@ public class Example {
     }
 }
 ```
+
+

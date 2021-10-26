@@ -1,7 +1,13 @@
+
+
 # WidgetNodeType
 
 ## Enum
 
-- `HOST` (value: `"host"`)
 
-- `CONTAINER` (value: `"container"`)
+* `HOST` (value: `"host"`)
+
+* `CONTAINER` (value: `"container"`)
+
+
+

@@ -1,17 +1,23 @@
+
+
 # AWSNamespace
 
 ## Enum
 
-- `ELB` (value: `"elb"`)
 
-- `APPLICATION_ELB` (value: `"application_elb"`)
+* `ELB` (value: `"elb"`)
 
-- `SQS` (value: `"sqs"`)
+* `APPLICATION_ELB` (value: `"application_elb"`)
 
-- `RDS` (value: `"rds"`)
+* `SQS` (value: `"sqs"`)
 
-- `CUSTOM` (value: `"custom"`)
+* `RDS` (value: `"rds"`)
 
-- `NETWORK_ELB` (value: `"network_elb"`)
+* `CUSTOM` (value: `"custom"`)
 
-- `LAMBDA` (value: `"lambda"`)
+* `NETWORK_ELB` (value: `"network_elb"`)
+
+* `LAMBDA` (value: `"lambda"`)
+
+
+

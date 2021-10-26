@@ -1,5 +1,11 @@
+
+
 # SLOWidgetDefinitionType
 
 ## Enum
 
-- `SLO` (value: `"slo"`)
+
+* `SLO` (value: `"slo"`)
+
+
+

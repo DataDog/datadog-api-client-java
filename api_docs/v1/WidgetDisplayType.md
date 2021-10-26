@@ -1,9 +1,15 @@
+
+
 # WidgetDisplayType
 
 ## Enum
 
-- `AREA` (value: `"area"`)
 
-- `BARS` (value: `"bars"`)
+* `AREA` (value: `"area"`)
 
-- `LINE` (value: `"line"`)
+* `BARS` (value: `"bars"`)
+
+* `LINE` (value: `"line"`)
+
+
+

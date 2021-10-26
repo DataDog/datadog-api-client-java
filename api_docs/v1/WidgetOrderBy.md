@@ -1,11 +1,17 @@
+
+
 # WidgetOrderBy
 
 ## Enum
 
-- `CHANGE` (value: `"change"`)
 
-- `NAME` (value: `"name"`)
+* `CHANGE` (value: `"change"`)
 
-- `PRESENT` (value: `"present"`)
+* `NAME` (value: `"name"`)
 
-- `PAST` (value: `"past"`)
+* `PRESENT` (value: `"present"`)
+
+* `PAST` (value: `"past"`)
+
+
+

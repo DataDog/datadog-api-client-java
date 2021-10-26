@@ -1,14 +1,14 @@
+
+
 # MetricVolumes
 
 Possible response objects for a metric's volume.
 
 ## oneOf schemas
-
-- [MetricDistinctVolume](MetricDistinctVolume.md)
-- [MetricIngestedIndexedVolume](MetricIngestedIndexedVolume.md)
+* [MetricDistinctVolume](MetricDistinctVolume.md)
+* [MetricIngestedIndexedVolume](MetricIngestedIndexedVolume.md)
 
 ## Example
-
 ```java
 // Import classes:
 import com.datadog.api.v2.client.model.MetricVolumes;
@@ -35,3 +35,5 @@ public class Example {
     }
 }
 ```
+
+

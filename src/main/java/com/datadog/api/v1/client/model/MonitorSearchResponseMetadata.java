@@ -8,29 +8,17 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Metadata about the response.
- */
+/** Metadata about the response. */
 @ApiModel(description = "Metadata about the response.")
 @JsonPropertyOrder({
   MonitorSearchResponseMetadata.JSON_PROPERTY_PAGE,
@@ -39,10 +27,8 @@ import com.datadog.api.v1.client.JSON;
   MonitorSearchResponseMetadata.JSON_PROPERTY_TOTAL_COUNT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-
 public class MonitorSearchResponseMetadata {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_PAGE = "page";
   private Long page;
 
@@ -55,74 +41,59 @@ public class MonitorSearchResponseMetadata {
   public static final String JSON_PROPERTY_TOTAL_COUNT = "total_count";
   private Long totalCount;
 
-
-   /**
+  /**
    * The page to start paginating from.
+   *
    * @return page
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The page to start paginating from.")
   @JsonProperty(JSON_PROPERTY_PAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getPage() {
     return page;
   }
 
-
-
-
-   /**
+  /**
    * The number of pages.
+   *
    * @return pageCount
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The number of pages.")
   @JsonProperty(JSON_PROPERTY_PAGE_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getPageCount() {
     return pageCount;
   }
 
-
-
-
-   /**
+  /**
    * The number of monitors to return per page.
+   *
    * @return perPage
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The number of monitors to return per page.")
   @JsonProperty(JSON_PROPERTY_PER_PAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getPerPage() {
     return perPage;
   }
 
-
-
-
-   /**
+  /**
    * The total number of monitors.
+   *
    * @return totalCount
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The total number of monitors.")
   @JsonProperty(JSON_PROPERTY_TOTAL_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getTotalCount() {
     return totalCount;
   }
 
-
-
-
-  /**
-   * Return true if this MonitorSearchResponseMetadata object is equal to o.
-   */
+  /** Return true if this MonitorSearchResponseMetadata object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -132,10 +103,10 @@ public class MonitorSearchResponseMetadata {
       return false;
     }
     MonitorSearchResponseMetadata monitorSearchResponseMetadata = (MonitorSearchResponseMetadata) o;
-    return Objects.equals(this.page, monitorSearchResponseMetadata.page) &&
-        Objects.equals(this.pageCount, monitorSearchResponseMetadata.pageCount) &&
-        Objects.equals(this.perPage, monitorSearchResponseMetadata.perPage) &&
-        Objects.equals(this.totalCount, monitorSearchResponseMetadata.totalCount);
+    return Objects.equals(this.page, monitorSearchResponseMetadata.page)
+        && Objects.equals(this.pageCount, monitorSearchResponseMetadata.pageCount)
+        && Objects.equals(this.perPage, monitorSearchResponseMetadata.perPage)
+        && Objects.equals(this.totalCount, monitorSearchResponseMetadata.totalCount);
   }
 
   @Override
@@ -156,8 +127,7 @@ public class MonitorSearchResponseMetadata {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -165,6 +135,4 @@ public class MonitorSearchResponseMetadata {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

@@ -8,42 +8,33 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.SyntheticsGlobalVariableParseTestOptionsType;
-import com.datadog.api.v1.client.model.SyntheticsVariableParser;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.datadog.api.v1.client.JSON;
-
+import java.util.Objects;
 
 /**
- * Parser options to use for retrieving a Synthetics global variable from a Synthetics Test. Used in conjunction with &#x60;parse_test_public_id&#x60;.
+ * Parser options to use for retrieving a Synthetics global variable from a Synthetics Test. Used in
+ * conjunction with &#x60;parse_test_public_id&#x60;.
  */
-@ApiModel(description = "Parser options to use for retrieving a Synthetics global variable from a Synthetics Test. Used in conjunction with `parse_test_public_id`.")
+@ApiModel(
+    description =
+        "Parser options to use for retrieving a Synthetics global variable from a Synthetics Test."
+            + " Used in conjunction with `parse_test_public_id`.")
 @JsonPropertyOrder({
   SyntheticsGlobalVariableParseTestOptions.JSON_PROPERTY_FIELD,
   SyntheticsGlobalVariableParseTestOptions.JSON_PROPERTY_PARSER,
   SyntheticsGlobalVariableParseTestOptions.JSON_PROPERTY_TYPE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-
 public class SyntheticsGlobalVariableParseTestOptions {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FIELD = "field";
   private String field;
 
@@ -57,13 +48,13 @@ public class SyntheticsGlobalVariableParseTestOptions {
 
   @JsonCreator
   public SyntheticsGlobalVariableParseTestOptions(
-            @JsonProperty(required=true, value=JSON_PROPERTY_PARSER) SyntheticsVariableParser parser,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE) SyntheticsGlobalVariableParseTestOptionsType type
-            ) {
-        this.parser = parser;
-        this.unparsed |= parser.unparsed;
-        this.type = type;
-        this.unparsed |= !type.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_PARSER) SyntheticsVariableParser parser,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          SyntheticsGlobalVariableParseTestOptionsType type) {
+    this.parser = parser;
+    this.unparsed |= parser.unparsed;
+    this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   public SyntheticsGlobalVariableParseTestOptions field(String field) {
@@ -71,24 +62,24 @@ public class SyntheticsGlobalVariableParseTestOptions {
     return this;
   }
 
-   /**
+  /**
    * When type is &#x60;http_header&#x60;, name of the header to use to extract the value.
+   *
    * @return field
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "content-type", value = "When type is `http_header`, name of the header to use to extract the value.")
+  @ApiModelProperty(
+      example = "content-type",
+      value = "When type is `http_header`, name of the header to use to extract the value.")
   @JsonProperty(JSON_PROPERTY_FIELD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getField() {
     return field;
   }
 
-
   public void setField(String field) {
     this.field = field;
   }
-
 
   public SyntheticsGlobalVariableParseTestOptions parser(SyntheticsVariableParser parser) {
     this.parser = parser;
@@ -96,54 +87,49 @@ public class SyntheticsGlobalVariableParseTestOptions {
     return this;
   }
 
-   /**
+  /**
    * Get parser
+   *
    * @return parser
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_PARSER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public SyntheticsVariableParser getParser() {
     return parser;
   }
-
 
   public void setParser(SyntheticsVariableParser parser) {
     this.parser = parser;
   }
 
-
-  public SyntheticsGlobalVariableParseTestOptions type(SyntheticsGlobalVariableParseTestOptionsType type) {
+  public SyntheticsGlobalVariableParseTestOptions type(
+      SyntheticsGlobalVariableParseTestOptionsType type) {
     this.type = type;
     this.unparsed |= !type.isValid();
     return this;
   }
 
-   /**
+  /**
    * Get type
+   *
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public SyntheticsGlobalVariableParseTestOptionsType getType() {
     return type;
   }
 
-
   public void setType(SyntheticsGlobalVariableParseTestOptionsType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
 
-
-  /**
-   * Return true if this SyntheticsGlobalVariable_parse_test_options object is equal to o.
-   */
+  /** Return true if this SyntheticsGlobalVariable_parse_test_options object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -152,10 +138,11 @@ public class SyntheticsGlobalVariableParseTestOptions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsGlobalVariableParseTestOptions syntheticsGlobalVariableParseTestOptions = (SyntheticsGlobalVariableParseTestOptions) o;
-    return Objects.equals(this.field, syntheticsGlobalVariableParseTestOptions.field) &&
-        Objects.equals(this.parser, syntheticsGlobalVariableParseTestOptions.parser) &&
-        Objects.equals(this.type, syntheticsGlobalVariableParseTestOptions.type);
+    SyntheticsGlobalVariableParseTestOptions syntheticsGlobalVariableParseTestOptions =
+        (SyntheticsGlobalVariableParseTestOptions) o;
+    return Objects.equals(this.field, syntheticsGlobalVariableParseTestOptions.field)
+        && Objects.equals(this.parser, syntheticsGlobalVariableParseTestOptions.parser)
+        && Objects.equals(this.type, syntheticsGlobalVariableParseTestOptions.type);
   }
 
   @Override
@@ -175,8 +162,7 @@ public class SyntheticsGlobalVariableParseTestOptions {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -184,6 +170,4 @@ public class SyntheticsGlobalVariableParseTestOptions {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

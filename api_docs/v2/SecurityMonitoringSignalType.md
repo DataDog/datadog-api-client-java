@@ -1,5 +1,11 @@
+
+
 # SecurityMonitoringSignalType
 
 ## Enum
 
-- `SIGNAL` (value: `"signal"`)
+
+* `SIGNAL` (value: `"signal"`)
+
+
+

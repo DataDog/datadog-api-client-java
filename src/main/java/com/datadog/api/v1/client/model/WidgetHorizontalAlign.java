@@ -8,43 +8,31 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.datadog.api.v1.client.JSON;
-
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
-/**
- * Horizontal alignment.
- */
+import java.util.Objects;
+import java.util.Set;
+
+/** Horizontal alignment. */
 @JsonSerialize(using = WidgetHorizontalAlign.WidgetHorizontalAlignSerializer.class)
 public class WidgetHorizontalAlign {
-  
+
   public static final WidgetHorizontalAlign CENTER = new WidgetHorizontalAlign("center");
   public static final WidgetHorizontalAlign LEFT = new WidgetHorizontalAlign("left");
   public static final WidgetHorizontalAlign RIGHT = new WidgetHorizontalAlign("right");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("center","left","right"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("center", "left", "right"));
 
   private String value;
 
@@ -57,18 +45,20 @@ public class WidgetHorizontalAlign {
   }
 
   public static class WidgetHorizontalAlignSerializer extends StdSerializer<WidgetHorizontalAlign> {
-      public WidgetHorizontalAlignSerializer(Class<WidgetHorizontalAlign> t) {
-          super(t);
-      }
+    public WidgetHorizontalAlignSerializer(Class<WidgetHorizontalAlign> t) {
+      super(t);
+    }
 
-      public WidgetHorizontalAlignSerializer() {
-          this(null);
-      }
+    public WidgetHorizontalAlignSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(WidgetHorizontalAlign value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(
+        WidgetHorizontalAlign value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonValue
@@ -80,9 +70,7 @@ public class WidgetHorizontalAlign {
     this.value = value;
   }
 
-  /**
-   * Return true if this WidgetHorizontalAlign object is equal to o.
-   */
+  /** Return true if this WidgetHorizontalAlign object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -96,7 +84,7 @@ public class WidgetHorizontalAlign {
 
   @Override
   public int hashCode() {
-      return Objects.hash(value);
+    return Objects.hash(value);
   }
 
   @Override
@@ -109,4 +97,3 @@ public class WidgetHorizontalAlign {
     return new WidgetHorizontalAlign(value);
   }
 }
-

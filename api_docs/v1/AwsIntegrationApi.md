@@ -2,17 +2,19 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method                                                                            | HTTP request                                              | Description                  |
-| --------------------------------------------------------------------------------- | --------------------------------------------------------- | ---------------------------- |
-| [**createAWSAccount**](AwsIntegrationApi.md#createAWSAccount)                     | **POST** /api/v1/integration/aws                          | Create an AWS integration    |
-| [**createAWSTagFilter**](AwsIntegrationApi.md#createAWSTagFilter)                 | **POST** /api/v1/integration/aws/filtering                | Set an AWS tag filter        |
-| [**createNewAWSExternalID**](AwsIntegrationApi.md#createNewAWSExternalID)         | **PUT** /api/v1/integration/aws/generate_new_external_id  | Generate a new external ID   |
-| [**deleteAWSAccount**](AwsIntegrationApi.md#deleteAWSAccount)                     | **DELETE** /api/v1/integration/aws                        | Delete an AWS integration    |
-| [**deleteAWSTagFilter**](AwsIntegrationApi.md#deleteAWSTagFilter)                 | **DELETE** /api/v1/integration/aws/filtering              | Delete a tag filtering entry |
-| [**listAWSAccounts**](AwsIntegrationApi.md#listAWSAccounts)                       | **GET** /api/v1/integration/aws                           | List all AWS integrations    |
-| [**listAWSTagFilters**](AwsIntegrationApi.md#listAWSTagFilters)                   | **GET** /api/v1/integration/aws/filtering                 | Get all AWS tag filters      |
-| [**listAvailableAWSNamespaces**](AwsIntegrationApi.md#listAvailableAWSNamespaces) | **GET** /api/v1/integration/aws/available_namespace_rules | List namespace rules         |
-| [**updateAWSAccount**](AwsIntegrationApi.md#updateAWSAccount)                     | **PUT** /api/v1/integration/aws                           | Update an AWS integration    |
+Method        | HTTP request | Description
+------------- | ------------ | ------------
+[**createAWSAccount**](AwsIntegrationApi.md#createAWSAccount) | **POST** /api/v1/integration/aws | Create an AWS integration
+[**createAWSTagFilter**](AwsIntegrationApi.md#createAWSTagFilter) | **POST** /api/v1/integration/aws/filtering | Set an AWS tag filter
+[**createNewAWSExternalID**](AwsIntegrationApi.md#createNewAWSExternalID) | **PUT** /api/v1/integration/aws/generate_new_external_id | Generate a new external ID
+[**deleteAWSAccount**](AwsIntegrationApi.md#deleteAWSAccount) | **DELETE** /api/v1/integration/aws | Delete an AWS integration
+[**deleteAWSTagFilter**](AwsIntegrationApi.md#deleteAWSTagFilter) | **DELETE** /api/v1/integration/aws/filtering | Delete a tag filtering entry
+[**listAWSAccounts**](AwsIntegrationApi.md#listAWSAccounts) | **GET** /api/v1/integration/aws | List all AWS integrations
+[**listAWSTagFilters**](AwsIntegrationApi.md#listAWSTagFilters) | **GET** /api/v1/integration/aws/filtering | Get all AWS tag filters
+[**listAvailableAWSNamespaces**](AwsIntegrationApi.md#listAvailableAWSNamespaces) | **GET** /api/v1/integration/aws/available_namespace_rules | List namespace rules
+[**updateAWSAccount**](AwsIntegrationApi.md#updateAWSAccount) | **PUT** /api/v1/integration/aws | Update an AWS integration
+
+
 
 ## createAWSAccount
 
@@ -55,9 +57,10 @@ public class Example {
 
 ### Parameters
 
-| Name     | Type                            | Description        | Notes |
-| -------- | ------------------------------- | ------------------ | ----- |
-| **body** | [**AWSAccount**](AWSAccount.md) | AWS Request Object |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**AWSAccount**](AWSAccount.md)| AWS Request Object |
 
 ### Return type
 
@@ -73,13 +76,13 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication Error |  -  |
+| **409** | Conflict Error |  -  |
 
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **200**     | OK                   | -                |
-| **400**     | Bad Request          | -                |
-| **403**     | Authentication Error | -                |
-| **409**     | Conflict Error       | -                |
 
 ## createAWSTagFilter
 
@@ -119,9 +122,10 @@ public class Example {
 
 ### Parameters
 
-| Name     | Type                                                          | Description                                                                                                                                                                                                                                                                                | Notes |
-| -------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----- |
-| **body** | [**AWSTagFilterCreateRequest**](AWSTagFilterCreateRequest.md) | Set an AWS tag filter using an &#x60;aws_account_identifier&#x60;, &#x60;namespace&#x60;, and filtering string. Namespace options are &#x60;application_elb&#x60;, &#x60;elb&#x60;, &#x60;lambda&#x60;, &#x60;network_elb&#x60;, &#x60;rds&#x60;, &#x60;sqs&#x60;, and &#x60;custom&#x60;. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**AWSTagFilterCreateRequest**](AWSTagFilterCreateRequest.md)| Set an AWS tag filter using an &#x60;aws_account_identifier&#x60;, &#x60;namespace&#x60;, and filtering string. Namespace options are &#x60;application_elb&#x60;, &#x60;elb&#x60;, &#x60;lambda&#x60;, &#x60;network_elb&#x60;, &#x60;rds&#x60;, &#x60;sqs&#x60;, and &#x60;custom&#x60;. |
 
 ### Return type
 
@@ -137,12 +141,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication Error |  -  |
 
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **200**     | OK                   | -                |
-| **400**     | Bad Request          | -                |
-| **403**     | Authentication Error | -                |
 
 ## createNewAWSExternalID
 
@@ -182,9 +186,10 @@ public class Example {
 
 ### Parameters
 
-| Name     | Type                            | Description                                                                                                                                                                                                         | Notes |
-| -------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| **body** | [**AWSAccount**](AWSAccount.md) | Your Datadog role delegation name. For more information about your AWS account Role name, see the [Datadog AWS integration configuration info](https://docs.datadoghq.com/integrations/amazon_web_services/#setup). |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**AWSAccount**](AWSAccount.md)| Your Datadog role delegation name. For more information about your AWS account Role name, see the [Datadog AWS integration configuration info](https://docs.datadoghq.com/integrations/amazon_web_services/#setup). |
 
 ### Return type
 
@@ -200,12 +205,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication Error |  -  |
 
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **200**     | OK                   | -                |
-| **400**     | Bad Request          | -                |
-| **403**     | Authentication Error | -                |
 
 ## deleteAWSAccount
 
@@ -245,9 +250,10 @@ public class Example {
 
 ### Parameters
 
-| Name     | Type                                                      | Description        | Notes |
-| -------- | --------------------------------------------------------- | ------------------ | ----- |
-| **body** | [**AWSAccountDeleteRequest**](AWSAccountDeleteRequest.md) | AWS request object |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**AWSAccountDeleteRequest**](AWSAccountDeleteRequest.md)| AWS request object |
 
 ### Return type
 
@@ -263,13 +269,13 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication Error |  -  |
+| **409** | Conflict Error |  -  |
 
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **200**     | OK                   | -                |
-| **400**     | Bad Request          | -                |
-| **403**     | Authentication Error | -                |
-| **409**     | Conflict Error       | -                |
 
 ## deleteAWSTagFilter
 
@@ -309,9 +315,10 @@ public class Example {
 
 ### Parameters
 
-| Name     | Type                                                          | Description                                                                            | Notes |
-| -------- | ------------------------------------------------------------- | -------------------------------------------------------------------------------------- | ----- |
-| **body** | [**AWSTagFilterDeleteRequest**](AWSTagFilterDeleteRequest.md) | Delete a tag filtering entry for a given AWS account and &#x60;dd-aws&#x60; namespace. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**AWSTagFilterDeleteRequest**](AWSTagFilterDeleteRequest.md)| Delete a tag filtering entry for a given AWS account and &#x60;dd-aws&#x60; namespace. |
 
 ### Return type
 
@@ -327,12 +334,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication Error |  -  |
 
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **200**     | OK                   | -                |
-| **400**     | Bad Request          | -                |
-| **403**     | Authentication Error | -                |
 
 ## listAWSAccounts
 
@@ -377,11 +384,12 @@ public class Example {
 
 ### Parameters
 
-| Name            | Type       | Description                                                           | Notes      |
-| --------------- | ---------- | --------------------------------------------------------------------- | ---------- |
-| **accountId**   | **String** | Only return AWS accounts that matches this &#x60;account_id&#x60;.    | [optional] |
-| **roleName**    | **String** | Only return AWS accounts that matches this role_name.                 | [optional] |
-| **accessKeyId** | **String** | Only return AWS accounts that matches this &#x60;access_key_id&#x60;. | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **accountId** | **String**| Only return AWS accounts that matches this &#x60;account_id&#x60;. | [optional]
+ **roleName** | **String**| Only return AWS accounts that matches this role_name. | [optional]
+ **accessKeyId** | **String**| Only return AWS accounts that matches this &#x60;access_key_id&#x60;. | [optional]
 
 ### Return type
 
@@ -397,12 +405,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication Error |  -  |
 
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **200**     | OK                   | -                |
-| **400**     | Bad Request          | -                |
-| **403**     | Authentication Error | -                |
 
 ## listAWSTagFilters
 
@@ -442,9 +450,10 @@ public class Example {
 
 ### Parameters
 
-| Name          | Type       | Description                                                       | Notes |
-| ------------- | ---------- | ----------------------------------------------------------------- | ----- |
-| **accountId** | **String** | Only return AWS filters that matches this &#x60;account_id&#x60;. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **accountId** | **String**| Only return AWS filters that matches this &#x60;account_id&#x60;. |
 
 ### Return type
 
@@ -460,12 +469,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication Error |  -  |
 
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **200**     | OK                   | -                |
-| **400**     | Bad Request          | -                |
-| **403**     | Authentication Error | -                |
 
 ## listAvailableAWSNamespaces
 
@@ -520,11 +529,11 @@ This endpoint does not need any parameter.
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Authentication Error |  -  |
 
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **200**     | OK                   | -                |
-| **403**     | Authentication Error | -                |
 
 ## updateAWSAccount
 
@@ -570,12 +579,13 @@ public class Example {
 
 ### Parameters
 
-| Name            | Type                            | Description                                                                                                                    | Notes      |
-| --------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ---------- |
-| **body**        | [**AWSAccount**](AWSAccount.md) | AWS request object                                                                                                             |
-| **accountId**   | **String**                      | Only return AWS accounts that matches this &#x60;account_id&#x60;.                                                             | [optional] |
-| **roleName**    | **String**                      | Only return AWS accounts that match this &#x60;role_name&#x60;. Required if &#x60;account_id&#x60; is specified.               | [optional] |
-| **accessKeyId** | **String**                      | Only return AWS accounts that matches this &#x60;access_key_id&#x60;. Required if none of the other two options are specified. | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**AWSAccount**](AWSAccount.md)| AWS request object |
+ **accountId** | **String**| Only return AWS accounts that matches this &#x60;account_id&#x60;. | [optional]
+ **roleName** | **String**| Only return AWS accounts that match this &#x60;role_name&#x60;. Required if &#x60;account_id&#x60; is specified. | [optional]
+ **accessKeyId** | **String**| Only return AWS accounts that matches this &#x60;access_key_id&#x60;. Required if none of the other two options are specified. | [optional]
 
 ### Return type
 
@@ -591,10 +601,10 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication Error |  -  |
+| **409** | Conflict Error |  -  |
 
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **200**     | OK                   | -                |
-| **400**     | Bad Request          | -                |
-| **403**     | Authentication Error | -                |
-| **409**     | Conflict Error       | -                |

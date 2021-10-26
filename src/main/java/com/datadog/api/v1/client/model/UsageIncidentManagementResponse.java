@@ -8,44 +8,28 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.UsageIncidentManagementHour;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Response containing the incident management usage for each hour for a given organization.
- */
-@ApiModel(description = "Response containing the incident management usage for each hour for a given organization.")
-@JsonPropertyOrder({
-  UsageIncidentManagementResponse.JSON_PROPERTY_USAGE
-})
+/** Response containing the incident management usage for each hour for a given organization. */
+@ApiModel(
+    description =
+        "Response containing the incident management usage for each hour for a given organization.")
+@JsonPropertyOrder({UsageIncidentManagementResponse.JSON_PROPERTY_USAGE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-
 public class UsageIncidentManagementResponse {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_USAGE = "usage";
   private List<UsageIncidentManagementHour> usage = null;
-
 
   public UsageIncidentManagementResponse usage(List<UsageIncidentManagementHour> usage) {
     this.usage = usage;
@@ -64,28 +48,24 @@ public class UsageIncidentManagementResponse {
     return this;
   }
 
-   /**
+  /**
    * Get hourly usage for incident management.
+   *
    * @return usage
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Get hourly usage for incident management.")
   @JsonProperty(JSON_PROPERTY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<UsageIncidentManagementHour> getUsage() {
     return usage;
   }
-
 
   public void setUsage(List<UsageIncidentManagementHour> usage) {
     this.usage = usage;
   }
 
-
-  /**
-   * Return true if this UsageIncidentManagementResponse object is equal to o.
-   */
+  /** Return true if this UsageIncidentManagementResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -94,7 +74,8 @@ public class UsageIncidentManagementResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UsageIncidentManagementResponse usageIncidentManagementResponse = (UsageIncidentManagementResponse) o;
+    UsageIncidentManagementResponse usageIncidentManagementResponse =
+        (UsageIncidentManagementResponse) o;
     return Objects.equals(this.usage, usageIncidentManagementResponse.usage);
   }
 
@@ -113,8 +94,7 @@ public class UsageIncidentManagementResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -122,6 +102,4 @@ public class UsageIncidentManagementResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

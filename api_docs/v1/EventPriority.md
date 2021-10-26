@@ -1,7 +1,13 @@
+
+
 # EventPriority
 
 ## Enum
 
-- `NORMAL` (value: `"normal"`)
 
-- `LOW` (value: `"low"`)
+* `NORMAL` (value: `"normal"`)
+
+* `LOW` (value: `"low"`)
+
+
+

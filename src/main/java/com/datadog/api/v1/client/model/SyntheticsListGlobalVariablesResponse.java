@@ -8,44 +8,26 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.SyntheticsGlobalVariable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Object containing an array of Synthetic global variables.
- */
+/** Object containing an array of Synthetic global variables. */
 @ApiModel(description = "Object containing an array of Synthetic global variables.")
-@JsonPropertyOrder({
-  SyntheticsListGlobalVariablesResponse.JSON_PROPERTY_VARIABLES
-})
+@JsonPropertyOrder({SyntheticsListGlobalVariablesResponse.JSON_PROPERTY_VARIABLES})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-
 public class SyntheticsListGlobalVariablesResponse {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_VARIABLES = "variables";
   private List<SyntheticsGlobalVariable> variables = null;
-
 
   public SyntheticsListGlobalVariablesResponse variables(List<SyntheticsGlobalVariable> variables) {
     this.variables = variables;
@@ -55,7 +37,8 @@ public class SyntheticsListGlobalVariablesResponse {
     return this;
   }
 
-  public SyntheticsListGlobalVariablesResponse addVariablesItem(SyntheticsGlobalVariable variablesItem) {
+  public SyntheticsListGlobalVariablesResponse addVariablesItem(
+      SyntheticsGlobalVariable variablesItem) {
     if (this.variables == null) {
       this.variables = new ArrayList<>();
     }
@@ -64,28 +47,24 @@ public class SyntheticsListGlobalVariablesResponse {
     return this;
   }
 
-   /**
+  /**
    * Array of Synthetic global variables.
+   *
    * @return variables
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Array of Synthetic global variables.")
   @JsonProperty(JSON_PROPERTY_VARIABLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<SyntheticsGlobalVariable> getVariables() {
     return variables;
   }
-
 
   public void setVariables(List<SyntheticsGlobalVariable> variables) {
     this.variables = variables;
   }
 
-
-  /**
-   * Return true if this SyntheticsListGlobalVariablesResponse object is equal to o.
-   */
+  /** Return true if this SyntheticsListGlobalVariablesResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -94,7 +73,8 @@ public class SyntheticsListGlobalVariablesResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsListGlobalVariablesResponse syntheticsListGlobalVariablesResponse = (SyntheticsListGlobalVariablesResponse) o;
+    SyntheticsListGlobalVariablesResponse syntheticsListGlobalVariablesResponse =
+        (SyntheticsListGlobalVariablesResponse) o;
     return Objects.equals(this.variables, syntheticsListGlobalVariablesResponse.variables);
   }
 
@@ -113,8 +93,7 @@ public class SyntheticsListGlobalVariablesResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -122,6 +101,4 @@ public class SyntheticsListGlobalVariablesResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

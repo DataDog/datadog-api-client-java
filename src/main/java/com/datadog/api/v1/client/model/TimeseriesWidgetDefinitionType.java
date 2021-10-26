@@ -8,39 +8,28 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.datadog.api.v1.client.JSON;
-
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
-/**
- * Type of the timeseries widget.
- */
-@JsonSerialize(using = TimeseriesWidgetDefinitionType.TimeseriesWidgetDefinitionTypeSerializer.class)
+import java.util.Objects;
+import java.util.Set;
+
+/** Type of the timeseries widget. */
+@JsonSerialize(
+    using = TimeseriesWidgetDefinitionType.TimeseriesWidgetDefinitionTypeSerializer.class)
 public class TimeseriesWidgetDefinitionType {
-  
-  public static final TimeseriesWidgetDefinitionType TIMESERIES = new TimeseriesWidgetDefinitionType("timeseries");
+
+  public static final TimeseriesWidgetDefinitionType TIMESERIES =
+      new TimeseriesWidgetDefinitionType("timeseries");
 
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("timeseries"));
 
@@ -54,19 +43,22 @@ public class TimeseriesWidgetDefinitionType {
     this.value = value;
   }
 
-  public static class TimeseriesWidgetDefinitionTypeSerializer extends StdSerializer<TimeseriesWidgetDefinitionType> {
-      public TimeseriesWidgetDefinitionTypeSerializer(Class<TimeseriesWidgetDefinitionType> t) {
-          super(t);
-      }
+  public static class TimeseriesWidgetDefinitionTypeSerializer
+      extends StdSerializer<TimeseriesWidgetDefinitionType> {
+    public TimeseriesWidgetDefinitionTypeSerializer(Class<TimeseriesWidgetDefinitionType> t) {
+      super(t);
+    }
 
-      public TimeseriesWidgetDefinitionTypeSerializer() {
-          this(null);
-      }
+    public TimeseriesWidgetDefinitionTypeSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(TimeseriesWidgetDefinitionType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(
+        TimeseriesWidgetDefinitionType value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonValue
@@ -78,9 +70,7 @@ public class TimeseriesWidgetDefinitionType {
     this.value = value;
   }
 
-  /**
-   * Return true if this TimeseriesWidgetDefinitionType object is equal to o.
-   */
+  /** Return true if this TimeseriesWidgetDefinitionType object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -94,7 +84,7 @@ public class TimeseriesWidgetDefinitionType {
 
   @Override
   public int hashCode() {
-      return Objects.hash(value);
+    return Objects.hash(value);
   }
 
   @Override
@@ -107,4 +97,3 @@ public class TimeseriesWidgetDefinitionType {
     return new TimeseriesWidgetDefinitionType(value);
   }
 }
-

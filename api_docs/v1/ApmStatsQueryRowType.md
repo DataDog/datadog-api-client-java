@@ -1,9 +1,15 @@
+
+
 # ApmStatsQueryRowType
 
 ## Enum
 
-- `SERVICE` (value: `"service"`)
 
-- `RESOURCE` (value: `"resource"`)
+* `SERVICE` (value: `"service"`)
 
-- `SPAN` (value: `"span"`)
+* `RESOURCE` (value: `"resource"`)
+
+* `SPAN` (value: `"span"`)
+
+
+

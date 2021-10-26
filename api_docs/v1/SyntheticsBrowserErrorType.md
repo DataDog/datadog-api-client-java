@@ -1,7 +1,13 @@
+
+
 # SyntheticsBrowserErrorType
 
 ## Enum
 
-- `NETWORK` (value: `"network"`)
 
-- `JS` (value: `"js"`)
+* `NETWORK` (value: `"network"`)
+
+* `JS` (value: `"js"`)
+
+
+

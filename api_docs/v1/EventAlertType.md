@@ -1,17 +1,23 @@
+
+
 # EventAlertType
 
 ## Enum
 
-- `ERROR` (value: `"error"`)
 
-- `WARNING` (value: `"warning"`)
+* `ERROR` (value: `"error"`)
 
-- `INFO` (value: `"info"`)
+* `WARNING` (value: `"warning"`)
 
-- `SUCCESS` (value: `"success"`)
+* `INFO` (value: `"info"`)
 
-- `USER_UPDATE` (value: `"user_update"`)
+* `SUCCESS` (value: `"success"`)
 
-- `RECOMMENDATION` (value: `"recommendation"`)
+* `USER_UPDATE` (value: `"user_update"`)
 
-- `SNAPSHOT` (value: `"snapshot"`)
+* `RECOMMENDATION` (value: `"recommendation"`)
+
+* `SNAPSHOT` (value: `"snapshot"`)
+
+
+

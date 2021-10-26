@@ -1,14 +1,14 @@
+
+
 # LogsGroupByMissing
 
 The value to use for logs that don't have the facet used to group by
 
 ## oneOf schemas
-
-- [Double](Double.md)
-- [String](String.md)
+* [Double](Double.md)
+* [String](String.md)
 
 ## Example
-
 ```java
 // Import classes:
 import com.datadog.api.v2.client.model.LogsGroupByMissing;
@@ -35,3 +35,5 @@ public class Example {
     }
 }
 ```
+
+

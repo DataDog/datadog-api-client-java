@@ -8,33 +8,19 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.SLOListResponseMetadata;
-import com.datadog.api.v1.client.model.ServiceLevelObjective;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * A response with one or more service level objective.
- */
+/** A response with one or more service level objective. */
 @ApiModel(description = "A response with one or more service level objective.")
 @JsonPropertyOrder({
   SLOListResponse.JSON_PROPERTY_DATA,
@@ -42,10 +28,8 @@ import com.datadog.api.v1.client.JSON;
   SLOListResponse.JSON_PROPERTY_METADATA
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-
 public class SLOListResponse {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<ServiceLevelObjective> data = null;
 
@@ -54,7 +38,6 @@ public class SLOListResponse {
 
   public static final String JSON_PROPERTY_METADATA = "metadata";
   private SLOListResponseMetadata metadata;
-
 
   public SLOListResponse data(List<ServiceLevelObjective> data) {
     this.data = data;
@@ -73,24 +56,22 @@ public class SLOListResponse {
     return this;
   }
 
-   /**
+  /**
    * An array of service level objective objects.
+   *
    * @return data
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "An array of service level objective objects.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<ServiceLevelObjective> getData() {
     return data;
   }
 
-
   public void setData(List<ServiceLevelObjective> data) {
     this.data = data;
   }
-
 
   public SLOListResponse errors(List<String> errors) {
     this.errors = errors;
@@ -105,24 +86,23 @@ public class SLOListResponse {
     return this;
   }
 
-   /**
+  /**
    * An array of error messages. Each endpoint documents how/whether this field is used.
+   *
    * @return errors
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "An array of error messages. Each endpoint documents how/whether this field is used.")
+  @ApiModelProperty(
+      value = "An array of error messages. Each endpoint documents how/whether this field is used.")
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getErrors() {
     return errors;
   }
 
-
   public void setErrors(List<String> errors) {
     this.errors = errors;
   }
-
 
   public SLOListResponse metadata(SLOListResponseMetadata metadata) {
     this.metadata = metadata;
@@ -130,28 +110,24 @@ public class SLOListResponse {
     return this;
   }
 
-   /**
+  /**
    * Get metadata
+   *
    * @return metadata
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SLOListResponseMetadata getMetadata() {
     return metadata;
   }
-
 
   public void setMetadata(SLOListResponseMetadata metadata) {
     this.metadata = metadata;
   }
 
-
-  /**
-   * Return true if this SLOListResponse object is equal to o.
-   */
+  /** Return true if this SLOListResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -161,9 +137,9 @@ public class SLOListResponse {
       return false;
     }
     SLOListResponse slOListResponse = (SLOListResponse) o;
-    return Objects.equals(this.data, slOListResponse.data) &&
-        Objects.equals(this.errors, slOListResponse.errors) &&
-        Objects.equals(this.metadata, slOListResponse.metadata);
+    return Objects.equals(this.data, slOListResponse.data)
+        && Objects.equals(this.errors, slOListResponse.errors)
+        && Objects.equals(this.metadata, slOListResponse.metadata);
   }
 
   @Override
@@ -183,8 +159,7 @@ public class SLOListResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -192,6 +167,4 @@ public class SLOListResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

@@ -8,107 +8,87 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.SecurityMonitoringRuleNewValueOptionsForgetAfter;
-import com.datadog.api.v2.client.model.SecurityMonitoringRuleNewValueOptionsLearningDuration;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Options on new value rules.
- */
+/** Options on new value rules. */
 @ApiModel(description = "Options on new value rules.")
 @JsonPropertyOrder({
   SecurityMonitoringRuleNewValueOptions.JSON_PROPERTY_FORGET_AFTER,
   SecurityMonitoringRuleNewValueOptions.JSON_PROPERTY_LEARNING_DURATION
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-
 public class SecurityMonitoringRuleNewValueOptions {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_FORGET_AFTER = "forgetAfter";
   private SecurityMonitoringRuleNewValueOptionsForgetAfter forgetAfter;
 
   public static final String JSON_PROPERTY_LEARNING_DURATION = "learningDuration";
   private SecurityMonitoringRuleNewValueOptionsLearningDuration learningDuration;
 
-
-  public SecurityMonitoringRuleNewValueOptions forgetAfter(SecurityMonitoringRuleNewValueOptionsForgetAfter forgetAfter) {
+  public SecurityMonitoringRuleNewValueOptions forgetAfter(
+      SecurityMonitoringRuleNewValueOptionsForgetAfter forgetAfter) {
     this.forgetAfter = forgetAfter;
     this.unparsed |= !forgetAfter.isValid();
     return this;
   }
 
-   /**
+  /**
    * Get forgetAfter
+   *
    * @return forgetAfter
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FORGET_AFTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SecurityMonitoringRuleNewValueOptionsForgetAfter getForgetAfter() {
     return forgetAfter;
   }
 
-
   public void setForgetAfter(SecurityMonitoringRuleNewValueOptionsForgetAfter forgetAfter) {
     if (!forgetAfter.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.forgetAfter = forgetAfter;
   }
 
-
-  public SecurityMonitoringRuleNewValueOptions learningDuration(SecurityMonitoringRuleNewValueOptionsLearningDuration learningDuration) {
+  public SecurityMonitoringRuleNewValueOptions learningDuration(
+      SecurityMonitoringRuleNewValueOptionsLearningDuration learningDuration) {
     this.learningDuration = learningDuration;
     this.unparsed |= !learningDuration.isValid();
     return this;
   }
 
-   /**
+  /**
    * Get learningDuration
+   *
    * @return learningDuration
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LEARNING_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SecurityMonitoringRuleNewValueOptionsLearningDuration getLearningDuration() {
     return learningDuration;
   }
 
-
-  public void setLearningDuration(SecurityMonitoringRuleNewValueOptionsLearningDuration learningDuration) {
+  public void setLearningDuration(
+      SecurityMonitoringRuleNewValueOptionsLearningDuration learningDuration) {
     if (!learningDuration.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.learningDuration = learningDuration;
   }
 
-
-  /**
-   * Return true if this SecurityMonitoringRuleNewValueOptions object is equal to o.
-   */
+  /** Return true if this SecurityMonitoringRuleNewValueOptions object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -117,9 +97,11 @@ public class SecurityMonitoringRuleNewValueOptions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SecurityMonitoringRuleNewValueOptions securityMonitoringRuleNewValueOptions = (SecurityMonitoringRuleNewValueOptions) o;
-    return Objects.equals(this.forgetAfter, securityMonitoringRuleNewValueOptions.forgetAfter) &&
-        Objects.equals(this.learningDuration, securityMonitoringRuleNewValueOptions.learningDuration);
+    SecurityMonitoringRuleNewValueOptions securityMonitoringRuleNewValueOptions =
+        (SecurityMonitoringRuleNewValueOptions) o;
+    return Objects.equals(this.forgetAfter, securityMonitoringRuleNewValueOptions.forgetAfter)
+        && Objects.equals(
+            this.learningDuration, securityMonitoringRuleNewValueOptions.learningDuration);
   }
 
   @Override
@@ -138,8 +120,7 @@ public class SecurityMonitoringRuleNewValueOptions {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -147,6 +128,4 @@ public class SecurityMonitoringRuleNewValueOptions {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

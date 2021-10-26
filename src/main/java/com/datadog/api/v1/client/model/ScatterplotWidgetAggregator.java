@@ -8,45 +8,33 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.datadog.api.v1.client.JSON;
-
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
-/**
- * Aggregator used for the request.
- */
+import java.util.Objects;
+import java.util.Set;
+
+/** Aggregator used for the request. */
 @JsonSerialize(using = ScatterplotWidgetAggregator.ScatterplotWidgetAggregatorSerializer.class)
 public class ScatterplotWidgetAggregator {
-  
+
   public static final ScatterplotWidgetAggregator AVERAGE = new ScatterplotWidgetAggregator("avg");
   public static final ScatterplotWidgetAggregator LAST = new ScatterplotWidgetAggregator("last");
   public static final ScatterplotWidgetAggregator MAXIMUM = new ScatterplotWidgetAggregator("max");
   public static final ScatterplotWidgetAggregator MINIMUM = new ScatterplotWidgetAggregator("min");
   public static final ScatterplotWidgetAggregator SUM = new ScatterplotWidgetAggregator("sum");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("avg","last","max","min","sum"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("avg", "last", "max", "min", "sum"));
 
   private String value;
 
@@ -58,19 +46,22 @@ public class ScatterplotWidgetAggregator {
     this.value = value;
   }
 
-  public static class ScatterplotWidgetAggregatorSerializer extends StdSerializer<ScatterplotWidgetAggregator> {
-      public ScatterplotWidgetAggregatorSerializer(Class<ScatterplotWidgetAggregator> t) {
-          super(t);
-      }
+  public static class ScatterplotWidgetAggregatorSerializer
+      extends StdSerializer<ScatterplotWidgetAggregator> {
+    public ScatterplotWidgetAggregatorSerializer(Class<ScatterplotWidgetAggregator> t) {
+      super(t);
+    }
 
-      public ScatterplotWidgetAggregatorSerializer() {
-          this(null);
-      }
+    public ScatterplotWidgetAggregatorSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(ScatterplotWidgetAggregator value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(
+        ScatterplotWidgetAggregator value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonValue
@@ -82,9 +73,7 @@ public class ScatterplotWidgetAggregator {
     this.value = value;
   }
 
-  /**
-   * Return true if this ScatterplotWidgetAggregator object is equal to o.
-   */
+  /** Return true if this ScatterplotWidgetAggregator object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -98,7 +87,7 @@ public class ScatterplotWidgetAggregator {
 
   @Override
   public int hashCode() {
-      return Objects.hash(value);
+    return Objects.hash(value);
   }
 
   @Override
@@ -111,4 +100,3 @@ public class ScatterplotWidgetAggregator {
     return new ScatterplotWidgetAggregator(value);
   }
 }
-

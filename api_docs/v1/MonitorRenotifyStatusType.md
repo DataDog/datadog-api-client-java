@@ -1,9 +1,15 @@
+
+
 # MonitorRenotifyStatusType
 
 ## Enum
 
-- `ALERT` (value: `"alert"`)
 
-- `WARN` (value: `"warn"`)
+* `ALERT` (value: `"alert"`)
 
-- `NO_DATA` (value: `"no data"`)
+* `WARN` (value: `"warn"`)
+
+* `NO_DATA` (value: `"no data"`)
+
+
+

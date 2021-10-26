@@ -1,5 +1,11 @@
+
+
 # PermissionsType
 
 ## Enum
 
-- `PERMISSIONS` (value: `"permissions"`)
+
+* `PERMISSIONS` (value: `"permissions"`)
+
+
+

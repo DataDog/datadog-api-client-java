@@ -2,13 +2,15 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method                                                                      | HTTP request                                    | Description                           |
-| --------------------------------------------------------------------------- | ----------------------------------------------- | ------------------------------------- |
-| [**createAzureIntegration**](AzureIntegrationApi.md#createAzureIntegration) | **POST** /api/v1/integration/azure              | Create an Azure integration           |
-| [**deleteAzureIntegration**](AzureIntegrationApi.md#deleteAzureIntegration) | **DELETE** /api/v1/integration/azure            | Delete an Azure integration           |
-| [**listAzureIntegration**](AzureIntegrationApi.md#listAzureIntegration)     | **GET** /api/v1/integration/azure               | List all Azure integrations           |
-| [**updateAzureHostFilters**](AzureIntegrationApi.md#updateAzureHostFilters) | **POST** /api/v1/integration/azure/host_filters | Update Azure integration host filters |
-| [**updateAzureIntegration**](AzureIntegrationApi.md#updateAzureIntegration) | **PUT** /api/v1/integration/azure               | Update an Azure integration           |
+Method        | HTTP request | Description
+------------- | ------------ | ------------
+[**createAzureIntegration**](AzureIntegrationApi.md#createAzureIntegration) | **POST** /api/v1/integration/azure | Create an Azure integration
+[**deleteAzureIntegration**](AzureIntegrationApi.md#deleteAzureIntegration) | **DELETE** /api/v1/integration/azure | Delete an Azure integration
+[**listAzureIntegration**](AzureIntegrationApi.md#listAzureIntegration) | **GET** /api/v1/integration/azure | List all Azure integrations
+[**updateAzureHostFilters**](AzureIntegrationApi.md#updateAzureHostFilters) | **POST** /api/v1/integration/azure/host_filters | Update Azure integration host filters
+[**updateAzureIntegration**](AzureIntegrationApi.md#updateAzureIntegration) | **PUT** /api/v1/integration/azure | Update an Azure integration
+
+
 
 ## createAzureIntegration
 
@@ -54,9 +56,10 @@ public class Example {
 
 ### Parameters
 
-| Name     | Type                                | Description                                                               | Notes |
-| -------- | ----------------------------------- | ------------------------------------------------------------------------- | ----- |
-| **body** | [**AzureAccount**](AzureAccount.md) | Create a Datadog-Azure integration for your Datadog account request body. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**AzureAccount**](AzureAccount.md)| Create a Datadog-Azure integration for your Datadog account request body. |
 
 ### Return type
 
@@ -72,12 +75,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication Error |  -  |
 
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **200**     | OK                   | -                |
-| **400**     | Bad Request          | -                |
-| **403**     | Authentication Error | -                |
 
 ## deleteAzureIntegration
 
@@ -117,9 +120,10 @@ public class Example {
 
 ### Parameters
 
-| Name     | Type                                | Description                                            | Notes |
-| -------- | ----------------------------------- | ------------------------------------------------------ | ----- |
-| **body** | [**AzureAccount**](AzureAccount.md) | Delete a given Datadog-Azure integration request body. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**AzureAccount**](AzureAccount.md)| Delete a given Datadog-Azure integration request body. |
 
 ### Return type
 
@@ -135,12 +139,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication Error |  -  |
 
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **200**     | OK                   | -                |
-| **400**     | Bad Request          | -                |
-| **403**     | Authentication Error | -                |
 
 ## listAzureIntegration
 
@@ -195,12 +199,12 @@ This endpoint does not need any parameter.
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication Error |  -  |
 
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **200**     | OK                   | -                |
-| **400**     | Bad Request          | -                |
-| **403**     | Authentication Error | -                |
 
 ## updateAzureHostFilters
 
@@ -240,9 +244,10 @@ public class Example {
 
 ### Parameters
 
-| Name     | Type                                | Description                                                         | Notes |
-| -------- | ----------------------------------- | ------------------------------------------------------------------- | ----- |
-| **body** | [**AzureAccount**](AzureAccount.md) | Update a Datadog-Azure integration&#39;s host filters request body. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**AzureAccount**](AzureAccount.md)| Update a Datadog-Azure integration&#39;s host filters request body. |
 
 ### Return type
 
@@ -258,12 +263,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication Error |  -  |
 
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **200**     | OK                   | -                |
-| **400**     | Bad Request          | -                |
-| **403**     | Authentication Error | -                |
 
 ## updateAzureIntegration
 
@@ -305,9 +310,10 @@ public class Example {
 
 ### Parameters
 
-| Name     | Type                                | Description                                      | Notes |
-| -------- | ----------------------------------- | ------------------------------------------------ | ----- |
-| **body** | [**AzureAccount**](AzureAccount.md) | Update a Datadog-Azure integration request body. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**AzureAccount**](AzureAccount.md)| Update a Datadog-Azure integration request body. |
 
 ### Return type
 
@@ -323,9 +329,9 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication Error |  -  |
 
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **200**     | OK                   | -                |
-| **400**     | Bad Request          | -                |
-| **403**     | Authentication Error | -                |

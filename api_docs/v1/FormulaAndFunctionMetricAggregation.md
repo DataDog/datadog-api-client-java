@@ -1,19 +1,25 @@
+
+
 # FormulaAndFunctionMetricAggregation
 
 ## Enum
 
-- `AVG` (value: `"avg"`)
 
-- `MIN` (value: `"min"`)
+* `AVG` (value: `"avg"`)
 
-- `MAX` (value: `"max"`)
+* `MIN` (value: `"min"`)
 
-- `SUM` (value: `"sum"`)
+* `MAX` (value: `"max"`)
 
-- `LAST` (value: `"last"`)
+* `SUM` (value: `"sum"`)
 
-- `AREA` (value: `"area"`)
+* `LAST` (value: `"last"`)
 
-- `L2NORM` (value: `"l2norm"`)
+* `AREA` (value: `"area"`)
 
-- `PERCENTILE` (value: `"percentile"`)
+* `L2NORM` (value: `"l2norm"`)
+
+* `PERCENTILE` (value: `"percentile"`)
+
+
+

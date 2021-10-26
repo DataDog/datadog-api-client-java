@@ -8,30 +8,18 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Sensitive Data Scanner usage for a given organization for a given hour.
- */
+/** Sensitive Data Scanner usage for a given organization for a given hour. */
 @ApiModel(description = "Sensitive Data Scanner usage for a given organization for a given hour.")
 @JsonPropertyOrder({
   UsageSDSHour.JSON_PROPERTY_HOUR,
@@ -39,10 +27,8 @@ import com.datadog.api.v1.client.JSON;
   UsageSDSHour.JSON_PROPERTY_TOTAL_SCANNED_BYTES
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-
 public class UsageSDSHour {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_HOUR = "hour";
   private OffsetDateTime hour;
 
@@ -52,82 +38,81 @@ public class UsageSDSHour {
   public static final String JSON_PROPERTY_TOTAL_SCANNED_BYTES = "total_scanned_bytes";
   private Long totalScannedBytes;
 
-
   public UsageSDSHour hour(OffsetDateTime hour) {
     this.hour = hour;
     return this;
   }
 
-   /**
+  /**
    * The hour for the usage.
+   *
    * @return hour
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The hour for the usage.")
   @JsonProperty(JSON_PROPERTY_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getHour() {
     return hour;
   }
 
-
   public void setHour(OffsetDateTime hour) {
     this.hour = hour;
   }
-
 
   public UsageSDSHour logsScannedBytes(Long logsScannedBytes) {
     this.logsScannedBytes = logsScannedBytes;
     return this;
   }
 
-   /**
-   * The total number of bytes scanned of logs usage by the Sensitive Data Scanner from the start of the given hour’s month until the given hour.
+  /**
+   * The total number of bytes scanned of logs usage by the Sensitive Data Scanner from the start of
+   * the given hour’s month until the given hour.
+   *
    * @return logsScannedBytes
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The total number of bytes scanned of logs usage by the Sensitive Data Scanner from the start of the given hour’s month until the given hour.")
+  @ApiModelProperty(
+      value =
+          "The total number of bytes scanned of logs usage by the Sensitive Data Scanner from the"
+              + " start of the given hour’s month until the given hour.")
   @JsonProperty(JSON_PROPERTY_LOGS_SCANNED_BYTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getLogsScannedBytes() {
     return logsScannedBytes;
   }
 
-
   public void setLogsScannedBytes(Long logsScannedBytes) {
     this.logsScannedBytes = logsScannedBytes;
   }
-
 
   public UsageSDSHour totalScannedBytes(Long totalScannedBytes) {
     this.totalScannedBytes = totalScannedBytes;
     return this;
   }
 
-   /**
-   * The total number of bytes scanned across all usage types by the Sensitive Data Scanner from the start of the given hour’s month until the given hour.
+  /**
+   * The total number of bytes scanned across all usage types by the Sensitive Data Scanner from the
+   * start of the given hour’s month until the given hour.
+   *
    * @return totalScannedBytes
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The total number of bytes scanned across all usage types by the Sensitive Data Scanner from the start of the given hour’s month until the given hour.")
+  @ApiModelProperty(
+      value =
+          "The total number of bytes scanned across all usage types by the Sensitive Data Scanner"
+              + " from the start of the given hour’s month until the given hour.")
   @JsonProperty(JSON_PROPERTY_TOTAL_SCANNED_BYTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getTotalScannedBytes() {
     return totalScannedBytes;
   }
-
 
   public void setTotalScannedBytes(Long totalScannedBytes) {
     this.totalScannedBytes = totalScannedBytes;
   }
 
-
-  /**
-   * Return true if this UsageSDSHour object is equal to o.
-   */
+  /** Return true if this UsageSDSHour object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -137,9 +122,9 @@ public class UsageSDSHour {
       return false;
     }
     UsageSDSHour usageSDSHour = (UsageSDSHour) o;
-    return Objects.equals(this.hour, usageSDSHour.hour) &&
-        Objects.equals(this.logsScannedBytes, usageSDSHour.logsScannedBytes) &&
-        Objects.equals(this.totalScannedBytes, usageSDSHour.totalScannedBytes);
+    return Objects.equals(this.hour, usageSDSHour.hour)
+        && Objects.equals(this.logsScannedBytes, usageSDSHour.logsScannedBytes)
+        && Objects.equals(this.totalScannedBytes, usageSDSHour.totalScannedBytes);
   }
 
   @Override
@@ -159,8 +144,7 @@ public class UsageSDSHour {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -168,6 +152,4 @@ public class UsageSDSHour {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

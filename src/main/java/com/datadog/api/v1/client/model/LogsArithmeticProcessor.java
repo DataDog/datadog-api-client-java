@@ -8,31 +8,51 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.LogsArithmeticProcessorType;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.datadog.api.v1.client.JSON;
-
+import java.util.Objects;
 
 /**
- * Use the Arithmetic Processor to add a new attribute (without spaces or special characters in the new attribute name) to a log with the result of the provided formula. This enables you to remap different time attributes with different units into a single attribute, or to compute operations on attributes within the same log.  The formula can use parentheses and the basic arithmetic operators &#x60;-&#x60;, &#x60;+&#x60;, &#x60;*&#x60;, &#x60;/&#x60;.  By default, the calculation is skipped if an attribute is missing. Select “Replace missing attribute by 0” to automatically populate missing attribute values with 0 to ensure that the calculation is done. An attribute is missing if it is not found in the log attributes, or if it cannot be converted to a number.  *Notes*:  - The operator &#x60;-&#x60; needs to be space split in the formula as it can also be contained in attribute names. - If the target attribute already exists, it is overwritten by the result of the formula. - Results are rounded up to the 9th decimal. For example, if the result of the formula is &#x60;0.1234567891&#x60;,   the actual value stored for the attribute is &#x60;0.123456789&#x60;. - If you need to scale a unit of measure,   see [Scale Filter](https://docs.datadoghq.com/logs/log_configuration/parsing/?tab&#x3D;filter#matcher-and-filter).
+ * Use the Arithmetic Processor to add a new attribute (without spaces or special characters in the
+ * new attribute name) to a log with the result of the provided formula. This enables you to remap
+ * different time attributes with different units into a single attribute, or to compute operations
+ * on attributes within the same log. The formula can use parentheses and the basic arithmetic
+ * operators &#x60;-&#x60;, &#x60;+&#x60;, &#x60;*&#x60;, &#x60;/&#x60;. By default, the calculation
+ * is skipped if an attribute is missing. Select “Replace missing attribute by 0” to automatically
+ * populate missing attribute values with 0 to ensure that the calculation is done. An attribute is
+ * missing if it is not found in the log attributes, or if it cannot be converted to a number.
+ * *Notes*: - The operator &#x60;-&#x60; needs to be space split in the formula as it can also be
+ * contained in attribute names. - If the target attribute already exists, it is overwritten by the
+ * result of the formula. - Results are rounded up to the 9th decimal. For example, if the result of
+ * the formula is &#x60;0.1234567891&#x60;, the actual value stored for the attribute is
+ * &#x60;0.123456789&#x60;. - If you need to scale a unit of measure, see [Scale
+ * Filter](https://docs.datadoghq.com/logs/log_configuration/parsing/?tab&#x3D;filter#matcher-and-filter).
  */
-@ApiModel(description = "Use the Arithmetic Processor to add a new attribute (without spaces or special characters in the new attribute name) to a log with the result of the provided formula. This enables you to remap different time attributes with different units into a single attribute, or to compute operations on attributes within the same log.  The formula can use parentheses and the basic arithmetic operators `-`, `+`, `*`, `/`.  By default, the calculation is skipped if an attribute is missing. Select “Replace missing attribute by 0” to automatically populate missing attribute values with 0 to ensure that the calculation is done. An attribute is missing if it is not found in the log attributes, or if it cannot be converted to a number.  *Notes*:  - The operator `-` needs to be space split in the formula as it can also be contained in attribute names. - If the target attribute already exists, it is overwritten by the result of the formula. - Results are rounded up to the 9th decimal. For example, if the result of the formula is `0.1234567891`,   the actual value stored for the attribute is `0.123456789`. - If you need to scale a unit of measure,   see [Scale Filter](https://docs.datadoghq.com/logs/log_configuration/parsing/?tab=filter#matcher-and-filter).")
+@ApiModel(
+    description =
+        "Use the Arithmetic Processor to add a new attribute (without spaces or special characters"
+            + " in the new attribute name) to a log with the result of the provided formula. This"
+            + " enables you to remap different time attributes with different units into a single"
+            + " attribute, or to compute operations on attributes within the same log.  The"
+            + " formula can use parentheses and the basic arithmetic operators `-`, `+`, `*`, `/`."
+            + "  By default, the calculation is skipped if an attribute is missing. Select"
+            + " “Replace missing attribute by 0” to automatically populate missing attribute"
+            + " values with 0 to ensure that the calculation is done. An attribute is missing if"
+            + " it is not found in the log attributes, or if it cannot be converted to a number. "
+            + " *Notes*:  - The operator `-` needs to be space split in the formula as it can also"
+            + " be contained in attribute names. - If the target attribute already exists, it is"
+            + " overwritten by the result of the formula. - Results are rounded up to the 9th"
+            + " decimal. For example, if the result of the formula is `0.1234567891`,   the actual"
+            + " value stored for the attribute is `0.123456789`. - If you need to scale a unit of"
+            + " measure,   see [Scale"
+            + " Filter](https://docs.datadoghq.com/logs/log_configuration/parsing/?tab=filter#matcher-and-filter).")
 @JsonPropertyOrder({
   LogsArithmeticProcessor.JSON_PROPERTY_EXPRESSION,
   LogsArithmeticProcessor.JSON_PROPERTY_IS_ENABLED,
@@ -42,10 +62,8 @@ import com.datadog.api.v1.client.JSON;
   LogsArithmeticProcessor.JSON_PROPERTY_TYPE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-
 public class LogsArithmeticProcessor {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_EXPRESSION = "expression";
   private String expression;
 
@@ -68,14 +86,13 @@ public class LogsArithmeticProcessor {
 
   @JsonCreator
   public LogsArithmeticProcessor(
-            @JsonProperty(required=true, value=JSON_PROPERTY_EXPRESSION) String expression,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TARGET) String target,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE) LogsArithmeticProcessorType type
-            ) {
-        this.expression = expression;
-        this.target = target;
-        this.type = type;
-        this.unparsed |= !type.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_EXPRESSION) String expression,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TARGET) String target,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) LogsArithmeticProcessorType type) {
+    this.expression = expression;
+    this.target = target;
+    this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   public LogsArithmeticProcessor expression(String expression) {
@@ -83,118 +100,118 @@ public class LogsArithmeticProcessor {
     return this;
   }
 
-   /**
+  /**
    * Arithmetic operation between one or more log attributes.
+   *
    * @return expression
-  **/
-  @ApiModelProperty(example = "", required = true, value = "Arithmetic operation between one or more log attributes.")
+   */
+  @ApiModelProperty(
+      example = "",
+      required = true,
+      value = "Arithmetic operation between one or more log attributes.")
   @JsonProperty(JSON_PROPERTY_EXPRESSION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getExpression() {
     return expression;
   }
 
-
   public void setExpression(String expression) {
     this.expression = expression;
   }
-
 
   public LogsArithmeticProcessor isEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
     return this;
   }
 
-   /**
+  /**
    * Whether or not the processor is enabled.
+   *
    * @return isEnabled
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Whether or not the processor is enabled.")
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getIsEnabled() {
     return isEnabled;
   }
 
-
   public void setIsEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
   }
-
 
   public LogsArithmeticProcessor isReplaceMissing(Boolean isReplaceMissing) {
     this.isReplaceMissing = isReplaceMissing;
     return this;
   }
 
-   /**
-   * If &#x60;true&#x60;, it replaces all missing attributes of expression by &#x60;0&#x60;, &#x60;false&#x60; skip the operation if an attribute is missing.
+  /**
+   * If &#x60;true&#x60;, it replaces all missing attributes of expression by &#x60;0&#x60;,
+   * &#x60;false&#x60; skip the operation if an attribute is missing.
+   *
    * @return isReplaceMissing
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "If `true`, it replaces all missing attributes of expression by `0`, `false` skip the operation if an attribute is missing.")
+  @ApiModelProperty(
+      value =
+          "If `true`, it replaces all missing attributes of expression by `0`, `false` skip the"
+              + " operation if an attribute is missing.")
   @JsonProperty(JSON_PROPERTY_IS_REPLACE_MISSING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getIsReplaceMissing() {
     return isReplaceMissing;
   }
 
-
   public void setIsReplaceMissing(Boolean isReplaceMissing) {
     this.isReplaceMissing = isReplaceMissing;
   }
-
 
   public LogsArithmeticProcessor name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Name of the processor.
+   *
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Name of the processor.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getName() {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
-
 
   public LogsArithmeticProcessor target(String target) {
     this.target = target;
     return this;
   }
 
-   /**
+  /**
    * Name of the attribute that contains the result of the arithmetic operation.
+   *
    * @return target
-  **/
-  @ApiModelProperty(example = "", required = true, value = "Name of the attribute that contains the result of the arithmetic operation.")
+   */
+  @ApiModelProperty(
+      example = "",
+      required = true,
+      value = "Name of the attribute that contains the result of the arithmetic operation.")
   @JsonProperty(JSON_PROPERTY_TARGET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getTarget() {
     return target;
   }
 
-
   public void setTarget(String target) {
     this.target = target;
   }
-
 
   public LogsArithmeticProcessor type(LogsArithmeticProcessorType type) {
     this.type = type;
@@ -202,30 +219,26 @@ public class LogsArithmeticProcessor {
     return this;
   }
 
-   /**
+  /**
    * Get type
+   *
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public LogsArithmeticProcessorType getType() {
     return type;
   }
 
-
   public void setType(LogsArithmeticProcessorType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
 
-
-  /**
-   * Return true if this LogsArithmeticProcessor object is equal to o.
-   */
+  /** Return true if this LogsArithmeticProcessor object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -235,12 +248,12 @@ public class LogsArithmeticProcessor {
       return false;
     }
     LogsArithmeticProcessor logsArithmeticProcessor = (LogsArithmeticProcessor) o;
-    return Objects.equals(this.expression, logsArithmeticProcessor.expression) &&
-        Objects.equals(this.isEnabled, logsArithmeticProcessor.isEnabled) &&
-        Objects.equals(this.isReplaceMissing, logsArithmeticProcessor.isReplaceMissing) &&
-        Objects.equals(this.name, logsArithmeticProcessor.name) &&
-        Objects.equals(this.target, logsArithmeticProcessor.target) &&
-        Objects.equals(this.type, logsArithmeticProcessor.type);
+    return Objects.equals(this.expression, logsArithmeticProcessor.expression)
+        && Objects.equals(this.isEnabled, logsArithmeticProcessor.isEnabled)
+        && Objects.equals(this.isReplaceMissing, logsArithmeticProcessor.isReplaceMissing)
+        && Objects.equals(this.name, logsArithmeticProcessor.name)
+        && Objects.equals(this.target, logsArithmeticProcessor.target)
+        && Objects.equals(this.type, logsArithmeticProcessor.type);
   }
 
   @Override
@@ -263,8 +276,7 @@ public class LogsArithmeticProcessor {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -272,6 +284,4 @@ public class LogsArithmeticProcessor {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

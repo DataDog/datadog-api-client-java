@@ -1,14 +1,14 @@
+
+
 # NotebookGlobalTime
 
 Notebook global timeframe.
 
 ## oneOf schemas
-
-- [NotebookAbsoluteTime](NotebookAbsoluteTime.md)
-- [NotebookRelativeTime](NotebookRelativeTime.md)
+* [NotebookAbsoluteTime](NotebookAbsoluteTime.md)
+* [NotebookRelativeTime](NotebookRelativeTime.md)
 
 ## Example
-
 ```java
 // Import classes:
 import com.datadog.api.v1.client.model.NotebookGlobalTime;
@@ -35,3 +35,5 @@ public class Example {
     }
 }
 ```
+
+

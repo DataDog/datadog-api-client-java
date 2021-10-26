@@ -8,30 +8,24 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.datadog.api.v1.client.JSON;
-
+import java.util.Objects;
 
 /**
- * The number of indexed logs for each hour for a given organization broken down by retention period.
+ * The number of indexed logs for each hour for a given organization broken down by retention
+ * period.
  */
-@ApiModel(description = "The number of indexed logs for each hour for a given organization broken down by retention period.")
+@ApiModel(
+    description =
+        "The number of indexed logs for each hour for a given organization broken down by"
+            + " retention period.")
 @JsonPropertyOrder({
   UsageLogsByRetentionHour.JSON_PROPERTY_INDEXED_EVENTS_COUNT,
   UsageLogsByRetentionHour.JSON_PROPERTY_LIVE_INDEXED_EVENTS_COUNT,
@@ -39,122 +33,112 @@ import com.datadog.api.v1.client.JSON;
   UsageLogsByRetentionHour.JSON_PROPERTY_RETENTION
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-
 public class UsageLogsByRetentionHour {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_INDEXED_EVENTS_COUNT = "indexed_events_count";
   private Long indexedEventsCount;
 
   public static final String JSON_PROPERTY_LIVE_INDEXED_EVENTS_COUNT = "live_indexed_events_count";
   private Long liveIndexedEventsCount;
 
-  public static final String JSON_PROPERTY_REHYDRATED_INDEXED_EVENTS_COUNT = "rehydrated_indexed_events_count";
+  public static final String JSON_PROPERTY_REHYDRATED_INDEXED_EVENTS_COUNT =
+      "rehydrated_indexed_events_count";
   private Long rehydratedIndexedEventsCount;
 
   public static final String JSON_PROPERTY_RETENTION = "retention";
   private String retention;
-
 
   public UsageLogsByRetentionHour indexedEventsCount(Long indexedEventsCount) {
     this.indexedEventsCount = indexedEventsCount;
     return this;
   }
 
-   /**
+  /**
    * Total logs indexed with this retention period during a given hour.
+   *
    * @return indexedEventsCount
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Total logs indexed with this retention period during a given hour.")
   @JsonProperty(JSON_PROPERTY_INDEXED_EVENTS_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getIndexedEventsCount() {
     return indexedEventsCount;
   }
 
-
   public void setIndexedEventsCount(Long indexedEventsCount) {
     this.indexedEventsCount = indexedEventsCount;
   }
-
 
   public UsageLogsByRetentionHour liveIndexedEventsCount(Long liveIndexedEventsCount) {
     this.liveIndexedEventsCount = liveIndexedEventsCount;
     return this;
   }
 
-   /**
+  /**
    * Live logs indexed with this retention period during a given hour.
+   *
    * @return liveIndexedEventsCount
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Live logs indexed with this retention period during a given hour.")
   @JsonProperty(JSON_PROPERTY_LIVE_INDEXED_EVENTS_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getLiveIndexedEventsCount() {
     return liveIndexedEventsCount;
   }
 
-
   public void setLiveIndexedEventsCount(Long liveIndexedEventsCount) {
     this.liveIndexedEventsCount = liveIndexedEventsCount;
   }
-
 
   public UsageLogsByRetentionHour rehydratedIndexedEventsCount(Long rehydratedIndexedEventsCount) {
     this.rehydratedIndexedEventsCount = rehydratedIndexedEventsCount;
     return this;
   }
 
-   /**
+  /**
    * Rehydrated logs indexed with this retention period during a given hour.
+   *
    * @return rehydratedIndexedEventsCount
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Rehydrated logs indexed with this retention period during a given hour.")
+  @ApiModelProperty(
+      value = "Rehydrated logs indexed with this retention period during a given hour.")
   @JsonProperty(JSON_PROPERTY_REHYDRATED_INDEXED_EVENTS_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getRehydratedIndexedEventsCount() {
     return rehydratedIndexedEventsCount;
   }
 
-
   public void setRehydratedIndexedEventsCount(Long rehydratedIndexedEventsCount) {
     this.rehydratedIndexedEventsCount = rehydratedIndexedEventsCount;
   }
-
 
   public UsageLogsByRetentionHour retention(String retention) {
     this.retention = retention;
     return this;
   }
 
-   /**
+  /**
    * The retention period in days or \&quot;custom\&quot; for all custom retention usage.
+   *
    * @return retention
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The retention period in days or \"custom\" for all custom retention usage.")
+  @ApiModelProperty(
+      value = "The retention period in days or \"custom\" for all custom retention usage.")
   @JsonProperty(JSON_PROPERTY_RETENTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRetention() {
     return retention;
   }
-
 
   public void setRetention(String retention) {
     this.retention = retention;
   }
 
-
-  /**
-   * Return true if this UsageLogsByRetentionHour object is equal to o.
-   */
+  /** Return true if this UsageLogsByRetentionHour object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -164,15 +148,19 @@ public class UsageLogsByRetentionHour {
       return false;
     }
     UsageLogsByRetentionHour usageLogsByRetentionHour = (UsageLogsByRetentionHour) o;
-    return Objects.equals(this.indexedEventsCount, usageLogsByRetentionHour.indexedEventsCount) &&
-        Objects.equals(this.liveIndexedEventsCount, usageLogsByRetentionHour.liveIndexedEventsCount) &&
-        Objects.equals(this.rehydratedIndexedEventsCount, usageLogsByRetentionHour.rehydratedIndexedEventsCount) &&
-        Objects.equals(this.retention, usageLogsByRetentionHour.retention);
+    return Objects.equals(this.indexedEventsCount, usageLogsByRetentionHour.indexedEventsCount)
+        && Objects.equals(
+            this.liveIndexedEventsCount, usageLogsByRetentionHour.liveIndexedEventsCount)
+        && Objects.equals(
+            this.rehydratedIndexedEventsCount,
+            usageLogsByRetentionHour.rehydratedIndexedEventsCount)
+        && Objects.equals(this.retention, usageLogsByRetentionHour.retention);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(indexedEventsCount, liveIndexedEventsCount, rehydratedIndexedEventsCount, retention);
+    return Objects.hash(
+        indexedEventsCount, liveIndexedEventsCount, rehydratedIndexedEventsCount, retention);
   }
 
   @Override
@@ -180,16 +168,19 @@ public class UsageLogsByRetentionHour {
     StringBuilder sb = new StringBuilder();
     sb.append("class UsageLogsByRetentionHour {\n");
     sb.append("    indexedEventsCount: ").append(toIndentedString(indexedEventsCount)).append("\n");
-    sb.append("    liveIndexedEventsCount: ").append(toIndentedString(liveIndexedEventsCount)).append("\n");
-    sb.append("    rehydratedIndexedEventsCount: ").append(toIndentedString(rehydratedIndexedEventsCount)).append("\n");
+    sb.append("    liveIndexedEventsCount: ")
+        .append(toIndentedString(liveIndexedEventsCount))
+        .append("\n");
+    sb.append("    rehydratedIndexedEventsCount: ")
+        .append(toIndentedString(rehydratedIndexedEventsCount))
+        .append("\n");
     sb.append("    retention: ").append(toIndentedString(retention)).append("\n");
     sb.append("}");
     return sb.toString();
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -197,6 +188,4 @@ public class UsageLogsByRetentionHour {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

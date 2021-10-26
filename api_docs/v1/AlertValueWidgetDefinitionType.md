@@ -1,5 +1,11 @@
+
+
 # AlertValueWidgetDefinitionType
 
 ## Enum
 
-- `ALERT_VALUE` (value: `"alert_value"`)
+
+* `ALERT_VALUE` (value: `"alert_value"`)
+
+
+

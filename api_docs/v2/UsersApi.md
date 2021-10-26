@@ -2,18 +2,20 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method                                                         | HTTP request                                            | Description              |
-| -------------------------------------------------------------- | ------------------------------------------------------- | ------------------------ |
-| [**createServiceAccount**](UsersApi.md#createServiceAccount)   | **POST** /api/v2/service_accounts                       | Create a service account |
-| [**createUser**](UsersApi.md#createUser)                       | **POST** /api/v2/users                                  | Create a user            |
-| [**disableUser**](UsersApi.md#disableUser)                     | **DELETE** /api/v2/users/{user_id}                      | Disable a user           |
-| [**getInvitation**](UsersApi.md#getInvitation)                 | **GET** /api/v2/user_invitations/{user_invitation_uuid} | Get a user invitation    |
-| [**getUser**](UsersApi.md#getUser)                             | **GET** /api/v2/users/{user_id}                         | Get user details         |
-| [**listUserOrganizations**](UsersApi.md#listUserOrganizations) | **GET** /api/v2/users/{user_id}/orgs                    | Get a user organization  |
-| [**listUserPermissions**](UsersApi.md#listUserPermissions)     | **GET** /api/v2/users/{user_id}/permissions             | Get a user permissions   |
-| [**listUsers**](UsersApi.md#listUsers)                         | **GET** /api/v2/users                                   | List all users           |
-| [**sendInvitations**](UsersApi.md#sendInvitations)             | **POST** /api/v2/user_invitations                       | Send invitation emails   |
-| [**updateUser**](UsersApi.md#updateUser)                       | **PATCH** /api/v2/users/{user_id}                       | Update a user            |
+Method        | HTTP request | Description
+------------- | ------------ | ------------
+[**createServiceAccount**](UsersApi.md#createServiceAccount) | **POST** /api/v2/service_accounts | Create a service account
+[**createUser**](UsersApi.md#createUser) | **POST** /api/v2/users | Create a user
+[**disableUser**](UsersApi.md#disableUser) | **DELETE** /api/v2/users/{user_id} | Disable a user
+[**getInvitation**](UsersApi.md#getInvitation) | **GET** /api/v2/user_invitations/{user_invitation_uuid} | Get a user invitation
+[**getUser**](UsersApi.md#getUser) | **GET** /api/v2/users/{user_id} | Get user details
+[**listUserOrganizations**](UsersApi.md#listUserOrganizations) | **GET** /api/v2/users/{user_id}/orgs | Get a user organization
+[**listUserPermissions**](UsersApi.md#listUserPermissions) | **GET** /api/v2/users/{user_id}/permissions | Get a user permissions
+[**listUsers**](UsersApi.md#listUsers) | **GET** /api/v2/users | List all users
+[**sendInvitations**](UsersApi.md#sendInvitations) | **POST** /api/v2/user_invitations | Send invitation emails
+[**updateUser**](UsersApi.md#updateUser) | **PATCH** /api/v2/users/{user_id} | Update a user
+
+
 
 ## createServiceAccount
 
@@ -36,7 +38,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        ServiceAccountCreateRequest body = new ServiceAccountCreateRequest(); // ServiceAccountCreateRequest |
+        ServiceAccountCreateRequest body = new ServiceAccountCreateRequest(); // ServiceAccountCreateRequest | 
         try {
             UserResponse result = apiInstance.createServiceAccount(body);
             System.out.println(result);
@@ -53,9 +55,10 @@ public class Example {
 
 ### Parameters
 
-| Name     | Type                                                              | Description | Notes |
-| -------- | ----------------------------------------------------------------- | ----------- | ----- |
-| **body** | [**ServiceAccountCreateRequest**](ServiceAccountCreateRequest.md) |             |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**ServiceAccountCreateRequest**](ServiceAccountCreateRequest.md)|  |
 
 ### Return type
 
@@ -71,12 +74,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication error |  -  |
 
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **201**     | OK                   | -                |
-| **400**     | Bad Request          | -                |
-| **403**     | Authentication error | -                |
 
 ## createUser
 
@@ -99,7 +102,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        UserCreateRequest body = new UserCreateRequest(); // UserCreateRequest |
+        UserCreateRequest body = new UserCreateRequest(); // UserCreateRequest | 
         try {
             UserResponse result = apiInstance.createUser(body);
             System.out.println(result);
@@ -116,9 +119,10 @@ public class Example {
 
 ### Parameters
 
-| Name     | Type                                          | Description | Notes |
-| -------- | --------------------------------------------- | ----------- | ----- |
-| **body** | [**UserCreateRequest**](UserCreateRequest.md) |             |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**UserCreateRequest**](UserCreateRequest.md)|  |
 
 ### Return type
 
@@ -134,12 +138,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication error |  -  |
 
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **201**     | OK                   | -                |
-| **400**     | Bad Request          | -                |
-| **403**     | Authentication error | -                |
 
 ## disableUser
 
@@ -179,9 +183,10 @@ public class Example {
 
 ### Parameters
 
-| Name       | Type       | Description         | Notes |
-| ---------- | ---------- | ------------------- | ----- |
-| **userId** | **String** | The ID of the user. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **String**| The ID of the user. |
 
 ### Return type
 
@@ -197,12 +202,12 @@ null (empty response body)
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | OK |  -  |
+| **403** | Authentication error |  -  |
+| **404** | Not found |  -  |
 
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **204**     | OK                   | -                |
-| **403**     | Authentication error | -                |
-| **404**     | Not found            | -                |
 
 ## getInvitation
 
@@ -242,9 +247,10 @@ public class Example {
 
 ### Parameters
 
-| Name                   | Type       | Description                      | Notes |
-| ---------------------- | ---------- | -------------------------------- | ----- |
-| **userInvitationUuid** | **String** | The UUID of the user invitation. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userInvitationUuid** | **String**| The UUID of the user invitation. |
 
 ### Return type
 
@@ -260,12 +266,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Authentication error |  -  |
+| **404** | Not found |  -  |
 
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **200**     | OK                   | -                |
-| **403**     | Authentication error | -                |
-| **404**     | Not found            | -                |
 
 ## getUser
 
@@ -305,9 +311,10 @@ public class Example {
 
 ### Parameters
 
-| Name       | Type       | Description         | Notes |
-| ---------- | ---------- | ------------------- | ----- |
-| **userId** | **String** | The ID of the user. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **String**| The ID of the user. |
 
 ### Return type
 
@@ -323,12 +330,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK for get user |  -  |
+| **403** | Authentication error |  -  |
+| **404** | Not found |  -  |
 
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **200**     | OK for get user      | -                |
-| **403**     | Authentication error | -                |
-| **404**     | Not found            | -                |
 
 ## listUserOrganizations
 
@@ -369,9 +376,10 @@ public class Example {
 
 ### Parameters
 
-| Name       | Type       | Description         | Notes |
-| ---------- | ---------- | ------------------- | ----- |
-| **userId** | **String** | The ID of the user. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **String**| The ID of the user. |
 
 ### Return type
 
@@ -387,12 +395,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Authentication error |  -  |
+| **404** | Not found |  -  |
 
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **200**     | OK                   | -                |
-| **403**     | Authentication error | -                |
-| **404**     | Not found            | -                |
 
 ## listUserPermissions
 
@@ -433,9 +441,10 @@ public class Example {
 
 ### Parameters
 
-| Name       | Type       | Description         | Notes |
-| ---------- | ---------- | ------------------- | ----- |
-| **userId** | **String** | The ID of the user. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **String**| The ID of the user. |
 
 ### Return type
 
@@ -451,12 +460,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Authentication error |  -  |
+| **404** | Not found |  -  |
 
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **200**     | OK                   | -                |
-| **403**     | Authentication error | -                |
-| **404**     | Not found            | -                |
 
 ## listUsers
 
@@ -508,14 +517,15 @@ public class Example {
 
 ### Parameters
 
-| Name             | Type               | Description                                                                                                                                                                                                                                                        | Notes                                          |
-| ---------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------- |
-| **pageSize**     | **Long**           | Size for a given page.                                                                                                                                                                                                                                             | [optional] [default to 10]                     |
-| **pageNumber**   | **Long**           | Specific page number to return.                                                                                                                                                                                                                                    | [optional] [default to 0]                      |
-| **sort**         | **String**         | User attribute to order results by. Sort order is ascending by default. Sort order is descending if the field is prefixed by a negative sign, for example &#x60;sort&#x3D;-name&#x60;. Options: &#x60;name&#x60;, &#x60;modified_at&#x60;, &#x60;user_count&#x60;. | [optional] [default to name]                   |
-| **sortDir**      | **QuerySortOrder** | Direction of sort. Options: &#x60;asc&#x60;, &#x60;desc&#x60;.                                                                                                                                                                                                     | [optional] [default to desc] [enum: asc, desc] |
-| **filter**       | **String**         | Filter all users by the given string. Defaults to no filtering.                                                                                                                                                                                                    | [optional]                                     |
-| **filterStatus** | **String**         | Filter on status attribute. Comma separated list, with possible values &#x60;Active&#x60;, &#x60;Pending&#x60;, and &#x60;Disabled&#x60;. Defaults to no filtering.                                                                                                | [optional]                                     |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pageSize** | **Long**| Size for a given page. | [optional] [default to 10]
+ **pageNumber** | **Long**| Specific page number to return. | [optional] [default to 0]
+ **sort** | **String**| User attribute to order results by. Sort order is ascending by default. Sort order is descending if the field is prefixed by a negative sign, for example &#x60;sort&#x3D;-name&#x60;. Options: &#x60;name&#x60;, &#x60;modified_at&#x60;, &#x60;user_count&#x60;. | [optional] [default to name]
+ **sortDir** | **QuerySortOrder**| Direction of sort. Options: &#x60;asc&#x60;, &#x60;desc&#x60;. | [optional] [default to desc] [enum: asc, desc]
+ **filter** | **String**| Filter all users by the given string. Defaults to no filtering. | [optional]
+ **filterStatus** | **String**| Filter on status attribute. Comma separated list, with possible values &#x60;Active&#x60;, &#x60;Pending&#x60;, and &#x60;Disabled&#x60;. Defaults to no filtering. | [optional]
 
 ### Return type
 
@@ -531,12 +541,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication error |  -  |
 
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **200**     | OK                   | -                |
-| **400**     | Bad Request          | -                |
-| **403**     | Authentication error | -                |
 
 ## sendInvitations
 
@@ -559,7 +569,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         UsersApi apiInstance = new UsersApi(defaultClient);
-        UserInvitationsRequest body = new UserInvitationsRequest(); // UserInvitationsRequest |
+        UserInvitationsRequest body = new UserInvitationsRequest(); // UserInvitationsRequest | 
         try {
             UserInvitationsResponse result = apiInstance.sendInvitations(body);
             System.out.println(result);
@@ -576,9 +586,10 @@ public class Example {
 
 ### Parameters
 
-| Name     | Type                                                    | Description | Notes |
-| -------- | ------------------------------------------------------- | ----------- | ----- |
-| **body** | [**UserInvitationsRequest**](UserInvitationsRequest.md) |             |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**UserInvitationsRequest**](UserInvitationsRequest.md)|  |
 
 ### Return type
 
@@ -594,12 +605,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication error |  -  |
 
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **201**     | OK                   | -                |
-| **400**     | Bad Request          | -                |
-| **403**     | Authentication error | -                |
 
 ## updateUser
 
@@ -624,7 +635,7 @@ public class Example {
 
         UsersApi apiInstance = new UsersApi(defaultClient);
         String userId = "00000000-0000-0000-0000-000000000000"; // String | The ID of the user.
-        UserUpdateRequest body = new UserUpdateRequest(); // UserUpdateRequest |
+        UserUpdateRequest body = new UserUpdateRequest(); // UserUpdateRequest | 
         try {
             UserResponse result = apiInstance.updateUser(userId, body);
             System.out.println(result);
@@ -641,10 +652,11 @@ public class Example {
 
 ### Parameters
 
-| Name       | Type                                          | Description         | Notes |
-| ---------- | --------------------------------------------- | ------------------- | ----- |
-| **userId** | **String**                                    | The ID of the user. |
-| **body**   | [**UserUpdateRequest**](UserUpdateRequest.md) |                     |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **String**| The ID of the user. |
+ **body** | [**UserUpdateRequest**](UserUpdateRequest.md)|  |
 
 ### Return type
 
@@ -660,11 +672,11 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication error |  -  |
+| **404** | Not found |  -  |
+| **422** | Unprocessable Entity |  -  |
 
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **200**     | OK                   | -                |
-| **400**     | Bad Request          | -                |
-| **403**     | Authentication error | -                |
-| **404**     | Not found            | -                |
-| **422**     | Unprocessable Entity | -                |

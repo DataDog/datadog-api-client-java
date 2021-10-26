@@ -2,20 +2,22 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method                                                                                          | HTTP request                                                                               | Description                          |
-| ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | ------------------------------------ |
-| [**createSecurityFilter**](SecurityMonitoringApi.md#createSecurityFilter)                       | **POST** /api/v2/security_monitoring/configuration/security_filters                        | Create a security filter             |
-| [**createSecurityMonitoringRule**](SecurityMonitoringApi.md#createSecurityMonitoringRule)       | **POST** /api/v2/security_monitoring/rules                                                 | Create a detection rule              |
-| [**deleteSecurityFilter**](SecurityMonitoringApi.md#deleteSecurityFilter)                       | **DELETE** /api/v2/security_monitoring/configuration/security_filters/{security_filter_id} | Delete a security filter             |
-| [**deleteSecurityMonitoringRule**](SecurityMonitoringApi.md#deleteSecurityMonitoringRule)       | **DELETE** /api/v2/security_monitoring/rules/{rule_id}                                     | Delete an existing rule              |
-| [**getSecurityFilter**](SecurityMonitoringApi.md#getSecurityFilter)                             | **GET** /api/v2/security_monitoring/configuration/security_filters/{security_filter_id}    | Get a security filter                |
-| [**getSecurityMonitoringRule**](SecurityMonitoringApi.md#getSecurityMonitoringRule)             | **GET** /api/v2/security_monitoring/rules/{rule_id}                                        | Get a rule&#39;s details             |
-| [**listSecurityFilters**](SecurityMonitoringApi.md#listSecurityFilters)                         | **GET** /api/v2/security_monitoring/configuration/security_filters                         | Get all security filters             |
-| [**listSecurityMonitoringRules**](SecurityMonitoringApi.md#listSecurityMonitoringRules)         | **GET** /api/v2/security_monitoring/rules                                                  | List rules                           |
-| [**listSecurityMonitoringSignals**](SecurityMonitoringApi.md#listSecurityMonitoringSignals)     | **GET** /api/v2/security_monitoring/signals                                                | Get a quick list of security signals |
-| [**searchSecurityMonitoringSignals**](SecurityMonitoringApi.md#searchSecurityMonitoringSignals) | **POST** /api/v2/security_monitoring/signals/search                                        | Get a list of security signals       |
-| [**updateSecurityFilter**](SecurityMonitoringApi.md#updateSecurityFilter)                       | **PATCH** /api/v2/security_monitoring/configuration/security_filters/{security_filter_id}  | Update a security filter             |
-| [**updateSecurityMonitoringRule**](SecurityMonitoringApi.md#updateSecurityMonitoringRule)       | **PUT** /api/v2/security_monitoring/rules/{rule_id}                                        | Update an existing rule              |
+Method        | HTTP request | Description
+------------- | ------------ | ------------
+[**createSecurityFilter**](SecurityMonitoringApi.md#createSecurityFilter) | **POST** /api/v2/security_monitoring/configuration/security_filters | Create a security filter
+[**createSecurityMonitoringRule**](SecurityMonitoringApi.md#createSecurityMonitoringRule) | **POST** /api/v2/security_monitoring/rules | Create a detection rule
+[**deleteSecurityFilter**](SecurityMonitoringApi.md#deleteSecurityFilter) | **DELETE** /api/v2/security_monitoring/configuration/security_filters/{security_filter_id} | Delete a security filter
+[**deleteSecurityMonitoringRule**](SecurityMonitoringApi.md#deleteSecurityMonitoringRule) | **DELETE** /api/v2/security_monitoring/rules/{rule_id} | Delete an existing rule
+[**getSecurityFilter**](SecurityMonitoringApi.md#getSecurityFilter) | **GET** /api/v2/security_monitoring/configuration/security_filters/{security_filter_id} | Get a security filter
+[**getSecurityMonitoringRule**](SecurityMonitoringApi.md#getSecurityMonitoringRule) | **GET** /api/v2/security_monitoring/rules/{rule_id} | Get a rule&#39;s details
+[**listSecurityFilters**](SecurityMonitoringApi.md#listSecurityFilters) | **GET** /api/v2/security_monitoring/configuration/security_filters | Get all security filters
+[**listSecurityMonitoringRules**](SecurityMonitoringApi.md#listSecurityMonitoringRules) | **GET** /api/v2/security_monitoring/rules | List rules
+[**listSecurityMonitoringSignals**](SecurityMonitoringApi.md#listSecurityMonitoringSignals) | **GET** /api/v2/security_monitoring/signals | Get a quick list of security signals
+[**searchSecurityMonitoringSignals**](SecurityMonitoringApi.md#searchSecurityMonitoringSignals) | **POST** /api/v2/security_monitoring/signals/search | Get a list of security signals
+[**updateSecurityFilter**](SecurityMonitoringApi.md#updateSecurityFilter) | **PATCH** /api/v2/security_monitoring/configuration/security_filters/{security_filter_id} | Update a security filter
+[**updateSecurityMonitoringRule**](SecurityMonitoringApi.md#updateSecurityMonitoringRule) | **PUT** /api/v2/security_monitoring/rules/{rule_id} | Update an existing rule
+
+
 
 ## createSecurityFilter
 
@@ -58,9 +60,10 @@ public class Example {
 
 ### Parameters
 
-| Name     | Type                                                              | Description                                | Notes |
-| -------- | ----------------------------------------------------------------- | ------------------------------------------ | ----- |
-| **body** | [**SecurityFilterCreateRequest**](SecurityFilterCreateRequest.md) | The definition of the new security filter. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**SecurityFilterCreateRequest**](SecurityFilterCreateRequest.md)| The definition of the new security filter. |
 
 ### Return type
 
@@ -76,14 +79,14 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Not Authorized |  -  |
+| **409** | Conflict |  -  |
+| **429** | Too many requests |  -  |
 
-| Status code | Description       | Response headers |
-| ----------- | ----------------- | ---------------- |
-| **200**     | OK                | -                |
-| **400**     | Bad Request       | -                |
-| **403**     | Not Authorized    | -                |
-| **409**     | Conflict          | -                |
-| **429**     | Too many requests | -                |
 
 ## createSecurityMonitoringRule
 
@@ -106,7 +109,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
-        SecurityMonitoringRuleCreatePayload body = new SecurityMonitoringRuleCreatePayload(); // SecurityMonitoringRuleCreatePayload |
+        SecurityMonitoringRuleCreatePayload body = new SecurityMonitoringRuleCreatePayload(); // SecurityMonitoringRuleCreatePayload | 
         try {
             SecurityMonitoringRuleResponse result = apiInstance.createSecurityMonitoringRule(body);
             System.out.println(result);
@@ -123,9 +126,10 @@ public class Example {
 
 ### Parameters
 
-| Name     | Type                                                                              | Description | Notes |
-| -------- | --------------------------------------------------------------------------------- | ----------- | ----- |
-| **body** | [**SecurityMonitoringRuleCreatePayload**](SecurityMonitoringRuleCreatePayload.md) |             |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**SecurityMonitoringRuleCreatePayload**](SecurityMonitoringRuleCreatePayload.md)|  |
 
 ### Return type
 
@@ -141,12 +145,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Not Authorized |  -  |
 
-| Status code | Description    | Response headers |
-| ----------- | -------------- | ---------------- |
-| **200**     | OK             | -                |
-| **400**     | Bad Request    | -                |
-| **403**     | Not Authorized | -                |
 
 ## deleteSecurityFilter
 
@@ -185,9 +189,10 @@ public class Example {
 
 ### Parameters
 
-| Name                 | Type       | Description                    | Notes |
-| -------------------- | ---------- | ------------------------------ | ----- |
-| **securityFilterId** | **String** | The ID of the security filter. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **securityFilterId** | **String**| The ID of the security filter. |
 
 ### Return type
 
@@ -203,13 +208,13 @@ null (empty response body)
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | OK |  -  |
+| **403** | Not Authorized |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too many requests |  -  |
 
-| Status code | Description       | Response headers |
-| ----------- | ----------------- | ---------------- |
-| **204**     | OK                | -                |
-| **403**     | Not Authorized    | -                |
-| **404**     | Not Found         | -                |
-| **429**     | Too many requests | -                |
 
 ## deleteSecurityMonitoringRule
 
@@ -248,9 +253,10 @@ public class Example {
 
 ### Parameters
 
-| Name       | Type       | Description         | Notes |
-| ---------- | ---------- | ------------------- | ----- |
-| **ruleId** | **String** | The ID of the rule. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ruleId** | **String**| The ID of the rule. |
 
 ### Return type
 
@@ -266,12 +272,12 @@ null (empty response body)
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | OK |  -  |
+| **403** | Not Authorized |  -  |
+| **404** | Not Found |  -  |
 
-| Status code | Description    | Response headers |
-| ----------- | -------------- | ---------------- |
-| **204**     | OK             | -                |
-| **403**     | Not Authorized | -                |
-| **404**     | Not Found      | -                |
 
 ## getSecurityFilter
 
@@ -314,9 +320,10 @@ public class Example {
 
 ### Parameters
 
-| Name                 | Type       | Description                    | Notes |
-| -------------------- | ---------- | ------------------------------ | ----- |
-| **securityFilterId** | **String** | The ID of the security filter. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **securityFilterId** | **String**| The ID of the security filter. |
 
 ### Return type
 
@@ -332,13 +339,13 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Not Authorized |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too many requests |  -  |
 
-| Status code | Description       | Response headers |
-| ----------- | ----------------- | ---------------- |
-| **200**     | OK                | -                |
-| **403**     | Not Authorized    | -                |
-| **404**     | Not Found         | -                |
-| **429**     | Too many requests | -                |
 
 ## getSecurityMonitoringRule
 
@@ -378,9 +385,10 @@ public class Example {
 
 ### Parameters
 
-| Name       | Type       | Description         | Notes |
-| ---------- | ---------- | ------------------- | ----- |
-| **ruleId** | **String** | The ID of the rule. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ruleId** | **String**| The ID of the rule. |
 
 ### Return type
 
@@ -396,11 +404,11 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **404**     | Not Found   | -                |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **404** | Not Found |  -  |
+
 
 ## listSecurityFilters
 
@@ -455,12 +463,12 @@ This endpoint does not need any parameter.
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Not Authorized |  -  |
+| **429** | Too many requests |  -  |
 
-| Status code | Description       | Response headers |
-| ----------- | ----------------- | ---------------- |
-| **200**     | OK                | -                |
-| **403**     | Not Authorized    | -                |
-| **429**     | Too many requests | -                |
 
 ## listSecurityMonitoringRules
 
@@ -503,10 +511,11 @@ public class Example {
 
 ### Parameters
 
-| Name           | Type     | Description                     | Notes                      |
-| -------------- | -------- | ------------------------------- | -------------------------- |
-| **pageSize**   | **Long** | Size for a given page.          | [optional] [default to 10] |
-| **pageNumber** | **Long** | Specific page number to return. | [optional] [default to 0]  |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pageSize** | **Long**| Size for a given page. | [optional] [default to 10]
+ **pageNumber** | **Long**| Specific page number to return. | [optional] [default to 0]
 
 ### Return type
 
@@ -522,11 +531,11 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **400**     | Bad Request | -                |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+
 
 ## listSecurityMonitoringSignals
 
@@ -580,14 +589,15 @@ public class Example {
 
 ### Parameters
 
-| Name            | Type                              | Description                                                        | Notes                                    |
-| --------------- | --------------------------------- | ------------------------------------------------------------------ | ---------------------------------------- |
-| **filterQuery** | **String**                        | The search query for security signals.                             | [optional]                               |
-| **filterFrom**  | **OffsetDateTime**                | The minimum timestamp for requested security signals.              | [optional]                               |
-| **filterTo**    | **OffsetDateTime**                | The maximum timestamp for requested security signals.              | [optional]                               |
-| **sort**        | **SecurityMonitoringSignalsSort** | The order of the security signals in results.                      | [optional] [enum: timestamp, -timestamp] |
-| **pageCursor**  | **String**                        | A list of results using the cursor provided in the previous query. | [optional]                               |
-| **pageLimit**   | **Integer**                       | The maximum number of security signals in the response.            | [optional] [default to 10]               |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **filterQuery** | **String**| The search query for security signals. | [optional]
+ **filterFrom** | **OffsetDateTime**| The minimum timestamp for requested security signals. | [optional]
+ **filterTo** | **OffsetDateTime**| The maximum timestamp for requested security signals. | [optional]
+ **sort** | **SecurityMonitoringSignalsSort**| The order of the security signals in results. | [optional] [enum: timestamp, -timestamp]
+ **pageCursor** | **String**| A list of results using the cursor provided in the previous query. | [optional]
+ **pageLimit** | **Integer**| The maximum number of security signals in the response. | [optional] [default to 10]
 
 ### Return type
 
@@ -603,12 +613,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Not Authorized |  -  |
 
-| Status code | Description    | Response headers |
-| ----------- | -------------- | ---------------- |
-| **200**     | OK             | -                |
-| **400**     | Bad Request    | -                |
-| **403**     | Not Authorized | -                |
 
 ## searchSecurityMonitoringSignals
 
@@ -633,7 +643,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
-        SecurityMonitoringSignalListRequest body = new SecurityMonitoringSignalListRequest(); // SecurityMonitoringSignalListRequest |
+        SecurityMonitoringSignalListRequest body = new SecurityMonitoringSignalListRequest(); // SecurityMonitoringSignalListRequest | 
         try {
             SecurityMonitoringSignalsListResponse result = apiInstance.searchSecurityMonitoringSignals(new SecurityMonitoringApi.SearchSecurityMonitoringSignalsOptionalParameters()
                 .body(body));
@@ -651,9 +661,10 @@ public class Example {
 
 ### Parameters
 
-| Name     | Type                                                                              | Description | Notes      |
-| -------- | --------------------------------------------------------------------------------- | ----------- | ---------- |
-| **body** | [**SecurityMonitoringSignalListRequest**](SecurityMonitoringSignalListRequest.md) |             | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**SecurityMonitoringSignalListRequest**](SecurityMonitoringSignalListRequest.md)|  | [optional]
 
 ### Return type
 
@@ -669,12 +680,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Not Authorized |  -  |
 
-| Status code | Description    | Response headers |
-| ----------- | -------------- | ---------------- |
-| **200**     | OK             | -                |
-| **400**     | Bad Request    | -                |
-| **403**     | Not Authorized | -                |
 
 ## updateSecurityFilter
 
@@ -716,10 +727,11 @@ public class Example {
 
 ### Parameters
 
-| Name                 | Type                                                              | Description                            | Notes |
-| -------------------- | ----------------------------------------------------------------- | -------------------------------------- | ----- |
-| **securityFilterId** | **String**                                                        | The ID of the security filter.         |
-| **body**             | [**SecurityFilterUpdateRequest**](SecurityFilterUpdateRequest.md) | New definition of the security filter. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **securityFilterId** | **String**| The ID of the security filter. |
+ **body** | [**SecurityFilterUpdateRequest**](SecurityFilterUpdateRequest.md)| New definition of the security filter. |
 
 ### Return type
 
@@ -735,15 +747,15 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Not Authorized |  -  |
+| **404** | Not Found |  -  |
+| **409** | Concurrent Modification |  -  |
+| **429** | Too many requests |  -  |
 
-| Status code | Description             | Response headers |
-| ----------- | ----------------------- | ---------------- |
-| **200**     | OK                      | -                |
-| **400**     | Bad Request             | -                |
-| **403**     | Not Authorized          | -                |
-| **404**     | Not Found               | -                |
-| **409**     | Concurrent Modification | -                |
-| **429**     | Too many requests       | -                |
 
 ## updateSecurityMonitoringRule
 
@@ -769,7 +781,7 @@ public class Example {
 
         SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
         String ruleId = "ruleId_example"; // String | The ID of the rule.
-        SecurityMonitoringRuleUpdatePayload body = new SecurityMonitoringRuleUpdatePayload(); // SecurityMonitoringRuleUpdatePayload |
+        SecurityMonitoringRuleUpdatePayload body = new SecurityMonitoringRuleUpdatePayload(); // SecurityMonitoringRuleUpdatePayload | 
         try {
             SecurityMonitoringRuleResponse result = apiInstance.updateSecurityMonitoringRule(ruleId, body);
             System.out.println(result);
@@ -786,10 +798,11 @@ public class Example {
 
 ### Parameters
 
-| Name       | Type                                                                              | Description         | Notes |
-| ---------- | --------------------------------------------------------------------------------- | ------------------- | ----- |
-| **ruleId** | **String**                                                                        | The ID of the rule. |
-| **body**   | [**SecurityMonitoringRuleUpdatePayload**](SecurityMonitoringRuleUpdatePayload.md) |                     |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ruleId** | **String**| The ID of the rule. |
+ **body** | [**SecurityMonitoringRuleUpdatePayload**](SecurityMonitoringRuleUpdatePayload.md)|  |
 
 ### Return type
 
@@ -805,11 +818,11 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Concurrent Modification |  -  |
+| **403** | Not Authorized |  -  |
+| **404** | Not Found |  -  |
 
-| Status code | Description             | Response headers |
-| ----------- | ----------------------- | ---------------- |
-| **200**     | OK                      | -                |
-| **400**     | Bad Request             | -                |
-| **401**     | Concurrent Modification | -                |
-| **403**     | Not Authorized          | -                |
-| **404**     | Not Found               | -                |

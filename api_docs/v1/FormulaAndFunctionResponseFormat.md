@@ -1,7 +1,13 @@
+
+
 # FormulaAndFunctionResponseFormat
 
 ## Enum
 
-- `TIMESERIES` (value: `"timeseries"`)
 
-- `SCALAR` (value: `"scalar"`)
+* `TIMESERIES` (value: `"timeseries"`)
+
+* `SCALAR` (value: `"scalar"`)
+
+
+

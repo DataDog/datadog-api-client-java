@@ -1,13 +1,19 @@
+
+
 # ScatterplotWidgetAggregator
 
 ## Enum
 
-- `AVERAGE` (value: `"avg"`)
 
-- `LAST` (value: `"last"`)
+* `AVERAGE` (value: `"avg"`)
 
-- `MAXIMUM` (value: `"max"`)
+* `LAST` (value: `"last"`)
 
-- `MINIMUM` (value: `"min"`)
+* `MAXIMUM` (value: `"max"`)
 
-- `SUM` (value: `"sum"`)
+* `MINIMUM` (value: `"min"`)
+
+* `SUM` (value: `"sum"`)
+
+
+

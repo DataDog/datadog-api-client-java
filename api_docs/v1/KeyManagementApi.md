@@ -2,18 +2,20 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method                                                               | HTTP request                             | Description               |
-| -------------------------------------------------------------------- | ---------------------------------------- | ------------------------- |
-| [**createAPIKey**](KeyManagementApi.md#createAPIKey)                 | **POST** /api/v1/api_key                 | Create an API key         |
-| [**createApplicationKey**](KeyManagementApi.md#createApplicationKey) | **POST** /api/v1/application_key         | Create an application key |
-| [**deleteAPIKey**](KeyManagementApi.md#deleteAPIKey)                 | **DELETE** /api/v1/api_key/{key}         | Delete an API key         |
-| [**deleteApplicationKey**](KeyManagementApi.md#deleteApplicationKey) | **DELETE** /api/v1/application_key/{key} | Delete an application key |
-| [**getAPIKey**](KeyManagementApi.md#getAPIKey)                       | **GET** /api/v1/api_key/{key}            | Get API key               |
-| [**getApplicationKey**](KeyManagementApi.md#getApplicationKey)       | **GET** /api/v1/application_key/{key}    | Get an application key    |
-| [**listAPIKeys**](KeyManagementApi.md#listAPIKeys)                   | **GET** /api/v1/api_key                  | Get all API keys          |
-| [**listApplicationKeys**](KeyManagementApi.md#listApplicationKeys)   | **GET** /api/v1/application_key          | Get all application keys  |
-| [**updateAPIKey**](KeyManagementApi.md#updateAPIKey)                 | **PUT** /api/v1/api_key/{key}            | Edit an API key           |
-| [**updateApplicationKey**](KeyManagementApi.md#updateApplicationKey) | **PUT** /api/v1/application_key/{key}    | Edit an application key   |
+Method        | HTTP request | Description
+------------- | ------------ | ------------
+[**createAPIKey**](KeyManagementApi.md#createAPIKey) | **POST** /api/v1/api_key | Create an API key
+[**createApplicationKey**](KeyManagementApi.md#createApplicationKey) | **POST** /api/v1/application_key | Create an application key
+[**deleteAPIKey**](KeyManagementApi.md#deleteAPIKey) | **DELETE** /api/v1/api_key/{key} | Delete an API key
+[**deleteApplicationKey**](KeyManagementApi.md#deleteApplicationKey) | **DELETE** /api/v1/application_key/{key} | Delete an application key
+[**getAPIKey**](KeyManagementApi.md#getAPIKey) | **GET** /api/v1/api_key/{key} | Get API key
+[**getApplicationKey**](KeyManagementApi.md#getApplicationKey) | **GET** /api/v1/application_key/{key} | Get an application key
+[**listAPIKeys**](KeyManagementApi.md#listAPIKeys) | **GET** /api/v1/api_key | Get all API keys
+[**listApplicationKeys**](KeyManagementApi.md#listApplicationKeys) | **GET** /api/v1/application_key | Get all application keys
+[**updateAPIKey**](KeyManagementApi.md#updateAPIKey) | **PUT** /api/v1/api_key/{key} | Edit an API key
+[**updateApplicationKey**](KeyManagementApi.md#updateApplicationKey) | **PUT** /api/v1/application_key/{key} | Edit an application key
+
+
 
 ## createAPIKey
 
@@ -36,7 +38,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
-        ApiKey body = new ApiKey(); // ApiKey |
+        ApiKey body = new ApiKey(); // ApiKey | 
         try {
             ApiKeyResponse result = apiInstance.createAPIKey(body);
             System.out.println(result);
@@ -53,9 +55,10 @@ public class Example {
 
 ### Parameters
 
-| Name     | Type                    | Description | Notes |
-| -------- | ----------------------- | ----------- | ----- |
-| **body** | [**ApiKey**](ApiKey.md) |             |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**ApiKey**](ApiKey.md)|  |
 
 ### Return type
 
@@ -71,12 +74,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **400**     | Bad Request | -                |
-| **403**     | Forbidden   | -                |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+
 
 ## createApplicationKey
 
@@ -99,7 +102,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
-        ApplicationKey body = new ApplicationKey(); // ApplicationKey |
+        ApplicationKey body = new ApplicationKey(); // ApplicationKey | 
         try {
             ApplicationKeyResponse result = apiInstance.createApplicationKey(body);
             System.out.println(result);
@@ -116,9 +119,10 @@ public class Example {
 
 ### Parameters
 
-| Name     | Type                                    | Description | Notes |
-| -------- | --------------------------------------- | ----------- | ----- |
-| **body** | [**ApplicationKey**](ApplicationKey.md) |             |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**ApplicationKey**](ApplicationKey.md)|  |
 
 ### Return type
 
@@ -134,13 +138,13 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **400**     | Bad Request | -                |
-| **403**     | Forbidden   | -                |
-| **409**     | Conflict    | -                |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **409** | Conflict |  -  |
+
 
 ## deleteAPIKey
 
@@ -180,9 +184,10 @@ public class Example {
 
 ### Parameters
 
-| Name    | Type       | Description                                | Notes |
-| ------- | ---------- | ------------------------------------------ | ----- |
-| **key** | **String** | The specific API key you are working with. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **key** | **String**| The specific API key you are working with. |
 
 ### Return type
 
@@ -198,13 +203,13 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **400**     | Bad Request | -                |
-| **403**     | Forbidden   | -                |
-| **404**     | Not Found   | -                |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
 
 ## deleteApplicationKey
 
@@ -244,9 +249,10 @@ public class Example {
 
 ### Parameters
 
-| Name    | Type       | Description                                | Notes |
-| ------- | ---------- | ------------------------------------------ | ----- |
-| **key** | **String** | The specific APP key you are working with. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **key** | **String**| The specific APP key you are working with. |
 
 ### Return type
 
@@ -262,12 +268,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **403**     | Forbidden   | -                |
-| **404**     | Not Found   | -                |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
 
 ## getAPIKey
 
@@ -307,9 +313,10 @@ public class Example {
 
 ### Parameters
 
-| Name    | Type       | Description                                | Notes |
-| ------- | ---------- | ------------------------------------------ | ----- |
-| **key** | **String** | The specific API key you are working with. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **key** | **String**| The specific API key you are working with. |
 
 ### Return type
 
@@ -325,12 +332,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **403**     | Forbidden   | -                |
-| **404**     | Not Found   | -                |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
 
 ## getApplicationKey
 
@@ -370,9 +377,10 @@ public class Example {
 
 ### Parameters
 
-| Name    | Type       | Description                                | Notes |
-| ------- | ---------- | ------------------------------------------ | ----- |
-| **key** | **String** | The specific APP key you are working with. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **key** | **String**| The specific APP key you are working with. |
 
 ### Return type
 
@@ -388,12 +396,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **403**     | Forbidden   | -                |
-| **404**     | Not Found   | -                |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
 
 ## listAPIKeys
 
@@ -448,11 +456,11 @@ This endpoint does not need any parameter.
 - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **403**     | Forbidden   | -                |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+
 
 ## listApplicationKeys
 
@@ -507,11 +515,11 @@ This endpoint does not need any parameter.
 - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **403**     | Forbidden   | -                |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+
 
 ## updateAPIKey
 
@@ -535,7 +543,7 @@ public class Example {
 
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
         String key = "key_example"; // String | The specific API key you are working with.
-        ApiKey body = new ApiKey(); // ApiKey |
+        ApiKey body = new ApiKey(); // ApiKey | 
         try {
             ApiKeyResponse result = apiInstance.updateAPIKey(key, body);
             System.out.println(result);
@@ -552,10 +560,11 @@ public class Example {
 
 ### Parameters
 
-| Name     | Type                    | Description                                | Notes |
-| -------- | ----------------------- | ------------------------------------------ | ----- |
-| **key**  | **String**              | The specific API key you are working with. |
-| **body** | [**ApiKey**](ApiKey.md) |                                            |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **key** | **String**| The specific API key you are working with. |
+ **body** | [**ApiKey**](ApiKey.md)|  |
 
 ### Return type
 
@@ -571,13 +580,13 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **400**     | Bad Request | -                |
-| **403**     | Forbidden   | -                |
-| **404**     | Not Found   | -                |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
 
 ## updateApplicationKey
 
@@ -601,7 +610,7 @@ public class Example {
 
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
         String key = "key_example"; // String | The specific APP key you are working with.
-        ApplicationKey body = new ApplicationKey(); // ApplicationKey |
+        ApplicationKey body = new ApplicationKey(); // ApplicationKey | 
         try {
             ApplicationKeyResponse result = apiInstance.updateApplicationKey(key, body);
             System.out.println(result);
@@ -618,10 +627,11 @@ public class Example {
 
 ### Parameters
 
-| Name     | Type                                    | Description                                | Notes |
-| -------- | --------------------------------------- | ------------------------------------------ | ----- |
-| **key**  | **String**                              | The specific APP key you are working with. |
-| **body** | [**ApplicationKey**](ApplicationKey.md) |                                            |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **key** | **String**| The specific APP key you are working with. |
+ **body** | [**ApplicationKey**](ApplicationKey.md)|  |
 
 ### Return type
 
@@ -637,11 +647,11 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **400**     | Bad Request | -                |
-| **403**     | Forbidden   | -                |
-| **404**     | Not Found   | -                |
-| **409**     | Conflict    | -                |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **409** | Conflict |  -  |
+

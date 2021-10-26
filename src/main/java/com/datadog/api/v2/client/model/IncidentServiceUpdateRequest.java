@@ -8,39 +8,23 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.IncidentServiceUpdateData;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Update request with an incident service payload.
- */
+/** Update request with an incident service payload. */
 @ApiModel(description = "Update request with an incident service payload.")
-@JsonPropertyOrder({
-  IncidentServiceUpdateRequest.JSON_PROPERTY_DATA
-})
+@JsonPropertyOrder({IncidentServiceUpdateRequest.JSON_PROPERTY_DATA})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-
 public class IncidentServiceUpdateRequest {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private IncidentServiceUpdateData data;
 
@@ -48,10 +32,9 @@ public class IncidentServiceUpdateRequest {
 
   @JsonCreator
   public IncidentServiceUpdateRequest(
-            @JsonProperty(required=true, value=JSON_PROPERTY_DATA) IncidentServiceUpdateData data
-            ) {
-        this.data = data;
-        this.unparsed |= data.unparsed;
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) IncidentServiceUpdateData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
   }
 
   public IncidentServiceUpdateRequest data(IncidentServiceUpdateData data) {
@@ -60,27 +43,23 @@ public class IncidentServiceUpdateRequest {
     return this;
   }
 
-   /**
+  /**
    * Get data
+   *
    * @return data
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public IncidentServiceUpdateData getData() {
     return data;
   }
-
 
   public void setData(IncidentServiceUpdateData data) {
     this.data = data;
   }
 
-
-  /**
-   * Return true if this IncidentServiceUpdateRequest object is equal to o.
-   */
+  /** Return true if this IncidentServiceUpdateRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -108,8 +87,7 @@ public class IncidentServiceUpdateRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -117,6 +95,4 @@ public class IncidentServiceUpdateRequest {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

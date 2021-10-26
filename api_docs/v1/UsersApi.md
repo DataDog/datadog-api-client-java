@@ -2,13 +2,15 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method                                     | HTTP request                          | Description      |
-| ------------------------------------------ | ------------------------------------- | ---------------- |
-| [**createUser**](UsersApi.md#createUser)   | **POST** /api/v1/user                 | Create a user    |
-| [**disableUser**](UsersApi.md#disableUser) | **DELETE** /api/v1/user/{user_handle} | Disable a user   |
-| [**getUser**](UsersApi.md#getUser)         | **GET** /api/v1/user/{user_handle}    | Get user details |
-| [**listUsers**](UsersApi.md#listUsers)     | **GET** /api/v1/user                  | List all users   |
-| [**updateUser**](UsersApi.md#updateUser)   | **PUT** /api/v1/user/{user_handle}    | Update a user    |
+Method        | HTTP request | Description
+------------- | ------------ | ------------
+[**createUser**](UsersApi.md#createUser) | **POST** /api/v1/user | Create a user
+[**disableUser**](UsersApi.md#disableUser) | **DELETE** /api/v1/user/{user_handle} | Disable a user
+[**getUser**](UsersApi.md#getUser) | **GET** /api/v1/user/{user_handle} | Get user details
+[**listUsers**](UsersApi.md#listUsers) | **GET** /api/v1/user | List all users
+[**updateUser**](UsersApi.md#updateUser) | **PUT** /api/v1/user/{user_handle} | Update a user
+
+
 
 ## createUser
 
@@ -51,9 +53,10 @@ public class Example {
 
 ### Parameters
 
-| Name     | Type                | Description                           | Notes |
-| -------- | ------------------- | ------------------------------------- | ----- |
-| **body** | [**User**](User.md) | User object that needs to be created. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**User**](User.md)| User object that needs to be created. |
 
 ### Return type
 
@@ -69,13 +72,13 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | User created |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication error |  -  |
+| **409** | Conflict |  -  |
 
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **200**     | User created         | -                |
-| **400**     | Bad Request          | -                |
-| **403**     | Authentication error | -                |
-| **409**     | Conflict             | -                |
 
 ## disableUser
 
@@ -118,9 +121,10 @@ public class Example {
 
 ### Parameters
 
-| Name           | Type       | Description             | Notes |
-| -------------- | ---------- | ----------------------- | ----- |
-| **userHandle** | **String** | The handle of the user. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userHandle** | **String**| The handle of the user. |
 
 ### Return type
 
@@ -136,13 +140,13 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | User disabled |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication error |  -  |
+| **404** | Not Found |  -  |
 
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **200**     | User disabled        | -                |
-| **400**     | Bad Request          | -                |
-| **403**     | Authentication error | -                |
-| **404**     | Not Found            | -                |
 
 ## getUser
 
@@ -182,9 +186,10 @@ public class Example {
 
 ### Parameters
 
-| Name           | Type       | Description         | Notes |
-| -------------- | ---------- | ------------------- | ----- |
-| **userHandle** | **String** | The ID of the user. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userHandle** | **String**| The ID of the user. |
 
 ### Return type
 
@@ -200,12 +205,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK for get user |  -  |
+| **403** | Authentication error |  -  |
+| **404** | Not Found |  -  |
 
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **200**     | OK for get user      | -                |
-| **403**     | Authentication error | -                |
-| **404**     | Not Found            | -                |
 
 ## listUsers
 
@@ -260,11 +265,11 @@ This endpoint does not need any parameter.
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Authentication error |  -  |
 
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **200**     | OK                   | -                |
-| **403**     | Authentication error | -                |
 
 ## updateUser
 
@@ -307,10 +312,11 @@ public class Example {
 
 ### Parameters
 
-| Name           | Type                | Description                | Notes |
-| -------------- | ------------------- | -------------------------- | ----- |
-| **userHandle** | **String**          | The ID of the user.        |
-| **body**       | [**User**](User.md) | Description of the update. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userHandle** | **String**| The ID of the user. |
+ **body** | [**User**](User.md)| Description of the update. |
 
 ### Return type
 
@@ -326,10 +332,10 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | User updated |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication error |  -  |
+| **404** | Not Found |  -  |
 
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **200**     | User updated         | -                |
-| **400**     | Bad Request          | -                |
-| **403**     | Authentication error | -                |
-| **404**     | Not Found            | -                |

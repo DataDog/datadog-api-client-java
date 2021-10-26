@@ -1,14 +1,14 @@
+
+
 # SyntheticsAssertion
 
 Object describing the assertions type, their associated operator, which property they apply, and upon which target.
 
 ## oneOf schemas
-
-- [SyntheticsAssertionJSONPathTarget](SyntheticsAssertionJSONPathTarget.md)
-- [SyntheticsAssertionTarget](SyntheticsAssertionTarget.md)
+* [SyntheticsAssertionJSONPathTarget](SyntheticsAssertionJSONPathTarget.md)
+* [SyntheticsAssertionTarget](SyntheticsAssertionTarget.md)
 
 ## Example
-
 ```java
 // Import classes:
 import com.datadog.api.v1.client.model.SyntheticsAssertion;
@@ -35,3 +35,5 @@ public class Example {
     }
 }
 ```
+
+

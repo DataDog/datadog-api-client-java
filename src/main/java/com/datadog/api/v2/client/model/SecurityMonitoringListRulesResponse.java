@@ -8,49 +8,32 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.ResponseMetaAttributes;
-import com.datadog.api.v2.client.model.SecurityMonitoringRuleResponse;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * List of rules.
- */
+/** List of rules. */
 @ApiModel(description = "List of rules.")
 @JsonPropertyOrder({
   SecurityMonitoringListRulesResponse.JSON_PROPERTY_DATA,
   SecurityMonitoringListRulesResponse.JSON_PROPERTY_META
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-
 public class SecurityMonitoringListRulesResponse {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<SecurityMonitoringRuleResponse> data = null;
 
   public static final String JSON_PROPERTY_META = "meta";
   private ResponseMetaAttributes meta;
-
 
   public SecurityMonitoringListRulesResponse data(List<SecurityMonitoringRuleResponse> data) {
     this.data = data;
@@ -69,24 +52,22 @@ public class SecurityMonitoringListRulesResponse {
     return this;
   }
 
-   /**
+  /**
    * Array containing the list of rules.
+   *
    * @return data
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Array containing the list of rules.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<SecurityMonitoringRuleResponse> getData() {
     return data;
   }
 
-
   public void setData(List<SecurityMonitoringRuleResponse> data) {
     this.data = data;
   }
-
 
   public SecurityMonitoringListRulesResponse meta(ResponseMetaAttributes meta) {
     this.meta = meta;
@@ -94,28 +75,24 @@ public class SecurityMonitoringListRulesResponse {
     return this;
   }
 
-   /**
+  /**
    * Get meta
+   *
    * @return meta
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ResponseMetaAttributes getMeta() {
     return meta;
   }
-
 
   public void setMeta(ResponseMetaAttributes meta) {
     this.meta = meta;
   }
 
-
-  /**
-   * Return true if this SecurityMonitoringListRulesResponse object is equal to o.
-   */
+  /** Return true if this SecurityMonitoringListRulesResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -124,9 +101,10 @@ public class SecurityMonitoringListRulesResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SecurityMonitoringListRulesResponse securityMonitoringListRulesResponse = (SecurityMonitoringListRulesResponse) o;
-    return Objects.equals(this.data, securityMonitoringListRulesResponse.data) &&
-        Objects.equals(this.meta, securityMonitoringListRulesResponse.meta);
+    SecurityMonitoringListRulesResponse securityMonitoringListRulesResponse =
+        (SecurityMonitoringListRulesResponse) o;
+    return Objects.equals(this.data, securityMonitoringListRulesResponse.data)
+        && Objects.equals(this.meta, securityMonitoringListRulesResponse.meta);
   }
 
   @Override
@@ -145,8 +123,7 @@ public class SecurityMonitoringListRulesResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -154,6 +131,4 @@ public class SecurityMonitoringListRulesResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

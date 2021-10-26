@@ -1,9 +1,15 @@
+
+
 # WidgetSummaryType
 
 ## Enum
 
-- `MONITORS` (value: `"monitors"`)
 
-- `GROUPS` (value: `"groups"`)
+* `MONITORS` (value: `"monitors"`)
 
-- `COMBINED` (value: `"combined"`)
+* `GROUPS` (value: `"groups"`)
+
+* `COMBINED` (value: `"combined"`)
+
+
+

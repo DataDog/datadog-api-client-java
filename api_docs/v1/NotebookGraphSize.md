@@ -1,13 +1,19 @@
+
+
 # NotebookGraphSize
 
 ## Enum
 
-- `EXTRA_SMALL` (value: `"xs"`)
 
-- `SMALL` (value: `"s"`)
+* `EXTRA_SMALL` (value: `"xs"`)
 
-- `MEDIUM` (value: `"m"`)
+* `SMALL` (value: `"s"`)
 
-- `LARGE` (value: `"l"`)
+* `MEDIUM` (value: `"m"`)
 
-- `EXTRA_LARGE` (value: `"xl"`)
+* `LARGE` (value: `"l"`)
+
+* `EXTRA_LARGE` (value: `"xl"`)
+
+
+

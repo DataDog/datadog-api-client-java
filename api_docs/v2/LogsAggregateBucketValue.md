@@ -1,15 +1,15 @@
+
+
 # LogsAggregateBucketValue
 
 A bucket value, can be either a timeseries or a single value
 
 ## oneOf schemas
-
-- [Double](Double.md)
-- [LogsAggregateBucketValueTimeseries](LogsAggregateBucketValueTimeseries.md)
-- [String](String.md)
+* [Double](Double.md)
+* [LogsAggregateBucketValueTimeseries](LogsAggregateBucketValueTimeseries.md)
+* [String](String.md)
 
 ## Example
-
 ```java
 // Import classes:
 import com.datadog.api.v2.client.model.LogsAggregateBucketValue;
@@ -44,3 +44,5 @@ public class Example {
     }
 }
 ```
+
+

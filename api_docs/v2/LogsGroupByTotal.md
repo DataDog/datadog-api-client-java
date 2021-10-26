@@ -1,15 +1,15 @@
+
+
 # LogsGroupByTotal
 
 A resulting object to put the given computes in over all the matching records.
 
 ## oneOf schemas
-
-- [Boolean](Boolean.md)
-- [Double](Double.md)
-- [String](String.md)
+* [Boolean](Boolean.md)
+* [Double](Double.md)
+* [String](String.md)
 
 ## Example
-
 ```java
 // Import classes:
 import com.datadog.api.v2.client.model.LogsGroupByTotal;
@@ -44,3 +44,5 @@ public class Example {
     }
 }
 ```
+
+

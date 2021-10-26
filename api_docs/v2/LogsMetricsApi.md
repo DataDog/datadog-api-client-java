@@ -2,13 +2,15 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method                                                     | HTTP request                                       | Description               |
-| ---------------------------------------------------------- | -------------------------------------------------- | ------------------------- |
-| [**createLogsMetric**](LogsMetricsApi.md#createLogsMetric) | **POST** /api/v2/logs/config/metrics               | Create a log-based metric |
-| [**deleteLogsMetric**](LogsMetricsApi.md#deleteLogsMetric) | **DELETE** /api/v2/logs/config/metrics/{metric_id} | Delete a log-based metric |
-| [**getLogsMetric**](LogsMetricsApi.md#getLogsMetric)       | **GET** /api/v2/logs/config/metrics/{metric_id}    | Get a log-based metric    |
-| [**listLogsMetrics**](LogsMetricsApi.md#listLogsMetrics)   | **GET** /api/v2/logs/config/metrics                | Get all log-based metrics |
-| [**updateLogsMetric**](LogsMetricsApi.md#updateLogsMetric) | **PATCH** /api/v2/logs/config/metrics/{metric_id}  | Update a log-based metric |
+Method        | HTTP request | Description
+------------- | ------------ | ------------
+[**createLogsMetric**](LogsMetricsApi.md#createLogsMetric) | **POST** /api/v2/logs/config/metrics | Create a log-based metric
+[**deleteLogsMetric**](LogsMetricsApi.md#deleteLogsMetric) | **DELETE** /api/v2/logs/config/metrics/{metric_id} | Delete a log-based metric
+[**getLogsMetric**](LogsMetricsApi.md#getLogsMetric) | **GET** /api/v2/logs/config/metrics/{metric_id} | Get a log-based metric
+[**listLogsMetrics**](LogsMetricsApi.md#listLogsMetrics) | **GET** /api/v2/logs/config/metrics | Get all log-based metrics
+[**updateLogsMetric**](LogsMetricsApi.md#updateLogsMetric) | **PATCH** /api/v2/logs/config/metrics/{metric_id} | Update a log-based metric
+
+
 
 ## createLogsMetric
 
@@ -49,9 +51,10 @@ public class Example {
 
 ### Parameters
 
-| Name     | Type                                                      | Description                                 | Notes |
-| -------- | --------------------------------------------------------- | ------------------------------------------- | ----- |
-| **body** | [**LogsMetricCreateRequest**](LogsMetricCreateRequest.md) | The definition of the new log-based metric. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**LogsMetricCreateRequest**](LogsMetricCreateRequest.md)| The definition of the new log-based metric. |
 
 ### Return type
 
@@ -67,14 +70,14 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Not Authorized |  -  |
+| **409** | Conflict |  -  |
+| **429** | Too many requests |  -  |
 
-| Status code | Description       | Response headers |
-| ----------- | ----------------- | ---------------- |
-| **200**     | OK                | -                |
-| **400**     | Bad Request       | -                |
-| **403**     | Not Authorized    | -                |
-| **409**     | Conflict          | -                |
-| **429**     | Too many requests | -                |
 
 ## deleteLogsMetric
 
@@ -113,9 +116,10 @@ public class Example {
 
 ### Parameters
 
-| Name         | Type       | Description                       | Notes |
-| ------------ | ---------- | --------------------------------- | ----- |
-| **metricId** | **String** | The name of the log-based metric. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **metricId** | **String**| The name of the log-based metric. |
 
 ### Return type
 
@@ -131,13 +135,13 @@ null (empty response body)
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Not Authorized |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too many requests |  -  |
 
-| Status code | Description       | Response headers |
-| ----------- | ----------------- | ---------------- |
-| **200**     | OK                | -                |
-| **403**     | Not Authorized    | -                |
-| **404**     | Not Found         | -                |
-| **429**     | Too many requests | -                |
 
 ## getLogsMetric
 
@@ -177,9 +181,10 @@ public class Example {
 
 ### Parameters
 
-| Name         | Type       | Description                       | Notes |
-| ------------ | ---------- | --------------------------------- | ----- |
-| **metricId** | **String** | The name of the log-based metric. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **metricId** | **String**| The name of the log-based metric. |
 
 ### Return type
 
@@ -195,13 +200,13 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Not Authorized |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too many requests |  -  |
 
-| Status code | Description       | Response headers |
-| ----------- | ----------------- | ---------------- |
-| **200**     | OK                | -                |
-| **403**     | Not Authorized    | -                |
-| **404**     | Not Found         | -                |
-| **429**     | Too many requests | -                |
 
 ## listLogsMetrics
 
@@ -256,12 +261,12 @@ This endpoint does not need any parameter.
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Not Authorized |  -  |
+| **429** | Too many requests |  -  |
 
-| Status code | Description       | Response headers |
-| ----------- | ----------------- | ---------------- |
-| **200**     | OK                | -                |
-| **403**     | Not Authorized    | -                |
-| **429**     | Too many requests | -                |
 
 ## updateLogsMetric
 
@@ -303,10 +308,11 @@ public class Example {
 
 ### Parameters
 
-| Name         | Type                                                      | Description                             | Notes |
-| ------------ | --------------------------------------------------------- | --------------------------------------- | ----- |
-| **metricId** | **String**                                                | The name of the log-based metric.       |
-| **body**     | [**LogsMetricUpdateRequest**](LogsMetricUpdateRequest.md) | New definition of the log-based metric. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **metricId** | **String**| The name of the log-based metric. |
+ **body** | [**LogsMetricUpdateRequest**](LogsMetricUpdateRequest.md)| New definition of the log-based metric. |
 
 ### Return type
 
@@ -322,11 +328,11 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Not Authorized |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too many requests |  -  |
 
-| Status code | Description       | Response headers |
-| ----------- | ----------------- | ---------------- |
-| **200**     | OK                | -                |
-| **400**     | Bad Request       | -                |
-| **403**     | Not Authorized    | -                |
-| **404**     | Not Found         | -                |
-| **429**     | Too many requests | -                |

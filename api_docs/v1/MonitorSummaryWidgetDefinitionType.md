@@ -1,5 +1,11 @@
+
+
 # MonitorSummaryWidgetDefinitionType
 
 ## Enum
 
-- `MANAGE_STATUS` (value: `"manage_status"`)
+
+* `MANAGE_STATUS` (value: `"manage_status"`)
+
+
+

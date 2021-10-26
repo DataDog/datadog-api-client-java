@@ -2,10 +2,12 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method                                | HTTP request                       | Description |
-| ------------------------------------- | ---------------------------------- | ----------- |
-| [**listLogs**](LogsApi.md#listLogs)   | **POST** /api/v1/logs-queries/list | Search logs |
-| [**submitLog**](LogsApi.md#submitLog) | **POST** /v1/input                 | Send logs   |
+Method        | HTTP request | Description
+------------- | ------------ | ------------
+[**listLogs**](LogsApi.md#listLogs) | **POST** /api/v1/logs-queries/list | Search logs
+[**submitLog**](LogsApi.md#submitLog) | **POST** /v1/input | Send logs
+
+
 
 ## listLogs
 
@@ -53,9 +55,10 @@ public class Example {
 
 ### Parameters
 
-| Name     | Type                                      | Description | Notes |
-| -------- | ----------------------------------------- | ----------- | ----- |
-| **body** | [**LogsListRequest**](LogsListRequest.md) | Logs filter |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**LogsListRequest**](LogsListRequest.md)| Logs filter |
 
 ### Return type
 
@@ -71,12 +74,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Authentication error |  -  |
 
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **200**     | OK                   | -                |
-| **400**     | Bad Request          | -                |
-| **403**     | Authentication error | -                |
 
 ## submitLog
 
@@ -89,7 +92,6 @@ Send your logs to your Datadog platform over HTTP. Limits per HTTP request are:
 - Maximum array size if sending multiple logs in an array: 1000 entries
 
 Any log exceeding 1MB is accepted and truncated by Datadog:
-
 - For a single log request, the API truncates the log at 1MB and returns a 2xx.
 - For a multi-logs request, the API processes all logs, truncates only logs larger than 1MB, and returns a 2xx.
 
@@ -97,7 +99,6 @@ Datadog recommends sending your logs compressed.
 Add the `Content-Encoding: gzip` header to the request when sending compressed logs.
 
 The status codes answered by the HTTP API are:
-
 - 200: OK
 - 400: Bad request (likely an issue in the payload formatting)
 - 403: Permission issue (likely using an invalid API Key)
@@ -140,11 +141,12 @@ public class Example {
 
 ### Parameters
 
-| Name                | Type                                          | Description                                                                          | Notes                            |
-| ------------------- | --------------------------------------------- | ------------------------------------------------------------------------------------ | -------------------------------- |
-| **body**            | [**List&lt;HTTPLogItem&gt;**](HTTPLogItem.md) | Log to send (JSON format).                                                           |
-| **contentEncoding** | **ContentEncoding**                           | HTTP header used to compress the media-type.                                         | [optional] [enum: gzip, deflate] |
-| **ddtags**          | **String**                                    | Log tags can be passed as query parameters with &#x60;text/plain&#x60; content type. | [optional]                       |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**List&lt;HTTPLogItem&gt;**](HTTPLogItem.md)| Log to send (JSON format). |
+ **contentEncoding** | **ContentEncoding**| HTTP header used to compress the media-type. | [optional] [enum: gzip, deflate]
+ **ddtags** | **String**| Log tags can be passed as query parameters with &#x60;text/plain&#x60; content type. | [optional]
 
 ### Return type
 
@@ -160,8 +162,8 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Response from server (always 200 empty JSON). |  -  |
+| **400** | unexpected error |  -  |
 
-| Status code | Description                                   | Response headers |
-| ----------- | --------------------------------------------- | ---------------- |
-| **200**     | Response from server (always 200 empty JSON). | -                |
-| **400**     | unexpected error                              | -                |

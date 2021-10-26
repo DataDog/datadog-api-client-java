@@ -2,41 +2,43 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method                                                                                                   | HTTP request                                       | Description                                      |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------------------------------------------------ |
-| [**getDailyCustomReports**](UsageMeteringApi.md#getDailyCustomReports)                                   | **GET** /api/v1/daily_custom_reports               | Get the list of available daily custom reports   |
-| [**getIncidentManagement**](UsageMeteringApi.md#getIncidentManagement)                                   | **GET** /api/v1/usage/incident-management          | Get hourly usage for incident management         |
-| [**getIngestedSpans**](UsageMeteringApi.md#getIngestedSpans)                                             | **GET** /api/v1/usage/ingested-spans               | Get hourly usage for ingested spans              |
-| [**getMonthlyCustomReports**](UsageMeteringApi.md#getMonthlyCustomReports)                               | **GET** /api/v1/monthly_custom_reports             | Get the list of available monthly custom reports |
-| [**getSpecifiedDailyCustomReports**](UsageMeteringApi.md#getSpecifiedDailyCustomReports)                 | **GET** /api/v1/daily_custom_reports/{report_id}   | Get specified daily custom reports               |
-| [**getSpecifiedMonthlyCustomReports**](UsageMeteringApi.md#getSpecifiedMonthlyCustomReports)             | **GET** /api/v1/monthly_custom_reports/{report_id} | Get specified monthly custom reports             |
-| [**getUsageAnalyzedLogs**](UsageMeteringApi.md#getUsageAnalyzedLogs)                                     | **GET** /api/v1/usage/analyzed_logs                | Get hourly usage for analyzed logs               |
-| [**getUsageAttribution**](UsageMeteringApi.md#getUsageAttribution)                                       | **GET** /api/v1/usage/attribution                  | Get Usage Attribution                            |
-| [**getUsageAuditLogs**](UsageMeteringApi.md#getUsageAuditLogs)                                           | **GET** /api/v1/usage/audit_logs                   | Get hourly usage for audit logs                  |
-| [**getUsageBillableSummary**](UsageMeteringApi.md#getUsageBillableSummary)                               | **GET** /api/v1/usage/billable-summary             | Get billable usage across your account           |
-| [**getUsageCWS**](UsageMeteringApi.md#getUsageCWS)                                                       | **GET** /api/v1/usage/cws                          | Get hourly usage for Cloud Workload Security     |
-| [**getUsageCloudSecurityPostureManagement**](UsageMeteringApi.md#getUsageCloudSecurityPostureManagement) | **GET** /api/v1/usage/cspm                         | Get hourly usage for CSPM                        |
-| [**getUsageDBM**](UsageMeteringApi.md#getUsageDBM)                                                       | **GET** /api/v1/usage/dbm                          | Get hourly usage for Database Monitoring         |
-| [**getUsageFargate**](UsageMeteringApi.md#getUsageFargate)                                               | **GET** /api/v1/usage/fargate                      | Get hourly usage for Fargate                     |
-| [**getUsageHosts**](UsageMeteringApi.md#getUsageHosts)                                                   | **GET** /api/v1/usage/hosts                        | Get hourly usage for hosts and containers        |
-| [**getUsageIndexedSpans**](UsageMeteringApi.md#getUsageIndexedSpans)                                     | **GET** /api/v1/usage/indexed-spans                | Get hourly usage for indexed spans               |
-| [**getUsageInternetOfThings**](UsageMeteringApi.md#getUsageInternetOfThings)                             | **GET** /api/v1/usage/iot                          | Get hourly usage for IoT                         |
-| [**getUsageLambda**](UsageMeteringApi.md#getUsageLambda)                                                 | **GET** /api/v1/usage/aws_lambda                   | Get hourly usage for Lambda                      |
-| [**getUsageLogs**](UsageMeteringApi.md#getUsageLogs)                                                     | **GET** /api/v1/usage/logs                         | Get hourly usage for Logs                        |
-| [**getUsageLogsByIndex**](UsageMeteringApi.md#getUsageLogsByIndex)                                       | **GET** /api/v1/usage/logs_by_index                | Get hourly usage for Logs by Index               |
-| [**getUsageLogsByRetention**](UsageMeteringApi.md#getUsageLogsByRetention)                               | **GET** /api/v1/usage/logs-by-retention            | Get hourly logs usage by retention               |
-| [**getUsageNetworkFlows**](UsageMeteringApi.md#getUsageNetworkFlows)                                     | **GET** /api/v1/usage/network_flows                | Get hourly usage for Network Flows               |
-| [**getUsageNetworkHosts**](UsageMeteringApi.md#getUsageNetworkHosts)                                     | **GET** /api/v1/usage/network_hosts                | Get hourly usage for Network Hosts               |
-| [**getUsageProfiling**](UsageMeteringApi.md#getUsageProfiling)                                           | **GET** /api/v1/usage/profiling                    | Get hourly usage for profiled hosts              |
-| [**getUsageRumSessions**](UsageMeteringApi.md#getUsageRumSessions)                                       | **GET** /api/v1/usage/rum_sessions                 | Get hourly usage for RUM Sessions                |
-| [**getUsageSDS**](UsageMeteringApi.md#getUsageSDS)                                                       | **GET** /api/v1/usage/sds                          | Get hourly usage for Sensitive Data Scanner      |
-| [**getUsageSNMP**](UsageMeteringApi.md#getUsageSNMP)                                                     | **GET** /api/v1/usage/snmp                         | Get hourly usage for SNMP devices                |
-| [**getUsageSummary**](UsageMeteringApi.md#getUsageSummary)                                               | **GET** /api/v1/usage/summary                      | Get usage across your multi-org account          |
-| [**getUsageSynthetics**](UsageMeteringApi.md#getUsageSynthetics)                                         | **GET** /api/v1/usage/synthetics                   | Get hourly usage for Synthetics Checks           |
-| [**getUsageSyntheticsAPI**](UsageMeteringApi.md#getUsageSyntheticsAPI)                                   | **GET** /api/v1/usage/synthetics_api               | Get hourly usage for Synthetics API Checks       |
-| [**getUsageSyntheticsBrowser**](UsageMeteringApi.md#getUsageSyntheticsBrowser)                           | **GET** /api/v1/usage/synthetics_browser           | Get hourly usage for Synthetics Browser Checks   |
-| [**getUsageTimeseries**](UsageMeteringApi.md#getUsageTimeseries)                                         | **GET** /api/v1/usage/timeseries                   | Get hourly usage for custom metrics              |
-| [**getUsageTopAvgMetrics**](UsageMeteringApi.md#getUsageTopAvgMetrics)                                   | **GET** /api/v1/usage/top_avg_metrics              | Get all custom metrics by hourly average         |
+Method        | HTTP request | Description
+------------- | ------------ | ------------
+[**getDailyCustomReports**](UsageMeteringApi.md#getDailyCustomReports) | **GET** /api/v1/daily_custom_reports | Get the list of available daily custom reports
+[**getIncidentManagement**](UsageMeteringApi.md#getIncidentManagement) | **GET** /api/v1/usage/incident-management | Get hourly usage for incident management
+[**getIngestedSpans**](UsageMeteringApi.md#getIngestedSpans) | **GET** /api/v1/usage/ingested-spans | Get hourly usage for ingested spans
+[**getMonthlyCustomReports**](UsageMeteringApi.md#getMonthlyCustomReports) | **GET** /api/v1/monthly_custom_reports | Get the list of available monthly custom reports
+[**getSpecifiedDailyCustomReports**](UsageMeteringApi.md#getSpecifiedDailyCustomReports) | **GET** /api/v1/daily_custom_reports/{report_id} | Get specified daily custom reports
+[**getSpecifiedMonthlyCustomReports**](UsageMeteringApi.md#getSpecifiedMonthlyCustomReports) | **GET** /api/v1/monthly_custom_reports/{report_id} | Get specified monthly custom reports
+[**getUsageAnalyzedLogs**](UsageMeteringApi.md#getUsageAnalyzedLogs) | **GET** /api/v1/usage/analyzed_logs | Get hourly usage for analyzed logs
+[**getUsageAttribution**](UsageMeteringApi.md#getUsageAttribution) | **GET** /api/v1/usage/attribution | Get Usage Attribution
+[**getUsageAuditLogs**](UsageMeteringApi.md#getUsageAuditLogs) | **GET** /api/v1/usage/audit_logs | Get hourly usage for audit logs
+[**getUsageBillableSummary**](UsageMeteringApi.md#getUsageBillableSummary) | **GET** /api/v1/usage/billable-summary | Get billable usage across your account
+[**getUsageCWS**](UsageMeteringApi.md#getUsageCWS) | **GET** /api/v1/usage/cws | Get hourly usage for Cloud Workload Security
+[**getUsageCloudSecurityPostureManagement**](UsageMeteringApi.md#getUsageCloudSecurityPostureManagement) | **GET** /api/v1/usage/cspm | Get hourly usage for CSPM
+[**getUsageDBM**](UsageMeteringApi.md#getUsageDBM) | **GET** /api/v1/usage/dbm | Get hourly usage for Database Monitoring
+[**getUsageFargate**](UsageMeteringApi.md#getUsageFargate) | **GET** /api/v1/usage/fargate | Get hourly usage for Fargate
+[**getUsageHosts**](UsageMeteringApi.md#getUsageHosts) | **GET** /api/v1/usage/hosts | Get hourly usage for hosts and containers
+[**getUsageIndexedSpans**](UsageMeteringApi.md#getUsageIndexedSpans) | **GET** /api/v1/usage/indexed-spans | Get hourly usage for indexed spans
+[**getUsageInternetOfThings**](UsageMeteringApi.md#getUsageInternetOfThings) | **GET** /api/v1/usage/iot | Get hourly usage for IoT
+[**getUsageLambda**](UsageMeteringApi.md#getUsageLambda) | **GET** /api/v1/usage/aws_lambda | Get hourly usage for Lambda
+[**getUsageLogs**](UsageMeteringApi.md#getUsageLogs) | **GET** /api/v1/usage/logs | Get hourly usage for Logs
+[**getUsageLogsByIndex**](UsageMeteringApi.md#getUsageLogsByIndex) | **GET** /api/v1/usage/logs_by_index | Get hourly usage for Logs by Index
+[**getUsageLogsByRetention**](UsageMeteringApi.md#getUsageLogsByRetention) | **GET** /api/v1/usage/logs-by-retention | Get hourly logs usage by retention
+[**getUsageNetworkFlows**](UsageMeteringApi.md#getUsageNetworkFlows) | **GET** /api/v1/usage/network_flows | Get hourly usage for Network Flows
+[**getUsageNetworkHosts**](UsageMeteringApi.md#getUsageNetworkHosts) | **GET** /api/v1/usage/network_hosts | Get hourly usage for Network Hosts
+[**getUsageProfiling**](UsageMeteringApi.md#getUsageProfiling) | **GET** /api/v1/usage/profiling | Get hourly usage for profiled hosts
+[**getUsageRumSessions**](UsageMeteringApi.md#getUsageRumSessions) | **GET** /api/v1/usage/rum_sessions | Get hourly usage for RUM Sessions
+[**getUsageSDS**](UsageMeteringApi.md#getUsageSDS) | **GET** /api/v1/usage/sds | Get hourly usage for Sensitive Data Scanner
+[**getUsageSNMP**](UsageMeteringApi.md#getUsageSNMP) | **GET** /api/v1/usage/snmp | Get hourly usage for SNMP devices
+[**getUsageSummary**](UsageMeteringApi.md#getUsageSummary) | **GET** /api/v1/usage/summary | Get usage across your multi-org account
+[**getUsageSynthetics**](UsageMeteringApi.md#getUsageSynthetics) | **GET** /api/v1/usage/synthetics | Get hourly usage for Synthetics Checks
+[**getUsageSyntheticsAPI**](UsageMeteringApi.md#getUsageSyntheticsAPI) | **GET** /api/v1/usage/synthetics_api | Get hourly usage for Synthetics API Checks
+[**getUsageSyntheticsBrowser**](UsageMeteringApi.md#getUsageSyntheticsBrowser) | **GET** /api/v1/usage/synthetics_browser | Get hourly usage for Synthetics Browser Checks
+[**getUsageTimeseries**](UsageMeteringApi.md#getUsageTimeseries) | **GET** /api/v1/usage/timeseries | Get hourly usage for custom metrics
+[**getUsageTopAvgMetrics**](UsageMeteringApi.md#getUsageTopAvgMetrics) | **GET** /api/v1/usage/top_avg_metrics | Get all custom metrics by hourly average
+
+
 
 ## getDailyCustomReports
 
@@ -83,12 +85,13 @@ public class Example {
 
 ### Parameters
 
-| Name           | Type                   | Description                                                                                                                 | Notes                                                                              |
-| -------------- | ---------------------- | --------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| **pageSize**   | **Long**               | The number of files to return in the response. &#x60;[default&#x3D;60]&#x60;.                                               | [optional]                                                                         |
-| **pageNumber** | **Long**               | The identifier of the first page to return. This parameter is used for the pagination feature &#x60;[default&#x3D;0]&#x60;. | [optional]                                                                         |
-| **sortDir**    | **UsageSortDirection** | The direction to sort by: &#x60;[desc, asc]&#x60;.                                                                          | [optional] [default to desc] [enum: desc, asc]                                     |
-| **sort**       | **UsageSort**          | The field to sort by: &#x60;[computed_on, size, start_date, end_date]&#x60;.                                                | [optional] [default to start_date] [enum: computed_on, size, start_date, end_date] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pageSize** | **Long**| The number of files to return in the response. &#x60;[default&#x3D;60]&#x60;. | [optional]
+ **pageNumber** | **Long**| The identifier of the first page to return. This parameter is used for the pagination feature &#x60;[default&#x3D;0]&#x60;. | [optional]
+ **sortDir** | **UsageSortDirection**| The direction to sort by: &#x60;[desc, asc]&#x60;. | [optional] [default to desc] [enum: desc, asc]
+ **sort** | **UsageSort**| The field to sort by: &#x60;[computed_on, size, start_date, end_date]&#x60;. | [optional] [default to start_date] [enum: computed_on, size, start_date, end_date]
 
 ### Return type
 
@@ -104,11 +107,11 @@ public class Example {
 - **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
-| Status code | Description                        | Response headers |
-| ----------- | ---------------------------------- | ---------------- |
-| **200**     | OK                                 | -                |
-| **403**     | Forbidden - User is not authorized | -                |
 
 ## getIncidentManagement
 
@@ -151,10 +154,11 @@ public class Example {
 
 ### Parameters
 
-| Name        | Type               | Description                                                                                                           | Notes      |
-| ----------- | ------------------ | --------------------------------------------------------------------------------------------------------------------- | ---------- |
-| **startHr** | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.      |
-| **endHr**   | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **startHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. |
+ **endHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional]
 
 ### Return type
 
@@ -170,12 +174,12 @@ public class Example {
 - **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
-| Status code | Description                        | Response headers |
-| ----------- | ---------------------------------- | ---------------- |
-| **200**     | OK                                 | -                |
-| **400**     | Bad Request                        | -                |
-| **403**     | Forbidden - User is not authorized | -                |
 
 ## getIngestedSpans
 
@@ -218,10 +222,11 @@ public class Example {
 
 ### Parameters
 
-| Name        | Type               | Description                                                                                                           | Notes      |
-| ----------- | ------------------ | --------------------------------------------------------------------------------------------------------------------- | ---------- |
-| **startHr** | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.      |
-| **endHr**   | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **startHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. |
+ **endHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional]
 
 ### Return type
 
@@ -237,12 +242,12 @@ public class Example {
 - **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
-| Status code | Description                        | Response headers |
-| ----------- | ---------------------------------- | ---------------- |
-| **200**     | OK                                 | -                |
-| **400**     | Bad Request                        | -                |
-| **403**     | Forbidden - User is not authorized | -                |
 
 ## getMonthlyCustomReports
 
@@ -289,12 +294,13 @@ public class Example {
 
 ### Parameters
 
-| Name           | Type                   | Description                                                                                                                 | Notes                                                                              |
-| -------------- | ---------------------- | --------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| **pageSize**   | **Long**               | The number of files to return in the response &#x60;[default&#x3D;60].&#x60;                                                | [optional]                                                                         |
-| **pageNumber** | **Long**               | The identifier of the first page to return. This parameter is used for the pagination feature &#x60;[default&#x3D;0]&#x60;. | [optional]                                                                         |
-| **sortDir**    | **UsageSortDirection** | The direction to sort by: &#x60;[desc, asc]&#x60;.                                                                          | [optional] [default to desc] [enum: desc, asc]                                     |
-| **sort**       | **UsageSort**          | The field to sort by: &#x60;[computed_on, size, start_date, end_date]&#x60;.                                                | [optional] [default to start_date] [enum: computed_on, size, start_date, end_date] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pageSize** | **Long**| The number of files to return in the response &#x60;[default&#x3D;60].&#x60; | [optional]
+ **pageNumber** | **Long**| The identifier of the first page to return. This parameter is used for the pagination feature &#x60;[default&#x3D;0]&#x60;. | [optional]
+ **sortDir** | **UsageSortDirection**| The direction to sort by: &#x60;[desc, asc]&#x60;. | [optional] [default to desc] [enum: desc, asc]
+ **sort** | **UsageSort**| The field to sort by: &#x60;[computed_on, size, start_date, end_date]&#x60;. | [optional] [default to start_date] [enum: computed_on, size, start_date, end_date]
 
 ### Return type
 
@@ -310,11 +316,11 @@ public class Example {
 - **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
-| Status code | Description                        | Response headers |
-| ----------- | ---------------------------------- | ---------------- |
-| **200**     | OK                                 | -                |
-| **403**     | Forbidden - User is not authorized | -                |
 
 ## getSpecifiedDailyCustomReports
 
@@ -354,9 +360,10 @@ public class Example {
 
 ### Parameters
 
-| Name         | Type       | Description                                              | Notes |
-| ------------ | ---------- | -------------------------------------------------------- | ----- |
-| **reportId** | **String** | Date of the report in the format &#x60;YYYY-MM-DD&#x60;. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **reportId** | **String**| Date of the report in the format &#x60;YYYY-MM-DD&#x60;. |
 
 ### Return type
 
@@ -372,12 +379,12 @@ public class Example {
 - **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
+| **404** | Not Found |  -  |
 
-| Status code | Description                        | Response headers |
-| ----------- | ---------------------------------- | ---------------- |
-| **200**     | OK                                 | -                |
-| **403**     | Forbidden - User is not authorized | -                |
-| **404**     | Not Found                          | -                |
 
 ## getSpecifiedMonthlyCustomReports
 
@@ -417,9 +424,10 @@ public class Example {
 
 ### Parameters
 
-| Name         | Type       | Description                                              | Notes |
-| ------------ | ---------- | -------------------------------------------------------- | ----- |
-| **reportId** | **String** | Date of the report in the format &#x60;YYYY-MM-DD&#x60;. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **reportId** | **String**| Date of the report in the format &#x60;YYYY-MM-DD&#x60;. |
 
 ### Return type
 
@@ -435,13 +443,13 @@ public class Example {
 - **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
+| **404** | Not Found |  -  |
 
-| Status code | Description                        | Response headers |
-| ----------- | ---------------------------------- | ---------------- |
-| **200**     | OK                                 | -                |
-| **400**     | Bad Request                        | -                |
-| **403**     | Forbidden - User is not authorized | -                |
-| **404**     | Not Found                          | -                |
 
 ## getUsageAnalyzedLogs
 
@@ -484,10 +492,11 @@ public class Example {
 
 ### Parameters
 
-| Name        | Type               | Description                                                                                                           | Notes      |
-| ----------- | ------------------ | --------------------------------------------------------------------------------------------------------------------- | ---------- |
-| **startHr** | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.      |
-| **endHr**   | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **startHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. |
+ **endHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional]
 
 ### Return type
 
@@ -503,12 +512,12 @@ public class Example {
 - **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
-| Status code | Description                        | Response headers |
-| ----------- | ---------------------------------- | ---------------- |
-| **200**     | OK                                 | -                |
-| **400**     | Bad Request                        | -                |
-| **403**     | Forbidden - User is not authorized | -                |
 
 ## getUsageAttribution
 
@@ -558,14 +567,15 @@ public class Example {
 
 ### Parameters
 
-| Name                   | Type                                 | Description                                                                                                                            | Notes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| ---------------------- | ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **startMonth**         | **OffsetDateTime**                   | Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago. |
-| **fields**             | **UsageAttributionSupportedMetrics** | Comma-separated list of usage types to return, or &#x60;\*&#x60; for all usage types.                                                  | [enum: custom_timeseries_usage, container_usage, snmp_percentage, apm_host_usage, browser_usage, npm_host_percentage, infra_host_usage, custom_timeseries_percentage, container_percentage, lambda_usage, api_usage, apm_host_percentage, infra_host_percentage, snmp_usage, browser_percentage, api_percentage, lambda_percentage, npm_host_usage, lambda_functions_usage, lambda_functions_percentage, lambda_invocations_usage, lambda_invocations_percentage, fargate_usage, fargate_percentage, profiled_host_usage, profiled_host_percentage, profiled_container_usage, profiled_container_percentage, dbm_hosts_usage, dbm_hosts_percentage, dbm_queries_usage, dbm_queries_percentage, *] |
-| **endMonth**           | **OffsetDateTime**                   | Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.                                 | [optional]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| **sortDirection**      | **UsageSortDirection**               | The direction to sort by: &#x60;[desc, asc]&#x60;.                                                                                     | [optional] [default to desc] [enum: desc, asc]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| **sortName**           | **UsageAttributionSort**             | The field to sort by.                                                                                                                  | [optional] [default to custom_timeseries_usage] [enum: api_percentage, snmp_usage, apm_host_usage, api_usage, container_usage, custom_timeseries_percentage, container_percentage, apm_host_percentage, npm_host_percentage, browser_percentage, browser_usage, infra_host_percentage, snmp_percentage, npm_host_usage, infra_host_usage, custom_timeseries_usage, lambda_functions_usage, lambda_functions_percentage, lambda_invocations_usage, lambda_invocations_percentage, lambda_usage, lambda_percentage]                                                                                                                                                                                 |
-| **includeDescendants** | **Boolean**                          | Include child org usage in the response. Defaults to false.                                                                            | [optional] [default to false]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **startMonth** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago. |
+ **fields** | **UsageAttributionSupportedMetrics**| Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage types. | [enum: custom_timeseries_usage, container_usage, snmp_percentage, apm_host_usage, browser_usage, npm_host_percentage, infra_host_usage, custom_timeseries_percentage, container_percentage, lambda_usage, api_usage, apm_host_percentage, infra_host_percentage, snmp_usage, browser_percentage, api_percentage, lambda_percentage, npm_host_usage, lambda_functions_usage, lambda_functions_percentage, lambda_invocations_usage, lambda_invocations_percentage, fargate_usage, fargate_percentage, profiled_host_usage, profiled_host_percentage, profiled_container_usage, profiled_container_percentage, dbm_hosts_usage, dbm_hosts_percentage, dbm_queries_usage, dbm_queries_percentage, *]
+ **endMonth** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month. | [optional]
+ **sortDirection** | **UsageSortDirection**| The direction to sort by: &#x60;[desc, asc]&#x60;. | [optional] [default to desc] [enum: desc, asc]
+ **sortName** | **UsageAttributionSort**| The field to sort by. | [optional] [default to custom_timeseries_usage] [enum: api_percentage, snmp_usage, apm_host_usage, api_usage, container_usage, custom_timeseries_percentage, container_percentage, apm_host_percentage, npm_host_percentage, browser_percentage, browser_usage, infra_host_percentage, snmp_percentage, npm_host_usage, infra_host_usage, custom_timeseries_usage, lambda_functions_usage, lambda_functions_percentage, lambda_invocations_usage, lambda_invocations_percentage, lambda_usage, lambda_percentage]
+ **includeDescendants** | **Boolean**| Include child org usage in the response. Defaults to false. | [optional] [default to false]
 
 ### Return type
 
@@ -581,11 +591,11 @@ public class Example {
 - **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
-| Status code | Description                        | Response headers |
-| ----------- | ---------------------------------- | ---------------- |
-| **200**     | OK                                 | -                |
-| **403**     | Forbidden - User is not authorized | -                |
 
 ## getUsageAuditLogs
 
@@ -628,10 +638,11 @@ public class Example {
 
 ### Parameters
 
-| Name        | Type               | Description                                                                                                           | Notes      |
-| ----------- | ------------------ | --------------------------------------------------------------------------------------------------------------------- | ---------- |
-| **startHr** | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.      |
-| **endHr**   | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **startHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. |
+ **endHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional]
 
 ### Return type
 
@@ -647,12 +658,12 @@ public class Example {
 - **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
-| Status code | Description                        | Response headers |
-| ----------- | ---------------------------------- | ---------------- |
-| **200**     | OK                                 | -                |
-| **400**     | Bad Request                        | -                |
-| **403**     | Forbidden - User is not authorized | -                |
 
 ## getUsageBillableSummary
 
@@ -694,9 +705,10 @@ public class Example {
 
 ### Parameters
 
-| Name      | Type               | Description                                                                                              | Notes      |
-| --------- | ------------------ | -------------------------------------------------------------------------------------------------------- | ---------- |
-| **month** | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage starting this month. | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **month** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage starting this month. | [optional]
 
 ### Return type
 
@@ -712,12 +724,12 @@ public class Example {
 - **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
-| Status code | Description                        | Response headers |
-| ----------- | ---------------------------------- | ---------------- |
-| **200**     | OK                                 | -                |
-| **400**     | Bad Request                        | -                |
-| **403**     | Forbidden - User is not authorized | -                |
 
 ## getUsageCWS
 
@@ -760,10 +772,11 @@ public class Example {
 
 ### Parameters
 
-| Name        | Type               | Description                                                                                                           | Notes      |
-| ----------- | ------------------ | --------------------------------------------------------------------------------------------------------------------- | ---------- |
-| **startHr** | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.      |
-| **endHr**   | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **startHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. |
+ **endHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional]
 
 ### Return type
 
@@ -779,12 +792,12 @@ public class Example {
 - **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
-| Status code | Description                        | Response headers |
-| ----------- | ---------------------------------- | ---------------- |
-| **200**     | OK                                 | -                |
-| **400**     | Bad Request                        | -                |
-| **403**     | Forbidden - User is not authorized | -                |
 
 ## getUsageCloudSecurityPostureManagement
 
@@ -827,10 +840,11 @@ public class Example {
 
 ### Parameters
 
-| Name        | Type               | Description                                                                                                           | Notes      |
-| ----------- | ------------------ | --------------------------------------------------------------------------------------------------------------------- | ---------- |
-| **startHr** | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.      |
-| **endHr**   | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **startHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. |
+ **endHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional]
 
 ### Return type
 
@@ -846,12 +860,12 @@ public class Example {
 - **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
-| Status code | Description                        | Response headers |
-| ----------- | ---------------------------------- | ---------------- |
-| **200**     | OK                                 | -                |
-| **400**     | Bad Request                        | -                |
-| **403**     | Forbidden - User is not authorized | -                |
 
 ## getUsageDBM
 
@@ -894,10 +908,11 @@ public class Example {
 
 ### Parameters
 
-| Name        | Type               | Description                                                                                                           | Notes      |
-| ----------- | ------------------ | --------------------------------------------------------------------------------------------------------------------- | ---------- |
-| **startHr** | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.      |
-| **endHr**   | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **startHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. |
+ **endHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional]
 
 ### Return type
 
@@ -913,12 +928,12 @@ public class Example {
 - **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
-| Status code | Description                        | Response headers |
-| ----------- | ---------------------------------- | ---------------- |
-| **200**     | OK                                 | -                |
-| **400**     | Bad Request                        | -                |
-| **403**     | Forbidden - User is not authorized | -                |
 
 ## getUsageFargate
 
@@ -961,10 +976,11 @@ public class Example {
 
 ### Parameters
 
-| Name        | Type               | Description                                                                                               | Notes      |
-| ----------- | ------------------ | --------------------------------------------------------------------------------------------------------- | ---------- |
-| **startHr** | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.      |
-| **endHr**   | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **startHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour. |
+ **endHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional]
 
 ### Return type
 
@@ -980,12 +996,12 @@ public class Example {
 - **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
-| Status code | Description                        | Response headers |
-| ----------- | ---------------------------------- | ---------------- |
-| **200**     | OK                                 | -                |
-| **400**     | Bad Request                        | -                |
-| **403**     | Forbidden - User is not authorized | -                |
 
 ## getUsageHosts
 
@@ -1028,10 +1044,11 @@ public class Example {
 
 ### Parameters
 
-| Name        | Type               | Description                                                                                               | Notes      |
-| ----------- | ------------------ | --------------------------------------------------------------------------------------------------------- | ---------- |
-| **startHr** | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.      |
-| **endHr**   | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **startHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour. |
+ **endHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional]
 
 ### Return type
 
@@ -1047,12 +1064,12 @@ public class Example {
 - **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
-| Status code | Description                        | Response headers |
-| ----------- | ---------------------------------- | ---------------- |
-| **200**     | OK                                 | -                |
-| **400**     | Bad Request                        | -                |
-| **403**     | Forbidden - User is not authorized | -                |
 
 ## getUsageIndexedSpans
 
@@ -1095,10 +1112,11 @@ public class Example {
 
 ### Parameters
 
-| Name        | Type               | Description                                                                                                           | Notes      |
-| ----------- | ------------------ | --------------------------------------------------------------------------------------------------------------------- | ---------- |
-| **startHr** | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.      |
-| **endHr**   | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **startHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. |
+ **endHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional]
 
 ### Return type
 
@@ -1114,12 +1132,12 @@ public class Example {
 - **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
-| Status code | Description                        | Response headers |
-| ----------- | ---------------------------------- | ---------------- |
-| **200**     | OK                                 | -                |
-| **400**     | Bad Request                        | -                |
-| **403**     | Forbidden - User is not authorized | -                |
 
 ## getUsageInternetOfThings
 
@@ -1162,10 +1180,11 @@ public class Example {
 
 ### Parameters
 
-| Name        | Type               | Description                                                                                                           | Notes      |
-| ----------- | ------------------ | --------------------------------------------------------------------------------------------------------------------- | ---------- |
-| **startHr** | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.      |
-| **endHr**   | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **startHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. |
+ **endHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional]
 
 ### Return type
 
@@ -1181,12 +1200,12 @@ public class Example {
 - **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
-| Status code | Description                        | Response headers |
-| ----------- | ---------------------------------- | ---------------- |
-| **200**     | OK                                 | -                |
-| **400**     | Bad Request                        | -                |
-| **403**     | Forbidden - User is not authorized | -                |
 
 ## getUsageLambda
 
@@ -1229,10 +1248,11 @@ public class Example {
 
 ### Parameters
 
-| Name        | Type               | Description                                                                                               | Notes      |
-| ----------- | ------------------ | --------------------------------------------------------------------------------------------------------- | ---------- |
-| **startHr** | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.      |
-| **endHr**   | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **startHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour. |
+ **endHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional]
 
 ### Return type
 
@@ -1248,12 +1268,12 @@ public class Example {
 - **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
-| Status code | Description                        | Response headers |
-| ----------- | ---------------------------------- | ---------------- |
-| **200**     | OK                                 | -                |
-| **400**     | Bad Request                        | -                |
-| **403**     | Forbidden - User is not authorized | -                |
 
 ## getUsageLogs
 
@@ -1296,10 +1316,11 @@ public class Example {
 
 ### Parameters
 
-| Name        | Type               | Description                                                                                               | Notes      |
-| ----------- | ------------------ | --------------------------------------------------------------------------------------------------------- | ---------- |
-| **startHr** | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.      |
-| **endHr**   | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **startHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour. |
+ **endHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional]
 
 ### Return type
 
@@ -1315,12 +1336,12 @@ public class Example {
 - **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
-| Status code | Description                        | Response headers |
-| ----------- | ---------------------------------- | ---------------- |
-| **200**     | OK                                 | -                |
-| **400**     | Bad Request                        | -                |
-| **403**     | Forbidden - User is not authorized | -                |
 
 ## getUsageLogsByIndex
 
@@ -1365,11 +1386,12 @@ public class Example {
 
 ### Parameters
 
-| Name          | Type                   | Description                                                                                               | Notes      |
-| ------------- | ---------------------- | --------------------------------------------------------------------------------------------------------- | ---------- |
-| **startHr**   | **OffsetDateTime**     | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.      |
-| **endHr**     | **OffsetDateTime**     | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional] |
-| **indexName** | **List&lt;String&gt;** | Comma-separated list of log index names.                                                                  | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **startHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour. |
+ **endHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional]
+ **indexName** | **List&lt;String&gt;**| Comma-separated list of log index names. | [optional]
 
 ### Return type
 
@@ -1385,12 +1407,12 @@ public class Example {
 - **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
-| Status code | Description                        | Response headers |
-| ----------- | ---------------------------------- | ---------------- |
-| **200**     | OK                                 | -                |
-| **400**     | Bad Request                        | -                |
-| **403**     | Forbidden - User is not authorized | -                |
 
 ## getUsageLogsByRetention
 
@@ -1433,10 +1455,11 @@ public class Example {
 
 ### Parameters
 
-| Name        | Type               | Description                                                                                                           | Notes      |
-| ----------- | ------------------ | --------------------------------------------------------------------------------------------------------------------- | ---------- |
-| **startHr** | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.      |
-| **endHr**   | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **startHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. |
+ **endHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional]
 
 ### Return type
 
@@ -1452,12 +1475,12 @@ public class Example {
 - **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
-| Status code | Description                        | Response headers |
-| ----------- | ---------------------------------- | ---------------- |
-| **200**     | OK                                 | -                |
-| **400**     | Bad Request                        | -                |
-| **403**     | Forbidden - User is not authorized | -                |
 
 ## getUsageNetworkFlows
 
@@ -1500,10 +1523,11 @@ public class Example {
 
 ### Parameters
 
-| Name        | Type               | Description                                                                                                           | Notes      |
-| ----------- | ------------------ | --------------------------------------------------------------------------------------------------------------------- | ---------- |
-| **startHr** | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.      |
-| **endHr**   | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **startHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. |
+ **endHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional]
 
 ### Return type
 
@@ -1519,12 +1543,12 @@ public class Example {
 - **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
-| Status code | Description                        | Response headers |
-| ----------- | ---------------------------------- | ---------------- |
-| **200**     | OK                                 | -                |
-| **400**     | Bad Request                        | -                |
-| **403**     | Forbidden - User is not authorized | -                |
 
 ## getUsageNetworkHosts
 
@@ -1567,10 +1591,11 @@ public class Example {
 
 ### Parameters
 
-| Name        | Type               | Description                                                                                               | Notes      |
-| ----------- | ------------------ | --------------------------------------------------------------------------------------------------------- | ---------- |
-| **startHr** | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.      |
-| **endHr**   | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **startHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour. |
+ **endHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional]
 
 ### Return type
 
@@ -1586,12 +1611,12 @@ public class Example {
 - **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
-| Status code | Description                        | Response headers |
-| ----------- | ---------------------------------- | ---------------- |
-| **200**     | OK                                 | -                |
-| **400**     | Bad Request                        | -                |
-| **403**     | Forbidden - User is not authorized | -                |
 
 ## getUsageProfiling
 
@@ -1634,10 +1659,11 @@ public class Example {
 
 ### Parameters
 
-| Name        | Type               | Description                                                                                                           | Notes      |
-| ----------- | ------------------ | --------------------------------------------------------------------------------------------------------------------- | ---------- |
-| **startHr** | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.      |
-| **endHr**   | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **startHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. |
+ **endHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional]
 
 ### Return type
 
@@ -1653,12 +1679,12 @@ public class Example {
 - **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
-| Status code | Description                        | Response headers |
-| ----------- | ---------------------------------- | ---------------- |
-| **200**     | OK                                 | -                |
-| **400**     | Bad Request                        | -                |
-| **403**     | Forbidden - User is not authorized | -                |
 
 ## getUsageRumSessions
 
@@ -1703,11 +1729,12 @@ public class Example {
 
 ### Parameters
 
-| Name        | Type               | Description                                                                                               | Notes      |
-| ----------- | ------------------ | --------------------------------------------------------------------------------------------------------- | ---------- |
-| **startHr** | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.      |
-| **endHr**   | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional] |
-| **type**    | **String**         | RUM type: &#x60;[browser, mobile]&#x60;. Defaults to &#x60;browser&#x60;.                                 | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **startHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour. |
+ **endHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional]
+ **type** | **String**| RUM type: &#x60;[browser, mobile]&#x60;. Defaults to &#x60;browser&#x60;. | [optional]
 
 ### Return type
 
@@ -1723,12 +1750,12 @@ public class Example {
 - **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
-| Status code | Description                        | Response headers |
-| ----------- | ---------------------------------- | ---------------- |
-| **200**     | OK                                 | -                |
-| **400**     | Bad Request                        | -                |
-| **403**     | Forbidden - User is not authorized | -                |
 
 ## getUsageSDS
 
@@ -1771,10 +1798,11 @@ public class Example {
 
 ### Parameters
 
-| Name        | Type               | Description                                                                                                           | Notes      |
-| ----------- | ------------------ | --------------------------------------------------------------------------------------------------------------------- | ---------- |
-| **startHr** | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.      |
-| **endHr**   | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **startHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. |
+ **endHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional]
 
 ### Return type
 
@@ -1790,12 +1818,12 @@ public class Example {
 - **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
-| Status code | Description                        | Response headers |
-| ----------- | ---------------------------------- | ---------------- |
-| **200**     | OK                                 | -                |
-| **400**     | Bad Request                        | -                |
-| **403**     | Forbidden - User is not authorized | -                |
 
 ## getUsageSNMP
 
@@ -1838,10 +1866,11 @@ public class Example {
 
 ### Parameters
 
-| Name        | Type               | Description                                                                                                           | Notes      |
-| ----------- | ------------------ | --------------------------------------------------------------------------------------------------------------------- | ---------- |
-| **startHr** | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.      |
-| **endHr**   | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **startHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour. |
+ **endHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional]
 
 ### Return type
 
@@ -1857,12 +1886,12 @@ public class Example {
 - **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
-| Status code | Description                        | Response headers |
-| ----------- | ---------------------------------- | ---------------- |
-| **200**     | OK                                 | -                |
-| **400**     | Bad Request                        | -                |
-| **403**     | Forbidden - User is not authorized | -                |
 
 ## getUsageSummary
 
@@ -1907,11 +1936,12 @@ public class Example {
 
 ### Parameters
 
-| Name                  | Type               | Description                                                                                                                            | Notes      |
-| --------------------- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| **startMonth**        | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago. |
-| **endMonth**          | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.                                 | [optional] |
-| **includeOrgDetails** | **Boolean**        | Include usage summaries for each sub-org.                                                                                              | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **startMonth** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago. |
+ **endMonth** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month. | [optional]
+ **includeOrgDetails** | **Boolean**| Include usage summaries for each sub-org. | [optional]
 
 ### Return type
 
@@ -1927,12 +1957,12 @@ public class Example {
 - **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
-| Status code | Description                        | Response headers |
-| ----------- | ---------------------------------- | ---------------- |
-| **200**     | OK                                 | -                |
-| **400**     | Bad Request                        | -                |
-| **403**     | Forbidden - User is not authorized | -                |
 
 ## getUsageSynthetics
 
@@ -1975,10 +2005,11 @@ public class Example {
 
 ### Parameters
 
-| Name        | Type               | Description                                                                                               | Notes      |
-| ----------- | ------------------ | --------------------------------------------------------------------------------------------------------- | ---------- |
-| **startHr** | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.      |
-| **endHr**   | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **startHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour. |
+ **endHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional]
 
 ### Return type
 
@@ -1994,12 +2025,12 @@ public class Example {
 - **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
-| Status code | Description                        | Response headers |
-| ----------- | ---------------------------------- | ---------------- |
-| **200**     | OK                                 | -                |
-| **400**     | Bad Request                        | -                |
-| **403**     | Forbidden - User is not authorized | -                |
 
 ## getUsageSyntheticsAPI
 
@@ -2042,10 +2073,11 @@ public class Example {
 
 ### Parameters
 
-| Name        | Type               | Description                                                                                               | Notes      |
-| ----------- | ------------------ | --------------------------------------------------------------------------------------------------------- | ---------- |
-| **startHr** | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.      |
-| **endHr**   | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **startHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour. |
+ **endHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional]
 
 ### Return type
 
@@ -2061,12 +2093,12 @@ public class Example {
 - **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
-| Status code | Description                        | Response headers |
-| ----------- | ---------------------------------- | ---------------- |
-| **200**     | OK                                 | -                |
-| **400**     | Bad Request                        | -                |
-| **403**     | Forbidden - User is not authorized | -                |
 
 ## getUsageSyntheticsBrowser
 
@@ -2109,10 +2141,11 @@ public class Example {
 
 ### Parameters
 
-| Name        | Type               | Description                                                                                               | Notes      |
-| ----------- | ------------------ | --------------------------------------------------------------------------------------------------------- | ---------- |
-| **startHr** | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.      |
-| **endHr**   | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **startHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour. |
+ **endHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional]
 
 ### Return type
 
@@ -2128,12 +2161,12 @@ public class Example {
 - **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
-| Status code | Description                        | Response headers |
-| ----------- | ---------------------------------- | ---------------- |
-| **200**     | OK                                 | -                |
-| **400**     | Bad Request                        | -                |
-| **403**     | Forbidden - User is not authorized | -                |
 
 ## getUsageTimeseries
 
@@ -2176,10 +2209,11 @@ public class Example {
 
 ### Parameters
 
-| Name        | Type               | Description                                                                                               | Notes      |
-| ----------- | ------------------ | --------------------------------------------------------------------------------------------------------- | ---------- |
-| **startHr** | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.      |
-| **endHr**   | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **startHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour. |
+ **endHr** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional]
 
 ### Return type
 
@@ -2195,12 +2229,12 @@ public class Example {
 - **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
-| Status code | Description                        | Response headers |
-| ----------- | ---------------------------------- | ---------------- |
-| **200**     | OK                                 | -                |
-| **400**     | Bad Request                        | -                |
-| **403**     | Forbidden - User is not authorized | -                |
 
 ## getUsageTopAvgMetrics
 
@@ -2250,13 +2284,14 @@ public class Example {
 
 ### Parameters
 
-| Name             | Type                   | Description                                                                                                                                              | Notes                       |
-| ---------------- | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------- |
-| **month**        | **OffsetDateTime**     | Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour. (Either month or day should be specified, but not both)  | [optional]                  |
-| **day**          | **OffsetDateTime**     | Datetime in ISO-8601 format, UTC, precise to day: [YYYY-MM-DD] for usage beginning at this hour. (Either month or day should be specified, but not both) | [optional]                  |
-| **names**        | **List&lt;String&gt;** | Comma-separated list of metric names.                                                                                                                    | [optional]                  |
-| **limit**        | **Integer**            | Maximum number of results to return (between 1 and 5000) - defaults to 500 results if limit not specified.                                               | [optional] [default to 500] |
-| **nextRecordId** | **String**             | List following results with a next_record_id provided in the previous query.                                                                             | [optional]                  |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **month** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour. (Either month or day should be specified, but not both) | [optional]
+ **day** | **OffsetDateTime**| Datetime in ISO-8601 format, UTC, precise to day: [YYYY-MM-DD] for usage beginning at this hour. (Either month or day should be specified, but not both) | [optional]
+ **names** | **List&lt;String&gt;**| Comma-separated list of metric names. | [optional]
+ **limit** | **Integer**| Maximum number of results to return (between 1 and 5000) - defaults to 500 results if limit not specified. | [optional] [default to 500]
+ **nextRecordId** | **String**| List following results with a next_record_id provided in the previous query. | [optional]
 
 ### Return type
 
@@ -2272,9 +2307,9 @@ public class Example {
 - **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden - User is not authorized |  -  |
 
-| Status code | Description                        | Response headers |
-| ----------- | ---------------------------------- | ---------------- |
-| **200**     | OK                                 | -                |
-| **400**     | Bad Request                        | -                |
-| **403**     | Forbidden - User is not authorized | -                |

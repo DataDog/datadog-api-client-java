@@ -1,14 +1,14 @@
+
+
 # NotebookUpdateCell
 
 Updating a notebook can either insert new cell(s) or update existing cell(s) by including the cell `id`. To delete existing cell(s), simply omit it from the list of cells.
 
 ## oneOf schemas
-
-- [NotebookCellCreateRequest](NotebookCellCreateRequest.md)
-- [NotebookCellUpdateRequest](NotebookCellUpdateRequest.md)
+* [NotebookCellCreateRequest](NotebookCellCreateRequest.md)
+* [NotebookCellUpdateRequest](NotebookCellUpdateRequest.md)
 
 ## Example
-
 ```java
 // Import classes:
 import com.datadog.api.v1.client.model.NotebookUpdateCell;
@@ -35,3 +35,5 @@ public class Example {
     }
 }
 ```
+
+

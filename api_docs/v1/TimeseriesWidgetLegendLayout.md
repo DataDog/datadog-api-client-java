@@ -1,9 +1,15 @@
+
+
 # TimeseriesWidgetLegendLayout
 
 ## Enum
 
-- `AUTO` (value: `"auto"`)
 
-- `HORIZONTAL` (value: `"horizontal"`)
+* `AUTO` (value: `"auto"`)
 
-- `VERTICAL` (value: `"vertical"`)
+* `HORIZONTAL` (value: `"horizontal"`)
+
+* `VERTICAL` (value: `"vertical"`)
+
+
+

@@ -8,98 +8,77 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Number of active NPM hosts for each hour for a given organization.
- */
+/** Number of active NPM hosts for each hour for a given organization. */
 @ApiModel(description = "Number of active NPM hosts for each hour for a given organization.")
 @JsonPropertyOrder({
   UsageNetworkHostsHour.JSON_PROPERTY_HOST_COUNT,
   UsageNetworkHostsHour.JSON_PROPERTY_HOUR
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-
 public class UsageNetworkHostsHour {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_HOST_COUNT = "host_count";
   private Long hostCount;
 
   public static final String JSON_PROPERTY_HOUR = "hour";
   private OffsetDateTime hour;
 
-
   public UsageNetworkHostsHour hostCount(Long hostCount) {
     this.hostCount = hostCount;
     return this;
   }
 
-   /**
+  /**
    * Contains the number of active NPM hosts.
+   *
    * @return hostCount
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Contains the number of active NPM hosts.")
   @JsonProperty(JSON_PROPERTY_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getHostCount() {
     return hostCount;
   }
 
-
   public void setHostCount(Long hostCount) {
     this.hostCount = hostCount;
   }
-
 
   public UsageNetworkHostsHour hour(OffsetDateTime hour) {
     this.hour = hour;
     return this;
   }
 
-   /**
+  /**
    * The hour for the usage.
+   *
    * @return hour
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The hour for the usage.")
   @JsonProperty(JSON_PROPERTY_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getHour() {
     return hour;
   }
-
 
   public void setHour(OffsetDateTime hour) {
     this.hour = hour;
   }
 
-
-  /**
-   * Return true if this UsageNetworkHostsHour object is equal to o.
-   */
+  /** Return true if this UsageNetworkHostsHour object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -109,8 +88,8 @@ public class UsageNetworkHostsHour {
       return false;
     }
     UsageNetworkHostsHour usageNetworkHostsHour = (UsageNetworkHostsHour) o;
-    return Objects.equals(this.hostCount, usageNetworkHostsHour.hostCount) &&
-        Objects.equals(this.hour, usageNetworkHostsHour.hour);
+    return Objects.equals(this.hostCount, usageNetworkHostsHour.hostCount)
+        && Objects.equals(this.hour, usageNetworkHostsHour.hour);
   }
 
   @Override
@@ -129,8 +108,7 @@ public class UsageNetworkHostsHour {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -138,6 +116,4 @@ public class UsageNetworkHostsHour {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

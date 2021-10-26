@@ -8,36 +8,19 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.MonitorOverallStates;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.datadog.api.v1.client.JSON;
 
-
-/**
- * A single monitor group search result.
- */
+/** A single monitor group search result. */
 @ApiModel(description = "A single monitor group search result.")
 @JsonPropertyOrder({
   MonitorGroupSearchResult.JSON_PROPERTY_GROUP,
@@ -49,10 +32,8 @@ import com.datadog.api.v1.client.JSON;
   MonitorGroupSearchResult.JSON_PROPERTY_STATUS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-
 public class MonitorGroupSearchResult {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_GROUP = "group";
   private String group;
 
@@ -74,65 +55,55 @@ public class MonitorGroupSearchResult {
   public static final String JSON_PROPERTY_STATUS = "status";
   private MonitorOverallStates status;
 
-
-   /**
+  /**
    * The name of the group.
+   *
    * @return group
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The name of the group.")
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getGroup() {
     return group;
   }
 
-
-
-
-   /**
+  /**
    * The list of tags of the monitor group.
+   *
    * @return groupTags
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The list of tags of the monitor group.")
   @JsonProperty(JSON_PROPERTY_GROUP_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getGroupTags() {
     return groupTags;
   }
 
-
-
-
-   /**
+  /**
    * Latest timestamp the monitor group was in NO_DATA state.
+   *
    * @return lastNodataTs
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Latest timestamp the monitor group was in NO_DATA state.")
   @JsonProperty(JSON_PROPERTY_LAST_NODATA_TS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getLastNodataTs() {
     return lastNodataTs;
   }
 
-
-
-
-   /**
+  /**
    * Latest timestamp the monitor group triggered.
+   *
    * @return lastTriggeredTs
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Latest timestamp the monitor group triggered.")
   @JsonIgnore
-
   public Long getLastTriggeredTs() {
-    
+
     if (lastTriggeredTs == null) {
       lastTriggeredTs = JsonNullable.<Long>undefined();
     }
@@ -141,49 +112,40 @@ public class MonitorGroupSearchResult {
 
   @JsonProperty(JSON_PROPERTY_LAST_TRIGGERED_TS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public JsonNullable<Long> getLastTriggeredTs_JsonNullable() {
     return lastTriggeredTs;
   }
-  
+
   @JsonProperty(JSON_PROPERTY_LAST_TRIGGERED_TS)
   private void setLastTriggeredTs_JsonNullable(JsonNullable<Long> lastTriggeredTs) {
     this.lastTriggeredTs = lastTriggeredTs;
   }
 
-
-
-   /**
+  /**
    * The ID of the monitor.
+   *
    * @return monitorId
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The ID of the monitor.")
   @JsonProperty(JSON_PROPERTY_MONITOR_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getMonitorId() {
     return monitorId;
   }
 
-
-
-
-   /**
+  /**
    * The name of the monitor.
+   *
    * @return monitorName
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The name of the monitor.")
   @JsonProperty(JSON_PROPERTY_MONITOR_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMonitorName() {
     return monitorName;
   }
-
-
-
 
   public MonitorGroupSearchResult status(MonitorOverallStates status) {
     this.status = status;
@@ -191,31 +153,27 @@ public class MonitorGroupSearchResult {
     return this;
   }
 
-   /**
+  /**
    * Get status
+   *
    * @return status
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public MonitorOverallStates getStatus() {
     return status;
   }
 
-
   public void setStatus(MonitorOverallStates status) {
     if (!status.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.status = status;
   }
 
-
-  /**
-   * Return true if this MonitorGroupSearchResult object is equal to o.
-   */
+  /** Return true if this MonitorGroupSearchResult object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -225,18 +183,19 @@ public class MonitorGroupSearchResult {
       return false;
     }
     MonitorGroupSearchResult monitorGroupSearchResult = (MonitorGroupSearchResult) o;
-    return Objects.equals(this.group, monitorGroupSearchResult.group) &&
-        Objects.equals(this.groupTags, monitorGroupSearchResult.groupTags) &&
-        Objects.equals(this.lastNodataTs, monitorGroupSearchResult.lastNodataTs) &&
-        Objects.equals(this.lastTriggeredTs, monitorGroupSearchResult.lastTriggeredTs) &&
-        Objects.equals(this.monitorId, monitorGroupSearchResult.monitorId) &&
-        Objects.equals(this.monitorName, monitorGroupSearchResult.monitorName) &&
-        Objects.equals(this.status, monitorGroupSearchResult.status);
+    return Objects.equals(this.group, monitorGroupSearchResult.group)
+        && Objects.equals(this.groupTags, monitorGroupSearchResult.groupTags)
+        && Objects.equals(this.lastNodataTs, monitorGroupSearchResult.lastNodataTs)
+        && Objects.equals(this.lastTriggeredTs, monitorGroupSearchResult.lastTriggeredTs)
+        && Objects.equals(this.monitorId, monitorGroupSearchResult.monitorId)
+        && Objects.equals(this.monitorName, monitorGroupSearchResult.monitorName)
+        && Objects.equals(this.status, monitorGroupSearchResult.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(group, groupTags, lastNodataTs, lastTriggeredTs, monitorId, monitorName, status);
+    return Objects.hash(
+        group, groupTags, lastNodataTs, lastTriggeredTs, monitorId, monitorName, status);
   }
 
   @Override
@@ -255,8 +214,7 @@ public class MonitorGroupSearchResult {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -264,6 +222,4 @@ public class MonitorGroupSearchResult {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

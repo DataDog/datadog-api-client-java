@@ -1,5 +1,11 @@
+
+
 # ToplistWidgetDefinitionType
 
 ## Enum
 
-- `TOPLIST` (value: `"toplist"`)
+
+* `TOPLIST` (value: `"toplist"`)
+
+
+

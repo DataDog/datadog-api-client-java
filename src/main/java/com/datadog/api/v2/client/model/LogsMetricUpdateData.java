@@ -8,41 +8,26 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.LogsMetricType;
-import com.datadog.api.v2.client.model.LogsMetricUpdateAttributes;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * The new log-based metric properties.
- */
+/** The new log-based metric properties. */
 @ApiModel(description = "The new log-based metric properties.")
 @JsonPropertyOrder({
   LogsMetricUpdateData.JSON_PROPERTY_ATTRIBUTES,
   LogsMetricUpdateData.JSON_PROPERTY_TYPE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-
 public class LogsMetricUpdateData {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private LogsMetricUpdateAttributes attributes;
 
@@ -53,13 +38,13 @@ public class LogsMetricUpdateData {
 
   @JsonCreator
   public LogsMetricUpdateData(
-            @JsonProperty(required=true, value=JSON_PROPERTY_ATTRIBUTES) LogsMetricUpdateAttributes attributes,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE) LogsMetricType type
-            ) {
-        this.attributes = attributes;
-        this.unparsed |= attributes.unparsed;
-        this.type = type;
-        this.unparsed |= !type.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
+          LogsMetricUpdateAttributes attributes,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) LogsMetricType type) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
+    this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   public LogsMetricUpdateData attributes(LogsMetricUpdateAttributes attributes) {
@@ -68,23 +53,21 @@ public class LogsMetricUpdateData {
     return this;
   }
 
-   /**
+  /**
    * Get attributes
+   *
    * @return attributes
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public LogsMetricUpdateAttributes getAttributes() {
     return attributes;
   }
 
-
   public void setAttributes(LogsMetricUpdateAttributes attributes) {
     this.attributes = attributes;
   }
-
 
   public LogsMetricUpdateData type(LogsMetricType type) {
     this.type = type;
@@ -92,30 +75,26 @@ public class LogsMetricUpdateData {
     return this;
   }
 
-   /**
+  /**
    * Get type
+   *
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public LogsMetricType getType() {
     return type;
   }
 
-
   public void setType(LogsMetricType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
 
-
-  /**
-   * Return true if this LogsMetricUpdateData object is equal to o.
-   */
+  /** Return true if this LogsMetricUpdateData object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -125,8 +104,8 @@ public class LogsMetricUpdateData {
       return false;
     }
     LogsMetricUpdateData logsMetricUpdateData = (LogsMetricUpdateData) o;
-    return Objects.equals(this.attributes, logsMetricUpdateData.attributes) &&
-        Objects.equals(this.type, logsMetricUpdateData.type);
+    return Objects.equals(this.attributes, logsMetricUpdateData.attributes)
+        && Objects.equals(this.type, logsMetricUpdateData.type);
   }
 
   @Override
@@ -145,8 +124,7 @@ public class LogsMetricUpdateData {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -154,6 +132,4 @@ public class LogsMetricUpdateData {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

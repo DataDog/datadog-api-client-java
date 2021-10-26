@@ -8,43 +8,31 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.datadog.api.v1.client.JSON;
-
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
-/**
- * How to align the text on the widget.
- */
+import java.util.Objects;
+import java.util.Set;
+
+/** How to align the text on the widget. */
 @JsonSerialize(using = WidgetTextAlign.WidgetTextAlignSerializer.class)
 public class WidgetTextAlign {
-  
+
   public static final WidgetTextAlign CENTER = new WidgetTextAlign("center");
   public static final WidgetTextAlign LEFT = new WidgetTextAlign("left");
   public static final WidgetTextAlign RIGHT = new WidgetTextAlign("right");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("center","left","right"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("center", "left", "right"));
 
   private String value;
 
@@ -57,18 +45,19 @@ public class WidgetTextAlign {
   }
 
   public static class WidgetTextAlignSerializer extends StdSerializer<WidgetTextAlign> {
-      public WidgetTextAlignSerializer(Class<WidgetTextAlign> t) {
-          super(t);
-      }
+    public WidgetTextAlignSerializer(Class<WidgetTextAlign> t) {
+      super(t);
+    }
 
-      public WidgetTextAlignSerializer() {
-          this(null);
-      }
+    public WidgetTextAlignSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(WidgetTextAlign value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(WidgetTextAlign value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonValue
@@ -80,9 +69,7 @@ public class WidgetTextAlign {
     this.value = value;
   }
 
-  /**
-   * Return true if this WidgetTextAlign object is equal to o.
-   */
+  /** Return true if this WidgetTextAlign object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -96,7 +83,7 @@ public class WidgetTextAlign {
 
   @Override
   public int hashCode() {
-      return Objects.hash(value);
+    return Objects.hash(value);
   }
 
   @Override
@@ -109,4 +96,3 @@ public class WidgetTextAlign {
     return new WidgetTextAlign(value);
   }
 }
-

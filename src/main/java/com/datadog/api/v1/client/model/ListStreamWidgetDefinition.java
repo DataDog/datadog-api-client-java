@@ -8,36 +8,27 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.ListStreamWidgetDefinitionType;
-import com.datadog.api.v1.client.model.ListStreamWidgetRequest;
-import com.datadog.api.v1.client.model.WidgetTextAlign;
-import com.datadog.api.v1.client.model.WidgetTime;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.datadog.api.v1.client.JSON;
-
+import java.util.Objects;
 
 /**
- * The list stream visualization displays a table of recent events in your application that match a search criteria using user-defined columns. 
+ * The list stream visualization displays a table of recent events in your application that match a
+ * search criteria using user-defined columns.
  */
-@ApiModel(description = "The list stream visualization displays a table of recent events in your application that match a search criteria using user-defined columns. ")
+@ApiModel(
+    description =
+        "The list stream visualization displays a table of recent events in your application that"
+            + " match a search criteria using user-defined columns. ")
 @JsonPropertyOrder({
   ListStreamWidgetDefinition.JSON_PROPERTY_LEGEND_SIZE,
   ListStreamWidgetDefinition.JSON_PROPERTY_REQUESTS,
@@ -49,10 +40,8 @@ import com.datadog.api.v1.client.JSON;
   ListStreamWidgetDefinition.JSON_PROPERTY_TYPE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-
 public class ListStreamWidgetDefinition {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_LEGEND_SIZE = "legend_size";
   private String legendSize;
 
@@ -81,12 +70,13 @@ public class ListStreamWidgetDefinition {
 
   @JsonCreator
   public ListStreamWidgetDefinition(
-            @JsonProperty(required=true, value=JSON_PROPERTY_REQUESTS) List<ListStreamWidgetRequest> requests,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE) ListStreamWidgetDefinitionType type
-            ) {
-        this.requests = requests;
-        this.type = type;
-        this.unparsed |= !type.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_REQUESTS)
+          List<ListStreamWidgetRequest> requests,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          ListStreamWidgetDefinitionType type) {
+    this.requests = requests;
+    this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   public ListStreamWidgetDefinition legendSize(String legendSize) {
@@ -94,24 +84,26 @@ public class ListStreamWidgetDefinition {
     return this;
   }
 
-   /**
-   * Available legend sizes for a widget. Should be one of \&quot;0\&quot;, \&quot;2\&quot;, \&quot;4\&quot;, \&quot;8\&quot;, \&quot;16\&quot;, or \&quot;auto\&quot;.
+  /**
+   * Available legend sizes for a widget. Should be one of \&quot;0\&quot;, \&quot;2\&quot;,
+   * \&quot;4\&quot;, \&quot;8\&quot;, \&quot;16\&quot;, or \&quot;auto\&quot;.
+   *
    * @return legendSize
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Available legend sizes for a widget. Should be one of \"0\", \"2\", \"4\", \"8\", \"16\", or \"auto\".")
+  @ApiModelProperty(
+      value =
+          "Available legend sizes for a widget. Should be one of \"0\", \"2\", \"4\", \"8\","
+              + " \"16\", or \"auto\".")
   @JsonProperty(JSON_PROPERTY_LEGEND_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getLegendSize() {
     return legendSize;
   }
 
-
   public void setLegendSize(String legendSize) {
     this.legendSize = legendSize;
   }
-
 
   public ListStreamWidgetDefinition requests(List<ListStreamWidgetRequest> requests) {
     this.requests = requests;
@@ -127,47 +119,47 @@ public class ListStreamWidgetDefinition {
     return this;
   }
 
-   /**
+  /**
    * Request payload used to query items.
+   *
    * @return requests
-  **/
-  @ApiModelProperty(example = "[{\"response_format\":\"event_list\"},{\"columns\":[{\"field\":\"timestamp\",\"width\":\"auto\"}]},{\"query\":{\"data_source\":\"issue_stream\",\"query_string\":\"@data_source:APM\"}}]", required = true, value = "Request payload used to query items.")
+   */
+  @ApiModelProperty(
+      example =
+          "[{\"response_format\":\"event_list\"},{\"columns\":[{\"field\":\"timestamp\",\"width\":\"auto\"}]},{\"query\":{\"data_source\":\"issue_stream\",\"query_string\":\"@data_source:APM\"}}]",
+      required = true,
+      value = "Request payload used to query items.")
   @JsonProperty(JSON_PROPERTY_REQUESTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public List<ListStreamWidgetRequest> getRequests() {
     return requests;
   }
 
-
   public void setRequests(List<ListStreamWidgetRequest> requests) {
     this.requests = requests;
   }
-
 
   public ListStreamWidgetDefinition showLegend(Boolean showLegend) {
     this.showLegend = showLegend;
     return this;
   }
 
-   /**
+  /**
    * Whether or not to display the legend on this widget.
+   *
    * @return showLegend
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Whether or not to display the legend on this widget.")
   @JsonProperty(JSON_PROPERTY_SHOW_LEGEND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getShowLegend() {
     return showLegend;
   }
 
-
   public void setShowLegend(Boolean showLegend) {
     this.showLegend = showLegend;
   }
-
 
   public ListStreamWidgetDefinition time(WidgetTime time) {
     this.time = time;
@@ -175,48 +167,44 @@ public class ListStreamWidgetDefinition {
     return this;
   }
 
-   /**
+  /**
    * Get time
+   *
    * @return time
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public WidgetTime getTime() {
     return time;
   }
 
-
   public void setTime(WidgetTime time) {
     this.time = time;
   }
-
 
   public ListStreamWidgetDefinition title(String title) {
     this.title = title;
     return this;
   }
 
-   /**
+  /**
    * Title of the widget.
+   *
    * @return title
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Title of the widget.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTitle() {
     return title;
   }
 
-
   public void setTitle(String title) {
     this.title = title;
   }
-
 
   public ListStreamWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
@@ -224,51 +212,47 @@ public class ListStreamWidgetDefinition {
     return this;
   }
 
-   /**
+  /**
    * Get titleAlign
+   *
    * @return titleAlign
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public WidgetTextAlign getTitleAlign() {
     return titleAlign;
   }
 
-
   public void setTitleAlign(WidgetTextAlign titleAlign) {
     if (!titleAlign.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.titleAlign = titleAlign;
   }
-
 
   public ListStreamWidgetDefinition titleSize(String titleSize) {
     this.titleSize = titleSize;
     return this;
   }
 
-   /**
+  /**
    * Size of the title.
+   *
    * @return titleSize
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Size of the title.")
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getTitleSize() {
     return titleSize;
   }
 
-
   public void setTitleSize(String titleSize) {
     this.titleSize = titleSize;
   }
-
 
   public ListStreamWidgetDefinition type(ListStreamWidgetDefinitionType type) {
     this.type = type;
@@ -276,30 +260,26 @@ public class ListStreamWidgetDefinition {
     return this;
   }
 
-   /**
+  /**
    * Get type
+   *
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public ListStreamWidgetDefinitionType getType() {
     return type;
   }
 
-
   public void setType(ListStreamWidgetDefinitionType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
 
-
-  /**
-   * Return true if this ListStreamWidgetDefinition object is equal to o.
-   */
+  /** Return true if this ListStreamWidgetDefinition object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -309,14 +289,14 @@ public class ListStreamWidgetDefinition {
       return false;
     }
     ListStreamWidgetDefinition listStreamWidgetDefinition = (ListStreamWidgetDefinition) o;
-    return Objects.equals(this.legendSize, listStreamWidgetDefinition.legendSize) &&
-        Objects.equals(this.requests, listStreamWidgetDefinition.requests) &&
-        Objects.equals(this.showLegend, listStreamWidgetDefinition.showLegend) &&
-        Objects.equals(this.time, listStreamWidgetDefinition.time) &&
-        Objects.equals(this.title, listStreamWidgetDefinition.title) &&
-        Objects.equals(this.titleAlign, listStreamWidgetDefinition.titleAlign) &&
-        Objects.equals(this.titleSize, listStreamWidgetDefinition.titleSize) &&
-        Objects.equals(this.type, listStreamWidgetDefinition.type);
+    return Objects.equals(this.legendSize, listStreamWidgetDefinition.legendSize)
+        && Objects.equals(this.requests, listStreamWidgetDefinition.requests)
+        && Objects.equals(this.showLegend, listStreamWidgetDefinition.showLegend)
+        && Objects.equals(this.time, listStreamWidgetDefinition.time)
+        && Objects.equals(this.title, listStreamWidgetDefinition.title)
+        && Objects.equals(this.titleAlign, listStreamWidgetDefinition.titleAlign)
+        && Objects.equals(this.titleSize, listStreamWidgetDefinition.titleSize)
+        && Objects.equals(this.type, listStreamWidgetDefinition.type);
   }
 
   @Override
@@ -341,8 +321,7 @@ public class ListStreamWidgetDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -350,6 +329,4 @@ public class ListStreamWidgetDefinition {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

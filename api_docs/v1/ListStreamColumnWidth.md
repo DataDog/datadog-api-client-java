@@ -1,9 +1,15 @@
+
+
 # ListStreamColumnWidth
 
 ## Enum
 
-- `AUTO` (value: `"auto"`)
 
-- `COMPACT` (value: `"compact"`)
+* `AUTO` (value: `"auto"`)
 
-- `FULL` (value: `"full"`)
+* `COMPACT` (value: `"compact"`)
+
+* `FULL` (value: `"full"`)
+
+
+

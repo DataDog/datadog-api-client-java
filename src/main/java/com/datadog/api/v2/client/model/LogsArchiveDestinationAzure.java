@@ -8,31 +8,18 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.LogsArchiveDestinationAzureType;
-import com.datadog.api.v2.client.model.LogsArchiveIntegrationAzure;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * The Azure archive destination.
- */
+/** The Azure archive destination. */
 @ApiModel(description = "The Azure archive destination.")
 @JsonPropertyOrder({
   LogsArchiveDestinationAzure.JSON_PROPERTY_CONTAINER,
@@ -43,10 +30,8 @@ import com.datadog.api.v2.client.JSON;
   LogsArchiveDestinationAzure.JSON_PROPERTY_TYPE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-
 public class LogsArchiveDestinationAzure {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CONTAINER = "container";
   private String container;
 
@@ -69,17 +54,18 @@ public class LogsArchiveDestinationAzure {
 
   @JsonCreator
   public LogsArchiveDestinationAzure(
-            @JsonProperty(required=true, value=JSON_PROPERTY_CONTAINER) String container,
-            @JsonProperty(required=true, value=JSON_PROPERTY_INTEGRATION) LogsArchiveIntegrationAzure integration,
-            @JsonProperty(required=true, value=JSON_PROPERTY_STORAGE_ACCOUNT) String storageAccount,
-            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE) LogsArchiveDestinationAzureType type
-            ) {
-        this.container = container;
-        this.integration = integration;
-        this.unparsed |= integration.unparsed;
-        this.storageAccount = storageAccount;
-        this.type = type;
-        this.unparsed |= !type.isValid();
+      @JsonProperty(required = true, value = JSON_PROPERTY_CONTAINER) String container,
+      @JsonProperty(required = true, value = JSON_PROPERTY_INTEGRATION)
+          LogsArchiveIntegrationAzure integration,
+      @JsonProperty(required = true, value = JSON_PROPERTY_STORAGE_ACCOUNT) String storageAccount,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          LogsArchiveDestinationAzureType type) {
+    this.container = container;
+    this.integration = integration;
+    this.unparsed |= integration.unparsed;
+    this.storageAccount = storageAccount;
+    this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   public LogsArchiveDestinationAzure container(String container) {
@@ -87,23 +73,24 @@ public class LogsArchiveDestinationAzure {
     return this;
   }
 
-   /**
+  /**
    * The container where the archive will be stored.
+   *
    * @return container
-  **/
-  @ApiModelProperty(example = "container-name", required = true, value = "The container where the archive will be stored.")
+   */
+  @ApiModelProperty(
+      example = "container-name",
+      required = true,
+      value = "The container where the archive will be stored.")
   @JsonProperty(JSON_PROPERTY_CONTAINER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getContainer() {
     return container;
   }
 
-
   public void setContainer(String container) {
     this.container = container;
   }
-
 
   public LogsArchiveDestinationAzure integration(LogsArchiveIntegrationAzure integration) {
     this.integration = integration;
@@ -111,94 +98,89 @@ public class LogsArchiveDestinationAzure {
     return this;
   }
 
-   /**
+  /**
    * Get integration
+   *
    * @return integration
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_INTEGRATION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public LogsArchiveIntegrationAzure getIntegration() {
     return integration;
   }
 
-
   public void setIntegration(LogsArchiveIntegrationAzure integration) {
     this.integration = integration;
   }
-
 
   public LogsArchiveDestinationAzure path(String path) {
     this.path = path;
     return this;
   }
 
-   /**
+  /**
    * The archive path.
+   *
    * @return path
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The archive path.")
   @JsonProperty(JSON_PROPERTY_PATH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getPath() {
     return path;
   }
 
-
   public void setPath(String path) {
     this.path = path;
   }
-
 
   public LogsArchiveDestinationAzure region(String region) {
     this.region = region;
     return this;
   }
 
-   /**
+  /**
    * The region where the archive will be stored.
+   *
    * @return region
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The region where the archive will be stored.")
   @JsonProperty(JSON_PROPERTY_REGION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getRegion() {
     return region;
   }
 
-
   public void setRegion(String region) {
     this.region = region;
   }
-
 
   public LogsArchiveDestinationAzure storageAccount(String storageAccount) {
     this.storageAccount = storageAccount;
     return this;
   }
 
-   /**
+  /**
    * The associated storage account.
+   *
    * @return storageAccount
-  **/
-  @ApiModelProperty(example = "account-name", required = true, value = "The associated storage account.")
+   */
+  @ApiModelProperty(
+      example = "account-name",
+      required = true,
+      value = "The associated storage account.")
   @JsonProperty(JSON_PROPERTY_STORAGE_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getStorageAccount() {
     return storageAccount;
   }
 
-
   public void setStorageAccount(String storageAccount) {
     this.storageAccount = storageAccount;
   }
-
 
   public LogsArchiveDestinationAzure type(LogsArchiveDestinationAzureType type) {
     this.type = type;
@@ -206,30 +188,26 @@ public class LogsArchiveDestinationAzure {
     return this;
   }
 
-   /**
+  /**
    * Get type
+   *
    * @return type
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public LogsArchiveDestinationAzureType getType() {
     return type;
   }
 
-
   public void setType(LogsArchiveDestinationAzureType type) {
     if (!type.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.type = type;
   }
 
-
-  /**
-   * Return true if this LogsArchiveDestinationAzure object is equal to o.
-   */
+  /** Return true if this LogsArchiveDestinationAzure object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -239,12 +217,12 @@ public class LogsArchiveDestinationAzure {
       return false;
     }
     LogsArchiveDestinationAzure logsArchiveDestinationAzure = (LogsArchiveDestinationAzure) o;
-    return Objects.equals(this.container, logsArchiveDestinationAzure.container) &&
-        Objects.equals(this.integration, logsArchiveDestinationAzure.integration) &&
-        Objects.equals(this.path, logsArchiveDestinationAzure.path) &&
-        Objects.equals(this.region, logsArchiveDestinationAzure.region) &&
-        Objects.equals(this.storageAccount, logsArchiveDestinationAzure.storageAccount) &&
-        Objects.equals(this.type, logsArchiveDestinationAzure.type);
+    return Objects.equals(this.container, logsArchiveDestinationAzure.container)
+        && Objects.equals(this.integration, logsArchiveDestinationAzure.integration)
+        && Objects.equals(this.path, logsArchiveDestinationAzure.path)
+        && Objects.equals(this.region, logsArchiveDestinationAzure.region)
+        && Objects.equals(this.storageAccount, logsArchiveDestinationAzure.storageAccount)
+        && Objects.equals(this.type, logsArchiveDestinationAzure.type);
   }
 
   @Override
@@ -267,8 +245,7 @@ public class LogsArchiveDestinationAzure {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -276,6 +253,4 @@ public class LogsArchiveDestinationAzure {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

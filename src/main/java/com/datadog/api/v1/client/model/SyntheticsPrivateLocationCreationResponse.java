@@ -8,42 +8,32 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.SyntheticsPrivateLocation;
-import com.datadog.api.v1.client.model.SyntheticsPrivateLocationCreationResponseResultEncryption;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.datadog.api.v1.client.JSON;
-
+import java.util.Objects;
 
 /**
- * Object that contains the new private location, the public key for result encryption, and the configuration skeleton.
+ * Object that contains the new private location, the public key for result encryption, and the
+ * configuration skeleton.
  */
-@ApiModel(description = "Object that contains the new private location, the public key for result encryption, and the configuration skeleton.")
+@ApiModel(
+    description =
+        "Object that contains the new private location, the public key for result encryption, and"
+            + " the configuration skeleton.")
 @JsonPropertyOrder({
   SyntheticsPrivateLocationCreationResponse.JSON_PROPERTY_CONFIG,
   SyntheticsPrivateLocationCreationResponse.JSON_PROPERTY_PRIVATE_LOCATION,
   SyntheticsPrivateLocationCreationResponse.JSON_PROPERTY_RESULT_ENCRYPTION
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-
 public class SyntheticsPrivateLocationCreationResponse {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CONFIG = "config";
   private Object config;
 
@@ -53,84 +43,82 @@ public class SyntheticsPrivateLocationCreationResponse {
   public static final String JSON_PROPERTY_RESULT_ENCRYPTION = "result_encryption";
   private SyntheticsPrivateLocationCreationResponseResultEncryption resultEncryption;
 
-
   public SyntheticsPrivateLocationCreationResponse config(Object config) {
     this.config = config;
     return this;
   }
 
-   /**
-   * Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.
+  /**
+   * Configuration skeleton for the private location. See installation instructions of the private
+   * location on how to use this configuration.
+   *
    * @return config
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Configuration skeleton for the private location. See installation instructions of the private location on how to use this configuration.")
+  @ApiModelProperty(
+      value =
+          "Configuration skeleton for the private location. See installation instructions of the"
+              + " private location on how to use this configuration.")
   @JsonProperty(JSON_PROPERTY_CONFIG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Object getConfig() {
     return config;
   }
-
 
   public void setConfig(Object config) {
     this.config = config;
   }
 
-
-  public SyntheticsPrivateLocationCreationResponse privateLocation(SyntheticsPrivateLocation privateLocation) {
+  public SyntheticsPrivateLocationCreationResponse privateLocation(
+      SyntheticsPrivateLocation privateLocation) {
     this.privateLocation = privateLocation;
     this.unparsed |= privateLocation.unparsed;
     return this;
   }
 
-   /**
+  /**
    * Get privateLocation
+   *
    * @return privateLocation
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PRIVATE_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SyntheticsPrivateLocation getPrivateLocation() {
     return privateLocation;
   }
-
 
   public void setPrivateLocation(SyntheticsPrivateLocation privateLocation) {
     this.privateLocation = privateLocation;
   }
 
-
-  public SyntheticsPrivateLocationCreationResponse resultEncryption(SyntheticsPrivateLocationCreationResponseResultEncryption resultEncryption) {
+  public SyntheticsPrivateLocationCreationResponse resultEncryption(
+      SyntheticsPrivateLocationCreationResponseResultEncryption resultEncryption) {
     this.resultEncryption = resultEncryption;
     this.unparsed |= resultEncryption.unparsed;
     return this;
   }
 
-   /**
+  /**
    * Get resultEncryption
+   *
    * @return resultEncryption
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RESULT_ENCRYPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public SyntheticsPrivateLocationCreationResponseResultEncryption getResultEncryption() {
     return resultEncryption;
   }
 
-
-  public void setResultEncryption(SyntheticsPrivateLocationCreationResponseResultEncryption resultEncryption) {
+  public void setResultEncryption(
+      SyntheticsPrivateLocationCreationResponseResultEncryption resultEncryption) {
     this.resultEncryption = resultEncryption;
   }
 
-
-  /**
-   * Return true if this SyntheticsPrivateLocationCreationResponse object is equal to o.
-   */
+  /** Return true if this SyntheticsPrivateLocationCreationResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -139,10 +127,13 @@ public class SyntheticsPrivateLocationCreationResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsPrivateLocationCreationResponse syntheticsPrivateLocationCreationResponse = (SyntheticsPrivateLocationCreationResponse) o;
-    return Objects.equals(this.config, syntheticsPrivateLocationCreationResponse.config) &&
-        Objects.equals(this.privateLocation, syntheticsPrivateLocationCreationResponse.privateLocation) &&
-        Objects.equals(this.resultEncryption, syntheticsPrivateLocationCreationResponse.resultEncryption);
+    SyntheticsPrivateLocationCreationResponse syntheticsPrivateLocationCreationResponse =
+        (SyntheticsPrivateLocationCreationResponse) o;
+    return Objects.equals(this.config, syntheticsPrivateLocationCreationResponse.config)
+        && Objects.equals(
+            this.privateLocation, syntheticsPrivateLocationCreationResponse.privateLocation)
+        && Objects.equals(
+            this.resultEncryption, syntheticsPrivateLocationCreationResponse.resultEncryption);
   }
 
   @Override
@@ -162,8 +153,7 @@ public class SyntheticsPrivateLocationCreationResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -171,6 +161,4 @@ public class SyntheticsPrivateLocationCreationResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

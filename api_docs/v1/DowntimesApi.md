@@ -2,15 +2,17 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method                                                               | HTTP request                                   | Description                     |
-| -------------------------------------------------------------------- | ---------------------------------------------- | ------------------------------- |
-| [**cancelDowntime**](DowntimesApi.md#cancelDowntime)                 | **DELETE** /api/v1/downtime/{downtime_id}      | Cancel a downtime               |
-| [**cancelDowntimesByScope**](DowntimesApi.md#cancelDowntimesByScope) | **POST** /api/v1/downtime/cancel/by_scope      | Cancel downtimes by scope       |
-| [**createDowntime**](DowntimesApi.md#createDowntime)                 | **POST** /api/v1/downtime                      | Schedule a downtime             |
-| [**getDowntime**](DowntimesApi.md#getDowntime)                       | **GET** /api/v1/downtime/{downtime_id}         | Get a downtime                  |
-| [**listDowntimes**](DowntimesApi.md#listDowntimes)                   | **GET** /api/v1/downtime                       | Get all downtimes               |
-| [**listMonitorDowntimes**](DowntimesApi.md#listMonitorDowntimes)     | **GET** /api/v1/monitor/{monitor_id}/downtimes | Get all downtimes for a monitor |
-| [**updateDowntime**](DowntimesApi.md#updateDowntime)                 | **PUT** /api/v1/downtime/{downtime_id}         | Update a downtime               |
+Method        | HTTP request | Description
+------------- | ------------ | ------------
+[**cancelDowntime**](DowntimesApi.md#cancelDowntime) | **DELETE** /api/v1/downtime/{downtime_id} | Cancel a downtime
+[**cancelDowntimesByScope**](DowntimesApi.md#cancelDowntimesByScope) | **POST** /api/v1/downtime/cancel/by_scope | Cancel downtimes by scope
+[**createDowntime**](DowntimesApi.md#createDowntime) | **POST** /api/v1/downtime | Schedule a downtime
+[**getDowntime**](DowntimesApi.md#getDowntime) | **GET** /api/v1/downtime/{downtime_id} | Get a downtime
+[**listDowntimes**](DowntimesApi.md#listDowntimes) | **GET** /api/v1/downtime | Get all downtimes
+[**listMonitorDowntimes**](DowntimesApi.md#listMonitorDowntimes) | **GET** /api/v1/monitor/{monitor_id}/downtimes | Get all downtimes for a monitor
+[**updateDowntime**](DowntimesApi.md#updateDowntime) | **PUT** /api/v1/downtime/{downtime_id} | Update a downtime
+
+
 
 ## cancelDowntime
 
@@ -49,9 +51,10 @@ public class Example {
 
 ### Parameters
 
-| Name           | Type     | Description                   | Notes |
-| -------------- | -------- | ----------------------------- | ----- |
-| **downtimeId** | **Long** | ID of the downtime to cancel. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **downtimeId** | **Long**| ID of the downtime to cancel. |
 
 ### Return type
 
@@ -67,12 +70,12 @@ null (empty response body)
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Downtime not found |  -  |
 
-| Status code | Description        | Response headers |
-| ----------- | ------------------ | ---------------- |
-| **204**     | OK                 | -                |
-| **403**     | Forbidden          | -                |
-| **404**     | Downtime not found | -                |
 
 ## cancelDowntimesByScope
 
@@ -112,9 +115,10 @@ public class Example {
 
 ### Parameters
 
-| Name     | Type                                                                  | Description                    | Notes |
-| -------- | --------------------------------------------------------------------- | ------------------------------ | ----- |
-| **body** | [**CancelDowntimesByScopeRequest**](CancelDowntimesByScopeRequest.md) | Scope to cancel downtimes for. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**CancelDowntimesByScopeRequest**](CancelDowntimesByScopeRequest.md)| Scope to cancel downtimes for. |
 
 ### Return type
 
@@ -130,13 +134,13 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Downtimes not found |  -  |
 
-| Status code | Description         | Response headers |
-| ----------- | ------------------- | ---------------- |
-| **200**     | OK                  | -                |
-| **400**     | Bad Request         | -                |
-| **403**     | Forbidden           | -                |
-| **404**     | Downtimes not found | -                |
 
 ## createDowntime
 
@@ -176,9 +180,10 @@ public class Example {
 
 ### Parameters
 
-| Name     | Type                        | Description                       | Notes |
-| -------- | --------------------------- | --------------------------------- | ----- |
-| **body** | [**Downtime**](Downtime.md) | Schedule a downtime request body. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**Downtime**](Downtime.md)| Schedule a downtime request body. |
 
 ### Return type
 
@@ -194,12 +199,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **400**     | Bad Request | -                |
-| **403**     | Forbidden   | -                |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+
 
 ## getDowntime
 
@@ -239,9 +244,10 @@ public class Example {
 
 ### Parameters
 
-| Name           | Type     | Description                  | Notes |
-| -------------- | -------- | ---------------------------- | ----- |
-| **downtimeId** | **Long** | ID of the downtime to fetch. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **downtimeId** | **Long**| ID of the downtime to fetch. |
 
 ### Return type
 
@@ -257,12 +263,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Downtime not found |  -  |
 
-| Status code | Description        | Response headers |
-| ----------- | ------------------ | ---------------- |
-| **200**     | OK                 | -                |
-| **403**     | Forbidden          | -                |
-| **404**     | Downtime not found | -                |
 
 ## listDowntimes
 
@@ -303,9 +309,10 @@ public class Example {
 
 ### Parameters
 
-| Name            | Type        | Description                                                     | Notes      |
-| --------------- | ----------- | --------------------------------------------------------------- | ---------- |
-| **currentOnly** | **Boolean** | Only return downtimes that are active when the request is made. | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **currentOnly** | **Boolean**| Only return downtimes that are active when the request is made. | [optional]
 
 ### Return type
 
@@ -321,11 +328,11 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **403**     | Forbidden   | -                |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+
 
 ## listMonitorDowntimes
 
@@ -365,9 +372,10 @@ public class Example {
 
 ### Parameters
 
-| Name          | Type     | Description           | Notes |
-| ------------- | -------- | --------------------- | ----- |
-| **monitorId** | **Long** | The id of the monitor |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **monitorId** | **Long**| The id of the monitor |
 
 ### Return type
 
@@ -383,12 +391,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **404** | Monitor Not Found error |  -  |
 
-| Status code | Description             | Response headers |
-| ----------- | ----------------------- | ---------------- |
-| **200**     | OK                      | -                |
-| **400**     | Bad Request             | -                |
-| **404**     | Monitor Not Found error | -                |
 
 ## updateDowntime
 
@@ -429,10 +437,11 @@ public class Example {
 
 ### Parameters
 
-| Name           | Type                        | Description                     | Notes |
-| -------------- | --------------------------- | ------------------------------- | ----- |
-| **downtimeId** | **Long**                    | ID of the downtime to update.   |
-| **body**       | [**Downtime**](Downtime.md) | Update a downtime request body. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **downtimeId** | **Long**| ID of the downtime to update. |
+ **body** | [**Downtime**](Downtime.md)| Update a downtime request body. |
 
 ### Return type
 
@@ -448,10 +457,10 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Downtime not found |  -  |
 
-| Status code | Description        | Response headers |
-| ----------- | ------------------ | ---------------- |
-| **200**     | OK                 | -                |
-| **400**     | Bad Request        | -                |
-| **403**     | Forbidden          | -                |
-| **404**     | Downtime not found | -                |

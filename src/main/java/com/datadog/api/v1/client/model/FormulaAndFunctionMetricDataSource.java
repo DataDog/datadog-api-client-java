@@ -8,39 +8,28 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.datadog.api.v1.client.JSON;
-
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
-/**
- * Data source for metrics queries.
- */
-@JsonSerialize(using = FormulaAndFunctionMetricDataSource.FormulaAndFunctionMetricDataSourceSerializer.class)
+import java.util.Objects;
+import java.util.Set;
+
+/** Data source for metrics queries. */
+@JsonSerialize(
+    using = FormulaAndFunctionMetricDataSource.FormulaAndFunctionMetricDataSourceSerializer.class)
 public class FormulaAndFunctionMetricDataSource {
-  
-  public static final FormulaAndFunctionMetricDataSource METRICS = new FormulaAndFunctionMetricDataSource("metrics");
+
+  public static final FormulaAndFunctionMetricDataSource METRICS =
+      new FormulaAndFunctionMetricDataSource("metrics");
 
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("metrics"));
 
@@ -54,19 +43,23 @@ public class FormulaAndFunctionMetricDataSource {
     this.value = value;
   }
 
-  public static class FormulaAndFunctionMetricDataSourceSerializer extends StdSerializer<FormulaAndFunctionMetricDataSource> {
-      public FormulaAndFunctionMetricDataSourceSerializer(Class<FormulaAndFunctionMetricDataSource> t) {
-          super(t);
-      }
+  public static class FormulaAndFunctionMetricDataSourceSerializer
+      extends StdSerializer<FormulaAndFunctionMetricDataSource> {
+    public FormulaAndFunctionMetricDataSourceSerializer(
+        Class<FormulaAndFunctionMetricDataSource> t) {
+      super(t);
+    }
 
-      public FormulaAndFunctionMetricDataSourceSerializer() {
-          this(null);
-      }
+    public FormulaAndFunctionMetricDataSourceSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(FormulaAndFunctionMetricDataSource value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(
+        FormulaAndFunctionMetricDataSource value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonValue
@@ -78,9 +71,7 @@ public class FormulaAndFunctionMetricDataSource {
     this.value = value;
   }
 
-  /**
-   * Return true if this FormulaAndFunctionMetricDataSource object is equal to o.
-   */
+  /** Return true if this FormulaAndFunctionMetricDataSource object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -94,7 +85,7 @@ public class FormulaAndFunctionMetricDataSource {
 
   @Override
   public int hashCode() {
-      return Objects.hash(value);
+    return Objects.hash(value);
   }
 
   @Override
@@ -107,4 +98,3 @@ public class FormulaAndFunctionMetricDataSource {
     return new FormulaAndFunctionMetricDataSource(value);
   }
 }
-

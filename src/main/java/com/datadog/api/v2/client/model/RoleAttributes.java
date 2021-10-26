@@ -8,30 +8,18 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Attributes of the role.
- */
+/** Attributes of the role. */
 @ApiModel(description = "Attributes of the role.")
 @JsonPropertyOrder({
   RoleAttributes.JSON_PROPERTY_CREATED_AT,
@@ -40,10 +28,8 @@ import com.datadog.api.v2.client.JSON;
   RoleAttributes.JSON_PROPERTY_USER_COUNT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-
 public class RoleAttributes {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
 
@@ -56,82 +42,68 @@ public class RoleAttributes {
   public static final String JSON_PROPERTY_USER_COUNT = "user_count";
   private Long userCount;
 
-
-   /**
+  /**
    * Creation time of the role.
+   *
    * @return createdAt
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Creation time of the role.")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getCreatedAt() {
     return createdAt;
   }
 
-
-
-
-   /**
+  /**
    * Time of last role modification.
+   *
    * @return modifiedAt
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Time of last role modification.")
   @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getModifiedAt() {
     return modifiedAt;
   }
-
-
-
 
   public RoleAttributes name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Name of the role.
+   *
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Name of the role.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getName() {
     return name;
   }
-
 
   public void setName(String name) {
     this.name = name;
   }
 
-
-   /**
+  /**
    * Number of users with that role.
+   *
    * @return userCount
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Number of users with that role.")
   @JsonProperty(JSON_PROPERTY_USER_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getUserCount() {
     return userCount;
   }
 
-
-
-
-  /**
-   * Return true if this RoleAttributes object is equal to o.
-   */
+  /** Return true if this RoleAttributes object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -141,10 +113,10 @@ public class RoleAttributes {
       return false;
     }
     RoleAttributes roleAttributes = (RoleAttributes) o;
-    return Objects.equals(this.createdAt, roleAttributes.createdAt) &&
-        Objects.equals(this.modifiedAt, roleAttributes.modifiedAt) &&
-        Objects.equals(this.name, roleAttributes.name) &&
-        Objects.equals(this.userCount, roleAttributes.userCount);
+    return Objects.equals(this.createdAt, roleAttributes.createdAt)
+        && Objects.equals(this.modifiedAt, roleAttributes.modifiedAt)
+        && Objects.equals(this.name, roleAttributes.name)
+        && Objects.equals(this.userCount, roleAttributes.userCount);
   }
 
   @Override
@@ -165,8 +137,7 @@ public class RoleAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -174,6 +145,4 @@ public class RoleAttributes {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

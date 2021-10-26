@@ -2,13 +2,15 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method                                                                                             | HTTP request                                                                           | Description                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------- |
-| [**createServiceAccountApplicationKey**](ServiceAccountsApi.md#createServiceAccountApplicationKey) | **POST** /api/v2/service_accounts/{service_account_id}/application_keys                | Create an application key for this service account |
-| [**deleteServiceAccountApplicationKey**](ServiceAccountsApi.md#deleteServiceAccountApplicationKey) | **DELETE** /api/v2/service_accounts/{service_account_id}/application_keys/{app_key_id} | Delete an application key for this service account |
-| [**getServiceAccountApplicationKey**](ServiceAccountsApi.md#getServiceAccountApplicationKey)       | **GET** /api/v2/service_accounts/{service_account_id}/application_keys/{app_key_id}    | Get one application key for this service account   |
-| [**listServiceAccountApplicationKeys**](ServiceAccountsApi.md#listServiceAccountApplicationKeys)   | **GET** /api/v2/service_accounts/{service_account_id}/application_keys                 | List application keys for this service account     |
-| [**updateServiceAccountApplicationKey**](ServiceAccountsApi.md#updateServiceAccountApplicationKey) | **PATCH** /api/v2/service_accounts/{service_account_id}/application_keys/{app_key_id}  | Edit an application key for this service account   |
+Method        | HTTP request | Description
+------------- | ------------ | ------------
+[**createServiceAccountApplicationKey**](ServiceAccountsApi.md#createServiceAccountApplicationKey) | **POST** /api/v2/service_accounts/{service_account_id}/application_keys | Create an application key for this service account
+[**deleteServiceAccountApplicationKey**](ServiceAccountsApi.md#deleteServiceAccountApplicationKey) | **DELETE** /api/v2/service_accounts/{service_account_id}/application_keys/{app_key_id} | Delete an application key for this service account
+[**getServiceAccountApplicationKey**](ServiceAccountsApi.md#getServiceAccountApplicationKey) | **GET** /api/v2/service_accounts/{service_account_id}/application_keys/{app_key_id} | Get one application key for this service account
+[**listServiceAccountApplicationKeys**](ServiceAccountsApi.md#listServiceAccountApplicationKeys) | **GET** /api/v2/service_accounts/{service_account_id}/application_keys | List application keys for this service account
+[**updateServiceAccountApplicationKey**](ServiceAccountsApi.md#updateServiceAccountApplicationKey) | **PATCH** /api/v2/service_accounts/{service_account_id}/application_keys/{app_key_id} | Edit an application key for this service account
+
+
 
 ## createServiceAccountApplicationKey
 
@@ -32,7 +34,7 @@ public class Example {
 
         ServiceAccountsApi apiInstance = new ServiceAccountsApi(defaultClient);
         String serviceAccountId = "00000000-0000-0000-0000-000000000000"; // String | The ID of the service account.
-        ApplicationKeyCreateRequest body = new ApplicationKeyCreateRequest(); // ApplicationKeyCreateRequest |
+        ApplicationKeyCreateRequest body = new ApplicationKeyCreateRequest(); // ApplicationKeyCreateRequest | 
         try {
             ApplicationKeyResponse result = apiInstance.createServiceAccountApplicationKey(serviceAccountId, body);
             System.out.println(result);
@@ -49,10 +51,11 @@ public class Example {
 
 ### Parameters
 
-| Name                 | Type                                                              | Description                    | Notes |
-| -------------------- | ----------------------------------------------------------------- | ------------------------------ | ----- |
-| **serviceAccountId** | **String**                                                        | The ID of the service account. |
-| **body**             | [**ApplicationKeyCreateRequest**](ApplicationKeyCreateRequest.md) |                                |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **serviceAccountId** | **String**| The ID of the service account. |
+ **body** | [**ApplicationKeyCreateRequest**](ApplicationKeyCreateRequest.md)|  |
 
 ### Return type
 
@@ -68,12 +71,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **201**     | Created     | -                |
-| **400**     | Bad Request | -                |
-| **403**     | Forbidden   | -                |
+|-------------|-------------|------------------|
+| **201** | Created |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+
 
 ## deleteServiceAccountApplicationKey
 
@@ -113,10 +116,11 @@ public class Example {
 
 ### Parameters
 
-| Name                 | Type       | Description                    | Notes |
-| -------------------- | ---------- | ------------------------------ | ----- |
-| **serviceAccountId** | **String** | The ID of the service account. |
-| **appKeyId**         | **String** | The ID of the application key. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **serviceAccountId** | **String**| The ID of the service account. |
+ **appKeyId** | **String**| The ID of the application key. |
 
 ### Return type
 
@@ -132,12 +136,12 @@ null (empty response body)
 - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **204**     | No Content  | -                |
-| **403**     | Forbidden   | -                |
-| **404**     | Not Found   | -                |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
 
 ## getServiceAccountApplicationKey
 
@@ -178,10 +182,11 @@ public class Example {
 
 ### Parameters
 
-| Name                 | Type       | Description                    | Notes |
-| -------------------- | ---------- | ------------------------------ | ----- |
-| **serviceAccountId** | **String** | The ID of the service account. |
-| **appKeyId**         | **String** | The ID of the application key. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **serviceAccountId** | **String**| The ID of the service account. |
+ **appKeyId** | **String**| The ID of the application key. |
 
 ### Return type
 
@@ -197,12 +202,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **403**     | Forbidden   | -                |
-| **404**     | Not Found   | -                |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
 
 ## listServiceAccountApplicationKeys
 
@@ -254,15 +259,16 @@ public class Example {
 
 ### Parameters
 
-| Name                     | Type                    | Description                                                                                                                                                        | Notes                                                                                    |
-| ------------------------ | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------- |
-| **serviceAccountId**     | **String**              | The ID of the service account.                                                                                                                                     |
-| **pageSize**             | **Long**                | Size for a given page.                                                                                                                                             | [optional] [default to 10]                                                               |
-| **pageNumber**           | **Long**                | Specific page number to return.                                                                                                                                    | [optional] [default to 0]                                                                |
-| **sort**                 | **ApplicationKeysSort** | Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign. | [optional] [default to name] [enum: created_at, -created_at, last4, -last4, name, -name] |
-| **filter**               | **String**              | Filter application keys by the specified string.                                                                                                                   | [optional]                                                                               |
-| **filterCreatedAtStart** | **String**              | Only include application keys created on or after the specified date.                                                                                              | [optional]                                                                               |
-| **filterCreatedAtEnd**   | **String**              | Only include application keys created on or before the specified date.                                                                                             | [optional]                                                                               |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **serviceAccountId** | **String**| The ID of the service account. |
+ **pageSize** | **Long**| Size for a given page. | [optional] [default to 10]
+ **pageNumber** | **Long**| Specific page number to return. | [optional] [default to 0]
+ **sort** | **ApplicationKeysSort**| Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign. | [optional] [default to name] [enum: created_at, -created_at, last4, -last4, name, -name]
+ **filter** | **String**| Filter application keys by the specified string. | [optional]
+ **filterCreatedAtStart** | **String**| Only include application keys created on or after the specified date. | [optional]
+ **filterCreatedAtEnd** | **String**| Only include application keys created on or before the specified date. | [optional]
 
 ### Return type
 
@@ -278,13 +284,13 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **400**     | Bad Request | -                |
-| **403**     | Forbidden   | -                |
-| **404**     | Not Found   | -                |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+
 
 ## updateServiceAccountApplicationKey
 
@@ -309,7 +315,7 @@ public class Example {
         ServiceAccountsApi apiInstance = new ServiceAccountsApi(defaultClient);
         String serviceAccountId = "00000000-0000-0000-0000-000000000000"; // String | The ID of the service account.
         String appKeyId = "appKeyId_example"; // String | The ID of the application key.
-        ApplicationKeyUpdateRequest body = new ApplicationKeyUpdateRequest(); // ApplicationKeyUpdateRequest |
+        ApplicationKeyUpdateRequest body = new ApplicationKeyUpdateRequest(); // ApplicationKeyUpdateRequest | 
         try {
             PartialApplicationKeyResponse result = apiInstance.updateServiceAccountApplicationKey(serviceAccountId, appKeyId, body);
             System.out.println(result);
@@ -326,11 +332,12 @@ public class Example {
 
 ### Parameters
 
-| Name                 | Type                                                              | Description                    | Notes |
-| -------------------- | ----------------------------------------------------------------- | ------------------------------ | ----- |
-| **serviceAccountId** | **String**                                                        | The ID of the service account. |
-| **appKeyId**         | **String**                                                        | The ID of the application key. |
-| **body**             | [**ApplicationKeyUpdateRequest**](ApplicationKeyUpdateRequest.md) |                                |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **serviceAccountId** | **String**| The ID of the service account. |
+ **appKeyId** | **String**| The ID of the application key. |
+ **body** | [**ApplicationKeyUpdateRequest**](ApplicationKeyUpdateRequest.md)|  |
 
 ### Return type
 
@@ -346,10 +353,10 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **400**     | Bad Request | -                |
-| **403**     | Forbidden   | -                |
-| **404**     | Not Found   | -                |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+

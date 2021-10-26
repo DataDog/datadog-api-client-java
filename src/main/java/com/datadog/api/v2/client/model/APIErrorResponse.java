@@ -8,40 +8,25 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * API error response.
- */
+/** API error response. */
 @ApiModel(description = "API error response.")
-@JsonPropertyOrder({
-  APIErrorResponse.JSON_PROPERTY_ERRORS
-})
+@JsonPropertyOrder({APIErrorResponse.JSON_PROPERTY_ERRORS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-
 public class APIErrorResponse {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ERRORS = "errors";
   private List<String> errors = new ArrayList<>();
 
@@ -49,9 +34,8 @@ public class APIErrorResponse {
 
   @JsonCreator
   public APIErrorResponse(
-            @JsonProperty(required=true, value=JSON_PROPERTY_ERRORS) List<String> errors
-            ) {
-        this.errors = errors;
+      @JsonProperty(required = true, value = JSON_PROPERTY_ERRORS) List<String> errors) {
+    this.errors = errors;
   }
 
   public APIErrorResponse errors(List<String> errors) {
@@ -64,27 +48,23 @@ public class APIErrorResponse {
     return this;
   }
 
-   /**
+  /**
    * A list of errors.
+   *
    * @return errors
-  **/
+   */
   @ApiModelProperty(required = true, value = "A list of errors.")
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public List<String> getErrors() {
     return errors;
   }
-
 
   public void setErrors(List<String> errors) {
     this.errors = errors;
   }
 
-
-  /**
-   * Return true if this APIErrorResponse object is equal to o.
-   */
+  /** Return true if this APIErrorResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -112,8 +92,7 @@ public class APIErrorResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -121,6 +100,4 @@ public class APIErrorResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

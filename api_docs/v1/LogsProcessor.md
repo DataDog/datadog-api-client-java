@@ -1,27 +1,27 @@
+
+
 # LogsProcessor
 
 Definition of a logs processor.
 
 ## oneOf schemas
-
-- [LogsArithmeticProcessor](LogsArithmeticProcessor.md)
-- [LogsAttributeRemapper](LogsAttributeRemapper.md)
-- [LogsCategoryProcessor](LogsCategoryProcessor.md)
-- [LogsDateRemapper](LogsDateRemapper.md)
-- [LogsGeoIPParser](LogsGeoIPParser.md)
-- [LogsGrokParser](LogsGrokParser.md)
-- [LogsLookupProcessor](LogsLookupProcessor.md)
-- [LogsMessageRemapper](LogsMessageRemapper.md)
-- [LogsPipelineProcessor](LogsPipelineProcessor.md)
-- [LogsServiceRemapper](LogsServiceRemapper.md)
-- [LogsStatusRemapper](LogsStatusRemapper.md)
-- [LogsStringBuilderProcessor](LogsStringBuilderProcessor.md)
-- [LogsTraceRemapper](LogsTraceRemapper.md)
-- [LogsURLParser](LogsURLParser.md)
-- [LogsUserAgentParser](LogsUserAgentParser.md)
+* [LogsArithmeticProcessor](LogsArithmeticProcessor.md)
+* [LogsAttributeRemapper](LogsAttributeRemapper.md)
+* [LogsCategoryProcessor](LogsCategoryProcessor.md)
+* [LogsDateRemapper](LogsDateRemapper.md)
+* [LogsGeoIPParser](LogsGeoIPParser.md)
+* [LogsGrokParser](LogsGrokParser.md)
+* [LogsLookupProcessor](LogsLookupProcessor.md)
+* [LogsMessageRemapper](LogsMessageRemapper.md)
+* [LogsPipelineProcessor](LogsPipelineProcessor.md)
+* [LogsServiceRemapper](LogsServiceRemapper.md)
+* [LogsStatusRemapper](LogsStatusRemapper.md)
+* [LogsStringBuilderProcessor](LogsStringBuilderProcessor.md)
+* [LogsTraceRemapper](LogsTraceRemapper.md)
+* [LogsURLParser](LogsURLParser.md)
+* [LogsUserAgentParser](LogsUserAgentParser.md)
 
 ## Example
-
 ```java
 // Import classes:
 import com.datadog.api.v1.client.model.LogsProcessor;
@@ -152,3 +152,5 @@ public class Example {
     }
 }
 ```
+
+

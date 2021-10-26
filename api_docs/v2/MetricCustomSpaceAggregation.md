@@ -1,11 +1,17 @@
+
+
 # MetricCustomSpaceAggregation
 
 ## Enum
 
-- `AVG` (value: `"avg"`)
 
-- `MAX` (value: `"max"`)
+* `AVG` (value: `"avg"`)
 
-- `MIN` (value: `"min"`)
+* `MAX` (value: `"max"`)
 
-- `SUM` (value: `"sum"`)
+* `MIN` (value: `"min"`)
+
+* `SUM` (value: `"sum"`)
+
+
+

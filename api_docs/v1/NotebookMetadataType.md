@@ -1,13 +1,19 @@
+
+
 # NotebookMetadataType
 
 ## Enum
 
-- `POSTMORTEM` (value: `"postmortem"`)
 
-- `RUNBOOK` (value: `"runbook"`)
+* `POSTMORTEM` (value: `"postmortem"`)
 
-- `INVESTIGATION` (value: `"investigation"`)
+* `RUNBOOK` (value: `"runbook"`)
 
-- `DOCUMENTATION` (value: `"documentation"`)
+* `INVESTIGATION` (value: `"investigation"`)
 
-- `REPORT` (value: `"report"`)
+* `DOCUMENTATION` (value: `"documentation"`)
+
+* `REPORT` (value: `"report"`)
+
+
+

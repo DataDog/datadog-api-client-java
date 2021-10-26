@@ -2,13 +2,15 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method                                               | HTTP request                               | Description                    |
-| ---------------------------------------------------- | ------------------------------------------ | ------------------------------ |
-| [**createIncident**](IncidentsApi.md#createIncident) | **POST** /api/v2/incidents                 | Create an incident             |
-| [**deleteIncident**](IncidentsApi.md#deleteIncident) | **DELETE** /api/v2/incidents/{incident_id} | Delete an existing incident    |
-| [**getIncident**](IncidentsApi.md#getIncident)       | **GET** /api/v2/incidents/{incident_id}    | Get the details of an incident |
-| [**listIncidents**](IncidentsApi.md#listIncidents)   | **GET** /api/v2/incidents                  | Get a list of incidents        |
-| [**updateIncident**](IncidentsApi.md#updateIncident) | **PATCH** /api/v2/incidents/{incident_id}  | Update an existing incident    |
+Method        | HTTP request | Description
+------------- | ------------ | ------------
+[**createIncident**](IncidentsApi.md#createIncident) | **POST** /api/v2/incidents | Create an incident
+[**deleteIncident**](IncidentsApi.md#deleteIncident) | **DELETE** /api/v2/incidents/{incident_id} | Delete an existing incident
+[**getIncident**](IncidentsApi.md#getIncident) | **GET** /api/v2/incidents/{incident_id} | Get the details of an incident
+[**listIncidents**](IncidentsApi.md#listIncidents) | **GET** /api/v2/incidents | Get a list of incidents
+[**updateIncident**](IncidentsApi.md#updateIncident) | **PATCH** /api/v2/incidents/{incident_id} | Update an existing incident
+
+
 
 ## createIncident
 
@@ -48,9 +50,10 @@ public class Example {
 
 ### Parameters
 
-| Name     | Type                                                  | Description       | Notes |
-| -------- | ----------------------------------------------------- | ----------------- | ----- |
-| **body** | [**IncidentCreateRequest**](IncidentCreateRequest.md) | Incident payload. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**IncidentCreateRequest**](IncidentCreateRequest.md)| Incident payload. |
 
 ### Return type
 
@@ -66,14 +69,14 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | CREATED |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 
-| Status code | Description  | Response headers |
-| ----------- | ------------ | ---------------- |
-| **201**     | CREATED      | -                |
-| **400**     | Bad Request  | -                |
-| **401**     | Unauthorized | -                |
-| **403**     | Forbidden    | -                |
-| **404**     | Not Found    | -                |
 
 ## deleteIncident
 
@@ -112,9 +115,10 @@ public class Example {
 
 ### Parameters
 
-| Name           | Type       | Description            | Notes |
-| -------------- | ---------- | ---------------------- | ----- |
-| **incidentId** | **String** | The UUID the incident. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **incidentId** | **String**| The UUID the incident. |
 
 ### Return type
 
@@ -130,14 +134,14 @@ null (empty response body)
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 
-| Status code | Description  | Response headers |
-| ----------- | ------------ | ---------------- |
-| **204**     | OK           | -                |
-| **400**     | Bad Request  | -                |
-| **401**     | Unauthorized | -                |
-| **403**     | Forbidden    | -                |
-| **404**     | Not Found    | -                |
 
 ## getIncident
 
@@ -179,10 +183,11 @@ public class Example {
 
 ### Parameters
 
-| Name           | Type                                  | Description                                                                  | Notes      |
-| -------------- | ------------------------------------- | ---------------------------------------------------------------------------- | ---------- |
-| **incidentId** | **String**                            | The UUID the incident.                                                       |
-| **include**    | **List&lt;IncidentRelatedObject&gt;** | Specifies which types of related objects should be included in the response. | [optional] |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **incidentId** | **String**| The UUID the incident. |
+ **include** | **List&lt;IncidentRelatedObject&gt;**| Specifies which types of related objects should be included in the response. | [optional]
 
 ### Return type
 
@@ -198,14 +203,14 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 
-| Status code | Description  | Response headers |
-| ----------- | ------------ | ---------------- |
-| **200**     | OK           | -                |
-| **400**     | Bad Request  | -                |
-| **401**     | Unauthorized | -                |
-| **403**     | Forbidden    | -                |
-| **404**     | Not Found    | -                |
 
 ## listIncidents
 
@@ -250,11 +255,12 @@ public class Example {
 
 ### Parameters
 
-| Name           | Type                                  | Description                                                                  | Notes                      |
-| -------------- | ------------------------------------- | ---------------------------------------------------------------------------- | -------------------------- |
-| **include**    | **List&lt;IncidentRelatedObject&gt;** | Specifies which types of related objects should be included in the response. | [optional]                 |
-| **pageSize**   | **Long**                              | Size for a given page.                                                       | [optional] [default to 10] |
-| **pageOffset** | **Long**                              | Specific offset to use as the beginning of the returned page.                | [optional] [default to 0]  |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **include** | **List&lt;IncidentRelatedObject&gt;**| Specifies which types of related objects should be included in the response. | [optional]
+ **pageSize** | **Long**| Size for a given page. | [optional] [default to 10]
+ **pageOffset** | **Long**| Specific offset to use as the beginning of the returned page. | [optional] [default to 0]
 
 ### Return type
 
@@ -270,14 +276,14 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 
-| Status code | Description  | Response headers |
-| ----------- | ------------ | ---------------- |
-| **200**     | OK           | -                |
-| **400**     | Bad Request  | -                |
-| **401**     | Unauthorized | -                |
-| **403**     | Forbidden    | -                |
-| **404**     | Not Found    | -                |
 
 ## updateIncident
 
@@ -318,10 +324,11 @@ public class Example {
 
 ### Parameters
 
-| Name           | Type                                                  | Description            | Notes |
-| -------------- | ----------------------------------------------------- | ---------------------- | ----- |
-| **incidentId** | **String**                                            | The UUID the incident. |
-| **body**       | [**IncidentUpdateRequest**](IncidentUpdateRequest.md) | Incident Payload.      |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **incidentId** | **String**| The UUID the incident. |
+ **body** | [**IncidentUpdateRequest**](IncidentUpdateRequest.md)| Incident Payload. |
 
 ### Return type
 
@@ -337,11 +344,11 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 
-| Status code | Description  | Response headers |
-| ----------- | ------------ | ---------------- |
-| **200**     | OK           | -                |
-| **400**     | Bad Request  | -                |
-| **401**     | Unauthorized | -                |
-| **403**     | Forbidden    | -                |
-| **404**     | Not Found    | -                |

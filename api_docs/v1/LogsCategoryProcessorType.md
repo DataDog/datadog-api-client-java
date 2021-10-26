@@ -1,5 +1,11 @@
+
+
 # LogsCategoryProcessorType
 
 ## Enum
 
-- `CATEGORY_PROCESSOR` (value: `"category-processor"`)
+
+* `CATEGORY_PROCESSOR` (value: `"category-processor"`)
+
+
+

@@ -1,7 +1,13 @@
+
+
 # WidgetChangeType
 
 ## Enum
 
-- `ABSOLUTE` (value: `"absolute"`)
 
-- `RELATIVE` (value: `"relative"`)
+* `ABSOLUTE` (value: `"absolute"`)
+
+* `RELATIVE` (value: `"relative"`)
+
+
+

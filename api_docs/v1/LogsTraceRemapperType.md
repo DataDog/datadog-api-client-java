@@ -1,5 +1,11 @@
+
+
 # LogsTraceRemapperType
 
 ## Enum
 
-- `TRACE_ID_REMAPPER` (value: `"trace-id-remapper"`)
+
+* `TRACE_ID_REMAPPER` (value: `"trace-id-remapper"`)
+
+
+

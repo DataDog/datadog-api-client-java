@@ -8,35 +8,20 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.FormulaAndFunctionEventQueryDefinitionCompute;
-import com.datadog.api.v1.client.model.FormulaAndFunctionEventQueryDefinitionSearch;
-import com.datadog.api.v1.client.model.FormulaAndFunctionEventQueryGroupBy;
-import com.datadog.api.v1.client.model.FormulaAndFunctionEventsDataSource;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * A formula and functions events query.
- */
+/** A formula and functions events query. */
 @ApiModel(description = "A formula and functions events query.")
 @JsonPropertyOrder({
   FormulaAndFunctionEventQueryDefinition.JSON_PROPERTY_COMPUTE,
@@ -47,10 +32,8 @@ import com.datadog.api.v1.client.JSON;
   FormulaAndFunctionEventQueryDefinition.JSON_PROPERTY_SEARCH
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-
 public class FormulaAndFunctionEventQueryDefinition {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMPUTE = "compute";
   private FormulaAndFunctionEventQueryDefinitionCompute compute;
 
@@ -73,69 +56,69 @@ public class FormulaAndFunctionEventQueryDefinition {
 
   @JsonCreator
   public FormulaAndFunctionEventQueryDefinition(
-            @JsonProperty(required=true, value=JSON_PROPERTY_COMPUTE) FormulaAndFunctionEventQueryDefinitionCompute compute,
-            @JsonProperty(required=true, value=JSON_PROPERTY_DATA_SOURCE) FormulaAndFunctionEventsDataSource dataSource,
-            @JsonProperty(required=true, value=JSON_PROPERTY_NAME) String name
-            ) {
-        this.compute = compute;
-        this.unparsed |= compute.unparsed;
-        this.dataSource = dataSource;
-        this.unparsed |= !dataSource.isValid();
-        this.name = name;
+      @JsonProperty(required = true, value = JSON_PROPERTY_COMPUTE)
+          FormulaAndFunctionEventQueryDefinitionCompute compute,
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA_SOURCE)
+          FormulaAndFunctionEventsDataSource dataSource,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
+    this.compute = compute;
+    this.unparsed |= compute.unparsed;
+    this.dataSource = dataSource;
+    this.unparsed |= !dataSource.isValid();
+    this.name = name;
   }
 
-  public FormulaAndFunctionEventQueryDefinition compute(FormulaAndFunctionEventQueryDefinitionCompute compute) {
+  public FormulaAndFunctionEventQueryDefinition compute(
+      FormulaAndFunctionEventQueryDefinitionCompute compute) {
     this.compute = compute;
     this.unparsed |= compute.unparsed;
     return this;
   }
 
-   /**
+  /**
    * Get compute
+   *
    * @return compute
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_COMPUTE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public FormulaAndFunctionEventQueryDefinitionCompute getCompute() {
     return compute;
   }
-
 
   public void setCompute(FormulaAndFunctionEventQueryDefinitionCompute compute) {
     this.compute = compute;
   }
 
-
-  public FormulaAndFunctionEventQueryDefinition dataSource(FormulaAndFunctionEventsDataSource dataSource) {
+  public FormulaAndFunctionEventQueryDefinition dataSource(
+      FormulaAndFunctionEventsDataSource dataSource) {
     this.dataSource = dataSource;
     this.unparsed |= !dataSource.isValid();
     return this;
   }
 
-   /**
+  /**
    * Get dataSource
+   *
    * @return dataSource
-  **/
+   */
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public FormulaAndFunctionEventsDataSource getDataSource() {
     return dataSource;
   }
 
-
   public void setDataSource(FormulaAndFunctionEventsDataSource dataSource) {
     if (!dataSource.isValid()) {
-        this.unparsed = true;
+      this.unparsed = true;
     }
     this.dataSource = dataSource;
   }
 
-
-  public FormulaAndFunctionEventQueryDefinition groupBy(List<FormulaAndFunctionEventQueryGroupBy> groupBy) {
+  public FormulaAndFunctionEventQueryDefinition groupBy(
+      List<FormulaAndFunctionEventQueryGroupBy> groupBy) {
     this.groupBy = groupBy;
     for (FormulaAndFunctionEventQueryGroupBy item : groupBy) {
       this.unparsed |= item.unparsed;
@@ -143,7 +126,8 @@ public class FormulaAndFunctionEventQueryDefinition {
     return this;
   }
 
-  public FormulaAndFunctionEventQueryDefinition addGroupByItem(FormulaAndFunctionEventQueryGroupBy groupByItem) {
+  public FormulaAndFunctionEventQueryDefinition addGroupByItem(
+      FormulaAndFunctionEventQueryGroupBy groupByItem) {
     if (this.groupBy == null) {
       this.groupBy = new ArrayList<>();
     }
@@ -152,24 +136,22 @@ public class FormulaAndFunctionEventQueryDefinition {
     return this;
   }
 
-   /**
+  /**
    * Group by options.
+   *
    * @return groupBy
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Group by options.")
   @JsonProperty(JSON_PROPERTY_GROUP_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<FormulaAndFunctionEventQueryGroupBy> getGroupBy() {
     return groupBy;
   }
 
-
   public void setGroupBy(List<FormulaAndFunctionEventQueryGroupBy> groupBy) {
     this.groupBy = groupBy;
   }
-
 
   public FormulaAndFunctionEventQueryDefinition indexes(List<String> indexes) {
     this.indexes = indexes;
@@ -184,76 +166,77 @@ public class FormulaAndFunctionEventQueryDefinition {
     return this;
   }
 
-   /**
-   * An array of index names to query in the stream. Omit or use &#x60;[]&#x60; to query all indexes at once.
+  /**
+   * An array of index names to query in the stream. Omit or use &#x60;[]&#x60; to query all indexes
+   * at once.
+   *
    * @return indexes
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "[\"days-3\",\"days-7\"]", value = "An array of index names to query in the stream. Omit or use `[]` to query all indexes at once.")
+  @ApiModelProperty(
+      example = "[\"days-3\",\"days-7\"]",
+      value =
+          "An array of index names to query in the stream. Omit or use `[]` to query all indexes"
+              + " at once.")
   @JsonProperty(JSON_PROPERTY_INDEXES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<String> getIndexes() {
     return indexes;
   }
 
-
   public void setIndexes(List<String> indexes) {
     this.indexes = indexes;
   }
-
 
   public FormulaAndFunctionEventQueryDefinition name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
+  /**
    * Name of the query for use in formulas.
+   *
    * @return name
-  **/
-  @ApiModelProperty(example = "query_errors", required = true, value = "Name of the query for use in formulas.")
+   */
+  @ApiModelProperty(
+      example = "query_errors",
+      required = true,
+      value = "Name of the query for use in formulas.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getName() {
     return name;
   }
-
 
   public void setName(String name) {
     this.name = name;
   }
 
-
-  public FormulaAndFunctionEventQueryDefinition search(FormulaAndFunctionEventQueryDefinitionSearch search) {
+  public FormulaAndFunctionEventQueryDefinition search(
+      FormulaAndFunctionEventQueryDefinitionSearch search) {
     this.search = search;
     this.unparsed |= search.unparsed;
     return this;
   }
 
-   /**
+  /**
    * Get search
+   *
    * @return search
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SEARCH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public FormulaAndFunctionEventQueryDefinitionSearch getSearch() {
     return search;
   }
-
 
   public void setSearch(FormulaAndFunctionEventQueryDefinitionSearch search) {
     this.search = search;
   }
 
-
-  /**
-   * Return true if this FormulaAndFunctionEventQueryDefinition object is equal to o.
-   */
+  /** Return true if this FormulaAndFunctionEventQueryDefinition object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -262,13 +245,14 @@ public class FormulaAndFunctionEventQueryDefinition {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FormulaAndFunctionEventQueryDefinition formulaAndFunctionEventQueryDefinition = (FormulaAndFunctionEventQueryDefinition) o;
-    return Objects.equals(this.compute, formulaAndFunctionEventQueryDefinition.compute) &&
-        Objects.equals(this.dataSource, formulaAndFunctionEventQueryDefinition.dataSource) &&
-        Objects.equals(this.groupBy, formulaAndFunctionEventQueryDefinition.groupBy) &&
-        Objects.equals(this.indexes, formulaAndFunctionEventQueryDefinition.indexes) &&
-        Objects.equals(this.name, formulaAndFunctionEventQueryDefinition.name) &&
-        Objects.equals(this.search, formulaAndFunctionEventQueryDefinition.search);
+    FormulaAndFunctionEventQueryDefinition formulaAndFunctionEventQueryDefinition =
+        (FormulaAndFunctionEventQueryDefinition) o;
+    return Objects.equals(this.compute, formulaAndFunctionEventQueryDefinition.compute)
+        && Objects.equals(this.dataSource, formulaAndFunctionEventQueryDefinition.dataSource)
+        && Objects.equals(this.groupBy, formulaAndFunctionEventQueryDefinition.groupBy)
+        && Objects.equals(this.indexes, formulaAndFunctionEventQueryDefinition.indexes)
+        && Objects.equals(this.name, formulaAndFunctionEventQueryDefinition.name)
+        && Objects.equals(this.search, formulaAndFunctionEventQueryDefinition.search);
   }
 
   @Override
@@ -291,8 +275,7 @@ public class FormulaAndFunctionEventQueryDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -300,6 +283,4 @@ public class FormulaAndFunctionEventQueryDefinition {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

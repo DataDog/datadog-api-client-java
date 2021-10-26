@@ -8,35 +8,30 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v1.client.model.SLOHistoryResponseErrorWithType;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.datadog.api.v1.client.JSON;
-
+import java.util.Objects;
 
 /**
- * An object that holds an SLI value and its associated data. It can represent an SLO&#39;s overall SLI value. This can also represent the SLI value for a specific monitor in multi-monitor SLOs, or a group in grouped SLOs.
+ * An object that holds an SLI value and its associated data. It can represent an SLO&#39;s overall
+ * SLI value. This can also represent the SLI value for a specific monitor in multi-monitor SLOs, or
+ * a group in grouped SLOs.
  */
-@ApiModel(description = "An object that holds an SLI value and its associated data. It can represent an SLO's overall SLI value. This can also represent the SLI value for a specific monitor in multi-monitor SLOs, or a group in grouped SLOs.")
+@ApiModel(
+    description =
+        "An object that holds an SLI value and its associated data. It can represent an SLO's"
+            + " overall SLI value. This can also represent the SLI value for a specific monitor in"
+            + " multi-monitor SLOs, or a group in grouped SLOs.")
 @JsonPropertyOrder({
   SLOHistoryMonitor.JSON_PROPERTY_ERROR_BUDGET_REMAINING,
   SLOHistoryMonitor.JSON_PROPERTY_ERRORS,
@@ -52,10 +47,8 @@ import com.datadog.api.v1.client.JSON;
   SLOHistoryMonitor.JSON_PROPERTY_UPTIME
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-
 public class SLOHistoryMonitor {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_ERROR_BUDGET_REMAINING = "error_budget_remaining";
   private Map<String, Double> errorBudgetRemaining = null;
 
@@ -92,13 +85,13 @@ public class SLOHistoryMonitor {
   public static final String JSON_PROPERTY_UPTIME = "uptime";
   private Double uptime;
 
-
   public SLOHistoryMonitor errorBudgetRemaining(Map<String, Double> errorBudgetRemaining) {
     this.errorBudgetRemaining = errorBudgetRemaining;
     return this;
   }
 
-  public SLOHistoryMonitor putErrorBudgetRemainingItem(String key, Double errorBudgetRemainingItem) {
+  public SLOHistoryMonitor putErrorBudgetRemainingItem(
+      String key, Double errorBudgetRemainingItem) {
     if (this.errorBudgetRemaining == null) {
       this.errorBudgetRemaining = new HashMap<>();
     }
@@ -106,24 +99,24 @@ public class SLOHistoryMonitor {
     return this;
   }
 
-   /**
+  /**
    * A mapping of threshold &#x60;timeframe&#x60; to the remaining error budget.
+   *
    * @return errorBudgetRemaining
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "{\"7d\":100.0}", value = "A mapping of threshold `timeframe` to the remaining error budget.")
+  @ApiModelProperty(
+      example = "{\"7d\":100.0}",
+      value = "A mapping of threshold `timeframe` to the remaining error budget.")
   @JsonProperty(JSON_PROPERTY_ERROR_BUDGET_REMAINING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Map<String, Double> getErrorBudgetRemaining() {
     return errorBudgetRemaining;
   }
 
-
   public void setErrorBudgetRemaining(Map<String, Double> errorBudgetRemaining) {
     this.errorBudgetRemaining = errorBudgetRemaining;
   }
-
 
   public SLOHistoryMonitor errors(List<SLOHistoryResponseErrorWithType> errors) {
     this.errors = errors;
@@ -142,48 +135,50 @@ public class SLOHistoryMonitor {
     return this;
   }
 
-   /**
-   * An array of error objects returned while querying the history data for the service level objective.
+  /**
+   * An array of error objects returned while querying the history data for the service level
+   * objective.
+   *
    * @return errors
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "An array of error objects returned while querying the history data for the service level objective.")
+  @ApiModelProperty(
+      value =
+          "An array of error objects returned while querying the history data for the service"
+              + " level objective.")
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<SLOHistoryResponseErrorWithType> getErrors() {
     return errors;
   }
 
-
   public void setErrors(List<SLOHistoryResponseErrorWithType> errors) {
     this.errors = errors;
   }
-
 
   public SLOHistoryMonitor group(String group) {
     this.group = group;
     return this;
   }
 
-   /**
+  /**
    * For groups in a grouped SLO, this is the group name.
+   *
    * @return group
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "name", value = "For groups in a grouped SLO, this is the group name.")
+  @ApiModelProperty(
+      example = "name",
+      value = "For groups in a grouped SLO, this is the group name.")
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getGroup() {
     return group;
   }
 
-
   public void setGroup(String group) {
     this.group = group;
   }
-
 
   public SLOHistoryMonitor history(List<List<Double>> history) {
     this.history = history;
@@ -198,224 +193,239 @@ public class SLOHistoryMonitor {
     return this;
   }
 
-   /**
-   * For &#x60;monitor&#x60; based SLOs, this includes the aggregated history as arrays that include time series and uptime data where &#x60;0&#x3D;monitor&#x60; is in &#x60;OK&#x60; state and &#x60;1&#x3D;monitor&#x60; is in &#x60;alert&#x60; state.
+  /**
+   * For &#x60;monitor&#x60; based SLOs, this includes the aggregated history as arrays that include
+   * time series and uptime data where &#x60;0&#x3D;monitor&#x60; is in &#x60;OK&#x60; state and
+   * &#x60;1&#x3D;monitor&#x60; is in &#x60;alert&#x60; state.
+   *
    * @return history
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "For `monitor` based SLOs, this includes the aggregated history as arrays that include time series and uptime data where `0=monitor` is in `OK` state and `1=monitor` is in `alert` state.")
+  @ApiModelProperty(
+      value =
+          "For `monitor` based SLOs, this includes the aggregated history as arrays that include"
+              + " time series and uptime data where `0=monitor` is in `OK` state and `1=monitor`"
+              + " is in `alert` state.")
   @JsonProperty(JSON_PROPERTY_HISTORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<List<Double>> getHistory() {
     return history;
   }
 
-
   public void setHistory(List<List<Double>> history) {
     this.history = history;
   }
-
 
   public SLOHistoryMonitor monitorModified(Long monitorModified) {
     this.monitorModified = monitorModified;
     return this;
   }
 
-   /**
-   * For &#x60;monitor&#x60; based SLOs, this is the last modified timestamp in epoch seconds of the monitor.
+  /**
+   * For &#x60;monitor&#x60; based SLOs, this is the last modified timestamp in epoch seconds of the
+   * monitor.
+   *
    * @return monitorModified
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1615867200", value = "For `monitor` based SLOs, this is the last modified timestamp in epoch seconds of the monitor.")
+  @ApiModelProperty(
+      example = "1615867200",
+      value =
+          "For `monitor` based SLOs, this is the last modified timestamp in epoch seconds of the"
+              + " monitor.")
   @JsonProperty(JSON_PROPERTY_MONITOR_MODIFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getMonitorModified() {
     return monitorModified;
   }
 
-
   public void setMonitorModified(Long monitorModified) {
     this.monitorModified = monitorModified;
   }
-
 
   public SLOHistoryMonitor monitorType(String monitorType) {
     this.monitorType = monitorType;
     return this;
   }
 
-   /**
+  /**
    * For &#x60;monitor&#x60; based SLOs, this describes the type of monitor.
+   *
    * @return monitorType
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "string", value = "For `monitor` based SLOs, this describes the type of monitor.")
+  @ApiModelProperty(
+      example = "string",
+      value = "For `monitor` based SLOs, this describes the type of monitor.")
   @JsonProperty(JSON_PROPERTY_MONITOR_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getMonitorType() {
     return monitorType;
   }
 
-
   public void setMonitorType(String monitorType) {
     this.monitorType = monitorType;
   }
-
 
   public SLOHistoryMonitor name(String name) {
     this.name = name;
     return this;
   }
 
-   /**
-   * For groups in a grouped SLO, this is the group name. For monitors in a multi-monitor SLO, this is the monitor name.
+  /**
+   * For groups in a grouped SLO, this is the group name. For monitors in a multi-monitor SLO, this
+   * is the monitor name.
+   *
    * @return name
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "string", value = "For groups in a grouped SLO, this is the group name. For monitors in a multi-monitor SLO, this is the monitor name.")
+  @ApiModelProperty(
+      example = "string",
+      value =
+          "For groups in a grouped SLO, this is the group name. For monitors in a multi-monitor"
+              + " SLO, this is the monitor name.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getName() {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
-
 
   public SLOHistoryMonitor precision(Double precision) {
     this.precision = precision;
     return this;
   }
 
-   /**
-   * The amount of decimal places the SLI value is accurate to for the given from &#x60;&amp;&amp;&#x60; to timestamp. Use &#x60;span_precision&#x60; instead.
+  /**
+   * The amount of decimal places the SLI value is accurate to for the given from
+   * &#x60;&amp;&amp;&#x60; to timestamp. Use &#x60;span_precision&#x60; instead.
+   *
    * @return precision
    * @deprecated
-  **/
+   */
   @Deprecated
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2", value = "The amount of decimal places the SLI value is accurate to for the given from `&&` to timestamp. Use `span_precision` instead.")
+  @ApiModelProperty(
+      example = "2",
+      value =
+          "The amount of decimal places the SLI value is accurate to for the given from `&&` to"
+              + " timestamp. Use `span_precision` instead.")
   @JsonProperty(JSON_PROPERTY_PRECISION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Double getPrecision() {
     return precision;
   }
 
-
   public void setPrecision(Double precision) {
     this.precision = precision;
   }
-
 
   public SLOHistoryMonitor preview(Boolean preview) {
     this.preview = preview;
     return this;
   }
 
-   /**
-   * For &#x60;monitor&#x60; based SLOs, when &#x60;true&#x60; this indicates that a replay is in progress to give an accurate uptime calculation.
+  /**
+   * For &#x60;monitor&#x60; based SLOs, when &#x60;true&#x60; this indicates that a replay is in
+   * progress to give an accurate uptime calculation.
+   *
    * @return preview
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "For `monitor` based SLOs, when `true` this indicates that a replay is in progress to give an accurate uptime calculation.")
+  @ApiModelProperty(
+      example = "true",
+      value =
+          "For `monitor` based SLOs, when `true` this indicates that a replay is in progress to"
+              + " give an accurate uptime calculation.")
   @JsonProperty(JSON_PROPERTY_PREVIEW)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Boolean getPreview() {
     return preview;
   }
 
-
   public void setPreview(Boolean preview) {
     this.preview = preview;
   }
-
 
   public SLOHistoryMonitor sliValue(Double sliValue) {
     this.sliValue = sliValue;
     return this;
   }
 
-   /**
+  /**
    * The current SLI value of the SLO over the history window.
+   *
    * @return sliValue
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "99.99", value = "The current SLI value of the SLO over the history window.")
+  @ApiModelProperty(
+      example = "99.99",
+      value = "The current SLI value of the SLO over the history window.")
   @JsonProperty(JSON_PROPERTY_SLI_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Double getSliValue() {
     return sliValue;
   }
 
-
   public void setSliValue(Double sliValue) {
     this.sliValue = sliValue;
   }
-
 
   public SLOHistoryMonitor spanPrecision(Double spanPrecision) {
     this.spanPrecision = spanPrecision;
     return this;
   }
 
-   /**
-   * The amount of decimal places the SLI value is accurate to for the given from &#x60;&amp;&amp;&#x60; to timestamp.
+  /**
+   * The amount of decimal places the SLI value is accurate to for the given from
+   * &#x60;&amp;&amp;&#x60; to timestamp.
+   *
    * @return spanPrecision
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2", value = "The amount of decimal places the SLI value is accurate to for the given from `&&` to timestamp.")
+  @ApiModelProperty(
+      example = "2",
+      value =
+          "The amount of decimal places the SLI value is accurate to for the given from `&&` to"
+              + " timestamp.")
   @JsonProperty(JSON_PROPERTY_SPAN_PRECISION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Double getSpanPrecision() {
     return spanPrecision;
   }
 
-
   public void setSpanPrecision(Double spanPrecision) {
     this.spanPrecision = spanPrecision;
   }
-
 
   public SLOHistoryMonitor uptime(Double uptime) {
     this.uptime = uptime;
     return this;
   }
 
-   /**
+  /**
    * Use &#x60;sli_value&#x60; instead.
+   *
    * @return uptime
    * @deprecated
-  **/
+   */
   @Deprecated
   @javax.annotation.Nullable
   @ApiModelProperty(example = "99.99", value = "Use `sli_value` instead.")
   @JsonProperty(JSON_PROPERTY_UPTIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Double getUptime() {
     return uptime;
   }
-
 
   public void setUptime(Double uptime) {
     this.uptime = uptime;
   }
 
-
-  /**
-   * Return true if this SLOHistoryMonitor object is equal to o.
-   */
+  /** Return true if this SLOHistoryMonitor object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -425,30 +435,44 @@ public class SLOHistoryMonitor {
       return false;
     }
     SLOHistoryMonitor slOHistoryMonitor = (SLOHistoryMonitor) o;
-    return Objects.equals(this.errorBudgetRemaining, slOHistoryMonitor.errorBudgetRemaining) &&
-        Objects.equals(this.errors, slOHistoryMonitor.errors) &&
-        Objects.equals(this.group, slOHistoryMonitor.group) &&
-        Objects.equals(this.history, slOHistoryMonitor.history) &&
-        Objects.equals(this.monitorModified, slOHistoryMonitor.monitorModified) &&
-        Objects.equals(this.monitorType, slOHistoryMonitor.monitorType) &&
-        Objects.equals(this.name, slOHistoryMonitor.name) &&
-        Objects.equals(this.precision, slOHistoryMonitor.precision) &&
-        Objects.equals(this.preview, slOHistoryMonitor.preview) &&
-        Objects.equals(this.sliValue, slOHistoryMonitor.sliValue) &&
-        Objects.equals(this.spanPrecision, slOHistoryMonitor.spanPrecision) &&
-        Objects.equals(this.uptime, slOHistoryMonitor.uptime);
+    return Objects.equals(this.errorBudgetRemaining, slOHistoryMonitor.errorBudgetRemaining)
+        && Objects.equals(this.errors, slOHistoryMonitor.errors)
+        && Objects.equals(this.group, slOHistoryMonitor.group)
+        && Objects.equals(this.history, slOHistoryMonitor.history)
+        && Objects.equals(this.monitorModified, slOHistoryMonitor.monitorModified)
+        && Objects.equals(this.monitorType, slOHistoryMonitor.monitorType)
+        && Objects.equals(this.name, slOHistoryMonitor.name)
+        && Objects.equals(this.precision, slOHistoryMonitor.precision)
+        && Objects.equals(this.preview, slOHistoryMonitor.preview)
+        && Objects.equals(this.sliValue, slOHistoryMonitor.sliValue)
+        && Objects.equals(this.spanPrecision, slOHistoryMonitor.spanPrecision)
+        && Objects.equals(this.uptime, slOHistoryMonitor.uptime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(errorBudgetRemaining, errors, group, history, monitorModified, monitorType, name, precision, preview, sliValue, spanPrecision, uptime);
+    return Objects.hash(
+        errorBudgetRemaining,
+        errors,
+        group,
+        history,
+        monitorModified,
+        monitorType,
+        name,
+        precision,
+        preview,
+        sliValue,
+        spanPrecision,
+        uptime);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SLOHistoryMonitor {\n");
-    sb.append("    errorBudgetRemaining: ").append(toIndentedString(errorBudgetRemaining)).append("\n");
+    sb.append("    errorBudgetRemaining: ")
+        .append(toIndentedString(errorBudgetRemaining))
+        .append("\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("    group: ").append(toIndentedString(group)).append("\n");
     sb.append("    history: ").append(toIndentedString(history)).append("\n");
@@ -465,8 +489,7 @@ public class SLOHistoryMonitor {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -474,6 +497,4 @@ public class SLOHistoryMonitor {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

@@ -1,9 +1,15 @@
+
+
 # WidgetSizeFormat
 
 ## Enum
 
-- `SMALL` (value: `"small"`)
 
-- `MEDIUM` (value: `"medium"`)
+* `SMALL` (value: `"small"`)
 
-- `LARGE` (value: `"large"`)
+* `MEDIUM` (value: `"medium"`)
+
+* `LARGE` (value: `"large"`)
+
+
+

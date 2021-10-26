@@ -1,33 +1,39 @@
+
+
 # WidgetMonitorSummarySort
 
 ## Enum
 
-- `NAME` (value: `"name"`)
 
-- `GROUP` (value: `"group"`)
+* `NAME` (value: `"name"`)
 
-- `STATUS` (value: `"status"`)
+* `GROUP` (value: `"group"`)
 
-- `TAGS` (value: `"tags"`)
+* `STATUS` (value: `"status"`)
 
-- `TRIGGERED` (value: `"triggered"`)
+* `TAGS` (value: `"tags"`)
 
-- `GROUP_ASCENDING` (value: `"group,asc"`)
+* `TRIGGERED` (value: `"triggered"`)
 
-- `GROUP_DESCENDING` (value: `"group,desc"`)
+* `GROUP_ASCENDING` (value: `"group,asc"`)
 
-- `NAME_ASCENDING` (value: `"name,asc"`)
+* `GROUP_DESCENDING` (value: `"group,desc"`)
 
-- `NAME_DESCENDING` (value: `"name,desc"`)
+* `NAME_ASCENDING` (value: `"name,asc"`)
 
-- `STATUS_ASCENDING` (value: `"status,asc"`)
+* `NAME_DESCENDING` (value: `"name,desc"`)
 
-- `STATUS_DESCENDING` (value: `"status,desc"`)
+* `STATUS_ASCENDING` (value: `"status,asc"`)
 
-- `TAGS_ASCENDING` (value: `"tags,asc"`)
+* `STATUS_DESCENDING` (value: `"status,desc"`)
 
-- `TAGS_DESCENDING` (value: `"tags,desc"`)
+* `TAGS_ASCENDING` (value: `"tags,asc"`)
 
-- `TRIGGERED_ASCENDING` (value: `"triggered,asc"`)
+* `TAGS_DESCENDING` (value: `"tags,desc"`)
 
-- `TRIGGERED_DESCENDING` (value: `"triggered,desc"`)
+* `TRIGGERED_ASCENDING` (value: `"triggered,asc"`)
+
+* `TRIGGERED_DESCENDING` (value: `"triggered,desc"`)
+
+
+

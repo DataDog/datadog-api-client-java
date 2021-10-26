@@ -8,98 +8,81 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.datadog.api.v1.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Incident management usage for a given organization for a given hour.
- */
+/** Incident management usage for a given organization for a given hour. */
 @ApiModel(description = "Incident management usage for a given organization for a given hour.")
 @JsonPropertyOrder({
   UsageIncidentManagementHour.JSON_PROPERTY_HOUR,
   UsageIncidentManagementHour.JSON_PROPERTY_MONTHLY_ACTIVE_USERS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-
 public class UsageIncidentManagementHour {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_HOUR = "hour";
   private OffsetDateTime hour;
 
   public static final String JSON_PROPERTY_MONTHLY_ACTIVE_USERS = "monthly_active_users";
   private Long monthlyActiveUsers;
 
-
   public UsageIncidentManagementHour hour(OffsetDateTime hour) {
     this.hour = hour;
     return this;
   }
 
-   /**
+  /**
    * The hour for the usage.
+   *
    * @return hour
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The hour for the usage.")
   @JsonProperty(JSON_PROPERTY_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public OffsetDateTime getHour() {
     return hour;
   }
 
-
   public void setHour(OffsetDateTime hour) {
     this.hour = hour;
   }
-
 
   public UsageIncidentManagementHour monthlyActiveUsers(Long monthlyActiveUsers) {
     this.monthlyActiveUsers = monthlyActiveUsers;
     return this;
   }
 
-   /**
-   * Contains the total number monthly active users from the start of the given hour&#39;s month until the given hour.
+  /**
+   * Contains the total number monthly active users from the start of the given hour&#39;s month
+   * until the given hour.
+   *
    * @return monthlyActiveUsers
-  **/
+   */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Contains the total number monthly active users from the start of the given hour's month until the given hour.")
+  @ApiModelProperty(
+      value =
+          "Contains the total number monthly active users from the start of the given hour's month"
+              + " until the given hour.")
   @JsonProperty(JSON_PROPERTY_MONTHLY_ACTIVE_USERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Long getMonthlyActiveUsers() {
     return monthlyActiveUsers;
   }
-
 
   public void setMonthlyActiveUsers(Long monthlyActiveUsers) {
     this.monthlyActiveUsers = monthlyActiveUsers;
   }
 
-
-  /**
-   * Return true if this UsageIncidentManagementHour object is equal to o.
-   */
+  /** Return true if this UsageIncidentManagementHour object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -109,8 +92,8 @@ public class UsageIncidentManagementHour {
       return false;
     }
     UsageIncidentManagementHour usageIncidentManagementHour = (UsageIncidentManagementHour) o;
-    return Objects.equals(this.hour, usageIncidentManagementHour.hour) &&
-        Objects.equals(this.monthlyActiveUsers, usageIncidentManagementHour.monthlyActiveUsers);
+    return Objects.equals(this.hour, usageIncidentManagementHour.hour)
+        && Objects.equals(this.monthlyActiveUsers, usageIncidentManagementHour.monthlyActiveUsers);
   }
 
   @Override
@@ -129,8 +112,7 @@ public class UsageIncidentManagementHour {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -138,6 +120,4 @@ public class UsageIncidentManagementHour {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

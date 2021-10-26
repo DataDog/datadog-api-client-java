@@ -2,15 +2,17 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method                                                                     | HTTP request                                   | Description                                 |
-| -------------------------------------------------------------------------- | ---------------------------------------------- | ------------------------------------------- |
-| [**createTagConfiguration**](MetricsApi.md#createTagConfiguration)         | **POST** /api/v2/metrics/{metric_name}/tags    | Create a tag configuration                  |
-| [**deleteTagConfiguration**](MetricsApi.md#deleteTagConfiguration)         | **DELETE** /api/v2/metrics/{metric_name}/tags  | Delete a tag configuration                  |
-| [**listTagConfigurationByName**](MetricsApi.md#listTagConfigurationByName) | **GET** /api/v2/metrics/{metric_name}/tags     | List tag configuration by name              |
-| [**listTagConfigurations**](MetricsApi.md#listTagConfigurations)           | **GET** /api/v2/metrics                        | List tag configurations                     |
-| [**listTagsByMetricName**](MetricsApi.md#listTagsByMetricName)             | **GET** /api/v2/metrics/{metric_name}/all-tags | List tags by metric name                    |
-| [**listVolumesByMetricName**](MetricsApi.md#listVolumesByMetricName)       | **GET** /api/v2/metrics/{metric_name}/volumes  | List distinct metric volumes by metric name |
-| [**updateTagConfiguration**](MetricsApi.md#updateTagConfiguration)         | **PATCH** /api/v2/metrics/{metric_name}/tags   | Update a tag configuration                  |
+Method        | HTTP request | Description
+------------- | ------------ | ------------
+[**createTagConfiguration**](MetricsApi.md#createTagConfiguration) | **POST** /api/v2/metrics/{metric_name}/tags | Create a tag configuration
+[**deleteTagConfiguration**](MetricsApi.md#deleteTagConfiguration) | **DELETE** /api/v2/metrics/{metric_name}/tags | Delete a tag configuration
+[**listTagConfigurationByName**](MetricsApi.md#listTagConfigurationByName) | **GET** /api/v2/metrics/{metric_name}/tags | List tag configuration by name
+[**listTagConfigurations**](MetricsApi.md#listTagConfigurations) | **GET** /api/v2/metrics | List tag configurations
+[**listTagsByMetricName**](MetricsApi.md#listTagsByMetricName) | **GET** /api/v2/metrics/{metric_name}/all-tags | List tags by metric name
+[**listVolumesByMetricName**](MetricsApi.md#listVolumesByMetricName) | **GET** /api/v2/metrics/{metric_name}/volumes | List distinct metric volumes by metric name
+[**updateTagConfiguration**](MetricsApi.md#updateTagConfiguration) | **PATCH** /api/v2/metrics/{metric_name}/tags | Update a tag configuration
+
+
 
 ## createTagConfiguration
 
@@ -37,7 +39,7 @@ public class Example {
 
         MetricsApi apiInstance = new MetricsApi(defaultClient);
         String metricName = "dist.http.endpoint.request"; // String | The name of the metric.
-        MetricTagConfigurationCreateRequest body = new MetricTagConfigurationCreateRequest(); // MetricTagConfigurationCreateRequest |
+        MetricTagConfigurationCreateRequest body = new MetricTagConfigurationCreateRequest(); // MetricTagConfigurationCreateRequest | 
         try {
             MetricTagConfigurationResponse result = apiInstance.createTagConfiguration(metricName, body);
             System.out.println(result);
@@ -54,10 +56,11 @@ public class Example {
 
 ### Parameters
 
-| Name           | Type                                                                              | Description             | Notes |
-| -------------- | --------------------------------------------------------------------------------- | ----------------------- | ----- |
-| **metricName** | **String**                                                                        | The name of the metric. |
-| **body**       | [**MetricTagConfigurationCreateRequest**](MetricTagConfigurationCreateRequest.md) |                         |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **metricName** | **String**| The name of the metric. |
+ **body** | [**MetricTagConfigurationCreateRequest**](MetricTagConfigurationCreateRequest.md)|  |
 
 ### Return type
 
@@ -73,14 +76,14 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Created |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **409** | Conflict |  -  |
+| **429** | Too Many Requests |  -  |
 
-| Status code | Description       | Response headers |
-| ----------- | ----------------- | ---------------- |
-| **201**     | Created           | -                |
-| **400**     | Bad Request       | -                |
-| **403**     | Forbidden         | -                |
-| **409**     | Conflict          | -                |
-| **429**     | Too Many Requests | -                |
 
 ## deleteTagConfiguration
 
@@ -120,9 +123,10 @@ public class Example {
 
 ### Parameters
 
-| Name           | Type       | Description             | Notes |
-| -------------- | ---------- | ----------------------- | ----- |
-| **metricName** | **String** | The name of the metric. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **metricName** | **String**| The name of the metric. |
 
 ### Return type
 
@@ -138,13 +142,13 @@ null (empty response body)
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not found |  -  |
+| **429** | Too Many Requests |  -  |
 
-| Status code | Description       | Response headers |
-| ----------- | ----------------- | ---------------- |
-| **204**     | No Content        | -                |
-| **403**     | Forbidden         | -                |
-| **404**     | Not found         | -                |
-| **429**     | Too Many Requests | -                |
 
 ## listTagConfigurationByName
 
@@ -184,9 +188,10 @@ public class Example {
 
 ### Parameters
 
-| Name           | Type       | Description             | Notes |
-| -------------- | ---------- | ----------------------- | ----- |
-| **metricName** | **String** | The name of the metric. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **metricName** | **String**| The name of the metric. |
 
 ### Return type
 
@@ -202,13 +207,13 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
 
-| Status code | Description       | Response headers |
-| ----------- | ----------------- | ---------------- |
-| **200**     | Success           | -                |
-| **403**     | Forbidden         | -                |
-| **404**     | Not Found         | -                |
-| **429**     | Too Many Requests | -                |
 
 ## listTagConfigurations
 
@@ -260,14 +265,15 @@ public class Example {
 
 ### Parameters
 
-| Name                         | Type                                  | Description                                                                                                                                        | Notes                                                                  |
-| ---------------------------- | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| **filterConfigured**         | **Boolean**                           | Filter metrics that have configured tags.                                                                                                          | [optional]                                                             |
-| **filterTagsConfigured**     | **String**                            | Filter tag configurations by configured tags.                                                                                                      | [optional]                                                             |
-| **filterMetricType**         | **MetricTagConfigurationMetricTypes** | Filter tag configurations by metric type.                                                                                                          | [optional] [default to gauge] [enum: gauge, count, rate, distribution] |
-| **filterIncludePercentiles** | **Boolean**                           | Filter distributions with additional percentile aggregations enabled or disabled.                                                                  | [optional]                                                             |
-| **filterTags**               | **String**                            | Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters.     | [optional]                                                             |
-| **windowSeconds**            | **Long**                              | The number of seconds of look back (from now) to apply to a filter[tag] query. Defaults value is 3600 (1 hour), maximum value is 172,800 (2 days). | [optional]                                                             |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **filterConfigured** | **Boolean**| Filter metrics that have configured tags. | [optional]
+ **filterTagsConfigured** | **String**| Filter tag configurations by configured tags. | [optional]
+ **filterMetricType** | **MetricTagConfigurationMetricTypes**| Filter tag configurations by metric type. | [optional] [default to gauge] [enum: gauge, count, rate, distribution]
+ **filterIncludePercentiles** | **Boolean**| Filter distributions with additional percentile aggregations enabled or disabled. | [optional]
+ **filterTags** | **String**| Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters. | [optional]
+ **windowSeconds** | **Long**| The number of seconds of look back (from now) to apply to a filter[tag] query. Defaults value is 3600 (1 hour), maximum value is 172,800 (2 days). | [optional]
 
 ### Return type
 
@@ -283,13 +289,13 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **429** | Too Many Requests |  -  |
 
-| Status code | Description       | Response headers |
-| ----------- | ----------------- | ---------------- |
-| **200**     | Success           | -                |
-| **400**     | Bad Request       | -                |
-| **403**     | Forbidden         | -                |
-| **429**     | Too Many Requests | -                |
 
 ## listTagsByMetricName
 
@@ -329,9 +335,10 @@ public class Example {
 
 ### Parameters
 
-| Name           | Type       | Description             | Notes |
-| -------------- | ---------- | ----------------------- | ----- |
-| **metricName** | **String** | The name of the metric. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **metricName** | **String**| The name of the metric. |
 
 ### Return type
 
@@ -347,14 +354,14 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
 
-| Status code | Description       | Response headers |
-| ----------- | ----------------- | ---------------- |
-| **200**     | Success           | -                |
-| **400**     | Bad Request       | -                |
-| **403**     | Forbidden         | -                |
-| **404**     | Not Found         | -                |
-| **429**     | Too Many Requests | -                |
 
 ## listVolumesByMetricName
 
@@ -398,9 +405,10 @@ public class Example {
 
 ### Parameters
 
-| Name           | Type       | Description             | Notes |
-| -------------- | ---------- | ----------------------- | ----- |
-| **metricName** | **String** | The name of the metric. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **metricName** | **String**| The name of the metric. |
 
 ### Return type
 
@@ -416,14 +424,14 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
 
-| Status code | Description       | Response headers |
-| ----------- | ----------------- | ---------------- |
-| **200**     | Success           | -                |
-| **400**     | Bad Request       | -                |
-| **403**     | Forbidden         | -                |
-| **404**     | Not Found         | -                |
-| **429**     | Too Many Requests | -                |
 
 ## updateTagConfiguration
 
@@ -449,7 +457,7 @@ public class Example {
 
         MetricsApi apiInstance = new MetricsApi(defaultClient);
         String metricName = "dist.http.endpoint.request"; // String | The name of the metric.
-        MetricTagConfigurationUpdateRequest body = new MetricTagConfigurationUpdateRequest(); // MetricTagConfigurationUpdateRequest |
+        MetricTagConfigurationUpdateRequest body = new MetricTagConfigurationUpdateRequest(); // MetricTagConfigurationUpdateRequest | 
         try {
             MetricTagConfigurationResponse result = apiInstance.updateTagConfiguration(metricName, body);
             System.out.println(result);
@@ -466,10 +474,11 @@ public class Example {
 
 ### Parameters
 
-| Name           | Type                                                                              | Description             | Notes |
-| -------------- | --------------------------------------------------------------------------------- | ----------------------- | ----- |
-| **metricName** | **String**                                                                        | The name of the metric. |
-| **body**       | [**MetricTagConfigurationUpdateRequest**](MetricTagConfigurationUpdateRequest.md) |                         |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **metricName** | **String**| The name of the metric. |
+ **body** | [**MetricTagConfigurationUpdateRequest**](MetricTagConfigurationUpdateRequest.md)|  |
 
 ### Return type
 
@@ -485,11 +494,11 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **422** | Unprocessable Entity |  -  |
+| **429** | Too Many Requests |  -  |
 
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **200**     | OK                   | -                |
-| **400**     | Bad Request          | -                |
-| **403**     | Forbidden            | -                |
-| **422**     | Unprocessable Entity | -                |
-| **429**     | Too Many Requests    | -                |

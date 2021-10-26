@@ -8,49 +8,29 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v2.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import com.datadog.api.v2.client.model.ResponseMetaAttributes;
-import com.datadog.api.v2.client.model.Role;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.datadog.api.v2.client.JSON;
+import java.util.Objects;
 
-
-/**
- * Response containing information about multiple roles.
- */
+/** Response containing information about multiple roles. */
 @ApiModel(description = "Response containing information about multiple roles.")
-@JsonPropertyOrder({
-  RolesResponse.JSON_PROPERTY_DATA,
-  RolesResponse.JSON_PROPERTY_META
-})
+@JsonPropertyOrder({RolesResponse.JSON_PROPERTY_DATA, RolesResponse.JSON_PROPERTY_META})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-
 public class RolesResponse {
-  @JsonIgnore
-  public boolean unparsed = false;
+  @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<Role> data = null;
 
   public static final String JSON_PROPERTY_META = "meta";
   private ResponseMetaAttributes meta;
-
 
   public RolesResponse data(List<Role> data) {
     this.data = data;
@@ -69,24 +49,22 @@ public class RolesResponse {
     return this;
   }
 
-   /**
+  /**
    * Array of returned roles.
+   *
    * @return data
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Array of returned roles.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public List<Role> getData() {
     return data;
   }
 
-
   public void setData(List<Role> data) {
     this.data = data;
   }
-
 
   public RolesResponse meta(ResponseMetaAttributes meta) {
     this.meta = meta;
@@ -94,28 +72,24 @@ public class RolesResponse {
     return this;
   }
 
-   /**
+  /**
    * Get meta
+   *
    * @return meta
-  **/
+   */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ResponseMetaAttributes getMeta() {
     return meta;
   }
-
 
   public void setMeta(ResponseMetaAttributes meta) {
     this.meta = meta;
   }
 
-
-  /**
-   * Return true if this RolesResponse object is equal to o.
-   */
+  /** Return true if this RolesResponse object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -125,8 +99,8 @@ public class RolesResponse {
       return false;
     }
     RolesResponse rolesResponse = (RolesResponse) o;
-    return Objects.equals(this.data, rolesResponse.data) &&
-        Objects.equals(this.meta, rolesResponse.meta);
+    return Objects.equals(this.data, rolesResponse.data)
+        && Objects.equals(this.meta, rolesResponse.meta);
   }
 
   @Override
@@ -145,8 +119,7 @@ public class RolesResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -154,6 +127,4 @@ public class RolesResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
-

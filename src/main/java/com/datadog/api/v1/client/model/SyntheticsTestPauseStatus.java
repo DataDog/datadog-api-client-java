@@ -8,42 +8,33 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.datadog.api.v1.client.JSON;
-
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
+
 /**
- * Define whether you want to start (&#x60;live&#x60;) or pause (&#x60;paused&#x60;) a Synthetic test.
+ * Define whether you want to start (&#x60;live&#x60;) or pause (&#x60;paused&#x60;) a Synthetic
+ * test.
  */
 @JsonSerialize(using = SyntheticsTestPauseStatus.SyntheticsTestPauseStatusSerializer.class)
 public class SyntheticsTestPauseStatus {
-  
+
   public static final SyntheticsTestPauseStatus LIVE = new SyntheticsTestPauseStatus("live");
   public static final SyntheticsTestPauseStatus PAUSED = new SyntheticsTestPauseStatus("paused");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("live","paused"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("live", "paused"));
 
   private String value;
 
@@ -55,19 +46,22 @@ public class SyntheticsTestPauseStatus {
     this.value = value;
   }
 
-  public static class SyntheticsTestPauseStatusSerializer extends StdSerializer<SyntheticsTestPauseStatus> {
-      public SyntheticsTestPauseStatusSerializer(Class<SyntheticsTestPauseStatus> t) {
-          super(t);
-      }
+  public static class SyntheticsTestPauseStatusSerializer
+      extends StdSerializer<SyntheticsTestPauseStatus> {
+    public SyntheticsTestPauseStatusSerializer(Class<SyntheticsTestPauseStatus> t) {
+      super(t);
+    }
 
-      public SyntheticsTestPauseStatusSerializer() {
-          this(null);
-      }
+    public SyntheticsTestPauseStatusSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(SyntheticsTestPauseStatus value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(
+        SyntheticsTestPauseStatus value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonValue
@@ -79,9 +73,7 @@ public class SyntheticsTestPauseStatus {
     this.value = value;
   }
 
-  /**
-   * Return true if this SyntheticsTestPauseStatus object is equal to o.
-   */
+  /** Return true if this SyntheticsTestPauseStatus object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -95,7 +87,7 @@ public class SyntheticsTestPauseStatus {
 
   @Override
   public int hashCode() {
-      return Objects.hash(value);
+    return Objects.hash(value);
   }
 
   @Override
@@ -108,4 +100,3 @@ public class SyntheticsTestPauseStatus {
     return new SyntheticsTestPauseStatus(value);
   }
 }
-

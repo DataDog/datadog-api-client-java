@@ -8,44 +8,32 @@
  * Do not edit the class manually.
  */
 
-
 package com.datadog.api.v1.client.model;
-
-import java.util.Objects;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.HashMap;
-import io.swagger.annotations.ApiModel;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.datadog.api.v1.client.JSON;
-
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-
-
-import java.util.Set;
+import java.util.Arrays;
 import java.util.HashSet;
-/**
- * Type of assertion to apply in an API test.
- */
+import java.util.Objects;
+import java.util.Set;
+
+/** Type of assertion to apply in an API test. */
 @JsonSerialize(using = SyntheticsCheckType.SyntheticsCheckTypeSerializer.class)
 public class SyntheticsCheckType {
-  
+
   public static final SyntheticsCheckType EQUALS = new SyntheticsCheckType("equals");
   public static final SyntheticsCheckType NOT_EQUALS = new SyntheticsCheckType("notEquals");
   public static final SyntheticsCheckType CONTAINS = new SyntheticsCheckType("contains");
   public static final SyntheticsCheckType NOT_CONTAINS = new SyntheticsCheckType("notContains");
   public static final SyntheticsCheckType STARTS_WITH = new SyntheticsCheckType("startsWith");
-  public static final SyntheticsCheckType NOT_STARTS_WITH = new SyntheticsCheckType("notStartsWith");
+  public static final SyntheticsCheckType NOT_STARTS_WITH =
+      new SyntheticsCheckType("notStartsWith");
   public static final SyntheticsCheckType GREATER = new SyntheticsCheckType("greater");
   public static final SyntheticsCheckType LOWER = new SyntheticsCheckType("lower");
   public static final SyntheticsCheckType GREATER_EQUALS = new SyntheticsCheckType("greaterEquals");
@@ -55,7 +43,23 @@ public class SyntheticsCheckType {
   public static final SyntheticsCheckType IS_EMPTY = new SyntheticsCheckType("isEmpty");
   public static final SyntheticsCheckType NOT_IS_EMPTY = new SyntheticsCheckType("notIsEmpty");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("equals","notEquals","contains","notContains","startsWith","notStartsWith","greater","lower","greaterEquals","lowerEquals","matchRegex","between","isEmpty","notIsEmpty"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(
+          Arrays.asList(
+              "equals",
+              "notEquals",
+              "contains",
+              "notContains",
+              "startsWith",
+              "notStartsWith",
+              "greater",
+              "lower",
+              "greaterEquals",
+              "lowerEquals",
+              "matchRegex",
+              "between",
+              "isEmpty",
+              "notIsEmpty"));
 
   private String value;
 
@@ -68,18 +72,20 @@ public class SyntheticsCheckType {
   }
 
   public static class SyntheticsCheckTypeSerializer extends StdSerializer<SyntheticsCheckType> {
-      public SyntheticsCheckTypeSerializer(Class<SyntheticsCheckType> t) {
-          super(t);
-      }
+    public SyntheticsCheckTypeSerializer(Class<SyntheticsCheckType> t) {
+      super(t);
+    }
 
-      public SyntheticsCheckTypeSerializer() {
-          this(null);
-      }
+    public SyntheticsCheckTypeSerializer() {
+      this(null);
+    }
 
-      @Override
-      public void serialize(SyntheticsCheckType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
-          jgen.writeObject(value.value);
-      }
+    @Override
+    public void serialize(
+        SyntheticsCheckType value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
+    }
   }
 
   @JsonValue
@@ -91,9 +97,7 @@ public class SyntheticsCheckType {
     this.value = value;
   }
 
-  /**
-   * Return true if this SyntheticsCheckType object is equal to o.
-   */
+  /** Return true if this SyntheticsCheckType object is equal to o. */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -107,7 +111,7 @@ public class SyntheticsCheckType {
 
   @Override
   public int hashCode() {
-      return Objects.hash(value);
+    return Objects.hash(value);
   }
 
   @Override
@@ -120,4 +124,3 @@ public class SyntheticsCheckType {
     return new SyntheticsCheckType(value);
   }
 }
-
