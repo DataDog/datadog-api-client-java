@@ -8,76 +8,97 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
 
-/** A single exclusion filter. */
+
+/**
+ * A single exclusion filter.
+ */
 @ApiModel(description = "A single exclusion filter.")
 @JsonPropertyOrder({
   SecurityFilterExclusionFilterResponse.JSON_PROPERTY_NAME,
   SecurityFilterExclusionFilterResponse.JSON_PROPERTY_QUERY
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SecurityFilterExclusionFilterResponse {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
 
+
   public SecurityFilterExclusionFilterResponse name(String name) {
     this.name = name;
     return this;
   }
 
-  /**
+   /**
    * The exclusion filter name.
-   *
    * @return name
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Exclude staging", value = "The exclusion filter name.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getName() {
     return name;
   }
 
+
   public void setName(String name) {
     this.name = name;
   }
+
 
   public SecurityFilterExclusionFilterResponse query(String query) {
     this.query = query;
     return this;
   }
 
-  /**
+   /**
    * The exclusion filter query.
-   *
    * @return query
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "source:staging", value = "The exclusion filter query.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getQuery() {
     return query;
   }
+
 
   public void setQuery(String query) {
     this.query = query;
   }
 
-  /** Return true if this SecurityFilterExclusionFilterResponse object is equal to o. */
+
+  /**
+   * Return true if this SecurityFilterExclusionFilterResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -86,10 +107,9 @@ public class SecurityFilterExclusionFilterResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SecurityFilterExclusionFilterResponse securityFilterExclusionFilterResponse =
-        (SecurityFilterExclusionFilterResponse) o;
-    return Objects.equals(this.name, securityFilterExclusionFilterResponse.name)
-        && Objects.equals(this.query, securityFilterExclusionFilterResponse.query);
+    SecurityFilterExclusionFilterResponse securityFilterExclusionFilterResponse = (SecurityFilterExclusionFilterResponse) o;
+    return Objects.equals(this.name, securityFilterExclusionFilterResponse.name) &&
+        Objects.equals(this.query, securityFilterExclusionFilterResponse.query);
   }
 
   @Override
@@ -108,7 +128,8 @@ public class SecurityFilterExclusionFilterResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -116,4 +137,6 @@ public class SecurityFilterExclusionFilterResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

@@ -1,23 +1,17 @@
-
-
 # MonitorOverallStates
 
 ## Enum
 
+- `ALERT` (value: `"Alert"`)
 
-* `ALERT` (value: `"Alert"`)
+- `IGNORED` (value: `"Ignored"`)
 
-* `IGNORED` (value: `"Ignored"`)
+- `NO_DATA` (value: `"No Data"`)
 
-* `NO_DATA` (value: `"No Data"`)
+- `OK` (value: `"OK"`)
 
-* `OK` (value: `"OK"`)
+- `SKIPPED` (value: `"Skipped"`)
 
-* `SKIPPED` (value: `"Skipped"`)
+- `UNKNOWN` (value: `"Unknown"`)
 
-* `UNKNOWN` (value: `"Unknown"`)
-
-* `WARN` (value: `"Warn"`)
-
-
-
+- `WARN` (value: `"Warn"`)

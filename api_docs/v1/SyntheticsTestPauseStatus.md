@@ -1,13 +1,7 @@
-
-
 # SyntheticsTestPauseStatus
 
 ## Enum
 
+- `LIVE` (value: `"live"`)
 
-* `LIVE` (value: `"live"`)
-
-* `PAUSED` (value: `"paused"`)
-
-
-
+- `PAUSED` (value: `"paused"`)

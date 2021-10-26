@@ -2,24 +2,22 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method        | HTTP request | Description
-------------- | ------------ | ------------
-[**createAPIKey**](KeyManagementApi.md#createAPIKey) | **POST** /api/v2/api_keys | Create an API key
-[**createCurrentUserApplicationKey**](KeyManagementApi.md#createCurrentUserApplicationKey) | **POST** /api/v2/current_user/application_keys | Create an application key for current user
-[**deleteAPIKey**](KeyManagementApi.md#deleteAPIKey) | **DELETE** /api/v2/api_keys/{api_key_id} | Delete an API key
-[**deleteApplicationKey**](KeyManagementApi.md#deleteApplicationKey) | **DELETE** /api/v2/application_keys/{app_key_id} | Delete an application key
-[**deleteCurrentUserApplicationKey**](KeyManagementApi.md#deleteCurrentUserApplicationKey) | **DELETE** /api/v2/current_user/application_keys/{app_key_id} | Delete an application key owned by current user
-[**getAPIKey**](KeyManagementApi.md#getAPIKey) | **GET** /api/v2/api_keys/{api_key_id} | Get API key
-[**getApplicationKey**](KeyManagementApi.md#getApplicationKey) | **GET** /api/v2/application_keys/{app_key_id} | Get an application key
-[**getCurrentUserApplicationKey**](KeyManagementApi.md#getCurrentUserApplicationKey) | **GET** /api/v2/current_user/application_keys/{app_key_id} | Get one application key owned by current user
-[**listAPIKeys**](KeyManagementApi.md#listAPIKeys) | **GET** /api/v2/api_keys | Get all API keys
-[**listApplicationKeys**](KeyManagementApi.md#listApplicationKeys) | **GET** /api/v2/application_keys | Get all application keys
-[**listCurrentUserApplicationKeys**](KeyManagementApi.md#listCurrentUserApplicationKeys) | **GET** /api/v2/current_user/application_keys | Get all application keys owned by current user
-[**updateAPIKey**](KeyManagementApi.md#updateAPIKey) | **PATCH** /api/v2/api_keys/{api_key_id} | Edit an API key
-[**updateApplicationKey**](KeyManagementApi.md#updateApplicationKey) | **PATCH** /api/v2/application_keys/{app_key_id} | Edit an application key
-[**updateCurrentUserApplicationKey**](KeyManagementApi.md#updateCurrentUserApplicationKey) | **PATCH** /api/v2/current_user/application_keys/{app_key_id} | Edit an application key owned by current user
-
-
+| Method                                                                                     | HTTP request                                                  | Description                                     |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------- | ----------------------------------------------- |
+| [**createAPIKey**](KeyManagementApi.md#createAPIKey)                                       | **POST** /api/v2/api_keys                                     | Create an API key                               |
+| [**createCurrentUserApplicationKey**](KeyManagementApi.md#createCurrentUserApplicationKey) | **POST** /api/v2/current_user/application_keys                | Create an application key for current user      |
+| [**deleteAPIKey**](KeyManagementApi.md#deleteAPIKey)                                       | **DELETE** /api/v2/api_keys/{api_key_id}                      | Delete an API key                               |
+| [**deleteApplicationKey**](KeyManagementApi.md#deleteApplicationKey)                       | **DELETE** /api/v2/application_keys/{app_key_id}              | Delete an application key                       |
+| [**deleteCurrentUserApplicationKey**](KeyManagementApi.md#deleteCurrentUserApplicationKey) | **DELETE** /api/v2/current_user/application_keys/{app_key_id} | Delete an application key owned by current user |
+| [**getAPIKey**](KeyManagementApi.md#getAPIKey)                                             | **GET** /api/v2/api_keys/{api_key_id}                         | Get API key                                     |
+| [**getApplicationKey**](KeyManagementApi.md#getApplicationKey)                             | **GET** /api/v2/application_keys/{app_key_id}                 | Get an application key                          |
+| [**getCurrentUserApplicationKey**](KeyManagementApi.md#getCurrentUserApplicationKey)       | **GET** /api/v2/current_user/application_keys/{app_key_id}    | Get one application key owned by current user   |
+| [**listAPIKeys**](KeyManagementApi.md#listAPIKeys)                                         | **GET** /api/v2/api_keys                                      | Get all API keys                                |
+| [**listApplicationKeys**](KeyManagementApi.md#listApplicationKeys)                         | **GET** /api/v2/application_keys                              | Get all application keys                        |
+| [**listCurrentUserApplicationKeys**](KeyManagementApi.md#listCurrentUserApplicationKeys)   | **GET** /api/v2/current_user/application_keys                 | Get all application keys owned by current user  |
+| [**updateAPIKey**](KeyManagementApi.md#updateAPIKey)                                       | **PATCH** /api/v2/api_keys/{api_key_id}                       | Edit an API key                                 |
+| [**updateApplicationKey**](KeyManagementApi.md#updateApplicationKey)                       | **PATCH** /api/v2/application_keys/{app_key_id}               | Edit an application key                         |
+| [**updateCurrentUserApplicationKey**](KeyManagementApi.md#updateCurrentUserApplicationKey) | **PATCH** /api/v2/current_user/application_keys/{app_key_id}  | Edit an application key owned by current user   |
 
 ## createAPIKey
 
@@ -42,7 +40,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
-        APIKeyCreateRequest body = new APIKeyCreateRequest(); // APIKeyCreateRequest | 
+        APIKeyCreateRequest body = new APIKeyCreateRequest(); // APIKeyCreateRequest |
         try {
             APIKeyResponse result = apiInstance.createAPIKey(body);
             System.out.println(result);
@@ -59,10 +57,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**APIKeyCreateRequest**](APIKeyCreateRequest.md)|  |
+| Name     | Type                                              | Description | Notes |
+| -------- | ------------------------------------------------- | ----------- | ----- |
+| **body** | [**APIKeyCreateRequest**](APIKeyCreateRequest.md) |             |
 
 ### Return type
 
@@ -78,12 +75,12 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **201** | Created |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **201**     | Created     | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |
 
 ## createCurrentUserApplicationKey
 
@@ -106,7 +103,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
-        ApplicationKeyCreateRequest body = new ApplicationKeyCreateRequest(); // ApplicationKeyCreateRequest | 
+        ApplicationKeyCreateRequest body = new ApplicationKeyCreateRequest(); // ApplicationKeyCreateRequest |
         try {
             ApplicationKeyResponse result = apiInstance.createCurrentUserApplicationKey(body);
             System.out.println(result);
@@ -123,10 +120,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**ApplicationKeyCreateRequest**](ApplicationKeyCreateRequest.md)|  |
+| Name     | Type                                                              | Description | Notes |
+| -------- | ----------------------------------------------------------------- | ----------- | ----- |
+| **body** | [**ApplicationKeyCreateRequest**](ApplicationKeyCreateRequest.md) |             |
 
 ### Return type
 
@@ -142,12 +138,12 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **201** | Created |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **201**     | Created     | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |
 
 ## deleteAPIKey
 
@@ -186,10 +182,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **apiKeyId** | **String**| The ID of the API key. |
+| Name         | Type       | Description            | Notes |
+| ------------ | ---------- | ---------------------- | ----- |
+| **apiKeyId** | **String** | The ID of the API key. |
 
 ### Return type
 
@@ -205,12 +200,12 @@ null (empty response body)
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | No Content |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **204**     | No Content  | -                |
+| **403**     | Forbidden   | -                |
+| **404**     | Not Found   | -                |
 
 ## deleteApplicationKey
 
@@ -249,10 +244,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **appKeyId** | **String**| The ID of the application key. |
+| Name         | Type       | Description                    | Notes |
+| ------------ | ---------- | ------------------------------ | ----- |
+| **appKeyId** | **String** | The ID of the application key. |
 
 ### Return type
 
@@ -268,12 +262,12 @@ null (empty response body)
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | No Content |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **204**     | No Content  | -                |
+| **403**     | Forbidden   | -                |
+| **404**     | Not Found   | -                |
 
 ## deleteCurrentUserApplicationKey
 
@@ -312,10 +306,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **appKeyId** | **String**| The ID of the application key. |
+| Name         | Type       | Description                    | Notes |
+| ------------ | ---------- | ------------------------------ | ----- |
+| **appKeyId** | **String** | The ID of the application key. |
 
 ### Return type
 
@@ -331,12 +324,12 @@ null (empty response body)
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | No Content |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **204**     | No Content  | -                |
+| **403**     | Forbidden   | -                |
+| **404**     | Not Found   | -                |
 
 ## getAPIKey
 
@@ -378,11 +371,10 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **apiKeyId** | **String**| The ID of the API key. |
- **include** | **String**| Comma separated list of resource paths for related resources to include in the response. Supported resource paths are &#x60;created_by&#x60; and &#x60;modified_by&#x60;. | [optional]
+| Name         | Type       | Description                                                                                                                                                               | Notes      |
+| ------------ | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **apiKeyId** | **String** | The ID of the API key.                                                                                                                                                    |
+| **include**  | **String** | Comma separated list of resource paths for related resources to include in the response. Supported resource paths are &#x60;created_by&#x60; and &#x60;modified_by&#x60;. | [optional] |
 
 ### Return type
 
@@ -398,12 +390,12 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **403**     | Forbidden   | -                |
+| **404**     | Not Found   | -                |
 
 ## getApplicationKey
 
@@ -445,11 +437,10 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **appKeyId** | **String**| The ID of the application key. |
- **include** | **String**| Resource path for related resources to include in the response. Only &#x60;owned_by&#x60; is supported. | [optional]
+| Name         | Type       | Description                                                                                             | Notes      |
+| ------------ | ---------- | ------------------------------------------------------------------------------------------------------- | ---------- |
+| **appKeyId** | **String** | The ID of the application key.                                                                          |
+| **include**  | **String** | Resource path for related resources to include in the response. Only &#x60;owned_by&#x60; is supported. | [optional] |
 
 ### Return type
 
@@ -465,13 +456,13 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |
+| **404**     | Not Found   | -                |
 
 ## getCurrentUserApplicationKey
 
@@ -511,10 +502,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **appKeyId** | **String**| The ID of the application key. |
+| Name         | Type       | Description                    | Notes |
+| ------------ | ---------- | ------------------------------ | ----- |
+| **appKeyId** | **String** | The ID of the application key. |
 
 ### Return type
 
@@ -530,12 +520,12 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **403**     | Forbidden   | -                |
+| **404**     | Not Found   | -                |
 
 ## listAPIKeys
 
@@ -592,18 +582,17 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pageSize** | **Long**| Size for a given page. | [optional] [default to 10]
- **pageNumber** | **Long**| Specific page number to return. | [optional] [default to 0]
- **sort** | **APIKeysSort**| API key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign. | [optional] [default to name] [enum: created_at, -created_at, last4, -last4, modified_at, -modified_at, name, -name]
- **filter** | **String**| Filter API keys by the specified string. | [optional]
- **filterCreatedAtStart** | **String**| Only include API keys created on or after the specified date. | [optional]
- **filterCreatedAtEnd** | **String**| Only include API keys created on or before the specified date. | [optional]
- **filterModifiedAtStart** | **String**| Only include API keys modified on or after the specified date. | [optional]
- **filterModifiedAtEnd** | **String**| Only include API keys modified on or before the specified date. | [optional]
- **include** | **String**| Comma separated list of resource paths for related resources to include in the response. Supported resource paths are &#x60;created_by&#x60; and &#x60;modified_by&#x60;. | [optional]
+| Name                      | Type            | Description                                                                                                                                                               | Notes                                                                                                               |
+| ------------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| **pageSize**              | **Long**        | Size for a given page.                                                                                                                                                    | [optional] [default to 10]                                                                                          |
+| **pageNumber**            | **Long**        | Specific page number to return.                                                                                                                                           | [optional] [default to 0]                                                                                           |
+| **sort**                  | **APIKeysSort** | API key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.                | [optional] [default to name] [enum: created_at, -created_at, last4, -last4, modified_at, -modified_at, name, -name] |
+| **filter**                | **String**      | Filter API keys by the specified string.                                                                                                                                  | [optional]                                                                                                          |
+| **filterCreatedAtStart**  | **String**      | Only include API keys created on or after the specified date.                                                                                                             | [optional]                                                                                                          |
+| **filterCreatedAtEnd**    | **String**      | Only include API keys created on or before the specified date.                                                                                                            | [optional]                                                                                                          |
+| **filterModifiedAtStart** | **String**      | Only include API keys modified on or after the specified date.                                                                                                            | [optional]                                                                                                          |
+| **filterModifiedAtEnd**   | **String**      | Only include API keys modified on or before the specified date.                                                                                                           | [optional]                                                                                                          |
+| **include**               | **String**      | Comma separated list of resource paths for related resources to include in the response. Supported resource paths are &#x60;created_by&#x60; and &#x60;modified_by&#x60;. | [optional]                                                                                                          |
 
 ### Return type
 
@@ -619,12 +608,12 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |
 
 ## listApplicationKeys
 
@@ -675,15 +664,14 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pageSize** | **Long**| Size for a given page. | [optional] [default to 10]
- **pageNumber** | **Long**| Specific page number to return. | [optional] [default to 0]
- **sort** | **ApplicationKeysSort**| Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign. | [optional] [default to name] [enum: created_at, -created_at, last4, -last4, name, -name]
- **filter** | **String**| Filter application keys by the specified string. | [optional]
- **filterCreatedAtStart** | **String**| Only include application keys created on or after the specified date. | [optional]
- **filterCreatedAtEnd** | **String**| Only include application keys created on or before the specified date. | [optional]
+| Name                     | Type                    | Description                                                                                                                                                        | Notes                                                                                    |
+| ------------------------ | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------- |
+| **pageSize**             | **Long**                | Size for a given page.                                                                                                                                             | [optional] [default to 10]                                                               |
+| **pageNumber**           | **Long**                | Specific page number to return.                                                                                                                                    | [optional] [default to 0]                                                                |
+| **sort**                 | **ApplicationKeysSort** | Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign. | [optional] [default to name] [enum: created_at, -created_at, last4, -last4, name, -name] |
+| **filter**               | **String**              | Filter application keys by the specified string.                                                                                                                   | [optional]                                                                               |
+| **filterCreatedAtStart** | **String**              | Only include application keys created on or after the specified date.                                                                                              | [optional]                                                                               |
+| **filterCreatedAtEnd**   | **String**              | Only include application keys created on or before the specified date.                                                                                             | [optional]                                                                               |
 
 ### Return type
 
@@ -699,13 +687,13 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |
+| **404**     | Not Found   | -                |
 
 ## listCurrentUserApplicationKeys
 
@@ -756,15 +744,14 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pageSize** | **Long**| Size for a given page. | [optional] [default to 10]
- **pageNumber** | **Long**| Specific page number to return. | [optional] [default to 0]
- **sort** | **ApplicationKeysSort**| Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign. | [optional] [default to name] [enum: created_at, -created_at, last4, -last4, name, -name]
- **filter** | **String**| Filter application keys by the specified string. | [optional]
- **filterCreatedAtStart** | **String**| Only include application keys created on or after the specified date. | [optional]
- **filterCreatedAtEnd** | **String**| Only include application keys created on or before the specified date. | [optional]
+| Name                     | Type                    | Description                                                                                                                                                        | Notes                                                                                    |
+| ------------------------ | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------- |
+| **pageSize**             | **Long**                | Size for a given page.                                                                                                                                             | [optional] [default to 10]                                                               |
+| **pageNumber**           | **Long**                | Specific page number to return.                                                                                                                                    | [optional] [default to 0]                                                                |
+| **sort**                 | **ApplicationKeysSort** | Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign. | [optional] [default to name] [enum: created_at, -created_at, last4, -last4, name, -name] |
+| **filter**               | **String**              | Filter application keys by the specified string.                                                                                                                   | [optional]                                                                               |
+| **filterCreatedAtStart** | **String**              | Only include application keys created on or after the specified date.                                                                                              | [optional]                                                                               |
+| **filterCreatedAtEnd**   | **String**              | Only include application keys created on or before the specified date.                                                                                             | [optional]                                                                               |
 
 ### Return type
 
@@ -780,13 +767,13 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |
+| **404**     | Not Found   | -                |
 
 ## updateAPIKey
 
@@ -810,7 +797,7 @@ public class Example {
 
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
         String apiKeyId = "apiKeyId_example"; // String | The ID of the API key.
-        APIKeyUpdateRequest body = new APIKeyUpdateRequest(); // APIKeyUpdateRequest | 
+        APIKeyUpdateRequest body = new APIKeyUpdateRequest(); // APIKeyUpdateRequest |
         try {
             APIKeyResponse result = apiInstance.updateAPIKey(apiKeyId, body);
             System.out.println(result);
@@ -827,11 +814,10 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **apiKeyId** | **String**| The ID of the API key. |
- **body** | [**APIKeyUpdateRequest**](APIKeyUpdateRequest.md)|  |
+| Name         | Type                                              | Description            | Notes |
+| ------------ | ------------------------------------------------- | ---------------------- | ----- |
+| **apiKeyId** | **String**                                        | The ID of the API key. |
+| **body**     | [**APIKeyUpdateRequest**](APIKeyUpdateRequest.md) |                        |
 
 ### Return type
 
@@ -847,13 +833,13 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |
+| **404**     | Not Found   | -                |
 
 ## updateApplicationKey
 
@@ -877,7 +863,7 @@ public class Example {
 
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
         String appKeyId = "appKeyId_example"; // String | The ID of the application key.
-        ApplicationKeyUpdateRequest body = new ApplicationKeyUpdateRequest(); // ApplicationKeyUpdateRequest | 
+        ApplicationKeyUpdateRequest body = new ApplicationKeyUpdateRequest(); // ApplicationKeyUpdateRequest |
         try {
             ApplicationKeyResponse result = apiInstance.updateApplicationKey(appKeyId, body);
             System.out.println(result);
@@ -894,11 +880,10 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **appKeyId** | **String**| The ID of the application key. |
- **body** | [**ApplicationKeyUpdateRequest**](ApplicationKeyUpdateRequest.md)|  |
+| Name         | Type                                                              | Description                    | Notes |
+| ------------ | ----------------------------------------------------------------- | ------------------------------ | ----- |
+| **appKeyId** | **String**                                                        | The ID of the application key. |
+| **body**     | [**ApplicationKeyUpdateRequest**](ApplicationKeyUpdateRequest.md) |                                |
 
 ### Return type
 
@@ -914,13 +899,13 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |
+| **404**     | Not Found   | -                |
 
 ## updateCurrentUserApplicationKey
 
@@ -944,7 +929,7 @@ public class Example {
 
         KeyManagementApi apiInstance = new KeyManagementApi(defaultClient);
         String appKeyId = "appKeyId_example"; // String | The ID of the application key.
-        ApplicationKeyUpdateRequest body = new ApplicationKeyUpdateRequest(); // ApplicationKeyUpdateRequest | 
+        ApplicationKeyUpdateRequest body = new ApplicationKeyUpdateRequest(); // ApplicationKeyUpdateRequest |
         try {
             ApplicationKeyResponse result = apiInstance.updateCurrentUserApplicationKey(appKeyId, body);
             System.out.println(result);
@@ -961,11 +946,10 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **appKeyId** | **String**| The ID of the application key. |
- **body** | [**ApplicationKeyUpdateRequest**](ApplicationKeyUpdateRequest.md)|  |
+| Name         | Type                                                              | Description                    | Notes |
+| ------------ | ----------------------------------------------------------------- | ------------------------------ | ----- |
+| **appKeyId** | **String**                                                        | The ID of the application key. |
+| **body**     | [**ApplicationKeyUpdateRequest**](ApplicationKeyUpdateRequest.md) |                                |
 
 ### Return type
 
@@ -981,10 +965,10 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |
+| **404**     | Not Found   | -                |

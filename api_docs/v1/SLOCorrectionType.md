@@ -1,11 +1,5 @@
-
-
 # SLOCorrectionType
 
 ## Enum
 
-
-* `CORRECTION` (value: `"correction"`)
-
-
-
+- `CORRECTION` (value: `"correction"`)

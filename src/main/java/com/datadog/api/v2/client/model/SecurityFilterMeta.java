@@ -8,50 +8,69 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
 
-/** Optional metadata associated to the response. */
+
+/**
+ * Optional metadata associated to the response.
+ */
 @ApiModel(description = "Optional metadata associated to the response.")
-@JsonPropertyOrder({SecurityFilterMeta.JSON_PROPERTY_WARNING})
+@JsonPropertyOrder({
+  SecurityFilterMeta.JSON_PROPERTY_WARNING
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SecurityFilterMeta {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_WARNING = "warning";
   private String warning;
+
 
   public SecurityFilterMeta warning(String warning) {
     this.warning = warning;
     return this;
   }
 
-  /**
+   /**
    * A warning message.
-   *
    * @return warning
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "All the security filters are disabled. As a result, no logs are being analyzed.",
-      value = "A warning message.")
+  @ApiModelProperty(example = "All the security filters are disabled. As a result, no logs are being analyzed.", value = "A warning message.")
   @JsonProperty(JSON_PROPERTY_WARNING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getWarning() {
     return warning;
   }
+
 
   public void setWarning(String warning) {
     this.warning = warning;
   }
 
-  /** Return true if this SecurityFilterMeta object is equal to o. */
+
+  /**
+   * Return true if this SecurityFilterMeta object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -79,7 +98,8 @@ public class SecurityFilterMeta {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -87,4 +107,6 @@ public class SecurityFilterMeta {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

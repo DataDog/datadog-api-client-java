@@ -1,11 +1,5 @@
-
-
 # LogsURLParserType
 
 ## Enum
 
-
-* `URL_PARSER` (value: `"url-parser"`)
-
-
-
+- `URL_PARSER` (value: `"url-parser"`)

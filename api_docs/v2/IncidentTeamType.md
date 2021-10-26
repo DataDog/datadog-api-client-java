@@ -1,11 +1,5 @@
-
-
 # IncidentTeamType
 
 ## Enum
 
-
-* `TEAMS` (value: `"teams"`)
-
-
-
+- `TEAMS` (value: `"teams"`)

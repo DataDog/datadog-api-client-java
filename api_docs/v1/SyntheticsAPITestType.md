@@ -1,11 +1,5 @@
-
-
 # SyntheticsAPITestType
 
 ## Enum
 
-
-* `API` (value: `"api"`)
-
-
-
+- `API` (value: `"api"`)

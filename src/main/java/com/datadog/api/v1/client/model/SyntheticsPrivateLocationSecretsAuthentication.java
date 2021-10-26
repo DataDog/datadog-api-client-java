@@ -8,58 +8,81 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Authentication part of the secrets. */
+
+/**
+ * Authentication part of the secrets.
+ */
 @ApiModel(description = "Authentication part of the secrets.")
 @JsonPropertyOrder({
   SyntheticsPrivateLocationSecretsAuthentication.JSON_PROPERTY_ID,
   SyntheticsPrivateLocationSecretsAuthentication.JSON_PROPERTY_KEY
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SyntheticsPrivateLocationSecretsAuthentication {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
   public static final String JSON_PROPERTY_KEY = "key";
   private String key;
 
-  /**
+
+   /**
    * Access key for the private location.
-   *
    * @return id
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Access key for the private location.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getId() {
     return id;
   }
 
-  /**
+
+
+
+   /**
    * Secret access key for the private location.
-   *
    * @return key
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Secret access key for the private location.")
   @JsonProperty(JSON_PROPERTY_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getKey() {
     return key;
   }
 
-  /** Return true if this SyntheticsPrivateLocation_secrets_authentication object is equal to o. */
+
+
+
+  /**
+   * Return true if this SyntheticsPrivateLocation_secrets_authentication object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -68,10 +91,9 @@ public class SyntheticsPrivateLocationSecretsAuthentication {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsPrivateLocationSecretsAuthentication syntheticsPrivateLocationSecretsAuthentication =
-        (SyntheticsPrivateLocationSecretsAuthentication) o;
-    return Objects.equals(this.id, syntheticsPrivateLocationSecretsAuthentication.id)
-        && Objects.equals(this.key, syntheticsPrivateLocationSecretsAuthentication.key);
+    SyntheticsPrivateLocationSecretsAuthentication syntheticsPrivateLocationSecretsAuthentication = (SyntheticsPrivateLocationSecretsAuthentication) o;
+    return Objects.equals(this.id, syntheticsPrivateLocationSecretsAuthentication.id) &&
+        Objects.equals(this.key, syntheticsPrivateLocationSecretsAuthentication.key);
   }
 
   @Override
@@ -90,7 +112,8 @@ public class SyntheticsPrivateLocationSecretsAuthentication {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -98,4 +121,6 @@ public class SyntheticsPrivateLocationSecretsAuthentication {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

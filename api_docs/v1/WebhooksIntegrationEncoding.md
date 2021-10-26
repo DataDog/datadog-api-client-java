@@ -1,13 +1,7 @@
-
-
 # WebhooksIntegrationEncoding
 
 ## Enum
 
+- `JSON` (value: `"json"`)
 
-* `JSON` (value: `"json"`)
-
-* `FORM` (value: `"form"`)
-
-
-
+- `FORM` (value: `"form"`)

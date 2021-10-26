@@ -8,40 +8,43 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import io.swagger.annotations.ApiModel;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
+
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
+
+
 import java.util.Set;
-
+import java.util.HashSet;
 /**
- * The duration in days during which values are learned, and after which signals will be generated
- * for values that weren&#39;t learned. If set to 0, a signal will be generated for all new values
- * after the first value is learned.
+ * The duration in days during which values are learned, and after which signals will be generated for values that weren&#39;t learned. If set to 0, a signal will be generated for all new values after the first value is learned.
  */
-@JsonSerialize(
-    using =
-        SecurityMonitoringRuleNewValueOptionsLearningDuration
-            .SecurityMonitoringRuleNewValueOptionsLearningDurationSerializer.class)
+@JsonSerialize(using = SecurityMonitoringRuleNewValueOptionsLearningDuration.SecurityMonitoringRuleNewValueOptionsLearningDurationSerializer.class)
 public class SecurityMonitoringRuleNewValueOptionsLearningDuration {
+  
+  public static final SecurityMonitoringRuleNewValueOptionsLearningDuration ZERO_DAYS = new SecurityMonitoringRuleNewValueOptionsLearningDuration(0);
+  public static final SecurityMonitoringRuleNewValueOptionsLearningDuration ONE_DAY = new SecurityMonitoringRuleNewValueOptionsLearningDuration(1);
+  public static final SecurityMonitoringRuleNewValueOptionsLearningDuration SEVEN_DAYS = new SecurityMonitoringRuleNewValueOptionsLearningDuration(7);
 
-  public static final SecurityMonitoringRuleNewValueOptionsLearningDuration ZERO_DAYS =
-      new SecurityMonitoringRuleNewValueOptionsLearningDuration(0);
-  public static final SecurityMonitoringRuleNewValueOptionsLearningDuration ONE_DAY =
-      new SecurityMonitoringRuleNewValueOptionsLearningDuration(1);
-  public static final SecurityMonitoringRuleNewValueOptionsLearningDuration SEVEN_DAYS =
-      new SecurityMonitoringRuleNewValueOptionsLearningDuration(7);
-
-  private static final Set<Integer> allowedValues = new HashSet<Integer>(Arrays.asList(0, 1, 7));
+  private static final Set<Integer> allowedValues = new HashSet<Integer>(Arrays.asList(0,1,7));
 
   private Integer value;
 
@@ -53,25 +56,19 @@ public class SecurityMonitoringRuleNewValueOptionsLearningDuration {
     this.value = value;
   }
 
-  public static class SecurityMonitoringRuleNewValueOptionsLearningDurationSerializer
-      extends StdSerializer<SecurityMonitoringRuleNewValueOptionsLearningDuration> {
-    public SecurityMonitoringRuleNewValueOptionsLearningDurationSerializer(
-        Class<SecurityMonitoringRuleNewValueOptionsLearningDuration> t) {
-      super(t);
-    }
+  public static class SecurityMonitoringRuleNewValueOptionsLearningDurationSerializer extends StdSerializer<SecurityMonitoringRuleNewValueOptionsLearningDuration> {
+      public SecurityMonitoringRuleNewValueOptionsLearningDurationSerializer(Class<SecurityMonitoringRuleNewValueOptionsLearningDuration> t) {
+          super(t);
+      }
 
-    public SecurityMonitoringRuleNewValueOptionsLearningDurationSerializer() {
-      this(null);
-    }
+      public SecurityMonitoringRuleNewValueOptionsLearningDurationSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        SecurityMonitoringRuleNewValueOptionsLearningDuration value,
-        JsonGenerator jgen,
-        SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(SecurityMonitoringRuleNewValueOptionsLearningDuration value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -99,7 +96,7 @@ public class SecurityMonitoringRuleNewValueOptionsLearningDuration {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override
@@ -112,3 +109,4 @@ public class SecurityMonitoringRuleNewValueOptionsLearningDuration {
     return new SecurityMonitoringRuleNewValueOptionsLearningDuration(value);
   }
 }
+

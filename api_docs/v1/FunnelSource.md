@@ -1,11 +1,5 @@
-
-
 # FunnelSource
 
 ## Enum
 
-
-* `RUM` (value: `"rum"`)
-
-
-
+- `RUM` (value: `"rum"`)

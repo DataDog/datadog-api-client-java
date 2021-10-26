@@ -1,11 +1,5 @@
-
-
 # LogsPipelineProcessorType
 
 ## Enum
 
-
-* `PIPELINE` (value: `"pipeline"`)
-
-
-
+- `PIPELINE` (value: `"pipeline"`)

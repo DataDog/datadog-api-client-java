@@ -8,81 +8,97 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Value of the global variable. */
+
+/**
+ * Value of the global variable.
+ */
 @ApiModel(description = "Value of the global variable.")
 @JsonPropertyOrder({
   SyntheticsGlobalVariableValue.JSON_PROPERTY_SECURE,
   SyntheticsGlobalVariableValue.JSON_PROPERTY_VALUE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SyntheticsGlobalVariableValue {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_SECURE = "secure";
   private Boolean secure;
 
   public static final String JSON_PROPERTY_VALUE = "value";
   private String value;
 
+
   public SyntheticsGlobalVariableValue secure(Boolean secure) {
     this.secure = secure;
     return this;
   }
 
-  /**
+   /**
    * Determines if the value of the variable is hidden.
-   *
    * @return secure
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Determines if the value of the variable is hidden.")
   @JsonProperty(JSON_PROPERTY_SECURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Boolean getSecure() {
     return secure;
   }
 
+
   public void setSecure(Boolean secure) {
     this.secure = secure;
   }
+
 
   public SyntheticsGlobalVariableValue value(String value) {
     this.value = value;
     return this;
   }
 
-  /**
-   * Value of the global variable. When reading a global variable, the value will not be present if
-   * the variable is hidden with the &#x60;secure&#x60; property.
-   *
+   /**
+   * Value of the global variable. When reading a global variable, the value will not be present if the variable is hidden with the &#x60;secure&#x60; property.
    * @return value
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "example-value",
-      value =
-          "Value of the global variable. When reading a global variable, the value will not be"
-              + " present if the variable is hidden with the `secure` property.")
+  @ApiModelProperty(example = "example-value", value = "Value of the global variable. When reading a global variable, the value will not be present if the variable is hidden with the `secure` property.")
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getValue() {
     return value;
   }
+
 
   public void setValue(String value) {
     this.value = value;
   }
 
-  /** Return true if this SyntheticsGlobalVariableValue object is equal to o. */
+
+  /**
+   * Return true if this SyntheticsGlobalVariableValue object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -92,8 +108,8 @@ public class SyntheticsGlobalVariableValue {
       return false;
     }
     SyntheticsGlobalVariableValue syntheticsGlobalVariableValue = (SyntheticsGlobalVariableValue) o;
-    return Objects.equals(this.secure, syntheticsGlobalVariableValue.secure)
-        && Objects.equals(this.value, syntheticsGlobalVariableValue.value);
+    return Objects.equals(this.secure, syntheticsGlobalVariableValue.secure) &&
+        Objects.equals(this.value, syntheticsGlobalVariableValue.value);
   }
 
   @Override
@@ -112,7 +128,8 @@ public class SyntheticsGlobalVariableValue {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -120,4 +137,6 @@ public class SyntheticsGlobalVariableValue {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

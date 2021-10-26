@@ -1,11 +1,5 @@
-
-
 # NoteWidgetDefinitionType
 
 ## Enum
 
-
-* `NOTE` (value: `"note"`)
-
-
-
+- `NOTE` (value: `"note"`)

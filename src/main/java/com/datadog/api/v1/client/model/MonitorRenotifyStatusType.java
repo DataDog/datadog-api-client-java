@@ -8,31 +8,43 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import io.swagger.annotations.ApiModel;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
+
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
 
-/** The different statuses for which renotification is supported. */
+
+import java.util.Set;
+import java.util.HashSet;
+/**
+ * The different statuses for which renotification is supported.
+ */
 @JsonSerialize(using = MonitorRenotifyStatusType.MonitorRenotifyStatusTypeSerializer.class)
 public class MonitorRenotifyStatusType {
-
+  
   public static final MonitorRenotifyStatusType ALERT = new MonitorRenotifyStatusType("alert");
   public static final MonitorRenotifyStatusType WARN = new MonitorRenotifyStatusType("warn");
   public static final MonitorRenotifyStatusType NO_DATA = new MonitorRenotifyStatusType("no data");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("alert", "warn", "no data"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("alert","warn","no data"));
 
   private String value;
 
@@ -44,22 +56,19 @@ public class MonitorRenotifyStatusType {
     this.value = value;
   }
 
-  public static class MonitorRenotifyStatusTypeSerializer
-      extends StdSerializer<MonitorRenotifyStatusType> {
-    public MonitorRenotifyStatusTypeSerializer(Class<MonitorRenotifyStatusType> t) {
-      super(t);
-    }
+  public static class MonitorRenotifyStatusTypeSerializer extends StdSerializer<MonitorRenotifyStatusType> {
+      public MonitorRenotifyStatusTypeSerializer(Class<MonitorRenotifyStatusType> t) {
+          super(t);
+      }
 
-    public MonitorRenotifyStatusTypeSerializer() {
-      this(null);
-    }
+      public MonitorRenotifyStatusTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        MonitorRenotifyStatusType value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(MonitorRenotifyStatusType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -71,7 +80,9 @@ public class MonitorRenotifyStatusType {
     this.value = value;
   }
 
-  /** Return true if this MonitorRenotifyStatusType object is equal to o. */
+  /**
+   * Return true if this MonitorRenotifyStatusType object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -85,7 +96,7 @@ public class MonitorRenotifyStatusType {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override
@@ -98,3 +109,4 @@ public class MonitorRenotifyStatusType {
     return new MonitorRenotifyStatusType(value);
   }
 }
+

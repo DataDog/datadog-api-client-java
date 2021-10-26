@@ -8,30 +8,41 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** A list of current AWS services for which Datadog offers automatic log collection. */
-@ApiModel(
-    description =
-        "A list of current AWS services for which Datadog offers automatic log collection.")
+
+/**
+ * A list of current AWS services for which Datadog offers automatic log collection.
+ */
+@ApiModel(description = "A list of current AWS services for which Datadog offers automatic log collection.")
 @JsonPropertyOrder({
   AWSLogsServicesRequest.JSON_PROPERTY_ACCOUNT_ID,
   AWSLogsServicesRequest.JSON_PROPERTY_SERVICES
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class AWSLogsServicesRequest {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
   private String accountId;
 
@@ -42,10 +53,11 @@ public class AWSLogsServicesRequest {
 
   @JsonCreator
   public AWSLogsServicesRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ACCOUNT_ID) String accountId,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SERVICES) List<String> services) {
-    this.accountId = accountId;
-    this.services = services;
+            @JsonProperty(required=true, value=JSON_PROPERTY_ACCOUNT_ID) String accountId,
+            @JsonProperty(required=true, value=JSON_PROPERTY_SERVICES) List<String> services
+            ) {
+        this.accountId = accountId;
+        this.services = services;
   }
 
   public AWSLogsServicesRequest accountId(String accountId) {
@@ -53,24 +65,23 @@ public class AWSLogsServicesRequest {
     return this;
   }
 
-  /**
+   /**
    * Your AWS Account ID without dashes.
-   *
    * @return accountId
-   */
-  @ApiModelProperty(
-      example = "1234567",
-      required = true,
-      value = "Your AWS Account ID without dashes.")
+  **/
+  @ApiModelProperty(example = "1234567", required = true, value = "Your AWS Account ID without dashes.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getAccountId() {
     return accountId;
   }
 
+
   public void setAccountId(String accountId) {
     this.accountId = accountId;
   }
+
 
   public AWSLogsServicesRequest services(List<String> services) {
     this.services = services;
@@ -82,29 +93,27 @@ public class AWSLogsServicesRequest {
     return this;
   }
 
-  /**
-   * Array of services IDs set to enable automatic log collection. Discover the list of available
-   * services with the get list of AWS log ready services API endpoint.
-   *
+   /**
+   * Array of services IDs set to enable automatic log collection. Discover the list of available services with the get list of AWS log ready services API endpoint.
    * @return services
-   */
-  @ApiModelProperty(
-      example = "[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"]",
-      required = true,
-      value =
-          "Array of services IDs set to enable automatic log collection. Discover the list of"
-              + " available services with the get list of AWS log ready services API endpoint.")
+  **/
+  @ApiModelProperty(example = "[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"]", required = true, value = "Array of services IDs set to enable automatic log collection. Discover the list of available services with the get list of AWS log ready services API endpoint.")
   @JsonProperty(JSON_PROPERTY_SERVICES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<String> getServices() {
     return services;
   }
+
 
   public void setServices(List<String> services) {
     this.services = services;
   }
 
-  /** Return true if this AWSLogsServicesRequest object is equal to o. */
+
+  /**
+   * Return true if this AWSLogsServicesRequest object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -114,8 +123,8 @@ public class AWSLogsServicesRequest {
       return false;
     }
     AWSLogsServicesRequest awSLogsServicesRequest = (AWSLogsServicesRequest) o;
-    return Objects.equals(this.accountId, awSLogsServicesRequest.accountId)
-        && Objects.equals(this.services, awSLogsServicesRequest.services);
+    return Objects.equals(this.accountId, awSLogsServicesRequest.accountId) &&
+        Objects.equals(this.services, awSLogsServicesRequest.services);
   }
 
   @Override
@@ -134,7 +143,8 @@ public class AWSLogsServicesRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -142,4 +152,6 @@ public class AWSLogsServicesRequest {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

@@ -1,13 +1,13 @@
-
-
 # APIKeyResponseIncludedItem
 
 An object related to an API key.
 
 ## oneOf schemas
-* [User](User.md)
+
+- [User](User.md)
 
 ## Example
+
 ```java
 // Import classes:
 import com.datadog.api.v2.client.model.APIKeyResponseIncludedItem;
@@ -26,5 +26,3 @@ public class Example {
     }
 }
 ```
-
-

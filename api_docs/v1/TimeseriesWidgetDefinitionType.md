@@ -1,11 +1,5 @@
-
-
 # TimeseriesWidgetDefinitionType
 
 ## Enum
 
-
-* `TIMESERIES` (value: `"timeseries"`)
-
-
-
+- `TIMESERIES` (value: `"timeseries"`)

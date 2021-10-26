@@ -2,18 +2,16 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method        | HTTP request | Description
-------------- | ------------ | ------------
-[**createWebhooksIntegration**](WebhooksIntegrationApi.md#createWebhooksIntegration) | **POST** /api/v1/integration/webhooks/configuration/webhooks | Create a webhooks integration
-[**createWebhooksIntegrationCustomVariable**](WebhooksIntegrationApi.md#createWebhooksIntegrationCustomVariable) | **POST** /api/v1/integration/webhooks/configuration/custom-variables | Create a custom variable
-[**deleteWebhooksIntegration**](WebhooksIntegrationApi.md#deleteWebhooksIntegration) | **DELETE** /api/v1/integration/webhooks/configuration/webhooks/{webhook_name} | Delete a webhook
-[**deleteWebhooksIntegrationCustomVariable**](WebhooksIntegrationApi.md#deleteWebhooksIntegrationCustomVariable) | **DELETE** /api/v1/integration/webhooks/configuration/custom-variables/{custom_variable_name} | Delete a custom variable
-[**getWebhooksIntegration**](WebhooksIntegrationApi.md#getWebhooksIntegration) | **GET** /api/v1/integration/webhooks/configuration/webhooks/{webhook_name} | Get a webhook integration
-[**getWebhooksIntegrationCustomVariable**](WebhooksIntegrationApi.md#getWebhooksIntegrationCustomVariable) | **GET** /api/v1/integration/webhooks/configuration/custom-variables/{custom_variable_name} | Get a custom variable
-[**updateWebhooksIntegration**](WebhooksIntegrationApi.md#updateWebhooksIntegration) | **PUT** /api/v1/integration/webhooks/configuration/webhooks/{webhook_name} | Update a webhook
-[**updateWebhooksIntegrationCustomVariable**](WebhooksIntegrationApi.md#updateWebhooksIntegrationCustomVariable) | **PUT** /api/v1/integration/webhooks/configuration/custom-variables/{custom_variable_name} | Update a custom variable
-
-
+| Method                                                                                                           | HTTP request                                                                                  | Description                   |
+| ---------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | ----------------------------- |
+| [**createWebhooksIntegration**](WebhooksIntegrationApi.md#createWebhooksIntegration)                             | **POST** /api/v1/integration/webhooks/configuration/webhooks                                  | Create a webhooks integration |
+| [**createWebhooksIntegrationCustomVariable**](WebhooksIntegrationApi.md#createWebhooksIntegrationCustomVariable) | **POST** /api/v1/integration/webhooks/configuration/custom-variables                          | Create a custom variable      |
+| [**deleteWebhooksIntegration**](WebhooksIntegrationApi.md#deleteWebhooksIntegration)                             | **DELETE** /api/v1/integration/webhooks/configuration/webhooks/{webhook_name}                 | Delete a webhook              |
+| [**deleteWebhooksIntegrationCustomVariable**](WebhooksIntegrationApi.md#deleteWebhooksIntegrationCustomVariable) | **DELETE** /api/v1/integration/webhooks/configuration/custom-variables/{custom_variable_name} | Delete a custom variable      |
+| [**getWebhooksIntegration**](WebhooksIntegrationApi.md#getWebhooksIntegration)                                   | **GET** /api/v1/integration/webhooks/configuration/webhooks/{webhook_name}                    | Get a webhook integration     |
+| [**getWebhooksIntegrationCustomVariable**](WebhooksIntegrationApi.md#getWebhooksIntegrationCustomVariable)       | **GET** /api/v1/integration/webhooks/configuration/custom-variables/{custom_variable_name}    | Get a custom variable         |
+| [**updateWebhooksIntegration**](WebhooksIntegrationApi.md#updateWebhooksIntegration)                             | **PUT** /api/v1/integration/webhooks/configuration/webhooks/{webhook_name}                    | Update a webhook              |
+| [**updateWebhooksIntegrationCustomVariable**](WebhooksIntegrationApi.md#updateWebhooksIntegrationCustomVariable) | **PUT** /api/v1/integration/webhooks/configuration/custom-variables/{custom_variable_name}    | Update a custom variable      |
 
 ## createWebhooksIntegration
 
@@ -53,10 +51,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**WebhooksIntegration**](WebhooksIntegration.md)| Create a webhooks integration request body. |
+| Name     | Type                                              | Description                                 | Notes |
+| -------- | ------------------------------------------------- | ------------------------------------------- | ----- |
+| **body** | [**WebhooksIntegration**](WebhooksIntegration.md) | Create a webhooks integration request body. |
 
 ### Return type
 
@@ -72,12 +69,12 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **201** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication error |  -  |
 
+| Status code | Description          | Response headers |
+| ----------- | -------------------- | ---------------- |
+| **201**     | OK                   | -                |
+| **400**     | Bad Request          | -                |
+| **403**     | Authentication error | -                |
 
 ## createWebhooksIntegrationCustomVariable
 
@@ -117,10 +114,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**WebhooksIntegrationCustomVariable**](WebhooksIntegrationCustomVariable.md)| Define a custom variable request body. |
+| Name     | Type                                                                          | Description                            | Notes |
+| -------- | ----------------------------------------------------------------------------- | -------------------------------------- | ----- |
+| **body** | [**WebhooksIntegrationCustomVariable**](WebhooksIntegrationCustomVariable.md) | Define a custom variable request body. |
 
 ### Return type
 
@@ -136,12 +132,12 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **201** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication error |  -  |
 
+| Status code | Description          | Response headers |
+| ----------- | -------------------- | ---------------- |
+| **201**     | OK                   | -                |
+| **400**     | Bad Request          | -                |
+| **403**     | Authentication error | -                |
 
 ## deleteWebhooksIntegration
 
@@ -180,10 +176,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **webhookName** | **String**| The name of the webhook. |
+| Name            | Type       | Description              | Notes |
+| --------------- | ---------- | ------------------------ | ----- |
+| **webhookName** | **String** | The name of the webhook. |
 
 ### Return type
 
@@ -199,12 +194,12 @@ null (empty response body)
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **403** | Authentication error |  -  |
-| **404** | Item Not Found |  -  |
 
+| Status code | Description          | Response headers |
+| ----------- | -------------------- | ---------------- |
+| **200**     | OK                   | -                |
+| **403**     | Authentication error | -                |
+| **404**     | Item Not Found       | -                |
 
 ## deleteWebhooksIntegrationCustomVariable
 
@@ -243,10 +238,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **customVariableName** | **String**| The name of the custom variable. |
+| Name                   | Type       | Description                      | Notes |
+| ---------------------- | ---------- | -------------------------------- | ----- |
+| **customVariableName** | **String** | The name of the custom variable. |
 
 ### Return type
 
@@ -262,12 +256,12 @@ null (empty response body)
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **403** | Authentication error |  -  |
-| **404** | Item Not Found |  -  |
 
+| Status code | Description          | Response headers |
+| ----------- | -------------------- | ---------------- |
+| **200**     | OK                   | -                |
+| **403**     | Authentication error | -                |
+| **404**     | Item Not Found       | -                |
 
 ## getWebhooksIntegration
 
@@ -307,10 +301,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **webhookName** | **String**| The name of the webhook. |
+| Name            | Type       | Description              | Notes |
+| --------------- | ---------- | ------------------------ | ----- |
+| **webhookName** | **String** | The name of the webhook. |
 
 ### Return type
 
@@ -326,13 +319,13 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication error |  -  |
-| **404** | Item Not Found |  -  |
 
+| Status code | Description          | Response headers |
+| ----------- | -------------------- | ---------------- |
+| **200**     | OK                   | -                |
+| **400**     | Bad Request          | -                |
+| **403**     | Authentication error | -                |
+| **404**     | Item Not Found       | -                |
 
 ## getWebhooksIntegrationCustomVariable
 
@@ -375,10 +368,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **customVariableName** | **String**| The name of the custom variable. |
+| Name                   | Type       | Description                      | Notes |
+| ---------------------- | ---------- | -------------------------------- | ----- |
+| **customVariableName** | **String** | The name of the custom variable. |
 
 ### Return type
 
@@ -394,13 +386,13 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication error |  -  |
-| **404** | Item Not Found |  -  |
 
+| Status code | Description          | Response headers |
+| ----------- | -------------------- | ---------------- |
+| **200**     | OK                   | -                |
+| **400**     | Bad Request          | -                |
+| **403**     | Authentication error | -                |
+| **404**     | Item Not Found       | -                |
 
 ## updateWebhooksIntegration
 
@@ -441,11 +433,10 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **webhookName** | **String**| The name of the webhook. |
- **body** | [**WebhooksIntegrationUpdateRequest**](WebhooksIntegrationUpdateRequest.md)| Update an existing Datadog-Webhooks integration. |
+| Name            | Type                                                                        | Description                                      | Notes |
+| --------------- | --------------------------------------------------------------------------- | ------------------------------------------------ | ----- |
+| **webhookName** | **String**                                                                  | The name of the webhook.                         |
+| **body**        | [**WebhooksIntegrationUpdateRequest**](WebhooksIntegrationUpdateRequest.md) | Update an existing Datadog-Webhooks integration. |
 
 ### Return type
 
@@ -461,13 +452,13 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication error |  -  |
-| **404** | Item Not Found |  -  |
 
+| Status code | Description          | Response headers |
+| ----------- | -------------------- | ---------------- |
+| **200**     | OK                   | -                |
+| **400**     | Bad Request          | -                |
+| **403**     | Authentication error | -                |
+| **404**     | Item Not Found       | -                |
 
 ## updateWebhooksIntegrationCustomVariable
 
@@ -508,11 +499,10 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **customVariableName** | **String**| The name of the custom variable. |
- **body** | [**WebhooksIntegrationCustomVariableUpdateRequest**](WebhooksIntegrationCustomVariableUpdateRequest.md)| Update an existing custom variable request body. |
+| Name                   | Type                                                                                                    | Description                                      | Notes |
+| ---------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------ | ----- |
+| **customVariableName** | **String**                                                                                              | The name of the custom variable.                 |
+| **body**               | [**WebhooksIntegrationCustomVariableUpdateRequest**](WebhooksIntegrationCustomVariableUpdateRequest.md) | Update an existing custom variable request body. |
 
 ### Return type
 
@@ -528,10 +518,10 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication error |  -  |
-| **404** | Item Not Found |  -  |
 
+| Status code | Description          | Response headers |
+| ----------- | -------------------- | ---------------- |
+| **200**     | OK                   | -                |
+| **400**     | Bad Request          | -                |
+| **403**     | Authentication error | -                |
+| **404**     | Item Not Found       | -                |

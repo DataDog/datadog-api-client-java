@@ -1,15 +1,15 @@
-
-
 # LogsArchiveCreateRequestDestination
 
 An archive's destination.
 
 ## oneOf schemas
-* [LogsArchiveDestinationAzure](LogsArchiveDestinationAzure.md)
-* [LogsArchiveDestinationGCS](LogsArchiveDestinationGCS.md)
-* [LogsArchiveDestinationS3](LogsArchiveDestinationS3.md)
+
+- [LogsArchiveDestinationAzure](LogsArchiveDestinationAzure.md)
+- [LogsArchiveDestinationGCS](LogsArchiveDestinationGCS.md)
+- [LogsArchiveDestinationS3](LogsArchiveDestinationS3.md)
 
 ## Example
+
 ```java
 // Import classes:
 import com.datadog.api.v2.client.model.LogsArchiveCreateRequestDestination;
@@ -44,5 +44,3 @@ public class Example {
     }
 }
 ```
-
-

@@ -1,17 +1,11 @@
-
-
 # SLOTimeframe
 
 ## Enum
 
+- `SEVEN_DAYS` (value: `"7d"`)
 
-* `SEVEN_DAYS` (value: `"7d"`)
+- `THIRTY_DAYS` (value: `"30d"`)
 
-* `THIRTY_DAYS` (value: `"30d"`)
+- `NINETY_DAYS` (value: `"90d"`)
 
-* `NINETY_DAYS` (value: `"90d"`)
-
-* `CUSTOM` (value: `"custom"`)
-
-
-
+- `CUSTOM` (value: `"custom"`)

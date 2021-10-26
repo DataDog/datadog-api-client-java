@@ -1,11 +1,5 @@
-
-
 # TreeMapWidgetDefinitionType
 
 ## Enum
 
-
-* `TREEMAP` (value: `"treemap"`)
-
-
-
+- `TREEMAP` (value: `"treemap"`)

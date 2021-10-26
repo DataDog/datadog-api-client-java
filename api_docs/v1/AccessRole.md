@@ -1,17 +1,11 @@
-
-
 # AccessRole
 
 ## Enum
 
+- `STANDARD` (value: `"st"`)
 
-* `STANDARD` (value: `"st"`)
+- `ADMIN` (value: `"adm"`)
 
-* `ADMIN` (value: `"adm"`)
+- `READ_ONLY` (value: `"ro"`)
 
-* `READ_ONLY` (value: `"ro"`)
-
-* `ERROR` (value: `"ERROR"`)
-
-
-
+- `ERROR` (value: `"ERROR"`)

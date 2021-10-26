@@ -8,25 +8,39 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v2.client.model.MetricTagConfigurationCreateData;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
 
-/** Request object that includes the metric that you would like to configure tags for. */
-@ApiModel(
-    description =
-        "Request object that includes the metric that you would like to configure tags for.")
-@JsonPropertyOrder({MetricTagConfigurationCreateRequest.JSON_PROPERTY_DATA})
+
+/**
+ * Request object that includes the metric that you would like to configure tags for.
+ */
+@ApiModel(description = "Request object that includes the metric that you would like to configure tags for.")
+@JsonPropertyOrder({
+  MetricTagConfigurationCreateRequest.JSON_PROPERTY_DATA
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class MetricTagConfigurationCreateRequest {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private MetricTagConfigurationCreateData data;
 
@@ -34,10 +48,10 @@ public class MetricTagConfigurationCreateRequest {
 
   @JsonCreator
   public MetricTagConfigurationCreateRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
-          MetricTagConfigurationCreateData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
+            @JsonProperty(required=true, value=JSON_PROPERTY_DATA) MetricTagConfigurationCreateData data
+            ) {
+        this.data = data;
+        this.unparsed |= data.unparsed;
   }
 
   public MetricTagConfigurationCreateRequest data(MetricTagConfigurationCreateData data) {
@@ -46,23 +60,27 @@ public class MetricTagConfigurationCreateRequest {
     return this;
   }
 
-  /**
+   /**
    * Get data
-   *
    * @return data
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public MetricTagConfigurationCreateData getData() {
     return data;
   }
+
 
   public void setData(MetricTagConfigurationCreateData data) {
     this.data = data;
   }
 
-  /** Return true if this MetricTagConfigurationCreateRequest object is equal to o. */
+
+  /**
+   * Return true if this MetricTagConfigurationCreateRequest object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -71,8 +89,7 @@ public class MetricTagConfigurationCreateRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MetricTagConfigurationCreateRequest metricTagConfigurationCreateRequest =
-        (MetricTagConfigurationCreateRequest) o;
+    MetricTagConfigurationCreateRequest metricTagConfigurationCreateRequest = (MetricTagConfigurationCreateRequest) o;
     return Objects.equals(this.data, metricTagConfigurationCreateRequest.data);
   }
 
@@ -91,7 +108,8 @@ public class MetricTagConfigurationCreateRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -99,4 +117,6 @@ public class MetricTagConfigurationCreateRequest {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

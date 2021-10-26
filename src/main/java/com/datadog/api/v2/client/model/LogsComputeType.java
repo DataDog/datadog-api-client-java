@@ -8,30 +8,42 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import io.swagger.annotations.ApiModel;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
+
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
 
-/** The type of compute */
+
+import java.util.Set;
+import java.util.HashSet;
+/**
+ * The type of compute
+ */
 @JsonSerialize(using = LogsComputeType.LogsComputeTypeSerializer.class)
 public class LogsComputeType {
-
+  
   public static final LogsComputeType TIMESERIES = new LogsComputeType("timeseries");
   public static final LogsComputeType TOTAL = new LogsComputeType("total");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("timeseries", "total"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("timeseries","total"));
 
   private String value;
 
@@ -44,19 +56,18 @@ public class LogsComputeType {
   }
 
   public static class LogsComputeTypeSerializer extends StdSerializer<LogsComputeType> {
-    public LogsComputeTypeSerializer(Class<LogsComputeType> t) {
-      super(t);
-    }
+      public LogsComputeTypeSerializer(Class<LogsComputeType> t) {
+          super(t);
+      }
 
-    public LogsComputeTypeSerializer() {
-      this(null);
-    }
+      public LogsComputeTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(LogsComputeType value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(LogsComputeType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -68,7 +79,9 @@ public class LogsComputeType {
     this.value = value;
   }
 
-  /** Return true if this LogsComputeType object is equal to o. */
+  /**
+   * Return true if this LogsComputeType object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -82,7 +95,7 @@ public class LogsComputeType {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override
@@ -95,3 +108,4 @@ public class LogsComputeType {
     return new LogsComputeType(value);
   }
 }
+

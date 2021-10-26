@@ -1,21 +1,15 @@
-
-
 # WidgetAggregator
 
 ## Enum
 
+- `AVERAGE` (value: `"avg"`)
 
-* `AVERAGE` (value: `"avg"`)
+- `LAST` (value: `"last"`)
 
-* `LAST` (value: `"last"`)
+- `MAXIMUM` (value: `"max"`)
 
-* `MAXIMUM` (value: `"max"`)
+- `MINIMUM` (value: `"min"`)
 
-* `MINIMUM` (value: `"min"`)
+- `SUM` (value: `"sum"`)
 
-* `SUM` (value: `"sum"`)
-
-* `PERCENTILE` (value: `"percentile"`)
-
-
-
+- `PERCENTILE` (value: `"percentile"`)

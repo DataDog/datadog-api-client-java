@@ -1,13 +1,7 @@
-
-
 # LogsAggregateResponseStatus
 
 ## Enum
 
+- `DONE` (value: `"done"`)
 
-* `DONE` (value: `"done"`)
-
-* `TIMEOUT` (value: `"timeout"`)
-
-
-
+- `TIMEOUT` (value: `"timeout"`)

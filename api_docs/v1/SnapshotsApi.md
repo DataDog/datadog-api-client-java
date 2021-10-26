@@ -2,11 +2,9 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method        | HTTP request | Description
-------------- | ------------ | ------------
-[**getGraphSnapshot**](SnapshotsApi.md#getGraphSnapshot) | **GET** /api/v1/graph/snapshot | Take graph snapshots
-
-
+| Method                                                   | HTTP request                   | Description          |
+| -------------------------------------------------------- | ------------------------------ | -------------------- |
+| [**getGraphSnapshot**](SnapshotsApi.md#getGraphSnapshot) | **GET** /api/v1/graph/snapshot | Take graph snapshots |
 
 ## getGraphSnapshot
 
@@ -56,15 +54,14 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **start** | **Long**| The POSIX timestamp of the start of the query. |
- **end** | **Long**| The POSIX timestamp of the end of the query. |
- **metricQuery** | **String**| The metric query. | [optional]
- **eventQuery** | **String**| A query that adds event bands to the graph. | [optional]
- **graphDef** | **String**| A JSON document defining the graph. &#x60;graph_def&#x60; can be used instead of &#x60;metric_query&#x60;. The JSON document uses the [grammar defined here](https://docs.datadoghq.com/graphing/graphing_json/#grammar) and should be formatted to a single line then URL encoded. | [optional]
- **title** | **String**| A title for the graph. If no title is specified, the graph does not have a title. | [optional]
+| Name            | Type       | Description                                                                                                                                                                                                                                                                         | Notes      |
+| --------------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **start**       | **Long**   | The POSIX timestamp of the start of the query.                                                                                                                                                                                                                                      |
+| **end**         | **Long**   | The POSIX timestamp of the end of the query.                                                                                                                                                                                                                                        |
+| **metricQuery** | **String** | The metric query.                                                                                                                                                                                                                                                                   | [optional] |
+| **eventQuery**  | **String** | A query that adds event bands to the graph.                                                                                                                                                                                                                                         | [optional] |
+| **graphDef**    | **String** | A JSON document defining the graph. &#x60;graph_def&#x60; can be used instead of &#x60;metric_query&#x60;. The JSON document uses the [grammar defined here](https://docs.datadoghq.com/graphing/graphing_json/#grammar) and should be formatted to a single line then URL encoded. | [optional] |
+| **title**       | **String** | A title for the graph. If no title is specified, the graph does not have a title.                                                                                                                                                                                                   | [optional] |
 
 ### Return type
 
@@ -80,9 +77,9 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |

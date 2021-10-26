@@ -1,13 +1,7 @@
-
-
 # DashboardReflowType
 
 ## Enum
 
+- `AUTO` (value: `"auto"`)
 
-* `AUTO` (value: `"auto"`)
-
-* `FIXED` (value: `"fixed"`)
-
-
-
+- `FIXED` (value: `"fixed"`)

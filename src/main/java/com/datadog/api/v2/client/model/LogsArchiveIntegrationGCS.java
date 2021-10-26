@@ -8,26 +8,39 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
 
-/** The GCS archive&#39;s integration destination. */
+
+/**
+ * The GCS archive&#39;s integration destination.
+ */
 @ApiModel(description = "The GCS archive's integration destination.")
 @JsonPropertyOrder({
   LogsArchiveIntegrationGCS.JSON_PROPERTY_CLIENT_EMAIL,
   LogsArchiveIntegrationGCS.JSON_PROPERTY_PROJECT_ID
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class LogsArchiveIntegrationGCS {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CLIENT_EMAIL = "client_email";
   private String clientEmail;
 
@@ -38,10 +51,11 @@ public class LogsArchiveIntegrationGCS {
 
   @JsonCreator
   public LogsArchiveIntegrationGCS(
-      @JsonProperty(required = true, value = JSON_PROPERTY_CLIENT_EMAIL) String clientEmail,
-      @JsonProperty(required = true, value = JSON_PROPERTY_PROJECT_ID) String projectId) {
-    this.clientEmail = clientEmail;
-    this.projectId = projectId;
+            @JsonProperty(required=true, value=JSON_PROPERTY_CLIENT_EMAIL) String clientEmail,
+            @JsonProperty(required=true, value=JSON_PROPERTY_PROJECT_ID) String projectId
+            ) {
+        this.clientEmail = clientEmail;
+        this.projectId = projectId;
   }
 
   public LogsArchiveIntegrationGCS clientEmail(String clientEmail) {
@@ -49,44 +63,50 @@ public class LogsArchiveIntegrationGCS {
     return this;
   }
 
-  /**
+   /**
    * A client email.
-   *
    * @return clientEmail
-   */
+  **/
   @ApiModelProperty(example = "youremail@example.com", required = true, value = "A client email.")
   @JsonProperty(JSON_PROPERTY_CLIENT_EMAIL)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getClientEmail() {
     return clientEmail;
   }
 
+
   public void setClientEmail(String clientEmail) {
     this.clientEmail = clientEmail;
   }
+
 
   public LogsArchiveIntegrationGCS projectId(String projectId) {
     this.projectId = projectId;
     return this;
   }
 
-  /**
+   /**
    * A project ID.
-   *
    * @return projectId
-   */
+  **/
   @ApiModelProperty(example = "project-id", required = true, value = "A project ID.")
   @JsonProperty(JSON_PROPERTY_PROJECT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getProjectId() {
     return projectId;
   }
+
 
   public void setProjectId(String projectId) {
     this.projectId = projectId;
   }
 
-  /** Return true if this LogsArchiveIntegrationGCS object is equal to o. */
+
+  /**
+   * Return true if this LogsArchiveIntegrationGCS object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -96,8 +116,8 @@ public class LogsArchiveIntegrationGCS {
       return false;
     }
     LogsArchiveIntegrationGCS logsArchiveIntegrationGCS = (LogsArchiveIntegrationGCS) o;
-    return Objects.equals(this.clientEmail, logsArchiveIntegrationGCS.clientEmail)
-        && Objects.equals(this.projectId, logsArchiveIntegrationGCS.projectId);
+    return Objects.equals(this.clientEmail, logsArchiveIntegrationGCS.clientEmail) &&
+        Objects.equals(this.projectId, logsArchiveIntegrationGCS.projectId);
   }
 
   @Override
@@ -116,7 +136,8 @@ public class LogsArchiveIntegrationGCS {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -124,4 +145,6 @@ public class LogsArchiveIntegrationGCS {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

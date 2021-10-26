@@ -8,23 +8,38 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** The query being made on the logs. */
+
+/**
+ * The query being made on the logs.
+ */
 @ApiModel(description = "The query being made on the logs.")
-@JsonPropertyOrder({LogQueryDefinitionSearch.JSON_PROPERTY_QUERY})
+@JsonPropertyOrder({
+  LogQueryDefinitionSearch.JSON_PROPERTY_QUERY
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class LogQueryDefinitionSearch {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
 
@@ -32,8 +47,9 @@ public class LogQueryDefinitionSearch {
 
   @JsonCreator
   public LogQueryDefinitionSearch(
-      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query) {
-    this.query = query;
+            @JsonProperty(required=true, value=JSON_PROPERTY_QUERY) String query
+            ) {
+        this.query = query;
   }
 
   public LogQueryDefinitionSearch query(String query) {
@@ -41,23 +57,27 @@ public class LogQueryDefinitionSearch {
     return this;
   }
 
-  /**
+   /**
    * Search value to apply.
-   *
    * @return query
-   */
+  **/
   @ApiModelProperty(example = "", required = true, value = "Search value to apply.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getQuery() {
     return query;
   }
+
 
   public void setQuery(String query) {
     this.query = query;
   }
 
-  /** Return true if this LogQueryDefinition_search object is equal to o. */
+
+  /**
+   * Return true if this LogQueryDefinition_search object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -85,7 +105,8 @@ public class LogQueryDefinitionSearch {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -93,4 +114,6 @@ public class LogQueryDefinitionSearch {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

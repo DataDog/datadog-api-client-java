@@ -1,11 +1,5 @@
-
-
 # LogsArchiveDestinationAzureType
 
 ## Enum
 
-
-* `AZURE` (value: `"azure"`)
-
-
-
+- `AZURE` (value: `"azure"`)

@@ -8,27 +8,36 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.GroupWidgetDefinitionType;
+import com.datadog.api.v1.client.model.Widget;
+import com.datadog.api.v1.client.model.WidgetLayoutType;
+import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
- * The groups widget allows you to keep similar graphs together on your timeboard. Each group has a
- * custom header, can hold one to many graphs, and is collapsible.
+ * The groups widget allows you to keep similar graphs together on your timeboard. Each group has a custom header, can hold one to many graphs, and is collapsible.
  */
-@ApiModel(
-    description =
-        "The groups widget allows you to keep similar graphs together on your timeboard. Each"
-            + " group has a custom header, can hold one to many graphs, and is collapsible.")
+@ApiModel(description = "The groups widget allows you to keep similar graphs together on your timeboard. Each group has a custom header, can hold one to many graphs, and is collapsible.")
 @JsonPropertyOrder({
   GroupWidgetDefinition.JSON_PROPERTY_BACKGROUND_COLOR,
   GroupWidgetDefinition.JSON_PROPERTY_BANNER_IMG,
@@ -40,8 +49,10 @@ import java.util.Objects;
   GroupWidgetDefinition.JSON_PROPERTY_WIDGETS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class GroupWidgetDefinition {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_BACKGROUND_COLOR = "background_color";
   private String backgroundColor;
 
@@ -70,14 +81,15 @@ public class GroupWidgetDefinition {
 
   @JsonCreator
   public GroupWidgetDefinition(
-      @JsonProperty(required = true, value = JSON_PROPERTY_LAYOUT_TYPE) WidgetLayoutType layoutType,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) GroupWidgetDefinitionType type,
-      @JsonProperty(required = true, value = JSON_PROPERTY_WIDGETS) List<Widget> widgets) {
-    this.layoutType = layoutType;
-    this.unparsed |= !layoutType.isValid();
-    this.type = type;
-    this.unparsed |= !type.isValid();
-    this.widgets = widgets;
+            @JsonProperty(required=true, value=JSON_PROPERTY_LAYOUT_TYPE) WidgetLayoutType layoutType,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE) GroupWidgetDefinitionType type,
+            @JsonProperty(required=true, value=JSON_PROPERTY_WIDGETS) List<Widget> widgets
+            ) {
+        this.layoutType = layoutType;
+        this.unparsed |= !layoutType.isValid();
+        this.type = type;
+        this.unparsed |= !type.isValid();
+        this.widgets = widgets;
   }
 
   public GroupWidgetDefinition backgroundColor(String backgroundColor) {
@@ -85,44 +97,48 @@ public class GroupWidgetDefinition {
     return this;
   }
 
-  /**
+   /**
    * Background color of the group title.
-   *
    * @return backgroundColor
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Background color of the group title.")
   @JsonProperty(JSON_PROPERTY_BACKGROUND_COLOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getBackgroundColor() {
     return backgroundColor;
   }
 
+
   public void setBackgroundColor(String backgroundColor) {
     this.backgroundColor = backgroundColor;
   }
+
 
   public GroupWidgetDefinition bannerImg(String bannerImg) {
     this.bannerImg = bannerImg;
     return this;
   }
 
-  /**
+   /**
    * URL of image to display as a banner for the group.
-   *
    * @return bannerImg
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "URL of image to display as a banner for the group.")
   @JsonProperty(JSON_PROPERTY_BANNER_IMG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getBannerImg() {
     return bannerImg;
   }
 
+
   public void setBannerImg(String bannerImg) {
     this.bannerImg = bannerImg;
   }
+
 
   public GroupWidgetDefinition layoutType(WidgetLayoutType layoutType) {
     this.layoutType = layoutType;
@@ -130,68 +146,74 @@ public class GroupWidgetDefinition {
     return this;
   }
 
-  /**
+   /**
    * Get layoutType
-   *
    * @return layoutType
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_LAYOUT_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public WidgetLayoutType getLayoutType() {
     return layoutType;
   }
 
+
   public void setLayoutType(WidgetLayoutType layoutType) {
     if (!layoutType.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.layoutType = layoutType;
   }
+
 
   public GroupWidgetDefinition showTitle(Boolean showTitle) {
     this.showTitle = showTitle;
     return this;
   }
 
-  /**
+   /**
    * Whether to show the title or not.
-   *
    * @return showTitle
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Whether to show the title or not.")
   @JsonProperty(JSON_PROPERTY_SHOW_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Boolean getShowTitle() {
     return showTitle;
   }
 
+
   public void setShowTitle(Boolean showTitle) {
     this.showTitle = showTitle;
   }
+
 
   public GroupWidgetDefinition title(String title) {
     this.title = title;
     return this;
   }
 
-  /**
+   /**
    * Title of the widget.
-   *
    * @return title
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Title of the widget.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getTitle() {
     return title;
   }
 
+
   public void setTitle(String title) {
     this.title = title;
   }
+
 
   public GroupWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
@@ -199,25 +221,27 @@ public class GroupWidgetDefinition {
     return this;
   }
 
-  /**
+   /**
    * Get titleAlign
-   *
    * @return titleAlign
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public WidgetTextAlign getTitleAlign() {
     return titleAlign;
   }
 
+
   public void setTitleAlign(WidgetTextAlign titleAlign) {
     if (!titleAlign.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.titleAlign = titleAlign;
   }
+
 
   public GroupWidgetDefinition type(GroupWidgetDefinitionType type) {
     this.type = type;
@@ -225,24 +249,26 @@ public class GroupWidgetDefinition {
     return this;
   }
 
-  /**
+   /**
    * Get type
-   *
    * @return type
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public GroupWidgetDefinitionType getType() {
     return type;
   }
 
+
   public void setType(GroupWidgetDefinitionType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
+
 
   public GroupWidgetDefinition widgets(List<Widget> widgets) {
     this.widgets = widgets;
@@ -258,27 +284,27 @@ public class GroupWidgetDefinition {
     return this;
   }
 
-  /**
+   /**
    * List of widget groups.
-   *
    * @return widgets
-   */
-  @ApiModelProperty(
-      example =
-          "[{\"definition\":{\"requests\":{\"fill\":{\"q\":\"system.cpu.user\"}},\"type\":\"hostmap\"}}]",
-      required = true,
-      value = "List of widget groups.")
+  **/
+  @ApiModelProperty(example = "[{\"definition\":{\"requests\":{\"fill\":{\"q\":\"system.cpu.user\"}},\"type\":\"hostmap\"}}]", required = true, value = "List of widget groups.")
   @JsonProperty(JSON_PROPERTY_WIDGETS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<Widget> getWidgets() {
     return widgets;
   }
+
 
   public void setWidgets(List<Widget> widgets) {
     this.widgets = widgets;
   }
 
-  /** Return true if this GroupWidgetDefinition object is equal to o. */
+
+  /**
+   * Return true if this GroupWidgetDefinition object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -288,20 +314,19 @@ public class GroupWidgetDefinition {
       return false;
     }
     GroupWidgetDefinition groupWidgetDefinition = (GroupWidgetDefinition) o;
-    return Objects.equals(this.backgroundColor, groupWidgetDefinition.backgroundColor)
-        && Objects.equals(this.bannerImg, groupWidgetDefinition.bannerImg)
-        && Objects.equals(this.layoutType, groupWidgetDefinition.layoutType)
-        && Objects.equals(this.showTitle, groupWidgetDefinition.showTitle)
-        && Objects.equals(this.title, groupWidgetDefinition.title)
-        && Objects.equals(this.titleAlign, groupWidgetDefinition.titleAlign)
-        && Objects.equals(this.type, groupWidgetDefinition.type)
-        && Objects.equals(this.widgets, groupWidgetDefinition.widgets);
+    return Objects.equals(this.backgroundColor, groupWidgetDefinition.backgroundColor) &&
+        Objects.equals(this.bannerImg, groupWidgetDefinition.bannerImg) &&
+        Objects.equals(this.layoutType, groupWidgetDefinition.layoutType) &&
+        Objects.equals(this.showTitle, groupWidgetDefinition.showTitle) &&
+        Objects.equals(this.title, groupWidgetDefinition.title) &&
+        Objects.equals(this.titleAlign, groupWidgetDefinition.titleAlign) &&
+        Objects.equals(this.type, groupWidgetDefinition.type) &&
+        Objects.equals(this.widgets, groupWidgetDefinition.widgets);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        backgroundColor, bannerImg, layoutType, showTitle, title, titleAlign, type, widgets);
+    return Objects.hash(backgroundColor, bannerImg, layoutType, showTitle, title, titleAlign, type, widgets);
   }
 
   @Override
@@ -321,7 +346,8 @@ public class GroupWidgetDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -329,4 +355,6 @@ public class GroupWidgetDefinition {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

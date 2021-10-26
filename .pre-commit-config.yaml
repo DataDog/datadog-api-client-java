@@ -28,7 +28,6 @@ repos:
     "types": [text]
     files: '^api_docs/'
     args: []
-    require_serial: false
     additional_dependencies:
       # When updating the version of prettier, make sure to check the  pre-commit file
       # And keep the `entry` here up to date https://github.com/pre-commit/mirrors-prettier/blob/master/.pre-commit-hooks.yaml
@@ -38,6 +37,5 @@ repos:
     stages: [manual]
     language: script
     entry: ./format.sh
-    files: '^src/main/'
+    files: '^src/'
     types: [file, java]
-    require_serial: false

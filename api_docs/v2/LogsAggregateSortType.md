@@ -1,13 +1,7 @@
-
-
 # LogsAggregateSortType
 
 ## Enum
 
+- `ALPHABETICAL` (value: `"alphabetical"`)
 
-* `ALPHABETICAL` (value: `"alphabetical"`)
-
-* `MEASURE` (value: `"measure"`)
-
-
-
+- `MEASURE` (value: `"measure"`)

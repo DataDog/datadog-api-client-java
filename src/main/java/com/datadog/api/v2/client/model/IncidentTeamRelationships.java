@@ -8,30 +8,46 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v2.client.model.RelationshipToUser;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
 
-/** The incident team&#39;s relationships. */
+
+/**
+ * The incident team&#39;s relationships.
+ */
 @ApiModel(description = "The incident team's relationships.")
 @JsonPropertyOrder({
   IncidentTeamRelationships.JSON_PROPERTY_CREATED_BY,
   IncidentTeamRelationships.JSON_PROPERTY_LAST_MODIFIED_BY
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class IncidentTeamRelationships {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED_BY = "created_by";
   private RelationshipToUser createdBy;
 
   public static final String JSON_PROPERTY_LAST_MODIFIED_BY = "last_modified_by";
   private RelationshipToUser lastModifiedBy;
+
 
   public IncidentTeamRelationships createdBy(RelationshipToUser createdBy) {
     this.createdBy = createdBy;
@@ -39,22 +55,24 @@ public class IncidentTeamRelationships {
     return this;
   }
 
-  /**
+   /**
    * Get createdBy
-   *
    * @return createdBy
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CREATED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public RelationshipToUser getCreatedBy() {
     return createdBy;
   }
 
+
   public void setCreatedBy(RelationshipToUser createdBy) {
     this.createdBy = createdBy;
   }
+
 
   public IncidentTeamRelationships lastModifiedBy(RelationshipToUser lastModifiedBy) {
     this.lastModifiedBy = lastModifiedBy;
@@ -62,24 +80,28 @@ public class IncidentTeamRelationships {
     return this;
   }
 
-  /**
+   /**
    * Get lastModifiedBy
-   *
    * @return lastModifiedBy
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LAST_MODIFIED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public RelationshipToUser getLastModifiedBy() {
     return lastModifiedBy;
   }
+
 
   public void setLastModifiedBy(RelationshipToUser lastModifiedBy) {
     this.lastModifiedBy = lastModifiedBy;
   }
 
-  /** Return true if this IncidentTeamRelationships object is equal to o. */
+
+  /**
+   * Return true if this IncidentTeamRelationships object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -89,8 +111,8 @@ public class IncidentTeamRelationships {
       return false;
     }
     IncidentTeamRelationships incidentTeamRelationships = (IncidentTeamRelationships) o;
-    return Objects.equals(this.createdBy, incidentTeamRelationships.createdBy)
-        && Objects.equals(this.lastModifiedBy, incidentTeamRelationships.lastModifiedBy);
+    return Objects.equals(this.createdBy, incidentTeamRelationships.createdBy) &&
+        Objects.equals(this.lastModifiedBy, incidentTeamRelationships.lastModifiedBy);
   }
 
   @Override
@@ -109,7 +131,8 @@ public class IncidentTeamRelationships {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -117,4 +140,6 @@ public class IncidentTeamRelationships {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

@@ -8,30 +8,41 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import io.swagger.annotations.ApiModel;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
+
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
 
-/** Type of logs trace remapper. */
+
+import java.util.Set;
+import java.util.HashSet;
+/**
+ * Type of logs trace remapper.
+ */
 @JsonSerialize(using = LogsTraceRemapperType.LogsTraceRemapperTypeSerializer.class)
 public class LogsTraceRemapperType {
+  
+  public static final LogsTraceRemapperType TRACE_ID_REMAPPER = new LogsTraceRemapperType("trace-id-remapper");
 
-  public static final LogsTraceRemapperType TRACE_ID_REMAPPER =
-      new LogsTraceRemapperType("trace-id-remapper");
-
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("trace-id-remapper"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("trace-id-remapper"));
 
   private String value;
 
@@ -44,20 +55,18 @@ public class LogsTraceRemapperType {
   }
 
   public static class LogsTraceRemapperTypeSerializer extends StdSerializer<LogsTraceRemapperType> {
-    public LogsTraceRemapperTypeSerializer(Class<LogsTraceRemapperType> t) {
-      super(t);
-    }
+      public LogsTraceRemapperTypeSerializer(Class<LogsTraceRemapperType> t) {
+          super(t);
+      }
 
-    public LogsTraceRemapperTypeSerializer() {
-      this(null);
-    }
+      public LogsTraceRemapperTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        LogsTraceRemapperType value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(LogsTraceRemapperType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -69,7 +78,9 @@ public class LogsTraceRemapperType {
     this.value = value;
   }
 
-  /** Return true if this LogsTraceRemapperType object is equal to o. */
+  /**
+   * Return true if this LogsTraceRemapperType object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -83,7 +94,7 @@ public class LogsTraceRemapperType {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override
@@ -96,3 +107,4 @@ public class LogsTraceRemapperType {
     return new LogsTraceRemapperType(value);
   }
 }
+

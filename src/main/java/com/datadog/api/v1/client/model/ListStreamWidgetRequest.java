@@ -8,20 +8,34 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.ListStreamColumn;
+import com.datadog.api.v1.client.model.ListStreamQuery;
+import com.datadog.api.v1.client.model.ListStreamResponseFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Updated list stream widget. */
+
+/**
+ * Updated list stream widget.
+ */
 @ApiModel(description = "Updated list stream widget.")
 @JsonPropertyOrder({
   ListStreamWidgetRequest.JSON_PROPERTY_COLUMNS,
@@ -29,8 +43,10 @@ import java.util.Objects;
   ListStreamWidgetRequest.JSON_PROPERTY_RESPONSE_FORMAT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ListStreamWidgetRequest {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_COLUMNS = "columns";
   private List<ListStreamColumn> columns = new ArrayList<>();
 
@@ -44,15 +60,15 @@ public class ListStreamWidgetRequest {
 
   @JsonCreator
   public ListStreamWidgetRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_COLUMNS) List<ListStreamColumn> columns,
-      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) ListStreamQuery query,
-      @JsonProperty(required = true, value = JSON_PROPERTY_RESPONSE_FORMAT)
-          ListStreamResponseFormat responseFormat) {
-    this.columns = columns;
-    this.query = query;
-    this.unparsed |= query.unparsed;
-    this.responseFormat = responseFormat;
-    this.unparsed |= !responseFormat.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_COLUMNS) List<ListStreamColumn> columns,
+            @JsonProperty(required=true, value=JSON_PROPERTY_QUERY) ListStreamQuery query,
+            @JsonProperty(required=true, value=JSON_PROPERTY_RESPONSE_FORMAT) ListStreamResponseFormat responseFormat
+            ) {
+        this.columns = columns;
+        this.query = query;
+        this.unparsed |= query.unparsed;
+        this.responseFormat = responseFormat;
+        this.unparsed |= !responseFormat.isValid();
   }
 
   public ListStreamWidgetRequest columns(List<ListStreamColumn> columns) {
@@ -69,25 +85,23 @@ public class ListStreamWidgetRequest {
     return this;
   }
 
-  /**
+   /**
    * Widget columns.
-   *
    * @return columns
-   */
-  @ApiModelProperty(
-      example =
-          "[{\"field\":\"timestamp\",\"width\":\"auto\"},{\"field\":\"content\",\"width\":\"full\"}]",
-      required = true,
-      value = "Widget columns.")
+  **/
+  @ApiModelProperty(example = "[{\"field\":\"timestamp\",\"width\":\"auto\"},{\"field\":\"content\",\"width\":\"full\"}]", required = true, value = "Widget columns.")
   @JsonProperty(JSON_PROPERTY_COLUMNS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<ListStreamColumn> getColumns() {
     return columns;
   }
 
+
   public void setColumns(List<ListStreamColumn> columns) {
     this.columns = columns;
   }
+
 
   public ListStreamWidgetRequest query(ListStreamQuery query) {
     this.query = query;
@@ -95,21 +109,23 @@ public class ListStreamWidgetRequest {
     return this;
   }
 
-  /**
+   /**
    * Get query
-   *
    * @return query
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public ListStreamQuery getQuery() {
     return query;
   }
 
+
   public void setQuery(ListStreamQuery query) {
     this.query = query;
   }
+
 
   public ListStreamWidgetRequest responseFormat(ListStreamResponseFormat responseFormat) {
     this.responseFormat = responseFormat;
@@ -117,26 +133,30 @@ public class ListStreamWidgetRequest {
     return this;
   }
 
-  /**
+   /**
    * Get responseFormat
-   *
    * @return responseFormat
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_RESPONSE_FORMAT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public ListStreamResponseFormat getResponseFormat() {
     return responseFormat;
   }
 
+
   public void setResponseFormat(ListStreamResponseFormat responseFormat) {
     if (!responseFormat.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.responseFormat = responseFormat;
   }
 
-  /** Return true if this ListStreamWidgetRequest object is equal to o. */
+
+  /**
+   * Return true if this ListStreamWidgetRequest object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -146,9 +166,9 @@ public class ListStreamWidgetRequest {
       return false;
     }
     ListStreamWidgetRequest listStreamWidgetRequest = (ListStreamWidgetRequest) o;
-    return Objects.equals(this.columns, listStreamWidgetRequest.columns)
-        && Objects.equals(this.query, listStreamWidgetRequest.query)
-        && Objects.equals(this.responseFormat, listStreamWidgetRequest.responseFormat);
+    return Objects.equals(this.columns, listStreamWidgetRequest.columns) &&
+        Objects.equals(this.query, listStreamWidgetRequest.query) &&
+        Objects.equals(this.responseFormat, listStreamWidgetRequest.responseFormat);
   }
 
   @Override
@@ -168,7 +188,8 @@ public class ListStreamWidgetRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -176,4 +197,6 @@ public class ListStreamWidgetRequest {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

@@ -2,15 +2,13 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method        | HTTP request | Description
-------------- | ------------ | ------------
-[**createSlackIntegrationChannel**](SlackIntegrationApi.md#createSlackIntegrationChannel) | **POST** /api/v1/integration/slack/configuration/accounts/{account_name}/channels | Create a Slack integration channel
-[**getSlackIntegrationChannel**](SlackIntegrationApi.md#getSlackIntegrationChannel) | **GET** /api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name} | Get a Slack integration channel
-[**getSlackIntegrationChannels**](SlackIntegrationApi.md#getSlackIntegrationChannels) | **GET** /api/v1/integration/slack/configuration/accounts/{account_name}/channels | Get all channels in a Slack integration
-[**removeSlackIntegrationChannel**](SlackIntegrationApi.md#removeSlackIntegrationChannel) | **DELETE** /api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name} | Remove a Slack integration channel
-[**updateSlackIntegrationChannel**](SlackIntegrationApi.md#updateSlackIntegrationChannel) | **PATCH** /api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name} | Update a Slack integration channel
-
-
+| Method                                                                                    | HTTP request                                                                                       | Description                             |
+| ----------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | --------------------------------------- |
+| [**createSlackIntegrationChannel**](SlackIntegrationApi.md#createSlackIntegrationChannel) | **POST** /api/v1/integration/slack/configuration/accounts/{account_name}/channels                  | Create a Slack integration channel      |
+| [**getSlackIntegrationChannel**](SlackIntegrationApi.md#getSlackIntegrationChannel)       | **GET** /api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}    | Get a Slack integration channel         |
+| [**getSlackIntegrationChannels**](SlackIntegrationApi.md#getSlackIntegrationChannels)     | **GET** /api/v1/integration/slack/configuration/accounts/{account_name}/channels                   | Get all channels in a Slack integration |
+| [**removeSlackIntegrationChannel**](SlackIntegrationApi.md#removeSlackIntegrationChannel) | **DELETE** /api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name} | Remove a Slack integration channel      |
+| [**updateSlackIntegrationChannel**](SlackIntegrationApi.md#updateSlackIntegrationChannel) | **PATCH** /api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}  | Update a Slack integration channel      |
 
 ## createSlackIntegrationChannel
 
@@ -51,11 +49,10 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accountName** | **String**| Your Slack account name. |
- **body** | [**SlackIntegrationChannel**](SlackIntegrationChannel.md)| Payload describing Slack channel to be created |
+| Name            | Type                                                      | Description                                    | Notes |
+| --------------- | --------------------------------------------------------- | ---------------------------------------------- | ----- |
+| **accountName** | **String**                                                | Your Slack account name.                       |
+| **body**        | [**SlackIntegrationChannel**](SlackIntegrationChannel.md) | Payload describing Slack channel to be created |
 
 ### Return type
 
@@ -71,13 +68,13 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication error |  -  |
-| **404** | Item Not Found |  -  |
 
+| Status code | Description          | Response headers |
+| ----------- | -------------------- | ---------------- |
+| **200**     | OK                   | -                |
+| **400**     | Bad Request          | -                |
+| **403**     | Authentication error | -                |
+| **404**     | Item Not Found       | -                |
 
 ## getSlackIntegrationChannel
 
@@ -118,11 +115,10 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accountName** | **String**| Your Slack account name. |
- **channelName** | **String**| The name of the Slack channel being operated on. |
+| Name            | Type       | Description                                      | Notes |
+| --------------- | ---------- | ------------------------------------------------ | ----- |
+| **accountName** | **String** | Your Slack account name.                         |
+| **channelName** | **String** | The name of the Slack channel being operated on. |
 
 ### Return type
 
@@ -138,13 +134,13 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication error |  -  |
-| **404** | Item Not Found |  -  |
 
+| Status code | Description          | Response headers |
+| ----------- | -------------------- | ---------------- |
+| **200**     | OK                   | -                |
+| **400**     | Bad Request          | -                |
+| **403**     | Authentication error | -                |
+| **404**     | Item Not Found       | -                |
 
 ## getSlackIntegrationChannels
 
@@ -184,10 +180,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accountName** | **String**| Your Slack account name. |
+| Name            | Type       | Description              | Notes |
+| --------------- | ---------- | ------------------------ | ----- |
+| **accountName** | **String** | Your Slack account name. |
 
 ### Return type
 
@@ -203,13 +198,13 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication error |  -  |
-| **404** | Item Not Found |  -  |
 
+| Status code | Description          | Response headers |
+| ----------- | -------------------- | ---------------- |
+| **200**     | OK                   | -                |
+| **400**     | Bad Request          | -                |
+| **403**     | Authentication error | -                |
+| **404**     | Item Not Found       | -                |
 
 ## removeSlackIntegrationChannel
 
@@ -249,11 +244,10 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accountName** | **String**| Your Slack account name. |
- **channelName** | **String**| The name of the Slack channel being operated on. |
+| Name            | Type       | Description                                      | Notes |
+| --------------- | ---------- | ------------------------------------------------ | ----- |
+| **accountName** | **String** | Your Slack account name.                         |
+| **channelName** | **String** | The name of the Slack channel being operated on. |
 
 ### Return type
 
@@ -269,13 +263,13 @@ null (empty response body)
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | The channel was removed successfully. |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication error |  -  |
-| **404** | Item Not Found |  -  |
 
+| Status code | Description                           | Response headers |
+| ----------- | ------------------------------------- | ---------------- |
+| **204**     | The channel was removed successfully. | -                |
+| **400**     | Bad Request                           | -                |
+| **403**     | Authentication error                  | -                |
+| **404**     | Item Not Found                        | -                |
 
 ## updateSlackIntegrationChannel
 
@@ -317,12 +311,11 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accountName** | **String**| Your Slack account name. |
- **channelName** | **String**| The name of the Slack channel being operated on. |
- **body** | [**SlackIntegrationChannel**](SlackIntegrationChannel.md)| Payload describing fields and values to be updated. |
+| Name            | Type                                                      | Description                                         | Notes |
+| --------------- | --------------------------------------------------------- | --------------------------------------------------- | ----- |
+| **accountName** | **String**                                                | Your Slack account name.                            |
+| **channelName** | **String**                                                | The name of the Slack channel being operated on.    |
+| **body**        | [**SlackIntegrationChannel**](SlackIntegrationChannel.md) | Payload describing fields and values to be updated. |
 
 ### Return type
 
@@ -338,10 +331,10 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication error |  -  |
-| **404** | Item Not Found |  -  |
 
+| Status code | Description          | Response headers |
+| ----------- | -------------------- | ---------------- |
+| **200**     | OK                   | -                |
+| **400**     | Bad Request          | -                |
+| **403**     | Authentication error | -                |
+| **404**     | Item Not Found       | -                |

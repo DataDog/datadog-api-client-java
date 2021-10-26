@@ -8,26 +8,44 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v2.client.model.LogsMetricResponseData;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
 
-/** All the available log-based metric objects. */
+
+/**
+ * All the available log-based metric objects.
+ */
 @ApiModel(description = "All the available log-based metric objects.")
-@JsonPropertyOrder({LogsMetricsResponse.JSON_PROPERTY_DATA})
+@JsonPropertyOrder({
+  LogsMetricsResponse.JSON_PROPERTY_DATA
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class LogsMetricsResponse {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<LogsMetricResponseData> data = null;
+
 
   public LogsMetricsResponse data(List<LogsMetricResponseData> data) {
     this.data = data;
@@ -46,24 +64,28 @@ public class LogsMetricsResponse {
     return this;
   }
 
-  /**
+   /**
    * A list of log-based metric objects.
-   *
    * @return data
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "A list of log-based metric objects.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<LogsMetricResponseData> getData() {
     return data;
   }
+
 
   public void setData(List<LogsMetricResponseData> data) {
     this.data = data;
   }
 
-  /** Return true if this LogsMetricsResponse object is equal to o. */
+
+  /**
+   * Return true if this LogsMetricsResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -91,7 +113,8 @@ public class LogsMetricsResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -99,4 +122,6 @@ public class LogsMetricsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

@@ -8,54 +8,48 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import io.swagger.annotations.ApiModel;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
+
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
+
+
 import java.util.Set;
-
-/** Data source for event platform-based queries. */
-@JsonSerialize(
-    using = FormulaAndFunctionEventsDataSource.FormulaAndFunctionEventsDataSourceSerializer.class)
+import java.util.HashSet;
+/**
+ * Data source for event platform-based queries.
+ */
+@JsonSerialize(using = FormulaAndFunctionEventsDataSource.FormulaAndFunctionEventsDataSourceSerializer.class)
 public class FormulaAndFunctionEventsDataSource {
+  
+  public static final FormulaAndFunctionEventsDataSource LOGS = new FormulaAndFunctionEventsDataSource("logs");
+  public static final FormulaAndFunctionEventsDataSource SPANS = new FormulaAndFunctionEventsDataSource("spans");
+  public static final FormulaAndFunctionEventsDataSource NETWORK = new FormulaAndFunctionEventsDataSource("network");
+  public static final FormulaAndFunctionEventsDataSource RUM = new FormulaAndFunctionEventsDataSource("rum");
+  public static final FormulaAndFunctionEventsDataSource SECURITY_SIGNALS = new FormulaAndFunctionEventsDataSource("security_signals");
+  public static final FormulaAndFunctionEventsDataSource PROFILES = new FormulaAndFunctionEventsDataSource("profiles");
+  public static final FormulaAndFunctionEventsDataSource AUDIT = new FormulaAndFunctionEventsDataSource("audit");
+  public static final FormulaAndFunctionEventsDataSource EVENTS = new FormulaAndFunctionEventsDataSource("events");
 
-  public static final FormulaAndFunctionEventsDataSource LOGS =
-      new FormulaAndFunctionEventsDataSource("logs");
-  public static final FormulaAndFunctionEventsDataSource SPANS =
-      new FormulaAndFunctionEventsDataSource("spans");
-  public static final FormulaAndFunctionEventsDataSource NETWORK =
-      new FormulaAndFunctionEventsDataSource("network");
-  public static final FormulaAndFunctionEventsDataSource RUM =
-      new FormulaAndFunctionEventsDataSource("rum");
-  public static final FormulaAndFunctionEventsDataSource SECURITY_SIGNALS =
-      new FormulaAndFunctionEventsDataSource("security_signals");
-  public static final FormulaAndFunctionEventsDataSource PROFILES =
-      new FormulaAndFunctionEventsDataSource("profiles");
-  public static final FormulaAndFunctionEventsDataSource AUDIT =
-      new FormulaAndFunctionEventsDataSource("audit");
-  public static final FormulaAndFunctionEventsDataSource EVENTS =
-      new FormulaAndFunctionEventsDataSource("events");
-
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "logs",
-              "spans",
-              "network",
-              "rum",
-              "security_signals",
-              "profiles",
-              "audit",
-              "events"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("logs","spans","network","rum","security_signals","profiles","audit","events"));
 
   private String value;
 
@@ -67,23 +61,19 @@ public class FormulaAndFunctionEventsDataSource {
     this.value = value;
   }
 
-  public static class FormulaAndFunctionEventsDataSourceSerializer
-      extends StdSerializer<FormulaAndFunctionEventsDataSource> {
-    public FormulaAndFunctionEventsDataSourceSerializer(
-        Class<FormulaAndFunctionEventsDataSource> t) {
-      super(t);
-    }
+  public static class FormulaAndFunctionEventsDataSourceSerializer extends StdSerializer<FormulaAndFunctionEventsDataSource> {
+      public FormulaAndFunctionEventsDataSourceSerializer(Class<FormulaAndFunctionEventsDataSource> t) {
+          super(t);
+      }
 
-    public FormulaAndFunctionEventsDataSourceSerializer() {
-      this(null);
-    }
+      public FormulaAndFunctionEventsDataSourceSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        FormulaAndFunctionEventsDataSource value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(FormulaAndFunctionEventsDataSource value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -95,7 +85,9 @@ public class FormulaAndFunctionEventsDataSource {
     this.value = value;
   }
 
-  /** Return true if this FormulaAndFunctionEventsDataSource object is equal to o. */
+  /**
+   * Return true if this FormulaAndFunctionEventsDataSource object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -109,7 +101,7 @@ public class FormulaAndFunctionEventsDataSource {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override
@@ -122,3 +114,4 @@ public class FormulaAndFunctionEventsDataSource {
     return new FormulaAndFunctionEventsDataSource(value);
   }
 }
+

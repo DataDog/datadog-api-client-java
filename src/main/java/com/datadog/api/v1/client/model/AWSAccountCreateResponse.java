@@ -8,48 +8,69 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** The Response returned by the AWS Create Account call. */
+
+/**
+ * The Response returned by the AWS Create Account call.
+ */
 @ApiModel(description = "The Response returned by the AWS Create Account call.")
-@JsonPropertyOrder({AWSAccountCreateResponse.JSON_PROPERTY_EXTERNAL_ID})
+@JsonPropertyOrder({
+  AWSAccountCreateResponse.JSON_PROPERTY_EXTERNAL_ID
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class AWSAccountCreateResponse {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_EXTERNAL_ID = "external_id";
   private String externalId;
+
 
   public AWSAccountCreateResponse externalId(String externalId) {
     this.externalId = externalId;
     return this;
   }
 
-  /**
+   /**
    * AWS external_id.
-   *
    * @return externalId
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "AWS external_id.")
   @JsonProperty(JSON_PROPERTY_EXTERNAL_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getExternalId() {
     return externalId;
   }
+
 
   public void setExternalId(String externalId) {
     this.externalId = externalId;
   }
 
-  /** Return true if this AWSAccountCreateResponse object is equal to o. */
+
+  /**
+   * Return true if this AWSAccountCreateResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -77,7 +98,8 @@ public class AWSAccountCreateResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -85,4 +107,6 @@ public class AWSAccountCreateResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

@@ -8,26 +8,39 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
 
-/** The Azure archive&#39;s integration destination. */
+
+/**
+ * The Azure archive&#39;s integration destination.
+ */
 @ApiModel(description = "The Azure archive's integration destination.")
 @JsonPropertyOrder({
   LogsArchiveIntegrationAzure.JSON_PROPERTY_CLIENT_ID,
   LogsArchiveIntegrationAzure.JSON_PROPERTY_TENANT_ID
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class LogsArchiveIntegrationAzure {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
   private String clientId;
 
@@ -38,10 +51,11 @@ public class LogsArchiveIntegrationAzure {
 
   @JsonCreator
   public LogsArchiveIntegrationAzure(
-      @JsonProperty(required = true, value = JSON_PROPERTY_CLIENT_ID) String clientId,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TENANT_ID) String tenantId) {
-    this.clientId = clientId;
-    this.tenantId = tenantId;
+            @JsonProperty(required=true, value=JSON_PROPERTY_CLIENT_ID) String clientId,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TENANT_ID) String tenantId
+            ) {
+        this.clientId = clientId;
+        this.tenantId = tenantId;
   }
 
   public LogsArchiveIntegrationAzure clientId(String clientId) {
@@ -49,50 +63,50 @@ public class LogsArchiveIntegrationAzure {
     return this;
   }
 
-  /**
+   /**
    * A client ID.
-   *
    * @return clientId
-   */
-  @ApiModelProperty(
-      example = "aaaaaaaa-1a1a-1a1a-1a1a-aaaaaaaaaaaa",
-      required = true,
-      value = "A client ID.")
+  **/
+  @ApiModelProperty(example = "aaaaaaaa-1a1a-1a1a-1a1a-aaaaaaaaaaaa", required = true, value = "A client ID.")
   @JsonProperty(JSON_PROPERTY_CLIENT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getClientId() {
     return clientId;
   }
 
+
   public void setClientId(String clientId) {
     this.clientId = clientId;
   }
+
 
   public LogsArchiveIntegrationAzure tenantId(String tenantId) {
     this.tenantId = tenantId;
     return this;
   }
 
-  /**
+   /**
    * A tenant ID.
-   *
    * @return tenantId
-   */
-  @ApiModelProperty(
-      example = "aaaaaaaa-1a1a-1a1a-1a1a-aaaaaaaaaaaa",
-      required = true,
-      value = "A tenant ID.")
+  **/
+  @ApiModelProperty(example = "aaaaaaaa-1a1a-1a1a-1a1a-aaaaaaaaaaaa", required = true, value = "A tenant ID.")
   @JsonProperty(JSON_PROPERTY_TENANT_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getTenantId() {
     return tenantId;
   }
+
 
   public void setTenantId(String tenantId) {
     this.tenantId = tenantId;
   }
 
-  /** Return true if this LogsArchiveIntegrationAzure object is equal to o. */
+
+  /**
+   * Return true if this LogsArchiveIntegrationAzure object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -102,8 +116,8 @@ public class LogsArchiveIntegrationAzure {
       return false;
     }
     LogsArchiveIntegrationAzure logsArchiveIntegrationAzure = (LogsArchiveIntegrationAzure) o;
-    return Objects.equals(this.clientId, logsArchiveIntegrationAzure.clientId)
-        && Objects.equals(this.tenantId, logsArchiveIntegrationAzure.tenantId);
+    return Objects.equals(this.clientId, logsArchiveIntegrationAzure.clientId) &&
+        Objects.equals(this.tenantId, logsArchiveIntegrationAzure.tenantId);
   }
 
   @Override
@@ -122,7 +136,8 @@ public class LogsArchiveIntegrationAzure {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -130,4 +145,6 @@ public class LogsArchiveIntegrationAzure {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

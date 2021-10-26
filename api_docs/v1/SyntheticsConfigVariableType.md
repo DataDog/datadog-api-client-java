@@ -1,13 +1,7 @@
-
-
 # SyntheticsConfigVariableType
 
 ## Enum
 
+- `GLOBAL` (value: `"global"`)
 
-* `GLOBAL` (value: `"global"`)
-
-* `TEXT` (value: `"text"`)
-
-
-
+- `TEXT` (value: `"text"`)

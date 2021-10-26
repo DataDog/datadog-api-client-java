@@ -8,30 +8,47 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.SyntheticsCIBatchMetadataCI;
+import com.datadog.api.v1.client.model.SyntheticsCIBatchMetadataGit;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Metadata for the Synthetics tests run. */
+
+/**
+ * Metadata for the Synthetics tests run.
+ */
 @ApiModel(description = "Metadata for the Synthetics tests run.")
 @JsonPropertyOrder({
   SyntheticsCIBatchMetadata.JSON_PROPERTY_CI,
   SyntheticsCIBatchMetadata.JSON_PROPERTY_GIT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SyntheticsCIBatchMetadata {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CI = "ci";
   private SyntheticsCIBatchMetadataCI ci;
 
   public static final String JSON_PROPERTY_GIT = "git";
   private SyntheticsCIBatchMetadataGit git;
+
 
   public SyntheticsCIBatchMetadata ci(SyntheticsCIBatchMetadataCI ci) {
     this.ci = ci;
@@ -39,22 +56,24 @@ public class SyntheticsCIBatchMetadata {
     return this;
   }
 
-  /**
+   /**
    * Get ci
-   *
    * @return ci
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public SyntheticsCIBatchMetadataCI getCi() {
     return ci;
   }
 
+
   public void setCi(SyntheticsCIBatchMetadataCI ci) {
     this.ci = ci;
   }
+
 
   public SyntheticsCIBatchMetadata git(SyntheticsCIBatchMetadataGit git) {
     this.git = git;
@@ -62,24 +81,28 @@ public class SyntheticsCIBatchMetadata {
     return this;
   }
 
-  /**
+   /**
    * Get git
-   *
    * @return git
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_GIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public SyntheticsCIBatchMetadataGit getGit() {
     return git;
   }
+
 
   public void setGit(SyntheticsCIBatchMetadataGit git) {
     this.git = git;
   }
 
-  /** Return true if this SyntheticsCIBatchMetadata object is equal to o. */
+
+  /**
+   * Return true if this SyntheticsCIBatchMetadata object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -89,8 +112,8 @@ public class SyntheticsCIBatchMetadata {
       return false;
     }
     SyntheticsCIBatchMetadata syntheticsCIBatchMetadata = (SyntheticsCIBatchMetadata) o;
-    return Objects.equals(this.ci, syntheticsCIBatchMetadata.ci)
-        && Objects.equals(this.git, syntheticsCIBatchMetadata.git);
+    return Objects.equals(this.ci, syntheticsCIBatchMetadata.ci) &&
+        Objects.equals(this.git, syntheticsCIBatchMetadata.git);
   }
 
   @Override
@@ -109,7 +132,8 @@ public class SyntheticsCIBatchMetadata {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -117,4 +141,6 @@ public class SyntheticsCIBatchMetadata {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+
