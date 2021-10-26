@@ -11,7 +11,7 @@ repos:
     name: Generate
     language: node
     entry: make
-    files: "^(.generator|.pre-commit-config.yaml|.prettierrc.yml|docker-compose.generator.yaml)"
+    files: "^(.generator|.pre-commit-config.yaml|.prettierrc.yml|docker-compose.generator.yaml|Makefile)"
     pass_filenames: false
   - id: lint
     name: Format files

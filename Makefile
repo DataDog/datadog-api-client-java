@@ -1,5 +1,9 @@
 .PHONY: all
-all: .generator .env
+all: generate
+	@git add --update
+
+.PHONY: generate
+generate: .generator .env
 	@docker-compose -f docker-compose.generator.yaml up
 	@mkdir -p api_docs/v1 api_docs/v2
 	@cp -r v1/src/main ./src/
