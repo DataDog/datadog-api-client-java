@@ -13,6 +13,12 @@ repos:
     entry: ./format.sh
     files: '^src/test/'
     types: [file, java]
+  - id: generate
+    name: Generate
+    language: node
+    entry: make
+    files: "^.generator/.*"
+    pass_filenames: false
   - id: docs
     name: Format documentation
     stages: [manual]
