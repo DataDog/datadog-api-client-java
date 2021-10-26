@@ -10,124 +10,113 @@
 
 package com.datadog.api.v2.client.model;
 
-import com.datadog.api.v2.client.JSON;
-import com.datadog.api.v2.client.model.SecurityMonitoringFilterAction;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * The rule&#39;s suppression filter.
- */
+/** The rule&#39;s suppression filter. */
 @ApiModel(description = "The rule's suppression filter.")
-@JsonPropertyOrder({ SecurityMonitoringFilter.JSON_PROPERTY_ACTION, SecurityMonitoringFilter.JSON_PROPERTY_QUERY })
+@JsonPropertyOrder({
+  SecurityMonitoringFilter.JSON_PROPERTY_ACTION,
+  SecurityMonitoringFilter.JSON_PROPERTY_QUERY
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SecurityMonitoringFilter {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ACTION = "action";
+  private SecurityMonitoringFilterAction action;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_QUERY = "query";
+  private String query;
 
-    public static final String JSON_PROPERTY_ACTION = "action";
-    private SecurityMonitoringFilterAction action;
+  public SecurityMonitoringFilter action(SecurityMonitoringFilterAction action) {
+    this.action = action;
+    this.unparsed |= !action.isValid();
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_QUERY = "query";
-    private String query;
+  /**
+   * Get action
+   *
+   * @return action
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ACTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SecurityMonitoringFilterAction getAction() {
+    return action;
+  }
 
-    public SecurityMonitoringFilter action(SecurityMonitoringFilterAction action) {
-        this.action = action;
-        this.unparsed |= !action.isValid();
-        return this;
+  public void setAction(SecurityMonitoringFilterAction action) {
+    if (!action.isValid()) {
+      this.unparsed = true;
     }
+    this.action = action;
+  }
 
-    /**
-     * Get action
-     * @return action
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_ACTION)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public SecurityMonitoringFilterAction getAction() {
-        return action;
-    }
+  public SecurityMonitoringFilter query(String query) {
+    this.query = query;
+    return this;
+  }
 
-    public void setAction(SecurityMonitoringFilterAction action) {
-        if (!action.isValid()) {
-            this.unparsed = true;
-        }
-        this.action = action;
-    }
+  /**
+   * Query for selecting logs to apply the filtering action.
+   *
+   * @return query
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Query for selecting logs to apply the filtering action.")
+  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getQuery() {
+    return query;
+  }
 
-    public SecurityMonitoringFilter query(String query) {
-        this.query = query;
-        return this;
-    }
+  public void setQuery(String query) {
+    this.query = query;
+  }
 
-    /**
-     * Query for selecting logs to apply the filtering action.
-     * @return query
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Query for selecting logs to apply the filtering action.")
-    @JsonProperty(JSON_PROPERTY_QUERY)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getQuery() {
-        return query;
+  /** Return true if this SecurityMonitoringFilter object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    SecurityMonitoringFilter securityMonitoringFilter = (SecurityMonitoringFilter) o;
+    return Objects.equals(this.action, securityMonitoringFilter.action)
+        && Objects.equals(this.query, securityMonitoringFilter.query);
+  }
 
-    public void setQuery(String query) {
-        this.query = query;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(action, query);
+  }
 
-    /**
-     * Return true if this SecurityMonitoringFilter object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        SecurityMonitoringFilter securityMonitoringFilter = (SecurityMonitoringFilter) o;
-        return Objects.equals(this.action, securityMonitoringFilter.action) && Objects.equals(this.query, securityMonitoringFilter.query);
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class SecurityMonitoringFilter {\n");
+    sb.append("    action: ").append(toIndentedString(action)).append("\n");
+    sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(action, query);
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SecurityMonitoringFilter {\n");
-        sb.append("    action: ").append(toIndentedString(action)).append("\n");
-        sb.append("    query: ").append(toIndentedString(query)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

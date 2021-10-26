@@ -10,162 +10,151 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Error returned by the Logs API
- */
+/** Error returned by the Logs API */
 @ApiModel(description = "Error returned by the Logs API")
-@JsonPropertyOrder({ LogsAPIError.JSON_PROPERTY_CODE, LogsAPIError.JSON_PROPERTY_DETAILS, LogsAPIError.JSON_PROPERTY_MESSAGE })
+@JsonPropertyOrder({
+  LogsAPIError.JSON_PROPERTY_CODE,
+  LogsAPIError.JSON_PROPERTY_DETAILS,
+  LogsAPIError.JSON_PROPERTY_MESSAGE
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsAPIError {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CODE = "code";
+  private String code;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DETAILS = "details";
+  private List<LogsAPIError> details = null;
 
-    public static final String JSON_PROPERTY_CODE = "code";
-    private String code;
+  public static final String JSON_PROPERTY_MESSAGE = "message";
+  private String message;
 
-    public static final String JSON_PROPERTY_DETAILS = "details";
-    private List<LogsAPIError> details = null;
+  public LogsAPIError code(String code) {
+    this.code = code;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_MESSAGE = "message";
-    private String message;
+  /**
+   * Code identifying the error
+   *
+   * @return code
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Code identifying the error")
+  @JsonProperty(JSON_PROPERTY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCode() {
+    return code;
+  }
 
-    public LogsAPIError code(String code) {
-        this.code = code;
-        return this;
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+  public LogsAPIError details(List<LogsAPIError> details) {
+    this.details = details;
+    for (LogsAPIError item : details) {
+      this.unparsed |= item.unparsed;
     }
+    return this;
+  }
 
-    /**
-     * Code identifying the error
-     * @return code
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Code identifying the error")
-    @JsonProperty(JSON_PROPERTY_CODE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getCode() {
-        return code;
+  public LogsAPIError addDetailsItem(LogsAPIError detailsItem) {
+    if (this.details == null) {
+      this.details = new ArrayList<>();
     }
+    this.details.add(detailsItem);
+    this.unparsed |= detailsItem.unparsed;
+    return this;
+  }
 
-    public void setCode(String code) {
-        this.code = code;
-    }
+  /**
+   * Additional error details
+   *
+   * @return details
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Additional error details")
+  @JsonProperty(JSON_PROPERTY_DETAILS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<LogsAPIError> getDetails() {
+    return details;
+  }
 
-    public LogsAPIError details(List<LogsAPIError> details) {
-        this.details = details;
-        for (LogsAPIError item : details) {
-            this.unparsed |= item.unparsed;
-        }
-        return this;
-    }
+  public void setDetails(List<LogsAPIError> details) {
+    this.details = details;
+  }
 
-    public LogsAPIError addDetailsItem(LogsAPIError detailsItem) {
-        if (this.details == null) {
-            this.details = new ArrayList<>();
-        }
-        this.details.add(detailsItem);
-        this.unparsed |= detailsItem.unparsed;
-        return this;
-    }
+  public LogsAPIError message(String message) {
+    this.message = message;
+    return this;
+  }
 
-    /**
-     * Additional error details
-     * @return details
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Additional error details")
-    @JsonProperty(JSON_PROPERTY_DETAILS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<LogsAPIError> getDetails() {
-        return details;
-    }
+  /**
+   * Error message
+   *
+   * @return message
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Error message")
+  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getMessage() {
+    return message;
+  }
 
-    public void setDetails(List<LogsAPIError> details) {
-        this.details = details;
-    }
+  public void setMessage(String message) {
+    this.message = message;
+  }
 
-    public LogsAPIError message(String message) {
-        this.message = message;
-        return this;
+  /** Return true if this LogsAPIError object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    LogsAPIError logsAPIError = (LogsAPIError) o;
+    return Objects.equals(this.code, logsAPIError.code)
+        && Objects.equals(this.details, logsAPIError.details)
+        && Objects.equals(this.message, logsAPIError.message);
+  }
 
-    /**
-     * Error message
-     * @return message
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Error message")
-    @JsonProperty(JSON_PROPERTY_MESSAGE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getMessage() {
-        return message;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(code, details, message);
+  }
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class LogsAPIError {\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    details: ").append(toIndentedString(details)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Return true if this LogsAPIError object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        LogsAPIError logsAPIError = (LogsAPIError) o;
-        return (
-            Objects.equals(this.code, logsAPIError.code) &&
-            Objects.equals(this.details, logsAPIError.details) &&
-            Objects.equals(this.message, logsAPIError.message)
-        );
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(code, details, message);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class LogsAPIError {\n");
-        sb.append("    code: ").append(toIndentedString(code)).append("\n");
-        sb.append("    details: ").append(toIndentedString(details)).append("\n");
-        sb.append("    message: ").append(toIndentedString(message)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

@@ -1,23 +1,29 @@
+
+
 # SecurityMonitoringRuleKeepAlive
 
 ## Enum
 
-- `ZERO_MINUTES` (value: `0`)
 
-- `ONE_MINUTE` (value: `60`)
+* `ZERO_MINUTES` (value: `0`)
 
-- `FIVE_MINUTES` (value: `300`)
+* `ONE_MINUTE` (value: `60`)
 
-- `TEN_MINUTES` (value: `600`)
+* `FIVE_MINUTES` (value: `300`)
 
-- `FIFTEEN_MINUTES` (value: `900`)
+* `TEN_MINUTES` (value: `600`)
 
-- `THIRTY_MINUTES` (value: `1800`)
+* `FIFTEEN_MINUTES` (value: `900`)
 
-- `ONE_HOUR` (value: `3600`)
+* `THIRTY_MINUTES` (value: `1800`)
 
-- `TWO_HOURS` (value: `7200`)
+* `ONE_HOUR` (value: `3600`)
 
-- `THREE_HOURS` (value: `10800`)
+* `TWO_HOURS` (value: `7200`)
 
-- `SIX_HOURS` (value: `21600`)
+* `THREE_HOURS` (value: `10800`)
+
+* `SIX_HOURS` (value: `21600`)
+
+
+

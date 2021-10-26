@@ -17,31 +17,31 @@ import org.junit.Test;
 /** API tests for ProcessesApi */
 public class ProcessesApiTest {
 
-    private final ProcessesApi api = new ProcessesApi();
+  private final ProcessesApi api = new ProcessesApi();
 
-    /**
-     * Get all processes
-     *
-     * <p>Get all processes for your organization.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void listProcessesTest() throws ApiException {
-        // String search = null;
-        // String tags = null;
-        // Long from = null;
-        // Long to = null;
-        // Integer pageLimit = null;
-        // String pageCursor = null;
-        // ProcessSummariesResponse response = api.listProcesses()
-        //        .search(search)
-        //        .tags(tags)
-        //        .from(from)
-        //        .to(to)
-        //        .pageLimit(pageLimit)
-        //        .pageCursor(pageCursor)
-        //        .execute();
-        // TODO: test validations
-    }
+  /**
+   * Get all processes
+   *
+   * <p>Get all processes for your organization.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void listProcessesTest() throws ApiException {
+    // String search = null;
+    // String tags = null;
+    // Long from = null;
+    // Long to = null;
+    // Integer pageLimit = null;
+    // String pageCursor = null;
+    // ProcessSummariesResponse response = api.listProcesses()
+    //        .search(search)
+    //        .tags(tags)
+    //        .from(from)
+    //        .to(to)
+    //        .pageLimit(pageLimit)
+    //        .pageCursor(pageCursor)
+    //        .execute();
+    // TODO: test validations
+  }
 }

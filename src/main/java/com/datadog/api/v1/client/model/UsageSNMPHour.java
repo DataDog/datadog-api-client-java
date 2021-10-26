@@ -10,120 +10,107 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * The number of SNMP devices for each hour for a given organization.
- */
+/** The number of SNMP devices for each hour for a given organization. */
 @ApiModel(description = "The number of SNMP devices for each hour for a given organization.")
-@JsonPropertyOrder({ UsageSNMPHour.JSON_PROPERTY_HOUR, UsageSNMPHour.JSON_PROPERTY_SNMP_DEVICES })
+@JsonPropertyOrder({UsageSNMPHour.JSON_PROPERTY_HOUR, UsageSNMPHour.JSON_PROPERTY_SNMP_DEVICES})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageSNMPHour {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_HOUR = "hour";
+  private OffsetDateTime hour;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_SNMP_DEVICES = "snmp_devices";
+  private Long snmpDevices;
 
-    public static final String JSON_PROPERTY_HOUR = "hour";
-    private OffsetDateTime hour;
+  public UsageSNMPHour hour(OffsetDateTime hour) {
+    this.hour = hour;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_SNMP_DEVICES = "snmp_devices";
-    private Long snmpDevices;
+  /**
+   * The hour for the usage.
+   *
+   * @return hour
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The hour for the usage.")
+  @JsonProperty(JSON_PROPERTY_HOUR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getHour() {
+    return hour;
+  }
 
-    public UsageSNMPHour hour(OffsetDateTime hour) {
-        this.hour = hour;
-        return this;
+  public void setHour(OffsetDateTime hour) {
+    this.hour = hour;
+  }
+
+  public UsageSNMPHour snmpDevices(Long snmpDevices) {
+    this.snmpDevices = snmpDevices;
+    return this;
+  }
+
+  /**
+   * Contains the number of SNMP devices.
+   *
+   * @return snmpDevices
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Contains the number of SNMP devices.")
+  @JsonProperty(JSON_PROPERTY_SNMP_DEVICES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getSnmpDevices() {
+    return snmpDevices;
+  }
+
+  public void setSnmpDevices(Long snmpDevices) {
+    this.snmpDevices = snmpDevices;
+  }
+
+  /** Return true if this UsageSNMPHour object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * The hour for the usage.
-     * @return hour
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The hour for the usage.")
-    @JsonProperty(JSON_PROPERTY_HOUR)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public OffsetDateTime getHour() {
-        return hour;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    UsageSNMPHour usageSNMPHour = (UsageSNMPHour) o;
+    return Objects.equals(this.hour, usageSNMPHour.hour)
+        && Objects.equals(this.snmpDevices, usageSNMPHour.snmpDevices);
+  }
 
-    public void setHour(OffsetDateTime hour) {
-        this.hour = hour;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(hour, snmpDevices);
+  }
 
-    public UsageSNMPHour snmpDevices(Long snmpDevices) {
-        this.snmpDevices = snmpDevices;
-        return this;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class UsageSNMPHour {\n");
+    sb.append("    hour: ").append(toIndentedString(hour)).append("\n");
+    sb.append("    snmpDevices: ").append(toIndentedString(snmpDevices)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Contains the number of SNMP devices.
-     * @return snmpDevices
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Contains the number of SNMP devices.")
-    @JsonProperty(JSON_PROPERTY_SNMP_DEVICES)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Long getSnmpDevices() {
-        return snmpDevices;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    public void setSnmpDevices(Long snmpDevices) {
-        this.snmpDevices = snmpDevices;
-    }
-
-    /**
-     * Return true if this UsageSNMPHour object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        UsageSNMPHour usageSNMPHour = (UsageSNMPHour) o;
-        return Objects.equals(this.hour, usageSNMPHour.hour) && Objects.equals(this.snmpDevices, usageSNMPHour.snmpDevices);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(hour, snmpDevices);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class UsageSNMPHour {\n");
-        sb.append("    hour: ").append(toIndentedString(hour)).append("\n");
-        sb.append("    snmpDevices: ").append(toIndentedString(snmpDevices)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

@@ -10,202 +10,194 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.datadog.api.v1.client.model.FormulaAndFunctionMetricAggregation;
-import com.datadog.api.v1.client.model.FormulaAndFunctionMetricDataSource;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * A formula and functions metrics query.
- */
+/** A formula and functions metrics query. */
 @ApiModel(description = "A formula and functions metrics query.")
-@JsonPropertyOrder(
-    {
-        FormulaAndFunctionMetricQueryDefinition.JSON_PROPERTY_AGGREGATOR,
-        FormulaAndFunctionMetricQueryDefinition.JSON_PROPERTY_DATA_SOURCE,
-        FormulaAndFunctionMetricQueryDefinition.JSON_PROPERTY_NAME,
-        FormulaAndFunctionMetricQueryDefinition.JSON_PROPERTY_QUERY
-    }
-)
+@JsonPropertyOrder({
+  FormulaAndFunctionMetricQueryDefinition.JSON_PROPERTY_AGGREGATOR,
+  FormulaAndFunctionMetricQueryDefinition.JSON_PROPERTY_DATA_SOURCE,
+  FormulaAndFunctionMetricQueryDefinition.JSON_PROPERTY_NAME,
+  FormulaAndFunctionMetricQueryDefinition.JSON_PROPERTY_QUERY
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FormulaAndFunctionMetricQueryDefinition {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_AGGREGATOR = "aggregator";
+  private FormulaAndFunctionMetricAggregation aggregator;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DATA_SOURCE = "data_source";
+  private FormulaAndFunctionMetricDataSource dataSource;
 
-    public static final String JSON_PROPERTY_AGGREGATOR = "aggregator";
-    private FormulaAndFunctionMetricAggregation aggregator;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
-    public static final String JSON_PROPERTY_DATA_SOURCE = "data_source";
-    private FormulaAndFunctionMetricDataSource dataSource;
+  public static final String JSON_PROPERTY_QUERY = "query";
+  private String query;
 
-    public static final String JSON_PROPERTY_NAME = "name";
-    private String name;
+  public FormulaAndFunctionMetricQueryDefinition() {}
 
-    public static final String JSON_PROPERTY_QUERY = "query";
-    private String query;
+  @JsonCreator
+  public FormulaAndFunctionMetricQueryDefinition(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA_SOURCE)
+          FormulaAndFunctionMetricDataSource dataSource,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query) {
+    this.dataSource = dataSource;
+    this.unparsed |= !dataSource.isValid();
+    this.name = name;
+    this.query = query;
+  }
 
-    public FormulaAndFunctionMetricQueryDefinition() {}
+  public FormulaAndFunctionMetricQueryDefinition aggregator(
+      FormulaAndFunctionMetricAggregation aggregator) {
+    this.aggregator = aggregator;
+    this.unparsed |= !aggregator.isValid();
+    return this;
+  }
 
-    @JsonCreator
-    public FormulaAndFunctionMetricQueryDefinition(
-        @JsonProperty(required = true, value = JSON_PROPERTY_DATA_SOURCE) FormulaAndFunctionMetricDataSource dataSource,
-        @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-        @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query
-    ) {
-        this.dataSource = dataSource;
-        this.unparsed |= !dataSource.isValid();
-        this.name = name;
-        this.query = query;
+  /**
+   * Get aggregator
+   *
+   * @return aggregator
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_AGGREGATOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public FormulaAndFunctionMetricAggregation getAggregator() {
+    return aggregator;
+  }
+
+  public void setAggregator(FormulaAndFunctionMetricAggregation aggregator) {
+    if (!aggregator.isValid()) {
+      this.unparsed = true;
     }
+    this.aggregator = aggregator;
+  }
 
-    public FormulaAndFunctionMetricQueryDefinition aggregator(FormulaAndFunctionMetricAggregation aggregator) {
-        this.aggregator = aggregator;
-        this.unparsed |= !aggregator.isValid();
-        return this;
-    }
+  public FormulaAndFunctionMetricQueryDefinition dataSource(
+      FormulaAndFunctionMetricDataSource dataSource) {
+    this.dataSource = dataSource;
+    this.unparsed |= !dataSource.isValid();
+    return this;
+  }
 
-    /**
-     * Get aggregator
-     * @return aggregator
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_AGGREGATOR)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public FormulaAndFunctionMetricAggregation getAggregator() {
-        return aggregator;
-    }
+  /**
+   * Get dataSource
+   *
+   * @return dataSource
+   */
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public FormulaAndFunctionMetricDataSource getDataSource() {
+    return dataSource;
+  }
 
-    public void setAggregator(FormulaAndFunctionMetricAggregation aggregator) {
-        if (!aggregator.isValid()) {
-            this.unparsed = true;
-        }
-        this.aggregator = aggregator;
+  public void setDataSource(FormulaAndFunctionMetricDataSource dataSource) {
+    if (!dataSource.isValid()) {
+      this.unparsed = true;
     }
+    this.dataSource = dataSource;
+  }
 
-    public FormulaAndFunctionMetricQueryDefinition dataSource(FormulaAndFunctionMetricDataSource dataSource) {
-        this.dataSource = dataSource;
-        this.unparsed |= !dataSource.isValid();
-        return this;
-    }
+  public FormulaAndFunctionMetricQueryDefinition name(String name) {
+    this.name = name;
+    return this;
+  }
 
-    /**
-     * Get dataSource
-     * @return dataSource
-     **/
-    @ApiModelProperty(required = true, value = "")
-    @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public FormulaAndFunctionMetricDataSource getDataSource() {
-        return dataSource;
-    }
+  /**
+   * Name of the query for use in formulas.
+   *
+   * @return name
+   */
+  @ApiModelProperty(
+      example = "my_query",
+      required = true,
+      value = "Name of the query for use in formulas.")
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getName() {
+    return name;
+  }
 
-    public void setDataSource(FormulaAndFunctionMetricDataSource dataSource) {
-        if (!dataSource.isValid()) {
-            this.unparsed = true;
-        }
-        this.dataSource = dataSource;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public FormulaAndFunctionMetricQueryDefinition name(String name) {
-        this.name = name;
-        return this;
-    }
+  public FormulaAndFunctionMetricQueryDefinition query(String query) {
+    this.query = query;
+    return this;
+  }
 
-    /**
-     * Name of the query for use in formulas.
-     * @return name
-     **/
-    @ApiModelProperty(example = "my_query", required = true, value = "Name of the query for use in formulas.")
-    @JsonProperty(JSON_PROPERTY_NAME)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public String getName() {
-        return name;
-    }
+  /**
+   * Metrics query definition.
+   *
+   * @return query
+   */
+  @ApiModelProperty(
+      example = "avg:system.cpu.user{*}",
+      required = true,
+      value = "Metrics query definition.")
+  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getQuery() {
+    return query;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public void setQuery(String query) {
+    this.query = query;
+  }
 
-    public FormulaAndFunctionMetricQueryDefinition query(String query) {
-        this.query = query;
-        return this;
+  /** Return true if this FormulaAndFunctionMetricQueryDefinition object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    FormulaAndFunctionMetricQueryDefinition formulaAndFunctionMetricQueryDefinition =
+        (FormulaAndFunctionMetricQueryDefinition) o;
+    return Objects.equals(this.aggregator, formulaAndFunctionMetricQueryDefinition.aggregator)
+        && Objects.equals(this.dataSource, formulaAndFunctionMetricQueryDefinition.dataSource)
+        && Objects.equals(this.name, formulaAndFunctionMetricQueryDefinition.name)
+        && Objects.equals(this.query, formulaAndFunctionMetricQueryDefinition.query);
+  }
 
-    /**
-     * Metrics query definition.
-     * @return query
-     **/
-    @ApiModelProperty(example = "avg:system.cpu.user{*}", required = true, value = "Metrics query definition.")
-    @JsonProperty(JSON_PROPERTY_QUERY)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public String getQuery() {
-        return query;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(aggregator, dataSource, name, query);
+  }
 
-    public void setQuery(String query) {
-        this.query = query;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class FormulaAndFunctionMetricQueryDefinition {\n");
+    sb.append("    aggregator: ").append(toIndentedString(aggregator)).append("\n");
+    sb.append("    dataSource: ").append(toIndentedString(dataSource)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Return true if this FormulaAndFunctionMetricQueryDefinition object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        FormulaAndFunctionMetricQueryDefinition formulaAndFunctionMetricQueryDefinition = (FormulaAndFunctionMetricQueryDefinition) o;
-        return (
-            Objects.equals(this.aggregator, formulaAndFunctionMetricQueryDefinition.aggregator) &&
-            Objects.equals(this.dataSource, formulaAndFunctionMetricQueryDefinition.dataSource) &&
-            Objects.equals(this.name, formulaAndFunctionMetricQueryDefinition.name) &&
-            Objects.equals(this.query, formulaAndFunctionMetricQueryDefinition.query)
-        );
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(aggregator, dataSource, name, query);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class FormulaAndFunctionMetricQueryDefinition {\n");
-        sb.append("    aggregator: ").append(toIndentedString(aggregator)).append("\n");
-        sb.append("    dataSource: ").append(toIndentedString(dataSource)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    query: ").append(toIndentedString(query)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

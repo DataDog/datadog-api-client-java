@@ -10,97 +10,87 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Has one property enabled (boolean).
- */
+/** Has one property enabled (boolean). */
 @ApiModel(description = "Has one property enabled (boolean).")
-@JsonPropertyOrder({ OrganizationSettingsSamlStrictMode.JSON_PROPERTY_ENABLED })
+@JsonPropertyOrder({OrganizationSettingsSamlStrictMode.JSON_PROPERTY_ENABLED})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class OrganizationSettingsSamlStrictMode {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ENABLED = "enabled";
+  private Boolean enabled;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public OrganizationSettingsSamlStrictMode enabled(Boolean enabled) {
+    this.enabled = enabled;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_ENABLED = "enabled";
-    private Boolean enabled;
+  /**
+   * Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML. Learn
+   * more on the [SAML Strict
+   * documentation](https://docs.datadoghq.com/account_management/saml/#saml-strict).
+   *
+   * @return enabled
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      example = "false",
+      value =
+          "Whether or not the SAML strict mode is enabled. If true, all users must log in with"
+              + " SAML. Learn more on the [SAML Strict"
+              + " documentation](https://docs.datadoghq.com/account_management/saml/#saml-strict).")
+  @JsonProperty(JSON_PROPERTY_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getEnabled() {
+    return enabled;
+  }
 
-    public OrganizationSettingsSamlStrictMode enabled(Boolean enabled) {
-        this.enabled = enabled;
-        return this;
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
+  }
+
+  /** Return true if this Organization_settings_saml_strict_mode object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML. Learn more on the [SAML Strict documentation](https://docs.datadoghq.com/account_management/saml/#saml-strict).
-     * @return enabled
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(
-        example = "false",
-        value = "Whether or not the SAML strict mode is enabled. If true, all users must log in with SAML. Learn more on the [SAML Strict documentation](https://docs.datadoghq.com/account_management/saml/#saml-strict)."
-    )
-    @JsonProperty(JSON_PROPERTY_ENABLED)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Boolean getEnabled() {
-        return enabled;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    OrganizationSettingsSamlStrictMode organizationSettingsSamlStrictMode =
+        (OrganizationSettingsSamlStrictMode) o;
+    return Objects.equals(this.enabled, organizationSettingsSamlStrictMode.enabled);
+  }
 
-    public void setEnabled(Boolean enabled) {
-        this.enabled = enabled;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(enabled);
+  }
 
-    /**
-     * Return true if this Organization_settings_saml_strict_mode object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        OrganizationSettingsSamlStrictMode organizationSettingsSamlStrictMode = (OrganizationSettingsSamlStrictMode) o;
-        return Objects.equals(this.enabled, organizationSettingsSamlStrictMode.enabled);
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class OrganizationSettingsSamlStrictMode {\n");
+    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(enabled);
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class OrganizationSettingsSamlStrictMode {\n");
-        sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

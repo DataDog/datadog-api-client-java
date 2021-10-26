@@ -1,13 +1,19 @@
+
+
 # DashboardType
 
 ## Enum
 
-- `CUSTOM_TIMEBOARD` (value: `"custom_timeboard"`)
 
-- `CUSTOM_SCREENBOARD` (value: `"custom_screenboard"`)
+* `CUSTOM_TIMEBOARD` (value: `"custom_timeboard"`)
 
-- `INTEGRATION_SCREENBOARD` (value: `"integration_screenboard"`)
+* `CUSTOM_SCREENBOARD` (value: `"custom_screenboard"`)
 
-- `INTEGRATION_TIMEBOARD` (value: `"integration_timeboard"`)
+* `INTEGRATION_SCREENBOARD` (value: `"integration_screenboard"`)
 
-- `HOST_TIMEBOARD` (value: `"host_timeboard"`)
+* `INTEGRATION_TIMEBOARD` (value: `"integration_timeboard"`)
+
+* `HOST_TIMEBOARD` (value: `"host_timeboard"`)
+
+
+

@@ -1,7 +1,13 @@
+
+
 # SyntheticsTestDetailsType
 
 ## Enum
 
-- `API` (value: `"api"`)
 
-- `BROWSER` (value: `"browser"`)
+* `API` (value: `"api"`)
+
+* `BROWSER` (value: `"browser"`)
+
+
+

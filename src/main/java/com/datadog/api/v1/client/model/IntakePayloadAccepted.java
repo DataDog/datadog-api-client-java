@@ -10,94 +10,79 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * The payload accepted for intake.
- */
+/** The payload accepted for intake. */
 @ApiModel(description = "The payload accepted for intake.")
-@JsonPropertyOrder({ IntakePayloadAccepted.JSON_PROPERTY_STATUS })
+@JsonPropertyOrder({IntakePayloadAccepted.JSON_PROPERTY_STATUS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IntakePayloadAccepted {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_STATUS = "status";
+  private String status;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public IntakePayloadAccepted status(String status) {
+    this.status = status;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_STATUS = "status";
-    private String status;
+  /**
+   * The status of the intake payload.
+   *
+   * @return status
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "ok", value = "The status of the intake payload.")
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getStatus() {
+    return status;
+  }
 
-    public IntakePayloadAccepted status(String status) {
-        this.status = status;
-        return this;
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  /** Return true if this IntakePayloadAccepted object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * The status of the intake payload.
-     * @return status
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "ok", value = "The status of the intake payload.")
-    @JsonProperty(JSON_PROPERTY_STATUS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getStatus() {
-        return status;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    IntakePayloadAccepted intakePayloadAccepted = (IntakePayloadAccepted) o;
+    return Objects.equals(this.status, intakePayloadAccepted.status);
+  }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(status);
+  }
 
-    /**
-     * Return true if this IntakePayloadAccepted object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        IntakePayloadAccepted intakePayloadAccepted = (IntakePayloadAccepted) o;
-        return Objects.equals(this.status, intakePayloadAccepted.status);
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class IntakePayloadAccepted {\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(status);
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class IntakePayloadAccepted {\n");
-        sb.append("    status: ").append(toIndentedString(status)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

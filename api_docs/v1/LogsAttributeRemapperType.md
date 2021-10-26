@@ -1,5 +1,11 @@
+
+
 # LogsAttributeRemapperType
 
 ## Enum
 
-- `ATTRIBUTE_REMAPPER` (value: `"attribute-remapper"`)
+
+* `ATTRIBUTE_REMAPPER` (value: `"attribute-remapper"`)
+
+
+

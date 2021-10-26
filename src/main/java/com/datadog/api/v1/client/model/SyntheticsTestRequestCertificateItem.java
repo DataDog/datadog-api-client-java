@@ -10,154 +10,138 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Define a request certificate.
- */
+/** Define a request certificate. */
 @ApiModel(description = "Define a request certificate.")
-@JsonPropertyOrder(
-    {
-        SyntheticsTestRequestCertificateItem.JSON_PROPERTY_CONTENT,
-        SyntheticsTestRequestCertificateItem.JSON_PROPERTY_FILENAME,
-        SyntheticsTestRequestCertificateItem.JSON_PROPERTY_UPDATED_AT
-    }
-)
+@JsonPropertyOrder({
+  SyntheticsTestRequestCertificateItem.JSON_PROPERTY_CONTENT,
+  SyntheticsTestRequestCertificateItem.JSON_PROPERTY_FILENAME,
+  SyntheticsTestRequestCertificateItem.JSON_PROPERTY_UPDATED_AT
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsTestRequestCertificateItem {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CONTENT = "content";
+  private String content;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_FILENAME = "filename";
+  private String filename;
 
-    public static final String JSON_PROPERTY_CONTENT = "content";
-    private String content;
+  public static final String JSON_PROPERTY_UPDATED_AT = "updatedAt";
+  private String updatedAt;
 
-    public static final String JSON_PROPERTY_FILENAME = "filename";
-    private String filename;
+  public SyntheticsTestRequestCertificateItem content(String content) {
+    this.content = content;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_UPDATED_AT = "updatedAt";
-    private String updatedAt;
+  /**
+   * Content of the certificate or key.
+   *
+   * @return content
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Content of the certificate or key.")
+  @JsonProperty(JSON_PROPERTY_CONTENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getContent() {
+    return content;
+  }
 
-    public SyntheticsTestRequestCertificateItem content(String content) {
-        this.content = content;
-        return this;
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  public SyntheticsTestRequestCertificateItem filename(String filename) {
+    this.filename = filename;
+    return this;
+  }
+
+  /**
+   * File name for the certificate or key.
+   *
+   * @return filename
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "File name for the certificate or key.")
+  @JsonProperty(JSON_PROPERTY_FILENAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getFilename() {
+    return filename;
+  }
+
+  public void setFilename(String filename) {
+    this.filename = filename;
+  }
+
+  public SyntheticsTestRequestCertificateItem updatedAt(String updatedAt) {
+    this.updatedAt = updatedAt;
+    return this;
+  }
+
+  /**
+   * Date of update of the certificate or key, ISO format.
+   *
+   * @return updatedAt
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Date of update of the certificate or key, ISO format.")
+  @JsonProperty(JSON_PROPERTY_UPDATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getUpdatedAt() {
+    return updatedAt;
+  }
+
+  public void setUpdatedAt(String updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
+  /** Return true if this SyntheticsTestRequestCertificateItem object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * Content of the certificate or key.
-     * @return content
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Content of the certificate or key.")
-    @JsonProperty(JSON_PROPERTY_CONTENT)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getContent() {
-        return content;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    SyntheticsTestRequestCertificateItem syntheticsTestRequestCertificateItem =
+        (SyntheticsTestRequestCertificateItem) o;
+    return Objects.equals(this.content, syntheticsTestRequestCertificateItem.content)
+        && Objects.equals(this.filename, syntheticsTestRequestCertificateItem.filename)
+        && Objects.equals(this.updatedAt, syntheticsTestRequestCertificateItem.updatedAt);
+  }
 
-    public void setContent(String content) {
-        this.content = content;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(content, filename, updatedAt);
+  }
 
-    public SyntheticsTestRequestCertificateItem filename(String filename) {
-        this.filename = filename;
-        return this;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class SyntheticsTestRequestCertificateItem {\n");
+    sb.append("    content: ").append(toIndentedString(content)).append("\n");
+    sb.append("    filename: ").append(toIndentedString(filename)).append("\n");
+    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * File name for the certificate or key.
-     * @return filename
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "File name for the certificate or key.")
-    @JsonProperty(JSON_PROPERTY_FILENAME)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getFilename() {
-        return filename;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    public void setFilename(String filename) {
-        this.filename = filename;
-    }
-
-    public SyntheticsTestRequestCertificateItem updatedAt(String updatedAt) {
-        this.updatedAt = updatedAt;
-        return this;
-    }
-
-    /**
-     * Date of update of the certificate or key, ISO format.
-     * @return updatedAt
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Date of update of the certificate or key, ISO format.")
-    @JsonProperty(JSON_PROPERTY_UPDATED_AT)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(String updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    /**
-     * Return true if this SyntheticsTestRequestCertificateItem object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        SyntheticsTestRequestCertificateItem syntheticsTestRequestCertificateItem = (SyntheticsTestRequestCertificateItem) o;
-        return (
-            Objects.equals(this.content, syntheticsTestRequestCertificateItem.content) &&
-            Objects.equals(this.filename, syntheticsTestRequestCertificateItem.filename) &&
-            Objects.equals(this.updatedAt, syntheticsTestRequestCertificateItem.updatedAt)
-        );
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(content, filename, updatedAt);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SyntheticsTestRequestCertificateItem {\n");
-        sb.append("    content: ").append(toIndentedString(content)).append("\n");
-        sb.append("    filename: ").append(toIndentedString(filename)).append("\n");
-        sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

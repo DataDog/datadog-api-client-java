@@ -10,161 +10,144 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.datadog.api.v1.client.model.UsageReportsType;
-import com.datadog.api.v1.client.model.UsageSpecifiedCustomReportsAttributes;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Response containing date and type for specified custom reports.
- */
+/** Response containing date and type for specified custom reports. */
 @ApiModel(description = "Response containing date and type for specified custom reports.")
-@JsonPropertyOrder(
-    {
-        UsageSpecifiedCustomReportsData.JSON_PROPERTY_ATTRIBUTES,
-        UsageSpecifiedCustomReportsData.JSON_PROPERTY_ID,
-        UsageSpecifiedCustomReportsData.JSON_PROPERTY_TYPE
-    }
-)
+@JsonPropertyOrder({
+  UsageSpecifiedCustomReportsData.JSON_PROPERTY_ATTRIBUTES,
+  UsageSpecifiedCustomReportsData.JSON_PROPERTY_ID,
+  UsageSpecifiedCustomReportsData.JSON_PROPERTY_TYPE
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageSpecifiedCustomReportsData {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private UsageSpecifiedCustomReportsAttributes attributes;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
 
-    public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-    private UsageSpecifiedCustomReportsAttributes attributes;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private UsageReportsType type = UsageReportsType.REPORTS;
 
-    public static final String JSON_PROPERTY_ID = "id";
-    private String id;
+  public UsageSpecifiedCustomReportsData attributes(
+      UsageSpecifiedCustomReportsAttributes attributes) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_TYPE = "type";
-    private UsageReportsType type = UsageReportsType.REPORTS;
+  /**
+   * Get attributes
+   *
+   * @return attributes
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public UsageSpecifiedCustomReportsAttributes getAttributes() {
+    return attributes;
+  }
 
-    public UsageSpecifiedCustomReportsData attributes(UsageSpecifiedCustomReportsAttributes attributes) {
-        this.attributes = attributes;
-        this.unparsed |= attributes.unparsed;
-        return this;
+  public void setAttributes(UsageSpecifiedCustomReportsAttributes attributes) {
+    this.attributes = attributes;
+  }
+
+  public UsageSpecifiedCustomReportsData id(String id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * The date for specified custom reports.
+   *
+   * @return id
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The date for specified custom reports.")
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public UsageSpecifiedCustomReportsData type(UsageReportsType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    return this;
+  }
+
+  /**
+   * Get type
+   *
+   * @return type
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public UsageReportsType getType() {
+    return type;
+  }
+
+  public void setType(UsageReportsType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
     }
+    this.type = type;
+  }
 
-    /**
-     * Get attributes
-     * @return attributes
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public UsageSpecifiedCustomReportsAttributes getAttributes() {
-        return attributes;
+  /** Return true if this UsageSpecifiedCustomReportsData object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    UsageSpecifiedCustomReportsData usageSpecifiedCustomReportsData =
+        (UsageSpecifiedCustomReportsData) o;
+    return Objects.equals(this.attributes, usageSpecifiedCustomReportsData.attributes)
+        && Objects.equals(this.id, usageSpecifiedCustomReportsData.id)
+        && Objects.equals(this.type, usageSpecifiedCustomReportsData.type);
+  }
 
-    public void setAttributes(UsageSpecifiedCustomReportsAttributes attributes) {
-        this.attributes = attributes;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(attributes, id, type);
+  }
 
-    public UsageSpecifiedCustomReportsData id(String id) {
-        this.id = id;
-        return this;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class UsageSpecifiedCustomReportsData {\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * The date for specified custom reports.
-     * @return id
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The date for specified custom reports.")
-    @JsonProperty(JSON_PROPERTY_ID)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getId() {
-        return id;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public UsageSpecifiedCustomReportsData type(UsageReportsType type) {
-        this.type = type;
-        this.unparsed |= !type.isValid();
-        return this;
-    }
-
-    /**
-     * Get type
-     * @return type
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_TYPE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public UsageReportsType getType() {
-        return type;
-    }
-
-    public void setType(UsageReportsType type) {
-        if (!type.isValid()) {
-            this.unparsed = true;
-        }
-        this.type = type;
-    }
-
-    /**
-     * Return true if this UsageSpecifiedCustomReportsData object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        UsageSpecifiedCustomReportsData usageSpecifiedCustomReportsData = (UsageSpecifiedCustomReportsData) o;
-        return (
-            Objects.equals(this.attributes, usageSpecifiedCustomReportsData.attributes) &&
-            Objects.equals(this.id, usageSpecifiedCustomReportsData.id) &&
-            Objects.equals(this.type, usageSpecifiedCustomReportsData.type)
-        );
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(attributes, id, type);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class UsageSpecifiedCustomReportsData {\n");
-        sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

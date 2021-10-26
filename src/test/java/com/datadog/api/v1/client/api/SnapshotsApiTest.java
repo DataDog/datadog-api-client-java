@@ -20,91 +20,105 @@ import org.junit.Test;
 /** API tests for SnapshotsApi */
 public class SnapshotsApiTest extends V1ApiTest {
 
-    private static SnapshotsApi api;
-    private static SnapshotsApi fakeAuthApi;
+  private static SnapshotsApi api;
+  private static SnapshotsApi fakeAuthApi;
 
-    // ObjectMapper instance configure to not fail when encountering unknown properties
-    private static ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+  // ObjectMapper instance configure to not fail when encountering unknown properties
+  private static ObjectMapper objectMapper =
+      new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
-    @Override
-    public String getTracingEndpoint() {
-        return "snapshots";
-    }
+  @Override
+  public String getTracingEndpoint() {
+    return "snapshots";
+  }
 
-    @BeforeClass
-    public static void initAPI() {
-        api = new SnapshotsApi(generalApiClient);
-        fakeAuthApi = new SnapshotsApi(generalFakeAuthApiClient);
-    }
+  @BeforeClass
+  public static void initAPI() {
+    api = new SnapshotsApi(generalApiClient);
+    fakeAuthApi = new SnapshotsApi(generalFakeAuthApiClient);
+  }
 
-    @Test
-    public void getGraphSnapshotTest() throws ApiException {
-        String metricQuery = "system.load.1{*}";
-        String graphDef = "{\"requests\": [{\"q\": \"system.load.1{*}\"}]}";
-        String title = getUniqueEntityName();
-        String eventQuery = "successful builds";
+  @Test
+  public void getGraphSnapshotTest() throws ApiException {
+    String metricQuery = "system.load.1{*}";
+    String graphDef = "{\"requests\": [{\"q\": \"system.load.1{*}\"}]}";
+    String title = getUniqueEntityName();
+    String eventQuery = "successful builds";
 
-        long start = now.toEpochSecond();
-        long end = start + (24 * 60 * 60);
+    long start = now.toEpochSecond();
+    long end = start + (24 * 60 * 60);
 
-        // Try to create a snapshot with a metric_query (and an optional event_query)
-        GraphSnapshot response = api.getGraphSnapshot(
+    // Try to create a snapshot with a metric_query (and an optional event_query)
+    GraphSnapshot response =
+        api.getGraphSnapshot(
             start,
             end,
-            new SnapshotsApi.GetGraphSnapshotOptionalParameters().metricQuery(metricQuery).title(title).eventQuery(eventQuery)
-        );
-        assertEquals(metricQuery, response.getMetricQuery());
-        assertEquals(graphDef, response.getGraphDef());
-        assertNotEquals("", response.getSnapshotUrl());
+            new SnapshotsApi.GetGraphSnapshotOptionalParameters()
+                .metricQuery(metricQuery)
+                .title(title)
+                .eventQuery(eventQuery));
+    assertEquals(metricQuery, response.getMetricQuery());
+    assertEquals(graphDef, response.getGraphDef());
+    assertNotEquals("", response.getSnapshotUrl());
 
-        // Try to create a snapshot with a graph_def
-        response = api.getGraphSnapshot(start, end, new SnapshotsApi.GetGraphSnapshotOptionalParameters().graphDef(graphDef).title(title));
-        assertEquals(graphDef, response.getGraphDef());
-        assertNotEquals("", response.getSnapshotUrl());
+    // Try to create a snapshot with a graph_def
+    response =
+        api.getGraphSnapshot(
+            start,
+            end,
+            new SnapshotsApi.GetGraphSnapshotOptionalParameters().graphDef(graphDef).title(title));
+    assertEquals(graphDef, response.getGraphDef());
+    assertNotEquals("", response.getSnapshotUrl());
+  }
+
+  @Test
+  public void testGetGraphSnapshotStartRequiredParam() {
+    long end = 2L;
+    String metricQuery = "query";
+
+    try {
+      api.getGraphSnapshot(
+          null,
+          end,
+          new SnapshotsApi.GetGraphSnapshotOptionalParameters().metricQuery(metricQuery));
+    } catch (ApiException e) {
+      assertTrue(e.getMessage().contains("Missing the required parameter 'start"));
+    }
+  }
+
+  @Test
+  public void testGetGraphSnapshotEndRequiredParam() {
+    long start = 1L;
+    String metricQuery = "query";
+
+    try {
+      api.getGraphSnapshot(
+          start,
+          null,
+          new SnapshotsApi.GetGraphSnapshotOptionalParameters().metricQuery(metricQuery));
+    } catch (ApiException e) {
+      assertTrue(e.getMessage().contains("Missing the required parameter 'end"));
+    }
+  }
+
+  @Test
+  public void getGraphErrors() throws IOException {
+    try {
+      api.getGraphSnapshot(Long.valueOf(345), Long.valueOf(123));
+      fail("Expected ApiException not thrown");
+    } catch (ApiException e) {
+      assertEquals(400, e.getCode());
+      APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+      assertNotNull(error.getErrors());
     }
 
-    @Test
-    public void testGetGraphSnapshotStartRequiredParam() {
-        long end = 2L;
-        String metricQuery = "query";
-
-        try {
-            api.getGraphSnapshot(null, end, new SnapshotsApi.GetGraphSnapshotOptionalParameters().metricQuery(metricQuery));
-        } catch (ApiException e) {
-            assertTrue(e.getMessage().contains("Missing the required parameter 'start"));
-        }
+    try {
+      fakeAuthApi.getGraphSnapshot(Long.valueOf(345), Long.valueOf(123));
+      fail("Expected ApiException not thrown");
+    } catch (ApiException e) {
+      assertEquals(403, e.getCode());
+      APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+      assertNotNull(error.getErrors());
     }
-
-    @Test
-    public void testGetGraphSnapshotEndRequiredParam() {
-        long start = 1L;
-        String metricQuery = "query";
-
-        try {
-            api.getGraphSnapshot(start, null, new SnapshotsApi.GetGraphSnapshotOptionalParameters().metricQuery(metricQuery));
-        } catch (ApiException e) {
-            assertTrue(e.getMessage().contains("Missing the required parameter 'end"));
-        }
-    }
-
-    @Test
-    public void getGraphErrors() throws IOException {
-        try {
-            api.getGraphSnapshot(Long.valueOf(345), Long.valueOf(123));
-            fail("Expected ApiException not thrown");
-        } catch (ApiException e) {
-            assertEquals(400, e.getCode());
-            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
-            assertNotNull(error.getErrors());
-        }
-
-        try {
-            fakeAuthApi.getGraphSnapshot(Long.valueOf(345), Long.valueOf(123));
-            fail("Expected ApiException not thrown");
-        } catch (ApiException e) {
-            assertEquals(403, e.getCode());
-            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
-            assertNotNull(error.getErrors());
-        }
-    }
+  }
 }

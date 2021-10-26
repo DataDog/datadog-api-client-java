@@ -1,53 +1,59 @@
+
+
 # SyntheticsStepType
 
 ## Enum
 
-- `ASSERT_CURRENT_URL` (value: `"assertCurrentUrl"`)
 
-- `ASSERT_ELEMENT_ATTRIBUTE` (value: `"assertElementAttribute"`)
+* `ASSERT_CURRENT_URL` (value: `"assertCurrentUrl"`)
 
-- `ASSERT_ELEMENT_CONTENT` (value: `"assertElementContent"`)
+* `ASSERT_ELEMENT_ATTRIBUTE` (value: `"assertElementAttribute"`)
 
-- `ASSERT_ELEMENT_PRESENT` (value: `"assertElementPresent"`)
+* `ASSERT_ELEMENT_CONTENT` (value: `"assertElementContent"`)
 
-- `ASSERT_EMAIL` (value: `"assertEmail"`)
+* `ASSERT_ELEMENT_PRESENT` (value: `"assertElementPresent"`)
 
-- `ASSERT_FILE_DOWNLOAD` (value: `"assertFileDownload"`)
+* `ASSERT_EMAIL` (value: `"assertEmail"`)
 
-- `ASSERT_FROM_JAVASCRIPT` (value: `"assertFromJavascript"`)
+* `ASSERT_FILE_DOWNLOAD` (value: `"assertFileDownload"`)
 
-- `ASSERT_PAGE_CONTAINS` (value: `"assertPageContains"`)
+* `ASSERT_FROM_JAVASCRIPT` (value: `"assertFromJavascript"`)
 
-- `ASSERT_PAGE_LACKS` (value: `"assertPageLacks"`)
+* `ASSERT_PAGE_CONTAINS` (value: `"assertPageContains"`)
 
-- `CLICK` (value: `"click"`)
+* `ASSERT_PAGE_LACKS` (value: `"assertPageLacks"`)
 
-- `EXTRACT_FROM_JAVASCRIPT` (value: `"extractFromJavascript"`)
+* `CLICK` (value: `"click"`)
 
-- `EXTRACT_VARIABLE` (value: `"extractVariable"`)
+* `EXTRACT_FROM_JAVASCRIPT` (value: `"extractFromJavascript"`)
 
-- `GO_TO_EMAIL_LINK` (value: `"goToEmailLink"`)
+* `EXTRACT_VARIABLE` (value: `"extractVariable"`)
 
-- `GO_TO_URL` (value: `"goToUrl"`)
+* `GO_TO_EMAIL_LINK` (value: `"goToEmailLink"`)
 
-- `GO_TO_URL_AND_MEASURE_TTI` (value: `"goToUrlAndMeasureTti"`)
+* `GO_TO_URL` (value: `"goToUrl"`)
 
-- `HOVER` (value: `"hover"`)
+* `GO_TO_URL_AND_MEASURE_TTI` (value: `"goToUrlAndMeasureTti"`)
 
-- `PLAY_SUB_TEST` (value: `"playSubTest"`)
+* `HOVER` (value: `"hover"`)
 
-- `PRESS_KEY` (value: `"pressKey"`)
+* `PLAY_SUB_TEST` (value: `"playSubTest"`)
 
-- `REFRESH` (value: `"refresh"`)
+* `PRESS_KEY` (value: `"pressKey"`)
 
-- `RUN_API_TEST` (value: `"runApiTest"`)
+* `REFRESH` (value: `"refresh"`)
 
-- `SCROLL` (value: `"scroll"`)
+* `RUN_API_TEST` (value: `"runApiTest"`)
 
-- `SELECT_OPTION` (value: `"selectOption"`)
+* `SCROLL` (value: `"scroll"`)
 
-- `TYPE_TEXT` (value: `"typeText"`)
+* `SELECT_OPTION` (value: `"selectOption"`)
 
-- `UPLOAD_FILES` (value: `"uploadFiles"`)
+* `TYPE_TEXT` (value: `"typeText"`)
 
-- `WAIT` (value: `"wait"`)
+* `UPLOAD_FILES` (value: `"uploadFiles"`)
+
+* `WAIT` (value: `"wait"`)
+
+
+

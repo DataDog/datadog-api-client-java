@@ -1,5 +1,11 @@
+
+
 # WidgetLayoutType
 
 ## Enum
 
-- `ORDERED` (value: `"ordered"`)
+
+* `ORDERED` (value: `"ordered"`)
+
+
+

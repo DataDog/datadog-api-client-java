@@ -1,7 +1,13 @@
+
+
 # WidgetColorPreference
 
 ## Enum
 
-- `BACKGROUND` (value: `"background"`)
 
-- `TEXT` (value: `"text"`)
+* `BACKGROUND` (value: `"background"`)
+
+* `TEXT` (value: `"text"`)
+
+
+

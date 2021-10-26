@@ -10,155 +10,139 @@
 
 package com.datadog.api.v2.client.model;
 
-import com.datadog.api.v2.client.JSON;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Attributes of the role.
- */
+/** Attributes of the role. */
 @ApiModel(description = "Attributes of the role.")
-@JsonPropertyOrder(
-    {
-        RoleAttributes.JSON_PROPERTY_CREATED_AT,
-        RoleAttributes.JSON_PROPERTY_MODIFIED_AT,
-        RoleAttributes.JSON_PROPERTY_NAME,
-        RoleAttributes.JSON_PROPERTY_USER_COUNT
-    }
-)
+@JsonPropertyOrder({
+  RoleAttributes.JSON_PROPERTY_CREATED_AT,
+  RoleAttributes.JSON_PROPERTY_MODIFIED_AT,
+  RoleAttributes.JSON_PROPERTY_NAME,
+  RoleAttributes.JSON_PROPERTY_USER_COUNT
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class RoleAttributes {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CREATED_AT = "created_at";
+  private OffsetDateTime createdAt;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_MODIFIED_AT = "modified_at";
+  private OffsetDateTime modifiedAt;
 
-    public static final String JSON_PROPERTY_CREATED_AT = "created_at";
-    private OffsetDateTime createdAt;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
-    public static final String JSON_PROPERTY_MODIFIED_AT = "modified_at";
-    private OffsetDateTime modifiedAt;
+  public static final String JSON_PROPERTY_USER_COUNT = "user_count";
+  private Long userCount;
 
-    public static final String JSON_PROPERTY_NAME = "name";
-    private String name;
+  /**
+   * Creation time of the role.
+   *
+   * @return createdAt
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Creation time of the role.")
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
 
-    public static final String JSON_PROPERTY_USER_COUNT = "user_count";
-    private Long userCount;
+  /**
+   * Time of last role modification.
+   *
+   * @return modifiedAt
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Time of last role modification.")
+  @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getModifiedAt() {
+    return modifiedAt;
+  }
 
-    /**
-     * Creation time of the role.
-     * @return createdAt
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Creation time of the role.")
-    @JsonProperty(JSON_PROPERTY_CREATED_AT)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public OffsetDateTime getCreatedAt() {
-        return createdAt;
+  public RoleAttributes name(String name) {
+    this.name = name;
+    return this;
+  }
+
+  /**
+   * Name of the role.
+   *
+   * @return name
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Name of the role.")
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  /**
+   * Number of users with that role.
+   *
+   * @return userCount
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Number of users with that role.")
+  @JsonProperty(JSON_PROPERTY_USER_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getUserCount() {
+    return userCount;
+  }
+
+  /** Return true if this RoleAttributes object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * Time of last role modification.
-     * @return modifiedAt
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Time of last role modification.")
-    @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public OffsetDateTime getModifiedAt() {
-        return modifiedAt;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    RoleAttributes roleAttributes = (RoleAttributes) o;
+    return Objects.equals(this.createdAt, roleAttributes.createdAt)
+        && Objects.equals(this.modifiedAt, roleAttributes.modifiedAt)
+        && Objects.equals(this.name, roleAttributes.name)
+        && Objects.equals(this.userCount, roleAttributes.userCount);
+  }
 
-    public RoleAttributes name(String name) {
-        this.name = name;
-        return this;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(createdAt, modifiedAt, name, userCount);
+  }
 
-    /**
-     * Name of the role.
-     * @return name
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Name of the role.")
-    @JsonProperty(JSON_PROPERTY_NAME)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getName() {
-        return name;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class RoleAttributes {\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    userCount: ").append(toIndentedString(userCount)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    public void setName(String name) {
-        this.name = name;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    /**
-     * Number of users with that role.
-     * @return userCount
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Number of users with that role.")
-    @JsonProperty(JSON_PROPERTY_USER_COUNT)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Long getUserCount() {
-        return userCount;
-    }
-
-    /**
-     * Return true if this RoleAttributes object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        RoleAttributes roleAttributes = (RoleAttributes) o;
-        return (
-            Objects.equals(this.createdAt, roleAttributes.createdAt) &&
-            Objects.equals(this.modifiedAt, roleAttributes.modifiedAt) &&
-            Objects.equals(this.name, roleAttributes.name) &&
-            Objects.equals(this.userCount, roleAttributes.userCount)
-        );
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(createdAt, modifiedAt, name, userCount);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class RoleAttributes {\n");
-        sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-        sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    userCount: ").append(toIndentedString(userCount)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

@@ -10,94 +10,86 @@
 
 package com.datadog.api.v2.client.model;
 
-import com.datadog.api.v2.client.JSON;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * The Markdown timeline cell contents.
- */
+/** The Markdown timeline cell contents. */
 @ApiModel(description = "The Markdown timeline cell contents.")
-@JsonPropertyOrder({ IncidentTimelineCellMarkdownCreateAttributesContent.JSON_PROPERTY_CONTENT })
+@JsonPropertyOrder({IncidentTimelineCellMarkdownCreateAttributesContent.JSON_PROPERTY_CONTENT})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IncidentTimelineCellMarkdownCreateAttributesContent {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CONTENT = "content";
+  private String content;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public IncidentTimelineCellMarkdownCreateAttributesContent content(String content) {
+    this.content = content;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_CONTENT = "content";
-    private String content;
+  /**
+   * The Markdown content of the cell.
+   *
+   * @return content
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      example = "An example timeline cell message.",
+      value = "The Markdown content of the cell.")
+  @JsonProperty(JSON_PROPERTY_CONTENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getContent() {
+    return content;
+  }
 
-    public IncidentTimelineCellMarkdownCreateAttributesContent content(String content) {
-        this.content = content;
-        return this;
+  public void setContent(String content) {
+    this.content = content;
+  }
+
+  /**
+   * Return true if this IncidentTimelineCellMarkdownCreateAttributes_content object is equal to o.
+   */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * The Markdown content of the cell.
-     * @return content
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "An example timeline cell message.", value = "The Markdown content of the cell.")
-    @JsonProperty(JSON_PROPERTY_CONTENT)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getContent() {
-        return content;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    IncidentTimelineCellMarkdownCreateAttributesContent
+        incidentTimelineCellMarkdownCreateAttributesContent =
+            (IncidentTimelineCellMarkdownCreateAttributesContent) o;
+    return Objects.equals(
+        this.content, incidentTimelineCellMarkdownCreateAttributesContent.content);
+  }
 
-    public void setContent(String content) {
-        this.content = content;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(content);
+  }
 
-    /**
-     * Return true if this IncidentTimelineCellMarkdownCreateAttributes_content object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        IncidentTimelineCellMarkdownCreateAttributesContent incidentTimelineCellMarkdownCreateAttributesContent = (IncidentTimelineCellMarkdownCreateAttributesContent) o;
-        return Objects.equals(this.content, incidentTimelineCellMarkdownCreateAttributesContent.content);
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class IncidentTimelineCellMarkdownCreateAttributesContent {\n");
+    sb.append("    content: ").append(toIndentedString(content)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(content);
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class IncidentTimelineCellMarkdownCreateAttributesContent {\n");
-        sb.append("    content: ").append(toIndentedString(content)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

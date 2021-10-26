@@ -2,15 +2,17 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method                                                                     | HTTP request                                           | Description           |
-| -------------------------------------------------------------------------- | ------------------------------------------------------ | --------------------- |
-| [**createLogsPipeline**](LogsPipelinesApi.md#createLogsPipeline)           | **POST** /api/v1/logs/config/pipelines                 | Create a pipeline     |
-| [**deleteLogsPipeline**](LogsPipelinesApi.md#deleteLogsPipeline)           | **DELETE** /api/v1/logs/config/pipelines/{pipeline_id} | Delete a pipeline     |
-| [**getLogsPipeline**](LogsPipelinesApi.md#getLogsPipeline)                 | **GET** /api/v1/logs/config/pipelines/{pipeline_id}    | Get a pipeline        |
-| [**getLogsPipelineOrder**](LogsPipelinesApi.md#getLogsPipelineOrder)       | **GET** /api/v1/logs/config/pipeline-order             | Get pipeline order    |
-| [**listLogsPipelines**](LogsPipelinesApi.md#listLogsPipelines)             | **GET** /api/v1/logs/config/pipelines                  | Get all pipelines     |
-| [**updateLogsPipeline**](LogsPipelinesApi.md#updateLogsPipeline)           | **PUT** /api/v1/logs/config/pipelines/{pipeline_id}    | Update a pipeline     |
-| [**updateLogsPipelineOrder**](LogsPipelinesApi.md#updateLogsPipelineOrder) | **PUT** /api/v1/logs/config/pipeline-order             | Update pipeline order |
+Method        | HTTP request | Description
+------------- | ------------ | ------------
+[**createLogsPipeline**](LogsPipelinesApi.md#createLogsPipeline) | **POST** /api/v1/logs/config/pipelines | Create a pipeline
+[**deleteLogsPipeline**](LogsPipelinesApi.md#deleteLogsPipeline) | **DELETE** /api/v1/logs/config/pipelines/{pipeline_id} | Delete a pipeline
+[**getLogsPipeline**](LogsPipelinesApi.md#getLogsPipeline) | **GET** /api/v1/logs/config/pipelines/{pipeline_id} | Get a pipeline
+[**getLogsPipelineOrder**](LogsPipelinesApi.md#getLogsPipelineOrder) | **GET** /api/v1/logs/config/pipeline-order | Get pipeline order
+[**listLogsPipelines**](LogsPipelinesApi.md#listLogsPipelines) | **GET** /api/v1/logs/config/pipelines | Get all pipelines
+[**updateLogsPipeline**](LogsPipelinesApi.md#updateLogsPipeline) | **PUT** /api/v1/logs/config/pipelines/{pipeline_id} | Update a pipeline
+[**updateLogsPipelineOrder**](LogsPipelinesApi.md#updateLogsPipelineOrder) | **PUT** /api/v1/logs/config/pipeline-order | Update pipeline order
+
+
 
 ## createLogsPipeline
 
@@ -21,42 +23,39 @@ Create a pipeline in your organization.
 ### Example
 
 ```java
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.LogsPipelinesApi;
 import com.datadog.api.v1.client.model.*;
-import java.util.*;
+import com.datadog.api.v1.client.api.LogsPipelinesApi;
 
 public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-    LogsPipelinesApi apiInstance = new LogsPipelinesApi(defaultClient);
-    LogsPipeline body = new LogsPipeline(); // LogsPipeline | Definition of the new pipeline.
-    try {
-      LogsPipeline result = apiInstance.createLogsPipeline(body);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println(
-        "Exception when calling LogsPipelinesApi#createLogsPipeline"
-      );
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        LogsPipelinesApi apiInstance = new LogsPipelinesApi(defaultClient);
+        LogsPipeline body = new LogsPipeline(); // LogsPipeline | Definition of the new pipeline.
+        try {
+            LogsPipeline result = apiInstance.createLogsPipeline(body);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling LogsPipelinesApi#createLogsPipeline");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
-
 ```
 
 ### Parameters
 
-| Name     | Type                                | Description                     | Notes |
-| -------- | ----------------------------------- | ------------------------------- | ----- |
-| **body** | [**LogsPipeline**](LogsPipeline.md) | Definition of the new pipeline. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**LogsPipeline**](LogsPipeline.md)| Definition of the new pipeline. |
 
 ### Return type
 
@@ -72,12 +71,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **400**     | Bad Request | -                |
-| **403**     | Forbidden   | -                |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+
 
 ## deleteLogsPipeline
 
@@ -89,41 +88,38 @@ This endpoint takes no JSON arguments.
 ### Example
 
 ```java
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.LogsPipelinesApi;
 import com.datadog.api.v1.client.model.*;
-import java.util.*;
+import com.datadog.api.v1.client.api.LogsPipelinesApi;
 
 public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-    LogsPipelinesApi apiInstance = new LogsPipelinesApi(defaultClient);
-    String pipelineId = "pipelineId_example"; // String | ID of the pipeline to delete.
-    try {
-      apiInstance.deleteLogsPipeline(pipelineId);
-    } catch (ApiException e) {
-      System.err.println(
-        "Exception when calling LogsPipelinesApi#deleteLogsPipeline"
-      );
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        LogsPipelinesApi apiInstance = new LogsPipelinesApi(defaultClient);
+        String pipelineId = "pipelineId_example"; // String | ID of the pipeline to delete.
+        try {
+            apiInstance.deleteLogsPipeline(pipelineId);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling LogsPipelinesApi#deleteLogsPipeline");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
-
 ```
 
 ### Parameters
 
-| Name           | Type       | Description                   | Notes |
-| -------------- | ---------- | ----------------------------- | ----- |
-| **pipelineId** | **String** | ID of the pipeline to delete. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pipelineId** | **String**| ID of the pipeline to delete. |
 
 ### Return type
 
@@ -139,12 +135,12 @@ null (empty response body)
 - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **400**     | Bad Request | -                |
-| **403**     | Forbidden   | -                |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+
 
 ## getLogsPipeline
 
@@ -156,42 +152,39 @@ This endpoint takes no JSON arguments.
 ### Example
 
 ```java
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.LogsPipelinesApi;
 import com.datadog.api.v1.client.model.*;
-import java.util.*;
+import com.datadog.api.v1.client.api.LogsPipelinesApi;
 
 public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-    LogsPipelinesApi apiInstance = new LogsPipelinesApi(defaultClient);
-    String pipelineId = "pipelineId_example"; // String | ID of the pipeline to get.
-    try {
-      LogsPipeline result = apiInstance.getLogsPipeline(pipelineId);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println(
-        "Exception when calling LogsPipelinesApi#getLogsPipeline"
-      );
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        LogsPipelinesApi apiInstance = new LogsPipelinesApi(defaultClient);
+        String pipelineId = "pipelineId_example"; // String | ID of the pipeline to get.
+        try {
+            LogsPipeline result = apiInstance.getLogsPipeline(pipelineId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling LogsPipelinesApi#getLogsPipeline");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
-
 ```
 
 ### Parameters
 
-| Name           | Type       | Description                | Notes |
-| -------------- | ---------- | -------------------------- | ----- |
-| **pipelineId** | **String** | ID of the pipeline to get. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pipelineId** | **String**| ID of the pipeline to get. |
 
 ### Return type
 
@@ -207,12 +200,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **400**     | Bad Request | -                |
-| **403**     | Forbidden   | -                |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+
 
 ## getLogsPipelineOrder
 
@@ -224,34 +217,30 @@ This endpoint takes no JSON arguments.
 ### Example
 
 ```java
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.LogsPipelinesApi;
 import com.datadog.api.v1.client.model.*;
-import java.util.*;
+import com.datadog.api.v1.client.api.LogsPipelinesApi;
 
 public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-    LogsPipelinesApi apiInstance = new LogsPipelinesApi(defaultClient);
-    try {
-      LogsPipelinesOrder result = apiInstance.getLogsPipelineOrder();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println(
-        "Exception when calling LogsPipelinesApi#getLogsPipelineOrder"
-      );
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        LogsPipelinesApi apiInstance = new LogsPipelinesApi(defaultClient);
+        try {
+            LogsPipelinesOrder result = apiInstance.getLogsPipelineOrder();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling LogsPipelinesApi#getLogsPipelineOrder");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
-
 ```
 
 ### Parameters
@@ -272,11 +261,11 @@ This endpoint does not need any parameter.
 - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **403**     | Forbidden   | -                |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+
 
 ## listLogsPipelines
 
@@ -288,34 +277,30 @@ This endpoint takes no JSON arguments.
 ### Example
 
 ```java
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.LogsPipelinesApi;
 import com.datadog.api.v1.client.model.*;
-import java.util.*;
+import com.datadog.api.v1.client.api.LogsPipelinesApi;
 
 public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-    LogsPipelinesApi apiInstance = new LogsPipelinesApi(defaultClient);
-    try {
-      List<LogsPipeline> result = apiInstance.listLogsPipelines();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println(
-        "Exception when calling LogsPipelinesApi#listLogsPipelines"
-      );
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        LogsPipelinesApi apiInstance = new LogsPipelinesApi(defaultClient);
+        try {
+            List<LogsPipeline> result = apiInstance.listLogsPipelines();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling LogsPipelinesApi#listLogsPipelines");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
-
 ```
 
 ### Parameters
@@ -336,11 +321,11 @@ This endpoint does not need any parameter.
 - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **403**     | Forbidden   | -                |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+
 
 ## updateLogsPipeline
 
@@ -354,44 +339,41 @@ your current configuration with the new one sent to your Datadog organization.
 ### Example
 
 ```java
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.LogsPipelinesApi;
 import com.datadog.api.v1.client.model.*;
-import java.util.*;
+import com.datadog.api.v1.client.api.LogsPipelinesApi;
 
 public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-    LogsPipelinesApi apiInstance = new LogsPipelinesApi(defaultClient);
-    String pipelineId = "pipelineId_example"; // String | ID of the pipeline to delete.
-    LogsPipeline body = new LogsPipeline(); // LogsPipeline | New definition of the pipeline.
-    try {
-      LogsPipeline result = apiInstance.updateLogsPipeline(pipelineId, body);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println(
-        "Exception when calling LogsPipelinesApi#updateLogsPipeline"
-      );
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        LogsPipelinesApi apiInstance = new LogsPipelinesApi(defaultClient);
+        String pipelineId = "pipelineId_example"; // String | ID of the pipeline to delete.
+        LogsPipeline body = new LogsPipeline(); // LogsPipeline | New definition of the pipeline.
+        try {
+            LogsPipeline result = apiInstance.updateLogsPipeline(pipelineId, body);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling LogsPipelinesApi#updateLogsPipeline");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
-
 ```
 
 ### Parameters
 
-| Name           | Type                                | Description                     | Notes |
-| -------------- | ----------------------------------- | ------------------------------- | ----- |
-| **pipelineId** | **String**                          | ID of the pipeline to delete.   |
-| **body**       | [**LogsPipeline**](LogsPipeline.md) | New definition of the pipeline. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pipelineId** | **String**| ID of the pipeline to delete. |
+ **body** | [**LogsPipeline**](LogsPipeline.md)| New definition of the pipeline. |
 
 ### Return type
 
@@ -407,12 +389,12 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **400**     | Bad Request | -                |
-| **403**     | Forbidden   | -                |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+
 
 ## updateLogsPipelineOrder
 
@@ -427,42 +409,39 @@ with the new one sent to your Datadog organization.
 ### Example
 
 ```java
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.LogsPipelinesApi;
 import com.datadog.api.v1.client.model.*;
-import java.util.*;
+import com.datadog.api.v1.client.api.LogsPipelinesApi;
 
 public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-    LogsPipelinesApi apiInstance = new LogsPipelinesApi(defaultClient);
-    LogsPipelinesOrder body = new LogsPipelinesOrder(); // LogsPipelinesOrder | Object containing the new ordered list of pipeline IDs.
-    try {
-      LogsPipelinesOrder result = apiInstance.updateLogsPipelineOrder(body);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println(
-        "Exception when calling LogsPipelinesApi#updateLogsPipelineOrder"
-      );
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        LogsPipelinesApi apiInstance = new LogsPipelinesApi(defaultClient);
+        LogsPipelinesOrder body = new LogsPipelinesOrder(); // LogsPipelinesOrder | Object containing the new ordered list of pipeline IDs.
+        try {
+            LogsPipelinesOrder result = apiInstance.updateLogsPipelineOrder(body);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling LogsPipelinesApi#updateLogsPipelineOrder");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
-
 ```
 
 ### Parameters
 
-| Name     | Type                                            | Description                                             | Notes |
-| -------- | ----------------------------------------------- | ------------------------------------------------------- | ----- |
-| **body** | [**LogsPipelinesOrder**](LogsPipelinesOrder.md) | Object containing the new ordered list of pipeline IDs. |
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**LogsPipelinesOrder**](LogsPipelinesOrder.md)| Object containing the new ordered list of pipeline IDs. |
 
 ### Return type
 
@@ -478,10 +457,10 @@ public class Example {
 - **Accept**: application/json
 
 ### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **422** | Unprocessable Entity |  -  |
 
-| Status code | Description          | Response headers |
-| ----------- | -------------------- | ---------------- |
-| **200**     | OK                   | -                |
-| **400**     | Bad Request          | -                |
-| **403**     | Forbidden            | -                |
-| **422**     | Unprocessable Entity | -                |

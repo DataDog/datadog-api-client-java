@@ -10,173 +10,157 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.datadog.api.v1.client.model.FormulaAndFunctionEventAggregation;
-import com.datadog.api.v1.client.model.QuerySortOrder;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Options for sorting group by results.
- */
+/** Options for sorting group by results. */
 @ApiModel(description = "Options for sorting group by results.")
-@JsonPropertyOrder(
-    {
-        FormulaAndFunctionEventQueryGroupBySort.JSON_PROPERTY_AGGREGATION,
-        FormulaAndFunctionEventQueryGroupBySort.JSON_PROPERTY_METRIC,
-        FormulaAndFunctionEventQueryGroupBySort.JSON_PROPERTY_ORDER
-    }
-)
+@JsonPropertyOrder({
+  FormulaAndFunctionEventQueryGroupBySort.JSON_PROPERTY_AGGREGATION,
+  FormulaAndFunctionEventQueryGroupBySort.JSON_PROPERTY_METRIC,
+  FormulaAndFunctionEventQueryGroupBySort.JSON_PROPERTY_ORDER
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FormulaAndFunctionEventQueryGroupBySort {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
+  private FormulaAndFunctionEventAggregation aggregation;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_METRIC = "metric";
+  private String metric;
 
-    public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
-    private FormulaAndFunctionEventAggregation aggregation;
+  public static final String JSON_PROPERTY_ORDER = "order";
+  private QuerySortOrder order = QuerySortOrder.DESC;
 
-    public static final String JSON_PROPERTY_METRIC = "metric";
-    private String metric;
+  public FormulaAndFunctionEventQueryGroupBySort() {}
 
-    public static final String JSON_PROPERTY_ORDER = "order";
-    private QuerySortOrder order = QuerySortOrder.DESC;
+  @JsonCreator
+  public FormulaAndFunctionEventQueryGroupBySort(
+      @JsonProperty(required = true, value = JSON_PROPERTY_AGGREGATION)
+          FormulaAndFunctionEventAggregation aggregation) {
+    this.aggregation = aggregation;
+    this.unparsed |= !aggregation.isValid();
+  }
 
-    public FormulaAndFunctionEventQueryGroupBySort() {}
+  public FormulaAndFunctionEventQueryGroupBySort aggregation(
+      FormulaAndFunctionEventAggregation aggregation) {
+    this.aggregation = aggregation;
+    this.unparsed |= !aggregation.isValid();
+    return this;
+  }
 
-    @JsonCreator
-    public FormulaAndFunctionEventQueryGroupBySort(
-        @JsonProperty(required = true, value = JSON_PROPERTY_AGGREGATION) FormulaAndFunctionEventAggregation aggregation
-    ) {
-        this.aggregation = aggregation;
-        this.unparsed |= !aggregation.isValid();
+  /**
+   * Get aggregation
+   *
+   * @return aggregation
+   */
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_AGGREGATION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public FormulaAndFunctionEventAggregation getAggregation() {
+    return aggregation;
+  }
+
+  public void setAggregation(FormulaAndFunctionEventAggregation aggregation) {
+    if (!aggregation.isValid()) {
+      this.unparsed = true;
     }
+    this.aggregation = aggregation;
+  }
 
-    public FormulaAndFunctionEventQueryGroupBySort aggregation(FormulaAndFunctionEventAggregation aggregation) {
-        this.aggregation = aggregation;
-        this.unparsed |= !aggregation.isValid();
-        return this;
-    }
+  public FormulaAndFunctionEventQueryGroupBySort metric(String metric) {
+    this.metric = metric;
+    return this;
+  }
 
-    /**
-     * Get aggregation
-     * @return aggregation
-     **/
-    @ApiModelProperty(required = true, value = "")
-    @JsonProperty(JSON_PROPERTY_AGGREGATION)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public FormulaAndFunctionEventAggregation getAggregation() {
-        return aggregation;
-    }
+  /**
+   * Metric used for sorting group by results.
+   *
+   * @return metric
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Metric used for sorting group by results.")
+  @JsonProperty(JSON_PROPERTY_METRIC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getMetric() {
+    return metric;
+  }
 
-    public void setAggregation(FormulaAndFunctionEventAggregation aggregation) {
-        if (!aggregation.isValid()) {
-            this.unparsed = true;
-        }
-        this.aggregation = aggregation;
-    }
+  public void setMetric(String metric) {
+    this.metric = metric;
+  }
 
-    public FormulaAndFunctionEventQueryGroupBySort metric(String metric) {
-        this.metric = metric;
-        return this;
-    }
+  public FormulaAndFunctionEventQueryGroupBySort order(QuerySortOrder order) {
+    this.order = order;
+    this.unparsed |= !order.isValid();
+    return this;
+  }
 
-    /**
-     * Metric used for sorting group by results.
-     * @return metric
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Metric used for sorting group by results.")
-    @JsonProperty(JSON_PROPERTY_METRIC)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getMetric() {
-        return metric;
-    }
+  /**
+   * Get order
+   *
+   * @return order
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ORDER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public QuerySortOrder getOrder() {
+    return order;
+  }
 
-    public void setMetric(String metric) {
-        this.metric = metric;
+  public void setOrder(QuerySortOrder order) {
+    if (!order.isValid()) {
+      this.unparsed = true;
     }
+    this.order = order;
+  }
 
-    public FormulaAndFunctionEventQueryGroupBySort order(QuerySortOrder order) {
-        this.order = order;
-        this.unparsed |= !order.isValid();
-        return this;
+  /** Return true if this FormulaAndFunctionEventQueryGroupBy_sort object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    FormulaAndFunctionEventQueryGroupBySort formulaAndFunctionEventQueryGroupBySort =
+        (FormulaAndFunctionEventQueryGroupBySort) o;
+    return Objects.equals(this.aggregation, formulaAndFunctionEventQueryGroupBySort.aggregation)
+        && Objects.equals(this.metric, formulaAndFunctionEventQueryGroupBySort.metric)
+        && Objects.equals(this.order, formulaAndFunctionEventQueryGroupBySort.order);
+  }
 
-    /**
-     * Get order
-     * @return order
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_ORDER)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public QuerySortOrder getOrder() {
-        return order;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(aggregation, metric, order);
+  }
 
-    public void setOrder(QuerySortOrder order) {
-        if (!order.isValid()) {
-            this.unparsed = true;
-        }
-        this.order = order;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class FormulaAndFunctionEventQueryGroupBySort {\n");
+    sb.append("    aggregation: ").append(toIndentedString(aggregation)).append("\n");
+    sb.append("    metric: ").append(toIndentedString(metric)).append("\n");
+    sb.append("    order: ").append(toIndentedString(order)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Return true if this FormulaAndFunctionEventQueryGroupBy_sort object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        FormulaAndFunctionEventQueryGroupBySort formulaAndFunctionEventQueryGroupBySort = (FormulaAndFunctionEventQueryGroupBySort) o;
-        return (
-            Objects.equals(this.aggregation, formulaAndFunctionEventQueryGroupBySort.aggregation) &&
-            Objects.equals(this.metric, formulaAndFunctionEventQueryGroupBySort.metric) &&
-            Objects.equals(this.order, formulaAndFunctionEventQueryGroupBySort.order)
-        );
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(aggregation, metric, order);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class FormulaAndFunctionEventQueryGroupBySort {\n");
-        sb.append("    aggregation: ").append(toIndentedString(aggregation)).append("\n");
-        sb.append("    metric: ").append(toIndentedString(metric)).append("\n");
-        sb.append("    order: ").append(toIndentedString(order)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

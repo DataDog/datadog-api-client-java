@@ -1,11 +1,17 @@
+
+
 # ScatterplotDimension
 
 ## Enum
 
-- `X` (value: `"x"`)
 
-- `Y` (value: `"y"`)
+* `X` (value: `"x"`)
 
-- `RADIUS` (value: `"radius"`)
+* `Y` (value: `"y"`)
 
-- `COLOR` (value: `"color"`)
+* `RADIUS` (value: `"radius"`)
+
+* `COLOR` (value: `"color"`)
+
+
+

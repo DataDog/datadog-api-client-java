@@ -10,97 +10,83 @@
 
 package com.datadog.api.v2.client.model;
 
-import com.datadog.api.v2.client.JSON;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * The log-based metric filter. Logs matching this filter will be aggregated in this metric.
- */
-@ApiModel(description = "The log-based metric filter. Logs matching this filter will be aggregated in this metric.")
-@JsonPropertyOrder({ LogsMetricFilter.JSON_PROPERTY_QUERY })
+/** The log-based metric filter. Logs matching this filter will be aggregated in this metric. */
+@ApiModel(
+    description =
+        "The log-based metric filter. Logs matching this filter will be aggregated in this metric.")
+@JsonPropertyOrder({LogsMetricFilter.JSON_PROPERTY_QUERY})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsMetricFilter {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_QUERY = "query";
+  private String query = "*";
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public LogsMetricFilter query(String query) {
+    this.query = query;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_QUERY = "query";
-    private String query = "*";
+  /**
+   * The search query - following the log search syntax.
+   *
+   * @return query
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      example = "service:web* AND @http.status_code:[200 TO 299]",
+      value = "The search query - following the log search syntax.")
+  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getQuery() {
+    return query;
+  }
 
-    public LogsMetricFilter query(String query) {
-        this.query = query;
-        return this;
+  public void setQuery(String query) {
+    this.query = query;
+  }
+
+  /** Return true if this LogsMetricFilter object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * The search query - following the log search syntax.
-     * @return query
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(
-        example = "service:web* AND @http.status_code:[200 TO 299]",
-        value = "The search query - following the log search syntax."
-    )
-    @JsonProperty(JSON_PROPERTY_QUERY)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getQuery() {
-        return query;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    LogsMetricFilter logsMetricFilter = (LogsMetricFilter) o;
+    return Objects.equals(this.query, logsMetricFilter.query);
+  }
 
-    public void setQuery(String query) {
-        this.query = query;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(query);
+  }
 
-    /**
-     * Return true if this LogsMetricFilter object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        LogsMetricFilter logsMetricFilter = (LogsMetricFilter) o;
-        return Objects.equals(this.query, logsMetricFilter.query);
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class LogsMetricFilter {\n");
+    sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(query);
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class LogsMetricFilter {\n");
-        sb.append("    query: ").append(toIndentedString(query)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

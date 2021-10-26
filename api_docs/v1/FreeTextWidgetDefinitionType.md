@@ -1,5 +1,11 @@
+
+
 # FreeTextWidgetDefinitionType
 
 ## Enum
 
-- `FREE_TEXT` (value: `"free_text"`)
+
+* `FREE_TEXT` (value: `"free_text"`)
+
+
+

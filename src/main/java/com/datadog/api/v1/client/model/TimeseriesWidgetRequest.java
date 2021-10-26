@@ -10,614 +10,609 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.datadog.api.v1.client.model.FormulaAndFunctionQueryDefinition;
-import com.datadog.api.v1.client.model.FormulaAndFunctionResponseFormat;
-import com.datadog.api.v1.client.model.LogQueryDefinition;
-import com.datadog.api.v1.client.model.ProcessQueryDefinition;
-import com.datadog.api.v1.client.model.TimeseriesWidgetExpressionAlias;
-import com.datadog.api.v1.client.model.WidgetDisplayType;
-import com.datadog.api.v1.client.model.WidgetFormula;
-import com.datadog.api.v1.client.model.WidgetRequestStyle;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Updated timeseries widget.
- */
+/** Updated timeseries widget. */
 @ApiModel(description = "Updated timeseries widget.")
-@JsonPropertyOrder(
-    {
-        TimeseriesWidgetRequest.JSON_PROPERTY_APM_QUERY,
-        TimeseriesWidgetRequest.JSON_PROPERTY_AUDIT_QUERY,
-        TimeseriesWidgetRequest.JSON_PROPERTY_DISPLAY_TYPE,
-        TimeseriesWidgetRequest.JSON_PROPERTY_EVENT_QUERY,
-        TimeseriesWidgetRequest.JSON_PROPERTY_FORMULAS,
-        TimeseriesWidgetRequest.JSON_PROPERTY_LOG_QUERY,
-        TimeseriesWidgetRequest.JSON_PROPERTY_METADATA,
-        TimeseriesWidgetRequest.JSON_PROPERTY_NETWORK_QUERY,
-        TimeseriesWidgetRequest.JSON_PROPERTY_ON_RIGHT_YAXIS,
-        TimeseriesWidgetRequest.JSON_PROPERTY_PROCESS_QUERY,
-        TimeseriesWidgetRequest.JSON_PROPERTY_PROFILE_METRICS_QUERY,
-        TimeseriesWidgetRequest.JSON_PROPERTY_Q,
-        TimeseriesWidgetRequest.JSON_PROPERTY_QUERIES,
-        TimeseriesWidgetRequest.JSON_PROPERTY_RESPONSE_FORMAT,
-        TimeseriesWidgetRequest.JSON_PROPERTY_RUM_QUERY,
-        TimeseriesWidgetRequest.JSON_PROPERTY_SECURITY_QUERY,
-        TimeseriesWidgetRequest.JSON_PROPERTY_STYLE
-    }
-)
+@JsonPropertyOrder({
+  TimeseriesWidgetRequest.JSON_PROPERTY_APM_QUERY,
+  TimeseriesWidgetRequest.JSON_PROPERTY_AUDIT_QUERY,
+  TimeseriesWidgetRequest.JSON_PROPERTY_DISPLAY_TYPE,
+  TimeseriesWidgetRequest.JSON_PROPERTY_EVENT_QUERY,
+  TimeseriesWidgetRequest.JSON_PROPERTY_FORMULAS,
+  TimeseriesWidgetRequest.JSON_PROPERTY_LOG_QUERY,
+  TimeseriesWidgetRequest.JSON_PROPERTY_METADATA,
+  TimeseriesWidgetRequest.JSON_PROPERTY_NETWORK_QUERY,
+  TimeseriesWidgetRequest.JSON_PROPERTY_ON_RIGHT_YAXIS,
+  TimeseriesWidgetRequest.JSON_PROPERTY_PROCESS_QUERY,
+  TimeseriesWidgetRequest.JSON_PROPERTY_PROFILE_METRICS_QUERY,
+  TimeseriesWidgetRequest.JSON_PROPERTY_Q,
+  TimeseriesWidgetRequest.JSON_PROPERTY_QUERIES,
+  TimeseriesWidgetRequest.JSON_PROPERTY_RESPONSE_FORMAT,
+  TimeseriesWidgetRequest.JSON_PROPERTY_RUM_QUERY,
+  TimeseriesWidgetRequest.JSON_PROPERTY_SECURITY_QUERY,
+  TimeseriesWidgetRequest.JSON_PROPERTY_STYLE
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TimeseriesWidgetRequest {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_APM_QUERY = "apm_query";
+  private LogQueryDefinition apmQuery;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_AUDIT_QUERY = "audit_query";
+  private LogQueryDefinition auditQuery;
 
-    public static final String JSON_PROPERTY_APM_QUERY = "apm_query";
-    private LogQueryDefinition apmQuery;
+  public static final String JSON_PROPERTY_DISPLAY_TYPE = "display_type";
+  private WidgetDisplayType displayType;
 
-    public static final String JSON_PROPERTY_AUDIT_QUERY = "audit_query";
-    private LogQueryDefinition auditQuery;
+  public static final String JSON_PROPERTY_EVENT_QUERY = "event_query";
+  private LogQueryDefinition eventQuery;
 
-    public static final String JSON_PROPERTY_DISPLAY_TYPE = "display_type";
-    private WidgetDisplayType displayType;
+  public static final String JSON_PROPERTY_FORMULAS = "formulas";
+  private List<WidgetFormula> formulas = null;
 
-    public static final String JSON_PROPERTY_EVENT_QUERY = "event_query";
-    private LogQueryDefinition eventQuery;
+  public static final String JSON_PROPERTY_LOG_QUERY = "log_query";
+  private LogQueryDefinition logQuery;
 
-    public static final String JSON_PROPERTY_FORMULAS = "formulas";
-    private List<WidgetFormula> formulas = null;
+  public static final String JSON_PROPERTY_METADATA = "metadata";
+  private List<TimeseriesWidgetExpressionAlias> metadata = null;
 
-    public static final String JSON_PROPERTY_LOG_QUERY = "log_query";
-    private LogQueryDefinition logQuery;
+  public static final String JSON_PROPERTY_NETWORK_QUERY = "network_query";
+  private LogQueryDefinition networkQuery;
 
-    public static final String JSON_PROPERTY_METADATA = "metadata";
-    private List<TimeseriesWidgetExpressionAlias> metadata = null;
+  public static final String JSON_PROPERTY_ON_RIGHT_YAXIS = "on_right_yaxis";
+  private Boolean onRightYaxis;
 
-    public static final String JSON_PROPERTY_NETWORK_QUERY = "network_query";
-    private LogQueryDefinition networkQuery;
+  public static final String JSON_PROPERTY_PROCESS_QUERY = "process_query";
+  private ProcessQueryDefinition processQuery;
 
-    public static final String JSON_PROPERTY_ON_RIGHT_YAXIS = "on_right_yaxis";
-    private Boolean onRightYaxis;
+  public static final String JSON_PROPERTY_PROFILE_METRICS_QUERY = "profile_metrics_query";
+  private LogQueryDefinition profileMetricsQuery;
 
-    public static final String JSON_PROPERTY_PROCESS_QUERY = "process_query";
-    private ProcessQueryDefinition processQuery;
+  public static final String JSON_PROPERTY_Q = "q";
+  private String q;
 
-    public static final String JSON_PROPERTY_PROFILE_METRICS_QUERY = "profile_metrics_query";
-    private LogQueryDefinition profileMetricsQuery;
+  public static final String JSON_PROPERTY_QUERIES = "queries";
+  private List<FormulaAndFunctionQueryDefinition> queries = null;
 
-    public static final String JSON_PROPERTY_Q = "q";
-    private String q;
+  public static final String JSON_PROPERTY_RESPONSE_FORMAT = "response_format";
+  private FormulaAndFunctionResponseFormat responseFormat;
 
-    public static final String JSON_PROPERTY_QUERIES = "queries";
-    private List<FormulaAndFunctionQueryDefinition> queries = null;
+  public static final String JSON_PROPERTY_RUM_QUERY = "rum_query";
+  private LogQueryDefinition rumQuery;
 
-    public static final String JSON_PROPERTY_RESPONSE_FORMAT = "response_format";
-    private FormulaAndFunctionResponseFormat responseFormat;
+  public static final String JSON_PROPERTY_SECURITY_QUERY = "security_query";
+  private LogQueryDefinition securityQuery;
 
-    public static final String JSON_PROPERTY_RUM_QUERY = "rum_query";
-    private LogQueryDefinition rumQuery;
+  public static final String JSON_PROPERTY_STYLE = "style";
+  private WidgetRequestStyle style;
 
-    public static final String JSON_PROPERTY_SECURITY_QUERY = "security_query";
-    private LogQueryDefinition securityQuery;
+  public TimeseriesWidgetRequest apmQuery(LogQueryDefinition apmQuery) {
+    this.apmQuery = apmQuery;
+    this.unparsed |= apmQuery.unparsed;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_STYLE = "style";
-    private WidgetRequestStyle style;
+  /**
+   * Get apmQuery
+   *
+   * @return apmQuery
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_APM_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogQueryDefinition getApmQuery() {
+    return apmQuery;
+  }
 
-    public TimeseriesWidgetRequest apmQuery(LogQueryDefinition apmQuery) {
-        this.apmQuery = apmQuery;
-        this.unparsed |= apmQuery.unparsed;
-        return this;
+  public void setApmQuery(LogQueryDefinition apmQuery) {
+    this.apmQuery = apmQuery;
+  }
+
+  public TimeseriesWidgetRequest auditQuery(LogQueryDefinition auditQuery) {
+    this.auditQuery = auditQuery;
+    this.unparsed |= auditQuery.unparsed;
+    return this;
+  }
+
+  /**
+   * Get auditQuery
+   *
+   * @return auditQuery
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_AUDIT_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogQueryDefinition getAuditQuery() {
+    return auditQuery;
+  }
+
+  public void setAuditQuery(LogQueryDefinition auditQuery) {
+    this.auditQuery = auditQuery;
+  }
+
+  public TimeseriesWidgetRequest displayType(WidgetDisplayType displayType) {
+    this.displayType = displayType;
+    this.unparsed |= !displayType.isValid();
+    return this;
+  }
+
+  /**
+   * Get displayType
+   *
+   * @return displayType
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_DISPLAY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetDisplayType getDisplayType() {
+    return displayType;
+  }
+
+  public void setDisplayType(WidgetDisplayType displayType) {
+    if (!displayType.isValid()) {
+      this.unparsed = true;
     }
+    this.displayType = displayType;
+  }
 
-    /**
-     * Get apmQuery
-     * @return apmQuery
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_APM_QUERY)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public LogQueryDefinition getApmQuery() {
-        return apmQuery;
-    }
+  public TimeseriesWidgetRequest eventQuery(LogQueryDefinition eventQuery) {
+    this.eventQuery = eventQuery;
+    this.unparsed |= eventQuery.unparsed;
+    return this;
+  }
 
-    public void setApmQuery(LogQueryDefinition apmQuery) {
-        this.apmQuery = apmQuery;
-    }
+  /**
+   * Get eventQuery
+   *
+   * @return eventQuery
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_EVENT_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogQueryDefinition getEventQuery() {
+    return eventQuery;
+  }
 
-    public TimeseriesWidgetRequest auditQuery(LogQueryDefinition auditQuery) {
-        this.auditQuery = auditQuery;
-        this.unparsed |= auditQuery.unparsed;
-        return this;
-    }
+  public void setEventQuery(LogQueryDefinition eventQuery) {
+    this.eventQuery = eventQuery;
+  }
 
-    /**
-     * Get auditQuery
-     * @return auditQuery
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_AUDIT_QUERY)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public LogQueryDefinition getAuditQuery() {
-        return auditQuery;
+  public TimeseriesWidgetRequest formulas(List<WidgetFormula> formulas) {
+    this.formulas = formulas;
+    for (WidgetFormula item : formulas) {
+      this.unparsed |= item.unparsed;
     }
+    return this;
+  }
 
-    public void setAuditQuery(LogQueryDefinition auditQuery) {
-        this.auditQuery = auditQuery;
+  public TimeseriesWidgetRequest addFormulasItem(WidgetFormula formulasItem) {
+    if (this.formulas == null) {
+      this.formulas = new ArrayList<>();
     }
+    this.formulas.add(formulasItem);
+    this.unparsed |= formulasItem.unparsed;
+    return this;
+  }
 
-    public TimeseriesWidgetRequest displayType(WidgetDisplayType displayType) {
-        this.displayType = displayType;
-        this.unparsed |= !displayType.isValid();
-        return this;
-    }
+  /**
+   * List of formulas that operate on queries. **This feature is currently in beta.**
+   *
+   * @return formulas
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value = "List of formulas that operate on queries. **This feature is currently in beta.**")
+  @JsonProperty(JSON_PROPERTY_FORMULAS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<WidgetFormula> getFormulas() {
+    return formulas;
+  }
 
-    /**
-     * Get displayType
-     * @return displayType
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_DISPLAY_TYPE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public WidgetDisplayType getDisplayType() {
-        return displayType;
-    }
+  public void setFormulas(List<WidgetFormula> formulas) {
+    this.formulas = formulas;
+  }
 
-    public void setDisplayType(WidgetDisplayType displayType) {
-        if (!displayType.isValid()) {
-            this.unparsed = true;
-        }
-        this.displayType = displayType;
-    }
+  public TimeseriesWidgetRequest logQuery(LogQueryDefinition logQuery) {
+    this.logQuery = logQuery;
+    this.unparsed |= logQuery.unparsed;
+    return this;
+  }
 
-    public TimeseriesWidgetRequest eventQuery(LogQueryDefinition eventQuery) {
-        this.eventQuery = eventQuery;
-        this.unparsed |= eventQuery.unparsed;
-        return this;
-    }
+  /**
+   * Get logQuery
+   *
+   * @return logQuery
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_LOG_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogQueryDefinition getLogQuery() {
+    return logQuery;
+  }
 
-    /**
-     * Get eventQuery
-     * @return eventQuery
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_EVENT_QUERY)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public LogQueryDefinition getEventQuery() {
-        return eventQuery;
-    }
+  public void setLogQuery(LogQueryDefinition logQuery) {
+    this.logQuery = logQuery;
+  }
 
-    public void setEventQuery(LogQueryDefinition eventQuery) {
-        this.eventQuery = eventQuery;
+  public TimeseriesWidgetRequest metadata(List<TimeseriesWidgetExpressionAlias> metadata) {
+    this.metadata = metadata;
+    for (TimeseriesWidgetExpressionAlias item : metadata) {
+      this.unparsed |= item.unparsed;
     }
+    return this;
+  }
 
-    public TimeseriesWidgetRequest formulas(List<WidgetFormula> formulas) {
-        this.formulas = formulas;
-        for (WidgetFormula item : formulas) {
-            this.unparsed |= item.unparsed;
-        }
-        return this;
+  public TimeseriesWidgetRequest addMetadataItem(TimeseriesWidgetExpressionAlias metadataItem) {
+    if (this.metadata == null) {
+      this.metadata = new ArrayList<>();
     }
+    this.metadata.add(metadataItem);
+    this.unparsed |= metadataItem.unparsed;
+    return this;
+  }
 
-    public TimeseriesWidgetRequest addFormulasItem(WidgetFormula formulasItem) {
-        if (this.formulas == null) {
-            this.formulas = new ArrayList<>();
-        }
-        this.formulas.add(formulasItem);
-        this.unparsed |= formulasItem.unparsed;
-        return this;
-    }
+  /**
+   * Used to define expression aliases.
+   *
+   * @return metadata
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Used to define expression aliases.")
+  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<TimeseriesWidgetExpressionAlias> getMetadata() {
+    return metadata;
+  }
 
-    /**
-     * List of formulas that operate on queries. **This feature is currently in beta.**
-     * @return formulas
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "List of formulas that operate on queries. **This feature is currently in beta.**")
-    @JsonProperty(JSON_PROPERTY_FORMULAS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<WidgetFormula> getFormulas() {
-        return formulas;
-    }
+  public void setMetadata(List<TimeseriesWidgetExpressionAlias> metadata) {
+    this.metadata = metadata;
+  }
 
-    public void setFormulas(List<WidgetFormula> formulas) {
-        this.formulas = formulas;
-    }
+  public TimeseriesWidgetRequest networkQuery(LogQueryDefinition networkQuery) {
+    this.networkQuery = networkQuery;
+    this.unparsed |= networkQuery.unparsed;
+    return this;
+  }
 
-    public TimeseriesWidgetRequest logQuery(LogQueryDefinition logQuery) {
-        this.logQuery = logQuery;
-        this.unparsed |= logQuery.unparsed;
-        return this;
-    }
+  /**
+   * Get networkQuery
+   *
+   * @return networkQuery
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_NETWORK_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogQueryDefinition getNetworkQuery() {
+    return networkQuery;
+  }
 
-    /**
-     * Get logQuery
-     * @return logQuery
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_LOG_QUERY)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public LogQueryDefinition getLogQuery() {
-        return logQuery;
-    }
+  public void setNetworkQuery(LogQueryDefinition networkQuery) {
+    this.networkQuery = networkQuery;
+  }
 
-    public void setLogQuery(LogQueryDefinition logQuery) {
-        this.logQuery = logQuery;
-    }
+  public TimeseriesWidgetRequest onRightYaxis(Boolean onRightYaxis) {
+    this.onRightYaxis = onRightYaxis;
+    return this;
+  }
 
-    public TimeseriesWidgetRequest metadata(List<TimeseriesWidgetExpressionAlias> metadata) {
-        this.metadata = metadata;
-        for (TimeseriesWidgetExpressionAlias item : metadata) {
-            this.unparsed |= item.unparsed;
-        }
-        return this;
-    }
+  /**
+   * Whether or not to display a second y-axis on the right.
+   *
+   * @return onRightYaxis
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Whether or not to display a second y-axis on the right.")
+  @JsonProperty(JSON_PROPERTY_ON_RIGHT_YAXIS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getOnRightYaxis() {
+    return onRightYaxis;
+  }
 
-    public TimeseriesWidgetRequest addMetadataItem(TimeseriesWidgetExpressionAlias metadataItem) {
-        if (this.metadata == null) {
-            this.metadata = new ArrayList<>();
-        }
-        this.metadata.add(metadataItem);
-        this.unparsed |= metadataItem.unparsed;
-        return this;
-    }
+  public void setOnRightYaxis(Boolean onRightYaxis) {
+    this.onRightYaxis = onRightYaxis;
+  }
 
-    /**
-     * Used to define expression aliases.
-     * @return metadata
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Used to define expression aliases.")
-    @JsonProperty(JSON_PROPERTY_METADATA)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<TimeseriesWidgetExpressionAlias> getMetadata() {
-        return metadata;
-    }
+  public TimeseriesWidgetRequest processQuery(ProcessQueryDefinition processQuery) {
+    this.processQuery = processQuery;
+    this.unparsed |= processQuery.unparsed;
+    return this;
+  }
 
-    public void setMetadata(List<TimeseriesWidgetExpressionAlias> metadata) {
-        this.metadata = metadata;
-    }
+  /**
+   * Get processQuery
+   *
+   * @return processQuery
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PROCESS_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ProcessQueryDefinition getProcessQuery() {
+    return processQuery;
+  }
 
-    public TimeseriesWidgetRequest networkQuery(LogQueryDefinition networkQuery) {
-        this.networkQuery = networkQuery;
-        this.unparsed |= networkQuery.unparsed;
-        return this;
-    }
+  public void setProcessQuery(ProcessQueryDefinition processQuery) {
+    this.processQuery = processQuery;
+  }
 
-    /**
-     * Get networkQuery
-     * @return networkQuery
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_NETWORK_QUERY)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public LogQueryDefinition getNetworkQuery() {
-        return networkQuery;
-    }
+  public TimeseriesWidgetRequest profileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
+    this.profileMetricsQuery = profileMetricsQuery;
+    this.unparsed |= profileMetricsQuery.unparsed;
+    return this;
+  }
 
-    public void setNetworkQuery(LogQueryDefinition networkQuery) {
-        this.networkQuery = networkQuery;
-    }
+  /**
+   * Get profileMetricsQuery
+   *
+   * @return profileMetricsQuery
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PROFILE_METRICS_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogQueryDefinition getProfileMetricsQuery() {
+    return profileMetricsQuery;
+  }
 
-    public TimeseriesWidgetRequest onRightYaxis(Boolean onRightYaxis) {
-        this.onRightYaxis = onRightYaxis;
-        return this;
-    }
+  public void setProfileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
+    this.profileMetricsQuery = profileMetricsQuery;
+  }
 
-    /**
-     * Whether or not to display a second y-axis on the right.
-     * @return onRightYaxis
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Whether or not to display a second y-axis on the right.")
-    @JsonProperty(JSON_PROPERTY_ON_RIGHT_YAXIS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Boolean getOnRightYaxis() {
-        return onRightYaxis;
-    }
+  public TimeseriesWidgetRequest q(String q) {
+    this.q = q;
+    return this;
+  }
 
-    public void setOnRightYaxis(Boolean onRightYaxis) {
-        this.onRightYaxis = onRightYaxis;
-    }
+  /**
+   * Widget query.
+   *
+   * @return q
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Widget query.")
+  @JsonProperty(JSON_PROPERTY_Q)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getQ() {
+    return q;
+  }
 
-    public TimeseriesWidgetRequest processQuery(ProcessQueryDefinition processQuery) {
-        this.processQuery = processQuery;
-        this.unparsed |= processQuery.unparsed;
-        return this;
-    }
+  public void setQ(String q) {
+    this.q = q;
+  }
 
-    /**
-     * Get processQuery
-     * @return processQuery
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_PROCESS_QUERY)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public ProcessQueryDefinition getProcessQuery() {
-        return processQuery;
+  public TimeseriesWidgetRequest queries(List<FormulaAndFunctionQueryDefinition> queries) {
+    this.queries = queries;
+    for (FormulaAndFunctionQueryDefinition item : queries) {
+      this.unparsed |= item.unparsed;
     }
+    return this;
+  }
 
-    public void setProcessQuery(ProcessQueryDefinition processQuery) {
-        this.processQuery = processQuery;
+  public TimeseriesWidgetRequest addQueriesItem(FormulaAndFunctionQueryDefinition queriesItem) {
+    if (this.queries == null) {
+      this.queries = new ArrayList<>();
     }
+    this.queries.add(queriesItem);
+    this.unparsed |= queriesItem.unparsed;
+    return this;
+  }
 
-    public TimeseriesWidgetRequest profileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
-        this.profileMetricsQuery = profileMetricsQuery;
-        this.unparsed |= profileMetricsQuery.unparsed;
-        return this;
-    }
+  /**
+   * List of queries that can be returned directly or used in formulas. **This feature is currently
+   * in beta.**
+   *
+   * @return queries
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "List of queries that can be returned directly or used in formulas. **This feature is"
+              + " currently in beta.**")
+  @JsonProperty(JSON_PROPERTY_QUERIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<FormulaAndFunctionQueryDefinition> getQueries() {
+    return queries;
+  }
 
-    /**
-     * Get profileMetricsQuery
-     * @return profileMetricsQuery
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_PROFILE_METRICS_QUERY)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public LogQueryDefinition getProfileMetricsQuery() {
-        return profileMetricsQuery;
-    }
+  public void setQueries(List<FormulaAndFunctionQueryDefinition> queries) {
+    this.queries = queries;
+  }
 
-    public void setProfileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
-        this.profileMetricsQuery = profileMetricsQuery;
-    }
+  public TimeseriesWidgetRequest responseFormat(FormulaAndFunctionResponseFormat responseFormat) {
+    this.responseFormat = responseFormat;
+    this.unparsed |= !responseFormat.isValid();
+    return this;
+  }
 
-    public TimeseriesWidgetRequest q(String q) {
-        this.q = q;
-        return this;
-    }
+  /**
+   * Get responseFormat
+   *
+   * @return responseFormat
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_RESPONSE_FORMAT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public FormulaAndFunctionResponseFormat getResponseFormat() {
+    return responseFormat;
+  }
 
-    /**
-     * Widget query.
-     * @return q
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Widget query.")
-    @JsonProperty(JSON_PROPERTY_Q)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getQ() {
-        return q;
+  public void setResponseFormat(FormulaAndFunctionResponseFormat responseFormat) {
+    if (!responseFormat.isValid()) {
+      this.unparsed = true;
     }
+    this.responseFormat = responseFormat;
+  }
 
-    public void setQ(String q) {
-        this.q = q;
-    }
+  public TimeseriesWidgetRequest rumQuery(LogQueryDefinition rumQuery) {
+    this.rumQuery = rumQuery;
+    this.unparsed |= rumQuery.unparsed;
+    return this;
+  }
 
-    public TimeseriesWidgetRequest queries(List<FormulaAndFunctionQueryDefinition> queries) {
-        this.queries = queries;
-        for (FormulaAndFunctionQueryDefinition item : queries) {
-            this.unparsed |= item.unparsed;
-        }
-        return this;
-    }
+  /**
+   * Get rumQuery
+   *
+   * @return rumQuery
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_RUM_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogQueryDefinition getRumQuery() {
+    return rumQuery;
+  }
 
-    public TimeseriesWidgetRequest addQueriesItem(FormulaAndFunctionQueryDefinition queriesItem) {
-        if (this.queries == null) {
-            this.queries = new ArrayList<>();
-        }
-        this.queries.add(queriesItem);
-        this.unparsed |= queriesItem.unparsed;
-        return this;
-    }
+  public void setRumQuery(LogQueryDefinition rumQuery) {
+    this.rumQuery = rumQuery;
+  }
 
-    /**
-     * List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
-     * @return queries
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**")
-    @JsonProperty(JSON_PROPERTY_QUERIES)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<FormulaAndFunctionQueryDefinition> getQueries() {
-        return queries;
-    }
+  public TimeseriesWidgetRequest securityQuery(LogQueryDefinition securityQuery) {
+    this.securityQuery = securityQuery;
+    this.unparsed |= securityQuery.unparsed;
+    return this;
+  }
 
-    public void setQueries(List<FormulaAndFunctionQueryDefinition> queries) {
-        this.queries = queries;
-    }
+  /**
+   * Get securityQuery
+   *
+   * @return securityQuery
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SECURITY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogQueryDefinition getSecurityQuery() {
+    return securityQuery;
+  }
 
-    public TimeseriesWidgetRequest responseFormat(FormulaAndFunctionResponseFormat responseFormat) {
-        this.responseFormat = responseFormat;
-        this.unparsed |= !responseFormat.isValid();
-        return this;
-    }
+  public void setSecurityQuery(LogQueryDefinition securityQuery) {
+    this.securityQuery = securityQuery;
+  }
 
-    /**
-     * Get responseFormat
-     * @return responseFormat
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_RESPONSE_FORMAT)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public FormulaAndFunctionResponseFormat getResponseFormat() {
-        return responseFormat;
-    }
+  public TimeseriesWidgetRequest style(WidgetRequestStyle style) {
+    this.style = style;
+    this.unparsed |= style.unparsed;
+    return this;
+  }
 
-    public void setResponseFormat(FormulaAndFunctionResponseFormat responseFormat) {
-        if (!responseFormat.isValid()) {
-            this.unparsed = true;
-        }
-        this.responseFormat = responseFormat;
-    }
+  /**
+   * Get style
+   *
+   * @return style
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_STYLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetRequestStyle getStyle() {
+    return style;
+  }
 
-    public TimeseriesWidgetRequest rumQuery(LogQueryDefinition rumQuery) {
-        this.rumQuery = rumQuery;
-        this.unparsed |= rumQuery.unparsed;
-        return this;
-    }
+  public void setStyle(WidgetRequestStyle style) {
+    this.style = style;
+  }
 
-    /**
-     * Get rumQuery
-     * @return rumQuery
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_RUM_QUERY)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public LogQueryDefinition getRumQuery() {
-        return rumQuery;
+  /** Return true if this TimeseriesWidgetRequest object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    TimeseriesWidgetRequest timeseriesWidgetRequest = (TimeseriesWidgetRequest) o;
+    return Objects.equals(this.apmQuery, timeseriesWidgetRequest.apmQuery)
+        && Objects.equals(this.auditQuery, timeseriesWidgetRequest.auditQuery)
+        && Objects.equals(this.displayType, timeseriesWidgetRequest.displayType)
+        && Objects.equals(this.eventQuery, timeseriesWidgetRequest.eventQuery)
+        && Objects.equals(this.formulas, timeseriesWidgetRequest.formulas)
+        && Objects.equals(this.logQuery, timeseriesWidgetRequest.logQuery)
+        && Objects.equals(this.metadata, timeseriesWidgetRequest.metadata)
+        && Objects.equals(this.networkQuery, timeseriesWidgetRequest.networkQuery)
+        && Objects.equals(this.onRightYaxis, timeseriesWidgetRequest.onRightYaxis)
+        && Objects.equals(this.processQuery, timeseriesWidgetRequest.processQuery)
+        && Objects.equals(this.profileMetricsQuery, timeseriesWidgetRequest.profileMetricsQuery)
+        && Objects.equals(this.q, timeseriesWidgetRequest.q)
+        && Objects.equals(this.queries, timeseriesWidgetRequest.queries)
+        && Objects.equals(this.responseFormat, timeseriesWidgetRequest.responseFormat)
+        && Objects.equals(this.rumQuery, timeseriesWidgetRequest.rumQuery)
+        && Objects.equals(this.securityQuery, timeseriesWidgetRequest.securityQuery)
+        && Objects.equals(this.style, timeseriesWidgetRequest.style);
+  }
 
-    public void setRumQuery(LogQueryDefinition rumQuery) {
-        this.rumQuery = rumQuery;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(
+        apmQuery,
+        auditQuery,
+        displayType,
+        eventQuery,
+        formulas,
+        logQuery,
+        metadata,
+        networkQuery,
+        onRightYaxis,
+        processQuery,
+        profileMetricsQuery,
+        q,
+        queries,
+        responseFormat,
+        rumQuery,
+        securityQuery,
+        style);
+  }
 
-    public TimeseriesWidgetRequest securityQuery(LogQueryDefinition securityQuery) {
-        this.securityQuery = securityQuery;
-        this.unparsed |= securityQuery.unparsed;
-        return this;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class TimeseriesWidgetRequest {\n");
+    sb.append("    apmQuery: ").append(toIndentedString(apmQuery)).append("\n");
+    sb.append("    auditQuery: ").append(toIndentedString(auditQuery)).append("\n");
+    sb.append("    displayType: ").append(toIndentedString(displayType)).append("\n");
+    sb.append("    eventQuery: ").append(toIndentedString(eventQuery)).append("\n");
+    sb.append("    formulas: ").append(toIndentedString(formulas)).append("\n");
+    sb.append("    logQuery: ").append(toIndentedString(logQuery)).append("\n");
+    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    networkQuery: ").append(toIndentedString(networkQuery)).append("\n");
+    sb.append("    onRightYaxis: ").append(toIndentedString(onRightYaxis)).append("\n");
+    sb.append("    processQuery: ").append(toIndentedString(processQuery)).append("\n");
+    sb.append("    profileMetricsQuery: ")
+        .append(toIndentedString(profileMetricsQuery))
+        .append("\n");
+    sb.append("    q: ").append(toIndentedString(q)).append("\n");
+    sb.append("    queries: ").append(toIndentedString(queries)).append("\n");
+    sb.append("    responseFormat: ").append(toIndentedString(responseFormat)).append("\n");
+    sb.append("    rumQuery: ").append(toIndentedString(rumQuery)).append("\n");
+    sb.append("    securityQuery: ").append(toIndentedString(securityQuery)).append("\n");
+    sb.append("    style: ").append(toIndentedString(style)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Get securityQuery
-     * @return securityQuery
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_SECURITY_QUERY)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public LogQueryDefinition getSecurityQuery() {
-        return securityQuery;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    public void setSecurityQuery(LogQueryDefinition securityQuery) {
-        this.securityQuery = securityQuery;
-    }
-
-    public TimeseriesWidgetRequest style(WidgetRequestStyle style) {
-        this.style = style;
-        this.unparsed |= style.unparsed;
-        return this;
-    }
-
-    /**
-     * Get style
-     * @return style
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_STYLE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public WidgetRequestStyle getStyle() {
-        return style;
-    }
-
-    public void setStyle(WidgetRequestStyle style) {
-        this.style = style;
-    }
-
-    /**
-     * Return true if this TimeseriesWidgetRequest object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        TimeseriesWidgetRequest timeseriesWidgetRequest = (TimeseriesWidgetRequest) o;
-        return (
-            Objects.equals(this.apmQuery, timeseriesWidgetRequest.apmQuery) &&
-            Objects.equals(this.auditQuery, timeseriesWidgetRequest.auditQuery) &&
-            Objects.equals(this.displayType, timeseriesWidgetRequest.displayType) &&
-            Objects.equals(this.eventQuery, timeseriesWidgetRequest.eventQuery) &&
-            Objects.equals(this.formulas, timeseriesWidgetRequest.formulas) &&
-            Objects.equals(this.logQuery, timeseriesWidgetRequest.logQuery) &&
-            Objects.equals(this.metadata, timeseriesWidgetRequest.metadata) &&
-            Objects.equals(this.networkQuery, timeseriesWidgetRequest.networkQuery) &&
-            Objects.equals(this.onRightYaxis, timeseriesWidgetRequest.onRightYaxis) &&
-            Objects.equals(this.processQuery, timeseriesWidgetRequest.processQuery) &&
-            Objects.equals(this.profileMetricsQuery, timeseriesWidgetRequest.profileMetricsQuery) &&
-            Objects.equals(this.q, timeseriesWidgetRequest.q) &&
-            Objects.equals(this.queries, timeseriesWidgetRequest.queries) &&
-            Objects.equals(this.responseFormat, timeseriesWidgetRequest.responseFormat) &&
-            Objects.equals(this.rumQuery, timeseriesWidgetRequest.rumQuery) &&
-            Objects.equals(this.securityQuery, timeseriesWidgetRequest.securityQuery) &&
-            Objects.equals(this.style, timeseriesWidgetRequest.style)
-        );
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(
-            apmQuery,
-            auditQuery,
-            displayType,
-            eventQuery,
-            formulas,
-            logQuery,
-            metadata,
-            networkQuery,
-            onRightYaxis,
-            processQuery,
-            profileMetricsQuery,
-            q,
-            queries,
-            responseFormat,
-            rumQuery,
-            securityQuery,
-            style
-        );
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class TimeseriesWidgetRequest {\n");
-        sb.append("    apmQuery: ").append(toIndentedString(apmQuery)).append("\n");
-        sb.append("    auditQuery: ").append(toIndentedString(auditQuery)).append("\n");
-        sb.append("    displayType: ").append(toIndentedString(displayType)).append("\n");
-        sb.append("    eventQuery: ").append(toIndentedString(eventQuery)).append("\n");
-        sb.append("    formulas: ").append(toIndentedString(formulas)).append("\n");
-        sb.append("    logQuery: ").append(toIndentedString(logQuery)).append("\n");
-        sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
-        sb.append("    networkQuery: ").append(toIndentedString(networkQuery)).append("\n");
-        sb.append("    onRightYaxis: ").append(toIndentedString(onRightYaxis)).append("\n");
-        sb.append("    processQuery: ").append(toIndentedString(processQuery)).append("\n");
-        sb.append("    profileMetricsQuery: ").append(toIndentedString(profileMetricsQuery)).append("\n");
-        sb.append("    q: ").append(toIndentedString(q)).append("\n");
-        sb.append("    queries: ").append(toIndentedString(queries)).append("\n");
-        sb.append("    responseFormat: ").append(toIndentedString(responseFormat)).append("\n");
-        sb.append("    rumQuery: ").append(toIndentedString(rumQuery)).append("\n");
-        sb.append("    securityQuery: ").append(toIndentedString(securityQuery)).append("\n");
-        sb.append("    style: ").append(toIndentedString(style)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

@@ -10,106 +10,92 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.datadog.api.v1.client.model.WidgetLiveSpan;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Relative timeframe.
- */
+/** Relative timeframe. */
 @ApiModel(description = "Relative timeframe.")
-@JsonPropertyOrder({ NotebookRelativeTime.JSON_PROPERTY_LIVE_SPAN })
+@JsonPropertyOrder({NotebookRelativeTime.JSON_PROPERTY_LIVE_SPAN})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class NotebookRelativeTime {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_LIVE_SPAN = "live_span";
+  private WidgetLiveSpan liveSpan;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public NotebookRelativeTime() {}
 
-    public static final String JSON_PROPERTY_LIVE_SPAN = "live_span";
-    private WidgetLiveSpan liveSpan;
+  @JsonCreator
+  public NotebookRelativeTime(
+      @JsonProperty(required = true, value = JSON_PROPERTY_LIVE_SPAN) WidgetLiveSpan liveSpan) {
+    this.liveSpan = liveSpan;
+    this.unparsed |= !liveSpan.isValid();
+  }
 
-    public NotebookRelativeTime() {}
+  public NotebookRelativeTime liveSpan(WidgetLiveSpan liveSpan) {
+    this.liveSpan = liveSpan;
+    this.unparsed |= !liveSpan.isValid();
+    return this;
+  }
 
-    @JsonCreator
-    public NotebookRelativeTime(@JsonProperty(required = true, value = JSON_PROPERTY_LIVE_SPAN) WidgetLiveSpan liveSpan) {
-        this.liveSpan = liveSpan;
-        this.unparsed |= !liveSpan.isValid();
+  /**
+   * Get liveSpan
+   *
+   * @return liveSpan
+   */
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_LIVE_SPAN)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public WidgetLiveSpan getLiveSpan() {
+    return liveSpan;
+  }
+
+  public void setLiveSpan(WidgetLiveSpan liveSpan) {
+    if (!liveSpan.isValid()) {
+      this.unparsed = true;
     }
+    this.liveSpan = liveSpan;
+  }
 
-    public NotebookRelativeTime liveSpan(WidgetLiveSpan liveSpan) {
-        this.liveSpan = liveSpan;
-        this.unparsed |= !liveSpan.isValid();
-        return this;
+  /** Return true if this NotebookRelativeTime object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    NotebookRelativeTime notebookRelativeTime = (NotebookRelativeTime) o;
+    return Objects.equals(this.liveSpan, notebookRelativeTime.liveSpan);
+  }
 
-    /**
-     * Get liveSpan
-     * @return liveSpan
-     **/
-    @ApiModelProperty(required = true, value = "")
-    @JsonProperty(JSON_PROPERTY_LIVE_SPAN)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public WidgetLiveSpan getLiveSpan() {
-        return liveSpan;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(liveSpan);
+  }
 
-    public void setLiveSpan(WidgetLiveSpan liveSpan) {
-        if (!liveSpan.isValid()) {
-            this.unparsed = true;
-        }
-        this.liveSpan = liveSpan;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class NotebookRelativeTime {\n");
+    sb.append("    liveSpan: ").append(toIndentedString(liveSpan)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Return true if this NotebookRelativeTime object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        NotebookRelativeTime notebookRelativeTime = (NotebookRelativeTime) o;
-        return Objects.equals(this.liveSpan, notebookRelativeTime.liveSpan);
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(liveSpan);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class NotebookRelativeTime {\n");
-        sb.append("    liveSpan: ").append(toIndentedString(liveSpan)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

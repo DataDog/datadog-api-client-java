@@ -10,109 +10,93 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.datadog.api.v1.client.model.User;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Array of Datadog users for a given organization.
- */
+/** Array of Datadog users for a given organization. */
 @ApiModel(description = "Array of Datadog users for a given organization.")
-@JsonPropertyOrder({ UserListResponse.JSON_PROPERTY_USERS })
+@JsonPropertyOrder({UserListResponse.JSON_PROPERTY_USERS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UserListResponse {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_USERS = "users";
+  private List<User> users = null;
 
-    @JsonIgnore
-    public boolean unparsed = false;
-
-    public static final String JSON_PROPERTY_USERS = "users";
-    private List<User> users = null;
-
-    public UserListResponse users(List<User> users) {
-        this.users = users;
-        for (User item : users) {
-            this.unparsed |= item.unparsed;
-        }
-        return this;
+  public UserListResponse users(List<User> users) {
+    this.users = users;
+    for (User item : users) {
+      this.unparsed |= item.unparsed;
     }
+    return this;
+  }
 
-    public UserListResponse addUsersItem(User usersItem) {
-        if (this.users == null) {
-            this.users = new ArrayList<>();
-        }
-        this.users.add(usersItem);
-        this.unparsed |= usersItem.unparsed;
-        return this;
+  public UserListResponse addUsersItem(User usersItem) {
+    if (this.users == null) {
+      this.users = new ArrayList<>();
     }
+    this.users.add(usersItem);
+    this.unparsed |= usersItem.unparsed;
+    return this;
+  }
 
-    /**
-     * Array of users.
-     * @return users
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Array of users.")
-    @JsonProperty(JSON_PROPERTY_USERS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<User> getUsers() {
-        return users;
-    }
+  /**
+   * Array of users.
+   *
+   * @return users
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Array of users.")
+  @JsonProperty(JSON_PROPERTY_USERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<User> getUsers() {
+    return users;
+  }
 
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
+  public void setUsers(List<User> users) {
+    this.users = users;
+  }
 
-    /**
-     * Return true if this UserListResponse object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        UserListResponse userListResponse = (UserListResponse) o;
-        return Objects.equals(this.users, userListResponse.users);
+  /** Return true if this UserListResponse object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    UserListResponse userListResponse = (UserListResponse) o;
+    return Objects.equals(this.users, userListResponse.users);
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(users);
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(users);
+  }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class UserListResponse {\n");
-        sb.append("    users: ").append(toIndentedString(users)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class UserListResponse {\n");
+    sb.append("    users: ").append(toIndentedString(users)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

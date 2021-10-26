@@ -10,213 +10,197 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.datadog.api.v1.client.model.SyntheticsStepType;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * The steps used in a Synthetics browser test.
- */
+/** The steps used in a Synthetics browser test. */
 @ApiModel(description = "The steps used in a Synthetics browser test.")
-@JsonPropertyOrder(
-    {
-        SyntheticsStep.JSON_PROPERTY_ALLOW_FAILURE,
-        SyntheticsStep.JSON_PROPERTY_NAME,
-        SyntheticsStep.JSON_PROPERTY_PARAMS,
-        SyntheticsStep.JSON_PROPERTY_TIMEOUT,
-        SyntheticsStep.JSON_PROPERTY_TYPE
-    }
-)
+@JsonPropertyOrder({
+  SyntheticsStep.JSON_PROPERTY_ALLOW_FAILURE,
+  SyntheticsStep.JSON_PROPERTY_NAME,
+  SyntheticsStep.JSON_PROPERTY_PARAMS,
+  SyntheticsStep.JSON_PROPERTY_TIMEOUT,
+  SyntheticsStep.JSON_PROPERTY_TYPE
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsStep {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ALLOW_FAILURE = "allowFailure";
+  private Boolean allowFailure;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
-    public static final String JSON_PROPERTY_ALLOW_FAILURE = "allowFailure";
-    private Boolean allowFailure;
+  public static final String JSON_PROPERTY_PARAMS = "params";
+  private Object params;
 
-    public static final String JSON_PROPERTY_NAME = "name";
-    private String name;
+  public static final String JSON_PROPERTY_TIMEOUT = "timeout";
+  private Long timeout;
 
-    public static final String JSON_PROPERTY_PARAMS = "params";
-    private Object params;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private SyntheticsStepType type;
 
-    public static final String JSON_PROPERTY_TIMEOUT = "timeout";
-    private Long timeout;
+  public SyntheticsStep allowFailure(Boolean allowFailure) {
+    this.allowFailure = allowFailure;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_TYPE = "type";
-    private SyntheticsStepType type;
+  /**
+   * A boolean set to allow this step to fail.
+   *
+   * @return allowFailure
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A boolean set to allow this step to fail.")
+  @JsonProperty(JSON_PROPERTY_ALLOW_FAILURE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getAllowFailure() {
+    return allowFailure;
+  }
 
-    public SyntheticsStep allowFailure(Boolean allowFailure) {
-        this.allowFailure = allowFailure;
-        return this;
+  public void setAllowFailure(Boolean allowFailure) {
+    this.allowFailure = allowFailure;
+  }
+
+  public SyntheticsStep name(String name) {
+    this.name = name;
+    return this;
+  }
+
+  /**
+   * The name of the step.
+   *
+   * @return name
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The name of the step.")
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public SyntheticsStep params(Object params) {
+    this.params = params;
+    return this;
+  }
+
+  /**
+   * The parameters of the step.
+   *
+   * @return params
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The parameters of the step.")
+  @JsonProperty(JSON_PROPERTY_PARAMS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Object getParams() {
+    return params;
+  }
+
+  public void setParams(Object params) {
+    this.params = params;
+  }
+
+  public SyntheticsStep timeout(Long timeout) {
+    this.timeout = timeout;
+    return this;
+  }
+
+  /**
+   * The time before declaring a step failed.
+   *
+   * @return timeout
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The time before declaring a step failed.")
+  @JsonProperty(JSON_PROPERTY_TIMEOUT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getTimeout() {
+    return timeout;
+  }
+
+  public void setTimeout(Long timeout) {
+    this.timeout = timeout;
+  }
+
+  public SyntheticsStep type(SyntheticsStepType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    return this;
+  }
+
+  /**
+   * Get type
+   *
+   * @return type
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsStepType getType() {
+    return type;
+  }
+
+  public void setType(SyntheticsStepType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
     }
+    this.type = type;
+  }
 
-    /**
-     * A boolean set to allow this step to fail.
-     * @return allowFailure
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "A boolean set to allow this step to fail.")
-    @JsonProperty(JSON_PROPERTY_ALLOW_FAILURE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Boolean getAllowFailure() {
-        return allowFailure;
+  /** Return true if this SyntheticsStep object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    SyntheticsStep syntheticsStep = (SyntheticsStep) o;
+    return Objects.equals(this.allowFailure, syntheticsStep.allowFailure)
+        && Objects.equals(this.name, syntheticsStep.name)
+        && Objects.equals(this.params, syntheticsStep.params)
+        && Objects.equals(this.timeout, syntheticsStep.timeout)
+        && Objects.equals(this.type, syntheticsStep.type);
+  }
 
-    public void setAllowFailure(Boolean allowFailure) {
-        this.allowFailure = allowFailure;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(allowFailure, name, params, timeout, type);
+  }
 
-    public SyntheticsStep name(String name) {
-        this.name = name;
-        return this;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class SyntheticsStep {\n");
+    sb.append("    allowFailure: ").append(toIndentedString(allowFailure)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    params: ").append(toIndentedString(params)).append("\n");
+    sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * The name of the step.
-     * @return name
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The name of the step.")
-    @JsonProperty(JSON_PROPERTY_NAME)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getName() {
-        return name;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public SyntheticsStep params(Object params) {
-        this.params = params;
-        return this;
-    }
-
-    /**
-     * The parameters of the step.
-     * @return params
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The parameters of the step.")
-    @JsonProperty(JSON_PROPERTY_PARAMS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Object getParams() {
-        return params;
-    }
-
-    public void setParams(Object params) {
-        this.params = params;
-    }
-
-    public SyntheticsStep timeout(Long timeout) {
-        this.timeout = timeout;
-        return this;
-    }
-
-    /**
-     * The time before declaring a step failed.
-     * @return timeout
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The time before declaring a step failed.")
-    @JsonProperty(JSON_PROPERTY_TIMEOUT)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Long getTimeout() {
-        return timeout;
-    }
-
-    public void setTimeout(Long timeout) {
-        this.timeout = timeout;
-    }
-
-    public SyntheticsStep type(SyntheticsStepType type) {
-        this.type = type;
-        this.unparsed |= !type.isValid();
-        return this;
-    }
-
-    /**
-     * Get type
-     * @return type
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_TYPE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public SyntheticsStepType getType() {
-        return type;
-    }
-
-    public void setType(SyntheticsStepType type) {
-        if (!type.isValid()) {
-            this.unparsed = true;
-        }
-        this.type = type;
-    }
-
-    /**
-     * Return true if this SyntheticsStep object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        SyntheticsStep syntheticsStep = (SyntheticsStep) o;
-        return (
-            Objects.equals(this.allowFailure, syntheticsStep.allowFailure) &&
-            Objects.equals(this.name, syntheticsStep.name) &&
-            Objects.equals(this.params, syntheticsStep.params) &&
-            Objects.equals(this.timeout, syntheticsStep.timeout) &&
-            Objects.equals(this.type, syntheticsStep.type)
-        );
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(allowFailure, name, params, timeout, type);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SyntheticsStep {\n");
-        sb.append("    allowFailure: ").append(toIndentedString(allowFailure)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    params: ").append(toIndentedString(params)).append("\n");
-        sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

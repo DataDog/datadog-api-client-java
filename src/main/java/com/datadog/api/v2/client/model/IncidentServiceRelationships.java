@@ -10,125 +10,111 @@
 
 package com.datadog.api.v2.client.model;
 
-import com.datadog.api.v2.client.JSON;
-import com.datadog.api.v2.client.model.RelationshipToUser;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * The incident service&#39;s relationships.
- */
+/** The incident service&#39;s relationships. */
 @ApiModel(description = "The incident service's relationships.")
-@JsonPropertyOrder({ IncidentServiceRelationships.JSON_PROPERTY_CREATED_BY, IncidentServiceRelationships.JSON_PROPERTY_LAST_MODIFIED_BY })
+@JsonPropertyOrder({
+  IncidentServiceRelationships.JSON_PROPERTY_CREATED_BY,
+  IncidentServiceRelationships.JSON_PROPERTY_LAST_MODIFIED_BY
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IncidentServiceRelationships {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CREATED_BY = "created_by";
+  private RelationshipToUser createdBy;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_LAST_MODIFIED_BY = "last_modified_by";
+  private RelationshipToUser lastModifiedBy;
 
-    public static final String JSON_PROPERTY_CREATED_BY = "created_by";
-    private RelationshipToUser createdBy;
+  public IncidentServiceRelationships createdBy(RelationshipToUser createdBy) {
+    this.createdBy = createdBy;
+    this.unparsed |= createdBy.unparsed;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_LAST_MODIFIED_BY = "last_modified_by";
-    private RelationshipToUser lastModifiedBy;
+  /**
+   * Get createdBy
+   *
+   * @return createdBy
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_CREATED_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public RelationshipToUser getCreatedBy() {
+    return createdBy;
+  }
 
-    public IncidentServiceRelationships createdBy(RelationshipToUser createdBy) {
-        this.createdBy = createdBy;
-        this.unparsed |= createdBy.unparsed;
-        return this;
+  public void setCreatedBy(RelationshipToUser createdBy) {
+    this.createdBy = createdBy;
+  }
+
+  public IncidentServiceRelationships lastModifiedBy(RelationshipToUser lastModifiedBy) {
+    this.lastModifiedBy = lastModifiedBy;
+    this.unparsed |= lastModifiedBy.unparsed;
+    return this;
+  }
+
+  /**
+   * Get lastModifiedBy
+   *
+   * @return lastModifiedBy
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_LAST_MODIFIED_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public RelationshipToUser getLastModifiedBy() {
+    return lastModifiedBy;
+  }
+
+  public void setLastModifiedBy(RelationshipToUser lastModifiedBy) {
+    this.lastModifiedBy = lastModifiedBy;
+  }
+
+  /** Return true if this IncidentServiceRelationships object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * Get createdBy
-     * @return createdBy
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_CREATED_BY)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public RelationshipToUser getCreatedBy() {
-        return createdBy;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    IncidentServiceRelationships incidentServiceRelationships = (IncidentServiceRelationships) o;
+    return Objects.equals(this.createdBy, incidentServiceRelationships.createdBy)
+        && Objects.equals(this.lastModifiedBy, incidentServiceRelationships.lastModifiedBy);
+  }
 
-    public void setCreatedBy(RelationshipToUser createdBy) {
-        this.createdBy = createdBy;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(createdBy, lastModifiedBy);
+  }
 
-    public IncidentServiceRelationships lastModifiedBy(RelationshipToUser lastModifiedBy) {
-        this.lastModifiedBy = lastModifiedBy;
-        this.unparsed |= lastModifiedBy.unparsed;
-        return this;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class IncidentServiceRelationships {\n");
+    sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
+    sb.append("    lastModifiedBy: ").append(toIndentedString(lastModifiedBy)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Get lastModifiedBy
-     * @return lastModifiedBy
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_LAST_MODIFIED_BY)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public RelationshipToUser getLastModifiedBy() {
-        return lastModifiedBy;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    public void setLastModifiedBy(RelationshipToUser lastModifiedBy) {
-        this.lastModifiedBy = lastModifiedBy;
-    }
-
-    /**
-     * Return true if this IncidentServiceRelationships object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        IncidentServiceRelationships incidentServiceRelationships = (IncidentServiceRelationships) o;
-        return (
-            Objects.equals(this.createdBy, incidentServiceRelationships.createdBy) &&
-            Objects.equals(this.lastModifiedBy, incidentServiceRelationships.lastModifiedBy)
-        );
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(createdBy, lastModifiedBy);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class IncidentServiceRelationships {\n");
-        sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
-        sb.append("    lastModifiedBy: ").append(toIndentedString(lastModifiedBy)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

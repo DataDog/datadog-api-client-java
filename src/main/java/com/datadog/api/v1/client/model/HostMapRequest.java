@@ -10,326 +10,324 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.datadog.api.v1.client.model.LogQueryDefinition;
-import com.datadog.api.v1.client.model.ProcessQueryDefinition;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Updated host map.
- */
+/** Updated host map. */
 @ApiModel(description = "Updated host map.")
-@JsonPropertyOrder(
-    {
-        HostMapRequest.JSON_PROPERTY_APM_QUERY,
-        HostMapRequest.JSON_PROPERTY_EVENT_QUERY,
-        HostMapRequest.JSON_PROPERTY_LOG_QUERY,
-        HostMapRequest.JSON_PROPERTY_NETWORK_QUERY,
-        HostMapRequest.JSON_PROPERTY_PROCESS_QUERY,
-        HostMapRequest.JSON_PROPERTY_PROFILE_METRICS_QUERY,
-        HostMapRequest.JSON_PROPERTY_Q,
-        HostMapRequest.JSON_PROPERTY_RUM_QUERY,
-        HostMapRequest.JSON_PROPERTY_SECURITY_QUERY
-    }
-)
+@JsonPropertyOrder({
+  HostMapRequest.JSON_PROPERTY_APM_QUERY,
+  HostMapRequest.JSON_PROPERTY_EVENT_QUERY,
+  HostMapRequest.JSON_PROPERTY_LOG_QUERY,
+  HostMapRequest.JSON_PROPERTY_NETWORK_QUERY,
+  HostMapRequest.JSON_PROPERTY_PROCESS_QUERY,
+  HostMapRequest.JSON_PROPERTY_PROFILE_METRICS_QUERY,
+  HostMapRequest.JSON_PROPERTY_Q,
+  HostMapRequest.JSON_PROPERTY_RUM_QUERY,
+  HostMapRequest.JSON_PROPERTY_SECURITY_QUERY
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class HostMapRequest {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_APM_QUERY = "apm_query";
+  private LogQueryDefinition apmQuery;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_EVENT_QUERY = "event_query";
+  private LogQueryDefinition eventQuery;
 
-    public static final String JSON_PROPERTY_APM_QUERY = "apm_query";
-    private LogQueryDefinition apmQuery;
+  public static final String JSON_PROPERTY_LOG_QUERY = "log_query";
+  private LogQueryDefinition logQuery;
 
-    public static final String JSON_PROPERTY_EVENT_QUERY = "event_query";
-    private LogQueryDefinition eventQuery;
+  public static final String JSON_PROPERTY_NETWORK_QUERY = "network_query";
+  private LogQueryDefinition networkQuery;
 
-    public static final String JSON_PROPERTY_LOG_QUERY = "log_query";
-    private LogQueryDefinition logQuery;
+  public static final String JSON_PROPERTY_PROCESS_QUERY = "process_query";
+  private ProcessQueryDefinition processQuery;
 
-    public static final String JSON_PROPERTY_NETWORK_QUERY = "network_query";
-    private LogQueryDefinition networkQuery;
+  public static final String JSON_PROPERTY_PROFILE_METRICS_QUERY = "profile_metrics_query";
+  private LogQueryDefinition profileMetricsQuery;
 
-    public static final String JSON_PROPERTY_PROCESS_QUERY = "process_query";
-    private ProcessQueryDefinition processQuery;
+  public static final String JSON_PROPERTY_Q = "q";
+  private String q;
 
-    public static final String JSON_PROPERTY_PROFILE_METRICS_QUERY = "profile_metrics_query";
-    private LogQueryDefinition profileMetricsQuery;
+  public static final String JSON_PROPERTY_RUM_QUERY = "rum_query";
+  private LogQueryDefinition rumQuery;
 
-    public static final String JSON_PROPERTY_Q = "q";
-    private String q;
+  public static final String JSON_PROPERTY_SECURITY_QUERY = "security_query";
+  private LogQueryDefinition securityQuery;
 
-    public static final String JSON_PROPERTY_RUM_QUERY = "rum_query";
-    private LogQueryDefinition rumQuery;
+  public HostMapRequest apmQuery(LogQueryDefinition apmQuery) {
+    this.apmQuery = apmQuery;
+    this.unparsed |= apmQuery.unparsed;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_SECURITY_QUERY = "security_query";
-    private LogQueryDefinition securityQuery;
+  /**
+   * Get apmQuery
+   *
+   * @return apmQuery
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_APM_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogQueryDefinition getApmQuery() {
+    return apmQuery;
+  }
 
-    public HostMapRequest apmQuery(LogQueryDefinition apmQuery) {
-        this.apmQuery = apmQuery;
-        this.unparsed |= apmQuery.unparsed;
-        return this;
+  public void setApmQuery(LogQueryDefinition apmQuery) {
+    this.apmQuery = apmQuery;
+  }
+
+  public HostMapRequest eventQuery(LogQueryDefinition eventQuery) {
+    this.eventQuery = eventQuery;
+    this.unparsed |= eventQuery.unparsed;
+    return this;
+  }
+
+  /**
+   * Get eventQuery
+   *
+   * @return eventQuery
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_EVENT_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogQueryDefinition getEventQuery() {
+    return eventQuery;
+  }
+
+  public void setEventQuery(LogQueryDefinition eventQuery) {
+    this.eventQuery = eventQuery;
+  }
+
+  public HostMapRequest logQuery(LogQueryDefinition logQuery) {
+    this.logQuery = logQuery;
+    this.unparsed |= logQuery.unparsed;
+    return this;
+  }
+
+  /**
+   * Get logQuery
+   *
+   * @return logQuery
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_LOG_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogQueryDefinition getLogQuery() {
+    return logQuery;
+  }
+
+  public void setLogQuery(LogQueryDefinition logQuery) {
+    this.logQuery = logQuery;
+  }
+
+  public HostMapRequest networkQuery(LogQueryDefinition networkQuery) {
+    this.networkQuery = networkQuery;
+    this.unparsed |= networkQuery.unparsed;
+    return this;
+  }
+
+  /**
+   * Get networkQuery
+   *
+   * @return networkQuery
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_NETWORK_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogQueryDefinition getNetworkQuery() {
+    return networkQuery;
+  }
+
+  public void setNetworkQuery(LogQueryDefinition networkQuery) {
+    this.networkQuery = networkQuery;
+  }
+
+  public HostMapRequest processQuery(ProcessQueryDefinition processQuery) {
+    this.processQuery = processQuery;
+    this.unparsed |= processQuery.unparsed;
+    return this;
+  }
+
+  /**
+   * Get processQuery
+   *
+   * @return processQuery
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PROCESS_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ProcessQueryDefinition getProcessQuery() {
+    return processQuery;
+  }
+
+  public void setProcessQuery(ProcessQueryDefinition processQuery) {
+    this.processQuery = processQuery;
+  }
+
+  public HostMapRequest profileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
+    this.profileMetricsQuery = profileMetricsQuery;
+    this.unparsed |= profileMetricsQuery.unparsed;
+    return this;
+  }
+
+  /**
+   * Get profileMetricsQuery
+   *
+   * @return profileMetricsQuery
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PROFILE_METRICS_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogQueryDefinition getProfileMetricsQuery() {
+    return profileMetricsQuery;
+  }
+
+  public void setProfileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
+    this.profileMetricsQuery = profileMetricsQuery;
+  }
+
+  public HostMapRequest q(String q) {
+    this.q = q;
+    return this;
+  }
+
+  /**
+   * Query definition.
+   *
+   * @return q
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Query definition.")
+  @JsonProperty(JSON_PROPERTY_Q)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getQ() {
+    return q;
+  }
+
+  public void setQ(String q) {
+    this.q = q;
+  }
+
+  public HostMapRequest rumQuery(LogQueryDefinition rumQuery) {
+    this.rumQuery = rumQuery;
+    this.unparsed |= rumQuery.unparsed;
+    return this;
+  }
+
+  /**
+   * Get rumQuery
+   *
+   * @return rumQuery
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_RUM_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogQueryDefinition getRumQuery() {
+    return rumQuery;
+  }
+
+  public void setRumQuery(LogQueryDefinition rumQuery) {
+    this.rumQuery = rumQuery;
+  }
+
+  public HostMapRequest securityQuery(LogQueryDefinition securityQuery) {
+    this.securityQuery = securityQuery;
+    this.unparsed |= securityQuery.unparsed;
+    return this;
+  }
+
+  /**
+   * Get securityQuery
+   *
+   * @return securityQuery
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SECURITY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogQueryDefinition getSecurityQuery() {
+    return securityQuery;
+  }
+
+  public void setSecurityQuery(LogQueryDefinition securityQuery) {
+    this.securityQuery = securityQuery;
+  }
+
+  /** Return true if this HostMapRequest object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * Get apmQuery
-     * @return apmQuery
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_APM_QUERY)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public LogQueryDefinition getApmQuery() {
-        return apmQuery;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    HostMapRequest hostMapRequest = (HostMapRequest) o;
+    return Objects.equals(this.apmQuery, hostMapRequest.apmQuery)
+        && Objects.equals(this.eventQuery, hostMapRequest.eventQuery)
+        && Objects.equals(this.logQuery, hostMapRequest.logQuery)
+        && Objects.equals(this.networkQuery, hostMapRequest.networkQuery)
+        && Objects.equals(this.processQuery, hostMapRequest.processQuery)
+        && Objects.equals(this.profileMetricsQuery, hostMapRequest.profileMetricsQuery)
+        && Objects.equals(this.q, hostMapRequest.q)
+        && Objects.equals(this.rumQuery, hostMapRequest.rumQuery)
+        && Objects.equals(this.securityQuery, hostMapRequest.securityQuery);
+  }
 
-    public void setApmQuery(LogQueryDefinition apmQuery) {
-        this.apmQuery = apmQuery;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(
+        apmQuery,
+        eventQuery,
+        logQuery,
+        networkQuery,
+        processQuery,
+        profileMetricsQuery,
+        q,
+        rumQuery,
+        securityQuery);
+  }
 
-    public HostMapRequest eventQuery(LogQueryDefinition eventQuery) {
-        this.eventQuery = eventQuery;
-        this.unparsed |= eventQuery.unparsed;
-        return this;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class HostMapRequest {\n");
+    sb.append("    apmQuery: ").append(toIndentedString(apmQuery)).append("\n");
+    sb.append("    eventQuery: ").append(toIndentedString(eventQuery)).append("\n");
+    sb.append("    logQuery: ").append(toIndentedString(logQuery)).append("\n");
+    sb.append("    networkQuery: ").append(toIndentedString(networkQuery)).append("\n");
+    sb.append("    processQuery: ").append(toIndentedString(processQuery)).append("\n");
+    sb.append("    profileMetricsQuery: ")
+        .append(toIndentedString(profileMetricsQuery))
+        .append("\n");
+    sb.append("    q: ").append(toIndentedString(q)).append("\n");
+    sb.append("    rumQuery: ").append(toIndentedString(rumQuery)).append("\n");
+    sb.append("    securityQuery: ").append(toIndentedString(securityQuery)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Get eventQuery
-     * @return eventQuery
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_EVENT_QUERY)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public LogQueryDefinition getEventQuery() {
-        return eventQuery;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    public void setEventQuery(LogQueryDefinition eventQuery) {
-        this.eventQuery = eventQuery;
-    }
-
-    public HostMapRequest logQuery(LogQueryDefinition logQuery) {
-        this.logQuery = logQuery;
-        this.unparsed |= logQuery.unparsed;
-        return this;
-    }
-
-    /**
-     * Get logQuery
-     * @return logQuery
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_LOG_QUERY)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public LogQueryDefinition getLogQuery() {
-        return logQuery;
-    }
-
-    public void setLogQuery(LogQueryDefinition logQuery) {
-        this.logQuery = logQuery;
-    }
-
-    public HostMapRequest networkQuery(LogQueryDefinition networkQuery) {
-        this.networkQuery = networkQuery;
-        this.unparsed |= networkQuery.unparsed;
-        return this;
-    }
-
-    /**
-     * Get networkQuery
-     * @return networkQuery
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_NETWORK_QUERY)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public LogQueryDefinition getNetworkQuery() {
-        return networkQuery;
-    }
-
-    public void setNetworkQuery(LogQueryDefinition networkQuery) {
-        this.networkQuery = networkQuery;
-    }
-
-    public HostMapRequest processQuery(ProcessQueryDefinition processQuery) {
-        this.processQuery = processQuery;
-        this.unparsed |= processQuery.unparsed;
-        return this;
-    }
-
-    /**
-     * Get processQuery
-     * @return processQuery
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_PROCESS_QUERY)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public ProcessQueryDefinition getProcessQuery() {
-        return processQuery;
-    }
-
-    public void setProcessQuery(ProcessQueryDefinition processQuery) {
-        this.processQuery = processQuery;
-    }
-
-    public HostMapRequest profileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
-        this.profileMetricsQuery = profileMetricsQuery;
-        this.unparsed |= profileMetricsQuery.unparsed;
-        return this;
-    }
-
-    /**
-     * Get profileMetricsQuery
-     * @return profileMetricsQuery
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_PROFILE_METRICS_QUERY)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public LogQueryDefinition getProfileMetricsQuery() {
-        return profileMetricsQuery;
-    }
-
-    public void setProfileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
-        this.profileMetricsQuery = profileMetricsQuery;
-    }
-
-    public HostMapRequest q(String q) {
-        this.q = q;
-        return this;
-    }
-
-    /**
-     * Query definition.
-     * @return q
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Query definition.")
-    @JsonProperty(JSON_PROPERTY_Q)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getQ() {
-        return q;
-    }
-
-    public void setQ(String q) {
-        this.q = q;
-    }
-
-    public HostMapRequest rumQuery(LogQueryDefinition rumQuery) {
-        this.rumQuery = rumQuery;
-        this.unparsed |= rumQuery.unparsed;
-        return this;
-    }
-
-    /**
-     * Get rumQuery
-     * @return rumQuery
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_RUM_QUERY)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public LogQueryDefinition getRumQuery() {
-        return rumQuery;
-    }
-
-    public void setRumQuery(LogQueryDefinition rumQuery) {
-        this.rumQuery = rumQuery;
-    }
-
-    public HostMapRequest securityQuery(LogQueryDefinition securityQuery) {
-        this.securityQuery = securityQuery;
-        this.unparsed |= securityQuery.unparsed;
-        return this;
-    }
-
-    /**
-     * Get securityQuery
-     * @return securityQuery
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_SECURITY_QUERY)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public LogQueryDefinition getSecurityQuery() {
-        return securityQuery;
-    }
-
-    public void setSecurityQuery(LogQueryDefinition securityQuery) {
-        this.securityQuery = securityQuery;
-    }
-
-    /**
-     * Return true if this HostMapRequest object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        HostMapRequest hostMapRequest = (HostMapRequest) o;
-        return (
-            Objects.equals(this.apmQuery, hostMapRequest.apmQuery) &&
-            Objects.equals(this.eventQuery, hostMapRequest.eventQuery) &&
-            Objects.equals(this.logQuery, hostMapRequest.logQuery) &&
-            Objects.equals(this.networkQuery, hostMapRequest.networkQuery) &&
-            Objects.equals(this.processQuery, hostMapRequest.processQuery) &&
-            Objects.equals(this.profileMetricsQuery, hostMapRequest.profileMetricsQuery) &&
-            Objects.equals(this.q, hostMapRequest.q) &&
-            Objects.equals(this.rumQuery, hostMapRequest.rumQuery) &&
-            Objects.equals(this.securityQuery, hostMapRequest.securityQuery)
-        );
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(apmQuery, eventQuery, logQuery, networkQuery, processQuery, profileMetricsQuery, q, rumQuery, securityQuery);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class HostMapRequest {\n");
-        sb.append("    apmQuery: ").append(toIndentedString(apmQuery)).append("\n");
-        sb.append("    eventQuery: ").append(toIndentedString(eventQuery)).append("\n");
-        sb.append("    logQuery: ").append(toIndentedString(logQuery)).append("\n");
-        sb.append("    networkQuery: ").append(toIndentedString(networkQuery)).append("\n");
-        sb.append("    processQuery: ").append(toIndentedString(processQuery)).append("\n");
-        sb.append("    profileMetricsQuery: ").append(toIndentedString(profileMetricsQuery)).append("\n");
-        sb.append("    q: ").append(toIndentedString(q)).append("\n");
-        sb.append("    rumQuery: ").append(toIndentedString(rumQuery)).append("\n");
-        sb.append("    securityQuery: ").append(toIndentedString(securityQuery)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

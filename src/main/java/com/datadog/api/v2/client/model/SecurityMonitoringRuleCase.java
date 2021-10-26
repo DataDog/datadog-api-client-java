@@ -10,198 +10,185 @@
 
 package com.datadog.api.v2.client.model;
 
-import com.datadog.api.v2.client.JSON;
-import com.datadog.api.v2.client.model.SecurityMonitoringRuleSeverity;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Case when signal is generated.
- */
+/** Case when signal is generated. */
 @ApiModel(description = "Case when signal is generated.")
-@JsonPropertyOrder(
-    {
-        SecurityMonitoringRuleCase.JSON_PROPERTY_CONDITION,
-        SecurityMonitoringRuleCase.JSON_PROPERTY_NAME,
-        SecurityMonitoringRuleCase.JSON_PROPERTY_NOTIFICATIONS,
-        SecurityMonitoringRuleCase.JSON_PROPERTY_STATUS
-    }
-)
+@JsonPropertyOrder({
+  SecurityMonitoringRuleCase.JSON_PROPERTY_CONDITION,
+  SecurityMonitoringRuleCase.JSON_PROPERTY_NAME,
+  SecurityMonitoringRuleCase.JSON_PROPERTY_NOTIFICATIONS,
+  SecurityMonitoringRuleCase.JSON_PROPERTY_STATUS
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SecurityMonitoringRuleCase {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CONDITION = "condition";
+  private String condition;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
-    public static final String JSON_PROPERTY_CONDITION = "condition";
-    private String condition;
+  public static final String JSON_PROPERTY_NOTIFICATIONS = "notifications";
+  private List<String> notifications = null;
 
-    public static final String JSON_PROPERTY_NAME = "name";
-    private String name;
+  public static final String JSON_PROPERTY_STATUS = "status";
+  private SecurityMonitoringRuleSeverity status;
 
-    public static final String JSON_PROPERTY_NOTIFICATIONS = "notifications";
-    private List<String> notifications = null;
+  public SecurityMonitoringRuleCase condition(String condition) {
+    this.condition = condition;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_STATUS = "status";
-    private SecurityMonitoringRuleSeverity status;
+  /**
+   * A rule case contains logical operations (&#x60;&gt;&#x60;,&#x60;&gt;&#x3D;&#x60;,
+   * &#x60;&amp;&amp;&#x60;, &#x60;||&#x60;) to determine if a signal should be generated based on
+   * the event counts in the previously defined queries.
+   *
+   * @return condition
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "A rule case contains logical operations (`>`,`>=`, `&&`, `||`) to determine if a signal"
+              + " should be generated based on the event counts in the previously defined"
+              + " queries.")
+  @JsonProperty(JSON_PROPERTY_CONDITION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCondition() {
+    return condition;
+  }
 
-    public SecurityMonitoringRuleCase condition(String condition) {
-        this.condition = condition;
-        return this;
+  public void setCondition(String condition) {
+    this.condition = condition;
+  }
+
+  public SecurityMonitoringRuleCase name(String name) {
+    this.name = name;
+    return this;
+  }
+
+  /**
+   * Name of the case.
+   *
+   * @return name
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Name of the case.")
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public SecurityMonitoringRuleCase notifications(List<String> notifications) {
+    this.notifications = notifications;
+    return this;
+  }
+
+  public SecurityMonitoringRuleCase addNotificationsItem(String notificationsItem) {
+    if (this.notifications == null) {
+      this.notifications = new ArrayList<>();
     }
+    this.notifications.add(notificationsItem);
+    return this;
+  }
 
-    /**
-     * A rule case contains logical operations (&#x60;&gt;&#x60;,&#x60;&gt;&#x3D;&#x60;, &#x60;&amp;&amp;&#x60;, &#x60;||&#x60;) to determine if a signal should be generated based on the event counts in the previously defined queries.
-     * @return condition
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(
-        value = "A rule case contains logical operations (`>`,`>=`, `&&`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries."
-    )
-    @JsonProperty(JSON_PROPERTY_CONDITION)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getCondition() {
-        return condition;
-    }
+  /**
+   * Notification targets for each rule case.
+   *
+   * @return notifications
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Notification targets for each rule case.")
+  @JsonProperty(JSON_PROPERTY_NOTIFICATIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getNotifications() {
+    return notifications;
+  }
 
-    public void setCondition(String condition) {
-        this.condition = condition;
-    }
+  public void setNotifications(List<String> notifications) {
+    this.notifications = notifications;
+  }
 
-    public SecurityMonitoringRuleCase name(String name) {
-        this.name = name;
-        return this;
-    }
+  public SecurityMonitoringRuleCase status(SecurityMonitoringRuleSeverity status) {
+    this.status = status;
+    this.unparsed |= !status.isValid();
+    return this;
+  }
 
-    /**
-     * Name of the case.
-     * @return name
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Name of the case.")
-    @JsonProperty(JSON_PROPERTY_NAME)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getName() {
-        return name;
-    }
+  /**
+   * Get status
+   *
+   * @return status
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SecurityMonitoringRuleSeverity getStatus() {
+    return status;
+  }
 
-    public void setName(String name) {
-        this.name = name;
+  public void setStatus(SecurityMonitoringRuleSeverity status) {
+    if (!status.isValid()) {
+      this.unparsed = true;
     }
+    this.status = status;
+  }
 
-    public SecurityMonitoringRuleCase notifications(List<String> notifications) {
-        this.notifications = notifications;
-        return this;
+  /** Return true if this SecurityMonitoringRuleCase object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    SecurityMonitoringRuleCase securityMonitoringRuleCase = (SecurityMonitoringRuleCase) o;
+    return Objects.equals(this.condition, securityMonitoringRuleCase.condition)
+        && Objects.equals(this.name, securityMonitoringRuleCase.name)
+        && Objects.equals(this.notifications, securityMonitoringRuleCase.notifications)
+        && Objects.equals(this.status, securityMonitoringRuleCase.status);
+  }
 
-    public SecurityMonitoringRuleCase addNotificationsItem(String notificationsItem) {
-        if (this.notifications == null) {
-            this.notifications = new ArrayList<>();
-        }
-        this.notifications.add(notificationsItem);
-        return this;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(condition, name, notifications, status);
+  }
 
-    /**
-     * Notification targets for each rule case.
-     * @return notifications
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Notification targets for each rule case.")
-    @JsonProperty(JSON_PROPERTY_NOTIFICATIONS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<String> getNotifications() {
-        return notifications;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class SecurityMonitoringRuleCase {\n");
+    sb.append("    condition: ").append(toIndentedString(condition)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    notifications: ").append(toIndentedString(notifications)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    public void setNotifications(List<String> notifications) {
-        this.notifications = notifications;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    public SecurityMonitoringRuleCase status(SecurityMonitoringRuleSeverity status) {
-        this.status = status;
-        this.unparsed |= !status.isValid();
-        return this;
-    }
-
-    /**
-     * Get status
-     * @return status
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_STATUS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public SecurityMonitoringRuleSeverity getStatus() {
-        return status;
-    }
-
-    public void setStatus(SecurityMonitoringRuleSeverity status) {
-        if (!status.isValid()) {
-            this.unparsed = true;
-        }
-        this.status = status;
-    }
-
-    /**
-     * Return true if this SecurityMonitoringRuleCase object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        SecurityMonitoringRuleCase securityMonitoringRuleCase = (SecurityMonitoringRuleCase) o;
-        return (
-            Objects.equals(this.condition, securityMonitoringRuleCase.condition) &&
-            Objects.equals(this.name, securityMonitoringRuleCase.name) &&
-            Objects.equals(this.notifications, securityMonitoringRuleCase.notifications) &&
-            Objects.equals(this.status, securityMonitoringRuleCase.status)
-        );
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(condition, name, notifications, status);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SecurityMonitoringRuleCase {\n");
-        sb.append("    condition: ").append(toIndentedString(condition)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    notifications: ").append(toIndentedString(notifications)).append("\n");
-        sb.append("    status: ").append(toIndentedString(status)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

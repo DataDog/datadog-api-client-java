@@ -10,96 +10,84 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
 /**
  * A JSON array of billing type.
+ *
  * @deprecated
  */
 @Deprecated
 @ApiModel(description = "A JSON array of billing type.")
-@JsonPropertyOrder({ OrganizationBilling.JSON_PROPERTY_TYPE })
+@JsonPropertyOrder({OrganizationBilling.JSON_PROPERTY_TYPE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class OrganizationBilling {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private String type;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public OrganizationBilling type(String type) {
+    this.type = type;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_TYPE = "type";
-    private String type;
+  /**
+   * The type of billing. Only &#x60;parent_billing&#x60; is supported.
+   *
+   * @return type
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The type of billing. Only `parent_billing` is supported.")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getType() {
+    return type;
+  }
 
-    public OrganizationBilling type(String type) {
-        this.type = type;
-        return this;
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  /** Return true if this OrganizationBilling object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * The type of billing. Only &#x60;parent_billing&#x60; is supported.
-     * @return type
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The type of billing. Only `parent_billing` is supported.")
-    @JsonProperty(JSON_PROPERTY_TYPE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getType() {
-        return type;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    OrganizationBilling organizationBilling = (OrganizationBilling) o;
+    return Objects.equals(this.type, organizationBilling.type);
+  }
 
-    public void setType(String type) {
-        this.type = type;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(type);
+  }
 
-    /**
-     * Return true if this OrganizationBilling object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        OrganizationBilling organizationBilling = (OrganizationBilling) o;
-        return Objects.equals(this.type, organizationBilling.type);
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class OrganizationBilling {\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(type);
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class OrganizationBilling {\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

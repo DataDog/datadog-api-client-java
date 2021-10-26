@@ -10,169 +10,151 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.datadog.api.v1.client.model.WidgetSort;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Define a sorting method.
- */
+/** Define a sorting method. */
 @ApiModel(description = "Define a sorting method.")
-@JsonPropertyOrder(
-    {
-        LogQueryDefinitionGroupBySort.JSON_PROPERTY_AGGREGATION,
-        LogQueryDefinitionGroupBySort.JSON_PROPERTY_FACET,
-        LogQueryDefinitionGroupBySort.JSON_PROPERTY_ORDER
-    }
-)
+@JsonPropertyOrder({
+  LogQueryDefinitionGroupBySort.JSON_PROPERTY_AGGREGATION,
+  LogQueryDefinitionGroupBySort.JSON_PROPERTY_FACET,
+  LogQueryDefinitionGroupBySort.JSON_PROPERTY_ORDER
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogQueryDefinitionGroupBySort {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
+  private String aggregation;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_FACET = "facet";
+  private String facet;
 
-    public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
-    private String aggregation;
+  public static final String JSON_PROPERTY_ORDER = "order";
+  private WidgetSort order;
 
-    public static final String JSON_PROPERTY_FACET = "facet";
-    private String facet;
+  public LogQueryDefinitionGroupBySort() {}
 
-    public static final String JSON_PROPERTY_ORDER = "order";
-    private WidgetSort order;
+  @JsonCreator
+  public LogQueryDefinitionGroupBySort(
+      @JsonProperty(required = true, value = JSON_PROPERTY_AGGREGATION) String aggregation,
+      @JsonProperty(required = true, value = JSON_PROPERTY_ORDER) WidgetSort order) {
+    this.aggregation = aggregation;
+    this.order = order;
+    this.unparsed |= !order.isValid();
+  }
 
-    public LogQueryDefinitionGroupBySort() {}
+  public LogQueryDefinitionGroupBySort aggregation(String aggregation) {
+    this.aggregation = aggregation;
+    return this;
+  }
 
-    @JsonCreator
-    public LogQueryDefinitionGroupBySort(
-        @JsonProperty(required = true, value = JSON_PROPERTY_AGGREGATION) String aggregation,
-        @JsonProperty(required = true, value = JSON_PROPERTY_ORDER) WidgetSort order
-    ) {
-        this.aggregation = aggregation;
-        this.order = order;
-        this.unparsed |= !order.isValid();
+  /**
+   * The aggregation method.
+   *
+   * @return aggregation
+   */
+  @ApiModelProperty(example = "avg", required = true, value = "The aggregation method.")
+  @JsonProperty(JSON_PROPERTY_AGGREGATION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getAggregation() {
+    return aggregation;
+  }
+
+  public void setAggregation(String aggregation) {
+    this.aggregation = aggregation;
+  }
+
+  public LogQueryDefinitionGroupBySort facet(String facet) {
+    this.facet = facet;
+    return this;
+  }
+
+  /**
+   * Facet name.
+   *
+   * @return facet
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "@string_query.interval", value = "Facet name.")
+  @JsonProperty(JSON_PROPERTY_FACET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getFacet() {
+    return facet;
+  }
+
+  public void setFacet(String facet) {
+    this.facet = facet;
+  }
+
+  public LogQueryDefinitionGroupBySort order(WidgetSort order) {
+    this.order = order;
+    this.unparsed |= !order.isValid();
+    return this;
+  }
+
+  /**
+   * Get order
+   *
+   * @return order
+   */
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_ORDER)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public WidgetSort getOrder() {
+    return order;
+  }
+
+  public void setOrder(WidgetSort order) {
+    if (!order.isValid()) {
+      this.unparsed = true;
     }
+    this.order = order;
+  }
 
-    public LogQueryDefinitionGroupBySort aggregation(String aggregation) {
-        this.aggregation = aggregation;
-        return this;
+  /** Return true if this LogQueryDefinitionGroupBy_sort object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    LogQueryDefinitionGroupBySort logQueryDefinitionGroupBySort = (LogQueryDefinitionGroupBySort) o;
+    return Objects.equals(this.aggregation, logQueryDefinitionGroupBySort.aggregation)
+        && Objects.equals(this.facet, logQueryDefinitionGroupBySort.facet)
+        && Objects.equals(this.order, logQueryDefinitionGroupBySort.order);
+  }
 
-    /**
-     * The aggregation method.
-     * @return aggregation
-     **/
-    @ApiModelProperty(example = "avg", required = true, value = "The aggregation method.")
-    @JsonProperty(JSON_PROPERTY_AGGREGATION)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public String getAggregation() {
-        return aggregation;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(aggregation, facet, order);
+  }
 
-    public void setAggregation(String aggregation) {
-        this.aggregation = aggregation;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class LogQueryDefinitionGroupBySort {\n");
+    sb.append("    aggregation: ").append(toIndentedString(aggregation)).append("\n");
+    sb.append("    facet: ").append(toIndentedString(facet)).append("\n");
+    sb.append("    order: ").append(toIndentedString(order)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    public LogQueryDefinitionGroupBySort facet(String facet) {
-        this.facet = facet;
-        return this;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    /**
-     * Facet name.
-     * @return facet
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "@string_query.interval", value = "Facet name.")
-    @JsonProperty(JSON_PROPERTY_FACET)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getFacet() {
-        return facet;
-    }
-
-    public void setFacet(String facet) {
-        this.facet = facet;
-    }
-
-    public LogQueryDefinitionGroupBySort order(WidgetSort order) {
-        this.order = order;
-        this.unparsed |= !order.isValid();
-        return this;
-    }
-
-    /**
-     * Get order
-     * @return order
-     **/
-    @ApiModelProperty(required = true, value = "")
-    @JsonProperty(JSON_PROPERTY_ORDER)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public WidgetSort getOrder() {
-        return order;
-    }
-
-    public void setOrder(WidgetSort order) {
-        if (!order.isValid()) {
-            this.unparsed = true;
-        }
-        this.order = order;
-    }
-
-    /**
-     * Return true if this LogQueryDefinitionGroupBy_sort object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        LogQueryDefinitionGroupBySort logQueryDefinitionGroupBySort = (LogQueryDefinitionGroupBySort) o;
-        return (
-            Objects.equals(this.aggregation, logQueryDefinitionGroupBySort.aggregation) &&
-            Objects.equals(this.facet, logQueryDefinitionGroupBySort.facet) &&
-            Objects.equals(this.order, logQueryDefinitionGroupBySort.order)
-        );
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(aggregation, facet, order);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class LogQueryDefinitionGroupBySort {\n");
-        sb.append("    aggregation: ").append(toIndentedString(aggregation)).append("\n");
-        sb.append("    facet: ").append(toIndentedString(facet)).append("\n");
-        sb.append("    order: ").append(toIndentedString(order)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

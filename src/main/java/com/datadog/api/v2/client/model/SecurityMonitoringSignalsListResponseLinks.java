@@ -10,97 +10,86 @@
 
 package com.datadog.api.v2.client.model;
 
-import com.datadog.api.v2.client.JSON;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Links attributes.
- */
+/** Links attributes. */
 @ApiModel(description = "Links attributes.")
-@JsonPropertyOrder({ SecurityMonitoringSignalsListResponseLinks.JSON_PROPERTY_NEXT })
+@JsonPropertyOrder({SecurityMonitoringSignalsListResponseLinks.JSON_PROPERTY_NEXT})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SecurityMonitoringSignalsListResponseLinks {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_NEXT = "next";
+  private String next;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public SecurityMonitoringSignalsListResponseLinks next(String next) {
+    this.next = next;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_NEXT = "next";
-    private String next;
+  /**
+   * The link for the next set of results. **Note**: The request can also be made using the POST
+   * endpoint.
+   *
+   * @return next
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      example =
+          "https://app.datadoghq.com/api/v2/security_monitoring/signals?filter[query]=foo&page[cursor]=eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ==",
+      value =
+          "The link for the next set of results. **Note**: The request can also be made using the"
+              + " POST endpoint.")
+  @JsonProperty(JSON_PROPERTY_NEXT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getNext() {
+    return next;
+  }
 
-    public SecurityMonitoringSignalsListResponseLinks next(String next) {
-        this.next = next;
-        return this;
+  public void setNext(String next) {
+    this.next = next;
+  }
+
+  /** Return true if this SecurityMonitoringSignalsListResponse_links object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * The link for the next set of results. **Note**: The request can also be made using the POST endpoint.
-     * @return next
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(
-        example = "https://app.datadoghq.com/api/v2/security_monitoring/signals?filter[query]=foo&page[cursor]=eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ==",
-        value = "The link for the next set of results. **Note**: The request can also be made using the POST endpoint."
-    )
-    @JsonProperty(JSON_PROPERTY_NEXT)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getNext() {
-        return next;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    SecurityMonitoringSignalsListResponseLinks securityMonitoringSignalsListResponseLinks =
+        (SecurityMonitoringSignalsListResponseLinks) o;
+    return Objects.equals(this.next, securityMonitoringSignalsListResponseLinks.next);
+  }
 
-    public void setNext(String next) {
-        this.next = next;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(next);
+  }
 
-    /**
-     * Return true if this SecurityMonitoringSignalsListResponse_links object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        SecurityMonitoringSignalsListResponseLinks securityMonitoringSignalsListResponseLinks = (SecurityMonitoringSignalsListResponseLinks) o;
-        return Objects.equals(this.next, securityMonitoringSignalsListResponseLinks.next);
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class SecurityMonitoringSignalsListResponseLinks {\n");
+    sb.append("    next: ").append(toIndentedString(next)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(next);
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SecurityMonitoringSignalsListResponseLinks {\n");
-        sb.append("    next: ").append(toIndentedString(next)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

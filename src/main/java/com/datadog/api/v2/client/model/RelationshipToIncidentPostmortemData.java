@@ -10,141 +10,127 @@
 
 package com.datadog.api.v2.client.model;
 
-import com.datadog.api.v2.client.JSON;
-import com.datadog.api.v2.client.model.IncidentPostmortemType;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * The postmortem relationship data.
- */
+/** The postmortem relationship data. */
 @ApiModel(description = "The postmortem relationship data.")
-@JsonPropertyOrder({ RelationshipToIncidentPostmortemData.JSON_PROPERTY_ID, RelationshipToIncidentPostmortemData.JSON_PROPERTY_TYPE })
+@JsonPropertyOrder({
+  RelationshipToIncidentPostmortemData.JSON_PROPERTY_ID,
+  RelationshipToIncidentPostmortemData.JSON_PROPERTY_TYPE
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class RelationshipToIncidentPostmortemData {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private IncidentPostmortemType type = IncidentPostmortemType.INCIDENT_POSTMORTEMS;
 
-    public static final String JSON_PROPERTY_ID = "id";
-    private String id;
+  public RelationshipToIncidentPostmortemData() {}
 
-    public static final String JSON_PROPERTY_TYPE = "type";
-    private IncidentPostmortemType type = IncidentPostmortemType.INCIDENT_POSTMORTEMS;
+  @JsonCreator
+  public RelationshipToIncidentPostmortemData(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) IncidentPostmortemType type) {
+    this.id = id;
+    this.type = type;
+    this.unparsed |= !type.isValid();
+  }
 
-    public RelationshipToIncidentPostmortemData() {}
+  public RelationshipToIncidentPostmortemData id(String id) {
+    this.id = id;
+    return this;
+  }
 
-    @JsonCreator
-    public RelationshipToIncidentPostmortemData(
-        @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-        @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) IncidentPostmortemType type
-    ) {
-        this.id = id;
-        this.type = type;
-        this.unparsed |= !type.isValid();
+  /**
+   * A unique identifier that represents the postmortem.
+   *
+   * @return id
+   */
+  @ApiModelProperty(
+      example = "00000000-0000-0000-0000-000000000000",
+      required = true,
+      value = "A unique identifier that represents the postmortem.")
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public RelationshipToIncidentPostmortemData type(IncidentPostmortemType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    return this;
+  }
+
+  /**
+   * Get type
+   *
+   * @return type
+   */
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public IncidentPostmortemType getType() {
+    return type;
+  }
+
+  public void setType(IncidentPostmortemType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
     }
+    this.type = type;
+  }
 
-    public RelationshipToIncidentPostmortemData id(String id) {
-        this.id = id;
-        return this;
+  /** Return true if this RelationshipToIncidentPostmortemData object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    RelationshipToIncidentPostmortemData relationshipToIncidentPostmortemData =
+        (RelationshipToIncidentPostmortemData) o;
+    return Objects.equals(this.id, relationshipToIncidentPostmortemData.id)
+        && Objects.equals(this.type, relationshipToIncidentPostmortemData.type);
+  }
 
-    /**
-     * A unique identifier that represents the postmortem.
-     * @return id
-     **/
-    @ApiModelProperty(
-        example = "00000000-0000-0000-0000-000000000000",
-        required = true,
-        value = "A unique identifier that represents the postmortem."
-    )
-    @JsonProperty(JSON_PROPERTY_ID)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public String getId() {
-        return id;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, type);
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class RelationshipToIncidentPostmortemData {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    public RelationshipToIncidentPostmortemData type(IncidentPostmortemType type) {
-        this.type = type;
-        this.unparsed |= !type.isValid();
-        return this;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    /**
-     * Get type
-     * @return type
-     **/
-    @ApiModelProperty(required = true, value = "")
-    @JsonProperty(JSON_PROPERTY_TYPE)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public IncidentPostmortemType getType() {
-        return type;
-    }
-
-    public void setType(IncidentPostmortemType type) {
-        if (!type.isValid()) {
-            this.unparsed = true;
-        }
-        this.type = type;
-    }
-
-    /**
-     * Return true if this RelationshipToIncidentPostmortemData object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        RelationshipToIncidentPostmortemData relationshipToIncidentPostmortemData = (RelationshipToIncidentPostmortemData) o;
-        return (
-            Objects.equals(this.id, relationshipToIncidentPostmortemData.id) &&
-            Objects.equals(this.type, relationshipToIncidentPostmortemData.type)
-        );
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, type);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class RelationshipToIncidentPostmortemData {\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

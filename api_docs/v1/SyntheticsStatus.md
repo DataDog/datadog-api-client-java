@@ -1,9 +1,15 @@
+
+
 # SyntheticsStatus
 
 ## Enum
 
-- `PASSED` (value: `"passed"`)
 
-- `skipped` (value: `"skipped"`)
+* `PASSED` (value: `"passed"`)
 
-- `failed` (value: `"failed"`)
+* `skipped` (value: `"skipped"`)
+
+* `failed` (value: `"failed"`)
+
+
+

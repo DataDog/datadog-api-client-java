@@ -10,109 +10,93 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.datadog.api.v1.client.model.DashboardList;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Information on your dashboard lists.
- */
+/** Information on your dashboard lists. */
 @ApiModel(description = "Information on your dashboard lists.")
-@JsonPropertyOrder({ DashboardListListResponse.JSON_PROPERTY_DASHBOARD_LISTS })
+@JsonPropertyOrder({DashboardListListResponse.JSON_PROPERTY_DASHBOARD_LISTS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DashboardListListResponse {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DASHBOARD_LISTS = "dashboard_lists";
+  private List<DashboardList> dashboardLists = null;
 
-    @JsonIgnore
-    public boolean unparsed = false;
-
-    public static final String JSON_PROPERTY_DASHBOARD_LISTS = "dashboard_lists";
-    private List<DashboardList> dashboardLists = null;
-
-    public DashboardListListResponse dashboardLists(List<DashboardList> dashboardLists) {
-        this.dashboardLists = dashboardLists;
-        for (DashboardList item : dashboardLists) {
-            this.unparsed |= item.unparsed;
-        }
-        return this;
+  public DashboardListListResponse dashboardLists(List<DashboardList> dashboardLists) {
+    this.dashboardLists = dashboardLists;
+    for (DashboardList item : dashboardLists) {
+      this.unparsed |= item.unparsed;
     }
+    return this;
+  }
 
-    public DashboardListListResponse addDashboardListsItem(DashboardList dashboardListsItem) {
-        if (this.dashboardLists == null) {
-            this.dashboardLists = new ArrayList<>();
-        }
-        this.dashboardLists.add(dashboardListsItem);
-        this.unparsed |= dashboardListsItem.unparsed;
-        return this;
+  public DashboardListListResponse addDashboardListsItem(DashboardList dashboardListsItem) {
+    if (this.dashboardLists == null) {
+      this.dashboardLists = new ArrayList<>();
     }
+    this.dashboardLists.add(dashboardListsItem);
+    this.unparsed |= dashboardListsItem.unparsed;
+    return this;
+  }
 
-    /**
-     * List of all your dashboard lists.
-     * @return dashboardLists
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "List of all your dashboard lists.")
-    @JsonProperty(JSON_PROPERTY_DASHBOARD_LISTS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<DashboardList> getDashboardLists() {
-        return dashboardLists;
-    }
+  /**
+   * List of all your dashboard lists.
+   *
+   * @return dashboardLists
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of all your dashboard lists.")
+  @JsonProperty(JSON_PROPERTY_DASHBOARD_LISTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<DashboardList> getDashboardLists() {
+    return dashboardLists;
+  }
 
-    public void setDashboardLists(List<DashboardList> dashboardLists) {
-        this.dashboardLists = dashboardLists;
-    }
+  public void setDashboardLists(List<DashboardList> dashboardLists) {
+    this.dashboardLists = dashboardLists;
+  }
 
-    /**
-     * Return true if this DashboardListListResponse object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        DashboardListListResponse dashboardListListResponse = (DashboardListListResponse) o;
-        return Objects.equals(this.dashboardLists, dashboardListListResponse.dashboardLists);
+  /** Return true if this DashboardListListResponse object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    DashboardListListResponse dashboardListListResponse = (DashboardListListResponse) o;
+    return Objects.equals(this.dashboardLists, dashboardListListResponse.dashboardLists);
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(dashboardLists);
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(dashboardLists);
+  }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class DashboardListListResponse {\n");
-        sb.append("    dashboardLists: ").append(toIndentedString(dashboardLists)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class DashboardListListResponse {\n");
+    sb.append("    dashboardLists: ").append(toIndentedString(dashboardLists)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

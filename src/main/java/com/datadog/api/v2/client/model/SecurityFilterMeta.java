@@ -10,97 +10,81 @@
 
 package com.datadog.api.v2.client.model;
 
-import com.datadog.api.v2.client.JSON;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Optional metadata associated to the response.
- */
+/** Optional metadata associated to the response. */
 @ApiModel(description = "Optional metadata associated to the response.")
-@JsonPropertyOrder({ SecurityFilterMeta.JSON_PROPERTY_WARNING })
+@JsonPropertyOrder({SecurityFilterMeta.JSON_PROPERTY_WARNING})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SecurityFilterMeta {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_WARNING = "warning";
+  private String warning;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public SecurityFilterMeta warning(String warning) {
+    this.warning = warning;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_WARNING = "warning";
-    private String warning;
+  /**
+   * A warning message.
+   *
+   * @return warning
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      example = "All the security filters are disabled. As a result, no logs are being analyzed.",
+      value = "A warning message.")
+  @JsonProperty(JSON_PROPERTY_WARNING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getWarning() {
+    return warning;
+  }
 
-    public SecurityFilterMeta warning(String warning) {
-        this.warning = warning;
-        return this;
+  public void setWarning(String warning) {
+    this.warning = warning;
+  }
+
+  /** Return true if this SecurityFilterMeta object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * A warning message.
-     * @return warning
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(
-        example = "All the security filters are disabled. As a result, no logs are being analyzed.",
-        value = "A warning message."
-    )
-    @JsonProperty(JSON_PROPERTY_WARNING)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getWarning() {
-        return warning;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    SecurityFilterMeta securityFilterMeta = (SecurityFilterMeta) o;
+    return Objects.equals(this.warning, securityFilterMeta.warning);
+  }
 
-    public void setWarning(String warning) {
-        this.warning = warning;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(warning);
+  }
 
-    /**
-     * Return true if this SecurityFilterMeta object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        SecurityFilterMeta securityFilterMeta = (SecurityFilterMeta) o;
-        return Objects.equals(this.warning, securityFilterMeta.warning);
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class SecurityFilterMeta {\n");
+    sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(warning);
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SecurityFilterMeta {\n");
-        sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

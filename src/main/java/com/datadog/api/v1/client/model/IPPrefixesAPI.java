@@ -10,139 +10,127 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Available prefix information for the API endpoints.
- */
+/** Available prefix information for the API endpoints. */
 @ApiModel(description = "Available prefix information for the API endpoints.")
-@JsonPropertyOrder({ IPPrefixesAPI.JSON_PROPERTY_PREFIXES_IPV4, IPPrefixesAPI.JSON_PROPERTY_PREFIXES_IPV6 })
+@JsonPropertyOrder({
+  IPPrefixesAPI.JSON_PROPERTY_PREFIXES_IPV4,
+  IPPrefixesAPI.JSON_PROPERTY_PREFIXES_IPV6
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IPPrefixesAPI {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_PREFIXES_IPV4 = "prefixes_ipv4";
+  private List<String> prefixesIpv4 = null;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_PREFIXES_IPV6 = "prefixes_ipv6";
+  private List<String> prefixesIpv6 = null;
 
-    public static final String JSON_PROPERTY_PREFIXES_IPV4 = "prefixes_ipv4";
-    private List<String> prefixesIpv4 = null;
+  public IPPrefixesAPI prefixesIpv4(List<String> prefixesIpv4) {
+    this.prefixesIpv4 = prefixesIpv4;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_PREFIXES_IPV6 = "prefixes_ipv6";
-    private List<String> prefixesIpv6 = null;
-
-    public IPPrefixesAPI prefixesIpv4(List<String> prefixesIpv4) {
-        this.prefixesIpv4 = prefixesIpv4;
-        return this;
+  public IPPrefixesAPI addPrefixesIpv4Item(String prefixesIpv4Item) {
+    if (this.prefixesIpv4 == null) {
+      this.prefixesIpv4 = new ArrayList<>();
     }
+    this.prefixesIpv4.add(prefixesIpv4Item);
+    return this;
+  }
 
-    public IPPrefixesAPI addPrefixesIpv4Item(String prefixesIpv4Item) {
-        if (this.prefixesIpv4 == null) {
-            this.prefixesIpv4 = new ArrayList<>();
-        }
-        this.prefixesIpv4.add(prefixesIpv4Item);
-        return this;
-    }
+  /**
+   * List of IPv4 prefixes.
+   *
+   * @return prefixesIpv4
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of IPv4 prefixes.")
+  @JsonProperty(JSON_PROPERTY_PREFIXES_IPV4)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getPrefixesIpv4() {
+    return prefixesIpv4;
+  }
 
-    /**
-     * List of IPv4 prefixes.
-     * @return prefixesIpv4
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "List of IPv4 prefixes.")
-    @JsonProperty(JSON_PROPERTY_PREFIXES_IPV4)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<String> getPrefixesIpv4() {
-        return prefixesIpv4;
-    }
+  public void setPrefixesIpv4(List<String> prefixesIpv4) {
+    this.prefixesIpv4 = prefixesIpv4;
+  }
 
-    public void setPrefixesIpv4(List<String> prefixesIpv4) {
-        this.prefixesIpv4 = prefixesIpv4;
-    }
+  public IPPrefixesAPI prefixesIpv6(List<String> prefixesIpv6) {
+    this.prefixesIpv6 = prefixesIpv6;
+    return this;
+  }
 
-    public IPPrefixesAPI prefixesIpv6(List<String> prefixesIpv6) {
-        this.prefixesIpv6 = prefixesIpv6;
-        return this;
+  public IPPrefixesAPI addPrefixesIpv6Item(String prefixesIpv6Item) {
+    if (this.prefixesIpv6 == null) {
+      this.prefixesIpv6 = new ArrayList<>();
     }
+    this.prefixesIpv6.add(prefixesIpv6Item);
+    return this;
+  }
 
-    public IPPrefixesAPI addPrefixesIpv6Item(String prefixesIpv6Item) {
-        if (this.prefixesIpv6 == null) {
-            this.prefixesIpv6 = new ArrayList<>();
-        }
-        this.prefixesIpv6.add(prefixesIpv6Item);
-        return this;
-    }
+  /**
+   * List of IPv6 prefixes.
+   *
+   * @return prefixesIpv6
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of IPv6 prefixes.")
+  @JsonProperty(JSON_PROPERTY_PREFIXES_IPV6)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getPrefixesIpv6() {
+    return prefixesIpv6;
+  }
 
-    /**
-     * List of IPv6 prefixes.
-     * @return prefixesIpv6
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "List of IPv6 prefixes.")
-    @JsonProperty(JSON_PROPERTY_PREFIXES_IPV6)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<String> getPrefixesIpv6() {
-        return prefixesIpv6;
-    }
+  public void setPrefixesIpv6(List<String> prefixesIpv6) {
+    this.prefixesIpv6 = prefixesIpv6;
+  }
 
-    public void setPrefixesIpv6(List<String> prefixesIpv6) {
-        this.prefixesIpv6 = prefixesIpv6;
+  /** Return true if this IPPrefixesAPI object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    IPPrefixesAPI ipPrefixesAPI = (IPPrefixesAPI) o;
+    return Objects.equals(this.prefixesIpv4, ipPrefixesAPI.prefixesIpv4)
+        && Objects.equals(this.prefixesIpv6, ipPrefixesAPI.prefixesIpv6);
+  }
 
-    /**
-     * Return true if this IPPrefixesAPI object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        IPPrefixesAPI ipPrefixesAPI = (IPPrefixesAPI) o;
-        return (
-            Objects.equals(this.prefixesIpv4, ipPrefixesAPI.prefixesIpv4) && Objects.equals(this.prefixesIpv6, ipPrefixesAPI.prefixesIpv6)
-        );
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(prefixesIpv4, prefixesIpv6);
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(prefixesIpv4, prefixesIpv6);
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class IPPrefixesAPI {\n");
+    sb.append("    prefixesIpv4: ").append(toIndentedString(prefixesIpv4)).append("\n");
+    sb.append("    prefixesIpv6: ").append(toIndentedString(prefixesIpv6)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class IPPrefixesAPI {\n");
-        sb.append("    prefixesIpv4: ").append(toIndentedString(prefixesIpv4)).append("\n");
-        sb.append("    prefixesIpv6: ").append(toIndentedString(prefixesIpv6)).append("\n");
-        sb.append("}");
-        return sb.toString();
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

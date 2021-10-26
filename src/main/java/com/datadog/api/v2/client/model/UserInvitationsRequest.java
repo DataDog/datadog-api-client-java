@@ -10,112 +10,98 @@
 
 package com.datadog.api.v2.client.model;
 
-import com.datadog.api.v2.client.JSON;
-import com.datadog.api.v2.client.model.UserInvitationData;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Object to invite users to join the organization.
- */
+/** Object to invite users to join the organization. */
 @ApiModel(description = "Object to invite users to join the organization.")
-@JsonPropertyOrder({ UserInvitationsRequest.JSON_PROPERTY_DATA })
+@JsonPropertyOrder({UserInvitationsRequest.JSON_PROPERTY_DATA})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UserInvitationsRequest {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private List<UserInvitationData> data = new ArrayList<>();
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public UserInvitationsRequest() {}
 
-    public static final String JSON_PROPERTY_DATA = "data";
-    private List<UserInvitationData> data = new ArrayList<>();
+  @JsonCreator
+  public UserInvitationsRequest(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<UserInvitationData> data) {
+    this.data = data;
+  }
 
-    public UserInvitationsRequest() {}
-
-    @JsonCreator
-    public UserInvitationsRequest(@JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<UserInvitationData> data) {
-        this.data = data;
+  public UserInvitationsRequest data(List<UserInvitationData> data) {
+    this.data = data;
+    for (UserInvitationData item : data) {
+      this.unparsed |= item.unparsed;
     }
+    return this;
+  }
 
-    public UserInvitationsRequest data(List<UserInvitationData> data) {
-        this.data = data;
-        for (UserInvitationData item : data) {
-            this.unparsed |= item.unparsed;
-        }
-        return this;
-    }
+  public UserInvitationsRequest addDataItem(UserInvitationData dataItem) {
+    this.data.add(dataItem);
+    this.unparsed |= dataItem.unparsed;
+    return this;
+  }
 
-    public UserInvitationsRequest addDataItem(UserInvitationData dataItem) {
-        this.data.add(dataItem);
-        this.unparsed |= dataItem.unparsed;
-        return this;
-    }
+  /**
+   * List of user invitations.
+   *
+   * @return data
+   */
+  @ApiModelProperty(example = "[]", required = true, value = "List of user invitations.")
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<UserInvitationData> getData() {
+    return data;
+  }
 
-    /**
-     * List of user invitations.
-     * @return data
-     **/
-    @ApiModelProperty(example = "[]", required = true, value = "List of user invitations.")
-    @JsonProperty(JSON_PROPERTY_DATA)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public List<UserInvitationData> getData() {
-        return data;
-    }
+  public void setData(List<UserInvitationData> data) {
+    this.data = data;
+  }
 
-    public void setData(List<UserInvitationData> data) {
-        this.data = data;
+  /** Return true if this UserInvitationsRequest object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    UserInvitationsRequest userInvitationsRequest = (UserInvitationsRequest) o;
+    return Objects.equals(this.data, userInvitationsRequest.data);
+  }
 
-    /**
-     * Return true if this UserInvitationsRequest object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        UserInvitationsRequest userInvitationsRequest = (UserInvitationsRequest) o;
-        return Objects.equals(this.data, userInvitationsRequest.data);
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(data);
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(data);
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class UserInvitationsRequest {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class UserInvitationsRequest {\n");
-        sb.append("    data: ").append(toIndentedString(data)).append("\n");
-        sb.append("}");
-        return sb.toString();
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

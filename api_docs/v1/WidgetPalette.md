@@ -1,41 +1,47 @@
+
+
 # WidgetPalette
 
 ## Enum
 
-- `BLUE` (value: `"blue"`)
 
-- `CUSTOM_BACKGROUND` (value: `"custom_bg"`)
+* `BLUE` (value: `"blue"`)
 
-- `CUSTOM_IMAGE` (value: `"custom_image"`)
+* `CUSTOM_BACKGROUND` (value: `"custom_bg"`)
 
-- `CUSTOM_TEXT` (value: `"custom_text"`)
+* `CUSTOM_IMAGE` (value: `"custom_image"`)
 
-- `GRAY_ON_WHITE` (value: `"gray_on_white"`)
+* `CUSTOM_TEXT` (value: `"custom_text"`)
 
-- `GREY` (value: `"grey"`)
+* `GRAY_ON_WHITE` (value: `"gray_on_white"`)
 
-- `GREEN` (value: `"green"`)
+* `GREY` (value: `"grey"`)
 
-- `ORANGE` (value: `"orange"`)
+* `GREEN` (value: `"green"`)
 
-- `RED` (value: `"red"`)
+* `ORANGE` (value: `"orange"`)
 
-- `RED_ON_WHITE` (value: `"red_on_white"`)
+* `RED` (value: `"red"`)
 
-- `WHITE_ON_GRAY` (value: `"white_on_gray"`)
+* `RED_ON_WHITE` (value: `"red_on_white"`)
 
-- `WHITE_ON_GREEN` (value: `"white_on_green"`)
+* `WHITE_ON_GRAY` (value: `"white_on_gray"`)
 
-- `GREEN_ON_WHITE` (value: `"green_on_white"`)
+* `WHITE_ON_GREEN` (value: `"white_on_green"`)
 
-- `WHITE_ON_RED` (value: `"white_on_red"`)
+* `GREEN_ON_WHITE` (value: `"green_on_white"`)
 
-- `WHITE_ON_YELLOW` (value: `"white_on_yellow"`)
+* `WHITE_ON_RED` (value: `"white_on_red"`)
 
-- `YELLOW_ON_WHITE` (value: `"yellow_on_white"`)
+* `WHITE_ON_YELLOW` (value: `"white_on_yellow"`)
 
-- `BLACK_ON_LIGHT_YELLOW` (value: `"black_on_light_yellow"`)
+* `YELLOW_ON_WHITE` (value: `"yellow_on_white"`)
 
-- `BLACK_ON_LIGHT_GREEN` (value: `"black_on_light_green"`)
+* `BLACK_ON_LIGHT_YELLOW` (value: `"black_on_light_yellow"`)
 
-- `BLACK_ON_LIGHT_RED` (value: `"black_on_light_red"`)
+* `BLACK_ON_LIGHT_GREEN` (value: `"black_on_light_green"`)
+
+* `BLACK_ON_LIGHT_RED` (value: `"black_on_light_red"`)
+
+
+

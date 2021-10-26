@@ -10,169 +10,151 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.datadog.api.v1.client.model.Host;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Response with Host information from Datadog.
- */
+/** Response with Host information from Datadog. */
 @ApiModel(description = "Response with Host information from Datadog.")
-@JsonPropertyOrder(
-    {
-        HostListResponse.JSON_PROPERTY_HOST_LIST,
-        HostListResponse.JSON_PROPERTY_TOTAL_MATCHING,
-        HostListResponse.JSON_PROPERTY_TOTAL_RETURNED
-    }
-)
+@JsonPropertyOrder({
+  HostListResponse.JSON_PROPERTY_HOST_LIST,
+  HostListResponse.JSON_PROPERTY_TOTAL_MATCHING,
+  HostListResponse.JSON_PROPERTY_TOTAL_RETURNED
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class HostListResponse {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_HOST_LIST = "host_list";
+  private List<Host> hostList = null;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_TOTAL_MATCHING = "total_matching";
+  private Long totalMatching;
 
-    public static final String JSON_PROPERTY_HOST_LIST = "host_list";
-    private List<Host> hostList = null;
+  public static final String JSON_PROPERTY_TOTAL_RETURNED = "total_returned";
+  private Long totalReturned;
 
-    public static final String JSON_PROPERTY_TOTAL_MATCHING = "total_matching";
-    private Long totalMatching;
-
-    public static final String JSON_PROPERTY_TOTAL_RETURNED = "total_returned";
-    private Long totalReturned;
-
-    public HostListResponse hostList(List<Host> hostList) {
-        this.hostList = hostList;
-        for (Host item : hostList) {
-            this.unparsed |= item.unparsed;
-        }
-        return this;
+  public HostListResponse hostList(List<Host> hostList) {
+    this.hostList = hostList;
+    for (Host item : hostList) {
+      this.unparsed |= item.unparsed;
     }
+    return this;
+  }
 
-    public HostListResponse addHostListItem(Host hostListItem) {
-        if (this.hostList == null) {
-            this.hostList = new ArrayList<>();
-        }
-        this.hostList.add(hostListItem);
-        this.unparsed |= hostListItem.unparsed;
-        return this;
+  public HostListResponse addHostListItem(Host hostListItem) {
+    if (this.hostList == null) {
+      this.hostList = new ArrayList<>();
     }
+    this.hostList.add(hostListItem);
+    this.unparsed |= hostListItem.unparsed;
+    return this;
+  }
 
-    /**
-     * Array of hosts.
-     * @return hostList
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Array of hosts.")
-    @JsonProperty(JSON_PROPERTY_HOST_LIST)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<Host> getHostList() {
-        return hostList;
-    }
+  /**
+   * Array of hosts.
+   *
+   * @return hostList
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Array of hosts.")
+  @JsonProperty(JSON_PROPERTY_HOST_LIST)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<Host> getHostList() {
+    return hostList;
+  }
 
-    public void setHostList(List<Host> hostList) {
-        this.hostList = hostList;
-    }
+  public void setHostList(List<Host> hostList) {
+    this.hostList = hostList;
+  }
 
-    public HostListResponse totalMatching(Long totalMatching) {
-        this.totalMatching = totalMatching;
-        return this;
-    }
+  public HostListResponse totalMatching(Long totalMatching) {
+    this.totalMatching = totalMatching;
+    return this;
+  }
 
-    /**
-     * Number of host matching the query.
-     * @return totalMatching
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "1", value = "Number of host matching the query.")
-    @JsonProperty(JSON_PROPERTY_TOTAL_MATCHING)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Long getTotalMatching() {
-        return totalMatching;
-    }
+  /**
+   * Number of host matching the query.
+   *
+   * @return totalMatching
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "1", value = "Number of host matching the query.")
+  @JsonProperty(JSON_PROPERTY_TOTAL_MATCHING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getTotalMatching() {
+    return totalMatching;
+  }
 
-    public void setTotalMatching(Long totalMatching) {
-        this.totalMatching = totalMatching;
-    }
+  public void setTotalMatching(Long totalMatching) {
+    this.totalMatching = totalMatching;
+  }
 
-    public HostListResponse totalReturned(Long totalReturned) {
-        this.totalReturned = totalReturned;
-        return this;
-    }
+  public HostListResponse totalReturned(Long totalReturned) {
+    this.totalReturned = totalReturned;
+    return this;
+  }
 
-    /**
-     * Number of host returned.
-     * @return totalReturned
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "1", value = "Number of host returned.")
-    @JsonProperty(JSON_PROPERTY_TOTAL_RETURNED)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Long getTotalReturned() {
-        return totalReturned;
-    }
+  /**
+   * Number of host returned.
+   *
+   * @return totalReturned
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "1", value = "Number of host returned.")
+  @JsonProperty(JSON_PROPERTY_TOTAL_RETURNED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getTotalReturned() {
+    return totalReturned;
+  }
 
-    public void setTotalReturned(Long totalReturned) {
-        this.totalReturned = totalReturned;
-    }
+  public void setTotalReturned(Long totalReturned) {
+    this.totalReturned = totalReturned;
+  }
 
-    /**
-     * Return true if this HostListResponse object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        HostListResponse hostListResponse = (HostListResponse) o;
-        return (
-            Objects.equals(this.hostList, hostListResponse.hostList) &&
-            Objects.equals(this.totalMatching, hostListResponse.totalMatching) &&
-            Objects.equals(this.totalReturned, hostListResponse.totalReturned)
-        );
+  /** Return true if this HostListResponse object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    HostListResponse hostListResponse = (HostListResponse) o;
+    return Objects.equals(this.hostList, hostListResponse.hostList)
+        && Objects.equals(this.totalMatching, hostListResponse.totalMatching)
+        && Objects.equals(this.totalReturned, hostListResponse.totalReturned);
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(hostList, totalMatching, totalReturned);
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(hostList, totalMatching, totalReturned);
+  }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class HostListResponse {\n");
-        sb.append("    hostList: ").append(toIndentedString(hostList)).append("\n");
-        sb.append("    totalMatching: ").append(toIndentedString(totalMatching)).append("\n");
-        sb.append("    totalReturned: ").append(toIndentedString(totalReturned)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class HostListResponse {\n");
+    sb.append("    hostList: ").append(toIndentedString(hostList)).append("\n");
+    sb.append("    totalMatching: ").append(toIndentedString(totalMatching)).append("\n");
+    sb.append("    totalReturned: ").append(toIndentedString(totalReturned)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

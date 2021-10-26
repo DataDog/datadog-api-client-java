@@ -20,38 +20,39 @@ import org.junit.Test;
 /** API tests for AuthenticationApi */
 public class AuthenticationApiTest extends V1ApiTest {
 
-    private static AuthenticationApi api;
-    private static AuthenticationApi fakeAuthApi;
+  private static AuthenticationApi api;
+  private static AuthenticationApi fakeAuthApi;
 
-    // ObjectMapper instance configure to not fail when encountering unknown properties
-    private static ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+  // ObjectMapper instance configure to not fail when encountering unknown properties
+  private static ObjectMapper objectMapper =
+      new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
-    @Override
-    public String getTracingEndpoint() {
-        return "validation";
+  @Override
+  public String getTracingEndpoint() {
+    return "validation";
+  }
+
+  @BeforeClass
+  public static void initApi() {
+    api = new AuthenticationApi(generalApiClient);
+    fakeAuthApi = new AuthenticationApi(generalFakeAuthApiClient);
+  }
+
+  @Test
+  public void validateTest() throws ApiException {
+    AuthenticationValidationResponse response = api.validate();
+    assertTrue(response.getValid());
+  }
+
+  @Test
+  public void validateInvalidTest() throws IOException {
+    try {
+      fakeAuthApi.validate();
+      fail("Expected ApiException not thrown");
+    } catch (ApiException e) {
+      assertEquals(403, e.getCode());
+      APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
+      assertNotNull(error.getErrors());
     }
-
-    @BeforeClass
-    public static void initApi() {
-        api = new AuthenticationApi(generalApiClient);
-        fakeAuthApi = new AuthenticationApi(generalFakeAuthApiClient);
-    }
-
-    @Test
-    public void validateTest() throws ApiException {
-        AuthenticationValidationResponse response = api.validate();
-        assertTrue(response.getValid());
-    }
-
-    @Test
-    public void validateInvalidTest() throws IOException {
-        try {
-            fakeAuthApi.validate();
-            fail("Expected ApiException not thrown");
-        } catch (ApiException e) {
-            assertEquals(403, e.getCode());
-            APIErrorResponse error = objectMapper.readValue(e.getResponseBody(), APIErrorResponse.class);
-            assertNotNull(error.getErrors());
-        }
-    }
+  }
 }

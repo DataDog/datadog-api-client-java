@@ -10,142 +10,136 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * An array of service level objective objects.
- */
+/** An array of service level objective objects. */
 @ApiModel(description = "An array of service level objective objects.")
-@JsonPropertyOrder({ SLOBulkDeleteResponseData.JSON_PROPERTY_DELETED, SLOBulkDeleteResponseData.JSON_PROPERTY_UPDATED })
+@JsonPropertyOrder({
+  SLOBulkDeleteResponseData.JSON_PROPERTY_DELETED,
+  SLOBulkDeleteResponseData.JSON_PROPERTY_UPDATED
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SLOBulkDeleteResponseData {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DELETED = "deleted";
+  private List<String> deleted = null;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_UPDATED = "updated";
+  private List<String> updated = null;
 
-    public static final String JSON_PROPERTY_DELETED = "deleted";
-    private List<String> deleted = null;
+  public SLOBulkDeleteResponseData deleted(List<String> deleted) {
+    this.deleted = deleted;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_UPDATED = "updated";
-    private List<String> updated = null;
-
-    public SLOBulkDeleteResponseData deleted(List<String> deleted) {
-        this.deleted = deleted;
-        return this;
+  public SLOBulkDeleteResponseData addDeletedItem(String deletedItem) {
+    if (this.deleted == null) {
+      this.deleted = new ArrayList<>();
     }
+    this.deleted.add(deletedItem);
+    return this;
+  }
 
-    public SLOBulkDeleteResponseData addDeletedItem(String deletedItem) {
-        if (this.deleted == null) {
-            this.deleted = new ArrayList<>();
-        }
-        this.deleted.add(deletedItem);
-        return this;
-    }
+  /**
+   * An array of service level objective object IDs that indicates which objects that were
+   * completely deleted.
+   *
+   * @return deleted
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "An array of service level objective object IDs that indicates which objects that were"
+              + " completely deleted.")
+  @JsonProperty(JSON_PROPERTY_DELETED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getDeleted() {
+    return deleted;
+  }
 
-    /**
-     * An array of service level objective object IDs that indicates which objects that were completely deleted.
-     * @return deleted
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "An array of service level objective object IDs that indicates which objects that were completely deleted.")
-    @JsonProperty(JSON_PROPERTY_DELETED)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<String> getDeleted() {
-        return deleted;
-    }
+  public void setDeleted(List<String> deleted) {
+    this.deleted = deleted;
+  }
 
-    public void setDeleted(List<String> deleted) {
-        this.deleted = deleted;
-    }
+  public SLOBulkDeleteResponseData updated(List<String> updated) {
+    this.updated = updated;
+    return this;
+  }
 
-    public SLOBulkDeleteResponseData updated(List<String> updated) {
-        this.updated = updated;
-        return this;
+  public SLOBulkDeleteResponseData addUpdatedItem(String updatedItem) {
+    if (this.updated == null) {
+      this.updated = new ArrayList<>();
     }
+    this.updated.add(updatedItem);
+    return this;
+  }
 
-    public SLOBulkDeleteResponseData addUpdatedItem(String updatedItem) {
-        if (this.updated == null) {
-            this.updated = new ArrayList<>();
-        }
-        this.updated.add(updatedItem);
-        return this;
-    }
+  /**
+   * An array of service level objective object IDs that indicates which objects that were modified
+   * (objects for which at least one threshold was deleted, but that were not completely deleted).
+   *
+   * @return updated
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "An array of service level objective object IDs that indicates which objects that were"
+              + " modified (objects for which at least one threshold was deleted, but that were"
+              + " not completely deleted).")
+  @JsonProperty(JSON_PROPERTY_UPDATED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getUpdated() {
+    return updated;
+  }
 
-    /**
-     * An array of service level objective object IDs that indicates which objects that were modified (objects for which at least one threshold was deleted, but that were not completely deleted).
-     * @return updated
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(
-        value = "An array of service level objective object IDs that indicates which objects that were modified (objects for which at least one threshold was deleted, but that were not completely deleted)."
-    )
-    @JsonProperty(JSON_PROPERTY_UPDATED)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<String> getUpdated() {
-        return updated;
-    }
+  public void setUpdated(List<String> updated) {
+    this.updated = updated;
+  }
 
-    public void setUpdated(List<String> updated) {
-        this.updated = updated;
+  /** Return true if this SLOBulkDeleteResponse_data object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    SLOBulkDeleteResponseData slOBulkDeleteResponseData = (SLOBulkDeleteResponseData) o;
+    return Objects.equals(this.deleted, slOBulkDeleteResponseData.deleted)
+        && Objects.equals(this.updated, slOBulkDeleteResponseData.updated);
+  }
 
-    /**
-     * Return true if this SLOBulkDeleteResponse_data object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        SLOBulkDeleteResponseData slOBulkDeleteResponseData = (SLOBulkDeleteResponseData) o;
-        return (
-            Objects.equals(this.deleted, slOBulkDeleteResponseData.deleted) &&
-            Objects.equals(this.updated, slOBulkDeleteResponseData.updated)
-        );
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(deleted, updated);
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(deleted, updated);
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class SLOBulkDeleteResponseData {\n");
+    sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
+    sb.append("    updated: ").append(toIndentedString(updated)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SLOBulkDeleteResponseData {\n");
-        sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
-        sb.append("    updated: ").append(toIndentedString(updated)).append("\n");
-        sb.append("}");
-        return sb.toString();
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

@@ -10,99 +10,93 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
-import io.swagger.annotations.ApiModel;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/**
- * Timeseries or Scalar response. **This feature is currently in beta.**
- */
-@JsonSerialize(using = FormulaAndFunctionResponseFormat.FormulaAndFunctionResponseFormatSerializer.class)
+/** Timeseries or Scalar response. **This feature is currently in beta.** */
+@JsonSerialize(
+    using = FormulaAndFunctionResponseFormat.FormulaAndFunctionResponseFormatSerializer.class)
 public class FormulaAndFunctionResponseFormat {
 
-    public static final FormulaAndFunctionResponseFormat TIMESERIES = new FormulaAndFunctionResponseFormat("timeseries");
-    public static final FormulaAndFunctionResponseFormat SCALAR = new FormulaAndFunctionResponseFormat("scalar");
+  public static final FormulaAndFunctionResponseFormat TIMESERIES =
+      new FormulaAndFunctionResponseFormat("timeseries");
+  public static final FormulaAndFunctionResponseFormat SCALAR =
+      new FormulaAndFunctionResponseFormat("scalar");
 
-    private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("timeseries", "scalar"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("timeseries", "scalar"));
 
-    private String value;
+  private String value;
 
-    public boolean isValid() {
-        return allowedValues.contains(this.value);
+  public boolean isValid() {
+    return allowedValues.contains(this.value);
+  }
+
+  FormulaAndFunctionResponseFormat(String value) {
+    this.value = value;
+  }
+
+  public static class FormulaAndFunctionResponseFormatSerializer
+      extends StdSerializer<FormulaAndFunctionResponseFormat> {
+    public FormulaAndFunctionResponseFormatSerializer(Class<FormulaAndFunctionResponseFormat> t) {
+      super(t);
     }
 
-    FormulaAndFunctionResponseFormat(String value) {
-        this.value = value;
-    }
-
-    public static class FormulaAndFunctionResponseFormatSerializer extends StdSerializer<FormulaAndFunctionResponseFormat> {
-
-        public FormulaAndFunctionResponseFormatSerializer(Class<FormulaAndFunctionResponseFormat> t) {
-            super(t);
-        }
-
-        public FormulaAndFunctionResponseFormatSerializer() {
-            this(null);
-        }
-
-        @Override
-        public void serialize(FormulaAndFunctionResponseFormat value, JsonGenerator jgen, SerializerProvider provider)
-            throws IOException, JsonProcessingException {
-            jgen.writeObject(value.value);
-        }
-    }
-
-    @JsonValue
-    public String getValue() {
-        return this.value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    /**
-     * Return true if this FormulaAndFunctionResponseFormat object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        return this.value.equals(((FormulaAndFunctionResponseFormat) o).value);
+    public FormulaAndFunctionResponseFormatSerializer() {
+      this(null);
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(value);
+    public void serialize(
+        FormulaAndFunctionResponseFormat value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
     }
+  }
 
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
+  @JsonValue
+  public String getValue() {
+    return this.value;
+  }
 
-    @JsonCreator
-    public static FormulaAndFunctionResponseFormat fromValue(String value) {
-        return new FormulaAndFunctionResponseFormat(value);
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  /** Return true if this FormulaAndFunctionResponseFormat object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    return this.value.equals(((FormulaAndFunctionResponseFormat) o).value);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(value);
+  }
+
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
+
+  @JsonCreator
+  public static FormulaAndFunctionResponseFormat fromValue(String value) {
+    return new FormulaAndFunctionResponseFormat(value);
+  }
 }

@@ -10,119 +10,108 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Description of errors.
- */
+/** Description of errors. */
 @ApiModel(description = "Description of errors.")
-@JsonPropertyOrder({ AWSLogsAsyncError.JSON_PROPERTY_CODE, AWSLogsAsyncError.JSON_PROPERTY_MESSAGE })
+@JsonPropertyOrder({AWSLogsAsyncError.JSON_PROPERTY_CODE, AWSLogsAsyncError.JSON_PROPERTY_MESSAGE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AWSLogsAsyncError {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CODE = "code";
+  private String code;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_MESSAGE = "message";
+  private String message;
 
-    public static final String JSON_PROPERTY_CODE = "code";
-    private String code;
+  public AWSLogsAsyncError code(String code) {
+    this.code = code;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_MESSAGE = "message";
-    private String message;
+  /**
+   * Code properties
+   *
+   * @return code
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "no_such_config", value = "Code properties")
+  @JsonProperty(JSON_PROPERTY_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCode() {
+    return code;
+  }
 
-    public AWSLogsAsyncError code(String code) {
-        this.code = code;
-        return this;
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+  public AWSLogsAsyncError message(String message) {
+    this.message = message;
+    return this;
+  }
+
+  /**
+   * Message content.
+   *
+   * @return message
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      example = "AWS account 12345 has no lambda config to update",
+      value = "Message content.")
+  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getMessage() {
+    return message;
+  }
+
+  public void setMessage(String message) {
+    this.message = message;
+  }
+
+  /** Return true if this AWSLogsAsyncError object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * Code properties
-     * @return code
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "no_such_config", value = "Code properties")
-    @JsonProperty(JSON_PROPERTY_CODE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getCode() {
-        return code;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    AWSLogsAsyncError awSLogsAsyncError = (AWSLogsAsyncError) o;
+    return Objects.equals(this.code, awSLogsAsyncError.code)
+        && Objects.equals(this.message, awSLogsAsyncError.message);
+  }
 
-    public void setCode(String code) {
-        this.code = code;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(code, message);
+  }
 
-    public AWSLogsAsyncError message(String message) {
-        this.message = message;
-        return this;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class AWSLogsAsyncError {\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Message content.
-     * @return message
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "AWS account 12345 has no lambda config to update", value = "Message content.")
-    @JsonProperty(JSON_PROPERTY_MESSAGE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getMessage() {
-        return message;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    /**
-     * Return true if this AWSLogsAsyncError object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        AWSLogsAsyncError awSLogsAsyncError = (AWSLogsAsyncError) o;
-        return Objects.equals(this.code, awSLogsAsyncError.code) && Objects.equals(this.message, awSLogsAsyncError.message);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(code, message);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class AWSLogsAsyncError {\n");
-        sb.append("    code: ").append(toIndentedString(code)).append("\n");
-        sb.append("    message: ").append(toIndentedString(message)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

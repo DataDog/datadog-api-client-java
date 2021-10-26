@@ -1,31 +1,37 @@
+
+
 # SyntheticsAssertionType
 
 ## Enum
 
-- `BODY` (value: `"body"`)
 
-- `HEADER` (value: `"header"`)
+* `BODY` (value: `"body"`)
 
-- `STATUS_CODE` (value: `"statusCode"`)
+* `HEADER` (value: `"header"`)
 
-- `CERTIFICATE` (value: `"certificate"`)
+* `STATUS_CODE` (value: `"statusCode"`)
 
-- `RESPONSE_TIME` (value: `"responseTime"`)
+* `CERTIFICATE` (value: `"certificate"`)
 
-- `PROPERTY` (value: `"property"`)
+* `RESPONSE_TIME` (value: `"responseTime"`)
 
-- `RECORD_EVERY` (value: `"recordEvery"`)
+* `PROPERTY` (value: `"property"`)
 
-- `RECORD_SOME` (value: `"recordSome"`)
+* `RECORD_EVERY` (value: `"recordEvery"`)
 
-- `TLS_VERSION` (value: `"tlsVersion"`)
+* `RECORD_SOME` (value: `"recordSome"`)
 
-- `MIN_TLS_VERSION` (value: `"minTlsVersion"`)
+* `TLS_VERSION` (value: `"tlsVersion"`)
 
-- `LATENCY` (value: `"latency"`)
+* `MIN_TLS_VERSION` (value: `"minTlsVersion"`)
 
-- `PACKET_LOSS_PERCENTAGE` (value: `"packetLossPercentage"`)
+* `LATENCY` (value: `"latency"`)
 
-- `PACKETS_RECEIVED` (value: `"packetsReceived"`)
+* `PACKET_LOSS_PERCENTAGE` (value: `"packetLossPercentage"`)
 
-- `NETWORK_HOP` (value: `"networkHop"`)
+* `PACKETS_RECEIVED` (value: `"packetsReceived"`)
+
+* `NETWORK_HOP` (value: `"networkHop"`)
+
+
+

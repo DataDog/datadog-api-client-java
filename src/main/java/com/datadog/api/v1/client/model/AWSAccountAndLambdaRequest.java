@@ -10,135 +10,126 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * AWS account ID and Lambda ARN.
- */
+/** AWS account ID and Lambda ARN. */
 @ApiModel(description = "AWS account ID and Lambda ARN.")
-@JsonPropertyOrder({ AWSAccountAndLambdaRequest.JSON_PROPERTY_ACCOUNT_ID, AWSAccountAndLambdaRequest.JSON_PROPERTY_LAMBDA_ARN })
+@JsonPropertyOrder({
+  AWSAccountAndLambdaRequest.JSON_PROPERTY_ACCOUNT_ID,
+  AWSAccountAndLambdaRequest.JSON_PROPERTY_LAMBDA_ARN
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AWSAccountAndLambdaRequest {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
+  private String accountId;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_LAMBDA_ARN = "lambda_arn";
+  private String lambdaArn;
 
-    public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
-    private String accountId;
+  public AWSAccountAndLambdaRequest() {}
 
-    public static final String JSON_PROPERTY_LAMBDA_ARN = "lambda_arn";
-    private String lambdaArn;
+  @JsonCreator
+  public AWSAccountAndLambdaRequest(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ACCOUNT_ID) String accountId,
+      @JsonProperty(required = true, value = JSON_PROPERTY_LAMBDA_ARN) String lambdaArn) {
+    this.accountId = accountId;
+    this.lambdaArn = lambdaArn;
+  }
 
-    public AWSAccountAndLambdaRequest() {}
+  public AWSAccountAndLambdaRequest accountId(String accountId) {
+    this.accountId = accountId;
+    return this;
+  }
 
-    @JsonCreator
-    public AWSAccountAndLambdaRequest(
-        @JsonProperty(required = true, value = JSON_PROPERTY_ACCOUNT_ID) String accountId,
-        @JsonProperty(required = true, value = JSON_PROPERTY_LAMBDA_ARN) String lambdaArn
-    ) {
-        this.accountId = accountId;
-        this.lambdaArn = lambdaArn;
+  /**
+   * Your AWS Account ID without dashes.
+   *
+   * @return accountId
+   */
+  @ApiModelProperty(
+      example = "1234567",
+      required = true,
+      value = "Your AWS Account ID without dashes.")
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getAccountId() {
+    return accountId;
+  }
+
+  public void setAccountId(String accountId) {
+    this.accountId = accountId;
+  }
+
+  public AWSAccountAndLambdaRequest lambdaArn(String lambdaArn) {
+    this.lambdaArn = lambdaArn;
+    return this;
+  }
+
+  /**
+   * ARN of the Datadog Lambda created during the Datadog-Amazon Web services Log collection setup.
+   *
+   * @return lambdaArn
+   */
+  @ApiModelProperty(
+      example = "arn:aws:lambda:us-east-1:1234567:function:LogsCollectionAPITest",
+      required = true,
+      value =
+          "ARN of the Datadog Lambda created during the Datadog-Amazon Web services Log collection"
+              + " setup.")
+  @JsonProperty(JSON_PROPERTY_LAMBDA_ARN)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getLambdaArn() {
+    return lambdaArn;
+  }
+
+  public void setLambdaArn(String lambdaArn) {
+    this.lambdaArn = lambdaArn;
+  }
+
+  /** Return true if this AWSAccountAndLambdaRequest object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    public AWSAccountAndLambdaRequest accountId(String accountId) {
-        this.accountId = accountId;
-        return this;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    AWSAccountAndLambdaRequest awSAccountAndLambdaRequest = (AWSAccountAndLambdaRequest) o;
+    return Objects.equals(this.accountId, awSAccountAndLambdaRequest.accountId)
+        && Objects.equals(this.lambdaArn, awSAccountAndLambdaRequest.lambdaArn);
+  }
 
-    /**
-     * Your AWS Account ID without dashes.
-     * @return accountId
-     **/
-    @ApiModelProperty(example = "1234567", required = true, value = "Your AWS Account ID without dashes.")
-    @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public String getAccountId() {
-        return accountId;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(accountId, lambdaArn);
+  }
 
-    public void setAccountId(String accountId) {
-        this.accountId = accountId;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class AWSAccountAndLambdaRequest {\n");
+    sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
+    sb.append("    lambdaArn: ").append(toIndentedString(lambdaArn)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    public AWSAccountAndLambdaRequest lambdaArn(String lambdaArn) {
-        this.lambdaArn = lambdaArn;
-        return this;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    /**
-     * ARN of the Datadog Lambda created during the Datadog-Amazon Web services Log collection setup.
-     * @return lambdaArn
-     **/
-    @ApiModelProperty(
-        example = "arn:aws:lambda:us-east-1:1234567:function:LogsCollectionAPITest",
-        required = true,
-        value = "ARN of the Datadog Lambda created during the Datadog-Amazon Web services Log collection setup."
-    )
-    @JsonProperty(JSON_PROPERTY_LAMBDA_ARN)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public String getLambdaArn() {
-        return lambdaArn;
-    }
-
-    public void setLambdaArn(String lambdaArn) {
-        this.lambdaArn = lambdaArn;
-    }
-
-    /**
-     * Return true if this AWSAccountAndLambdaRequest object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        AWSAccountAndLambdaRequest awSAccountAndLambdaRequest = (AWSAccountAndLambdaRequest) o;
-        return (
-            Objects.equals(this.accountId, awSAccountAndLambdaRequest.accountId) &&
-            Objects.equals(this.lambdaArn, awSAccountAndLambdaRequest.lambdaArn)
-        );
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(accountId, lambdaArn);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class AWSAccountAndLambdaRequest {\n");
-        sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
-        sb.append("    lambdaArn: ").append(toIndentedString(lambdaArn)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

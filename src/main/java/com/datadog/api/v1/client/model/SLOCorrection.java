@@ -10,155 +10,142 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.datadog.api.v1.client.model.SLOCorrectionResponseAttributes;
-import com.datadog.api.v1.client.model.SLOCorrectionType;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * The response object of a list of SLO corrections.
- */
+/** The response object of a list of SLO corrections. */
 @ApiModel(description = "The response object of a list of SLO corrections.")
-@JsonPropertyOrder({ SLOCorrection.JSON_PROPERTY_ATTRIBUTES, SLOCorrection.JSON_PROPERTY_ID, SLOCorrection.JSON_PROPERTY_TYPE })
+@JsonPropertyOrder({
+  SLOCorrection.JSON_PROPERTY_ATTRIBUTES,
+  SLOCorrection.JSON_PROPERTY_ID,
+  SLOCorrection.JSON_PROPERTY_TYPE
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SLOCorrection {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private SLOCorrectionResponseAttributes attributes;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
 
-    public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-    private SLOCorrectionResponseAttributes attributes;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private SLOCorrectionType type = SLOCorrectionType.CORRECTION;
 
-    public static final String JSON_PROPERTY_ID = "id";
-    private String id;
+  public SLOCorrection attributes(SLOCorrectionResponseAttributes attributes) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_TYPE = "type";
-    private SLOCorrectionType type = SLOCorrectionType.CORRECTION;
+  /**
+   * Get attributes
+   *
+   * @return attributes
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SLOCorrectionResponseAttributes getAttributes() {
+    return attributes;
+  }
 
-    public SLOCorrection attributes(SLOCorrectionResponseAttributes attributes) {
-        this.attributes = attributes;
-        this.unparsed |= attributes.unparsed;
-        return this;
+  public void setAttributes(SLOCorrectionResponseAttributes attributes) {
+    this.attributes = attributes;
+  }
+
+  public SLOCorrection id(String id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * The ID of the SLO correction.
+   *
+   * @return id
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The ID of the SLO correction.")
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public SLOCorrection type(SLOCorrectionType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    return this;
+  }
+
+  /**
+   * Get type
+   *
+   * @return type
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SLOCorrectionType getType() {
+    return type;
+  }
+
+  public void setType(SLOCorrectionType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
     }
+    this.type = type;
+  }
 
-    /**
-     * Get attributes
-     * @return attributes
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public SLOCorrectionResponseAttributes getAttributes() {
-        return attributes;
+  /** Return true if this SLOCorrection object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    SLOCorrection slOCorrection = (SLOCorrection) o;
+    return Objects.equals(this.attributes, slOCorrection.attributes)
+        && Objects.equals(this.id, slOCorrection.id)
+        && Objects.equals(this.type, slOCorrection.type);
+  }
 
-    public void setAttributes(SLOCorrectionResponseAttributes attributes) {
-        this.attributes = attributes;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(attributes, id, type);
+  }
 
-    public SLOCorrection id(String id) {
-        this.id = id;
-        return this;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class SLOCorrection {\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * The ID of the SLO correction.
-     * @return id
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The ID of the SLO correction.")
-    @JsonProperty(JSON_PROPERTY_ID)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getId() {
-        return id;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public SLOCorrection type(SLOCorrectionType type) {
-        this.type = type;
-        this.unparsed |= !type.isValid();
-        return this;
-    }
-
-    /**
-     * Get type
-     * @return type
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_TYPE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public SLOCorrectionType getType() {
-        return type;
-    }
-
-    public void setType(SLOCorrectionType type) {
-        if (!type.isValid()) {
-            this.unparsed = true;
-        }
-        this.type = type;
-    }
-
-    /**
-     * Return true if this SLOCorrection object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        SLOCorrection slOCorrection = (SLOCorrection) o;
-        return (
-            Objects.equals(this.attributes, slOCorrection.attributes) &&
-            Objects.equals(this.id, slOCorrection.id) &&
-            Objects.equals(this.type, slOCorrection.type)
-        );
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(attributes, id, type);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SLOCorrection {\n");
-        sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

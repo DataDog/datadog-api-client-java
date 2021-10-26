@@ -11,59 +11,55 @@ import java.util.Map;
 
 @JsonSerialize(using = UnparsedObject.UnparsedObjectSerializer.class)
 public class UnparsedObject {
+  Map<String, Object> data;
 
-    Map<String, Object> data;
+  public UnparsedObject(Map<String, Object> data) {
+    this.data = data;
+  }
 
-    public UnparsedObject(Map<String, Object> data) {
-        this.data = data;
+  public static class UnparsedObjectSerializer extends StdSerializer<UnparsedObject> {
+    public UnparsedObjectSerializer(Class<UnparsedObject> t) {
+      super(t);
     }
 
-    public static class UnparsedObjectSerializer extends StdSerializer<UnparsedObject> {
-
-        public UnparsedObjectSerializer(Class<UnparsedObject> t) {
-            super(t);
-        }
-
-        public UnparsedObjectSerializer() {
-            this(null);
-        }
-
-        @Override
-        public void serialize(UnparsedObject value, JsonGenerator jgen, SerializerProvider provider)
-            throws IOException, JsonProcessingException {
-            jgen.writeObject(value.data);
-        }
-    }
-
-    public Map<String, Object> getData() {
-        return this.data;
-    }
-
-    public void setData(Map<String, Object> data) {
-        this.data = data;
+    public UnparsedObjectSerializer() {
+      this(null);
     }
 
     @Override
-    public int hashCode() {
-        return data.hashCode();
+    public void serialize(UnparsedObject value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.data);
     }
+  }
 
-    /**
-     * Return true if this UnparsedObject object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        return this.data.equals(((UnparsedObject) o).data);
-    }
+  public Map<String, Object> getData() {
+    return this.data;
+  }
 
-    @JsonCreator
-    public static UnparsedObject fromValue(Map<String, Object> value) {
-        return new UnparsedObject(value);
+  public void setData(Map<String, Object> data) {
+    this.data = data;
+  }
+
+  @Override
+  public int hashCode() {
+    return data.hashCode();
+  }
+
+  /** Return true if this UnparsedObject object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    return this.data.equals(((UnparsedObject) o).data);
+  }
+
+  @JsonCreator
+  public static UnparsedObject fromValue(Map<String, Object> value) {
+    return new UnparsedObject(value);
+  }
 }

@@ -10,531 +10,521 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.datadog.api.v1.client.model.Creator;
-import com.datadog.api.v1.client.model.MonitorOptions;
-import com.datadog.api.v1.client.model.MonitorOverallStates;
-import com.datadog.api.v1.client.model.MonitorState;
-import com.datadog.api.v1.client.model.MonitorType;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.NoSuchElementException;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.jackson.nullable.JsonNullable;
 
-/**
- * Object describing a monitor update request.
- */
+/** Object describing a monitor update request. */
 @ApiModel(description = "Object describing a monitor update request.")
-@JsonPropertyOrder(
-    {
-        MonitorUpdateRequest.JSON_PROPERTY_CREATED,
-        MonitorUpdateRequest.JSON_PROPERTY_CREATOR,
-        MonitorUpdateRequest.JSON_PROPERTY_DELETED,
-        MonitorUpdateRequest.JSON_PROPERTY_ID,
-        MonitorUpdateRequest.JSON_PROPERTY_MESSAGE,
-        MonitorUpdateRequest.JSON_PROPERTY_MODIFIED,
-        MonitorUpdateRequest.JSON_PROPERTY_MULTI,
-        MonitorUpdateRequest.JSON_PROPERTY_NAME,
-        MonitorUpdateRequest.JSON_PROPERTY_OPTIONS,
-        MonitorUpdateRequest.JSON_PROPERTY_OVERALL_STATE,
-        MonitorUpdateRequest.JSON_PROPERTY_PRIORITY,
-        MonitorUpdateRequest.JSON_PROPERTY_QUERY,
-        MonitorUpdateRequest.JSON_PROPERTY_RESTRICTED_ROLES,
-        MonitorUpdateRequest.JSON_PROPERTY_STATE,
-        MonitorUpdateRequest.JSON_PROPERTY_TAGS,
-        MonitorUpdateRequest.JSON_PROPERTY_TYPE
-    }
-)
+@JsonPropertyOrder({
+  MonitorUpdateRequest.JSON_PROPERTY_CREATED,
+  MonitorUpdateRequest.JSON_PROPERTY_CREATOR,
+  MonitorUpdateRequest.JSON_PROPERTY_DELETED,
+  MonitorUpdateRequest.JSON_PROPERTY_ID,
+  MonitorUpdateRequest.JSON_PROPERTY_MESSAGE,
+  MonitorUpdateRequest.JSON_PROPERTY_MODIFIED,
+  MonitorUpdateRequest.JSON_PROPERTY_MULTI,
+  MonitorUpdateRequest.JSON_PROPERTY_NAME,
+  MonitorUpdateRequest.JSON_PROPERTY_OPTIONS,
+  MonitorUpdateRequest.JSON_PROPERTY_OVERALL_STATE,
+  MonitorUpdateRequest.JSON_PROPERTY_PRIORITY,
+  MonitorUpdateRequest.JSON_PROPERTY_QUERY,
+  MonitorUpdateRequest.JSON_PROPERTY_RESTRICTED_ROLES,
+  MonitorUpdateRequest.JSON_PROPERTY_STATE,
+  MonitorUpdateRequest.JSON_PROPERTY_TAGS,
+  MonitorUpdateRequest.JSON_PROPERTY_TYPE
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MonitorUpdateRequest {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CREATED = "created";
+  private OffsetDateTime created;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CREATOR = "creator";
+  private Creator creator;
 
-    public static final String JSON_PROPERTY_CREATED = "created";
-    private OffsetDateTime created;
+  public static final String JSON_PROPERTY_DELETED = "deleted";
+  private JsonNullable<OffsetDateTime> deleted = JsonNullable.<OffsetDateTime>undefined();
 
-    public static final String JSON_PROPERTY_CREATOR = "creator";
-    private Creator creator;
+  public static final String JSON_PROPERTY_ID = "id";
+  private Long id;
 
-    public static final String JSON_PROPERTY_DELETED = "deleted";
-    private JsonNullable<OffsetDateTime> deleted = JsonNullable.<OffsetDateTime>undefined();
+  public static final String JSON_PROPERTY_MESSAGE = "message";
+  private String message;
 
-    public static final String JSON_PROPERTY_ID = "id";
-    private Long id;
+  public static final String JSON_PROPERTY_MODIFIED = "modified";
+  private OffsetDateTime modified;
 
-    public static final String JSON_PROPERTY_MESSAGE = "message";
-    private String message;
+  public static final String JSON_PROPERTY_MULTI = "multi";
+  private Boolean multi;
 
-    public static final String JSON_PROPERTY_MODIFIED = "modified";
-    private OffsetDateTime modified;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
-    public static final String JSON_PROPERTY_MULTI = "multi";
-    private Boolean multi;
+  public static final String JSON_PROPERTY_OPTIONS = "options";
+  private MonitorOptions options;
 
-    public static final String JSON_PROPERTY_NAME = "name";
-    private String name;
+  public static final String JSON_PROPERTY_OVERALL_STATE = "overall_state";
+  private MonitorOverallStates overallState;
 
-    public static final String JSON_PROPERTY_OPTIONS = "options";
-    private MonitorOptions options;
+  public static final String JSON_PROPERTY_PRIORITY = "priority";
+  private Long priority;
 
-    public static final String JSON_PROPERTY_OVERALL_STATE = "overall_state";
-    private MonitorOverallStates overallState;
+  public static final String JSON_PROPERTY_QUERY = "query";
+  private String query;
 
-    public static final String JSON_PROPERTY_PRIORITY = "priority";
-    private Long priority;
+  public static final String JSON_PROPERTY_RESTRICTED_ROLES = "restricted_roles";
+  private List<String> restrictedRoles = null;
 
-    public static final String JSON_PROPERTY_QUERY = "query";
-    private String query;
+  public static final String JSON_PROPERTY_STATE = "state";
+  private MonitorState state;
 
-    public static final String JSON_PROPERTY_RESTRICTED_ROLES = "restricted_roles";
-    private List<String> restrictedRoles = null;
+  public static final String JSON_PROPERTY_TAGS = "tags";
+  private List<String> tags = null;
 
-    public static final String JSON_PROPERTY_STATE = "state";
-    private MonitorState state;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private MonitorType type;
 
-    public static final String JSON_PROPERTY_TAGS = "tags";
-    private List<String> tags = null;
+  /**
+   * Timestamp of the monitor creation.
+   *
+   * @return created
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Timestamp of the monitor creation.")
+  @JsonProperty(JSON_PROPERTY_CREATED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getCreated() {
+    return created;
+  }
 
-    public static final String JSON_PROPERTY_TYPE = "type";
-    private MonitorType type;
+  public MonitorUpdateRequest creator(Creator creator) {
+    this.creator = creator;
+    this.unparsed |= creator.unparsed;
+    return this;
+  }
 
-    /**
-     * Timestamp of the monitor creation.
-     * @return created
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Timestamp of the monitor creation.")
-    @JsonProperty(JSON_PROPERTY_CREATED)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public OffsetDateTime getCreated() {
-        return created;
+  /**
+   * Get creator
+   *
+   * @return creator
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_CREATOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Creator getCreator() {
+    return creator;
+  }
+
+  public void setCreator(Creator creator) {
+    this.creator = creator;
+  }
+
+  /**
+   * Whether or not the monitor is deleted. (Always &#x60;null&#x60;)
+   *
+   * @return deleted
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Whether or not the monitor is deleted. (Always `null`)")
+  @JsonIgnore
+  public OffsetDateTime getDeleted() {
+
+    if (deleted == null) {
+      deleted = JsonNullable.<OffsetDateTime>undefined();
     }
+    return deleted.orElse(null);
+  }
 
-    public MonitorUpdateRequest creator(Creator creator) {
-        this.creator = creator;
-        this.unparsed |= creator.unparsed;
-        return this;
-    }
+  @JsonProperty(JSON_PROPERTY_DELETED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<OffsetDateTime> getDeleted_JsonNullable() {
+    return deleted;
+  }
 
-    /**
-     * Get creator
-     * @return creator
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_CREATOR)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Creator getCreator() {
-        return creator;
-    }
+  @JsonProperty(JSON_PROPERTY_DELETED)
+  private void setDeleted_JsonNullable(JsonNullable<OffsetDateTime> deleted) {
+    this.deleted = deleted;
+  }
 
-    public void setCreator(Creator creator) {
-        this.creator = creator;
-    }
+  /**
+   * ID of this monitor.
+   *
+   * @return id
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "ID of this monitor.")
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getId() {
+    return id;
+  }
 
-    /**
-     * Whether or not the monitor is deleted. (Always &#x60;null&#x60;)
-     * @return deleted
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Whether or not the monitor is deleted. (Always `null`)")
-    @JsonIgnore
-    public OffsetDateTime getDeleted() {
-        if (deleted == null) {
-            deleted = JsonNullable.<OffsetDateTime>undefined();
-        }
-        return deleted.orElse(null);
-    }
+  public MonitorUpdateRequest message(String message) {
+    this.message = message;
+    return this;
+  }
 
-    @JsonProperty(JSON_PROPERTY_DELETED)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public JsonNullable<OffsetDateTime> getDeleted_JsonNullable() {
-        return deleted;
-    }
+  /**
+   * A message to include with notifications for this monitor.
+   *
+   * @return message
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A message to include with notifications for this monitor.")
+  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getMessage() {
+    return message;
+  }
 
-    @JsonProperty(JSON_PROPERTY_DELETED)
-    private void setDeleted_JsonNullable(JsonNullable<OffsetDateTime> deleted) {
-        this.deleted = deleted;
-    }
+  public void setMessage(String message) {
+    this.message = message;
+  }
 
-    /**
-     * ID of this monitor.
-     * @return id
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "ID of this monitor.")
-    @JsonProperty(JSON_PROPERTY_ID)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Long getId() {
-        return id;
-    }
+  /**
+   * Last timestamp when the monitor was edited.
+   *
+   * @return modified
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Last timestamp when the monitor was edited.")
+  @JsonProperty(JSON_PROPERTY_MODIFIED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getModified() {
+    return modified;
+  }
 
-    public MonitorUpdateRequest message(String message) {
-        this.message = message;
-        return this;
-    }
+  /**
+   * Whether or not the monitor is broken down on different groups.
+   *
+   * @return multi
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Whether or not the monitor is broken down on different groups.")
+  @JsonProperty(JSON_PROPERTY_MULTI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getMulti() {
+    return multi;
+  }
 
-    /**
-     * A message to include with notifications for this monitor.
-     * @return message
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "A message to include with notifications for this monitor.")
-    @JsonProperty(JSON_PROPERTY_MESSAGE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getMessage() {
-        return message;
-    }
+  public MonitorUpdateRequest name(String name) {
+    this.name = name;
+    return this;
+  }
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
+  /**
+   * The monitor name.
+   *
+   * @return name
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The monitor name.")
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
 
-    /**
-     * Last timestamp when the monitor was edited.
-     * @return modified
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Last timestamp when the monitor was edited.")
-    @JsonProperty(JSON_PROPERTY_MODIFIED)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public OffsetDateTime getModified() {
-        return modified;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    /**
-     * Whether or not the monitor is broken down on different groups.
-     * @return multi
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Whether or not the monitor is broken down on different groups.")
-    @JsonProperty(JSON_PROPERTY_MULTI)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Boolean getMulti() {
-        return multi;
-    }
+  public MonitorUpdateRequest options(MonitorOptions options) {
+    this.options = options;
+    this.unparsed |= options.unparsed;
+    return this;
+  }
 
-    public MonitorUpdateRequest name(String name) {
-        this.name = name;
-        return this;
-    }
+  /**
+   * Get options
+   *
+   * @return options
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public MonitorOptions getOptions() {
+    return options;
+  }
 
-    /**
-     * The monitor name.
-     * @return name
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The monitor name.")
-    @JsonProperty(JSON_PROPERTY_NAME)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getName() {
-        return name;
-    }
+  public void setOptions(MonitorOptions options) {
+    this.options = options;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public MonitorUpdateRequest overallState(MonitorOverallStates overallState) {
+    this.overallState = overallState;
+    this.unparsed |= !overallState.isValid();
+    return this;
+  }
 
-    public MonitorUpdateRequest options(MonitorOptions options) {
-        this.options = options;
-        this.unparsed |= options.unparsed;
-        return this;
-    }
+  /**
+   * Get overallState
+   *
+   * @return overallState
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_OVERALL_STATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public MonitorOverallStates getOverallState() {
+    return overallState;
+  }
 
-    /**
-     * Get options
-     * @return options
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_OPTIONS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public MonitorOptions getOptions() {
-        return options;
+  public void setOverallState(MonitorOverallStates overallState) {
+    if (!overallState.isValid()) {
+      this.unparsed = true;
     }
+    this.overallState = overallState;
+  }
 
-    public void setOptions(MonitorOptions options) {
-        this.options = options;
-    }
+  public MonitorUpdateRequest priority(Long priority) {
+    this.priority = priority;
+    return this;
+  }
 
-    public MonitorUpdateRequest overallState(MonitorOverallStates overallState) {
-        this.overallState = overallState;
-        this.unparsed |= !overallState.isValid();
-        return this;
-    }
+  /**
+   * Integer from 1 (high) to 5 (low) indicating alert severity. minimum: 1 maximum: 5
+   *
+   * @return priority
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Integer from 1 (high) to 5 (low) indicating alert severity.")
+  @JsonProperty(JSON_PROPERTY_PRIORITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getPriority() {
+    return priority;
+  }
 
-    /**
-     * Get overallState
-     * @return overallState
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_OVERALL_STATE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public MonitorOverallStates getOverallState() {
-        return overallState;
-    }
+  public void setPriority(Long priority) {
+    this.priority = priority;
+  }
 
-    public void setOverallState(MonitorOverallStates overallState) {
-        if (!overallState.isValid()) {
-            this.unparsed = true;
-        }
-        this.overallState = overallState;
-    }
+  public MonitorUpdateRequest query(String query) {
+    this.query = query;
+    return this;
+  }
 
-    public MonitorUpdateRequest priority(Long priority) {
-        this.priority = priority;
-        return this;
-    }
+  /**
+   * The monitor query.
+   *
+   * @return query
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The monitor query.")
+  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getQuery() {
+    return query;
+  }
 
-    /**
-     * Integer from 1 (high) to 5 (low) indicating alert severity.
-     * minimum: 1
-     * maximum: 5
-     * @return priority
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Integer from 1 (high) to 5 (low) indicating alert severity.")
-    @JsonProperty(JSON_PROPERTY_PRIORITY)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Long getPriority() {
-        return priority;
-    }
+  public void setQuery(String query) {
+    this.query = query;
+  }
 
-    public void setPriority(Long priority) {
-        this.priority = priority;
-    }
+  public MonitorUpdateRequest restrictedRoles(List<String> restrictedRoles) {
+    this.restrictedRoles = restrictedRoles;
+    return this;
+  }
 
-    public MonitorUpdateRequest query(String query) {
-        this.query = query;
-        return this;
+  public MonitorUpdateRequest addRestrictedRolesItem(String restrictedRolesItem) {
+    if (this.restrictedRoles == null) {
+      this.restrictedRoles = new ArrayList<>();
     }
+    this.restrictedRoles.add(restrictedRolesItem);
+    return this;
+  }
 
-    /**
-     * The monitor query.
-     * @return query
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The monitor query.")
-    @JsonProperty(JSON_PROPERTY_QUERY)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getQuery() {
-        return query;
-    }
+  /**
+   * A list of role identifiers that can be pulled from the Roles API. Cannot be used with
+   * &#x60;locked&#x60; option.
+   *
+   * @return restrictedRoles
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "A list of role identifiers that can be pulled from the Roles API. Cannot be used with"
+              + " `locked` option.")
+  @JsonProperty(JSON_PROPERTY_RESTRICTED_ROLES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getRestrictedRoles() {
+    return restrictedRoles;
+  }
 
-    public void setQuery(String query) {
-        this.query = query;
-    }
+  public void setRestrictedRoles(List<String> restrictedRoles) {
+    this.restrictedRoles = restrictedRoles;
+  }
 
-    public MonitorUpdateRequest restrictedRoles(List<String> restrictedRoles) {
-        this.restrictedRoles = restrictedRoles;
-        return this;
-    }
+  public MonitorUpdateRequest state(MonitorState state) {
+    this.state = state;
+    this.unparsed |= state.unparsed;
+    return this;
+  }
 
-    public MonitorUpdateRequest addRestrictedRolesItem(String restrictedRolesItem) {
-        if (this.restrictedRoles == null) {
-            this.restrictedRoles = new ArrayList<>();
-        }
-        this.restrictedRoles.add(restrictedRolesItem);
-        return this;
-    }
+  /**
+   * Get state
+   *
+   * @return state
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_STATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public MonitorState getState() {
+    return state;
+  }
 
-    /**
-     * A list of role identifiers that can be pulled from the Roles API. Cannot be used with &#x60;locked&#x60; option.
-     * @return restrictedRoles
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "A list of role identifiers that can be pulled from the Roles API. Cannot be used with `locked` option.")
-    @JsonProperty(JSON_PROPERTY_RESTRICTED_ROLES)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<String> getRestrictedRoles() {
-        return restrictedRoles;
-    }
+  public void setState(MonitorState state) {
+    this.state = state;
+  }
 
-    public void setRestrictedRoles(List<String> restrictedRoles) {
-        this.restrictedRoles = restrictedRoles;
-    }
+  public MonitorUpdateRequest tags(List<String> tags) {
+    this.tags = tags;
+    return this;
+  }
 
-    public MonitorUpdateRequest state(MonitorState state) {
-        this.state = state;
-        this.unparsed |= state.unparsed;
-        return this;
+  public MonitorUpdateRequest addTagsItem(String tagsItem) {
+    if (this.tags == null) {
+      this.tags = new ArrayList<>();
     }
+    this.tags.add(tagsItem);
+    return this;
+  }
 
-    /**
-     * Get state
-     * @return state
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_STATE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public MonitorState getState() {
-        return state;
-    }
+  /**
+   * Tags associated to your monitor.
+   *
+   * @return tags
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Tags associated to your monitor.")
+  @JsonProperty(JSON_PROPERTY_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getTags() {
+    return tags;
+  }
 
-    public void setState(MonitorState state) {
-        this.state = state;
-    }
+  public void setTags(List<String> tags) {
+    this.tags = tags;
+  }
 
-    public MonitorUpdateRequest tags(List<String> tags) {
-        this.tags = tags;
-        return this;
-    }
+  public MonitorUpdateRequest type(MonitorType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    return this;
+  }
 
-    public MonitorUpdateRequest addTagsItem(String tagsItem) {
-        if (this.tags == null) {
-            this.tags = new ArrayList<>();
-        }
-        this.tags.add(tagsItem);
-        return this;
-    }
+  /**
+   * Get type
+   *
+   * @return type
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public MonitorType getType() {
+    return type;
+  }
 
-    /**
-     * Tags associated to your monitor.
-     * @return tags
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Tags associated to your monitor.")
-    @JsonProperty(JSON_PROPERTY_TAGS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<String> getTags() {
-        return tags;
+  public void setType(MonitorType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
     }
+    this.type = type;
+  }
 
-    public void setTags(List<String> tags) {
-        this.tags = tags;
+  /** Return true if this MonitorUpdateRequest object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    MonitorUpdateRequest monitorUpdateRequest = (MonitorUpdateRequest) o;
+    return Objects.equals(this.created, monitorUpdateRequest.created)
+        && Objects.equals(this.creator, monitorUpdateRequest.creator)
+        && Objects.equals(this.deleted, monitorUpdateRequest.deleted)
+        && Objects.equals(this.id, monitorUpdateRequest.id)
+        && Objects.equals(this.message, monitorUpdateRequest.message)
+        && Objects.equals(this.modified, monitorUpdateRequest.modified)
+        && Objects.equals(this.multi, monitorUpdateRequest.multi)
+        && Objects.equals(this.name, monitorUpdateRequest.name)
+        && Objects.equals(this.options, monitorUpdateRequest.options)
+        && Objects.equals(this.overallState, monitorUpdateRequest.overallState)
+        && Objects.equals(this.priority, monitorUpdateRequest.priority)
+        && Objects.equals(this.query, monitorUpdateRequest.query)
+        && Objects.equals(this.restrictedRoles, monitorUpdateRequest.restrictedRoles)
+        && Objects.equals(this.state, monitorUpdateRequest.state)
+        && Objects.equals(this.tags, monitorUpdateRequest.tags)
+        && Objects.equals(this.type, monitorUpdateRequest.type);
+  }
 
-    public MonitorUpdateRequest type(MonitorType type) {
-        this.type = type;
-        this.unparsed |= !type.isValid();
-        return this;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(
+        created,
+        creator,
+        deleted,
+        id,
+        message,
+        modified,
+        multi,
+        name,
+        options,
+        overallState,
+        priority,
+        query,
+        restrictedRoles,
+        state,
+        tags,
+        type);
+  }
 
-    /**
-     * Get type
-     * @return type
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_TYPE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public MonitorType getType() {
-        return type;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class MonitorUpdateRequest {\n");
+    sb.append("    created: ").append(toIndentedString(created)).append("\n");
+    sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
+    sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    modified: ").append(toIndentedString(modified)).append("\n");
+    sb.append("    multi: ").append(toIndentedString(multi)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    options: ").append(toIndentedString(options)).append("\n");
+    sb.append("    overallState: ").append(toIndentedString(overallState)).append("\n");
+    sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
+    sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("    restrictedRoles: ").append(toIndentedString(restrictedRoles)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    public void setType(MonitorType type) {
-        if (!type.isValid()) {
-            this.unparsed = true;
-        }
-        this.type = type;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    /**
-     * Return true if this MonitorUpdateRequest object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        MonitorUpdateRequest monitorUpdateRequest = (MonitorUpdateRequest) o;
-        return (
-            Objects.equals(this.created, monitorUpdateRequest.created) &&
-            Objects.equals(this.creator, monitorUpdateRequest.creator) &&
-            Objects.equals(this.deleted, monitorUpdateRequest.deleted) &&
-            Objects.equals(this.id, monitorUpdateRequest.id) &&
-            Objects.equals(this.message, monitorUpdateRequest.message) &&
-            Objects.equals(this.modified, monitorUpdateRequest.modified) &&
-            Objects.equals(this.multi, monitorUpdateRequest.multi) &&
-            Objects.equals(this.name, monitorUpdateRequest.name) &&
-            Objects.equals(this.options, monitorUpdateRequest.options) &&
-            Objects.equals(this.overallState, monitorUpdateRequest.overallState) &&
-            Objects.equals(this.priority, monitorUpdateRequest.priority) &&
-            Objects.equals(this.query, monitorUpdateRequest.query) &&
-            Objects.equals(this.restrictedRoles, monitorUpdateRequest.restrictedRoles) &&
-            Objects.equals(this.state, monitorUpdateRequest.state) &&
-            Objects.equals(this.tags, monitorUpdateRequest.tags) &&
-            Objects.equals(this.type, monitorUpdateRequest.type)
-        );
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(
-            created,
-            creator,
-            deleted,
-            id,
-            message,
-            modified,
-            multi,
-            name,
-            options,
-            overallState,
-            priority,
-            query,
-            restrictedRoles,
-            state,
-            tags,
-            type
-        );
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class MonitorUpdateRequest {\n");
-        sb.append("    created: ").append(toIndentedString(created)).append("\n");
-        sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
-        sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    message: ").append(toIndentedString(message)).append("\n");
-        sb.append("    modified: ").append(toIndentedString(modified)).append("\n");
-        sb.append("    multi: ").append(toIndentedString(multi)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    options: ").append(toIndentedString(options)).append("\n");
-        sb.append("    overallState: ").append(toIndentedString(overallState)).append("\n");
-        sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
-        sb.append("    query: ").append(toIndentedString(query)).append("\n");
-        sb.append("    restrictedRoles: ").append(toIndentedString(restrictedRoles)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

@@ -1,25 +1,31 @@
+
+
 # LogsAggregationFunction
 
 ## Enum
 
-- `COUNT` (value: `"count"`)
 
-- `CARDINALITY` (value: `"cardinality"`)
+* `COUNT` (value: `"count"`)
 
-- `PERCENTILE_75` (value: `"pc75"`)
+* `CARDINALITY` (value: `"cardinality"`)
 
-- `PERCENTILE_90` (value: `"pc90"`)
+* `PERCENTILE_75` (value: `"pc75"`)
 
-- `PERCENTILE_95` (value: `"pc95"`)
+* `PERCENTILE_90` (value: `"pc90"`)
 
-- `PERCENTILE_98` (value: `"pc98"`)
+* `PERCENTILE_95` (value: `"pc95"`)
 
-- `PERCENTILE_99` (value: `"pc99"`)
+* `PERCENTILE_98` (value: `"pc98"`)
 
-- `SUM` (value: `"sum"`)
+* `PERCENTILE_99` (value: `"pc99"`)
 
-- `MIN` (value: `"min"`)
+* `SUM` (value: `"sum"`)
 
-- `MAX` (value: `"max"`)
+* `MIN` (value: `"min"`)
 
-- `AVG` (value: `"avg"`)
+* `MAX` (value: `"max"`)
+
+* `AVG` (value: `"avg"`)
+
+
+

@@ -1,19 +1,25 @@
+
+
 # WidgetTimeWindows
 
 ## Enum
 
-- `SEVEN_DAYS` (value: `"7d"`)
 
-- `THIRTY_DAYS` (value: `"30d"`)
+* `SEVEN_DAYS` (value: `"7d"`)
 
-- `NINETY_DAYS` (value: `"90d"`)
+* `THIRTY_DAYS` (value: `"30d"`)
 
-- `WEEK_TO_DATE` (value: `"week_to_date"`)
+* `NINETY_DAYS` (value: `"90d"`)
 
-- `PREVIOUS_WEEK` (value: `"previous_week"`)
+* `WEEK_TO_DATE` (value: `"week_to_date"`)
 
-- `MONTH_TO_DATE` (value: `"month_to_date"`)
+* `PREVIOUS_WEEK` (value: `"previous_week"`)
 
-- `PREVIOUS_MONTH` (value: `"previous_month"`)
+* `MONTH_TO_DATE` (value: `"month_to_date"`)
 
-- `GLOBAL_TIME` (value: `"global_time"`)
+* `PREVIOUS_MONTH` (value: `"previous_month"`)
+
+* `GLOBAL_TIME` (value: `"global_time"`)
+
+
+

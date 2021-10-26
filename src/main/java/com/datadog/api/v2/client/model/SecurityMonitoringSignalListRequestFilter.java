@@ -10,155 +10,145 @@
 
 package com.datadog.api.v2.client.model;
 
-import com.datadog.api.v2.client.JSON;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Search filters for listing security signals.
- */
+/** Search filters for listing security signals. */
 @ApiModel(description = "Search filters for listing security signals.")
-@JsonPropertyOrder(
-    {
-        SecurityMonitoringSignalListRequestFilter.JSON_PROPERTY_FROM,
-        SecurityMonitoringSignalListRequestFilter.JSON_PROPERTY_QUERY,
-        SecurityMonitoringSignalListRequestFilter.JSON_PROPERTY_TO
-    }
-)
+@JsonPropertyOrder({
+  SecurityMonitoringSignalListRequestFilter.JSON_PROPERTY_FROM,
+  SecurityMonitoringSignalListRequestFilter.JSON_PROPERTY_QUERY,
+  SecurityMonitoringSignalListRequestFilter.JSON_PROPERTY_TO
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SecurityMonitoringSignalListRequestFilter {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_FROM = "from";
+  private OffsetDateTime from;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_QUERY = "query";
+  private String query;
 
-    public static final String JSON_PROPERTY_FROM = "from";
-    private OffsetDateTime from;
+  public static final String JSON_PROPERTY_TO = "to";
+  private OffsetDateTime to;
 
-    public static final String JSON_PROPERTY_QUERY = "query";
-    private String query;
+  public SecurityMonitoringSignalListRequestFilter from(OffsetDateTime from) {
+    this.from = from;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_TO = "to";
-    private OffsetDateTime to;
+  /**
+   * The minimum timestamp for requested security signals.
+   *
+   * @return from
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      example = "2019-01-02T09:42:36.320Z",
+      value = "The minimum timestamp for requested security signals.")
+  @JsonProperty(JSON_PROPERTY_FROM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getFrom() {
+    return from;
+  }
 
-    public SecurityMonitoringSignalListRequestFilter from(OffsetDateTime from) {
-        this.from = from;
-        return this;
+  public void setFrom(OffsetDateTime from) {
+    this.from = from;
+  }
+
+  public SecurityMonitoringSignalListRequestFilter query(String query) {
+    this.query = query;
+    return this;
+  }
+
+  /**
+   * Search query for listing security signals.
+   *
+   * @return query
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      example = "security:attack status:high",
+      value = "Search query for listing security signals.")
+  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getQuery() {
+    return query;
+  }
+
+  public void setQuery(String query) {
+    this.query = query;
+  }
+
+  public SecurityMonitoringSignalListRequestFilter to(OffsetDateTime to) {
+    this.to = to;
+    return this;
+  }
+
+  /**
+   * The maximum timestamp for requested security signals.
+   *
+   * @return to
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      example = "2019-01-03T09:42:36.320Z",
+      value = "The maximum timestamp for requested security signals.")
+  @JsonProperty(JSON_PROPERTY_TO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getTo() {
+    return to;
+  }
+
+  public void setTo(OffsetDateTime to) {
+    this.to = to;
+  }
+
+  /** Return true if this SecurityMonitoringSignalListRequest_filter object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * The minimum timestamp for requested security signals.
-     * @return from
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "2019-01-02T09:42:36.320Z", value = "The minimum timestamp for requested security signals.")
-    @JsonProperty(JSON_PROPERTY_FROM)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public OffsetDateTime getFrom() {
-        return from;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    SecurityMonitoringSignalListRequestFilter securityMonitoringSignalListRequestFilter =
+        (SecurityMonitoringSignalListRequestFilter) o;
+    return Objects.equals(this.from, securityMonitoringSignalListRequestFilter.from)
+        && Objects.equals(this.query, securityMonitoringSignalListRequestFilter.query)
+        && Objects.equals(this.to, securityMonitoringSignalListRequestFilter.to);
+  }
 
-    public void setFrom(OffsetDateTime from) {
-        this.from = from;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(from, query, to);
+  }
 
-    public SecurityMonitoringSignalListRequestFilter query(String query) {
-        this.query = query;
-        return this;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class SecurityMonitoringSignalListRequestFilter {\n");
+    sb.append("    from: ").append(toIndentedString(from)).append("\n");
+    sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("    to: ").append(toIndentedString(to)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Search query for listing security signals.
-     * @return query
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "security:attack status:high", value = "Search query for listing security signals.")
-    @JsonProperty(JSON_PROPERTY_QUERY)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getQuery() {
-        return query;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    public void setQuery(String query) {
-        this.query = query;
-    }
-
-    public SecurityMonitoringSignalListRequestFilter to(OffsetDateTime to) {
-        this.to = to;
-        return this;
-    }
-
-    /**
-     * The maximum timestamp for requested security signals.
-     * @return to
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "2019-01-03T09:42:36.320Z", value = "The maximum timestamp for requested security signals.")
-    @JsonProperty(JSON_PROPERTY_TO)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public OffsetDateTime getTo() {
-        return to;
-    }
-
-    public void setTo(OffsetDateTime to) {
-        this.to = to;
-    }
-
-    /**
-     * Return true if this SecurityMonitoringSignalListRequest_filter object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        SecurityMonitoringSignalListRequestFilter securityMonitoringSignalListRequestFilter = (SecurityMonitoringSignalListRequestFilter) o;
-        return (
-            Objects.equals(this.from, securityMonitoringSignalListRequestFilter.from) &&
-            Objects.equals(this.query, securityMonitoringSignalListRequestFilter.query) &&
-            Objects.equals(this.to, securityMonitoringSignalListRequestFilter.to)
-        );
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(from, query, to);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SecurityMonitoringSignalListRequestFilter {\n");
-        sb.append("    from: ").append(toIndentedString(from)).append("\n");
-        sb.append("    query: ").append(toIndentedString(query)).append("\n");
-        sb.append("    to: ").append(toIndentedString(to)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

@@ -1,7 +1,13 @@
+
+
 # LogsComputeType
 
 ## Enum
 
-- `TIMESERIES` (value: `"timeseries"`)
 
-- `TOTAL` (value: `"total"`)
+* `TIMESERIES` (value: `"timeseries"`)
+
+* `TOTAL` (value: `"total"`)
+
+
+

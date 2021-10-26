@@ -10,122 +10,110 @@
 
 package com.datadog.api.v2.client.model;
 
-import com.datadog.api.v2.client.JSON;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * A single exclusion filter.
- */
+/** A single exclusion filter. */
 @ApiModel(description = "A single exclusion filter.")
-@JsonPropertyOrder({ SecurityFilterExclusionFilterResponse.JSON_PROPERTY_NAME, SecurityFilterExclusionFilterResponse.JSON_PROPERTY_QUERY })
+@JsonPropertyOrder({
+  SecurityFilterExclusionFilterResponse.JSON_PROPERTY_NAME,
+  SecurityFilterExclusionFilterResponse.JSON_PROPERTY_QUERY
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SecurityFilterExclusionFilterResponse {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_QUERY = "query";
+  private String query;
 
-    public static final String JSON_PROPERTY_NAME = "name";
-    private String name;
+  public SecurityFilterExclusionFilterResponse name(String name) {
+    this.name = name;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_QUERY = "query";
-    private String query;
+  /**
+   * The exclusion filter name.
+   *
+   * @return name
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "Exclude staging", value = "The exclusion filter name.")
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
 
-    public SecurityFilterExclusionFilterResponse name(String name) {
-        this.name = name;
-        return this;
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public SecurityFilterExclusionFilterResponse query(String query) {
+    this.query = query;
+    return this;
+  }
+
+  /**
+   * The exclusion filter query.
+   *
+   * @return query
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "source:staging", value = "The exclusion filter query.")
+  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getQuery() {
+    return query;
+  }
+
+  public void setQuery(String query) {
+    this.query = query;
+  }
+
+  /** Return true if this SecurityFilterExclusionFilterResponse object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * The exclusion filter name.
-     * @return name
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "Exclude staging", value = "The exclusion filter name.")
-    @JsonProperty(JSON_PROPERTY_NAME)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getName() {
-        return name;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    SecurityFilterExclusionFilterResponse securityFilterExclusionFilterResponse =
+        (SecurityFilterExclusionFilterResponse) o;
+    return Objects.equals(this.name, securityFilterExclusionFilterResponse.name)
+        && Objects.equals(this.query, securityFilterExclusionFilterResponse.query);
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(name, query);
+  }
 
-    public SecurityFilterExclusionFilterResponse query(String query) {
-        this.query = query;
-        return this;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class SecurityFilterExclusionFilterResponse {\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * The exclusion filter query.
-     * @return query
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "source:staging", value = "The exclusion filter query.")
-    @JsonProperty(JSON_PROPERTY_QUERY)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getQuery() {
-        return query;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    public void setQuery(String query) {
-        this.query = query;
-    }
-
-    /**
-     * Return true if this SecurityFilterExclusionFilterResponse object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        SecurityFilterExclusionFilterResponse securityFilterExclusionFilterResponse = (SecurityFilterExclusionFilterResponse) o;
-        return (
-            Objects.equals(this.name, securityFilterExclusionFilterResponse.name) &&
-            Objects.equals(this.query, securityFilterExclusionFilterResponse.query)
-        );
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, query);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SecurityFilterExclusionFilterResponse {\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    query: ").append(toIndentedString(query)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

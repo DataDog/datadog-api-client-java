@@ -10,205 +10,197 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.datadog.api.v1.client.model.LogsServiceRemapperType;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
 /**
- * Use this processor if you want to assign one or more attributes as the official service.  **Note:** If multiple service remapper processors can be applied to a given log, only the first one (according to the pipeline order) is taken into account.
+ * Use this processor if you want to assign one or more attributes as the official service.
+ * **Note:** If multiple service remapper processors can be applied to a given log, only the first
+ * one (according to the pipeline order) is taken into account.
  */
 @ApiModel(
-    description = "Use this processor if you want to assign one or more attributes as the official service.  **Note:** If multiple service remapper processors can be applied to a given log, only the first one (according to the pipeline order) is taken into account."
-)
-@JsonPropertyOrder(
-    {
-        LogsServiceRemapper.JSON_PROPERTY_IS_ENABLED,
-        LogsServiceRemapper.JSON_PROPERTY_NAME,
-        LogsServiceRemapper.JSON_PROPERTY_SOURCES,
-        LogsServiceRemapper.JSON_PROPERTY_TYPE
-    }
-)
+    description =
+        "Use this processor if you want to assign one or more attributes as the official service. "
+            + " **Note:** If multiple service remapper processors can be applied to a given log,"
+            + " only the first one (according to the pipeline order) is taken into account.")
+@JsonPropertyOrder({
+  LogsServiceRemapper.JSON_PROPERTY_IS_ENABLED,
+  LogsServiceRemapper.JSON_PROPERTY_NAME,
+  LogsServiceRemapper.JSON_PROPERTY_SOURCES,
+  LogsServiceRemapper.JSON_PROPERTY_TYPE
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsServiceRemapper {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
+  private Boolean isEnabled = false;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
-    public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
-    private Boolean isEnabled = false;
+  public static final String JSON_PROPERTY_SOURCES = "sources";
+  private List<String> sources = new ArrayList<>();
 
-    public static final String JSON_PROPERTY_NAME = "name";
-    private String name;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private LogsServiceRemapperType type = LogsServiceRemapperType.SERVICE_REMAPPER;
 
-    public static final String JSON_PROPERTY_SOURCES = "sources";
-    private List<String> sources = new ArrayList<>();
+  public LogsServiceRemapper() {}
 
-    public static final String JSON_PROPERTY_TYPE = "type";
-    private LogsServiceRemapperType type = LogsServiceRemapperType.SERVICE_REMAPPER;
+  @JsonCreator
+  public LogsServiceRemapper(
+      @JsonProperty(required = true, value = JSON_PROPERTY_SOURCES) List<String> sources,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) LogsServiceRemapperType type) {
+    this.sources = sources;
+    this.type = type;
+    this.unparsed |= !type.isValid();
+  }
 
-    public LogsServiceRemapper() {}
+  public LogsServiceRemapper isEnabled(Boolean isEnabled) {
+    this.isEnabled = isEnabled;
+    return this;
+  }
 
-    @JsonCreator
-    public LogsServiceRemapper(
-        @JsonProperty(required = true, value = JSON_PROPERTY_SOURCES) List<String> sources,
-        @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) LogsServiceRemapperType type
-    ) {
-        this.sources = sources;
-        this.type = type;
-        this.unparsed |= !type.isValid();
+  /**
+   * Whether or not the processor is enabled.
+   *
+   * @return isEnabled
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Whether or not the processor is enabled.")
+  @JsonProperty(JSON_PROPERTY_IS_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsEnabled() {
+    return isEnabled;
+  }
+
+  public void setIsEnabled(Boolean isEnabled) {
+    this.isEnabled = isEnabled;
+  }
+
+  public LogsServiceRemapper name(String name) {
+    this.name = name;
+    return this;
+  }
+
+  /**
+   * Name of the processor.
+   *
+   * @return name
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Name of the processor.")
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public LogsServiceRemapper sources(List<String> sources) {
+    this.sources = sources;
+    return this;
+  }
+
+  public LogsServiceRemapper addSourcesItem(String sourcesItem) {
+    this.sources.add(sourcesItem);
+    return this;
+  }
+
+  /**
+   * Array of source attributes.
+   *
+   * @return sources
+   */
+  @ApiModelProperty(
+      example = "[\"web\",\"gateway\"]",
+      required = true,
+      value = "Array of source attributes.")
+  @JsonProperty(JSON_PROPERTY_SOURCES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<String> getSources() {
+    return sources;
+  }
+
+  public void setSources(List<String> sources) {
+    this.sources = sources;
+  }
+
+  public LogsServiceRemapper type(LogsServiceRemapperType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    return this;
+  }
+
+  /**
+   * Get type
+   *
+   * @return type
+   */
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public LogsServiceRemapperType getType() {
+    return type;
+  }
+
+  public void setType(LogsServiceRemapperType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
     }
+    this.type = type;
+  }
 
-    public LogsServiceRemapper isEnabled(Boolean isEnabled) {
-        this.isEnabled = isEnabled;
-        return this;
+  /** Return true if this LogsServiceRemapper object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    LogsServiceRemapper logsServiceRemapper = (LogsServiceRemapper) o;
+    return Objects.equals(this.isEnabled, logsServiceRemapper.isEnabled)
+        && Objects.equals(this.name, logsServiceRemapper.name)
+        && Objects.equals(this.sources, logsServiceRemapper.sources)
+        && Objects.equals(this.type, logsServiceRemapper.type);
+  }
 
-    /**
-     * Whether or not the processor is enabled.
-     * @return isEnabled
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Whether or not the processor is enabled.")
-    @JsonProperty(JSON_PROPERTY_IS_ENABLED)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Boolean getIsEnabled() {
-        return isEnabled;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(isEnabled, name, sources, type);
+  }
 
-    public void setIsEnabled(Boolean isEnabled) {
-        this.isEnabled = isEnabled;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class LogsServiceRemapper {\n");
+    sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    sources: ").append(toIndentedString(sources)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    public LogsServiceRemapper name(String name) {
-        this.name = name;
-        return this;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    /**
-     * Name of the processor.
-     * @return name
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Name of the processor.")
-    @JsonProperty(JSON_PROPERTY_NAME)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public LogsServiceRemapper sources(List<String> sources) {
-        this.sources = sources;
-        return this;
-    }
-
-    public LogsServiceRemapper addSourcesItem(String sourcesItem) {
-        this.sources.add(sourcesItem);
-        return this;
-    }
-
-    /**
-     * Array of source attributes.
-     * @return sources
-     **/
-    @ApiModelProperty(example = "[\"web\",\"gateway\"]", required = true, value = "Array of source attributes.")
-    @JsonProperty(JSON_PROPERTY_SOURCES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public List<String> getSources() {
-        return sources;
-    }
-
-    public void setSources(List<String> sources) {
-        this.sources = sources;
-    }
-
-    public LogsServiceRemapper type(LogsServiceRemapperType type) {
-        this.type = type;
-        this.unparsed |= !type.isValid();
-        return this;
-    }
-
-    /**
-     * Get type
-     * @return type
-     **/
-    @ApiModelProperty(required = true, value = "")
-    @JsonProperty(JSON_PROPERTY_TYPE)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public LogsServiceRemapperType getType() {
-        return type;
-    }
-
-    public void setType(LogsServiceRemapperType type) {
-        if (!type.isValid()) {
-            this.unparsed = true;
-        }
-        this.type = type;
-    }
-
-    /**
-     * Return true if this LogsServiceRemapper object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        LogsServiceRemapper logsServiceRemapper = (LogsServiceRemapper) o;
-        return (
-            Objects.equals(this.isEnabled, logsServiceRemapper.isEnabled) &&
-            Objects.equals(this.name, logsServiceRemapper.name) &&
-            Objects.equals(this.sources, logsServiceRemapper.sources) &&
-            Objects.equals(this.type, logsServiceRemapper.type)
-        );
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(isEnabled, name, sources, type);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class LogsServiceRemapper {\n");
-        sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    sources: ").append(toIndentedString(sources)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

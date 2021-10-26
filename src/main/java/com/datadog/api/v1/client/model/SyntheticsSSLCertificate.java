@@ -10,425 +10,414 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.datadog.api.v1.client.model.SyntheticsSSLCertificateIssuer;
-import com.datadog.api.v1.client.model.SyntheticsSSLCertificateSubject;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Object describing the SSL certificate used for a Synthetic test.
- */
+/** Object describing the SSL certificate used for a Synthetic test. */
 @ApiModel(description = "Object describing the SSL certificate used for a Synthetic test.")
-@JsonPropertyOrder(
-    {
-        SyntheticsSSLCertificate.JSON_PROPERTY_CIPHER,
-        SyntheticsSSLCertificate.JSON_PROPERTY_EXPONENT,
-        SyntheticsSSLCertificate.JSON_PROPERTY_EXT_KEY_USAGE,
-        SyntheticsSSLCertificate.JSON_PROPERTY_FINGERPRINT,
-        SyntheticsSSLCertificate.JSON_PROPERTY_FINGERPRINT256,
-        SyntheticsSSLCertificate.JSON_PROPERTY_ISSUER,
-        SyntheticsSSLCertificate.JSON_PROPERTY_MODULUS,
-        SyntheticsSSLCertificate.JSON_PROPERTY_PROTOCOL,
-        SyntheticsSSLCertificate.JSON_PROPERTY_SERIAL_NUMBER,
-        SyntheticsSSLCertificate.JSON_PROPERTY_SUBJECT,
-        SyntheticsSSLCertificate.JSON_PROPERTY_VALID_FROM,
-        SyntheticsSSLCertificate.JSON_PROPERTY_VALID_TO
-    }
-)
+@JsonPropertyOrder({
+  SyntheticsSSLCertificate.JSON_PROPERTY_CIPHER,
+  SyntheticsSSLCertificate.JSON_PROPERTY_EXPONENT,
+  SyntheticsSSLCertificate.JSON_PROPERTY_EXT_KEY_USAGE,
+  SyntheticsSSLCertificate.JSON_PROPERTY_FINGERPRINT,
+  SyntheticsSSLCertificate.JSON_PROPERTY_FINGERPRINT256,
+  SyntheticsSSLCertificate.JSON_PROPERTY_ISSUER,
+  SyntheticsSSLCertificate.JSON_PROPERTY_MODULUS,
+  SyntheticsSSLCertificate.JSON_PROPERTY_PROTOCOL,
+  SyntheticsSSLCertificate.JSON_PROPERTY_SERIAL_NUMBER,
+  SyntheticsSSLCertificate.JSON_PROPERTY_SUBJECT,
+  SyntheticsSSLCertificate.JSON_PROPERTY_VALID_FROM,
+  SyntheticsSSLCertificate.JSON_PROPERTY_VALID_TO
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsSSLCertificate {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CIPHER = "cipher";
+  private String cipher;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_EXPONENT = "exponent";
+  private Double exponent;
 
-    public static final String JSON_PROPERTY_CIPHER = "cipher";
-    private String cipher;
+  public static final String JSON_PROPERTY_EXT_KEY_USAGE = "extKeyUsage";
+  private List<String> extKeyUsage = null;
 
-    public static final String JSON_PROPERTY_EXPONENT = "exponent";
-    private Double exponent;
+  public static final String JSON_PROPERTY_FINGERPRINT = "fingerprint";
+  private String fingerprint;
 
-    public static final String JSON_PROPERTY_EXT_KEY_USAGE = "extKeyUsage";
-    private List<String> extKeyUsage = null;
+  public static final String JSON_PROPERTY_FINGERPRINT256 = "fingerprint256";
+  private String fingerprint256;
 
-    public static final String JSON_PROPERTY_FINGERPRINT = "fingerprint";
-    private String fingerprint;
+  public static final String JSON_PROPERTY_ISSUER = "issuer";
+  private SyntheticsSSLCertificateIssuer issuer;
 
-    public static final String JSON_PROPERTY_FINGERPRINT256 = "fingerprint256";
-    private String fingerprint256;
+  public static final String JSON_PROPERTY_MODULUS = "modulus";
+  private String modulus;
 
-    public static final String JSON_PROPERTY_ISSUER = "issuer";
-    private SyntheticsSSLCertificateIssuer issuer;
+  public static final String JSON_PROPERTY_PROTOCOL = "protocol";
+  private String protocol;
 
-    public static final String JSON_PROPERTY_MODULUS = "modulus";
-    private String modulus;
+  public static final String JSON_PROPERTY_SERIAL_NUMBER = "serialNumber";
+  private String serialNumber;
 
-    public static final String JSON_PROPERTY_PROTOCOL = "protocol";
-    private String protocol;
+  public static final String JSON_PROPERTY_SUBJECT = "subject";
+  private SyntheticsSSLCertificateSubject subject;
 
-    public static final String JSON_PROPERTY_SERIAL_NUMBER = "serialNumber";
-    private String serialNumber;
+  public static final String JSON_PROPERTY_VALID_FROM = "validFrom";
+  private OffsetDateTime validFrom;
 
-    public static final String JSON_PROPERTY_SUBJECT = "subject";
-    private SyntheticsSSLCertificateSubject subject;
+  public static final String JSON_PROPERTY_VALID_TO = "validTo";
+  private OffsetDateTime validTo;
 
-    public static final String JSON_PROPERTY_VALID_FROM = "validFrom";
-    private OffsetDateTime validFrom;
+  public SyntheticsSSLCertificate cipher(String cipher) {
+    this.cipher = cipher;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_VALID_TO = "validTo";
-    private OffsetDateTime validTo;
+  /**
+   * Cipher used for the connection.
+   *
+   * @return cipher
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Cipher used for the connection.")
+  @JsonProperty(JSON_PROPERTY_CIPHER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCipher() {
+    return cipher;
+  }
 
-    public SyntheticsSSLCertificate cipher(String cipher) {
-        this.cipher = cipher;
-        return this;
+  public void setCipher(String cipher) {
+    this.cipher = cipher;
+  }
+
+  public SyntheticsSSLCertificate exponent(Double exponent) {
+    this.exponent = exponent;
+    return this;
+  }
+
+  /**
+   * Exponent associated to the certificate.
+   *
+   * @return exponent
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Exponent associated to the certificate.")
+  @JsonProperty(JSON_PROPERTY_EXPONENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getExponent() {
+    return exponent;
+  }
+
+  public void setExponent(Double exponent) {
+    this.exponent = exponent;
+  }
+
+  public SyntheticsSSLCertificate extKeyUsage(List<String> extKeyUsage) {
+    this.extKeyUsage = extKeyUsage;
+    return this;
+  }
+
+  public SyntheticsSSLCertificate addExtKeyUsageItem(String extKeyUsageItem) {
+    if (this.extKeyUsage == null) {
+      this.extKeyUsage = new ArrayList<>();
     }
+    this.extKeyUsage.add(extKeyUsageItem);
+    return this;
+  }
 
-    /**
-     * Cipher used for the connection.
-     * @return cipher
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Cipher used for the connection.")
-    @JsonProperty(JSON_PROPERTY_CIPHER)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getCipher() {
-        return cipher;
-    }
+  /**
+   * Array of extensions and details used for the certificate.
+   *
+   * @return extKeyUsage
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Array of extensions and details used for the certificate.")
+  @JsonProperty(JSON_PROPERTY_EXT_KEY_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getExtKeyUsage() {
+    return extKeyUsage;
+  }
 
-    public void setCipher(String cipher) {
-        this.cipher = cipher;
-    }
+  public void setExtKeyUsage(List<String> extKeyUsage) {
+    this.extKeyUsage = extKeyUsage;
+  }
 
-    public SyntheticsSSLCertificate exponent(Double exponent) {
-        this.exponent = exponent;
-        return this;
-    }
+  public SyntheticsSSLCertificate fingerprint(String fingerprint) {
+    this.fingerprint = fingerprint;
+    return this;
+  }
 
-    /**
-     * Exponent associated to the certificate.
-     * @return exponent
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Exponent associated to the certificate.")
-    @JsonProperty(JSON_PROPERTY_EXPONENT)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Double getExponent() {
-        return exponent;
-    }
+  /**
+   * MD5 digest of the DER-encoded Certificate information.
+   *
+   * @return fingerprint
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "MD5 digest of the DER-encoded Certificate information.")
+  @JsonProperty(JSON_PROPERTY_FINGERPRINT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getFingerprint() {
+    return fingerprint;
+  }
 
-    public void setExponent(Double exponent) {
-        this.exponent = exponent;
-    }
+  public void setFingerprint(String fingerprint) {
+    this.fingerprint = fingerprint;
+  }
 
-    public SyntheticsSSLCertificate extKeyUsage(List<String> extKeyUsage) {
-        this.extKeyUsage = extKeyUsage;
-        return this;
-    }
+  public SyntheticsSSLCertificate fingerprint256(String fingerprint256) {
+    this.fingerprint256 = fingerprint256;
+    return this;
+  }
 
-    public SyntheticsSSLCertificate addExtKeyUsageItem(String extKeyUsageItem) {
-        if (this.extKeyUsage == null) {
-            this.extKeyUsage = new ArrayList<>();
-        }
-        this.extKeyUsage.add(extKeyUsageItem);
-        return this;
-    }
+  /**
+   * SHA-1 digest of the DER-encoded Certificate information.
+   *
+   * @return fingerprint256
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "SHA-1 digest of the DER-encoded Certificate information.")
+  @JsonProperty(JSON_PROPERTY_FINGERPRINT256)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getFingerprint256() {
+    return fingerprint256;
+  }
 
-    /**
-     * Array of extensions and details used for the certificate.
-     * @return extKeyUsage
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Array of extensions and details used for the certificate.")
-    @JsonProperty(JSON_PROPERTY_EXT_KEY_USAGE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<String> getExtKeyUsage() {
-        return extKeyUsage;
-    }
+  public void setFingerprint256(String fingerprint256) {
+    this.fingerprint256 = fingerprint256;
+  }
 
-    public void setExtKeyUsage(List<String> extKeyUsage) {
-        this.extKeyUsage = extKeyUsage;
-    }
+  public SyntheticsSSLCertificate issuer(SyntheticsSSLCertificateIssuer issuer) {
+    this.issuer = issuer;
+    this.unparsed |= issuer.unparsed;
+    return this;
+  }
 
-    public SyntheticsSSLCertificate fingerprint(String fingerprint) {
-        this.fingerprint = fingerprint;
-        return this;
-    }
+  /**
+   * Get issuer
+   *
+   * @return issuer
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ISSUER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsSSLCertificateIssuer getIssuer() {
+    return issuer;
+  }
 
-    /**
-     * MD5 digest of the DER-encoded Certificate information.
-     * @return fingerprint
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "MD5 digest of the DER-encoded Certificate information.")
-    @JsonProperty(JSON_PROPERTY_FINGERPRINT)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getFingerprint() {
-        return fingerprint;
-    }
+  public void setIssuer(SyntheticsSSLCertificateIssuer issuer) {
+    this.issuer = issuer;
+  }
 
-    public void setFingerprint(String fingerprint) {
-        this.fingerprint = fingerprint;
-    }
+  public SyntheticsSSLCertificate modulus(String modulus) {
+    this.modulus = modulus;
+    return this;
+  }
 
-    public SyntheticsSSLCertificate fingerprint256(String fingerprint256) {
-        this.fingerprint256 = fingerprint256;
-        return this;
-    }
+  /**
+   * Modulus associated to the SSL certificate private key.
+   *
+   * @return modulus
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Modulus associated to the SSL certificate private key.")
+  @JsonProperty(JSON_PROPERTY_MODULUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getModulus() {
+    return modulus;
+  }
 
-    /**
-     * SHA-1 digest of the DER-encoded Certificate information.
-     * @return fingerprint256
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "SHA-1 digest of the DER-encoded Certificate information.")
-    @JsonProperty(JSON_PROPERTY_FINGERPRINT256)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getFingerprint256() {
-        return fingerprint256;
-    }
+  public void setModulus(String modulus) {
+    this.modulus = modulus;
+  }
 
-    public void setFingerprint256(String fingerprint256) {
-        this.fingerprint256 = fingerprint256;
-    }
+  public SyntheticsSSLCertificate protocol(String protocol) {
+    this.protocol = protocol;
+    return this;
+  }
 
-    public SyntheticsSSLCertificate issuer(SyntheticsSSLCertificateIssuer issuer) {
-        this.issuer = issuer;
-        this.unparsed |= issuer.unparsed;
-        return this;
-    }
+  /**
+   * TLS protocol used for the test.
+   *
+   * @return protocol
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "TLS protocol used for the test.")
+  @JsonProperty(JSON_PROPERTY_PROTOCOL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getProtocol() {
+    return protocol;
+  }
 
-    /**
-     * Get issuer
-     * @return issuer
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_ISSUER)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public SyntheticsSSLCertificateIssuer getIssuer() {
-        return issuer;
-    }
+  public void setProtocol(String protocol) {
+    this.protocol = protocol;
+  }
 
-    public void setIssuer(SyntheticsSSLCertificateIssuer issuer) {
-        this.issuer = issuer;
-    }
+  public SyntheticsSSLCertificate serialNumber(String serialNumber) {
+    this.serialNumber = serialNumber;
+    return this;
+  }
 
-    public SyntheticsSSLCertificate modulus(String modulus) {
-        this.modulus = modulus;
-        return this;
-    }
+  /**
+   * Serial Number assigned by Symantec to the SSL certificate.
+   *
+   * @return serialNumber
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Serial Number assigned by Symantec to the SSL certificate.")
+  @JsonProperty(JSON_PROPERTY_SERIAL_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSerialNumber() {
+    return serialNumber;
+  }
 
-    /**
-     * Modulus associated to the SSL certificate private key.
-     * @return modulus
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Modulus associated to the SSL certificate private key.")
-    @JsonProperty(JSON_PROPERTY_MODULUS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getModulus() {
-        return modulus;
-    }
+  public void setSerialNumber(String serialNumber) {
+    this.serialNumber = serialNumber;
+  }
 
-    public void setModulus(String modulus) {
-        this.modulus = modulus;
-    }
+  public SyntheticsSSLCertificate subject(SyntheticsSSLCertificateSubject subject) {
+    this.subject = subject;
+    this.unparsed |= subject.unparsed;
+    return this;
+  }
 
-    public SyntheticsSSLCertificate protocol(String protocol) {
-        this.protocol = protocol;
-        return this;
-    }
+  /**
+   * Get subject
+   *
+   * @return subject
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_SUBJECT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsSSLCertificateSubject getSubject() {
+    return subject;
+  }
 
-    /**
-     * TLS protocol used for the test.
-     * @return protocol
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "TLS protocol used for the test.")
-    @JsonProperty(JSON_PROPERTY_PROTOCOL)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getProtocol() {
-        return protocol;
-    }
+  public void setSubject(SyntheticsSSLCertificateSubject subject) {
+    this.subject = subject;
+  }
 
-    public void setProtocol(String protocol) {
-        this.protocol = protocol;
-    }
+  public SyntheticsSSLCertificate validFrom(OffsetDateTime validFrom) {
+    this.validFrom = validFrom;
+    return this;
+  }
 
-    public SyntheticsSSLCertificate serialNumber(String serialNumber) {
-        this.serialNumber = serialNumber;
-        return this;
-    }
+  /**
+   * Date from which the SSL certificate is valid.
+   *
+   * @return validFrom
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Date from which the SSL certificate is valid.")
+  @JsonProperty(JSON_PROPERTY_VALID_FROM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getValidFrom() {
+    return validFrom;
+  }
 
-    /**
-     * Serial Number assigned by Symantec to the SSL certificate.
-     * @return serialNumber
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Serial Number assigned by Symantec to the SSL certificate.")
-    @JsonProperty(JSON_PROPERTY_SERIAL_NUMBER)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getSerialNumber() {
-        return serialNumber;
-    }
+  public void setValidFrom(OffsetDateTime validFrom) {
+    this.validFrom = validFrom;
+  }
 
-    public void setSerialNumber(String serialNumber) {
-        this.serialNumber = serialNumber;
-    }
+  public SyntheticsSSLCertificate validTo(OffsetDateTime validTo) {
+    this.validTo = validTo;
+    return this;
+  }
 
-    public SyntheticsSSLCertificate subject(SyntheticsSSLCertificateSubject subject) {
-        this.subject = subject;
-        this.unparsed |= subject.unparsed;
-        return this;
-    }
+  /**
+   * Date until which the SSL certificate is valid.
+   *
+   * @return validTo
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Date until which the SSL certificate is valid.")
+  @JsonProperty(JSON_PROPERTY_VALID_TO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getValidTo() {
+    return validTo;
+  }
 
-    /**
-     * Get subject
-     * @return subject
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_SUBJECT)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public SyntheticsSSLCertificateSubject getSubject() {
-        return subject;
-    }
+  public void setValidTo(OffsetDateTime validTo) {
+    this.validTo = validTo;
+  }
 
-    public void setSubject(SyntheticsSSLCertificateSubject subject) {
-        this.subject = subject;
+  /** Return true if this SyntheticsSSLCertificate object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    SyntheticsSSLCertificate syntheticsSSLCertificate = (SyntheticsSSLCertificate) o;
+    return Objects.equals(this.cipher, syntheticsSSLCertificate.cipher)
+        && Objects.equals(this.exponent, syntheticsSSLCertificate.exponent)
+        && Objects.equals(this.extKeyUsage, syntheticsSSLCertificate.extKeyUsage)
+        && Objects.equals(this.fingerprint, syntheticsSSLCertificate.fingerprint)
+        && Objects.equals(this.fingerprint256, syntheticsSSLCertificate.fingerprint256)
+        && Objects.equals(this.issuer, syntheticsSSLCertificate.issuer)
+        && Objects.equals(this.modulus, syntheticsSSLCertificate.modulus)
+        && Objects.equals(this.protocol, syntheticsSSLCertificate.protocol)
+        && Objects.equals(this.serialNumber, syntheticsSSLCertificate.serialNumber)
+        && Objects.equals(this.subject, syntheticsSSLCertificate.subject)
+        && Objects.equals(this.validFrom, syntheticsSSLCertificate.validFrom)
+        && Objects.equals(this.validTo, syntheticsSSLCertificate.validTo);
+  }
 
-    public SyntheticsSSLCertificate validFrom(OffsetDateTime validFrom) {
-        this.validFrom = validFrom;
-        return this;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(
+        cipher,
+        exponent,
+        extKeyUsage,
+        fingerprint,
+        fingerprint256,
+        issuer,
+        modulus,
+        protocol,
+        serialNumber,
+        subject,
+        validFrom,
+        validTo);
+  }
 
-    /**
-     * Date from which the SSL certificate is valid.
-     * @return validFrom
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Date from which the SSL certificate is valid.")
-    @JsonProperty(JSON_PROPERTY_VALID_FROM)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public OffsetDateTime getValidFrom() {
-        return validFrom;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class SyntheticsSSLCertificate {\n");
+    sb.append("    cipher: ").append(toIndentedString(cipher)).append("\n");
+    sb.append("    exponent: ").append(toIndentedString(exponent)).append("\n");
+    sb.append("    extKeyUsage: ").append(toIndentedString(extKeyUsage)).append("\n");
+    sb.append("    fingerprint: ").append(toIndentedString(fingerprint)).append("\n");
+    sb.append("    fingerprint256: ").append(toIndentedString(fingerprint256)).append("\n");
+    sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
+    sb.append("    modulus: ").append(toIndentedString(modulus)).append("\n");
+    sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
+    sb.append("    serialNumber: ").append(toIndentedString(serialNumber)).append("\n");
+    sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
+    sb.append("    validFrom: ").append(toIndentedString(validFrom)).append("\n");
+    sb.append("    validTo: ").append(toIndentedString(validTo)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    public void setValidFrom(OffsetDateTime validFrom) {
-        this.validFrom = validFrom;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    public SyntheticsSSLCertificate validTo(OffsetDateTime validTo) {
-        this.validTo = validTo;
-        return this;
-    }
-
-    /**
-     * Date until which the SSL certificate is valid.
-     * @return validTo
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Date until which the SSL certificate is valid.")
-    @JsonProperty(JSON_PROPERTY_VALID_TO)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public OffsetDateTime getValidTo() {
-        return validTo;
-    }
-
-    public void setValidTo(OffsetDateTime validTo) {
-        this.validTo = validTo;
-    }
-
-    /**
-     * Return true if this SyntheticsSSLCertificate object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        SyntheticsSSLCertificate syntheticsSSLCertificate = (SyntheticsSSLCertificate) o;
-        return (
-            Objects.equals(this.cipher, syntheticsSSLCertificate.cipher) &&
-            Objects.equals(this.exponent, syntheticsSSLCertificate.exponent) &&
-            Objects.equals(this.extKeyUsage, syntheticsSSLCertificate.extKeyUsage) &&
-            Objects.equals(this.fingerprint, syntheticsSSLCertificate.fingerprint) &&
-            Objects.equals(this.fingerprint256, syntheticsSSLCertificate.fingerprint256) &&
-            Objects.equals(this.issuer, syntheticsSSLCertificate.issuer) &&
-            Objects.equals(this.modulus, syntheticsSSLCertificate.modulus) &&
-            Objects.equals(this.protocol, syntheticsSSLCertificate.protocol) &&
-            Objects.equals(this.serialNumber, syntheticsSSLCertificate.serialNumber) &&
-            Objects.equals(this.subject, syntheticsSSLCertificate.subject) &&
-            Objects.equals(this.validFrom, syntheticsSSLCertificate.validFrom) &&
-            Objects.equals(this.validTo, syntheticsSSLCertificate.validTo)
-        );
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(
-            cipher,
-            exponent,
-            extKeyUsage,
-            fingerprint,
-            fingerprint256,
-            issuer,
-            modulus,
-            protocol,
-            serialNumber,
-            subject,
-            validFrom,
-            validTo
-        );
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SyntheticsSSLCertificate {\n");
-        sb.append("    cipher: ").append(toIndentedString(cipher)).append("\n");
-        sb.append("    exponent: ").append(toIndentedString(exponent)).append("\n");
-        sb.append("    extKeyUsage: ").append(toIndentedString(extKeyUsage)).append("\n");
-        sb.append("    fingerprint: ").append(toIndentedString(fingerprint)).append("\n");
-        sb.append("    fingerprint256: ").append(toIndentedString(fingerprint256)).append("\n");
-        sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
-        sb.append("    modulus: ").append(toIndentedString(modulus)).append("\n");
-        sb.append("    protocol: ").append(toIndentedString(protocol)).append("\n");
-        sb.append("    serialNumber: ").append(toIndentedString(serialNumber)).append("\n");
-        sb.append("    subject: ").append(toIndentedString(subject)).append("\n");
-        sb.append("    validFrom: ").append(toIndentedString(validFrom)).append("\n");
-        sb.append("    validTo: ").append(toIndentedString(validTo)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

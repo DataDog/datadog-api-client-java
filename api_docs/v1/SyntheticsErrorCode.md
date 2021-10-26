@@ -1,17 +1,23 @@
+
+
 # SyntheticsErrorCode
 
 ## Enum
 
-- `NO_ERROR` (value: `"NO_ERROR"`)
 
-- `UNKNOWN` (value: `"UNKNOWN"`)
+* `NO_ERROR` (value: `"NO_ERROR"`)
 
-- `DNS` (value: `"DNS"`)
+* `UNKNOWN` (value: `"UNKNOWN"`)
 
-- `SSL` (value: `"SSL"`)
+* `DNS` (value: `"DNS"`)
 
-- `TIMEOUT` (value: `"TIMEOUT"`)
+* `SSL` (value: `"SSL"`)
 
-- `DENIED` (value: `"DENIED"`)
+* `TIMEOUT` (value: `"TIMEOUT"`)
 
-- `INCORRECT_ASSERTION` (value: `"INCORRECT_ASSERTION"`)
+* `DENIED` (value: `"DENIED"`)
+
+* `INCORRECT_ASSERTION` (value: `"INCORRECT_ASSERTION"`)
+
+
+

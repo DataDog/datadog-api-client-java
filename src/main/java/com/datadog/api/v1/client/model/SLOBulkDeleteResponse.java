@@ -10,138 +10,134 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.datadog.api.v1.client.model.SLOBulkDeleteError;
-import com.datadog.api.v1.client.model.SLOBulkDeleteResponseData;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
 /**
- * The bulk partial delete service level objective object endpoint response.  This endpoint operates on multiple service level objective objects, so it may be partially successful. In such cases, the \&quot;data\&quot; and \&quot;error\&quot; fields in this response indicate which deletions succeeded and failed.
+ * The bulk partial delete service level objective object endpoint response. This endpoint operates
+ * on multiple service level objective objects, so it may be partially successful. In such cases,
+ * the \&quot;data\&quot; and \&quot;error\&quot; fields in this response indicate which deletions
+ * succeeded and failed.
  */
 @ApiModel(
-    description = "The bulk partial delete service level objective object endpoint response.  This endpoint operates on multiple service level objective objects, so it may be partially successful. In such cases, the \"data\" and \"error\" fields in this response indicate which deletions succeeded and failed."
-)
-@JsonPropertyOrder({ SLOBulkDeleteResponse.JSON_PROPERTY_DATA, SLOBulkDeleteResponse.JSON_PROPERTY_ERRORS })
+    description =
+        "The bulk partial delete service level objective object endpoint response.  This endpoint"
+            + " operates on multiple service level objective objects, so it may be partially"
+            + " successful. In such cases, the \"data\" and \"error\" fields in this response"
+            + " indicate which deletions succeeded and failed.")
+@JsonPropertyOrder({
+  SLOBulkDeleteResponse.JSON_PROPERTY_DATA,
+  SLOBulkDeleteResponse.JSON_PROPERTY_ERRORS
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SLOBulkDeleteResponse {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private SLOBulkDeleteResponseData data;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ERRORS = "errors";
+  private List<SLOBulkDeleteError> errors = null;
 
-    public static final String JSON_PROPERTY_DATA = "data";
-    private SLOBulkDeleteResponseData data;
+  public SLOBulkDeleteResponse data(SLOBulkDeleteResponseData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_ERRORS = "errors";
-    private List<SLOBulkDeleteError> errors = null;
+  /**
+   * Get data
+   *
+   * @return data
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SLOBulkDeleteResponseData getData() {
+    return data;
+  }
 
-    public SLOBulkDeleteResponse data(SLOBulkDeleteResponseData data) {
-        this.data = data;
-        this.unparsed |= data.unparsed;
-        return this;
+  public void setData(SLOBulkDeleteResponseData data) {
+    this.data = data;
+  }
+
+  public SLOBulkDeleteResponse errors(List<SLOBulkDeleteError> errors) {
+    this.errors = errors;
+    for (SLOBulkDeleteError item : errors) {
+      this.unparsed |= item.unparsed;
     }
+    return this;
+  }
 
-    /**
-     * Get data
-     * @return data
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_DATA)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public SLOBulkDeleteResponseData getData() {
-        return data;
+  public SLOBulkDeleteResponse addErrorsItem(SLOBulkDeleteError errorsItem) {
+    if (this.errors == null) {
+      this.errors = new ArrayList<>();
     }
+    this.errors.add(errorsItem);
+    this.unparsed |= errorsItem.unparsed;
+    return this;
+  }
 
-    public void setData(SLOBulkDeleteResponseData data) {
-        this.data = data;
-    }
+  /**
+   * Array of errors object returned.
+   *
+   * @return errors
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Array of errors object returned.")
+  @JsonProperty(JSON_PROPERTY_ERRORS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<SLOBulkDeleteError> getErrors() {
+    return errors;
+  }
 
-    public SLOBulkDeleteResponse errors(List<SLOBulkDeleteError> errors) {
-        this.errors = errors;
-        for (SLOBulkDeleteError item : errors) {
-            this.unparsed |= item.unparsed;
-        }
-        return this;
-    }
+  public void setErrors(List<SLOBulkDeleteError> errors) {
+    this.errors = errors;
+  }
 
-    public SLOBulkDeleteResponse addErrorsItem(SLOBulkDeleteError errorsItem) {
-        if (this.errors == null) {
-            this.errors = new ArrayList<>();
-        }
-        this.errors.add(errorsItem);
-        this.unparsed |= errorsItem.unparsed;
-        return this;
+  /** Return true if this SLOBulkDeleteResponse object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    SLOBulkDeleteResponse slOBulkDeleteResponse = (SLOBulkDeleteResponse) o;
+    return Objects.equals(this.data, slOBulkDeleteResponse.data)
+        && Objects.equals(this.errors, slOBulkDeleteResponse.errors);
+  }
 
-    /**
-     * Array of errors object returned.
-     * @return errors
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Array of errors object returned.")
-    @JsonProperty(JSON_PROPERTY_ERRORS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<SLOBulkDeleteError> getErrors() {
-        return errors;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(data, errors);
+  }
 
-    public void setErrors(List<SLOBulkDeleteError> errors) {
-        this.errors = errors;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class SLOBulkDeleteResponse {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Return true if this SLOBulkDeleteResponse object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        SLOBulkDeleteResponse slOBulkDeleteResponse = (SLOBulkDeleteResponse) o;
-        return Objects.equals(this.data, slOBulkDeleteResponse.data) && Objects.equals(this.errors, slOBulkDeleteResponse.errors);
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(data, errors);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SLOBulkDeleteResponse {\n");
-        sb.append("    data: ").append(toIndentedString(data)).append("\n");
-        sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

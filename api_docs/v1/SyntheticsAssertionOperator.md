@@ -1,29 +1,35 @@
+
+
 # SyntheticsAssertionOperator
 
 ## Enum
 
-- `CONTAINS` (value: `"contains"`)
 
-- `DOES_NOT_CONTAIN` (value: `"doesNotContain"`)
+* `CONTAINS` (value: `"contains"`)
 
-- `IS` (value: `"is"`)
+* `DOES_NOT_CONTAIN` (value: `"doesNotContain"`)
 
-- `IS_NOT` (value: `"isNot"`)
+* `IS` (value: `"is"`)
 
-- `LESS_THAN` (value: `"lessThan"`)
+* `IS_NOT` (value: `"isNot"`)
 
-- `LESS_THAN_OR_EQUAL` (value: `"lessThanOrEqual"`)
+* `LESS_THAN` (value: `"lessThan"`)
 
-- `MORE_THAN` (value: `"moreThan"`)
+* `LESS_THAN_OR_EQUAL` (value: `"lessThanOrEqual"`)
 
-- `MORE_THAN_OR_EQUAL` (value: `"moreThanOrEqual"`)
+* `MORE_THAN` (value: `"moreThan"`)
 
-- `MATCHES` (value: `"matches"`)
+* `MORE_THAN_OR_EQUAL` (value: `"moreThanOrEqual"`)
 
-- `DOES_NOT_MATCH` (value: `"doesNotMatch"`)
+* `MATCHES` (value: `"matches"`)
 
-- `VALIDATES` (value: `"validates"`)
+* `DOES_NOT_MATCH` (value: `"doesNotMatch"`)
 
-- `IS_IN_MORE_DAYS_THAN` (value: `"isInMoreThan"`)
+* `VALIDATES` (value: `"validates"`)
 
-- `IS_IN_LESS_DAYS_THAN` (value: `"isInLessThan"`)
+* `IS_IN_MORE_DAYS_THAN` (value: `"isInMoreThan"`)
+
+* `IS_IN_LESS_DAYS_THAN` (value: `"isInLessThan"`)
+
+
+

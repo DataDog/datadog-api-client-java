@@ -10,244 +10,235 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.datadog.api.v1.client.model.NotebookCellCreateRequest;
-import com.datadog.api.v1.client.model.NotebookGlobalTime;
-import com.datadog.api.v1.client.model.NotebookMetadata;
-import com.datadog.api.v1.client.model.NotebookStatus;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * The data attributes of a notebook.
- */
+/** The data attributes of a notebook. */
 @ApiModel(description = "The data attributes of a notebook.")
-@JsonPropertyOrder(
-    {
-        NotebookCreateDataAttributes.JSON_PROPERTY_CELLS,
-        NotebookCreateDataAttributes.JSON_PROPERTY_METADATA,
-        NotebookCreateDataAttributes.JSON_PROPERTY_NAME,
-        NotebookCreateDataAttributes.JSON_PROPERTY_STATUS,
-        NotebookCreateDataAttributes.JSON_PROPERTY_TIME
-    }
-)
+@JsonPropertyOrder({
+  NotebookCreateDataAttributes.JSON_PROPERTY_CELLS,
+  NotebookCreateDataAttributes.JSON_PROPERTY_METADATA,
+  NotebookCreateDataAttributes.JSON_PROPERTY_NAME,
+  NotebookCreateDataAttributes.JSON_PROPERTY_STATUS,
+  NotebookCreateDataAttributes.JSON_PROPERTY_TIME
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class NotebookCreateDataAttributes {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CELLS = "cells";
+  private List<NotebookCellCreateRequest> cells = new ArrayList<>();
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_METADATA = "metadata";
+  private NotebookMetadata metadata;
 
-    public static final String JSON_PROPERTY_CELLS = "cells";
-    private List<NotebookCellCreateRequest> cells = new ArrayList<>();
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
-    public static final String JSON_PROPERTY_METADATA = "metadata";
-    private NotebookMetadata metadata;
+  public static final String JSON_PROPERTY_STATUS = "status";
+  private NotebookStatus status = NotebookStatus.PUBLISHED;
 
-    public static final String JSON_PROPERTY_NAME = "name";
-    private String name;
+  public static final String JSON_PROPERTY_TIME = "time";
+  private NotebookGlobalTime time;
 
-    public static final String JSON_PROPERTY_STATUS = "status";
-    private NotebookStatus status = NotebookStatus.PUBLISHED;
+  public NotebookCreateDataAttributes() {}
 
-    public static final String JSON_PROPERTY_TIME = "time";
-    private NotebookGlobalTime time;
+  @JsonCreator
+  public NotebookCreateDataAttributes(
+      @JsonProperty(required = true, value = JSON_PROPERTY_CELLS)
+          List<NotebookCellCreateRequest> cells,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TIME) NotebookGlobalTime time) {
+    this.cells = cells;
+    this.name = name;
+    this.time = time;
+    this.unparsed |= time.unparsed;
+  }
 
-    public NotebookCreateDataAttributes() {}
-
-    @JsonCreator
-    public NotebookCreateDataAttributes(
-        @JsonProperty(required = true, value = JSON_PROPERTY_CELLS) List<NotebookCellCreateRequest> cells,
-        @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-        @JsonProperty(required = true, value = JSON_PROPERTY_TIME) NotebookGlobalTime time
-    ) {
-        this.cells = cells;
-        this.name = name;
-        this.time = time;
-        this.unparsed |= time.unparsed;
+  public NotebookCreateDataAttributes cells(List<NotebookCellCreateRequest> cells) {
+    this.cells = cells;
+    for (NotebookCellCreateRequest item : cells) {
+      this.unparsed |= item.unparsed;
     }
+    return this;
+  }
 
-    public NotebookCreateDataAttributes cells(List<NotebookCellCreateRequest> cells) {
-        this.cells = cells;
-        for (NotebookCellCreateRequest item : cells) {
-            this.unparsed |= item.unparsed;
-        }
-        return this;
-    }
+  public NotebookCreateDataAttributes addCellsItem(NotebookCellCreateRequest cellsItem) {
+    this.cells.add(cellsItem);
+    this.unparsed |= cellsItem.unparsed;
+    return this;
+  }
 
-    public NotebookCreateDataAttributes addCellsItem(NotebookCellCreateRequest cellsItem) {
-        this.cells.add(cellsItem);
-        this.unparsed |= cellsItem.unparsed;
-        return this;
-    }
+  /**
+   * List of cells to display in the notebook.
+   *
+   * @return cells
+   */
+  @ApiModelProperty(
+      example =
+          "[{\"attributes\":{\"definition\":{\"text\":\"## Some test markdown\\n"
+              + "\\n"
+              + "```js\\n"
+              + "var x, y;\\n"
+              + "x = 5;\\n"
+              + "y = 6;\\n"
+              + "```\",\"type\":\"markdown\"}},\"type\":\"notebook_cells\"},{\"attributes\":{\"definition\":{\"requests\":[{\"display_type\":\"line\",\"q\":\"avg:system.load.1{*}\",\"style\":{\"line_type\":\"solid\",\"line_width\":\"normal\",\"palette\":\"dog_classic\"}}],\"show_legend\":true,\"type\":\"timeseries\",\"yaxis\":{\"scale\":\"linear\"}},\"graph_size\":\"m\",\"split_by\":{\"keys\":[],\"tags\":[]},\"time\":null},\"type\":\"notebook_cells\"}]",
+      required = true,
+      value = "List of cells to display in the notebook.")
+  @JsonProperty(JSON_PROPERTY_CELLS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<NotebookCellCreateRequest> getCells() {
+    return cells;
+  }
 
-    /**
-     * List of cells to display in the notebook.
-     * @return cells
-     **/
-    @ApiModelProperty(
-        example = "[{\"attributes\":{\"definition\":{\"text\":\"## Some test markdown\\n\\n```js\\nvar x, y;\\nx = 5;\\ny = 6;\\n```\",\"type\":\"markdown\"}},\"type\":\"notebook_cells\"},{\"attributes\":{\"definition\":{\"requests\":[{\"display_type\":\"line\",\"q\":\"avg:system.load.1{*}\",\"style\":{\"line_type\":\"solid\",\"line_width\":\"normal\",\"palette\":\"dog_classic\"}}],\"show_legend\":true,\"type\":\"timeseries\",\"yaxis\":{\"scale\":\"linear\"}},\"graph_size\":\"m\",\"split_by\":{\"keys\":[],\"tags\":[]},\"time\":null},\"type\":\"notebook_cells\"}]",
-        required = true,
-        value = "List of cells to display in the notebook."
-    )
-    @JsonProperty(JSON_PROPERTY_CELLS)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public List<NotebookCellCreateRequest> getCells() {
-        return cells;
-    }
+  public void setCells(List<NotebookCellCreateRequest> cells) {
+    this.cells = cells;
+  }
 
-    public void setCells(List<NotebookCellCreateRequest> cells) {
-        this.cells = cells;
-    }
+  public NotebookCreateDataAttributes metadata(NotebookMetadata metadata) {
+    this.metadata = metadata;
+    this.unparsed |= metadata.unparsed;
+    return this;
+  }
 
-    public NotebookCreateDataAttributes metadata(NotebookMetadata metadata) {
-        this.metadata = metadata;
-        this.unparsed |= metadata.unparsed;
-        return this;
-    }
+  /**
+   * Get metadata
+   *
+   * @return metadata
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public NotebookMetadata getMetadata() {
+    return metadata;
+  }
 
-    /**
-     * Get metadata
-     * @return metadata
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_METADATA)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public NotebookMetadata getMetadata() {
-        return metadata;
-    }
+  public void setMetadata(NotebookMetadata metadata) {
+    this.metadata = metadata;
+  }
 
-    public void setMetadata(NotebookMetadata metadata) {
-        this.metadata = metadata;
-    }
+  public NotebookCreateDataAttributes name(String name) {
+    this.name = name;
+    return this;
+  }
 
-    public NotebookCreateDataAttributes name(String name) {
-        this.name = name;
-        return this;
-    }
+  /**
+   * The name of the notebook.
+   *
+   * @return name
+   */
+  @ApiModelProperty(
+      example = "Example Notebook",
+      required = true,
+      value = "The name of the notebook.")
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getName() {
+    return name;
+  }
 
-    /**
-     * The name of the notebook.
-     * @return name
-     **/
-    @ApiModelProperty(example = "Example Notebook", required = true, value = "The name of the notebook.")
-    @JsonProperty(JSON_PROPERTY_NAME)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public String getName() {
-        return name;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public NotebookCreateDataAttributes status(NotebookStatus status) {
+    this.status = status;
+    this.unparsed |= !status.isValid();
+    return this;
+  }
 
-    public NotebookCreateDataAttributes status(NotebookStatus status) {
-        this.status = status;
-        this.unparsed |= !status.isValid();
-        return this;
-    }
+  /**
+   * Get status
+   *
+   * @return status
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public NotebookStatus getStatus() {
+    return status;
+  }
 
-    /**
-     * Get status
-     * @return status
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_STATUS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public NotebookStatus getStatus() {
-        return status;
+  public void setStatus(NotebookStatus status) {
+    if (!status.isValid()) {
+      this.unparsed = true;
     }
+    this.status = status;
+  }
 
-    public void setStatus(NotebookStatus status) {
-        if (!status.isValid()) {
-            this.unparsed = true;
-        }
-        this.status = status;
-    }
+  public NotebookCreateDataAttributes time(NotebookGlobalTime time) {
+    this.time = time;
+    this.unparsed |= time.unparsed;
+    return this;
+  }
 
-    public NotebookCreateDataAttributes time(NotebookGlobalTime time) {
-        this.time = time;
-        this.unparsed |= time.unparsed;
-        return this;
-    }
+  /**
+   * Get time
+   *
+   * @return time
+   */
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_TIME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public NotebookGlobalTime getTime() {
+    return time;
+  }
 
-    /**
-     * Get time
-     * @return time
-     **/
-    @ApiModelProperty(required = true, value = "")
-    @JsonProperty(JSON_PROPERTY_TIME)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public NotebookGlobalTime getTime() {
-        return time;
-    }
+  public void setTime(NotebookGlobalTime time) {
+    this.time = time;
+  }
 
-    public void setTime(NotebookGlobalTime time) {
-        this.time = time;
+  /** Return true if this NotebookCreateDataAttributes object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    NotebookCreateDataAttributes notebookCreateDataAttributes = (NotebookCreateDataAttributes) o;
+    return Objects.equals(this.cells, notebookCreateDataAttributes.cells)
+        && Objects.equals(this.metadata, notebookCreateDataAttributes.metadata)
+        && Objects.equals(this.name, notebookCreateDataAttributes.name)
+        && Objects.equals(this.status, notebookCreateDataAttributes.status)
+        && Objects.equals(this.time, notebookCreateDataAttributes.time);
+  }
 
-    /**
-     * Return true if this NotebookCreateDataAttributes object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        NotebookCreateDataAttributes notebookCreateDataAttributes = (NotebookCreateDataAttributes) o;
-        return (
-            Objects.equals(this.cells, notebookCreateDataAttributes.cells) &&
-            Objects.equals(this.metadata, notebookCreateDataAttributes.metadata) &&
-            Objects.equals(this.name, notebookCreateDataAttributes.name) &&
-            Objects.equals(this.status, notebookCreateDataAttributes.status) &&
-            Objects.equals(this.time, notebookCreateDataAttributes.time)
-        );
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(cells, metadata, name, status, time);
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(cells, metadata, name, status, time);
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class NotebookCreateDataAttributes {\n");
+    sb.append("    cells: ").append(toIndentedString(cells)).append("\n");
+    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    time: ").append(toIndentedString(time)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class NotebookCreateDataAttributes {\n");
-        sb.append("    cells: ").append(toIndentedString(cells)).append("\n");
-        sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    status: ").append(toIndentedString(status)).append("\n");
-        sb.append("    time: ").append(toIndentedString(time)).append("\n");
-        sb.append("}");
-        return sb.toString();
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

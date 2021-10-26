@@ -10,139 +10,132 @@
 
 package com.datadog.api.v2.client.model;
 
-import com.datadog.api.v2.client.JSON;
-import com.datadog.api.v2.client.model.LogsAggregateBucketValue;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * A bucket values
- */
+/** A bucket values */
 @ApiModel(description = "A bucket values")
-@JsonPropertyOrder({ LogsAggregateBucket.JSON_PROPERTY_BY, LogsAggregateBucket.JSON_PROPERTY_COMPUTES })
+@JsonPropertyOrder({
+  LogsAggregateBucket.JSON_PROPERTY_BY,
+  LogsAggregateBucket.JSON_PROPERTY_COMPUTES
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsAggregateBucket {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_BY = "by";
+  private Map<String, String> by = null;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_COMPUTES = "computes";
+  private Map<String, LogsAggregateBucketValue> computes = null;
 
-    public static final String JSON_PROPERTY_BY = "by";
-    private Map<String, String> by = null;
+  public LogsAggregateBucket by(Map<String, String> by) {
+    this.by = by;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_COMPUTES = "computes";
-    private Map<String, LogsAggregateBucketValue> computes = null;
-
-    public LogsAggregateBucket by(Map<String, String> by) {
-        this.by = by;
-        return this;
+  public LogsAggregateBucket putByItem(String key, String byItem) {
+    if (this.by == null) {
+      this.by = new HashMap<>();
     }
+    this.by.put(key, byItem);
+    return this;
+  }
 
-    public LogsAggregateBucket putByItem(String key, String byItem) {
-        if (this.by == null) {
-            this.by = new HashMap<>();
-        }
-        this.by.put(key, byItem);
-        return this;
-    }
+  /**
+   * The key, value pairs for each group by
+   *
+   * @return by
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      example = "{\"@state\":\"success\",\"@version\":\"abc\"}",
+      value = "The key, value pairs for each group by")
+  @JsonProperty(JSON_PROPERTY_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, String> getBy() {
+    return by;
+  }
 
-    /**
-     * The key, value pairs for each group by
-     * @return by
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "{\"@state\":\"success\",\"@version\":\"abc\"}", value = "The key, value pairs for each group by")
-    @JsonProperty(JSON_PROPERTY_BY)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Map<String, String> getBy() {
-        return by;
-    }
+  public void setBy(Map<String, String> by) {
+    this.by = by;
+  }
 
-    public void setBy(Map<String, String> by) {
-        this.by = by;
-    }
+  public LogsAggregateBucket computes(Map<String, LogsAggregateBucketValue> computes) {
+    this.computes = computes;
+    return this;
+  }
 
-    public LogsAggregateBucket computes(Map<String, LogsAggregateBucketValue> computes) {
-        this.computes = computes;
-        return this;
+  public LogsAggregateBucket putComputesItem(String key, LogsAggregateBucketValue computesItem) {
+    if (this.computes == null) {
+      this.computes = new HashMap<>();
     }
+    this.computes.put(key, computesItem);
+    return this;
+  }
 
-    public LogsAggregateBucket putComputesItem(String key, LogsAggregateBucketValue computesItem) {
-        if (this.computes == null) {
-            this.computes = new HashMap<>();
-        }
-        this.computes.put(key, computesItem);
-        return this;
-    }
+  /**
+   * A map of the metric name -&gt; value for regular compute or list of values for a timeseries
+   *
+   * @return computes
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "A map of the metric name -> value for regular compute or list of values for a"
+              + " timeseries")
+  @JsonProperty(JSON_PROPERTY_COMPUTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Map<String, LogsAggregateBucketValue> getComputes() {
+    return computes;
+  }
 
-    /**
-     * A map of the metric name -&gt; value for regular compute or list of values for a timeseries
-     * @return computes
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "A map of the metric name -> value for regular compute or list of values for a timeseries")
-    @JsonProperty(JSON_PROPERTY_COMPUTES)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Map<String, LogsAggregateBucketValue> getComputes() {
-        return computes;
-    }
+  public void setComputes(Map<String, LogsAggregateBucketValue> computes) {
+    this.computes = computes;
+  }
 
-    public void setComputes(Map<String, LogsAggregateBucketValue> computes) {
-        this.computes = computes;
+  /** Return true if this LogsAggregateBucket object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    LogsAggregateBucket logsAggregateBucket = (LogsAggregateBucket) o;
+    return Objects.equals(this.by, logsAggregateBucket.by)
+        && Objects.equals(this.computes, logsAggregateBucket.computes);
+  }
 
-    /**
-     * Return true if this LogsAggregateBucket object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        LogsAggregateBucket logsAggregateBucket = (LogsAggregateBucket) o;
-        return Objects.equals(this.by, logsAggregateBucket.by) && Objects.equals(this.computes, logsAggregateBucket.computes);
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(by, computes);
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(by, computes);
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class LogsAggregateBucket {\n");
+    sb.append("    by: ").append(toIndentedString(by)).append("\n");
+    sb.append("    computes: ").append(toIndentedString(computes)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class LogsAggregateBucket {\n");
-        sb.append("    by: ").append(toIndentedString(by)).append("\n");
-        sb.append("    computes: ").append(toIndentedString(computes)).append("\n");
-        sb.append("}");
-        return sb.toString();
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

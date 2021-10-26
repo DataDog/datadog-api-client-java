@@ -10,289 +10,272 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.NoSuchElementException;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.jackson.nullable.JsonNullable;
 
-/**
- * List of the different monitor threshold available.
- */
+/** List of the different monitor threshold available. */
 @ApiModel(description = "List of the different monitor threshold available.")
-@JsonPropertyOrder(
-    {
-        MonitorThresholds.JSON_PROPERTY_CRITICAL,
-        MonitorThresholds.JSON_PROPERTY_CRITICAL_RECOVERY,
-        MonitorThresholds.JSON_PROPERTY_OK,
-        MonitorThresholds.JSON_PROPERTY_UNKNOWN,
-        MonitorThresholds.JSON_PROPERTY_WARNING,
-        MonitorThresholds.JSON_PROPERTY_WARNING_RECOVERY
-    }
-)
+@JsonPropertyOrder({
+  MonitorThresholds.JSON_PROPERTY_CRITICAL,
+  MonitorThresholds.JSON_PROPERTY_CRITICAL_RECOVERY,
+  MonitorThresholds.JSON_PROPERTY_OK,
+  MonitorThresholds.JSON_PROPERTY_UNKNOWN,
+  MonitorThresholds.JSON_PROPERTY_WARNING,
+  MonitorThresholds.JSON_PROPERTY_WARNING_RECOVERY
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MonitorThresholds {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CRITICAL = "critical";
+  private Double critical;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CRITICAL_RECOVERY = "critical_recovery";
+  private JsonNullable<Double> criticalRecovery = JsonNullable.<Double>undefined();
 
-    public static final String JSON_PROPERTY_CRITICAL = "critical";
-    private Double critical;
+  public static final String JSON_PROPERTY_OK = "ok";
+  private JsonNullable<Double> ok = JsonNullable.<Double>undefined();
 
-    public static final String JSON_PROPERTY_CRITICAL_RECOVERY = "critical_recovery";
-    private JsonNullable<Double> criticalRecovery = JsonNullable.<Double>undefined();
+  public static final String JSON_PROPERTY_UNKNOWN = "unknown";
+  private JsonNullable<Double> unknown = JsonNullable.<Double>undefined();
 
-    public static final String JSON_PROPERTY_OK = "ok";
-    private JsonNullable<Double> ok = JsonNullable.<Double>undefined();
+  public static final String JSON_PROPERTY_WARNING = "warning";
+  private JsonNullable<Double> warning = JsonNullable.<Double>undefined();
 
-    public static final String JSON_PROPERTY_UNKNOWN = "unknown";
-    private JsonNullable<Double> unknown = JsonNullable.<Double>undefined();
+  public static final String JSON_PROPERTY_WARNING_RECOVERY = "warning_recovery";
+  private JsonNullable<Double> warningRecovery = JsonNullable.<Double>undefined();
 
-    public static final String JSON_PROPERTY_WARNING = "warning";
-    private JsonNullable<Double> warning = JsonNullable.<Double>undefined();
+  public MonitorThresholds critical(Double critical) {
+    this.critical = critical;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_WARNING_RECOVERY = "warning_recovery";
-    private JsonNullable<Double> warningRecovery = JsonNullable.<Double>undefined();
+  /**
+   * The monitor &#x60;CRITICAL&#x60; threshold.
+   *
+   * @return critical
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The monitor `CRITICAL` threshold.")
+  @JsonProperty(JSON_PROPERTY_CRITICAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getCritical() {
+    return critical;
+  }
 
-    public MonitorThresholds critical(Double critical) {
-        this.critical = critical;
-        return this;
+  public void setCritical(Double critical) {
+    this.critical = critical;
+  }
+
+  public MonitorThresholds criticalRecovery(Double criticalRecovery) {
+    this.criticalRecovery = JsonNullable.<Double>of(criticalRecovery);
+    return this;
+  }
+
+  /**
+   * The monitor &#x60;CRITICAL&#x60; recovery threshold.
+   *
+   * @return criticalRecovery
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The monitor `CRITICAL` recovery threshold.")
+  @JsonIgnore
+  public Double getCriticalRecovery() {
+    return criticalRecovery.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_CRITICAL_RECOVERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Double> getCriticalRecovery_JsonNullable() {
+    return criticalRecovery;
+  }
+
+  @JsonProperty(JSON_PROPERTY_CRITICAL_RECOVERY)
+  public void setCriticalRecovery_JsonNullable(JsonNullable<Double> criticalRecovery) {
+    this.criticalRecovery = criticalRecovery;
+  }
+
+  public void setCriticalRecovery(Double criticalRecovery) {
+    this.criticalRecovery = JsonNullable.<Double>of(criticalRecovery);
+  }
+
+  public MonitorThresholds ok(Double ok) {
+    this.ok = JsonNullable.<Double>of(ok);
+    return this;
+  }
+
+  /**
+   * The monitor &#x60;OK&#x60; threshold.
+   *
+   * @return ok
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The monitor `OK` threshold.")
+  @JsonIgnore
+  public Double getOk() {
+    return ok.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_OK)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Double> getOk_JsonNullable() {
+    return ok;
+  }
+
+  @JsonProperty(JSON_PROPERTY_OK)
+  public void setOk_JsonNullable(JsonNullable<Double> ok) {
+    this.ok = ok;
+  }
+
+  public void setOk(Double ok) {
+    this.ok = JsonNullable.<Double>of(ok);
+  }
+
+  public MonitorThresholds unknown(Double unknown) {
+    this.unknown = JsonNullable.<Double>of(unknown);
+    return this;
+  }
+
+  /**
+   * The monitor UNKNOWN threshold.
+   *
+   * @return unknown
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The monitor UNKNOWN threshold.")
+  @JsonIgnore
+  public Double getUnknown() {
+    return unknown.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_UNKNOWN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Double> getUnknown_JsonNullable() {
+    return unknown;
+  }
+
+  @JsonProperty(JSON_PROPERTY_UNKNOWN)
+  public void setUnknown_JsonNullable(JsonNullable<Double> unknown) {
+    this.unknown = unknown;
+  }
+
+  public void setUnknown(Double unknown) {
+    this.unknown = JsonNullable.<Double>of(unknown);
+  }
+
+  public MonitorThresholds warning(Double warning) {
+    this.warning = JsonNullable.<Double>of(warning);
+    return this;
+  }
+
+  /**
+   * The monitor &#x60;WARNING&#x60; threshold.
+   *
+   * @return warning
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The monitor `WARNING` threshold.")
+  @JsonIgnore
+  public Double getWarning() {
+    return warning.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_WARNING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Double> getWarning_JsonNullable() {
+    return warning;
+  }
+
+  @JsonProperty(JSON_PROPERTY_WARNING)
+  public void setWarning_JsonNullable(JsonNullable<Double> warning) {
+    this.warning = warning;
+  }
+
+  public void setWarning(Double warning) {
+    this.warning = JsonNullable.<Double>of(warning);
+  }
+
+  public MonitorThresholds warningRecovery(Double warningRecovery) {
+    this.warningRecovery = JsonNullable.<Double>of(warningRecovery);
+    return this;
+  }
+
+  /**
+   * The monitor &#x60;WARNING&#x60; recovery threshold.
+   *
+   * @return warningRecovery
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The monitor `WARNING` recovery threshold.")
+  @JsonIgnore
+  public Double getWarningRecovery() {
+    return warningRecovery.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_WARNING_RECOVERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Double> getWarningRecovery_JsonNullable() {
+    return warningRecovery;
+  }
+
+  @JsonProperty(JSON_PROPERTY_WARNING_RECOVERY)
+  public void setWarningRecovery_JsonNullable(JsonNullable<Double> warningRecovery) {
+    this.warningRecovery = warningRecovery;
+  }
+
+  public void setWarningRecovery(Double warningRecovery) {
+    this.warningRecovery = JsonNullable.<Double>of(warningRecovery);
+  }
+
+  /** Return true if this MonitorThresholds object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * The monitor &#x60;CRITICAL&#x60; threshold.
-     * @return critical
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The monitor `CRITICAL` threshold.")
-    @JsonProperty(JSON_PROPERTY_CRITICAL)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Double getCritical() {
-        return critical;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    MonitorThresholds monitorThresholds = (MonitorThresholds) o;
+    return Objects.equals(this.critical, monitorThresholds.critical)
+        && Objects.equals(this.criticalRecovery, monitorThresholds.criticalRecovery)
+        && Objects.equals(this.ok, monitorThresholds.ok)
+        && Objects.equals(this.unknown, monitorThresholds.unknown)
+        && Objects.equals(this.warning, monitorThresholds.warning)
+        && Objects.equals(this.warningRecovery, monitorThresholds.warningRecovery);
+  }
 
-    public void setCritical(Double critical) {
-        this.critical = critical;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(critical, criticalRecovery, ok, unknown, warning, warningRecovery);
+  }
 
-    public MonitorThresholds criticalRecovery(Double criticalRecovery) {
-        this.criticalRecovery = JsonNullable.<Double>of(criticalRecovery);
-        return this;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class MonitorThresholds {\n");
+    sb.append("    critical: ").append(toIndentedString(critical)).append("\n");
+    sb.append("    criticalRecovery: ").append(toIndentedString(criticalRecovery)).append("\n");
+    sb.append("    ok: ").append(toIndentedString(ok)).append("\n");
+    sb.append("    unknown: ").append(toIndentedString(unknown)).append("\n");
+    sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
+    sb.append("    warningRecovery: ").append(toIndentedString(warningRecovery)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * The monitor &#x60;CRITICAL&#x60; recovery threshold.
-     * @return criticalRecovery
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The monitor `CRITICAL` recovery threshold.")
-    @JsonIgnore
-    public Double getCriticalRecovery() {
-        return criticalRecovery.orElse(null);
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @JsonProperty(JSON_PROPERTY_CRITICAL_RECOVERY)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public JsonNullable<Double> getCriticalRecovery_JsonNullable() {
-        return criticalRecovery;
-    }
-
-    @JsonProperty(JSON_PROPERTY_CRITICAL_RECOVERY)
-    public void setCriticalRecovery_JsonNullable(JsonNullable<Double> criticalRecovery) {
-        this.criticalRecovery = criticalRecovery;
-    }
-
-    public void setCriticalRecovery(Double criticalRecovery) {
-        this.criticalRecovery = JsonNullable.<Double>of(criticalRecovery);
-    }
-
-    public MonitorThresholds ok(Double ok) {
-        this.ok = JsonNullable.<Double>of(ok);
-        return this;
-    }
-
-    /**
-     * The monitor &#x60;OK&#x60; threshold.
-     * @return ok
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The monitor `OK` threshold.")
-    @JsonIgnore
-    public Double getOk() {
-        return ok.orElse(null);
-    }
-
-    @JsonProperty(JSON_PROPERTY_OK)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public JsonNullable<Double> getOk_JsonNullable() {
-        return ok;
-    }
-
-    @JsonProperty(JSON_PROPERTY_OK)
-    public void setOk_JsonNullable(JsonNullable<Double> ok) {
-        this.ok = ok;
-    }
-
-    public void setOk(Double ok) {
-        this.ok = JsonNullable.<Double>of(ok);
-    }
-
-    public MonitorThresholds unknown(Double unknown) {
-        this.unknown = JsonNullable.<Double>of(unknown);
-        return this;
-    }
-
-    /**
-     * The monitor UNKNOWN threshold.
-     * @return unknown
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The monitor UNKNOWN threshold.")
-    @JsonIgnore
-    public Double getUnknown() {
-        return unknown.orElse(null);
-    }
-
-    @JsonProperty(JSON_PROPERTY_UNKNOWN)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public JsonNullable<Double> getUnknown_JsonNullable() {
-        return unknown;
-    }
-
-    @JsonProperty(JSON_PROPERTY_UNKNOWN)
-    public void setUnknown_JsonNullable(JsonNullable<Double> unknown) {
-        this.unknown = unknown;
-    }
-
-    public void setUnknown(Double unknown) {
-        this.unknown = JsonNullable.<Double>of(unknown);
-    }
-
-    public MonitorThresholds warning(Double warning) {
-        this.warning = JsonNullable.<Double>of(warning);
-        return this;
-    }
-
-    /**
-     * The monitor &#x60;WARNING&#x60; threshold.
-     * @return warning
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The monitor `WARNING` threshold.")
-    @JsonIgnore
-    public Double getWarning() {
-        return warning.orElse(null);
-    }
-
-    @JsonProperty(JSON_PROPERTY_WARNING)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public JsonNullable<Double> getWarning_JsonNullable() {
-        return warning;
-    }
-
-    @JsonProperty(JSON_PROPERTY_WARNING)
-    public void setWarning_JsonNullable(JsonNullable<Double> warning) {
-        this.warning = warning;
-    }
-
-    public void setWarning(Double warning) {
-        this.warning = JsonNullable.<Double>of(warning);
-    }
-
-    public MonitorThresholds warningRecovery(Double warningRecovery) {
-        this.warningRecovery = JsonNullable.<Double>of(warningRecovery);
-        return this;
-    }
-
-    /**
-     * The monitor &#x60;WARNING&#x60; recovery threshold.
-     * @return warningRecovery
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The monitor `WARNING` recovery threshold.")
-    @JsonIgnore
-    public Double getWarningRecovery() {
-        return warningRecovery.orElse(null);
-    }
-
-    @JsonProperty(JSON_PROPERTY_WARNING_RECOVERY)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public JsonNullable<Double> getWarningRecovery_JsonNullable() {
-        return warningRecovery;
-    }
-
-    @JsonProperty(JSON_PROPERTY_WARNING_RECOVERY)
-    public void setWarningRecovery_JsonNullable(JsonNullable<Double> warningRecovery) {
-        this.warningRecovery = warningRecovery;
-    }
-
-    public void setWarningRecovery(Double warningRecovery) {
-        this.warningRecovery = JsonNullable.<Double>of(warningRecovery);
-    }
-
-    /**
-     * Return true if this MonitorThresholds object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        MonitorThresholds monitorThresholds = (MonitorThresholds) o;
-        return (
-            Objects.equals(this.critical, monitorThresholds.critical) &&
-            Objects.equals(this.criticalRecovery, monitorThresholds.criticalRecovery) &&
-            Objects.equals(this.ok, monitorThresholds.ok) &&
-            Objects.equals(this.unknown, monitorThresholds.unknown) &&
-            Objects.equals(this.warning, monitorThresholds.warning) &&
-            Objects.equals(this.warningRecovery, monitorThresholds.warningRecovery)
-        );
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(critical, criticalRecovery, ok, unknown, warning, warningRecovery);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class MonitorThresholds {\n");
-        sb.append("    critical: ").append(toIndentedString(critical)).append("\n");
-        sb.append("    criticalRecovery: ").append(toIndentedString(criticalRecovery)).append("\n");
-        sb.append("    ok: ").append(toIndentedString(ok)).append("\n");
-        sb.append("    unknown: ").append(toIndentedString(unknown)).append("\n");
-        sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
-        sb.append("    warningRecovery: ").append(toIndentedString(warningRecovery)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

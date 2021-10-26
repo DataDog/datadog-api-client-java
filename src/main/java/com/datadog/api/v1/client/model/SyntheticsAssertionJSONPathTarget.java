@@ -10,204 +10,187 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.datadog.api.v1.client.model.SyntheticsAssertionJSONPathOperator;
-import com.datadog.api.v1.client.model.SyntheticsAssertionJSONPathTargetTarget;
-import com.datadog.api.v1.client.model.SyntheticsAssertionType;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * An assertion for the &#x60;validatesJSONPath&#x60; operator.
- */
+/** An assertion for the &#x60;validatesJSONPath&#x60; operator. */
 @ApiModel(description = "An assertion for the `validatesJSONPath` operator.")
-@JsonPropertyOrder(
-    {
-        SyntheticsAssertionJSONPathTarget.JSON_PROPERTY_OPERATOR,
-        SyntheticsAssertionJSONPathTarget.JSON_PROPERTY_PROPERTY,
-        SyntheticsAssertionJSONPathTarget.JSON_PROPERTY_TARGET,
-        SyntheticsAssertionJSONPathTarget.JSON_PROPERTY_TYPE
-    }
-)
+@JsonPropertyOrder({
+  SyntheticsAssertionJSONPathTarget.JSON_PROPERTY_OPERATOR,
+  SyntheticsAssertionJSONPathTarget.JSON_PROPERTY_PROPERTY,
+  SyntheticsAssertionJSONPathTarget.JSON_PROPERTY_TARGET,
+  SyntheticsAssertionJSONPathTarget.JSON_PROPERTY_TYPE
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsAssertionJSONPathTarget {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_OPERATOR = "operator";
+  private SyntheticsAssertionJSONPathOperator operator;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_PROPERTY = "property";
+  private String property;
 
-    public static final String JSON_PROPERTY_OPERATOR = "operator";
-    private SyntheticsAssertionJSONPathOperator operator;
+  public static final String JSON_PROPERTY_TARGET = "target";
+  private SyntheticsAssertionJSONPathTargetTarget target;
 
-    public static final String JSON_PROPERTY_PROPERTY = "property";
-    private String property;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private SyntheticsAssertionType type;
 
-    public static final String JSON_PROPERTY_TARGET = "target";
-    private SyntheticsAssertionJSONPathTargetTarget target;
+  public SyntheticsAssertionJSONPathTarget() {}
 
-    public static final String JSON_PROPERTY_TYPE = "type";
-    private SyntheticsAssertionType type;
+  @JsonCreator
+  public SyntheticsAssertionJSONPathTarget(
+      @JsonProperty(required = true, value = JSON_PROPERTY_OPERATOR)
+          SyntheticsAssertionJSONPathOperator operator,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SyntheticsAssertionType type) {
+    this.operator = operator;
+    this.unparsed |= !operator.isValid();
+    this.type = type;
+    this.unparsed |= !type.isValid();
+  }
 
-    public SyntheticsAssertionJSONPathTarget() {}
+  public SyntheticsAssertionJSONPathTarget operator(SyntheticsAssertionJSONPathOperator operator) {
+    this.operator = operator;
+    this.unparsed |= !operator.isValid();
+    return this;
+  }
 
-    @JsonCreator
-    public SyntheticsAssertionJSONPathTarget(
-        @JsonProperty(required = true, value = JSON_PROPERTY_OPERATOR) SyntheticsAssertionJSONPathOperator operator,
-        @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SyntheticsAssertionType type
-    ) {
-        this.operator = operator;
-        this.unparsed |= !operator.isValid();
-        this.type = type;
-        this.unparsed |= !type.isValid();
+  /**
+   * Get operator
+   *
+   * @return operator
+   */
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_OPERATOR)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public SyntheticsAssertionJSONPathOperator getOperator() {
+    return operator;
+  }
+
+  public void setOperator(SyntheticsAssertionJSONPathOperator operator) {
+    if (!operator.isValid()) {
+      this.unparsed = true;
     }
+    this.operator = operator;
+  }
 
-    public SyntheticsAssertionJSONPathTarget operator(SyntheticsAssertionJSONPathOperator operator) {
-        this.operator = operator;
-        this.unparsed |= !operator.isValid();
-        return this;
-    }
+  public SyntheticsAssertionJSONPathTarget property(String property) {
+    this.property = property;
+    return this;
+  }
 
-    /**
-     * Get operator
-     * @return operator
-     **/
-    @ApiModelProperty(required = true, value = "")
-    @JsonProperty(JSON_PROPERTY_OPERATOR)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public SyntheticsAssertionJSONPathOperator getOperator() {
-        return operator;
-    }
+  /**
+   * The associated assertion property.
+   *
+   * @return property
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The associated assertion property.")
+  @JsonProperty(JSON_PROPERTY_PROPERTY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getProperty() {
+    return property;
+  }
 
-    public void setOperator(SyntheticsAssertionJSONPathOperator operator) {
-        if (!operator.isValid()) {
-            this.unparsed = true;
-        }
-        this.operator = operator;
-    }
+  public void setProperty(String property) {
+    this.property = property;
+  }
 
-    public SyntheticsAssertionJSONPathTarget property(String property) {
-        this.property = property;
-        return this;
-    }
+  public SyntheticsAssertionJSONPathTarget target(SyntheticsAssertionJSONPathTargetTarget target) {
+    this.target = target;
+    this.unparsed |= target.unparsed;
+    return this;
+  }
 
-    /**
-     * The associated assertion property.
-     * @return property
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The associated assertion property.")
-    @JsonProperty(JSON_PROPERTY_PROPERTY)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getProperty() {
-        return property;
-    }
+  /**
+   * Get target
+   *
+   * @return target
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TARGET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsAssertionJSONPathTargetTarget getTarget() {
+    return target;
+  }
 
-    public void setProperty(String property) {
-        this.property = property;
-    }
+  public void setTarget(SyntheticsAssertionJSONPathTargetTarget target) {
+    this.target = target;
+  }
 
-    public SyntheticsAssertionJSONPathTarget target(SyntheticsAssertionJSONPathTargetTarget target) {
-        this.target = target;
-        this.unparsed |= target.unparsed;
-        return this;
-    }
+  public SyntheticsAssertionJSONPathTarget type(SyntheticsAssertionType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    return this;
+  }
 
-    /**
-     * Get target
-     * @return target
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_TARGET)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public SyntheticsAssertionJSONPathTargetTarget getTarget() {
-        return target;
-    }
+  /**
+   * Get type
+   *
+   * @return type
+   */
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public SyntheticsAssertionType getType() {
+    return type;
+  }
 
-    public void setTarget(SyntheticsAssertionJSONPathTargetTarget target) {
-        this.target = target;
+  public void setType(SyntheticsAssertionType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
     }
+    this.type = type;
+  }
 
-    public SyntheticsAssertionJSONPathTarget type(SyntheticsAssertionType type) {
-        this.type = type;
-        this.unparsed |= !type.isValid();
-        return this;
+  /** Return true if this SyntheticsAssertionJSONPathTarget object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    SyntheticsAssertionJSONPathTarget syntheticsAssertionJSONPathTarget =
+        (SyntheticsAssertionJSONPathTarget) o;
+    return Objects.equals(this.operator, syntheticsAssertionJSONPathTarget.operator)
+        && Objects.equals(this.property, syntheticsAssertionJSONPathTarget.property)
+        && Objects.equals(this.target, syntheticsAssertionJSONPathTarget.target)
+        && Objects.equals(this.type, syntheticsAssertionJSONPathTarget.type);
+  }
 
-    /**
-     * Get type
-     * @return type
-     **/
-    @ApiModelProperty(required = true, value = "")
-    @JsonProperty(JSON_PROPERTY_TYPE)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public SyntheticsAssertionType getType() {
-        return type;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(operator, property, target, type);
+  }
 
-    public void setType(SyntheticsAssertionType type) {
-        if (!type.isValid()) {
-            this.unparsed = true;
-        }
-        this.type = type;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class SyntheticsAssertionJSONPathTarget {\n");
+    sb.append("    operator: ").append(toIndentedString(operator)).append("\n");
+    sb.append("    property: ").append(toIndentedString(property)).append("\n");
+    sb.append("    target: ").append(toIndentedString(target)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Return true if this SyntheticsAssertionJSONPathTarget object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        SyntheticsAssertionJSONPathTarget syntheticsAssertionJSONPathTarget = (SyntheticsAssertionJSONPathTarget) o;
-        return (
-            Objects.equals(this.operator, syntheticsAssertionJSONPathTarget.operator) &&
-            Objects.equals(this.property, syntheticsAssertionJSONPathTarget.property) &&
-            Objects.equals(this.target, syntheticsAssertionJSONPathTarget.target) &&
-            Objects.equals(this.type, syntheticsAssertionJSONPathTarget.type)
-        );
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(operator, property, target, type);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SyntheticsAssertionJSONPathTarget {\n");
-        sb.append("    operator: ").append(toIndentedString(operator)).append("\n");
-        sb.append("    property: ").append(toIndentedString(property)).append("\n");
-        sb.append("    target: ").append(toIndentedString(target)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

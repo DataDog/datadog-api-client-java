@@ -10,137 +10,123 @@
 
 package com.datadog.api.v2.client.model;
 
-import com.datadog.api.v2.client.JSON;
-import com.datadog.api.v2.client.model.APIKeyCreateAttributes;
-import com.datadog.api.v2.client.model.APIKeysType;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Object used to create an API key.
- */
+/** Object used to create an API key. */
 @ApiModel(description = "Object used to create an API key.")
-@JsonPropertyOrder({ APIKeyCreateData.JSON_PROPERTY_ATTRIBUTES, APIKeyCreateData.JSON_PROPERTY_TYPE })
+@JsonPropertyOrder({APIKeyCreateData.JSON_PROPERTY_ATTRIBUTES, APIKeyCreateData.JSON_PROPERTY_TYPE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class APIKeyCreateData {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private APIKeyCreateAttributes attributes;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private APIKeysType type = APIKeysType.API_KEYS;
 
-    public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-    private APIKeyCreateAttributes attributes;
+  public APIKeyCreateData() {}
 
-    public static final String JSON_PROPERTY_TYPE = "type";
-    private APIKeysType type = APIKeysType.API_KEYS;
+  @JsonCreator
+  public APIKeyCreateData(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
+          APIKeyCreateAttributes attributes,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) APIKeysType type) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
+    this.type = type;
+    this.unparsed |= !type.isValid();
+  }
 
-    public APIKeyCreateData() {}
+  public APIKeyCreateData attributes(APIKeyCreateAttributes attributes) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
+    return this;
+  }
 
-    @JsonCreator
-    public APIKeyCreateData(
-        @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES) APIKeyCreateAttributes attributes,
-        @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) APIKeysType type
-    ) {
-        this.attributes = attributes;
-        this.unparsed |= attributes.unparsed;
-        this.type = type;
-        this.unparsed |= !type.isValid();
+  /**
+   * Get attributes
+   *
+   * @return attributes
+   */
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public APIKeyCreateAttributes getAttributes() {
+    return attributes;
+  }
+
+  public void setAttributes(APIKeyCreateAttributes attributes) {
+    this.attributes = attributes;
+  }
+
+  public APIKeyCreateData type(APIKeysType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    return this;
+  }
+
+  /**
+   * Get type
+   *
+   * @return type
+   */
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public APIKeysType getType() {
+    return type;
+  }
+
+  public void setType(APIKeysType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
     }
+    this.type = type;
+  }
 
-    public APIKeyCreateData attributes(APIKeyCreateAttributes attributes) {
-        this.attributes = attributes;
-        this.unparsed |= attributes.unparsed;
-        return this;
+  /** Return true if this APIKeyCreateData object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    APIKeyCreateData apIKeyCreateData = (APIKeyCreateData) o;
+    return Objects.equals(this.attributes, apIKeyCreateData.attributes)
+        && Objects.equals(this.type, apIKeyCreateData.type);
+  }
 
-    /**
-     * Get attributes
-     * @return attributes
-     **/
-    @ApiModelProperty(required = true, value = "")
-    @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public APIKeyCreateAttributes getAttributes() {
-        return attributes;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(attributes, type);
+  }
 
-    public void setAttributes(APIKeyCreateAttributes attributes) {
-        this.attributes = attributes;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class APIKeyCreateData {\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    public APIKeyCreateData type(APIKeysType type) {
-        this.type = type;
-        this.unparsed |= !type.isValid();
-        return this;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    /**
-     * Get type
-     * @return type
-     **/
-    @ApiModelProperty(required = true, value = "")
-    @JsonProperty(JSON_PROPERTY_TYPE)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public APIKeysType getType() {
-        return type;
-    }
-
-    public void setType(APIKeysType type) {
-        if (!type.isValid()) {
-            this.unparsed = true;
-        }
-        this.type = type;
-    }
-
-    /**
-     * Return true if this APIKeyCreateData object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        APIKeyCreateData apIKeyCreateData = (APIKeyCreateData) o;
-        return Objects.equals(this.attributes, apIKeyCreateData.attributes) && Objects.equals(this.type, apIKeyCreateData.type);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(attributes, type);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class APIKeyCreateData {\n");
-        sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

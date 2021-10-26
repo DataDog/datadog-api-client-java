@@ -10,170 +10,155 @@
 
 package com.datadog.api.v2.client.model;
 
-import com.datadog.api.v2.client.JSON;
-import com.datadog.api.v2.client.model.IncidentCreateAttributes;
-import com.datadog.api.v2.client.model.IncidentCreateRelationships;
-import com.datadog.api.v2.client.model.IncidentType;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Incident data for a create request.
- */
+/** Incident data for a create request. */
 @ApiModel(description = "Incident data for a create request.")
-@JsonPropertyOrder(
-    { IncidentCreateData.JSON_PROPERTY_ATTRIBUTES, IncidentCreateData.JSON_PROPERTY_RELATIONSHIPS, IncidentCreateData.JSON_PROPERTY_TYPE }
-)
+@JsonPropertyOrder({
+  IncidentCreateData.JSON_PROPERTY_ATTRIBUTES,
+  IncidentCreateData.JSON_PROPERTY_RELATIONSHIPS,
+  IncidentCreateData.JSON_PROPERTY_TYPE
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IncidentCreateData {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private IncidentCreateAttributes attributes;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
+  private IncidentCreateRelationships relationships;
 
-    public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-    private IncidentCreateAttributes attributes;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private IncidentType type = IncidentType.INCIDENTS;
 
-    public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
-    private IncidentCreateRelationships relationships;
+  public IncidentCreateData() {}
 
-    public static final String JSON_PROPERTY_TYPE = "type";
-    private IncidentType type = IncidentType.INCIDENTS;
+  @JsonCreator
+  public IncidentCreateData(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
+          IncidentCreateAttributes attributes,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) IncidentType type) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
+    this.type = type;
+    this.unparsed |= !type.isValid();
+  }
 
-    public IncidentCreateData() {}
+  public IncidentCreateData attributes(IncidentCreateAttributes attributes) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
+    return this;
+  }
 
-    @JsonCreator
-    public IncidentCreateData(
-        @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES) IncidentCreateAttributes attributes,
-        @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) IncidentType type
-    ) {
-        this.attributes = attributes;
-        this.unparsed |= attributes.unparsed;
-        this.type = type;
-        this.unparsed |= !type.isValid();
+  /**
+   * Get attributes
+   *
+   * @return attributes
+   */
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public IncidentCreateAttributes getAttributes() {
+    return attributes;
+  }
+
+  public void setAttributes(IncidentCreateAttributes attributes) {
+    this.attributes = attributes;
+  }
+
+  public IncidentCreateData relationships(IncidentCreateRelationships relationships) {
+    this.relationships = relationships;
+    this.unparsed |= relationships.unparsed;
+    return this;
+  }
+
+  /**
+   * Get relationships
+   *
+   * @return relationships
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public IncidentCreateRelationships getRelationships() {
+    return relationships;
+  }
+
+  public void setRelationships(IncidentCreateRelationships relationships) {
+    this.relationships = relationships;
+  }
+
+  public IncidentCreateData type(IncidentType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    return this;
+  }
+
+  /**
+   * Get type
+   *
+   * @return type
+   */
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public IncidentType getType() {
+    return type;
+  }
+
+  public void setType(IncidentType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
     }
+    this.type = type;
+  }
 
-    public IncidentCreateData attributes(IncidentCreateAttributes attributes) {
-        this.attributes = attributes;
-        this.unparsed |= attributes.unparsed;
-        return this;
+  /** Return true if this IncidentCreateData object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    IncidentCreateData incidentCreateData = (IncidentCreateData) o;
+    return Objects.equals(this.attributes, incidentCreateData.attributes)
+        && Objects.equals(this.relationships, incidentCreateData.relationships)
+        && Objects.equals(this.type, incidentCreateData.type);
+  }
 
-    /**
-     * Get attributes
-     * @return attributes
-     **/
-    @ApiModelProperty(required = true, value = "")
-    @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public IncidentCreateAttributes getAttributes() {
-        return attributes;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(attributes, relationships, type);
+  }
 
-    public void setAttributes(IncidentCreateAttributes attributes) {
-        this.attributes = attributes;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class IncidentCreateData {\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    public IncidentCreateData relationships(IncidentCreateRelationships relationships) {
-        this.relationships = relationships;
-        this.unparsed |= relationships.unparsed;
-        return this;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    /**
-     * Get relationships
-     * @return relationships
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public IncidentCreateRelationships getRelationships() {
-        return relationships;
-    }
-
-    public void setRelationships(IncidentCreateRelationships relationships) {
-        this.relationships = relationships;
-    }
-
-    public IncidentCreateData type(IncidentType type) {
-        this.type = type;
-        this.unparsed |= !type.isValid();
-        return this;
-    }
-
-    /**
-     * Get type
-     * @return type
-     **/
-    @ApiModelProperty(required = true, value = "")
-    @JsonProperty(JSON_PROPERTY_TYPE)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public IncidentType getType() {
-        return type;
-    }
-
-    public void setType(IncidentType type) {
-        if (!type.isValid()) {
-            this.unparsed = true;
-        }
-        this.type = type;
-    }
-
-    /**
-     * Return true if this IncidentCreateData object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        IncidentCreateData incidentCreateData = (IncidentCreateData) o;
-        return (
-            Objects.equals(this.attributes, incidentCreateData.attributes) &&
-            Objects.equals(this.relationships, incidentCreateData.relationships) &&
-            Objects.equals(this.type, incidentCreateData.type)
-        );
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(attributes, relationships, type);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class IncidentCreateData {\n");
-        sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-        sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

@@ -1,7 +1,13 @@
+
+
 # DashboardLayoutType
 
 ## Enum
 
-- `ORDERED` (value: `"ordered"`)
 
-- `FREE` (value: `"free"`)
+* `ORDERED` (value: `"ordered"`)
+
+* `FREE` (value: `"free"`)
+
+
+

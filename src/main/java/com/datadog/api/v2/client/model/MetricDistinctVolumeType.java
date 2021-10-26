@@ -10,98 +10,90 @@
 
 package com.datadog.api.v2.client.model;
 
-import com.datadog.api.v2.client.JSON;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
-import io.swagger.annotations.ApiModel;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/**
- * The metric distinct volume type.
- */
+/** The metric distinct volume type. */
 @JsonSerialize(using = MetricDistinctVolumeType.MetricDistinctVolumeTypeSerializer.class)
 public class MetricDistinctVolumeType {
 
-    public static final MetricDistinctVolumeType DISTINCT_METRIC_VOLUMES = new MetricDistinctVolumeType("distinct_metric_volumes");
+  public static final MetricDistinctVolumeType DISTINCT_METRIC_VOLUMES =
+      new MetricDistinctVolumeType("distinct_metric_volumes");
 
-    private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("distinct_metric_volumes"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("distinct_metric_volumes"));
 
-    private String value;
+  private String value;
 
-    public boolean isValid() {
-        return allowedValues.contains(this.value);
+  public boolean isValid() {
+    return allowedValues.contains(this.value);
+  }
+
+  MetricDistinctVolumeType(String value) {
+    this.value = value;
+  }
+
+  public static class MetricDistinctVolumeTypeSerializer
+      extends StdSerializer<MetricDistinctVolumeType> {
+    public MetricDistinctVolumeTypeSerializer(Class<MetricDistinctVolumeType> t) {
+      super(t);
     }
 
-    MetricDistinctVolumeType(String value) {
-        this.value = value;
-    }
-
-    public static class MetricDistinctVolumeTypeSerializer extends StdSerializer<MetricDistinctVolumeType> {
-
-        public MetricDistinctVolumeTypeSerializer(Class<MetricDistinctVolumeType> t) {
-            super(t);
-        }
-
-        public MetricDistinctVolumeTypeSerializer() {
-            this(null);
-        }
-
-        @Override
-        public void serialize(MetricDistinctVolumeType value, JsonGenerator jgen, SerializerProvider provider)
-            throws IOException, JsonProcessingException {
-            jgen.writeObject(value.value);
-        }
-    }
-
-    @JsonValue
-    public String getValue() {
-        return this.value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    /**
-     * Return true if this MetricDistinctVolumeType object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        return this.value.equals(((MetricDistinctVolumeType) o).value);
+    public MetricDistinctVolumeTypeSerializer() {
+      this(null);
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(value);
+    public void serialize(
+        MetricDistinctVolumeType value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
     }
+  }
 
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
+  @JsonValue
+  public String getValue() {
+    return this.value;
+  }
 
-    @JsonCreator
-    public static MetricDistinctVolumeType fromValue(String value) {
-        return new MetricDistinctVolumeType(value);
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  /** Return true if this MetricDistinctVolumeType object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    return this.value.equals(((MetricDistinctVolumeType) o).value);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(value);
+  }
+
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
+
+  @JsonCreator
+  public static MetricDistinctVolumeType fromValue(String value) {
+    return new MetricDistinctVolumeType(value);
+  }
 }

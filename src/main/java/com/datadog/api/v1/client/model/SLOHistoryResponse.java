@@ -10,136 +10,122 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.datadog.api.v1.client.model.SLOHistoryResponseData;
-import com.datadog.api.v1.client.model.SLOHistoryResponseError;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * A service level objective history response.
- */
+/** A service level objective history response. */
 @ApiModel(description = "A service level objective history response.")
-@JsonPropertyOrder({ SLOHistoryResponse.JSON_PROPERTY_DATA, SLOHistoryResponse.JSON_PROPERTY_ERRORS })
+@JsonPropertyOrder({SLOHistoryResponse.JSON_PROPERTY_DATA, SLOHistoryResponse.JSON_PROPERTY_ERRORS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SLOHistoryResponse {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private SLOHistoryResponseData data;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ERRORS = "errors";
+  private List<SLOHistoryResponseError> errors = null;
 
-    public static final String JSON_PROPERTY_DATA = "data";
-    private SLOHistoryResponseData data;
+  public SLOHistoryResponse data(SLOHistoryResponseData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_ERRORS = "errors";
-    private List<SLOHistoryResponseError> errors = null;
+  /**
+   * Get data
+   *
+   * @return data
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SLOHistoryResponseData getData() {
+    return data;
+  }
 
-    public SLOHistoryResponse data(SLOHistoryResponseData data) {
-        this.data = data;
-        this.unparsed |= data.unparsed;
-        return this;
+  public void setData(SLOHistoryResponseData data) {
+    this.data = data;
+  }
+
+  public SLOHistoryResponse errors(List<SLOHistoryResponseError> errors) {
+    this.errors = errors;
+    for (SLOHistoryResponseError item : errors) {
+      this.unparsed |= item.unparsed;
     }
+    return this;
+  }
 
-    /**
-     * Get data
-     * @return data
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_DATA)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public SLOHistoryResponseData getData() {
-        return data;
+  public SLOHistoryResponse addErrorsItem(SLOHistoryResponseError errorsItem) {
+    if (this.errors == null) {
+      this.errors = new ArrayList<>();
     }
+    this.errors.add(errorsItem);
+    this.unparsed |= errorsItem.unparsed;
+    return this;
+  }
 
-    public void setData(SLOHistoryResponseData data) {
-        this.data = data;
-    }
+  /**
+   * A list of errors while querying the history data for the service level objective.
+   *
+   * @return errors
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value = "A list of errors while querying the history data for the service level objective.")
+  @JsonProperty(JSON_PROPERTY_ERRORS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<SLOHistoryResponseError> getErrors() {
+    return errors;
+  }
 
-    public SLOHistoryResponse errors(List<SLOHistoryResponseError> errors) {
-        this.errors = errors;
-        for (SLOHistoryResponseError item : errors) {
-            this.unparsed |= item.unparsed;
-        }
-        return this;
-    }
+  public void setErrors(List<SLOHistoryResponseError> errors) {
+    this.errors = errors;
+  }
 
-    public SLOHistoryResponse addErrorsItem(SLOHistoryResponseError errorsItem) {
-        if (this.errors == null) {
-            this.errors = new ArrayList<>();
-        }
-        this.errors.add(errorsItem);
-        this.unparsed |= errorsItem.unparsed;
-        return this;
+  /** Return true if this SLOHistoryResponse object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    SLOHistoryResponse slOHistoryResponse = (SLOHistoryResponse) o;
+    return Objects.equals(this.data, slOHistoryResponse.data)
+        && Objects.equals(this.errors, slOHistoryResponse.errors);
+  }
 
-    /**
-     * A list of errors while querying the history data for the service level objective.
-     * @return errors
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "A list of errors while querying the history data for the service level objective.")
-    @JsonProperty(JSON_PROPERTY_ERRORS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<SLOHistoryResponseError> getErrors() {
-        return errors;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(data, errors);
+  }
 
-    public void setErrors(List<SLOHistoryResponseError> errors) {
-        this.errors = errors;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class SLOHistoryResponse {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Return true if this SLOHistoryResponse object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        SLOHistoryResponse slOHistoryResponse = (SLOHistoryResponse) o;
-        return Objects.equals(this.data, slOHistoryResponse.data) && Objects.equals(this.errors, slOHistoryResponse.errors);
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(data, errors);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SLOHistoryResponse {\n");
-        sb.append("    data: ").append(toIndentedString(data)).append("\n");
-        sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

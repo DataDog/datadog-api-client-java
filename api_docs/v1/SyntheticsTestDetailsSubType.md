@@ -1,15 +1,21 @@
+
+
 # SyntheticsTestDetailsSubType
 
 ## Enum
 
-- `HTTP` (value: `"http"`)
 
-- `SSL` (value: `"ssl"`)
+* `HTTP` (value: `"http"`)
 
-- `TCP` (value: `"tcp"`)
+* `SSL` (value: `"ssl"`)
 
-- `DNS` (value: `"dns"`)
+* `TCP` (value: `"tcp"`)
 
-- `MULTI` (value: `"multi"`)
+* `DNS` (value: `"dns"`)
 
-- `ICMP` (value: `"icmp"`)
+* `MULTI` (value: `"multi"`)
+
+* `ICMP` (value: `"icmp"`)
+
+
+

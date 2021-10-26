@@ -10,168 +10,149 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.NoSuchElementException;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.jackson.nullable.JsonNullable;
 
-/**
- * Composed target for &#x60;validatesJSONPath&#x60; operator.
- */
+/** Composed target for &#x60;validatesJSONPath&#x60; operator. */
 @ApiModel(description = "Composed target for `validatesJSONPath` operator.")
-@JsonPropertyOrder(
-    {
-        SyntheticsAssertionJSONPathTargetTarget.JSON_PROPERTY_JSON_PATH,
-        SyntheticsAssertionJSONPathTargetTarget.JSON_PROPERTY_OPERATOR,
-        SyntheticsAssertionJSONPathTargetTarget.JSON_PROPERTY_TARGET_VALUE
-    }
-)
+@JsonPropertyOrder({
+  SyntheticsAssertionJSONPathTargetTarget.JSON_PROPERTY_JSON_PATH,
+  SyntheticsAssertionJSONPathTargetTarget.JSON_PROPERTY_OPERATOR,
+  SyntheticsAssertionJSONPathTargetTarget.JSON_PROPERTY_TARGET_VALUE
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsAssertionJSONPathTargetTarget {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_JSON_PATH = "jsonPath";
+  private String jsonPath;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_OPERATOR = "operator";
+  private String operator;
 
-    public static final String JSON_PROPERTY_JSON_PATH = "jsonPath";
-    private String jsonPath;
+  public static final String JSON_PROPERTY_TARGET_VALUE = "targetValue";
+  private JsonNullable<Object> targetValue = JsonNullable.<Object>of(null);
 
-    public static final String JSON_PROPERTY_OPERATOR = "operator";
-    private String operator;
+  public SyntheticsAssertionJSONPathTargetTarget jsonPath(String jsonPath) {
+    this.jsonPath = jsonPath;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_TARGET_VALUE = "targetValue";
-    private JsonNullable<Object> targetValue = JsonNullable.<Object>of(null);
+  /**
+   * The JSON path to assert.
+   *
+   * @return jsonPath
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The JSON path to assert.")
+  @JsonProperty(JSON_PROPERTY_JSON_PATH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getJsonPath() {
+    return jsonPath;
+  }
 
-    public SyntheticsAssertionJSONPathTargetTarget jsonPath(String jsonPath) {
-        this.jsonPath = jsonPath;
-        return this;
+  public void setJsonPath(String jsonPath) {
+    this.jsonPath = jsonPath;
+  }
+
+  public SyntheticsAssertionJSONPathTargetTarget operator(String operator) {
+    this.operator = operator;
+    return this;
+  }
+
+  /**
+   * The specific operator to use on the path.
+   *
+   * @return operator
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The specific operator to use on the path.")
+  @JsonProperty(JSON_PROPERTY_OPERATOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getOperator() {
+    return operator;
+  }
+
+  public void setOperator(String operator) {
+    this.operator = operator;
+  }
+
+  public SyntheticsAssertionJSONPathTargetTarget targetValue(Object targetValue) {
+    this.targetValue = JsonNullable.<Object>of(targetValue);
+    return this;
+  }
+
+  /**
+   * The path target value to compare to.
+   *
+   * @return targetValue
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The path target value to compare to.")
+  @JsonIgnore
+  public Object getTargetValue() {
+    return targetValue.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TARGET_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Object> getTargetValue_JsonNullable() {
+    return targetValue;
+  }
+
+  @JsonProperty(JSON_PROPERTY_TARGET_VALUE)
+  public void setTargetValue_JsonNullable(JsonNullable<Object> targetValue) {
+    this.targetValue = targetValue;
+  }
+
+  public void setTargetValue(Object targetValue) {
+    this.targetValue = JsonNullable.<Object>of(targetValue);
+  }
+
+  /** Return true if this SyntheticsAssertionJSONPathTarget_target object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * The JSON path to assert.
-     * @return jsonPath
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The JSON path to assert.")
-    @JsonProperty(JSON_PROPERTY_JSON_PATH)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getJsonPath() {
-        return jsonPath;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    SyntheticsAssertionJSONPathTargetTarget syntheticsAssertionJSONPathTargetTarget =
+        (SyntheticsAssertionJSONPathTargetTarget) o;
+    return Objects.equals(this.jsonPath, syntheticsAssertionJSONPathTargetTarget.jsonPath)
+        && Objects.equals(this.operator, syntheticsAssertionJSONPathTargetTarget.operator)
+        && Objects.equals(this.targetValue, syntheticsAssertionJSONPathTargetTarget.targetValue);
+  }
 
-    public void setJsonPath(String jsonPath) {
-        this.jsonPath = jsonPath;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(jsonPath, operator, targetValue);
+  }
 
-    public SyntheticsAssertionJSONPathTargetTarget operator(String operator) {
-        this.operator = operator;
-        return this;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class SyntheticsAssertionJSONPathTargetTarget {\n");
+    sb.append("    jsonPath: ").append(toIndentedString(jsonPath)).append("\n");
+    sb.append("    operator: ").append(toIndentedString(operator)).append("\n");
+    sb.append("    targetValue: ").append(toIndentedString(targetValue)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * The specific operator to use on the path.
-     * @return operator
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The specific operator to use on the path.")
-    @JsonProperty(JSON_PROPERTY_OPERATOR)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getOperator() {
-        return operator;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    public void setOperator(String operator) {
-        this.operator = operator;
-    }
-
-    public SyntheticsAssertionJSONPathTargetTarget targetValue(Object targetValue) {
-        this.targetValue = JsonNullable.<Object>of(targetValue);
-        return this;
-    }
-
-    /**
-     * The path target value to compare to.
-     * @return targetValue
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The path target value to compare to.")
-    @JsonIgnore
-    public Object getTargetValue() {
-        return targetValue.orElse(null);
-    }
-
-    @JsonProperty(JSON_PROPERTY_TARGET_VALUE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public JsonNullable<Object> getTargetValue_JsonNullable() {
-        return targetValue;
-    }
-
-    @JsonProperty(JSON_PROPERTY_TARGET_VALUE)
-    public void setTargetValue_JsonNullable(JsonNullable<Object> targetValue) {
-        this.targetValue = targetValue;
-    }
-
-    public void setTargetValue(Object targetValue) {
-        this.targetValue = JsonNullable.<Object>of(targetValue);
-    }
-
-    /**
-     * Return true if this SyntheticsAssertionJSONPathTarget_target object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        SyntheticsAssertionJSONPathTargetTarget syntheticsAssertionJSONPathTargetTarget = (SyntheticsAssertionJSONPathTargetTarget) o;
-        return (
-            Objects.equals(this.jsonPath, syntheticsAssertionJSONPathTargetTarget.jsonPath) &&
-            Objects.equals(this.operator, syntheticsAssertionJSONPathTargetTarget.operator) &&
-            Objects.equals(this.targetValue, syntheticsAssertionJSONPathTargetTarget.targetValue)
-        );
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(jsonPath, operator, targetValue);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SyntheticsAssertionJSONPathTargetTarget {\n");
-        sb.append("    jsonPath: ").append(toIndentedString(jsonPath)).append("\n");
-        sb.append("    operator: ").append(toIndentedString(operator)).append("\n");
-        sb.append("    targetValue: ").append(toIndentedString(targetValue)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

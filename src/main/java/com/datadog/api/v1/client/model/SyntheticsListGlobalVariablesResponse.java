@@ -10,109 +10,95 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.datadog.api.v1.client.model.SyntheticsGlobalVariable;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Object containing an array of Synthetic global variables.
- */
+/** Object containing an array of Synthetic global variables. */
 @ApiModel(description = "Object containing an array of Synthetic global variables.")
-@JsonPropertyOrder({ SyntheticsListGlobalVariablesResponse.JSON_PROPERTY_VARIABLES })
+@JsonPropertyOrder({SyntheticsListGlobalVariablesResponse.JSON_PROPERTY_VARIABLES})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsListGlobalVariablesResponse {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_VARIABLES = "variables";
+  private List<SyntheticsGlobalVariable> variables = null;
 
-    @JsonIgnore
-    public boolean unparsed = false;
-
-    public static final String JSON_PROPERTY_VARIABLES = "variables";
-    private List<SyntheticsGlobalVariable> variables = null;
-
-    public SyntheticsListGlobalVariablesResponse variables(List<SyntheticsGlobalVariable> variables) {
-        this.variables = variables;
-        for (SyntheticsGlobalVariable item : variables) {
-            this.unparsed |= item.unparsed;
-        }
-        return this;
+  public SyntheticsListGlobalVariablesResponse variables(List<SyntheticsGlobalVariable> variables) {
+    this.variables = variables;
+    for (SyntheticsGlobalVariable item : variables) {
+      this.unparsed |= item.unparsed;
     }
+    return this;
+  }
 
-    public SyntheticsListGlobalVariablesResponse addVariablesItem(SyntheticsGlobalVariable variablesItem) {
-        if (this.variables == null) {
-            this.variables = new ArrayList<>();
-        }
-        this.variables.add(variablesItem);
-        this.unparsed |= variablesItem.unparsed;
-        return this;
+  public SyntheticsListGlobalVariablesResponse addVariablesItem(
+      SyntheticsGlobalVariable variablesItem) {
+    if (this.variables == null) {
+      this.variables = new ArrayList<>();
     }
+    this.variables.add(variablesItem);
+    this.unparsed |= variablesItem.unparsed;
+    return this;
+  }
 
-    /**
-     * Array of Synthetic global variables.
-     * @return variables
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Array of Synthetic global variables.")
-    @JsonProperty(JSON_PROPERTY_VARIABLES)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<SyntheticsGlobalVariable> getVariables() {
-        return variables;
-    }
+  /**
+   * Array of Synthetic global variables.
+   *
+   * @return variables
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Array of Synthetic global variables.")
+  @JsonProperty(JSON_PROPERTY_VARIABLES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<SyntheticsGlobalVariable> getVariables() {
+    return variables;
+  }
 
-    public void setVariables(List<SyntheticsGlobalVariable> variables) {
-        this.variables = variables;
-    }
+  public void setVariables(List<SyntheticsGlobalVariable> variables) {
+    this.variables = variables;
+  }
 
-    /**
-     * Return true if this SyntheticsListGlobalVariablesResponse object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        SyntheticsListGlobalVariablesResponse syntheticsListGlobalVariablesResponse = (SyntheticsListGlobalVariablesResponse) o;
-        return Objects.equals(this.variables, syntheticsListGlobalVariablesResponse.variables);
+  /** Return true if this SyntheticsListGlobalVariablesResponse object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    SyntheticsListGlobalVariablesResponse syntheticsListGlobalVariablesResponse =
+        (SyntheticsListGlobalVariablesResponse) o;
+    return Objects.equals(this.variables, syntheticsListGlobalVariablesResponse.variables);
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(variables);
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(variables);
+  }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SyntheticsListGlobalVariablesResponse {\n");
-        sb.append("    variables: ").append(toIndentedString(variables)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class SyntheticsListGlobalVariablesResponse {\n");
+    sb.append("    variables: ").append(toIndentedString(variables)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

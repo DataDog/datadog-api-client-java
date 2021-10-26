@@ -1,5 +1,11 @@
+
+
 # IncidentPostmortemType
 
 ## Enum
 
-- `INCIDENT_POSTMORTEMS` (value: `"incident_postmortems"`)
+
+* `INCIDENT_POSTMORTEMS` (value: `"incident_postmortems"`)
+
+
+

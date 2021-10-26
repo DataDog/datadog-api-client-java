@@ -1,5 +1,11 @@
+
+
 # FunnelRequestType
 
 ## Enum
 
-- `FUNNEL` (value: `"funnel"`)
+
+* `FUNNEL` (value: `"funnel"`)
+
+
+

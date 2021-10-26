@@ -10,96 +10,80 @@
 
 package com.datadog.api.v2.client.model;
 
-import com.datadog.api.v2.client.JSON;
-import com.datadog.api.v2.client.model.RelationshipToRoleData;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Relationship to role.
- */
+/** Relationship to role. */
 @ApiModel(description = "Relationship to role.")
-@JsonPropertyOrder({ RelationshipToRole.JSON_PROPERTY_DATA })
+@JsonPropertyOrder({RelationshipToRole.JSON_PROPERTY_DATA})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class RelationshipToRole {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private RelationshipToRoleData data;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public RelationshipToRole data(RelationshipToRoleData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_DATA = "data";
-    private RelationshipToRoleData data;
+  /**
+   * Get data
+   *
+   * @return data
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public RelationshipToRoleData getData() {
+    return data;
+  }
 
-    public RelationshipToRole data(RelationshipToRoleData data) {
-        this.data = data;
-        this.unparsed |= data.unparsed;
-        return this;
+  public void setData(RelationshipToRoleData data) {
+    this.data = data;
+  }
+
+  /** Return true if this RelationshipToRole object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * Get data
-     * @return data
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_DATA)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public RelationshipToRoleData getData() {
-        return data;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    RelationshipToRole relationshipToRole = (RelationshipToRole) o;
+    return Objects.equals(this.data, relationshipToRole.data);
+  }
 
-    public void setData(RelationshipToRoleData data) {
-        this.data = data;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(data);
+  }
 
-    /**
-     * Return true if this RelationshipToRole object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        RelationshipToRole relationshipToRole = (RelationshipToRole) o;
-        return Objects.equals(this.data, relationshipToRole.data);
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class RelationshipToRole {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(data);
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class RelationshipToRole {\n");
-        sb.append("    data: ").append(toIndentedString(data)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

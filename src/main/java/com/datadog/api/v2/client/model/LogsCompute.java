@@ -10,201 +10,188 @@
 
 package com.datadog.api.v2.client.model;
 
-import com.datadog.api.v2.client.JSON;
-import com.datadog.api.v2.client.model.LogsAggregationFunction;
-import com.datadog.api.v2.client.model.LogsComputeType;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * A compute rule to compute metrics or timeseries
- */
+/** A compute rule to compute metrics or timeseries */
 @ApiModel(description = "A compute rule to compute metrics or timeseries")
-@JsonPropertyOrder(
-    {
-        LogsCompute.JSON_PROPERTY_AGGREGATION,
-        LogsCompute.JSON_PROPERTY_INTERVAL,
-        LogsCompute.JSON_PROPERTY_METRIC,
-        LogsCompute.JSON_PROPERTY_TYPE
-    }
-)
+@JsonPropertyOrder({
+  LogsCompute.JSON_PROPERTY_AGGREGATION,
+  LogsCompute.JSON_PROPERTY_INTERVAL,
+  LogsCompute.JSON_PROPERTY_METRIC,
+  LogsCompute.JSON_PROPERTY_TYPE
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsCompute {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
+  private LogsAggregationFunction aggregation;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_INTERVAL = "interval";
+  private String interval;
 
-    public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
-    private LogsAggregationFunction aggregation;
+  public static final String JSON_PROPERTY_METRIC = "metric";
+  private String metric;
 
-    public static final String JSON_PROPERTY_INTERVAL = "interval";
-    private String interval;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private LogsComputeType type = LogsComputeType.TOTAL;
 
-    public static final String JSON_PROPERTY_METRIC = "metric";
-    private String metric;
+  public LogsCompute() {}
 
-    public static final String JSON_PROPERTY_TYPE = "type";
-    private LogsComputeType type = LogsComputeType.TOTAL;
+  @JsonCreator
+  public LogsCompute(
+      @JsonProperty(required = true, value = JSON_PROPERTY_AGGREGATION)
+          LogsAggregationFunction aggregation) {
+    this.aggregation = aggregation;
+    this.unparsed |= !aggregation.isValid();
+  }
 
-    public LogsCompute() {}
+  public LogsCompute aggregation(LogsAggregationFunction aggregation) {
+    this.aggregation = aggregation;
+    this.unparsed |= !aggregation.isValid();
+    return this;
+  }
 
-    @JsonCreator
-    public LogsCompute(@JsonProperty(required = true, value = JSON_PROPERTY_AGGREGATION) LogsAggregationFunction aggregation) {
-        this.aggregation = aggregation;
-        this.unparsed |= !aggregation.isValid();
+  /**
+   * Get aggregation
+   *
+   * @return aggregation
+   */
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_AGGREGATION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public LogsAggregationFunction getAggregation() {
+    return aggregation;
+  }
+
+  public void setAggregation(LogsAggregationFunction aggregation) {
+    if (!aggregation.isValid()) {
+      this.unparsed = true;
     }
+    this.aggregation = aggregation;
+  }
 
-    public LogsCompute aggregation(LogsAggregationFunction aggregation) {
-        this.aggregation = aggregation;
-        this.unparsed |= !aggregation.isValid();
-        return this;
-    }
+  public LogsCompute interval(String interval) {
+    this.interval = interval;
+    return this;
+  }
 
-    /**
-     * Get aggregation
-     * @return aggregation
-     **/
-    @ApiModelProperty(required = true, value = "")
-    @JsonProperty(JSON_PROPERTY_AGGREGATION)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public LogsAggregationFunction getAggregation() {
-        return aggregation;
-    }
+  /**
+   * The time buckets&#39; size (only used for type&#x3D;timeseries) Defaults to a resolution of 150
+   * points
+   *
+   * @return interval
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      example = "5m",
+      value =
+          "The time buckets' size (only used for type=timeseries) Defaults to a resolution of 150"
+              + " points")
+  @JsonProperty(JSON_PROPERTY_INTERVAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getInterval() {
+    return interval;
+  }
 
-    public void setAggregation(LogsAggregationFunction aggregation) {
-        if (!aggregation.isValid()) {
-            this.unparsed = true;
-        }
-        this.aggregation = aggregation;
-    }
+  public void setInterval(String interval) {
+    this.interval = interval;
+  }
 
-    public LogsCompute interval(String interval) {
-        this.interval = interval;
-        return this;
-    }
+  public LogsCompute metric(String metric) {
+    this.metric = metric;
+    return this;
+  }
 
-    /**
-     * The time buckets&#39; size (only used for type&#x3D;timeseries) Defaults to a resolution of 150 points
-     * @return interval
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(
-        example = "5m",
-        value = "The time buckets' size (only used for type=timeseries) Defaults to a resolution of 150 points"
-    )
-    @JsonProperty(JSON_PROPERTY_INTERVAL)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getInterval() {
-        return interval;
-    }
+  /**
+   * The metric to use
+   *
+   * @return metric
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "@duration", value = "The metric to use")
+  @JsonProperty(JSON_PROPERTY_METRIC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getMetric() {
+    return metric;
+  }
 
-    public void setInterval(String interval) {
-        this.interval = interval;
-    }
+  public void setMetric(String metric) {
+    this.metric = metric;
+  }
 
-    public LogsCompute metric(String metric) {
-        this.metric = metric;
-        return this;
-    }
+  public LogsCompute type(LogsComputeType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    return this;
+  }
 
-    /**
-     * The metric to use
-     * @return metric
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "@duration", value = "The metric to use")
-    @JsonProperty(JSON_PROPERTY_METRIC)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getMetric() {
-        return metric;
-    }
+  /**
+   * Get type
+   *
+   * @return type
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogsComputeType getType() {
+    return type;
+  }
 
-    public void setMetric(String metric) {
-        this.metric = metric;
+  public void setType(LogsComputeType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
     }
+    this.type = type;
+  }
 
-    public LogsCompute type(LogsComputeType type) {
-        this.type = type;
-        this.unparsed |= !type.isValid();
-        return this;
+  /** Return true if this LogsCompute object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    LogsCompute logsCompute = (LogsCompute) o;
+    return Objects.equals(this.aggregation, logsCompute.aggregation)
+        && Objects.equals(this.interval, logsCompute.interval)
+        && Objects.equals(this.metric, logsCompute.metric)
+        && Objects.equals(this.type, logsCompute.type);
+  }
 
-    /**
-     * Get type
-     * @return type
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_TYPE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public LogsComputeType getType() {
-        return type;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(aggregation, interval, metric, type);
+  }
 
-    public void setType(LogsComputeType type) {
-        if (!type.isValid()) {
-            this.unparsed = true;
-        }
-        this.type = type;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class LogsCompute {\n");
+    sb.append("    aggregation: ").append(toIndentedString(aggregation)).append("\n");
+    sb.append("    interval: ").append(toIndentedString(interval)).append("\n");
+    sb.append("    metric: ").append(toIndentedString(metric)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Return true if this LogsCompute object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        LogsCompute logsCompute = (LogsCompute) o;
-        return (
-            Objects.equals(this.aggregation, logsCompute.aggregation) &&
-            Objects.equals(this.interval, logsCompute.interval) &&
-            Objects.equals(this.metric, logsCompute.metric) &&
-            Objects.equals(this.type, logsCompute.type)
-        );
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(aggregation, interval, metric, type);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class LogsCompute {\n");
-        sb.append("    aggregation: ").append(toIndentedString(aggregation)).append("\n");
-        sb.append("    interval: ").append(toIndentedString(interval)).append("\n");
-        sb.append("    metric: ").append(toIndentedString(metric)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

@@ -10,94 +10,79 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Array of user disabled for a given organization.
- */
+/** Array of user disabled for a given organization. */
 @ApiModel(description = "Array of user disabled for a given organization.")
-@JsonPropertyOrder({ UserDisableResponse.JSON_PROPERTY_MESSAGE })
+@JsonPropertyOrder({UserDisableResponse.JSON_PROPERTY_MESSAGE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UserDisableResponse {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_MESSAGE = "message";
+  private String message;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public UserDisableResponse message(String message) {
+    this.message = message;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_MESSAGE = "message";
-    private String message;
+  /**
+   * Information pertaining to a user disabled for a given organization.
+   *
+   * @return message
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Information pertaining to a user disabled for a given organization.")
+  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getMessage() {
+    return message;
+  }
 
-    public UserDisableResponse message(String message) {
-        this.message = message;
-        return this;
+  public void setMessage(String message) {
+    this.message = message;
+  }
+
+  /** Return true if this UserDisableResponse object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * Information pertaining to a user disabled for a given organization.
-     * @return message
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Information pertaining to a user disabled for a given organization.")
-    @JsonProperty(JSON_PROPERTY_MESSAGE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getMessage() {
-        return message;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    UserDisableResponse userDisableResponse = (UserDisableResponse) o;
+    return Objects.equals(this.message, userDisableResponse.message);
+  }
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(message);
+  }
 
-    /**
-     * Return true if this UserDisableResponse object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        UserDisableResponse userDisableResponse = (UserDisableResponse) o;
-        return Objects.equals(this.message, userDisableResponse.message);
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class UserDisableResponse {\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(message);
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class UserDisableResponse {\n");
-        sb.append("    message: ").append(toIndentedString(message)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

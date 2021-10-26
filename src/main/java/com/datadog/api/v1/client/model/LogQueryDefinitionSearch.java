@@ -10,100 +10,87 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * The query being made on the logs.
- */
+/** The query being made on the logs. */
 @ApiModel(description = "The query being made on the logs.")
-@JsonPropertyOrder({ LogQueryDefinitionSearch.JSON_PROPERTY_QUERY })
+@JsonPropertyOrder({LogQueryDefinitionSearch.JSON_PROPERTY_QUERY})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogQueryDefinitionSearch {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_QUERY = "query";
+  private String query;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public LogQueryDefinitionSearch() {}
 
-    public static final String JSON_PROPERTY_QUERY = "query";
-    private String query;
+  @JsonCreator
+  public LogQueryDefinitionSearch(
+      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query) {
+    this.query = query;
+  }
 
-    public LogQueryDefinitionSearch() {}
+  public LogQueryDefinitionSearch query(String query) {
+    this.query = query;
+    return this;
+  }
 
-    @JsonCreator
-    public LogQueryDefinitionSearch(@JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query) {
-        this.query = query;
+  /**
+   * Search value to apply.
+   *
+   * @return query
+   */
+  @ApiModelProperty(example = "", required = true, value = "Search value to apply.")
+  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getQuery() {
+    return query;
+  }
+
+  public void setQuery(String query) {
+    this.query = query;
+  }
+
+  /** Return true if this LogQueryDefinition_search object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    public LogQueryDefinitionSearch query(String query) {
-        this.query = query;
-        return this;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    LogQueryDefinitionSearch logQueryDefinitionSearch = (LogQueryDefinitionSearch) o;
+    return Objects.equals(this.query, logQueryDefinitionSearch.query);
+  }
 
-    /**
-     * Search value to apply.
-     * @return query
-     **/
-    @ApiModelProperty(example = "", required = true, value = "Search value to apply.")
-    @JsonProperty(JSON_PROPERTY_QUERY)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public String getQuery() {
-        return query;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(query);
+  }
 
-    public void setQuery(String query) {
-        this.query = query;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class LogQueryDefinitionSearch {\n");
+    sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Return true if this LogQueryDefinition_search object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        LogQueryDefinitionSearch logQueryDefinitionSearch = (LogQueryDefinitionSearch) o;
-        return Objects.equals(this.query, logQueryDefinitionSearch.query);
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(query);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class LogQueryDefinitionSearch {\n");
-        sb.append("    query: ").append(toIndentedString(query)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

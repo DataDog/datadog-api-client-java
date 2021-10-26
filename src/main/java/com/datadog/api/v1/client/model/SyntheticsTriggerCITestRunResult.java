@@ -10,186 +10,170 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.datadog.api.v1.client.model.SyntheticsDeviceID;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Information about a single test run.
- */
+/** Information about a single test run. */
 @ApiModel(description = "Information about a single test run.")
-@JsonPropertyOrder(
-    {
-        SyntheticsTriggerCITestRunResult.JSON_PROPERTY_DEVICE,
-        SyntheticsTriggerCITestRunResult.JSON_PROPERTY_LOCATION,
-        SyntheticsTriggerCITestRunResult.JSON_PROPERTY_PUBLIC_ID,
-        SyntheticsTriggerCITestRunResult.JSON_PROPERTY_RESULT_ID
-    }
-)
+@JsonPropertyOrder({
+  SyntheticsTriggerCITestRunResult.JSON_PROPERTY_DEVICE,
+  SyntheticsTriggerCITestRunResult.JSON_PROPERTY_LOCATION,
+  SyntheticsTriggerCITestRunResult.JSON_PROPERTY_PUBLIC_ID,
+  SyntheticsTriggerCITestRunResult.JSON_PROPERTY_RESULT_ID
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsTriggerCITestRunResult {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DEVICE = "device";
+  private SyntheticsDeviceID device;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_LOCATION = "location";
+  private Long location;
 
-    public static final String JSON_PROPERTY_DEVICE = "device";
-    private SyntheticsDeviceID device;
+  public static final String JSON_PROPERTY_PUBLIC_ID = "public_id";
+  private String publicId;
 
-    public static final String JSON_PROPERTY_LOCATION = "location";
-    private Long location;
+  public static final String JSON_PROPERTY_RESULT_ID = "result_id";
+  private String resultId;
 
-    public static final String JSON_PROPERTY_PUBLIC_ID = "public_id";
-    private String publicId;
+  public SyntheticsTriggerCITestRunResult device(SyntheticsDeviceID device) {
+    this.device = device;
+    this.unparsed |= !device.isValid();
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_RESULT_ID = "result_id";
-    private String resultId;
+  /**
+   * Get device
+   *
+   * @return device
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_DEVICE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsDeviceID getDevice() {
+    return device;
+  }
 
-    public SyntheticsTriggerCITestRunResult device(SyntheticsDeviceID device) {
-        this.device = device;
-        this.unparsed |= !device.isValid();
-        return this;
+  public void setDevice(SyntheticsDeviceID device) {
+    if (!device.isValid()) {
+      this.unparsed = true;
     }
+    this.device = device;
+  }
 
-    /**
-     * Get device
-     * @return device
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_DEVICE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public SyntheticsDeviceID getDevice() {
-        return device;
-    }
+  public SyntheticsTriggerCITestRunResult location(Long location) {
+    this.location = location;
+    return this;
+  }
 
-    public void setDevice(SyntheticsDeviceID device) {
-        if (!device.isValid()) {
-            this.unparsed = true;
-        }
-        this.device = device;
-    }
+  /**
+   * The location ID of the test run.
+   *
+   * @return location
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The location ID of the test run.")
+  @JsonProperty(JSON_PROPERTY_LOCATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getLocation() {
+    return location;
+  }
 
-    public SyntheticsTriggerCITestRunResult location(Long location) {
-        this.location = location;
-        return this;
-    }
+  public void setLocation(Long location) {
+    this.location = location;
+  }
 
-    /**
-     * The location ID of the test run.
-     * @return location
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The location ID of the test run.")
-    @JsonProperty(JSON_PROPERTY_LOCATION)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Long getLocation() {
-        return location;
-    }
+  public SyntheticsTriggerCITestRunResult publicId(String publicId) {
+    this.publicId = publicId;
+    return this;
+  }
 
-    public void setLocation(Long location) {
-        this.location = location;
-    }
+  /**
+   * The public ID of the Synthetics test.
+   *
+   * @return publicId
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The public ID of the Synthetics test.")
+  @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPublicId() {
+    return publicId;
+  }
 
-    public SyntheticsTriggerCITestRunResult publicId(String publicId) {
-        this.publicId = publicId;
-        return this;
-    }
+  public void setPublicId(String publicId) {
+    this.publicId = publicId;
+  }
 
-    /**
-     * The public ID of the Synthetics test.
-     * @return publicId
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The public ID of the Synthetics test.")
-    @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getPublicId() {
-        return publicId;
-    }
+  public SyntheticsTriggerCITestRunResult resultId(String resultId) {
+    this.resultId = resultId;
+    return this;
+  }
 
-    public void setPublicId(String publicId) {
-        this.publicId = publicId;
-    }
+  /**
+   * ID of the result.
+   *
+   * @return resultId
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "ID of the result.")
+  @JsonProperty(JSON_PROPERTY_RESULT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getResultId() {
+    return resultId;
+  }
 
-    public SyntheticsTriggerCITestRunResult resultId(String resultId) {
-        this.resultId = resultId;
-        return this;
-    }
+  public void setResultId(String resultId) {
+    this.resultId = resultId;
+  }
 
-    /**
-     * ID of the result.
-     * @return resultId
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "ID of the result.")
-    @JsonProperty(JSON_PROPERTY_RESULT_ID)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getResultId() {
-        return resultId;
+  /** Return true if this SyntheticsTriggerCITestRunResult object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    SyntheticsTriggerCITestRunResult syntheticsTriggerCITestRunResult =
+        (SyntheticsTriggerCITestRunResult) o;
+    return Objects.equals(this.device, syntheticsTriggerCITestRunResult.device)
+        && Objects.equals(this.location, syntheticsTriggerCITestRunResult.location)
+        && Objects.equals(this.publicId, syntheticsTriggerCITestRunResult.publicId)
+        && Objects.equals(this.resultId, syntheticsTriggerCITestRunResult.resultId);
+  }
 
-    public void setResultId(String resultId) {
-        this.resultId = resultId;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(device, location, publicId, resultId);
+  }
 
-    /**
-     * Return true if this SyntheticsTriggerCITestRunResult object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        SyntheticsTriggerCITestRunResult syntheticsTriggerCITestRunResult = (SyntheticsTriggerCITestRunResult) o;
-        return (
-            Objects.equals(this.device, syntheticsTriggerCITestRunResult.device) &&
-            Objects.equals(this.location, syntheticsTriggerCITestRunResult.location) &&
-            Objects.equals(this.publicId, syntheticsTriggerCITestRunResult.publicId) &&
-            Objects.equals(this.resultId, syntheticsTriggerCITestRunResult.resultId)
-        );
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class SyntheticsTriggerCITestRunResult {\n");
+    sb.append("    device: ").append(toIndentedString(device)).append("\n");
+    sb.append("    location: ").append(toIndentedString(location)).append("\n");
+    sb.append("    publicId: ").append(toIndentedString(publicId)).append("\n");
+    sb.append("    resultId: ").append(toIndentedString(resultId)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(device, location, publicId, resultId);
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SyntheticsTriggerCITestRunResult {\n");
-        sb.append("    device: ").append(toIndentedString(device)).append("\n");
-        sb.append("    location: ").append(toIndentedString(location)).append("\n");
-        sb.append("    publicId: ").append(toIndentedString(publicId)).append("\n");
-        sb.append("    resultId: ").append(toIndentedString(resultId)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

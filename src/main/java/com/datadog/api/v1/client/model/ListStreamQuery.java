@@ -10,175 +10,161 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.datadog.api.v1.client.model.ListStreamSource;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Updated list stream widget.
- */
+/** Updated list stream widget. */
 @ApiModel(description = "Updated list stream widget.")
-@JsonPropertyOrder(
-    { ListStreamQuery.JSON_PROPERTY_DATA_SOURCE, ListStreamQuery.JSON_PROPERTY_INDEXES, ListStreamQuery.JSON_PROPERTY_QUERY_STRING }
-)
+@JsonPropertyOrder({
+  ListStreamQuery.JSON_PROPERTY_DATA_SOURCE,
+  ListStreamQuery.JSON_PROPERTY_INDEXES,
+  ListStreamQuery.JSON_PROPERTY_QUERY_STRING
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ListStreamQuery {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DATA_SOURCE = "data_source";
+  private ListStreamSource dataSource = ListStreamSource.ISSUE_STREAM;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_INDEXES = "indexes";
+  private List<String> indexes = null;
 
-    public static final String JSON_PROPERTY_DATA_SOURCE = "data_source";
-    private ListStreamSource dataSource = ListStreamSource.ISSUE_STREAM;
+  public static final String JSON_PROPERTY_QUERY_STRING = "query_string";
+  private String queryString;
 
-    public static final String JSON_PROPERTY_INDEXES = "indexes";
-    private List<String> indexes = null;
+  public ListStreamQuery() {}
 
-    public static final String JSON_PROPERTY_QUERY_STRING = "query_string";
-    private String queryString;
+  @JsonCreator
+  public ListStreamQuery(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA_SOURCE) ListStreamSource dataSource,
+      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY_STRING) String queryString) {
+    this.dataSource = dataSource;
+    this.unparsed |= !dataSource.isValid();
+    this.queryString = queryString;
+  }
 
-    public ListStreamQuery() {}
+  public ListStreamQuery dataSource(ListStreamSource dataSource) {
+    this.dataSource = dataSource;
+    this.unparsed |= !dataSource.isValid();
+    return this;
+  }
 
-    @JsonCreator
-    public ListStreamQuery(
-        @JsonProperty(required = true, value = JSON_PROPERTY_DATA_SOURCE) ListStreamSource dataSource,
-        @JsonProperty(required = true, value = JSON_PROPERTY_QUERY_STRING) String queryString
-    ) {
-        this.dataSource = dataSource;
-        this.unparsed |= !dataSource.isValid();
-        this.queryString = queryString;
+  /**
+   * Get dataSource
+   *
+   * @return dataSource
+   */
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public ListStreamSource getDataSource() {
+    return dataSource;
+  }
+
+  public void setDataSource(ListStreamSource dataSource) {
+    if (!dataSource.isValid()) {
+      this.unparsed = true;
     }
+    this.dataSource = dataSource;
+  }
 
-    public ListStreamQuery dataSource(ListStreamSource dataSource) {
-        this.dataSource = dataSource;
-        this.unparsed |= !dataSource.isValid();
-        return this;
-    }
+  public ListStreamQuery indexes(List<String> indexes) {
+    this.indexes = indexes;
+    return this;
+  }
 
-    /**
-     * Get dataSource
-     * @return dataSource
-     **/
-    @ApiModelProperty(required = true, value = "")
-    @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public ListStreamSource getDataSource() {
-        return dataSource;
+  public ListStreamQuery addIndexesItem(String indexesItem) {
+    if (this.indexes == null) {
+      this.indexes = new ArrayList<>();
     }
+    this.indexes.add(indexesItem);
+    return this;
+  }
 
-    public void setDataSource(ListStreamSource dataSource) {
-        if (!dataSource.isValid()) {
-            this.unparsed = true;
-        }
-        this.dataSource = dataSource;
-    }
+  /**
+   * List of indexes.
+   *
+   * @return indexes
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of indexes.")
+  @JsonProperty(JSON_PROPERTY_INDEXES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getIndexes() {
+    return indexes;
+  }
 
-    public ListStreamQuery indexes(List<String> indexes) {
-        this.indexes = indexes;
-        return this;
-    }
+  public void setIndexes(List<String> indexes) {
+    this.indexes = indexes;
+  }
 
-    public ListStreamQuery addIndexesItem(String indexesItem) {
-        if (this.indexes == null) {
-            this.indexes = new ArrayList<>();
-        }
-        this.indexes.add(indexesItem);
-        return this;
-    }
+  public ListStreamQuery queryString(String queryString) {
+    this.queryString = queryString;
+    return this;
+  }
 
-    /**
-     * List of indexes.
-     * @return indexes
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "List of indexes.")
-    @JsonProperty(JSON_PROPERTY_INDEXES)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<String> getIndexes() {
-        return indexes;
-    }
+  /**
+   * Widget query.
+   *
+   * @return queryString
+   */
+  @ApiModelProperty(example = "@service:app", required = true, value = "Widget query.")
+  @JsonProperty(JSON_PROPERTY_QUERY_STRING)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getQueryString() {
+    return queryString;
+  }
 
-    public void setIndexes(List<String> indexes) {
-        this.indexes = indexes;
-    }
+  public void setQueryString(String queryString) {
+    this.queryString = queryString;
+  }
 
-    public ListStreamQuery queryString(String queryString) {
-        this.queryString = queryString;
-        return this;
+  /** Return true if this ListStreamQuery object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    ListStreamQuery listStreamQuery = (ListStreamQuery) o;
+    return Objects.equals(this.dataSource, listStreamQuery.dataSource)
+        && Objects.equals(this.indexes, listStreamQuery.indexes)
+        && Objects.equals(this.queryString, listStreamQuery.queryString);
+  }
 
-    /**
-     * Widget query.
-     * @return queryString
-     **/
-    @ApiModelProperty(example = "@service:app", required = true, value = "Widget query.")
-    @JsonProperty(JSON_PROPERTY_QUERY_STRING)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public String getQueryString() {
-        return queryString;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(dataSource, indexes, queryString);
+  }
 
-    public void setQueryString(String queryString) {
-        this.queryString = queryString;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class ListStreamQuery {\n");
+    sb.append("    dataSource: ").append(toIndentedString(dataSource)).append("\n");
+    sb.append("    indexes: ").append(toIndentedString(indexes)).append("\n");
+    sb.append("    queryString: ").append(toIndentedString(queryString)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Return true if this ListStreamQuery object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        ListStreamQuery listStreamQuery = (ListStreamQuery) o;
-        return (
-            Objects.equals(this.dataSource, listStreamQuery.dataSource) &&
-            Objects.equals(this.indexes, listStreamQuery.indexes) &&
-            Objects.equals(this.queryString, listStreamQuery.queryString)
-        );
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(dataSource, indexes, queryString);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ListStreamQuery {\n");
-        sb.append("    dataSource: ").append(toIndentedString(dataSource)).append("\n");
-        sb.append("    indexes: ").append(toIndentedString(indexes)).append("\n");
-        sb.append("    queryString: ").append(toIndentedString(queryString)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

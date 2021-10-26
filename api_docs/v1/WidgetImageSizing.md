@@ -1,19 +1,25 @@
+
+
 # WidgetImageSizing
 
 ## Enum
 
-- `FILL` (value: `"fill"`)
 
-- `CONTAIN` (value: `"contain"`)
+* `FILL` (value: `"fill"`)
 
-- `COVER` (value: `"cover"`)
+* `CONTAIN` (value: `"contain"`)
 
-- `NONE` (value: `"none"`)
+* `COVER` (value: `"cover"`)
 
-- `SCALEDOWN` (value: `"scale-down"`)
+* `NONE` (value: `"none"`)
 
-- `ZOOM` (value: `"zoom"`)
+* `SCALEDOWN` (value: `"scale-down"`)
 
-- `FIT` (value: `"fit"`)
+* `ZOOM` (value: `"zoom"`)
 
-- `CENTER` (value: `"center"`)
+* `FIT` (value: `"fit"`)
+
+* `CENTER` (value: `"center"`)
+
+
+

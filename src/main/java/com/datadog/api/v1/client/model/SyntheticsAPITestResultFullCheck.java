@@ -10,103 +10,90 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.datadog.api.v1.client.model.SyntheticsTestConfig;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Object describing the API test configuration.
- */
+/** Object describing the API test configuration. */
 @ApiModel(description = "Object describing the API test configuration.")
-@JsonPropertyOrder({ SyntheticsAPITestResultFullCheck.JSON_PROPERTY_CONFIG })
+@JsonPropertyOrder({SyntheticsAPITestResultFullCheck.JSON_PROPERTY_CONFIG})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsAPITestResultFullCheck {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CONFIG = "config";
+  private SyntheticsTestConfig config;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public SyntheticsAPITestResultFullCheck() {}
 
-    public static final String JSON_PROPERTY_CONFIG = "config";
-    private SyntheticsTestConfig config;
+  @JsonCreator
+  public SyntheticsAPITestResultFullCheck(
+      @JsonProperty(required = true, value = JSON_PROPERTY_CONFIG) SyntheticsTestConfig config) {
+    this.config = config;
+    this.unparsed |= config.unparsed;
+  }
 
-    public SyntheticsAPITestResultFullCheck() {}
+  public SyntheticsAPITestResultFullCheck config(SyntheticsTestConfig config) {
+    this.config = config;
+    this.unparsed |= config.unparsed;
+    return this;
+  }
 
-    @JsonCreator
-    public SyntheticsAPITestResultFullCheck(@JsonProperty(required = true, value = JSON_PROPERTY_CONFIG) SyntheticsTestConfig config) {
-        this.config = config;
-        this.unparsed |= config.unparsed;
+  /**
+   * Get config
+   *
+   * @return config
+   */
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_CONFIG)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public SyntheticsTestConfig getConfig() {
+    return config;
+  }
+
+  public void setConfig(SyntheticsTestConfig config) {
+    this.config = config;
+  }
+
+  /** Return true if this SyntheticsAPITestResultFull_check object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    public SyntheticsAPITestResultFullCheck config(SyntheticsTestConfig config) {
-        this.config = config;
-        this.unparsed |= config.unparsed;
-        return this;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    SyntheticsAPITestResultFullCheck syntheticsAPITestResultFullCheck =
+        (SyntheticsAPITestResultFullCheck) o;
+    return Objects.equals(this.config, syntheticsAPITestResultFullCheck.config);
+  }
 
-    /**
-     * Get config
-     * @return config
-     **/
-    @ApiModelProperty(required = true, value = "")
-    @JsonProperty(JSON_PROPERTY_CONFIG)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public SyntheticsTestConfig getConfig() {
-        return config;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(config);
+  }
 
-    public void setConfig(SyntheticsTestConfig config) {
-        this.config = config;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class SyntheticsAPITestResultFullCheck {\n");
+    sb.append("    config: ").append(toIndentedString(config)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Return true if this SyntheticsAPITestResultFull_check object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        SyntheticsAPITestResultFullCheck syntheticsAPITestResultFullCheck = (SyntheticsAPITestResultFullCheck) o;
-        return Objects.equals(this.config, syntheticsAPITestResultFullCheck.config);
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(config);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SyntheticsAPITestResultFullCheck {\n");
-        sb.append("    config: ").append(toIndentedString(config)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

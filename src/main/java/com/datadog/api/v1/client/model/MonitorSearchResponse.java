@@ -10,152 +10,131 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.datadog.api.v1.client.model.MonitorSearchResponseCounts;
-import com.datadog.api.v1.client.model.MonitorSearchResponseMetadata;
-import com.datadog.api.v1.client.model.MonitorSearchResult;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * The response form a monitor search.
- */
+/** The response form a monitor search. */
 @ApiModel(description = "The response form a monitor search.")
-@JsonPropertyOrder(
-    {
-        MonitorSearchResponse.JSON_PROPERTY_COUNTS,
-        MonitorSearchResponse.JSON_PROPERTY_METADATA,
-        MonitorSearchResponse.JSON_PROPERTY_MONITORS
-    }
-)
+@JsonPropertyOrder({
+  MonitorSearchResponse.JSON_PROPERTY_COUNTS,
+  MonitorSearchResponse.JSON_PROPERTY_METADATA,
+  MonitorSearchResponse.JSON_PROPERTY_MONITORS
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MonitorSearchResponse {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_COUNTS = "counts";
+  private MonitorSearchResponseCounts counts;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_METADATA = "metadata";
+  private MonitorSearchResponseMetadata metadata;
 
-    public static final String JSON_PROPERTY_COUNTS = "counts";
-    private MonitorSearchResponseCounts counts;
+  public static final String JSON_PROPERTY_MONITORS = "monitors";
+  private List<MonitorSearchResult> monitors = null;
 
-    public static final String JSON_PROPERTY_METADATA = "metadata";
-    private MonitorSearchResponseMetadata metadata;
+  public MonitorSearchResponse counts(MonitorSearchResponseCounts counts) {
+    this.counts = counts;
+    this.unparsed |= counts.unparsed;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_MONITORS = "monitors";
-    private List<MonitorSearchResult> monitors = null;
+  /**
+   * Get counts
+   *
+   * @return counts
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_COUNTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public MonitorSearchResponseCounts getCounts() {
+    return counts;
+  }
 
-    public MonitorSearchResponse counts(MonitorSearchResponseCounts counts) {
-        this.counts = counts;
-        this.unparsed |= counts.unparsed;
-        return this;
+  public void setCounts(MonitorSearchResponseCounts counts) {
+    this.counts = counts;
+  }
+
+  public MonitorSearchResponse metadata(MonitorSearchResponseMetadata metadata) {
+    this.metadata = metadata;
+    this.unparsed |= metadata.unparsed;
+    return this;
+  }
+
+  /**
+   * Get metadata
+   *
+   * @return metadata
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public MonitorSearchResponseMetadata getMetadata() {
+    return metadata;
+  }
+
+  public void setMetadata(MonitorSearchResponseMetadata metadata) {
+    this.metadata = metadata;
+  }
+
+  /**
+   * The list of found monitors.
+   *
+   * @return monitors
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The list of found monitors.")
+  @JsonProperty(JSON_PROPERTY_MONITORS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<MonitorSearchResult> getMonitors() {
+    return monitors;
+  }
+
+  /** Return true if this MonitorSearchResponse object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * Get counts
-     * @return counts
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_COUNTS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public MonitorSearchResponseCounts getCounts() {
-        return counts;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    MonitorSearchResponse monitorSearchResponse = (MonitorSearchResponse) o;
+    return Objects.equals(this.counts, monitorSearchResponse.counts)
+        && Objects.equals(this.metadata, monitorSearchResponse.metadata)
+        && Objects.equals(this.monitors, monitorSearchResponse.monitors);
+  }
 
-    public void setCounts(MonitorSearchResponseCounts counts) {
-        this.counts = counts;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(counts, metadata, monitors);
+  }
 
-    public MonitorSearchResponse metadata(MonitorSearchResponseMetadata metadata) {
-        this.metadata = metadata;
-        this.unparsed |= metadata.unparsed;
-        return this;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class MonitorSearchResponse {\n");
+    sb.append("    counts: ").append(toIndentedString(counts)).append("\n");
+    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    monitors: ").append(toIndentedString(monitors)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Get metadata
-     * @return metadata
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_METADATA)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public MonitorSearchResponseMetadata getMetadata() {
-        return metadata;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    public void setMetadata(MonitorSearchResponseMetadata metadata) {
-        this.metadata = metadata;
-    }
-
-    /**
-     * The list of found monitors.
-     * @return monitors
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The list of found monitors.")
-    @JsonProperty(JSON_PROPERTY_MONITORS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<MonitorSearchResult> getMonitors() {
-        return monitors;
-    }
-
-    /**
-     * Return true if this MonitorSearchResponse object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        MonitorSearchResponse monitorSearchResponse = (MonitorSearchResponse) o;
-        return (
-            Objects.equals(this.counts, monitorSearchResponse.counts) &&
-            Objects.equals(this.metadata, monitorSearchResponse.metadata) &&
-            Objects.equals(this.monitors, monitorSearchResponse.monitors)
-        );
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(counts, metadata, monitors);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class MonitorSearchResponse {\n");
-        sb.append("    counts: ").append(toIndentedString(counts)).append("\n");
-        sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
-        sb.append("    monitors: ").append(toIndentedString(monitors)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

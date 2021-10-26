@@ -10,109 +10,93 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.datadog.api.v1.client.model.AWSAccount;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * List of enabled AWS accounts.
- */
+/** List of enabled AWS accounts. */
 @ApiModel(description = "List of enabled AWS accounts.")
-@JsonPropertyOrder({ AWSAccountListResponse.JSON_PROPERTY_ACCOUNTS })
+@JsonPropertyOrder({AWSAccountListResponse.JSON_PROPERTY_ACCOUNTS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AWSAccountListResponse {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ACCOUNTS = "accounts";
+  private List<AWSAccount> accounts = null;
 
-    @JsonIgnore
-    public boolean unparsed = false;
-
-    public static final String JSON_PROPERTY_ACCOUNTS = "accounts";
-    private List<AWSAccount> accounts = null;
-
-    public AWSAccountListResponse accounts(List<AWSAccount> accounts) {
-        this.accounts = accounts;
-        for (AWSAccount item : accounts) {
-            this.unparsed |= item.unparsed;
-        }
-        return this;
+  public AWSAccountListResponse accounts(List<AWSAccount> accounts) {
+    this.accounts = accounts;
+    for (AWSAccount item : accounts) {
+      this.unparsed |= item.unparsed;
     }
+    return this;
+  }
 
-    public AWSAccountListResponse addAccountsItem(AWSAccount accountsItem) {
-        if (this.accounts == null) {
-            this.accounts = new ArrayList<>();
-        }
-        this.accounts.add(accountsItem);
-        this.unparsed |= accountsItem.unparsed;
-        return this;
+  public AWSAccountListResponse addAccountsItem(AWSAccount accountsItem) {
+    if (this.accounts == null) {
+      this.accounts = new ArrayList<>();
     }
+    this.accounts.add(accountsItem);
+    this.unparsed |= accountsItem.unparsed;
+    return this;
+  }
 
-    /**
-     * List of enabled AWS accounts.
-     * @return accounts
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "List of enabled AWS accounts.")
-    @JsonProperty(JSON_PROPERTY_ACCOUNTS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<AWSAccount> getAccounts() {
-        return accounts;
-    }
+  /**
+   * List of enabled AWS accounts.
+   *
+   * @return accounts
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of enabled AWS accounts.")
+  @JsonProperty(JSON_PROPERTY_ACCOUNTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<AWSAccount> getAccounts() {
+    return accounts;
+  }
 
-    public void setAccounts(List<AWSAccount> accounts) {
-        this.accounts = accounts;
-    }
+  public void setAccounts(List<AWSAccount> accounts) {
+    this.accounts = accounts;
+  }
 
-    /**
-     * Return true if this AWSAccountListResponse object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        AWSAccountListResponse awSAccountListResponse = (AWSAccountListResponse) o;
-        return Objects.equals(this.accounts, awSAccountListResponse.accounts);
+  /** Return true if this AWSAccountListResponse object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    AWSAccountListResponse awSAccountListResponse = (AWSAccountListResponse) o;
+    return Objects.equals(this.accounts, awSAccountListResponse.accounts);
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(accounts);
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(accounts);
+  }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class AWSAccountListResponse {\n");
-        sb.append("    accounts: ").append(toIndentedString(accounts)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class AWSAccountListResponse {\n");
+    sb.append("    accounts: ").append(toIndentedString(accounts)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

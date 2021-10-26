@@ -10,94 +10,79 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Response from the delete monitor call.
- */
+/** Response from the delete monitor call. */
 @ApiModel(description = "Response from the delete monitor call.")
-@JsonPropertyOrder({ DeletedMonitor.JSON_PROPERTY_DELETED_MONITOR_ID })
+@JsonPropertyOrder({DeletedMonitor.JSON_PROPERTY_DELETED_MONITOR_ID})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DeletedMonitor {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DELETED_MONITOR_ID = "deleted_monitor_id";
+  private Long deletedMonitorId;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public DeletedMonitor deletedMonitorId(Long deletedMonitorId) {
+    this.deletedMonitorId = deletedMonitorId;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_DELETED_MONITOR_ID = "deleted_monitor_id";
-    private Long deletedMonitorId;
+  /**
+   * ID of the deleted monitor.
+   *
+   * @return deletedMonitorId
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "ID of the deleted monitor.")
+  @JsonProperty(JSON_PROPERTY_DELETED_MONITOR_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getDeletedMonitorId() {
+    return deletedMonitorId;
+  }
 
-    public DeletedMonitor deletedMonitorId(Long deletedMonitorId) {
-        this.deletedMonitorId = deletedMonitorId;
-        return this;
+  public void setDeletedMonitorId(Long deletedMonitorId) {
+    this.deletedMonitorId = deletedMonitorId;
+  }
+
+  /** Return true if this DeletedMonitor object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * ID of the deleted monitor.
-     * @return deletedMonitorId
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "ID of the deleted monitor.")
-    @JsonProperty(JSON_PROPERTY_DELETED_MONITOR_ID)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Long getDeletedMonitorId() {
-        return deletedMonitorId;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    DeletedMonitor deletedMonitor = (DeletedMonitor) o;
+    return Objects.equals(this.deletedMonitorId, deletedMonitor.deletedMonitorId);
+  }
 
-    public void setDeletedMonitorId(Long deletedMonitorId) {
-        this.deletedMonitorId = deletedMonitorId;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(deletedMonitorId);
+  }
 
-    /**
-     * Return true if this DeletedMonitor object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        DeletedMonitor deletedMonitor = (DeletedMonitor) o;
-        return Objects.equals(this.deletedMonitorId, deletedMonitor.deletedMonitorId);
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class DeletedMonitor {\n");
+    sb.append("    deletedMonitorId: ").append(toIndentedString(deletedMonitorId)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(deletedMonitorId);
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class DeletedMonitor {\n");
-        sb.append("    deletedMonitorId: ").append(toIndentedString(deletedMonitorId)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

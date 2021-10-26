@@ -10,156 +10,145 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Define computation for a log query.
- */
+/** Define computation for a log query. */
 @ApiModel(description = "Define computation for a log query.")
-@JsonPropertyOrder(
-    { LogsQueryCompute.JSON_PROPERTY_AGGREGATION, LogsQueryCompute.JSON_PROPERTY_FACET, LogsQueryCompute.JSON_PROPERTY_INTERVAL }
-)
+@JsonPropertyOrder({
+  LogsQueryCompute.JSON_PROPERTY_AGGREGATION,
+  LogsQueryCompute.JSON_PROPERTY_FACET,
+  LogsQueryCompute.JSON_PROPERTY_INTERVAL
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsQueryCompute {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
+  private String aggregation;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_FACET = "facet";
+  private String facet;
 
-    public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
-    private String aggregation;
+  public static final String JSON_PROPERTY_INTERVAL = "interval";
+  private Long interval;
 
-    public static final String JSON_PROPERTY_FACET = "facet";
-    private String facet;
+  public LogsQueryCompute() {}
 
-    public static final String JSON_PROPERTY_INTERVAL = "interval";
-    private Long interval;
+  @JsonCreator
+  public LogsQueryCompute(
+      @JsonProperty(required = true, value = JSON_PROPERTY_AGGREGATION) String aggregation) {
+    this.aggregation = aggregation;
+  }
 
-    public LogsQueryCompute() {}
+  public LogsQueryCompute aggregation(String aggregation) {
+    this.aggregation = aggregation;
+    return this;
+  }
 
-    @JsonCreator
-    public LogsQueryCompute(@JsonProperty(required = true, value = JSON_PROPERTY_AGGREGATION) String aggregation) {
-        this.aggregation = aggregation;
+  /**
+   * The aggregation method.
+   *
+   * @return aggregation
+   */
+  @ApiModelProperty(example = "avg", required = true, value = "The aggregation method.")
+  @JsonProperty(JSON_PROPERTY_AGGREGATION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getAggregation() {
+    return aggregation;
+  }
+
+  public void setAggregation(String aggregation) {
+    this.aggregation = aggregation;
+  }
+
+  public LogsQueryCompute facet(String facet) {
+    this.facet = facet;
+    return this;
+  }
+
+  /**
+   * Facet name.
+   *
+   * @return facet
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "@duration", value = "Facet name.")
+  @JsonProperty(JSON_PROPERTY_FACET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getFacet() {
+    return facet;
+  }
+
+  public void setFacet(String facet) {
+    this.facet = facet;
+  }
+
+  public LogsQueryCompute interval(Long interval) {
+    this.interval = interval;
+    return this;
+  }
+
+  /**
+   * Define a time interval in seconds.
+   *
+   * @return interval
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "5000", value = "Define a time interval in seconds.")
+  @JsonProperty(JSON_PROPERTY_INTERVAL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getInterval() {
+    return interval;
+  }
+
+  public void setInterval(Long interval) {
+    this.interval = interval;
+  }
+
+  /** Return true if this LogsQueryCompute object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    public LogsQueryCompute aggregation(String aggregation) {
-        this.aggregation = aggregation;
-        return this;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    LogsQueryCompute logsQueryCompute = (LogsQueryCompute) o;
+    return Objects.equals(this.aggregation, logsQueryCompute.aggregation)
+        && Objects.equals(this.facet, logsQueryCompute.facet)
+        && Objects.equals(this.interval, logsQueryCompute.interval);
+  }
 
-    /**
-     * The aggregation method.
-     * @return aggregation
-     **/
-    @ApiModelProperty(example = "avg", required = true, value = "The aggregation method.")
-    @JsonProperty(JSON_PROPERTY_AGGREGATION)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public String getAggregation() {
-        return aggregation;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(aggregation, facet, interval);
+  }
 
-    public void setAggregation(String aggregation) {
-        this.aggregation = aggregation;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class LogsQueryCompute {\n");
+    sb.append("    aggregation: ").append(toIndentedString(aggregation)).append("\n");
+    sb.append("    facet: ").append(toIndentedString(facet)).append("\n");
+    sb.append("    interval: ").append(toIndentedString(interval)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    public LogsQueryCompute facet(String facet) {
-        this.facet = facet;
-        return this;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    /**
-     * Facet name.
-     * @return facet
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "@duration", value = "Facet name.")
-    @JsonProperty(JSON_PROPERTY_FACET)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getFacet() {
-        return facet;
-    }
-
-    public void setFacet(String facet) {
-        this.facet = facet;
-    }
-
-    public LogsQueryCompute interval(Long interval) {
-        this.interval = interval;
-        return this;
-    }
-
-    /**
-     * Define a time interval in seconds.
-     * @return interval
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "5000", value = "Define a time interval in seconds.")
-    @JsonProperty(JSON_PROPERTY_INTERVAL)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Long getInterval() {
-        return interval;
-    }
-
-    public void setInterval(Long interval) {
-        this.interval = interval;
-    }
-
-    /**
-     * Return true if this LogsQueryCompute object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        LogsQueryCompute logsQueryCompute = (LogsQueryCompute) o;
-        return (
-            Objects.equals(this.aggregation, logsQueryCompute.aggregation) &&
-            Objects.equals(this.facet, logsQueryCompute.facet) &&
-            Objects.equals(this.interval, logsQueryCompute.interval)
-        );
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(aggregation, facet, interval);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class LogsQueryCompute {\n");
-        sb.append("    aggregation: ").append(toIndentedString(aggregation)).append("\n");
-        sb.append("    facet: ").append(toIndentedString(facet)).append("\n");
-        sb.append("    interval: ").append(toIndentedString(interval)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

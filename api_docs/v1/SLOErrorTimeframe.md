@@ -1,11 +1,17 @@
+
+
 # SLOErrorTimeframe
 
 ## Enum
 
-- `SEVEN_DAYS` (value: `"7d"`)
 
-- `THIRTY_DAYS` (value: `"30d"`)
+* `SEVEN_DAYS` (value: `"7d"`)
 
-- `NINETY_DAYS` (value: `"90d"`)
+* `THIRTY_DAYS` (value: `"30d"`)
 
-- `ALL` (value: `"all"`)
+* `NINETY_DAYS` (value: `"90d"`)
+
+* `ALL` (value: `"all"`)
+
+
+

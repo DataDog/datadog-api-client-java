@@ -10,96 +10,86 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
 /**
  * Subscription definition.
+ *
  * @deprecated
  */
 @Deprecated
 @ApiModel(description = "Subscription definition.")
-@JsonPropertyOrder({ OrganizationSubscription.JSON_PROPERTY_TYPE })
+@JsonPropertyOrder({OrganizationSubscription.JSON_PROPERTY_TYPE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class OrganizationSubscription {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private String type;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public OrganizationSubscription type(String type) {
+    this.type = type;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_TYPE = "type";
-    private String type;
+  /**
+   * The subscription type. Types available are &#x60;trial&#x60;, &#x60;free&#x60;, and
+   * &#x60;pro&#x60;.
+   *
+   * @return type
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value = "The subscription type. Types available are `trial`, `free`, and `pro`.")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getType() {
+    return type;
+  }
 
-    public OrganizationSubscription type(String type) {
-        this.type = type;
-        return this;
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  /** Return true if this OrganizationSubscription object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * The subscription type. Types available are &#x60;trial&#x60;, &#x60;free&#x60;, and &#x60;pro&#x60;.
-     * @return type
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The subscription type. Types available are `trial`, `free`, and `pro`.")
-    @JsonProperty(JSON_PROPERTY_TYPE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getType() {
-        return type;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    OrganizationSubscription organizationSubscription = (OrganizationSubscription) o;
+    return Objects.equals(this.type, organizationSubscription.type);
+  }
 
-    public void setType(String type) {
-        this.type = type;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(type);
+  }
 
-    /**
-     * Return true if this OrganizationSubscription object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        OrganizationSubscription organizationSubscription = (OrganizationSubscription) o;
-        return Objects.equals(this.type, organizationSubscription.type);
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class OrganizationSubscription {\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(type);
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class OrganizationSubscription {\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

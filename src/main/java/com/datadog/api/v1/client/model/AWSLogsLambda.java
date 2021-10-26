@@ -10,94 +10,79 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Description of the Lambdas.
- */
+/** Description of the Lambdas. */
 @ApiModel(description = "Description of the Lambdas.")
-@JsonPropertyOrder({ AWSLogsLambda.JSON_PROPERTY_ARN })
+@JsonPropertyOrder({AWSLogsLambda.JSON_PROPERTY_ARN})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AWSLogsLambda {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ARN = "arn";
+  private String arn;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public AWSLogsLambda arn(String arn) {
+    this.arn = arn;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_ARN = "arn";
-    private String arn;
+  /**
+   * Available ARN IDs.
+   *
+   * @return arn
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Available ARN IDs.")
+  @JsonProperty(JSON_PROPERTY_ARN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getArn() {
+    return arn;
+  }
 
-    public AWSLogsLambda arn(String arn) {
-        this.arn = arn;
-        return this;
+  public void setArn(String arn) {
+    this.arn = arn;
+  }
+
+  /** Return true if this AWSLogsLambda object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * Available ARN IDs.
-     * @return arn
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Available ARN IDs.")
-    @JsonProperty(JSON_PROPERTY_ARN)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getArn() {
-        return arn;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    AWSLogsLambda awSLogsLambda = (AWSLogsLambda) o;
+    return Objects.equals(this.arn, awSLogsLambda.arn);
+  }
 
-    public void setArn(String arn) {
-        this.arn = arn;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(arn);
+  }
 
-    /**
-     * Return true if this AWSLogsLambda object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        AWSLogsLambda awSLogsLambda = (AWSLogsLambda) o;
-        return Objects.equals(this.arn, awSLogsLambda.arn);
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class AWSLogsLambda {\n");
+    sb.append("    arn: ").append(toIndentedString(arn)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(arn);
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class AWSLogsLambda {\n");
-        sb.append("    arn: ").append(toIndentedString(arn)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

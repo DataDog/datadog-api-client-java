@@ -1,5 +1,11 @@
+
+
 # ListStreamResponseFormat
 
 ## Enum
 
-- `EVENT_LIST` (value: `"event_list"`)
+
+* `EVENT_LIST` (value: `"event_list"`)
+
+
+

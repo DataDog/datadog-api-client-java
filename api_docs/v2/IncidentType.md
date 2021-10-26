@@ -1,5 +1,11 @@
+
+
 # IncidentType
 
 ## Enum
 
-- `INCIDENTS` (value: `"incidents"`)
+
+* `INCIDENTS` (value: `"incidents"`)
+
+
+

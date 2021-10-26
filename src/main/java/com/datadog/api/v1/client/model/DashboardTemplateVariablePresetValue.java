@@ -10,122 +10,110 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Template variables saved views.
- */
+/** Template variables saved views. */
 @ApiModel(description = "Template variables saved views.")
-@JsonPropertyOrder({ DashboardTemplateVariablePresetValue.JSON_PROPERTY_NAME, DashboardTemplateVariablePresetValue.JSON_PROPERTY_VALUE })
+@JsonPropertyOrder({
+  DashboardTemplateVariablePresetValue.JSON_PROPERTY_NAME,
+  DashboardTemplateVariablePresetValue.JSON_PROPERTY_VALUE
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DashboardTemplateVariablePresetValue {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_VALUE = "value";
+  private String value;
 
-    public static final String JSON_PROPERTY_NAME = "name";
-    private String name;
+  public DashboardTemplateVariablePresetValue name(String name) {
+    this.name = name;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_VALUE = "value";
-    private String value;
+  /**
+   * The name of the variable.
+   *
+   * @return name
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The name of the variable.")
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
 
-    public DashboardTemplateVariablePresetValue name(String name) {
-        this.name = name;
-        return this;
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public DashboardTemplateVariablePresetValue value(String value) {
+    this.value = value;
+    return this;
+  }
+
+  /**
+   * The value of the template variable within the saved view.
+   *
+   * @return value
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The value of the template variable within the saved view.")
+  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getValue() {
+    return value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  /** Return true if this DashboardTemplateVariablePresetValue object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * The name of the variable.
-     * @return name
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The name of the variable.")
-    @JsonProperty(JSON_PROPERTY_NAME)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getName() {
-        return name;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    DashboardTemplateVariablePresetValue dashboardTemplateVariablePresetValue =
+        (DashboardTemplateVariablePresetValue) o;
+    return Objects.equals(this.name, dashboardTemplateVariablePresetValue.name)
+        && Objects.equals(this.value, dashboardTemplateVariablePresetValue.value);
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(name, value);
+  }
 
-    public DashboardTemplateVariablePresetValue value(String value) {
-        this.value = value;
-        return this;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class DashboardTemplateVariablePresetValue {\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * The value of the template variable within the saved view.
-     * @return value
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The value of the template variable within the saved view.")
-    @JsonProperty(JSON_PROPERTY_VALUE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getValue() {
-        return value;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    /**
-     * Return true if this DashboardTemplateVariablePresetValue object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        DashboardTemplateVariablePresetValue dashboardTemplateVariablePresetValue = (DashboardTemplateVariablePresetValue) o;
-        return (
-            Objects.equals(this.name, dashboardTemplateVariablePresetValue.name) &&
-            Objects.equals(this.value, dashboardTemplateVariablePresetValue.value)
-        );
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, value);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class DashboardTemplateVariablePresetValue {\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    value: ").append(toIndentedString(value)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

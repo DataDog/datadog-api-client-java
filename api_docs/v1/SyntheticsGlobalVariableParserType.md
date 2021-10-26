@@ -1,11 +1,17 @@
+
+
 # SyntheticsGlobalVariableParserType
 
 ## Enum
 
-- `RAW` (value: `"raw"`)
 
-- `JSON_PATH` (value: `"json_path"`)
+* `RAW` (value: `"raw"`)
 
-- `REGEX` (value: `"regex"`)
+* `JSON_PATH` (value: `"json_path"`)
 
-- `X_PATH` (value: `"x_path"`)
+* `REGEX` (value: `"regex"`)
+
+* `X_PATH` (value: `"x_path"`)
+
+
+

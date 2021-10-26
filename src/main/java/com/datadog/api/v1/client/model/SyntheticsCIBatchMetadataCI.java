@@ -10,122 +10,109 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Description of the CI provider.
- */
+/** Description of the CI provider. */
 @ApiModel(description = "Description of the CI provider.")
-@JsonPropertyOrder({ SyntheticsCIBatchMetadataCI.JSON_PROPERTY_PIPELINE, SyntheticsCIBatchMetadataCI.JSON_PROPERTY_PROVIDER })
+@JsonPropertyOrder({
+  SyntheticsCIBatchMetadataCI.JSON_PROPERTY_PIPELINE,
+  SyntheticsCIBatchMetadataCI.JSON_PROPERTY_PROVIDER
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsCIBatchMetadataCI {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_PIPELINE = "pipeline";
+  private String pipeline;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_PROVIDER = "provider";
+  private String provider;
 
-    public static final String JSON_PROPERTY_PIPELINE = "pipeline";
-    private String pipeline;
+  public SyntheticsCIBatchMetadataCI pipeline(String pipeline) {
+    this.pipeline = pipeline;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_PROVIDER = "provider";
-    private String provider;
+  /**
+   * Name of the pipeline.
+   *
+   * @return pipeline
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Name of the pipeline.")
+  @JsonProperty(JSON_PROPERTY_PIPELINE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPipeline() {
+    return pipeline;
+  }
 
-    public SyntheticsCIBatchMetadataCI pipeline(String pipeline) {
-        this.pipeline = pipeline;
-        return this;
+  public void setPipeline(String pipeline) {
+    this.pipeline = pipeline;
+  }
+
+  public SyntheticsCIBatchMetadataCI provider(String provider) {
+    this.provider = provider;
+    return this;
+  }
+
+  /**
+   * Name of the CI provider.
+   *
+   * @return provider
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Name of the CI provider.")
+  @JsonProperty(JSON_PROPERTY_PROVIDER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getProvider() {
+    return provider;
+  }
+
+  public void setProvider(String provider) {
+    this.provider = provider;
+  }
+
+  /** Return true if this SyntheticsCIBatchMetadataCI object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * Name of the pipeline.
-     * @return pipeline
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Name of the pipeline.")
-    @JsonProperty(JSON_PROPERTY_PIPELINE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getPipeline() {
-        return pipeline;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    SyntheticsCIBatchMetadataCI syntheticsCIBatchMetadataCI = (SyntheticsCIBatchMetadataCI) o;
+    return Objects.equals(this.pipeline, syntheticsCIBatchMetadataCI.pipeline)
+        && Objects.equals(this.provider, syntheticsCIBatchMetadataCI.provider);
+  }
 
-    public void setPipeline(String pipeline) {
-        this.pipeline = pipeline;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(pipeline, provider);
+  }
 
-    public SyntheticsCIBatchMetadataCI provider(String provider) {
-        this.provider = provider;
-        return this;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class SyntheticsCIBatchMetadataCI {\n");
+    sb.append("    pipeline: ").append(toIndentedString(pipeline)).append("\n");
+    sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Name of the CI provider.
-     * @return provider
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Name of the CI provider.")
-    @JsonProperty(JSON_PROPERTY_PROVIDER)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getProvider() {
-        return provider;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    public void setProvider(String provider) {
-        this.provider = provider;
-    }
-
-    /**
-     * Return true if this SyntheticsCIBatchMetadataCI object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        SyntheticsCIBatchMetadataCI syntheticsCIBatchMetadataCI = (SyntheticsCIBatchMetadataCI) o;
-        return (
-            Objects.equals(this.pipeline, syntheticsCIBatchMetadataCI.pipeline) &&
-            Objects.equals(this.provider, syntheticsCIBatchMetadataCI.provider)
-        );
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(pipeline, provider);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SyntheticsCIBatchMetadataCI {\n");
-        sb.append("    pipeline: ").append(toIndentedString(pipeline)).append("\n");
-        sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

@@ -10,107 +10,94 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Error response object.
- */
+/** Error response object. */
 @ApiModel(description = "Error response object.")
-@JsonPropertyOrder({ APIErrorResponse.JSON_PROPERTY_ERRORS })
+@JsonPropertyOrder({APIErrorResponse.JSON_PROPERTY_ERRORS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class APIErrorResponse {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ERRORS = "errors";
+  private List<String> errors = new ArrayList<>();
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public APIErrorResponse() {}
 
-    public static final String JSON_PROPERTY_ERRORS = "errors";
-    private List<String> errors = new ArrayList<>();
+  @JsonCreator
+  public APIErrorResponse(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ERRORS) List<String> errors) {
+    this.errors = errors;
+  }
 
-    public APIErrorResponse() {}
+  public APIErrorResponse errors(List<String> errors) {
+    this.errors = errors;
+    return this;
+  }
 
-    @JsonCreator
-    public APIErrorResponse(@JsonProperty(required = true, value = JSON_PROPERTY_ERRORS) List<String> errors) {
-        this.errors = errors;
+  public APIErrorResponse addErrorsItem(String errorsItem) {
+    this.errors.add(errorsItem);
+    return this;
+  }
+
+  /**
+   * Array of errors returned by the API.
+   *
+   * @return errors
+   */
+  @ApiModelProperty(required = true, value = "Array of errors returned by the API.")
+  @JsonProperty(JSON_PROPERTY_ERRORS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<String> getErrors() {
+    return errors;
+  }
+
+  public void setErrors(List<String> errors) {
+    this.errors = errors;
+  }
+
+  /** Return true if this APIErrorResponse object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    public APIErrorResponse errors(List<String> errors) {
-        this.errors = errors;
-        return this;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    APIErrorResponse apIErrorResponse = (APIErrorResponse) o;
+    return Objects.equals(this.errors, apIErrorResponse.errors);
+  }
 
-    public APIErrorResponse addErrorsItem(String errorsItem) {
-        this.errors.add(errorsItem);
-        return this;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(errors);
+  }
 
-    /**
-     * Array of errors returned by the API.
-     * @return errors
-     **/
-    @ApiModelProperty(required = true, value = "Array of errors returned by the API.")
-    @JsonProperty(JSON_PROPERTY_ERRORS)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public List<String> getErrors() {
-        return errors;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class APIErrorResponse {\n");
+    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    public void setErrors(List<String> errors) {
-        this.errors = errors;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    /**
-     * Return true if this APIErrorResponse object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        APIErrorResponse apIErrorResponse = (APIErrorResponse) o;
-        return Objects.equals(this.errors, apIErrorResponse.errors);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(errors);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class APIErrorResponse {\n");
-        sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

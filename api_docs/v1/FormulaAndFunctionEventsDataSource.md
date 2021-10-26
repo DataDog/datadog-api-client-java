@@ -1,19 +1,25 @@
+
+
 # FormulaAndFunctionEventsDataSource
 
 ## Enum
 
-- `LOGS` (value: `"logs"`)
 
-- `SPANS` (value: `"spans"`)
+* `LOGS` (value: `"logs"`)
 
-- `NETWORK` (value: `"network"`)
+* `SPANS` (value: `"spans"`)
 
-- `RUM` (value: `"rum"`)
+* `NETWORK` (value: `"network"`)
 
-- `SECURITY_SIGNALS` (value: `"security_signals"`)
+* `RUM` (value: `"rum"`)
 
-- `PROFILES` (value: `"profiles"`)
+* `SECURITY_SIGNALS` (value: `"security_signals"`)
 
-- `AUDIT` (value: `"audit"`)
+* `PROFILES` (value: `"profiles"`)
 
-- `EVENTS` (value: `"events"`)
+* `AUDIT` (value: `"audit"`)
+
+* `EVENTS` (value: `"events"`)
+
+
+

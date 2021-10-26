@@ -10,104 +10,97 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Cancel downtimes according to scope.
- */
+/** Cancel downtimes according to scope. */
 @ApiModel(description = "Cancel downtimes according to scope.")
-@JsonPropertyOrder({ CancelDowntimesByScopeRequest.JSON_PROPERTY_SCOPE })
+@JsonPropertyOrder({CancelDowntimesByScopeRequest.JSON_PROPERTY_SCOPE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CancelDowntimesByScopeRequest {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_SCOPE = "scope";
+  private String scope;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public CancelDowntimesByScopeRequest() {}
 
-    public static final String JSON_PROPERTY_SCOPE = "scope";
-    private String scope;
+  @JsonCreator
+  public CancelDowntimesByScopeRequest(
+      @JsonProperty(required = true, value = JSON_PROPERTY_SCOPE) String scope) {
+    this.scope = scope;
+  }
 
-    public CancelDowntimesByScopeRequest() {}
+  public CancelDowntimesByScopeRequest scope(String scope) {
+    this.scope = scope;
+    return this;
+  }
 
-    @JsonCreator
-    public CancelDowntimesByScopeRequest(@JsonProperty(required = true, value = JSON_PROPERTY_SCOPE) String scope) {
-        this.scope = scope;
+  /**
+   * The scope(s) to which the downtime applies. For example, &#x60;host:app2&#x60;. Provide
+   * multiple scopes as a comma-separated list like &#x60;env:dev,env:prod&#x60;. The resulting
+   * downtime applies to sources that matches ALL provided scopes (&#x60;env:dev&#x60; **AND**
+   * &#x60;env:prod&#x60;).
+   *
+   * @return scope
+   */
+  @ApiModelProperty(
+      example = "host:myserver",
+      required = true,
+      value =
+          "The scope(s) to which the downtime applies. For example, `host:app2`. Provide multiple"
+              + " scopes as a comma-separated list like `env:dev,env:prod`. The resulting downtime"
+              + " applies to sources that matches ALL provided scopes (`env:dev` **AND**"
+              + " `env:prod`).")
+  @JsonProperty(JSON_PROPERTY_SCOPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getScope() {
+    return scope;
+  }
+
+  public void setScope(String scope) {
+    this.scope = scope;
+  }
+
+  /** Return true if this CancelDowntimesByScopeRequest object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    public CancelDowntimesByScopeRequest scope(String scope) {
-        this.scope = scope;
-        return this;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    CancelDowntimesByScopeRequest cancelDowntimesByScopeRequest = (CancelDowntimesByScopeRequest) o;
+    return Objects.equals(this.scope, cancelDowntimesByScopeRequest.scope);
+  }
 
-    /**
-     * The scope(s) to which the downtime applies. For example, &#x60;host:app2&#x60;. Provide multiple scopes as a comma-separated list like &#x60;env:dev,env:prod&#x60;. The resulting downtime applies to sources that matches ALL provided scopes (&#x60;env:dev&#x60; **AND** &#x60;env:prod&#x60;).
-     * @return scope
-     **/
-    @ApiModelProperty(
-        example = "host:myserver",
-        required = true,
-        value = "The scope(s) to which the downtime applies. For example, `host:app2`. Provide multiple scopes as a comma-separated list like `env:dev,env:prod`. The resulting downtime applies to sources that matches ALL provided scopes (`env:dev` **AND** `env:prod`)."
-    )
-    @JsonProperty(JSON_PROPERTY_SCOPE)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public String getScope() {
-        return scope;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(scope);
+  }
 
-    public void setScope(String scope) {
-        this.scope = scope;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class CancelDowntimesByScopeRequest {\n");
+    sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Return true if this CancelDowntimesByScopeRequest object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        CancelDowntimesByScopeRequest cancelDowntimesByScopeRequest = (CancelDowntimesByScopeRequest) o;
-        return Objects.equals(this.scope, cancelDowntimesByScopeRequest.scope);
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(scope);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class CancelDowntimesByScopeRequest {\n");
-        sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

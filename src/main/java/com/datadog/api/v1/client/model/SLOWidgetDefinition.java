@@ -10,382 +10,385 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.datadog.api.v1.client.model.SLOWidgetDefinitionType;
-import com.datadog.api.v1.client.model.WidgetTextAlign;
-import com.datadog.api.v1.client.model.WidgetTimeWindows;
-import com.datadog.api.v1.client.model.WidgetViewMode;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
 /**
- * Use the SLO and uptime widget to track your SLOs (Service Level Objectives) and uptime on screenboards and timeboards.
+ * Use the SLO and uptime widget to track your SLOs (Service Level Objectives) and uptime on
+ * screenboards and timeboards.
  */
 @ApiModel(
-    description = "Use the SLO and uptime widget to track your SLOs (Service Level Objectives) and uptime on screenboards and timeboards."
-)
-@JsonPropertyOrder(
-    {
-        SLOWidgetDefinition.JSON_PROPERTY_GLOBAL_TIME_TARGET,
-        SLOWidgetDefinition.JSON_PROPERTY_SHOW_ERROR_BUDGET,
-        SLOWidgetDefinition.JSON_PROPERTY_SLO_ID,
-        SLOWidgetDefinition.JSON_PROPERTY_TIME_WINDOWS,
-        SLOWidgetDefinition.JSON_PROPERTY_TITLE,
-        SLOWidgetDefinition.JSON_PROPERTY_TITLE_ALIGN,
-        SLOWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
-        SLOWidgetDefinition.JSON_PROPERTY_TYPE,
-        SLOWidgetDefinition.JSON_PROPERTY_VIEW_MODE,
-        SLOWidgetDefinition.JSON_PROPERTY_VIEW_TYPE
-    }
-)
+    description =
+        "Use the SLO and uptime widget to track your SLOs (Service Level Objectives) and uptime on"
+            + " screenboards and timeboards.")
+@JsonPropertyOrder({
+  SLOWidgetDefinition.JSON_PROPERTY_GLOBAL_TIME_TARGET,
+  SLOWidgetDefinition.JSON_PROPERTY_SHOW_ERROR_BUDGET,
+  SLOWidgetDefinition.JSON_PROPERTY_SLO_ID,
+  SLOWidgetDefinition.JSON_PROPERTY_TIME_WINDOWS,
+  SLOWidgetDefinition.JSON_PROPERTY_TITLE,
+  SLOWidgetDefinition.JSON_PROPERTY_TITLE_ALIGN,
+  SLOWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
+  SLOWidgetDefinition.JSON_PROPERTY_TYPE,
+  SLOWidgetDefinition.JSON_PROPERTY_VIEW_MODE,
+  SLOWidgetDefinition.JSON_PROPERTY_VIEW_TYPE
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SLOWidgetDefinition {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_GLOBAL_TIME_TARGET = "global_time_target";
+  private String globalTimeTarget;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_SHOW_ERROR_BUDGET = "show_error_budget";
+  private Boolean showErrorBudget;
 
-    public static final String JSON_PROPERTY_GLOBAL_TIME_TARGET = "global_time_target";
-    private String globalTimeTarget;
+  public static final String JSON_PROPERTY_SLO_ID = "slo_id";
+  private String sloId;
 
-    public static final String JSON_PROPERTY_SHOW_ERROR_BUDGET = "show_error_budget";
-    private Boolean showErrorBudget;
+  public static final String JSON_PROPERTY_TIME_WINDOWS = "time_windows";
+  private List<WidgetTimeWindows> timeWindows = null;
 
-    public static final String JSON_PROPERTY_SLO_ID = "slo_id";
-    private String sloId;
+  public static final String JSON_PROPERTY_TITLE = "title";
+  private String title;
 
-    public static final String JSON_PROPERTY_TIME_WINDOWS = "time_windows";
-    private List<WidgetTimeWindows> timeWindows = null;
+  public static final String JSON_PROPERTY_TITLE_ALIGN = "title_align";
+  private WidgetTextAlign titleAlign;
 
-    public static final String JSON_PROPERTY_TITLE = "title";
-    private String title;
+  public static final String JSON_PROPERTY_TITLE_SIZE = "title_size";
+  private String titleSize;
 
-    public static final String JSON_PROPERTY_TITLE_ALIGN = "title_align";
-    private WidgetTextAlign titleAlign;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private SLOWidgetDefinitionType type = SLOWidgetDefinitionType.SLO;
 
-    public static final String JSON_PROPERTY_TITLE_SIZE = "title_size";
-    private String titleSize;
+  public static final String JSON_PROPERTY_VIEW_MODE = "view_mode";
+  private WidgetViewMode viewMode;
 
-    public static final String JSON_PROPERTY_TYPE = "type";
-    private SLOWidgetDefinitionType type = SLOWidgetDefinitionType.SLO;
+  public static final String JSON_PROPERTY_VIEW_TYPE = "view_type";
+  private String viewType = "detail";
 
-    public static final String JSON_PROPERTY_VIEW_MODE = "view_mode";
-    private WidgetViewMode viewMode;
+  public SLOWidgetDefinition() {}
 
-    public static final String JSON_PROPERTY_VIEW_TYPE = "view_type";
-    private String viewType = "detail";
+  @JsonCreator
+  public SLOWidgetDefinition(
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SLOWidgetDefinitionType type,
+      @JsonProperty(required = true, value = JSON_PROPERTY_VIEW_TYPE) String viewType) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    this.viewType = viewType;
+  }
 
-    public SLOWidgetDefinition() {}
+  public SLOWidgetDefinition globalTimeTarget(String globalTimeTarget) {
+    this.globalTimeTarget = globalTimeTarget;
+    return this;
+  }
 
-    @JsonCreator
-    public SLOWidgetDefinition(
-        @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SLOWidgetDefinitionType type,
-        @JsonProperty(required = true, value = JSON_PROPERTY_VIEW_TYPE) String viewType
-    ) {
-        this.type = type;
-        this.unparsed |= !type.isValid();
-        this.viewType = viewType;
+  /**
+   * Defined global time target.
+   *
+   * @return globalTimeTarget
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Defined global time target.")
+  @JsonProperty(JSON_PROPERTY_GLOBAL_TIME_TARGET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getGlobalTimeTarget() {
+    return globalTimeTarget;
+  }
+
+  public void setGlobalTimeTarget(String globalTimeTarget) {
+    this.globalTimeTarget = globalTimeTarget;
+  }
+
+  public SLOWidgetDefinition showErrorBudget(Boolean showErrorBudget) {
+    this.showErrorBudget = showErrorBudget;
+    return this;
+  }
+
+  /**
+   * Defined error budget.
+   *
+   * @return showErrorBudget
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Defined error budget.")
+  @JsonProperty(JSON_PROPERTY_SHOW_ERROR_BUDGET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getShowErrorBudget() {
+    return showErrorBudget;
+  }
+
+  public void setShowErrorBudget(Boolean showErrorBudget) {
+    this.showErrorBudget = showErrorBudget;
+  }
+
+  public SLOWidgetDefinition sloId(String sloId) {
+    this.sloId = sloId;
+    return this;
+  }
+
+  /**
+   * ID of the SLO displayed.
+   *
+   * @return sloId
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "ID of the SLO displayed.")
+  @JsonProperty(JSON_PROPERTY_SLO_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSloId() {
+    return sloId;
+  }
+
+  public void setSloId(String sloId) {
+    this.sloId = sloId;
+  }
+
+  public SLOWidgetDefinition timeWindows(List<WidgetTimeWindows> timeWindows) {
+    this.timeWindows = timeWindows;
+    return this;
+  }
+
+  public SLOWidgetDefinition addTimeWindowsItem(WidgetTimeWindows timeWindowsItem) {
+    if (this.timeWindows == null) {
+      this.timeWindows = new ArrayList<>();
     }
+    this.timeWindows.add(timeWindowsItem);
+    this.unparsed |= !timeWindowsItem.isValid();
+    return this;
+  }
 
-    public SLOWidgetDefinition globalTimeTarget(String globalTimeTarget) {
-        this.globalTimeTarget = globalTimeTarget;
-        return this;
-    }
+  /**
+   * Times being monitored.
+   *
+   * @return timeWindows
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Times being monitored.")
+  @JsonProperty(JSON_PROPERTY_TIME_WINDOWS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<WidgetTimeWindows> getTimeWindows() {
+    return timeWindows;
+  }
 
-    /**
-     * Defined global time target.
-     * @return globalTimeTarget
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Defined global time target.")
-    @JsonProperty(JSON_PROPERTY_GLOBAL_TIME_TARGET)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getGlobalTimeTarget() {
-        return globalTimeTarget;
-    }
+  public void setTimeWindows(List<WidgetTimeWindows> timeWindows) {
+    this.timeWindows = timeWindows;
+  }
 
-    public void setGlobalTimeTarget(String globalTimeTarget) {
-        this.globalTimeTarget = globalTimeTarget;
-    }
+  public SLOWidgetDefinition title(String title) {
+    this.title = title;
+    return this;
+  }
 
-    public SLOWidgetDefinition showErrorBudget(Boolean showErrorBudget) {
-        this.showErrorBudget = showErrorBudget;
-        return this;
-    }
+  /**
+   * Title of the widget.
+   *
+   * @return title
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Title of the widget.")
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTitle() {
+    return title;
+  }
 
-    /**
-     * Defined error budget.
-     * @return showErrorBudget
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Defined error budget.")
-    @JsonProperty(JSON_PROPERTY_SHOW_ERROR_BUDGET)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Boolean getShowErrorBudget() {
-        return showErrorBudget;
-    }
+  public void setTitle(String title) {
+    this.title = title;
+  }
 
-    public void setShowErrorBudget(Boolean showErrorBudget) {
-        this.showErrorBudget = showErrorBudget;
-    }
+  public SLOWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
+    this.titleAlign = titleAlign;
+    this.unparsed |= !titleAlign.isValid();
+    return this;
+  }
 
-    public SLOWidgetDefinition sloId(String sloId) {
-        this.sloId = sloId;
-        return this;
-    }
+  /**
+   * Get titleAlign
+   *
+   * @return titleAlign
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetTextAlign getTitleAlign() {
+    return titleAlign;
+  }
 
-    /**
-     * ID of the SLO displayed.
-     * @return sloId
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "ID of the SLO displayed.")
-    @JsonProperty(JSON_PROPERTY_SLO_ID)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getSloId() {
-        return sloId;
+  public void setTitleAlign(WidgetTextAlign titleAlign) {
+    if (!titleAlign.isValid()) {
+      this.unparsed = true;
     }
+    this.titleAlign = titleAlign;
+  }
 
-    public void setSloId(String sloId) {
-        this.sloId = sloId;
-    }
+  public SLOWidgetDefinition titleSize(String titleSize) {
+    this.titleSize = titleSize;
+    return this;
+  }
 
-    public SLOWidgetDefinition timeWindows(List<WidgetTimeWindows> timeWindows) {
-        this.timeWindows = timeWindows;
-        return this;
-    }
+  /**
+   * Size of the title.
+   *
+   * @return titleSize
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Size of the title.")
+  @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTitleSize() {
+    return titleSize;
+  }
 
-    public SLOWidgetDefinition addTimeWindowsItem(WidgetTimeWindows timeWindowsItem) {
-        if (this.timeWindows == null) {
-            this.timeWindows = new ArrayList<>();
-        }
-        this.timeWindows.add(timeWindowsItem);
-        this.unparsed |= !timeWindowsItem.isValid();
-        return this;
-    }
+  public void setTitleSize(String titleSize) {
+    this.titleSize = titleSize;
+  }
 
-    /**
-     * Times being monitored.
-     * @return timeWindows
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Times being monitored.")
-    @JsonProperty(JSON_PROPERTY_TIME_WINDOWS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<WidgetTimeWindows> getTimeWindows() {
-        return timeWindows;
-    }
+  public SLOWidgetDefinition type(SLOWidgetDefinitionType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    return this;
+  }
 
-    public void setTimeWindows(List<WidgetTimeWindows> timeWindows) {
-        this.timeWindows = timeWindows;
-    }
+  /**
+   * Get type
+   *
+   * @return type
+   */
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public SLOWidgetDefinitionType getType() {
+    return type;
+  }
 
-    public SLOWidgetDefinition title(String title) {
-        this.title = title;
-        return this;
+  public void setType(SLOWidgetDefinitionType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
     }
+    this.type = type;
+  }
 
-    /**
-     * Title of the widget.
-     * @return title
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Title of the widget.")
-    @JsonProperty(JSON_PROPERTY_TITLE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getTitle() {
-        return title;
-    }
+  public SLOWidgetDefinition viewMode(WidgetViewMode viewMode) {
+    this.viewMode = viewMode;
+    this.unparsed |= !viewMode.isValid();
+    return this;
+  }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+  /**
+   * Get viewMode
+   *
+   * @return viewMode
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_VIEW_MODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetViewMode getViewMode() {
+    return viewMode;
+  }
 
-    public SLOWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
-        this.titleAlign = titleAlign;
-        this.unparsed |= !titleAlign.isValid();
-        return this;
+  public void setViewMode(WidgetViewMode viewMode) {
+    if (!viewMode.isValid()) {
+      this.unparsed = true;
     }
+    this.viewMode = viewMode;
+  }
 
-    /**
-     * Get titleAlign
-     * @return titleAlign
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public WidgetTextAlign getTitleAlign() {
-        return titleAlign;
-    }
+  public SLOWidgetDefinition viewType(String viewType) {
+    this.viewType = viewType;
+    return this;
+  }
 
-    public void setTitleAlign(WidgetTextAlign titleAlign) {
-        if (!titleAlign.isValid()) {
-            this.unparsed = true;
-        }
-        this.titleAlign = titleAlign;
-    }
+  /**
+   * Type of view displayed by the widget.
+   *
+   * @return viewType
+   */
+  @ApiModelProperty(
+      example = "detail",
+      required = true,
+      value = "Type of view displayed by the widget.")
+  @JsonProperty(JSON_PROPERTY_VIEW_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getViewType() {
+    return viewType;
+  }
 
-    public SLOWidgetDefinition titleSize(String titleSize) {
-        this.titleSize = titleSize;
-        return this;
-    }
+  public void setViewType(String viewType) {
+    this.viewType = viewType;
+  }
 
-    /**
-     * Size of the title.
-     * @return titleSize
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Size of the title.")
-    @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getTitleSize() {
-        return titleSize;
+  /** Return true if this SLOWidgetDefinition object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    SLOWidgetDefinition slOWidgetDefinition = (SLOWidgetDefinition) o;
+    return Objects.equals(this.globalTimeTarget, slOWidgetDefinition.globalTimeTarget)
+        && Objects.equals(this.showErrorBudget, slOWidgetDefinition.showErrorBudget)
+        && Objects.equals(this.sloId, slOWidgetDefinition.sloId)
+        && Objects.equals(this.timeWindows, slOWidgetDefinition.timeWindows)
+        && Objects.equals(this.title, slOWidgetDefinition.title)
+        && Objects.equals(this.titleAlign, slOWidgetDefinition.titleAlign)
+        && Objects.equals(this.titleSize, slOWidgetDefinition.titleSize)
+        && Objects.equals(this.type, slOWidgetDefinition.type)
+        && Objects.equals(this.viewMode, slOWidgetDefinition.viewMode)
+        && Objects.equals(this.viewType, slOWidgetDefinition.viewType);
+  }
 
-    public void setTitleSize(String titleSize) {
-        this.titleSize = titleSize;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(
+        globalTimeTarget,
+        showErrorBudget,
+        sloId,
+        timeWindows,
+        title,
+        titleAlign,
+        titleSize,
+        type,
+        viewMode,
+        viewType);
+  }
 
-    public SLOWidgetDefinition type(SLOWidgetDefinitionType type) {
-        this.type = type;
-        this.unparsed |= !type.isValid();
-        return this;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class SLOWidgetDefinition {\n");
+    sb.append("    globalTimeTarget: ").append(toIndentedString(globalTimeTarget)).append("\n");
+    sb.append("    showErrorBudget: ").append(toIndentedString(showErrorBudget)).append("\n");
+    sb.append("    sloId: ").append(toIndentedString(sloId)).append("\n");
+    sb.append("    timeWindows: ").append(toIndentedString(timeWindows)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    titleAlign: ").append(toIndentedString(titleAlign)).append("\n");
+    sb.append("    titleSize: ").append(toIndentedString(titleSize)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    viewMode: ").append(toIndentedString(viewMode)).append("\n");
+    sb.append("    viewType: ").append(toIndentedString(viewType)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Get type
-     * @return type
-     **/
-    @ApiModelProperty(required = true, value = "")
-    @JsonProperty(JSON_PROPERTY_TYPE)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public SLOWidgetDefinitionType getType() {
-        return type;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    public void setType(SLOWidgetDefinitionType type) {
-        if (!type.isValid()) {
-            this.unparsed = true;
-        }
-        this.type = type;
-    }
-
-    public SLOWidgetDefinition viewMode(WidgetViewMode viewMode) {
-        this.viewMode = viewMode;
-        this.unparsed |= !viewMode.isValid();
-        return this;
-    }
-
-    /**
-     * Get viewMode
-     * @return viewMode
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_VIEW_MODE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public WidgetViewMode getViewMode() {
-        return viewMode;
-    }
-
-    public void setViewMode(WidgetViewMode viewMode) {
-        if (!viewMode.isValid()) {
-            this.unparsed = true;
-        }
-        this.viewMode = viewMode;
-    }
-
-    public SLOWidgetDefinition viewType(String viewType) {
-        this.viewType = viewType;
-        return this;
-    }
-
-    /**
-     * Type of view displayed by the widget.
-     * @return viewType
-     **/
-    @ApiModelProperty(example = "detail", required = true, value = "Type of view displayed by the widget.")
-    @JsonProperty(JSON_PROPERTY_VIEW_TYPE)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public String getViewType() {
-        return viewType;
-    }
-
-    public void setViewType(String viewType) {
-        this.viewType = viewType;
-    }
-
-    /**
-     * Return true if this SLOWidgetDefinition object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        SLOWidgetDefinition slOWidgetDefinition = (SLOWidgetDefinition) o;
-        return (
-            Objects.equals(this.globalTimeTarget, slOWidgetDefinition.globalTimeTarget) &&
-            Objects.equals(this.showErrorBudget, slOWidgetDefinition.showErrorBudget) &&
-            Objects.equals(this.sloId, slOWidgetDefinition.sloId) &&
-            Objects.equals(this.timeWindows, slOWidgetDefinition.timeWindows) &&
-            Objects.equals(this.title, slOWidgetDefinition.title) &&
-            Objects.equals(this.titleAlign, slOWidgetDefinition.titleAlign) &&
-            Objects.equals(this.titleSize, slOWidgetDefinition.titleSize) &&
-            Objects.equals(this.type, slOWidgetDefinition.type) &&
-            Objects.equals(this.viewMode, slOWidgetDefinition.viewMode) &&
-            Objects.equals(this.viewType, slOWidgetDefinition.viewType)
-        );
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(globalTimeTarget, showErrorBudget, sloId, timeWindows, title, titleAlign, titleSize, type, viewMode, viewType);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SLOWidgetDefinition {\n");
-        sb.append("    globalTimeTarget: ").append(toIndentedString(globalTimeTarget)).append("\n");
-        sb.append("    showErrorBudget: ").append(toIndentedString(showErrorBudget)).append("\n");
-        sb.append("    sloId: ").append(toIndentedString(sloId)).append("\n");
-        sb.append("    timeWindows: ").append(toIndentedString(timeWindows)).append("\n");
-        sb.append("    title: ").append(toIndentedString(title)).append("\n");
-        sb.append("    titleAlign: ").append(toIndentedString(titleAlign)).append("\n");
-        sb.append("    titleSize: ").append(toIndentedString(titleSize)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("    viewMode: ").append(toIndentedString(viewMode)).append("\n");
-        sb.append("    viewType: ").append(toIndentedString(viewType)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

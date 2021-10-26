@@ -17,99 +17,99 @@ import org.junit.Test;
 /** API tests for NotebooksApi */
 public class NotebooksApiTest {
 
-    private final NotebooksApi api = new NotebooksApi();
+  private final NotebooksApi api = new NotebooksApi();
 
-    /**
-     * Create a notebook
-     *
-     * <p>Create a notebook using the specified options.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void createNotebookTest() throws ApiException {
-        // NotebookCreateRequest body = null;
-        // NotebookResponse response = api.createNotebook()
-        //        .body(body)
-        //        .execute();
-        // TODO: test validations
-    }
+  /**
+   * Create a notebook
+   *
+   * <p>Create a notebook using the specified options.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void createNotebookTest() throws ApiException {
+    // NotebookCreateRequest body = null;
+    // NotebookResponse response = api.createNotebook()
+    //        .body(body)
+    //        .execute();
+    // TODO: test validations
+  }
 
-    /**
-     * Delete a notebook
-     *
-     * <p>Delete a notebook using the specified ID.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void deleteNotebookTest() throws ApiException {
-        // Long notebookId = null;
-        // api.deleteNotebook(notebookId)
-        //        .execute();
-        // TODO: test validations
-    }
+  /**
+   * Delete a notebook
+   *
+   * <p>Delete a notebook using the specified ID.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void deleteNotebookTest() throws ApiException {
+    // Long notebookId = null;
+    // api.deleteNotebook(notebookId)
+    //        .execute();
+    // TODO: test validations
+  }
 
-    /**
-     * Get a notebook
-     *
-     * <p>Get a notebook using the specified notebook ID.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getNotebookTest() throws ApiException {
-        // Long notebookId = null;
-        // NotebookResponse response = api.getNotebook(notebookId)
-        //        .execute();
-        // TODO: test validations
-    }
+  /**
+   * Get a notebook
+   *
+   * <p>Get a notebook using the specified notebook ID.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void getNotebookTest() throws ApiException {
+    // Long notebookId = null;
+    // NotebookResponse response = api.getNotebook(notebookId)
+    //        .execute();
+    // TODO: test validations
+  }
 
-    /**
-     * Get all notebooks
-     *
-     * <p>Get all notebooks. This can also be used to search for notebooks with a particular
-     * &#x60;query&#x60; in the notebook &#x60;name&#x60; or author &#x60;handle&#x60;.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void listNotebooksTest() throws ApiException {
-        // String authorHandle = null;
-        // String excludeAuthorHandle = null;
-        // Long start = null;
-        // Long count = null;
-        // String sortField = null;
-        // String sortDir = null;
-        // String query = null;
-        // Boolean includeCells = null;
-        // NotebooksResponse response = api.listNotebooks()
-        //        .authorHandle(authorHandle)
-        //        .excludeAuthorHandle(excludeAuthorHandle)
-        //        .start(start)
-        //        .count(count)
-        //        .sortField(sortField)
-        //        .sortDir(sortDir)
-        //        .query(query)
-        //        .includeCells(includeCells)
-        //        .execute();
-        // TODO: test validations
-    }
+  /**
+   * Get all notebooks
+   *
+   * <p>Get all notebooks. This can also be used to search for notebooks with a particular
+   * &#x60;query&#x60; in the notebook &#x60;name&#x60; or author &#x60;handle&#x60;.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void listNotebooksTest() throws ApiException {
+    // String authorHandle = null;
+    // String excludeAuthorHandle = null;
+    // Long start = null;
+    // Long count = null;
+    // String sortField = null;
+    // String sortDir = null;
+    // String query = null;
+    // Boolean includeCells = null;
+    // NotebooksResponse response = api.listNotebooks()
+    //        .authorHandle(authorHandle)
+    //        .excludeAuthorHandle(excludeAuthorHandle)
+    //        .start(start)
+    //        .count(count)
+    //        .sortField(sortField)
+    //        .sortDir(sortDir)
+    //        .query(query)
+    //        .includeCells(includeCells)
+    //        .execute();
+    // TODO: test validations
+  }
 
-    /**
-     * Update a notebook
-     *
-     * <p>Update a notebook using the specified ID.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void updateNotebookTest() throws ApiException {
-        // Long notebookId = null;
-        // NotebookUpdateRequest body = null;
-        // NotebookResponse response = api.updateNotebook(notebookId)
-        //        .body(body)
-        //        .execute();
-        // TODO: test validations
-    }
+  /**
+   * Update a notebook
+   *
+   * <p>Update a notebook using the specified ID.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void updateNotebookTest() throws ApiException {
+    // Long notebookId = null;
+    // NotebookUpdateRequest body = null;
+    // NotebookResponse response = api.updateNotebook(notebookId)
+    //        .body(body)
+    //        .execute();
+    // TODO: test validations
+  }
 }

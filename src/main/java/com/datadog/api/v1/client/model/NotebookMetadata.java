@@ -10,171 +10,156 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.datadog.api.v1.client.model.NotebookMetadataType;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.NoSuchElementException;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.jackson.nullable.JsonNullable;
 
-/**
- * Metadata associated with the notebook.
- */
+/** Metadata associated with the notebook. */
 @ApiModel(description = "Metadata associated with the notebook.")
-@JsonPropertyOrder(
-    { NotebookMetadata.JSON_PROPERTY_IS_TEMPLATE, NotebookMetadata.JSON_PROPERTY_TAKE_SNAPSHOTS, NotebookMetadata.JSON_PROPERTY_TYPE }
-)
+@JsonPropertyOrder({
+  NotebookMetadata.JSON_PROPERTY_IS_TEMPLATE,
+  NotebookMetadata.JSON_PROPERTY_TAKE_SNAPSHOTS,
+  NotebookMetadata.JSON_PROPERTY_TYPE
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class NotebookMetadata {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_IS_TEMPLATE = "is_template";
+  private Boolean isTemplate = false;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_TAKE_SNAPSHOTS = "take_snapshots";
+  private Boolean takeSnapshots = false;
 
-    public static final String JSON_PROPERTY_IS_TEMPLATE = "is_template";
-    private Boolean isTemplate = false;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private JsonNullable<NotebookMetadataType> type = JsonNullable.<NotebookMetadataType>of(null);
 
-    public static final String JSON_PROPERTY_TAKE_SNAPSHOTS = "take_snapshots";
-    private Boolean takeSnapshots = false;
+  public NotebookMetadata isTemplate(Boolean isTemplate) {
+    this.isTemplate = isTemplate;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_TYPE = "type";
-    private JsonNullable<NotebookMetadataType> type = JsonNullable.<NotebookMetadataType>of(null);
+  /**
+   * Whether or not the notebook is a template.
+   *
+   * @return isTemplate
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "false", value = "Whether or not the notebook is a template.")
+  @JsonProperty(JSON_PROPERTY_IS_TEMPLATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getIsTemplate() {
+    return isTemplate;
+  }
 
-    public NotebookMetadata isTemplate(Boolean isTemplate) {
-        this.isTemplate = isTemplate;
-        return this;
+  public void setIsTemplate(Boolean isTemplate) {
+    this.isTemplate = isTemplate;
+  }
+
+  public NotebookMetadata takeSnapshots(Boolean takeSnapshots) {
+    this.takeSnapshots = takeSnapshots;
+    return this;
+  }
+
+  /**
+   * Whether or not the notebook takes snapshot image backups of the notebook&#39;s fixed-time
+   * graphs.
+   *
+   * @return takeSnapshots
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      example = "false",
+      value =
+          "Whether or not the notebook takes snapshot image backups of the notebook's fixed-time"
+              + " graphs.")
+  @JsonProperty(JSON_PROPERTY_TAKE_SNAPSHOTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getTakeSnapshots() {
+    return takeSnapshots;
+  }
+
+  public void setTakeSnapshots(Boolean takeSnapshots) {
+    this.takeSnapshots = takeSnapshots;
+  }
+
+  public NotebookMetadata type(NotebookMetadataType type) {
+    this.type = JsonNullable.<NotebookMetadataType>of(type);
+    return this;
+  }
+
+  /**
+   * Get type
+   *
+   * @return type
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonIgnore
+  public NotebookMetadataType getType() {
+    return type.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<NotebookMetadataType> getType_JsonNullable() {
+    return type;
+  }
+
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  public void setType_JsonNullable(JsonNullable<NotebookMetadataType> type) {
+    this.type = type;
+  }
+
+  public void setType(NotebookMetadataType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
     }
+    this.type = JsonNullable.<NotebookMetadataType>of(type);
+  }
 
-    /**
-     * Whether or not the notebook is a template.
-     * @return isTemplate
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "false", value = "Whether or not the notebook is a template.")
-    @JsonProperty(JSON_PROPERTY_IS_TEMPLATE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Boolean getIsTemplate() {
-        return isTemplate;
+  /** Return true if this NotebookMetadata object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    NotebookMetadata notebookMetadata = (NotebookMetadata) o;
+    return Objects.equals(this.isTemplate, notebookMetadata.isTemplate)
+        && Objects.equals(this.takeSnapshots, notebookMetadata.takeSnapshots)
+        && Objects.equals(this.type, notebookMetadata.type);
+  }
 
-    public void setIsTemplate(Boolean isTemplate) {
-        this.isTemplate = isTemplate;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(isTemplate, takeSnapshots, type);
+  }
 
-    public NotebookMetadata takeSnapshots(Boolean takeSnapshots) {
-        this.takeSnapshots = takeSnapshots;
-        return this;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class NotebookMetadata {\n");
+    sb.append("    isTemplate: ").append(toIndentedString(isTemplate)).append("\n");
+    sb.append("    takeSnapshots: ").append(toIndentedString(takeSnapshots)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Whether or not the notebook takes snapshot image backups of the notebook&#39;s fixed-time graphs.
-     * @return takeSnapshots
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(
-        example = "false",
-        value = "Whether or not the notebook takes snapshot image backups of the notebook's fixed-time graphs."
-    )
-    @JsonProperty(JSON_PROPERTY_TAKE_SNAPSHOTS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Boolean getTakeSnapshots() {
-        return takeSnapshots;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    public void setTakeSnapshots(Boolean takeSnapshots) {
-        this.takeSnapshots = takeSnapshots;
-    }
-
-    public NotebookMetadata type(NotebookMetadataType type) {
-        this.type = JsonNullable.<NotebookMetadataType>of(type);
-        return this;
-    }
-
-    /**
-     * Get type
-     * @return type
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonIgnore
-    public NotebookMetadataType getType() {
-        return type.orElse(null);
-    }
-
-    @JsonProperty(JSON_PROPERTY_TYPE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public JsonNullable<NotebookMetadataType> getType_JsonNullable() {
-        return type;
-    }
-
-    @JsonProperty(JSON_PROPERTY_TYPE)
-    public void setType_JsonNullable(JsonNullable<NotebookMetadataType> type) {
-        this.type = type;
-    }
-
-    public void setType(NotebookMetadataType type) {
-        if (!type.isValid()) {
-            this.unparsed = true;
-        }
-        this.type = JsonNullable.<NotebookMetadataType>of(type);
-    }
-
-    /**
-     * Return true if this NotebookMetadata object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        NotebookMetadata notebookMetadata = (NotebookMetadata) o;
-        return (
-            Objects.equals(this.isTemplate, notebookMetadata.isTemplate) &&
-            Objects.equals(this.takeSnapshots, notebookMetadata.takeSnapshots) &&
-            Objects.equals(this.type, notebookMetadata.type)
-        );
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(isTemplate, takeSnapshots, type);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class NotebookMetadata {\n");
-        sb.append("    isTemplate: ").append(toIndentedString(isTemplate)).append("\n");
-        sb.append("    takeSnapshots: ").append(toIndentedString(takeSnapshots)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

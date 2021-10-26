@@ -10,176 +10,165 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.datadog.api.v1.client.model.AWSLogsLambda;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * A list of all Datadog-AWS logs integrations available in your Datadog organization.
- */
-@ApiModel(description = "A list of all Datadog-AWS logs integrations available in your Datadog organization.")
-@JsonPropertyOrder(
-    { AWSLogsListResponse.JSON_PROPERTY_ACCOUNT_ID, AWSLogsListResponse.JSON_PROPERTY_LAMBDAS, AWSLogsListResponse.JSON_PROPERTY_SERVICES }
-)
+/** A list of all Datadog-AWS logs integrations available in your Datadog organization. */
+@ApiModel(
+    description =
+        "A list of all Datadog-AWS logs integrations available in your Datadog organization.")
+@JsonPropertyOrder({
+  AWSLogsListResponse.JSON_PROPERTY_ACCOUNT_ID,
+  AWSLogsListResponse.JSON_PROPERTY_LAMBDAS,
+  AWSLogsListResponse.JSON_PROPERTY_SERVICES
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AWSLogsListResponse {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
+  private String accountId;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_LAMBDAS = "lambdas";
+  private List<AWSLogsLambda> lambdas = null;
 
-    public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
-    private String accountId;
+  public static final String JSON_PROPERTY_SERVICES = "services";
+  private List<String> services = null;
 
-    public static final String JSON_PROPERTY_LAMBDAS = "lambdas";
-    private List<AWSLogsLambda> lambdas = null;
+  public AWSLogsListResponse accountId(String accountId) {
+    this.accountId = accountId;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_SERVICES = "services";
-    private List<String> services = null;
+  /**
+   * Your AWS Account ID without dashes.
+   *
+   * @return accountId
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "1234567", value = "Your AWS Account ID without dashes.")
+  @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAccountId() {
+    return accountId;
+  }
 
-    public AWSLogsListResponse accountId(String accountId) {
-        this.accountId = accountId;
-        return this;
+  public void setAccountId(String accountId) {
+    this.accountId = accountId;
+  }
+
+  public AWSLogsListResponse lambdas(List<AWSLogsLambda> lambdas) {
+    this.lambdas = lambdas;
+    for (AWSLogsLambda item : lambdas) {
+      this.unparsed |= item.unparsed;
     }
+    return this;
+  }
 
-    /**
-     * Your AWS Account ID without dashes.
-     * @return accountId
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "1234567", value = "Your AWS Account ID without dashes.")
-    @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getAccountId() {
-        return accountId;
+  public AWSLogsListResponse addLambdasItem(AWSLogsLambda lambdasItem) {
+    if (this.lambdas == null) {
+      this.lambdas = new ArrayList<>();
     }
+    this.lambdas.add(lambdasItem);
+    this.unparsed |= lambdasItem.unparsed;
+    return this;
+  }
 
-    public void setAccountId(String accountId) {
-        this.accountId = accountId;
-    }
+  /**
+   * List of ARNs configured in your Datadog account.
+   *
+   * @return lambdas
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      example = "[{\"arn\":\"arn:aws:lambda:us-east-1:1234567:function:LogsCollectionAPITest\"}]",
+      value = "List of ARNs configured in your Datadog account.")
+  @JsonProperty(JSON_PROPERTY_LAMBDAS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<AWSLogsLambda> getLambdas() {
+    return lambdas;
+  }
 
-    public AWSLogsListResponse lambdas(List<AWSLogsLambda> lambdas) {
-        this.lambdas = lambdas;
-        for (AWSLogsLambda item : lambdas) {
-            this.unparsed |= item.unparsed;
-        }
-        return this;
-    }
+  public void setLambdas(List<AWSLogsLambda> lambdas) {
+    this.lambdas = lambdas;
+  }
 
-    public AWSLogsListResponse addLambdasItem(AWSLogsLambda lambdasItem) {
-        if (this.lambdas == null) {
-            this.lambdas = new ArrayList<>();
-        }
-        this.lambdas.add(lambdasItem);
-        this.unparsed |= lambdasItem.unparsed;
-        return this;
-    }
+  public AWSLogsListResponse services(List<String> services) {
+    this.services = services;
+    return this;
+  }
 
-    /**
-     * List of ARNs configured in your Datadog account.
-     * @return lambdas
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(
-        example = "[{\"arn\":\"arn:aws:lambda:us-east-1:1234567:function:LogsCollectionAPITest\"}]",
-        value = "List of ARNs configured in your Datadog account."
-    )
-    @JsonProperty(JSON_PROPERTY_LAMBDAS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<AWSLogsLambda> getLambdas() {
-        return lambdas;
+  public AWSLogsListResponse addServicesItem(String servicesItem) {
+    if (this.services == null) {
+      this.services = new ArrayList<>();
     }
+    this.services.add(servicesItem);
+    return this;
+  }
 
-    public void setLambdas(List<AWSLogsLambda> lambdas) {
-        this.lambdas = lambdas;
-    }
+  /**
+   * Array of services IDs.
+   *
+   * @return services
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      example = "[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"]",
+      value = "Array of services IDs.")
+  @JsonProperty(JSON_PROPERTY_SERVICES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getServices() {
+    return services;
+  }
 
-    public AWSLogsListResponse services(List<String> services) {
-        this.services = services;
-        return this;
-    }
+  public void setServices(List<String> services) {
+    this.services = services;
+  }
 
-    public AWSLogsListResponse addServicesItem(String servicesItem) {
-        if (this.services == null) {
-            this.services = new ArrayList<>();
-        }
-        this.services.add(servicesItem);
-        return this;
+  /** Return true if this AWSLogsListResponse object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    AWSLogsListResponse awSLogsListResponse = (AWSLogsListResponse) o;
+    return Objects.equals(this.accountId, awSLogsListResponse.accountId)
+        && Objects.equals(this.lambdas, awSLogsListResponse.lambdas)
+        && Objects.equals(this.services, awSLogsListResponse.services);
+  }
 
-    /**
-     * Array of services IDs.
-     * @return services
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "[\"s3\",\"elb\",\"elbv2\",\"cloudfront\",\"redshift\",\"lambda\"]", value = "Array of services IDs.")
-    @JsonProperty(JSON_PROPERTY_SERVICES)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<String> getServices() {
-        return services;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(accountId, lambdas, services);
+  }
 
-    public void setServices(List<String> services) {
-        this.services = services;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class AWSLogsListResponse {\n");
+    sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
+    sb.append("    lambdas: ").append(toIndentedString(lambdas)).append("\n");
+    sb.append("    services: ").append(toIndentedString(services)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Return true if this AWSLogsListResponse object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        AWSLogsListResponse awSLogsListResponse = (AWSLogsListResponse) o;
-        return (
-            Objects.equals(this.accountId, awSLogsListResponse.accountId) &&
-            Objects.equals(this.lambdas, awSLogsListResponse.lambdas) &&
-            Objects.equals(this.services, awSLogsListResponse.services)
-        );
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(accountId, lambdas, services);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class AWSLogsListResponse {\n");
-        sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
-        sb.append("    lambdas: ").append(toIndentedString(lambdas)).append("\n");
-        sb.append("    services: ").append(toIndentedString(services)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

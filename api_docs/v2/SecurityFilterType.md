@@ -1,5 +1,11 @@
+
+
 # SecurityFilterType
 
 ## Enum
 
-- `SECURITY_FILTERS` (value: `"security_filters"`)
+
+* `SECURITY_FILTERS` (value: `"security_filters"`)
+
+
+

@@ -17,102 +17,102 @@ import org.junit.Test;
 /** API tests for KeyManagementApi */
 public class KeyManagementApiTest {
 
-    private final KeyManagementApi api = new KeyManagementApi();
+  private final KeyManagementApi api = new KeyManagementApi();
 
-    /**
-     * Create an API key
-     *
-     * <p>Create an API key.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void createAPIKeyTest() throws ApiException {
-        // APIKeyCreateRequest body = null;
-        // APIKeyResponse response = api.createAPIKey()
-        //        .body(body)
-        //        .execute();
-        // TODO: test validations
-    }
+  /**
+   * Create an API key
+   *
+   * <p>Create an API key.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void createAPIKeyTest() throws ApiException {
+    // APIKeyCreateRequest body = null;
+    // APIKeyResponse response = api.createAPIKey()
+    //        .body(body)
+    //        .execute();
+    // TODO: test validations
+  }
 
-    /**
-     * Delete an API key
-     *
-     * <p>Delete an API key.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void deleteAPIKeyTest() throws ApiException {
-        // String apiKeyId = null;
-        // api.deleteAPIKey(apiKeyId)
-        //        .execute();
-        // TODO: test validations
-    }
+  /**
+   * Delete an API key
+   *
+   * <p>Delete an API key.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void deleteAPIKeyTest() throws ApiException {
+    // String apiKeyId = null;
+    // api.deleteAPIKey(apiKeyId)
+    //        .execute();
+    // TODO: test validations
+  }
 
-    /**
-     * Get API key
-     *
-     * <p>Get an API key.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getAPIKeyTest() throws ApiException {
-        // String apiKeyId = null;
-        // String include = null;
-        // APIKeyResponse response = api.getAPIKey(apiKeyId)
-        //        .include(include)
-        //        .execute();
-        // TODO: test validations
-    }
+  /**
+   * Get API key
+   *
+   * <p>Get an API key.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void getAPIKeyTest() throws ApiException {
+    // String apiKeyId = null;
+    // String include = null;
+    // APIKeyResponse response = api.getAPIKey(apiKeyId)
+    //        .include(include)
+    //        .execute();
+    // TODO: test validations
+  }
 
-    /**
-     * Get all API keys
-     *
-     * <p>List all API keys available for your account.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void listAPIKeysTest() throws ApiException {
-        // Long pageSize = null;
-        // Long pageNumber = null;
-        // String sort = null;
-        // String filter = null;
-        // String filterCreatedAtStart = null;
-        // String filterCreatedAtEnd = null;
-        // String filterModifiedAtStart = null;
-        // String filterModifiedAtEnd = null;
-        // String include = null;
-        // APIKeysResponse response = api.listAPIKeys()
-        //        .pageSize(pageSize)
-        //        .pageNumber(pageNumber)
-        //        .sort(sort)
-        //        .filter(filter)
-        //        .filterCreatedAtStart(filterCreatedAtStart)
-        //        .filterCreatedAtEnd(filterCreatedAtEnd)
-        //        .filterModifiedAtStart(filterModifiedAtStart)
-        //        .filterModifiedAtEnd(filterModifiedAtEnd)
-        //        .include(include)
-        //        .execute();
-        // TODO: test validations
-    }
+  /**
+   * Get all API keys
+   *
+   * <p>List all API keys available for your account.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void listAPIKeysTest() throws ApiException {
+    // Long pageSize = null;
+    // Long pageNumber = null;
+    // String sort = null;
+    // String filter = null;
+    // String filterCreatedAtStart = null;
+    // String filterCreatedAtEnd = null;
+    // String filterModifiedAtStart = null;
+    // String filterModifiedAtEnd = null;
+    // String include = null;
+    // APIKeysResponse response = api.listAPIKeys()
+    //        .pageSize(pageSize)
+    //        .pageNumber(pageNumber)
+    //        .sort(sort)
+    //        .filter(filter)
+    //        .filterCreatedAtStart(filterCreatedAtStart)
+    //        .filterCreatedAtEnd(filterCreatedAtEnd)
+    //        .filterModifiedAtStart(filterModifiedAtStart)
+    //        .filterModifiedAtEnd(filterModifiedAtEnd)
+    //        .include(include)
+    //        .execute();
+    // TODO: test validations
+  }
 
-    /**
-     * Edit an API key
-     *
-     * <p>Update an API key.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void updateAPIKeyTest() throws ApiException {
-        // String apiKeyId = null;
-        // APIKeyUpdateRequest body = null;
-        // APIKeyResponse response = api.updateAPIKey(apiKeyId)
-        //        .body(body)
-        //        .execute();
-        // TODO: test validations
-    }
+  /**
+   * Edit an API key
+   *
+   * <p>Update an API key.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void updateAPIKeyTest() throws ApiException {
+    // String apiKeyId = null;
+    // APIKeyUpdateRequest body = null;
+    // APIKeyResponse response = api.updateAPIKey(apiKeyId)
+    //        .body(body)
+    //        .execute();
+    // TODO: test validations
+  }
 }

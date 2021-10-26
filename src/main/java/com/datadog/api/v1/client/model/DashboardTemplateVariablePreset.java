@@ -10,137 +10,127 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.datadog.api.v1.client.model.DashboardTemplateVariablePresetValue;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Template variables saved views.
- */
+/** Template variables saved views. */
 @ApiModel(description = "Template variables saved views.")
-@JsonPropertyOrder({ DashboardTemplateVariablePreset.JSON_PROPERTY_NAME, DashboardTemplateVariablePreset.JSON_PROPERTY_TEMPLATE_VARIABLES })
+@JsonPropertyOrder({
+  DashboardTemplateVariablePreset.JSON_PROPERTY_NAME,
+  DashboardTemplateVariablePreset.JSON_PROPERTY_TEMPLATE_VARIABLES
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DashboardTemplateVariablePreset {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_TEMPLATE_VARIABLES = "template_variables";
+  private List<DashboardTemplateVariablePresetValue> templateVariables = null;
 
-    public static final String JSON_PROPERTY_NAME = "name";
-    private String name;
+  public DashboardTemplateVariablePreset name(String name) {
+    this.name = name;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_TEMPLATE_VARIABLES = "template_variables";
-    private List<DashboardTemplateVariablePresetValue> templateVariables = null;
+  /**
+   * The name of the variable.
+   *
+   * @return name
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The name of the variable.")
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
 
-    public DashboardTemplateVariablePreset name(String name) {
-        this.name = name;
-        return this;
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public DashboardTemplateVariablePreset templateVariables(
+      List<DashboardTemplateVariablePresetValue> templateVariables) {
+    this.templateVariables = templateVariables;
+    for (DashboardTemplateVariablePresetValue item : templateVariables) {
+      this.unparsed |= item.unparsed;
     }
+    return this;
+  }
 
-    /**
-     * The name of the variable.
-     * @return name
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The name of the variable.")
-    @JsonProperty(JSON_PROPERTY_NAME)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getName() {
-        return name;
+  public DashboardTemplateVariablePreset addTemplateVariablesItem(
+      DashboardTemplateVariablePresetValue templateVariablesItem) {
+    if (this.templateVariables == null) {
+      this.templateVariables = new ArrayList<>();
     }
+    this.templateVariables.add(templateVariablesItem);
+    this.unparsed |= templateVariablesItem.unparsed;
+    return this;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  /**
+   * List of variables.
+   *
+   * @return templateVariables
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of variables.")
+  @JsonProperty(JSON_PROPERTY_TEMPLATE_VARIABLES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<DashboardTemplateVariablePresetValue> getTemplateVariables() {
+    return templateVariables;
+  }
 
-    public DashboardTemplateVariablePreset templateVariables(List<DashboardTemplateVariablePresetValue> templateVariables) {
-        this.templateVariables = templateVariables;
-        for (DashboardTemplateVariablePresetValue item : templateVariables) {
-            this.unparsed |= item.unparsed;
-        }
-        return this;
-    }
+  public void setTemplateVariables(List<DashboardTemplateVariablePresetValue> templateVariables) {
+    this.templateVariables = templateVariables;
+  }
 
-    public DashboardTemplateVariablePreset addTemplateVariablesItem(DashboardTemplateVariablePresetValue templateVariablesItem) {
-        if (this.templateVariables == null) {
-            this.templateVariables = new ArrayList<>();
-        }
-        this.templateVariables.add(templateVariablesItem);
-        this.unparsed |= templateVariablesItem.unparsed;
-        return this;
+  /** Return true if this DashboardTemplateVariablePreset object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    DashboardTemplateVariablePreset dashboardTemplateVariablePreset =
+        (DashboardTemplateVariablePreset) o;
+    return Objects.equals(this.name, dashboardTemplateVariablePreset.name)
+        && Objects.equals(
+            this.templateVariables, dashboardTemplateVariablePreset.templateVariables);
+  }
 
-    /**
-     * List of variables.
-     * @return templateVariables
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "List of variables.")
-    @JsonProperty(JSON_PROPERTY_TEMPLATE_VARIABLES)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<DashboardTemplateVariablePresetValue> getTemplateVariables() {
-        return templateVariables;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(name, templateVariables);
+  }
 
-    public void setTemplateVariables(List<DashboardTemplateVariablePresetValue> templateVariables) {
-        this.templateVariables = templateVariables;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class DashboardTemplateVariablePreset {\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    templateVariables: ").append(toIndentedString(templateVariables)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Return true if this DashboardTemplateVariablePreset object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        DashboardTemplateVariablePreset dashboardTemplateVariablePreset = (DashboardTemplateVariablePreset) o;
-        return (
-            Objects.equals(this.name, dashboardTemplateVariablePreset.name) &&
-            Objects.equals(this.templateVariables, dashboardTemplateVariablePreset.templateVariables)
-        );
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, templateVariables);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class DashboardTemplateVariablePreset {\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    templateVariables: ").append(toIndentedString(templateVariables)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

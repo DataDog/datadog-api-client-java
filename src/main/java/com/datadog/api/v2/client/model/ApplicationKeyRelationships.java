@@ -10,96 +10,80 @@
 
 package com.datadog.api.v2.client.model;
 
-import com.datadog.api.v2.client.JSON;
-import com.datadog.api.v2.client.model.RelationshipToUser;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Resources related to the application key.
- */
+/** Resources related to the application key. */
 @ApiModel(description = "Resources related to the application key.")
-@JsonPropertyOrder({ ApplicationKeyRelationships.JSON_PROPERTY_OWNED_BY })
+@JsonPropertyOrder({ApplicationKeyRelationships.JSON_PROPERTY_OWNED_BY})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ApplicationKeyRelationships {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_OWNED_BY = "owned_by";
+  private RelationshipToUser ownedBy;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public ApplicationKeyRelationships ownedBy(RelationshipToUser ownedBy) {
+    this.ownedBy = ownedBy;
+    this.unparsed |= ownedBy.unparsed;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_OWNED_BY = "owned_by";
-    private RelationshipToUser ownedBy;
+  /**
+   * Get ownedBy
+   *
+   * @return ownedBy
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_OWNED_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public RelationshipToUser getOwnedBy() {
+    return ownedBy;
+  }
 
-    public ApplicationKeyRelationships ownedBy(RelationshipToUser ownedBy) {
-        this.ownedBy = ownedBy;
-        this.unparsed |= ownedBy.unparsed;
-        return this;
+  public void setOwnedBy(RelationshipToUser ownedBy) {
+    this.ownedBy = ownedBy;
+  }
+
+  /** Return true if this ApplicationKeyRelationships object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * Get ownedBy
-     * @return ownedBy
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_OWNED_BY)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public RelationshipToUser getOwnedBy() {
-        return ownedBy;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    ApplicationKeyRelationships applicationKeyRelationships = (ApplicationKeyRelationships) o;
+    return Objects.equals(this.ownedBy, applicationKeyRelationships.ownedBy);
+  }
 
-    public void setOwnedBy(RelationshipToUser ownedBy) {
-        this.ownedBy = ownedBy;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(ownedBy);
+  }
 
-    /**
-     * Return true if this ApplicationKeyRelationships object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        ApplicationKeyRelationships applicationKeyRelationships = (ApplicationKeyRelationships) o;
-        return Objects.equals(this.ownedBy, applicationKeyRelationships.ownedBy);
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class ApplicationKeyRelationships {\n");
+    sb.append("    ownedBy: ").append(toIndentedString(ownedBy)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(ownedBy);
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ApplicationKeyRelationships {\n");
-        sb.append("    ownedBy: ").append(toIndentedString(ownedBy)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

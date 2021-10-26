@@ -10,99 +10,84 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.datadog.api.v1.client.model.SyntheticsTestPauseStatus;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Object to start or pause an existing Synthetic test.
- */
+/** Object to start or pause an existing Synthetic test. */
 @ApiModel(description = "Object to start or pause an existing Synthetic test.")
-@JsonPropertyOrder({ SyntheticsUpdateTestPauseStatusPayload.JSON_PROPERTY_NEW_STATUS })
+@JsonPropertyOrder({SyntheticsUpdateTestPauseStatusPayload.JSON_PROPERTY_NEW_STATUS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsUpdateTestPauseStatusPayload {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_NEW_STATUS = "new_status";
+  private SyntheticsTestPauseStatus newStatus;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public SyntheticsUpdateTestPauseStatusPayload newStatus(SyntheticsTestPauseStatus newStatus) {
+    this.newStatus = newStatus;
+    this.unparsed |= !newStatus.isValid();
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_NEW_STATUS = "new_status";
-    private SyntheticsTestPauseStatus newStatus;
+  /**
+   * Get newStatus
+   *
+   * @return newStatus
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_NEW_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsTestPauseStatus getNewStatus() {
+    return newStatus;
+  }
 
-    public SyntheticsUpdateTestPauseStatusPayload newStatus(SyntheticsTestPauseStatus newStatus) {
-        this.newStatus = newStatus;
-        this.unparsed |= !newStatus.isValid();
-        return this;
+  public void setNewStatus(SyntheticsTestPauseStatus newStatus) {
+    if (!newStatus.isValid()) {
+      this.unparsed = true;
     }
+    this.newStatus = newStatus;
+  }
 
-    /**
-     * Get newStatus
-     * @return newStatus
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_NEW_STATUS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public SyntheticsTestPauseStatus getNewStatus() {
-        return newStatus;
+  /** Return true if this SyntheticsUpdateTestPauseStatusPayload object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    SyntheticsUpdateTestPauseStatusPayload syntheticsUpdateTestPauseStatusPayload =
+        (SyntheticsUpdateTestPauseStatusPayload) o;
+    return Objects.equals(this.newStatus, syntheticsUpdateTestPauseStatusPayload.newStatus);
+  }
 
-    public void setNewStatus(SyntheticsTestPauseStatus newStatus) {
-        if (!newStatus.isValid()) {
-            this.unparsed = true;
-        }
-        this.newStatus = newStatus;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(newStatus);
+  }
 
-    /**
-     * Return true if this SyntheticsUpdateTestPauseStatusPayload object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        SyntheticsUpdateTestPauseStatusPayload syntheticsUpdateTestPauseStatusPayload = (SyntheticsUpdateTestPauseStatusPayload) o;
-        return Objects.equals(this.newStatus, syntheticsUpdateTestPauseStatusPayload.newStatus);
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class SyntheticsUpdateTestPauseStatusPayload {\n");
+    sb.append("    newStatus: ").append(toIndentedString(newStatus)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(newStatus);
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SyntheticsUpdateTestPauseStatusPayload {\n");
-        sb.append("    newStatus: ").append(toIndentedString(newStatus)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

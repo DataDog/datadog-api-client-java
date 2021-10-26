@@ -1,11 +1,17 @@
+
+
 # WidgetCompareTo
 
 ## Enum
 
-- `HOUR_BEFORE` (value: `"hour_before"`)
 
-- `DAY_BEFORE` (value: `"day_before"`)
+* `HOUR_BEFORE` (value: `"hour_before"`)
 
-- `WEEK_BEFORE` (value: `"week_before"`)
+* `DAY_BEFORE` (value: `"day_before"`)
 
-- `MONTH_BEFORE` (value: `"month_before"`)
+* `WEEK_BEFORE` (value: `"week_before"`)
+
+* `MONTH_BEFORE` (value: `"month_before"`)
+
+
+

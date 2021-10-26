@@ -10,153 +10,145 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
 /**
- * Number of lambda functions and sum of the invocations of all lambda functions for each hour for a given organization.
+ * Number of lambda functions and sum of the invocations of all lambda functions for each hour for a
+ * given organization.
  */
 @ApiModel(
-    description = "Number of lambda functions and sum of the invocations of all lambda functions for each hour for a given organization."
-)
-@JsonPropertyOrder(
-    { UsageLambdaHour.JSON_PROPERTY_FUNC_COUNT, UsageLambdaHour.JSON_PROPERTY_HOUR, UsageLambdaHour.JSON_PROPERTY_INVOCATIONS_SUM }
-)
+    description =
+        "Number of lambda functions and sum of the invocations of all lambda functions for each"
+            + " hour for a given organization.")
+@JsonPropertyOrder({
+  UsageLambdaHour.JSON_PROPERTY_FUNC_COUNT,
+  UsageLambdaHour.JSON_PROPERTY_HOUR,
+  UsageLambdaHour.JSON_PROPERTY_INVOCATIONS_SUM
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageLambdaHour {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_FUNC_COUNT = "func_count";
+  private Long funcCount;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_HOUR = "hour";
+  private OffsetDateTime hour;
 
-    public static final String JSON_PROPERTY_FUNC_COUNT = "func_count";
-    private Long funcCount;
+  public static final String JSON_PROPERTY_INVOCATIONS_SUM = "invocations_sum";
+  private Long invocationsSum;
 
-    public static final String JSON_PROPERTY_HOUR = "hour";
-    private OffsetDateTime hour;
+  public UsageLambdaHour funcCount(Long funcCount) {
+    this.funcCount = funcCount;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_INVOCATIONS_SUM = "invocations_sum";
-    private Long invocationsSum;
+  /**
+   * Contains the number of different functions for each region and AWS account.
+   *
+   * @return funcCount
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value = "Contains the number of different functions for each region and AWS account.")
+  @JsonProperty(JSON_PROPERTY_FUNC_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getFuncCount() {
+    return funcCount;
+  }
 
-    public UsageLambdaHour funcCount(Long funcCount) {
-        this.funcCount = funcCount;
-        return this;
+  public void setFuncCount(Long funcCount) {
+    this.funcCount = funcCount;
+  }
+
+  public UsageLambdaHour hour(OffsetDateTime hour) {
+    this.hour = hour;
+    return this;
+  }
+
+  /**
+   * The hour for the usage.
+   *
+   * @return hour
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The hour for the usage.")
+  @JsonProperty(JSON_PROPERTY_HOUR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getHour() {
+    return hour;
+  }
+
+  public void setHour(OffsetDateTime hour) {
+    this.hour = hour;
+  }
+
+  public UsageLambdaHour invocationsSum(Long invocationsSum) {
+    this.invocationsSum = invocationsSum;
+    return this;
+  }
+
+  /**
+   * Contains the sum of invocations of all functions.
+   *
+   * @return invocationsSum
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Contains the sum of invocations of all functions.")
+  @JsonProperty(JSON_PROPERTY_INVOCATIONS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getInvocationsSum() {
+    return invocationsSum;
+  }
+
+  public void setInvocationsSum(Long invocationsSum) {
+    this.invocationsSum = invocationsSum;
+  }
+
+  /** Return true if this UsageLambdaHour object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * Contains the number of different functions for each region and AWS account.
-     * @return funcCount
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Contains the number of different functions for each region and AWS account.")
-    @JsonProperty(JSON_PROPERTY_FUNC_COUNT)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Long getFuncCount() {
-        return funcCount;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    UsageLambdaHour usageLambdaHour = (UsageLambdaHour) o;
+    return Objects.equals(this.funcCount, usageLambdaHour.funcCount)
+        && Objects.equals(this.hour, usageLambdaHour.hour)
+        && Objects.equals(this.invocationsSum, usageLambdaHour.invocationsSum);
+  }
 
-    public void setFuncCount(Long funcCount) {
-        this.funcCount = funcCount;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(funcCount, hour, invocationsSum);
+  }
 
-    public UsageLambdaHour hour(OffsetDateTime hour) {
-        this.hour = hour;
-        return this;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class UsageLambdaHour {\n");
+    sb.append("    funcCount: ").append(toIndentedString(funcCount)).append("\n");
+    sb.append("    hour: ").append(toIndentedString(hour)).append("\n");
+    sb.append("    invocationsSum: ").append(toIndentedString(invocationsSum)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * The hour for the usage.
-     * @return hour
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The hour for the usage.")
-    @JsonProperty(JSON_PROPERTY_HOUR)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public OffsetDateTime getHour() {
-        return hour;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    public void setHour(OffsetDateTime hour) {
-        this.hour = hour;
-    }
-
-    public UsageLambdaHour invocationsSum(Long invocationsSum) {
-        this.invocationsSum = invocationsSum;
-        return this;
-    }
-
-    /**
-     * Contains the sum of invocations of all functions.
-     * @return invocationsSum
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Contains the sum of invocations of all functions.")
-    @JsonProperty(JSON_PROPERTY_INVOCATIONS_SUM)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Long getInvocationsSum() {
-        return invocationsSum;
-    }
-
-    public void setInvocationsSum(Long invocationsSum) {
-        this.invocationsSum = invocationsSum;
-    }
-
-    /**
-     * Return true if this UsageLambdaHour object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        UsageLambdaHour usageLambdaHour = (UsageLambdaHour) o;
-        return (
-            Objects.equals(this.funcCount, usageLambdaHour.funcCount) &&
-            Objects.equals(this.hour, usageLambdaHour.hour) &&
-            Objects.equals(this.invocationsSum, usageLambdaHour.invocationsSum)
-        );
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(funcCount, hour, invocationsSum);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class UsageLambdaHour {\n");
-        sb.append("    funcCount: ").append(toIndentedString(funcCount)).append("\n");
-        sb.append("    hour: ").append(toIndentedString(hour)).append("\n");
-        sb.append("    invocationsSum: ").append(toIndentedString(invocationsSum)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

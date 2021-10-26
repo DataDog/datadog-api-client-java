@@ -1,5 +1,11 @@
+
+
 # LogsMessageRemapperType
 
 ## Enum
 
-- `MESSAGE_REMAPPER` (value: `"message-remapper"`)
+
+* `MESSAGE_REMAPPER` (value: `"message-remapper"`)
+
+
+

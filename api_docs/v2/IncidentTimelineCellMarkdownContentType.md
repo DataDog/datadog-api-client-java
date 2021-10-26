@@ -1,5 +1,11 @@
+
+
 # IncidentTimelineCellMarkdownContentType
 
 ## Enum
 
-- `MARKDOWN` (value: `"markdown"`)
+
+* `MARKDOWN` (value: `"markdown"`)
+
+
+

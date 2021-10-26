@@ -1,11 +1,17 @@
+
+
 # SLOCorrectionCategory
 
 ## Enum
 
-- `SCHEDULED_MAINTENANCE` (value: `"Scheduled Maintenance"`)
 
-- `OUTSIDE_BUSINESS_HOURS` (value: `"Outside Business Hours"`)
+* `SCHEDULED_MAINTENANCE` (value: `"Scheduled Maintenance"`)
 
-- `DEPLOYMENT` (value: `"Deployment"`)
+* `OUTSIDE_BUSINESS_HOURS` (value: `"Outside Business Hours"`)
 
-- `OTHER` (value: `"Other"`)
+* `DEPLOYMENT` (value: `"Deployment"`)
+
+* `OTHER` (value: `"Other"`)
+
+
+

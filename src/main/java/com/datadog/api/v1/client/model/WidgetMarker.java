@@ -10,194 +10,181 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Markers allow you to add visual conditional formatting for your graphs.
- */
+/** Markers allow you to add visual conditional formatting for your graphs. */
 @ApiModel(description = "Markers allow you to add visual conditional formatting for your graphs.")
-@JsonPropertyOrder(
-    {
-        WidgetMarker.JSON_PROPERTY_DISPLAY_TYPE,
-        WidgetMarker.JSON_PROPERTY_LABEL,
-        WidgetMarker.JSON_PROPERTY_TIME,
-        WidgetMarker.JSON_PROPERTY_VALUE
-    }
-)
+@JsonPropertyOrder({
+  WidgetMarker.JSON_PROPERTY_DISPLAY_TYPE,
+  WidgetMarker.JSON_PROPERTY_LABEL,
+  WidgetMarker.JSON_PROPERTY_TIME,
+  WidgetMarker.JSON_PROPERTY_VALUE
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WidgetMarker {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DISPLAY_TYPE = "display_type";
+  private String displayType;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_LABEL = "label";
+  private String label;
 
-    public static final String JSON_PROPERTY_DISPLAY_TYPE = "display_type";
-    private String displayType;
+  public static final String JSON_PROPERTY_TIME = "time";
+  private String time;
 
-    public static final String JSON_PROPERTY_LABEL = "label";
-    private String label;
+  public static final String JSON_PROPERTY_VALUE = "value";
+  private String value;
 
-    public static final String JSON_PROPERTY_TIME = "time";
-    private String time;
+  public WidgetMarker() {}
 
-    public static final String JSON_PROPERTY_VALUE = "value";
-    private String value;
+  @JsonCreator
+  public WidgetMarker(@JsonProperty(required = true, value = JSON_PROPERTY_VALUE) String value) {
+    this.value = value;
+  }
 
-    public WidgetMarker() {}
+  public WidgetMarker displayType(String displayType) {
+    this.displayType = displayType;
+    return this;
+  }
 
-    @JsonCreator
-    public WidgetMarker(@JsonProperty(required = true, value = JSON_PROPERTY_VALUE) String value) {
-        this.value = value;
+  /**
+   * Combination of: - A severity error, warning, ok, or info - A line type: dashed, solid, or bold
+   * In this case of a Distribution widget, this can be set to be &#x60;x_axis_percentile&#x60;.
+   *
+   * @return displayType
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      example = "error dashed",
+      value =
+          "Combination of:   - A severity error, warning, ok, or info   - A line type: dashed,"
+              + " solid, or bold In this case of a Distribution widget, this can be set to be"
+              + " `x_axis_percentile`. ")
+  @JsonProperty(JSON_PROPERTY_DISPLAY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getDisplayType() {
+    return displayType;
+  }
+
+  public void setDisplayType(String displayType) {
+    this.displayType = displayType;
+  }
+
+  public WidgetMarker label(String label) {
+    this.label = label;
+    return this;
+  }
+
+  /**
+   * Label to display over the marker.
+   *
+   * @return label
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "Error threshold", value = "Label to display over the marker.")
+  @JsonProperty(JSON_PROPERTY_LABEL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getLabel() {
+    return label;
+  }
+
+  public void setLabel(String label) {
+    this.label = label;
+  }
+
+  public WidgetMarker time(String time) {
+    this.time = time;
+    return this;
+  }
+
+  /**
+   * Timestamp for the widget.
+   *
+   * @return time
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Timestamp for the widget.")
+  @JsonProperty(JSON_PROPERTY_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTime() {
+    return time;
+  }
+
+  public void setTime(String time) {
+    this.time = time;
+  }
+
+  public WidgetMarker value(String value) {
+    this.value = value;
+    return this;
+  }
+
+  /**
+   * Value to apply. Can be a single value y &#x3D; 15 or a range of values 0 &lt; y &lt; 10.
+   *
+   * @return value
+   */
+  @ApiModelProperty(
+      example = "y = 15",
+      required = true,
+      value = "Value to apply. Can be a single value y = 15 or a range of values 0 < y < 10.")
+  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getValue() {
+    return value;
+  }
+
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  /** Return true if this WidgetMarker object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    public WidgetMarker displayType(String displayType) {
-        this.displayType = displayType;
-        return this;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    WidgetMarker widgetMarker = (WidgetMarker) o;
+    return Objects.equals(this.displayType, widgetMarker.displayType)
+        && Objects.equals(this.label, widgetMarker.label)
+        && Objects.equals(this.time, widgetMarker.time)
+        && Objects.equals(this.value, widgetMarker.value);
+  }
 
-    /**
-     * Combination of:   - A severity error, warning, ok, or info   - A line type: dashed, solid, or bold In this case of a Distribution widget, this can be set to be &#x60;x_axis_percentile&#x60;.
-     * @return displayType
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(
-        example = "error dashed",
-        value = "Combination of:   - A severity error, warning, ok, or info   - A line type: dashed, solid, or bold In this case of a Distribution widget, this can be set to be `x_axis_percentile`. "
-    )
-    @JsonProperty(JSON_PROPERTY_DISPLAY_TYPE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getDisplayType() {
-        return displayType;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(displayType, label, time, value);
+  }
 
-    public void setDisplayType(String displayType) {
-        this.displayType = displayType;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class WidgetMarker {\n");
+    sb.append("    displayType: ").append(toIndentedString(displayType)).append("\n");
+    sb.append("    label: ").append(toIndentedString(label)).append("\n");
+    sb.append("    time: ").append(toIndentedString(time)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    public WidgetMarker label(String label) {
-        this.label = label;
-        return this;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    /**
-     * Label to display over the marker.
-     * @return label
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "Error threshold", value = "Label to display over the marker.")
-    @JsonProperty(JSON_PROPERTY_LABEL)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getLabel() {
-        return label;
-    }
-
-    public void setLabel(String label) {
-        this.label = label;
-    }
-
-    public WidgetMarker time(String time) {
-        this.time = time;
-        return this;
-    }
-
-    /**
-     * Timestamp for the widget.
-     * @return time
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Timestamp for the widget.")
-    @JsonProperty(JSON_PROPERTY_TIME)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
-    }
-
-    public WidgetMarker value(String value) {
-        this.value = value;
-        return this;
-    }
-
-    /**
-     * Value to apply. Can be a single value y &#x3D; 15 or a range of values 0 &lt; y &lt; 10.
-     * @return value
-     **/
-    @ApiModelProperty(
-        example = "y = 15",
-        required = true,
-        value = "Value to apply. Can be a single value y = 15 or a range of values 0 < y < 10."
-    )
-    @JsonProperty(JSON_PROPERTY_VALUE)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public String getValue() {
-        return value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    /**
-     * Return true if this WidgetMarker object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        WidgetMarker widgetMarker = (WidgetMarker) o;
-        return (
-            Objects.equals(this.displayType, widgetMarker.displayType) &&
-            Objects.equals(this.label, widgetMarker.label) &&
-            Objects.equals(this.time, widgetMarker.time) &&
-            Objects.equals(this.value, widgetMarker.value)
-        );
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(displayType, label, time, value);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class WidgetMarker {\n");
-        sb.append("    displayType: ").append(toIndentedString(displayType)).append("\n");
-        sb.append("    label: ").append(toIndentedString(label)).append("\n");
-        sb.append("    time: ").append(toIndentedString(time)).append("\n");
-        sb.append("    value: ").append(toIndentedString(value)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

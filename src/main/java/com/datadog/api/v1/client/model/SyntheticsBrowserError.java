@@ -10,197 +10,183 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.datadog.api.v1.client.model.SyntheticsBrowserErrorType;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Error response object for a browser test.
- */
+/** Error response object for a browser test. */
 @ApiModel(description = "Error response object for a browser test.")
-@JsonPropertyOrder(
-    {
-        SyntheticsBrowserError.JSON_PROPERTY_DESCRIPTION,
-        SyntheticsBrowserError.JSON_PROPERTY_NAME,
-        SyntheticsBrowserError.JSON_PROPERTY_STATUS,
-        SyntheticsBrowserError.JSON_PROPERTY_TYPE
-    }
-)
+@JsonPropertyOrder({
+  SyntheticsBrowserError.JSON_PROPERTY_DESCRIPTION,
+  SyntheticsBrowserError.JSON_PROPERTY_NAME,
+  SyntheticsBrowserError.JSON_PROPERTY_STATUS,
+  SyntheticsBrowserError.JSON_PROPERTY_TYPE
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsBrowserError {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  private String description;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
-    public static final String JSON_PROPERTY_DESCRIPTION = "description";
-    private String description;
+  public static final String JSON_PROPERTY_STATUS = "status";
+  private Long status;
 
-    public static final String JSON_PROPERTY_NAME = "name";
-    private String name;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private SyntheticsBrowserErrorType type;
 
-    public static final String JSON_PROPERTY_STATUS = "status";
-    private Long status;
+  public SyntheticsBrowserError() {}
 
-    public static final String JSON_PROPERTY_TYPE = "type";
-    private SyntheticsBrowserErrorType type;
+  @JsonCreator
+  public SyntheticsBrowserError(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DESCRIPTION) String description,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SyntheticsBrowserErrorType type) {
+    this.description = description;
+    this.name = name;
+    this.type = type;
+    this.unparsed |= !type.isValid();
+  }
 
-    public SyntheticsBrowserError() {}
+  public SyntheticsBrowserError description(String description) {
+    this.description = description;
+    return this;
+  }
 
-    @JsonCreator
-    public SyntheticsBrowserError(
-        @JsonProperty(required = true, value = JSON_PROPERTY_DESCRIPTION) String description,
-        @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-        @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SyntheticsBrowserErrorType type
-    ) {
-        this.description = description;
-        this.name = name;
-        this.type = type;
-        this.unparsed |= !type.isValid();
+  /**
+   * Description of the error.
+   *
+   * @return description
+   */
+  @ApiModelProperty(
+      example = "Example error message",
+      required = true,
+      value = "Description of the error.")
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public SyntheticsBrowserError name(String name) {
+    this.name = name;
+    return this;
+  }
+
+  /**
+   * Name of the error.
+   *
+   * @return name
+   */
+  @ApiModelProperty(example = "Failed test", required = true, value = "Name of the error.")
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public SyntheticsBrowserError status(Long status) {
+    this.status = status;
+    return this;
+  }
+
+  /**
+   * Status Code of the error.
+   *
+   * @return status
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "500", value = "Status Code of the error.")
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getStatus() {
+    return status;
+  }
+
+  public void setStatus(Long status) {
+    this.status = status;
+  }
+
+  public SyntheticsBrowserError type(SyntheticsBrowserErrorType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    return this;
+  }
+
+  /**
+   * Get type
+   *
+   * @return type
+   */
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public SyntheticsBrowserErrorType getType() {
+    return type;
+  }
+
+  public void setType(SyntheticsBrowserErrorType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
     }
+    this.type = type;
+  }
 
-    public SyntheticsBrowserError description(String description) {
-        this.description = description;
-        return this;
+  /** Return true if this SyntheticsBrowserError object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    SyntheticsBrowserError syntheticsBrowserError = (SyntheticsBrowserError) o;
+    return Objects.equals(this.description, syntheticsBrowserError.description)
+        && Objects.equals(this.name, syntheticsBrowserError.name)
+        && Objects.equals(this.status, syntheticsBrowserError.status)
+        && Objects.equals(this.type, syntheticsBrowserError.type);
+  }
 
-    /**
-     * Description of the error.
-     * @return description
-     **/
-    @ApiModelProperty(example = "Example error message", required = true, value = "Description of the error.")
-    @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public String getDescription() {
-        return description;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(description, name, status, type);
+  }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class SyntheticsBrowserError {\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    public SyntheticsBrowserError name(String name) {
-        this.name = name;
-        return this;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    /**
-     * Name of the error.
-     * @return name
-     **/
-    @ApiModelProperty(example = "Failed test", required = true, value = "Name of the error.")
-    @JsonProperty(JSON_PROPERTY_NAME)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public SyntheticsBrowserError status(Long status) {
-        this.status = status;
-        return this;
-    }
-
-    /**
-     * Status Code of the error.
-     * @return status
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "500", value = "Status Code of the error.")
-    @JsonProperty(JSON_PROPERTY_STATUS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Long getStatus() {
-        return status;
-    }
-
-    public void setStatus(Long status) {
-        this.status = status;
-    }
-
-    public SyntheticsBrowserError type(SyntheticsBrowserErrorType type) {
-        this.type = type;
-        this.unparsed |= !type.isValid();
-        return this;
-    }
-
-    /**
-     * Get type
-     * @return type
-     **/
-    @ApiModelProperty(required = true, value = "")
-    @JsonProperty(JSON_PROPERTY_TYPE)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public SyntheticsBrowserErrorType getType() {
-        return type;
-    }
-
-    public void setType(SyntheticsBrowserErrorType type) {
-        if (!type.isValid()) {
-            this.unparsed = true;
-        }
-        this.type = type;
-    }
-
-    /**
-     * Return true if this SyntheticsBrowserError object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        SyntheticsBrowserError syntheticsBrowserError = (SyntheticsBrowserError) o;
-        return (
-            Objects.equals(this.description, syntheticsBrowserError.description) &&
-            Objects.equals(this.name, syntheticsBrowserError.name) &&
-            Objects.equals(this.status, syntheticsBrowserError.status) &&
-            Objects.equals(this.type, syntheticsBrowserError.type)
-        );
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(description, name, status, type);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SyntheticsBrowserError {\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    status: ").append(toIndentedString(status)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

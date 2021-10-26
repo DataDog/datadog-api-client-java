@@ -10,120 +10,110 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Audit logs usage for a given organization for a given hour.
- */
+/** Audit logs usage for a given organization for a given hour. */
 @ApiModel(description = "Audit logs usage for a given organization for a given hour.")
-@JsonPropertyOrder({ UsageAuditLogsHour.JSON_PROPERTY_HOUR, UsageAuditLogsHour.JSON_PROPERTY_LINES_INDEXED })
+@JsonPropertyOrder({
+  UsageAuditLogsHour.JSON_PROPERTY_HOUR,
+  UsageAuditLogsHour.JSON_PROPERTY_LINES_INDEXED
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageAuditLogsHour {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_HOUR = "hour";
+  private OffsetDateTime hour;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_LINES_INDEXED = "lines_indexed";
+  private Long linesIndexed;
 
-    public static final String JSON_PROPERTY_HOUR = "hour";
-    private OffsetDateTime hour;
+  public UsageAuditLogsHour hour(OffsetDateTime hour) {
+    this.hour = hour;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_LINES_INDEXED = "lines_indexed";
-    private Long linesIndexed;
+  /**
+   * The hour for the usage.
+   *
+   * @return hour
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The hour for the usage.")
+  @JsonProperty(JSON_PROPERTY_HOUR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getHour() {
+    return hour;
+  }
 
-    public UsageAuditLogsHour hour(OffsetDateTime hour) {
-        this.hour = hour;
-        return this;
+  public void setHour(OffsetDateTime hour) {
+    this.hour = hour;
+  }
+
+  public UsageAuditLogsHour linesIndexed(Long linesIndexed) {
+    this.linesIndexed = linesIndexed;
+    return this;
+  }
+
+  /**
+   * The total number of audit logs lines indexed during a given hour.
+   *
+   * @return linesIndexed
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The total number of audit logs lines indexed during a given hour.")
+  @JsonProperty(JSON_PROPERTY_LINES_INDEXED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getLinesIndexed() {
+    return linesIndexed;
+  }
+
+  public void setLinesIndexed(Long linesIndexed) {
+    this.linesIndexed = linesIndexed;
+  }
+
+  /** Return true if this UsageAuditLogsHour object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * The hour for the usage.
-     * @return hour
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The hour for the usage.")
-    @JsonProperty(JSON_PROPERTY_HOUR)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public OffsetDateTime getHour() {
-        return hour;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    UsageAuditLogsHour usageAuditLogsHour = (UsageAuditLogsHour) o;
+    return Objects.equals(this.hour, usageAuditLogsHour.hour)
+        && Objects.equals(this.linesIndexed, usageAuditLogsHour.linesIndexed);
+  }
 
-    public void setHour(OffsetDateTime hour) {
-        this.hour = hour;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(hour, linesIndexed);
+  }
 
-    public UsageAuditLogsHour linesIndexed(Long linesIndexed) {
-        this.linesIndexed = linesIndexed;
-        return this;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class UsageAuditLogsHour {\n");
+    sb.append("    hour: ").append(toIndentedString(hour)).append("\n");
+    sb.append("    linesIndexed: ").append(toIndentedString(linesIndexed)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * The total number of audit logs lines indexed during a given hour.
-     * @return linesIndexed
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The total number of audit logs lines indexed during a given hour.")
-    @JsonProperty(JSON_PROPERTY_LINES_INDEXED)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Long getLinesIndexed() {
-        return linesIndexed;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    public void setLinesIndexed(Long linesIndexed) {
-        this.linesIndexed = linesIndexed;
-    }
-
-    /**
-     * Return true if this UsageAuditLogsHour object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        UsageAuditLogsHour usageAuditLogsHour = (UsageAuditLogsHour) o;
-        return Objects.equals(this.hour, usageAuditLogsHour.hour) && Objects.equals(this.linesIndexed, usageAuditLogsHour.linesIndexed);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(hour, linesIndexed);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class UsageAuditLogsHour {\n");
-        sb.append("    hour: ").append(toIndentedString(hour)).append("\n");
-        sb.append("    linesIndexed: ").append(toIndentedString(linesIndexed)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

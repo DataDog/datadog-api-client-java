@@ -10,232 +10,226 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.datadog.api.v1.client.model.WebhooksIntegrationEncoding;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.NoSuchElementException;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.jackson.nullable.JsonNullable;
 
-/**
- * Update request of a Webhooks integration object.  *All properties are optional.*
- */
-@ApiModel(description = "Update request of a Webhooks integration object.  *All properties are optional.*")
-@JsonPropertyOrder(
-    {
-        WebhooksIntegrationUpdateRequest.JSON_PROPERTY_CUSTOM_HEADERS,
-        WebhooksIntegrationUpdateRequest.JSON_PROPERTY_ENCODE_AS,
-        WebhooksIntegrationUpdateRequest.JSON_PROPERTY_NAME,
-        WebhooksIntegrationUpdateRequest.JSON_PROPERTY_PAYLOAD,
-        WebhooksIntegrationUpdateRequest.JSON_PROPERTY_URL
-    }
-)
+/** Update request of a Webhooks integration object. *All properties are optional.* */
+@ApiModel(
+    description =
+        "Update request of a Webhooks integration object.  *All properties are optional.*")
+@JsonPropertyOrder({
+  WebhooksIntegrationUpdateRequest.JSON_PROPERTY_CUSTOM_HEADERS,
+  WebhooksIntegrationUpdateRequest.JSON_PROPERTY_ENCODE_AS,
+  WebhooksIntegrationUpdateRequest.JSON_PROPERTY_NAME,
+  WebhooksIntegrationUpdateRequest.JSON_PROPERTY_PAYLOAD,
+  WebhooksIntegrationUpdateRequest.JSON_PROPERTY_URL
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WebhooksIntegrationUpdateRequest {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CUSTOM_HEADERS = "custom_headers";
+  private String customHeaders;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ENCODE_AS = "encode_as";
+  private WebhooksIntegrationEncoding encodeAs = WebhooksIntegrationEncoding.JSON;
 
-    public static final String JSON_PROPERTY_CUSTOM_HEADERS = "custom_headers";
-    private String customHeaders;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
-    public static final String JSON_PROPERTY_ENCODE_AS = "encode_as";
-    private WebhooksIntegrationEncoding encodeAs = WebhooksIntegrationEncoding.JSON;
+  public static final String JSON_PROPERTY_PAYLOAD = "payload";
+  private JsonNullable<String> payload = JsonNullable.<String>undefined();
 
-    public static final String JSON_PROPERTY_NAME = "name";
-    private String name;
+  public static final String JSON_PROPERTY_URL = "url";
+  private String url;
 
-    public static final String JSON_PROPERTY_PAYLOAD = "payload";
-    private JsonNullable<String> payload = JsonNullable.<String>undefined();
+  public WebhooksIntegrationUpdateRequest customHeaders(String customHeaders) {
+    this.customHeaders = customHeaders;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_URL = "url";
-    private String url;
+  /**
+   * If &#x60;null&#x60;, uses no header. If given a JSON payload, these will be headers attached to
+   * your webhook.
+   *
+   * @return customHeaders
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "If `null`, uses no header. If given a JSON payload, these will be headers attached to"
+              + " your webhook.")
+  @JsonProperty(JSON_PROPERTY_CUSTOM_HEADERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCustomHeaders() {
+    return customHeaders;
+  }
 
-    public WebhooksIntegrationUpdateRequest customHeaders(String customHeaders) {
-        this.customHeaders = customHeaders;
-        return this;
+  public void setCustomHeaders(String customHeaders) {
+    this.customHeaders = customHeaders;
+  }
+
+  public WebhooksIntegrationUpdateRequest encodeAs(WebhooksIntegrationEncoding encodeAs) {
+    this.encodeAs = encodeAs;
+    this.unparsed |= !encodeAs.isValid();
+    return this;
+  }
+
+  /**
+   * Get encodeAs
+   *
+   * @return encodeAs
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ENCODE_AS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WebhooksIntegrationEncoding getEncodeAs() {
+    return encodeAs;
+  }
+
+  public void setEncodeAs(WebhooksIntegrationEncoding encodeAs) {
+    if (!encodeAs.isValid()) {
+      this.unparsed = true;
     }
+    this.encodeAs = encodeAs;
+  }
 
-    /**
-     * If &#x60;null&#x60;, uses no header. If given a JSON payload, these will be headers attached to your webhook.
-     * @return customHeaders
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "If `null`, uses no header. If given a JSON payload, these will be headers attached to your webhook.")
-    @JsonProperty(JSON_PROPERTY_CUSTOM_HEADERS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getCustomHeaders() {
-        return customHeaders;
-    }
+  public WebhooksIntegrationUpdateRequest name(String name) {
+    this.name = name;
+    return this;
+  }
 
-    public void setCustomHeaders(String customHeaders) {
-        this.customHeaders = customHeaders;
-    }
+  /**
+   * The name of the webhook. It corresponds with &#x60;&lt;WEBHOOK_NAME&gt;&#x60;. Learn more on
+   * how to use it in [monitor notifications](https://docs.datadoghq.com/monitors/notify).
+   *
+   * @return name
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      example = "WEBHOOK_NAME",
+      value =
+          "The name of the webhook. It corresponds with `<WEBHOOK_NAME>`. Learn more on how to use"
+              + " it in [monitor notifications](https://docs.datadoghq.com/monitors/notify).")
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
 
-    public WebhooksIntegrationUpdateRequest encodeAs(WebhooksIntegrationEncoding encodeAs) {
-        this.encodeAs = encodeAs;
-        this.unparsed |= !encodeAs.isValid();
-        return this;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    /**
-     * Get encodeAs
-     * @return encodeAs
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_ENCODE_AS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public WebhooksIntegrationEncoding getEncodeAs() {
-        return encodeAs;
-    }
+  public WebhooksIntegrationUpdateRequest payload(String payload) {
+    this.payload = JsonNullable.<String>of(payload);
+    return this;
+  }
 
-    public void setEncodeAs(WebhooksIntegrationEncoding encodeAs) {
-        if (!encodeAs.isValid()) {
-            this.unparsed = true;
-        }
-        this.encodeAs = encodeAs;
-    }
+  /**
+   * If &#x60;null&#x60;, uses the default payload. If given a JSON payload, the webhook returns the
+   * payload specified by the given payload. [Webhooks variable
+   * usage](https://docs.datadoghq.com/integrations/webhooks/#usage).
+   *
+   * @return payload
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "If `null`, uses the default payload. If given a JSON payload, the webhook returns the"
+              + " payload specified by the given payload. [Webhooks variable"
+              + " usage](https://docs.datadoghq.com/integrations/webhooks/#usage).")
+  @JsonIgnore
+  public String getPayload() {
+    return payload.orElse(null);
+  }
 
-    public WebhooksIntegrationUpdateRequest name(String name) {
-        this.name = name;
-        return this;
-    }
+  @JsonProperty(JSON_PROPERTY_PAYLOAD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getPayload_JsonNullable() {
+    return payload;
+  }
 
-    /**
-     * The name of the webhook. It corresponds with &#x60;&lt;WEBHOOK_NAME&gt;&#x60;. Learn more on how to use it in [monitor notifications](https://docs.datadoghq.com/monitors/notify).
-     * @return name
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(
-        example = "WEBHOOK_NAME",
-        value = "The name of the webhook. It corresponds with `<WEBHOOK_NAME>`. Learn more on how to use it in [monitor notifications](https://docs.datadoghq.com/monitors/notify)."
-    )
-    @JsonProperty(JSON_PROPERTY_NAME)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getName() {
-        return name;
-    }
+  @JsonProperty(JSON_PROPERTY_PAYLOAD)
+  public void setPayload_JsonNullable(JsonNullable<String> payload) {
+    this.payload = payload;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public void setPayload(String payload) {
+    this.payload = JsonNullable.<String>of(payload);
+  }
 
-    public WebhooksIntegrationUpdateRequest payload(String payload) {
-        this.payload = JsonNullable.<String>of(payload);
-        return this;
-    }
+  public WebhooksIntegrationUpdateRequest url(String url) {
+    this.url = url;
+    return this;
+  }
 
-    /**
-     * If &#x60;null&#x60;, uses the default payload. If given a JSON payload, the webhook returns the payload specified by the given payload. [Webhooks variable usage](https://docs.datadoghq.com/integrations/webhooks/#usage).
-     * @return payload
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(
-        value = "If `null`, uses the default payload. If given a JSON payload, the webhook returns the payload specified by the given payload. [Webhooks variable usage](https://docs.datadoghq.com/integrations/webhooks/#usage)."
-    )
-    @JsonIgnore
-    public String getPayload() {
-        return payload.orElse(null);
-    }
+  /**
+   * URL of the webhook.
+   *
+   * @return url
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "https://example.com/webhook", value = "URL of the webhook.")
+  @JsonProperty(JSON_PROPERTY_URL)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getUrl() {
+    return url;
+  }
 
-    @JsonProperty(JSON_PROPERTY_PAYLOAD)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public JsonNullable<String> getPayload_JsonNullable() {
-        return payload;
-    }
+  public void setUrl(String url) {
+    this.url = url;
+  }
 
-    @JsonProperty(JSON_PROPERTY_PAYLOAD)
-    public void setPayload_JsonNullable(JsonNullable<String> payload) {
-        this.payload = payload;
+  /** Return true if this WebhooksIntegrationUpdateRequest object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    WebhooksIntegrationUpdateRequest webhooksIntegrationUpdateRequest =
+        (WebhooksIntegrationUpdateRequest) o;
+    return Objects.equals(this.customHeaders, webhooksIntegrationUpdateRequest.customHeaders)
+        && Objects.equals(this.encodeAs, webhooksIntegrationUpdateRequest.encodeAs)
+        && Objects.equals(this.name, webhooksIntegrationUpdateRequest.name)
+        && Objects.equals(this.payload, webhooksIntegrationUpdateRequest.payload)
+        && Objects.equals(this.url, webhooksIntegrationUpdateRequest.url);
+  }
 
-    public void setPayload(String payload) {
-        this.payload = JsonNullable.<String>of(payload);
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(customHeaders, encodeAs, name, payload, url);
+  }
 
-    public WebhooksIntegrationUpdateRequest url(String url) {
-        this.url = url;
-        return this;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class WebhooksIntegrationUpdateRequest {\n");
+    sb.append("    customHeaders: ").append(toIndentedString(customHeaders)).append("\n");
+    sb.append("    encodeAs: ").append(toIndentedString(encodeAs)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    payload: ").append(toIndentedString(payload)).append("\n");
+    sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * URL of the webhook.
-     * @return url
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "https://example.com/webhook", value = "URL of the webhook.")
-    @JsonProperty(JSON_PROPERTY_URL)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getUrl() {
-        return url;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    /**
-     * Return true if this WebhooksIntegrationUpdateRequest object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        WebhooksIntegrationUpdateRequest webhooksIntegrationUpdateRequest = (WebhooksIntegrationUpdateRequest) o;
-        return (
-            Objects.equals(this.customHeaders, webhooksIntegrationUpdateRequest.customHeaders) &&
-            Objects.equals(this.encodeAs, webhooksIntegrationUpdateRequest.encodeAs) &&
-            Objects.equals(this.name, webhooksIntegrationUpdateRequest.name) &&
-            Objects.equals(this.payload, webhooksIntegrationUpdateRequest.payload) &&
-            Objects.equals(this.url, webhooksIntegrationUpdateRequest.url)
-        );
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(customHeaders, encodeAs, name, payload, url);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class WebhooksIntegrationUpdateRequest {\n");
-        sb.append("    customHeaders: ").append(toIndentedString(customHeaders)).append("\n");
-        sb.append("    encodeAs: ").append(toIndentedString(encodeAs)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    payload: ").append(toIndentedString(payload)).append("\n");
-        sb.append("    url: ").append(toIndentedString(url)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

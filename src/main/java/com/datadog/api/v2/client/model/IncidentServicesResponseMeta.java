@@ -10,96 +10,81 @@
 
 package com.datadog.api.v2.client.model;
 
-import com.datadog.api.v2.client.JSON;
-import com.datadog.api.v2.client.model.IncidentServicesResponseMetaPagination;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * The metadata object containing pagination metadata.
- */
+/** The metadata object containing pagination metadata. */
 @ApiModel(description = "The metadata object containing pagination metadata.")
-@JsonPropertyOrder({ IncidentServicesResponseMeta.JSON_PROPERTY_PAGINATION })
+@JsonPropertyOrder({IncidentServicesResponseMeta.JSON_PROPERTY_PAGINATION})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IncidentServicesResponseMeta {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_PAGINATION = "pagination";
+  private IncidentServicesResponseMetaPagination pagination;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public IncidentServicesResponseMeta pagination(
+      IncidentServicesResponseMetaPagination pagination) {
+    this.pagination = pagination;
+    this.unparsed |= pagination.unparsed;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_PAGINATION = "pagination";
-    private IncidentServicesResponseMetaPagination pagination;
+  /**
+   * Get pagination
+   *
+   * @return pagination
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PAGINATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public IncidentServicesResponseMetaPagination getPagination() {
+    return pagination;
+  }
 
-    public IncidentServicesResponseMeta pagination(IncidentServicesResponseMetaPagination pagination) {
-        this.pagination = pagination;
-        this.unparsed |= pagination.unparsed;
-        return this;
+  public void setPagination(IncidentServicesResponseMetaPagination pagination) {
+    this.pagination = pagination;
+  }
+
+  /** Return true if this IncidentServicesResponse_meta object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * Get pagination
-     * @return pagination
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_PAGINATION)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public IncidentServicesResponseMetaPagination getPagination() {
-        return pagination;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    IncidentServicesResponseMeta incidentServicesResponseMeta = (IncidentServicesResponseMeta) o;
+    return Objects.equals(this.pagination, incidentServicesResponseMeta.pagination);
+  }
 
-    public void setPagination(IncidentServicesResponseMetaPagination pagination) {
-        this.pagination = pagination;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(pagination);
+  }
 
-    /**
-     * Return true if this IncidentServicesResponse_meta object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        IncidentServicesResponseMeta incidentServicesResponseMeta = (IncidentServicesResponseMeta) o;
-        return Objects.equals(this.pagination, incidentServicesResponseMeta.pagination);
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class IncidentServicesResponseMeta {\n");
+    sb.append("    pagination: ").append(toIndentedString(pagination)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(pagination);
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class IncidentServicesResponseMeta {\n");
-        sb.append("    pagination: ").append(toIndentedString(pagination)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

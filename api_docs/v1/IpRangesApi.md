@@ -2,9 +2,11 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method                                        | HTTP request | Description    |
-| --------------------------------------------- | ------------ | -------------- |
-| [**getIPRanges**](IpRangesApi.md#getIPRanges) | **GET** /    | List IP Ranges |
+Method        | HTTP request | Description
+------------- | ------------ | ------------
+[**getIPRanges**](IpRangesApi.md#getIPRanges) | **GET** / | List IP Ranges
+
+
 
 ## getIPRanges
 
@@ -15,32 +17,30 @@ Get information about Datadog IP ranges.
 ### Example
 
 ```java
+import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.IpRangesApi;
 import com.datadog.api.v1.client.model.*;
-import java.util.*;
+import com.datadog.api.v1.client.api.IpRangesApi;
 
 public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-    IpRangesApi apiInstance = new IpRangesApi(defaultClient);
-    try {
-      IPRanges result = apiInstance.getIPRanges();
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling IpRangesApi#getIPRanges");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
+        IpRangesApi apiInstance = new IpRangesApi(defaultClient);
+        try {
+            IPRanges result = apiInstance.getIPRanges();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling IpRangesApi#getIPRanges");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
     }
-  }
 }
-
 ```
 
 ### Parameters
@@ -61,7 +61,7 @@ No authorization required
 - **Accept**: application/json
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+

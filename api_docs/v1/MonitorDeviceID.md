@@ -1,21 +1,27 @@
+
+
 # MonitorDeviceID
 
 ## Enum
 
-- `LAPTOP_LARGE` (value: `"laptop_large"`)
 
-- `TABLET` (value: `"tablet"`)
+* `LAPTOP_LARGE` (value: `"laptop_large"`)
 
-- `MOBILE_SMALL` (value: `"mobile_small"`)
+* `TABLET` (value: `"tablet"`)
 
-- `CHROME_LAPTOP_LARGE` (value: `"chrome.laptop_large"`)
+* `MOBILE_SMALL` (value: `"mobile_small"`)
 
-- `CHROME_TABLET` (value: `"chrome.tablet"`)
+* `CHROME_LAPTOP_LARGE` (value: `"chrome.laptop_large"`)
 
-- `CHROME_MOBILE_SMALL` (value: `"chrome.mobile_small"`)
+* `CHROME_TABLET` (value: `"chrome.tablet"`)
 
-- `FIREFOX_LAPTOP_LARGE` (value: `"firefox.laptop_large"`)
+* `CHROME_MOBILE_SMALL` (value: `"chrome.mobile_small"`)
 
-- `FIREFOX_TABLET` (value: `"firefox.tablet"`)
+* `FIREFOX_LAPTOP_LARGE` (value: `"firefox.laptop_large"`)
 
-- `FIREFOX_MOBILE_SMALL` (value: `"firefox.mobile_small"`)
+* `FIREFOX_TABLET` (value: `"firefox.tablet"`)
+
+* `FIREFOX_MOBILE_SMALL` (value: `"firefox.mobile_small"`)
+
+
+

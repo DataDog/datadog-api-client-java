@@ -17,102 +17,102 @@ import org.junit.Test;
 /** API tests for ServiceAccountsApi */
 public class ServiceAccountsApiTest {
 
-    private final ServiceAccountsApi api = new ServiceAccountsApi();
+  private final ServiceAccountsApi api = new ServiceAccountsApi();
 
-    /**
-     * Create an application key for this service account
-     *
-     * <p>Create an application key for this service account.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void createServiceAccountApplicationKeyTest() throws ApiException {
-        // String serviceAccountId = null;
-        // ApplicationKeyCreateRequest body = null;
-        // ApplicationKeyResponse response = api.createServiceAccountApplicationKey(serviceAccountId)
-        //        .body(body)
-        //        .execute();
-        // TODO: test validations
-    }
+  /**
+   * Create an application key for this service account
+   *
+   * <p>Create an application key for this service account.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void createServiceAccountApplicationKeyTest() throws ApiException {
+    // String serviceAccountId = null;
+    // ApplicationKeyCreateRequest body = null;
+    // ApplicationKeyResponse response = api.createServiceAccountApplicationKey(serviceAccountId)
+    //        .body(body)
+    //        .execute();
+    // TODO: test validations
+  }
 
-    /**
-     * Delete an application key for this service account
-     *
-     * <p>Delete an application key owned by this service account.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void deleteServiceAccountApplicationKeyTest() throws ApiException {
-        // String serviceAccountId = null;
-        // String appKeyId = null;
-        // api.deleteServiceAccountApplicationKey(serviceAccountId, appKeyId)
-        //        .execute();
-        // TODO: test validations
-    }
+  /**
+   * Delete an application key for this service account
+   *
+   * <p>Delete an application key owned by this service account.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void deleteServiceAccountApplicationKeyTest() throws ApiException {
+    // String serviceAccountId = null;
+    // String appKeyId = null;
+    // api.deleteServiceAccountApplicationKey(serviceAccountId, appKeyId)
+    //        .execute();
+    // TODO: test validations
+  }
 
-    /**
-     * Get one application key for this service account
-     *
-     * <p>Get an application key owned by this service account.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getServiceAccountApplicationKeyTest() throws ApiException {
-        // String serviceAccountId = null;
-        // String appKeyId = null;
-        // PartialApplicationKeyResponse response =
-        // api.getServiceAccountApplicationKey(serviceAccountId, appKeyId)
-        //        .execute();
-        // TODO: test validations
-    }
+  /**
+   * Get one application key for this service account
+   *
+   * <p>Get an application key owned by this service account.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void getServiceAccountApplicationKeyTest() throws ApiException {
+    // String serviceAccountId = null;
+    // String appKeyId = null;
+    // PartialApplicationKeyResponse response =
+    // api.getServiceAccountApplicationKey(serviceAccountId, appKeyId)
+    //        .execute();
+    // TODO: test validations
+  }
 
-    /**
-     * List application keys for this service account
-     *
-     * <p>List all application keys available for this service account.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void listServiceAccountApplicationKeysTest() throws ApiException {
-        // String serviceAccountId = null;
-        // Long pageSize = null;
-        // Long pageNumber = null;
-        // ApplicationKeysSort sort = null;
-        // String filter = null;
-        // String filterCreatedAtStart = null;
-        // String filterCreatedAtEnd = null;
-        // ListApplicationKeysResponse response =
-        // api.listServiceAccountApplicationKeys(serviceAccountId)
-        //        .pageSize(pageSize)
-        //        .pageNumber(pageNumber)
-        //        .sort(sort)
-        //        .filter(filter)
-        //        .filterCreatedAtStart(filterCreatedAtStart)
-        //        .filterCreatedAtEnd(filterCreatedAtEnd)
-        //        .execute();
-        // TODO: test validations
-    }
+  /**
+   * List application keys for this service account
+   *
+   * <p>List all application keys available for this service account.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void listServiceAccountApplicationKeysTest() throws ApiException {
+    // String serviceAccountId = null;
+    // Long pageSize = null;
+    // Long pageNumber = null;
+    // ApplicationKeysSort sort = null;
+    // String filter = null;
+    // String filterCreatedAtStart = null;
+    // String filterCreatedAtEnd = null;
+    // ListApplicationKeysResponse response =
+    // api.listServiceAccountApplicationKeys(serviceAccountId)
+    //        .pageSize(pageSize)
+    //        .pageNumber(pageNumber)
+    //        .sort(sort)
+    //        .filter(filter)
+    //        .filterCreatedAtStart(filterCreatedAtStart)
+    //        .filterCreatedAtEnd(filterCreatedAtEnd)
+    //        .execute();
+    // TODO: test validations
+  }
 
-    /**
-     * Edit an application key for this service account
-     *
-     * <p>Edit an application key owned by this service account.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void updateServiceAccountApplicationKeyTest() throws ApiException {
-        // String serviceAccountId = null;
-        // String appKeyId = null;
-        // ApplicationKeyUpdateRequest body = null;
-        // PartialApplicationKeyResponse response =
-        // api.updateServiceAccountApplicationKey(serviceAccountId, appKeyId)
-        //        .body(body)
-        //        .execute();
-        // TODO: test validations
-    }
+  /**
+   * Edit an application key for this service account
+   *
+   * <p>Edit an application key owned by this service account.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void updateServiceAccountApplicationKeyTest() throws ApiException {
+    // String serviceAccountId = null;
+    // String appKeyId = null;
+    // ApplicationKeyUpdateRequest body = null;
+    // PartialApplicationKeyResponse response =
+    // api.updateServiceAccountApplicationKey(serviceAccountId, appKeyId)
+    //        .body(body)
+    //        .execute();
+    // TODO: test validations
+  }
 }

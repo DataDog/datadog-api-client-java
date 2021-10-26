@@ -1,23 +1,29 @@
+
+
 # FormulaAndFunctionApmResourceStatName
 
 ## Enum
 
-- `ERRORS` (value: `"errors"`)
 
-- `ERROR_RATE` (value: `"error_rate"`)
+* `ERRORS` (value: `"errors"`)
 
-- `HITS` (value: `"hits"`)
+* `ERROR_RATE` (value: `"error_rate"`)
 
-- `LATENCY_AVG` (value: `"latency_avg"`)
+* `HITS` (value: `"hits"`)
 
-- `LATENCY_MAX` (value: `"latency_max"`)
+* `LATENCY_AVG` (value: `"latency_avg"`)
 
-- `LATENCY_P50` (value: `"latency_p50"`)
+* `LATENCY_MAX` (value: `"latency_max"`)
 
-- `LATENCY_P75` (value: `"latency_p75"`)
+* `LATENCY_P50` (value: `"latency_p50"`)
 
-- `LATENCY_P90` (value: `"latency_p90"`)
+* `LATENCY_P75` (value: `"latency_p75"`)
 
-- `LATENCY_P95` (value: `"latency_p95"`)
+* `LATENCY_P90` (value: `"latency_p90"`)
 
-- `LATENCY_P99` (value: `"latency_p99"`)
+* `LATENCY_P95` (value: `"latency_p95"`)
+
+* `LATENCY_P99` (value: `"latency_p99"`)
+
+
+

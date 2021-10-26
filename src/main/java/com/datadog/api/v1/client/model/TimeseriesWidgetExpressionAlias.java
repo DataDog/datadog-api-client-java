@@ -10,128 +10,118 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Define an expression alias.
- */
+/** Define an expression alias. */
 @ApiModel(description = "Define an expression alias.")
-@JsonPropertyOrder({ TimeseriesWidgetExpressionAlias.JSON_PROPERTY_ALIAS_NAME, TimeseriesWidgetExpressionAlias.JSON_PROPERTY_EXPRESSION })
+@JsonPropertyOrder({
+  TimeseriesWidgetExpressionAlias.JSON_PROPERTY_ALIAS_NAME,
+  TimeseriesWidgetExpressionAlias.JSON_PROPERTY_EXPRESSION
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TimeseriesWidgetExpressionAlias {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ALIAS_NAME = "alias_name";
+  private String aliasName;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_EXPRESSION = "expression";
+  private String expression;
 
-    public static final String JSON_PROPERTY_ALIAS_NAME = "alias_name";
-    private String aliasName;
+  public TimeseriesWidgetExpressionAlias() {}
 
-    public static final String JSON_PROPERTY_EXPRESSION = "expression";
-    private String expression;
+  @JsonCreator
+  public TimeseriesWidgetExpressionAlias(
+      @JsonProperty(required = true, value = JSON_PROPERTY_EXPRESSION) String expression) {
+    this.expression = expression;
+  }
 
-    public TimeseriesWidgetExpressionAlias() {}
+  public TimeseriesWidgetExpressionAlias aliasName(String aliasName) {
+    this.aliasName = aliasName;
+    return this;
+  }
 
-    @JsonCreator
-    public TimeseriesWidgetExpressionAlias(@JsonProperty(required = true, value = JSON_PROPERTY_EXPRESSION) String expression) {
-        this.expression = expression;
+  /**
+   * Expression alias.
+   *
+   * @return aliasName
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Expression alias.")
+  @JsonProperty(JSON_PROPERTY_ALIAS_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAliasName() {
+    return aliasName;
+  }
+
+  public void setAliasName(String aliasName) {
+    this.aliasName = aliasName;
+  }
+
+  public TimeseriesWidgetExpressionAlias expression(String expression) {
+    this.expression = expression;
+    return this;
+  }
+
+  /**
+   * Expression name.
+   *
+   * @return expression
+   */
+  @ApiModelProperty(example = "", required = true, value = "Expression name.")
+  @JsonProperty(JSON_PROPERTY_EXPRESSION)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getExpression() {
+    return expression;
+  }
+
+  public void setExpression(String expression) {
+    this.expression = expression;
+  }
+
+  /** Return true if this TimeseriesWidgetExpressionAlias object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    public TimeseriesWidgetExpressionAlias aliasName(String aliasName) {
-        this.aliasName = aliasName;
-        return this;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    TimeseriesWidgetExpressionAlias timeseriesWidgetExpressionAlias =
+        (TimeseriesWidgetExpressionAlias) o;
+    return Objects.equals(this.aliasName, timeseriesWidgetExpressionAlias.aliasName)
+        && Objects.equals(this.expression, timeseriesWidgetExpressionAlias.expression);
+  }
 
-    /**
-     * Expression alias.
-     * @return aliasName
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Expression alias.")
-    @JsonProperty(JSON_PROPERTY_ALIAS_NAME)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getAliasName() {
-        return aliasName;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(aliasName, expression);
+  }
 
-    public void setAliasName(String aliasName) {
-        this.aliasName = aliasName;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class TimeseriesWidgetExpressionAlias {\n");
+    sb.append("    aliasName: ").append(toIndentedString(aliasName)).append("\n");
+    sb.append("    expression: ").append(toIndentedString(expression)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    public TimeseriesWidgetExpressionAlias expression(String expression) {
-        this.expression = expression;
-        return this;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    /**
-     * Expression name.
-     * @return expression
-     **/
-    @ApiModelProperty(example = "", required = true, value = "Expression name.")
-    @JsonProperty(JSON_PROPERTY_EXPRESSION)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public String getExpression() {
-        return expression;
-    }
-
-    public void setExpression(String expression) {
-        this.expression = expression;
-    }
-
-    /**
-     * Return true if this TimeseriesWidgetExpressionAlias object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        TimeseriesWidgetExpressionAlias timeseriesWidgetExpressionAlias = (TimeseriesWidgetExpressionAlias) o;
-        return (
-            Objects.equals(this.aliasName, timeseriesWidgetExpressionAlias.aliasName) &&
-            Objects.equals(this.expression, timeseriesWidgetExpressionAlias.expression)
-        );
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(aliasName, expression);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class TimeseriesWidgetExpressionAlias {\n");
-        sb.append("    aliasName: ").append(toIndentedString(aliasName)).append("\n");
-        sb.append("    expression: ").append(toIndentedString(expression)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

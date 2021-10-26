@@ -10,100 +10,90 @@
 
 package com.datadog.api.v2.client.model;
 
-import com.datadog.api.v2.client.JSON;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Attributes used to update an API Key.
- */
+/** Attributes used to update an API Key. */
 @ApiModel(description = "Attributes used to update an API Key.")
-@JsonPropertyOrder({ APIKeyUpdateAttributes.JSON_PROPERTY_NAME })
+@JsonPropertyOrder({APIKeyUpdateAttributes.JSON_PROPERTY_NAME})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class APIKeyUpdateAttributes {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public APIKeyUpdateAttributes() {}
 
-    public static final String JSON_PROPERTY_NAME = "name";
-    private String name;
+  @JsonCreator
+  public APIKeyUpdateAttributes(
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
+    this.name = name;
+  }
 
-    public APIKeyUpdateAttributes() {}
+  public APIKeyUpdateAttributes name(String name) {
+    this.name = name;
+    return this;
+  }
 
-    @JsonCreator
-    public APIKeyUpdateAttributes(@JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
-        this.name = name;
+  /**
+   * Name of the API key.
+   *
+   * @return name
+   */
+  @ApiModelProperty(
+      example = "API Key for submitting metrics",
+      required = true,
+      value = "Name of the API key.")
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  /** Return true if this APIKeyUpdateAttributes object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    public APIKeyUpdateAttributes name(String name) {
-        this.name = name;
-        return this;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    APIKeyUpdateAttributes apIKeyUpdateAttributes = (APIKeyUpdateAttributes) o;
+    return Objects.equals(this.name, apIKeyUpdateAttributes.name);
+  }
 
-    /**
-     * Name of the API key.
-     * @return name
-     **/
-    @ApiModelProperty(example = "API Key for submitting metrics", required = true, value = "Name of the API key.")
-    @JsonProperty(JSON_PROPERTY_NAME)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public String getName() {
-        return name;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(name);
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class APIKeyUpdateAttributes {\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Return true if this APIKeyUpdateAttributes object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        APIKeyUpdateAttributes apIKeyUpdateAttributes = (APIKeyUpdateAttributes) o;
-        return Objects.equals(this.name, apIKeyUpdateAttributes.name);
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class APIKeyUpdateAttributes {\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

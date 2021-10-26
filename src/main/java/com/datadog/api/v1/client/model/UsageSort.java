@@ -10,101 +10,90 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
-import io.swagger.annotations.ApiModel;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/**
- * The field to sort by.
- */
+/** The field to sort by. */
 @JsonSerialize(using = UsageSort.UsageSortSerializer.class)
 public class UsageSort {
 
-    public static final UsageSort COMPUTED_ON = new UsageSort("computed_on");
-    public static final UsageSort SIZE = new UsageSort("size");
-    public static final UsageSort START_DATE = new UsageSort("start_date");
-    public static final UsageSort END_DATE = new UsageSort("end_date");
+  public static final UsageSort COMPUTED_ON = new UsageSort("computed_on");
+  public static final UsageSort SIZE = new UsageSort("size");
+  public static final UsageSort START_DATE = new UsageSort("start_date");
+  public static final UsageSort END_DATE = new UsageSort("end_date");
 
-    private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("computed_on", "size", "start_date", "end_date"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("computed_on", "size", "start_date", "end_date"));
 
-    private String value;
+  private String value;
 
-    public boolean isValid() {
-        return allowedValues.contains(this.value);
+  public boolean isValid() {
+    return allowedValues.contains(this.value);
+  }
+
+  UsageSort(String value) {
+    this.value = value;
+  }
+
+  public static class UsageSortSerializer extends StdSerializer<UsageSort> {
+    public UsageSortSerializer(Class<UsageSort> t) {
+      super(t);
     }
 
-    UsageSort(String value) {
-        this.value = value;
-    }
-
-    public static class UsageSortSerializer extends StdSerializer<UsageSort> {
-
-        public UsageSortSerializer(Class<UsageSort> t) {
-            super(t);
-        }
-
-        public UsageSortSerializer() {
-            this(null);
-        }
-
-        @Override
-        public void serialize(UsageSort value, JsonGenerator jgen, SerializerProvider provider)
-            throws IOException, JsonProcessingException {
-            jgen.writeObject(value.value);
-        }
-    }
-
-    @JsonValue
-    public String getValue() {
-        return this.value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    /**
-     * Return true if this UsageSort object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        return this.value.equals(((UsageSort) o).value);
+    public UsageSortSerializer() {
+      this(null);
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(value);
+    public void serialize(UsageSort value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
     }
+  }
 
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
+  @JsonValue
+  public String getValue() {
+    return this.value;
+  }
 
-    @JsonCreator
-    public static UsageSort fromValue(String value) {
-        return new UsageSort(value);
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  /** Return true if this UsageSort object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    return this.value.equals(((UsageSort) o).value);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(value);
+  }
+
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
+
+  @JsonCreator
+  public static UsageSort fromValue(String value) {
+    return new UsageSort(value);
+  }
 }

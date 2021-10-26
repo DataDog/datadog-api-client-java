@@ -10,130 +10,123 @@
 
 package com.datadog.api.v2.client.model;
 
-import com.datadog.api.v2.client.JSON;
-import com.datadog.api.v2.client.model.LogsArchiveCreateRequestAttributes;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * The definition of an archive.
- */
+/** The definition of an archive. */
 @ApiModel(description = "The definition of an archive.")
-@JsonPropertyOrder({ LogsArchiveCreateRequestDefinition.JSON_PROPERTY_ATTRIBUTES, LogsArchiveCreateRequestDefinition.JSON_PROPERTY_TYPE })
+@JsonPropertyOrder({
+  LogsArchiveCreateRequestDefinition.JSON_PROPERTY_ATTRIBUTES,
+  LogsArchiveCreateRequestDefinition.JSON_PROPERTY_TYPE
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsArchiveCreateRequestDefinition {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private LogsArchiveCreateRequestAttributes attributes;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private String type = "archives";
 
-    public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-    private LogsArchiveCreateRequestAttributes attributes;
+  public LogsArchiveCreateRequestDefinition() {}
 
-    public static final String JSON_PROPERTY_TYPE = "type";
-    private String type = "archives";
+  @JsonCreator
+  public LogsArchiveCreateRequestDefinition(
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) String type) {
+    this.type = type;
+  }
 
-    public LogsArchiveCreateRequestDefinition() {}
+  public LogsArchiveCreateRequestDefinition attributes(
+      LogsArchiveCreateRequestAttributes attributes) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
+    return this;
+  }
 
-    @JsonCreator
-    public LogsArchiveCreateRequestDefinition(@JsonProperty(required = true, value = JSON_PROPERTY_TYPE) String type) {
-        this.type = type;
+  /**
+   * Get attributes
+   *
+   * @return attributes
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogsArchiveCreateRequestAttributes getAttributes() {
+    return attributes;
+  }
+
+  public void setAttributes(LogsArchiveCreateRequestAttributes attributes) {
+    this.attributes = attributes;
+  }
+
+  public LogsArchiveCreateRequestDefinition type(String type) {
+    this.type = type;
+    return this;
+  }
+
+  /**
+   * The type of the resource. The value should always be archives.
+   *
+   * @return type
+   */
+  @ApiModelProperty(
+      example = "archives",
+      required = true,
+      value = "The type of the resource. The value should always be archives.")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  /** Return true if this LogsArchiveCreateRequestDefinition object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    public LogsArchiveCreateRequestDefinition attributes(LogsArchiveCreateRequestAttributes attributes) {
-        this.attributes = attributes;
-        this.unparsed |= attributes.unparsed;
-        return this;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    LogsArchiveCreateRequestDefinition logsArchiveCreateRequestDefinition =
+        (LogsArchiveCreateRequestDefinition) o;
+    return Objects.equals(this.attributes, logsArchiveCreateRequestDefinition.attributes)
+        && Objects.equals(this.type, logsArchiveCreateRequestDefinition.type);
+  }
 
-    /**
-     * Get attributes
-     * @return attributes
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public LogsArchiveCreateRequestAttributes getAttributes() {
-        return attributes;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(attributes, type);
+  }
 
-    public void setAttributes(LogsArchiveCreateRequestAttributes attributes) {
-        this.attributes = attributes;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class LogsArchiveCreateRequestDefinition {\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    public LogsArchiveCreateRequestDefinition type(String type) {
-        this.type = type;
-        return this;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    /**
-     * The type of the resource. The value should always be archives.
-     * @return type
-     **/
-    @ApiModelProperty(example = "archives", required = true, value = "The type of the resource. The value should always be archives.")
-    @JsonProperty(JSON_PROPERTY_TYPE)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    /**
-     * Return true if this LogsArchiveCreateRequestDefinition object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        LogsArchiveCreateRequestDefinition logsArchiveCreateRequestDefinition = (LogsArchiveCreateRequestDefinition) o;
-        return (
-            Objects.equals(this.attributes, logsArchiveCreateRequestDefinition.attributes) &&
-            Objects.equals(this.type, logsArchiveCreateRequestDefinition.type)
-        );
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(attributes, type);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class LogsArchiveCreateRequestDefinition {\n");
-        sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

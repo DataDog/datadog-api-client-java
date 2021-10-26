@@ -1,5 +1,11 @@
+
+
 # OrganizationsType
 
 ## Enum
 
-- `ORGS` (value: `"orgs"`)
+
+* `ORGS` (value: `"orgs"`)
+
+
+

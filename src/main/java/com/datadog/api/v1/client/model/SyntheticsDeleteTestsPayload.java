@@ -10,104 +10,90 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * A JSON list of the ID or IDs of the Synthetic tests that you want to delete.
- */
-@ApiModel(description = "A JSON list of the ID or IDs of the Synthetic tests that you want to delete.")
-@JsonPropertyOrder({ SyntheticsDeleteTestsPayload.JSON_PROPERTY_PUBLIC_IDS })
+/** A JSON list of the ID or IDs of the Synthetic tests that you want to delete. */
+@ApiModel(
+    description = "A JSON list of the ID or IDs of the Synthetic tests that you want to delete.")
+@JsonPropertyOrder({SyntheticsDeleteTestsPayload.JSON_PROPERTY_PUBLIC_IDS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsDeleteTestsPayload {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_PUBLIC_IDS = "public_ids";
+  private List<String> publicIds = null;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public SyntheticsDeleteTestsPayload publicIds(List<String> publicIds) {
+    this.publicIds = publicIds;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_PUBLIC_IDS = "public_ids";
-    private List<String> publicIds = null;
-
-    public SyntheticsDeleteTestsPayload publicIds(List<String> publicIds) {
-        this.publicIds = publicIds;
-        return this;
+  public SyntheticsDeleteTestsPayload addPublicIdsItem(String publicIdsItem) {
+    if (this.publicIds == null) {
+      this.publicIds = new ArrayList<>();
     }
+    this.publicIds.add(publicIdsItem);
+    return this;
+  }
 
-    public SyntheticsDeleteTestsPayload addPublicIdsItem(String publicIdsItem) {
-        if (this.publicIds == null) {
-            this.publicIds = new ArrayList<>();
-        }
-        this.publicIds.add(publicIdsItem);
-        return this;
-    }
+  /**
+   * An array of Synthetic test IDs you want to delete.
+   *
+   * @return publicIds
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "[]", value = "An array of Synthetic test IDs you want to delete.")
+  @JsonProperty(JSON_PROPERTY_PUBLIC_IDS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getPublicIds() {
+    return publicIds;
+  }
 
-    /**
-     * An array of Synthetic test IDs you want to delete.
-     * @return publicIds
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "[]", value = "An array of Synthetic test IDs you want to delete.")
-    @JsonProperty(JSON_PROPERTY_PUBLIC_IDS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<String> getPublicIds() {
-        return publicIds;
-    }
+  public void setPublicIds(List<String> publicIds) {
+    this.publicIds = publicIds;
+  }
 
-    public void setPublicIds(List<String> publicIds) {
-        this.publicIds = publicIds;
+  /** Return true if this SyntheticsDeleteTestsPayload object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    SyntheticsDeleteTestsPayload syntheticsDeleteTestsPayload = (SyntheticsDeleteTestsPayload) o;
+    return Objects.equals(this.publicIds, syntheticsDeleteTestsPayload.publicIds);
+  }
 
-    /**
-     * Return true if this SyntheticsDeleteTestsPayload object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        SyntheticsDeleteTestsPayload syntheticsDeleteTestsPayload = (SyntheticsDeleteTestsPayload) o;
-        return Objects.equals(this.publicIds, syntheticsDeleteTestsPayload.publicIds);
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(publicIds);
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(publicIds);
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class SyntheticsDeleteTestsPayload {\n");
+    sb.append("    publicIds: ").append(toIndentedString(publicIds)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SyntheticsDeleteTestsPayload {\n");
-        sb.append("    publicIds: ").append(toIndentedString(publicIds)).append("\n");
-        sb.append("}");
-        return sb.toString();
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

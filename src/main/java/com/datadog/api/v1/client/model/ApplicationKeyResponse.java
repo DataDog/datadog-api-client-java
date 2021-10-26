@@ -10,96 +10,80 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.datadog.api.v1.client.model.ApplicationKey;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * An application key response.
- */
+/** An application key response. */
 @ApiModel(description = "An application key response.")
-@JsonPropertyOrder({ ApplicationKeyResponse.JSON_PROPERTY_APPLICATION_KEY })
+@JsonPropertyOrder({ApplicationKeyResponse.JSON_PROPERTY_APPLICATION_KEY})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ApplicationKeyResponse {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_APPLICATION_KEY = "application_key";
+  private ApplicationKey applicationKey;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public ApplicationKeyResponse applicationKey(ApplicationKey applicationKey) {
+    this.applicationKey = applicationKey;
+    this.unparsed |= applicationKey.unparsed;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_APPLICATION_KEY = "application_key";
-    private ApplicationKey applicationKey;
+  /**
+   * Get applicationKey
+   *
+   * @return applicationKey
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_APPLICATION_KEY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ApplicationKey getApplicationKey() {
+    return applicationKey;
+  }
 
-    public ApplicationKeyResponse applicationKey(ApplicationKey applicationKey) {
-        this.applicationKey = applicationKey;
-        this.unparsed |= applicationKey.unparsed;
-        return this;
+  public void setApplicationKey(ApplicationKey applicationKey) {
+    this.applicationKey = applicationKey;
+  }
+
+  /** Return true if this ApplicationKeyResponse object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * Get applicationKey
-     * @return applicationKey
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_APPLICATION_KEY)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public ApplicationKey getApplicationKey() {
-        return applicationKey;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    ApplicationKeyResponse applicationKeyResponse = (ApplicationKeyResponse) o;
+    return Objects.equals(this.applicationKey, applicationKeyResponse.applicationKey);
+  }
 
-    public void setApplicationKey(ApplicationKey applicationKey) {
-        this.applicationKey = applicationKey;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(applicationKey);
+  }
 
-    /**
-     * Return true if this ApplicationKeyResponse object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        ApplicationKeyResponse applicationKeyResponse = (ApplicationKeyResponse) o;
-        return Objects.equals(this.applicationKey, applicationKeyResponse.applicationKey);
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class ApplicationKeyResponse {\n");
+    sb.append("    applicationKey: ").append(toIndentedString(applicationKey)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(applicationKey);
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ApplicationKeyResponse {\n");
-        sb.append("    applicationKey: ").append(toIndentedString(applicationKey)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

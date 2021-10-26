@@ -10,160 +10,145 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.datadog.api.v1.client.model.WidgetLineType;
-import com.datadog.api.v1.client.model.WidgetLineWidth;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Define request widget style.
- */
+/** Define request widget style. */
 @ApiModel(description = "Define request widget style.")
-@JsonPropertyOrder(
-    { WidgetRequestStyle.JSON_PROPERTY_LINE_TYPE, WidgetRequestStyle.JSON_PROPERTY_LINE_WIDTH, WidgetRequestStyle.JSON_PROPERTY_PALETTE }
-)
+@JsonPropertyOrder({
+  WidgetRequestStyle.JSON_PROPERTY_LINE_TYPE,
+  WidgetRequestStyle.JSON_PROPERTY_LINE_WIDTH,
+  WidgetRequestStyle.JSON_PROPERTY_PALETTE
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WidgetRequestStyle {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_LINE_TYPE = "line_type";
+  private WidgetLineType lineType;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_LINE_WIDTH = "line_width";
+  private WidgetLineWidth lineWidth;
 
-    public static final String JSON_PROPERTY_LINE_TYPE = "line_type";
-    private WidgetLineType lineType;
+  public static final String JSON_PROPERTY_PALETTE = "palette";
+  private String palette;
 
-    public static final String JSON_PROPERTY_LINE_WIDTH = "line_width";
-    private WidgetLineWidth lineWidth;
+  public WidgetRequestStyle lineType(WidgetLineType lineType) {
+    this.lineType = lineType;
+    this.unparsed |= !lineType.isValid();
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_PALETTE = "palette";
-    private String palette;
+  /**
+   * Get lineType
+   *
+   * @return lineType
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_LINE_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetLineType getLineType() {
+    return lineType;
+  }
 
-    public WidgetRequestStyle lineType(WidgetLineType lineType) {
-        this.lineType = lineType;
-        this.unparsed |= !lineType.isValid();
-        return this;
+  public void setLineType(WidgetLineType lineType) {
+    if (!lineType.isValid()) {
+      this.unparsed = true;
     }
+    this.lineType = lineType;
+  }
 
-    /**
-     * Get lineType
-     * @return lineType
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_LINE_TYPE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public WidgetLineType getLineType() {
-        return lineType;
-    }
+  public WidgetRequestStyle lineWidth(WidgetLineWidth lineWidth) {
+    this.lineWidth = lineWidth;
+    this.unparsed |= !lineWidth.isValid();
+    return this;
+  }
 
-    public void setLineType(WidgetLineType lineType) {
-        if (!lineType.isValid()) {
-            this.unparsed = true;
-        }
-        this.lineType = lineType;
-    }
+  /**
+   * Get lineWidth
+   *
+   * @return lineWidth
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_LINE_WIDTH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetLineWidth getLineWidth() {
+    return lineWidth;
+  }
 
-    public WidgetRequestStyle lineWidth(WidgetLineWidth lineWidth) {
-        this.lineWidth = lineWidth;
-        this.unparsed |= !lineWidth.isValid();
-        return this;
+  public void setLineWidth(WidgetLineWidth lineWidth) {
+    if (!lineWidth.isValid()) {
+      this.unparsed = true;
     }
+    this.lineWidth = lineWidth;
+  }
 
-    /**
-     * Get lineWidth
-     * @return lineWidth
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_LINE_WIDTH)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public WidgetLineWidth getLineWidth() {
-        return lineWidth;
-    }
+  public WidgetRequestStyle palette(String palette) {
+    this.palette = palette;
+    return this;
+  }
 
-    public void setLineWidth(WidgetLineWidth lineWidth) {
-        if (!lineWidth.isValid()) {
-            this.unparsed = true;
-        }
-        this.lineWidth = lineWidth;
-    }
+  /**
+   * Color palette to apply to the widget.
+   *
+   * @return palette
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Color palette to apply to the widget.")
+  @JsonProperty(JSON_PROPERTY_PALETTE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPalette() {
+    return palette;
+  }
 
-    public WidgetRequestStyle palette(String palette) {
-        this.palette = palette;
-        return this;
-    }
+  public void setPalette(String palette) {
+    this.palette = palette;
+  }
 
-    /**
-     * Color palette to apply to the widget.
-     * @return palette
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Color palette to apply to the widget.")
-    @JsonProperty(JSON_PROPERTY_PALETTE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getPalette() {
-        return palette;
+  /** Return true if this WidgetRequestStyle object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    WidgetRequestStyle widgetRequestStyle = (WidgetRequestStyle) o;
+    return Objects.equals(this.lineType, widgetRequestStyle.lineType)
+        && Objects.equals(this.lineWidth, widgetRequestStyle.lineWidth)
+        && Objects.equals(this.palette, widgetRequestStyle.palette);
+  }
 
-    public void setPalette(String palette) {
-        this.palette = palette;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(lineType, lineWidth, palette);
+  }
 
-    /**
-     * Return true if this WidgetRequestStyle object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        WidgetRequestStyle widgetRequestStyle = (WidgetRequestStyle) o;
-        return (
-            Objects.equals(this.lineType, widgetRequestStyle.lineType) &&
-            Objects.equals(this.lineWidth, widgetRequestStyle.lineWidth) &&
-            Objects.equals(this.palette, widgetRequestStyle.palette)
-        );
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class WidgetRequestStyle {\n");
+    sb.append("    lineType: ").append(toIndentedString(lineType)).append("\n");
+    sb.append("    lineWidth: ").append(toIndentedString(lineWidth)).append("\n");
+    sb.append("    palette: ").append(toIndentedString(palette)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(lineType, lineWidth, palette);
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class WidgetRequestStyle {\n");
-        sb.append("    lineType: ").append(toIndentedString(lineType)).append("\n");
-        sb.append("    lineWidth: ").append(toIndentedString(lineWidth)).append("\n");
-        sb.append("    palette: ").append(toIndentedString(palette)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

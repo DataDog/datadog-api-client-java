@@ -10,286 +10,279 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.datadog.api.v1.client.model.EventTimelineWidgetDefinitionType;
-import com.datadog.api.v1.client.model.WidgetTextAlign;
-import com.datadog.api.v1.client.model.WidgetTime;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
 /**
- * The event timeline is a widget version of the timeline that appears at the top of the Event Stream view. Only available on FREE layout dashboards.
+ * The event timeline is a widget version of the timeline that appears at the top of the Event
+ * Stream view. Only available on FREE layout dashboards.
  */
 @ApiModel(
-    description = "The event timeline is a widget version of the timeline that appears at the top of the Event Stream view. Only available on FREE layout dashboards."
-)
-@JsonPropertyOrder(
-    {
-        EventTimelineWidgetDefinition.JSON_PROPERTY_QUERY,
-        EventTimelineWidgetDefinition.JSON_PROPERTY_TAGS_EXECUTION,
-        EventTimelineWidgetDefinition.JSON_PROPERTY_TIME,
-        EventTimelineWidgetDefinition.JSON_PROPERTY_TITLE,
-        EventTimelineWidgetDefinition.JSON_PROPERTY_TITLE_ALIGN,
-        EventTimelineWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
-        EventTimelineWidgetDefinition.JSON_PROPERTY_TYPE
-    }
-)
+    description =
+        "The event timeline is a widget version of the timeline that appears at the top of the"
+            + " Event Stream view. Only available on FREE layout dashboards.")
+@JsonPropertyOrder({
+  EventTimelineWidgetDefinition.JSON_PROPERTY_QUERY,
+  EventTimelineWidgetDefinition.JSON_PROPERTY_TAGS_EXECUTION,
+  EventTimelineWidgetDefinition.JSON_PROPERTY_TIME,
+  EventTimelineWidgetDefinition.JSON_PROPERTY_TITLE,
+  EventTimelineWidgetDefinition.JSON_PROPERTY_TITLE_ALIGN,
+  EventTimelineWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
+  EventTimelineWidgetDefinition.JSON_PROPERTY_TYPE
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class EventTimelineWidgetDefinition {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_QUERY = "query";
+  private String query;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_TAGS_EXECUTION = "tags_execution";
+  private String tagsExecution;
 
-    public static final String JSON_PROPERTY_QUERY = "query";
-    private String query;
+  public static final String JSON_PROPERTY_TIME = "time";
+  private WidgetTime time;
 
-    public static final String JSON_PROPERTY_TAGS_EXECUTION = "tags_execution";
-    private String tagsExecution;
+  public static final String JSON_PROPERTY_TITLE = "title";
+  private String title;
 
-    public static final String JSON_PROPERTY_TIME = "time";
-    private WidgetTime time;
+  public static final String JSON_PROPERTY_TITLE_ALIGN = "title_align";
+  private WidgetTextAlign titleAlign;
 
-    public static final String JSON_PROPERTY_TITLE = "title";
-    private String title;
+  public static final String JSON_PROPERTY_TITLE_SIZE = "title_size";
+  private String titleSize;
 
-    public static final String JSON_PROPERTY_TITLE_ALIGN = "title_align";
-    private WidgetTextAlign titleAlign;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private EventTimelineWidgetDefinitionType type = EventTimelineWidgetDefinitionType.EVENT_TIMELINE;
 
-    public static final String JSON_PROPERTY_TITLE_SIZE = "title_size";
-    private String titleSize;
+  public EventTimelineWidgetDefinition() {}
 
-    public static final String JSON_PROPERTY_TYPE = "type";
-    private EventTimelineWidgetDefinitionType type = EventTimelineWidgetDefinitionType.EVENT_TIMELINE;
+  @JsonCreator
+  public EventTimelineWidgetDefinition(
+      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          EventTimelineWidgetDefinitionType type) {
+    this.query = query;
+    this.type = type;
+    this.unparsed |= !type.isValid();
+  }
 
-    public EventTimelineWidgetDefinition() {}
+  public EventTimelineWidgetDefinition query(String query) {
+    this.query = query;
+    return this;
+  }
 
-    @JsonCreator
-    public EventTimelineWidgetDefinition(
-        @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query,
-        @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) EventTimelineWidgetDefinitionType type
-    ) {
-        this.query = query;
-        this.type = type;
-        this.unparsed |= !type.isValid();
+  /**
+   * Query to filter the event timeline with.
+   *
+   * @return query
+   */
+  @ApiModelProperty(
+      example = "",
+      required = true,
+      value = "Query to filter the event timeline with.")
+  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getQuery() {
+    return query;
+  }
+
+  public void setQuery(String query) {
+    this.query = query;
+  }
+
+  public EventTimelineWidgetDefinition tagsExecution(String tagsExecution) {
+    this.tagsExecution = tagsExecution;
+    return this;
+  }
+
+  /**
+   * The execution method for multi-value filters. Can be either and or or.
+   *
+   * @return tagsExecution
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value = "The execution method for multi-value filters. Can be either and or or.")
+  @JsonProperty(JSON_PROPERTY_TAGS_EXECUTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTagsExecution() {
+    return tagsExecution;
+  }
+
+  public void setTagsExecution(String tagsExecution) {
+    this.tagsExecution = tagsExecution;
+  }
+
+  public EventTimelineWidgetDefinition time(WidgetTime time) {
+    this.time = time;
+    this.unparsed |= time.unparsed;
+    return this;
+  }
+
+  /**
+   * Get time
+   *
+   * @return time
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetTime getTime() {
+    return time;
+  }
+
+  public void setTime(WidgetTime time) {
+    this.time = time;
+  }
+
+  public EventTimelineWidgetDefinition title(String title) {
+    this.title = title;
+    return this;
+  }
+
+  /**
+   * Title of the widget.
+   *
+   * @return title
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Title of the widget.")
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTitle() {
+    return title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public EventTimelineWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
+    this.titleAlign = titleAlign;
+    this.unparsed |= !titleAlign.isValid();
+    return this;
+  }
+
+  /**
+   * Get titleAlign
+   *
+   * @return titleAlign
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetTextAlign getTitleAlign() {
+    return titleAlign;
+  }
+
+  public void setTitleAlign(WidgetTextAlign titleAlign) {
+    if (!titleAlign.isValid()) {
+      this.unparsed = true;
     }
+    this.titleAlign = titleAlign;
+  }
 
-    public EventTimelineWidgetDefinition query(String query) {
-        this.query = query;
-        return this;
-    }
+  public EventTimelineWidgetDefinition titleSize(String titleSize) {
+    this.titleSize = titleSize;
+    return this;
+  }
 
-    /**
-     * Query to filter the event timeline with.
-     * @return query
-     **/
-    @ApiModelProperty(example = "", required = true, value = "Query to filter the event timeline with.")
-    @JsonProperty(JSON_PROPERTY_QUERY)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public String getQuery() {
-        return query;
-    }
+  /**
+   * Size of the title.
+   *
+   * @return titleSize
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Size of the title.")
+  @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTitleSize() {
+    return titleSize;
+  }
 
-    public void setQuery(String query) {
-        this.query = query;
-    }
+  public void setTitleSize(String titleSize) {
+    this.titleSize = titleSize;
+  }
 
-    public EventTimelineWidgetDefinition tagsExecution(String tagsExecution) {
-        this.tagsExecution = tagsExecution;
-        return this;
-    }
+  public EventTimelineWidgetDefinition type(EventTimelineWidgetDefinitionType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    return this;
+  }
 
-    /**
-     * The execution method for multi-value filters. Can be either and or or.
-     * @return tagsExecution
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The execution method for multi-value filters. Can be either and or or.")
-    @JsonProperty(JSON_PROPERTY_TAGS_EXECUTION)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getTagsExecution() {
-        return tagsExecution;
-    }
+  /**
+   * Get type
+   *
+   * @return type
+   */
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public EventTimelineWidgetDefinitionType getType() {
+    return type;
+  }
 
-    public void setTagsExecution(String tagsExecution) {
-        this.tagsExecution = tagsExecution;
+  public void setType(EventTimelineWidgetDefinitionType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
     }
+    this.type = type;
+  }
 
-    public EventTimelineWidgetDefinition time(WidgetTime time) {
-        this.time = time;
-        this.unparsed |= time.unparsed;
-        return this;
+  /** Return true if this EventTimelineWidgetDefinition object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    EventTimelineWidgetDefinition eventTimelineWidgetDefinition = (EventTimelineWidgetDefinition) o;
+    return Objects.equals(this.query, eventTimelineWidgetDefinition.query)
+        && Objects.equals(this.tagsExecution, eventTimelineWidgetDefinition.tagsExecution)
+        && Objects.equals(this.time, eventTimelineWidgetDefinition.time)
+        && Objects.equals(this.title, eventTimelineWidgetDefinition.title)
+        && Objects.equals(this.titleAlign, eventTimelineWidgetDefinition.titleAlign)
+        && Objects.equals(this.titleSize, eventTimelineWidgetDefinition.titleSize)
+        && Objects.equals(this.type, eventTimelineWidgetDefinition.type);
+  }
 
-    /**
-     * Get time
-     * @return time
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_TIME)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public WidgetTime getTime() {
-        return time;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(query, tagsExecution, time, title, titleAlign, titleSize, type);
+  }
 
-    public void setTime(WidgetTime time) {
-        this.time = time;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class EventTimelineWidgetDefinition {\n");
+    sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("    tagsExecution: ").append(toIndentedString(tagsExecution)).append("\n");
+    sb.append("    time: ").append(toIndentedString(time)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    titleAlign: ").append(toIndentedString(titleAlign)).append("\n");
+    sb.append("    titleSize: ").append(toIndentedString(titleSize)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    public EventTimelineWidgetDefinition title(String title) {
-        this.title = title;
-        return this;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    /**
-     * Title of the widget.
-     * @return title
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Title of the widget.")
-    @JsonProperty(JSON_PROPERTY_TITLE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public EventTimelineWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
-        this.titleAlign = titleAlign;
-        this.unparsed |= !titleAlign.isValid();
-        return this;
-    }
-
-    /**
-     * Get titleAlign
-     * @return titleAlign
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public WidgetTextAlign getTitleAlign() {
-        return titleAlign;
-    }
-
-    public void setTitleAlign(WidgetTextAlign titleAlign) {
-        if (!titleAlign.isValid()) {
-            this.unparsed = true;
-        }
-        this.titleAlign = titleAlign;
-    }
-
-    public EventTimelineWidgetDefinition titleSize(String titleSize) {
-        this.titleSize = titleSize;
-        return this;
-    }
-
-    /**
-     * Size of the title.
-     * @return titleSize
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Size of the title.")
-    @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getTitleSize() {
-        return titleSize;
-    }
-
-    public void setTitleSize(String titleSize) {
-        this.titleSize = titleSize;
-    }
-
-    public EventTimelineWidgetDefinition type(EventTimelineWidgetDefinitionType type) {
-        this.type = type;
-        this.unparsed |= !type.isValid();
-        return this;
-    }
-
-    /**
-     * Get type
-     * @return type
-     **/
-    @ApiModelProperty(required = true, value = "")
-    @JsonProperty(JSON_PROPERTY_TYPE)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public EventTimelineWidgetDefinitionType getType() {
-        return type;
-    }
-
-    public void setType(EventTimelineWidgetDefinitionType type) {
-        if (!type.isValid()) {
-            this.unparsed = true;
-        }
-        this.type = type;
-    }
-
-    /**
-     * Return true if this EventTimelineWidgetDefinition object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        EventTimelineWidgetDefinition eventTimelineWidgetDefinition = (EventTimelineWidgetDefinition) o;
-        return (
-            Objects.equals(this.query, eventTimelineWidgetDefinition.query) &&
-            Objects.equals(this.tagsExecution, eventTimelineWidgetDefinition.tagsExecution) &&
-            Objects.equals(this.time, eventTimelineWidgetDefinition.time) &&
-            Objects.equals(this.title, eventTimelineWidgetDefinition.title) &&
-            Objects.equals(this.titleAlign, eventTimelineWidgetDefinition.titleAlign) &&
-            Objects.equals(this.titleSize, eventTimelineWidgetDefinition.titleSize) &&
-            Objects.equals(this.type, eventTimelineWidgetDefinition.type)
-        );
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(query, tagsExecution, time, title, titleAlign, titleSize, type);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class EventTimelineWidgetDefinition {\n");
-        sb.append("    query: ").append(toIndentedString(query)).append("\n");
-        sb.append("    tagsExecution: ").append(toIndentedString(tagsExecution)).append("\n");
-        sb.append("    time: ").append(toIndentedString(time)).append("\n");
-        sb.append("    title: ").append(toIndentedString(title)).append("\n");
-        sb.append("    titleAlign: ").append(toIndentedString(titleAlign)).append("\n");
-        sb.append("    titleSize: ").append(toIndentedString(titleSize)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

@@ -10,128 +10,124 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Object to handle basic authentication when performing the test.
- */
+/** Object to handle basic authentication when performing the test. */
 @ApiModel(description = "Object to handle basic authentication when performing the test.")
-@JsonPropertyOrder({ SyntheticsBasicAuth.JSON_PROPERTY_PASSWORD, SyntheticsBasicAuth.JSON_PROPERTY_USERNAME })
+@JsonPropertyOrder({
+  SyntheticsBasicAuth.JSON_PROPERTY_PASSWORD,
+  SyntheticsBasicAuth.JSON_PROPERTY_USERNAME
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsBasicAuth {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_PASSWORD = "password";
+  private String password;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_USERNAME = "username";
+  private String username;
 
-    public static final String JSON_PROPERTY_PASSWORD = "password";
-    private String password;
+  public SyntheticsBasicAuth() {}
 
-    public static final String JSON_PROPERTY_USERNAME = "username";
-    private String username;
+  @JsonCreator
+  public SyntheticsBasicAuth(
+      @JsonProperty(required = true, value = JSON_PROPERTY_PASSWORD) String password,
+      @JsonProperty(required = true, value = JSON_PROPERTY_USERNAME) String username) {
+    this.password = password;
+    this.username = username;
+  }
 
-    public SyntheticsBasicAuth() {}
+  public SyntheticsBasicAuth password(String password) {
+    this.password = password;
+    return this;
+  }
 
-    @JsonCreator
-    public SyntheticsBasicAuth(
-        @JsonProperty(required = true, value = JSON_PROPERTY_PASSWORD) String password,
-        @JsonProperty(required = true, value = JSON_PROPERTY_USERNAME) String username
-    ) {
-        this.password = password;
-        this.username = username;
+  /**
+   * Password to use for the basic authentication.
+   *
+   * @return password
+   */
+  @ApiModelProperty(
+      example = "",
+      required = true,
+      value = "Password to use for the basic authentication.")
+  @JsonProperty(JSON_PROPERTY_PASSWORD)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getPassword() {
+    return password;
+  }
+
+  public void setPassword(String password) {
+    this.password = password;
+  }
+
+  public SyntheticsBasicAuth username(String username) {
+    this.username = username;
+    return this;
+  }
+
+  /**
+   * Username to use for the basic authentication.
+   *
+   * @return username
+   */
+  @ApiModelProperty(
+      example = "",
+      required = true,
+      value = "Username to use for the basic authentication.")
+  @JsonProperty(JSON_PROPERTY_USERNAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getUsername() {
+    return username;
+  }
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+  /** Return true if this SyntheticsBasicAuth object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    public SyntheticsBasicAuth password(String password) {
-        this.password = password;
-        return this;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    SyntheticsBasicAuth syntheticsBasicAuth = (SyntheticsBasicAuth) o;
+    return Objects.equals(this.password, syntheticsBasicAuth.password)
+        && Objects.equals(this.username, syntheticsBasicAuth.username);
+  }
 
-    /**
-     * Password to use for the basic authentication.
-     * @return password
-     **/
-    @ApiModelProperty(example = "", required = true, value = "Password to use for the basic authentication.")
-    @JsonProperty(JSON_PROPERTY_PASSWORD)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public String getPassword() {
-        return password;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(password, username);
+  }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class SyntheticsBasicAuth {\n");
+    sb.append("    password: ").append(toIndentedString(password)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    public SyntheticsBasicAuth username(String username) {
-        this.username = username;
-        return this;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    /**
-     * Username to use for the basic authentication.
-     * @return username
-     **/
-    @ApiModelProperty(example = "", required = true, value = "Username to use for the basic authentication.")
-    @JsonProperty(JSON_PROPERTY_USERNAME)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    /**
-     * Return true if this SyntheticsBasicAuth object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        SyntheticsBasicAuth syntheticsBasicAuth = (SyntheticsBasicAuth) o;
-        return Objects.equals(this.password, syntheticsBasicAuth.password) && Objects.equals(this.username, syntheticsBasicAuth.username);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(password, username);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SyntheticsBasicAuth {\n");
-        sb.append("    password: ").append(toIndentedString(password)).append("\n");
-        sb.append("    username: ").append(toIndentedString(username)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

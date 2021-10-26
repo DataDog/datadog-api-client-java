@@ -10,101 +10,95 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
-import io.swagger.annotations.ApiModel;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
 /**
- * If the &#x60;target_type&#x60; of the remapper is &#x60;attribute&#x60;, try to cast the value to a new specific type. If the cast is not possible, the original type is kept. &#x60;string&#x60;, &#x60;integer&#x60;, or &#x60;double&#x60; are the possible types. If the &#x60;target_type&#x60; is &#x60;tag&#x60;, this parameter may not be specified.
+ * If the &#x60;target_type&#x60; of the remapper is &#x60;attribute&#x60;, try to cast the value to
+ * a new specific type. If the cast is not possible, the original type is kept. &#x60;string&#x60;,
+ * &#x60;integer&#x60;, or &#x60;double&#x60; are the possible types. If the &#x60;target_type&#x60;
+ * is &#x60;tag&#x60;, this parameter may not be specified.
  */
 @JsonSerialize(using = TargetFormatType.TargetFormatTypeSerializer.class)
 public class TargetFormatType {
 
-    public static final TargetFormatType AUTO = new TargetFormatType("auto");
-    public static final TargetFormatType STRING = new TargetFormatType("string");
-    public static final TargetFormatType INTEGER = new TargetFormatType("integer");
-    public static final TargetFormatType DOUBLE = new TargetFormatType("double");
+  public static final TargetFormatType AUTO = new TargetFormatType("auto");
+  public static final TargetFormatType STRING = new TargetFormatType("string");
+  public static final TargetFormatType INTEGER = new TargetFormatType("integer");
+  public static final TargetFormatType DOUBLE = new TargetFormatType("double");
 
-    private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("auto", "string", "integer", "double"));
+  private static final Set<String> allowedValues =
+      new HashSet<String>(Arrays.asList("auto", "string", "integer", "double"));
 
-    private String value;
+  private String value;
 
-    public boolean isValid() {
-        return allowedValues.contains(this.value);
+  public boolean isValid() {
+    return allowedValues.contains(this.value);
+  }
+
+  TargetFormatType(String value) {
+    this.value = value;
+  }
+
+  public static class TargetFormatTypeSerializer extends StdSerializer<TargetFormatType> {
+    public TargetFormatTypeSerializer(Class<TargetFormatType> t) {
+      super(t);
     }
 
-    TargetFormatType(String value) {
-        this.value = value;
-    }
-
-    public static class TargetFormatTypeSerializer extends StdSerializer<TargetFormatType> {
-
-        public TargetFormatTypeSerializer(Class<TargetFormatType> t) {
-            super(t);
-        }
-
-        public TargetFormatTypeSerializer() {
-            this(null);
-        }
-
-        @Override
-        public void serialize(TargetFormatType value, JsonGenerator jgen, SerializerProvider provider)
-            throws IOException, JsonProcessingException {
-            jgen.writeObject(value.value);
-        }
-    }
-
-    @JsonValue
-    public String getValue() {
-        return this.value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    /**
-     * Return true if this TargetFormatType object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        return this.value.equals(((TargetFormatType) o).value);
+    public TargetFormatTypeSerializer() {
+      this(null);
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(value);
+    public void serialize(TargetFormatType value, JsonGenerator jgen, SerializerProvider provider)
+        throws IOException, JsonProcessingException {
+      jgen.writeObject(value.value);
     }
+  }
 
-    @Override
-    public String toString() {
-        return String.valueOf(value);
-    }
+  @JsonValue
+  public String getValue() {
+    return this.value;
+  }
 
-    @JsonCreator
-    public static TargetFormatType fromValue(String value) {
-        return new TargetFormatType(value);
+  public void setValue(String value) {
+    this.value = value;
+  }
+
+  /** Return true if this TargetFormatType object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    return this.value.equals(((TargetFormatType) o).value);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(value);
+  }
+
+  @Override
+  public String toString() {
+    return String.valueOf(value);
+  }
+
+  @JsonCreator
+  public static TargetFormatType fromValue(String value) {
+    return new TargetFormatType(value);
+  }
 }

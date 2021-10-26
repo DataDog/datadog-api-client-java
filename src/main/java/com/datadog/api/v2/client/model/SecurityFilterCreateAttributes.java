@@ -10,242 +10,239 @@
 
 package com.datadog.api.v2.client.model;
 
-import com.datadog.api.v2.client.JSON;
-import com.datadog.api.v2.client.model.SecurityFilterExclusionFilter;
-import com.datadog.api.v2.client.model.SecurityFilterFilteredDataType;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Object containing the attributes of the security filter to be created.
- */
+/** Object containing the attributes of the security filter to be created. */
 @ApiModel(description = "Object containing the attributes of the security filter to be created.")
-@JsonPropertyOrder(
-    {
-        SecurityFilterCreateAttributes.JSON_PROPERTY_EXCLUSION_FILTERS,
-        SecurityFilterCreateAttributes.JSON_PROPERTY_FILTERED_DATA_TYPE,
-        SecurityFilterCreateAttributes.JSON_PROPERTY_IS_ENABLED,
-        SecurityFilterCreateAttributes.JSON_PROPERTY_NAME,
-        SecurityFilterCreateAttributes.JSON_PROPERTY_QUERY
-    }
-)
+@JsonPropertyOrder({
+  SecurityFilterCreateAttributes.JSON_PROPERTY_EXCLUSION_FILTERS,
+  SecurityFilterCreateAttributes.JSON_PROPERTY_FILTERED_DATA_TYPE,
+  SecurityFilterCreateAttributes.JSON_PROPERTY_IS_ENABLED,
+  SecurityFilterCreateAttributes.JSON_PROPERTY_NAME,
+  SecurityFilterCreateAttributes.JSON_PROPERTY_QUERY
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SecurityFilterCreateAttributes {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_EXCLUSION_FILTERS = "exclusion_filters";
+  private List<SecurityFilterExclusionFilter> exclusionFilters = new ArrayList<>();
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_FILTERED_DATA_TYPE = "filtered_data_type";
+  private SecurityFilterFilteredDataType filteredDataType;
 
-    public static final String JSON_PROPERTY_EXCLUSION_FILTERS = "exclusion_filters";
-    private List<SecurityFilterExclusionFilter> exclusionFilters = new ArrayList<>();
+  public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
+  private Boolean isEnabled;
 
-    public static final String JSON_PROPERTY_FILTERED_DATA_TYPE = "filtered_data_type";
-    private SecurityFilterFilteredDataType filteredDataType;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
-    public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
-    private Boolean isEnabled;
+  public static final String JSON_PROPERTY_QUERY = "query";
+  private String query;
 
-    public static final String JSON_PROPERTY_NAME = "name";
-    private String name;
+  public SecurityFilterCreateAttributes() {}
 
-    public static final String JSON_PROPERTY_QUERY = "query";
-    private String query;
+  @JsonCreator
+  public SecurityFilterCreateAttributes(
+      @JsonProperty(required = true, value = JSON_PROPERTY_EXCLUSION_FILTERS)
+          List<SecurityFilterExclusionFilter> exclusionFilters,
+      @JsonProperty(required = true, value = JSON_PROPERTY_FILTERED_DATA_TYPE)
+          SecurityFilterFilteredDataType filteredDataType,
+      @JsonProperty(required = true, value = JSON_PROPERTY_IS_ENABLED) Boolean isEnabled,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query) {
+    this.exclusionFilters = exclusionFilters;
+    this.filteredDataType = filteredDataType;
+    this.unparsed |= !filteredDataType.isValid();
+    this.isEnabled = isEnabled;
+    this.name = name;
+    this.query = query;
+  }
 
-    public SecurityFilterCreateAttributes() {}
-
-    @JsonCreator
-    public SecurityFilterCreateAttributes(
-        @JsonProperty(required = true, value = JSON_PROPERTY_EXCLUSION_FILTERS) List<SecurityFilterExclusionFilter> exclusionFilters,
-        @JsonProperty(required = true, value = JSON_PROPERTY_FILTERED_DATA_TYPE) SecurityFilterFilteredDataType filteredDataType,
-        @JsonProperty(required = true, value = JSON_PROPERTY_IS_ENABLED) Boolean isEnabled,
-        @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-        @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query
-    ) {
-        this.exclusionFilters = exclusionFilters;
-        this.filteredDataType = filteredDataType;
-        this.unparsed |= !filteredDataType.isValid();
-        this.isEnabled = isEnabled;
-        this.name = name;
-        this.query = query;
+  public SecurityFilterCreateAttributes exclusionFilters(
+      List<SecurityFilterExclusionFilter> exclusionFilters) {
+    this.exclusionFilters = exclusionFilters;
+    for (SecurityFilterExclusionFilter item : exclusionFilters) {
+      this.unparsed |= item.unparsed;
     }
+    return this;
+  }
 
-    public SecurityFilterCreateAttributes exclusionFilters(List<SecurityFilterExclusionFilter> exclusionFilters) {
-        this.exclusionFilters = exclusionFilters;
-        for (SecurityFilterExclusionFilter item : exclusionFilters) {
-            this.unparsed |= item.unparsed;
-        }
-        return this;
-    }
+  public SecurityFilterCreateAttributes addExclusionFiltersItem(
+      SecurityFilterExclusionFilter exclusionFiltersItem) {
+    this.exclusionFilters.add(exclusionFiltersItem);
+    this.unparsed |= exclusionFiltersItem.unparsed;
+    return this;
+  }
 
-    public SecurityFilterCreateAttributes addExclusionFiltersItem(SecurityFilterExclusionFilter exclusionFiltersItem) {
-        this.exclusionFilters.add(exclusionFiltersItem);
-        this.unparsed |= exclusionFiltersItem.unparsed;
-        return this;
-    }
+  /**
+   * Exclusion filters to exclude some logs from the security filter.
+   *
+   * @return exclusionFilters
+   */
+  @ApiModelProperty(
+      example = "[{\"name\":\"Exclude staging\",\"query\":\"source:staging\"}]",
+      required = true,
+      value = "Exclusion filters to exclude some logs from the security filter.")
+  @JsonProperty(JSON_PROPERTY_EXCLUSION_FILTERS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<SecurityFilterExclusionFilter> getExclusionFilters() {
+    return exclusionFilters;
+  }
 
-    /**
-     * Exclusion filters to exclude some logs from the security filter.
-     * @return exclusionFilters
-     **/
-    @ApiModelProperty(
-        example = "[{\"name\":\"Exclude staging\",\"query\":\"source:staging\"}]",
-        required = true,
-        value = "Exclusion filters to exclude some logs from the security filter."
-    )
-    @JsonProperty(JSON_PROPERTY_EXCLUSION_FILTERS)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public List<SecurityFilterExclusionFilter> getExclusionFilters() {
-        return exclusionFilters;
-    }
+  public void setExclusionFilters(List<SecurityFilterExclusionFilter> exclusionFilters) {
+    this.exclusionFilters = exclusionFilters;
+  }
 
-    public void setExclusionFilters(List<SecurityFilterExclusionFilter> exclusionFilters) {
-        this.exclusionFilters = exclusionFilters;
-    }
+  public SecurityFilterCreateAttributes filteredDataType(
+      SecurityFilterFilteredDataType filteredDataType) {
+    this.filteredDataType = filteredDataType;
+    this.unparsed |= !filteredDataType.isValid();
+    return this;
+  }
 
-    public SecurityFilterCreateAttributes filteredDataType(SecurityFilterFilteredDataType filteredDataType) {
-        this.filteredDataType = filteredDataType;
-        this.unparsed |= !filteredDataType.isValid();
-        return this;
-    }
+  /**
+   * Get filteredDataType
+   *
+   * @return filteredDataType
+   */
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_FILTERED_DATA_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public SecurityFilterFilteredDataType getFilteredDataType() {
+    return filteredDataType;
+  }
 
-    /**
-     * Get filteredDataType
-     * @return filteredDataType
-     **/
-    @ApiModelProperty(required = true, value = "")
-    @JsonProperty(JSON_PROPERTY_FILTERED_DATA_TYPE)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public SecurityFilterFilteredDataType getFilteredDataType() {
-        return filteredDataType;
+  public void setFilteredDataType(SecurityFilterFilteredDataType filteredDataType) {
+    if (!filteredDataType.isValid()) {
+      this.unparsed = true;
     }
+    this.filteredDataType = filteredDataType;
+  }
 
-    public void setFilteredDataType(SecurityFilterFilteredDataType filteredDataType) {
-        if (!filteredDataType.isValid()) {
-            this.unparsed = true;
-        }
-        this.filteredDataType = filteredDataType;
-    }
+  public SecurityFilterCreateAttributes isEnabled(Boolean isEnabled) {
+    this.isEnabled = isEnabled;
+    return this;
+  }
 
-    public SecurityFilterCreateAttributes isEnabled(Boolean isEnabled) {
-        this.isEnabled = isEnabled;
-        return this;
-    }
+  /**
+   * Whether the security filter is enabled.
+   *
+   * @return isEnabled
+   */
+  @ApiModelProperty(
+      example = "true",
+      required = true,
+      value = "Whether the security filter is enabled.")
+  @JsonProperty(JSON_PROPERTY_IS_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public Boolean getIsEnabled() {
+    return isEnabled;
+  }
 
-    /**
-     * Whether the security filter is enabled.
-     * @return isEnabled
-     **/
-    @ApiModelProperty(example = "true", required = true, value = "Whether the security filter is enabled.")
-    @JsonProperty(JSON_PROPERTY_IS_ENABLED)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public Boolean getIsEnabled() {
-        return isEnabled;
-    }
+  public void setIsEnabled(Boolean isEnabled) {
+    this.isEnabled = isEnabled;
+  }
 
-    public void setIsEnabled(Boolean isEnabled) {
-        this.isEnabled = isEnabled;
-    }
+  public SecurityFilterCreateAttributes name(String name) {
+    this.name = name;
+    return this;
+  }
 
-    public SecurityFilterCreateAttributes name(String name) {
-        this.name = name;
-        return this;
-    }
+  /**
+   * The name of the security filter.
+   *
+   * @return name
+   */
+  @ApiModelProperty(
+      example = "Custom security filter",
+      required = true,
+      value = "The name of the security filter.")
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getName() {
+    return name;
+  }
 
-    /**
-     * The name of the security filter.
-     * @return name
-     **/
-    @ApiModelProperty(example = "Custom security filter", required = true, value = "The name of the security filter.")
-    @JsonProperty(JSON_PROPERTY_NAME)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public String getName() {
-        return name;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public SecurityFilterCreateAttributes query(String query) {
+    this.query = query;
+    return this;
+  }
 
-    public SecurityFilterCreateAttributes query(String query) {
-        this.query = query;
-        return this;
-    }
+  /**
+   * The query of the security filter.
+   *
+   * @return query
+   */
+  @ApiModelProperty(
+      example = "service:api",
+      required = true,
+      value = "The query of the security filter.")
+  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getQuery() {
+    return query;
+  }
 
-    /**
-     * The query of the security filter.
-     * @return query
-     **/
-    @ApiModelProperty(example = "service:api", required = true, value = "The query of the security filter.")
-    @JsonProperty(JSON_PROPERTY_QUERY)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public String getQuery() {
-        return query;
-    }
+  public void setQuery(String query) {
+    this.query = query;
+  }
 
-    public void setQuery(String query) {
-        this.query = query;
+  /** Return true if this SecurityFilterCreateAttributes object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    SecurityFilterCreateAttributes securityFilterCreateAttributes =
+        (SecurityFilterCreateAttributes) o;
+    return Objects.equals(this.exclusionFilters, securityFilterCreateAttributes.exclusionFilters)
+        && Objects.equals(this.filteredDataType, securityFilterCreateAttributes.filteredDataType)
+        && Objects.equals(this.isEnabled, securityFilterCreateAttributes.isEnabled)
+        && Objects.equals(this.name, securityFilterCreateAttributes.name)
+        && Objects.equals(this.query, securityFilterCreateAttributes.query);
+  }
 
-    /**
-     * Return true if this SecurityFilterCreateAttributes object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        SecurityFilterCreateAttributes securityFilterCreateAttributes = (SecurityFilterCreateAttributes) o;
-        return (
-            Objects.equals(this.exclusionFilters, securityFilterCreateAttributes.exclusionFilters) &&
-            Objects.equals(this.filteredDataType, securityFilterCreateAttributes.filteredDataType) &&
-            Objects.equals(this.isEnabled, securityFilterCreateAttributes.isEnabled) &&
-            Objects.equals(this.name, securityFilterCreateAttributes.name) &&
-            Objects.equals(this.query, securityFilterCreateAttributes.query)
-        );
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(exclusionFilters, filteredDataType, isEnabled, name, query);
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(exclusionFilters, filteredDataType, isEnabled, name, query);
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class SecurityFilterCreateAttributes {\n");
+    sb.append("    exclusionFilters: ").append(toIndentedString(exclusionFilters)).append("\n");
+    sb.append("    filteredDataType: ").append(toIndentedString(filteredDataType)).append("\n");
+    sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    query: ").append(toIndentedString(query)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SecurityFilterCreateAttributes {\n");
-        sb.append("    exclusionFilters: ").append(toIndentedString(exclusionFilters)).append("\n");
-        sb.append("    filteredDataType: ").append(toIndentedString(filteredDataType)).append("\n");
-        sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    query: ").append(toIndentedString(query)).append("\n");
-        sb.append("}");
-        return sb.toString();
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

@@ -1,31 +1,37 @@
+
+
 # SyntheticsCheckType
 
 ## Enum
 
-- `EQUALS` (value: `"equals"`)
 
-- `NOT_EQUALS` (value: `"notEquals"`)
+* `EQUALS` (value: `"equals"`)
 
-- `CONTAINS` (value: `"contains"`)
+* `NOT_EQUALS` (value: `"notEquals"`)
 
-- `NOT_CONTAINS` (value: `"notContains"`)
+* `CONTAINS` (value: `"contains"`)
 
-- `STARTS_WITH` (value: `"startsWith"`)
+* `NOT_CONTAINS` (value: `"notContains"`)
 
-- `NOT_STARTS_WITH` (value: `"notStartsWith"`)
+* `STARTS_WITH` (value: `"startsWith"`)
 
-- `GREATER` (value: `"greater"`)
+* `NOT_STARTS_WITH` (value: `"notStartsWith"`)
 
-- `LOWER` (value: `"lower"`)
+* `GREATER` (value: `"greater"`)
 
-- `GREATER_EQUALS` (value: `"greaterEquals"`)
+* `LOWER` (value: `"lower"`)
 
-- `LOWER_EQUALS` (value: `"lowerEquals"`)
+* `GREATER_EQUALS` (value: `"greaterEquals"`)
 
-- `MATCH_REGEX` (value: `"matchRegex"`)
+* `LOWER_EQUALS` (value: `"lowerEquals"`)
 
-- `BETWEEN` (value: `"between"`)
+* `MATCH_REGEX` (value: `"matchRegex"`)
 
-- `IS_EMPTY` (value: `"isEmpty"`)
+* `BETWEEN` (value: `"between"`)
 
-- `NOT_IS_EMPTY` (value: `"notIsEmpty"`)
+* `IS_EMPTY` (value: `"isEmpty"`)
+
+* `NOT_IS_EMPTY` (value: `"notIsEmpty"`)
+
+
+

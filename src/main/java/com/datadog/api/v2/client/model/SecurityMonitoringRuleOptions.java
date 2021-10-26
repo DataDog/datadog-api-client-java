@@ -10,230 +10,215 @@
 
 package com.datadog.api.v2.client.model;
 
-import com.datadog.api.v2.client.JSON;
-import com.datadog.api.v2.client.model.SecurityMonitoringRuleDetectionMethod;
-import com.datadog.api.v2.client.model.SecurityMonitoringRuleEvaluationWindow;
-import com.datadog.api.v2.client.model.SecurityMonitoringRuleKeepAlive;
-import com.datadog.api.v2.client.model.SecurityMonitoringRuleMaxSignalDuration;
-import com.datadog.api.v2.client.model.SecurityMonitoringRuleNewValueOptions;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Options on rules.
- */
+/** Options on rules. */
 @ApiModel(description = "Options on rules.")
-@JsonPropertyOrder(
-    {
-        SecurityMonitoringRuleOptions.JSON_PROPERTY_DETECTION_METHOD,
-        SecurityMonitoringRuleOptions.JSON_PROPERTY_EVALUATION_WINDOW,
-        SecurityMonitoringRuleOptions.JSON_PROPERTY_KEEP_ALIVE,
-        SecurityMonitoringRuleOptions.JSON_PROPERTY_MAX_SIGNAL_DURATION,
-        SecurityMonitoringRuleOptions.JSON_PROPERTY_NEW_VALUE_OPTIONS
-    }
-)
+@JsonPropertyOrder({
+  SecurityMonitoringRuleOptions.JSON_PROPERTY_DETECTION_METHOD,
+  SecurityMonitoringRuleOptions.JSON_PROPERTY_EVALUATION_WINDOW,
+  SecurityMonitoringRuleOptions.JSON_PROPERTY_KEEP_ALIVE,
+  SecurityMonitoringRuleOptions.JSON_PROPERTY_MAX_SIGNAL_DURATION,
+  SecurityMonitoringRuleOptions.JSON_PROPERTY_NEW_VALUE_OPTIONS
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SecurityMonitoringRuleOptions {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DETECTION_METHOD = "detectionMethod";
+  private SecurityMonitoringRuleDetectionMethod detectionMethod;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_EVALUATION_WINDOW = "evaluationWindow";
+  private SecurityMonitoringRuleEvaluationWindow evaluationWindow;
 
-    public static final String JSON_PROPERTY_DETECTION_METHOD = "detectionMethod";
-    private SecurityMonitoringRuleDetectionMethod detectionMethod;
+  public static final String JSON_PROPERTY_KEEP_ALIVE = "keepAlive";
+  private SecurityMonitoringRuleKeepAlive keepAlive;
 
-    public static final String JSON_PROPERTY_EVALUATION_WINDOW = "evaluationWindow";
-    private SecurityMonitoringRuleEvaluationWindow evaluationWindow;
+  public static final String JSON_PROPERTY_MAX_SIGNAL_DURATION = "maxSignalDuration";
+  private SecurityMonitoringRuleMaxSignalDuration maxSignalDuration;
 
-    public static final String JSON_PROPERTY_KEEP_ALIVE = "keepAlive";
-    private SecurityMonitoringRuleKeepAlive keepAlive;
+  public static final String JSON_PROPERTY_NEW_VALUE_OPTIONS = "newValueOptions";
+  private SecurityMonitoringRuleNewValueOptions newValueOptions;
 
-    public static final String JSON_PROPERTY_MAX_SIGNAL_DURATION = "maxSignalDuration";
-    private SecurityMonitoringRuleMaxSignalDuration maxSignalDuration;
+  public SecurityMonitoringRuleOptions detectionMethod(
+      SecurityMonitoringRuleDetectionMethod detectionMethod) {
+    this.detectionMethod = detectionMethod;
+    this.unparsed |= !detectionMethod.isValid();
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_NEW_VALUE_OPTIONS = "newValueOptions";
-    private SecurityMonitoringRuleNewValueOptions newValueOptions;
+  /**
+   * Get detectionMethod
+   *
+   * @return detectionMethod
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_DETECTION_METHOD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SecurityMonitoringRuleDetectionMethod getDetectionMethod() {
+    return detectionMethod;
+  }
 
-    public SecurityMonitoringRuleOptions detectionMethod(SecurityMonitoringRuleDetectionMethod detectionMethod) {
-        this.detectionMethod = detectionMethod;
-        this.unparsed |= !detectionMethod.isValid();
-        return this;
+  public void setDetectionMethod(SecurityMonitoringRuleDetectionMethod detectionMethod) {
+    if (!detectionMethod.isValid()) {
+      this.unparsed = true;
     }
+    this.detectionMethod = detectionMethod;
+  }
 
-    /**
-     * Get detectionMethod
-     * @return detectionMethod
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_DETECTION_METHOD)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public SecurityMonitoringRuleDetectionMethod getDetectionMethod() {
-        return detectionMethod;
-    }
+  public SecurityMonitoringRuleOptions evaluationWindow(
+      SecurityMonitoringRuleEvaluationWindow evaluationWindow) {
+    this.evaluationWindow = evaluationWindow;
+    this.unparsed |= !evaluationWindow.isValid();
+    return this;
+  }
 
-    public void setDetectionMethod(SecurityMonitoringRuleDetectionMethod detectionMethod) {
-        if (!detectionMethod.isValid()) {
-            this.unparsed = true;
-        }
-        this.detectionMethod = detectionMethod;
-    }
+  /**
+   * Get evaluationWindow
+   *
+   * @return evaluationWindow
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_EVALUATION_WINDOW)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SecurityMonitoringRuleEvaluationWindow getEvaluationWindow() {
+    return evaluationWindow;
+  }
 
-    public SecurityMonitoringRuleOptions evaluationWindow(SecurityMonitoringRuleEvaluationWindow evaluationWindow) {
-        this.evaluationWindow = evaluationWindow;
-        this.unparsed |= !evaluationWindow.isValid();
-        return this;
+  public void setEvaluationWindow(SecurityMonitoringRuleEvaluationWindow evaluationWindow) {
+    if (!evaluationWindow.isValid()) {
+      this.unparsed = true;
     }
+    this.evaluationWindow = evaluationWindow;
+  }
 
-    /**
-     * Get evaluationWindow
-     * @return evaluationWindow
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_EVALUATION_WINDOW)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public SecurityMonitoringRuleEvaluationWindow getEvaluationWindow() {
-        return evaluationWindow;
-    }
+  public SecurityMonitoringRuleOptions keepAlive(SecurityMonitoringRuleKeepAlive keepAlive) {
+    this.keepAlive = keepAlive;
+    this.unparsed |= !keepAlive.isValid();
+    return this;
+  }
 
-    public void setEvaluationWindow(SecurityMonitoringRuleEvaluationWindow evaluationWindow) {
-        if (!evaluationWindow.isValid()) {
-            this.unparsed = true;
-        }
-        this.evaluationWindow = evaluationWindow;
-    }
+  /**
+   * Get keepAlive
+   *
+   * @return keepAlive
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_KEEP_ALIVE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SecurityMonitoringRuleKeepAlive getKeepAlive() {
+    return keepAlive;
+  }
 
-    public SecurityMonitoringRuleOptions keepAlive(SecurityMonitoringRuleKeepAlive keepAlive) {
-        this.keepAlive = keepAlive;
-        this.unparsed |= !keepAlive.isValid();
-        return this;
+  public void setKeepAlive(SecurityMonitoringRuleKeepAlive keepAlive) {
+    if (!keepAlive.isValid()) {
+      this.unparsed = true;
     }
+    this.keepAlive = keepAlive;
+  }
 
-    /**
-     * Get keepAlive
-     * @return keepAlive
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_KEEP_ALIVE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public SecurityMonitoringRuleKeepAlive getKeepAlive() {
-        return keepAlive;
-    }
+  public SecurityMonitoringRuleOptions maxSignalDuration(
+      SecurityMonitoringRuleMaxSignalDuration maxSignalDuration) {
+    this.maxSignalDuration = maxSignalDuration;
+    this.unparsed |= !maxSignalDuration.isValid();
+    return this;
+  }
 
-    public void setKeepAlive(SecurityMonitoringRuleKeepAlive keepAlive) {
-        if (!keepAlive.isValid()) {
-            this.unparsed = true;
-        }
-        this.keepAlive = keepAlive;
-    }
+  /**
+   * Get maxSignalDuration
+   *
+   * @return maxSignalDuration
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_MAX_SIGNAL_DURATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SecurityMonitoringRuleMaxSignalDuration getMaxSignalDuration() {
+    return maxSignalDuration;
+  }
 
-    public SecurityMonitoringRuleOptions maxSignalDuration(SecurityMonitoringRuleMaxSignalDuration maxSignalDuration) {
-        this.maxSignalDuration = maxSignalDuration;
-        this.unparsed |= !maxSignalDuration.isValid();
-        return this;
+  public void setMaxSignalDuration(SecurityMonitoringRuleMaxSignalDuration maxSignalDuration) {
+    if (!maxSignalDuration.isValid()) {
+      this.unparsed = true;
     }
+    this.maxSignalDuration = maxSignalDuration;
+  }
 
-    /**
-     * Get maxSignalDuration
-     * @return maxSignalDuration
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_MAX_SIGNAL_DURATION)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public SecurityMonitoringRuleMaxSignalDuration getMaxSignalDuration() {
-        return maxSignalDuration;
-    }
+  public SecurityMonitoringRuleOptions newValueOptions(
+      SecurityMonitoringRuleNewValueOptions newValueOptions) {
+    this.newValueOptions = newValueOptions;
+    this.unparsed |= newValueOptions.unparsed;
+    return this;
+  }
 
-    public void setMaxSignalDuration(SecurityMonitoringRuleMaxSignalDuration maxSignalDuration) {
-        if (!maxSignalDuration.isValid()) {
-            this.unparsed = true;
-        }
-        this.maxSignalDuration = maxSignalDuration;
-    }
+  /**
+   * Get newValueOptions
+   *
+   * @return newValueOptions
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_NEW_VALUE_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SecurityMonitoringRuleNewValueOptions getNewValueOptions() {
+    return newValueOptions;
+  }
 
-    public SecurityMonitoringRuleOptions newValueOptions(SecurityMonitoringRuleNewValueOptions newValueOptions) {
-        this.newValueOptions = newValueOptions;
-        this.unparsed |= newValueOptions.unparsed;
-        return this;
-    }
+  public void setNewValueOptions(SecurityMonitoringRuleNewValueOptions newValueOptions) {
+    this.newValueOptions = newValueOptions;
+  }
 
-    /**
-     * Get newValueOptions
-     * @return newValueOptions
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_NEW_VALUE_OPTIONS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public SecurityMonitoringRuleNewValueOptions getNewValueOptions() {
-        return newValueOptions;
+  /** Return true if this SecurityMonitoringRuleOptions object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    SecurityMonitoringRuleOptions securityMonitoringRuleOptions = (SecurityMonitoringRuleOptions) o;
+    return Objects.equals(this.detectionMethod, securityMonitoringRuleOptions.detectionMethod)
+        && Objects.equals(this.evaluationWindow, securityMonitoringRuleOptions.evaluationWindow)
+        && Objects.equals(this.keepAlive, securityMonitoringRuleOptions.keepAlive)
+        && Objects.equals(this.maxSignalDuration, securityMonitoringRuleOptions.maxSignalDuration)
+        && Objects.equals(this.newValueOptions, securityMonitoringRuleOptions.newValueOptions);
+  }
 
-    public void setNewValueOptions(SecurityMonitoringRuleNewValueOptions newValueOptions) {
-        this.newValueOptions = newValueOptions;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(
+        detectionMethod, evaluationWindow, keepAlive, maxSignalDuration, newValueOptions);
+  }
 
-    /**
-     * Return true if this SecurityMonitoringRuleOptions object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        SecurityMonitoringRuleOptions securityMonitoringRuleOptions = (SecurityMonitoringRuleOptions) o;
-        return (
-            Objects.equals(this.detectionMethod, securityMonitoringRuleOptions.detectionMethod) &&
-            Objects.equals(this.evaluationWindow, securityMonitoringRuleOptions.evaluationWindow) &&
-            Objects.equals(this.keepAlive, securityMonitoringRuleOptions.keepAlive) &&
-            Objects.equals(this.maxSignalDuration, securityMonitoringRuleOptions.maxSignalDuration) &&
-            Objects.equals(this.newValueOptions, securityMonitoringRuleOptions.newValueOptions)
-        );
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class SecurityMonitoringRuleOptions {\n");
+    sb.append("    detectionMethod: ").append(toIndentedString(detectionMethod)).append("\n");
+    sb.append("    evaluationWindow: ").append(toIndentedString(evaluationWindow)).append("\n");
+    sb.append("    keepAlive: ").append(toIndentedString(keepAlive)).append("\n");
+    sb.append("    maxSignalDuration: ").append(toIndentedString(maxSignalDuration)).append("\n");
+    sb.append("    newValueOptions: ").append(toIndentedString(newValueOptions)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(detectionMethod, evaluationWindow, keepAlive, maxSignalDuration, newValueOptions);
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SecurityMonitoringRuleOptions {\n");
-        sb.append("    detectionMethod: ").append(toIndentedString(detectionMethod)).append("\n");
-        sb.append("    evaluationWindow: ").append(toIndentedString(evaluationWindow)).append("\n");
-        sb.append("    keepAlive: ").append(toIndentedString(keepAlive)).append("\n");
-        sb.append("    maxSignalDuration: ").append(toIndentedString(maxSignalDuration)).append("\n");
-        sb.append("    newValueOptions: ").append(toIndentedString(newValueOptions)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

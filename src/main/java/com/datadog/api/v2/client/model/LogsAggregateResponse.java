@@ -10,123 +10,111 @@
 
 package com.datadog.api.v2.client.model;
 
-import com.datadog.api.v2.client.JSON;
-import com.datadog.api.v2.client.model.LogsAggregateResponseData;
-import com.datadog.api.v2.client.model.LogsResponseMetadata;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * The response object for the logs aggregate API endpoint
- */
+/** The response object for the logs aggregate API endpoint */
 @ApiModel(description = "The response object for the logs aggregate API endpoint")
-@JsonPropertyOrder({ LogsAggregateResponse.JSON_PROPERTY_DATA, LogsAggregateResponse.JSON_PROPERTY_META })
+@JsonPropertyOrder({
+  LogsAggregateResponse.JSON_PROPERTY_DATA,
+  LogsAggregateResponse.JSON_PROPERTY_META
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsAggregateResponse {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private LogsAggregateResponseData data;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_META = "meta";
+  private LogsResponseMetadata meta;
 
-    public static final String JSON_PROPERTY_DATA = "data";
-    private LogsAggregateResponseData data;
+  public LogsAggregateResponse data(LogsAggregateResponseData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_META = "meta";
-    private LogsResponseMetadata meta;
+  /**
+   * Get data
+   *
+   * @return data
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogsAggregateResponseData getData() {
+    return data;
+  }
 
-    public LogsAggregateResponse data(LogsAggregateResponseData data) {
-        this.data = data;
-        this.unparsed |= data.unparsed;
-        return this;
+  public void setData(LogsAggregateResponseData data) {
+    this.data = data;
+  }
+
+  public LogsAggregateResponse meta(LogsResponseMetadata meta) {
+    this.meta = meta;
+    this.unparsed |= meta.unparsed;
+    return this;
+  }
+
+  /**
+   * Get meta
+   *
+   * @return meta
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_META)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogsResponseMetadata getMeta() {
+    return meta;
+  }
+
+  public void setMeta(LogsResponseMetadata meta) {
+    this.meta = meta;
+  }
+
+  /** Return true if this LogsAggregateResponse object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * Get data
-     * @return data
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_DATA)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public LogsAggregateResponseData getData() {
-        return data;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    LogsAggregateResponse logsAggregateResponse = (LogsAggregateResponse) o;
+    return Objects.equals(this.data, logsAggregateResponse.data)
+        && Objects.equals(this.meta, logsAggregateResponse.meta);
+  }
 
-    public void setData(LogsAggregateResponseData data) {
-        this.data = data;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(data, meta);
+  }
 
-    public LogsAggregateResponse meta(LogsResponseMetadata meta) {
-        this.meta = meta;
-        this.unparsed |= meta.unparsed;
-        return this;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class LogsAggregateResponse {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Get meta
-     * @return meta
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_META)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public LogsResponseMetadata getMeta() {
-        return meta;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    public void setMeta(LogsResponseMetadata meta) {
-        this.meta = meta;
-    }
-
-    /**
-     * Return true if this LogsAggregateResponse object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        LogsAggregateResponse logsAggregateResponse = (LogsAggregateResponse) o;
-        return Objects.equals(this.data, logsAggregateResponse.data) && Objects.equals(this.meta, logsAggregateResponse.meta);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(data, meta);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class LogsAggregateResponse {\n");
-        sb.append("    data: ").append(toIndentedString(data)).append("\n");
-        sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

@@ -10,232 +10,216 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.datadog.api.v1.client.model.MonitorOverallStates;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.NoSuchElementException;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
-import org.openapitools.jackson.nullable.JsonNullable;
 
-/**
- * A single monitor group search result.
- */
+/** A single monitor group search result. */
 @ApiModel(description = "A single monitor group search result.")
-@JsonPropertyOrder(
-    {
-        MonitorGroupSearchResult.JSON_PROPERTY_GROUP,
-        MonitorGroupSearchResult.JSON_PROPERTY_GROUP_TAGS,
-        MonitorGroupSearchResult.JSON_PROPERTY_LAST_NODATA_TS,
-        MonitorGroupSearchResult.JSON_PROPERTY_LAST_TRIGGERED_TS,
-        MonitorGroupSearchResult.JSON_PROPERTY_MONITOR_ID,
-        MonitorGroupSearchResult.JSON_PROPERTY_MONITOR_NAME,
-        MonitorGroupSearchResult.JSON_PROPERTY_STATUS
-    }
-)
+@JsonPropertyOrder({
+  MonitorGroupSearchResult.JSON_PROPERTY_GROUP,
+  MonitorGroupSearchResult.JSON_PROPERTY_GROUP_TAGS,
+  MonitorGroupSearchResult.JSON_PROPERTY_LAST_NODATA_TS,
+  MonitorGroupSearchResult.JSON_PROPERTY_LAST_TRIGGERED_TS,
+  MonitorGroupSearchResult.JSON_PROPERTY_MONITOR_ID,
+  MonitorGroupSearchResult.JSON_PROPERTY_MONITOR_NAME,
+  MonitorGroupSearchResult.JSON_PROPERTY_STATUS
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MonitorGroupSearchResult {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_GROUP = "group";
+  private String group;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_GROUP_TAGS = "group_tags";
+  private List<String> groupTags = null;
 
-    public static final String JSON_PROPERTY_GROUP = "group";
-    private String group;
+  public static final String JSON_PROPERTY_LAST_NODATA_TS = "last_nodata_ts";
+  private Long lastNodataTs;
 
-    public static final String JSON_PROPERTY_GROUP_TAGS = "group_tags";
-    private List<String> groupTags = null;
+  public static final String JSON_PROPERTY_LAST_TRIGGERED_TS = "last_triggered_ts";
+  private JsonNullable<Long> lastTriggeredTs = JsonNullable.<Long>undefined();
 
-    public static final String JSON_PROPERTY_LAST_NODATA_TS = "last_nodata_ts";
-    private Long lastNodataTs;
+  public static final String JSON_PROPERTY_MONITOR_ID = "monitor_id";
+  private Long monitorId;
 
-    public static final String JSON_PROPERTY_LAST_TRIGGERED_TS = "last_triggered_ts";
-    private JsonNullable<Long> lastTriggeredTs = JsonNullable.<Long>undefined();
+  public static final String JSON_PROPERTY_MONITOR_NAME = "monitor_name";
+  private String monitorName;
 
-    public static final String JSON_PROPERTY_MONITOR_ID = "monitor_id";
-    private Long monitorId;
+  public static final String JSON_PROPERTY_STATUS = "status";
+  private MonitorOverallStates status;
 
-    public static final String JSON_PROPERTY_MONITOR_NAME = "monitor_name";
-    private String monitorName;
+  /**
+   * The name of the group.
+   *
+   * @return group
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The name of the group.")
+  @JsonProperty(JSON_PROPERTY_GROUP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getGroup() {
+    return group;
+  }
 
-    public static final String JSON_PROPERTY_STATUS = "status";
-    private MonitorOverallStates status;
+  /**
+   * The list of tags of the monitor group.
+   *
+   * @return groupTags
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The list of tags of the monitor group.")
+  @JsonProperty(JSON_PROPERTY_GROUP_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getGroupTags() {
+    return groupTags;
+  }
 
-    /**
-     * The name of the group.
-     * @return group
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The name of the group.")
-    @JsonProperty(JSON_PROPERTY_GROUP)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getGroup() {
-        return group;
+  /**
+   * Latest timestamp the monitor group was in NO_DATA state.
+   *
+   * @return lastNodataTs
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Latest timestamp the monitor group was in NO_DATA state.")
+  @JsonProperty(JSON_PROPERTY_LAST_NODATA_TS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getLastNodataTs() {
+    return lastNodataTs;
+  }
+
+  /**
+   * Latest timestamp the monitor group triggered.
+   *
+   * @return lastTriggeredTs
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Latest timestamp the monitor group triggered.")
+  @JsonIgnore
+  public Long getLastTriggeredTs() {
+
+    if (lastTriggeredTs == null) {
+      lastTriggeredTs = JsonNullable.<Long>undefined();
     }
+    return lastTriggeredTs.orElse(null);
+  }
 
-    /**
-     * The list of tags of the monitor group.
-     * @return groupTags
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The list of tags of the monitor group.")
-    @JsonProperty(JSON_PROPERTY_GROUP_TAGS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<String> getGroupTags() {
-        return groupTags;
-    }
+  @JsonProperty(JSON_PROPERTY_LAST_TRIGGERED_TS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Long> getLastTriggeredTs_JsonNullable() {
+    return lastTriggeredTs;
+  }
 
-    /**
-     * Latest timestamp the monitor group was in NO_DATA state.
-     * @return lastNodataTs
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Latest timestamp the monitor group was in NO_DATA state.")
-    @JsonProperty(JSON_PROPERTY_LAST_NODATA_TS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Long getLastNodataTs() {
-        return lastNodataTs;
-    }
+  @JsonProperty(JSON_PROPERTY_LAST_TRIGGERED_TS)
+  private void setLastTriggeredTs_JsonNullable(JsonNullable<Long> lastTriggeredTs) {
+    this.lastTriggeredTs = lastTriggeredTs;
+  }
 
-    /**
-     * Latest timestamp the monitor group triggered.
-     * @return lastTriggeredTs
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Latest timestamp the monitor group triggered.")
-    @JsonIgnore
-    public Long getLastTriggeredTs() {
-        if (lastTriggeredTs == null) {
-            lastTriggeredTs = JsonNullable.<Long>undefined();
-        }
-        return lastTriggeredTs.orElse(null);
-    }
+  /**
+   * The ID of the monitor.
+   *
+   * @return monitorId
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The ID of the monitor.")
+  @JsonProperty(JSON_PROPERTY_MONITOR_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getMonitorId() {
+    return monitorId;
+  }
 
-    @JsonProperty(JSON_PROPERTY_LAST_TRIGGERED_TS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public JsonNullable<Long> getLastTriggeredTs_JsonNullable() {
-        return lastTriggeredTs;
-    }
+  /**
+   * The name of the monitor.
+   *
+   * @return monitorName
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The name of the monitor.")
+  @JsonProperty(JSON_PROPERTY_MONITOR_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getMonitorName() {
+    return monitorName;
+  }
 
-    @JsonProperty(JSON_PROPERTY_LAST_TRIGGERED_TS)
-    private void setLastTriggeredTs_JsonNullable(JsonNullable<Long> lastTriggeredTs) {
-        this.lastTriggeredTs = lastTriggeredTs;
-    }
+  public MonitorGroupSearchResult status(MonitorOverallStates status) {
+    this.status = status;
+    this.unparsed |= !status.isValid();
+    return this;
+  }
 
-    /**
-     * The ID of the monitor.
-     * @return monitorId
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The ID of the monitor.")
-    @JsonProperty(JSON_PROPERTY_MONITOR_ID)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Long getMonitorId() {
-        return monitorId;
-    }
+  /**
+   * Get status
+   *
+   * @return status
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public MonitorOverallStates getStatus() {
+    return status;
+  }
 
-    /**
-     * The name of the monitor.
-     * @return monitorName
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The name of the monitor.")
-    @JsonProperty(JSON_PROPERTY_MONITOR_NAME)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getMonitorName() {
-        return monitorName;
+  public void setStatus(MonitorOverallStates status) {
+    if (!status.isValid()) {
+      this.unparsed = true;
     }
+    this.status = status;
+  }
 
-    public MonitorGroupSearchResult status(MonitorOverallStates status) {
-        this.status = status;
-        this.unparsed |= !status.isValid();
-        return this;
+  /** Return true if this MonitorGroupSearchResult object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    MonitorGroupSearchResult monitorGroupSearchResult = (MonitorGroupSearchResult) o;
+    return Objects.equals(this.group, monitorGroupSearchResult.group)
+        && Objects.equals(this.groupTags, monitorGroupSearchResult.groupTags)
+        && Objects.equals(this.lastNodataTs, monitorGroupSearchResult.lastNodataTs)
+        && Objects.equals(this.lastTriggeredTs, monitorGroupSearchResult.lastTriggeredTs)
+        && Objects.equals(this.monitorId, monitorGroupSearchResult.monitorId)
+        && Objects.equals(this.monitorName, monitorGroupSearchResult.monitorName)
+        && Objects.equals(this.status, monitorGroupSearchResult.status);
+  }
 
-    /**
-     * Get status
-     * @return status
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_STATUS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public MonitorOverallStates getStatus() {
-        return status;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(
+        group, groupTags, lastNodataTs, lastTriggeredTs, monitorId, monitorName, status);
+  }
 
-    public void setStatus(MonitorOverallStates status) {
-        if (!status.isValid()) {
-            this.unparsed = true;
-        }
-        this.status = status;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class MonitorGroupSearchResult {\n");
+    sb.append("    group: ").append(toIndentedString(group)).append("\n");
+    sb.append("    groupTags: ").append(toIndentedString(groupTags)).append("\n");
+    sb.append("    lastNodataTs: ").append(toIndentedString(lastNodataTs)).append("\n");
+    sb.append("    lastTriggeredTs: ").append(toIndentedString(lastTriggeredTs)).append("\n");
+    sb.append("    monitorId: ").append(toIndentedString(monitorId)).append("\n");
+    sb.append("    monitorName: ").append(toIndentedString(monitorName)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Return true if this MonitorGroupSearchResult object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        MonitorGroupSearchResult monitorGroupSearchResult = (MonitorGroupSearchResult) o;
-        return (
-            Objects.equals(this.group, monitorGroupSearchResult.group) &&
-            Objects.equals(this.groupTags, monitorGroupSearchResult.groupTags) &&
-            Objects.equals(this.lastNodataTs, monitorGroupSearchResult.lastNodataTs) &&
-            Objects.equals(this.lastTriggeredTs, monitorGroupSearchResult.lastTriggeredTs) &&
-            Objects.equals(this.monitorId, monitorGroupSearchResult.monitorId) &&
-            Objects.equals(this.monitorName, monitorGroupSearchResult.monitorName) &&
-            Objects.equals(this.status, monitorGroupSearchResult.status)
-        );
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(group, groupTags, lastNodataTs, lastTriggeredTs, monitorId, monitorName, status);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class MonitorGroupSearchResult {\n");
-        sb.append("    group: ").append(toIndentedString(group)).append("\n");
-        sb.append("    groupTags: ").append(toIndentedString(groupTags)).append("\n");
-        sb.append("    lastNodataTs: ").append(toIndentedString(lastNodataTs)).append("\n");
-        sb.append("    lastTriggeredTs: ").append(toIndentedString(lastTriggeredTs)).append("\n");
-        sb.append("    monitorId: ").append(toIndentedString(monitorId)).append("\n");
-        sb.append("    monitorName: ").append(toIndentedString(monitorName)).append("\n");
-        sb.append("    status: ").append(toIndentedString(status)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

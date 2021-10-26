@@ -1,11 +1,17 @@
+
+
 # TargetFormatType
 
 ## Enum
 
-- `AUTO` (value: `"auto"`)
 
-- `STRING` (value: `"string"`)
+* `AUTO` (value: `"auto"`)
 
-- `INTEGER` (value: `"integer"`)
+* `STRING` (value: `"string"`)
 
-- `DOUBLE` (value: `"double"`)
+* `INTEGER` (value: `"integer"`)
+
+* `DOUBLE` (value: `"double"`)
+
+
+

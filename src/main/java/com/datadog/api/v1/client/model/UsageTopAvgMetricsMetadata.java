@@ -10,159 +10,147 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.datadog.api.v1.client.model.UsageAttributionPagination;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * The object containing document metadata.
- */
+/** The object containing document metadata. */
 @ApiModel(description = "The object containing document metadata.")
-@JsonPropertyOrder(
-    {
-        UsageTopAvgMetricsMetadata.JSON_PROPERTY_DAY,
-        UsageTopAvgMetricsMetadata.JSON_PROPERTY_MONTH,
-        UsageTopAvgMetricsMetadata.JSON_PROPERTY_PAGINATION
-    }
-)
+@JsonPropertyOrder({
+  UsageTopAvgMetricsMetadata.JSON_PROPERTY_DAY,
+  UsageTopAvgMetricsMetadata.JSON_PROPERTY_MONTH,
+  UsageTopAvgMetricsMetadata.JSON_PROPERTY_PAGINATION
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageTopAvgMetricsMetadata {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DAY = "day";
+  private OffsetDateTime day;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_MONTH = "month";
+  private OffsetDateTime month;
 
-    public static final String JSON_PROPERTY_DAY = "day";
-    private OffsetDateTime day;
+  public static final String JSON_PROPERTY_PAGINATION = "pagination";
+  private UsageAttributionPagination pagination;
 
-    public static final String JSON_PROPERTY_MONTH = "month";
-    private OffsetDateTime month;
+  public UsageTopAvgMetricsMetadata day(OffsetDateTime day) {
+    this.day = day;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_PAGINATION = "pagination";
-    private UsageAttributionPagination pagination;
+  /**
+   * The day value from the user request that contains the returned usage data. (If day was used the
+   * request)
+   *
+   * @return day
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "The day value from the user request that contains the returned usage data. (If day was"
+              + " used the request)")
+  @JsonProperty(JSON_PROPERTY_DAY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getDay() {
+    return day;
+  }
 
-    public UsageTopAvgMetricsMetadata day(OffsetDateTime day) {
-        this.day = day;
-        return this;
+  public void setDay(OffsetDateTime day) {
+    this.day = day;
+  }
+
+  public UsageTopAvgMetricsMetadata month(OffsetDateTime month) {
+    this.month = month;
+    return this;
+  }
+
+  /**
+   * The month value from the user request that contains the returned usage data. (If month was used
+   * the request)
+   *
+   * @return month
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "The month value from the user request that contains the returned usage data. (If month"
+              + " was used the request)")
+  @JsonProperty(JSON_PROPERTY_MONTH)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public OffsetDateTime getMonth() {
+    return month;
+  }
+
+  public void setMonth(OffsetDateTime month) {
+    this.month = month;
+  }
+
+  public UsageTopAvgMetricsMetadata pagination(UsageAttributionPagination pagination) {
+    this.pagination = pagination;
+    this.unparsed |= pagination.unparsed;
+    return this;
+  }
+
+  /**
+   * Get pagination
+   *
+   * @return pagination
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PAGINATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public UsageAttributionPagination getPagination() {
+    return pagination;
+  }
+
+  public void setPagination(UsageAttributionPagination pagination) {
+    this.pagination = pagination;
+  }
+
+  /** Return true if this UsageTopAvgMetricsMetadata object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * The day value from the user request that contains the returned usage data. (If day was used the request)
-     * @return day
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The day value from the user request that contains the returned usage data. (If day was used the request)")
-    @JsonProperty(JSON_PROPERTY_DAY)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public OffsetDateTime getDay() {
-        return day;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    UsageTopAvgMetricsMetadata usageTopAvgMetricsMetadata = (UsageTopAvgMetricsMetadata) o;
+    return Objects.equals(this.day, usageTopAvgMetricsMetadata.day)
+        && Objects.equals(this.month, usageTopAvgMetricsMetadata.month)
+        && Objects.equals(this.pagination, usageTopAvgMetricsMetadata.pagination);
+  }
 
-    public void setDay(OffsetDateTime day) {
-        this.day = day;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(day, month, pagination);
+  }
 
-    public UsageTopAvgMetricsMetadata month(OffsetDateTime month) {
-        this.month = month;
-        return this;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class UsageTopAvgMetricsMetadata {\n");
+    sb.append("    day: ").append(toIndentedString(day)).append("\n");
+    sb.append("    month: ").append(toIndentedString(month)).append("\n");
+    sb.append("    pagination: ").append(toIndentedString(pagination)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * The month value from the user request that contains the returned usage data. (If month was used the request)
-     * @return month
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(
-        value = "The month value from the user request that contains the returned usage data. (If month was used the request)"
-    )
-    @JsonProperty(JSON_PROPERTY_MONTH)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public OffsetDateTime getMonth() {
-        return month;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    public void setMonth(OffsetDateTime month) {
-        this.month = month;
-    }
-
-    public UsageTopAvgMetricsMetadata pagination(UsageAttributionPagination pagination) {
-        this.pagination = pagination;
-        this.unparsed |= pagination.unparsed;
-        return this;
-    }
-
-    /**
-     * Get pagination
-     * @return pagination
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_PAGINATION)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public UsageAttributionPagination getPagination() {
-        return pagination;
-    }
-
-    public void setPagination(UsageAttributionPagination pagination) {
-        this.pagination = pagination;
-    }
-
-    /**
-     * Return true if this UsageTopAvgMetricsMetadata object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        UsageTopAvgMetricsMetadata usageTopAvgMetricsMetadata = (UsageTopAvgMetricsMetadata) o;
-        return (
-            Objects.equals(this.day, usageTopAvgMetricsMetadata.day) &&
-            Objects.equals(this.month, usageTopAvgMetricsMetadata.month) &&
-            Objects.equals(this.pagination, usageTopAvgMetricsMetadata.pagination)
-        );
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(day, month, pagination);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class UsageTopAvgMetricsMetadata {\n");
-        sb.append("    day: ").append(toIndentedString(day)).append("\n");
-        sb.append("    month: ").append(toIndentedString(month)).append("\n");
-        sb.append("    pagination: ").append(toIndentedString(pagination)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

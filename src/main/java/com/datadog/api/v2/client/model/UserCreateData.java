@@ -10,170 +10,155 @@
 
 package com.datadog.api.v2.client.model;
 
-import com.datadog.api.v2.client.JSON;
-import com.datadog.api.v2.client.model.UserCreateAttributes;
-import com.datadog.api.v2.client.model.UserRelationships;
-import com.datadog.api.v2.client.model.UsersType;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Object to create a user.
- */
+/** Object to create a user. */
 @ApiModel(description = "Object to create a user.")
-@JsonPropertyOrder(
-    { UserCreateData.JSON_PROPERTY_ATTRIBUTES, UserCreateData.JSON_PROPERTY_RELATIONSHIPS, UserCreateData.JSON_PROPERTY_TYPE }
-)
+@JsonPropertyOrder({
+  UserCreateData.JSON_PROPERTY_ATTRIBUTES,
+  UserCreateData.JSON_PROPERTY_RELATIONSHIPS,
+  UserCreateData.JSON_PROPERTY_TYPE
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UserCreateData {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+  private UserCreateAttributes attributes;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
+  private UserRelationships relationships;
 
-    public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-    private UserCreateAttributes attributes;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private UsersType type = UsersType.USERS;
 
-    public static final String JSON_PROPERTY_RELATIONSHIPS = "relationships";
-    private UserRelationships relationships;
+  public UserCreateData() {}
 
-    public static final String JSON_PROPERTY_TYPE = "type";
-    private UsersType type = UsersType.USERS;
+  @JsonCreator
+  public UserCreateData(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
+          UserCreateAttributes attributes,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) UsersType type) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
+    this.type = type;
+    this.unparsed |= !type.isValid();
+  }
 
-    public UserCreateData() {}
+  public UserCreateData attributes(UserCreateAttributes attributes) {
+    this.attributes = attributes;
+    this.unparsed |= attributes.unparsed;
+    return this;
+  }
 
-    @JsonCreator
-    public UserCreateData(
-        @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES) UserCreateAttributes attributes,
-        @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) UsersType type
-    ) {
-        this.attributes = attributes;
-        this.unparsed |= attributes.unparsed;
-        this.type = type;
-        this.unparsed |= !type.isValid();
+  /**
+   * Get attributes
+   *
+   * @return attributes
+   */
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public UserCreateAttributes getAttributes() {
+    return attributes;
+  }
+
+  public void setAttributes(UserCreateAttributes attributes) {
+    this.attributes = attributes;
+  }
+
+  public UserCreateData relationships(UserRelationships relationships) {
+    this.relationships = relationships;
+    this.unparsed |= relationships.unparsed;
+    return this;
+  }
+
+  /**
+   * Get relationships
+   *
+   * @return relationships
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public UserRelationships getRelationships() {
+    return relationships;
+  }
+
+  public void setRelationships(UserRelationships relationships) {
+    this.relationships = relationships;
+  }
+
+  public UserCreateData type(UsersType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    return this;
+  }
+
+  /**
+   * Get type
+   *
+   * @return type
+   */
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public UsersType getType() {
+    return type;
+  }
+
+  public void setType(UsersType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
     }
+    this.type = type;
+  }
 
-    public UserCreateData attributes(UserCreateAttributes attributes) {
-        this.attributes = attributes;
-        this.unparsed |= attributes.unparsed;
-        return this;
+  /** Return true if this UserCreateData object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    UserCreateData userCreateData = (UserCreateData) o;
+    return Objects.equals(this.attributes, userCreateData.attributes)
+        && Objects.equals(this.relationships, userCreateData.relationships)
+        && Objects.equals(this.type, userCreateData.type);
+  }
 
-    /**
-     * Get attributes
-     * @return attributes
-     **/
-    @ApiModelProperty(required = true, value = "")
-    @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public UserCreateAttributes getAttributes() {
-        return attributes;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(attributes, relationships, type);
+  }
 
-    public void setAttributes(UserCreateAttributes attributes) {
-        this.attributes = attributes;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class UserCreateData {\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    public UserCreateData relationships(UserRelationships relationships) {
-        this.relationships = relationships;
-        this.unparsed |= relationships.unparsed;
-        return this;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    /**
-     * Get relationships
-     * @return relationships
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public UserRelationships getRelationships() {
-        return relationships;
-    }
-
-    public void setRelationships(UserRelationships relationships) {
-        this.relationships = relationships;
-    }
-
-    public UserCreateData type(UsersType type) {
-        this.type = type;
-        this.unparsed |= !type.isValid();
-        return this;
-    }
-
-    /**
-     * Get type
-     * @return type
-     **/
-    @ApiModelProperty(required = true, value = "")
-    @JsonProperty(JSON_PROPERTY_TYPE)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public UsersType getType() {
-        return type;
-    }
-
-    public void setType(UsersType type) {
-        if (!type.isValid()) {
-            this.unparsed = true;
-        }
-        this.type = type;
-    }
-
-    /**
-     * Return true if this UserCreateData object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        UserCreateData userCreateData = (UserCreateData) o;
-        return (
-            Objects.equals(this.attributes, userCreateData.attributes) &&
-            Objects.equals(this.relationships, userCreateData.relationships) &&
-            Objects.equals(this.type, userCreateData.type)
-        );
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(attributes, relationships, type);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class UserCreateData {\n");
-        sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-        sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

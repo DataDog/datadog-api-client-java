@@ -10,121 +10,107 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.datadog.api.v1.client.model.Event;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Object containing an event response.
- */
+/** Object containing an event response. */
 @ApiModel(description = "Object containing an event response.")
-@JsonPropertyOrder({ EventResponse.JSON_PROPERTY_EVENT, EventResponse.JSON_PROPERTY_STATUS })
+@JsonPropertyOrder({EventResponse.JSON_PROPERTY_EVENT, EventResponse.JSON_PROPERTY_STATUS})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class EventResponse {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_EVENT = "event";
+  private Event event;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_STATUS = "status";
+  private String status;
 
-    public static final String JSON_PROPERTY_EVENT = "event";
-    private Event event;
+  public EventResponse event(Event event) {
+    this.event = event;
+    this.unparsed |= event.unparsed;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_STATUS = "status";
-    private String status;
+  /**
+   * Get event
+   *
+   * @return event
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_EVENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Event getEvent() {
+    return event;
+  }
 
-    public EventResponse event(Event event) {
-        this.event = event;
-        this.unparsed |= event.unparsed;
-        return this;
+  public void setEvent(Event event) {
+    this.event = event;
+  }
+
+  public EventResponse status(String status) {
+    this.status = status;
+    return this;
+  }
+
+  /**
+   * A status.
+   *
+   * @return status
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A status.")
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  /** Return true if this EventResponse object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * Get event
-     * @return event
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_EVENT)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Event getEvent() {
-        return event;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    EventResponse eventResponse = (EventResponse) o;
+    return Objects.equals(this.event, eventResponse.event)
+        && Objects.equals(this.status, eventResponse.status);
+  }
 
-    public void setEvent(Event event) {
-        this.event = event;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(event, status);
+  }
 
-    public EventResponse status(String status) {
-        this.status = status;
-        return this;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class EventResponse {\n");
+    sb.append("    event: ").append(toIndentedString(event)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * A status.
-     * @return status
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "A status.")
-    @JsonProperty(JSON_PROPERTY_STATUS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getStatus() {
-        return status;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    /**
-     * Return true if this EventResponse object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        EventResponse eventResponse = (EventResponse) o;
-        return Objects.equals(this.event, eventResponse.event) && Objects.equals(this.status, eventResponse.status);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(event, status);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class EventResponse {\n");
-        sb.append("    event: ").append(toIndentedString(event)).append("\n");
-        sb.append("    status: ").append(toIndentedString(status)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

@@ -10,159 +10,141 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.datadog.api.v1.client.model.ScatterPlotRequest;
-import com.datadog.api.v1.client.model.ScatterplotTableRequest;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Widget definition.
- */
+/** Widget definition. */
 @ApiModel(description = "Widget definition.")
-@JsonPropertyOrder(
-    {
-        ScatterPlotWidgetDefinitionRequests.JSON_PROPERTY_TABLE,
-        ScatterPlotWidgetDefinitionRequests.JSON_PROPERTY_X,
-        ScatterPlotWidgetDefinitionRequests.JSON_PROPERTY_Y
-    }
-)
+@JsonPropertyOrder({
+  ScatterPlotWidgetDefinitionRequests.JSON_PROPERTY_TABLE,
+  ScatterPlotWidgetDefinitionRequests.JSON_PROPERTY_X,
+  ScatterPlotWidgetDefinitionRequests.JSON_PROPERTY_Y
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ScatterPlotWidgetDefinitionRequests {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_TABLE = "table";
+  private ScatterplotTableRequest table;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_X = "x";
+  private ScatterPlotRequest x;
 
-    public static final String JSON_PROPERTY_TABLE = "table";
-    private ScatterplotTableRequest table;
+  public static final String JSON_PROPERTY_Y = "y";
+  private ScatterPlotRequest y;
 
-    public static final String JSON_PROPERTY_X = "x";
-    private ScatterPlotRequest x;
+  public ScatterPlotWidgetDefinitionRequests table(ScatterplotTableRequest table) {
+    this.table = table;
+    this.unparsed |= table.unparsed;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_Y = "y";
-    private ScatterPlotRequest y;
+  /**
+   * Get table
+   *
+   * @return table
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TABLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ScatterplotTableRequest getTable() {
+    return table;
+  }
 
-    public ScatterPlotWidgetDefinitionRequests table(ScatterplotTableRequest table) {
-        this.table = table;
-        this.unparsed |= table.unparsed;
-        return this;
+  public void setTable(ScatterplotTableRequest table) {
+    this.table = table;
+  }
+
+  public ScatterPlotWidgetDefinitionRequests x(ScatterPlotRequest x) {
+    this.x = x;
+    this.unparsed |= x.unparsed;
+    return this;
+  }
+
+  /**
+   * Get x
+   *
+   * @return x
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_X)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ScatterPlotRequest getX() {
+    return x;
+  }
+
+  public void setX(ScatterPlotRequest x) {
+    this.x = x;
+  }
+
+  public ScatterPlotWidgetDefinitionRequests y(ScatterPlotRequest y) {
+    this.y = y;
+    this.unparsed |= y.unparsed;
+    return this;
+  }
+
+  /**
+   * Get y
+   *
+   * @return y
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_Y)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public ScatterPlotRequest getY() {
+    return y;
+  }
+
+  public void setY(ScatterPlotRequest y) {
+    this.y = y;
+  }
+
+  /** Return true if this ScatterPlotWidgetDefinition_requests object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * Get table
-     * @return table
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_TABLE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public ScatterplotTableRequest getTable() {
-        return table;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    ScatterPlotWidgetDefinitionRequests scatterPlotWidgetDefinitionRequests =
+        (ScatterPlotWidgetDefinitionRequests) o;
+    return Objects.equals(this.table, scatterPlotWidgetDefinitionRequests.table)
+        && Objects.equals(this.x, scatterPlotWidgetDefinitionRequests.x)
+        && Objects.equals(this.y, scatterPlotWidgetDefinitionRequests.y);
+  }
 
-    public void setTable(ScatterplotTableRequest table) {
-        this.table = table;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(table, x, y);
+  }
 
-    public ScatterPlotWidgetDefinitionRequests x(ScatterPlotRequest x) {
-        this.x = x;
-        this.unparsed |= x.unparsed;
-        return this;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class ScatterPlotWidgetDefinitionRequests {\n");
+    sb.append("    table: ").append(toIndentedString(table)).append("\n");
+    sb.append("    x: ").append(toIndentedString(x)).append("\n");
+    sb.append("    y: ").append(toIndentedString(y)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Get x
-     * @return x
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_X)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public ScatterPlotRequest getX() {
-        return x;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    public void setX(ScatterPlotRequest x) {
-        this.x = x;
-    }
-
-    public ScatterPlotWidgetDefinitionRequests y(ScatterPlotRequest y) {
-        this.y = y;
-        this.unparsed |= y.unparsed;
-        return this;
-    }
-
-    /**
-     * Get y
-     * @return y
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_Y)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public ScatterPlotRequest getY() {
-        return y;
-    }
-
-    public void setY(ScatterPlotRequest y) {
-        this.y = y;
-    }
-
-    /**
-     * Return true if this ScatterPlotWidgetDefinition_requests object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        ScatterPlotWidgetDefinitionRequests scatterPlotWidgetDefinitionRequests = (ScatterPlotWidgetDefinitionRequests) o;
-        return (
-            Objects.equals(this.table, scatterPlotWidgetDefinitionRequests.table) &&
-            Objects.equals(this.x, scatterPlotWidgetDefinitionRequests.x) &&
-            Objects.equals(this.y, scatterPlotWidgetDefinitionRequests.y)
-        );
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(table, x, y);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ScatterPlotWidgetDefinitionRequests {\n");
-        sb.append("    table: ").append(toIndentedString(table)).append("\n");
-        sb.append("    x: ").append(toIndentedString(x)).append("\n");
-        sb.append("    y: ").append(toIndentedString(y)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

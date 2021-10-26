@@ -17,88 +17,88 @@ import org.junit.Test;
 /** API tests for SlackIntegrationApi */
 public class SlackIntegrationApiTest {
 
-    private final SlackIntegrationApi api = new SlackIntegrationApi();
+  private final SlackIntegrationApi api = new SlackIntegrationApi();
 
-    /**
-     * Create a Slack integration channel
-     *
-     * <p>Add a channel to your Datadog-Slack integration.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void createSlackIntegrationChannelTest() throws ApiException {
-        // String accountName = null;
-        // SlackIntegrationChannel body = null;
-        // SlackIntegrationChannel response = api.createSlackIntegrationChannel(accountName)
-        //        .body(body)
-        //        .execute();
-        // TODO: test validations
-    }
+  /**
+   * Create a Slack integration channel
+   *
+   * <p>Add a channel to your Datadog-Slack integration.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void createSlackIntegrationChannelTest() throws ApiException {
+    // String accountName = null;
+    // SlackIntegrationChannel body = null;
+    // SlackIntegrationChannel response = api.createSlackIntegrationChannel(accountName)
+    //        .body(body)
+    //        .execute();
+    // TODO: test validations
+  }
 
-    /**
-     * Get a Slack integration channel
-     *
-     * <p>Get a channel configured for your Datadog-Slack integration.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getSlackIntegrationChannelTest() throws ApiException {
-        // String accountName = null;
-        // String channelName = null;
-        // SlackIntegrationChannel response = api.getSlackIntegrationChannel(accountName, channelName)
-        //        .execute();
-        // TODO: test validations
-    }
+  /**
+   * Get a Slack integration channel
+   *
+   * <p>Get a channel configured for your Datadog-Slack integration.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void getSlackIntegrationChannelTest() throws ApiException {
+    // String accountName = null;
+    // String channelName = null;
+    // SlackIntegrationChannel response = api.getSlackIntegrationChannel(accountName, channelName)
+    //        .execute();
+    // TODO: test validations
+  }
 
-    /**
-     * Get all channels in a Slack integration
-     *
-     * <p>Get a list of all channels configured for your Datadog-Slack integration.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getSlackIntegrationChannelsTest() throws ApiException {
-        // String accountName = null;
-        // List<SlackIntegrationChannel> response = api.getSlackIntegrationChannels(accountName)
-        //        .execute();
-        // TODO: test validations
-    }
+  /**
+   * Get all channels in a Slack integration
+   *
+   * <p>Get a list of all channels configured for your Datadog-Slack integration.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void getSlackIntegrationChannelsTest() throws ApiException {
+    // String accountName = null;
+    // List<SlackIntegrationChannel> response = api.getSlackIntegrationChannels(accountName)
+    //        .execute();
+    // TODO: test validations
+  }
 
-    /**
-     * Remove a Slack integration channel
-     *
-     * <p>Remove a channel from your Datadog-Slack integration.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void removeSlackIntegrationChannelTest() throws ApiException {
-        // String accountName = null;
-        // String channelName = null;
-        // api.removeSlackIntegrationChannel(accountName, channelName)
-        //        .execute();
-        // TODO: test validations
-    }
+  /**
+   * Remove a Slack integration channel
+   *
+   * <p>Remove a channel from your Datadog-Slack integration.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void removeSlackIntegrationChannelTest() throws ApiException {
+    // String accountName = null;
+    // String channelName = null;
+    // api.removeSlackIntegrationChannel(accountName, channelName)
+    //        .execute();
+    // TODO: test validations
+  }
 
-    /**
-     * Update a Slack integration channel
-     *
-     * <p>Update a channel used in your Datadog-Slack integration.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void updateSlackIntegrationChannelTest() throws ApiException {
-        // String accountName = null;
-        // String channelName = null;
-        // SlackIntegrationChannel body = null;
-        // SlackIntegrationChannel response = api.updateSlackIntegrationChannel(accountName,
-        // channelName)
-        //        .body(body)
-        //        .execute();
-        // TODO: test validations
-    }
+  /**
+   * Update a Slack integration channel
+   *
+   * <p>Update a channel used in your Datadog-Slack integration.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void updateSlackIntegrationChannelTest() throws ApiException {
+    // String accountName = null;
+    // String channelName = null;
+    // SlackIntegrationChannel body = null;
+    // SlackIntegrationChannel response = api.updateSlackIntegrationChannel(accountName,
+    // channelName)
+    //        .body(body)
+    //        .execute();
+    // TODO: test validations
+  }
 }

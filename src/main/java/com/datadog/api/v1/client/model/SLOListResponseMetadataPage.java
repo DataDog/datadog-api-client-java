@@ -10,126 +10,117 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * The object containing information about the pages of the list of SLOs.
- */
+/** The object containing information about the pages of the list of SLOs. */
 @ApiModel(description = "The object containing information about the pages of the list of SLOs.")
-@JsonPropertyOrder(
-    { SLOListResponseMetadataPage.JSON_PROPERTY_TOTAL_COUNT, SLOListResponseMetadataPage.JSON_PROPERTY_TOTAL_FILTERED_COUNT }
-)
+@JsonPropertyOrder({
+  SLOListResponseMetadataPage.JSON_PROPERTY_TOTAL_COUNT,
+  SLOListResponseMetadataPage.JSON_PROPERTY_TOTAL_FILTERED_COUNT
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SLOListResponseMetadataPage {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_TOTAL_COUNT = "total_count";
+  private Long totalCount;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_TOTAL_FILTERED_COUNT = "total_filtered_count";
+  private Long totalFilteredCount;
 
-    public static final String JSON_PROPERTY_TOTAL_COUNT = "total_count";
-    private Long totalCount;
+  public SLOListResponseMetadataPage totalCount(Long totalCount) {
+    this.totalCount = totalCount;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_TOTAL_FILTERED_COUNT = "total_filtered_count";
-    private Long totalFilteredCount;
+  /**
+   * The total number of resources that could be retrieved ignoring the parameters and filters in
+   * the request.
+   *
+   * @return totalCount
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "The total number of resources that could be retrieved ignoring the parameters and"
+              + " filters in the request.")
+  @JsonProperty(JSON_PROPERTY_TOTAL_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getTotalCount() {
+    return totalCount;
+  }
 
-    public SLOListResponseMetadataPage totalCount(Long totalCount) {
-        this.totalCount = totalCount;
-        return this;
+  public void setTotalCount(Long totalCount) {
+    this.totalCount = totalCount;
+  }
+
+  public SLOListResponseMetadataPage totalFilteredCount(Long totalFilteredCount) {
+    this.totalFilteredCount = totalFilteredCount;
+    return this;
+  }
+
+  /**
+   * The total number of resources that match the parameters and filters in the request. This
+   * attribute can be used by a client to determine the total number of pages.
+   *
+   * @return totalFilteredCount
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "The total number of resources that match the parameters and filters in the request."
+              + " This attribute can be used by a client to determine the total number of pages.")
+  @JsonProperty(JSON_PROPERTY_TOTAL_FILTERED_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getTotalFilteredCount() {
+    return totalFilteredCount;
+  }
+
+  public void setTotalFilteredCount(Long totalFilteredCount) {
+    this.totalFilteredCount = totalFilteredCount;
+  }
+
+  /** Return true if this SLOListResponse_metadata_page object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * The total number of resources that could be retrieved ignoring the parameters and filters in the request.
-     * @return totalCount
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The total number of resources that could be retrieved ignoring the parameters and filters in the request.")
-    @JsonProperty(JSON_PROPERTY_TOTAL_COUNT)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Long getTotalCount() {
-        return totalCount;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    SLOListResponseMetadataPage slOListResponseMetadataPage = (SLOListResponseMetadataPage) o;
+    return Objects.equals(this.totalCount, slOListResponseMetadataPage.totalCount)
+        && Objects.equals(this.totalFilteredCount, slOListResponseMetadataPage.totalFilteredCount);
+  }
 
-    public void setTotalCount(Long totalCount) {
-        this.totalCount = totalCount;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(totalCount, totalFilteredCount);
+  }
 
-    public SLOListResponseMetadataPage totalFilteredCount(Long totalFilteredCount) {
-        this.totalFilteredCount = totalFilteredCount;
-        return this;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class SLOListResponseMetadataPage {\n");
+    sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
+    sb.append("    totalFilteredCount: ").append(toIndentedString(totalFilteredCount)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * The total number of resources that match the parameters and filters in the request. This attribute can be used by a client to determine the total number of pages.
-     * @return totalFilteredCount
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(
-        value = "The total number of resources that match the parameters and filters in the request. This attribute can be used by a client to determine the total number of pages."
-    )
-    @JsonProperty(JSON_PROPERTY_TOTAL_FILTERED_COUNT)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Long getTotalFilteredCount() {
-        return totalFilteredCount;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    public void setTotalFilteredCount(Long totalFilteredCount) {
-        this.totalFilteredCount = totalFilteredCount;
-    }
-
-    /**
-     * Return true if this SLOListResponse_metadata_page object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        SLOListResponseMetadataPage slOListResponseMetadataPage = (SLOListResponseMetadataPage) o;
-        return (
-            Objects.equals(this.totalCount, slOListResponseMetadataPage.totalCount) &&
-            Objects.equals(this.totalFilteredCount, slOListResponseMetadataPage.totalFilteredCount)
-        );
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(totalCount, totalFilteredCount);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SLOListResponseMetadataPage {\n");
-        sb.append("    totalCount: ").append(toIndentedString(totalCount)).append("\n");
-        sb.append("    totalFilteredCount: ").append(toIndentedString(totalFilteredCount)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

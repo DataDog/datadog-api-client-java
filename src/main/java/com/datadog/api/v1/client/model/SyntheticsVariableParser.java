@@ -10,131 +10,123 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.datadog.api.v1.client.model.SyntheticsGlobalVariableParserType;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Details of the parser to use for the global variable.
- */
+/** Details of the parser to use for the global variable. */
 @ApiModel(description = "Details of the parser to use for the global variable.")
-@JsonPropertyOrder({ SyntheticsVariableParser.JSON_PROPERTY_TYPE, SyntheticsVariableParser.JSON_PROPERTY_VALUE })
+@JsonPropertyOrder({
+  SyntheticsVariableParser.JSON_PROPERTY_TYPE,
+  SyntheticsVariableParser.JSON_PROPERTY_VALUE
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsVariableParser {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private SyntheticsGlobalVariableParserType type;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_VALUE = "value";
+  private String value;
 
-    public static final String JSON_PROPERTY_TYPE = "type";
-    private SyntheticsGlobalVariableParserType type;
+  public SyntheticsVariableParser() {}
 
-    public static final String JSON_PROPERTY_VALUE = "value";
-    private String value;
+  @JsonCreator
+  public SyntheticsVariableParser(
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          SyntheticsGlobalVariableParserType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+  }
 
-    public SyntheticsVariableParser() {}
+  public SyntheticsVariableParser type(SyntheticsGlobalVariableParserType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    return this;
+  }
 
-    @JsonCreator
-    public SyntheticsVariableParser(@JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SyntheticsGlobalVariableParserType type) {
-        this.type = type;
-        this.unparsed |= !type.isValid();
+  /**
+   * Get type
+   *
+   * @return type
+   */
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public SyntheticsGlobalVariableParserType getType() {
+    return type;
+  }
+
+  public void setType(SyntheticsGlobalVariableParserType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
     }
+    this.type = type;
+  }
 
-    public SyntheticsVariableParser type(SyntheticsGlobalVariableParserType type) {
-        this.type = type;
-        this.unparsed |= !type.isValid();
-        return this;
-    }
+  public SyntheticsVariableParser value(String value) {
+    this.value = value;
+    return this;
+  }
 
-    /**
-     * Get type
-     * @return type
-     **/
-    @ApiModelProperty(required = true, value = "")
-    @JsonProperty(JSON_PROPERTY_TYPE)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public SyntheticsGlobalVariableParserType getType() {
-        return type;
-    }
+  /**
+   * Regex or JSON path used for the parser. Not used with type &#x60;raw&#x60;.
+   *
+   * @return value
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Regex or JSON path used for the parser. Not used with type `raw`.")
+  @JsonProperty(JSON_PROPERTY_VALUE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getValue() {
+    return value;
+  }
 
-    public void setType(SyntheticsGlobalVariableParserType type) {
-        if (!type.isValid()) {
-            this.unparsed = true;
-        }
-        this.type = type;
-    }
+  public void setValue(String value) {
+    this.value = value;
+  }
 
-    public SyntheticsVariableParser value(String value) {
-        this.value = value;
-        return this;
+  /** Return true if this SyntheticsVariableParser object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    SyntheticsVariableParser syntheticsVariableParser = (SyntheticsVariableParser) o;
+    return Objects.equals(this.type, syntheticsVariableParser.type)
+        && Objects.equals(this.value, syntheticsVariableParser.value);
+  }
 
-    /**
-     * Regex or JSON path used for the parser. Not used with type &#x60;raw&#x60;.
-     * @return value
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Regex or JSON path used for the parser. Not used with type `raw`.")
-    @JsonProperty(JSON_PROPERTY_VALUE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getValue() {
-        return value;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(type, value);
+  }
 
-    public void setValue(String value) {
-        this.value = value;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class SyntheticsVariableParser {\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Return true if this SyntheticsVariableParser object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        SyntheticsVariableParser syntheticsVariableParser = (SyntheticsVariableParser) o;
-        return Objects.equals(this.type, syntheticsVariableParser.type) && Objects.equals(this.value, syntheticsVariableParser.value);
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(type, value);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SyntheticsVariableParser {\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("    value: ").append(toIndentedString(value)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

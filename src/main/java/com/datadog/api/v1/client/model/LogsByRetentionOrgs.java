@@ -10,109 +10,95 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.datadog.api.v1.client.model.LogsByRetentionOrgUsage;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Indexed logs usage summary for each organization for each retention period with usage.
- */
-@ApiModel(description = "Indexed logs usage summary for each organization for each retention period with usage.")
-@JsonPropertyOrder({ LogsByRetentionOrgs.JSON_PROPERTY_USAGE })
+/** Indexed logs usage summary for each organization for each retention period with usage. */
+@ApiModel(
+    description =
+        "Indexed logs usage summary for each organization for each retention period with usage.")
+@JsonPropertyOrder({LogsByRetentionOrgs.JSON_PROPERTY_USAGE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsByRetentionOrgs {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_USAGE = "usage";
+  private List<LogsByRetentionOrgUsage> usage = null;
 
-    @JsonIgnore
-    public boolean unparsed = false;
-
-    public static final String JSON_PROPERTY_USAGE = "usage";
-    private List<LogsByRetentionOrgUsage> usage = null;
-
-    public LogsByRetentionOrgs usage(List<LogsByRetentionOrgUsage> usage) {
-        this.usage = usage;
-        for (LogsByRetentionOrgUsage item : usage) {
-            this.unparsed |= item.unparsed;
-        }
-        return this;
+  public LogsByRetentionOrgs usage(List<LogsByRetentionOrgUsage> usage) {
+    this.usage = usage;
+    for (LogsByRetentionOrgUsage item : usage) {
+      this.unparsed |= item.unparsed;
     }
+    return this;
+  }
 
-    public LogsByRetentionOrgs addUsageItem(LogsByRetentionOrgUsage usageItem) {
-        if (this.usage == null) {
-            this.usage = new ArrayList<>();
-        }
-        this.usage.add(usageItem);
-        this.unparsed |= usageItem.unparsed;
-        return this;
+  public LogsByRetentionOrgs addUsageItem(LogsByRetentionOrgUsage usageItem) {
+    if (this.usage == null) {
+      this.usage = new ArrayList<>();
     }
+    this.usage.add(usageItem);
+    this.unparsed |= usageItem.unparsed;
+    return this;
+  }
 
-    /**
-     * Indexed logs usage summary for each organization.
-     * @return usage
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Indexed logs usage summary for each organization.")
-    @JsonProperty(JSON_PROPERTY_USAGE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<LogsByRetentionOrgUsage> getUsage() {
-        return usage;
-    }
+  /**
+   * Indexed logs usage summary for each organization.
+   *
+   * @return usage
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Indexed logs usage summary for each organization.")
+  @JsonProperty(JSON_PROPERTY_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<LogsByRetentionOrgUsage> getUsage() {
+    return usage;
+  }
 
-    public void setUsage(List<LogsByRetentionOrgUsage> usage) {
-        this.usage = usage;
-    }
+  public void setUsage(List<LogsByRetentionOrgUsage> usage) {
+    this.usage = usage;
+  }
 
-    /**
-     * Return true if this LogsByRetention_orgs object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        LogsByRetentionOrgs logsByRetentionOrgs = (LogsByRetentionOrgs) o;
-        return Objects.equals(this.usage, logsByRetentionOrgs.usage);
+  /** Return true if this LogsByRetention_orgs object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    LogsByRetentionOrgs logsByRetentionOrgs = (LogsByRetentionOrgs) o;
+    return Objects.equals(this.usage, logsByRetentionOrgs.usage);
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(usage);
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(usage);
+  }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class LogsByRetentionOrgs {\n");
-        sb.append("    usage: ").append(toIndentedString(usage)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class LogsByRetentionOrgs {\n");
+    sb.append("    usage: ").append(toIndentedString(usage)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

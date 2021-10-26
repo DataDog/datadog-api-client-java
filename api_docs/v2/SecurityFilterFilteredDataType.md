@@ -1,5 +1,11 @@
+
+
 # SecurityFilterFilteredDataType
 
 ## Enum
 
-- `LOGS` (value: `"logs"`)
+
+* `LOGS` (value: `"logs"`)
+
+
+

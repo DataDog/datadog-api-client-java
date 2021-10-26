@@ -17,21 +17,21 @@ import org.junit.Test;
 /** API tests for ServiceChecksApi */
 public class ServiceChecksApiTest {
 
-    private final ServiceChecksApi api = new ServiceChecksApi();
+  private final ServiceChecksApi api = new ServiceChecksApi();
 
-    /**
-     * Submit a Service Check
-     *
-     * <p>Submit a list of Service Checks. **Note**: A valid API key is required.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void submitServiceCheckTest() throws ApiException {
-        // List<ServiceCheck> body = null;
-        // IntakePayloadAccepted response = api.submitServiceCheck()
-        //        .body(body)
-        //        .execute();
-        // TODO: test validations
-    }
+  /**
+   * Submit a Service Check
+   *
+   * <p>Submit a list of Service Checks. **Note**: A valid API key is required.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void submitServiceCheckTest() throws ApiException {
+    // List<ServiceCheck> body = null;
+    // IntakePayloadAccepted response = api.submitServiceCheck()
+    //        .body(body)
+    //        .execute();
+    // TODO: test validations
+  }
 }

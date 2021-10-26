@@ -10,198 +10,183 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * The process query to use in the widget.
- */
+/** The process query to use in the widget. */
 @ApiModel(description = "The process query to use in the widget.")
-@JsonPropertyOrder(
-    {
-        ProcessQueryDefinition.JSON_PROPERTY_FILTER_BY,
-        ProcessQueryDefinition.JSON_PROPERTY_LIMIT,
-        ProcessQueryDefinition.JSON_PROPERTY_METRIC,
-        ProcessQueryDefinition.JSON_PROPERTY_SEARCH_BY
-    }
-)
+@JsonPropertyOrder({
+  ProcessQueryDefinition.JSON_PROPERTY_FILTER_BY,
+  ProcessQueryDefinition.JSON_PROPERTY_LIMIT,
+  ProcessQueryDefinition.JSON_PROPERTY_METRIC,
+  ProcessQueryDefinition.JSON_PROPERTY_SEARCH_BY
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ProcessQueryDefinition {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_FILTER_BY = "filter_by";
+  private List<String> filterBy = null;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_LIMIT = "limit";
+  private Long limit;
 
-    public static final String JSON_PROPERTY_FILTER_BY = "filter_by";
-    private List<String> filterBy = null;
+  public static final String JSON_PROPERTY_METRIC = "metric";
+  private String metric;
 
-    public static final String JSON_PROPERTY_LIMIT = "limit";
-    private Long limit;
+  public static final String JSON_PROPERTY_SEARCH_BY = "search_by";
+  private String searchBy;
 
-    public static final String JSON_PROPERTY_METRIC = "metric";
-    private String metric;
+  public ProcessQueryDefinition() {}
 
-    public static final String JSON_PROPERTY_SEARCH_BY = "search_by";
-    private String searchBy;
+  @JsonCreator
+  public ProcessQueryDefinition(
+      @JsonProperty(required = true, value = JSON_PROPERTY_METRIC) String metric) {
+    this.metric = metric;
+  }
 
-    public ProcessQueryDefinition() {}
+  public ProcessQueryDefinition filterBy(List<String> filterBy) {
+    this.filterBy = filterBy;
+    return this;
+  }
 
-    @JsonCreator
-    public ProcessQueryDefinition(@JsonProperty(required = true, value = JSON_PROPERTY_METRIC) String metric) {
-        this.metric = metric;
+  public ProcessQueryDefinition addFilterByItem(String filterByItem) {
+    if (this.filterBy == null) {
+      this.filterBy = new ArrayList<>();
     }
+    this.filterBy.add(filterByItem);
+    return this;
+  }
 
-    public ProcessQueryDefinition filterBy(List<String> filterBy) {
-        this.filterBy = filterBy;
-        return this;
-    }
+  /**
+   * List of processes.
+   *
+   * @return filterBy
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of processes.")
+  @JsonProperty(JSON_PROPERTY_FILTER_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getFilterBy() {
+    return filterBy;
+  }
 
-    public ProcessQueryDefinition addFilterByItem(String filterByItem) {
-        if (this.filterBy == null) {
-            this.filterBy = new ArrayList<>();
-        }
-        this.filterBy.add(filterByItem);
-        return this;
-    }
+  public void setFilterBy(List<String> filterBy) {
+    this.filterBy = filterBy;
+  }
 
-    /**
-     * List of processes.
-     * @return filterBy
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "List of processes.")
-    @JsonProperty(JSON_PROPERTY_FILTER_BY)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<String> getFilterBy() {
-        return filterBy;
-    }
+  public ProcessQueryDefinition limit(Long limit) {
+    this.limit = limit;
+    return this;
+  }
 
-    public void setFilterBy(List<String> filterBy) {
-        this.filterBy = filterBy;
-    }
+  /**
+   * Max number of items in the filter list. minimum: 0
+   *
+   * @return limit
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Max number of items in the filter list.")
+  @JsonProperty(JSON_PROPERTY_LIMIT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getLimit() {
+    return limit;
+  }
 
-    public ProcessQueryDefinition limit(Long limit) {
-        this.limit = limit;
-        return this;
-    }
+  public void setLimit(Long limit) {
+    this.limit = limit;
+  }
 
-    /**
-     * Max number of items in the filter list.
-     * minimum: 0
-     * @return limit
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Max number of items in the filter list.")
-    @JsonProperty(JSON_PROPERTY_LIMIT)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Long getLimit() {
-        return limit;
-    }
+  public ProcessQueryDefinition metric(String metric) {
+    this.metric = metric;
+    return this;
+  }
 
-    public void setLimit(Long limit) {
-        this.limit = limit;
-    }
+  /**
+   * Your chosen metric.
+   *
+   * @return metric
+   */
+  @ApiModelProperty(example = "system.load.1", required = true, value = "Your chosen metric.")
+  @JsonProperty(JSON_PROPERTY_METRIC)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getMetric() {
+    return metric;
+  }
 
-    public ProcessQueryDefinition metric(String metric) {
-        this.metric = metric;
-        return this;
-    }
+  public void setMetric(String metric) {
+    this.metric = metric;
+  }
 
-    /**
-     * Your chosen metric.
-     * @return metric
-     **/
-    @ApiModelProperty(example = "system.load.1", required = true, value = "Your chosen metric.")
-    @JsonProperty(JSON_PROPERTY_METRIC)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public String getMetric() {
-        return metric;
-    }
+  public ProcessQueryDefinition searchBy(String searchBy) {
+    this.searchBy = searchBy;
+    return this;
+  }
 
-    public void setMetric(String metric) {
-        this.metric = metric;
-    }
+  /**
+   * Your chosen search term.
+   *
+   * @return searchBy
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Your chosen search term.")
+  @JsonProperty(JSON_PROPERTY_SEARCH_BY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSearchBy() {
+    return searchBy;
+  }
 
-    public ProcessQueryDefinition searchBy(String searchBy) {
-        this.searchBy = searchBy;
-        return this;
-    }
+  public void setSearchBy(String searchBy) {
+    this.searchBy = searchBy;
+  }
 
-    /**
-     * Your chosen search term.
-     * @return searchBy
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Your chosen search term.")
-    @JsonProperty(JSON_PROPERTY_SEARCH_BY)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getSearchBy() {
-        return searchBy;
+  /** Return true if this ProcessQueryDefinition object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    ProcessQueryDefinition processQueryDefinition = (ProcessQueryDefinition) o;
+    return Objects.equals(this.filterBy, processQueryDefinition.filterBy)
+        && Objects.equals(this.limit, processQueryDefinition.limit)
+        && Objects.equals(this.metric, processQueryDefinition.metric)
+        && Objects.equals(this.searchBy, processQueryDefinition.searchBy);
+  }
 
-    public void setSearchBy(String searchBy) {
-        this.searchBy = searchBy;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(filterBy, limit, metric, searchBy);
+  }
 
-    /**
-     * Return true if this ProcessQueryDefinition object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        ProcessQueryDefinition processQueryDefinition = (ProcessQueryDefinition) o;
-        return (
-            Objects.equals(this.filterBy, processQueryDefinition.filterBy) &&
-            Objects.equals(this.limit, processQueryDefinition.limit) &&
-            Objects.equals(this.metric, processQueryDefinition.metric) &&
-            Objects.equals(this.searchBy, processQueryDefinition.searchBy)
-        );
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class ProcessQueryDefinition {\n");
+    sb.append("    filterBy: ").append(toIndentedString(filterBy)).append("\n");
+    sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
+    sb.append("    metric: ").append(toIndentedString(metric)).append("\n");
+    sb.append("    searchBy: ").append(toIndentedString(searchBy)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(filterBy, limit, metric, searchBy);
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ProcessQueryDefinition {\n");
-        sb.append("    filterBy: ").append(toIndentedString(filterBy)).append("\n");
-        sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
-        sb.append("    metric: ").append(toIndentedString(metric)).append("\n");
-        sb.append("    searchBy: ").append(toIndentedString(searchBy)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

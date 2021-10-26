@@ -1,5 +1,11 @@
+
+
 # ServiceMapWidgetDefinitionType
 
 ## Enum
 
-- `SERVICEMAP` (value: `"servicemap"`)
+
+* `SERVICEMAP` (value: `"servicemap"`)
+
+
+

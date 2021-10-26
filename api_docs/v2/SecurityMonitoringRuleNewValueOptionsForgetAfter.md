@@ -1,15 +1,21 @@
+
+
 # SecurityMonitoringRuleNewValueOptionsForgetAfter
 
 ## Enum
 
-- `ONE_DAY` (value: `1`)
 
-- `TWO_DAYS` (value: `2`)
+* `ONE_DAY` (value: `1`)
 
-- `ONE_WEEK` (value: `7`)
+* `TWO_DAYS` (value: `2`)
 
-- `TWO_WEEKS` (value: `14`)
+* `ONE_WEEK` (value: `7`)
 
-- `THREE_WEEKS` (value: `21`)
+* `TWO_WEEKS` (value: `14`)
 
-- `FOUR_WEEKS` (value: `28`)
+* `THREE_WEEKS` (value: `21`)
+
+* `FOUR_WEEKS` (value: `28`)
+
+
+

@@ -10,103 +10,89 @@
 
 package com.datadog.api.v2.client.model;
 
-import com.datadog.api.v2.client.JSON;
-import com.datadog.api.v2.client.model.RoleUpdateData;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Update a role.
- */
+/** Update a role. */
 @ApiModel(description = "Update a role.")
-@JsonPropertyOrder({ RoleUpdateRequest.JSON_PROPERTY_DATA })
+@JsonPropertyOrder({RoleUpdateRequest.JSON_PROPERTY_DATA})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class RoleUpdateRequest {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private RoleUpdateData data;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public RoleUpdateRequest() {}
 
-    public static final String JSON_PROPERTY_DATA = "data";
-    private RoleUpdateData data;
+  @JsonCreator
+  public RoleUpdateRequest(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) RoleUpdateData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
+  }
 
-    public RoleUpdateRequest() {}
+  public RoleUpdateRequest data(RoleUpdateData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
+    return this;
+  }
 
-    @JsonCreator
-    public RoleUpdateRequest(@JsonProperty(required = true, value = JSON_PROPERTY_DATA) RoleUpdateData data) {
-        this.data = data;
-        this.unparsed |= data.unparsed;
+  /**
+   * Get data
+   *
+   * @return data
+   */
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public RoleUpdateData getData() {
+    return data;
+  }
+
+  public void setData(RoleUpdateData data) {
+    this.data = data;
+  }
+
+  /** Return true if this RoleUpdateRequest object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    public RoleUpdateRequest data(RoleUpdateData data) {
-        this.data = data;
-        this.unparsed |= data.unparsed;
-        return this;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    RoleUpdateRequest roleUpdateRequest = (RoleUpdateRequest) o;
+    return Objects.equals(this.data, roleUpdateRequest.data);
+  }
 
-    /**
-     * Get data
-     * @return data
-     **/
-    @ApiModelProperty(required = true, value = "")
-    @JsonProperty(JSON_PROPERTY_DATA)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public RoleUpdateData getData() {
-        return data;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(data);
+  }
 
-    public void setData(RoleUpdateData data) {
-        this.data = data;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class RoleUpdateRequest {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Return true if this RoleUpdateRequest object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        RoleUpdateRequest roleUpdateRequest = (RoleUpdateRequest) o;
-        return Objects.equals(this.data, roleUpdateRequest.data);
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(data);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class RoleUpdateRequest {\n");
-        sb.append("    data: ").append(toIndentedString(data)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

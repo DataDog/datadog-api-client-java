@@ -10,136 +10,121 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.datadog.api.v1.client.model.NotebooksResponseData;
-import com.datadog.api.v1.client.model.NotebooksResponseMeta;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Notebooks get all response.
- */
+/** Notebooks get all response. */
 @ApiModel(description = "Notebooks get all response.")
-@JsonPropertyOrder({ NotebooksResponse.JSON_PROPERTY_DATA, NotebooksResponse.JSON_PROPERTY_META })
+@JsonPropertyOrder({NotebooksResponse.JSON_PROPERTY_DATA, NotebooksResponse.JSON_PROPERTY_META})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class NotebooksResponse {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private List<NotebooksResponseData> data = null;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_META = "meta";
+  private NotebooksResponseMeta meta;
 
-    public static final String JSON_PROPERTY_DATA = "data";
-    private List<NotebooksResponseData> data = null;
-
-    public static final String JSON_PROPERTY_META = "meta";
-    private NotebooksResponseMeta meta;
-
-    public NotebooksResponse data(List<NotebooksResponseData> data) {
-        this.data = data;
-        for (NotebooksResponseData item : data) {
-            this.unparsed |= item.unparsed;
-        }
-        return this;
+  public NotebooksResponse data(List<NotebooksResponseData> data) {
+    this.data = data;
+    for (NotebooksResponseData item : data) {
+      this.unparsed |= item.unparsed;
     }
+    return this;
+  }
 
-    public NotebooksResponse addDataItem(NotebooksResponseData dataItem) {
-        if (this.data == null) {
-            this.data = new ArrayList<>();
-        }
-        this.data.add(dataItem);
-        this.unparsed |= dataItem.unparsed;
-        return this;
+  public NotebooksResponse addDataItem(NotebooksResponseData dataItem) {
+    if (this.data == null) {
+      this.data = new ArrayList<>();
     }
+    this.data.add(dataItem);
+    this.unparsed |= dataItem.unparsed;
+    return this;
+  }
 
-    /**
-     * List of notebook definitions.
-     * @return data
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "List of notebook definitions.")
-    @JsonProperty(JSON_PROPERTY_DATA)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<NotebooksResponseData> getData() {
-        return data;
-    }
+  /**
+   * List of notebook definitions.
+   *
+   * @return data
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of notebook definitions.")
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<NotebooksResponseData> getData() {
+    return data;
+  }
 
-    public void setData(List<NotebooksResponseData> data) {
-        this.data = data;
-    }
+  public void setData(List<NotebooksResponseData> data) {
+    this.data = data;
+  }
 
-    public NotebooksResponse meta(NotebooksResponseMeta meta) {
-        this.meta = meta;
-        this.unparsed |= meta.unparsed;
-        return this;
-    }
+  public NotebooksResponse meta(NotebooksResponseMeta meta) {
+    this.meta = meta;
+    this.unparsed |= meta.unparsed;
+    return this;
+  }
 
-    /**
-     * Get meta
-     * @return meta
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_META)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public NotebooksResponseMeta getMeta() {
-        return meta;
-    }
+  /**
+   * Get meta
+   *
+   * @return meta
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_META)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public NotebooksResponseMeta getMeta() {
+    return meta;
+  }
 
-    public void setMeta(NotebooksResponseMeta meta) {
-        this.meta = meta;
-    }
+  public void setMeta(NotebooksResponseMeta meta) {
+    this.meta = meta;
+  }
 
-    /**
-     * Return true if this NotebooksResponse object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        NotebooksResponse notebooksResponse = (NotebooksResponse) o;
-        return Objects.equals(this.data, notebooksResponse.data) && Objects.equals(this.meta, notebooksResponse.meta);
+  /** Return true if this NotebooksResponse object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    NotebooksResponse notebooksResponse = (NotebooksResponse) o;
+    return Objects.equals(this.data, notebooksResponse.data)
+        && Objects.equals(this.meta, notebooksResponse.meta);
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(data, meta);
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(data, meta);
+  }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class NotebooksResponse {\n");
-        sb.append("    data: ").append(toIndentedString(data)).append("\n");
-        sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class NotebooksResponse {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

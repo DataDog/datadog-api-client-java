@@ -10,96 +10,80 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.datadog.api.v1.client.model.Pagination;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Object describing meta attributes of response.
- */
+/** Object describing meta attributes of response. */
 @ApiModel(description = "Object describing meta attributes of response.")
-@JsonPropertyOrder({ ResponseMetaAttributes.JSON_PROPERTY_PAGE })
+@JsonPropertyOrder({ResponseMetaAttributes.JSON_PROPERTY_PAGE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ResponseMetaAttributes {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_PAGE = "page";
+  private Pagination page;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public ResponseMetaAttributes page(Pagination page) {
+    this.page = page;
+    this.unparsed |= page.unparsed;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_PAGE = "page";
-    private Pagination page;
+  /**
+   * Get page
+   *
+   * @return page
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Pagination getPage() {
+    return page;
+  }
 
-    public ResponseMetaAttributes page(Pagination page) {
-        this.page = page;
-        this.unparsed |= page.unparsed;
-        return this;
+  public void setPage(Pagination page) {
+    this.page = page;
+  }
+
+  /** Return true if this ResponseMetaAttributes object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * Get page
-     * @return page
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_PAGE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Pagination getPage() {
-        return page;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    ResponseMetaAttributes responseMetaAttributes = (ResponseMetaAttributes) o;
+    return Objects.equals(this.page, responseMetaAttributes.page);
+  }
 
-    public void setPage(Pagination page) {
-        this.page = page;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(page);
+  }
 
-    /**
-     * Return true if this ResponseMetaAttributes object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        ResponseMetaAttributes responseMetaAttributes = (ResponseMetaAttributes) o;
-        return Objects.equals(this.page, responseMetaAttributes.page);
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class ResponseMetaAttributes {\n");
+    sb.append("    page: ").append(toIndentedString(page)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(page);
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ResponseMetaAttributes {\n");
-        sb.append("    page: ").append(toIndentedString(page)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

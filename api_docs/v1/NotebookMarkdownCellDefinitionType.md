@@ -1,5 +1,11 @@
+
+
 # NotebookMarkdownCellDefinitionType
 
 ## Enum
 
-- `MARKDOWN` (value: `"markdown"`)
+
+* `MARKDOWN` (value: `"markdown"`)
+
+
+

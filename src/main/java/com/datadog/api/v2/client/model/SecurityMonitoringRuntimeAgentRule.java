@@ -10,126 +10,120 @@
 
 package com.datadog.api.v2.client.model;
 
-import com.datadog.api.v2.client.JSON;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * The Agent rule.
- */
+/** The Agent rule. */
 @ApiModel(description = "The Agent rule.")
-@JsonPropertyOrder(
-    { SecurityMonitoringRuntimeAgentRule.JSON_PROPERTY_AGENT_RULE_ID, SecurityMonitoringRuntimeAgentRule.JSON_PROPERTY_EXPRESSION }
-)
+@JsonPropertyOrder({
+  SecurityMonitoringRuntimeAgentRule.JSON_PROPERTY_AGENT_RULE_ID,
+  SecurityMonitoringRuntimeAgentRule.JSON_PROPERTY_EXPRESSION
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SecurityMonitoringRuntimeAgentRule {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_AGENT_RULE_ID = "agentRuleId";
+  private String agentRuleId;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_EXPRESSION = "expression";
+  private String expression;
 
-    public static final String JSON_PROPERTY_AGENT_RULE_ID = "agentRuleId";
-    private String agentRuleId;
+  public SecurityMonitoringRuntimeAgentRule agentRuleId(String agentRuleId) {
+    this.agentRuleId = agentRuleId;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_EXPRESSION = "expression";
-    private String expression;
+  /**
+   * The Agent rule ID. Must be unique within the rule.
+   *
+   * @return agentRuleId
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      example = "etc_shadow",
+      value = "The Agent rule ID. Must be unique within the rule.")
+  @JsonProperty(JSON_PROPERTY_AGENT_RULE_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAgentRuleId() {
+    return agentRuleId;
+  }
 
-    public SecurityMonitoringRuntimeAgentRule agentRuleId(String agentRuleId) {
-        this.agentRuleId = agentRuleId;
-        return this;
+  public void setAgentRuleId(String agentRuleId) {
+    this.agentRuleId = agentRuleId;
+  }
+
+  public SecurityMonitoringRuntimeAgentRule expression(String expression) {
+    this.expression = expression;
+    return this;
+  }
+
+  /**
+   * A Runtime Security expression determines what activity should be collected by the Datadog
+   * Agent. These logical expressions can use predefined operators and attributes. Tags cannot be
+   * used in Runtime Security expressions. Instead, allow or deny based on tags under the advanced
+   * option.
+   *
+   * @return expression
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "A Runtime Security expression determines what activity should be collected by the"
+              + " Datadog Agent. These logical expressions can use predefined operators and"
+              + " attributes. Tags cannot be used in Runtime Security expressions. Instead, allow"
+              + " or deny based on tags under the advanced option.")
+  @JsonProperty(JSON_PROPERTY_EXPRESSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getExpression() {
+    return expression;
+  }
+
+  public void setExpression(String expression) {
+    this.expression = expression;
+  }
+
+  /** Return true if this SecurityMonitoringRuntimeAgentRule object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * The Agent rule ID. Must be unique within the rule.
-     * @return agentRuleId
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "etc_shadow", value = "The Agent rule ID. Must be unique within the rule.")
-    @JsonProperty(JSON_PROPERTY_AGENT_RULE_ID)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getAgentRuleId() {
-        return agentRuleId;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    SecurityMonitoringRuntimeAgentRule securityMonitoringRuntimeAgentRule =
+        (SecurityMonitoringRuntimeAgentRule) o;
+    return Objects.equals(this.agentRuleId, securityMonitoringRuntimeAgentRule.agentRuleId)
+        && Objects.equals(this.expression, securityMonitoringRuntimeAgentRule.expression);
+  }
 
-    public void setAgentRuleId(String agentRuleId) {
-        this.agentRuleId = agentRuleId;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(agentRuleId, expression);
+  }
 
-    public SecurityMonitoringRuntimeAgentRule expression(String expression) {
-        this.expression = expression;
-        return this;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class SecurityMonitoringRuntimeAgentRule {\n");
+    sb.append("    agentRuleId: ").append(toIndentedString(agentRuleId)).append("\n");
+    sb.append("    expression: ").append(toIndentedString(expression)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * A Runtime Security expression determines what activity should be collected by the Datadog Agent. These logical expressions can use predefined operators and attributes. Tags cannot be used in Runtime Security expressions. Instead, allow or deny based on tags under the advanced option.
-     * @return expression
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(
-        value = "A Runtime Security expression determines what activity should be collected by the Datadog Agent. These logical expressions can use predefined operators and attributes. Tags cannot be used in Runtime Security expressions. Instead, allow or deny based on tags under the advanced option."
-    )
-    @JsonProperty(JSON_PROPERTY_EXPRESSION)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getExpression() {
-        return expression;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    public void setExpression(String expression) {
-        this.expression = expression;
-    }
-
-    /**
-     * Return true if this SecurityMonitoringRuntimeAgentRule object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        SecurityMonitoringRuntimeAgentRule securityMonitoringRuntimeAgentRule = (SecurityMonitoringRuntimeAgentRule) o;
-        return (
-            Objects.equals(this.agentRuleId, securityMonitoringRuntimeAgentRule.agentRuleId) &&
-            Objects.equals(this.expression, securityMonitoringRuntimeAgentRule.expression)
-        );
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(agentRuleId, expression);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SecurityMonitoringRuntimeAgentRule {\n");
-        sb.append("    agentRuleId: ").append(toIndentedString(agentRuleId)).append("\n");
-        sb.append("    expression: ").append(toIndentedString(expression)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

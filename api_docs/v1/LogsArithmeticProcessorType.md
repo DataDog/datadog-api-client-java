@@ -1,5 +1,11 @@
+
+
 # LogsArithmeticProcessorType
 
 ## Enum
 
-- `ARITHMETIC_PROCESSOR` (value: `"arithmetic-processor"`)
+
+* `ARITHMETIC_PROCESSOR` (value: `"arithmetic-processor"`)
+
+
+

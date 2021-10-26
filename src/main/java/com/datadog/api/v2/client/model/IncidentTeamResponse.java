@@ -10,122 +10,111 @@
 
 package com.datadog.api.v2.client.model;
 
-import com.datadog.api.v2.client.JSON;
-import com.datadog.api.v2.client.model.IncidentTeamIncludedItems;
-import com.datadog.api.v2.client.model.IncidentTeamResponseData;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Response with an incident team payload.
- */
+/** Response with an incident team payload. */
 @ApiModel(description = "Response with an incident team payload.")
-@JsonPropertyOrder({ IncidentTeamResponse.JSON_PROPERTY_DATA, IncidentTeamResponse.JSON_PROPERTY_INCLUDED })
+@JsonPropertyOrder({
+  IncidentTeamResponse.JSON_PROPERTY_DATA,
+  IncidentTeamResponse.JSON_PROPERTY_INCLUDED
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IncidentTeamResponse {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_DATA = "data";
+  private IncidentTeamResponseData data;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_INCLUDED = "included";
+  private List<IncidentTeamIncludedItems> included = null;
 
-    public static final String JSON_PROPERTY_DATA = "data";
-    private IncidentTeamResponseData data;
+  public IncidentTeamResponse() {}
 
-    public static final String JSON_PROPERTY_INCLUDED = "included";
-    private List<IncidentTeamIncludedItems> included = null;
+  @JsonCreator
+  public IncidentTeamResponse(
+      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) IncidentTeamResponseData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
+  }
 
-    public IncidentTeamResponse() {}
+  public IncidentTeamResponse data(IncidentTeamResponseData data) {
+    this.data = data;
+    this.unparsed |= data.unparsed;
+    return this;
+  }
 
-    @JsonCreator
-    public IncidentTeamResponse(@JsonProperty(required = true, value = JSON_PROPERTY_DATA) IncidentTeamResponseData data) {
-        this.data = data;
-        this.unparsed |= data.unparsed;
+  /**
+   * Get data
+   *
+   * @return data
+   */
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_DATA)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public IncidentTeamResponseData getData() {
+    return data;
+  }
+
+  public void setData(IncidentTeamResponseData data) {
+    this.data = data;
+  }
+
+  /**
+   * Included objects from relationships.
+   *
+   * @return included
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Included objects from relationships.")
+  @JsonProperty(JSON_PROPERTY_INCLUDED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<IncidentTeamIncludedItems> getIncluded() {
+    return included;
+  }
+
+  /** Return true if this IncidentTeamResponse object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    public IncidentTeamResponse data(IncidentTeamResponseData data) {
-        this.data = data;
-        this.unparsed |= data.unparsed;
-        return this;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    IncidentTeamResponse incidentTeamResponse = (IncidentTeamResponse) o;
+    return Objects.equals(this.data, incidentTeamResponse.data)
+        && Objects.equals(this.included, incidentTeamResponse.included);
+  }
 
-    /**
-     * Get data
-     * @return data
-     **/
-    @ApiModelProperty(required = true, value = "")
-    @JsonProperty(JSON_PROPERTY_DATA)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public IncidentTeamResponseData getData() {
-        return data;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(data, included);
+  }
 
-    public void setData(IncidentTeamResponseData data) {
-        this.data = data;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class IncidentTeamResponse {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    included: ").append(toIndentedString(included)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Included objects from relationships.
-     * @return included
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Included objects from relationships.")
-    @JsonProperty(JSON_PROPERTY_INCLUDED)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<IncidentTeamIncludedItems> getIncluded() {
-        return included;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    /**
-     * Return true if this IncidentTeamResponse object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        IncidentTeamResponse incidentTeamResponse = (IncidentTeamResponse) o;
-        return Objects.equals(this.data, incidentTeamResponse.data) && Objects.equals(this.included, incidentTeamResponse.included);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(data, included);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class IncidentTeamResponse {\n");
-        sb.append("    data: ").append(toIndentedString(data)).append("\n");
-        sb.append("    included: ").append(toIndentedString(included)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

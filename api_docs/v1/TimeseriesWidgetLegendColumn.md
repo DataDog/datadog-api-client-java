@@ -1,13 +1,19 @@
+
+
 # TimeseriesWidgetLegendColumn
 
 ## Enum
 
-- `VALUE` (value: `"value"`)
 
-- `AVG` (value: `"avg"`)
+* `VALUE` (value: `"value"`)
 
-- `SUM` (value: `"sum"`)
+* `AVG` (value: `"avg"`)
 
-- `MIN` (value: `"min"`)
+* `SUM` (value: `"sum"`)
 
-- `MAX` (value: `"max"`)
+* `MIN` (value: `"min"`)
+
+* `MAX` (value: `"max"`)
+
+
+

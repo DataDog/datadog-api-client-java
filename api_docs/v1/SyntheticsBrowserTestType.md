@@ -1,5 +1,11 @@
+
+
 # SyntheticsBrowserTestType
 
 ## Enum
 
-- `BROWSER` (value: `"browser"`)
+
+* `BROWSER` (value: `"browser"`)
+
+
+

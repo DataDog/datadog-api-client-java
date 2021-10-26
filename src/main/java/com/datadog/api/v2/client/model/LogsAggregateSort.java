@@ -10,196 +10,179 @@
 
 package com.datadog.api.v2.client.model;
 
-import com.datadog.api.v2.client.JSON;
-import com.datadog.api.v2.client.model.LogsAggregateSortType;
-import com.datadog.api.v2.client.model.LogsAggregationFunction;
-import com.datadog.api.v2.client.model.LogsSortOrder;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * A sort rule
- */
+/** A sort rule */
 @ApiModel(description = "A sort rule")
-@JsonPropertyOrder(
-    {
-        LogsAggregateSort.JSON_PROPERTY_AGGREGATION,
-        LogsAggregateSort.JSON_PROPERTY_METRIC,
-        LogsAggregateSort.JSON_PROPERTY_ORDER,
-        LogsAggregateSort.JSON_PROPERTY_TYPE
-    }
-)
+@JsonPropertyOrder({
+  LogsAggregateSort.JSON_PROPERTY_AGGREGATION,
+  LogsAggregateSort.JSON_PROPERTY_METRIC,
+  LogsAggregateSort.JSON_PROPERTY_ORDER,
+  LogsAggregateSort.JSON_PROPERTY_TYPE
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsAggregateSort {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
+  private LogsAggregationFunction aggregation;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_METRIC = "metric";
+  private String metric;
 
-    public static final String JSON_PROPERTY_AGGREGATION = "aggregation";
-    private LogsAggregationFunction aggregation;
+  public static final String JSON_PROPERTY_ORDER = "order";
+  private LogsSortOrder order;
 
-    public static final String JSON_PROPERTY_METRIC = "metric";
-    private String metric;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private LogsAggregateSortType type = LogsAggregateSortType.ALPHABETICAL;
 
-    public static final String JSON_PROPERTY_ORDER = "order";
-    private LogsSortOrder order;
+  public LogsAggregateSort aggregation(LogsAggregationFunction aggregation) {
+    this.aggregation = aggregation;
+    this.unparsed |= !aggregation.isValid();
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_TYPE = "type";
-    private LogsAggregateSortType type = LogsAggregateSortType.ALPHABETICAL;
+  /**
+   * Get aggregation
+   *
+   * @return aggregation
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_AGGREGATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogsAggregationFunction getAggregation() {
+    return aggregation;
+  }
 
-    public LogsAggregateSort aggregation(LogsAggregationFunction aggregation) {
-        this.aggregation = aggregation;
-        this.unparsed |= !aggregation.isValid();
-        return this;
+  public void setAggregation(LogsAggregationFunction aggregation) {
+    if (!aggregation.isValid()) {
+      this.unparsed = true;
     }
+    this.aggregation = aggregation;
+  }
 
-    /**
-     * Get aggregation
-     * @return aggregation
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_AGGREGATION)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public LogsAggregationFunction getAggregation() {
-        return aggregation;
-    }
+  public LogsAggregateSort metric(String metric) {
+    this.metric = metric;
+    return this;
+  }
 
-    public void setAggregation(LogsAggregationFunction aggregation) {
-        if (!aggregation.isValid()) {
-            this.unparsed = true;
-        }
-        this.aggregation = aggregation;
-    }
+  /**
+   * The metric to sort by (only used for &#x60;type&#x3D;measure&#x60;)
+   *
+   * @return metric
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      example = "@duration",
+      value = "The metric to sort by (only used for `type=measure`)")
+  @JsonProperty(JSON_PROPERTY_METRIC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getMetric() {
+    return metric;
+  }
 
-    public LogsAggregateSort metric(String metric) {
-        this.metric = metric;
-        return this;
-    }
+  public void setMetric(String metric) {
+    this.metric = metric;
+  }
 
-    /**
-     * The metric to sort by (only used for &#x60;type&#x3D;measure&#x60;)
-     * @return metric
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "@duration", value = "The metric to sort by (only used for `type=measure`)")
-    @JsonProperty(JSON_PROPERTY_METRIC)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getMetric() {
-        return metric;
-    }
+  public LogsAggregateSort order(LogsSortOrder order) {
+    this.order = order;
+    this.unparsed |= !order.isValid();
+    return this;
+  }
 
-    public void setMetric(String metric) {
-        this.metric = metric;
-    }
+  /**
+   * Get order
+   *
+   * @return order
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ORDER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogsSortOrder getOrder() {
+    return order;
+  }
 
-    public LogsAggregateSort order(LogsSortOrder order) {
-        this.order = order;
-        this.unparsed |= !order.isValid();
-        return this;
+  public void setOrder(LogsSortOrder order) {
+    if (!order.isValid()) {
+      this.unparsed = true;
     }
+    this.order = order;
+  }
 
-    /**
-     * Get order
-     * @return order
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_ORDER)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public LogsSortOrder getOrder() {
-        return order;
-    }
+  public LogsAggregateSort type(LogsAggregateSortType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    return this;
+  }
 
-    public void setOrder(LogsSortOrder order) {
-        if (!order.isValid()) {
-            this.unparsed = true;
-        }
-        this.order = order;
-    }
+  /**
+   * Get type
+   *
+   * @return type
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public LogsAggregateSortType getType() {
+    return type;
+  }
 
-    public LogsAggregateSort type(LogsAggregateSortType type) {
-        this.type = type;
-        this.unparsed |= !type.isValid();
-        return this;
+  public void setType(LogsAggregateSortType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
     }
+    this.type = type;
+  }
 
-    /**
-     * Get type
-     * @return type
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_TYPE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public LogsAggregateSortType getType() {
-        return type;
+  /** Return true if this LogsAggregateSort object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    LogsAggregateSort logsAggregateSort = (LogsAggregateSort) o;
+    return Objects.equals(this.aggregation, logsAggregateSort.aggregation)
+        && Objects.equals(this.metric, logsAggregateSort.metric)
+        && Objects.equals(this.order, logsAggregateSort.order)
+        && Objects.equals(this.type, logsAggregateSort.type);
+  }
 
-    public void setType(LogsAggregateSortType type) {
-        if (!type.isValid()) {
-            this.unparsed = true;
-        }
-        this.type = type;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(aggregation, metric, order, type);
+  }
 
-    /**
-     * Return true if this LogsAggregateSort object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        LogsAggregateSort logsAggregateSort = (LogsAggregateSort) o;
-        return (
-            Objects.equals(this.aggregation, logsAggregateSort.aggregation) &&
-            Objects.equals(this.metric, logsAggregateSort.metric) &&
-            Objects.equals(this.order, logsAggregateSort.order) &&
-            Objects.equals(this.type, logsAggregateSort.type)
-        );
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class LogsAggregateSort {\n");
+    sb.append("    aggregation: ").append(toIndentedString(aggregation)).append("\n");
+    sb.append("    metric: ").append(toIndentedString(metric)).append("\n");
+    sb.append("    order: ").append(toIndentedString(order)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(aggregation, metric, order, type);
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class LogsAggregateSort {\n");
-        sb.append("    aggregation: ").append(toIndentedString(aggregation)).append("\n");
-        sb.append("    metric: ").append(toIndentedString(metric)).append("\n");
-        sb.append("    order: ").append(toIndentedString(order)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

@@ -10,119 +10,106 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * Synthetic location that can be used when creating or editing a test.
- */
+/** Synthetic location that can be used when creating or editing a test. */
 @ApiModel(description = "Synthetic location that can be used when creating or editing a test.")
-@JsonPropertyOrder({ SyntheticsLocation.JSON_PROPERTY_ID, SyntheticsLocation.JSON_PROPERTY_NAME })
+@JsonPropertyOrder({SyntheticsLocation.JSON_PROPERTY_ID, SyntheticsLocation.JSON_PROPERTY_NAME})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsLocation {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ID = "id";
+  private String id;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_NAME = "name";
+  private String name;
 
-    public static final String JSON_PROPERTY_ID = "id";
-    private String id;
+  public SyntheticsLocation id(String id) {
+    this.id = id;
+    return this;
+  }
 
-    public static final String JSON_PROPERTY_NAME = "name";
-    private String name;
+  /**
+   * Unique identifier of the location.
+   *
+   * @return id
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Unique identifier of the location.")
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getId() {
+    return id;
+  }
 
-    public SyntheticsLocation id(String id) {
-        this.id = id;
-        return this;
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public SyntheticsLocation name(String name) {
+    this.name = name;
+    return this;
+  }
+
+  /**
+   * Name of the location.
+   *
+   * @return name
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Name of the location.")
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  /** Return true if this SyntheticsLocation object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * Unique identifier of the location.
-     * @return id
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Unique identifier of the location.")
-    @JsonProperty(JSON_PROPERTY_ID)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getId() {
-        return id;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    SyntheticsLocation syntheticsLocation = (SyntheticsLocation) o;
+    return Objects.equals(this.id, syntheticsLocation.id)
+        && Objects.equals(this.name, syntheticsLocation.name);
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, name);
+  }
 
-    public SyntheticsLocation name(String name) {
-        this.name = name;
-        return this;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class SyntheticsLocation {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Name of the location.
-     * @return name
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Name of the location.")
-    @JsonProperty(JSON_PROPERTY_NAME)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getName() {
-        return name;
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * Return true if this SyntheticsLocation object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        SyntheticsLocation syntheticsLocation = (SyntheticsLocation) o;
-        return Objects.equals(this.id, syntheticsLocation.id) && Objects.equals(this.name, syntheticsLocation.name);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class SyntheticsLocation {\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

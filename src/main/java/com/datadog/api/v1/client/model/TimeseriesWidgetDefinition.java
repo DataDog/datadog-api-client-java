@@ -10,591 +10,586 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.datadog.api.v1.client.model.TimeseriesWidgetDefinitionType;
-import com.datadog.api.v1.client.model.TimeseriesWidgetLegendColumn;
-import com.datadog.api.v1.client.model.TimeseriesWidgetLegendLayout;
-import com.datadog.api.v1.client.model.TimeseriesWidgetRequest;
-import com.datadog.api.v1.client.model.WidgetAxis;
-import com.datadog.api.v1.client.model.WidgetCustomLink;
-import com.datadog.api.v1.client.model.WidgetEvent;
-import com.datadog.api.v1.client.model.WidgetMarker;
-import com.datadog.api.v1.client.model.WidgetTextAlign;
-import com.datadog.api.v1.client.model.WidgetTime;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
 /**
- * The timeseries visualization allows you to display the evolution of one or more metrics, log events, or Indexed Spans over time.
+ * The timeseries visualization allows you to display the evolution of one or more metrics, log
+ * events, or Indexed Spans over time.
  */
 @ApiModel(
-    description = "The timeseries visualization allows you to display the evolution of one or more metrics, log events, or Indexed Spans over time."
-)
-@JsonPropertyOrder(
-    {
-        TimeseriesWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
-        TimeseriesWidgetDefinition.JSON_PROPERTY_EVENTS,
-        TimeseriesWidgetDefinition.JSON_PROPERTY_LEGEND_COLUMNS,
-        TimeseriesWidgetDefinition.JSON_PROPERTY_LEGEND_LAYOUT,
-        TimeseriesWidgetDefinition.JSON_PROPERTY_LEGEND_SIZE,
-        TimeseriesWidgetDefinition.JSON_PROPERTY_MARKERS,
-        TimeseriesWidgetDefinition.JSON_PROPERTY_REQUESTS,
-        TimeseriesWidgetDefinition.JSON_PROPERTY_RIGHT_YAXIS,
-        TimeseriesWidgetDefinition.JSON_PROPERTY_SHOW_LEGEND,
-        TimeseriesWidgetDefinition.JSON_PROPERTY_TIME,
-        TimeseriesWidgetDefinition.JSON_PROPERTY_TITLE,
-        TimeseriesWidgetDefinition.JSON_PROPERTY_TITLE_ALIGN,
-        TimeseriesWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
-        TimeseriesWidgetDefinition.JSON_PROPERTY_TYPE,
-        TimeseriesWidgetDefinition.JSON_PROPERTY_YAXIS
-    }
-)
+    description =
+        "The timeseries visualization allows you to display the evolution of one or more metrics,"
+            + " log events, or Indexed Spans over time.")
+@JsonPropertyOrder({
+  TimeseriesWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
+  TimeseriesWidgetDefinition.JSON_PROPERTY_EVENTS,
+  TimeseriesWidgetDefinition.JSON_PROPERTY_LEGEND_COLUMNS,
+  TimeseriesWidgetDefinition.JSON_PROPERTY_LEGEND_LAYOUT,
+  TimeseriesWidgetDefinition.JSON_PROPERTY_LEGEND_SIZE,
+  TimeseriesWidgetDefinition.JSON_PROPERTY_MARKERS,
+  TimeseriesWidgetDefinition.JSON_PROPERTY_REQUESTS,
+  TimeseriesWidgetDefinition.JSON_PROPERTY_RIGHT_YAXIS,
+  TimeseriesWidgetDefinition.JSON_PROPERTY_SHOW_LEGEND,
+  TimeseriesWidgetDefinition.JSON_PROPERTY_TIME,
+  TimeseriesWidgetDefinition.JSON_PROPERTY_TITLE,
+  TimeseriesWidgetDefinition.JSON_PROPERTY_TITLE_ALIGN,
+  TimeseriesWidgetDefinition.JSON_PROPERTY_TITLE_SIZE,
+  TimeseriesWidgetDefinition.JSON_PROPERTY_TYPE,
+  TimeseriesWidgetDefinition.JSON_PROPERTY_YAXIS
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TimeseriesWidgetDefinition {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
+  private List<WidgetCustomLink> customLinks = null;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public static final String JSON_PROPERTY_EVENTS = "events";
+  private List<WidgetEvent> events = null;
 
-    public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
-    private List<WidgetCustomLink> customLinks = null;
+  public static final String JSON_PROPERTY_LEGEND_COLUMNS = "legend_columns";
+  private List<TimeseriesWidgetLegendColumn> legendColumns = null;
 
-    public static final String JSON_PROPERTY_EVENTS = "events";
-    private List<WidgetEvent> events = null;
+  public static final String JSON_PROPERTY_LEGEND_LAYOUT = "legend_layout";
+  private TimeseriesWidgetLegendLayout legendLayout;
 
-    public static final String JSON_PROPERTY_LEGEND_COLUMNS = "legend_columns";
-    private List<TimeseriesWidgetLegendColumn> legendColumns = null;
+  public static final String JSON_PROPERTY_LEGEND_SIZE = "legend_size";
+  private String legendSize;
 
-    public static final String JSON_PROPERTY_LEGEND_LAYOUT = "legend_layout";
-    private TimeseriesWidgetLegendLayout legendLayout;
+  public static final String JSON_PROPERTY_MARKERS = "markers";
+  private List<WidgetMarker> markers = null;
 
-    public static final String JSON_PROPERTY_LEGEND_SIZE = "legend_size";
-    private String legendSize;
+  public static final String JSON_PROPERTY_REQUESTS = "requests";
+  private List<TimeseriesWidgetRequest> requests = new ArrayList<>();
 
-    public static final String JSON_PROPERTY_MARKERS = "markers";
-    private List<WidgetMarker> markers = null;
+  public static final String JSON_PROPERTY_RIGHT_YAXIS = "right_yaxis";
+  private WidgetAxis rightYaxis;
 
-    public static final String JSON_PROPERTY_REQUESTS = "requests";
-    private List<TimeseriesWidgetRequest> requests = new ArrayList<>();
+  public static final String JSON_PROPERTY_SHOW_LEGEND = "show_legend";
+  private Boolean showLegend;
 
-    public static final String JSON_PROPERTY_RIGHT_YAXIS = "right_yaxis";
-    private WidgetAxis rightYaxis;
+  public static final String JSON_PROPERTY_TIME = "time";
+  private WidgetTime time;
 
-    public static final String JSON_PROPERTY_SHOW_LEGEND = "show_legend";
-    private Boolean showLegend;
+  public static final String JSON_PROPERTY_TITLE = "title";
+  private String title;
 
-    public static final String JSON_PROPERTY_TIME = "time";
-    private WidgetTime time;
+  public static final String JSON_PROPERTY_TITLE_ALIGN = "title_align";
+  private WidgetTextAlign titleAlign;
 
-    public static final String JSON_PROPERTY_TITLE = "title";
-    private String title;
+  public static final String JSON_PROPERTY_TITLE_SIZE = "title_size";
+  private String titleSize;
 
-    public static final String JSON_PROPERTY_TITLE_ALIGN = "title_align";
-    private WidgetTextAlign titleAlign;
+  public static final String JSON_PROPERTY_TYPE = "type";
+  private TimeseriesWidgetDefinitionType type = TimeseriesWidgetDefinitionType.TIMESERIES;
 
-    public static final String JSON_PROPERTY_TITLE_SIZE = "title_size";
-    private String titleSize;
+  public static final String JSON_PROPERTY_YAXIS = "yaxis";
+  private WidgetAxis yaxis;
 
-    public static final String JSON_PROPERTY_TYPE = "type";
-    private TimeseriesWidgetDefinitionType type = TimeseriesWidgetDefinitionType.TIMESERIES;
+  public TimeseriesWidgetDefinition() {}
 
-    public static final String JSON_PROPERTY_YAXIS = "yaxis";
-    private WidgetAxis yaxis;
+  @JsonCreator
+  public TimeseriesWidgetDefinition(
+      @JsonProperty(required = true, value = JSON_PROPERTY_REQUESTS)
+          List<TimeseriesWidgetRequest> requests,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
+          TimeseriesWidgetDefinitionType type) {
+    this.requests = requests;
+    this.type = type;
+    this.unparsed |= !type.isValid();
+  }
 
-    public TimeseriesWidgetDefinition() {}
-
-    @JsonCreator
-    public TimeseriesWidgetDefinition(
-        @JsonProperty(required = true, value = JSON_PROPERTY_REQUESTS) List<TimeseriesWidgetRequest> requests,
-        @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) TimeseriesWidgetDefinitionType type
-    ) {
-        this.requests = requests;
-        this.type = type;
-        this.unparsed |= !type.isValid();
+  public TimeseriesWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
+    this.customLinks = customLinks;
+    for (WidgetCustomLink item : customLinks) {
+      this.unparsed |= item.unparsed;
     }
+    return this;
+  }
 
-    public TimeseriesWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
-        this.customLinks = customLinks;
-        for (WidgetCustomLink item : customLinks) {
-            this.unparsed |= item.unparsed;
-        }
-        return this;
+  public TimeseriesWidgetDefinition addCustomLinksItem(WidgetCustomLink customLinksItem) {
+    if (this.customLinks == null) {
+      this.customLinks = new ArrayList<>();
     }
+    this.customLinks.add(customLinksItem);
+    this.unparsed |= customLinksItem.unparsed;
+    return this;
+  }
 
-    public TimeseriesWidgetDefinition addCustomLinksItem(WidgetCustomLink customLinksItem) {
-        if (this.customLinks == null) {
-            this.customLinks = new ArrayList<>();
-        }
-        this.customLinks.add(customLinksItem);
-        this.unparsed |= customLinksItem.unparsed;
-        return this;
-    }
+  /**
+   * List of custom links.
+   *
+   * @return customLinks
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of custom links.")
+  @JsonProperty(JSON_PROPERTY_CUSTOM_LINKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<WidgetCustomLink> getCustomLinks() {
+    return customLinks;
+  }
 
-    /**
-     * List of custom links.
-     * @return customLinks
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "List of custom links.")
-    @JsonProperty(JSON_PROPERTY_CUSTOM_LINKS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<WidgetCustomLink> getCustomLinks() {
-        return customLinks;
-    }
+  public void setCustomLinks(List<WidgetCustomLink> customLinks) {
+    this.customLinks = customLinks;
+  }
 
-    public void setCustomLinks(List<WidgetCustomLink> customLinks) {
-        this.customLinks = customLinks;
+  public TimeseriesWidgetDefinition events(List<WidgetEvent> events) {
+    this.events = events;
+    for (WidgetEvent item : events) {
+      this.unparsed |= item.unparsed;
     }
+    return this;
+  }
 
-    public TimeseriesWidgetDefinition events(List<WidgetEvent> events) {
-        this.events = events;
-        for (WidgetEvent item : events) {
-            this.unparsed |= item.unparsed;
-        }
-        return this;
+  public TimeseriesWidgetDefinition addEventsItem(WidgetEvent eventsItem) {
+    if (this.events == null) {
+      this.events = new ArrayList<>();
     }
+    this.events.add(eventsItem);
+    this.unparsed |= eventsItem.unparsed;
+    return this;
+  }
 
-    public TimeseriesWidgetDefinition addEventsItem(WidgetEvent eventsItem) {
-        if (this.events == null) {
-            this.events = new ArrayList<>();
-        }
-        this.events.add(eventsItem);
-        this.unparsed |= eventsItem.unparsed;
-        return this;
-    }
+  /**
+   * List of widget events.
+   *
+   * @return events
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of widget events.")
+  @JsonProperty(JSON_PROPERTY_EVENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<WidgetEvent> getEvents() {
+    return events;
+  }
 
-    /**
-     * List of widget events.
-     * @return events
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "List of widget events.")
-    @JsonProperty(JSON_PROPERTY_EVENTS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<WidgetEvent> getEvents() {
-        return events;
-    }
+  public void setEvents(List<WidgetEvent> events) {
+    this.events = events;
+  }
 
-    public void setEvents(List<WidgetEvent> events) {
-        this.events = events;
-    }
+  public TimeseriesWidgetDefinition legendColumns(
+      List<TimeseriesWidgetLegendColumn> legendColumns) {
+    this.legendColumns = legendColumns;
+    return this;
+  }
 
-    public TimeseriesWidgetDefinition legendColumns(List<TimeseriesWidgetLegendColumn> legendColumns) {
-        this.legendColumns = legendColumns;
-        return this;
+  public TimeseriesWidgetDefinition addLegendColumnsItem(
+      TimeseriesWidgetLegendColumn legendColumnsItem) {
+    if (this.legendColumns == null) {
+      this.legendColumns = new ArrayList<>();
     }
+    this.legendColumns.add(legendColumnsItem);
+    this.unparsed |= !legendColumnsItem.isValid();
+    return this;
+  }
 
-    public TimeseriesWidgetDefinition addLegendColumnsItem(TimeseriesWidgetLegendColumn legendColumnsItem) {
-        if (this.legendColumns == null) {
-            this.legendColumns = new ArrayList<>();
-        }
-        this.legendColumns.add(legendColumnsItem);
-        this.unparsed |= !legendColumnsItem.isValid();
-        return this;
-    }
+  /**
+   * Columns displayed in the legend.
+   *
+   * @return legendColumns
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Columns displayed in the legend.")
+  @JsonProperty(JSON_PROPERTY_LEGEND_COLUMNS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<TimeseriesWidgetLegendColumn> getLegendColumns() {
+    return legendColumns;
+  }
 
-    /**
-     * Columns displayed in the legend.
-     * @return legendColumns
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Columns displayed in the legend.")
-    @JsonProperty(JSON_PROPERTY_LEGEND_COLUMNS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<TimeseriesWidgetLegendColumn> getLegendColumns() {
-        return legendColumns;
-    }
+  public void setLegendColumns(List<TimeseriesWidgetLegendColumn> legendColumns) {
+    this.legendColumns = legendColumns;
+  }
 
-    public void setLegendColumns(List<TimeseriesWidgetLegendColumn> legendColumns) {
-        this.legendColumns = legendColumns;
-    }
+  public TimeseriesWidgetDefinition legendLayout(TimeseriesWidgetLegendLayout legendLayout) {
+    this.legendLayout = legendLayout;
+    this.unparsed |= !legendLayout.isValid();
+    return this;
+  }
 
-    public TimeseriesWidgetDefinition legendLayout(TimeseriesWidgetLegendLayout legendLayout) {
-        this.legendLayout = legendLayout;
-        this.unparsed |= !legendLayout.isValid();
-        return this;
-    }
+  /**
+   * Get legendLayout
+   *
+   * @return legendLayout
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_LEGEND_LAYOUT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public TimeseriesWidgetLegendLayout getLegendLayout() {
+    return legendLayout;
+  }
 
-    /**
-     * Get legendLayout
-     * @return legendLayout
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_LEGEND_LAYOUT)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public TimeseriesWidgetLegendLayout getLegendLayout() {
-        return legendLayout;
+  public void setLegendLayout(TimeseriesWidgetLegendLayout legendLayout) {
+    if (!legendLayout.isValid()) {
+      this.unparsed = true;
     }
+    this.legendLayout = legendLayout;
+  }
 
-    public void setLegendLayout(TimeseriesWidgetLegendLayout legendLayout) {
-        if (!legendLayout.isValid()) {
-            this.unparsed = true;
-        }
-        this.legendLayout = legendLayout;
-    }
+  public TimeseriesWidgetDefinition legendSize(String legendSize) {
+    this.legendSize = legendSize;
+    return this;
+  }
 
-    public TimeseriesWidgetDefinition legendSize(String legendSize) {
-        this.legendSize = legendSize;
-        return this;
-    }
+  /**
+   * Available legend sizes for a widget. Should be one of \&quot;0\&quot;, \&quot;2\&quot;,
+   * \&quot;4\&quot;, \&quot;8\&quot;, \&quot;16\&quot;, or \&quot;auto\&quot;.
+   *
+   * @return legendSize
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Available legend sizes for a widget. Should be one of \"0\", \"2\", \"4\", \"8\","
+              + " \"16\", or \"auto\".")
+  @JsonProperty(JSON_PROPERTY_LEGEND_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getLegendSize() {
+    return legendSize;
+  }
 
-    /**
-     * Available legend sizes for a widget. Should be one of \&quot;0\&quot;, \&quot;2\&quot;, \&quot;4\&quot;, \&quot;8\&quot;, \&quot;16\&quot;, or \&quot;auto\&quot;.
-     * @return legendSize
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Available legend sizes for a widget. Should be one of \"0\", \"2\", \"4\", \"8\", \"16\", or \"auto\".")
-    @JsonProperty(JSON_PROPERTY_LEGEND_SIZE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getLegendSize() {
-        return legendSize;
-    }
+  public void setLegendSize(String legendSize) {
+    this.legendSize = legendSize;
+  }
 
-    public void setLegendSize(String legendSize) {
-        this.legendSize = legendSize;
+  public TimeseriesWidgetDefinition markers(List<WidgetMarker> markers) {
+    this.markers = markers;
+    for (WidgetMarker item : markers) {
+      this.unparsed |= item.unparsed;
     }
+    return this;
+  }
 
-    public TimeseriesWidgetDefinition markers(List<WidgetMarker> markers) {
-        this.markers = markers;
-        for (WidgetMarker item : markers) {
-            this.unparsed |= item.unparsed;
-        }
-        return this;
+  public TimeseriesWidgetDefinition addMarkersItem(WidgetMarker markersItem) {
+    if (this.markers == null) {
+      this.markers = new ArrayList<>();
     }
+    this.markers.add(markersItem);
+    this.unparsed |= markersItem.unparsed;
+    return this;
+  }
 
-    public TimeseriesWidgetDefinition addMarkersItem(WidgetMarker markersItem) {
-        if (this.markers == null) {
-            this.markers = new ArrayList<>();
-        }
-        this.markers.add(markersItem);
-        this.unparsed |= markersItem.unparsed;
-        return this;
-    }
+  /**
+   * List of markers.
+   *
+   * @return markers
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "List of markers.")
+  @JsonProperty(JSON_PROPERTY_MARKERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<WidgetMarker> getMarkers() {
+    return markers;
+  }
 
-    /**
-     * List of markers.
-     * @return markers
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "List of markers.")
-    @JsonProperty(JSON_PROPERTY_MARKERS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public List<WidgetMarker> getMarkers() {
-        return markers;
-    }
+  public void setMarkers(List<WidgetMarker> markers) {
+    this.markers = markers;
+  }
 
-    public void setMarkers(List<WidgetMarker> markers) {
-        this.markers = markers;
+  public TimeseriesWidgetDefinition requests(List<TimeseriesWidgetRequest> requests) {
+    this.requests = requests;
+    for (TimeseriesWidgetRequest item : requests) {
+      this.unparsed |= item.unparsed;
     }
+    return this;
+  }
 
-    public TimeseriesWidgetDefinition requests(List<TimeseriesWidgetRequest> requests) {
-        this.requests = requests;
-        for (TimeseriesWidgetRequest item : requests) {
-            this.unparsed |= item.unparsed;
-        }
-        return this;
-    }
+  public TimeseriesWidgetDefinition addRequestsItem(TimeseriesWidgetRequest requestsItem) {
+    this.requests.add(requestsItem);
+    this.unparsed |= requestsItem.unparsed;
+    return this;
+  }
 
-    public TimeseriesWidgetDefinition addRequestsItem(TimeseriesWidgetRequest requestsItem) {
-        this.requests.add(requestsItem);
-        this.unparsed |= requestsItem.unparsed;
-        return this;
-    }
+  /**
+   * List of timeseries widget requests.
+   *
+   * @return requests
+   */
+  @ApiModelProperty(
+      example = "[{\"q/apm_query/log_query\":\"<METRIC_1>{<SCOPE_1>}\"}]",
+      required = true,
+      value = "List of timeseries widget requests.")
+  @JsonProperty(JSON_PROPERTY_REQUESTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public List<TimeseriesWidgetRequest> getRequests() {
+    return requests;
+  }
 
-    /**
-     * List of timeseries widget requests.
-     * @return requests
-     **/
-    @ApiModelProperty(
-        example = "[{\"q/apm_query/log_query\":\"<METRIC_1>{<SCOPE_1>}\"}]",
-        required = true,
-        value = "List of timeseries widget requests."
-    )
-    @JsonProperty(JSON_PROPERTY_REQUESTS)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public List<TimeseriesWidgetRequest> getRequests() {
-        return requests;
-    }
+  public void setRequests(List<TimeseriesWidgetRequest> requests) {
+    this.requests = requests;
+  }
 
-    public void setRequests(List<TimeseriesWidgetRequest> requests) {
-        this.requests = requests;
-    }
+  public TimeseriesWidgetDefinition rightYaxis(WidgetAxis rightYaxis) {
+    this.rightYaxis = rightYaxis;
+    this.unparsed |= rightYaxis.unparsed;
+    return this;
+  }
 
-    public TimeseriesWidgetDefinition rightYaxis(WidgetAxis rightYaxis) {
-        this.rightYaxis = rightYaxis;
-        this.unparsed |= rightYaxis.unparsed;
-        return this;
-    }
+  /**
+   * Get rightYaxis
+   *
+   * @return rightYaxis
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_RIGHT_YAXIS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetAxis getRightYaxis() {
+    return rightYaxis;
+  }
 
-    /**
-     * Get rightYaxis
-     * @return rightYaxis
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_RIGHT_YAXIS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public WidgetAxis getRightYaxis() {
-        return rightYaxis;
-    }
+  public void setRightYaxis(WidgetAxis rightYaxis) {
+    this.rightYaxis = rightYaxis;
+  }
 
-    public void setRightYaxis(WidgetAxis rightYaxis) {
-        this.rightYaxis = rightYaxis;
-    }
+  public TimeseriesWidgetDefinition showLegend(Boolean showLegend) {
+    this.showLegend = showLegend;
+    return this;
+  }
 
-    public TimeseriesWidgetDefinition showLegend(Boolean showLegend) {
-        this.showLegend = showLegend;
-        return this;
-    }
+  /**
+   * (screenboard only) Show the legend for this widget.
+   *
+   * @return showLegend
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "(screenboard only) Show the legend for this widget.")
+  @JsonProperty(JSON_PROPERTY_SHOW_LEGEND)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getShowLegend() {
+    return showLegend;
+  }
 
-    /**
-     * (screenboard only) Show the legend for this widget.
-     * @return showLegend
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "(screenboard only) Show the legend for this widget.")
-    @JsonProperty(JSON_PROPERTY_SHOW_LEGEND)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public Boolean getShowLegend() {
-        return showLegend;
-    }
+  public void setShowLegend(Boolean showLegend) {
+    this.showLegend = showLegend;
+  }
 
-    public void setShowLegend(Boolean showLegend) {
-        this.showLegend = showLegend;
-    }
+  public TimeseriesWidgetDefinition time(WidgetTime time) {
+    this.time = time;
+    this.unparsed |= time.unparsed;
+    return this;
+  }
 
-    public TimeseriesWidgetDefinition time(WidgetTime time) {
-        this.time = time;
-        this.unparsed |= time.unparsed;
-        return this;
-    }
+  /**
+   * Get time
+   *
+   * @return time
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TIME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetTime getTime() {
+    return time;
+  }
 
-    /**
-     * Get time
-     * @return time
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_TIME)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public WidgetTime getTime() {
-        return time;
-    }
+  public void setTime(WidgetTime time) {
+    this.time = time;
+  }
 
-    public void setTime(WidgetTime time) {
-        this.time = time;
-    }
+  public TimeseriesWidgetDefinition title(String title) {
+    this.title = title;
+    return this;
+  }
 
-    public TimeseriesWidgetDefinition title(String title) {
-        this.title = title;
-        return this;
-    }
+  /**
+   * Title of your widget.
+   *
+   * @return title
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Title of your widget.")
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTitle() {
+    return title;
+  }
 
-    /**
-     * Title of your widget.
-     * @return title
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Title of your widget.")
-    @JsonProperty(JSON_PROPERTY_TITLE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getTitle() {
-        return title;
-    }
+  public void setTitle(String title) {
+    this.title = title;
+  }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+  public TimeseriesWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
+    this.titleAlign = titleAlign;
+    this.unparsed |= !titleAlign.isValid();
+    return this;
+  }
 
-    public TimeseriesWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
-        this.titleAlign = titleAlign;
-        this.unparsed |= !titleAlign.isValid();
-        return this;
-    }
+  /**
+   * Get titleAlign
+   *
+   * @return titleAlign
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetTextAlign getTitleAlign() {
+    return titleAlign;
+  }
 
-    /**
-     * Get titleAlign
-     * @return titleAlign
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public WidgetTextAlign getTitleAlign() {
-        return titleAlign;
+  public void setTitleAlign(WidgetTextAlign titleAlign) {
+    if (!titleAlign.isValid()) {
+      this.unparsed = true;
     }
+    this.titleAlign = titleAlign;
+  }
 
-    public void setTitleAlign(WidgetTextAlign titleAlign) {
-        if (!titleAlign.isValid()) {
-            this.unparsed = true;
-        }
-        this.titleAlign = titleAlign;
-    }
+  public TimeseriesWidgetDefinition titleSize(String titleSize) {
+    this.titleSize = titleSize;
+    return this;
+  }
 
-    public TimeseriesWidgetDefinition titleSize(String titleSize) {
-        this.titleSize = titleSize;
-        return this;
-    }
+  /**
+   * Size of the title.
+   *
+   * @return titleSize
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Size of the title.")
+  @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getTitleSize() {
+    return titleSize;
+  }
 
-    /**
-     * Size of the title.
-     * @return titleSize
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Size of the title.")
-    @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public String getTitleSize() {
-        return titleSize;
-    }
+  public void setTitleSize(String titleSize) {
+    this.titleSize = titleSize;
+  }
 
-    public void setTitleSize(String titleSize) {
-        this.titleSize = titleSize;
-    }
+  public TimeseriesWidgetDefinition type(TimeseriesWidgetDefinitionType type) {
+    this.type = type;
+    this.unparsed |= !type.isValid();
+    return this;
+  }
 
-    public TimeseriesWidgetDefinition type(TimeseriesWidgetDefinitionType type) {
-        this.type = type;
-        this.unparsed |= !type.isValid();
-        return this;
-    }
+  /**
+   * Get type
+   *
+   * @return type
+   */
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public TimeseriesWidgetDefinitionType getType() {
+    return type;
+  }
 
-    /**
-     * Get type
-     * @return type
-     **/
-    @ApiModelProperty(required = true, value = "")
-    @JsonProperty(JSON_PROPERTY_TYPE)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public TimeseriesWidgetDefinitionType getType() {
-        return type;
+  public void setType(TimeseriesWidgetDefinitionType type) {
+    if (!type.isValid()) {
+      this.unparsed = true;
     }
+    this.type = type;
+  }
 
-    public void setType(TimeseriesWidgetDefinitionType type) {
-        if (!type.isValid()) {
-            this.unparsed = true;
-        }
-        this.type = type;
-    }
+  public TimeseriesWidgetDefinition yaxis(WidgetAxis yaxis) {
+    this.yaxis = yaxis;
+    this.unparsed |= yaxis.unparsed;
+    return this;
+  }
 
-    public TimeseriesWidgetDefinition yaxis(WidgetAxis yaxis) {
-        this.yaxis = yaxis;
-        this.unparsed |= yaxis.unparsed;
-        return this;
-    }
+  /**
+   * Get yaxis
+   *
+   * @return yaxis
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_YAXIS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public WidgetAxis getYaxis() {
+    return yaxis;
+  }
 
-    /**
-     * Get yaxis
-     * @return yaxis
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    @JsonProperty(JSON_PROPERTY_YAXIS)
-    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-    public WidgetAxis getYaxis() {
-        return yaxis;
-    }
+  public void setYaxis(WidgetAxis yaxis) {
+    this.yaxis = yaxis;
+  }
 
-    public void setYaxis(WidgetAxis yaxis) {
-        this.yaxis = yaxis;
+  /** Return true if this TimeseriesWidgetDefinition object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    TimeseriesWidgetDefinition timeseriesWidgetDefinition = (TimeseriesWidgetDefinition) o;
+    return Objects.equals(this.customLinks, timeseriesWidgetDefinition.customLinks)
+        && Objects.equals(this.events, timeseriesWidgetDefinition.events)
+        && Objects.equals(this.legendColumns, timeseriesWidgetDefinition.legendColumns)
+        && Objects.equals(this.legendLayout, timeseriesWidgetDefinition.legendLayout)
+        && Objects.equals(this.legendSize, timeseriesWidgetDefinition.legendSize)
+        && Objects.equals(this.markers, timeseriesWidgetDefinition.markers)
+        && Objects.equals(this.requests, timeseriesWidgetDefinition.requests)
+        && Objects.equals(this.rightYaxis, timeseriesWidgetDefinition.rightYaxis)
+        && Objects.equals(this.showLegend, timeseriesWidgetDefinition.showLegend)
+        && Objects.equals(this.time, timeseriesWidgetDefinition.time)
+        && Objects.equals(this.title, timeseriesWidgetDefinition.title)
+        && Objects.equals(this.titleAlign, timeseriesWidgetDefinition.titleAlign)
+        && Objects.equals(this.titleSize, timeseriesWidgetDefinition.titleSize)
+        && Objects.equals(this.type, timeseriesWidgetDefinition.type)
+        && Objects.equals(this.yaxis, timeseriesWidgetDefinition.yaxis);
+  }
 
-    /**
-     * Return true if this TimeseriesWidgetDefinition object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        TimeseriesWidgetDefinition timeseriesWidgetDefinition = (TimeseriesWidgetDefinition) o;
-        return (
-            Objects.equals(this.customLinks, timeseriesWidgetDefinition.customLinks) &&
-            Objects.equals(this.events, timeseriesWidgetDefinition.events) &&
-            Objects.equals(this.legendColumns, timeseriesWidgetDefinition.legendColumns) &&
-            Objects.equals(this.legendLayout, timeseriesWidgetDefinition.legendLayout) &&
-            Objects.equals(this.legendSize, timeseriesWidgetDefinition.legendSize) &&
-            Objects.equals(this.markers, timeseriesWidgetDefinition.markers) &&
-            Objects.equals(this.requests, timeseriesWidgetDefinition.requests) &&
-            Objects.equals(this.rightYaxis, timeseriesWidgetDefinition.rightYaxis) &&
-            Objects.equals(this.showLegend, timeseriesWidgetDefinition.showLegend) &&
-            Objects.equals(this.time, timeseriesWidgetDefinition.time) &&
-            Objects.equals(this.title, timeseriesWidgetDefinition.title) &&
-            Objects.equals(this.titleAlign, timeseriesWidgetDefinition.titleAlign) &&
-            Objects.equals(this.titleSize, timeseriesWidgetDefinition.titleSize) &&
-            Objects.equals(this.type, timeseriesWidgetDefinition.type) &&
-            Objects.equals(this.yaxis, timeseriesWidgetDefinition.yaxis)
-        );
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(
+        customLinks,
+        events,
+        legendColumns,
+        legendLayout,
+        legendSize,
+        markers,
+        requests,
+        rightYaxis,
+        showLegend,
+        time,
+        title,
+        titleAlign,
+        titleSize,
+        type,
+        yaxis);
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(
-            customLinks,
-            events,
-            legendColumns,
-            legendLayout,
-            legendSize,
-            markers,
-            requests,
-            rightYaxis,
-            showLegend,
-            time,
-            title,
-            titleAlign,
-            titleSize,
-            type,
-            yaxis
-        );
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class TimeseriesWidgetDefinition {\n");
+    sb.append("    customLinks: ").append(toIndentedString(customLinks)).append("\n");
+    sb.append("    events: ").append(toIndentedString(events)).append("\n");
+    sb.append("    legendColumns: ").append(toIndentedString(legendColumns)).append("\n");
+    sb.append("    legendLayout: ").append(toIndentedString(legendLayout)).append("\n");
+    sb.append("    legendSize: ").append(toIndentedString(legendSize)).append("\n");
+    sb.append("    markers: ").append(toIndentedString(markers)).append("\n");
+    sb.append("    requests: ").append(toIndentedString(requests)).append("\n");
+    sb.append("    rightYaxis: ").append(toIndentedString(rightYaxis)).append("\n");
+    sb.append("    showLegend: ").append(toIndentedString(showLegend)).append("\n");
+    sb.append("    time: ").append(toIndentedString(time)).append("\n");
+    sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    titleAlign: ").append(toIndentedString(titleAlign)).append("\n");
+    sb.append("    titleSize: ").append(toIndentedString(titleSize)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    yaxis: ").append(toIndentedString(yaxis)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class TimeseriesWidgetDefinition {\n");
-        sb.append("    customLinks: ").append(toIndentedString(customLinks)).append("\n");
-        sb.append("    events: ").append(toIndentedString(events)).append("\n");
-        sb.append("    legendColumns: ").append(toIndentedString(legendColumns)).append("\n");
-        sb.append("    legendLayout: ").append(toIndentedString(legendLayout)).append("\n");
-        sb.append("    legendSize: ").append(toIndentedString(legendSize)).append("\n");
-        sb.append("    markers: ").append(toIndentedString(markers)).append("\n");
-        sb.append("    requests: ").append(toIndentedString(requests)).append("\n");
-        sb.append("    rightYaxis: ").append(toIndentedString(rightYaxis)).append("\n");
-        sb.append("    showLegend: ").append(toIndentedString(showLegend)).append("\n");
-        sb.append("    time: ").append(toIndentedString(time)).append("\n");
-        sb.append("    title: ").append(toIndentedString(title)).append("\n");
-        sb.append("    titleAlign: ").append(toIndentedString(titleAlign)).append("\n");
-        sb.append("    titleSize: ").append(toIndentedString(titleSize)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("    yaxis: ").append(toIndentedString(yaxis)).append("\n");
-        sb.append("}");
-        return sb.toString();
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }

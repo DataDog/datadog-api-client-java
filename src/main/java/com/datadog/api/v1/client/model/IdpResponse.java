@@ -10,104 +10,89 @@
 
 package com.datadog.api.v1.client.model;
 
-import com.datadog.api.v1.client.JSON;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
-/**
- * The IdP response object.
- */
+/** The IdP response object. */
 @ApiModel(description = "The IdP response object.")
-@JsonPropertyOrder({ IdpResponse.JSON_PROPERTY_MESSAGE })
+@JsonPropertyOrder({IdpResponse.JSON_PROPERTY_MESSAGE})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IdpResponse {
+  @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_MESSAGE = "message";
+  private String message;
 
-    @JsonIgnore
-    public boolean unparsed = false;
+  public IdpResponse() {}
 
-    public static final String JSON_PROPERTY_MESSAGE = "message";
-    private String message;
+  @JsonCreator
+  public IdpResponse(@JsonProperty(required = true, value = JSON_PROPERTY_MESSAGE) String message) {
+    this.message = message;
+  }
 
-    public IdpResponse() {}
+  public IdpResponse message(String message) {
+    this.message = message;
+    return this;
+  }
 
-    @JsonCreator
-    public IdpResponse(@JsonProperty(required = true, value = JSON_PROPERTY_MESSAGE) String message) {
-        this.message = message;
+  /**
+   * Identity provider response.
+   *
+   * @return message
+   */
+  @ApiModelProperty(
+      example = "IdP metadata successfully uploaded for example org",
+      required = true,
+      value = "Identity provider response.")
+  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public String getMessage() {
+    return message;
+  }
+
+  public void setMessage(String message) {
+    this.message = message;
+  }
+
+  /** Return true if this IdpResponse object is equal to o. */
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    public IdpResponse message(String message) {
-        this.message = message;
-        return this;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    IdpResponse idpResponse = (IdpResponse) o;
+    return Objects.equals(this.message, idpResponse.message);
+  }
 
-    /**
-     * Identity provider response.
-     * @return message
-     **/
-    @ApiModelProperty(
-        example = "IdP metadata successfully uploaded for example org",
-        required = true,
-        value = "Identity provider response."
-    )
-    @JsonProperty(JSON_PROPERTY_MESSAGE)
-    @JsonInclude(value = JsonInclude.Include.ALWAYS)
-    public String getMessage() {
-        return message;
-    }
+  @Override
+  public int hashCode() {
+    return Objects.hash(message);
+  }
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class IdpResponse {\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
 
-    /**
-     * Return true if this IdpResponse object is equal to o.
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        IdpResponse idpResponse = (IdpResponse) o;
-        return Objects.equals(this.message, idpResponse.message);
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(message);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class IdpResponse {\n");
-        sb.append("    message: ").append(toIndentedString(message)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }
