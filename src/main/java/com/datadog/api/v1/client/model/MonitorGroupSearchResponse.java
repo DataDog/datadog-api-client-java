@@ -10,131 +10,152 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JSON;
+import com.datadog.api.v1.client.model.MonitorGroupSearchResponseCounts;
+import com.datadog.api.v1.client.model.MonitorGroupSearchResult;
+import com.datadog.api.v1.client.model.MonitorSearchResponseMetadata;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
-/** The response of a monitor group search. */
+/**
+ * The response of a monitor group search.
+ */
 @ApiModel(description = "The response of a monitor group search.")
-@JsonPropertyOrder({
-  MonitorGroupSearchResponse.JSON_PROPERTY_COUNTS,
-  MonitorGroupSearchResponse.JSON_PROPERTY_GROUPS,
-  MonitorGroupSearchResponse.JSON_PROPERTY_METADATA
-})
+@JsonPropertyOrder(
+    {
+        MonitorGroupSearchResponse.JSON_PROPERTY_COUNTS,
+        MonitorGroupSearchResponse.JSON_PROPERTY_GROUPS,
+        MonitorGroupSearchResponse.JSON_PROPERTY_METADATA
+    }
+)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MonitorGroupSearchResponse {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_COUNTS = "counts";
-  private MonitorGroupSearchResponseCounts counts;
 
-  public static final String JSON_PROPERTY_GROUPS = "groups";
-  private List<MonitorGroupSearchResult> groups = null;
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  public static final String JSON_PROPERTY_METADATA = "metadata";
-  private MonitorSearchResponseMetadata metadata;
+    public static final String JSON_PROPERTY_COUNTS = "counts";
+    private MonitorGroupSearchResponseCounts counts;
 
-  public MonitorGroupSearchResponse counts(MonitorGroupSearchResponseCounts counts) {
-    this.counts = counts;
-    this.unparsed |= counts.unparsed;
-    return this;
-  }
+    public static final String JSON_PROPERTY_GROUPS = "groups";
+    private List<MonitorGroupSearchResult> groups = null;
 
-  /**
-   * Get counts
-   *
-   * @return counts
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_COUNTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public MonitorGroupSearchResponseCounts getCounts() {
-    return counts;
-  }
+    public static final String JSON_PROPERTY_METADATA = "metadata";
+    private MonitorSearchResponseMetadata metadata;
 
-  public void setCounts(MonitorGroupSearchResponseCounts counts) {
-    this.counts = counts;
-  }
-
-  /**
-   * The list of found monitor groups.
-   *
-   * @return groups
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The list of found monitor groups.")
-  @JsonProperty(JSON_PROPERTY_GROUPS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<MonitorGroupSearchResult> getGroups() {
-    return groups;
-  }
-
-  public MonitorGroupSearchResponse metadata(MonitorSearchResponseMetadata metadata) {
-    this.metadata = metadata;
-    this.unparsed |= metadata.unparsed;
-    return this;
-  }
-
-  /**
-   * Get metadata
-   *
-   * @return metadata
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_METADATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public MonitorSearchResponseMetadata getMetadata() {
-    return metadata;
-  }
-
-  public void setMetadata(MonitorSearchResponseMetadata metadata) {
-    this.metadata = metadata;
-  }
-
-  /** Return true if this MonitorGroupSearchResponse object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public MonitorGroupSearchResponse counts(MonitorGroupSearchResponseCounts counts) {
+        this.counts = counts;
+        this.unparsed |= counts.unparsed;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get counts
+     * @return counts
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+    @JsonProperty(JSON_PROPERTY_COUNTS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public MonitorGroupSearchResponseCounts getCounts() {
+        return counts;
     }
-    MonitorGroupSearchResponse monitorGroupSearchResponse = (MonitorGroupSearchResponse) o;
-    return Objects.equals(this.counts, monitorGroupSearchResponse.counts)
-        && Objects.equals(this.groups, monitorGroupSearchResponse.groups)
-        && Objects.equals(this.metadata, monitorGroupSearchResponse.metadata);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(counts, groups, metadata);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class MonitorGroupSearchResponse {\n");
-    sb.append("    counts: ").append(toIndentedString(counts)).append("\n");
-    sb.append("    groups: ").append(toIndentedString(groups)).append("\n");
-    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setCounts(MonitorGroupSearchResponseCounts counts) {
+        this.counts = counts;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * The list of found monitor groups.
+     * @return groups
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "The list of found monitor groups.")
+    @JsonProperty(JSON_PROPERTY_GROUPS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public List<MonitorGroupSearchResult> getGroups() {
+        return groups;
+    }
+
+    public MonitorGroupSearchResponse metadata(MonitorSearchResponseMetadata metadata) {
+        this.metadata = metadata;
+        this.unparsed |= metadata.unparsed;
+        return this;
+    }
+
+    /**
+     * Get metadata
+     * @return metadata
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+    @JsonProperty(JSON_PROPERTY_METADATA)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public MonitorSearchResponseMetadata getMetadata() {
+        return metadata;
+    }
+
+    public void setMetadata(MonitorSearchResponseMetadata metadata) {
+        this.metadata = metadata;
+    }
+
+    /**
+     * Return true if this MonitorGroupSearchResponse object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        MonitorGroupSearchResponse monitorGroupSearchResponse = (MonitorGroupSearchResponse) o;
+        return (
+            Objects.equals(this.counts, monitorGroupSearchResponse.counts) &&
+            Objects.equals(this.groups, monitorGroupSearchResponse.groups) &&
+            Objects.equals(this.metadata, monitorGroupSearchResponse.metadata)
+        );
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(counts, groups, metadata);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class MonitorGroupSearchResponse {\n");
+        sb.append("    counts: ").append(toIndentedString(counts)).append("\n");
+        sb.append("    groups: ").append(toIndentedString(groups)).append("\n");
+        sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

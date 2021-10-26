@@ -10,148 +10,155 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JSON;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
-/** Object representing a graph snapshot. */
+/**
+ * Object representing a graph snapshot.
+ */
 @ApiModel(description = "Object representing a graph snapshot.")
-@JsonPropertyOrder({
-  GraphSnapshot.JSON_PROPERTY_GRAPH_DEF,
-  GraphSnapshot.JSON_PROPERTY_METRIC_QUERY,
-  GraphSnapshot.JSON_PROPERTY_SNAPSHOT_URL
-})
+@JsonPropertyOrder(
+    { GraphSnapshot.JSON_PROPERTY_GRAPH_DEF, GraphSnapshot.JSON_PROPERTY_METRIC_QUERY, GraphSnapshot.JSON_PROPERTY_SNAPSHOT_URL }
+)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class GraphSnapshot {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_GRAPH_DEF = "graph_def";
-  private String graphDef;
 
-  public static final String JSON_PROPERTY_METRIC_QUERY = "metric_query";
-  private String metricQuery;
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  public static final String JSON_PROPERTY_SNAPSHOT_URL = "snapshot_url";
-  private String snapshotUrl;
+    public static final String JSON_PROPERTY_GRAPH_DEF = "graph_def";
+    private String graphDef;
 
-  public GraphSnapshot graphDef(String graphDef) {
-    this.graphDef = graphDef;
-    return this;
-  }
+    public static final String JSON_PROPERTY_METRIC_QUERY = "metric_query";
+    private String metricQuery;
 
-  /**
-   * A JSON document defining the graph. &#x60;graph_def&#x60; can be used instead of
-   * &#x60;metric_query&#x60;. The JSON document uses the [grammar defined
-   * here](https://docs.datadoghq.com/graphing/graphing_json/#grammar) and should be formatted to a
-   * single line then URL encoded.
-   *
-   * @return graphDef
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "A JSON document defining the graph. `graph_def` can be used instead of `metric_query`."
-              + " The JSON document uses the [grammar defined"
-              + " here](https://docs.datadoghq.com/graphing/graphing_json/#grammar) and should be"
-              + " formatted to a single line then URL encoded.")
-  @JsonProperty(JSON_PROPERTY_GRAPH_DEF)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getGraphDef() {
-    return graphDef;
-  }
+    public static final String JSON_PROPERTY_SNAPSHOT_URL = "snapshot_url";
+    private String snapshotUrl;
 
-  public void setGraphDef(String graphDef) {
-    this.graphDef = graphDef;
-  }
-
-  public GraphSnapshot metricQuery(String metricQuery) {
-    this.metricQuery = metricQuery;
-    return this;
-  }
-
-  /**
-   * The metric query. One of &#x60;metric_query&#x60; or &#x60;graph_def&#x60; is required.
-   *
-   * @return metricQuery
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The metric query. One of `metric_query` or `graph_def` is required.")
-  @JsonProperty(JSON_PROPERTY_METRIC_QUERY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getMetricQuery() {
-    return metricQuery;
-  }
-
-  public void setMetricQuery(String metricQuery) {
-    this.metricQuery = metricQuery;
-  }
-
-  public GraphSnapshot snapshotUrl(String snapshotUrl) {
-    this.snapshotUrl = snapshotUrl;
-    return this;
-  }
-
-  /**
-   * URL of your [graph snapshot](https://docs.datadoghq.com/metrics/explorer/#snapshot).
-   *
-   * @return snapshotUrl
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "https://app.datadoghq.com/s/f12345678/aaa-bbb-ccc",
-      value =
-          "URL of your [graph snapshot](https://docs.datadoghq.com/metrics/explorer/#snapshot).")
-  @JsonProperty(JSON_PROPERTY_SNAPSHOT_URL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getSnapshotUrl() {
-    return snapshotUrl;
-  }
-
-  public void setSnapshotUrl(String snapshotUrl) {
-    this.snapshotUrl = snapshotUrl;
-  }
-
-  /** Return true if this GraphSnapshot object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public GraphSnapshot graphDef(String graphDef) {
+        this.graphDef = graphDef;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * A JSON document defining the graph. &#x60;graph_def&#x60; can be used instead of &#x60;metric_query&#x60;. The JSON document uses the [grammar defined here](https://docs.datadoghq.com/graphing/graphing_json/#grammar) and should be formatted to a single line then URL encoded.
+     * @return graphDef
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(
+        value = "A JSON document defining the graph. `graph_def` can be used instead of `metric_query`. The JSON document uses the [grammar defined here](https://docs.datadoghq.com/graphing/graphing_json/#grammar) and should be formatted to a single line then URL encoded."
+    )
+    @JsonProperty(JSON_PROPERTY_GRAPH_DEF)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getGraphDef() {
+        return graphDef;
     }
-    GraphSnapshot graphSnapshot = (GraphSnapshot) o;
-    return Objects.equals(this.graphDef, graphSnapshot.graphDef)
-        && Objects.equals(this.metricQuery, graphSnapshot.metricQuery)
-        && Objects.equals(this.snapshotUrl, graphSnapshot.snapshotUrl);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(graphDef, metricQuery, snapshotUrl);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class GraphSnapshot {\n");
-    sb.append("    graphDef: ").append(toIndentedString(graphDef)).append("\n");
-    sb.append("    metricQuery: ").append(toIndentedString(metricQuery)).append("\n");
-    sb.append("    snapshotUrl: ").append(toIndentedString(snapshotUrl)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setGraphDef(String graphDef) {
+        this.graphDef = graphDef;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public GraphSnapshot metricQuery(String metricQuery) {
+        this.metricQuery = metricQuery;
+        return this;
+    }
+
+    /**
+     * The metric query. One of &#x60;metric_query&#x60; or &#x60;graph_def&#x60; is required.
+     * @return metricQuery
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "The metric query. One of `metric_query` or `graph_def` is required.")
+    @JsonProperty(JSON_PROPERTY_METRIC_QUERY)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getMetricQuery() {
+        return metricQuery;
+    }
+
+    public void setMetricQuery(String metricQuery) {
+        this.metricQuery = metricQuery;
+    }
+
+    public GraphSnapshot snapshotUrl(String snapshotUrl) {
+        this.snapshotUrl = snapshotUrl;
+        return this;
+    }
+
+    /**
+     * URL of your [graph snapshot](https://docs.datadoghq.com/metrics/explorer/#snapshot).
+     * @return snapshotUrl
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(
+        example = "https://app.datadoghq.com/s/f12345678/aaa-bbb-ccc",
+        value = "URL of your [graph snapshot](https://docs.datadoghq.com/metrics/explorer/#snapshot)."
+    )
+    @JsonProperty(JSON_PROPERTY_SNAPSHOT_URL)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getSnapshotUrl() {
+        return snapshotUrl;
+    }
+
+    public void setSnapshotUrl(String snapshotUrl) {
+        this.snapshotUrl = snapshotUrl;
+    }
+
+    /**
+     * Return true if this GraphSnapshot object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        GraphSnapshot graphSnapshot = (GraphSnapshot) o;
+        return (
+            Objects.equals(this.graphDef, graphSnapshot.graphDef) &&
+            Objects.equals(this.metricQuery, graphSnapshot.metricQuery) &&
+            Objects.equals(this.snapshotUrl, graphSnapshot.snapshotUrl)
+        );
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(graphDef, metricQuery, snapshotUrl);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class GraphSnapshot {\n");
+        sb.append("    graphDef: ").append(toIndentedString(graphDef)).append("\n");
+        sb.append("    metricQuery: ").append(toIndentedString(metricQuery)).append("\n");
+        sb.append("    snapshotUrl: ").append(toIndentedString(snapshotUrl)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

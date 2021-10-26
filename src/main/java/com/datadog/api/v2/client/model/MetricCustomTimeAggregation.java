@@ -27,76 +27,74 @@ import java.util.Set;
 @JsonSerialize(using = MetricCustomTimeAggregation.MetricCustomTimeAggregationSerializer.class)
 public class MetricCustomTimeAggregation {
 
-  public static final MetricCustomTimeAggregation AVG = new MetricCustomTimeAggregation("avg");
-  public static final MetricCustomTimeAggregation COUNT = new MetricCustomTimeAggregation("count");
-  public static final MetricCustomTimeAggregation MAX = new MetricCustomTimeAggregation("max");
-  public static final MetricCustomTimeAggregation MIN = new MetricCustomTimeAggregation("min");
-  public static final MetricCustomTimeAggregation SUM = new MetricCustomTimeAggregation("sum");
+    public static final MetricCustomTimeAggregation AVG = new MetricCustomTimeAggregation("avg");
+    public static final MetricCustomTimeAggregation COUNT = new MetricCustomTimeAggregation("count");
+    public static final MetricCustomTimeAggregation MAX = new MetricCustomTimeAggregation("max");
+    public static final MetricCustomTimeAggregation MIN = new MetricCustomTimeAggregation("min");
+    public static final MetricCustomTimeAggregation SUM = new MetricCustomTimeAggregation("sum");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("avg", "count", "max", "min", "sum"));
+    private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("avg", "count", "max", "min", "sum"));
 
-  private String value;
+    private String value;
 
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
-
-  MetricCustomTimeAggregation(String value) {
-    this.value = value;
-  }
-
-  public static class MetricCustomTimeAggregationSerializer
-      extends StdSerializer<MetricCustomTimeAggregation> {
-    public MetricCustomTimeAggregationSerializer(Class<MetricCustomTimeAggregation> t) {
-      super(t);
+    public boolean isValid() {
+        return allowedValues.contains(this.value);
     }
 
-    public MetricCustomTimeAggregationSerializer() {
-      this(null);
+    MetricCustomTimeAggregation(String value) {
+        this.value = value;
+    }
+
+    public static class MetricCustomTimeAggregationSerializer extends StdSerializer<MetricCustomTimeAggregation> {
+
+        public MetricCustomTimeAggregationSerializer(Class<MetricCustomTimeAggregation> t) {
+            super(t);
+        }
+
+        public MetricCustomTimeAggregationSerializer() {
+            this(null);
+        }
+
+        @Override
+        public void serialize(MetricCustomTimeAggregation value, JsonGenerator jgen, SerializerProvider provider)
+            throws IOException, JsonProcessingException {
+            jgen.writeObject(value.value);
+        }
+    }
+
+    @JsonValue
+    public String getValue() {
+        return this.value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    /** Return true if this MetricCustomTimeAggregation object is equal to o. */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        return this.value.equals(((MetricCustomTimeAggregation) o).value);
     }
 
     @Override
-    public void serialize(
-        MetricCustomTimeAggregation value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
+    public int hashCode() {
+        return Objects.hash(value);
     }
-  }
 
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this MetricCustomTimeAggregation object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    @Override
+    public String toString() {
+        return String.valueOf(value);
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    @JsonCreator
+    public static MetricCustomTimeAggregation fromValue(String value) {
+        return new MetricCustomTimeAggregation(value);
     }
-    return this.value.equals(((MetricCustomTimeAggregation) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
-  }
-
-  @JsonCreator
-  public static MetricCustomTimeAggregation fromValue(String value) {
-    return new MetricCustomTimeAggregation(value);
-  }
 }

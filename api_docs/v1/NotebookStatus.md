@@ -1,11 +1,5 @@
-
-
 # NotebookStatus
 
 ## Enum
 
-
-* `PUBLISHED` (value: `"published"`)
-
-
-
+- `PUBLISHED` (value: `"published"`)

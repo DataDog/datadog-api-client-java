@@ -10,86 +10,98 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.datadog.api.v2.client.JSON;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import io.swagger.annotations.ApiModel;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Incident resource type. */
+/**
+ * Incident resource type.
+ */
 @JsonSerialize(using = IncidentType.IncidentTypeSerializer.class)
 public class IncidentType {
 
-  public static final IncidentType INCIDENTS = new IncidentType("incidents");
+    public static final IncidentType INCIDENTS = new IncidentType("incidents");
 
-  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("incidents"));
+    private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("incidents"));
 
-  private String value;
+    private String value;
 
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
-
-  IncidentType(String value) {
-    this.value = value;
-  }
-
-  public static class IncidentTypeSerializer extends StdSerializer<IncidentType> {
-    public IncidentTypeSerializer(Class<IncidentType> t) {
-      super(t);
+    public boolean isValid() {
+        return allowedValues.contains(this.value);
     }
 
-    public IncidentTypeSerializer() {
-      this(null);
+    IncidentType(String value) {
+        this.value = value;
+    }
+
+    public static class IncidentTypeSerializer extends StdSerializer<IncidentType> {
+
+        public IncidentTypeSerializer(Class<IncidentType> t) {
+            super(t);
+        }
+
+        public IncidentTypeSerializer() {
+            this(null);
+        }
+
+        @Override
+        public void serialize(IncidentType value, JsonGenerator jgen, SerializerProvider provider)
+            throws IOException, JsonProcessingException {
+            jgen.writeObject(value.value);
+        }
+    }
+
+    @JsonValue
+    public String getValue() {
+        return this.value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    /**
+     * Return true if this IncidentType object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        return this.value.equals(((IncidentType) o).value);
     }
 
     @Override
-    public void serialize(IncidentType value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
+    public int hashCode() {
+        return Objects.hash(value);
     }
-  }
 
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this IncidentType object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    @Override
+    public String toString() {
+        return String.valueOf(value);
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    @JsonCreator
+    public static IncidentType fromValue(String value) {
+        return new IncidentType(value);
     }
-    return this.value.equals(((IncidentType) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
-  }
-
-  @JsonCreator
-  public static IncidentType fromValue(String value) {
-    return new IncidentType(value);
-  }
 }

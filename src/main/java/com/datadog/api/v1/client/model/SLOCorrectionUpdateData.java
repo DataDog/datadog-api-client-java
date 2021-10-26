@@ -10,114 +10,128 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JSON;
+import com.datadog.api.v1.client.model.SLOCorrectionType;
+import com.datadog.api.v1.client.model.SLOCorrectionUpdateRequestAttributes;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
-/** The data object associated with the SLO correction to be updated. */
+/**
+ * The data object associated with the SLO correction to be updated.
+ */
 @ApiModel(description = "The data object associated with the SLO correction to be updated.")
-@JsonPropertyOrder({
-  SLOCorrectionUpdateData.JSON_PROPERTY_ATTRIBUTES,
-  SLOCorrectionUpdateData.JSON_PROPERTY_TYPE
-})
+@JsonPropertyOrder({ SLOCorrectionUpdateData.JSON_PROPERTY_ATTRIBUTES, SLOCorrectionUpdateData.JSON_PROPERTY_TYPE })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SLOCorrectionUpdateData {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private SLOCorrectionUpdateRequestAttributes attributes;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private SLOCorrectionType type = SLOCorrectionType.CORRECTION;
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  public SLOCorrectionUpdateData attributes(SLOCorrectionUpdateRequestAttributes attributes) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
-    return this;
-  }
+    public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+    private SLOCorrectionUpdateRequestAttributes attributes;
 
-  /**
-   * Get attributes
-   *
-   * @return attributes
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SLOCorrectionUpdateRequestAttributes getAttributes() {
-    return attributes;
-  }
+    public static final String JSON_PROPERTY_TYPE = "type";
+    private SLOCorrectionType type = SLOCorrectionType.CORRECTION;
 
-  public void setAttributes(SLOCorrectionUpdateRequestAttributes attributes) {
-    this.attributes = attributes;
-  }
-
-  public SLOCorrectionUpdateData type(SLOCorrectionType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
-    return this;
-  }
-
-  /**
-   * Get type
-   *
-   * @return type
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SLOCorrectionType getType() {
-    return type;
-  }
-
-  public void setType(SLOCorrectionType type) {
-    if (!type.isValid()) {
-      this.unparsed = true;
+    public SLOCorrectionUpdateData attributes(SLOCorrectionUpdateRequestAttributes attributes) {
+        this.attributes = attributes;
+        this.unparsed |= attributes.unparsed;
+        return this;
     }
-    this.type = type;
-  }
 
-  /** Return true if this SLOCorrectionUpdateData object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * Get attributes
+     * @return attributes
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+    @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public SLOCorrectionUpdateRequestAttributes getAttributes() {
+        return attributes;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setAttributes(SLOCorrectionUpdateRequestAttributes attributes) {
+        this.attributes = attributes;
     }
-    SLOCorrectionUpdateData slOCorrectionUpdateData = (SLOCorrectionUpdateData) o;
-    return Objects.equals(this.attributes, slOCorrectionUpdateData.attributes)
-        && Objects.equals(this.type, slOCorrectionUpdateData.type);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(attributes, type);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class SLOCorrectionUpdateData {\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public SLOCorrectionUpdateData type(SLOCorrectionType type) {
+        this.type = type;
+        this.unparsed |= !type.isValid();
+        return this;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * Get type
+     * @return type
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+    @JsonProperty(JSON_PROPERTY_TYPE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public SLOCorrectionType getType() {
+        return type;
+    }
+
+    public void setType(SLOCorrectionType type) {
+        if (!type.isValid()) {
+            this.unparsed = true;
+        }
+        this.type = type;
+    }
+
+    /**
+     * Return true if this SLOCorrectionUpdateData object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        SLOCorrectionUpdateData slOCorrectionUpdateData = (SLOCorrectionUpdateData) o;
+        return (
+            Objects.equals(this.attributes, slOCorrectionUpdateData.attributes) && Objects.equals(this.type, slOCorrectionUpdateData.type)
+        );
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(attributes, type);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class SLOCorrectionUpdateData {\n");
+        sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+        sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

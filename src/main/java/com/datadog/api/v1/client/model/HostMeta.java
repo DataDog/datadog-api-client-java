@@ -10,89 +10,104 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JSON;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
-/** Metadata associated with your host. */
+/**
+ * Metadata associated with your host.
+ */
 @ApiModel(description = "Metadata associated with your host.")
-@JsonPropertyOrder({HostMeta.JSON_PROPERTY_NIX_V})
+@JsonPropertyOrder({ HostMeta.JSON_PROPERTY_NIX_V })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class HostMeta {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_NIX_V = "nixV";
-  private List<String> nixV = null;
 
-  public HostMeta nixV(List<String> nixV) {
-    this.nixV = nixV;
-    return this;
-  }
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  public HostMeta addNixVItem(String nixVItem) {
-    if (this.nixV == null) {
-      this.nixV = new ArrayList<>();
+    public static final String JSON_PROPERTY_NIX_V = "nixV";
+    private List<String> nixV = null;
+
+    public HostMeta nixV(List<String> nixV) {
+        this.nixV = nixV;
+        return this;
     }
-    this.nixV.add(nixVItem);
-    return this;
-  }
 
-  /**
-   * Array of Unix versions.
-   *
-   * @return nixV
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array of Unix versions.")
-  @JsonProperty(JSON_PROPERTY_NIX_V)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getNixV() {
-    return nixV;
-  }
-
-  public void setNixV(List<String> nixV) {
-    this.nixV = nixV;
-  }
-
-  /** Return true if this Host_meta object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public HostMeta addNixVItem(String nixVItem) {
+        if (this.nixV == null) {
+            this.nixV = new ArrayList<>();
+        }
+        this.nixV.add(nixVItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Array of Unix versions.
+     * @return nixV
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Array of Unix versions.")
+    @JsonProperty(JSON_PROPERTY_NIX_V)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public List<String> getNixV() {
+        return nixV;
     }
-    HostMeta hostMeta = (HostMeta) o;
-    return Objects.equals(this.nixV, hostMeta.nixV);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(nixV);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class HostMeta {\n");
-    sb.append("    nixV: ").append(toIndentedString(nixV)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setNixV(List<String> nixV) {
+        this.nixV = nixV;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * Return true if this Host_meta object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        HostMeta hostMeta = (HostMeta) o;
+        return Objects.equals(this.nixV, hostMeta.nixV);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nixV);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class HostMeta {\n");
+        sb.append("    nixV: ").append(toIndentedString(nixV)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

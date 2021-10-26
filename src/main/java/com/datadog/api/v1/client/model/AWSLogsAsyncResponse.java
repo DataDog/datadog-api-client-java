@@ -10,125 +10,134 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JSON;
+import com.datadog.api.v1.client.model.AWSLogsAsyncError;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
-/** A list of all Datadog-AWS logs integrations available in your Datadog organization. */
-@ApiModel(
-    description =
-        "A list of all Datadog-AWS logs integrations available in your Datadog organization.")
-@JsonPropertyOrder({
-  AWSLogsAsyncResponse.JSON_PROPERTY_ERRORS,
-  AWSLogsAsyncResponse.JSON_PROPERTY_STATUS
-})
+/**
+ * A list of all Datadog-AWS logs integrations available in your Datadog organization.
+ */
+@ApiModel(description = "A list of all Datadog-AWS logs integrations available in your Datadog organization.")
+@JsonPropertyOrder({ AWSLogsAsyncResponse.JSON_PROPERTY_ERRORS, AWSLogsAsyncResponse.JSON_PROPERTY_STATUS })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AWSLogsAsyncResponse {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ERRORS = "errors";
-  private List<AWSLogsAsyncError> errors = null;
 
-  public static final String JSON_PROPERTY_STATUS = "status";
-  private String status;
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  public AWSLogsAsyncResponse errors(List<AWSLogsAsyncError> errors) {
-    this.errors = errors;
-    for (AWSLogsAsyncError item : errors) {
-      this.unparsed |= item.unparsed;
+    public static final String JSON_PROPERTY_ERRORS = "errors";
+    private List<AWSLogsAsyncError> errors = null;
+
+    public static final String JSON_PROPERTY_STATUS = "status";
+    private String status;
+
+    public AWSLogsAsyncResponse errors(List<AWSLogsAsyncError> errors) {
+        this.errors = errors;
+        for (AWSLogsAsyncError item : errors) {
+            this.unparsed |= item.unparsed;
+        }
+        return this;
     }
-    return this;
-  }
 
-  public AWSLogsAsyncResponse addErrorsItem(AWSLogsAsyncError errorsItem) {
-    if (this.errors == null) {
-      this.errors = new ArrayList<>();
+    public AWSLogsAsyncResponse addErrorsItem(AWSLogsAsyncError errorsItem) {
+        if (this.errors == null) {
+            this.errors = new ArrayList<>();
+        }
+        this.errors.add(errorsItem);
+        this.unparsed |= errorsItem.unparsed;
+        return this;
     }
-    this.errors.add(errorsItem);
-    this.unparsed |= errorsItem.unparsed;
-    return this;
-  }
 
-  /**
-   * List of errors.
-   *
-   * @return errors
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of errors.")
-  @JsonProperty(JSON_PROPERTY_ERRORS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<AWSLogsAsyncError> getErrors() {
-    return errors;
-  }
-
-  public void setErrors(List<AWSLogsAsyncError> errors) {
-    this.errors = errors;
-  }
-
-  public AWSLogsAsyncResponse status(String status) {
-    this.status = status;
-    return this;
-  }
-
-  /**
-   * Status of the properties.
-   *
-   * @return status
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "created", value = "Status of the properties.")
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
-
-  /** Return true if this AWSLogsAsyncResponse object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * List of errors.
+     * @return errors
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "List of errors.")
+    @JsonProperty(JSON_PROPERTY_ERRORS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public List<AWSLogsAsyncError> getErrors() {
+        return errors;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setErrors(List<AWSLogsAsyncError> errors) {
+        this.errors = errors;
     }
-    AWSLogsAsyncResponse awSLogsAsyncResponse = (AWSLogsAsyncResponse) o;
-    return Objects.equals(this.errors, awSLogsAsyncResponse.errors)
-        && Objects.equals(this.status, awSLogsAsyncResponse.status);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(errors, status);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class AWSLogsAsyncResponse {\n");
-    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public AWSLogsAsyncResponse status(String status) {
+        this.status = status;
+        return this;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * Status of the properties.
+     * @return status
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(example = "created", value = "Status of the properties.")
+    @JsonProperty(JSON_PROPERTY_STATUS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    /**
+     * Return true if this AWSLogsAsyncResponse object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        AWSLogsAsyncResponse awSLogsAsyncResponse = (AWSLogsAsyncResponse) o;
+        return Objects.equals(this.errors, awSLogsAsyncResponse.errors) && Objects.equals(this.status, awSLogsAsyncResponse.status);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(errors, status);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class AWSLogsAsyncResponse {\n");
+        sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
+        sb.append("    status: ").append(toIndentedString(status)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

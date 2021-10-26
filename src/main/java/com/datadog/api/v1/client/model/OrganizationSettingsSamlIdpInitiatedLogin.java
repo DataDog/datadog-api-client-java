@@ -10,85 +10,97 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JSON;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
-/** Has one property enabled (boolean). */
+/**
+ * Has one property enabled (boolean).
+ */
 @ApiModel(description = "Has one property enabled (boolean).")
-@JsonPropertyOrder({OrganizationSettingsSamlIdpInitiatedLogin.JSON_PROPERTY_ENABLED})
+@JsonPropertyOrder({ OrganizationSettingsSamlIdpInitiatedLogin.JSON_PROPERTY_ENABLED })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class OrganizationSettingsSamlIdpInitiatedLogin {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ENABLED = "enabled";
-  private Boolean enabled;
 
-  public OrganizationSettingsSamlIdpInitiatedLogin enabled(Boolean enabled) {
-    this.enabled = enabled;
-    return this;
-  }
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  /**
-   * Whether SAML IdP initiated login is enabled, learn more in the [SAML
-   * documentation](https://docs.datadoghq.com/account_management/saml/#idp-initiated-login).
-   *
-   * @return enabled
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "false",
-      value =
-          "Whether SAML IdP initiated login is enabled, learn more in the [SAML"
-              + " documentation](https://docs.datadoghq.com/account_management/saml/#idp-initiated-login).")
-  @JsonProperty(JSON_PROPERTY_ENABLED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getEnabled() {
-    return enabled;
-  }
+    public static final String JSON_PROPERTY_ENABLED = "enabled";
+    private Boolean enabled;
 
-  public void setEnabled(Boolean enabled) {
-    this.enabled = enabled;
-  }
-
-  /** Return true if this Organization_settings_saml_idp_initiated_login object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public OrganizationSettingsSamlIdpInitiatedLogin enabled(Boolean enabled) {
+        this.enabled = enabled;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Whether SAML IdP initiated login is enabled, learn more in the [SAML documentation](https://docs.datadoghq.com/account_management/saml/#idp-initiated-login).
+     * @return enabled
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(
+        example = "false",
+        value = "Whether SAML IdP initiated login is enabled, learn more in the [SAML documentation](https://docs.datadoghq.com/account_management/saml/#idp-initiated-login)."
+    )
+    @JsonProperty(JSON_PROPERTY_ENABLED)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Boolean getEnabled() {
+        return enabled;
     }
-    OrganizationSettingsSamlIdpInitiatedLogin organizationSettingsSamlIdpInitiatedLogin =
-        (OrganizationSettingsSamlIdpInitiatedLogin) o;
-    return Objects.equals(this.enabled, organizationSettingsSamlIdpInitiatedLogin.enabled);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(enabled);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class OrganizationSettingsSamlIdpInitiatedLogin {\n");
-    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * Return true if this Organization_settings_saml_idp_initiated_login object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        OrganizationSettingsSamlIdpInitiatedLogin organizationSettingsSamlIdpInitiatedLogin = (OrganizationSettingsSamlIdpInitiatedLogin) o;
+        return Objects.equals(this.enabled, organizationSettingsSamlIdpInitiatedLogin.enabled);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(enabled);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class OrganizationSettingsSamlIdpInitiatedLogin {\n");
+        sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

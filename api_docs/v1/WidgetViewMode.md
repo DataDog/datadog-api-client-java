@@ -1,15 +1,9 @@
-
-
 # WidgetViewMode
 
 ## Enum
 
+- `OVERALL` (value: `"overall"`)
 
-* `OVERALL` (value: `"overall"`)
+- `COMPONENT` (value: `"component"`)
 
-* `COMPONENT` (value: `"component"`)
-
-* `BOTH` (value: `"both"`)
-
-
-
+- `BOTH` (value: `"both"`)

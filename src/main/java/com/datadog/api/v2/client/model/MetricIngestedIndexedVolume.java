@@ -10,142 +10,161 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.datadog.api.v2.client.JSON;
+import com.datadog.api.v2.client.model.MetricIngestedIndexedVolumeAttributes;
+import com.datadog.api.v2.client.model.MetricIngestedIndexedVolumeType;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
-/** Object for a single metric&#39;s ingested and indexed volume. */
+/**
+ * Object for a single metric&#39;s ingested and indexed volume.
+ */
 @ApiModel(description = "Object for a single metric's ingested and indexed volume.")
-@JsonPropertyOrder({
-  MetricIngestedIndexedVolume.JSON_PROPERTY_ATTRIBUTES,
-  MetricIngestedIndexedVolume.JSON_PROPERTY_ID,
-  MetricIngestedIndexedVolume.JSON_PROPERTY_TYPE
-})
+@JsonPropertyOrder(
+    {
+        MetricIngestedIndexedVolume.JSON_PROPERTY_ATTRIBUTES,
+        MetricIngestedIndexedVolume.JSON_PROPERTY_ID,
+        MetricIngestedIndexedVolume.JSON_PROPERTY_TYPE
+    }
+)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MetricIngestedIndexedVolume {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private MetricIngestedIndexedVolumeAttributes attributes;
 
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private MetricIngestedIndexedVolumeType type = MetricIngestedIndexedVolumeType.METRIC_VOLUMES;
+    public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+    private MetricIngestedIndexedVolumeAttributes attributes;
 
-  public MetricIngestedIndexedVolume attributes(MetricIngestedIndexedVolumeAttributes attributes) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
-    return this;
-  }
+    public static final String JSON_PROPERTY_ID = "id";
+    private String id;
 
-  /**
-   * Get attributes
-   *
-   * @return attributes
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public MetricIngestedIndexedVolumeAttributes getAttributes() {
-    return attributes;
-  }
+    public static final String JSON_PROPERTY_TYPE = "type";
+    private MetricIngestedIndexedVolumeType type = MetricIngestedIndexedVolumeType.METRIC_VOLUMES;
 
-  public void setAttributes(MetricIngestedIndexedVolumeAttributes attributes) {
-    this.attributes = attributes;
-  }
-
-  public MetricIngestedIndexedVolume id(String id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * The metric name for this resource.
-   *
-   * @return id
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "test.metric.latency", value = "The metric name for this resource.")
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public MetricIngestedIndexedVolume type(MetricIngestedIndexedVolumeType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
-    return this;
-  }
-
-  /**
-   * Get type
-   *
-   * @return type
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public MetricIngestedIndexedVolumeType getType() {
-    return type;
-  }
-
-  public void setType(MetricIngestedIndexedVolumeType type) {
-    if (!type.isValid()) {
-      this.unparsed = true;
+    public MetricIngestedIndexedVolume attributes(MetricIngestedIndexedVolumeAttributes attributes) {
+        this.attributes = attributes;
+        this.unparsed |= attributes.unparsed;
+        return this;
     }
-    this.type = type;
-  }
 
-  /** Return true if this MetricIngestedIndexedVolume object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * Get attributes
+     * @return attributes
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+    @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public MetricIngestedIndexedVolumeAttributes getAttributes() {
+        return attributes;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setAttributes(MetricIngestedIndexedVolumeAttributes attributes) {
+        this.attributes = attributes;
     }
-    MetricIngestedIndexedVolume metricIngestedIndexedVolume = (MetricIngestedIndexedVolume) o;
-    return Objects.equals(this.attributes, metricIngestedIndexedVolume.attributes)
-        && Objects.equals(this.id, metricIngestedIndexedVolume.id)
-        && Objects.equals(this.type, metricIngestedIndexedVolume.type);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(attributes, id, type);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class MetricIngestedIndexedVolume {\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public MetricIngestedIndexedVolume id(String id) {
+        this.id = id;
+        return this;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * The metric name for this resource.
+     * @return id
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(example = "test.metric.latency", value = "The metric name for this resource.")
+    @JsonProperty(JSON_PROPERTY_ID)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public MetricIngestedIndexedVolume type(MetricIngestedIndexedVolumeType type) {
+        this.type = type;
+        this.unparsed |= !type.isValid();
+        return this;
+    }
+
+    /**
+     * Get type
+     * @return type
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+    @JsonProperty(JSON_PROPERTY_TYPE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public MetricIngestedIndexedVolumeType getType() {
+        return type;
+    }
+
+    public void setType(MetricIngestedIndexedVolumeType type) {
+        if (!type.isValid()) {
+            this.unparsed = true;
+        }
+        this.type = type;
+    }
+
+    /**
+     * Return true if this MetricIngestedIndexedVolume object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        MetricIngestedIndexedVolume metricIngestedIndexedVolume = (MetricIngestedIndexedVolume) o;
+        return (
+            Objects.equals(this.attributes, metricIngestedIndexedVolume.attributes) &&
+            Objects.equals(this.id, metricIngestedIndexedVolume.id) &&
+            Objects.equals(this.type, metricIngestedIndexedVolume.type)
+        );
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(attributes, id, type);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class MetricIngestedIndexedVolume {\n");
+        sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+        sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

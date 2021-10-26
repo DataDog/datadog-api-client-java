@@ -10,112 +10,125 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JSON;
+import com.datadog.api.v1.client.model.HostMapRequest;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
-/** List of definitions. */
+/**
+ * List of definitions.
+ */
 @ApiModel(description = "List of definitions.")
-@JsonPropertyOrder({
-  HostMapWidgetDefinitionRequests.JSON_PROPERTY_FILL,
-  HostMapWidgetDefinitionRequests.JSON_PROPERTY_SIZE
-})
+@JsonPropertyOrder({ HostMapWidgetDefinitionRequests.JSON_PROPERTY_FILL, HostMapWidgetDefinitionRequests.JSON_PROPERTY_SIZE })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class HostMapWidgetDefinitionRequests {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_FILL = "fill";
-  private HostMapRequest fill;
 
-  public static final String JSON_PROPERTY_SIZE = "size";
-  private HostMapRequest size;
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  public HostMapWidgetDefinitionRequests fill(HostMapRequest fill) {
-    this.fill = fill;
-    this.unparsed |= fill.unparsed;
-    return this;
-  }
+    public static final String JSON_PROPERTY_FILL = "fill";
+    private HostMapRequest fill;
 
-  /**
-   * Get fill
-   *
-   * @return fill
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_FILL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public HostMapRequest getFill() {
-    return fill;
-  }
+    public static final String JSON_PROPERTY_SIZE = "size";
+    private HostMapRequest size;
 
-  public void setFill(HostMapRequest fill) {
-    this.fill = fill;
-  }
-
-  public HostMapWidgetDefinitionRequests size(HostMapRequest size) {
-    this.size = size;
-    this.unparsed |= size.unparsed;
-    return this;
-  }
-
-  /**
-   * Get size
-   *
-   * @return size
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_SIZE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public HostMapRequest getSize() {
-    return size;
-  }
-
-  public void setSize(HostMapRequest size) {
-    this.size = size;
-  }
-
-  /** Return true if this HostMapWidgetDefinition_requests object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public HostMapWidgetDefinitionRequests fill(HostMapRequest fill) {
+        this.fill = fill;
+        this.unparsed |= fill.unparsed;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get fill
+     * @return fill
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+    @JsonProperty(JSON_PROPERTY_FILL)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public HostMapRequest getFill() {
+        return fill;
     }
-    HostMapWidgetDefinitionRequests hostMapWidgetDefinitionRequests =
-        (HostMapWidgetDefinitionRequests) o;
-    return Objects.equals(this.fill, hostMapWidgetDefinitionRequests.fill)
-        && Objects.equals(this.size, hostMapWidgetDefinitionRequests.size);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(fill, size);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class HostMapWidgetDefinitionRequests {\n");
-    sb.append("    fill: ").append(toIndentedString(fill)).append("\n");
-    sb.append("    size: ").append(toIndentedString(size)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setFill(HostMapRequest fill) {
+        this.fill = fill;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public HostMapWidgetDefinitionRequests size(HostMapRequest size) {
+        this.size = size;
+        this.unparsed |= size.unparsed;
+        return this;
+    }
+
+    /**
+     * Get size
+     * @return size
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+    @JsonProperty(JSON_PROPERTY_SIZE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public HostMapRequest getSize() {
+        return size;
+    }
+
+    public void setSize(HostMapRequest size) {
+        this.size = size;
+    }
+
+    /**
+     * Return true if this HostMapWidgetDefinition_requests object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        HostMapWidgetDefinitionRequests hostMapWidgetDefinitionRequests = (HostMapWidgetDefinitionRequests) o;
+        return (
+            Objects.equals(this.fill, hostMapWidgetDefinitionRequests.fill) &&
+            Objects.equals(this.size, hostMapWidgetDefinitionRequests.size)
+        );
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fill, size);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class HostMapWidgetDefinitionRequests {\n");
+        sb.append("    fill: ").append(toIndentedString(fill)).append("\n");
+        sb.append("    size: ").append(toIndentedString(size)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

@@ -27,75 +27,73 @@ import java.util.Set;
 @JsonSerialize(using = MetricCustomSpaceAggregation.MetricCustomSpaceAggregationSerializer.class)
 public class MetricCustomSpaceAggregation {
 
-  public static final MetricCustomSpaceAggregation AVG = new MetricCustomSpaceAggregation("avg");
-  public static final MetricCustomSpaceAggregation MAX = new MetricCustomSpaceAggregation("max");
-  public static final MetricCustomSpaceAggregation MIN = new MetricCustomSpaceAggregation("min");
-  public static final MetricCustomSpaceAggregation SUM = new MetricCustomSpaceAggregation("sum");
+    public static final MetricCustomSpaceAggregation AVG = new MetricCustomSpaceAggregation("avg");
+    public static final MetricCustomSpaceAggregation MAX = new MetricCustomSpaceAggregation("max");
+    public static final MetricCustomSpaceAggregation MIN = new MetricCustomSpaceAggregation("min");
+    public static final MetricCustomSpaceAggregation SUM = new MetricCustomSpaceAggregation("sum");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("avg", "max", "min", "sum"));
+    private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("avg", "max", "min", "sum"));
 
-  private String value;
+    private String value;
 
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
-
-  MetricCustomSpaceAggregation(String value) {
-    this.value = value;
-  }
-
-  public static class MetricCustomSpaceAggregationSerializer
-      extends StdSerializer<MetricCustomSpaceAggregation> {
-    public MetricCustomSpaceAggregationSerializer(Class<MetricCustomSpaceAggregation> t) {
-      super(t);
+    public boolean isValid() {
+        return allowedValues.contains(this.value);
     }
 
-    public MetricCustomSpaceAggregationSerializer() {
-      this(null);
+    MetricCustomSpaceAggregation(String value) {
+        this.value = value;
+    }
+
+    public static class MetricCustomSpaceAggregationSerializer extends StdSerializer<MetricCustomSpaceAggregation> {
+
+        public MetricCustomSpaceAggregationSerializer(Class<MetricCustomSpaceAggregation> t) {
+            super(t);
+        }
+
+        public MetricCustomSpaceAggregationSerializer() {
+            this(null);
+        }
+
+        @Override
+        public void serialize(MetricCustomSpaceAggregation value, JsonGenerator jgen, SerializerProvider provider)
+            throws IOException, JsonProcessingException {
+            jgen.writeObject(value.value);
+        }
+    }
+
+    @JsonValue
+    public String getValue() {
+        return this.value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    /** Return true if this MetricCustomSpaceAggregation object is equal to o. */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        return this.value.equals(((MetricCustomSpaceAggregation) o).value);
     }
 
     @Override
-    public void serialize(
-        MetricCustomSpaceAggregation value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
+    public int hashCode() {
+        return Objects.hash(value);
     }
-  }
 
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this MetricCustomSpaceAggregation object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    @Override
+    public String toString() {
+        return String.valueOf(value);
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    @JsonCreator
+    public static MetricCustomSpaceAggregation fromValue(String value) {
+        return new MetricCustomSpaceAggregation(value);
     }
-    return this.value.equals(((MetricCustomSpaceAggregation) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
-  }
-
-  @JsonCreator
-  public static MetricCustomSpaceAggregation fromValue(String value) {
-    return new MetricCustomSpaceAggregation(value);
-  }
 }

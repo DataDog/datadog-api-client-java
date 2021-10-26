@@ -10,226 +10,242 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JSON;
+import com.datadog.api.v1.client.model.LogQueryDefinitionGroupBy;
+import com.datadog.api.v1.client.model.LogQueryDefinitionSearch;
+import com.datadog.api.v1.client.model.LogsQueryCompute;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
-/** The log query. */
+/**
+ * The log query.
+ */
 @ApiModel(description = "The log query.")
-@JsonPropertyOrder({
-  LogQueryDefinition.JSON_PROPERTY_COMPUTE,
-  LogQueryDefinition.JSON_PROPERTY_GROUP_BY,
-  LogQueryDefinition.JSON_PROPERTY_INDEX,
-  LogQueryDefinition.JSON_PROPERTY_MULTI_COMPUTE,
-  LogQueryDefinition.JSON_PROPERTY_SEARCH
-})
+@JsonPropertyOrder(
+    {
+        LogQueryDefinition.JSON_PROPERTY_COMPUTE,
+        LogQueryDefinition.JSON_PROPERTY_GROUP_BY,
+        LogQueryDefinition.JSON_PROPERTY_INDEX,
+        LogQueryDefinition.JSON_PROPERTY_MULTI_COMPUTE,
+        LogQueryDefinition.JSON_PROPERTY_SEARCH
+    }
+)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogQueryDefinition {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_COMPUTE = "compute";
-  private LogsQueryCompute compute;
 
-  public static final String JSON_PROPERTY_GROUP_BY = "group_by";
-  private List<LogQueryDefinitionGroupBy> groupBy = null;
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  public static final String JSON_PROPERTY_INDEX = "index";
-  private String index;
+    public static final String JSON_PROPERTY_COMPUTE = "compute";
+    private LogsQueryCompute compute;
 
-  public static final String JSON_PROPERTY_MULTI_COMPUTE = "multi_compute";
-  private List<LogsQueryCompute> multiCompute = null;
+    public static final String JSON_PROPERTY_GROUP_BY = "group_by";
+    private List<LogQueryDefinitionGroupBy> groupBy = null;
 
-  public static final String JSON_PROPERTY_SEARCH = "search";
-  private LogQueryDefinitionSearch search;
+    public static final String JSON_PROPERTY_INDEX = "index";
+    private String index;
 
-  public LogQueryDefinition compute(LogsQueryCompute compute) {
-    this.compute = compute;
-    this.unparsed |= compute.unparsed;
-    return this;
-  }
+    public static final String JSON_PROPERTY_MULTI_COMPUTE = "multi_compute";
+    private List<LogsQueryCompute> multiCompute = null;
 
-  /**
-   * Get compute
-   *
-   * @return compute
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_COMPUTE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LogsQueryCompute getCompute() {
-    return compute;
-  }
+    public static final String JSON_PROPERTY_SEARCH = "search";
+    private LogQueryDefinitionSearch search;
 
-  public void setCompute(LogsQueryCompute compute) {
-    this.compute = compute;
-  }
-
-  public LogQueryDefinition groupBy(List<LogQueryDefinitionGroupBy> groupBy) {
-    this.groupBy = groupBy;
-    for (LogQueryDefinitionGroupBy item : groupBy) {
-      this.unparsed |= item.unparsed;
+    public LogQueryDefinition compute(LogsQueryCompute compute) {
+        this.compute = compute;
+        this.unparsed |= compute.unparsed;
+        return this;
     }
-    return this;
-  }
 
-  public LogQueryDefinition addGroupByItem(LogQueryDefinitionGroupBy groupByItem) {
-    if (this.groupBy == null) {
-      this.groupBy = new ArrayList<>();
+    /**
+     * Get compute
+     * @return compute
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+    @JsonProperty(JSON_PROPERTY_COMPUTE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public LogsQueryCompute getCompute() {
+        return compute;
     }
-    this.groupBy.add(groupByItem);
-    this.unparsed |= groupByItem.unparsed;
-    return this;
-  }
 
-  /**
-   * List of tag prefixes to group by in the case of a cluster check.
-   *
-   * @return groupBy
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of tag prefixes to group by in the case of a cluster check.")
-  @JsonProperty(JSON_PROPERTY_GROUP_BY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<LogQueryDefinitionGroupBy> getGroupBy() {
-    return groupBy;
-  }
-
-  public void setGroupBy(List<LogQueryDefinitionGroupBy> groupBy) {
-    this.groupBy = groupBy;
-  }
-
-  public LogQueryDefinition index(String index) {
-    this.index = index;
-    return this;
-  }
-
-  /**
-   * A coma separated-list of index names. Use \&quot;*\&quot; query all indexes at once. [Multiple
-   * Indexes](https://docs.datadoghq.com/logs/indexes/#multiple-indexes)
-   *
-   * @return index
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "days-3,days-7",
-      value =
-          "A coma separated-list of index names. Use \"*\" query all indexes at once. [Multiple"
-              + " Indexes](https://docs.datadoghq.com/logs/indexes/#multiple-indexes)")
-  @JsonProperty(JSON_PROPERTY_INDEX)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getIndex() {
-    return index;
-  }
-
-  public void setIndex(String index) {
-    this.index = index;
-  }
-
-  public LogQueryDefinition multiCompute(List<LogsQueryCompute> multiCompute) {
-    this.multiCompute = multiCompute;
-    for (LogsQueryCompute item : multiCompute) {
-      this.unparsed |= item.unparsed;
+    public void setCompute(LogsQueryCompute compute) {
+        this.compute = compute;
     }
-    return this;
-  }
 
-  public LogQueryDefinition addMultiComputeItem(LogsQueryCompute multiComputeItem) {
-    if (this.multiCompute == null) {
-      this.multiCompute = new ArrayList<>();
+    public LogQueryDefinition groupBy(List<LogQueryDefinitionGroupBy> groupBy) {
+        this.groupBy = groupBy;
+        for (LogQueryDefinitionGroupBy item : groupBy) {
+            this.unparsed |= item.unparsed;
+        }
+        return this;
     }
-    this.multiCompute.add(multiComputeItem);
-    this.unparsed |= multiComputeItem.unparsed;
-    return this;
-  }
 
-  /**
-   * This field is mutually exclusive with &#x60;compute&#x60;.
-   *
-   * @return multiCompute
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "This field is mutually exclusive with `compute`.")
-  @JsonProperty(JSON_PROPERTY_MULTI_COMPUTE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<LogsQueryCompute> getMultiCompute() {
-    return multiCompute;
-  }
-
-  public void setMultiCompute(List<LogsQueryCompute> multiCompute) {
-    this.multiCompute = multiCompute;
-  }
-
-  public LogQueryDefinition search(LogQueryDefinitionSearch search) {
-    this.search = search;
-    this.unparsed |= search.unparsed;
-    return this;
-  }
-
-  /**
-   * Get search
-   *
-   * @return search
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_SEARCH)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LogQueryDefinitionSearch getSearch() {
-    return search;
-  }
-
-  public void setSearch(LogQueryDefinitionSearch search) {
-    this.search = search;
-  }
-
-  /** Return true if this LogQueryDefinition object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public LogQueryDefinition addGroupByItem(LogQueryDefinitionGroupBy groupByItem) {
+        if (this.groupBy == null) {
+            this.groupBy = new ArrayList<>();
+        }
+        this.groupBy.add(groupByItem);
+        this.unparsed |= groupByItem.unparsed;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * List of tag prefixes to group by in the case of a cluster check.
+     * @return groupBy
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "List of tag prefixes to group by in the case of a cluster check.")
+    @JsonProperty(JSON_PROPERTY_GROUP_BY)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public List<LogQueryDefinitionGroupBy> getGroupBy() {
+        return groupBy;
     }
-    LogQueryDefinition logQueryDefinition = (LogQueryDefinition) o;
-    return Objects.equals(this.compute, logQueryDefinition.compute)
-        && Objects.equals(this.groupBy, logQueryDefinition.groupBy)
-        && Objects.equals(this.index, logQueryDefinition.index)
-        && Objects.equals(this.multiCompute, logQueryDefinition.multiCompute)
-        && Objects.equals(this.search, logQueryDefinition.search);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(compute, groupBy, index, multiCompute, search);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class LogQueryDefinition {\n");
-    sb.append("    compute: ").append(toIndentedString(compute)).append("\n");
-    sb.append("    groupBy: ").append(toIndentedString(groupBy)).append("\n");
-    sb.append("    index: ").append(toIndentedString(index)).append("\n");
-    sb.append("    multiCompute: ").append(toIndentedString(multiCompute)).append("\n");
-    sb.append("    search: ").append(toIndentedString(search)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setGroupBy(List<LogQueryDefinitionGroupBy> groupBy) {
+        this.groupBy = groupBy;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public LogQueryDefinition index(String index) {
+        this.index = index;
+        return this;
+    }
+
+    /**
+     * A coma separated-list of index names. Use \&quot;*\&quot; query all indexes at once. [Multiple Indexes](https://docs.datadoghq.com/logs/indexes/#multiple-indexes)
+     * @return index
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(
+        example = "days-3,days-7",
+        value = "A coma separated-list of index names. Use \"*\" query all indexes at once. [Multiple Indexes](https://docs.datadoghq.com/logs/indexes/#multiple-indexes)"
+    )
+    @JsonProperty(JSON_PROPERTY_INDEX)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getIndex() {
+        return index;
+    }
+
+    public void setIndex(String index) {
+        this.index = index;
+    }
+
+    public LogQueryDefinition multiCompute(List<LogsQueryCompute> multiCompute) {
+        this.multiCompute = multiCompute;
+        for (LogsQueryCompute item : multiCompute) {
+            this.unparsed |= item.unparsed;
+        }
+        return this;
+    }
+
+    public LogQueryDefinition addMultiComputeItem(LogsQueryCompute multiComputeItem) {
+        if (this.multiCompute == null) {
+            this.multiCompute = new ArrayList<>();
+        }
+        this.multiCompute.add(multiComputeItem);
+        this.unparsed |= multiComputeItem.unparsed;
+        return this;
+    }
+
+    /**
+     * This field is mutually exclusive with &#x60;compute&#x60;.
+     * @return multiCompute
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "This field is mutually exclusive with `compute`.")
+    @JsonProperty(JSON_PROPERTY_MULTI_COMPUTE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public List<LogsQueryCompute> getMultiCompute() {
+        return multiCompute;
+    }
+
+    public void setMultiCompute(List<LogsQueryCompute> multiCompute) {
+        this.multiCompute = multiCompute;
+    }
+
+    public LogQueryDefinition search(LogQueryDefinitionSearch search) {
+        this.search = search;
+        this.unparsed |= search.unparsed;
+        return this;
+    }
+
+    /**
+     * Get search
+     * @return search
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+    @JsonProperty(JSON_PROPERTY_SEARCH)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public LogQueryDefinitionSearch getSearch() {
+        return search;
+    }
+
+    public void setSearch(LogQueryDefinitionSearch search) {
+        this.search = search;
+    }
+
+    /**
+     * Return true if this LogQueryDefinition object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        LogQueryDefinition logQueryDefinition = (LogQueryDefinition) o;
+        return (
+            Objects.equals(this.compute, logQueryDefinition.compute) &&
+            Objects.equals(this.groupBy, logQueryDefinition.groupBy) &&
+            Objects.equals(this.index, logQueryDefinition.index) &&
+            Objects.equals(this.multiCompute, logQueryDefinition.multiCompute) &&
+            Objects.equals(this.search, logQueryDefinition.search)
+        );
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(compute, groupBy, index, multiCompute, search);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class LogQueryDefinition {\n");
+        sb.append("    compute: ").append(toIndentedString(compute)).append("\n");
+        sb.append("    groupBy: ").append(toIndentedString(groupBy)).append("\n");
+        sb.append("    index: ").append(toIndentedString(index)).append("\n");
+        sb.append("    multiCompute: ").append(toIndentedString(multiCompute)).append("\n");
+        sb.append("    search: ").append(toIndentedString(search)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

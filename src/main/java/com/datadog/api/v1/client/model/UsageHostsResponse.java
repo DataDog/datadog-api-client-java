@@ -10,93 +10,109 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JSON;
+import com.datadog.api.v1.client.model.UsageHostHour;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
-/** Host usage response. */
+/**
+ * Host usage response.
+ */
 @ApiModel(description = "Host usage response.")
-@JsonPropertyOrder({UsageHostsResponse.JSON_PROPERTY_USAGE})
+@JsonPropertyOrder({ UsageHostsResponse.JSON_PROPERTY_USAGE })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageHostsResponse {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_USAGE = "usage";
-  private List<UsageHostHour> usage = null;
 
-  public UsageHostsResponse usage(List<UsageHostHour> usage) {
-    this.usage = usage;
-    for (UsageHostHour item : usage) {
-      this.unparsed |= item.unparsed;
+    @JsonIgnore
+    public boolean unparsed = false;
+
+    public static final String JSON_PROPERTY_USAGE = "usage";
+    private List<UsageHostHour> usage = null;
+
+    public UsageHostsResponse usage(List<UsageHostHour> usage) {
+        this.usage = usage;
+        for (UsageHostHour item : usage) {
+            this.unparsed |= item.unparsed;
+        }
+        return this;
     }
-    return this;
-  }
 
-  public UsageHostsResponse addUsageItem(UsageHostHour usageItem) {
-    if (this.usage == null) {
-      this.usage = new ArrayList<>();
+    public UsageHostsResponse addUsageItem(UsageHostHour usageItem) {
+        if (this.usage == null) {
+            this.usage = new ArrayList<>();
+        }
+        this.usage.add(usageItem);
+        this.unparsed |= usageItem.unparsed;
+        return this;
     }
-    this.usage.add(usageItem);
-    this.unparsed |= usageItem.unparsed;
-    return this;
-  }
 
-  /**
-   * An array of objects related to host usage.
-   *
-   * @return usage
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "An array of objects related to host usage.")
-  @JsonProperty(JSON_PROPERTY_USAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<UsageHostHour> getUsage() {
-    return usage;
-  }
-
-  public void setUsage(List<UsageHostHour> usage) {
-    this.usage = usage;
-  }
-
-  /** Return true if this UsageHostsResponse object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * An array of objects related to host usage.
+     * @return usage
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "An array of objects related to host usage.")
+    @JsonProperty(JSON_PROPERTY_USAGE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public List<UsageHostHour> getUsage() {
+        return usage;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setUsage(List<UsageHostHour> usage) {
+        this.usage = usage;
     }
-    UsageHostsResponse usageHostsResponse = (UsageHostsResponse) o;
-    return Objects.equals(this.usage, usageHostsResponse.usage);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(usage);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class UsageHostsResponse {\n");
-    sb.append("    usage: ").append(toIndentedString(usage)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    /**
+     * Return true if this UsageHostsResponse object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        UsageHostsResponse usageHostsResponse = (UsageHostsResponse) o;
+        return Objects.equals(this.usage, usageHostsResponse.usage);
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(usage);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class UsageHostsResponse {\n");
+        sb.append("    usage: ").append(toIndentedString(usage)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

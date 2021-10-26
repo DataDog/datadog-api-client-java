@@ -10,121 +10,137 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.datadog.api.v2.client.JSON;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
-/** The incident team&#39;s attributes from a response. */
+/**
+ * The incident team&#39;s attributes from a response.
+ */
 @ApiModel(description = "The incident team's attributes from a response.")
-@JsonPropertyOrder({
-  IncidentTeamResponseAttributes.JSON_PROPERTY_CREATED,
-  IncidentTeamResponseAttributes.JSON_PROPERTY_MODIFIED,
-  IncidentTeamResponseAttributes.JSON_PROPERTY_NAME
-})
+@JsonPropertyOrder(
+    {
+        IncidentTeamResponseAttributes.JSON_PROPERTY_CREATED,
+        IncidentTeamResponseAttributes.JSON_PROPERTY_MODIFIED,
+        IncidentTeamResponseAttributes.JSON_PROPERTY_NAME
+    }
+)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IncidentTeamResponseAttributes {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_CREATED = "created";
-  private OffsetDateTime created;
 
-  public static final String JSON_PROPERTY_MODIFIED = "modified";
-  private OffsetDateTime modified;
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+    public static final String JSON_PROPERTY_CREATED = "created";
+    private OffsetDateTime created;
 
-  /**
-   * Timestamp of when the incident team was created.
-   *
-   * @return created
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp of when the incident team was created.")
-  @JsonProperty(JSON_PROPERTY_CREATED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getCreated() {
-    return created;
-  }
+    public static final String JSON_PROPERTY_MODIFIED = "modified";
+    private OffsetDateTime modified;
 
-  /**
-   * Timestamp of when the incident team was modified.
-   *
-   * @return modified
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp of when the incident team was modified.")
-  @JsonProperty(JSON_PROPERTY_MODIFIED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getModified() {
-    return modified;
-  }
+    public static final String JSON_PROPERTY_NAME = "name";
+    private String name;
 
-  public IncidentTeamResponseAttributes name(String name) {
-    this.name = name;
-    return this;
-  }
-
-  /**
-   * Name of the incident team.
-   *
-   * @return name
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "team name", value = "Name of the incident team.")
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  /** Return true if this IncidentTeamResponseAttributes object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * Timestamp of when the incident team was created.
+     * @return created
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Timestamp of when the incident team was created.")
+    @JsonProperty(JSON_PROPERTY_CREATED)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public OffsetDateTime getCreated() {
+        return created;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Timestamp of when the incident team was modified.
+     * @return modified
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Timestamp of when the incident team was modified.")
+    @JsonProperty(JSON_PROPERTY_MODIFIED)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public OffsetDateTime getModified() {
+        return modified;
     }
-    IncidentTeamResponseAttributes incidentTeamResponseAttributes =
-        (IncidentTeamResponseAttributes) o;
-    return Objects.equals(this.created, incidentTeamResponseAttributes.created)
-        && Objects.equals(this.modified, incidentTeamResponseAttributes.modified)
-        && Objects.equals(this.name, incidentTeamResponseAttributes.name);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(created, modified, name);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class IncidentTeamResponseAttributes {\n");
-    sb.append("    created: ").append(toIndentedString(created)).append("\n");
-    sb.append("    modified: ").append(toIndentedString(modified)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public IncidentTeamResponseAttributes name(String name) {
+        this.name = name;
+        return this;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * Name of the incident team.
+     * @return name
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(example = "team name", value = "Name of the incident team.")
+    @JsonProperty(JSON_PROPERTY_NAME)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * Return true if this IncidentTeamResponseAttributes object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        IncidentTeamResponseAttributes incidentTeamResponseAttributes = (IncidentTeamResponseAttributes) o;
+        return (
+            Objects.equals(this.created, incidentTeamResponseAttributes.created) &&
+            Objects.equals(this.modified, incidentTeamResponseAttributes.modified) &&
+            Objects.equals(this.name, incidentTeamResponseAttributes.name)
+        );
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(created, modified, name);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class IncidentTeamResponseAttributes {\n");
+        sb.append("    created: ").append(toIndentedString(created)).append("\n");
+        sb.append("    modified: ").append(toIndentedString(modified)).append("\n");
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

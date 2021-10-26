@@ -14,98 +14,99 @@ import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IpRangesApi {
-  private ApiClient apiClient;
 
-  public IpRangesApi() {
-    this(Configuration.getDefaultApiClient());
-  }
+    private ApiClient apiClient;
 
-  public IpRangesApi(ApiClient apiClient) {
-    this.apiClient = apiClient;
-  }
+    public IpRangesApi() {
+        this(Configuration.getDefaultApiClient());
+    }
 
-  /**
-   * Get the API client
-   *
-   * @return API client
-   */
-  public ApiClient getApiClient() {
-    return apiClient;
-  }
+    public IpRangesApi(ApiClient apiClient) {
+        this.apiClient = apiClient;
+    }
 
-  /**
-   * Set the API client
-   *
-   * @param apiClient an instance of API client
-   */
-  public void setApiClient(ApiClient apiClient) {
-    this.apiClient = apiClient;
-  }
+    /**
+     * Get the API client
+     *
+     * @return API client
+     */
+    public ApiClient getApiClient() {
+        return apiClient;
+    }
 
-  /**
-   * List IP Ranges Get information about Datadog IP ranges.
-   *
-   * @return IPRanges
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public IPRanges getIPRanges() throws ApiException {
-    return getIPRangesWithHttpInfo().getData();
-  }
+    /**
+     * Set the API client
+     *
+     * @param apiClient an instance of API client
+     */
+    public void setApiClient(ApiClient apiClient) {
+        this.apiClient = apiClient;
+    }
 
-  /**
-   * List IP Ranges Get information about Datadog IP ranges.
-   *
-   * @return ApiResponse&lt;IPRanges&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-   *     <table summary="Response Details" border="1">
-   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-   *     </table>
-   */
-  public ApiResponse<IPRanges> getIPRangesWithHttpInfo() throws ApiException {
-    Object localVarPostBody = null;
-    // create path and map variables
-    String localVarPath = "/";
+    /**
+     * List IP Ranges
+     * Get information about Datadog IP ranges.
+     * @return IPRanges
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     * <table summary="Response Details" border="1">
+     *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     *     </table>
+     */
+    public IPRanges getIPRanges() throws ApiException {
+        return getIPRangesWithHttpInfo().getData();
+    }
 
-    // query params
-    List<Pair> localVarQueryParams = new ArrayList<Pair>();
-    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-    Map<String, String> localVarCookieParams = new HashMap<String, String>();
-    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+    /**
+     * List IP Ranges
+     * Get information about Datadog IP ranges.
+     * @return ApiResponse&lt;IPRanges&gt;
+     * @throws ApiException if fails to make API call
+     * @http.response.details
+     * <table summary="Response Details" border="1">
+     *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     *     </table>
+     */
+    public ApiResponse<IPRanges> getIPRangesWithHttpInfo() throws ApiException {
+        Object localVarPostBody = null;
+        // create path and map variables
+        String localVarPath = "/";
 
-    // Set Operation-ID header for telemetry
-    localVarHeaderParams.put("DD-OPERATION-ID", "getIPRanges");
+        // query params
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    final String[] localVarAccepts = {"application/json"};
-    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        // Set Operation-ID header for telemetry
+        localVarHeaderParams.put("DD-OPERATION-ID", "getIPRanges");
 
-    final String[] localVarContentTypes = {};
+        final String[] localVarAccepts = { "application/json" };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
-    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        final String[] localVarContentTypes = {};
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {};
+        String[] localVarAuthNames = new String[] {};
 
-    GenericType<IPRanges> localVarReturnType = new GenericType<IPRanges>() {};
+        GenericType<IPRanges> localVarReturnType = new GenericType<IPRanges>() {};
 
-    return apiClient.invokeAPI(
-        "IpRangesApi.getIPRanges",
-        localVarPath,
-        "GET",
-        localVarQueryParams,
-        localVarPostBody,
-        localVarHeaderParams,
-        localVarCookieParams,
-        localVarFormParams,
-        localVarAccept,
-        localVarContentType,
-        localVarAuthNames,
-        localVarReturnType,
-        false);
-  }
+        return apiClient.invokeAPI(
+            "IpRangesApi.getIPRanges",
+            localVarPath,
+            "GET",
+            localVarQueryParams,
+            localVarPostBody,
+            localVarHeaderParams,
+            localVarCookieParams,
+            localVarFormParams,
+            localVarAccept,
+            localVarContentType,
+            localVarAuthNames,
+            localVarReturnType,
+            false
+        );
+    }
 }

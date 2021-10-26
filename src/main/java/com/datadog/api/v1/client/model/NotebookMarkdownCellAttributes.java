@@ -10,91 +10,105 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JSON;
+import com.datadog.api.v1.client.model.NotebookMarkdownCellDefinition;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
-/** The attributes of a notebook &#x60;markdown&#x60; cell. */
+/**
+ * The attributes of a notebook &#x60;markdown&#x60; cell.
+ */
 @ApiModel(description = "The attributes of a notebook `markdown` cell.")
-@JsonPropertyOrder({NotebookMarkdownCellAttributes.JSON_PROPERTY_DEFINITION})
+@JsonPropertyOrder({ NotebookMarkdownCellAttributes.JSON_PROPERTY_DEFINITION })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class NotebookMarkdownCellAttributes {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DEFINITION = "definition";
-  private NotebookMarkdownCellDefinition definition;
 
-  public NotebookMarkdownCellAttributes() {}
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  @JsonCreator
-  public NotebookMarkdownCellAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DEFINITION)
-          NotebookMarkdownCellDefinition definition) {
-    this.definition = definition;
-    this.unparsed |= definition.unparsed;
-  }
+    public static final String JSON_PROPERTY_DEFINITION = "definition";
+    private NotebookMarkdownCellDefinition definition;
 
-  public NotebookMarkdownCellAttributes definition(NotebookMarkdownCellDefinition definition) {
-    this.definition = definition;
-    this.unparsed |= definition.unparsed;
-    return this;
-  }
+    public NotebookMarkdownCellAttributes() {}
 
-  /**
-   * Get definition
-   *
-   * @return definition
-   */
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_DEFINITION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public NotebookMarkdownCellDefinition getDefinition() {
-    return definition;
-  }
-
-  public void setDefinition(NotebookMarkdownCellDefinition definition) {
-    this.definition = definition;
-  }
-
-  /** Return true if this NotebookMarkdownCellAttributes object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    @JsonCreator
+    public NotebookMarkdownCellAttributes(
+        @JsonProperty(required = true, value = JSON_PROPERTY_DEFINITION) NotebookMarkdownCellDefinition definition
+    ) {
+        this.definition = definition;
+        this.unparsed |= definition.unparsed;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public NotebookMarkdownCellAttributes definition(NotebookMarkdownCellDefinition definition) {
+        this.definition = definition;
+        this.unparsed |= definition.unparsed;
+        return this;
     }
-    NotebookMarkdownCellAttributes notebookMarkdownCellAttributes =
-        (NotebookMarkdownCellAttributes) o;
-    return Objects.equals(this.definition, notebookMarkdownCellAttributes.definition);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(definition);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class NotebookMarkdownCellAttributes {\n");
-    sb.append("    definition: ").append(toIndentedString(definition)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    /**
+     * Get definition
+     * @return definition
+     **/
+    @ApiModelProperty(required = true, value = "")
+    @JsonProperty(JSON_PROPERTY_DEFINITION)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public NotebookMarkdownCellDefinition getDefinition() {
+        return definition;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public void setDefinition(NotebookMarkdownCellDefinition definition) {
+        this.definition = definition;
+    }
+
+    /**
+     * Return true if this NotebookMarkdownCellAttributes object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        NotebookMarkdownCellAttributes notebookMarkdownCellAttributes = (NotebookMarkdownCellAttributes) o;
+        return Objects.equals(this.definition, notebookMarkdownCellAttributes.definition);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(definition);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class NotebookMarkdownCellAttributes {\n");
+        sb.append("    definition: ").append(toIndentedString(definition)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

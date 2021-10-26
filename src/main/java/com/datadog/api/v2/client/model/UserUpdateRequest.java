@@ -10,89 +10,103 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.datadog.api.v2.client.JSON;
+import com.datadog.api.v2.client.model.UserUpdateData;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
-/** Update a user. */
+/**
+ * Update a user.
+ */
 @ApiModel(description = "Update a user.")
-@JsonPropertyOrder({UserUpdateRequest.JSON_PROPERTY_DATA})
+@JsonPropertyOrder({ UserUpdateRequest.JSON_PROPERTY_DATA })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UserUpdateRequest {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA = "data";
-  private UserUpdateData data;
 
-  public UserUpdateRequest() {}
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  @JsonCreator
-  public UserUpdateRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) UserUpdateData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
-  }
+    public static final String JSON_PROPERTY_DATA = "data";
+    private UserUpdateData data;
 
-  public UserUpdateRequest data(UserUpdateData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
-    return this;
-  }
+    public UserUpdateRequest() {}
 
-  /**
-   * Get data
-   *
-   * @return data
-   */
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public UserUpdateData getData() {
-    return data;
-  }
-
-  public void setData(UserUpdateData data) {
-    this.data = data;
-  }
-
-  /** Return true if this UserUpdateRequest object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    @JsonCreator
+    public UserUpdateRequest(@JsonProperty(required = true, value = JSON_PROPERTY_DATA) UserUpdateData data) {
+        this.data = data;
+        this.unparsed |= data.unparsed;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public UserUpdateRequest data(UserUpdateData data) {
+        this.data = data;
+        this.unparsed |= data.unparsed;
+        return this;
     }
-    UserUpdateRequest userUpdateRequest = (UserUpdateRequest) o;
-    return Objects.equals(this.data, userUpdateRequest.data);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(data);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class UserUpdateRequest {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    /**
+     * Get data
+     * @return data
+     **/
+    @ApiModelProperty(required = true, value = "")
+    @JsonProperty(JSON_PROPERTY_DATA)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public UserUpdateData getData() {
+        return data;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public void setData(UserUpdateData data) {
+        this.data = data;
+    }
+
+    /**
+     * Return true if this UserUpdateRequest object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        UserUpdateRequest userUpdateRequest = (UserUpdateRequest) o;
+        return Objects.equals(this.data, userUpdateRequest.data);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(data);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class UserUpdateRequest {\n");
+        sb.append("    data: ").append(toIndentedString(data)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

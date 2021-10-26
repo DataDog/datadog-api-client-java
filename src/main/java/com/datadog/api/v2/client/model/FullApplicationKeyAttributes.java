@@ -10,142 +10,154 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.datadog.api.v2.client.JSON;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
-/** Attributes of a full application key. */
+/**
+ * Attributes of a full application key.
+ */
 @ApiModel(description = "Attributes of a full application key.")
-@JsonPropertyOrder({
-  FullApplicationKeyAttributes.JSON_PROPERTY_CREATED_AT,
-  FullApplicationKeyAttributes.JSON_PROPERTY_KEY,
-  FullApplicationKeyAttributes.JSON_PROPERTY_LAST4,
-  FullApplicationKeyAttributes.JSON_PROPERTY_NAME
-})
+@JsonPropertyOrder(
+    {
+        FullApplicationKeyAttributes.JSON_PROPERTY_CREATED_AT,
+        FullApplicationKeyAttributes.JSON_PROPERTY_KEY,
+        FullApplicationKeyAttributes.JSON_PROPERTY_LAST4,
+        FullApplicationKeyAttributes.JSON_PROPERTY_NAME
+    }
+)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FullApplicationKeyAttributes {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_CREATED_AT = "created_at";
-  private String createdAt;
 
-  public static final String JSON_PROPERTY_KEY = "key";
-  private String key;
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  public static final String JSON_PROPERTY_LAST4 = "last4";
-  private String last4;
+    public static final String JSON_PROPERTY_CREATED_AT = "created_at";
+    private String createdAt;
 
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+    public static final String JSON_PROPERTY_KEY = "key";
+    private String key;
 
-  /**
-   * Creation date of the application key.
-   *
-   * @return createdAt
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "2020-11-23T10:00:00.000Z",
-      value = "Creation date of the application key.")
-  @JsonProperty(JSON_PROPERTY_CREATED_AT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getCreatedAt() {
-    return createdAt;
-  }
+    public static final String JSON_PROPERTY_LAST4 = "last4";
+    private String last4;
 
-  /**
-   * The application key.
-   *
-   * @return key
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The application key.")
-  @JsonProperty(JSON_PROPERTY_KEY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getKey() {
-    return key;
-  }
+    public static final String JSON_PROPERTY_NAME = "name";
+    private String name;
 
-  /**
-   * The last four characters of the application key.
-   *
-   * @return last4
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "abcd", value = "The last four characters of the application key.")
-  @JsonProperty(JSON_PROPERTY_LAST4)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getLast4() {
-    return last4;
-  }
-
-  public FullApplicationKeyAttributes name(String name) {
-    this.name = name;
-    return this;
-  }
-
-  /**
-   * Name of the application key.
-   *
-   * @return name
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "Application Key for submitting metrics",
-      value = "Name of the application key.")
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  /** Return true if this FullApplicationKeyAttributes object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * Creation date of the application key.
+     * @return createdAt
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(example = "2020-11-23T10:00:00.000Z", value = "Creation date of the application key.")
+    @JsonProperty(JSON_PROPERTY_CREATED_AT)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getCreatedAt() {
+        return createdAt;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * The application key.
+     * @return key
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "The application key.")
+    @JsonProperty(JSON_PROPERTY_KEY)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getKey() {
+        return key;
     }
-    FullApplicationKeyAttributes fullApplicationKeyAttributes = (FullApplicationKeyAttributes) o;
-    return Objects.equals(this.createdAt, fullApplicationKeyAttributes.createdAt)
-        && Objects.equals(this.key, fullApplicationKeyAttributes.key)
-        && Objects.equals(this.last4, fullApplicationKeyAttributes.last4)
-        && Objects.equals(this.name, fullApplicationKeyAttributes.name);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(createdAt, key, last4, name);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class FullApplicationKeyAttributes {\n");
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    key: ").append(toIndentedString(key)).append("\n");
-    sb.append("    last4: ").append(toIndentedString(last4)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    /**
+     * The last four characters of the application key.
+     * @return last4
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(example = "abcd", value = "The last four characters of the application key.")
+    @JsonProperty(JSON_PROPERTY_LAST4)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getLast4() {
+        return last4;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public FullApplicationKeyAttributes name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * Name of the application key.
+     * @return name
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(example = "Application Key for submitting metrics", value = "Name of the application key.")
+    @JsonProperty(JSON_PROPERTY_NAME)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * Return true if this FullApplicationKeyAttributes object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        FullApplicationKeyAttributes fullApplicationKeyAttributes = (FullApplicationKeyAttributes) o;
+        return (
+            Objects.equals(this.createdAt, fullApplicationKeyAttributes.createdAt) &&
+            Objects.equals(this.key, fullApplicationKeyAttributes.key) &&
+            Objects.equals(this.last4, fullApplicationKeyAttributes.last4) &&
+            Objects.equals(this.name, fullApplicationKeyAttributes.name)
+        );
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(createdAt, key, last4, name);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class FullApplicationKeyAttributes {\n");
+        sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+        sb.append("    key: ").append(toIndentedString(key)).append("\n");
+        sb.append("    last4: ").append(toIndentedString(last4)).append("\n");
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

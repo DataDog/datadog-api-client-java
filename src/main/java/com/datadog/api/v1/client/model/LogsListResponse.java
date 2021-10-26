@@ -10,156 +10,165 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JSON;
+import com.datadog.api.v1.client.model.Log;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
-/** Response object with all logs matching the request and pagination information. */
-@ApiModel(
-    description = "Response object with all logs matching the request and pagination information.")
-@JsonPropertyOrder({
-  LogsListResponse.JSON_PROPERTY_LOGS,
-  LogsListResponse.JSON_PROPERTY_NEXT_LOG_ID,
-  LogsListResponse.JSON_PROPERTY_STATUS
-})
+/**
+ * Response object with all logs matching the request and pagination information.
+ */
+@ApiModel(description = "Response object with all logs matching the request and pagination information.")
+@JsonPropertyOrder(
+    { LogsListResponse.JSON_PROPERTY_LOGS, LogsListResponse.JSON_PROPERTY_NEXT_LOG_ID, LogsListResponse.JSON_PROPERTY_STATUS }
+)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsListResponse {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_LOGS = "logs";
-  private List<Log> logs = null;
 
-  public static final String JSON_PROPERTY_NEXT_LOG_ID = "nextLogId";
-  private String nextLogId;
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  public static final String JSON_PROPERTY_STATUS = "status";
-  private String status;
+    public static final String JSON_PROPERTY_LOGS = "logs";
+    private List<Log> logs = null;
 
-  public LogsListResponse logs(List<Log> logs) {
-    this.logs = logs;
-    for (Log item : logs) {
-      this.unparsed |= item.unparsed;
+    public static final String JSON_PROPERTY_NEXT_LOG_ID = "nextLogId";
+    private String nextLogId;
+
+    public static final String JSON_PROPERTY_STATUS = "status";
+    private String status;
+
+    public LogsListResponse logs(List<Log> logs) {
+        this.logs = logs;
+        for (Log item : logs) {
+            this.unparsed |= item.unparsed;
+        }
+        return this;
     }
-    return this;
-  }
 
-  public LogsListResponse addLogsItem(Log logsItem) {
-    if (this.logs == null) {
-      this.logs = new ArrayList<>();
+    public LogsListResponse addLogsItem(Log logsItem) {
+        if (this.logs == null) {
+            this.logs = new ArrayList<>();
+        }
+        this.logs.add(logsItem);
+        this.unparsed |= logsItem.unparsed;
+        return this;
     }
-    this.logs.add(logsItem);
-    this.unparsed |= logsItem.unparsed;
-    return this;
-  }
 
-  /**
-   * Array of logs matching the request and the &#x60;nextLogId&#x60; if sent.
-   *
-   * @return logs
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array of logs matching the request and the `nextLogId` if sent.")
-  @JsonProperty(JSON_PROPERTY_LOGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<Log> getLogs() {
-    return logs;
-  }
-
-  public void setLogs(List<Log> logs) {
-    this.logs = logs;
-  }
-
-  public LogsListResponse nextLogId(String nextLogId) {
-    this.nextLogId = nextLogId;
-    return this;
-  }
-
-  /**
-   * Hash identifier of the next log to return in the list. This parameter is used for the
-   * pagination feature.
-   *
-   * @return nextLogId
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Hash identifier of the next log to return in the list. This parameter is used for the"
-              + " pagination feature.")
-  @JsonProperty(JSON_PROPERTY_NEXT_LOG_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getNextLogId() {
-    return nextLogId;
-  }
-
-  public void setNextLogId(String nextLogId) {
-    this.nextLogId = nextLogId;
-  }
-
-  public LogsListResponse status(String status) {
-    this.status = status;
-    return this;
-  }
-
-  /**
-   * Status of the response.
-   *
-   * @return status
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Status of the response.")
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getStatus() {
-    return status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
-
-  /** Return true if this LogsListResponse object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * Array of logs matching the request and the &#x60;nextLogId&#x60; if sent.
+     * @return logs
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Array of logs matching the request and the `nextLogId` if sent.")
+    @JsonProperty(JSON_PROPERTY_LOGS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public List<Log> getLogs() {
+        return logs;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setLogs(List<Log> logs) {
+        this.logs = logs;
     }
-    LogsListResponse logsListResponse = (LogsListResponse) o;
-    return Objects.equals(this.logs, logsListResponse.logs)
-        && Objects.equals(this.nextLogId, logsListResponse.nextLogId)
-        && Objects.equals(this.status, logsListResponse.status);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(logs, nextLogId, status);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class LogsListResponse {\n");
-    sb.append("    logs: ").append(toIndentedString(logs)).append("\n");
-    sb.append("    nextLogId: ").append(toIndentedString(nextLogId)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public LogsListResponse nextLogId(String nextLogId) {
+        this.nextLogId = nextLogId;
+        return this;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * Hash identifier of the next log to return in the list. This parameter is used for the pagination feature.
+     * @return nextLogId
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Hash identifier of the next log to return in the list. This parameter is used for the pagination feature.")
+    @JsonProperty(JSON_PROPERTY_NEXT_LOG_ID)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getNextLogId() {
+        return nextLogId;
+    }
+
+    public void setNextLogId(String nextLogId) {
+        this.nextLogId = nextLogId;
+    }
+
+    public LogsListResponse status(String status) {
+        this.status = status;
+        return this;
+    }
+
+    /**
+     * Status of the response.
+     * @return status
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Status of the response.")
+    @JsonProperty(JSON_PROPERTY_STATUS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    /**
+     * Return true if this LogsListResponse object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        LogsListResponse logsListResponse = (LogsListResponse) o;
+        return (
+            Objects.equals(this.logs, logsListResponse.logs) &&
+            Objects.equals(this.nextLogId, logsListResponse.nextLogId) &&
+            Objects.equals(this.status, logsListResponse.status)
+        );
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(logs, nextLogId, status);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class LogsListResponse {\n");
+        sb.append("    logs: ").append(toIndentedString(logs)).append("\n");
+        sb.append("    nextLogId: ").append(toIndentedString(nextLogId)).append("\n");
+        sb.append("    status: ").append(toIndentedString(status)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

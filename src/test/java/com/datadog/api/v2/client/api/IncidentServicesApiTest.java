@@ -17,94 +17,94 @@ import org.junit.Test;
 /** API tests for IncidentServicesApi */
 public class IncidentServicesApiTest {
 
-  private final IncidentServicesApi api = new IncidentServicesApi();
+    private final IncidentServicesApi api = new IncidentServicesApi();
 
-  /**
-   * Create a new incident service
-   *
-   * <p>Creates a new incident service.
-   *
-   * @throws ApiException if the Api call fails
-   */
-  @Test
-  public void createIncidentServiceTest() throws ApiException {
-    // IncidentServiceCreateRequest body = null;
-    // IncidentServiceResponse response = api.createIncidentService()
-    //        .body(body)
-    //        .execute();
-    // TODO: test validations
-  }
+    /**
+     * Create a new incident service
+     *
+     * <p>Creates a new incident service.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void createIncidentServiceTest() throws ApiException {
+        // IncidentServiceCreateRequest body = null;
+        // IncidentServiceResponse response = api.createIncidentService()
+        //        .body(body)
+        //        .execute();
+        // TODO: test validations
+    }
 
-  /**
-   * Delete an existing incident service
-   *
-   * <p>Deletes an existing incident service.
-   *
-   * @throws ApiException if the Api call fails
-   */
-  @Test
-  public void deleteIncidentServiceTest() throws ApiException {
-    // String serviceId = null;
-    // api.deleteIncidentService(serviceId)
-    //        .execute();
-    // TODO: test validations
-  }
+    /**
+     * Delete an existing incident service
+     *
+     * <p>Deletes an existing incident service.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void deleteIncidentServiceTest() throws ApiException {
+        // String serviceId = null;
+        // api.deleteIncidentService(serviceId)
+        //        .execute();
+        // TODO: test validations
+    }
 
-  /**
-   * Get details of an incident service
-   *
-   * <p>Get details of an incident service. If the &#x60;include[users]&#x60; query parameter is
-   * provided, the included attribute will contain the users related to these incident services.
-   *
-   * @throws ApiException if the Api call fails
-   */
-  @Test
-  public void getIncidentServiceTest() throws ApiException {
-    // String serviceId = null;
-    // String include = null;
-    // IncidentServiceResponse response = api.getIncidentService(serviceId)
-    //        .include(include)
-    //        .execute();
-    // TODO: test validations
-  }
+    /**
+     * Get details of an incident service
+     *
+     * <p>Get details of an incident service. If the &#x60;include[users]&#x60; query parameter is
+     * provided, the included attribute will contain the users related to these incident services.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getIncidentServiceTest() throws ApiException {
+        // String serviceId = null;
+        // String include = null;
+        // IncidentServiceResponse response = api.getIncidentService(serviceId)
+        //        .include(include)
+        //        .execute();
+        // TODO: test validations
+    }
 
-  /**
-   * Get a list of all incident services
-   *
-   * <p>Get all incident services uploaded for the requesting user&#39;s organization. If the
-   * &#x60;include[users]&#x60; query parameter is provided, the included attribute will contain the
-   * users related to these incident services.
-   *
-   * @throws ApiException if the Api call fails
-   */
-  @Test
-  public void getIncidentServicesTest() throws ApiException {
-    // String include = null;
-    // Long pageSize = null;
-    // Long pageOffset = null;
-    // IncidentServicesResponse response = api.getIncidentServices()
-    //        .include(include)
-    //        .pageSize(pageSize)
-    //        .pageOffset(pageOffset)
-    //        .execute();
-    // TODO: test validations
-  }
+    /**
+     * Get a list of all incident services
+     *
+     * <p>Get all incident services uploaded for the requesting user&#39;s organization. If the
+     * &#x60;include[users]&#x60; query parameter is provided, the included attribute will contain the
+     * users related to these incident services.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getIncidentServicesTest() throws ApiException {
+        // String include = null;
+        // Long pageSize = null;
+        // Long pageOffset = null;
+        // IncidentServicesResponse response = api.getIncidentServices()
+        //        .include(include)
+        //        .pageSize(pageSize)
+        //        .pageOffset(pageOffset)
+        //        .execute();
+        // TODO: test validations
+    }
 
-  /**
-   * Update an existing incident service
-   *
-   * <p>Updates an existing incident service. Only provide the attributes which should be updated as
-   * this request is a partial update.
-   *
-   * @throws ApiException if the Api call fails
-   */
-  @Test
-  public void updateIncidentServiceTest() throws ApiException {
-    // String serviceId = null;
-    // IncidentServiceUpdateRequest body = null;
-    // IncidentServiceResponse response = api.updateIncidentService(serviceId)
-    //        .body(body)
-    //        .execute();
-    // TODO: test validations
-  }
+    /**
+     * Update an existing incident service
+     *
+     * <p>Updates an existing incident service. Only provide the attributes which should be updated as
+     * this request is a partial update.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void updateIncidentServiceTest() throws ApiException {
+        // String serviceId = null;
+        // IncidentServiceUpdateRequest body = null;
+        // IncidentServiceResponse response = api.updateIncidentService(serviceId)
+        //        .body(body)
+        //        .execute();
+        // TODO: test validations
+    }
 }

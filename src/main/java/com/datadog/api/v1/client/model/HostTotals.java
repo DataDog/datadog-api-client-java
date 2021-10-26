@@ -10,106 +10,119 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JSON;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
-/** Total number of host currently monitored by Datadog. */
+/**
+ * Total number of host currently monitored by Datadog.
+ */
 @ApiModel(description = "Total number of host currently monitored by Datadog.")
-@JsonPropertyOrder({HostTotals.JSON_PROPERTY_TOTAL_ACTIVE, HostTotals.JSON_PROPERTY_TOTAL_UP})
+@JsonPropertyOrder({ HostTotals.JSON_PROPERTY_TOTAL_ACTIVE, HostTotals.JSON_PROPERTY_TOTAL_UP })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class HostTotals {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_TOTAL_ACTIVE = "total_active";
-  private Long totalActive;
 
-  public static final String JSON_PROPERTY_TOTAL_UP = "total_up";
-  private Long totalUp;
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  public HostTotals totalActive(Long totalActive) {
-    this.totalActive = totalActive;
-    return this;
-  }
+    public static final String JSON_PROPERTY_TOTAL_ACTIVE = "total_active";
+    private Long totalActive;
 
-  /**
-   * Total number of active host (UP and ???) reporting to Datadog.
-   *
-   * @return totalActive
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Total number of active host (UP and ???) reporting to Datadog.")
-  @JsonProperty(JSON_PROPERTY_TOTAL_ACTIVE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getTotalActive() {
-    return totalActive;
-  }
+    public static final String JSON_PROPERTY_TOTAL_UP = "total_up";
+    private Long totalUp;
 
-  public void setTotalActive(Long totalActive) {
-    this.totalActive = totalActive;
-  }
-
-  public HostTotals totalUp(Long totalUp) {
-    this.totalUp = totalUp;
-    return this;
-  }
-
-  /**
-   * Number of host that are UP and reporting to Datadog.
-   *
-   * @return totalUp
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of host that are UP and reporting to Datadog.")
-  @JsonProperty(JSON_PROPERTY_TOTAL_UP)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getTotalUp() {
-    return totalUp;
-  }
-
-  public void setTotalUp(Long totalUp) {
-    this.totalUp = totalUp;
-  }
-
-  /** Return true if this HostTotals object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public HostTotals totalActive(Long totalActive) {
+        this.totalActive = totalActive;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Total number of active host (UP and ???) reporting to Datadog.
+     * @return totalActive
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Total number of active host (UP and ???) reporting to Datadog.")
+    @JsonProperty(JSON_PROPERTY_TOTAL_ACTIVE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Long getTotalActive() {
+        return totalActive;
     }
-    HostTotals hostTotals = (HostTotals) o;
-    return Objects.equals(this.totalActive, hostTotals.totalActive)
-        && Objects.equals(this.totalUp, hostTotals.totalUp);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(totalActive, totalUp);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class HostTotals {\n");
-    sb.append("    totalActive: ").append(toIndentedString(totalActive)).append("\n");
-    sb.append("    totalUp: ").append(toIndentedString(totalUp)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setTotalActive(Long totalActive) {
+        this.totalActive = totalActive;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public HostTotals totalUp(Long totalUp) {
+        this.totalUp = totalUp;
+        return this;
+    }
+
+    /**
+     * Number of host that are UP and reporting to Datadog.
+     * @return totalUp
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Number of host that are UP and reporting to Datadog.")
+    @JsonProperty(JSON_PROPERTY_TOTAL_UP)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Long getTotalUp() {
+        return totalUp;
+    }
+
+    public void setTotalUp(Long totalUp) {
+        this.totalUp = totalUp;
+    }
+
+    /**
+     * Return true if this HostTotals object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        HostTotals hostTotals = (HostTotals) o;
+        return Objects.equals(this.totalActive, hostTotals.totalActive) && Objects.equals(this.totalUp, hostTotals.totalUp);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(totalActive, totalUp);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class HostTotals {\n");
+        sb.append("    totalActive: ").append(toIndentedString(totalActive)).append("\n");
+        sb.append("    totalUp: ").append(toIndentedString(totalUp)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

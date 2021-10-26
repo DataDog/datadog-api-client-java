@@ -10,79 +10,94 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JSON;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
-/** Widget style definition. */
+/**
+ * Widget style definition.
+ */
 @ApiModel(description = "Widget style definition.")
-@JsonPropertyOrder({WidgetStyle.JSON_PROPERTY_PALETTE})
+@JsonPropertyOrder({ WidgetStyle.JSON_PROPERTY_PALETTE })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WidgetStyle {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_PALETTE = "palette";
-  private String palette;
 
-  public WidgetStyle palette(String palette) {
-    this.palette = palette;
-    return this;
-  }
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  /**
-   * Color palette to apply to the widget.
-   *
-   * @return palette
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Color palette to apply to the widget.")
-  @JsonProperty(JSON_PROPERTY_PALETTE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getPalette() {
-    return palette;
-  }
+    public static final String JSON_PROPERTY_PALETTE = "palette";
+    private String palette;
 
-  public void setPalette(String palette) {
-    this.palette = palette;
-  }
-
-  /** Return true if this WidgetStyle object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public WidgetStyle palette(String palette) {
+        this.palette = palette;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Color palette to apply to the widget.
+     * @return palette
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Color palette to apply to the widget.")
+    @JsonProperty(JSON_PROPERTY_PALETTE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getPalette() {
+        return palette;
     }
-    WidgetStyle widgetStyle = (WidgetStyle) o;
-    return Objects.equals(this.palette, widgetStyle.palette);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(palette);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class WidgetStyle {\n");
-    sb.append("    palette: ").append(toIndentedString(palette)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setPalette(String palette) {
+        this.palette = palette;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * Return true if this WidgetStyle object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        WidgetStyle widgetStyle = (WidgetStyle) o;
+        return Objects.equals(this.palette, widgetStyle.palette);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(palette);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class WidgetStyle {\n");
+        sb.append("    palette: ").append(toIndentedString(palette)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

@@ -10,142 +10,151 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.datadog.api.v2.client.JSON;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
-/** A warning message indicating something that went wrong with the query */
+/**
+ * A warning message indicating something that went wrong with the query
+ */
 @ApiModel(description = "A warning message indicating something that went wrong with the query")
-@JsonPropertyOrder({
-  LogsWarning.JSON_PROPERTY_CODE,
-  LogsWarning.JSON_PROPERTY_DETAIL,
-  LogsWarning.JSON_PROPERTY_TITLE
-})
+@JsonPropertyOrder({ LogsWarning.JSON_PROPERTY_CODE, LogsWarning.JSON_PROPERTY_DETAIL, LogsWarning.JSON_PROPERTY_TITLE })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsWarning {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_CODE = "code";
-  private String code;
 
-  public static final String JSON_PROPERTY_DETAIL = "detail";
-  private String detail;
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  public static final String JSON_PROPERTY_TITLE = "title";
-  private String title;
+    public static final String JSON_PROPERTY_CODE = "code";
+    private String code;
 
-  public LogsWarning code(String code) {
-    this.code = code;
-    return this;
-  }
+    public static final String JSON_PROPERTY_DETAIL = "detail";
+    private String detail;
 
-  /**
-   * A unique code for this type of warning
-   *
-   * @return code
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "unknown_index", value = "A unique code for this type of warning")
-  @JsonProperty(JSON_PROPERTY_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getCode() {
-    return code;
-  }
+    public static final String JSON_PROPERTY_TITLE = "title";
+    private String title;
 
-  public void setCode(String code) {
-    this.code = code;
-  }
-
-  public LogsWarning detail(String detail) {
-    this.detail = detail;
-    return this;
-  }
-
-  /**
-   * A detailed explanation of this specific warning
-   *
-   * @return detail
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "indexes: foo, bar",
-      value = "A detailed explanation of this specific warning")
-  @JsonProperty(JSON_PROPERTY_DETAIL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getDetail() {
-    return detail;
-  }
-
-  public void setDetail(String detail) {
-    this.detail = detail;
-  }
-
-  public LogsWarning title(String title) {
-    this.title = title;
-    return this;
-  }
-
-  /**
-   * A short human-readable summary of the warning
-   *
-   * @return title
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(
-      example =
-          "One or several indexes are missing or invalid, results hold data from the other indexes",
-      value = "A short human-readable summary of the warning")
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTitle() {
-    return title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  /** Return true if this LogsWarning object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public LogsWarning code(String code) {
+        this.code = code;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * A unique code for this type of warning
+     * @return code
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(example = "unknown_index", value = "A unique code for this type of warning")
+    @JsonProperty(JSON_PROPERTY_CODE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getCode() {
+        return code;
     }
-    LogsWarning logsWarning = (LogsWarning) o;
-    return Objects.equals(this.code, logsWarning.code)
-        && Objects.equals(this.detail, logsWarning.detail)
-        && Objects.equals(this.title, logsWarning.title);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(code, detail, title);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class LogsWarning {\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
-    sb.append("    title: ").append(toIndentedString(title)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setCode(String code) {
+        this.code = code;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public LogsWarning detail(String detail) {
+        this.detail = detail;
+        return this;
+    }
+
+    /**
+     * A detailed explanation of this specific warning
+     * @return detail
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(example = "indexes: foo, bar", value = "A detailed explanation of this specific warning")
+    @JsonProperty(JSON_PROPERTY_DETAIL)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getDetail() {
+        return detail;
+    }
+
+    public void setDetail(String detail) {
+        this.detail = detail;
+    }
+
+    public LogsWarning title(String title) {
+        this.title = title;
+        return this;
+    }
+
+    /**
+     * A short human-readable summary of the warning
+     * @return title
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(
+        example = "One or several indexes are missing or invalid, results hold data from the other indexes",
+        value = "A short human-readable summary of the warning"
+    )
+    @JsonProperty(JSON_PROPERTY_TITLE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    /**
+     * Return true if this LogsWarning object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        LogsWarning logsWarning = (LogsWarning) o;
+        return (
+            Objects.equals(this.code, logsWarning.code) &&
+            Objects.equals(this.detail, logsWarning.detail) &&
+            Objects.equals(this.title, logsWarning.title)
+        );
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(code, detail, title);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class LogsWarning {\n");
+        sb.append("    code: ").append(toIndentedString(code)).append("\n");
+        sb.append("    detail: ").append(toIndentedString(detail)).append("\n");
+        sb.append("    title: ").append(toIndentedString(title)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

@@ -1,11 +1,5 @@
-
-
 # LogsDateRemapperType
 
 ## Enum
 
-
-* `DATE_REMAPPER` (value: `"date-remapper"`)
-
-
-
+- `DATE_REMAPPER` (value: `"date-remapper"`)

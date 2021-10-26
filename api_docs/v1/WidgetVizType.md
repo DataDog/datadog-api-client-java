@@ -1,13 +1,7 @@
-
-
 # WidgetVizType
 
 ## Enum
 
+- `TIMESERIES` (value: `"timeseries"`)
 
-* `TIMESERIES` (value: `"timeseries"`)
-
-* `TOPLIST` (value: `"toplist"`)
-
-
-
+- `TOPLIST` (value: `"toplist"`)

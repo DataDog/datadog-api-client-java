@@ -10,118 +10,129 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JSON;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
-/** Invalid query performed. */
+/**
+ * Invalid query performed.
+ */
 @ApiModel(description = "Invalid query performed.")
-@JsonPropertyOrder({HTTPLogError.JSON_PROPERTY_CODE, HTTPLogError.JSON_PROPERTY_MESSAGE})
+@JsonPropertyOrder({ HTTPLogError.JSON_PROPERTY_CODE, HTTPLogError.JSON_PROPERTY_MESSAGE })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class HTTPLogError {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_CODE = "code";
-  private Integer code;
 
-  public static final String JSON_PROPERTY_MESSAGE = "message";
-  private String message;
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  public HTTPLogError() {}
+    public static final String JSON_PROPERTY_CODE = "code";
+    private Integer code;
 
-  @JsonCreator
-  public HTTPLogError(
-      @JsonProperty(required = true, value = JSON_PROPERTY_CODE) Integer code,
-      @JsonProperty(required = true, value = JSON_PROPERTY_MESSAGE) String message) {
-    this.code = code;
-    this.message = message;
-  }
+    public static final String JSON_PROPERTY_MESSAGE = "message";
+    private String message;
 
-  public HTTPLogError code(Integer code) {
-    this.code = code;
-    return this;
-  }
+    public HTTPLogError() {}
 
-  /**
-   * Error code. maximum: 2147483647
-   *
-   * @return code
-   */
-  @ApiModelProperty(example = "0", required = true, value = "Error code.")
-  @JsonProperty(JSON_PROPERTY_CODE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Integer getCode() {
-    return code;
-  }
-
-  public void setCode(Integer code) {
-    this.code = code;
-  }
-
-  public HTTPLogError message(String message) {
-    this.message = message;
-    return this;
-  }
-
-  /**
-   * Error message.
-   *
-   * @return message
-   */
-  @ApiModelProperty(
-      example = "Your browser sent an invalid request.",
-      required = true,
-      value = "Error message.")
-  @JsonProperty(JSON_PROPERTY_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getMessage() {
-    return message;
-  }
-
-  public void setMessage(String message) {
-    this.message = message;
-  }
-
-  /** Return true if this HTTPLogError object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    @JsonCreator
+    public HTTPLogError(
+        @JsonProperty(required = true, value = JSON_PROPERTY_CODE) Integer code,
+        @JsonProperty(required = true, value = JSON_PROPERTY_MESSAGE) String message
+    ) {
+        this.code = code;
+        this.message = message;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public HTTPLogError code(Integer code) {
+        this.code = code;
+        return this;
     }
-    HTTPLogError htTPLogError = (HTTPLogError) o;
-    return Objects.equals(this.code, htTPLogError.code)
-        && Objects.equals(this.message, htTPLogError.message);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(code, message);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class HTTPLogError {\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    /**
+     * Error code.
+     * maximum: 2147483647
+     * @return code
+     **/
+    @ApiModelProperty(example = "0", required = true, value = "Error code.")
+    @JsonProperty(JSON_PROPERTY_CODE)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public Integer getCode() {
+        return code;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public void setCode(Integer code) {
+        this.code = code;
+    }
+
+    public HTTPLogError message(String message) {
+        this.message = message;
+        return this;
+    }
+
+    /**
+     * Error message.
+     * @return message
+     **/
+    @ApiModelProperty(example = "Your browser sent an invalid request.", required = true, value = "Error message.")
+    @JsonProperty(JSON_PROPERTY_MESSAGE)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    /**
+     * Return true if this HTTPLogError object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        HTTPLogError htTPLogError = (HTTPLogError) o;
+        return Objects.equals(this.code, htTPLogError.code) && Objects.equals(this.message, htTPLogError.message);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(code, message);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class HTTPLogError {\n");
+        sb.append("    code: ").append(toIndentedString(code)).append("\n");
+        sb.append("    message: ").append(toIndentedString(message)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

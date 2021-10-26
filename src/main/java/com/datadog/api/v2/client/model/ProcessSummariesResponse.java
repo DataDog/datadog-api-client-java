@@ -10,124 +10,136 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.datadog.api.v2.client.JSON;
+import com.datadog.api.v2.client.model.ProcessSummariesMeta;
+import com.datadog.api.v2.client.model.ProcessSummary;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
-/** List of process summaries. */
+/**
+ * List of process summaries.
+ */
 @ApiModel(description = "List of process summaries.")
-@JsonPropertyOrder({
-  ProcessSummariesResponse.JSON_PROPERTY_DATA,
-  ProcessSummariesResponse.JSON_PROPERTY_META
-})
+@JsonPropertyOrder({ ProcessSummariesResponse.JSON_PROPERTY_DATA, ProcessSummariesResponse.JSON_PROPERTY_META })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ProcessSummariesResponse {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA = "data";
-  private List<ProcessSummary> data = null;
 
-  public static final String JSON_PROPERTY_META = "meta";
-  private ProcessSummariesMeta meta;
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  public ProcessSummariesResponse data(List<ProcessSummary> data) {
-    this.data = data;
-    for (ProcessSummary item : data) {
-      this.unparsed |= item.unparsed;
+    public static final String JSON_PROPERTY_DATA = "data";
+    private List<ProcessSummary> data = null;
+
+    public static final String JSON_PROPERTY_META = "meta";
+    private ProcessSummariesMeta meta;
+
+    public ProcessSummariesResponse data(List<ProcessSummary> data) {
+        this.data = data;
+        for (ProcessSummary item : data) {
+            this.unparsed |= item.unparsed;
+        }
+        return this;
     }
-    return this;
-  }
 
-  public ProcessSummariesResponse addDataItem(ProcessSummary dataItem) {
-    if (this.data == null) {
-      this.data = new ArrayList<>();
+    public ProcessSummariesResponse addDataItem(ProcessSummary dataItem) {
+        if (this.data == null) {
+            this.data = new ArrayList<>();
+        }
+        this.data.add(dataItem);
+        this.unparsed |= dataItem.unparsed;
+        return this;
     }
-    this.data.add(dataItem);
-    this.unparsed |= dataItem.unparsed;
-    return this;
-  }
 
-  /**
-   * Array of process summary objects.
-   *
-   * @return data
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array of process summary objects.")
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<ProcessSummary> getData() {
-    return data;
-  }
-
-  public void setData(List<ProcessSummary> data) {
-    this.data = data;
-  }
-
-  public ProcessSummariesResponse meta(ProcessSummariesMeta meta) {
-    this.meta = meta;
-    this.unparsed |= meta.unparsed;
-    return this;
-  }
-
-  /**
-   * Get meta
-   *
-   * @return meta
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_META)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ProcessSummariesMeta getMeta() {
-    return meta;
-  }
-
-  public void setMeta(ProcessSummariesMeta meta) {
-    this.meta = meta;
-  }
-
-  /** Return true if this ProcessSummariesResponse object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * Array of process summary objects.
+     * @return data
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Array of process summary objects.")
+    @JsonProperty(JSON_PROPERTY_DATA)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public List<ProcessSummary> getData() {
+        return data;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setData(List<ProcessSummary> data) {
+        this.data = data;
     }
-    ProcessSummariesResponse processSummariesResponse = (ProcessSummariesResponse) o;
-    return Objects.equals(this.data, processSummariesResponse.data)
-        && Objects.equals(this.meta, processSummariesResponse.meta);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(data, meta);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ProcessSummariesResponse {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public ProcessSummariesResponse meta(ProcessSummariesMeta meta) {
+        this.meta = meta;
+        this.unparsed |= meta.unparsed;
+        return this;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * Get meta
+     * @return meta
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+    @JsonProperty(JSON_PROPERTY_META)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public ProcessSummariesMeta getMeta() {
+        return meta;
+    }
+
+    public void setMeta(ProcessSummariesMeta meta) {
+        this.meta = meta;
+    }
+
+    /**
+     * Return true if this ProcessSummariesResponse object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ProcessSummariesResponse processSummariesResponse = (ProcessSummariesResponse) o;
+        return Objects.equals(this.data, processSummariesResponse.data) && Objects.equals(this.meta, processSummariesResponse.meta);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(data, meta);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ProcessSummariesResponse {\n");
+        sb.append("    data: ").append(toIndentedString(data)).append("\n");
+        sb.append("    meta: ").append(toIndentedString(meta)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

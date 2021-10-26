@@ -14,78 +14,79 @@ import java.util.regex.Pattern;
 /** Describes given action. */
 public class Given {
 
-  public String step;
-  public String tag;
-  public String operationId;
+    public String step;
+    public String tag;
+    public String operationId;
 
-  /** Defines how to populate operation parameters. */
-  public static class Parameter {
-    public String name;
+    /** Defines how to populate operation parameters. */
+    public static class Parameter {
+
+        public String name;
+
+        @JsonInclude(Include.NON_NULL)
+        public String source;
+
+        @JsonInclude(Include.NON_NULL)
+        public String value;
+
+        public <T> T resolve(Class<T> clazz, Object context, ObjectMapper mapper) {
+            try {
+                if (value != null) {
+                    return World.fromJSON(mapper, clazz, World.templated(value, context));
+                }
+                if (source != null) {
+                    return (T) World.lookup(context, source);
+                }
+            } catch (
+                java.lang.IllegalAccessException | java.lang.NoSuchFieldException | com.fasterxml.jackson.core.JsonProcessingException e
+            ) {
+                throw new RuntimeException(e);
+            }
+            return null;
+        }
+    }
+
+    @JsonInclude(Include.NON_NULL)
+    public List<Parameter> parameters;
 
     @JsonInclude(Include.NON_NULL)
     public String source;
 
-    @JsonInclude(Include.NON_NULL)
-    public String value;
+    public String key;
 
-    public <T> T resolve(Class<T> clazz, Object context, ObjectMapper mapper) {
-      try {
-        if (value != null) {
-          return World.fromJSON(mapper, clazz, World.templated(value, context));
+    public Map<String, Parameter> getRequestParameters() {
+        Map<String, Parameter> requestParams = new HashMap<>();
+        if (parameters != null) {
+            for (Parameter p : parameters) {
+                requestParams.put(World.toPropertyName(p.name), p);
+            }
         }
-        if (source != null) {
-          return (T) World.lookup(context, source);
+        return requestParams;
+    }
+
+    /** Load given definition from a configuration file. */
+    public static List<Given> load(File file) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        TypeReference<List<Given>> typeRef = new TypeReference<List<Given>>() {};
+        return mapper.readValue(file, typeRef);
+    }
+
+    public static String toOperationName(String string) {
+        if (string == null || string.length() == 0) {
+            return string;
         }
-      } catch (java.lang.IllegalAccessException
-          | java.lang.NoSuchFieldException
-          | com.fasterxml.jackson.core.JsonProcessingException e) {
-        throw new RuntimeException(e);
-      }
-      return null;
-    }
-  }
 
-  @JsonInclude(Include.NON_NULL)
-  public List<Parameter> parameters;
+        char c[] = string.toCharArray();
+        c[0] = Character.toLowerCase(c[0]);
 
-  @JsonInclude(Include.NON_NULL)
-  public String source;
-
-  public String key;
-
-  public Map<String, Parameter> getRequestParameters() {
-    Map<String, Parameter> requestParams = new HashMap<>();
-    if (parameters != null) {
-      for (Parameter p : parameters) {
-        requestParams.put(World.toPropertyName(p.name), p);
-      }
-    }
-    return requestParams;
-  }
-
-  /** Load given definition from a configuration file. */
-  public static List<Given> load(File file) throws IOException {
-    ObjectMapper mapper = new ObjectMapper();
-    TypeReference<List<Given>> typeRef = new TypeReference<List<Given>>() {};
-    return mapper.readValue(file, typeRef);
-  }
-
-  public static String toOperationName(String string) {
-    if (string == null || string.length() == 0) {
-      return string;
+        return new String(c);
     }
 
-    char c[] = string.toCharArray();
-    c[0] = Character.toLowerCase(c[0]);
+    public String getAPIName() {
+        return Pattern.compile(" ").matcher(tag).replaceAll("");
+    }
 
-    return new String(c);
-  }
-
-  public String getAPIName() {
-    return Pattern.compile(" ").matcher(tag).replaceAll("");
-  }
-
-  public String getOperationName() {
-    return toOperationName(operationId);
-  }
+    public String getOperationName() {
+        return toOperationName(operationId);
+    }
 }

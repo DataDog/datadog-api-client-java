@@ -10,372 +10,387 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JSON;
+import com.datadog.api.v1.client.model.SyntheticsErrorCode;
+import com.datadog.api.v1.client.model.SyntheticsSSLCertificate;
+import com.datadog.api.v1.client.model.SyntheticsTestProcessStatus;
+import com.datadog.api.v1.client.model.SyntheticsTiming;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Map;
 import java.util.Objects;
 
-/** Object containing results for your Synthetic API test. */
+/**
+ * Object containing results for your Synthetic API test.
+ */
 @ApiModel(description = "Object containing results for your Synthetic API test.")
-@JsonPropertyOrder({
-  SyntheticsAPITestResultData.JSON_PROPERTY_CERT,
-  SyntheticsAPITestResultData.JSON_PROPERTY_ERROR_CODE,
-  SyntheticsAPITestResultData.JSON_PROPERTY_ERROR_MESSAGE,
-  SyntheticsAPITestResultData.JSON_PROPERTY_EVENT_TYPE,
-  SyntheticsAPITestResultData.JSON_PROPERTY_HTTP_STATUS_CODE,
-  SyntheticsAPITestResultData.JSON_PROPERTY_REQUEST_HEADERS,
-  SyntheticsAPITestResultData.JSON_PROPERTY_RESPONSE_BODY,
-  SyntheticsAPITestResultData.JSON_PROPERTY_RESPONSE_HEADERS,
-  SyntheticsAPITestResultData.JSON_PROPERTY_RESPONSE_SIZE,
-  SyntheticsAPITestResultData.JSON_PROPERTY_TIMINGS
-})
+@JsonPropertyOrder(
+    {
+        SyntheticsAPITestResultData.JSON_PROPERTY_CERT,
+        SyntheticsAPITestResultData.JSON_PROPERTY_ERROR_CODE,
+        SyntheticsAPITestResultData.JSON_PROPERTY_ERROR_MESSAGE,
+        SyntheticsAPITestResultData.JSON_PROPERTY_EVENT_TYPE,
+        SyntheticsAPITestResultData.JSON_PROPERTY_HTTP_STATUS_CODE,
+        SyntheticsAPITestResultData.JSON_PROPERTY_REQUEST_HEADERS,
+        SyntheticsAPITestResultData.JSON_PROPERTY_RESPONSE_BODY,
+        SyntheticsAPITestResultData.JSON_PROPERTY_RESPONSE_HEADERS,
+        SyntheticsAPITestResultData.JSON_PROPERTY_RESPONSE_SIZE,
+        SyntheticsAPITestResultData.JSON_PROPERTY_TIMINGS
+    }
+)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsAPITestResultData {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_CERT = "cert";
-  private SyntheticsSSLCertificate cert;
 
-  public static final String JSON_PROPERTY_ERROR_CODE = "errorCode";
-  private SyntheticsErrorCode errorCode;
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  public static final String JSON_PROPERTY_ERROR_MESSAGE = "errorMessage";
-  private String errorMessage;
+    public static final String JSON_PROPERTY_CERT = "cert";
+    private SyntheticsSSLCertificate cert;
 
-  public static final String JSON_PROPERTY_EVENT_TYPE = "eventType";
-  private SyntheticsTestProcessStatus eventType;
+    public static final String JSON_PROPERTY_ERROR_CODE = "errorCode";
+    private SyntheticsErrorCode errorCode;
 
-  public static final String JSON_PROPERTY_HTTP_STATUS_CODE = "httpStatusCode";
-  private Long httpStatusCode;
+    public static final String JSON_PROPERTY_ERROR_MESSAGE = "errorMessage";
+    private String errorMessage;
 
-  public static final String JSON_PROPERTY_REQUEST_HEADERS = "requestHeaders";
-  private Map<String, Object> requestHeaders = null;
+    public static final String JSON_PROPERTY_EVENT_TYPE = "eventType";
+    private SyntheticsTestProcessStatus eventType;
 
-  public static final String JSON_PROPERTY_RESPONSE_BODY = "responseBody";
-  private String responseBody;
+    public static final String JSON_PROPERTY_HTTP_STATUS_CODE = "httpStatusCode";
+    private Long httpStatusCode;
 
-  public static final String JSON_PROPERTY_RESPONSE_HEADERS = "responseHeaders";
-  private Map<String, Object> responseHeaders = null;
+    public static final String JSON_PROPERTY_REQUEST_HEADERS = "requestHeaders";
+    private Map<String, Object> requestHeaders = null;
 
-  public static final String JSON_PROPERTY_RESPONSE_SIZE = "responseSize";
-  private Long responseSize;
+    public static final String JSON_PROPERTY_RESPONSE_BODY = "responseBody";
+    private String responseBody;
 
-  public static final String JSON_PROPERTY_TIMINGS = "timings";
-  private SyntheticsTiming timings;
+    public static final String JSON_PROPERTY_RESPONSE_HEADERS = "responseHeaders";
+    private Map<String, Object> responseHeaders = null;
 
-  public SyntheticsAPITestResultData cert(SyntheticsSSLCertificate cert) {
-    this.cert = cert;
-    this.unparsed |= cert.unparsed;
-    return this;
-  }
+    public static final String JSON_PROPERTY_RESPONSE_SIZE = "responseSize";
+    private Long responseSize;
 
-  /**
-   * Get cert
-   *
-   * @return cert
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_CERT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsSSLCertificate getCert() {
-    return cert;
-  }
+    public static final String JSON_PROPERTY_TIMINGS = "timings";
+    private SyntheticsTiming timings;
 
-  public void setCert(SyntheticsSSLCertificate cert) {
-    this.cert = cert;
-  }
-
-  public SyntheticsAPITestResultData errorCode(SyntheticsErrorCode errorCode) {
-    this.errorCode = errorCode;
-    this.unparsed |= !errorCode.isValid();
-    return this;
-  }
-
-  /**
-   * Get errorCode
-   *
-   * @return errorCode
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_ERROR_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsErrorCode getErrorCode() {
-    return errorCode;
-  }
-
-  public void setErrorCode(SyntheticsErrorCode errorCode) {
-    if (!errorCode.isValid()) {
-      this.unparsed = true;
+    public SyntheticsAPITestResultData cert(SyntheticsSSLCertificate cert) {
+        this.cert = cert;
+        this.unparsed |= cert.unparsed;
+        return this;
     }
-    this.errorCode = errorCode;
-  }
 
-  public SyntheticsAPITestResultData errorMessage(String errorMessage) {
-    this.errorMessage = errorMessage;
-    return this;
-  }
-
-  /**
-   * The API test error message.
-   *
-   * @return errorMessage
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The API test error message.")
-  @JsonProperty(JSON_PROPERTY_ERROR_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getErrorMessage() {
-    return errorMessage;
-  }
-
-  public void setErrorMessage(String errorMessage) {
-    this.errorMessage = errorMessage;
-  }
-
-  public SyntheticsAPITestResultData eventType(SyntheticsTestProcessStatus eventType) {
-    this.eventType = eventType;
-    this.unparsed |= !eventType.isValid();
-    return this;
-  }
-
-  /**
-   * Get eventType
-   *
-   * @return eventType
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_EVENT_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsTestProcessStatus getEventType() {
-    return eventType;
-  }
-
-  public void setEventType(SyntheticsTestProcessStatus eventType) {
-    if (!eventType.isValid()) {
-      this.unparsed = true;
+    /**
+     * Get cert
+     * @return cert
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+    @JsonProperty(JSON_PROPERTY_CERT)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public SyntheticsSSLCertificate getCert() {
+        return cert;
     }
-    this.eventType = eventType;
-  }
 
-  public SyntheticsAPITestResultData httpStatusCode(Long httpStatusCode) {
-    this.httpStatusCode = httpStatusCode;
-    return this;
-  }
-
-  /**
-   * The API test HTTP status code.
-   *
-   * @return httpStatusCode
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The API test HTTP status code.")
-  @JsonProperty(JSON_PROPERTY_HTTP_STATUS_CODE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getHttpStatusCode() {
-    return httpStatusCode;
-  }
-
-  public void setHttpStatusCode(Long httpStatusCode) {
-    this.httpStatusCode = httpStatusCode;
-  }
-
-  public SyntheticsAPITestResultData requestHeaders(Map<String, Object> requestHeaders) {
-    this.requestHeaders = requestHeaders;
-    return this;
-  }
-
-  public SyntheticsAPITestResultData putRequestHeadersItem(String key, Object requestHeadersItem) {
-    if (this.requestHeaders == null) {
-      this.requestHeaders = new HashMap<>();
+    public void setCert(SyntheticsSSLCertificate cert) {
+        this.cert = cert;
     }
-    this.requestHeaders.put(key, requestHeadersItem);
-    return this;
-  }
 
-  /**
-   * Request header object used for the API test.
-   *
-   * @return requestHeaders
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Request header object used for the API test.")
-  @JsonProperty(JSON_PROPERTY_REQUEST_HEADERS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Map<String, Object> getRequestHeaders() {
-    return requestHeaders;
-  }
-
-  public void setRequestHeaders(Map<String, Object> requestHeaders) {
-    this.requestHeaders = requestHeaders;
-  }
-
-  public SyntheticsAPITestResultData responseBody(String responseBody) {
-    this.responseBody = responseBody;
-    return this;
-  }
-
-  /**
-   * Response body returned for the API test.
-   *
-   * @return responseBody
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Response body returned for the API test.")
-  @JsonProperty(JSON_PROPERTY_RESPONSE_BODY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getResponseBody() {
-    return responseBody;
-  }
-
-  public void setResponseBody(String responseBody) {
-    this.responseBody = responseBody;
-  }
-
-  public SyntheticsAPITestResultData responseHeaders(Map<String, Object> responseHeaders) {
-    this.responseHeaders = responseHeaders;
-    return this;
-  }
-
-  public SyntheticsAPITestResultData putResponseHeadersItem(
-      String key, Object responseHeadersItem) {
-    if (this.responseHeaders == null) {
-      this.responseHeaders = new HashMap<>();
+    public SyntheticsAPITestResultData errorCode(SyntheticsErrorCode errorCode) {
+        this.errorCode = errorCode;
+        this.unparsed |= !errorCode.isValid();
+        return this;
     }
-    this.responseHeaders.put(key, responseHeadersItem);
-    return this;
-  }
 
-  /**
-   * Response headers returned for the API test.
-   *
-   * @return responseHeaders
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Response headers returned for the API test.")
-  @JsonProperty(JSON_PROPERTY_RESPONSE_HEADERS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Map<String, Object> getResponseHeaders() {
-    return responseHeaders;
-  }
-
-  public void setResponseHeaders(Map<String, Object> responseHeaders) {
-    this.responseHeaders = responseHeaders;
-  }
-
-  public SyntheticsAPITestResultData responseSize(Long responseSize) {
-    this.responseSize = responseSize;
-    return this;
-  }
-
-  /**
-   * Global size in byte of the API test response.
-   *
-   * @return responseSize
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Global size in byte of the API test response.")
-  @JsonProperty(JSON_PROPERTY_RESPONSE_SIZE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getResponseSize() {
-    return responseSize;
-  }
-
-  public void setResponseSize(Long responseSize) {
-    this.responseSize = responseSize;
-  }
-
-  public SyntheticsAPITestResultData timings(SyntheticsTiming timings) {
-    this.timings = timings;
-    this.unparsed |= timings.unparsed;
-    return this;
-  }
-
-  /**
-   * Get timings
-   *
-   * @return timings
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_TIMINGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public SyntheticsTiming getTimings() {
-    return timings;
-  }
-
-  public void setTimings(SyntheticsTiming timings) {
-    this.timings = timings;
-  }
-
-  /** Return true if this SyntheticsAPITestResultData object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * Get errorCode
+     * @return errorCode
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+    @JsonProperty(JSON_PROPERTY_ERROR_CODE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public SyntheticsErrorCode getErrorCode() {
+        return errorCode;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setErrorCode(SyntheticsErrorCode errorCode) {
+        if (!errorCode.isValid()) {
+            this.unparsed = true;
+        }
+        this.errorCode = errorCode;
     }
-    SyntheticsAPITestResultData syntheticsAPITestResultData = (SyntheticsAPITestResultData) o;
-    return Objects.equals(this.cert, syntheticsAPITestResultData.cert)
-        && Objects.equals(this.errorCode, syntheticsAPITestResultData.errorCode)
-        && Objects.equals(this.errorMessage, syntheticsAPITestResultData.errorMessage)
-        && Objects.equals(this.eventType, syntheticsAPITestResultData.eventType)
-        && Objects.equals(this.httpStatusCode, syntheticsAPITestResultData.httpStatusCode)
-        && Objects.equals(this.requestHeaders, syntheticsAPITestResultData.requestHeaders)
-        && Objects.equals(this.responseBody, syntheticsAPITestResultData.responseBody)
-        && Objects.equals(this.responseHeaders, syntheticsAPITestResultData.responseHeaders)
-        && Objects.equals(this.responseSize, syntheticsAPITestResultData.responseSize)
-        && Objects.equals(this.timings, syntheticsAPITestResultData.timings);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(
-        cert,
-        errorCode,
-        errorMessage,
-        eventType,
-        httpStatusCode,
-        requestHeaders,
-        responseBody,
-        responseHeaders,
-        responseSize,
-        timings);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class SyntheticsAPITestResultData {\n");
-    sb.append("    cert: ").append(toIndentedString(cert)).append("\n");
-    sb.append("    errorCode: ").append(toIndentedString(errorCode)).append("\n");
-    sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
-    sb.append("    eventType: ").append(toIndentedString(eventType)).append("\n");
-    sb.append("    httpStatusCode: ").append(toIndentedString(httpStatusCode)).append("\n");
-    sb.append("    requestHeaders: ").append(toIndentedString(requestHeaders)).append("\n");
-    sb.append("    responseBody: ").append(toIndentedString(responseBody)).append("\n");
-    sb.append("    responseHeaders: ").append(toIndentedString(responseHeaders)).append("\n");
-    sb.append("    responseSize: ").append(toIndentedString(responseSize)).append("\n");
-    sb.append("    timings: ").append(toIndentedString(timings)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public SyntheticsAPITestResultData errorMessage(String errorMessage) {
+        this.errorMessage = errorMessage;
+        return this;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * The API test error message.
+     * @return errorMessage
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "The API test error message.")
+    @JsonProperty(JSON_PROPERTY_ERROR_MESSAGE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getErrorMessage() {
+        return errorMessage;
+    }
+
+    public void setErrorMessage(String errorMessage) {
+        this.errorMessage = errorMessage;
+    }
+
+    public SyntheticsAPITestResultData eventType(SyntheticsTestProcessStatus eventType) {
+        this.eventType = eventType;
+        this.unparsed |= !eventType.isValid();
+        return this;
+    }
+
+    /**
+     * Get eventType
+     * @return eventType
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+    @JsonProperty(JSON_PROPERTY_EVENT_TYPE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public SyntheticsTestProcessStatus getEventType() {
+        return eventType;
+    }
+
+    public void setEventType(SyntheticsTestProcessStatus eventType) {
+        if (!eventType.isValid()) {
+            this.unparsed = true;
+        }
+        this.eventType = eventType;
+    }
+
+    public SyntheticsAPITestResultData httpStatusCode(Long httpStatusCode) {
+        this.httpStatusCode = httpStatusCode;
+        return this;
+    }
+
+    /**
+     * The API test HTTP status code.
+     * @return httpStatusCode
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "The API test HTTP status code.")
+    @JsonProperty(JSON_PROPERTY_HTTP_STATUS_CODE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Long getHttpStatusCode() {
+        return httpStatusCode;
+    }
+
+    public void setHttpStatusCode(Long httpStatusCode) {
+        this.httpStatusCode = httpStatusCode;
+    }
+
+    public SyntheticsAPITestResultData requestHeaders(Map<String, Object> requestHeaders) {
+        this.requestHeaders = requestHeaders;
+        return this;
+    }
+
+    public SyntheticsAPITestResultData putRequestHeadersItem(String key, Object requestHeadersItem) {
+        if (this.requestHeaders == null) {
+            this.requestHeaders = new HashMap<>();
+        }
+        this.requestHeaders.put(key, requestHeadersItem);
+        return this;
+    }
+
+    /**
+     * Request header object used for the API test.
+     * @return requestHeaders
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Request header object used for the API test.")
+    @JsonProperty(JSON_PROPERTY_REQUEST_HEADERS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Map<String, Object> getRequestHeaders() {
+        return requestHeaders;
+    }
+
+    public void setRequestHeaders(Map<String, Object> requestHeaders) {
+        this.requestHeaders = requestHeaders;
+    }
+
+    public SyntheticsAPITestResultData responseBody(String responseBody) {
+        this.responseBody = responseBody;
+        return this;
+    }
+
+    /**
+     * Response body returned for the API test.
+     * @return responseBody
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Response body returned for the API test.")
+    @JsonProperty(JSON_PROPERTY_RESPONSE_BODY)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getResponseBody() {
+        return responseBody;
+    }
+
+    public void setResponseBody(String responseBody) {
+        this.responseBody = responseBody;
+    }
+
+    public SyntheticsAPITestResultData responseHeaders(Map<String, Object> responseHeaders) {
+        this.responseHeaders = responseHeaders;
+        return this;
+    }
+
+    public SyntheticsAPITestResultData putResponseHeadersItem(String key, Object responseHeadersItem) {
+        if (this.responseHeaders == null) {
+            this.responseHeaders = new HashMap<>();
+        }
+        this.responseHeaders.put(key, responseHeadersItem);
+        return this;
+    }
+
+    /**
+     * Response headers returned for the API test.
+     * @return responseHeaders
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Response headers returned for the API test.")
+    @JsonProperty(JSON_PROPERTY_RESPONSE_HEADERS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Map<String, Object> getResponseHeaders() {
+        return responseHeaders;
+    }
+
+    public void setResponseHeaders(Map<String, Object> responseHeaders) {
+        this.responseHeaders = responseHeaders;
+    }
+
+    public SyntheticsAPITestResultData responseSize(Long responseSize) {
+        this.responseSize = responseSize;
+        return this;
+    }
+
+    /**
+     * Global size in byte of the API test response.
+     * @return responseSize
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Global size in byte of the API test response.")
+    @JsonProperty(JSON_PROPERTY_RESPONSE_SIZE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Long getResponseSize() {
+        return responseSize;
+    }
+
+    public void setResponseSize(Long responseSize) {
+        this.responseSize = responseSize;
+    }
+
+    public SyntheticsAPITestResultData timings(SyntheticsTiming timings) {
+        this.timings = timings;
+        this.unparsed |= timings.unparsed;
+        return this;
+    }
+
+    /**
+     * Get timings
+     * @return timings
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+    @JsonProperty(JSON_PROPERTY_TIMINGS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public SyntheticsTiming getTimings() {
+        return timings;
+    }
+
+    public void setTimings(SyntheticsTiming timings) {
+        this.timings = timings;
+    }
+
+    /**
+     * Return true if this SyntheticsAPITestResultData object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        SyntheticsAPITestResultData syntheticsAPITestResultData = (SyntheticsAPITestResultData) o;
+        return (
+            Objects.equals(this.cert, syntheticsAPITestResultData.cert) &&
+            Objects.equals(this.errorCode, syntheticsAPITestResultData.errorCode) &&
+            Objects.equals(this.errorMessage, syntheticsAPITestResultData.errorMessage) &&
+            Objects.equals(this.eventType, syntheticsAPITestResultData.eventType) &&
+            Objects.equals(this.httpStatusCode, syntheticsAPITestResultData.httpStatusCode) &&
+            Objects.equals(this.requestHeaders, syntheticsAPITestResultData.requestHeaders) &&
+            Objects.equals(this.responseBody, syntheticsAPITestResultData.responseBody) &&
+            Objects.equals(this.responseHeaders, syntheticsAPITestResultData.responseHeaders) &&
+            Objects.equals(this.responseSize, syntheticsAPITestResultData.responseSize) &&
+            Objects.equals(this.timings, syntheticsAPITestResultData.timings)
+        );
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+            cert,
+            errorCode,
+            errorMessage,
+            eventType,
+            httpStatusCode,
+            requestHeaders,
+            responseBody,
+            responseHeaders,
+            responseSize,
+            timings
+        );
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class SyntheticsAPITestResultData {\n");
+        sb.append("    cert: ").append(toIndentedString(cert)).append("\n");
+        sb.append("    errorCode: ").append(toIndentedString(errorCode)).append("\n");
+        sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
+        sb.append("    eventType: ").append(toIndentedString(eventType)).append("\n");
+        sb.append("    httpStatusCode: ").append(toIndentedString(httpStatusCode)).append("\n");
+        sb.append("    requestHeaders: ").append(toIndentedString(requestHeaders)).append("\n");
+        sb.append("    responseBody: ").append(toIndentedString(responseBody)).append("\n");
+        sb.append("    responseHeaders: ").append(toIndentedString(responseHeaders)).append("\n");
+        sb.append("    responseSize: ").append(toIndentedString(responseSize)).append("\n");
+        sb.append("    timings: ").append(toIndentedString(timings)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

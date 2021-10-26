@@ -10,372 +10,368 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JSON;
+import com.datadog.api.v1.client.model.Creator;
+import com.datadog.api.v1.client.model.MonitorOverallStates;
+import com.datadog.api.v1.client.model.MonitorSearchResultNotification;
+import com.datadog.api.v1.client.model.MonitorType;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.NoSuchElementException;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Holds search results. */
+/**
+ * Holds search results.
+ */
 @ApiModel(description = "Holds search results.")
-@JsonPropertyOrder({
-  MonitorSearchResult.JSON_PROPERTY_CLASSIFICATION,
-  MonitorSearchResult.JSON_PROPERTY_CREATOR,
-  MonitorSearchResult.JSON_PROPERTY_ID,
-  MonitorSearchResult.JSON_PROPERTY_LAST_TRIGGERED_TS,
-  MonitorSearchResult.JSON_PROPERTY_METRICS,
-  MonitorSearchResult.JSON_PROPERTY_NAME,
-  MonitorSearchResult.JSON_PROPERTY_NOTIFICATIONS,
-  MonitorSearchResult.JSON_PROPERTY_ORG_ID,
-  MonitorSearchResult.JSON_PROPERTY_SCOPES,
-  MonitorSearchResult.JSON_PROPERTY_STATUS,
-  MonitorSearchResult.JSON_PROPERTY_TAGS,
-  MonitorSearchResult.JSON_PROPERTY_TYPE
-})
+@JsonPropertyOrder(
+    {
+        MonitorSearchResult.JSON_PROPERTY_CLASSIFICATION,
+        MonitorSearchResult.JSON_PROPERTY_CREATOR,
+        MonitorSearchResult.JSON_PROPERTY_ID,
+        MonitorSearchResult.JSON_PROPERTY_LAST_TRIGGERED_TS,
+        MonitorSearchResult.JSON_PROPERTY_METRICS,
+        MonitorSearchResult.JSON_PROPERTY_NAME,
+        MonitorSearchResult.JSON_PROPERTY_NOTIFICATIONS,
+        MonitorSearchResult.JSON_PROPERTY_ORG_ID,
+        MonitorSearchResult.JSON_PROPERTY_SCOPES,
+        MonitorSearchResult.JSON_PROPERTY_STATUS,
+        MonitorSearchResult.JSON_PROPERTY_TAGS,
+        MonitorSearchResult.JSON_PROPERTY_TYPE
+    }
+)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MonitorSearchResult {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_CLASSIFICATION = "classification";
-  private String classification;
 
-  public static final String JSON_PROPERTY_CREATOR = "creator";
-  private Creator creator;
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  public static final String JSON_PROPERTY_ID = "id";
-  private Long id;
+    public static final String JSON_PROPERTY_CLASSIFICATION = "classification";
+    private String classification;
 
-  public static final String JSON_PROPERTY_LAST_TRIGGERED_TS = "last_triggered_ts";
-  private JsonNullable<Long> lastTriggeredTs = JsonNullable.<Long>undefined();
+    public static final String JSON_PROPERTY_CREATOR = "creator";
+    private Creator creator;
 
-  public static final String JSON_PROPERTY_METRICS = "metrics";
-  private List<String> metrics = null;
+    public static final String JSON_PROPERTY_ID = "id";
+    private Long id;
 
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+    public static final String JSON_PROPERTY_LAST_TRIGGERED_TS = "last_triggered_ts";
+    private JsonNullable<Long> lastTriggeredTs = JsonNullable.<Long>undefined();
 
-  public static final String JSON_PROPERTY_NOTIFICATIONS = "notifications";
-  private List<MonitorSearchResultNotification> notifications = null;
+    public static final String JSON_PROPERTY_METRICS = "metrics";
+    private List<String> metrics = null;
 
-  public static final String JSON_PROPERTY_ORG_ID = "org_id";
-  private Long orgId;
+    public static final String JSON_PROPERTY_NAME = "name";
+    private String name;
 
-  public static final String JSON_PROPERTY_SCOPES = "scopes";
-  private List<String> scopes = null;
+    public static final String JSON_PROPERTY_NOTIFICATIONS = "notifications";
+    private List<MonitorSearchResultNotification> notifications = null;
 
-  public static final String JSON_PROPERTY_STATUS = "status";
-  private MonitorOverallStates status;
+    public static final String JSON_PROPERTY_ORG_ID = "org_id";
+    private Long orgId;
 
-  public static final String JSON_PROPERTY_TAGS = "tags";
-  private List<String> tags = null;
+    public static final String JSON_PROPERTY_SCOPES = "scopes";
+    private List<String> scopes = null;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private MonitorType type;
+    public static final String JSON_PROPERTY_STATUS = "status";
+    private MonitorOverallStates status;
 
-  /**
-   * Classification of the monitor.
-   *
-   * @return classification
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Classification of the monitor.")
-  @JsonProperty(JSON_PROPERTY_CLASSIFICATION)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getClassification() {
-    return classification;
-  }
+    public static final String JSON_PROPERTY_TAGS = "tags";
+    private List<String> tags = null;
 
-  public MonitorSearchResult creator(Creator creator) {
-    this.creator = creator;
-    this.unparsed |= creator.unparsed;
-    return this;
-  }
+    public static final String JSON_PROPERTY_TYPE = "type";
+    private MonitorType type;
 
-  /**
-   * Get creator
-   *
-   * @return creator
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_CREATOR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Creator getCreator() {
-    return creator;
-  }
-
-  public void setCreator(Creator creator) {
-    this.creator = creator;
-  }
-
-  /**
-   * ID of the monitor.
-   *
-   * @return id
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the monitor.")
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getId() {
-    return id;
-  }
-
-  /**
-   * Latest timestamp the monitor triggered.
-   *
-   * @return lastTriggeredTs
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Latest timestamp the monitor triggered.")
-  @JsonIgnore
-  public Long getLastTriggeredTs() {
-
-    if (lastTriggeredTs == null) {
-      lastTriggeredTs = JsonNullable.<Long>undefined();
+    /**
+     * Classification of the monitor.
+     * @return classification
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Classification of the monitor.")
+    @JsonProperty(JSON_PROPERTY_CLASSIFICATION)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getClassification() {
+        return classification;
     }
-    return lastTriggeredTs.orElse(null);
-  }
 
-  @JsonProperty(JSON_PROPERTY_LAST_TRIGGERED_TS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public JsonNullable<Long> getLastTriggeredTs_JsonNullable() {
-    return lastTriggeredTs;
-  }
-
-  @JsonProperty(JSON_PROPERTY_LAST_TRIGGERED_TS)
-  private void setLastTriggeredTs_JsonNullable(JsonNullable<Long> lastTriggeredTs) {
-    this.lastTriggeredTs = lastTriggeredTs;
-  }
-
-  /**
-   * Metrics used by the monitor.
-   *
-   * @return metrics
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Metrics used by the monitor.")
-  @JsonProperty(JSON_PROPERTY_METRICS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getMetrics() {
-    return metrics;
-  }
-
-  /**
-   * The monitor name.
-   *
-   * @return name
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The monitor name.")
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
-  /**
-   * The notification triggered by the monitor.
-   *
-   * @return notifications
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The notification triggered by the monitor.")
-  @JsonProperty(JSON_PROPERTY_NOTIFICATIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<MonitorSearchResultNotification> getNotifications() {
-    return notifications;
-  }
-
-  /**
-   * The ID of the organization.
-   *
-   * @return orgId
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The ID of the organization.")
-  @JsonProperty(JSON_PROPERTY_ORG_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getOrgId() {
-    return orgId;
-  }
-
-  public MonitorSearchResult scopes(List<String> scopes) {
-    this.scopes = scopes;
-    return this;
-  }
-
-  public MonitorSearchResult addScopesItem(String scopesItem) {
-    if (this.scopes == null) {
-      this.scopes = new ArrayList<>();
+    public MonitorSearchResult creator(Creator creator) {
+        this.creator = creator;
+        this.unparsed |= creator.unparsed;
+        return this;
     }
-    this.scopes.add(scopesItem);
-    return this;
-  }
 
-  /**
-   * The scope(s) to which the downtime applies, e.g. &#x60;host:app2&#x60;. Provide multiple scopes
-   * as a comma-separated list, e.g. &#x60;env:dev,env:prod&#x60;. The resulting downtime applies to
-   * sources that matches ALL provided scopes (i.e. &#x60;env:dev AND env:prod&#x60;), NOT any of
-   * them.
-   *
-   * @return scopes
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[\"host:app2\",\"env:dev,env:prod\"]",
-      value =
-          "The scope(s) to which the downtime applies, e.g. `host:app2`. Provide multiple scopes"
-              + " as a comma-separated list, e.g. `env:dev,env:prod`. The resulting downtime"
-              + " applies to sources that matches ALL provided scopes (i.e. `env:dev AND"
-              + " env:prod`), NOT any of them.")
-  @JsonProperty(JSON_PROPERTY_SCOPES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getScopes() {
-    return scopes;
-  }
-
-  public void setScopes(List<String> scopes) {
-    this.scopes = scopes;
-  }
-
-  public MonitorSearchResult status(MonitorOverallStates status) {
-    this.status = status;
-    this.unparsed |= !status.isValid();
-    return this;
-  }
-
-  /**
-   * Get status
-   *
-   * @return status
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public MonitorOverallStates getStatus() {
-    return status;
-  }
-
-  public void setStatus(MonitorOverallStates status) {
-    if (!status.isValid()) {
-      this.unparsed = true;
+    /**
+     * Get creator
+     * @return creator
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+    @JsonProperty(JSON_PROPERTY_CREATOR)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Creator getCreator() {
+        return creator;
     }
-    this.status = status;
-  }
 
-  /**
-   * Tags associated with the monitor.
-   *
-   * @return tags
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Tags associated with the monitor.")
-  @JsonProperty(JSON_PROPERTY_TAGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getTags() {
-    return tags;
-  }
-
-  public MonitorSearchResult type(MonitorType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
-    return this;
-  }
-
-  /**
-   * Get type
-   *
-   * @return type
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public MonitorType getType() {
-    return type;
-  }
-
-  public void setType(MonitorType type) {
-    if (!type.isValid()) {
-      this.unparsed = true;
+    public void setCreator(Creator creator) {
+        this.creator = creator;
     }
-    this.type = type;
-  }
 
-  /** Return true if this MonitorSearchResult object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * ID of the monitor.
+     * @return id
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "ID of the monitor.")
+    @JsonProperty(JSON_PROPERTY_ID)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Long getId() {
+        return id;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Latest timestamp the monitor triggered.
+     * @return lastTriggeredTs
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Latest timestamp the monitor triggered.")
+    @JsonIgnore
+    public Long getLastTriggeredTs() {
+        if (lastTriggeredTs == null) {
+            lastTriggeredTs = JsonNullable.<Long>undefined();
+        }
+        return lastTriggeredTs.orElse(null);
     }
-    MonitorSearchResult monitorSearchResult = (MonitorSearchResult) o;
-    return Objects.equals(this.classification, monitorSearchResult.classification)
-        && Objects.equals(this.creator, monitorSearchResult.creator)
-        && Objects.equals(this.id, monitorSearchResult.id)
-        && Objects.equals(this.lastTriggeredTs, monitorSearchResult.lastTriggeredTs)
-        && Objects.equals(this.metrics, monitorSearchResult.metrics)
-        && Objects.equals(this.name, monitorSearchResult.name)
-        && Objects.equals(this.notifications, monitorSearchResult.notifications)
-        && Objects.equals(this.orgId, monitorSearchResult.orgId)
-        && Objects.equals(this.scopes, monitorSearchResult.scopes)
-        && Objects.equals(this.status, monitorSearchResult.status)
-        && Objects.equals(this.tags, monitorSearchResult.tags)
-        && Objects.equals(this.type, monitorSearchResult.type);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(
-        classification,
-        creator,
-        id,
-        lastTriggeredTs,
-        metrics,
-        name,
-        notifications,
-        orgId,
-        scopes,
-        status,
-        tags,
-        type);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class MonitorSearchResult {\n");
-    sb.append("    classification: ").append(toIndentedString(classification)).append("\n");
-    sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    lastTriggeredTs: ").append(toIndentedString(lastTriggeredTs)).append("\n");
-    sb.append("    metrics: ").append(toIndentedString(metrics)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    notifications: ").append(toIndentedString(notifications)).append("\n");
-    sb.append("    orgId: ").append(toIndentedString(orgId)).append("\n");
-    sb.append("    scopes: ").append(toIndentedString(scopes)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    @JsonProperty(JSON_PROPERTY_LAST_TRIGGERED_TS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public JsonNullable<Long> getLastTriggeredTs_JsonNullable() {
+        return lastTriggeredTs;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    @JsonProperty(JSON_PROPERTY_LAST_TRIGGERED_TS)
+    private void setLastTriggeredTs_JsonNullable(JsonNullable<Long> lastTriggeredTs) {
+        this.lastTriggeredTs = lastTriggeredTs;
+    }
+
+    /**
+     * Metrics used by the monitor.
+     * @return metrics
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Metrics used by the monitor.")
+    @JsonProperty(JSON_PROPERTY_METRICS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public List<String> getMetrics() {
+        return metrics;
+    }
+
+    /**
+     * The monitor name.
+     * @return name
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "The monitor name.")
+    @JsonProperty(JSON_PROPERTY_NAME)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * The notification triggered by the monitor.
+     * @return notifications
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "The notification triggered by the monitor.")
+    @JsonProperty(JSON_PROPERTY_NOTIFICATIONS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public List<MonitorSearchResultNotification> getNotifications() {
+        return notifications;
+    }
+
+    /**
+     * The ID of the organization.
+     * @return orgId
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "The ID of the organization.")
+    @JsonProperty(JSON_PROPERTY_ORG_ID)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Long getOrgId() {
+        return orgId;
+    }
+
+    public MonitorSearchResult scopes(List<String> scopes) {
+        this.scopes = scopes;
+        return this;
+    }
+
+    public MonitorSearchResult addScopesItem(String scopesItem) {
+        if (this.scopes == null) {
+            this.scopes = new ArrayList<>();
+        }
+        this.scopes.add(scopesItem);
+        return this;
+    }
+
+    /**
+     * The scope(s) to which the downtime applies, e.g. &#x60;host:app2&#x60;. Provide multiple scopes as a comma-separated list, e.g. &#x60;env:dev,env:prod&#x60;. The resulting downtime applies to sources that matches ALL provided scopes (i.e. &#x60;env:dev AND env:prod&#x60;), NOT any of them.
+     * @return scopes
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(
+        example = "[\"host:app2\",\"env:dev,env:prod\"]",
+        value = "The scope(s) to which the downtime applies, e.g. `host:app2`. Provide multiple scopes as a comma-separated list, e.g. `env:dev,env:prod`. The resulting downtime applies to sources that matches ALL provided scopes (i.e. `env:dev AND env:prod`), NOT any of them."
+    )
+    @JsonProperty(JSON_PROPERTY_SCOPES)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public List<String> getScopes() {
+        return scopes;
+    }
+
+    public void setScopes(List<String> scopes) {
+        this.scopes = scopes;
+    }
+
+    public MonitorSearchResult status(MonitorOverallStates status) {
+        this.status = status;
+        this.unparsed |= !status.isValid();
+        return this;
+    }
+
+    /**
+     * Get status
+     * @return status
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+    @JsonProperty(JSON_PROPERTY_STATUS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public MonitorOverallStates getStatus() {
+        return status;
+    }
+
+    public void setStatus(MonitorOverallStates status) {
+        if (!status.isValid()) {
+            this.unparsed = true;
+        }
+        this.status = status;
+    }
+
+    /**
+     * Tags associated with the monitor.
+     * @return tags
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Tags associated with the monitor.")
+    @JsonProperty(JSON_PROPERTY_TAGS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public List<String> getTags() {
+        return tags;
+    }
+
+    public MonitorSearchResult type(MonitorType type) {
+        this.type = type;
+        this.unparsed |= !type.isValid();
+        return this;
+    }
+
+    /**
+     * Get type
+     * @return type
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+    @JsonProperty(JSON_PROPERTY_TYPE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public MonitorType getType() {
+        return type;
+    }
+
+    public void setType(MonitorType type) {
+        if (!type.isValid()) {
+            this.unparsed = true;
+        }
+        this.type = type;
+    }
+
+    /**
+     * Return true if this MonitorSearchResult object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        MonitorSearchResult monitorSearchResult = (MonitorSearchResult) o;
+        return (
+            Objects.equals(this.classification, monitorSearchResult.classification) &&
+            Objects.equals(this.creator, monitorSearchResult.creator) &&
+            Objects.equals(this.id, monitorSearchResult.id) &&
+            Objects.equals(this.lastTriggeredTs, monitorSearchResult.lastTriggeredTs) &&
+            Objects.equals(this.metrics, monitorSearchResult.metrics) &&
+            Objects.equals(this.name, monitorSearchResult.name) &&
+            Objects.equals(this.notifications, monitorSearchResult.notifications) &&
+            Objects.equals(this.orgId, monitorSearchResult.orgId) &&
+            Objects.equals(this.scopes, monitorSearchResult.scopes) &&
+            Objects.equals(this.status, monitorSearchResult.status) &&
+            Objects.equals(this.tags, monitorSearchResult.tags) &&
+            Objects.equals(this.type, monitorSearchResult.type)
+        );
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(classification, creator, id, lastTriggeredTs, metrics, name, notifications, orgId, scopes, status, tags, type);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class MonitorSearchResult {\n");
+        sb.append("    classification: ").append(toIndentedString(classification)).append("\n");
+        sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
+        sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        sb.append("    lastTriggeredTs: ").append(toIndentedString(lastTriggeredTs)).append("\n");
+        sb.append("    metrics: ").append(toIndentedString(metrics)).append("\n");
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    notifications: ").append(toIndentedString(notifications)).append("\n");
+        sb.append("    orgId: ").append(toIndentedString(orgId)).append("\n");
+        sb.append("    scopes: ").append(toIndentedString(scopes)).append("\n");
+        sb.append("    status: ").append(toIndentedString(status)).append("\n");
+        sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+        sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

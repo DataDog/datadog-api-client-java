@@ -10,83 +10,99 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JSON;
+import com.datadog.api.v1.client.model.WidgetLiveSpan;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
-/** Time setting for the widget. */
+/**
+ * Time setting for the widget.
+ */
 @ApiModel(description = "Time setting for the widget.")
-@JsonPropertyOrder({WidgetTime.JSON_PROPERTY_LIVE_SPAN})
+@JsonPropertyOrder({ WidgetTime.JSON_PROPERTY_LIVE_SPAN })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WidgetTime {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_LIVE_SPAN = "live_span";
-  private WidgetLiveSpan liveSpan;
 
-  public WidgetTime liveSpan(WidgetLiveSpan liveSpan) {
-    this.liveSpan = liveSpan;
-    this.unparsed |= !liveSpan.isValid();
-    return this;
-  }
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  /**
-   * Get liveSpan
-   *
-   * @return liveSpan
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_LIVE_SPAN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public WidgetLiveSpan getLiveSpan() {
-    return liveSpan;
-  }
+    public static final String JSON_PROPERTY_LIVE_SPAN = "live_span";
+    private WidgetLiveSpan liveSpan;
 
-  public void setLiveSpan(WidgetLiveSpan liveSpan) {
-    if (!liveSpan.isValid()) {
-      this.unparsed = true;
+    public WidgetTime liveSpan(WidgetLiveSpan liveSpan) {
+        this.liveSpan = liveSpan;
+        this.unparsed |= !liveSpan.isValid();
+        return this;
     }
-    this.liveSpan = liveSpan;
-  }
 
-  /** Return true if this WidgetTime object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * Get liveSpan
+     * @return liveSpan
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+    @JsonProperty(JSON_PROPERTY_LIVE_SPAN)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public WidgetLiveSpan getLiveSpan() {
+        return liveSpan;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setLiveSpan(WidgetLiveSpan liveSpan) {
+        if (!liveSpan.isValid()) {
+            this.unparsed = true;
+        }
+        this.liveSpan = liveSpan;
     }
-    WidgetTime widgetTime = (WidgetTime) o;
-    return Objects.equals(this.liveSpan, widgetTime.liveSpan);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(liveSpan);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class WidgetTime {\n");
-    sb.append("    liveSpan: ").append(toIndentedString(liveSpan)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    /**
+     * Return true if this WidgetTime object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        WidgetTime widgetTime = (WidgetTime) o;
+        return Objects.equals(this.liveSpan, widgetTime.liveSpan);
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(liveSpan);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class WidgetTime {\n");
+        sb.append("    liveSpan: ").append(toIndentedString(liveSpan)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

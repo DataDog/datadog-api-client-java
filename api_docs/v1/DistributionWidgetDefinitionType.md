@@ -1,11 +1,5 @@
-
-
 # DistributionWidgetDefinitionType
 
 ## Enum
 
-
-* `DISTRIBUTION` (value: `"distribution"`)
-
-
-
+- `DISTRIBUTION` (value: `"distribution"`)

@@ -10,80 +10,96 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JSON;
+import com.datadog.api.v1.client.model.ApiKey;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
-/** An API key with its associated metadata. */
+/**
+ * An API key with its associated metadata.
+ */
 @ApiModel(description = "An API key with its associated metadata.")
-@JsonPropertyOrder({ApiKeyResponse.JSON_PROPERTY_API_KEY})
+@JsonPropertyOrder({ ApiKeyResponse.JSON_PROPERTY_API_KEY })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ApiKeyResponse {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_API_KEY = "api_key";
-  private ApiKey apiKey;
 
-  public ApiKeyResponse apiKey(ApiKey apiKey) {
-    this.apiKey = apiKey;
-    this.unparsed |= apiKey.unparsed;
-    return this;
-  }
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  /**
-   * Get apiKey
-   *
-   * @return apiKey
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_API_KEY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public ApiKey getApiKey() {
-    return apiKey;
-  }
+    public static final String JSON_PROPERTY_API_KEY = "api_key";
+    private ApiKey apiKey;
 
-  public void setApiKey(ApiKey apiKey) {
-    this.apiKey = apiKey;
-  }
-
-  /** Return true if this ApiKeyResponse object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public ApiKeyResponse apiKey(ApiKey apiKey) {
+        this.apiKey = apiKey;
+        this.unparsed |= apiKey.unparsed;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get apiKey
+     * @return apiKey
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+    @JsonProperty(JSON_PROPERTY_API_KEY)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public ApiKey getApiKey() {
+        return apiKey;
     }
-    ApiKeyResponse apiKeyResponse = (ApiKeyResponse) o;
-    return Objects.equals(this.apiKey, apiKeyResponse.apiKey);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(apiKey);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ApiKeyResponse {\n");
-    sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setApiKey(ApiKey apiKey) {
+        this.apiKey = apiKey;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * Return true if this ApiKeyResponse object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ApiKeyResponse apiKeyResponse = (ApiKeyResponse) o;
+        return Objects.equals(this.apiKey, apiKeyResponse.apiKey);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(apiKey);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ApiKeyResponse {\n");
+        sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

@@ -10,182 +10,190 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.datadog.api.v2.client.JSON;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
-/** Attributes of the created user. */
+/**
+ * Attributes of the created user.
+ */
 @ApiModel(description = "Attributes of the created user.")
-@JsonPropertyOrder({
-  ServiceAccountCreateAttributes.JSON_PROPERTY_EMAIL,
-  ServiceAccountCreateAttributes.JSON_PROPERTY_NAME,
-  ServiceAccountCreateAttributes.JSON_PROPERTY_SERVICE_ACCOUNT,
-  ServiceAccountCreateAttributes.JSON_PROPERTY_TITLE
-})
+@JsonPropertyOrder(
+    {
+        ServiceAccountCreateAttributes.JSON_PROPERTY_EMAIL,
+        ServiceAccountCreateAttributes.JSON_PROPERTY_NAME,
+        ServiceAccountCreateAttributes.JSON_PROPERTY_SERVICE_ACCOUNT,
+        ServiceAccountCreateAttributes.JSON_PROPERTY_TITLE
+    }
+)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ServiceAccountCreateAttributes {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_EMAIL = "email";
-  private String email;
 
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  public static final String JSON_PROPERTY_SERVICE_ACCOUNT = "service_account";
-  private Boolean serviceAccount;
+    public static final String JSON_PROPERTY_EMAIL = "email";
+    private String email;
 
-  public static final String JSON_PROPERTY_TITLE = "title";
-  private String title;
+    public static final String JSON_PROPERTY_NAME = "name";
+    private String name;
 
-  public ServiceAccountCreateAttributes() {}
+    public static final String JSON_PROPERTY_SERVICE_ACCOUNT = "service_account";
+    private Boolean serviceAccount;
 
-  @JsonCreator
-  public ServiceAccountCreateAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_EMAIL) String email,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SERVICE_ACCOUNT)
-          Boolean serviceAccount) {
-    this.email = email;
-    this.serviceAccount = serviceAccount;
-  }
+    public static final String JSON_PROPERTY_TITLE = "title";
+    private String title;
 
-  public ServiceAccountCreateAttributes email(String email) {
-    this.email = email;
-    return this;
-  }
+    public ServiceAccountCreateAttributes() {}
 
-  /**
-   * The email of the user.
-   *
-   * @return email
-   */
-  @ApiModelProperty(
-      example = "jane.doe@example.com",
-      required = true,
-      value = "The email of the user.")
-  @JsonProperty(JSON_PROPERTY_EMAIL)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getEmail() {
-    return email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public ServiceAccountCreateAttributes name(String name) {
-    this.name = name;
-    return this;
-  }
-
-  /**
-   * The name of the user.
-   *
-   * @return name
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The name of the user.")
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public ServiceAccountCreateAttributes serviceAccount(Boolean serviceAccount) {
-    this.serviceAccount = serviceAccount;
-    return this;
-  }
-
-  /**
-   * Whether the user is a service account. Must be true.
-   *
-   * @return serviceAccount
-   */
-  @ApiModelProperty(
-      example = "true",
-      required = true,
-      value = "Whether the user is a service account. Must be true.")
-  @JsonProperty(JSON_PROPERTY_SERVICE_ACCOUNT)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public Boolean getServiceAccount() {
-    return serviceAccount;
-  }
-
-  public void setServiceAccount(Boolean serviceAccount) {
-    this.serviceAccount = serviceAccount;
-  }
-
-  public ServiceAccountCreateAttributes title(String title) {
-    this.title = title;
-    return this;
-  }
-
-  /**
-   * The title of the user.
-   *
-   * @return title
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The title of the user.")
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getTitle() {
-    return title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  /** Return true if this ServiceAccountCreateAttributes object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    @JsonCreator
+    public ServiceAccountCreateAttributes(
+        @JsonProperty(required = true, value = JSON_PROPERTY_EMAIL) String email,
+        @JsonProperty(required = true, value = JSON_PROPERTY_SERVICE_ACCOUNT) Boolean serviceAccount
+    ) {
+        this.email = email;
+        this.serviceAccount = serviceAccount;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public ServiceAccountCreateAttributes email(String email) {
+        this.email = email;
+        return this;
     }
-    ServiceAccountCreateAttributes serviceAccountCreateAttributes =
-        (ServiceAccountCreateAttributes) o;
-    return Objects.equals(this.email, serviceAccountCreateAttributes.email)
-        && Objects.equals(this.name, serviceAccountCreateAttributes.name)
-        && Objects.equals(this.serviceAccount, serviceAccountCreateAttributes.serviceAccount)
-        && Objects.equals(this.title, serviceAccountCreateAttributes.title);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(email, name, serviceAccount, title);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ServiceAccountCreateAttributes {\n");
-    sb.append("    email: ").append(toIndentedString(email)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    serviceAccount: ").append(toIndentedString(serviceAccount)).append("\n");
-    sb.append("    title: ").append(toIndentedString(title)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    /**
+     * The email of the user.
+     * @return email
+     **/
+    @ApiModelProperty(example = "jane.doe@example.com", required = true, value = "The email of the user.")
+    @JsonProperty(JSON_PROPERTY_EMAIL)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public String getEmail() {
+        return email;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public ServiceAccountCreateAttributes name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * The name of the user.
+     * @return name
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "The name of the user.")
+    @JsonProperty(JSON_PROPERTY_NAME)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public ServiceAccountCreateAttributes serviceAccount(Boolean serviceAccount) {
+        this.serviceAccount = serviceAccount;
+        return this;
+    }
+
+    /**
+     * Whether the user is a service account. Must be true.
+     * @return serviceAccount
+     **/
+    @ApiModelProperty(example = "true", required = true, value = "Whether the user is a service account. Must be true.")
+    @JsonProperty(JSON_PROPERTY_SERVICE_ACCOUNT)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public Boolean getServiceAccount() {
+        return serviceAccount;
+    }
+
+    public void setServiceAccount(Boolean serviceAccount) {
+        this.serviceAccount = serviceAccount;
+    }
+
+    public ServiceAccountCreateAttributes title(String title) {
+        this.title = title;
+        return this;
+    }
+
+    /**
+     * The title of the user.
+     * @return title
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "The title of the user.")
+    @JsonProperty(JSON_PROPERTY_TITLE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    /**
+     * Return true if this ServiceAccountCreateAttributes object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ServiceAccountCreateAttributes serviceAccountCreateAttributes = (ServiceAccountCreateAttributes) o;
+        return (
+            Objects.equals(this.email, serviceAccountCreateAttributes.email) &&
+            Objects.equals(this.name, serviceAccountCreateAttributes.name) &&
+            Objects.equals(this.serviceAccount, serviceAccountCreateAttributes.serviceAccount) &&
+            Objects.equals(this.title, serviceAccountCreateAttributes.title)
+        );
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(email, name, serviceAccount, title);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ServiceAccountCreateAttributes {\n");
+        sb.append("    email: ").append(toIndentedString(email)).append("\n");
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    serviceAccount: ").append(toIndentedString(serviceAccount)).append("\n");
+        sb.append("    title: ").append(toIndentedString(title)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

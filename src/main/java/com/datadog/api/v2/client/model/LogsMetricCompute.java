@@ -10,128 +10,136 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.datadog.api.v2.client.JSON;
+import com.datadog.api.v2.client.model.LogsMetricComputeAggregationType;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
-/** The compute rule to compute the log-based metric. */
+/**
+ * The compute rule to compute the log-based metric.
+ */
 @ApiModel(description = "The compute rule to compute the log-based metric.")
-@JsonPropertyOrder({
-  LogsMetricCompute.JSON_PROPERTY_AGGREGATION_TYPE,
-  LogsMetricCompute.JSON_PROPERTY_PATH
-})
+@JsonPropertyOrder({ LogsMetricCompute.JSON_PROPERTY_AGGREGATION_TYPE, LogsMetricCompute.JSON_PROPERTY_PATH })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsMetricCompute {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_AGGREGATION_TYPE = "aggregation_type";
-  private LogsMetricComputeAggregationType aggregationType;
 
-  public static final String JSON_PROPERTY_PATH = "path";
-  private String path;
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  public LogsMetricCompute() {}
+    public static final String JSON_PROPERTY_AGGREGATION_TYPE = "aggregation_type";
+    private LogsMetricComputeAggregationType aggregationType;
 
-  @JsonCreator
-  public LogsMetricCompute(
-      @JsonProperty(required = true, value = JSON_PROPERTY_AGGREGATION_TYPE)
-          LogsMetricComputeAggregationType aggregationType) {
-    this.aggregationType = aggregationType;
-    this.unparsed |= !aggregationType.isValid();
-  }
+    public static final String JSON_PROPERTY_PATH = "path";
+    private String path;
 
-  public LogsMetricCompute aggregationType(LogsMetricComputeAggregationType aggregationType) {
-    this.aggregationType = aggregationType;
-    this.unparsed |= !aggregationType.isValid();
-    return this;
-  }
+    public LogsMetricCompute() {}
 
-  /**
-   * Get aggregationType
-   *
-   * @return aggregationType
-   */
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_AGGREGATION_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public LogsMetricComputeAggregationType getAggregationType() {
-    return aggregationType;
-  }
-
-  public void setAggregationType(LogsMetricComputeAggregationType aggregationType) {
-    if (!aggregationType.isValid()) {
-      this.unparsed = true;
+    @JsonCreator
+    public LogsMetricCompute(
+        @JsonProperty(required = true, value = JSON_PROPERTY_AGGREGATION_TYPE) LogsMetricComputeAggregationType aggregationType
+    ) {
+        this.aggregationType = aggregationType;
+        this.unparsed |= !aggregationType.isValid();
     }
-    this.aggregationType = aggregationType;
-  }
 
-  public LogsMetricCompute path(String path) {
-    this.path = path;
-    return this;
-  }
-
-  /**
-   * The path to the value the log-based metric will aggregate on (only used if the aggregation type
-   * is a \&quot;distribution\&quot;).
-   *
-   * @return path
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "@duration",
-      value =
-          "The path to the value the log-based metric will aggregate on (only used if the"
-              + " aggregation type is a \"distribution\").")
-  @JsonProperty(JSON_PROPERTY_PATH)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getPath() {
-    return path;
-  }
-
-  public void setPath(String path) {
-    this.path = path;
-  }
-
-  /** Return true if this LogsMetricCompute object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public LogsMetricCompute aggregationType(LogsMetricComputeAggregationType aggregationType) {
+        this.aggregationType = aggregationType;
+        this.unparsed |= !aggregationType.isValid();
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get aggregationType
+     * @return aggregationType
+     **/
+    @ApiModelProperty(required = true, value = "")
+    @JsonProperty(JSON_PROPERTY_AGGREGATION_TYPE)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public LogsMetricComputeAggregationType getAggregationType() {
+        return aggregationType;
     }
-    LogsMetricCompute logsMetricCompute = (LogsMetricCompute) o;
-    return Objects.equals(this.aggregationType, logsMetricCompute.aggregationType)
-        && Objects.equals(this.path, logsMetricCompute.path);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(aggregationType, path);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class LogsMetricCompute {\n");
-    sb.append("    aggregationType: ").append(toIndentedString(aggregationType)).append("\n");
-    sb.append("    path: ").append(toIndentedString(path)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setAggregationType(LogsMetricComputeAggregationType aggregationType) {
+        if (!aggregationType.isValid()) {
+            this.unparsed = true;
+        }
+        this.aggregationType = aggregationType;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public LogsMetricCompute path(String path) {
+        this.path = path;
+        return this;
+    }
+
+    /**
+     * The path to the value the log-based metric will aggregate on (only used if the aggregation type is a \&quot;distribution\&quot;).
+     * @return path
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(
+        example = "@duration",
+        value = "The path to the value the log-based metric will aggregate on (only used if the aggregation type is a \"distribution\")."
+    )
+    @JsonProperty(JSON_PROPERTY_PATH)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    /**
+     * Return true if this LogsMetricCompute object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        LogsMetricCompute logsMetricCompute = (LogsMetricCompute) o;
+        return Objects.equals(this.aggregationType, logsMetricCompute.aggregationType) && Objects.equals(this.path, logsMetricCompute.path);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(aggregationType, path);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class LogsMetricCompute {\n");
+        sb.append("    aggregationType: ").append(toIndentedString(aggregationType)).append("\n");
+        sb.append("    path: ").append(toIndentedString(path)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

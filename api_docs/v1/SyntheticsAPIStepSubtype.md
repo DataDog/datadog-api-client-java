@@ -1,11 +1,5 @@
-
-
 # SyntheticsAPIStepSubtype
 
 ## Enum
 
-
-* `HTTP` (value: `"http"`)
-
-
-
+- `HTTP` (value: `"http"`)

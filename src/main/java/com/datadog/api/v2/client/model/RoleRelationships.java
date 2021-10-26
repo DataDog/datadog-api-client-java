@@ -10,111 +10,123 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.datadog.api.v2.client.JSON;
+import com.datadog.api.v2.client.model.RelationshipToPermissions;
+import com.datadog.api.v2.client.model.RelationshipToUsers;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
-/** Relationships of the role object. */
+/**
+ * Relationships of the role object.
+ */
 @ApiModel(description = "Relationships of the role object.")
-@JsonPropertyOrder({
-  RoleRelationships.JSON_PROPERTY_PERMISSIONS,
-  RoleRelationships.JSON_PROPERTY_USERS
-})
+@JsonPropertyOrder({ RoleRelationships.JSON_PROPERTY_PERMISSIONS, RoleRelationships.JSON_PROPERTY_USERS })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class RoleRelationships {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_PERMISSIONS = "permissions";
-  private RelationshipToPermissions permissions;
 
-  public static final String JSON_PROPERTY_USERS = "users";
-  private RelationshipToUsers users;
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  public RoleRelationships permissions(RelationshipToPermissions permissions) {
-    this.permissions = permissions;
-    this.unparsed |= permissions.unparsed;
-    return this;
-  }
+    public static final String JSON_PROPERTY_PERMISSIONS = "permissions";
+    private RelationshipToPermissions permissions;
 
-  /**
-   * Get permissions
-   *
-   * @return permissions
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_PERMISSIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RelationshipToPermissions getPermissions() {
-    return permissions;
-  }
+    public static final String JSON_PROPERTY_USERS = "users";
+    private RelationshipToUsers users;
 
-  public void setPermissions(RelationshipToPermissions permissions) {
-    this.permissions = permissions;
-  }
-
-  public RoleRelationships users(RelationshipToUsers users) {
-    this.users = users;
-    this.unparsed |= users.unparsed;
-    return this;
-  }
-
-  /**
-   * Get users
-   *
-   * @return users
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_USERS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public RelationshipToUsers getUsers() {
-    return users;
-  }
-
-  public void setUsers(RelationshipToUsers users) {
-    this.users = users;
-  }
-
-  /** Return true if this RoleRelationships object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public RoleRelationships permissions(RelationshipToPermissions permissions) {
+        this.permissions = permissions;
+        this.unparsed |= permissions.unparsed;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get permissions
+     * @return permissions
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+    @JsonProperty(JSON_PROPERTY_PERMISSIONS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public RelationshipToPermissions getPermissions() {
+        return permissions;
     }
-    RoleRelationships roleRelationships = (RoleRelationships) o;
-    return Objects.equals(this.permissions, roleRelationships.permissions)
-        && Objects.equals(this.users, roleRelationships.users);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(permissions, users);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class RoleRelationships {\n");
-    sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
-    sb.append("    users: ").append(toIndentedString(users)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setPermissions(RelationshipToPermissions permissions) {
+        this.permissions = permissions;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public RoleRelationships users(RelationshipToUsers users) {
+        this.users = users;
+        this.unparsed |= users.unparsed;
+        return this;
+    }
+
+    /**
+     * Get users
+     * @return users
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+    @JsonProperty(JSON_PROPERTY_USERS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public RelationshipToUsers getUsers() {
+        return users;
+    }
+
+    public void setUsers(RelationshipToUsers users) {
+        this.users = users;
+    }
+
+    /**
+     * Return true if this RoleRelationships object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        RoleRelationships roleRelationships = (RoleRelationships) o;
+        return Objects.equals(this.permissions, roleRelationships.permissions) && Objects.equals(this.users, roleRelationships.users);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(permissions, users);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class RoleRelationships {\n");
+        sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
+        sb.append("    users: ").append(toIndentedString(users)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

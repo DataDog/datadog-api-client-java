@@ -13,75 +13,76 @@ import java.util.regex.Pattern;
 /** Describes undo action. */
 public class Undo {
 
-  /** Holds information about undo operation. */
-  public static class UndoMethod {
+    /** Holds information about undo operation. */
+    public static class UndoMethod {
 
-    /** Defines how to populate operation parameters. */
-    public static class Parameter {
-      public String name;
-      public String source;
-      public String template;
+        /** Defines how to populate operation parameters. */
+        public static class Parameter {
+
+            public String name;
+            public String source;
+            public String template;
+        }
+
+        public String type;
+        public String operationId;
+        public List<Parameter> parameters;
+
+        public Map<String, Object> getRequestParameters(Object data, Method requestBuilder, ObjectMapper mapper) {
+            Map<String, Object> requestParams = new HashMap<String, Object>();
+            for (int i = 0; i < parameters.size(); i++) {
+                Undo.UndoMethod.Parameter p = parameters.get(i);
+                try {
+                    if (p.source != null) {
+                        requestParams.put(World.toPropertyName(p.name), World.lookup(data, p.source));
+                    } else if (p.template != null) {
+                        Class<?>[] types = requestBuilder.getParameterTypes();
+                        Object param = World.fromJSON(mapper, types[i], World.templated(p.template, data));
+                        requestParams.put(World.toPropertyName(p.name), param);
+                    }
+                } catch (java.lang.IllegalAccessException e) {
+                    throw new RuntimeException(e);
+                } catch (java.lang.NoSuchFieldException e) {
+                    throw new RuntimeException(e);
+                } catch (com.fasterxml.jackson.core.JsonProcessingException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            return requestParams;
+        }
     }
 
-    public String type;
-    public String operationId;
-    public List<Parameter> parameters;
+    public String tag;
+    public UndoMethod undo;
 
-    public Map<String, Object> getRequestParameters(Object data, Method requestBuilder, ObjectMapper mapper) {
-      Map<String, Object> requestParams = new HashMap<String, Object>();
-      for (int i = 0; i < parameters.size(); i++) {
-        Undo.UndoMethod.Parameter p = parameters.get(i);
-        try {
-          if (p.source != null) {
-            requestParams.put(World.toPropertyName(p.name), World.lookup(data, p.source));
-	  } else if (p.template != null) {
-	    Class<?>[] types = requestBuilder.getParameterTypes();
-            Object param = World.fromJSON(mapper, types[i],  World.templated(p.template, data));
-            requestParams.put(World.toPropertyName(p.name), param);
-          }
-        } catch (java.lang.IllegalAccessException e) {
-          throw new RuntimeException(e);
-        } catch (java.lang.NoSuchFieldException e) {
-          throw new RuntimeException(e);
-        } catch (com.fasterxml.jackson.core.JsonProcessingException e) {
-          throw new RuntimeException(e);
-	}
-      }
-      return requestParams;
-    }
-  }
-
-  public String tag;
-  public UndoMethod undo;
-
-  /** Load requests undo definition from a configuration file. */
-  public static Map<String, Undo> loadRequestsUndo(File file) throws IOException {
-    ObjectMapper mapper = new ObjectMapper();
-    TypeReference<HashMap<String, Undo>> typeRef = new TypeReference<HashMap<String, Undo>>() {};
-    Map<String, Undo> result = mapper.readValue(file, typeRef);
-    Map<String, Undo> clean = new HashMap<String, Undo>();
-    for (String k : result.keySet()) {
-      clean.put(toOperationName(k), result.get(k));
-    }
-    return clean;
-  }
-
-  public static String toOperationName(String string) {
-    if (string == null || string.length() == 0) {
-      return string;
+    /** Load requests undo definition from a configuration file. */
+    public static Map<String, Undo> loadRequestsUndo(File file) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        TypeReference<HashMap<String, Undo>> typeRef = new TypeReference<HashMap<String, Undo>>() {};
+        Map<String, Undo> result = mapper.readValue(file, typeRef);
+        Map<String, Undo> clean = new HashMap<String, Undo>();
+        for (String k : result.keySet()) {
+            clean.put(toOperationName(k), result.get(k));
+        }
+        return clean;
     }
 
-    char c[] = string.toCharArray();
-    c[0] = Character.toLowerCase(c[0]);
+    public static String toOperationName(String string) {
+        if (string == null || string.length() == 0) {
+            return string;
+        }
 
-    return new String(c);
-  }
+        char c[] = string.toCharArray();
+        c[0] = Character.toLowerCase(c[0]);
 
-  public String getAPIName() {
-    return Pattern.compile(" ").matcher(tag).replaceAll("");
-  }
+        return new String(c);
+    }
 
-  public String getOperationName() {
-    return toOperationName(undo.operationId);
-  }
+    public String getAPIName() {
+        return Pattern.compile(" ").matcher(tag).replaceAll("");
+    }
+
+    public String getOperationName() {
+        return toOperationName(undo.operationId);
+    }
 }

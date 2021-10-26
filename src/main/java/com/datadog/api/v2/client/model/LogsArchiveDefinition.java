@@ -10,131 +10,140 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.datadog.api.v2.client.JSON;
+import com.datadog.api.v2.client.model.LogsArchiveAttributes;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
-/** The definition of an archive. */
+/**
+ * The definition of an archive.
+ */
 @ApiModel(description = "The definition of an archive.")
-@JsonPropertyOrder({
-  LogsArchiveDefinition.JSON_PROPERTY_ATTRIBUTES,
-  LogsArchiveDefinition.JSON_PROPERTY_ID,
-  LogsArchiveDefinition.JSON_PROPERTY_TYPE
-})
+@JsonPropertyOrder(
+    { LogsArchiveDefinition.JSON_PROPERTY_ATTRIBUTES, LogsArchiveDefinition.JSON_PROPERTY_ID, LogsArchiveDefinition.JSON_PROPERTY_TYPE }
+)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsArchiveDefinition {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
-  private LogsArchiveAttributes attributes;
 
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private String type = "archives";
+    public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
+    private LogsArchiveAttributes attributes;
 
-  public LogsArchiveDefinition() {}
+    public static final String JSON_PROPERTY_ID = "id";
+    private String id;
 
-  @JsonCreator
-  public LogsArchiveDefinition(
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) String type) {
-    this.type = type;
-  }
+    public static final String JSON_PROPERTY_TYPE = "type";
+    private String type = "archives";
 
-  public LogsArchiveDefinition attributes(LogsArchiveAttributes attributes) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
-    return this;
-  }
+    public LogsArchiveDefinition() {}
 
-  /**
-   * Get attributes
-   *
-   * @return attributes
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LogsArchiveAttributes getAttributes() {
-    return attributes;
-  }
-
-  public void setAttributes(LogsArchiveAttributes attributes) {
-    this.attributes = attributes;
-  }
-
-  /**
-   * The archive ID.
-   *
-   * @return id
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "a2zcMylnM4OCHpYusxIi3g", value = "The archive ID.")
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
-    return id;
-  }
-
-  /**
-   * The type of the resource. The value should always be archives.
-   *
-   * @return type
-   */
-  @ApiModelProperty(
-      example = "archives",
-      required = true,
-      value = "The type of the resource. The value should always be archives.")
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getType() {
-    return type;
-  }
-
-  /** Return true if this LogsArchiveDefinition object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    @JsonCreator
+    public LogsArchiveDefinition(@JsonProperty(required = true, value = JSON_PROPERTY_TYPE) String type) {
+        this.type = type;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public LogsArchiveDefinition attributes(LogsArchiveAttributes attributes) {
+        this.attributes = attributes;
+        this.unparsed |= attributes.unparsed;
+        return this;
     }
-    LogsArchiveDefinition logsArchiveDefinition = (LogsArchiveDefinition) o;
-    return Objects.equals(this.attributes, logsArchiveDefinition.attributes)
-        && Objects.equals(this.id, logsArchiveDefinition.id)
-        && Objects.equals(this.type, logsArchiveDefinition.type);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(attributes, id, type);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class LogsArchiveDefinition {\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    /**
+     * Get attributes
+     * @return attributes
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+    @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public LogsArchiveAttributes getAttributes() {
+        return attributes;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public void setAttributes(LogsArchiveAttributes attributes) {
+        this.attributes = attributes;
+    }
+
+    /**
+     * The archive ID.
+     * @return id
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(example = "a2zcMylnM4OCHpYusxIi3g", value = "The archive ID.")
+    @JsonProperty(JSON_PROPERTY_ID)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * The type of the resource. The value should always be archives.
+     * @return type
+     **/
+    @ApiModelProperty(example = "archives", required = true, value = "The type of the resource. The value should always be archives.")
+    @JsonProperty(JSON_PROPERTY_TYPE)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public String getType() {
+        return type;
+    }
+
+    /**
+     * Return true if this LogsArchiveDefinition object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        LogsArchiveDefinition logsArchiveDefinition = (LogsArchiveDefinition) o;
+        return (
+            Objects.equals(this.attributes, logsArchiveDefinition.attributes) &&
+            Objects.equals(this.id, logsArchiveDefinition.id) &&
+            Objects.equals(this.type, logsArchiveDefinition.type)
+        );
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(attributes, id, type);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class LogsArchiveDefinition {\n");
+        sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+        sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

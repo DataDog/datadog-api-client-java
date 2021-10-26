@@ -10,110 +10,123 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JSON;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
-/** The hours of indexed spans usage. */
+/**
+ * The hours of indexed spans usage.
+ */
 @ApiModel(description = "The hours of indexed spans usage.")
-@JsonPropertyOrder({
-  UsageIndexedSpansHour.JSON_PROPERTY_HOUR,
-  UsageIndexedSpansHour.JSON_PROPERTY_INDEXED_EVENTS_COUNT
-})
+@JsonPropertyOrder({ UsageIndexedSpansHour.JSON_PROPERTY_HOUR, UsageIndexedSpansHour.JSON_PROPERTY_INDEXED_EVENTS_COUNT })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageIndexedSpansHour {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_HOUR = "hour";
-  private OffsetDateTime hour;
 
-  public static final String JSON_PROPERTY_INDEXED_EVENTS_COUNT = "indexed_events_count";
-  private Long indexedEventsCount;
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  public UsageIndexedSpansHour hour(OffsetDateTime hour) {
-    this.hour = hour;
-    return this;
-  }
+    public static final String JSON_PROPERTY_HOUR = "hour";
+    private OffsetDateTime hour;
 
-  /**
-   * The hour for the usage.
-   *
-   * @return hour
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The hour for the usage.")
-  @JsonProperty(JSON_PROPERTY_HOUR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getHour() {
-    return hour;
-  }
+    public static final String JSON_PROPERTY_INDEXED_EVENTS_COUNT = "indexed_events_count";
+    private Long indexedEventsCount;
 
-  public void setHour(OffsetDateTime hour) {
-    this.hour = hour;
-  }
-
-  public UsageIndexedSpansHour indexedEventsCount(Long indexedEventsCount) {
-    this.indexedEventsCount = indexedEventsCount;
-    return this;
-  }
-
-  /**
-   * Contains the number of spans indexed.
-   *
-   * @return indexedEventsCount
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Contains the number of spans indexed.")
-  @JsonProperty(JSON_PROPERTY_INDEXED_EVENTS_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getIndexedEventsCount() {
-    return indexedEventsCount;
-  }
-
-  public void setIndexedEventsCount(Long indexedEventsCount) {
-    this.indexedEventsCount = indexedEventsCount;
-  }
-
-  /** Return true if this UsageIndexedSpansHour object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public UsageIndexedSpansHour hour(OffsetDateTime hour) {
+        this.hour = hour;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * The hour for the usage.
+     * @return hour
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "The hour for the usage.")
+    @JsonProperty(JSON_PROPERTY_HOUR)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public OffsetDateTime getHour() {
+        return hour;
     }
-    UsageIndexedSpansHour usageIndexedSpansHour = (UsageIndexedSpansHour) o;
-    return Objects.equals(this.hour, usageIndexedSpansHour.hour)
-        && Objects.equals(this.indexedEventsCount, usageIndexedSpansHour.indexedEventsCount);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(hour, indexedEventsCount);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class UsageIndexedSpansHour {\n");
-    sb.append("    hour: ").append(toIndentedString(hour)).append("\n");
-    sb.append("    indexedEventsCount: ").append(toIndentedString(indexedEventsCount)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setHour(OffsetDateTime hour) {
+        this.hour = hour;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public UsageIndexedSpansHour indexedEventsCount(Long indexedEventsCount) {
+        this.indexedEventsCount = indexedEventsCount;
+        return this;
+    }
+
+    /**
+     * Contains the number of spans indexed.
+     * @return indexedEventsCount
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Contains the number of spans indexed.")
+    @JsonProperty(JSON_PROPERTY_INDEXED_EVENTS_COUNT)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Long getIndexedEventsCount() {
+        return indexedEventsCount;
+    }
+
+    public void setIndexedEventsCount(Long indexedEventsCount) {
+        this.indexedEventsCount = indexedEventsCount;
+    }
+
+    /**
+     * Return true if this UsageIndexedSpansHour object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        UsageIndexedSpansHour usageIndexedSpansHour = (UsageIndexedSpansHour) o;
+        return (
+            Objects.equals(this.hour, usageIndexedSpansHour.hour) &&
+            Objects.equals(this.indexedEventsCount, usageIndexedSpansHour.indexedEventsCount)
+        );
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(hour, indexedEventsCount);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class UsageIndexedSpansHour {\n");
+        sb.append("    hour: ").append(toIndentedString(hour)).append("\n");
+        sb.append("    indexedEventsCount: ").append(toIndentedString(indexedEventsCount)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

@@ -2,17 +2,15 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method        | HTTP request | Description
-------------- | ------------ | ------------
-[**checkAWSLogsLambdaAsync**](AwsLogsIntegrationApi.md#checkAWSLogsLambdaAsync) | **POST** /api/v1/integration/aws/logs/check_async | Check that an AWS Lambda Function exists
-[**checkAWSLogsServicesAsync**](AwsLogsIntegrationApi.md#checkAWSLogsServicesAsync) | **POST** /api/v1/integration/aws/logs/services_async | Check permissions for log services
-[**createAWSLambdaARN**](AwsLogsIntegrationApi.md#createAWSLambdaARN) | **POST** /api/v1/integration/aws/logs | Add AWS Log Lambda ARN
-[**deleteAWSLambdaARN**](AwsLogsIntegrationApi.md#deleteAWSLambdaARN) | **DELETE** /api/v1/integration/aws/logs | Delete an AWS Logs integration
-[**enableAWSLogServices**](AwsLogsIntegrationApi.md#enableAWSLogServices) | **POST** /api/v1/integration/aws/logs/services | Enable an AWS Logs integration
-[**listAWSLogsIntegrations**](AwsLogsIntegrationApi.md#listAWSLogsIntegrations) | **GET** /api/v1/integration/aws/logs | List all AWS Logs integrations
-[**listAWSLogsServices**](AwsLogsIntegrationApi.md#listAWSLogsServices) | **GET** /api/v1/integration/aws/logs/services | Get list of AWS log ready services
-
-
+| Method                                                                              | HTTP request                                         | Description                              |
+| ----------------------------------------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------- |
+| [**checkAWSLogsLambdaAsync**](AwsLogsIntegrationApi.md#checkAWSLogsLambdaAsync)     | **POST** /api/v1/integration/aws/logs/check_async    | Check that an AWS Lambda Function exists |
+| [**checkAWSLogsServicesAsync**](AwsLogsIntegrationApi.md#checkAWSLogsServicesAsync) | **POST** /api/v1/integration/aws/logs/services_async | Check permissions for log services       |
+| [**createAWSLambdaARN**](AwsLogsIntegrationApi.md#createAWSLambdaARN)               | **POST** /api/v1/integration/aws/logs                | Add AWS Log Lambda ARN                   |
+| [**deleteAWSLambdaARN**](AwsLogsIntegrationApi.md#deleteAWSLambdaARN)               | **DELETE** /api/v1/integration/aws/logs              | Delete an AWS Logs integration           |
+| [**enableAWSLogServices**](AwsLogsIntegrationApi.md#enableAWSLogServices)           | **POST** /api/v1/integration/aws/logs/services       | Enable an AWS Logs integration           |
+| [**listAWSLogsIntegrations**](AwsLogsIntegrationApi.md#listAWSLogsIntegrations)     | **GET** /api/v1/integration/aws/logs                 | List all AWS Logs integrations           |
+| [**listAWSLogsServices**](AwsLogsIntegrationApi.md#listAWSLogsServices)             | **GET** /api/v1/integration/aws/logs/services        | Get list of AWS log ready services       |
 
 ## checkAWSLogsLambdaAsync
 
@@ -30,39 +28,44 @@ endpoint can be polled intermittently instead of blocking.
 ### Example
 
 ```java
-import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.AwsLogsIntegrationApi;
+import com.datadog.api.v1.client.model.*;
+import java.util.*;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-        AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
-        AWSAccountAndLambdaRequest body = new AWSAccountAndLambdaRequest(); // AWSAccountAndLambdaRequest | Check AWS Log Lambda Async request body.
-        try {
-            AWSLogsAsyncResponse result = apiInstance.checkAWSLogsLambdaAsync(body);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling AwsLogsIntegrationApi#checkAWSLogsLambdaAsync");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+    AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(
+      defaultClient
+    );
+    AWSAccountAndLambdaRequest body = new AWSAccountAndLambdaRequest(); // AWSAccountAndLambdaRequest | Check AWS Log Lambda Async request body.
+    try {
+      AWSLogsAsyncResponse result = apiInstance.checkAWSLogsLambdaAsync(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println(
+        "Exception when calling AwsLogsIntegrationApi#checkAWSLogsLambdaAsync"
+      );
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
+
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**AWSAccountAndLambdaRequest**](AWSAccountAndLambdaRequest.md)| Check AWS Log Lambda Async request body. |
+| Name     | Type                                                            | Description                              | Notes |
+| -------- | --------------------------------------------------------------- | ---------------------------------------- | ----- |
+| **body** | [**AWSAccountAndLambdaRequest**](AWSAccountAndLambdaRequest.md) | Check AWS Log Lambda Async request body. |
 
 ### Return type
 
@@ -78,12 +81,12 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication Error |  -  |
 
+| Status code | Description          | Response headers |
+| ----------- | -------------------- | ---------------- |
+| **200**     | OK                   | -                |
+| **400**     | Bad Request          | -                |
+| **403**     | Authentication Error | -                |
 
 ## checkAWSLogsServicesAsync
 
@@ -103,39 +106,44 @@ the async request completes.
 ### Example
 
 ```java
-import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.AwsLogsIntegrationApi;
+import com.datadog.api.v1.client.model.*;
+import java.util.*;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-        AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
-        AWSLogsServicesRequest body = new AWSLogsServicesRequest(); // AWSLogsServicesRequest | Check AWS Logs Async Services request body.
-        try {
-            AWSLogsAsyncResponse result = apiInstance.checkAWSLogsServicesAsync(body);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling AwsLogsIntegrationApi#checkAWSLogsServicesAsync");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+    AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(
+      defaultClient
+    );
+    AWSLogsServicesRequest body = new AWSLogsServicesRequest(); // AWSLogsServicesRequest | Check AWS Logs Async Services request body.
+    try {
+      AWSLogsAsyncResponse result = apiInstance.checkAWSLogsServicesAsync(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println(
+        "Exception when calling AwsLogsIntegrationApi#checkAWSLogsServicesAsync"
+      );
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
+
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**AWSLogsServicesRequest**](AWSLogsServicesRequest.md)| Check AWS Logs Async Services request body. |
+| Name     | Type                                                    | Description                                 | Notes |
+| -------- | ------------------------------------------------------- | ------------------------------------------- | ----- |
+| **body** | [**AWSLogsServicesRequest**](AWSLogsServicesRequest.md) | Check AWS Logs Async Services request body. |
 
 ### Return type
 
@@ -151,12 +159,12 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication Error |  -  |
 
+| Status code | Description          | Response headers |
+| ----------- | -------------------- | ---------------- |
+| **200**     | OK                   | -                |
+| **400**     | Bad Request          | -                |
+| **403**     | Authentication Error | -                |
 
 ## createAWSLambdaARN
 
@@ -167,39 +175,44 @@ Attach the Lambda ARN of the Lambda created for the Datadog-AWS log collection t
 ### Example
 
 ```java
-import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.AwsLogsIntegrationApi;
+import com.datadog.api.v1.client.model.*;
+import java.util.*;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-        AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
-        AWSAccountAndLambdaRequest body = new AWSAccountAndLambdaRequest(); // AWSAccountAndLambdaRequest | AWS Log Lambda Async request body.
-        try {
-            Object result = apiInstance.createAWSLambdaARN(body);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling AwsLogsIntegrationApi#createAWSLambdaARN");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+    AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(
+      defaultClient
+    );
+    AWSAccountAndLambdaRequest body = new AWSAccountAndLambdaRequest(); // AWSAccountAndLambdaRequest | AWS Log Lambda Async request body.
+    try {
+      Object result = apiInstance.createAWSLambdaARN(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println(
+        "Exception when calling AwsLogsIntegrationApi#createAWSLambdaARN"
+      );
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
+
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**AWSAccountAndLambdaRequest**](AWSAccountAndLambdaRequest.md)| AWS Log Lambda Async request body. |
+| Name     | Type                                                            | Description                        | Notes |
+| -------- | --------------------------------------------------------------- | ---------------------------------- | ----- |
+| **body** | [**AWSAccountAndLambdaRequest**](AWSAccountAndLambdaRequest.md) | AWS Log Lambda Async request body. |
 
 ### Return type
 
@@ -215,12 +228,12 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication Error |  -  |
 
+| Status code | Description          | Response headers |
+| ----------- | -------------------- | ---------------- |
+| **200**     | OK                   | -                |
+| **400**     | Bad Request          | -                |
+| **403**     | Authentication Error | -                |
 
 ## deleteAWSLambdaARN
 
@@ -231,39 +244,44 @@ Delete a Datadog-AWS logs configuration by removing the specific Lambda ARN asso
 ### Example
 
 ```java
-import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.AwsLogsIntegrationApi;
+import com.datadog.api.v1.client.model.*;
+import java.util.*;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-        AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
-        AWSAccountAndLambdaRequest body = new AWSAccountAndLambdaRequest(); // AWSAccountAndLambdaRequest | Delete AWS Lambda ARN request body.
-        try {
-            Object result = apiInstance.deleteAWSLambdaARN(body);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling AwsLogsIntegrationApi#deleteAWSLambdaARN");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+    AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(
+      defaultClient
+    );
+    AWSAccountAndLambdaRequest body = new AWSAccountAndLambdaRequest(); // AWSAccountAndLambdaRequest | Delete AWS Lambda ARN request body.
+    try {
+      Object result = apiInstance.deleteAWSLambdaARN(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println(
+        "Exception when calling AwsLogsIntegrationApi#deleteAWSLambdaARN"
+      );
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
+
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**AWSAccountAndLambdaRequest**](AWSAccountAndLambdaRequest.md)| Delete AWS Lambda ARN request body. |
+| Name     | Type                                                            | Description                         | Notes |
+| -------- | --------------------------------------------------------------- | ----------------------------------- | ----- |
+| **body** | [**AWSAccountAndLambdaRequest**](AWSAccountAndLambdaRequest.md) | Delete AWS Lambda ARN request body. |
 
 ### Return type
 
@@ -279,12 +297,12 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication Error |  -  |
 
+| Status code | Description          | Response headers |
+| ----------- | -------------------- | ---------------- |
+| **200**     | OK                   | -                |
+| **400**     | Bad Request          | -                |
+| **403**     | Authentication Error | -                |
 
 ## enableAWSLogServices
 
@@ -295,39 +313,44 @@ Enable automatic log collection for a list of services. This should be run after
 ### Example
 
 ```java
-import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.AwsLogsIntegrationApi;
+import com.datadog.api.v1.client.model.*;
+import java.util.*;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-        AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
-        AWSLogsServicesRequest body = new AWSLogsServicesRequest(); // AWSLogsServicesRequest | Enable AWS Log Services request body.
-        try {
-            Object result = apiInstance.enableAWSLogServices(body);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling AwsLogsIntegrationApi#enableAWSLogServices");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+    AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(
+      defaultClient
+    );
+    AWSLogsServicesRequest body = new AWSLogsServicesRequest(); // AWSLogsServicesRequest | Enable AWS Log Services request body.
+    try {
+      Object result = apiInstance.enableAWSLogServices(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println(
+        "Exception when calling AwsLogsIntegrationApi#enableAWSLogServices"
+      );
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
+
 ```
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**AWSLogsServicesRequest**](AWSLogsServicesRequest.md)| Enable AWS Log Services request body. |
+| Name     | Type                                                    | Description                           | Notes |
+| -------- | ------------------------------------------------------- | ------------------------------------- | ----- |
+| **body** | [**AWSLogsServicesRequest**](AWSLogsServicesRequest.md) | Enable AWS Log Services request body. |
 
 ### Return type
 
@@ -343,12 +366,12 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication Error |  -  |
 
+| Status code | Description          | Response headers |
+| ----------- | -------------------- | ---------------- |
+| **200**     | OK                   | -                |
+| **400**     | Bad Request          | -                |
+| **403**     | Authentication Error | -                |
 
 ## listAWSLogsIntegrations
 
@@ -359,30 +382,36 @@ List all Datadog-AWS Logs integrations configured in your Datadog account.
 ### Example
 
 ```java
-import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.AwsLogsIntegrationApi;
+import com.datadog.api.v1.client.model.*;
+import java.util.*;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-        AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
-        try {
-            List<AWSLogsListResponse> result = apiInstance.listAWSLogsIntegrations();
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling AwsLogsIntegrationApi#listAWSLogsIntegrations");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+    AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(
+      defaultClient
+    );
+    try {
+      List<AWSLogsListResponse> result = apiInstance.listAWSLogsIntegrations();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println(
+        "Exception when calling AwsLogsIntegrationApi#listAWSLogsIntegrations"
+      );
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
+
 ```
 
 ### Parameters
@@ -403,12 +432,12 @@ This endpoint does not need any parameter.
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication Error |  -  |
 
+| Status code | Description          | Response headers |
+| ----------- | -------------------- | ---------------- |
+| **200**     | OK                   | -                |
+| **400**     | Bad Request          | -                |
+| **403**     | Authentication Error | -                |
 
 ## listAWSLogsServices
 
@@ -419,30 +448,36 @@ Get the list of current AWS services that Datadog offers automatic log collectio
 ### Example
 
 ```java
-import java.util.*;
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.model.*;
 import com.datadog.api.v1.client.api.AwsLogsIntegrationApi;
+import com.datadog.api.v1.client.model.*;
+import java.util.*;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-        AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(defaultClient);
-        try {
-            List<AWSLogsListServicesResponse> result = apiInstance.listAWSLogsServices();
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling AwsLogsIntegrationApi#listAWSLogsServices");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+    AwsLogsIntegrationApi apiInstance = new AwsLogsIntegrationApi(
+      defaultClient
+    );
+    try {
+      List<AWSLogsListServicesResponse> result = apiInstance.listAWSLogsServices();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println(
+        "Exception when calling AwsLogsIntegrationApi#listAWSLogsServices"
+      );
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
+
 ```
 
 ### Parameters
@@ -463,8 +498,8 @@ This endpoint does not need any parameter.
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **403** | Authentication Error |  -  |
 
+| Status code | Description          | Response headers |
+| ----------- | -------------------- | ---------------- |
+| **200**     | OK                   | -                |
+| **403**     | Authentication Error | -                |

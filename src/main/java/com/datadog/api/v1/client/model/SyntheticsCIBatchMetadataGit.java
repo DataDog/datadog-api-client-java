@@ -10,109 +10,122 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JSON;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
-/** Git information. */
+/**
+ * Git information.
+ */
 @ApiModel(description = "Git information.")
-@JsonPropertyOrder({
-  SyntheticsCIBatchMetadataGit.JSON_PROPERTY_BRANCH,
-  SyntheticsCIBatchMetadataGit.JSON_PROPERTY_COMMIT_SHA
-})
+@JsonPropertyOrder({ SyntheticsCIBatchMetadataGit.JSON_PROPERTY_BRANCH, SyntheticsCIBatchMetadataGit.JSON_PROPERTY_COMMIT_SHA })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsCIBatchMetadataGit {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_BRANCH = "branch";
-  private String branch;
 
-  public static final String JSON_PROPERTY_COMMIT_SHA = "commit_sha";
-  private String commitSha;
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  public SyntheticsCIBatchMetadataGit branch(String branch) {
-    this.branch = branch;
-    return this;
-  }
+    public static final String JSON_PROPERTY_BRANCH = "branch";
+    private String branch;
 
-  /**
-   * The branch name.
-   *
-   * @return branch
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The branch name.")
-  @JsonProperty(JSON_PROPERTY_BRANCH)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getBranch() {
-    return branch;
-  }
+    public static final String JSON_PROPERTY_COMMIT_SHA = "commit_sha";
+    private String commitSha;
 
-  public void setBranch(String branch) {
-    this.branch = branch;
-  }
-
-  public SyntheticsCIBatchMetadataGit commitSha(String commitSha) {
-    this.commitSha = commitSha;
-    return this;
-  }
-
-  /**
-   * The commit SHA.
-   *
-   * @return commitSha
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The commit SHA.")
-  @JsonProperty(JSON_PROPERTY_COMMIT_SHA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getCommitSha() {
-    return commitSha;
-  }
-
-  public void setCommitSha(String commitSha) {
-    this.commitSha = commitSha;
-  }
-
-  /** Return true if this SyntheticsCIBatchMetadataGit object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public SyntheticsCIBatchMetadataGit branch(String branch) {
+        this.branch = branch;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * The branch name.
+     * @return branch
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "The branch name.")
+    @JsonProperty(JSON_PROPERTY_BRANCH)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getBranch() {
+        return branch;
     }
-    SyntheticsCIBatchMetadataGit syntheticsCIBatchMetadataGit = (SyntheticsCIBatchMetadataGit) o;
-    return Objects.equals(this.branch, syntheticsCIBatchMetadataGit.branch)
-        && Objects.equals(this.commitSha, syntheticsCIBatchMetadataGit.commitSha);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(branch, commitSha);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class SyntheticsCIBatchMetadataGit {\n");
-    sb.append("    branch: ").append(toIndentedString(branch)).append("\n");
-    sb.append("    commitSha: ").append(toIndentedString(commitSha)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setBranch(String branch) {
+        this.branch = branch;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public SyntheticsCIBatchMetadataGit commitSha(String commitSha) {
+        this.commitSha = commitSha;
+        return this;
+    }
+
+    /**
+     * The commit SHA.
+     * @return commitSha
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "The commit SHA.")
+    @JsonProperty(JSON_PROPERTY_COMMIT_SHA)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getCommitSha() {
+        return commitSha;
+    }
+
+    public void setCommitSha(String commitSha) {
+        this.commitSha = commitSha;
+    }
+
+    /**
+     * Return true if this SyntheticsCIBatchMetadataGit object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        SyntheticsCIBatchMetadataGit syntheticsCIBatchMetadataGit = (SyntheticsCIBatchMetadataGit) o;
+        return (
+            Objects.equals(this.branch, syntheticsCIBatchMetadataGit.branch) &&
+            Objects.equals(this.commitSha, syntheticsCIBatchMetadataGit.commitSha)
+        );
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(branch, commitSha);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class SyntheticsCIBatchMetadataGit {\n");
+        sb.append("    branch: ").append(toIndentedString(branch)).append("\n");
+        sb.append("    commitSha: ").append(toIndentedString(commitSha)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

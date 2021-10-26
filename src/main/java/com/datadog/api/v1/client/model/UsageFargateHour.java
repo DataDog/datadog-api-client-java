@@ -10,110 +10,120 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JSON;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
-/** Number of Fargate tasks run and hourly usage. */
+/**
+ * Number of Fargate tasks run and hourly usage.
+ */
 @ApiModel(description = "Number of Fargate tasks run and hourly usage.")
-@JsonPropertyOrder({
-  UsageFargateHour.JSON_PROPERTY_HOUR,
-  UsageFargateHour.JSON_PROPERTY_TASKS_COUNT
-})
+@JsonPropertyOrder({ UsageFargateHour.JSON_PROPERTY_HOUR, UsageFargateHour.JSON_PROPERTY_TASKS_COUNT })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageFargateHour {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_HOUR = "hour";
-  private OffsetDateTime hour;
 
-  public static final String JSON_PROPERTY_TASKS_COUNT = "tasks_count";
-  private Long tasksCount;
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  public UsageFargateHour hour(OffsetDateTime hour) {
-    this.hour = hour;
-    return this;
-  }
+    public static final String JSON_PROPERTY_HOUR = "hour";
+    private OffsetDateTime hour;
 
-  /**
-   * The hour for the usage.
-   *
-   * @return hour
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The hour for the usage.")
-  @JsonProperty(JSON_PROPERTY_HOUR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getHour() {
-    return hour;
-  }
+    public static final String JSON_PROPERTY_TASKS_COUNT = "tasks_count";
+    private Long tasksCount;
 
-  public void setHour(OffsetDateTime hour) {
-    this.hour = hour;
-  }
-
-  public UsageFargateHour tasksCount(Long tasksCount) {
-    this.tasksCount = tasksCount;
-    return this;
-  }
-
-  /**
-   * The number of Fargate tasks run.
-   *
-   * @return tasksCount
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The number of Fargate tasks run.")
-  @JsonProperty(JSON_PROPERTY_TASKS_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getTasksCount() {
-    return tasksCount;
-  }
-
-  public void setTasksCount(Long tasksCount) {
-    this.tasksCount = tasksCount;
-  }
-
-  /** Return true if this UsageFargateHour object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public UsageFargateHour hour(OffsetDateTime hour) {
+        this.hour = hour;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * The hour for the usage.
+     * @return hour
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "The hour for the usage.")
+    @JsonProperty(JSON_PROPERTY_HOUR)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public OffsetDateTime getHour() {
+        return hour;
     }
-    UsageFargateHour usageFargateHour = (UsageFargateHour) o;
-    return Objects.equals(this.hour, usageFargateHour.hour)
-        && Objects.equals(this.tasksCount, usageFargateHour.tasksCount);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(hour, tasksCount);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class UsageFargateHour {\n");
-    sb.append("    hour: ").append(toIndentedString(hour)).append("\n");
-    sb.append("    tasksCount: ").append(toIndentedString(tasksCount)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setHour(OffsetDateTime hour) {
+        this.hour = hour;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public UsageFargateHour tasksCount(Long tasksCount) {
+        this.tasksCount = tasksCount;
+        return this;
+    }
+
+    /**
+     * The number of Fargate tasks run.
+     * @return tasksCount
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "The number of Fargate tasks run.")
+    @JsonProperty(JSON_PROPERTY_TASKS_COUNT)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Long getTasksCount() {
+        return tasksCount;
+    }
+
+    public void setTasksCount(Long tasksCount) {
+        this.tasksCount = tasksCount;
+    }
+
+    /**
+     * Return true if this UsageFargateHour object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        UsageFargateHour usageFargateHour = (UsageFargateHour) o;
+        return Objects.equals(this.hour, usageFargateHour.hour) && Objects.equals(this.tasksCount, usageFargateHour.tasksCount);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(hour, tasksCount);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class UsageFargateHour {\n");
+        sb.append("    hour: ").append(toIndentedString(hour)).append("\n");
+        sb.append("    tasksCount: ").append(toIndentedString(tasksCount)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

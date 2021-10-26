@@ -10,93 +10,109 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JSON;
+import com.datadog.api.v1.client.model.Organization;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
-/** Response with the list of organizations. */
+/**
+ * Response with the list of organizations.
+ */
 @ApiModel(description = "Response with the list of organizations.")
-@JsonPropertyOrder({OrganizationListResponse.JSON_PROPERTY_ORGS})
+@JsonPropertyOrder({ OrganizationListResponse.JSON_PROPERTY_ORGS })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class OrganizationListResponse {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ORGS = "orgs";
-  private List<Organization> orgs = null;
 
-  public OrganizationListResponse orgs(List<Organization> orgs) {
-    this.orgs = orgs;
-    for (Organization item : orgs) {
-      this.unparsed |= item.unparsed;
+    @JsonIgnore
+    public boolean unparsed = false;
+
+    public static final String JSON_PROPERTY_ORGS = "orgs";
+    private List<Organization> orgs = null;
+
+    public OrganizationListResponse orgs(List<Organization> orgs) {
+        this.orgs = orgs;
+        for (Organization item : orgs) {
+            this.unparsed |= item.unparsed;
+        }
+        return this;
     }
-    return this;
-  }
 
-  public OrganizationListResponse addOrgsItem(Organization orgsItem) {
-    if (this.orgs == null) {
-      this.orgs = new ArrayList<>();
+    public OrganizationListResponse addOrgsItem(Organization orgsItem) {
+        if (this.orgs == null) {
+            this.orgs = new ArrayList<>();
+        }
+        this.orgs.add(orgsItem);
+        this.unparsed |= orgsItem.unparsed;
+        return this;
     }
-    this.orgs.add(orgsItem);
-    this.unparsed |= orgsItem.unparsed;
-    return this;
-  }
 
-  /**
-   * Array of organization objects.
-   *
-   * @return orgs
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array of organization objects.")
-  @JsonProperty(JSON_PROPERTY_ORGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<Organization> getOrgs() {
-    return orgs;
-  }
-
-  public void setOrgs(List<Organization> orgs) {
-    this.orgs = orgs;
-  }
-
-  /** Return true if this OrganizationListResponse object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * Array of organization objects.
+     * @return orgs
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Array of organization objects.")
+    @JsonProperty(JSON_PROPERTY_ORGS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public List<Organization> getOrgs() {
+        return orgs;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setOrgs(List<Organization> orgs) {
+        this.orgs = orgs;
     }
-    OrganizationListResponse organizationListResponse = (OrganizationListResponse) o;
-    return Objects.equals(this.orgs, organizationListResponse.orgs);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(orgs);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class OrganizationListResponse {\n");
-    sb.append("    orgs: ").append(toIndentedString(orgs)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    /**
+     * Return true if this OrganizationListResponse object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        OrganizationListResponse organizationListResponse = (OrganizationListResponse) o;
+        return Objects.equals(this.orgs, organizationListResponse.orgs);
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(orgs);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class OrganizationListResponse {\n");
+        sb.append("    orgs: ").append(toIndentedString(orgs)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

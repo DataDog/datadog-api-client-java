@@ -10,112 +10,123 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JSON;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
-/** Ingested spans usage for a given organization for a given hour. */
+/**
+ * Ingested spans usage for a given organization for a given hour.
+ */
 @ApiModel(description = "Ingested spans usage for a given organization for a given hour.")
-@JsonPropertyOrder({
-  UsageIngestedSpansHour.JSON_PROPERTY_HOUR,
-  UsageIngestedSpansHour.JSON_PROPERTY_INGESTED_EVENTS_BYTES
-})
+@JsonPropertyOrder({ UsageIngestedSpansHour.JSON_PROPERTY_HOUR, UsageIngestedSpansHour.JSON_PROPERTY_INGESTED_EVENTS_BYTES })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageIngestedSpansHour {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_HOUR = "hour";
-  private OffsetDateTime hour;
 
-  public static final String JSON_PROPERTY_INGESTED_EVENTS_BYTES = "ingested_events_bytes";
-  private Long ingestedEventsBytes;
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  public UsageIngestedSpansHour hour(OffsetDateTime hour) {
-    this.hour = hour;
-    return this;
-  }
+    public static final String JSON_PROPERTY_HOUR = "hour";
+    private OffsetDateTime hour;
 
-  /**
-   * The hour for the usage.
-   *
-   * @return hour
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The hour for the usage.")
-  @JsonProperty(JSON_PROPERTY_HOUR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getHour() {
-    return hour;
-  }
+    public static final String JSON_PROPERTY_INGESTED_EVENTS_BYTES = "ingested_events_bytes";
+    private Long ingestedEventsBytes;
 
-  public void setHour(OffsetDateTime hour) {
-    this.hour = hour;
-  }
-
-  public UsageIngestedSpansHour ingestedEventsBytes(Long ingestedEventsBytes) {
-    this.ingestedEventsBytes = ingestedEventsBytes;
-    return this;
-  }
-
-  /**
-   * Contains the total number of bytes ingested during a given hour.
-   *
-   * @return ingestedEventsBytes
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Contains the total number of bytes ingested during a given hour.")
-  @JsonProperty(JSON_PROPERTY_INGESTED_EVENTS_BYTES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getIngestedEventsBytes() {
-    return ingestedEventsBytes;
-  }
-
-  public void setIngestedEventsBytes(Long ingestedEventsBytes) {
-    this.ingestedEventsBytes = ingestedEventsBytes;
-  }
-
-  /** Return true if this UsageIngestedSpansHour object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public UsageIngestedSpansHour hour(OffsetDateTime hour) {
+        this.hour = hour;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * The hour for the usage.
+     * @return hour
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "The hour for the usage.")
+    @JsonProperty(JSON_PROPERTY_HOUR)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public OffsetDateTime getHour() {
+        return hour;
     }
-    UsageIngestedSpansHour usageIngestedSpansHour = (UsageIngestedSpansHour) o;
-    return Objects.equals(this.hour, usageIngestedSpansHour.hour)
-        && Objects.equals(this.ingestedEventsBytes, usageIngestedSpansHour.ingestedEventsBytes);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(hour, ingestedEventsBytes);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class UsageIngestedSpansHour {\n");
-    sb.append("    hour: ").append(toIndentedString(hour)).append("\n");
-    sb.append("    ingestedEventsBytes: ")
-        .append(toIndentedString(ingestedEventsBytes))
-        .append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setHour(OffsetDateTime hour) {
+        this.hour = hour;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public UsageIngestedSpansHour ingestedEventsBytes(Long ingestedEventsBytes) {
+        this.ingestedEventsBytes = ingestedEventsBytes;
+        return this;
+    }
+
+    /**
+     * Contains the total number of bytes ingested during a given hour.
+     * @return ingestedEventsBytes
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Contains the total number of bytes ingested during a given hour.")
+    @JsonProperty(JSON_PROPERTY_INGESTED_EVENTS_BYTES)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Long getIngestedEventsBytes() {
+        return ingestedEventsBytes;
+    }
+
+    public void setIngestedEventsBytes(Long ingestedEventsBytes) {
+        this.ingestedEventsBytes = ingestedEventsBytes;
+    }
+
+    /**
+     * Return true if this UsageIngestedSpansHour object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        UsageIngestedSpansHour usageIngestedSpansHour = (UsageIngestedSpansHour) o;
+        return (
+            Objects.equals(this.hour, usageIngestedSpansHour.hour) &&
+            Objects.equals(this.ingestedEventsBytes, usageIngestedSpansHour.ingestedEventsBytes)
+        );
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(hour, ingestedEventsBytes);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class UsageIngestedSpansHour {\n");
+        sb.append("    hour: ").append(toIndentedString(hour)).append("\n");
+        sb.append("    ingestedEventsBytes: ").append(toIndentedString(ingestedEventsBytes)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

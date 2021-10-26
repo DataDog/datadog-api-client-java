@@ -10,259 +10,271 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.datadog.api.v2.client.JSON;
+import com.datadog.api.v2.client.model.LogsArchiveDestination;
+import com.datadog.api.v2.client.model.LogsArchiveState;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
-/** The attributes associated with the archive. */
+/**
+ * The attributes associated with the archive.
+ */
 @ApiModel(description = "The attributes associated with the archive.")
-@JsonPropertyOrder({
-  LogsArchiveAttributes.JSON_PROPERTY_DESTINATION,
-  LogsArchiveAttributes.JSON_PROPERTY_INCLUDE_TAGS,
-  LogsArchiveAttributes.JSON_PROPERTY_NAME,
-  LogsArchiveAttributes.JSON_PROPERTY_QUERY,
-  LogsArchiveAttributes.JSON_PROPERTY_REHYDRATION_TAGS,
-  LogsArchiveAttributes.JSON_PROPERTY_STATE
-})
+@JsonPropertyOrder(
+    {
+        LogsArchiveAttributes.JSON_PROPERTY_DESTINATION,
+        LogsArchiveAttributes.JSON_PROPERTY_INCLUDE_TAGS,
+        LogsArchiveAttributes.JSON_PROPERTY_NAME,
+        LogsArchiveAttributes.JSON_PROPERTY_QUERY,
+        LogsArchiveAttributes.JSON_PROPERTY_REHYDRATION_TAGS,
+        LogsArchiveAttributes.JSON_PROPERTY_STATE
+    }
+)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsArchiveAttributes {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DESTINATION = "destination";
-  private LogsArchiveDestination destination;
 
-  public static final String JSON_PROPERTY_INCLUDE_TAGS = "include_tags";
-  private Boolean includeTags = false;
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+    public static final String JSON_PROPERTY_DESTINATION = "destination";
+    private LogsArchiveDestination destination;
 
-  public static final String JSON_PROPERTY_QUERY = "query";
-  private String query;
+    public static final String JSON_PROPERTY_INCLUDE_TAGS = "include_tags";
+    private Boolean includeTags = false;
 
-  public static final String JSON_PROPERTY_REHYDRATION_TAGS = "rehydration_tags";
-  private List<String> rehydrationTags = null;
+    public static final String JSON_PROPERTY_NAME = "name";
+    private String name;
 
-  public static final String JSON_PROPERTY_STATE = "state";
-  private LogsArchiveState state;
+    public static final String JSON_PROPERTY_QUERY = "query";
+    private String query;
 
-  public LogsArchiveAttributes() {}
+    public static final String JSON_PROPERTY_REHYDRATION_TAGS = "rehydration_tags";
+    private List<String> rehydrationTags = null;
 
-  @JsonCreator
-  public LogsArchiveAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DESTINATION)
-          LogsArchiveDestination destination,
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query) {
-    this.destination = destination;
-    this.unparsed |= destination.unparsed;
-    this.name = name;
-    this.query = query;
-  }
+    public static final String JSON_PROPERTY_STATE = "state";
+    private LogsArchiveState state;
 
-  public LogsArchiveAttributes destination(LogsArchiveDestination destination) {
-    this.destination = destination;
-    this.unparsed |= destination.unparsed;
-    return this;
-  }
+    public LogsArchiveAttributes() {}
 
-  /**
-   * Get destination
-   *
-   * @return destination
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_DESTINATION)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public LogsArchiveDestination getDestination() {
-    return destination;
-  }
-
-  public void setDestination(LogsArchiveDestination destination) {
-    this.destination = destination;
-  }
-
-  public LogsArchiveAttributes includeTags(Boolean includeTags) {
-    this.includeTags = includeTags;
-    return this;
-  }
-
-  /**
-   * To store the tags in the archive, set the value \&quot;true\&quot;. If it is set to
-   * \&quot;false\&quot;, the tags will be deleted when the logs are sent to the archive.
-   *
-   * @return includeTags
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "false",
-      value =
-          "To store the tags in the archive, set the value \"true\". If it is set to \"false\","
-              + " the tags will be deleted when the logs are sent to the archive.")
-  @JsonProperty(JSON_PROPERTY_INCLUDE_TAGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Boolean getIncludeTags() {
-    return includeTags;
-  }
-
-  public void setIncludeTags(Boolean includeTags) {
-    this.includeTags = includeTags;
-  }
-
-  public LogsArchiveAttributes name(String name) {
-    this.name = name;
-    return this;
-  }
-
-  /**
-   * The archive name.
-   *
-   * @return name
-   */
-  @ApiModelProperty(example = "Nginx Archive", required = true, value = "The archive name.")
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public LogsArchiveAttributes query(String query) {
-    this.query = query;
-    return this;
-  }
-
-  /**
-   * The archive query/filter. Logs matching this query are included in the archive.
-   *
-   * @return query
-   */
-  @ApiModelProperty(
-      example = "source:nginx",
-      required = true,
-      value = "The archive query/filter. Logs matching this query are included in the archive.")
-  @JsonProperty(JSON_PROPERTY_QUERY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getQuery() {
-    return query;
-  }
-
-  public void setQuery(String query) {
-    this.query = query;
-  }
-
-  public LogsArchiveAttributes rehydrationTags(List<String> rehydrationTags) {
-    this.rehydrationTags = rehydrationTags;
-    return this;
-  }
-
-  public LogsArchiveAttributes addRehydrationTagsItem(String rehydrationTagsItem) {
-    if (this.rehydrationTags == null) {
-      this.rehydrationTags = new ArrayList<>();
+    @JsonCreator
+    public LogsArchiveAttributes(
+        @JsonProperty(required = true, value = JSON_PROPERTY_DESTINATION) LogsArchiveDestination destination,
+        @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+        @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query
+    ) {
+        this.destination = destination;
+        this.unparsed |= destination.unparsed;
+        this.name = name;
+        this.query = query;
     }
-    this.rehydrationTags.add(rehydrationTagsItem);
-    return this;
-  }
 
-  /**
-   * An array of tags to add to rehydrated logs from an archive.
-   *
-   * @return rehydrationTags
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[\"team:intake\",\"team:app\"]",
-      value = "An array of tags to add to rehydrated logs from an archive.")
-  @JsonProperty(JSON_PROPERTY_REHYDRATION_TAGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getRehydrationTags() {
-    return rehydrationTags;
-  }
-
-  public void setRehydrationTags(List<String> rehydrationTags) {
-    this.rehydrationTags = rehydrationTags;
-  }
-
-  public LogsArchiveAttributes state(LogsArchiveState state) {
-    this.state = state;
-    this.unparsed |= !state.isValid();
-    return this;
-  }
-
-  /**
-   * Get state
-   *
-   * @return state
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_STATE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LogsArchiveState getState() {
-    return state;
-  }
-
-  public void setState(LogsArchiveState state) {
-    if (!state.isValid()) {
-      this.unparsed = true;
+    public LogsArchiveAttributes destination(LogsArchiveDestination destination) {
+        this.destination = destination;
+        this.unparsed |= destination.unparsed;
+        return this;
     }
-    this.state = state;
-  }
 
-  /** Return true if this LogsArchiveAttributes object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * Get destination
+     * @return destination
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(required = true, value = "")
+    @JsonProperty(JSON_PROPERTY_DESTINATION)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public LogsArchiveDestination getDestination() {
+        return destination;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setDestination(LogsArchiveDestination destination) {
+        this.destination = destination;
     }
-    LogsArchiveAttributes logsArchiveAttributes = (LogsArchiveAttributes) o;
-    return Objects.equals(this.destination, logsArchiveAttributes.destination)
-        && Objects.equals(this.includeTags, logsArchiveAttributes.includeTags)
-        && Objects.equals(this.name, logsArchiveAttributes.name)
-        && Objects.equals(this.query, logsArchiveAttributes.query)
-        && Objects.equals(this.rehydrationTags, logsArchiveAttributes.rehydrationTags)
-        && Objects.equals(this.state, logsArchiveAttributes.state);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(destination, includeTags, name, query, rehydrationTags, state);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class LogsArchiveAttributes {\n");
-    sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
-    sb.append("    includeTags: ").append(toIndentedString(includeTags)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    query: ").append(toIndentedString(query)).append("\n");
-    sb.append("    rehydrationTags: ").append(toIndentedString(rehydrationTags)).append("\n");
-    sb.append("    state: ").append(toIndentedString(state)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public LogsArchiveAttributes includeTags(Boolean includeTags) {
+        this.includeTags = includeTags;
+        return this;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * To store the tags in the archive, set the value \&quot;true\&quot;. If it is set to \&quot;false\&quot;, the tags will be deleted when the logs are sent to the archive.
+     * @return includeTags
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(
+        example = "false",
+        value = "To store the tags in the archive, set the value \"true\". If it is set to \"false\", the tags will be deleted when the logs are sent to the archive."
+    )
+    @JsonProperty(JSON_PROPERTY_INCLUDE_TAGS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Boolean getIncludeTags() {
+        return includeTags;
+    }
+
+    public void setIncludeTags(Boolean includeTags) {
+        this.includeTags = includeTags;
+    }
+
+    public LogsArchiveAttributes name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * The archive name.
+     * @return name
+     **/
+    @ApiModelProperty(example = "Nginx Archive", required = true, value = "The archive name.")
+    @JsonProperty(JSON_PROPERTY_NAME)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public LogsArchiveAttributes query(String query) {
+        this.query = query;
+        return this;
+    }
+
+    /**
+     * The archive query/filter. Logs matching this query are included in the archive.
+     * @return query
+     **/
+    @ApiModelProperty(
+        example = "source:nginx",
+        required = true,
+        value = "The archive query/filter. Logs matching this query are included in the archive."
+    )
+    @JsonProperty(JSON_PROPERTY_QUERY)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public String getQuery() {
+        return query;
+    }
+
+    public void setQuery(String query) {
+        this.query = query;
+    }
+
+    public LogsArchiveAttributes rehydrationTags(List<String> rehydrationTags) {
+        this.rehydrationTags = rehydrationTags;
+        return this;
+    }
+
+    public LogsArchiveAttributes addRehydrationTagsItem(String rehydrationTagsItem) {
+        if (this.rehydrationTags == null) {
+            this.rehydrationTags = new ArrayList<>();
+        }
+        this.rehydrationTags.add(rehydrationTagsItem);
+        return this;
+    }
+
+    /**
+     * An array of tags to add to rehydrated logs from an archive.
+     * @return rehydrationTags
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(example = "[\"team:intake\",\"team:app\"]", value = "An array of tags to add to rehydrated logs from an archive.")
+    @JsonProperty(JSON_PROPERTY_REHYDRATION_TAGS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public List<String> getRehydrationTags() {
+        return rehydrationTags;
+    }
+
+    public void setRehydrationTags(List<String> rehydrationTags) {
+        this.rehydrationTags = rehydrationTags;
+    }
+
+    public LogsArchiveAttributes state(LogsArchiveState state) {
+        this.state = state;
+        this.unparsed |= !state.isValid();
+        return this;
+    }
+
+    /**
+     * Get state
+     * @return state
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+    @JsonProperty(JSON_PROPERTY_STATE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public LogsArchiveState getState() {
+        return state;
+    }
+
+    public void setState(LogsArchiveState state) {
+        if (!state.isValid()) {
+            this.unparsed = true;
+        }
+        this.state = state;
+    }
+
+    /**
+     * Return true if this LogsArchiveAttributes object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        LogsArchiveAttributes logsArchiveAttributes = (LogsArchiveAttributes) o;
+        return (
+            Objects.equals(this.destination, logsArchiveAttributes.destination) &&
+            Objects.equals(this.includeTags, logsArchiveAttributes.includeTags) &&
+            Objects.equals(this.name, logsArchiveAttributes.name) &&
+            Objects.equals(this.query, logsArchiveAttributes.query) &&
+            Objects.equals(this.rehydrationTags, logsArchiveAttributes.rehydrationTags) &&
+            Objects.equals(this.state, logsArchiveAttributes.state)
+        );
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(destination, includeTags, name, query, rehydrationTags, state);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class LogsArchiveAttributes {\n");
+        sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
+        sb.append("    includeTags: ").append(toIndentedString(includeTags)).append("\n");
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    query: ").append(toIndentedString(query)).append("\n");
+        sb.append("    rehydrationTags: ").append(toIndentedString(rehydrationTags)).append("\n");
+        sb.append("    state: ").append(toIndentedString(state)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

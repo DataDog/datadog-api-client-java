@@ -1,13 +1,7 @@
-
-
 # WidgetEventSize
 
 ## Enum
 
+- `SMALL` (value: `"s"`)
 
-* `SMALL` (value: `"s"`)
-
-* `LARGE` (value: `"l"`)
-
-
-
+- `LARGE` (value: `"l"`)

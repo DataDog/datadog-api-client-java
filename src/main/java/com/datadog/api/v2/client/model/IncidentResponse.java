@@ -10,108 +10,122 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.datadog.api.v2.client.JSON;
+import com.datadog.api.v2.client.model.IncidentResponseData;
+import com.datadog.api.v2.client.model.IncidentResponseIncludedItem;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
-/** Response with an incident. */
+/**
+ * Response with an incident.
+ */
 @ApiModel(description = "Response with an incident.")
-@JsonPropertyOrder({IncidentResponse.JSON_PROPERTY_DATA, IncidentResponse.JSON_PROPERTY_INCLUDED})
+@JsonPropertyOrder({ IncidentResponse.JSON_PROPERTY_DATA, IncidentResponse.JSON_PROPERTY_INCLUDED })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IncidentResponse {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA = "data";
-  private IncidentResponseData data;
 
-  public static final String JSON_PROPERTY_INCLUDED = "included";
-  private List<IncidentResponseIncludedItem> included = null;
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  public IncidentResponse() {}
+    public static final String JSON_PROPERTY_DATA = "data";
+    private IncidentResponseData data;
 
-  @JsonCreator
-  public IncidentResponse(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) IncidentResponseData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
-  }
+    public static final String JSON_PROPERTY_INCLUDED = "included";
+    private List<IncidentResponseIncludedItem> included = null;
 
-  public IncidentResponse data(IncidentResponseData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
-    return this;
-  }
+    public IncidentResponse() {}
 
-  /**
-   * Get data
-   *
-   * @return data
-   */
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public IncidentResponseData getData() {
-    return data;
-  }
-
-  public void setData(IncidentResponseData data) {
-    this.data = data;
-  }
-
-  /**
-   * Included related resources that the user requested.
-   *
-   * @return included
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Included related resources that the user requested.")
-  @JsonProperty(JSON_PROPERTY_INCLUDED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<IncidentResponseIncludedItem> getIncluded() {
-    return included;
-  }
-
-  /** Return true if this IncidentResponse object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    @JsonCreator
+    public IncidentResponse(@JsonProperty(required = true, value = JSON_PROPERTY_DATA) IncidentResponseData data) {
+        this.data = data;
+        this.unparsed |= data.unparsed;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public IncidentResponse data(IncidentResponseData data) {
+        this.data = data;
+        this.unparsed |= data.unparsed;
+        return this;
     }
-    IncidentResponse incidentResponse = (IncidentResponse) o;
-    return Objects.equals(this.data, incidentResponse.data)
-        && Objects.equals(this.included, incidentResponse.included);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(data, included);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class IncidentResponse {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    included: ").append(toIndentedString(included)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    /**
+     * Get data
+     * @return data
+     **/
+    @ApiModelProperty(required = true, value = "")
+    @JsonProperty(JSON_PROPERTY_DATA)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public IncidentResponseData getData() {
+        return data;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public void setData(IncidentResponseData data) {
+        this.data = data;
+    }
+
+    /**
+     * Included related resources that the user requested.
+     * @return included
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Included related resources that the user requested.")
+    @JsonProperty(JSON_PROPERTY_INCLUDED)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public List<IncidentResponseIncludedItem> getIncluded() {
+        return included;
+    }
+
+    /**
+     * Return true if this IncidentResponse object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        IncidentResponse incidentResponse = (IncidentResponse) o;
+        return Objects.equals(this.data, incidentResponse.data) && Objects.equals(this.included, incidentResponse.included);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(data, included);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class IncidentResponse {\n");
+        sb.append("    data: ").append(toIndentedString(data)).append("\n");
+        sb.append("    included: ").append(toIndentedString(included)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

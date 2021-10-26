@@ -10,99 +10,106 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JSON;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import io.swagger.annotations.ApiModel;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
 /**
- * If an alert event is enabled, set its type. For example, &#x60;error&#x60;, &#x60;warning&#x60;,
- * &#x60;info&#x60;, &#x60;success&#x60;, &#x60;user_update&#x60;, &#x60;recommendation&#x60;, and
- * &#x60;snapshot&#x60;.
+ * If an alert event is enabled, set its type. For example, &#x60;error&#x60;, &#x60;warning&#x60;, &#x60;info&#x60;, &#x60;success&#x60;, &#x60;user_update&#x60;, &#x60;recommendation&#x60;, and &#x60;snapshot&#x60;.
  */
 @JsonSerialize(using = EventAlertType.EventAlertTypeSerializer.class)
 public class EventAlertType {
 
-  public static final EventAlertType ERROR = new EventAlertType("error");
-  public static final EventAlertType WARNING = new EventAlertType("warning");
-  public static final EventAlertType INFO = new EventAlertType("info");
-  public static final EventAlertType SUCCESS = new EventAlertType("success");
-  public static final EventAlertType USER_UPDATE = new EventAlertType("user_update");
-  public static final EventAlertType RECOMMENDATION = new EventAlertType("recommendation");
-  public static final EventAlertType SNAPSHOT = new EventAlertType("snapshot");
+    public static final EventAlertType ERROR = new EventAlertType("error");
+    public static final EventAlertType WARNING = new EventAlertType("warning");
+    public static final EventAlertType INFO = new EventAlertType("info");
+    public static final EventAlertType SUCCESS = new EventAlertType("success");
+    public static final EventAlertType USER_UPDATE = new EventAlertType("user_update");
+    public static final EventAlertType RECOMMENDATION = new EventAlertType("recommendation");
+    public static final EventAlertType SNAPSHOT = new EventAlertType("snapshot");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "error", "warning", "info", "success", "user_update", "recommendation", "snapshot"));
+    private static final Set<String> allowedValues = new HashSet<String>(
+        Arrays.asList("error", "warning", "info", "success", "user_update", "recommendation", "snapshot")
+    );
 
-  private String value;
+    private String value;
 
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
-
-  EventAlertType(String value) {
-    this.value = value;
-  }
-
-  public static class EventAlertTypeSerializer extends StdSerializer<EventAlertType> {
-    public EventAlertTypeSerializer(Class<EventAlertType> t) {
-      super(t);
+    public boolean isValid() {
+        return allowedValues.contains(this.value);
     }
 
-    public EventAlertTypeSerializer() {
-      this(null);
+    EventAlertType(String value) {
+        this.value = value;
+    }
+
+    public static class EventAlertTypeSerializer extends StdSerializer<EventAlertType> {
+
+        public EventAlertTypeSerializer(Class<EventAlertType> t) {
+            super(t);
+        }
+
+        public EventAlertTypeSerializer() {
+            this(null);
+        }
+
+        @Override
+        public void serialize(EventAlertType value, JsonGenerator jgen, SerializerProvider provider)
+            throws IOException, JsonProcessingException {
+            jgen.writeObject(value.value);
+        }
+    }
+
+    @JsonValue
+    public String getValue() {
+        return this.value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    /**
+     * Return true if this EventAlertType object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        return this.value.equals(((EventAlertType) o).value);
     }
 
     @Override
-    public void serialize(EventAlertType value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
+    public int hashCode() {
+        return Objects.hash(value);
     }
-  }
 
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this EventAlertType object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    @Override
+    public String toString() {
+        return String.valueOf(value);
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    @JsonCreator
+    public static EventAlertType fromValue(String value) {
+        return new EventAlertType(value);
     }
-    return this.value.equals(((EventAlertType) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
-  }
-
-  @JsonCreator
-  public static EventAlertType fromValue(String value) {
-    return new EventAlertType(value);
-  }
 }

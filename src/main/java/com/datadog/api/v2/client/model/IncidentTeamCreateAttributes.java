@@ -10,87 +10,100 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.datadog.api.v2.client.JSON;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
-/** The incident team&#39;s attributes for a create request. */
+/**
+ * The incident team&#39;s attributes for a create request.
+ */
 @ApiModel(description = "The incident team's attributes for a create request.")
-@JsonPropertyOrder({IncidentTeamCreateAttributes.JSON_PROPERTY_NAME})
+@JsonPropertyOrder({ IncidentTeamCreateAttributes.JSON_PROPERTY_NAME })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IncidentTeamCreateAttributes {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
 
-  public IncidentTeamCreateAttributes() {}
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  @JsonCreator
-  public IncidentTeamCreateAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
-    this.name = name;
-  }
+    public static final String JSON_PROPERTY_NAME = "name";
+    private String name;
 
-  public IncidentTeamCreateAttributes name(String name) {
-    this.name = name;
-    return this;
-  }
+    public IncidentTeamCreateAttributes() {}
 
-  /**
-   * Name of the incident team.
-   *
-   * @return name
-   */
-  @ApiModelProperty(example = "team name", required = true, value = "Name of the incident team.")
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  /** Return true if this IncidentTeamCreateAttributes object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    @JsonCreator
+    public IncidentTeamCreateAttributes(@JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
+        this.name = name;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public IncidentTeamCreateAttributes name(String name) {
+        this.name = name;
+        return this;
     }
-    IncidentTeamCreateAttributes incidentTeamCreateAttributes = (IncidentTeamCreateAttributes) o;
-    return Objects.equals(this.name, incidentTeamCreateAttributes.name);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(name);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class IncidentTeamCreateAttributes {\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    /**
+     * Name of the incident team.
+     * @return name
+     **/
+    @ApiModelProperty(example = "team name", required = true, value = "Name of the incident team.")
+    @JsonProperty(JSON_PROPERTY_NAME)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public String getName() {
+        return name;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * Return true if this IncidentTeamCreateAttributes object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        IncidentTeamCreateAttributes incidentTeamCreateAttributes = (IncidentTeamCreateAttributes) o;
+        return Objects.equals(this.name, incidentTeamCreateAttributes.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class IncidentTeamCreateAttributes {\n");
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

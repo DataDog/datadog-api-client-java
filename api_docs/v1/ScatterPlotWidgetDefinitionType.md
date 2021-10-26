@@ -1,11 +1,5 @@
-
-
 # ScatterPlotWidgetDefinitionType
 
 ## Enum
 
-
-* `SCATTERPLOT` (value: `"scatterplot"`)
-
-
-
+- `SCATTERPLOT` (value: `"scatterplot"`)

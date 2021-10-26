@@ -10,89 +10,100 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JSON;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import io.swagger.annotations.ApiModel;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Type of lines displayed. */
+/**
+ * Type of lines displayed.
+ */
 @JsonSerialize(using = WidgetLineType.WidgetLineTypeSerializer.class)
 public class WidgetLineType {
 
-  public static final WidgetLineType DASHED = new WidgetLineType("dashed");
-  public static final WidgetLineType DOTTED = new WidgetLineType("dotted");
-  public static final WidgetLineType SOLID = new WidgetLineType("solid");
+    public static final WidgetLineType DASHED = new WidgetLineType("dashed");
+    public static final WidgetLineType DOTTED = new WidgetLineType("dotted");
+    public static final WidgetLineType SOLID = new WidgetLineType("solid");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("dashed", "dotted", "solid"));
+    private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("dashed", "dotted", "solid"));
 
-  private String value;
+    private String value;
 
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
-
-  WidgetLineType(String value) {
-    this.value = value;
-  }
-
-  public static class WidgetLineTypeSerializer extends StdSerializer<WidgetLineType> {
-    public WidgetLineTypeSerializer(Class<WidgetLineType> t) {
-      super(t);
+    public boolean isValid() {
+        return allowedValues.contains(this.value);
     }
 
-    public WidgetLineTypeSerializer() {
-      this(null);
+    WidgetLineType(String value) {
+        this.value = value;
+    }
+
+    public static class WidgetLineTypeSerializer extends StdSerializer<WidgetLineType> {
+
+        public WidgetLineTypeSerializer(Class<WidgetLineType> t) {
+            super(t);
+        }
+
+        public WidgetLineTypeSerializer() {
+            this(null);
+        }
+
+        @Override
+        public void serialize(WidgetLineType value, JsonGenerator jgen, SerializerProvider provider)
+            throws IOException, JsonProcessingException {
+            jgen.writeObject(value.value);
+        }
+    }
+
+    @JsonValue
+    public String getValue() {
+        return this.value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    /**
+     * Return true if this WidgetLineType object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        return this.value.equals(((WidgetLineType) o).value);
     }
 
     @Override
-    public void serialize(WidgetLineType value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
+    public int hashCode() {
+        return Objects.hash(value);
     }
-  }
 
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this WidgetLineType object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    @Override
+    public String toString() {
+        return String.valueOf(value);
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    @JsonCreator
+    public static WidgetLineType fromValue(String value) {
+        return new WidgetLineType(value);
     }
-    return this.value.equals(((WidgetLineType) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
-  }
-
-  @JsonCreator
-  public static WidgetLineType fromValue(String value) {
-    return new WidgetLineType(value);
-  }
 }

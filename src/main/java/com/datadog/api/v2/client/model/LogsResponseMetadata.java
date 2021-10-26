@@ -10,218 +10,232 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.datadog.api.v2.client.JSON;
+import com.datadog.api.v2.client.model.LogsAggregateResponseStatus;
+import com.datadog.api.v2.client.model.LogsResponseMetadataPage;
+import com.datadog.api.v2.client.model.LogsWarning;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
-/** The metadata associated with a request */
+/**
+ * The metadata associated with a request
+ */
 @ApiModel(description = "The metadata associated with a request")
-@JsonPropertyOrder({
-  LogsResponseMetadata.JSON_PROPERTY_ELAPSED,
-  LogsResponseMetadata.JSON_PROPERTY_PAGE,
-  LogsResponseMetadata.JSON_PROPERTY_REQUEST_ID,
-  LogsResponseMetadata.JSON_PROPERTY_STATUS,
-  LogsResponseMetadata.JSON_PROPERTY_WARNINGS
-})
+@JsonPropertyOrder(
+    {
+        LogsResponseMetadata.JSON_PROPERTY_ELAPSED,
+        LogsResponseMetadata.JSON_PROPERTY_PAGE,
+        LogsResponseMetadata.JSON_PROPERTY_REQUEST_ID,
+        LogsResponseMetadata.JSON_PROPERTY_STATUS,
+        LogsResponseMetadata.JSON_PROPERTY_WARNINGS
+    }
+)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsResponseMetadata {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ELAPSED = "elapsed";
-  private Long elapsed;
 
-  public static final String JSON_PROPERTY_PAGE = "page";
-  private LogsResponseMetadataPage page;
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  public static final String JSON_PROPERTY_REQUEST_ID = "request_id";
-  private String requestId;
+    public static final String JSON_PROPERTY_ELAPSED = "elapsed";
+    private Long elapsed;
 
-  public static final String JSON_PROPERTY_STATUS = "status";
-  private LogsAggregateResponseStatus status;
+    public static final String JSON_PROPERTY_PAGE = "page";
+    private LogsResponseMetadataPage page;
 
-  public static final String JSON_PROPERTY_WARNINGS = "warnings";
-  private List<LogsWarning> warnings = null;
+    public static final String JSON_PROPERTY_REQUEST_ID = "request_id";
+    private String requestId;
 
-  public LogsResponseMetadata elapsed(Long elapsed) {
-    this.elapsed = elapsed;
-    return this;
-  }
+    public static final String JSON_PROPERTY_STATUS = "status";
+    private LogsAggregateResponseStatus status;
 
-  /**
-   * The time elapsed in milliseconds
-   *
-   * @return elapsed
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "132", value = "The time elapsed in milliseconds")
-  @JsonProperty(JSON_PROPERTY_ELAPSED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getElapsed() {
-    return elapsed;
-  }
+    public static final String JSON_PROPERTY_WARNINGS = "warnings";
+    private List<LogsWarning> warnings = null;
 
-  public void setElapsed(Long elapsed) {
-    this.elapsed = elapsed;
-  }
-
-  public LogsResponseMetadata page(LogsResponseMetadataPage page) {
-    this.page = page;
-    this.unparsed |= page.unparsed;
-    return this;
-  }
-
-  /**
-   * Get page
-   *
-   * @return page
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_PAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LogsResponseMetadataPage getPage() {
-    return page;
-  }
-
-  public void setPage(LogsResponseMetadataPage page) {
-    this.page = page;
-  }
-
-  public LogsResponseMetadata requestId(String requestId) {
-    this.requestId = requestId;
-    return this;
-  }
-
-  /**
-   * The identifier of the request
-   *
-   * @return requestId
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "MWlFUjVaWGZTTTZPYzM0VXp1OXU2d3xLSVpEMjZKQ0VKUTI0dEYtM3RSOFVR",
-      value = "The identifier of the request")
-  @JsonProperty(JSON_PROPERTY_REQUEST_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getRequestId() {
-    return requestId;
-  }
-
-  public void setRequestId(String requestId) {
-    this.requestId = requestId;
-  }
-
-  public LogsResponseMetadata status(LogsAggregateResponseStatus status) {
-    this.status = status;
-    this.unparsed |= !status.isValid();
-    return this;
-  }
-
-  /**
-   * Get status
-   *
-   * @return status
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LogsAggregateResponseStatus getStatus() {
-    return status;
-  }
-
-  public void setStatus(LogsAggregateResponseStatus status) {
-    if (!status.isValid()) {
-      this.unparsed = true;
+    public LogsResponseMetadata elapsed(Long elapsed) {
+        this.elapsed = elapsed;
+        return this;
     }
-    this.status = status;
-  }
 
-  public LogsResponseMetadata warnings(List<LogsWarning> warnings) {
-    this.warnings = warnings;
-    for (LogsWarning item : warnings) {
-      this.unparsed |= item.unparsed;
+    /**
+     * The time elapsed in milliseconds
+     * @return elapsed
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(example = "132", value = "The time elapsed in milliseconds")
+    @JsonProperty(JSON_PROPERTY_ELAPSED)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Long getElapsed() {
+        return elapsed;
     }
-    return this;
-  }
 
-  public LogsResponseMetadata addWarningsItem(LogsWarning warningsItem) {
-    if (this.warnings == null) {
-      this.warnings = new ArrayList<>();
+    public void setElapsed(Long elapsed) {
+        this.elapsed = elapsed;
     }
-    this.warnings.add(warningsItem);
-    this.unparsed |= warningsItem.unparsed;
-    return this;
-  }
 
-  /**
-   * A list of warnings (non fatal errors) encountered, partial results might be returned if
-   * warnings are present in the response.
-   *
-   * @return warnings
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "A list of warnings (non fatal errors) encountered, partial results might be returned if"
-              + " warnings are present in the response.")
-  @JsonProperty(JSON_PROPERTY_WARNINGS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<LogsWarning> getWarnings() {
-    return warnings;
-  }
-
-  public void setWarnings(List<LogsWarning> warnings) {
-    this.warnings = warnings;
-  }
-
-  /** Return true if this LogsResponseMetadata object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public LogsResponseMetadata page(LogsResponseMetadataPage page) {
+        this.page = page;
+        this.unparsed |= page.unparsed;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get page
+     * @return page
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+    @JsonProperty(JSON_PROPERTY_PAGE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public LogsResponseMetadataPage getPage() {
+        return page;
     }
-    LogsResponseMetadata logsResponseMetadata = (LogsResponseMetadata) o;
-    return Objects.equals(this.elapsed, logsResponseMetadata.elapsed)
-        && Objects.equals(this.page, logsResponseMetadata.page)
-        && Objects.equals(this.requestId, logsResponseMetadata.requestId)
-        && Objects.equals(this.status, logsResponseMetadata.status)
-        && Objects.equals(this.warnings, logsResponseMetadata.warnings);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(elapsed, page, requestId, status, warnings);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class LogsResponseMetadata {\n");
-    sb.append("    elapsed: ").append(toIndentedString(elapsed)).append("\n");
-    sb.append("    page: ").append(toIndentedString(page)).append("\n");
-    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("    warnings: ").append(toIndentedString(warnings)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setPage(LogsResponseMetadataPage page) {
+        this.page = page;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public LogsResponseMetadata requestId(String requestId) {
+        this.requestId = requestId;
+        return this;
+    }
+
+    /**
+     * The identifier of the request
+     * @return requestId
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(example = "MWlFUjVaWGZTTTZPYzM0VXp1OXU2d3xLSVpEMjZKQ0VKUTI0dEYtM3RSOFVR", value = "The identifier of the request")
+    @JsonProperty(JSON_PROPERTY_REQUEST_ID)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getRequestId() {
+        return requestId;
+    }
+
+    public void setRequestId(String requestId) {
+        this.requestId = requestId;
+    }
+
+    public LogsResponseMetadata status(LogsAggregateResponseStatus status) {
+        this.status = status;
+        this.unparsed |= !status.isValid();
+        return this;
+    }
+
+    /**
+     * Get status
+     * @return status
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+    @JsonProperty(JSON_PROPERTY_STATUS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public LogsAggregateResponseStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(LogsAggregateResponseStatus status) {
+        if (!status.isValid()) {
+            this.unparsed = true;
+        }
+        this.status = status;
+    }
+
+    public LogsResponseMetadata warnings(List<LogsWarning> warnings) {
+        this.warnings = warnings;
+        for (LogsWarning item : warnings) {
+            this.unparsed |= item.unparsed;
+        }
+        return this;
+    }
+
+    public LogsResponseMetadata addWarningsItem(LogsWarning warningsItem) {
+        if (this.warnings == null) {
+            this.warnings = new ArrayList<>();
+        }
+        this.warnings.add(warningsItem);
+        this.unparsed |= warningsItem.unparsed;
+        return this;
+    }
+
+    /**
+     * A list of warnings (non fatal errors) encountered, partial results might be returned if warnings are present in the response.
+     * @return warnings
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(
+        value = "A list of warnings (non fatal errors) encountered, partial results might be returned if warnings are present in the response."
+    )
+    @JsonProperty(JSON_PROPERTY_WARNINGS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public List<LogsWarning> getWarnings() {
+        return warnings;
+    }
+
+    public void setWarnings(List<LogsWarning> warnings) {
+        this.warnings = warnings;
+    }
+
+    /**
+     * Return true if this LogsResponseMetadata object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        LogsResponseMetadata logsResponseMetadata = (LogsResponseMetadata) o;
+        return (
+            Objects.equals(this.elapsed, logsResponseMetadata.elapsed) &&
+            Objects.equals(this.page, logsResponseMetadata.page) &&
+            Objects.equals(this.requestId, logsResponseMetadata.requestId) &&
+            Objects.equals(this.status, logsResponseMetadata.status) &&
+            Objects.equals(this.warnings, logsResponseMetadata.warnings)
+        );
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(elapsed, page, requestId, status, warnings);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class LogsResponseMetadata {\n");
+        sb.append("    elapsed: ").append(toIndentedString(elapsed)).append("\n");
+        sb.append("    page: ").append(toIndentedString(page)).append("\n");
+        sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
+        sb.append("    status: ").append(toIndentedString(status)).append("\n");
+        sb.append("    warnings: ").append(toIndentedString(warnings)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

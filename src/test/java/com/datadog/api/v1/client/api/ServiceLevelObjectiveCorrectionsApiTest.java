@@ -17,82 +17,82 @@ import org.junit.Test;
 /** API tests for ServiceLevelObjectiveCorrectionsApi */
 public class ServiceLevelObjectiveCorrectionsApiTest {
 
-  private final ServiceLevelObjectiveCorrectionsApi api = new ServiceLevelObjectiveCorrectionsApi();
+    private final ServiceLevelObjectiveCorrectionsApi api = new ServiceLevelObjectiveCorrectionsApi();
 
-  /**
-   * Create an SLO correction
-   *
-   * <p>Create an SLO Correction
-   *
-   * @throws ApiException if the Api call fails
-   */
-  @Test
-  public void createSLOCorrectionTest() throws ApiException {
-    // SLOCorrectionCreateRequest body = null;
-    // SLOCorrectionResponse response = api.createSLOCorrection()
-    //        .body(body)
-    //        .execute();
-    // TODO: test validations
-  }
+    /**
+     * Create an SLO correction
+     *
+     * <p>Create an SLO Correction
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void createSLOCorrectionTest() throws ApiException {
+        // SLOCorrectionCreateRequest body = null;
+        // SLOCorrectionResponse response = api.createSLOCorrection()
+        //        .body(body)
+        //        .execute();
+        // TODO: test validations
+    }
 
-  /**
-   * Delete an SLO Correction
-   *
-   * <p>Permanently delete the specified SLO Correction object
-   *
-   * @throws ApiException if the Api call fails
-   */
-  @Test
-  public void deleteSLOCorrectionTest() throws ApiException {
-    // String sloCorrectionId = null;
-    // api.deleteSLOCorrection(sloCorrectionId)
-    //        .execute();
-    // TODO: test validations
-  }
+    /**
+     * Delete an SLO Correction
+     *
+     * <p>Permanently delete the specified SLO Correction object
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void deleteSLOCorrectionTest() throws ApiException {
+        // String sloCorrectionId = null;
+        // api.deleteSLOCorrection(sloCorrectionId)
+        //        .execute();
+        // TODO: test validations
+    }
 
-  /**
-   * Get an SLO correction for an SLO
-   *
-   * <p>Get an SLO Correction
-   *
-   * @throws ApiException if the Api call fails
-   */
-  @Test
-  public void getSLOCorrectionTest() throws ApiException {
-    // String sloCorrectionId = null;
-    // SLOCorrectionResponse response = api.getSLOCorrection(sloCorrectionId)
-    //        .execute();
-    // TODO: test validations
-  }
+    /**
+     * Get an SLO correction for an SLO
+     *
+     * <p>Get an SLO Correction
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getSLOCorrectionTest() throws ApiException {
+        // String sloCorrectionId = null;
+        // SLOCorrectionResponse response = api.getSLOCorrection(sloCorrectionId)
+        //        .execute();
+        // TODO: test validations
+    }
 
-  /**
-   * Get all SLO corrections
-   *
-   * <p>Get all Service Level Objective Corrections
-   *
-   * @throws ApiException if the Api call fails
-   */
-  @Test
-  public void listSLOCorrectionTest() throws ApiException {
-    // SLOCorrectionListResponse response = api.listSLOCorrection()
-    //        .execute();
-    // TODO: test validations
-  }
+    /**
+     * Get all SLO corrections
+     *
+     * <p>Get all Service Level Objective Corrections
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listSLOCorrectionTest() throws ApiException {
+        // SLOCorrectionListResponse response = api.listSLOCorrection()
+        //        .execute();
+        // TODO: test validations
+    }
 
-  /**
-   * Update an SLO Correction
-   *
-   * <p>Update the specified SLO correction object object
-   *
-   * @throws ApiException if the Api call fails
-   */
-  @Test
-  public void updateSLOCorrectionTest() throws ApiException {
-    // String sloCorrectionId = null;
-    // SLOCorrectionUpdateRequest body = null;
-    // SLOCorrectionResponse response = api.updateSLOCorrection(sloCorrectionId)
-    //        .body(body)
-    //        .execute();
-    // TODO: test validations
-  }
+    /**
+     * Update an SLO Correction
+     *
+     * <p>Update the specified SLO correction object object
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void updateSLOCorrectionTest() throws ApiException {
+        // String sloCorrectionId = null;
+        // SLOCorrectionUpdateRequest body = null;
+        // SLOCorrectionResponse response = api.updateSLOCorrection(sloCorrectionId)
+        //        .body(body)
+        //        .execute();
+        // TODO: test validations
+    }
 }

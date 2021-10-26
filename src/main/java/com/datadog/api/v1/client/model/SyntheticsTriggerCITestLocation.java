@@ -10,110 +10,121 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JSON;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
-/** Synthetics location. */
+/**
+ * Synthetics location.
+ */
 @ApiModel(description = "Synthetics location.")
-@JsonPropertyOrder({
-  SyntheticsTriggerCITestLocation.JSON_PROPERTY_ID,
-  SyntheticsTriggerCITestLocation.JSON_PROPERTY_NAME
-})
+@JsonPropertyOrder({ SyntheticsTriggerCITestLocation.JSON_PROPERTY_ID, SyntheticsTriggerCITestLocation.JSON_PROPERTY_NAME })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsTriggerCITestLocation {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ID = "id";
-  private Long id;
 
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  public SyntheticsTriggerCITestLocation id(Long id) {
-    this.id = id;
-    return this;
-  }
+    public static final String JSON_PROPERTY_ID = "id";
+    private Long id;
 
-  /**
-   * Unique identifier of the location.
-   *
-   * @return id
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique identifier of the location.")
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getId() {
-    return id;
-  }
+    public static final String JSON_PROPERTY_NAME = "name";
+    private String name;
 
-  public void setId(Long id) {
-    this.id = id;
-  }
-
-  public SyntheticsTriggerCITestLocation name(String name) {
-    this.name = name;
-    return this;
-  }
-
-  /**
-   * Name of the location.
-   *
-   * @return name
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the location.")
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  /** Return true if this SyntheticsTriggerCITestLocation object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public SyntheticsTriggerCITestLocation id(Long id) {
+        this.id = id;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Unique identifier of the location.
+     * @return id
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Unique identifier of the location.")
+    @JsonProperty(JSON_PROPERTY_ID)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Long getId() {
+        return id;
     }
-    SyntheticsTriggerCITestLocation syntheticsTriggerCITestLocation =
-        (SyntheticsTriggerCITestLocation) o;
-    return Objects.equals(this.id, syntheticsTriggerCITestLocation.id)
-        && Objects.equals(this.name, syntheticsTriggerCITestLocation.name);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(id, name);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class SyntheticsTriggerCITestLocation {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setId(Long id) {
+        this.id = id;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public SyntheticsTriggerCITestLocation name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * Name of the location.
+     * @return name
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Name of the location.")
+    @JsonProperty(JSON_PROPERTY_NAME)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * Return true if this SyntheticsTriggerCITestLocation object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        SyntheticsTriggerCITestLocation syntheticsTriggerCITestLocation = (SyntheticsTriggerCITestLocation) o;
+        return (
+            Objects.equals(this.id, syntheticsTriggerCITestLocation.id) && Objects.equals(this.name, syntheticsTriggerCITestLocation.name)
+        );
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class SyntheticsTriggerCITestLocation {\n");
+        sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

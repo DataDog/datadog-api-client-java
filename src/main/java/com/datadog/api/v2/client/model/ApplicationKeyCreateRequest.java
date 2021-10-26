@@ -10,89 +10,103 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.datadog.api.v2.client.JSON;
+import com.datadog.api.v2.client.model.ApplicationKeyCreateData;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
-/** Request used to create an application key. */
+/**
+ * Request used to create an application key.
+ */
 @ApiModel(description = "Request used to create an application key.")
-@JsonPropertyOrder({ApplicationKeyCreateRequest.JSON_PROPERTY_DATA})
+@JsonPropertyOrder({ ApplicationKeyCreateRequest.JSON_PROPERTY_DATA })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ApplicationKeyCreateRequest {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA = "data";
-  private ApplicationKeyCreateData data;
 
-  public ApplicationKeyCreateRequest() {}
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  @JsonCreator
-  public ApplicationKeyCreateRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) ApplicationKeyCreateData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
-  }
+    public static final String JSON_PROPERTY_DATA = "data";
+    private ApplicationKeyCreateData data;
 
-  public ApplicationKeyCreateRequest data(ApplicationKeyCreateData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
-    return this;
-  }
+    public ApplicationKeyCreateRequest() {}
 
-  /**
-   * Get data
-   *
-   * @return data
-   */
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public ApplicationKeyCreateData getData() {
-    return data;
-  }
-
-  public void setData(ApplicationKeyCreateData data) {
-    this.data = data;
-  }
-
-  /** Return true if this ApplicationKeyCreateRequest object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    @JsonCreator
+    public ApplicationKeyCreateRequest(@JsonProperty(required = true, value = JSON_PROPERTY_DATA) ApplicationKeyCreateData data) {
+        this.data = data;
+        this.unparsed |= data.unparsed;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public ApplicationKeyCreateRequest data(ApplicationKeyCreateData data) {
+        this.data = data;
+        this.unparsed |= data.unparsed;
+        return this;
     }
-    ApplicationKeyCreateRequest applicationKeyCreateRequest = (ApplicationKeyCreateRequest) o;
-    return Objects.equals(this.data, applicationKeyCreateRequest.data);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(data);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ApplicationKeyCreateRequest {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    /**
+     * Get data
+     * @return data
+     **/
+    @ApiModelProperty(required = true, value = "")
+    @JsonProperty(JSON_PROPERTY_DATA)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public ApplicationKeyCreateData getData() {
+        return data;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public void setData(ApplicationKeyCreateData data) {
+        this.data = data;
+    }
+
+    /**
+     * Return true if this ApplicationKeyCreateRequest object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ApplicationKeyCreateRequest applicationKeyCreateRequest = (ApplicationKeyCreateRequest) o;
+        return Objects.equals(this.data, applicationKeyCreateRequest.data);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(data);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ApplicationKeyCreateRequest {\n");
+        sb.append("    data: ").append(toIndentedString(data)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

@@ -10,91 +10,100 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.datadog.api.v2.client.JSON;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
-/** The incident service&#39;s attributes for an update request. */
+/**
+ * The incident service&#39;s attributes for an update request.
+ */
 @ApiModel(description = "The incident service's attributes for an update request.")
-@JsonPropertyOrder({IncidentServiceUpdateAttributes.JSON_PROPERTY_NAME})
+@JsonPropertyOrder({ IncidentServiceUpdateAttributes.JSON_PROPERTY_NAME })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IncidentServiceUpdateAttributes {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_NAME = "name";
-  private String name;
 
-  public IncidentServiceUpdateAttributes() {}
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  @JsonCreator
-  public IncidentServiceUpdateAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
-    this.name = name;
-  }
+    public static final String JSON_PROPERTY_NAME = "name";
+    private String name;
 
-  public IncidentServiceUpdateAttributes name(String name) {
-    this.name = name;
-    return this;
-  }
+    public IncidentServiceUpdateAttributes() {}
 
-  /**
-   * Name of the incident service.
-   *
-   * @return name
-   */
-  @ApiModelProperty(
-      example = "an example service name",
-      required = true,
-      value = "Name of the incident service.")
-  @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  /** Return true if this IncidentServiceUpdateAttributes object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    @JsonCreator
+    public IncidentServiceUpdateAttributes(@JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
+        this.name = name;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public IncidentServiceUpdateAttributes name(String name) {
+        this.name = name;
+        return this;
     }
-    IncidentServiceUpdateAttributes incidentServiceUpdateAttributes =
-        (IncidentServiceUpdateAttributes) o;
-    return Objects.equals(this.name, incidentServiceUpdateAttributes.name);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(name);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class IncidentServiceUpdateAttributes {\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    /**
+     * Name of the incident service.
+     * @return name
+     **/
+    @ApiModelProperty(example = "an example service name", required = true, value = "Name of the incident service.")
+    @JsonProperty(JSON_PROPERTY_NAME)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public String getName() {
+        return name;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * Return true if this IncidentServiceUpdateAttributes object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        IncidentServiceUpdateAttributes incidentServiceUpdateAttributes = (IncidentServiceUpdateAttributes) o;
+        return Objects.equals(this.name, incidentServiceUpdateAttributes.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class IncidentServiceUpdateAttributes {\n");
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

@@ -10,80 +10,96 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JSON;
+import com.datadog.api.v1.client.model.LogsAPIError;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
-/** Response returned by the Logs API when errors occur. */
+/**
+ * Response returned by the Logs API when errors occur.
+ */
 @ApiModel(description = "Response returned by the Logs API when errors occur.")
-@JsonPropertyOrder({LogsAPIErrorResponse.JSON_PROPERTY_ERROR})
+@JsonPropertyOrder({ LogsAPIErrorResponse.JSON_PROPERTY_ERROR })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsAPIErrorResponse {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ERROR = "error";
-  private LogsAPIError error;
 
-  public LogsAPIErrorResponse error(LogsAPIError error) {
-    this.error = error;
-    this.unparsed |= error.unparsed;
-    return this;
-  }
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  /**
-   * Get error
-   *
-   * @return error
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_ERROR)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public LogsAPIError getError() {
-    return error;
-  }
+    public static final String JSON_PROPERTY_ERROR = "error";
+    private LogsAPIError error;
 
-  public void setError(LogsAPIError error) {
-    this.error = error;
-  }
-
-  /** Return true if this LogsAPIErrorResponse object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public LogsAPIErrorResponse error(LogsAPIError error) {
+        this.error = error;
+        this.unparsed |= error.unparsed;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get error
+     * @return error
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+    @JsonProperty(JSON_PROPERTY_ERROR)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public LogsAPIError getError() {
+        return error;
     }
-    LogsAPIErrorResponse logsAPIErrorResponse = (LogsAPIErrorResponse) o;
-    return Objects.equals(this.error, logsAPIErrorResponse.error);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(error);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class LogsAPIErrorResponse {\n");
-    sb.append("    error: ").append(toIndentedString(error)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setError(LogsAPIError error) {
+        this.error = error;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * Return true if this LogsAPIErrorResponse object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        LogsAPIErrorResponse logsAPIErrorResponse = (LogsAPIErrorResponse) o;
+        return Objects.equals(this.error, logsAPIErrorResponse.error);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(error);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class LogsAPIErrorResponse {\n");
+        sb.append("    error: ").append(toIndentedString(error)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

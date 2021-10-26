@@ -10,93 +10,109 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JSON;
+import com.datadog.api.v1.client.model.LogsIndex;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
-/** Object with all Index configurations for a given organization. */
+/**
+ * Object with all Index configurations for a given organization.
+ */
 @ApiModel(description = "Object with all Index configurations for a given organization.")
-@JsonPropertyOrder({LogsIndexListResponse.JSON_PROPERTY_INDEXES})
+@JsonPropertyOrder({ LogsIndexListResponse.JSON_PROPERTY_INDEXES })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsIndexListResponse {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_INDEXES = "indexes";
-  private List<LogsIndex> indexes = null;
 
-  public LogsIndexListResponse indexes(List<LogsIndex> indexes) {
-    this.indexes = indexes;
-    for (LogsIndex item : indexes) {
-      this.unparsed |= item.unparsed;
+    @JsonIgnore
+    public boolean unparsed = false;
+
+    public static final String JSON_PROPERTY_INDEXES = "indexes";
+    private List<LogsIndex> indexes = null;
+
+    public LogsIndexListResponse indexes(List<LogsIndex> indexes) {
+        this.indexes = indexes;
+        for (LogsIndex item : indexes) {
+            this.unparsed |= item.unparsed;
+        }
+        return this;
     }
-    return this;
-  }
 
-  public LogsIndexListResponse addIndexesItem(LogsIndex indexesItem) {
-    if (this.indexes == null) {
-      this.indexes = new ArrayList<>();
+    public LogsIndexListResponse addIndexesItem(LogsIndex indexesItem) {
+        if (this.indexes == null) {
+            this.indexes = new ArrayList<>();
+        }
+        this.indexes.add(indexesItem);
+        this.unparsed |= indexesItem.unparsed;
+        return this;
     }
-    this.indexes.add(indexesItem);
-    this.unparsed |= indexesItem.unparsed;
-    return this;
-  }
 
-  /**
-   * Array of Log index configurations.
-   *
-   * @return indexes
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array of Log index configurations.")
-  @JsonProperty(JSON_PROPERTY_INDEXES)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<LogsIndex> getIndexes() {
-    return indexes;
-  }
-
-  public void setIndexes(List<LogsIndex> indexes) {
-    this.indexes = indexes;
-  }
-
-  /** Return true if this LogsIndexListResponse object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * Array of Log index configurations.
+     * @return indexes
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Array of Log index configurations.")
+    @JsonProperty(JSON_PROPERTY_INDEXES)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public List<LogsIndex> getIndexes() {
+        return indexes;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setIndexes(List<LogsIndex> indexes) {
+        this.indexes = indexes;
     }
-    LogsIndexListResponse logsIndexListResponse = (LogsIndexListResponse) o;
-    return Objects.equals(this.indexes, logsIndexListResponse.indexes);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(indexes);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class LogsIndexListResponse {\n");
-    sb.append("    indexes: ").append(toIndentedString(indexes)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    /**
+     * Return true if this LogsIndexListResponse object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        LogsIndexListResponse logsIndexListResponse = (LogsIndexListResponse) o;
+        return Objects.equals(this.indexes, logsIndexListResponse.indexes);
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(indexes);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class LogsIndexListResponse {\n");
+        sb.append("    indexes: ").append(toIndentedString(indexes)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

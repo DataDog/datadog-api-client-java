@@ -10,83 +10,97 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.datadog.api.v2.client.JSON;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
-/** The log-based metric filter. Logs matching this filter will be aggregated in this metric. */
-@ApiModel(
-    description =
-        "The log-based metric filter. Logs matching this filter will be aggregated in this metric.")
-@JsonPropertyOrder({LogsMetricResponseFilter.JSON_PROPERTY_QUERY})
+/**
+ * The log-based metric filter. Logs matching this filter will be aggregated in this metric.
+ */
+@ApiModel(description = "The log-based metric filter. Logs matching this filter will be aggregated in this metric.")
+@JsonPropertyOrder({ LogsMetricResponseFilter.JSON_PROPERTY_QUERY })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsMetricResponseFilter {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_QUERY = "query";
-  private String query;
 
-  public LogsMetricResponseFilter query(String query) {
-    this.query = query;
-    return this;
-  }
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  /**
-   * The search query - following the log search syntax.
-   *
-   * @return query
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "service:web* AND @http.status_code:[200 TO 299]",
-      value = "The search query - following the log search syntax.")
-  @JsonProperty(JSON_PROPERTY_QUERY)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getQuery() {
-    return query;
-  }
+    public static final String JSON_PROPERTY_QUERY = "query";
+    private String query;
 
-  public void setQuery(String query) {
-    this.query = query;
-  }
-
-  /** Return true if this LogsMetricResponseFilter object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public LogsMetricResponseFilter query(String query) {
+        this.query = query;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * The search query - following the log search syntax.
+     * @return query
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(
+        example = "service:web* AND @http.status_code:[200 TO 299]",
+        value = "The search query - following the log search syntax."
+    )
+    @JsonProperty(JSON_PROPERTY_QUERY)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getQuery() {
+        return query;
     }
-    LogsMetricResponseFilter logsMetricResponseFilter = (LogsMetricResponseFilter) o;
-    return Objects.equals(this.query, logsMetricResponseFilter.query);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(query);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class LogsMetricResponseFilter {\n");
-    sb.append("    query: ").append(toIndentedString(query)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setQuery(String query) {
+        this.query = query;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * Return true if this LogsMetricResponseFilter object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        LogsMetricResponseFilter logsMetricResponseFilter = (LogsMetricResponseFilter) o;
+        return Objects.equals(this.query, logsMetricResponseFilter.query);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(query);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class LogsMetricResponseFilter {\n");
+        sb.append("    query: ").append(toIndentedString(query)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

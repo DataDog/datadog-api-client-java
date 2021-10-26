@@ -10,88 +10,96 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JSON;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 /**
  * Object containing the options for a Synthetic test as a monitor (for example, renotification).
  */
-@ApiModel(
-    description =
-        "Object containing the options for a Synthetic test as a monitor (for example,"
-            + " renotification).")
-@JsonPropertyOrder({SyntheticsTestOptionsMonitorOptions.JSON_PROPERTY_RENOTIFY_INTERVAL})
+@ApiModel(description = "Object containing the options for a Synthetic test as a monitor (for example, renotification).")
+@JsonPropertyOrder({ SyntheticsTestOptionsMonitorOptions.JSON_PROPERTY_RENOTIFY_INTERVAL })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsTestOptionsMonitorOptions {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_RENOTIFY_INTERVAL = "renotify_interval";
-  private Long renotifyInterval;
 
-  public SyntheticsTestOptionsMonitorOptions renotifyInterval(Long renotifyInterval) {
-    this.renotifyInterval = renotifyInterval;
-    return this;
-  }
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  /**
-   * Time interval before renotifying if the test is still failing (in minutes). minimum: 0 maximum:
-   * 1440
-   *
-   * @return renotifyInterval
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "Time interval before renotifying if the test is still failing (in minutes).")
-  @JsonProperty(JSON_PROPERTY_RENOTIFY_INTERVAL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getRenotifyInterval() {
-    return renotifyInterval;
-  }
+    public static final String JSON_PROPERTY_RENOTIFY_INTERVAL = "renotify_interval";
+    private Long renotifyInterval;
 
-  public void setRenotifyInterval(Long renotifyInterval) {
-    this.renotifyInterval = renotifyInterval;
-  }
-
-  /** Return true if this SyntheticsTestOptions_monitor_options object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public SyntheticsTestOptionsMonitorOptions renotifyInterval(Long renotifyInterval) {
+        this.renotifyInterval = renotifyInterval;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Time interval before renotifying if the test is still failing (in minutes).
+     * minimum: 0
+     * maximum: 1440
+     * @return renotifyInterval
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Time interval before renotifying if the test is still failing (in minutes).")
+    @JsonProperty(JSON_PROPERTY_RENOTIFY_INTERVAL)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Long getRenotifyInterval() {
+        return renotifyInterval;
     }
-    SyntheticsTestOptionsMonitorOptions syntheticsTestOptionsMonitorOptions =
-        (SyntheticsTestOptionsMonitorOptions) o;
-    return Objects.equals(
-        this.renotifyInterval, syntheticsTestOptionsMonitorOptions.renotifyInterval);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(renotifyInterval);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class SyntheticsTestOptionsMonitorOptions {\n");
-    sb.append("    renotifyInterval: ").append(toIndentedString(renotifyInterval)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setRenotifyInterval(Long renotifyInterval) {
+        this.renotifyInterval = renotifyInterval;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * Return true if this SyntheticsTestOptions_monitor_options object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        SyntheticsTestOptionsMonitorOptions syntheticsTestOptionsMonitorOptions = (SyntheticsTestOptionsMonitorOptions) o;
+        return Objects.equals(this.renotifyInterval, syntheticsTestOptionsMonitorOptions.renotifyInterval);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(renotifyInterval);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class SyntheticsTestOptionsMonitorOptions {\n");
+        sb.append("    renotifyInterval: ").append(toIndentedString(renotifyInterval)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

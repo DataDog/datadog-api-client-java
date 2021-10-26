@@ -10,131 +10,142 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JSON;
+import com.datadog.api.v1.client.model.SyntheticsBrowserTestResultShort;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
-/** Object with the latest Synthetic browser test run. */
+/**
+ * Object with the latest Synthetic browser test run.
+ */
 @ApiModel(description = "Object with the latest Synthetic browser test run.")
-@JsonPropertyOrder({
-  SyntheticsGetBrowserTestLatestResultsResponse.JSON_PROPERTY_LAST_TIMESTAMP_FETCHED,
-  SyntheticsGetBrowserTestLatestResultsResponse.JSON_PROPERTY_RESULTS
-})
+@JsonPropertyOrder(
+    {
+        SyntheticsGetBrowserTestLatestResultsResponse.JSON_PROPERTY_LAST_TIMESTAMP_FETCHED,
+        SyntheticsGetBrowserTestLatestResultsResponse.JSON_PROPERTY_RESULTS
+    }
+)
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsGetBrowserTestLatestResultsResponse {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_LAST_TIMESTAMP_FETCHED = "last_timestamp_fetched";
-  private Long lastTimestampFetched;
 
-  public static final String JSON_PROPERTY_RESULTS = "results";
-  private List<SyntheticsBrowserTestResultShort> results = null;
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  public SyntheticsGetBrowserTestLatestResultsResponse lastTimestampFetched(
-      Long lastTimestampFetched) {
-    this.lastTimestampFetched = lastTimestampFetched;
-    return this;
-  }
+    public static final String JSON_PROPERTY_LAST_TIMESTAMP_FETCHED = "last_timestamp_fetched";
+    private Long lastTimestampFetched;
 
-  /**
-   * Timestamp of the latest browser test run.
-   *
-   * @return lastTimestampFetched
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Timestamp of the latest browser test run.")
-  @JsonProperty(JSON_PROPERTY_LAST_TIMESTAMP_FETCHED)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getLastTimestampFetched() {
-    return lastTimestampFetched;
-  }
+    public static final String JSON_PROPERTY_RESULTS = "results";
+    private List<SyntheticsBrowserTestResultShort> results = null;
 
-  public void setLastTimestampFetched(Long lastTimestampFetched) {
-    this.lastTimestampFetched = lastTimestampFetched;
-  }
-
-  public SyntheticsGetBrowserTestLatestResultsResponse results(
-      List<SyntheticsBrowserTestResultShort> results) {
-    this.results = results;
-    for (SyntheticsBrowserTestResultShort item : results) {
-      this.unparsed |= item.unparsed;
+    public SyntheticsGetBrowserTestLatestResultsResponse lastTimestampFetched(Long lastTimestampFetched) {
+        this.lastTimestampFetched = lastTimestampFetched;
+        return this;
     }
-    return this;
-  }
 
-  public SyntheticsGetBrowserTestLatestResultsResponse addResultsItem(
-      SyntheticsBrowserTestResultShort resultsItem) {
-    if (this.results == null) {
-      this.results = new ArrayList<>();
+    /**
+     * Timestamp of the latest browser test run.
+     * @return lastTimestampFetched
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Timestamp of the latest browser test run.")
+    @JsonProperty(JSON_PROPERTY_LAST_TIMESTAMP_FETCHED)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Long getLastTimestampFetched() {
+        return lastTimestampFetched;
     }
-    this.results.add(resultsItem);
-    this.unparsed |= resultsItem.unparsed;
-    return this;
-  }
 
-  /**
-   * Result of the latest browser test run.
-   *
-   * @return results
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Result of the latest browser test run.")
-  @JsonProperty(JSON_PROPERTY_RESULTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<SyntheticsBrowserTestResultShort> getResults() {
-    return results;
-  }
-
-  public void setResults(List<SyntheticsBrowserTestResultShort> results) {
-    this.results = results;
-  }
-
-  /** Return true if this SyntheticsGetBrowserTestLatestResultsResponse object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public void setLastTimestampFetched(Long lastTimestampFetched) {
+        this.lastTimestampFetched = lastTimestampFetched;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public SyntheticsGetBrowserTestLatestResultsResponse results(List<SyntheticsBrowserTestResultShort> results) {
+        this.results = results;
+        for (SyntheticsBrowserTestResultShort item : results) {
+            this.unparsed |= item.unparsed;
+        }
+        return this;
     }
-    SyntheticsGetBrowserTestLatestResultsResponse syntheticsGetBrowserTestLatestResultsResponse =
-        (SyntheticsGetBrowserTestLatestResultsResponse) o;
-    return Objects.equals(
-            this.lastTimestampFetched,
-            syntheticsGetBrowserTestLatestResultsResponse.lastTimestampFetched)
-        && Objects.equals(this.results, syntheticsGetBrowserTestLatestResultsResponse.results);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(lastTimestampFetched, results);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class SyntheticsGetBrowserTestLatestResultsResponse {\n");
-    sb.append("    lastTimestampFetched: ")
-        .append(toIndentedString(lastTimestampFetched))
-        .append("\n");
-    sb.append("    results: ").append(toIndentedString(results)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public SyntheticsGetBrowserTestLatestResultsResponse addResultsItem(SyntheticsBrowserTestResultShort resultsItem) {
+        if (this.results == null) {
+            this.results = new ArrayList<>();
+        }
+        this.results.add(resultsItem);
+        this.unparsed |= resultsItem.unparsed;
+        return this;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * Result of the latest browser test run.
+     * @return results
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Result of the latest browser test run.")
+    @JsonProperty(JSON_PROPERTY_RESULTS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public List<SyntheticsBrowserTestResultShort> getResults() {
+        return results;
+    }
+
+    public void setResults(List<SyntheticsBrowserTestResultShort> results) {
+        this.results = results;
+    }
+
+    /**
+     * Return true if this SyntheticsGetBrowserTestLatestResultsResponse object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        SyntheticsGetBrowserTestLatestResultsResponse syntheticsGetBrowserTestLatestResultsResponse = (SyntheticsGetBrowserTestLatestResultsResponse) o;
+        return (
+            Objects.equals(this.lastTimestampFetched, syntheticsGetBrowserTestLatestResultsResponse.lastTimestampFetched) &&
+            Objects.equals(this.results, syntheticsGetBrowserTestLatestResultsResponse.results)
+        );
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(lastTimestampFetched, results);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class SyntheticsGetBrowserTestLatestResultsResponse {\n");
+        sb.append("    lastTimestampFetched: ").append(toIndentedString(lastTimestampFetched)).append("\n");
+        sb.append("    results: ").append(toIndentedString(results)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

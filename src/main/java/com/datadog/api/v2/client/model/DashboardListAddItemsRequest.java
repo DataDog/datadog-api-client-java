@@ -10,93 +10,109 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.datadog.api.v2.client.JSON;
+import com.datadog.api.v2.client.model.DashboardListItemRequest;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
-/** Request containing a list of dashboards to add. */
+/**
+ * Request containing a list of dashboards to add.
+ */
 @ApiModel(description = "Request containing a list of dashboards to add.")
-@JsonPropertyOrder({DashboardListAddItemsRequest.JSON_PROPERTY_DASHBOARDS})
+@JsonPropertyOrder({ DashboardListAddItemsRequest.JSON_PROPERTY_DASHBOARDS })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DashboardListAddItemsRequest {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DASHBOARDS = "dashboards";
-  private List<DashboardListItemRequest> dashboards = null;
 
-  public DashboardListAddItemsRequest dashboards(List<DashboardListItemRequest> dashboards) {
-    this.dashboards = dashboards;
-    for (DashboardListItemRequest item : dashboards) {
-      this.unparsed |= item.unparsed;
+    @JsonIgnore
+    public boolean unparsed = false;
+
+    public static final String JSON_PROPERTY_DASHBOARDS = "dashboards";
+    private List<DashboardListItemRequest> dashboards = null;
+
+    public DashboardListAddItemsRequest dashboards(List<DashboardListItemRequest> dashboards) {
+        this.dashboards = dashboards;
+        for (DashboardListItemRequest item : dashboards) {
+            this.unparsed |= item.unparsed;
+        }
+        return this;
     }
-    return this;
-  }
 
-  public DashboardListAddItemsRequest addDashboardsItem(DashboardListItemRequest dashboardsItem) {
-    if (this.dashboards == null) {
-      this.dashboards = new ArrayList<>();
+    public DashboardListAddItemsRequest addDashboardsItem(DashboardListItemRequest dashboardsItem) {
+        if (this.dashboards == null) {
+            this.dashboards = new ArrayList<>();
+        }
+        this.dashboards.add(dashboardsItem);
+        this.unparsed |= dashboardsItem.unparsed;
+        return this;
     }
-    this.dashboards.add(dashboardsItem);
-    this.unparsed |= dashboardsItem.unparsed;
-    return this;
-  }
 
-  /**
-   * List of dashboards to add the dashboard list.
-   *
-   * @return dashboards
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "List of dashboards to add the dashboard list.")
-  @JsonProperty(JSON_PROPERTY_DASHBOARDS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<DashboardListItemRequest> getDashboards() {
-    return dashboards;
-  }
-
-  public void setDashboards(List<DashboardListItemRequest> dashboards) {
-    this.dashboards = dashboards;
-  }
-
-  /** Return true if this DashboardListAddItemsRequest object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * List of dashboards to add the dashboard list.
+     * @return dashboards
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "List of dashboards to add the dashboard list.")
+    @JsonProperty(JSON_PROPERTY_DASHBOARDS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public List<DashboardListItemRequest> getDashboards() {
+        return dashboards;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setDashboards(List<DashboardListItemRequest> dashboards) {
+        this.dashboards = dashboards;
     }
-    DashboardListAddItemsRequest dashboardListAddItemsRequest = (DashboardListAddItemsRequest) o;
-    return Objects.equals(this.dashboards, dashboardListAddItemsRequest.dashboards);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(dashboards);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class DashboardListAddItemsRequest {\n");
-    sb.append("    dashboards: ").append(toIndentedString(dashboards)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    /**
+     * Return true if this DashboardListAddItemsRequest object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        DashboardListAddItemsRequest dashboardListAddItemsRequest = (DashboardListAddItemsRequest) o;
+        return Objects.equals(this.dashboards, dashboardListAddItemsRequest.dashboards);
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(dashboards);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class DashboardListAddItemsRequest {\n");
+        sb.append("    dashboards: ").append(toIndentedString(dashboards)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

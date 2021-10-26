@@ -10,96 +10,109 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JSON;
+import com.datadog.api.v1.client.model.UsageCWSHour;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
-/** Response containing the Cloud Workload Security usage for each hour for a given organization. */
-@ApiModel(
-    description =
-        "Response containing the Cloud Workload Security usage for each hour for a given"
-            + " organization.")
-@JsonPropertyOrder({UsageCWSResponse.JSON_PROPERTY_USAGE})
+/**
+ * Response containing the Cloud Workload Security usage for each hour for a given organization.
+ */
+@ApiModel(description = "Response containing the Cloud Workload Security usage for each hour for a given organization.")
+@JsonPropertyOrder({ UsageCWSResponse.JSON_PROPERTY_USAGE })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageCWSResponse {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_USAGE = "usage";
-  private List<UsageCWSHour> usage = null;
 
-  public UsageCWSResponse usage(List<UsageCWSHour> usage) {
-    this.usage = usage;
-    for (UsageCWSHour item : usage) {
-      this.unparsed |= item.unparsed;
+    @JsonIgnore
+    public boolean unparsed = false;
+
+    public static final String JSON_PROPERTY_USAGE = "usage";
+    private List<UsageCWSHour> usage = null;
+
+    public UsageCWSResponse usage(List<UsageCWSHour> usage) {
+        this.usage = usage;
+        for (UsageCWSHour item : usage) {
+            this.unparsed |= item.unparsed;
+        }
+        return this;
     }
-    return this;
-  }
 
-  public UsageCWSResponse addUsageItem(UsageCWSHour usageItem) {
-    if (this.usage == null) {
-      this.usage = new ArrayList<>();
+    public UsageCWSResponse addUsageItem(UsageCWSHour usageItem) {
+        if (this.usage == null) {
+            this.usage = new ArrayList<>();
+        }
+        this.usage.add(usageItem);
+        this.unparsed |= usageItem.unparsed;
+        return this;
     }
-    this.usage.add(usageItem);
-    this.unparsed |= usageItem.unparsed;
-    return this;
-  }
 
-  /**
-   * Get hourly usage for Cloud Workload Security.
-   *
-   * @return usage
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Get hourly usage for Cloud Workload Security.")
-  @JsonProperty(JSON_PROPERTY_USAGE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<UsageCWSHour> getUsage() {
-    return usage;
-  }
-
-  public void setUsage(List<UsageCWSHour> usage) {
-    this.usage = usage;
-  }
-
-  /** Return true if this UsageCWSResponse object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * Get hourly usage for Cloud Workload Security.
+     * @return usage
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Get hourly usage for Cloud Workload Security.")
+    @JsonProperty(JSON_PROPERTY_USAGE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public List<UsageCWSHour> getUsage() {
+        return usage;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setUsage(List<UsageCWSHour> usage) {
+        this.usage = usage;
     }
-    UsageCWSResponse usageCWSResponse = (UsageCWSResponse) o;
-    return Objects.equals(this.usage, usageCWSResponse.usage);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(usage);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class UsageCWSResponse {\n");
-    sb.append("    usage: ").append(toIndentedString(usage)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    /**
+     * Return true if this UsageCWSResponse object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        UsageCWSResponse usageCWSResponse = (UsageCWSResponse) o;
+        return Objects.equals(this.usage, usageCWSResponse.usage);
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(usage);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class UsageCWSResponse {\n");
+        sb.append("    usage: ").append(toIndentedString(usage)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

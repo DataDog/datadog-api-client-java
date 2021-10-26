@@ -10,89 +10,103 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.datadog.api.v2.client.JSON;
+import com.datadog.api.v2.client.model.LogsMetricUpdateData;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
-/** The new log-based metric body. */
+/**
+ * The new log-based metric body.
+ */
 @ApiModel(description = "The new log-based metric body.")
-@JsonPropertyOrder({LogsMetricUpdateRequest.JSON_PROPERTY_DATA})
+@JsonPropertyOrder({ LogsMetricUpdateRequest.JSON_PROPERTY_DATA })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class LogsMetricUpdateRequest {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA = "data";
-  private LogsMetricUpdateData data;
 
-  public LogsMetricUpdateRequest() {}
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  @JsonCreator
-  public LogsMetricUpdateRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) LogsMetricUpdateData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
-  }
+    public static final String JSON_PROPERTY_DATA = "data";
+    private LogsMetricUpdateData data;
 
-  public LogsMetricUpdateRequest data(LogsMetricUpdateData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
-    return this;
-  }
+    public LogsMetricUpdateRequest() {}
 
-  /**
-   * Get data
-   *
-   * @return data
-   */
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public LogsMetricUpdateData getData() {
-    return data;
-  }
-
-  public void setData(LogsMetricUpdateData data) {
-    this.data = data;
-  }
-
-  /** Return true if this LogsMetricUpdateRequest object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    @JsonCreator
+    public LogsMetricUpdateRequest(@JsonProperty(required = true, value = JSON_PROPERTY_DATA) LogsMetricUpdateData data) {
+        this.data = data;
+        this.unparsed |= data.unparsed;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public LogsMetricUpdateRequest data(LogsMetricUpdateData data) {
+        this.data = data;
+        this.unparsed |= data.unparsed;
+        return this;
     }
-    LogsMetricUpdateRequest logsMetricUpdateRequest = (LogsMetricUpdateRequest) o;
-    return Objects.equals(this.data, logsMetricUpdateRequest.data);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(data);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class LogsMetricUpdateRequest {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    /**
+     * Get data
+     * @return data
+     **/
+    @ApiModelProperty(required = true, value = "")
+    @JsonProperty(JSON_PROPERTY_DATA)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public LogsMetricUpdateData getData() {
+        return data;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public void setData(LogsMetricUpdateData data) {
+        this.data = data;
+    }
+
+    /**
+     * Return true if this LogsMetricUpdateRequest object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        LogsMetricUpdateRequest logsMetricUpdateRequest = (LogsMetricUpdateRequest) o;
+        return Objects.equals(this.data, logsMetricUpdateRequest.data);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(data);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class LogsMetricUpdateRequest {\n");
+        sb.append("    data: ").append(toIndentedString(data)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

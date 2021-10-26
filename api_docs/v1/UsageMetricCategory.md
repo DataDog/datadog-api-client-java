@@ -1,13 +1,7 @@
-
-
 # UsageMetricCategory
 
 ## Enum
 
+- `STANDARD` (value: `"standard"`)
 
-* `STANDARD` (value: `"standard"`)
-
-* `CUSTOM` (value: `"custom"`)
-
-
-
+- `CUSTOM` (value: `"custom"`)

@@ -10,109 +10,124 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.datadog.api.v2.client.JSON;
+import com.datadog.api.v2.client.model.MetricType;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
-/** Object for a single metric tag configuration. */
+/**
+ * Object for a single metric tag configuration.
+ */
 @ApiModel(description = "Object for a single metric tag configuration.")
-@JsonPropertyOrder({Metric.JSON_PROPERTY_ID, Metric.JSON_PROPERTY_TYPE})
+@JsonPropertyOrder({ Metric.JSON_PROPERTY_ID, Metric.JSON_PROPERTY_TYPE })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Metric {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ID = "id";
-  private String id;
 
-  public static final String JSON_PROPERTY_TYPE = "type";
-  private MetricType type = MetricType.METRICS;
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  public Metric id(String id) {
-    this.id = id;
-    return this;
-  }
+    public static final String JSON_PROPERTY_ID = "id";
+    private String id;
 
-  /**
-   * The metric name for this resource.
-   *
-   * @return id
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "test.metric.latency", value = "The metric name for this resource.")
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getId() {
-    return id;
-  }
+    public static final String JSON_PROPERTY_TYPE = "type";
+    private MetricType type = MetricType.METRICS;
 
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public Metric type(MetricType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
-    return this;
-  }
-
-  /**
-   * Get type
-   *
-   * @return type
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public MetricType getType() {
-    return type;
-  }
-
-  public void setType(MetricType type) {
-    if (!type.isValid()) {
-      this.unparsed = true;
+    public Metric id(String id) {
+        this.id = id;
+        return this;
     }
-    this.type = type;
-  }
 
-  /** Return true if this Metric object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * The metric name for this resource.
+     * @return id
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(example = "test.metric.latency", value = "The metric name for this resource.")
+    @JsonProperty(JSON_PROPERTY_ID)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public String getId() {
+        return id;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setId(String id) {
+        this.id = id;
     }
-    Metric metric = (Metric) o;
-    return Objects.equals(this.id, metric.id) && Objects.equals(this.type, metric.type);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(id, type);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class Metric {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public Metric type(MetricType type) {
+        this.type = type;
+        this.unparsed |= !type.isValid();
+        return this;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * Get type
+     * @return type
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+    @JsonProperty(JSON_PROPERTY_TYPE)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public MetricType getType() {
+        return type;
+    }
+
+    public void setType(MetricType type) {
+        if (!type.isValid()) {
+            this.unparsed = true;
+        }
+        this.type = type;
+    }
+
+    /**
+     * Return true if this Metric object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Metric metric = (Metric) o;
+        return Objects.equals(this.id, metric.id) && Objects.equals(this.type, metric.type);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, type);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class Metric {\n");
+        sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

@@ -1,13 +1,13 @@
 package com.datadog.api;
 
 public enum RecordingMode {
-  MODE_IGNORE("none"),
-  MODE_REPLAYING("false"),
-  MODE_RECORDING("true");
+    MODE_IGNORE("none"),
+    MODE_REPLAYING("false"),
+    MODE_RECORDING("true");
 
-  public final String value;
+    public final String value;
 
-  private RecordingMode(String value) {
-    this.value = value;
-  }
+    private RecordingMode(String value) {
+        this.value = value;
+    }
 }

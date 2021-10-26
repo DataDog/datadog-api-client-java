@@ -1,0 +1,8 @@
+overrides:
+  - files:
+      - "*.java"
+    options:
+      printWidth: 140
+      tabWidth: 4
+      useTabs: false
+      trailingComma: none

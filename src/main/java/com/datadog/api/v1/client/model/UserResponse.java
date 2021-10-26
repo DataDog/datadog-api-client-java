@@ -10,80 +10,96 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JSON;
+import com.datadog.api.v1.client.model.User;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
-/** A Datadog User. */
+/**
+ * A Datadog User.
+ */
 @ApiModel(description = "A Datadog User.")
-@JsonPropertyOrder({UserResponse.JSON_PROPERTY_USER})
+@JsonPropertyOrder({ UserResponse.JSON_PROPERTY_USER })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UserResponse {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_USER = "user";
-  private User user;
 
-  public UserResponse user(User user) {
-    this.user = user;
-    this.unparsed |= user.unparsed;
-    return this;
-  }
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  /**
-   * Get user
-   *
-   * @return user
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_USER)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public User getUser() {
-    return user;
-  }
+    public static final String JSON_PROPERTY_USER = "user";
+    private User user;
 
-  public void setUser(User user) {
-    this.user = user;
-  }
-
-  /** Return true if this UserResponse object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public UserResponse user(User user) {
+        this.user = user;
+        this.unparsed |= user.unparsed;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get user
+     * @return user
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+    @JsonProperty(JSON_PROPERTY_USER)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public User getUser() {
+        return user;
     }
-    UserResponse userResponse = (UserResponse) o;
-    return Objects.equals(this.user, userResponse.user);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(user);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class UserResponse {\n");
-    sb.append("    user: ").append(toIndentedString(user)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setUser(User user) {
+        this.user = user;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * Return true if this UserResponse object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        UserResponse userResponse = (UserResponse) o;
+        return Objects.equals(this.user, userResponse.user);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(user);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class UserResponse {\n");
+        sb.append("    user: ").append(toIndentedString(user)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

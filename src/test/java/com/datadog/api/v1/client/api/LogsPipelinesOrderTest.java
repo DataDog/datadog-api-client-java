@@ -16,32 +16,32 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class LogsPipelinesOrderTest extends V1ApiTest {
-  private static LogsPipelinesApi api;
 
-  @Override
-  public String getTracingEndpoint() {
-    return "logs-pipelines";
-  }
+    private static LogsPipelinesApi api;
 
-  @BeforeClass
-  public static void initApi() {
-    api = new LogsPipelinesApi(generalApiClient);
-  }
+    @Override
+    public String getTracingEndpoint() {
+        return "logs-pipelines";
+    }
 
-  @Test
-  public void pipelineOrderTest() throws ApiException {
+    @BeforeClass
+    public static void initApi() {
+        api = new LogsPipelinesApi(generalApiClient);
+    }
 
-    // Get current pipelines order
-    LogsPipelinesOrder pipelinesOrder = api.getLogsPipelineOrder();
-    List<String> pipelineIDs = pipelinesOrder.getPipelineIds();
+    @Test
+    public void pipelineOrderTest() throws ApiException {
+        // Get current pipelines order
+        LogsPipelinesOrder pipelinesOrder = api.getLogsPipelineOrder();
+        List<String> pipelineIDs = pipelinesOrder.getPipelineIds();
 
-    // Slightly change order
-    List<String> newOrder = new ArrayList<>(pipelineIDs);
-    newOrder.add(newOrder.get(0));
-    newOrder.remove(0);
-    pipelinesOrder.setPipelineIds(newOrder);
+        // Slightly change order
+        List<String> newOrder = new ArrayList<>(pipelineIDs);
+        newOrder.add(newOrder.get(0));
+        newOrder.remove(0);
+        pipelinesOrder.setPipelineIds(newOrder);
 
-    LogsPipelinesOrder updatedPipelinesOrder = api.updateLogsPipelineOrder(pipelinesOrder);
-    assertEquals(newOrder, updatedPipelinesOrder.getPipelineIds());
-  }
+        LogsPipelinesOrder updatedPipelinesOrder = api.updateLogsPipelineOrder(pipelinesOrder);
+        assertEquals(newOrder, updatedPipelinesOrder.getPipelineIds());
+    }
 }

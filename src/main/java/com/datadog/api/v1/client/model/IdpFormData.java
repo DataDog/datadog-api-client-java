@@ -10,89 +10,101 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JSON;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.File;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
-/** Object describing the IdP configuration. */
+/**
+ * Object describing the IdP configuration.
+ */
 @ApiModel(description = "Object describing the IdP configuration.")
-@JsonPropertyOrder({IdpFormData.JSON_PROPERTY_IDP_FILE})
+@JsonPropertyOrder({ IdpFormData.JSON_PROPERTY_IDP_FILE })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IdpFormData {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_IDP_FILE = "idp_file";
-  private File idpFile;
 
-  public IdpFormData() {}
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  @JsonCreator
-  public IdpFormData(@JsonProperty(required = true, value = JSON_PROPERTY_IDP_FILE) File idpFile) {
-    this.idpFile = idpFile;
-  }
+    public static final String JSON_PROPERTY_IDP_FILE = "idp_file";
+    private File idpFile;
 
-  public IdpFormData idpFile(File idpFile) {
-    this.idpFile = idpFile;
-    return this;
-  }
+    public IdpFormData() {}
 
-  /**
-   * The path to the XML metadata file you wish to upload.
-   *
-   * @return idpFile
-   */
-  @ApiModelProperty(
-      required = true,
-      value = "The path to the XML metadata file you wish to upload.")
-  @JsonProperty(JSON_PROPERTY_IDP_FILE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public File getIdpFile() {
-    return idpFile;
-  }
-
-  public void setIdpFile(File idpFile) {
-    this.idpFile = idpFile;
-  }
-
-  /** Return true if this IdpFormData object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    @JsonCreator
+    public IdpFormData(@JsonProperty(required = true, value = JSON_PROPERTY_IDP_FILE) File idpFile) {
+        this.idpFile = idpFile;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public IdpFormData idpFile(File idpFile) {
+        this.idpFile = idpFile;
+        return this;
     }
-    IdpFormData idpFormData = (IdpFormData) o;
-    return Objects.equals(this.idpFile, idpFormData.idpFile);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(idpFile);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class IdpFormData {\n");
-    sb.append("    idpFile: ").append(toIndentedString(idpFile)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    /**
+     * The path to the XML metadata file you wish to upload.
+     * @return idpFile
+     **/
+    @ApiModelProperty(required = true, value = "The path to the XML metadata file you wish to upload.")
+    @JsonProperty(JSON_PROPERTY_IDP_FILE)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public File getIdpFile() {
+        return idpFile;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public void setIdpFile(File idpFile) {
+        this.idpFile = idpFile;
+    }
+
+    /**
+     * Return true if this IdpFormData object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        IdpFormData idpFormData = (IdpFormData) o;
+        return Objects.equals(this.idpFile, idpFormData.idpFile);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(idpFile);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class IdpFormData {\n");
+        sb.append("    idpFile: ").append(toIndentedString(idpFile)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

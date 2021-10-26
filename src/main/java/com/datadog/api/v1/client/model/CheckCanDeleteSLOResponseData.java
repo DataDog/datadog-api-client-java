@@ -10,89 +10,104 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JSON;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
-/** An array of service level objective objects. */
+/**
+ * An array of service level objective objects.
+ */
 @ApiModel(description = "An array of service level objective objects.")
-@JsonPropertyOrder({CheckCanDeleteSLOResponseData.JSON_PROPERTY_OK})
+@JsonPropertyOrder({ CheckCanDeleteSLOResponseData.JSON_PROPERTY_OK })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CheckCanDeleteSLOResponseData {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_OK = "ok";
-  private List<String> ok = null;
 
-  public CheckCanDeleteSLOResponseData ok(List<String> ok) {
-    this.ok = ok;
-    return this;
-  }
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  public CheckCanDeleteSLOResponseData addOkItem(String okItem) {
-    if (this.ok == null) {
-      this.ok = new ArrayList<>();
+    public static final String JSON_PROPERTY_OK = "ok";
+    private List<String> ok = null;
+
+    public CheckCanDeleteSLOResponseData ok(List<String> ok) {
+        this.ok = ok;
+        return this;
     }
-    this.ok.add(okItem);
-    return this;
-  }
 
-  /**
-   * An array of of SLO IDs that can be safely deleted.
-   *
-   * @return ok
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "An array of of SLO IDs that can be safely deleted.")
-  @JsonProperty(JSON_PROPERTY_OK)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getOk() {
-    return ok;
-  }
-
-  public void setOk(List<String> ok) {
-    this.ok = ok;
-  }
-
-  /** Return true if this CheckCanDeleteSLOResponse_data object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public CheckCanDeleteSLOResponseData addOkItem(String okItem) {
+        if (this.ok == null) {
+            this.ok = new ArrayList<>();
+        }
+        this.ok.add(okItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * An array of of SLO IDs that can be safely deleted.
+     * @return ok
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "An array of of SLO IDs that can be safely deleted.")
+    @JsonProperty(JSON_PROPERTY_OK)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public List<String> getOk() {
+        return ok;
     }
-    CheckCanDeleteSLOResponseData checkCanDeleteSLOResponseData = (CheckCanDeleteSLOResponseData) o;
-    return Objects.equals(this.ok, checkCanDeleteSLOResponseData.ok);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(ok);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class CheckCanDeleteSLOResponseData {\n");
-    sb.append("    ok: ").append(toIndentedString(ok)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setOk(List<String> ok) {
+        this.ok = ok;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * Return true if this CheckCanDeleteSLOResponse_data object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        CheckCanDeleteSLOResponseData checkCanDeleteSLOResponseData = (CheckCanDeleteSLOResponseData) o;
+        return Objects.equals(this.ok, checkCanDeleteSLOResponseData.ok);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(ok);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class CheckCanDeleteSLOResponseData {\n");
+        sb.append("    ok: ").append(toIndentedString(ok)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

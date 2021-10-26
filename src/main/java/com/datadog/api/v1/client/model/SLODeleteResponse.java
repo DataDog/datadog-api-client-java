@@ -10,128 +10,139 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JSON;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map;
 import java.util.Objects;
 
-/** A response list of all service level objective deleted. */
+/**
+ * A response list of all service level objective deleted.
+ */
 @ApiModel(description = "A response list of all service level objective deleted.")
-@JsonPropertyOrder({SLODeleteResponse.JSON_PROPERTY_DATA, SLODeleteResponse.JSON_PROPERTY_ERRORS})
+@JsonPropertyOrder({ SLODeleteResponse.JSON_PROPERTY_DATA, SLODeleteResponse.JSON_PROPERTY_ERRORS })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SLODeleteResponse {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA = "data";
-  private List<String> data = null;
 
-  public static final String JSON_PROPERTY_ERRORS = "errors";
-  private Map<String, String> errors = null;
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  public SLODeleteResponse data(List<String> data) {
-    this.data = data;
-    return this;
-  }
+    public static final String JSON_PROPERTY_DATA = "data";
+    private List<String> data = null;
 
-  public SLODeleteResponse addDataItem(String dataItem) {
-    if (this.data == null) {
-      this.data = new ArrayList<>();
+    public static final String JSON_PROPERTY_ERRORS = "errors";
+    private Map<String, String> errors = null;
+
+    public SLODeleteResponse data(List<String> data) {
+        this.data = data;
+        return this;
     }
-    this.data.add(dataItem);
-    return this;
-  }
 
-  /**
-   * An array containing the ID of the deleted service level objective object.
-   *
-   * @return data
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "An array containing the ID of the deleted service level objective object.")
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getData() {
-    return data;
-  }
-
-  public void setData(List<String> data) {
-    this.data = data;
-  }
-
-  public SLODeleteResponse errors(Map<String, String> errors) {
-    this.errors = errors;
-    return this;
-  }
-
-  public SLODeleteResponse putErrorsItem(String key, String errorsItem) {
-    if (this.errors == null) {
-      this.errors = new HashMap<>();
+    public SLODeleteResponse addDataItem(String dataItem) {
+        if (this.data == null) {
+            this.data = new ArrayList<>();
+        }
+        this.data.add(dataItem);
+        return this;
     }
-    this.errors.put(key, errorsItem);
-    return this;
-  }
 
-  /**
-   * An dictionary containing the ID of the SLO as key and a deletion error as value.
-   *
-   * @return errors
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "An dictionary containing the ID of the SLO as key and a deletion error as value.")
-  @JsonProperty(JSON_PROPERTY_ERRORS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Map<String, String> getErrors() {
-    return errors;
-  }
-
-  public void setErrors(Map<String, String> errors) {
-    this.errors = errors;
-  }
-
-  /** Return true if this SLODeleteResponse object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * An array containing the ID of the deleted service level objective object.
+     * @return data
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "An array containing the ID of the deleted service level objective object.")
+    @JsonProperty(JSON_PROPERTY_DATA)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public List<String> getData() {
+        return data;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setData(List<String> data) {
+        this.data = data;
     }
-    SLODeleteResponse slODeleteResponse = (SLODeleteResponse) o;
-    return Objects.equals(this.data, slODeleteResponse.data)
-        && Objects.equals(this.errors, slODeleteResponse.errors);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(data, errors);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class SLODeleteResponse {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public SLODeleteResponse errors(Map<String, String> errors) {
+        this.errors = errors;
+        return this;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public SLODeleteResponse putErrorsItem(String key, String errorsItem) {
+        if (this.errors == null) {
+            this.errors = new HashMap<>();
+        }
+        this.errors.put(key, errorsItem);
+        return this;
+    }
+
+    /**
+     * An dictionary containing the ID of the SLO as key and a deletion error as value.
+     * @return errors
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "An dictionary containing the ID of the SLO as key and a deletion error as value.")
+    @JsonProperty(JSON_PROPERTY_ERRORS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public Map<String, String> getErrors() {
+        return errors;
+    }
+
+    public void setErrors(Map<String, String> errors) {
+        this.errors = errors;
+    }
+
+    /**
+     * Return true if this SLODeleteResponse object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        SLODeleteResponse slODeleteResponse = (SLODeleteResponse) o;
+        return Objects.equals(this.data, slODeleteResponse.data) && Objects.equals(this.errors, slODeleteResponse.errors);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(data, errors);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class SLODeleteResponse {\n");
+        sb.append("    data: ").append(toIndentedString(data)).append("\n");
+        sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

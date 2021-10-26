@@ -10,89 +10,99 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JSON;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import io.swagger.annotations.ApiModel;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Contains the metric category. */
+/**
+ * Contains the metric category.
+ */
 @JsonSerialize(using = UsageMetricCategory.UsageMetricCategorySerializer.class)
 public class UsageMetricCategory {
 
-  public static final UsageMetricCategory STANDARD = new UsageMetricCategory("standard");
-  public static final UsageMetricCategory CUSTOM = new UsageMetricCategory("custom");
+    public static final UsageMetricCategory STANDARD = new UsageMetricCategory("standard");
+    public static final UsageMetricCategory CUSTOM = new UsageMetricCategory("custom");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("standard", "custom"));
+    private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("standard", "custom"));
 
-  private String value;
+    private String value;
 
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
-
-  UsageMetricCategory(String value) {
-    this.value = value;
-  }
-
-  public static class UsageMetricCategorySerializer extends StdSerializer<UsageMetricCategory> {
-    public UsageMetricCategorySerializer(Class<UsageMetricCategory> t) {
-      super(t);
+    public boolean isValid() {
+        return allowedValues.contains(this.value);
     }
 
-    public UsageMetricCategorySerializer() {
-      this(null);
+    UsageMetricCategory(String value) {
+        this.value = value;
+    }
+
+    public static class UsageMetricCategorySerializer extends StdSerializer<UsageMetricCategory> {
+
+        public UsageMetricCategorySerializer(Class<UsageMetricCategory> t) {
+            super(t);
+        }
+
+        public UsageMetricCategorySerializer() {
+            this(null);
+        }
+
+        @Override
+        public void serialize(UsageMetricCategory value, JsonGenerator jgen, SerializerProvider provider)
+            throws IOException, JsonProcessingException {
+            jgen.writeObject(value.value);
+        }
+    }
+
+    @JsonValue
+    public String getValue() {
+        return this.value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    /**
+     * Return true if this UsageMetricCategory object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        return this.value.equals(((UsageMetricCategory) o).value);
     }
 
     @Override
-    public void serialize(
-        UsageMetricCategory value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
+    public int hashCode() {
+        return Objects.hash(value);
     }
-  }
 
-  @JsonValue
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  /** Return true if this UsageMetricCategory object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    @Override
+    public String toString() {
+        return String.valueOf(value);
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    @JsonCreator
+    public static UsageMetricCategory fromValue(String value) {
+        return new UsageMetricCategory(value);
     }
-    return this.value.equals(((UsageMetricCategory) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
-  }
-
-  @JsonCreator
-  public static UsageMetricCategory fromValue(String value) {
-    return new UsageMetricCategory(value);
-  }
 }

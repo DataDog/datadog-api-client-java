@@ -10,93 +10,109 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JSON;
+import com.datadog.api.v1.client.model.SyntheticsTestDetails;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
-/** Object containing an array of Synthetic tests configuration. */
+/**
+ * Object containing an array of Synthetic tests configuration.
+ */
 @ApiModel(description = "Object containing an array of Synthetic tests configuration.")
-@JsonPropertyOrder({SyntheticsListTestsResponse.JSON_PROPERTY_TESTS})
+@JsonPropertyOrder({ SyntheticsListTestsResponse.JSON_PROPERTY_TESTS })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SyntheticsListTestsResponse {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_TESTS = "tests";
-  private List<SyntheticsTestDetails> tests = null;
 
-  public SyntheticsListTestsResponse tests(List<SyntheticsTestDetails> tests) {
-    this.tests = tests;
-    for (SyntheticsTestDetails item : tests) {
-      this.unparsed |= item.unparsed;
+    @JsonIgnore
+    public boolean unparsed = false;
+
+    public static final String JSON_PROPERTY_TESTS = "tests";
+    private List<SyntheticsTestDetails> tests = null;
+
+    public SyntheticsListTestsResponse tests(List<SyntheticsTestDetails> tests) {
+        this.tests = tests;
+        for (SyntheticsTestDetails item : tests) {
+            this.unparsed |= item.unparsed;
+        }
+        return this;
     }
-    return this;
-  }
 
-  public SyntheticsListTestsResponse addTestsItem(SyntheticsTestDetails testsItem) {
-    if (this.tests == null) {
-      this.tests = new ArrayList<>();
+    public SyntheticsListTestsResponse addTestsItem(SyntheticsTestDetails testsItem) {
+        if (this.tests == null) {
+            this.tests = new ArrayList<>();
+        }
+        this.tests.add(testsItem);
+        this.unparsed |= testsItem.unparsed;
+        return this;
     }
-    this.tests.add(testsItem);
-    this.unparsed |= testsItem.unparsed;
-    return this;
-  }
 
-  /**
-   * Array of Synthetic tests configuration.
-   *
-   * @return tests
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array of Synthetic tests configuration.")
-  @JsonProperty(JSON_PROPERTY_TESTS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<SyntheticsTestDetails> getTests() {
-    return tests;
-  }
-
-  public void setTests(List<SyntheticsTestDetails> tests) {
-    this.tests = tests;
-  }
-
-  /** Return true if this SyntheticsListTestsResponse object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * Array of Synthetic tests configuration.
+     * @return tests
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Array of Synthetic tests configuration.")
+    @JsonProperty(JSON_PROPERTY_TESTS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public List<SyntheticsTestDetails> getTests() {
+        return tests;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setTests(List<SyntheticsTestDetails> tests) {
+        this.tests = tests;
     }
-    SyntheticsListTestsResponse syntheticsListTestsResponse = (SyntheticsListTestsResponse) o;
-    return Objects.equals(this.tests, syntheticsListTestsResponse.tests);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(tests);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class SyntheticsListTestsResponse {\n");
-    sb.append("    tests: ").append(toIndentedString(tests)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    /**
+     * Return true if this SyntheticsListTestsResponse object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        SyntheticsListTestsResponse syntheticsListTestsResponse = (SyntheticsListTestsResponse) o;
+        return Objects.equals(this.tests, syntheticsListTestsResponse.tests);
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(tests);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class SyntheticsListTestsResponse {\n");
+        sb.append("    tests: ").append(toIndentedString(tests)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }

@@ -10,93 +10,100 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.datadog.api.v1.client.JSON;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import io.swagger.annotations.ApiModel;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
 /**
- * The status of your Synthetic monitor. * &#x60;O&#x60; for not triggered * &#x60;1&#x60; for
- * triggered * &#x60;2&#x60; for no data
+ * The status of your Synthetic monitor. * &#x60;O&#x60; for not triggered * &#x60;1&#x60; for triggered * &#x60;2&#x60; for no data
  */
 @JsonSerialize(using = SyntheticsTestMonitorStatus.SyntheticsTestMonitorStatusSerializer.class)
 public class SyntheticsTestMonitorStatus {
 
-  public static final SyntheticsTestMonitorStatus UNTRIGGERED = new SyntheticsTestMonitorStatus(0l);
-  public static final SyntheticsTestMonitorStatus TRIGGERED = new SyntheticsTestMonitorStatus(1l);
-  public static final SyntheticsTestMonitorStatus NO_DATA = new SyntheticsTestMonitorStatus(2l);
+    public static final SyntheticsTestMonitorStatus UNTRIGGERED = new SyntheticsTestMonitorStatus(0l);
+    public static final SyntheticsTestMonitorStatus TRIGGERED = new SyntheticsTestMonitorStatus(1l);
+    public static final SyntheticsTestMonitorStatus NO_DATA = new SyntheticsTestMonitorStatus(2l);
 
-  private static final Set<Long> allowedValues = new HashSet<Long>(Arrays.asList(0l, 1l, 2l));
+    private static final Set<Long> allowedValues = new HashSet<Long>(Arrays.asList(0l, 1l, 2l));
 
-  private Long value;
+    private Long value;
 
-  public boolean isValid() {
-    return allowedValues.contains(this.value);
-  }
-
-  SyntheticsTestMonitorStatus(Long value) {
-    this.value = value;
-  }
-
-  public static class SyntheticsTestMonitorStatusSerializer
-      extends StdSerializer<SyntheticsTestMonitorStatus> {
-    public SyntheticsTestMonitorStatusSerializer(Class<SyntheticsTestMonitorStatus> t) {
-      super(t);
+    public boolean isValid() {
+        return allowedValues.contains(this.value);
     }
 
-    public SyntheticsTestMonitorStatusSerializer() {
-      this(null);
+    SyntheticsTestMonitorStatus(Long value) {
+        this.value = value;
+    }
+
+    public static class SyntheticsTestMonitorStatusSerializer extends StdSerializer<SyntheticsTestMonitorStatus> {
+
+        public SyntheticsTestMonitorStatusSerializer(Class<SyntheticsTestMonitorStatus> t) {
+            super(t);
+        }
+
+        public SyntheticsTestMonitorStatusSerializer() {
+            this(null);
+        }
+
+        @Override
+        public void serialize(SyntheticsTestMonitorStatus value, JsonGenerator jgen, SerializerProvider provider)
+            throws IOException, JsonProcessingException {
+            jgen.writeObject(value.value);
+        }
+    }
+
+    @JsonValue
+    public Long getValue() {
+        return this.value;
+    }
+
+    public void setValue(Long value) {
+        this.value = value;
+    }
+
+    /**
+     * Return true if this SyntheticsTestMonitorStatus object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        return this.value.equals(((SyntheticsTestMonitorStatus) o).value);
     }
 
     @Override
-    public void serialize(
-        SyntheticsTestMonitorStatus value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
+    public int hashCode() {
+        return Objects.hash(value);
     }
-  }
 
-  @JsonValue
-  public Long getValue() {
-    return this.value;
-  }
-
-  public void setValue(Long value) {
-    this.value = value;
-  }
-
-  /** Return true if this SyntheticsTestMonitorStatus object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    @Override
+    public String toString() {
+        return String.valueOf(value);
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    @JsonCreator
+    public static SyntheticsTestMonitorStatus fromValue(Long value) {
+        return new SyntheticsTestMonitorStatus(value);
     }
-    return this.value.equals(((SyntheticsTestMonitorStatus) o).value);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(value);
-  }
-
-  @Override
-  public String toString() {
-    return String.valueOf(value);
-  }
-
-  @JsonCreator
-  public static SyntheticsTestMonitorStatus fromValue(Long value) {
-    return new SyntheticsTestMonitorStatus(value);
-  }
 }

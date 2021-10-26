@@ -10,89 +10,103 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.datadog.api.v2.client.JSON;
+import com.datadog.api.v2.client.model.IncidentUpdateData;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
-/** Update request for an incident. */
+/**
+ * Update request for an incident.
+ */
 @ApiModel(description = "Update request for an incident.")
-@JsonPropertyOrder({IncidentUpdateRequest.JSON_PROPERTY_DATA})
+@JsonPropertyOrder({ IncidentUpdateRequest.JSON_PROPERTY_DATA })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class IncidentUpdateRequest {
-  @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_DATA = "data";
-  private IncidentUpdateData data;
 
-  public IncidentUpdateRequest() {}
+    @JsonIgnore
+    public boolean unparsed = false;
 
-  @JsonCreator
-  public IncidentUpdateRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) IncidentUpdateData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
-  }
+    public static final String JSON_PROPERTY_DATA = "data";
+    private IncidentUpdateData data;
 
-  public IncidentUpdateRequest data(IncidentUpdateData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
-    return this;
-  }
+    public IncidentUpdateRequest() {}
 
-  /**
-   * Get data
-   *
-   * @return data
-   */
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty(JSON_PROPERTY_DATA)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public IncidentUpdateData getData() {
-    return data;
-  }
-
-  public void setData(IncidentUpdateData data) {
-    this.data = data;
-  }
-
-  /** Return true if this IncidentUpdateRequest object is equal to o. */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    @JsonCreator
+    public IncidentUpdateRequest(@JsonProperty(required = true, value = JSON_PROPERTY_DATA) IncidentUpdateData data) {
+        this.data = data;
+        this.unparsed |= data.unparsed;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public IncidentUpdateRequest data(IncidentUpdateData data) {
+        this.data = data;
+        this.unparsed |= data.unparsed;
+        return this;
     }
-    IncidentUpdateRequest incidentUpdateRequest = (IncidentUpdateRequest) o;
-    return Objects.equals(this.data, incidentUpdateRequest.data);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(data);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class IncidentUpdateRequest {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    /**
+     * Get data
+     * @return data
+     **/
+    @ApiModelProperty(required = true, value = "")
+    @JsonProperty(JSON_PROPERTY_DATA)
+    @JsonInclude(value = JsonInclude.Include.ALWAYS)
+    public IncidentUpdateData getData() {
+        return data;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public void setData(IncidentUpdateData data) {
+        this.data = data;
+    }
+
+    /**
+     * Return true if this IncidentUpdateRequest object is equal to o.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        IncidentUpdateRequest incidentUpdateRequest = (IncidentUpdateRequest) o;
+        return Objects.equals(this.data, incidentUpdateRequest.data);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(data);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class IncidentUpdateRequest {\n");
+        sb.append("    data: ").append(toIndentedString(data)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }
