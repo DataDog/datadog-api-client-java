@@ -52,7 +52,7 @@ public class MetricsApi {
 
     /**
      * Create a tag configuration
-     * Create and define a list of queryable tag keys for an existing count/gauge/rate/distribution metric. Optionally, include percentile aggregations on any distribution metric. Can only be used with application keys of users with the &#x60;Manage Tags for Metrics&#x60; permission.
+     * Create and define a list of queryable tag keys for an existing count/gauge/rate/distribution metric. Optionally, include percentile aggregations on any distribution metric or configure custom aggregations on any count, rate, or gauge metric. Can only be used with application keys of users with the &#x60;Manage Tags for Metrics&#x60; permission.
      * @param metricName The name of the metric. (required)
      * @param body  (required)
      * @return MetricTagConfigurationResponse
@@ -74,7 +74,7 @@ public class MetricsApi {
 
     /**
      * Create a tag configuration
-     * Create and define a list of queryable tag keys for an existing count/gauge/rate/distribution metric. Optionally, include percentile aggregations on any distribution metric. Can only be used with application keys of users with the &#x60;Manage Tags for Metrics&#x60; permission.
+     * Create and define a list of queryable tag keys for an existing count/gauge/rate/distribution metric. Optionally, include percentile aggregations on any distribution metric or configure custom aggregations on any count, rate, or gauge metric. Can only be used with application keys of users with the &#x60;Manage Tags for Metrics&#x60; permission.
      * @param metricName The name of the metric. (required)
      * @param body  (required)
      * @return ApiResponse&lt;MetricTagConfigurationResponse&gt;
@@ -659,7 +659,7 @@ public class MetricsApi {
 
     /**
      * Update a tag configuration
-     * Update the tag configuration of a metric or percentile aggregations of a distribution metric. Can only be used with application keys from users with the &#x60;Manage Tags for Metrics&#x60; permission.
+     * Update the tag configuration of a metric or percentile aggregations of a distribution metric or custom aggregations of a count, rate, or gauge metric. Can only be used with application keys from users with the &#x60;Manage Tags for Metrics&#x60; permission.
      * @param metricName The name of the metric. (required)
      * @param body  (required)
      * @return MetricTagConfigurationResponse
@@ -681,7 +681,7 @@ public class MetricsApi {
 
     /**
      * Update a tag configuration
-     * Update the tag configuration of a metric or percentile aggregations of a distribution metric. Can only be used with application keys from users with the &#x60;Manage Tags for Metrics&#x60; permission.
+     * Update the tag configuration of a metric or percentile aggregations of a distribution metric or custom aggregations of a count, rate, or gauge metric. Can only be used with application keys from users with the &#x60;Manage Tags for Metrics&#x60; permission.
      * @param metricName The name of the metric. (required)
      * @param body  (required)
      * @return ApiResponse&lt;MetricTagConfigurationResponse&gt;

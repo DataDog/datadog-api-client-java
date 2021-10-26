@@ -11,6 +11,7 @@
 package com.datadog.api.v2.client.model;
 
 import com.datadog.api.v2.client.JSON;
+import com.datadog.api.v2.client.model.MetricCustomAggregation;
 import com.datadog.api.v2.client.model.MetricTagConfigurationMetricTypes;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -35,6 +36,7 @@ import java.util.Objects;
 @ApiModel(description = "Object containing the definition of a metric tag configuration to be created.")
 @JsonPropertyOrder(
     {
+        MetricTagConfigurationCreateAttributes.JSON_PROPERTY_AGGREGATIONS,
         MetricTagConfigurationCreateAttributes.JSON_PROPERTY_INCLUDE_PERCENTILES,
         MetricTagConfigurationCreateAttributes.JSON_PROPERTY_METRIC_TYPE,
         MetricTagConfigurationCreateAttributes.JSON_PROPERTY_TAGS
@@ -45,6 +47,9 @@ public class MetricTagConfigurationCreateAttributes {
 
     @JsonIgnore
     public boolean unparsed = false;
+
+    public static final String JSON_PROPERTY_AGGREGATIONS = "aggregations";
+    private List<MetricCustomAggregation> aggregations = null;
 
     public static final String JSON_PROPERTY_INCLUDE_PERCENTILES = "include_percentiles";
     private Boolean includePercentiles = false;
@@ -65,6 +70,42 @@ public class MetricTagConfigurationCreateAttributes {
         this.metricType = metricType;
         this.unparsed |= !metricType.isValid();
         this.tags = tags;
+    }
+
+    public MetricTagConfigurationCreateAttributes aggregations(List<MetricCustomAggregation> aggregations) {
+        this.aggregations = aggregations;
+        for (MetricCustomAggregation item : aggregations) {
+            this.unparsed |= item.unparsed;
+        }
+        return this;
+    }
+
+    public MetricTagConfigurationCreateAttributes addAggregationsItem(MetricCustomAggregation aggregationsItem) {
+        if (this.aggregations == null) {
+            this.aggregations = new ArrayList<>();
+        }
+        this.aggregations.add(aggregationsItem);
+        this.unparsed |= aggregationsItem.unparsed;
+        return this;
+    }
+
+    /**
+     * A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and Gauge metrics require the (time: avg, space: avg) aggregation. Additional time &amp; space combinations are also available:  - time: avg, space: avg - time: avg, space: max - time: avg, space: min - time: avg, space: sum - time: count, space: sum - time: max, space: max - time: min, space: min - time: sum, space: avg - time: sum, space: sum  Can only be applied to metrics that have a &#x60;metric_type&#x60; of &#x60;count&#x60;, &#x60;rate&#x60;, or &#x60;gauge&#x60;.
+     * @return aggregations
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(
+        example = "[{\"space\":\"sum\",\"time\":\"sum\"},{\"space\":\"sum\",\"time\":\"count\"}]",
+        value = "A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and Gauge metrics require the (time: avg, space: avg) aggregation. Additional time & space combinations are also available:  - time: avg, space: avg - time: avg, space: max - time: avg, space: min - time: avg, space: sum - time: count, space: sum - time: max, space: max - time: min, space: min - time: sum, space: avg - time: sum, space: sum  Can only be applied to metrics that have a `metric_type` of `count`, `rate`, or `gauge`."
+    )
+    @JsonProperty(JSON_PROPERTY_AGGREGATIONS)
+    @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+    public List<MetricCustomAggregation> getAggregations() {
+        return aggregations;
+    }
+
+    public void setAggregations(List<MetricCustomAggregation> aggregations) {
+        this.aggregations = aggregations;
     }
 
     public MetricTagConfigurationCreateAttributes includePercentiles(Boolean includePercentiles) {
@@ -157,6 +198,7 @@ public class MetricTagConfigurationCreateAttributes {
         }
         MetricTagConfigurationCreateAttributes metricTagConfigurationCreateAttributes = (MetricTagConfigurationCreateAttributes) o;
         return (
+            Objects.equals(this.aggregations, metricTagConfigurationCreateAttributes.aggregations) &&
             Objects.equals(this.includePercentiles, metricTagConfigurationCreateAttributes.includePercentiles) &&
             Objects.equals(this.metricType, metricTagConfigurationCreateAttributes.metricType) &&
             Objects.equals(this.tags, metricTagConfigurationCreateAttributes.tags)
@@ -165,13 +207,14 @@ public class MetricTagConfigurationCreateAttributes {
 
     @Override
     public int hashCode() {
-        return Objects.hash(includePercentiles, metricType, tags);
+        return Objects.hash(aggregations, includePercentiles, metricType, tags);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class MetricTagConfigurationCreateAttributes {\n");
+        sb.append("    aggregations: ").append(toIndentedString(aggregations)).append("\n");
         sb.append("    includePercentiles: ").append(toIndentedString(includePercentiles)).append("\n");
         sb.append("    metricType: ").append(toIndentedString(metricType)).append("\n");
         sb.append("    tags: ").append(toIndentedString(tags)).append("\n");

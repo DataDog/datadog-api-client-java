@@ -10,16 +10,27 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.datadog.api.v2.client.JSON;
+import com.datadog.api.v2.client.model.MetricCustomSpaceAggregation;
+import com.datadog.api.v2.client.model.MetricCustomTimeAggregation;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
-/** A time and space aggregation combination for use in query. */
+/**
+ * A time and space aggregation combination for use in query.
+ */
 @ApiModel(description = "A time and space aggregation combination for use in query.")
 @JsonPropertyOrder({ MetricCustomAggregation.JSON_PROPERTY_SPACE, MetricCustomAggregation.JSON_PROPERTY_TIME })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -55,9 +66,8 @@ public class MetricCustomAggregation {
 
     /**
      * Get space
-     *
      * @return space
-     */
+     **/
     @ApiModelProperty(required = true, value = "")
     @JsonProperty(JSON_PROPERTY_SPACE)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -80,9 +90,8 @@ public class MetricCustomAggregation {
 
     /**
      * Get time
-     *
      * @return time
-     */
+     **/
     @ApiModelProperty(required = true, value = "")
     @JsonProperty(JSON_PROPERTY_TIME)
     @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -97,7 +106,9 @@ public class MetricCustomAggregation {
         this.time = time;
     }
 
-    /** Return true if this MetricCustomAggregation object is equal to o. */
+    /**
+     * Return true if this MetricCustomAggregation object is equal to o.
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -126,7 +137,8 @@ public class MetricCustomAggregation {
     }
 
     /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first line).
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
      */
     private String toIndentedString(Object o) {
         if (o == null) {

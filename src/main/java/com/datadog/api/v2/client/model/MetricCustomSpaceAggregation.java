@@ -10,20 +10,29 @@
 
 package com.datadog.api.v2.client.model;
 
+import com.datadog.api.v2.client.JSON;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import io.swagger.annotations.ApiModel;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** A space aggregation for use in query. */
+/**
+ * A space aggregation for use in query.
+ */
 @JsonSerialize(using = MetricCustomSpaceAggregation.MetricCustomSpaceAggregationSerializer.class)
 public class MetricCustomSpaceAggregation {
 
@@ -70,7 +79,9 @@ public class MetricCustomSpaceAggregation {
         this.value = value;
     }
 
-    /** Return true if this MetricCustomSpaceAggregation object is equal to o. */
+    /**
+     * Return true if this MetricCustomSpaceAggregation object is equal to o.
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) {
