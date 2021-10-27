@@ -121,15 +121,32 @@ defaultClient.setUnstableOperationEnabled("<OperationName>", true);
 
 where `<OperationName>` is the name of the method used to interact with that endpoint. For example: `listSLOCorrection`, or `getSLOHistory`
 
+### Changing Server
+
+When talking to a different server, like the `eu` instance, change the `serverVariables` on your client:
+
+```java
+HashMap<String, String> serverVariables = new HashMap<String, String>();
+serverVariables.put("site", "datadoghq.eu");
+defaultApiClient.setServerVariables(serverVariables);
+```
+
 ### Disable compressed payloads
 
 If you want to disable GZIP compressed responses, set the `compress` flag
-on your configuration object:
+on your client:
 
 ```java
 defaultClient.setCompress(false)
 ```
 
+### Enable requests tracing
+
+If you want to enable requests tracing, set the `debugging` flag on your client:
+
+```java
+defaultClient.setDebugging(true)
+```
 
 ## Documentation for API Endpoints and Models
 
