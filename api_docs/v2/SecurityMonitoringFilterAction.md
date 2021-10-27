@@ -1,13 +1,7 @@
-
-
 # SecurityMonitoringFilterAction
 
 ## Enum
 
+- `REQUIRE` (value: `"require"`)
 
-* `REQUIRE` (value: `"require"`)
-
-* `SUPPRESS` (value: `"suppress"`)
-
-
-
+- `SUPPRESS` (value: `"suppress"`)

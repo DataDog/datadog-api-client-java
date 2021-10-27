@@ -1,11 +1,5 @@
-
-
 # HostMapWidgetDefinitionType
 
 ## Enum
 
-
-* `HOSTMAP` (value: `"hostmap"`)
-
-
-
+- `HOSTMAP` (value: `"hostmap"`)

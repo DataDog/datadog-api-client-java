@@ -1,15 +1,9 @@
-
-
 # WidgetVerticalAlign
 
 ## Enum
 
+- `CENTER` (value: `"center"`)
 
-* `CENTER` (value: `"center"`)
+- `TOP` (value: `"top"`)
 
-* `TOP` (value: `"top"`)
-
-* `BOTTOM` (value: `"bottom"`)
-
-
-
+- `BOTTOM` (value: `"bottom"`)

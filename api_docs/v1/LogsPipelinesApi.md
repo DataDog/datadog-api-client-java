@@ -2,17 +2,15 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method        | HTTP request | Description
-------------- | ------------ | ------------
-[**createLogsPipeline**](LogsPipelinesApi.md#createLogsPipeline) | **POST** /api/v1/logs/config/pipelines | Create a pipeline
-[**deleteLogsPipeline**](LogsPipelinesApi.md#deleteLogsPipeline) | **DELETE** /api/v1/logs/config/pipelines/{pipeline_id} | Delete a pipeline
-[**getLogsPipeline**](LogsPipelinesApi.md#getLogsPipeline) | **GET** /api/v1/logs/config/pipelines/{pipeline_id} | Get a pipeline
-[**getLogsPipelineOrder**](LogsPipelinesApi.md#getLogsPipelineOrder) | **GET** /api/v1/logs/config/pipeline-order | Get pipeline order
-[**listLogsPipelines**](LogsPipelinesApi.md#listLogsPipelines) | **GET** /api/v1/logs/config/pipelines | Get all pipelines
-[**updateLogsPipeline**](LogsPipelinesApi.md#updateLogsPipeline) | **PUT** /api/v1/logs/config/pipelines/{pipeline_id} | Update a pipeline
-[**updateLogsPipelineOrder**](LogsPipelinesApi.md#updateLogsPipelineOrder) | **PUT** /api/v1/logs/config/pipeline-order | Update pipeline order
-
-
+| Method                                                                     | HTTP request                                           | Description           |
+| -------------------------------------------------------------------------- | ------------------------------------------------------ | --------------------- |
+| [**createLogsPipeline**](LogsPipelinesApi.md#createLogsPipeline)           | **POST** /api/v1/logs/config/pipelines                 | Create a pipeline     |
+| [**deleteLogsPipeline**](LogsPipelinesApi.md#deleteLogsPipeline)           | **DELETE** /api/v1/logs/config/pipelines/{pipeline_id} | Delete a pipeline     |
+| [**getLogsPipeline**](LogsPipelinesApi.md#getLogsPipeline)                 | **GET** /api/v1/logs/config/pipelines/{pipeline_id}    | Get a pipeline        |
+| [**getLogsPipelineOrder**](LogsPipelinesApi.md#getLogsPipelineOrder)       | **GET** /api/v1/logs/config/pipeline-order             | Get pipeline order    |
+| [**listLogsPipelines**](LogsPipelinesApi.md#listLogsPipelines)             | **GET** /api/v1/logs/config/pipelines                  | Get all pipelines     |
+| [**updateLogsPipeline**](LogsPipelinesApi.md#updateLogsPipeline)           | **PUT** /api/v1/logs/config/pipelines/{pipeline_id}    | Update a pipeline     |
+| [**updateLogsPipelineOrder**](LogsPipelinesApi.md#updateLogsPipelineOrder) | **PUT** /api/v1/logs/config/pipeline-order             | Update pipeline order |
 
 ## createLogsPipeline
 
@@ -52,10 +50,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**LogsPipeline**](LogsPipeline.md)| Definition of the new pipeline. |
+| Name     | Type                                | Description                     | Notes |
+| -------- | ----------------------------------- | ------------------------------- | ----- |
+| **body** | [**LogsPipeline**](LogsPipeline.md) | Definition of the new pipeline. |
 
 ### Return type
 
@@ -71,12 +68,12 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |
 
 ## deleteLogsPipeline
 
@@ -116,10 +113,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pipelineId** | **String**| ID of the pipeline to delete. |
+| Name           | Type       | Description                   | Notes |
+| -------------- | ---------- | ----------------------------- | ----- |
+| **pipelineId** | **String** | ID of the pipeline to delete. |
 
 ### Return type
 
@@ -135,12 +131,12 @@ null (empty response body)
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |
 
 ## getLogsPipeline
 
@@ -181,10 +177,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pipelineId** | **String**| ID of the pipeline to get. |
+| Name           | Type       | Description                | Notes |
+| -------------- | ---------- | -------------------------- | ----- |
+| **pipelineId** | **String** | ID of the pipeline to get. |
 
 ### Return type
 
@@ -200,12 +195,12 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |
 
 ## getLogsPipelineOrder
 
@@ -261,11 +256,11 @@ This endpoint does not need any parameter.
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **403** | Forbidden |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **403**     | Forbidden   | -                |
 
 ## listLogsPipelines
 
@@ -321,11 +316,11 @@ This endpoint does not need any parameter.
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **403** | Forbidden |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **403**     | Forbidden   | -                |
 
 ## updateLogsPipeline
 
@@ -369,11 +364,10 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pipelineId** | **String**| ID of the pipeline to delete. |
- **body** | [**LogsPipeline**](LogsPipeline.md)| New definition of the pipeline. |
+| Name           | Type                                | Description                     | Notes |
+| -------------- | ----------------------------------- | ------------------------------- | ----- |
+| **pipelineId** | **String**                          | ID of the pipeline to delete.   |
+| **body**       | [**LogsPipeline**](LogsPipeline.md) | New definition of the pipeline. |
 
 ### Return type
 
@@ -389,12 +383,12 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |
 
 ## updateLogsPipelineOrder
 
@@ -438,10 +432,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**LogsPipelinesOrder**](LogsPipelinesOrder.md)| Object containing the new ordered list of pipeline IDs. |
+| Name     | Type                                            | Description                                             | Notes |
+| -------- | ----------------------------------------------- | ------------------------------------------------------- | ----- |
+| **body** | [**LogsPipelinesOrder**](LogsPipelinesOrder.md) | Object containing the new ordered list of pipeline IDs. |
 
 ### Return type
 
@@ -457,10 +450,10 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **422** | Unprocessable Entity |  -  |
 
+| Status code | Description          | Response headers |
+| ----------- | -------------------- | ---------------- |
+| **200**     | OK                   | -                |
+| **400**     | Bad Request          | -                |
+| **403**     | Forbidden            | -                |
+| **422**     | Unprocessable Entity | -                |

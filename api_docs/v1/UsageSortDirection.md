@@ -1,13 +1,7 @@
-
-
 # UsageSortDirection
 
 ## Enum
 
+- `DESC` (value: `"desc"`)
 
-* `DESC` (value: `"desc"`)
-
-* `ASC` (value: `"asc"`)
-
-
-
+- `ASC` (value: `"asc"`)

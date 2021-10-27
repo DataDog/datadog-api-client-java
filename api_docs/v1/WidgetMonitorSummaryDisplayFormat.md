@@ -1,15 +1,9 @@
-
-
 # WidgetMonitorSummaryDisplayFormat
 
 ## Enum
 
+- `COUNTS` (value: `"counts"`)
 
-* `COUNTS` (value: `"counts"`)
+- `COUNTS_AND_LIST` (value: `"countsAndList"`)
 
-* `COUNTS_AND_LIST` (value: `"countsAndList"`)
-
-* `LIST` (value: `"list"`)
-
-
-
+- `LIST` (value: `"list"`)

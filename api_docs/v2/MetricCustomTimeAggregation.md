@@ -1,19 +1,13 @@
-
-
 # MetricCustomTimeAggregation
 
 ## Enum
 
+- `AVG` (value: `"avg"`)
 
-* `AVG` (value: `"avg"`)
+- `COUNT` (value: `"count"`)
 
-* `COUNT` (value: `"count"`)
+- `MAX` (value: `"max"`)
 
-* `MAX` (value: `"max"`)
+- `MIN` (value: `"min"`)
 
-* `MIN` (value: `"min"`)
-
-* `SUM` (value: `"sum"`)
-
-
-
+- `SUM` (value: `"sum"`)

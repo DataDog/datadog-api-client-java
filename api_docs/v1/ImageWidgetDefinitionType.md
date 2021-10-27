@@ -1,11 +1,5 @@
-
-
 # ImageWidgetDefinitionType
 
 ## Enum
 
-
-* `IMAGE` (value: `"image"`)
-
-
-
+- `IMAGE` (value: `"image"`)

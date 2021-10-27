@@ -2,20 +2,18 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method        | HTTP request | Description
-------------- | ------------ | ------------
-[**addReadRoleToArchive**](LogsArchivesApi.md#addReadRoleToArchive) | **POST** /api/v2/logs/config/archives/{archive_id}/readers | Grant role to an archive
-[**createLogsArchive**](LogsArchivesApi.md#createLogsArchive) | **POST** /api/v2/logs/config/archives | Create an archive
-[**deleteLogsArchive**](LogsArchivesApi.md#deleteLogsArchive) | **DELETE** /api/v2/logs/config/archives/{archive_id} | Delete an archive
-[**getLogsArchive**](LogsArchivesApi.md#getLogsArchive) | **GET** /api/v2/logs/config/archives/{archive_id} | Get an archive
-[**getLogsArchiveOrder**](LogsArchivesApi.md#getLogsArchiveOrder) | **GET** /api/v2/logs/config/archive-order | Get archive order
-[**listArchiveReadRoles**](LogsArchivesApi.md#listArchiveReadRoles) | **GET** /api/v2/logs/config/archives/{archive_id}/readers | List read roles for an archive
-[**listLogsArchives**](LogsArchivesApi.md#listLogsArchives) | **GET** /api/v2/logs/config/archives | Get all archives
-[**removeRoleFromArchive**](LogsArchivesApi.md#removeRoleFromArchive) | **DELETE** /api/v2/logs/config/archives/{archive_id}/readers | Revoke role from an archive
-[**updateLogsArchive**](LogsArchivesApi.md#updateLogsArchive) | **PUT** /api/v2/logs/config/archives/{archive_id} | Update an archive
-[**updateLogsArchiveOrder**](LogsArchivesApi.md#updateLogsArchiveOrder) | **PUT** /api/v2/logs/config/archive-order | Update archive order
-
-
+| Method                                                                  | HTTP request                                                 | Description                    |
+| ----------------------------------------------------------------------- | ------------------------------------------------------------ | ------------------------------ |
+| [**addReadRoleToArchive**](LogsArchivesApi.md#addReadRoleToArchive)     | **POST** /api/v2/logs/config/archives/{archive_id}/readers   | Grant role to an archive       |
+| [**createLogsArchive**](LogsArchivesApi.md#createLogsArchive)           | **POST** /api/v2/logs/config/archives                        | Create an archive              |
+| [**deleteLogsArchive**](LogsArchivesApi.md#deleteLogsArchive)           | **DELETE** /api/v2/logs/config/archives/{archive_id}         | Delete an archive              |
+| [**getLogsArchive**](LogsArchivesApi.md#getLogsArchive)                 | **GET** /api/v2/logs/config/archives/{archive_id}            | Get an archive                 |
+| [**getLogsArchiveOrder**](LogsArchivesApi.md#getLogsArchiveOrder)       | **GET** /api/v2/logs/config/archive-order                    | Get archive order              |
+| [**listArchiveReadRoles**](LogsArchivesApi.md#listArchiveReadRoles)     | **GET** /api/v2/logs/config/archives/{archive_id}/readers    | List read roles for an archive |
+| [**listLogsArchives**](LogsArchivesApi.md#listLogsArchives)             | **GET** /api/v2/logs/config/archives                         | Get all archives               |
+| [**removeRoleFromArchive**](LogsArchivesApi.md#removeRoleFromArchive)   | **DELETE** /api/v2/logs/config/archives/{archive_id}/readers | Revoke role from an archive    |
+| [**updateLogsArchive**](LogsArchivesApi.md#updateLogsArchive)           | **PUT** /api/v2/logs/config/archives/{archive_id}            | Update an archive              |
+| [**updateLogsArchiveOrder**](LogsArchivesApi.md#updateLogsArchiveOrder) | **PUT** /api/v2/logs/config/archive-order                    | Update archive order           |
 
 ## addReadRoleToArchive
 
@@ -39,7 +37,7 @@ public class Example {
 
         LogsArchivesApi apiInstance = new LogsArchivesApi(defaultClient);
         String archiveId = "archiveId_example"; // String | The ID of the archive.
-        RelationshipToRole body = new RelationshipToRole(); // RelationshipToRole | 
+        RelationshipToRole body = new RelationshipToRole(); // RelationshipToRole |
         try {
             apiInstance.addReadRoleToArchive(archiveId, body);
         } catch (ApiException e) {
@@ -55,11 +53,10 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **archiveId** | **String**| The ID of the archive. |
- **body** | [**RelationshipToRole**](RelationshipToRole.md)|  |
+| Name          | Type                                            | Description            | Notes |
+| ------------- | ----------------------------------------------- | ---------------------- | ----- |
+| **archiveId** | **String**                                      | The ID of the archive. |
+| **body**      | [**RelationshipToRole**](RelationshipToRole.md) |                        |
 
 ### Return type
 
@@ -75,13 +72,13 @@ null (empty response body)
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not found |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **204**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |
+| **404**     | Not found   | -                |
 
 ## createLogsArchive
 
@@ -121,10 +118,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**LogsArchiveCreateRequest**](LogsArchiveCreateRequest.md)| The definition of the new archive. |
+| Name     | Type                                                        | Description                        | Notes |
+| -------- | ----------------------------------------------------------- | ---------------------------------- | ----- |
+| **body** | [**LogsArchiveCreateRequest**](LogsArchiveCreateRequest.md) | The definition of the new archive. |
 
 ### Return type
 
@@ -140,12 +136,12 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |
 
 ## deleteLogsArchive
 
@@ -184,10 +180,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **archiveId** | **String**| The ID of the archive. |
+| Name          | Type       | Description            | Notes |
+| ------------- | ---------- | ---------------------- | ----- |
+| **archiveId** | **String** | The ID of the archive. |
 
 ### Return type
 
@@ -203,13 +198,13 @@ null (empty response body)
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not found |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **204**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |
+| **404**     | Not found   | -                |
 
 ## getLogsArchive
 
@@ -249,10 +244,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **archiveId** | **String**| The ID of the archive. |
+| Name          | Type       | Description            | Notes |
+| ------------- | ---------- | ---------------------- | ----- |
+| **archiveId** | **String** | The ID of the archive. |
 
 ### Return type
 
@@ -268,13 +262,13 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not found |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |
+| **404**     | Not found   | -                |
 
 ## getLogsArchiveOrder
 
@@ -330,11 +324,11 @@ This endpoint does not need any parameter.
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **403** | Forbidden |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **403**     | Forbidden   | -                |
 
 ## listArchiveReadRoles
 
@@ -374,10 +368,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **archiveId** | **String**| The ID of the archive. |
+| Name          | Type       | Description            | Notes |
+| ------------- | ---------- | ---------------------- | ----- |
+| **archiveId** | **String** | The ID of the archive. |
 
 ### Return type
 
@@ -393,13 +386,13 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not found |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |
+| **404**     | Not found   | -                |
 
 ## listLogsArchives
 
@@ -454,11 +447,11 @@ This endpoint does not need any parameter.
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **403** | Forbidden |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **403**     | Forbidden   | -                |
 
 ## removeRoleFromArchive
 
@@ -482,7 +475,7 @@ public class Example {
 
         LogsArchivesApi apiInstance = new LogsArchivesApi(defaultClient);
         String archiveId = "archiveId_example"; // String | The ID of the archive.
-        RelationshipToRole body = new RelationshipToRole(); // RelationshipToRole | 
+        RelationshipToRole body = new RelationshipToRole(); // RelationshipToRole |
         try {
             apiInstance.removeRoleFromArchive(archiveId, body);
         } catch (ApiException e) {
@@ -498,11 +491,10 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **archiveId** | **String**| The ID of the archive. |
- **body** | [**RelationshipToRole**](RelationshipToRole.md)|  |
+| Name          | Type                                            | Description            | Notes |
+| ------------- | ----------------------------------------------- | ---------------------- | ----- |
+| **archiveId** | **String**                                      | The ID of the archive. |
+| **body**      | [**RelationshipToRole**](RelationshipToRole.md) |                        |
 
 ### Return type
 
@@ -518,13 +510,13 @@ null (empty response body)
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not found |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **204**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |
+| **404**     | Not found   | -                |
 
 ## updateLogsArchive
 
@@ -568,11 +560,10 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **archiveId** | **String**| The ID of the archive. |
- **body** | [**LogsArchiveCreateRequest**](LogsArchiveCreateRequest.md)| New definition of the archive. |
+| Name          | Type                                                        | Description                    | Notes |
+| ------------- | ----------------------------------------------------------- | ------------------------------ | ----- |
+| **archiveId** | **String**                                                  | The ID of the archive.         |
+| **body**      | [**LogsArchiveCreateRequest**](LogsArchiveCreateRequest.md) | New definition of the archive. |
 
 ### Return type
 
@@ -588,13 +579,13 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not found |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |
+| **404**     | Not found   | -                |
 
 ## updateLogsArchiveOrder
 
@@ -638,10 +629,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**LogsArchiveOrder**](LogsArchiveOrder.md)| An object containing the new ordered list of archive IDs. |
+| Name     | Type                                        | Description                                               | Notes |
+| -------- | ------------------------------------------- | --------------------------------------------------------- | ----- |
+| **body** | [**LogsArchiveOrder**](LogsArchiveOrder.md) | An object containing the new ordered list of archive IDs. |
 
 ### Return type
 
@@ -657,10 +647,10 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **422** | Unprocessable Entity |  -  |
 
+| Status code | Description          | Response headers |
+| ----------- | -------------------- | ---------------- |
+| **200**     | OK                   | -                |
+| **400**     | Bad Request          | -                |
+| **403**     | Forbidden            | -                |
+| **422**     | Unprocessable Entity | -                |

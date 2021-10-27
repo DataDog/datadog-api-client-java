@@ -1,17 +1,11 @@
-
-
 # MetricTagConfigurationMetricTypes
 
 ## Enum
 
+- `GAUGE` (value: `"gauge"`)
 
-* `GAUGE` (value: `"gauge"`)
+- `COUNT` (value: `"count"`)
 
-* `COUNT` (value: `"count"`)
+- `RATE` (value: `"rate"`)
 
-* `RATE` (value: `"rate"`)
-
-* `DISTRIBUTION` (value: `"distribution"`)
-
-
-
+- `DISTRIBUTION` (value: `"distribution"`)

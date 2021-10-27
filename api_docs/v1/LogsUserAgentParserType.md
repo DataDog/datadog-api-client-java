@@ -1,11 +1,5 @@
-
-
 # LogsUserAgentParserType
 
 ## Enum
 
-
-* `USER_AGENT_PARSER` (value: `"user-agent-parser"`)
-
-
-
+- `USER_AGENT_PARSER` (value: `"user-agent-parser"`)

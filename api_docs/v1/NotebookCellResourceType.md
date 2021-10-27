@@ -1,11 +1,5 @@
-
-
 # NotebookCellResourceType
 
 ## Enum
 
-
-* `NOTEBOOK_CELLS` (value: `"notebook_cells"`)
-
-
-
+- `NOTEBOOK_CELLS` (value: `"notebook_cells"`)

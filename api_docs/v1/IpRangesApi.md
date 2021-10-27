@@ -2,11 +2,9 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method        | HTTP request | Description
-------------- | ------------ | ------------
-[**getIPRanges**](IpRangesApi.md#getIPRanges) | **GET** / | List IP Ranges
-
-
+| Method                                        | HTTP request | Description    |
+| --------------------------------------------- | ------------ | -------------- |
+| [**getIPRanges**](IpRangesApi.md#getIPRanges) | **GET** /    | List IP Ranges |
 
 ## getIPRanges
 
@@ -61,7 +59,7 @@ No authorization required
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |

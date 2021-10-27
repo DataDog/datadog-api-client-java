@@ -53,12 +53,13 @@ public class World {
   // Undo
   public List<Callable<?>> undo;
 
-  public static Map<String, BiFunction<Object, String, String>> templateFunctions = new HashMap<String, BiFunction<Object, String, String>>() {
-    {
-      put("timeISO", relativeTime(true));
-      put("timestamp", relativeTime(false));
-    }
-  };
+  public static Map<String, BiFunction<Object, String, String>> templateFunctions =
+      new HashMap<String, BiFunction<Object, String, String>>() {
+        {
+          put("timeISO", relativeTime(true));
+          put("timestamp", relativeTime(false));
+        }
+      };
 
   public static BiFunction<Object, String, String> relativeTime(boolean iso) {
     final Pattern timeRE = Pattern.compile("now( *([+-]) *(\\d+)([smhdMy]))?");
@@ -90,8 +91,7 @@ public class World {
               break;
           }
         }
-        if (iso)
-          return ret.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME);
+        if (iso) return ret.format(DateTimeFormatter.ISO_OFFSET_DATE_TIME);
         return String.valueOf(ret.toEpochSecond());
       }
       return null;
@@ -110,15 +110,18 @@ public class World {
     return parts[parts.length - 4];
   }
 
-  private void configureClient(Class<?> clientClass, Object client) throws java.lang.reflect.InvocationTargetException,
-      java.lang.IllegalAccessException, java.lang.InstantiationException, java.lang.NoSuchMethodException,
-      java.lang.ClassNotFoundException, java.lang.NoSuchFieldException {
+  private void configureClient(Class<?> clientClass, Object client)
+      throws java.lang.reflect.InvocationTargetException, java.lang.IllegalAccessException,
+          java.lang.InstantiationException, java.lang.NoSuchMethodException,
+          java.lang.ClassNotFoundException, java.lang.NoSuchFieldException {
     // client.setServerIndex(0);
     clientClass.getMethod("setServerIndex", Integer.class).invoke(client, 0);
 
     // Set debugging based on env
     // client.setDebugging("true".equals(System.getenv("DEBUG")))
-    clientClass.getMethod("setDebugging", boolean.class).invoke(client, "true".equals(System.getenv("DEBUG")));
+    clientClass
+        .getMethod("setDebugging", boolean.class)
+        .invoke(client, "true".equals(System.getenv("DEBUG")));
 
     TestUtils.APITest.trustProxyCertsStatic();
 
@@ -145,10 +148,12 @@ public class World {
        * config.connectorProvider(new HttpUrlConnectorProvider()
        * .connectionFactory(new TestUtils.MockServerProxyConnectionFactory()));
        */
-      ClientConfig config = (ClientConfig) ((Client) clientClass.getMethod("getHttpClient").invoke(client))
-          .getConfiguration();
+      ClientConfig config =
+          (ClientConfig)
+              ((Client) clientClass.getMethod("getHttpClient").invoke(client)).getConfiguration();
       config.connectorProvider(
-          new HttpUrlConnectorProvider().connectionFactory(new TestUtils.MockServerProxyConnectionFactory()));
+          new HttpUrlConnectorProvider()
+              .connectionFactory(new TestUtils.MockServerProxyConnectionFactory()));
     } else if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {
       // Set base path to the mock server for replaying
       // client.setBasePath(...)
@@ -159,12 +164,15 @@ public class World {
       f.set(client, null);
     }
     // client.addDefaultHeader("JAVA-TEST-NAME", name.getMethodName());
-    clientClass.getMethod("addDefaultHeader", String.class, String.class).invoke(client, "JAVA-TEST-NAME", getName());
+    clientClass
+        .getMethod("addDefaultHeader", String.class, String.class)
+        .invoke(client, "JAVA-TEST-NAME", getName());
   }
 
-  public void setupClient(String apiVersion) throws java.lang.reflect.InvocationTargetException,
-      java.lang.IllegalAccessException, java.lang.InstantiationException, java.lang.NoSuchMethodException,
-      java.lang.ClassNotFoundException, java.lang.NoSuchFieldException {
+  public void setupClient(String apiVersion)
+      throws java.lang.reflect.InvocationTargetException, java.lang.IllegalAccessException,
+          java.lang.InstantiationException, java.lang.NoSuchMethodException,
+          java.lang.ClassNotFoundException, java.lang.NoSuchFieldException {
     // import com.datadog.api.{{ apiVersion }}.client.ApiClient
     clientClass = Class.forName("com.datadog.api." + apiVersion + ".client.ApiClient");
     // client = new ApiClient()
@@ -173,29 +181,34 @@ public class World {
   }
 
   public void setupAPI(String apiVersion, String apiName)
-      throws java.lang.ClassNotFoundException, java.lang.InstantiationException, java.lang.IllegalAccessException,
-      java.lang.NoSuchMethodException, java.lang.reflect.InvocationTargetException {
+      throws java.lang.ClassNotFoundException, java.lang.InstantiationException,
+          java.lang.IllegalAccessException, java.lang.NoSuchMethodException,
+          java.lang.reflect.InvocationTargetException {
     // import com.datadog.api.{{ apiVersion }}.client.api.{{ apiName }}Api
     apiClass = Class.forName("com.datadog.api." + apiVersion + ".client.api." + apiName + "Api");
     // api = new {{ apiName }}Api(client)
     api = apiClass.getConstructor(clientClass).newInstance(client);
   }
 
-  public void setUnstableOperationEnabled(String operationId) throws java.lang.reflect.InvocationTargetException,
-      java.lang.IllegalAccessException, java.lang.NoSuchMethodException {
+  public void setUnstableOperationEnabled(String operationId)
+      throws java.lang.reflect.InvocationTargetException, java.lang.IllegalAccessException,
+          java.lang.NoSuchMethodException {
     // client.setUnstableOperationEnabled(operationId, true)
-    clientClass.getMethod("setUnstableOperationEnabled", String.class, boolean.class).invoke(client, operationId, true);
+    clientClass
+        .getMethod("setUnstableOperationEnabled", String.class, boolean.class)
+        .invoke(client, operationId, true);
   }
 
-  public void configureApiKeys(Map<String, String> secrets) throws java.lang.reflect.InvocationTargetException,
-      java.lang.IllegalAccessException, java.lang.NoSuchMethodException {
+  public void configureApiKeys(Map<String, String> secrets)
+      throws java.lang.reflect.InvocationTargetException, java.lang.IllegalAccessException,
+          java.lang.NoSuchMethodException {
     // client.configureApiKeys(secrets)
     clientClass.getMethod("configureApiKeys", Map.class).invoke(client, secrets);
   }
 
   public void authenticateClient(Class<?> clientClass, Object client)
       throws java.lang.reflect.InvocationTargetException, java.lang.IllegalAccessException,
-      java.lang.NoSuchMethodException {
+          java.lang.NoSuchMethodException {
 
     HashMap<String, String> secrets = new HashMap<String, String>();
     secrets.put("apiKeyAuth", System.getenv("DD_TEST_CLIENT_API_KEY"));
@@ -225,8 +238,9 @@ public class World {
   }
 
   public void addRequestParameter(String parameterName, String value)
-      throws java.lang.IllegalAccessException, java.lang.NoSuchFieldException, java.lang.NoSuchMethodException,
-      java.lang.reflect.InvocationTargetException, com.fasterxml.jackson.core.JsonProcessingException {
+      throws java.lang.IllegalAccessException, java.lang.NoSuchFieldException,
+          java.lang.NoSuchMethodException, java.lang.reflect.InvocationTargetException,
+          com.fasterxml.jackson.core.JsonProcessingException {
     String propertyName = toPropertyName(parameterName);
     Class fieldType = null;
     boolean isOptional = false;
@@ -244,7 +258,11 @@ public class World {
     }
     if (fieldType == null) {
       throw new RuntimeException(
-          propertyName + " " + requestParametersClass + " " + requestBuilder.getParameterTypes().length);
+          propertyName
+              + " "
+              + requestParametersClass
+              + " "
+              + requestBuilder.getParameterTypes().length);
     }
 
     Object data = fromJSON(getObjectMapper(), fieldType, templated(value, context));
@@ -256,8 +274,8 @@ public class World {
   }
 
   public void addRequestParameterFixture(String parameterName, String fixturePath)
-      throws java.lang.IllegalAccessException, java.lang.NoSuchFieldException, java.lang.NoSuchMethodException,
-      java.lang.reflect.InvocationTargetException {
+      throws java.lang.IllegalAccessException, java.lang.NoSuchFieldException,
+          java.lang.NoSuchMethodException, java.lang.reflect.InvocationTargetException {
     String propertyName = toPropertyName(parameterName);
     Class fieldType = null;
     boolean isOptional = false;
@@ -275,7 +293,11 @@ public class World {
     }
     if (fieldType == null) {
       throw new RuntimeException(
-          propertyName + " " + requestParametersClass + " " + requestBuilder.getParameterTypes().length);
+          propertyName
+              + " "
+              + requestParametersClass
+              + " "
+              + requestBuilder.getParameterTypes().length);
     }
 
     Object data = lookup(context, fixturePath);
@@ -288,8 +310,8 @@ public class World {
 
   public void given(String apiVersion, Given step) throws Exception {
     // find API service based on step tag value
-    Class<?> givenAPIClass = Class
-        .forName("com.datadog.api." + apiVersion + ".client.api." + step.getAPIName() + "Api");
+    Class<?> givenAPIClass =
+        Class.forName("com.datadog.api." + apiVersion + ".client.api." + step.getAPIName() + "Api");
     // import com.datadog.api.{{ apiVersion }}.client.ApiClient
     Class<?> apiClientClass = Class.forName("com.datadog.api." + apiVersion + ".client.ApiClient");
     Object clientAPI = apiClientClass.getConstructor().newInstance();
@@ -308,9 +330,13 @@ public class World {
     }
 
     // Enable unstable operation automatically
-    if ((boolean) apiClientClass.getMethod("isUnstableOperation", String.class).invoke(clientAPI, givenOperationName)) {
-      apiClientClass.getMethod("setUnstableOperationEnabled", String.class, boolean.class).invoke(clientAPI,
-          givenOperationName, true);
+    if ((boolean)
+        apiClientClass
+            .getMethod("isUnstableOperation", String.class)
+            .invoke(clientAPI, givenOperationName)) {
+      apiClientClass
+          .getMethod("setUnstableOperationEnabled", String.class, boolean.class)
+          .invoke(clientAPI, givenOperationName, true);
     }
 
     Class<?> givenParametersClass = null;
@@ -371,10 +397,12 @@ public class World {
     context.put(step.key, data);
   }
 
-  public Callable<?> getRequestUndo(String apiVersion, Undo undoSettings, Object data) throws Exception {
+  public Callable<?> getRequestUndo(String apiVersion, Undo undoSettings, Object data)
+      throws Exception {
     // find API service based on undo tag value
-    Class<?> undoAPIClass = Class
-        .forName("com.datadog.api." + apiVersion + ".client.api." + undoSettings.getAPIName() + "Api");
+    Class<?> undoAPIClass =
+        Class.forName(
+            "com.datadog.api." + apiVersion + ".client.api." + undoSettings.getAPIName() + "Api");
     Class<?> apiClientClass = Class.forName("com.datadog.api." + apiVersion + ".client.ApiClient");
     Object clientAPI = apiClientClass.getConstructor().newInstance();
     configureClient(apiClientClass, clientAPI);
@@ -385,9 +413,13 @@ public class World {
     String undoOperationName = undoSettings.getOperationName();
 
     // Enable unstable undo operation automatically
-    if ((boolean) apiClientClass.getMethod("isUnstableOperation", String.class).invoke(clientAPI, undoOperationName)) {
-      apiClientClass.getMethod("setUnstableOperationEnabled", String.class, boolean.class).invoke(clientAPI,
-          undoOperationName, true);
+    if ((boolean)
+        apiClientClass
+            .getMethod("isUnstableOperation", String.class)
+            .invoke(clientAPI, undoOperationName)) {
+      apiClientClass
+          .getMethod("setUnstableOperationEnabled", String.class, boolean.class)
+          .invoke(clientAPI, undoOperationName, true);
     }
 
     return () -> {
@@ -399,8 +431,8 @@ public class World {
         }
       }
       // Build request from undo parameters and response data
-      Map<String, Object> undoRequestParams = undoSettings.undo.getRequestParameters(data, undoOperation,
-          getObjectMapper());
+      Map<String, Object> undoRequestParams =
+          undoSettings.undo.getRequestParameters(data, undoOperation, getObjectMapper());
       for (Class c : undoAPIClass.getClasses()) {
         if (c.getName().endsWith(undoSettings.undo.operationId + "OptionalParameters")) {
           undoRequestParams.put("parameters", c.getConstructor().newInstance());
@@ -426,10 +458,14 @@ public class World {
     responseClass = requestBuilder.getReturnType();
 
     String apiVersion = getVersion();
-    Class<?> exceptionClass = Class.forName("com.datadog.api." + apiVersion + ".client.ApiException");
+    Class<?> exceptionClass =
+        Class.forName("com.datadog.api." + apiVersion + ".client.ApiException");
 
-    Undo undoSettings = UndoAction.UndoAction().getUndo(apiVersion,
-        requestBuilder.getName().substring(0, requestBuilder.getName().length() - 12));
+    Undo undoSettings =
+        UndoAction.UndoAction()
+            .getUndo(
+                apiVersion,
+                requestBuilder.getName().substring(0, requestBuilder.getName().length() - 12));
 
     try {
       response = requestBuilder.invoke(api, parametersArray.toArray());
@@ -456,8 +492,9 @@ public class World {
     }
   }
 
-  public ObjectMapper getObjectMapper() throws java.lang.IllegalAccessException, java.lang.NoSuchMethodException,
-      java.lang.reflect.InvocationTargetException {
+  public ObjectMapper getObjectMapper()
+      throws java.lang.IllegalAccessException, java.lang.NoSuchMethodException,
+          java.lang.reflect.InvocationTargetException {
     Method getJSON = clientClass.getMethod("getJSON");
     Object json = getJSON.invoke(client);
     Class<?> jsonClass = getJSON.getReturnType();
@@ -479,7 +516,8 @@ public class World {
       name = name.substring(0, 100);
     }
 
-    String prefix = TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE) ? "Test-Java" : "Test";
+    String prefix =
+        TestUtils.getRecordingMode().equals(RecordingMode.MODE_IGNORE) ? "Test-Java" : "Test";
     return String.format("%s-%s-%d", prefix, name, now.toEpochSecond());
   }
 
@@ -557,24 +595,27 @@ public class World {
    */
   public static String templated(String source, Object context)
       throws java.lang.IllegalAccessException, java.lang.NoSuchFieldException {
-    return replace(source, Pattern.compile("\\{\\{ *([^{}]+|'[^']+'|\"[^\"]+\") *}}"), m -> {
-      String path = m.group(1).trim();
-      Pattern functionRE = Pattern.compile("^(.+)\\((.*)\\)$");
-      Matcher funcM = functionRE.matcher(path);
-      if (funcM.find()) {
-        String funcName = funcM.group(1);
-        String arg = funcM.group(2);
-        return templateFunctions.get(funcName).apply(context, arg);
-      }
-      if (path.charAt(0) == '\'' || path.charAt(0) == '"') {
-        return path.substring(1, path.length() - 1);
-      }
-      try {
-        return lookup(context, path).toString();
-      } catch (Exception e) {
-        return null;
-      }
-    });
+    return replace(
+        source,
+        Pattern.compile("\\{\\{ *([^{}]+|'[^']+'|\"[^\"]+\") *}}"),
+        m -> {
+          String path = m.group(1).trim();
+          Pattern functionRE = Pattern.compile("^(.+)\\((.*)\\)$");
+          Matcher funcM = functionRE.matcher(path);
+          if (funcM.find()) {
+            String funcName = funcM.group(1);
+            String arg = funcM.group(2);
+            return templateFunctions.get(funcName).apply(context, arg);
+          }
+          if (path.charAt(0) == '\'' || path.charAt(0) == '"') {
+            return path.substring(1, path.length() - 1);
+          }
+          try {
+            return lookup(context, path).toString();
+          } catch (Exception e) {
+            return null;
+          }
+        });
   }
 
   /*
@@ -582,7 +623,8 @@ public class World {
    */
   public static String toPropertyName(String identifier) {
     identifier = replace(identifier, Pattern.compile("_(.)"), m -> m.group(1).toUpperCase());
-    return replace(identifier, Pattern.compile("\\[(.)([^]]*)]"), m -> m.group(1).toUpperCase() + m.group(2));
+    return replace(
+        identifier, Pattern.compile("\\[(.)([^]]*)]"), m -> m.group(1).toUpperCase() + m.group(2));
   }
 
   /*
@@ -604,7 +646,9 @@ public class World {
    * Convert an identifier to class name.
    */
   public static String toClassName(String identifier) {
-    return replace(identifier, Pattern.compile("([A-Z])([A-Z]+)([A-Z][a-z])"),
+    return replace(
+        identifier,
+        Pattern.compile("([A-Z])([A-Z]+)([A-Z][a-z])"),
         m -> m.group(1) + m.group(2).toLowerCase() + m.group(3));
   }
 

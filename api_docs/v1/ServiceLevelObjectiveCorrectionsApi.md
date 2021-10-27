@@ -2,15 +2,13 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method        | HTTP request | Description
-------------- | ------------ | ------------
-[**createSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#createSLOCorrection) | **POST** /api/v1/slo/correction | Create an SLO correction
-[**deleteSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#deleteSLOCorrection) | **DELETE** /api/v1/slo/correction/{slo_correction_id} | Delete an SLO correction
-[**getSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#getSLOCorrection) | **GET** /api/v1/slo/correction/{slo_correction_id} | Get an SLO correction for an SLO
-[**listSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#listSLOCorrection) | **GET** /api/v1/slo/correction | Get all SLO corrections
-[**updateSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#updateSLOCorrection) | **PATCH** /api/v1/slo/correction/{slo_correction_id} | Update an SLO correction
-
-
+| Method                                                                                | HTTP request                                          | Description                      |
+| ------------------------------------------------------------------------------------- | ----------------------------------------------------- | -------------------------------- |
+| [**createSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#createSLOCorrection) | **POST** /api/v1/slo/correction                       | Create an SLO correction         |
+| [**deleteSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#deleteSLOCorrection) | **DELETE** /api/v1/slo/correction/{slo_correction_id} | Delete an SLO correction         |
+| [**getSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#getSLOCorrection)       | **GET** /api/v1/slo/correction/{slo_correction_id}    | Get an SLO correction for an SLO |
+| [**listSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#listSLOCorrection)     | **GET** /api/v1/slo/correction                        | Get all SLO corrections          |
+| [**updateSLOCorrection**](ServiceLevelObjectiveCorrectionsApi.md#updateSLOCorrection) | **PATCH** /api/v1/slo/correction/{slo_correction_id}  | Update an SLO correction         |
 
 ## createSLOCorrection
 
@@ -50,10 +48,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**SLOCorrectionCreateRequest**](SLOCorrectionCreateRequest.md)| Create an SLO Correction |
+| Name     | Type                                                            | Description              | Notes |
+| -------- | --------------------------------------------------------------- | ------------------------ | ----- |
+| **body** | [**SLOCorrectionCreateRequest**](SLOCorrectionCreateRequest.md) | Create an SLO Correction |
 
 ### Return type
 
@@ -69,13 +66,13 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | SLO Not Found |  -  |
 
+| Status code | Description   | Response headers |
+| ----------- | ------------- | ---------------- |
+| **200**     | OK            | -                |
+| **400**     | Bad Request   | -                |
+| **403**     | Forbidden     | -                |
+| **404**     | SLO Not Found | -                |
 
 ## deleteSLOCorrection
 
@@ -114,10 +111,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **sloCorrectionId** | **String**| The ID of the SLO correction object. |
+| Name                | Type       | Description                          | Notes |
+| ------------------- | ---------- | ------------------------------------ | ----- |
+| **sloCorrectionId** | **String** | The ID of the SLO correction object. |
 
 ### Return type
 
@@ -133,12 +129,12 @@ null (empty response body)
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | OK |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not found |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **204**     | OK          | -                |
+| **403**     | Forbidden   | -                |
+| **404**     | Not found   | -                |
 
 ## getSLOCorrection
 
@@ -178,10 +174,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **sloCorrectionId** | **String**| The ID of the SLO correction object. |
+| Name                | Type       | Description                          | Notes |
+| ------------------- | ---------- | ------------------------------------ | ----- |
+| **sloCorrectionId** | **String** | The ID of the SLO correction object. |
 
 ### Return type
 
@@ -197,12 +192,12 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |
 
 ## listSLOCorrection
 
@@ -257,11 +252,11 @@ This endpoint does not need any parameter.
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **403** | Forbidden |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **403**     | Forbidden   | -                |
 
 ## updateSLOCorrection
 
@@ -302,11 +297,10 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **sloCorrectionId** | **String**| The ID of the SLO correction object. |
- **body** | [**SLOCorrectionUpdateRequest**](SLOCorrectionUpdateRequest.md)| The edited SLO correction object. |
+| Name                | Type                                                            | Description                          | Notes |
+| ------------------- | --------------------------------------------------------------- | ------------------------------------ | ----- |
+| **sloCorrectionId** | **String**                                                      | The ID of the SLO correction object. |
+| **body**            | [**SLOCorrectionUpdateRequest**](SLOCorrectionUpdateRequest.md) | The edited SLO correction object.    |
 
 ### Return type
 
@@ -322,10 +316,10 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |
+| **404**     | Not Found   | -                |

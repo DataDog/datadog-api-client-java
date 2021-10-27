@@ -1,13 +1,7 @@
-
-
 # LogsMetricResponseComputeAggregationType
 
 ## Enum
 
+- `COUNT` (value: `"count"`)
 
-* `COUNT` (value: `"count"`)
-
-* `DISTRIBUTION` (value: `"distribution"`)
-
-
-
+- `DISTRIBUTION` (value: `"distribution"`)

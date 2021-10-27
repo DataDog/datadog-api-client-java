@@ -27,16 +27,17 @@ public class Undo {
     public String operationId;
     public List<Parameter> parameters;
 
-    public Map<String, Object> getRequestParameters(Object data, Method requestBuilder, ObjectMapper mapper) {
+    public Map<String, Object> getRequestParameters(
+        Object data, Method requestBuilder, ObjectMapper mapper) {
       Map<String, Object> requestParams = new HashMap<String, Object>();
       for (int i = 0; i < parameters.size(); i++) {
         Undo.UndoMethod.Parameter p = parameters.get(i);
         try {
           if (p.source != null) {
             requestParams.put(World.toPropertyName(p.name), World.lookup(data, p.source));
-	  } else if (p.template != null) {
-	    Class<?>[] types = requestBuilder.getParameterTypes();
-            Object param = World.fromJSON(mapper, types[i],  World.templated(p.template, data));
+          } else if (p.template != null) {
+            Class<?>[] types = requestBuilder.getParameterTypes();
+            Object param = World.fromJSON(mapper, types[i], World.templated(p.template, data));
             requestParams.put(World.toPropertyName(p.name), param);
           }
         } catch (java.lang.IllegalAccessException e) {
@@ -45,7 +46,7 @@ public class Undo {
           throw new RuntimeException(e);
         } catch (com.fasterxml.jackson.core.JsonProcessingException e) {
           throw new RuntimeException(e);
-	}
+        }
       }
       return requestParams;
     }

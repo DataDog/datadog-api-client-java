@@ -2,14 +2,12 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method        | HTTP request | Description
-------------- | ------------ | ------------
-[**createGCPIntegration**](GcpIntegrationApi.md#createGCPIntegration) | **POST** /api/v1/integration/gcp | Create a GCP integration
-[**deleteGCPIntegration**](GcpIntegrationApi.md#deleteGCPIntegration) | **DELETE** /api/v1/integration/gcp | Delete a GCP integration
-[**listGCPIntegration**](GcpIntegrationApi.md#listGCPIntegration) | **GET** /api/v1/integration/gcp | List all GCP integrations
-[**updateGCPIntegration**](GcpIntegrationApi.md#updateGCPIntegration) | **PUT** /api/v1/integration/gcp | Update a GCP integration
-
-
+| Method                                                                | HTTP request                       | Description               |
+| --------------------------------------------------------------------- | ---------------------------------- | ------------------------- |
+| [**createGCPIntegration**](GcpIntegrationApi.md#createGCPIntegration) | **POST** /api/v1/integration/gcp   | Create a GCP integration  |
+| [**deleteGCPIntegration**](GcpIntegrationApi.md#deleteGCPIntegration) | **DELETE** /api/v1/integration/gcp | Delete a GCP integration  |
+| [**listGCPIntegration**](GcpIntegrationApi.md#listGCPIntegration)     | **GET** /api/v1/integration/gcp    | List all GCP integrations |
+| [**updateGCPIntegration**](GcpIntegrationApi.md#updateGCPIntegration) | **PUT** /api/v1/integration/gcp    | Update a GCP integration  |
 
 ## createGCPIntegration
 
@@ -49,10 +47,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**GCPAccount**](GCPAccount.md)| Create a Datadog-GCP integration. |
+| Name     | Type                            | Description                       | Notes |
+| -------- | ------------------------------- | --------------------------------- | ----- |
+| **body** | [**GCPAccount**](GCPAccount.md) | Create a Datadog-GCP integration. |
 
 ### Return type
 
@@ -68,12 +65,12 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication error |  -  |
 
+| Status code | Description          | Response headers |
+| ----------- | -------------------- | ---------------- |
+| **200**     | OK                   | -                |
+| **400**     | Bad Request          | -                |
+| **403**     | Authentication error | -                |
 
 ## deleteGCPIntegration
 
@@ -113,10 +110,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**GCPAccount**](GCPAccount.md)| Delete a given Datadog-GCP integration. |
+| Name     | Type                            | Description                             | Notes |
+| -------- | ------------------------------- | --------------------------------------- | ----- |
+| **body** | [**GCPAccount**](GCPAccount.md) | Delete a given Datadog-GCP integration. |
 
 ### Return type
 
@@ -132,12 +128,12 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication error |  -  |
 
+| Status code | Description          | Response headers |
+| ----------- | -------------------- | ---------------- |
+| **200**     | OK                   | -                |
+| **400**     | Bad Request          | -                |
+| **403**     | Authentication error | -                |
 
 ## listGCPIntegration
 
@@ -192,12 +188,12 @@ This endpoint does not need any parameter.
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication error |  -  |
 
+| Status code | Description          | Response headers |
+| ----------- | -------------------- | ---------------- |
+| **200**     | OK                   | -                |
+| **400**     | Bad Request          | -                |
+| **403**     | Authentication error | -                |
 
 ## updateGCPIntegration
 
@@ -240,10 +236,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**GCPAccount**](GCPAccount.md)| Update a Datadog-GCP integration. |
+| Name     | Type                            | Description                       | Notes |
+| -------- | ------------------------------- | --------------------------------- | ----- |
+| **body** | [**GCPAccount**](GCPAccount.md) | Update a Datadog-GCP integration. |
 
 ### Return type
 
@@ -259,9 +254,9 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication error |  -  |
 
+| Status code | Description          | Response headers |
+| ----------- | -------------------- | ---------------- |
+| **200**     | OK                   | -                |
+| **400**     | Bad Request          | -                |
+| **403**     | Authentication error | -                |

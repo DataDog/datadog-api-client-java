@@ -1,11 +1,5 @@
-
-
 # LogsArchiveOrderDefinitionType
 
 ## Enum
 
-
-* `ARCHIVE_ORDER` (value: `"archive_order"`)
-
-
-
+- `ARCHIVE_ORDER` (value: `"archive_order"`)

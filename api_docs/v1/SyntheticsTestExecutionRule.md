@@ -1,15 +1,9 @@
-
-
 # SyntheticsTestExecutionRule
 
 ## Enum
 
+- `BLOCKING` (value: `"blocking"`)
 
-* `BLOCKING` (value: `"blocking"`)
+- `NON_BLOCKING` (value: `"non_blocking"`)
 
-* `NON_BLOCKING` (value: `"non_blocking"`)
-
-* `SKIPPED` (value: `"skipped"`)
-
-
-
+- `SKIPPED` (value: `"skipped"`)

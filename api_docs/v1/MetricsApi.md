@@ -2,16 +2,14 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method        | HTTP request | Description
-------------- | ------------ | ------------
-[**getMetricMetadata**](MetricsApi.md#getMetricMetadata) | **GET** /api/v1/metrics/{metric_name} | Get metric metadata
-[**listActiveMetrics**](MetricsApi.md#listActiveMetrics) | **GET** /api/v1/metrics | Get active metrics list
-[**listMetrics**](MetricsApi.md#listMetrics) | **GET** /api/v1/search | Search metrics
-[**queryMetrics**](MetricsApi.md#queryMetrics) | **GET** /api/v1/query | Query timeseries points
-[**submitMetrics**](MetricsApi.md#submitMetrics) | **POST** /api/v1/series | Submit metrics
-[**updateMetricMetadata**](MetricsApi.md#updateMetricMetadata) | **PUT** /api/v1/metrics/{metric_name} | Edit metric metadata
-
-
+| Method                                                         | HTTP request                          | Description             |
+| -------------------------------------------------------------- | ------------------------------------- | ----------------------- |
+| [**getMetricMetadata**](MetricsApi.md#getMetricMetadata)       | **GET** /api/v1/metrics/{metric_name} | Get metric metadata     |
+| [**listActiveMetrics**](MetricsApi.md#listActiveMetrics)       | **GET** /api/v1/metrics               | Get active metrics list |
+| [**listMetrics**](MetricsApi.md#listMetrics)                   | **GET** /api/v1/search                | Search metrics          |
+| [**queryMetrics**](MetricsApi.md#queryMetrics)                 | **GET** /api/v1/query                 | Query timeseries points |
+| [**submitMetrics**](MetricsApi.md#submitMetrics)               | **POST** /api/v1/series               | Submit metrics          |
+| [**updateMetricMetadata**](MetricsApi.md#updateMetricMetadata) | **PUT** /api/v1/metrics/{metric_name} | Edit metric metadata    |
 
 ## getMetricMetadata
 
@@ -51,10 +49,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **metricName** | **String**| Name of the metric for which to get metadata. |
+| Name           | Type       | Description                                   | Notes |
+| -------------- | ---------- | --------------------------------------------- | ----- |
+| **metricName** | **String** | Name of the metric for which to get metadata. |
 
 ### Return type
 
@@ -70,12 +67,12 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **403**     | Forbidden   | -                |
+| **404**     | Not Found   | -                |
 
 ## listActiveMetrics
 
@@ -119,12 +116,11 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **from** | **Long**| Seconds since the Unix epoch. |
- **host** | **String**| Hostname for filtering the list of metrics returned. If set, metrics retrieved are those with the corresponding hostname tag. | [optional]
- **tagFilter** | **String**| Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters. | [optional]
+| Name          | Type       | Description                                                                                                                                    | Notes      |
+| ------------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **from**      | **Long**   | Seconds since the Unix epoch.                                                                                                                  |
+| **host**      | **String** | Hostname for filtering the list of metrics returned. If set, metrics retrieved are those with the corresponding hostname tag.                  | [optional] |
+| **tagFilter** | **String** | Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters. | [optional] |
 
 ### Return type
 
@@ -140,12 +136,12 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |
 
 ## listMetrics
 
@@ -185,10 +181,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **q** | **String**| Query string to search metrics upon. Must be prefixed with &#x60;metrics:&#x60;. |
+| Name  | Type       | Description                                                                      | Notes |
+| ----- | ---------- | -------------------------------------------------------------------------------- | ----- |
+| **q** | **String** | Query string to search metrics upon. Must be prefixed with &#x60;metrics:&#x60;. |
 
 ### Return type
 
@@ -204,12 +199,12 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |
 
 ## queryMetrics
 
@@ -251,12 +246,11 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **from** | **Long**| Start of the queried time period, seconds since the Unix epoch. |
- **to** | **Long**| End of the queried time period, seconds since the Unix epoch. |
- **query** | **String**| Query string. |
+| Name      | Type       | Description                                                     | Notes |
+| --------- | ---------- | --------------------------------------------------------------- | ----- |
+| **from**  | **Long**   | Start of the queried time period, seconds since the Unix epoch. |
+| **to**    | **Long**   | End of the queried time period, seconds since the Unix epoch.   |
+| **query** | **String** | Query string.                                                   |
 
 ### Return type
 
@@ -272,12 +266,12 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |
 
 ## submitMetrics
 
@@ -293,7 +287,7 @@ If you’re submitting metrics directly to the Datadog API without using DogStat
 - 20 bytes for the metric names
 - 50 bytes for the timeseries
 - The full payload is approximately 100 bytes. However, with the DogStatsD API,
-compression is applied, which reduces the payload size.
+  compression is applied, which reduces the payload size.
 
 ### Example
 
@@ -310,7 +304,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         MetricsApi apiInstance = new MetricsApi(defaultClient);
-        MetricsPayload body = new MetricsPayload(); // MetricsPayload | 
+        MetricsPayload body = new MetricsPayload(); // MetricsPayload |
         MetricContentEncoding contentEncoding = MetricContentEncoding.fromValue("deflate"); // MetricContentEncoding | HTTP header used to compress the media-type.
         try {
             IntakePayloadAccepted result = apiInstance.submitMetrics(body, new MetricsApi.SubmitMetricsOptionalParameters()
@@ -329,11 +323,10 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**MetricsPayload**](MetricsPayload.md)|  |
- **contentEncoding** | **MetricContentEncoding**| HTTP header used to compress the media-type. | [optional] [enum: deflate]
+| Name                | Type                                    | Description                                  | Notes                      |
+| ------------------- | --------------------------------------- | -------------------------------------------- | -------------------------- |
+| **body**            | [**MetricsPayload**](MetricsPayload.md) |                                              |
+| **contentEncoding** | **MetricContentEncoding**               | HTTP header used to compress the media-type. | [optional] [enum: deflate] |
 
 ### Return type
 
@@ -349,14 +342,14 @@ Name | Type | Description  | Notes
 - **Accept**: text/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **202** | Payload accepted |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication error |  -  |
-| **408** | Request timeout |  -  |
-| **413** | Payload too large |  -  |
 
+| Status code | Description          | Response headers |
+| ----------- | -------------------- | ---------------- |
+| **202**     | Payload accepted     | -                |
+| **400**     | Bad Request          | -                |
+| **403**     | Authentication error | -                |
+| **408**     | Request timeout      | -                |
+| **413**     | Payload too large    | -                |
 
 ## updateMetricMetadata
 
@@ -397,11 +390,10 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **metricName** | **String**| Name of the metric for which to edit metadata. |
- **body** | [**MetricMetadata**](MetricMetadata.md)| New metadata. |
+| Name           | Type                                    | Description                                    | Notes |
+| -------------- | --------------------------------------- | ---------------------------------------------- | ----- |
+| **metricName** | **String**                              | Name of the metric for which to edit metadata. |
+| **body**       | [**MetricMetadata**](MetricMetadata.md) | New metadata.                                  |
 
 ### Return type
 
@@ -417,10 +409,10 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |
+| **404**     | Not Found   | -                |
