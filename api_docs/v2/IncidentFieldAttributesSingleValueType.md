@@ -1,13 +1,7 @@
-
-
 # IncidentFieldAttributesSingleValueType
 
 ## Enum
 
+- `DROPDOWN` (value: `"dropdown"`)
 
-* `DROPDOWN` (value: `"dropdown"`)
-
-* `TEXTBOX` (value: `"textbox"`)
-
-
-
+- `TEXTBOX` (value: `"textbox"`)

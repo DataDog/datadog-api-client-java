@@ -1,13 +1,7 @@
-
-
 # QuerySortOrder
 
 ## Enum
 
+- `ASC` (value: `"asc"`)
 
-* `ASC` (value: `"asc"`)
-
-* `DESC` (value: `"desc"`)
-
-
-
+- `DESC` (value: `"desc"`)

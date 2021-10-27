@@ -1,19 +1,13 @@
-
-
 # SecurityMonitoringRuleSeverity
 
 ## Enum
 
+- `INFO` (value: `"info"`)
 
-* `INFO` (value: `"info"`)
+- `LOW` (value: `"low"`)
 
-* `LOW` (value: `"low"`)
+- `MEDIUM` (value: `"medium"`)
 
-* `MEDIUM` (value: `"medium"`)
+- `HIGH` (value: `"high"`)
 
-* `HIGH` (value: `"high"`)
-
-* `CRITICAL` (value: `"critical"`)
-
-
-
+- `CRITICAL` (value: `"critical"`)

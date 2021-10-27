@@ -1,13 +1,13 @@
-
-
 # IncidentTeamIncludedItems
 
 An object related to an incident team which is present in the included payload.
 
 ## oneOf schemas
-* [User](User.md)
+
+- [User](User.md)
 
 ## Example
+
 ```java
 // Import classes:
 import com.datadog.api.v2.client.model.IncidentTeamIncludedItems;
@@ -26,5 +26,3 @@ public class Example {
     }
 }
 ```
-
-

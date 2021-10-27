@@ -2,15 +2,13 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method        | HTTP request | Description
-------------- | ------------ | ------------
-[**createIncidentService**](IncidentServicesApi.md#createIncidentService) | **POST** /api/v2/services | Create a new incident service
-[**deleteIncidentService**](IncidentServicesApi.md#deleteIncidentService) | **DELETE** /api/v2/services/{service_id} | Delete an existing incident service
-[**getIncidentService**](IncidentServicesApi.md#getIncidentService) | **GET** /api/v2/services/{service_id} | Get details of an incident service
-[**listIncidentServices**](IncidentServicesApi.md#listIncidentServices) | **GET** /api/v2/services | Get a list of all incident services
-[**updateIncidentService**](IncidentServicesApi.md#updateIncidentService) | **PATCH** /api/v2/services/{service_id} | Update an existing incident service
-
-
+| Method                                                                    | HTTP request                             | Description                         |
+| ------------------------------------------------------------------------- | ---------------------------------------- | ----------------------------------- |
+| [**createIncidentService**](IncidentServicesApi.md#createIncidentService) | **POST** /api/v2/services                | Create a new incident service       |
+| [**deleteIncidentService**](IncidentServicesApi.md#deleteIncidentService) | **DELETE** /api/v2/services/{service_id} | Delete an existing incident service |
+| [**getIncidentService**](IncidentServicesApi.md#getIncidentService)       | **GET** /api/v2/services/{service_id}    | Get details of an incident service  |
+| [**listIncidentServices**](IncidentServicesApi.md#listIncidentServices)   | **GET** /api/v2/services                 | Get a list of all incident services |
+| [**updateIncidentService**](IncidentServicesApi.md#updateIncidentService) | **PATCH** /api/v2/services/{service_id}  | Update an existing incident service |
 
 ## createIncidentService
 
@@ -50,10 +48,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**IncidentServiceCreateRequest**](IncidentServiceCreateRequest.md)| Incident Service Payload. |
+| Name     | Type                                                                | Description               | Notes |
+| -------- | ------------------------------------------------------------------- | ------------------------- | ----- |
+| **body** | [**IncidentServiceCreateRequest**](IncidentServiceCreateRequest.md) | Incident Service Payload. |
 
 ### Return type
 
@@ -69,14 +66,14 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **201** | CREATED |  -  |
-| **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
 
+| Status code | Description  | Response headers |
+| ----------- | ------------ | ---------------- |
+| **201**     | CREATED      | -                |
+| **400**     | Bad Request  | -                |
+| **401**     | Unauthorized | -                |
+| **403**     | Forbidden    | -                |
+| **404**     | Not Found    | -                |
 
 ## deleteIncidentService
 
@@ -115,10 +112,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **serviceId** | **String**| The ID of the incident service. |
+| Name          | Type       | Description                     | Notes |
+| ------------- | ---------- | ------------------------------- | ----- |
+| **serviceId** | **String** | The ID of the incident service. |
 
 ### Return type
 
@@ -134,14 +130,14 @@ null (empty response body)
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
 
+| Status code | Description  | Response headers |
+| ----------- | ------------ | ---------------- |
+| **204**     | OK           | -                |
+| **400**     | Bad Request  | -                |
+| **401**     | Unauthorized | -                |
+| **403**     | Forbidden    | -                |
+| **404**     | Not Found    | -                |
 
 ## getIncidentService
 
@@ -184,11 +180,10 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **serviceId** | **String**| The ID of the incident service. |
- **include** | **IncidentRelatedObject**| Specifies which types of related objects should be included in the response. | [optional] [enum: users]
+| Name          | Type                      | Description                                                                  | Notes                    |
+| ------------- | ------------------------- | ---------------------------------------------------------------------------- | ------------------------ |
+| **serviceId** | **String**                | The ID of the incident service.                                              |
+| **include**   | **IncidentRelatedObject** | Specifies which types of related objects should be included in the response. | [optional] [enum: users] |
 
 ### Return type
 
@@ -204,14 +199,14 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
 
+| Status code | Description  | Response headers |
+| ----------- | ------------ | ---------------- |
+| **200**     | OK           | -                |
+| **400**     | Bad Request  | -                |
+| **401**     | Unauthorized | -                |
+| **403**     | Forbidden    | -                |
+| **404**     | Not Found    | -                |
 
 ## listIncidentServices
 
@@ -258,13 +253,12 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **include** | **IncidentRelatedObject**| Specifies which types of related objects should be included in the response. | [optional] [enum: users]
- **pageSize** | **Long**| Size for a given page. | [optional] [default to 10]
- **pageOffset** | **Long**| Specific offset to use as the beginning of the returned page. | [optional] [default to 0]
- **filter** | **String**| A search query that filters services by name. | [optional]
+| Name           | Type                      | Description                                                                  | Notes                      |
+| -------------- | ------------------------- | ---------------------------------------------------------------------------- | -------------------------- |
+| **include**    | **IncidentRelatedObject** | Specifies which types of related objects should be included in the response. | [optional] [enum: users]   |
+| **pageSize**   | **Long**                  | Size for a given page.                                                       | [optional] [default to 10] |
+| **pageOffset** | **Long**                  | Specific offset to use as the beginning of the returned page.                | [optional] [default to 0]  |
+| **filter**     | **String**                | A search query that filters services by name.                                | [optional]                 |
 
 ### Return type
 
@@ -280,14 +274,14 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
 
+| Status code | Description  | Response headers |
+| ----------- | ------------ | ---------------- |
+| **200**     | OK           | -                |
+| **400**     | Bad Request  | -                |
+| **401**     | Unauthorized | -                |
+| **403**     | Forbidden    | -                |
+| **404**     | Not Found    | -                |
 
 ## updateIncidentService
 
@@ -328,11 +322,10 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **serviceId** | **String**| The ID of the incident service. |
- **body** | [**IncidentServiceUpdateRequest**](IncidentServiceUpdateRequest.md)| Incident Service Payload. |
+| Name          | Type                                                                | Description                     | Notes |
+| ------------- | ------------------------------------------------------------------- | ------------------------------- | ----- |
+| **serviceId** | **String**                                                          | The ID of the incident service. |
+| **body**      | [**IncidentServiceUpdateRequest**](IncidentServiceUpdateRequest.md) | Incident Service Payload.       |
 
 ### Return type
 
@@ -348,11 +341,11 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
 
+| Status code | Description  | Response headers |
+| ----------- | ------------ | ---------------- |
+| **200**     | OK           | -                |
+| **400**     | Bad Request  | -                |
+| **401**     | Unauthorized | -                |
+| **403**     | Forbidden    | -                |
+| **404**     | Not Found    | -                |

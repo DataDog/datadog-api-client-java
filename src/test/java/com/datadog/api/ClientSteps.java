@@ -37,9 +37,10 @@ public class ClientSteps {
   }
 
   @Before(order = 10)
-  public void setupClient() throws java.lang.reflect.InvocationTargetException, java.lang.IllegalAccessException,
-      java.lang.InstantiationException, java.lang.NoSuchMethodException, java.lang.ClassNotFoundException,
-      java.lang.NoSuchFieldException {
+  public void setupClient()
+      throws java.lang.reflect.InvocationTargetException, java.lang.IllegalAccessException,
+          java.lang.InstantiationException, java.lang.NoSuchMethodException,
+          java.lang.ClassNotFoundException, java.lang.NoSuchFieldException {
     world.setupClient(apiVersion);
   }
 
@@ -49,11 +50,18 @@ public class ClientSteps {
     world.context.put("unique", unique);
     world.context.put("unique_lower", unique.toLowerCase());
     world.context.put("unique_upper", unique.toUpperCase());
-    world.context.put("unique_alnum", World.replace(unique, Pattern.compile("[^A-Za-z0-9]+"), m -> {
-      return "";
-    }));
-    world.context.put("unique_lower_alnum", world.context.get("unique_alnum").toString().toLowerCase());
-    world.context.put("unique_upper_alnum", world.context.get("unique_alnum").toString().toUpperCase());
+    world.context.put(
+        "unique_alnum",
+        World.replace(
+            unique,
+            Pattern.compile("[^A-Za-z0-9]+"),
+            m -> {
+              return "";
+            }));
+    world.context.put(
+        "unique_lower_alnum", world.context.get("unique_alnum").toString().toLowerCase());
+    world.context.put(
+        "unique_upper_alnum", world.context.get("unique_alnum").toString().toUpperCase());
 
     world.context.put("now", world.now);
   }
@@ -72,22 +80,25 @@ public class ClientSteps {
 
   @Given("an instance of {string} API")
   public void anInstanceOfAPI(String apiName)
-      throws java.lang.ClassNotFoundException, java.lang.NoSuchFieldException, java.lang.InstantiationException,
-      java.lang.IllegalAccessException, java.lang.NoSuchMethodException, java.lang.reflect.InvocationTargetException {
+      throws java.lang.ClassNotFoundException, java.lang.NoSuchFieldException,
+          java.lang.InstantiationException, java.lang.IllegalAccessException,
+          java.lang.NoSuchMethodException, java.lang.reflect.InvocationTargetException {
     world.setupAPI(apiVersion, World.toClassName(apiName));
   }
 
   @Given("operation {string} enabled")
   public void operationEnabled(String operationId)
       throws java.lang.reflect.InvocationTargetException, java.lang.IllegalAccessException,
-      java.lang.InstantiationException, java.lang.NoSuchMethodException, java.lang.ClassNotFoundException {
+          java.lang.InstantiationException, java.lang.NoSuchMethodException,
+          java.lang.ClassNotFoundException {
     world.setUnstableOperationEnabled(World.toMethodName(operationId));
   }
 
   @Given("a valid \"apiKeyAuth\" key in the system")
   public void aValidApiKeyInTheSystem()
       throws java.lang.reflect.InvocationTargetException, java.lang.IllegalAccessException,
-      java.lang.InstantiationException, java.lang.NoSuchMethodException, java.lang.ClassNotFoundException {
+          java.lang.InstantiationException, java.lang.NoSuchMethodException,
+          java.lang.ClassNotFoundException {
     HashMap<String, String> secrets = new HashMap<String, String>();
     secrets.put("apiKeyAuth", System.getenv(TEST_API_KEY_NAME));
     world.configureApiKeys(secrets);
@@ -96,45 +107,53 @@ public class ClientSteps {
   @Given("a valid \"appKeyAuth\" key in the system")
   public void aValidAppKeyInTheSystem()
       throws java.lang.reflect.InvocationTargetException, java.lang.IllegalAccessException,
-      java.lang.InstantiationException, java.lang.NoSuchMethodException, java.lang.ClassNotFoundException {
+          java.lang.InstantiationException, java.lang.NoSuchMethodException,
+          java.lang.ClassNotFoundException {
     HashMap<String, String> secrets = new HashMap<String, String>();
     secrets.put("appKeyAuth", System.getenv(TEST_APP_KEY_NAME));
     world.configureApiKeys(secrets);
   }
 
   @Given("new {string} request")
-  public void newRequest(String methodName) throws java.lang.IllegalAccessException, java.lang.IllegalAccessException,
-      java.lang.NoSuchMethodException, java.lang.reflect.InvocationTargetException {
+  public void newRequest(String methodName)
+      throws java.lang.IllegalAccessException, java.lang.IllegalAccessException,
+          java.lang.NoSuchMethodException, java.lang.reflect.InvocationTargetException {
     world.newRequest(methodName);
   }
 
   @Given("request contains {string} parameter from {string}")
   public void requestContainsParameterFrom(String parameterName, String fixturePath)
-      throws java.lang.IllegalAccessException, java.lang.NoSuchFieldException, java.lang.ClassNotFoundException,
-      java.lang.NoSuchMethodException, java.lang.reflect.InvocationTargetException {
+      throws java.lang.IllegalAccessException, java.lang.NoSuchFieldException,
+          java.lang.ClassNotFoundException, java.lang.NoSuchMethodException,
+          java.lang.reflect.InvocationTargetException {
     world.addRequestParameterFixture(parameterName, fixturePath);
   }
 
   @Given("request contains {string} parameter with value {}")
   public void requestContainsParameterWithValue(String parameterName, String value)
-      throws java.lang.IllegalAccessException, java.lang.NoSuchFieldException, java.lang.ClassNotFoundException,
-      java.lang.NoSuchMethodException, java.lang.reflect.InvocationTargetException,
-      com.fasterxml.jackson.core.JsonProcessingException {
+      throws java.lang.IllegalAccessException, java.lang.NoSuchFieldException,
+          java.lang.ClassNotFoundException, java.lang.NoSuchMethodException,
+          java.lang.reflect.InvocationTargetException,
+          com.fasterxml.jackson.core.JsonProcessingException {
     world.addRequestParameter(parameterName, value);
   }
 
   @Given("body with value {}")
-  public void setBody(String data) throws java.lang.IllegalAccessException, java.lang.NoSuchFieldException,
-      java.lang.ClassNotFoundException, java.lang.NoSuchMethodException, java.lang.reflect.InvocationTargetException,
-      com.fasterxml.jackson.core.JsonProcessingException {
+  public void setBody(String data)
+      throws java.lang.IllegalAccessException, java.lang.NoSuchFieldException,
+          java.lang.ClassNotFoundException, java.lang.NoSuchMethodException,
+          java.lang.reflect.InvocationTargetException,
+          com.fasterxml.jackson.core.JsonProcessingException {
     world.addRequestParameter("body", data);
   }
 
   @Given("body from file {string}")
   public void setBodyFromFile(String filename)
-      throws java.lang.IllegalAccessException, java.lang.NoSuchFieldException, java.lang.ClassNotFoundException,
-      java.lang.NoSuchMethodException, java.lang.reflect.InvocationTargetException, IOException {
-    Path bodyPath = Paths.get("src/test/resources/com/datadog/api/" + apiVersion + "/client/api/" + filename);
+      throws java.lang.IllegalAccessException, java.lang.NoSuchFieldException,
+          java.lang.ClassNotFoundException, java.lang.NoSuchMethodException,
+          java.lang.reflect.InvocationTargetException, IOException {
+    Path bodyPath =
+        Paths.get("src/test/resources/com/datadog/api/" + apiVersion + "/client/api/" + filename);
     String data = new String(Files.readAllBytes(bodyPath));
     world.addRequestParameter("body", data);
   }
@@ -142,30 +161,37 @@ public class ClientSteps {
   @Then("the response status is {int} {}")
   public void theResponseStatusIs(Integer statusCode, String unused)
       throws java.lang.reflect.InvocationTargetException, java.lang.IllegalAccessException,
-      java.lang.InstantiationException, java.lang.NoSuchMethodException, java.lang.ClassNotFoundException {
+          java.lang.InstantiationException, java.lang.NoSuchMethodException,
+          java.lang.ClassNotFoundException {
     Integer responseStatusCode = (Integer) 0;
     if (world.response != null) {
-      responseStatusCode = (Integer) world.responseClass.getMethod("getStatusCode").invoke(world.response);
+      responseStatusCode =
+          (Integer) world.responseClass.getMethod("getStatusCode").invoke(world.response);
     }
     assertEquals(statusCode, responseStatusCode);
   }
 
   @Then("the response {string} is equal to {}")
-  public void theResponseIsEqualTo(String responsePath, String value) throws java.lang.IllegalAccessException,
-      java.lang.NoSuchFieldException, java.lang.reflect.InvocationTargetException, java.lang.IllegalAccessException,
-      java.lang.InstantiationException, java.lang.NoSuchMethodException, java.lang.ClassNotFoundException,
-      com.fasterxml.jackson.core.JsonProcessingException {
+  public void theResponseIsEqualTo(String responsePath, String value)
+      throws java.lang.IllegalAccessException, java.lang.NoSuchFieldException,
+          java.lang.reflect.InvocationTargetException, java.lang.IllegalAccessException,
+          java.lang.InstantiationException, java.lang.NoSuchMethodException,
+          java.lang.ClassNotFoundException, com.fasterxml.jackson.core.JsonProcessingException {
     Object responseData = world.responseClass.getMethod("getData").invoke(world.response);
     Object responseValue = World.lookup(responseData, responsePath);
     assertEquals(
-        World.fromJSON(world.getObjectMapper(), responseValue.getClass(), World.templated(value, world.context)),
+        World.fromJSON(
+            world.getObjectMapper(),
+            responseValue.getClass(),
+            World.templated(value, world.context)),
         responseValue);
   }
 
   @Then("the response {string} is false")
-  public void theResponseIsFalse(String responsePath) throws java.lang.reflect.InvocationTargetException,
-      java.lang.IllegalAccessException, java.lang.InstantiationException, java.lang.NoSuchMethodException,
-      java.lang.ClassNotFoundException, java.lang.NoSuchFieldException {
+  public void theResponseIsFalse(String responsePath)
+      throws java.lang.reflect.InvocationTargetException, java.lang.IllegalAccessException,
+          java.lang.InstantiationException, java.lang.NoSuchMethodException,
+          java.lang.ClassNotFoundException, java.lang.NoSuchFieldException {
     Object responseData = world.responseClass.getMethod("getData").invoke(world.response);
     assertFalse((Boolean) World.lookup(responseData, responsePath));
   }
@@ -173,16 +199,18 @@ public class ClientSteps {
   @Then("the response {string} has the same value as {string}")
   public void theResponseHasTheSameValueAs(String responsePath, String fixturePath)
       throws java.lang.reflect.InvocationTargetException, java.lang.IllegalAccessException,
-      java.lang.InstantiationException, java.lang.NoSuchMethodException, java.lang.ClassNotFoundException,
-      java.lang.NoSuchFieldException {
+          java.lang.InstantiationException, java.lang.NoSuchMethodException,
+          java.lang.ClassNotFoundException, java.lang.NoSuchFieldException {
     Object responseData = world.responseClass.getMethod("getData").invoke(world.response);
-    assertEquals(World.lookup(world.context, fixturePath), World.lookup(responseData, responsePath));
+    assertEquals(
+        World.lookup(world.context, fixturePath), World.lookup(responseData, responsePath));
   }
 
   @Then("the response {string} has length {long}")
-  public void theResponseHasLength(String responsePath, Long size) throws java.lang.reflect.InvocationTargetException,
-      java.lang.IllegalAccessException, java.lang.InstantiationException, java.lang.NoSuchMethodException,
-      java.lang.ClassNotFoundException, java.lang.NoSuchFieldException {
+  public void theResponseHasLength(String responsePath, Long size)
+      throws java.lang.reflect.InvocationTargetException, java.lang.IllegalAccessException,
+          java.lang.InstantiationException, java.lang.NoSuchMethodException,
+          java.lang.ClassNotFoundException, java.lang.NoSuchFieldException {
     Object responseData = world.responseClass.getMethod("getData").invoke(world.response);
     List value = (List) World.lookup(responseData, responsePath);
     assertEquals(size, Long.valueOf(value.size()));

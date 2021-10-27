@@ -1,11 +1,5 @@
-
-
 # CheckStatusWidgetDefinitionType
 
 ## Enum
 
-
-* `CHECK_STATUS` (value: `"check_status"`)
-
-
-
+- `CHECK_STATUS` (value: `"check_status"`)

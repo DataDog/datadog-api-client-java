@@ -2,11 +2,9 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method        | HTTP request | Description
-------------- | ------------ | ------------
-[**submitServiceCheck**](ServiceChecksApi.md#submitServiceCheck) | **POST** /api/v1/check_run | Submit a Service Check
-
-
+| Method                                                           | HTTP request               | Description            |
+| ---------------------------------------------------------------- | -------------------------- | ---------------------- |
+| [**submitServiceCheck**](ServiceChecksApi.md#submitServiceCheck) | **POST** /api/v1/check_run | Submit a Service Check |
 
 ## submitServiceCheck
 
@@ -48,10 +46,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**List&lt;ServiceCheck&gt;**](ServiceCheck.md)| Service Check request body. |
+| Name     | Type                                            | Description                 | Notes |
+| -------- | ----------------------------------------------- | --------------------------- | ----- |
+| **body** | [**List&lt;ServiceCheck&gt;**](ServiceCheck.md) | Service Check request body. |
 
 ### Return type
 
@@ -67,11 +64,11 @@ Name | Type | Description  | Notes
 - **Accept**: text/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **202** | Payload accepted |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication Error |  -  |
-| **408** | Request timeout |  -  |
-| **413** | Payload too large |  -  |
 
+| Status code | Description          | Response headers |
+| ----------- | -------------------- | ---------------- |
+| **202**     | Payload accepted     | -                |
+| **400**     | Bad Request          | -                |
+| **403**     | Authentication Error | -                |
+| **408**     | Request timeout      | -                |
+| **413**     | Payload too large    | -                |

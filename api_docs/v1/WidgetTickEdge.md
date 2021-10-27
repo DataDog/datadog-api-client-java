@@ -1,17 +1,11 @@
-
-
 # WidgetTickEdge
 
 ## Enum
 
+- `BOTTOM` (value: `"bottom"`)
 
-* `BOTTOM` (value: `"bottom"`)
+- `LEFT` (value: `"left"`)
 
-* `LEFT` (value: `"left"`)
+- `RIGHT` (value: `"right"`)
 
-* `RIGHT` (value: `"right"`)
-
-* `TOP` (value: `"top"`)
-
-
-
+- `TOP` (value: `"top"`)

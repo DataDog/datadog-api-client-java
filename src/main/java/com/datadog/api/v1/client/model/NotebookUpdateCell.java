@@ -16,6 +16,7 @@ import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.JsonToken;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -174,7 +175,8 @@ public class NotebookUpdateCell extends AbstractOpenApiSchema {
         Map<String, Object> res =
             new ObjectMapper()
                 .readValue(
-                    tree.traverse(jp.getCodec()).readValueAsTree().toString(), HashMap.class);
+                    tree.traverse(jp.getCodec()).readValueAsTree().toString(),
+                    new TypeReference<Map<String, Object>>() {});
         ret.setActualInstance(new UnparsedObject(res));
       }
       return ret;

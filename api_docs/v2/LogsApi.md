@@ -2,13 +2,11 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method        | HTTP request | Description
-------------- | ------------ | ------------
-[**aggregateLogs**](LogsApi.md#aggregateLogs) | **POST** /api/v2/logs/analytics/aggregate | Aggregate events
-[**listLogs**](LogsApi.md#listLogs) | **POST** /api/v2/logs/events/search | Search logs
-[**listLogsGet**](LogsApi.md#listLogsGet) | **GET** /api/v2/logs/events | Get a list of logs
-
-
+| Method                                        | HTTP request                              | Description        |
+| --------------------------------------------- | ----------------------------------------- | ------------------ |
+| [**aggregateLogs**](LogsApi.md#aggregateLogs) | **POST** /api/v2/logs/analytics/aggregate | Aggregate events   |
+| [**listLogs**](LogsApi.md#listLogs)           | **POST** /api/v2/logs/events/search       | Search logs        |
+| [**listLogsGet**](LogsApi.md#listLogsGet)     | **GET** /api/v2/logs/events               | Get a list of logs |
 
 ## aggregateLogs
 
@@ -31,7 +29,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         LogsApi apiInstance = new LogsApi(defaultClient);
-        LogsAggregateRequest body = new LogsAggregateRequest(); // LogsAggregateRequest | 
+        LogsAggregateRequest body = new LogsAggregateRequest(); // LogsAggregateRequest |
         try {
             LogsAggregateResponse result = apiInstance.aggregateLogs(body);
             System.out.println(result);
@@ -48,10 +46,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**LogsAggregateRequest**](LogsAggregateRequest.md)|  |
+| Name     | Type                                                | Description | Notes |
+| -------- | --------------------------------------------------- | ----------- | ----- |
+| **body** | [**LogsAggregateRequest**](LogsAggregateRequest.md) |             |
 
 ### Return type
 
@@ -67,12 +64,12 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Not Authorized |  -  |
 
+| Status code | Description    | Response headers |
+| ----------- | -------------- | ---------------- |
+| **200**     | OK             | -                |
+| **400**     | Bad Request    | -                |
+| **403**     | Not Authorized | -                |
 
 ## listLogs
 
@@ -105,7 +102,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         LogsApi apiInstance = new LogsApi(defaultClient);
-        LogsListRequest body = new LogsListRequest(); // LogsListRequest | 
+        LogsListRequest body = new LogsListRequest(); // LogsListRequest |
         try {
             LogsListResponse result = apiInstance.listLogs(new LogsApi.ListLogsOptionalParameters()
                 .body(body));
@@ -123,10 +120,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**LogsListRequest**](LogsListRequest.md)|  | [optional]
+| Name     | Type                                      | Description | Notes      |
+| -------- | ----------------------------------------- | ----------- | ---------- |
+| **body** | [**LogsListRequest**](LogsListRequest.md) |             | [optional] |
 
 ### Return type
 
@@ -142,12 +138,12 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Not Authorized |  -  |
 
+| Status code | Description    | Response headers |
+| ----------- | -------------- | ---------------- |
+| **200**     | OK             | -                |
+| **400**     | Bad Request    | -                |
+| **403**     | Not Authorized | -                |
 
 ## listLogsGet
 
@@ -211,16 +207,15 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **filterQuery** | **String**| Search query following logs syntax. | [optional]
- **filterIndex** | **String**| For customers with multiple indexes, the indexes to search Defaults to &#39;*&#39; which means all indexes | [optional]
- **filterFrom** | **OffsetDateTime**| Minimum timestamp for requested logs. | [optional]
- **filterTo** | **OffsetDateTime**| Maximum timestamp for requested logs. | [optional]
- **sort** | **LogsSort**| Order of logs in results. | [optional] [enum: timestamp, -timestamp]
- **pageCursor** | **String**| List following results with a cursor provided in the previous query. | [optional]
- **pageLimit** | **Integer**| Maximum number of logs in the response. | [optional] [default to 10]
+| Name            | Type               | Description                                                                                                 | Notes                                    |
+| --------------- | ------------------ | ----------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
+| **filterQuery** | **String**         | Search query following logs syntax.                                                                         | [optional]                               |
+| **filterIndex** | **String**         | For customers with multiple indexes, the indexes to search Defaults to &#39;\*&#39; which means all indexes | [optional]                               |
+| **filterFrom**  | **OffsetDateTime** | Minimum timestamp for requested logs.                                                                       | [optional]                               |
+| **filterTo**    | **OffsetDateTime** | Maximum timestamp for requested logs.                                                                       | [optional]                               |
+| **sort**        | **LogsSort**       | Order of logs in results.                                                                                   | [optional] [enum: timestamp, -timestamp] |
+| **pageCursor**  | **String**         | List following results with a cursor provided in the previous query.                                        | [optional]                               |
+| **pageLimit**   | **Integer**        | Maximum number of logs in the response.                                                                     | [optional] [default to 10]               |
 
 ### Return type
 
@@ -236,9 +231,9 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Not Authorized |  -  |
 
+| Status code | Description    | Response headers |
+| ----------- | -------------- | ---------------- |
+| **200**     | OK             | -                |
+| **400**     | Bad Request    | -                |
+| **403**     | Not Authorized | -                |

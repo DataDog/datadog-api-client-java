@@ -1,16 +1,16 @@
-
-
 # NotebookCellTime
 
 Timeframe for the notebook cell. When 'null', the notebook global time is used.
 
 ## oneOf schemas
-* [NotebookAbsoluteTime](NotebookAbsoluteTime.md)
-* [NotebookRelativeTime](NotebookRelativeTime.md)
+
+- [NotebookAbsoluteTime](NotebookAbsoluteTime.md)
+- [NotebookRelativeTime](NotebookRelativeTime.md)
 
 NOTE: this class is nullable.
 
 ## Example
+
 ```java
 // Import classes:
 import com.datadog.api.v1.client.model.NotebookCellTime;
@@ -37,5 +37,3 @@ public class Example {
     }
 }
 ```
-
-

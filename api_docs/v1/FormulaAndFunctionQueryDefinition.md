@@ -1,17 +1,17 @@
-
-
 # FormulaAndFunctionQueryDefinition
 
 A formula and function query.
 
 ## oneOf schemas
-* [FormulaAndFunctionApmDependencyStatsQueryDefinition](FormulaAndFunctionApmDependencyStatsQueryDefinition.md)
-* [FormulaAndFunctionApmResourceStatsQueryDefinition](FormulaAndFunctionApmResourceStatsQueryDefinition.md)
-* [FormulaAndFunctionEventQueryDefinition](FormulaAndFunctionEventQueryDefinition.md)
-* [FormulaAndFunctionMetricQueryDefinition](FormulaAndFunctionMetricQueryDefinition.md)
-* [FormulaAndFunctionProcessQueryDefinition](FormulaAndFunctionProcessQueryDefinition.md)
+
+- [FormulaAndFunctionApmDependencyStatsQueryDefinition](FormulaAndFunctionApmDependencyStatsQueryDefinition.md)
+- [FormulaAndFunctionApmResourceStatsQueryDefinition](FormulaAndFunctionApmResourceStatsQueryDefinition.md)
+- [FormulaAndFunctionEventQueryDefinition](FormulaAndFunctionEventQueryDefinition.md)
+- [FormulaAndFunctionMetricQueryDefinition](FormulaAndFunctionMetricQueryDefinition.md)
+- [FormulaAndFunctionProcessQueryDefinition](FormulaAndFunctionProcessQueryDefinition.md)
 
 ## Example
+
 ```java
 // Import classes:
 import com.datadog.api.v1.client.model.FormulaAndFunctionQueryDefinition;
@@ -62,5 +62,3 @@ public class Example {
     }
 }
 ```
-
-

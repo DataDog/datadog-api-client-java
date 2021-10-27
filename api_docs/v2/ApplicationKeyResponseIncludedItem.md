@@ -1,14 +1,14 @@
-
-
 # ApplicationKeyResponseIncludedItem
 
 An object related to an application key.
 
 ## oneOf schemas
-* [Role](Role.md)
-* [User](User.md)
+
+- [Role](Role.md)
+- [User](User.md)
 
 ## Example
+
 ```java
 // Import classes:
 import com.datadog.api.v2.client.model.ApplicationKeyResponseIncludedItem;
@@ -35,5 +35,3 @@ public class Example {
     }
 }
 ```
-
-

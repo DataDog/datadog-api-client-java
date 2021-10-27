@@ -1,11 +1,5 @@
-
-
 # ProcessSummaryType
 
 ## Enum
 
-
-* `PROCESS` (value: `"process"`)
-
-
-
+- `PROCESS` (value: `"process"`)

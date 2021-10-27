@@ -1,13 +1,7 @@
-
-
 # SLOTypeNumeric
 
 ## Enum
 
+- `MONITOR` (value: `0`)
 
-* `MONITOR` (value: `0`)
-
-* `METRIC` (value: `1`)
-
-
-
+- `METRIC` (value: `1`)

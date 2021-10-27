@@ -1,11 +1,5 @@
-
-
 # RolesType
 
 ## Enum
 
-
-* `ROLES` (value: `"roles"`)
-
-
-
+- `ROLES` (value: `"roles"`)

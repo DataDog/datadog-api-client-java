@@ -1,11 +1,5 @@
-
-
 # GeomapWidgetDefinitionType
 
 ## Enum
 
-
-* `GEOMAP` (value: `"geomap"`)
-
-
-
+- `GEOMAP` (value: `"geomap"`)

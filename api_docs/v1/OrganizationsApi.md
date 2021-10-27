@@ -2,15 +2,13 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method        | HTTP request | Description
-------------- | ------------ | ------------
-[**createChildOrg**](OrganizationsApi.md#createChildOrg) | **POST** /api/v1/org | Create a child organization
-[**getOrg**](OrganizationsApi.md#getOrg) | **GET** /api/v1/org/{public_id} | Get organization information
-[**listOrgs**](OrganizationsApi.md#listOrgs) | **GET** /api/v1/org | List your managed organizations
-[**updateOrg**](OrganizationsApi.md#updateOrg) | **PUT** /api/v1/org/{public_id} | Update your organization
-[**uploadIdPForOrg**](OrganizationsApi.md#uploadIdPForOrg) | **POST** /api/v1/org/{public_id}/idp_metadata | Upload IdP metadata
-
-
+| Method                                                     | HTTP request                                  | Description                     |
+| ---------------------------------------------------------- | --------------------------------------------- | ------------------------------- |
+| [**createChildOrg**](OrganizationsApi.md#createChildOrg)   | **POST** /api/v1/org                          | Create a child organization     |
+| [**getOrg**](OrganizationsApi.md#getOrg)                   | **GET** /api/v1/org/{public_id}               | Get organization information    |
+| [**listOrgs**](OrganizationsApi.md#listOrgs)               | **GET** /api/v1/org                           | List your managed organizations |
+| [**updateOrg**](OrganizationsApi.md#updateOrg)             | **PUT** /api/v1/org/{public_id}               | Update your organization        |
+| [**uploadIdPForOrg**](OrganizationsApi.md#uploadIdPForOrg) | **POST** /api/v1/org/{public_id}/idp_metadata | Upload IdP metadata             |
 
 ## createChildOrg
 
@@ -59,10 +57,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**OrganizationCreateBody**](OrganizationCreateBody.md)| Organization object that needs to be created |
+| Name     | Type                                                    | Description                                  | Notes |
+| -------- | ------------------------------------------------------- | -------------------------------------------- | ----- |
+| **body** | [**OrganizationCreateBody**](OrganizationCreateBody.md) | Organization object that needs to be created |
 
 ### Return type
 
@@ -78,12 +75,12 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |
 
 ## getOrg
 
@@ -123,10 +120,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **publicId** | **String**| The &#x60;public_id&#x60; of the organization you are operating within. |
+| Name         | Type       | Description                                                             | Notes |
+| ------------ | ---------- | ----------------------------------------------------------------------- | ----- |
+| **publicId** | **String** | The &#x60;public_id&#x60; of the organization you are operating within. |
 
 ### Return type
 
@@ -142,12 +138,12 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |
 
 ## listOrgs
 
@@ -202,11 +198,11 @@ This endpoint does not need any parameter.
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **403** | Forbidden |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **403**     | Forbidden   | -                |
 
 ## updateOrg
 
@@ -230,7 +226,7 @@ public class Example {
 
         OrganizationsApi apiInstance = new OrganizationsApi(defaultClient);
         String publicId = "abc123"; // String | The `public_id` of the organization you are operating within.
-        Organization body = new Organization(); // Organization | 
+        Organization body = new Organization(); // Organization |
         try {
             OrganizationResponse result = apiInstance.updateOrg(publicId, body);
             System.out.println(result);
@@ -247,11 +243,10 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **publicId** | **String**| The &#x60;public_id&#x60; of the organization you are operating within. |
- **body** | [**Organization**](Organization.md)|  |
+| Name         | Type                                | Description                                                             | Notes |
+| ------------ | ----------------------------------- | ----------------------------------------------------------------------- | ----- |
+| **publicId** | **String**                          | The &#x60;public_id&#x60; of the organization you are operating within. |
+| **body**     | [**Organization**](Organization.md) |                                                                         |
 
 ### Return type
 
@@ -267,12 +262,12 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |
 
 ## uploadIdPForOrg
 
@@ -281,9 +276,9 @@ Name | Type | Description  | Notes
 There are a couple of options for updating the Identity Provider (IdP)
 metadata from your SAML IdP.
 
-* **Multipart Form-Data**: Post the IdP metadata file using a form post.
+- **Multipart Form-Data**: Post the IdP metadata file using a form post.
 
-* **XML Body:** Post the IdP metadata file as the body of the request.
+- **XML Body:** Post the IdP metadata file as the body of the request.
 
 ### Example
 
@@ -319,11 +314,10 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **publicId** | **String**| The &#x60;public_id&#x60; of the organization you are operating with |
- **idpFile** | **File**| The path to the XML metadata file you wish to upload. |
+| Name         | Type       | Description                                                          | Notes |
+| ------------ | ---------- | -------------------------------------------------------------------- | ----- |
+| **publicId** | **String** | The &#x60;public_id&#x60; of the organization you are operating with |
+| **idpFile**  | **File**   | The path to the XML metadata file you wish to upload.                |
 
 ### Return type
 
@@ -339,10 +333,10 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **415** | Unsupported Media Type |  -  |
 
+| Status code | Description            | Response headers |
+| ----------- | ---------------------- | ---------------- |
+| **200**     | OK                     | -                |
+| **400**     | Bad Request            | -                |
+| **403**     | Forbidden              | -                |
+| **415**     | Unsupported Media Type | -                |

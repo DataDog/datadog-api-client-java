@@ -1,15 +1,15 @@
-
-
 # UserResponseIncludedItem
 
 An object related to a user.
 
 ## oneOf schemas
-* [Organization](Organization.md)
-* [Permission](Permission.md)
-* [Role](Role.md)
+
+- [Organization](Organization.md)
+- [Permission](Permission.md)
+- [Role](Role.md)
 
 ## Example
+
 ```java
 // Import classes:
 import com.datadog.api.v2.client.model.UserResponseIncludedItem;
@@ -44,5 +44,3 @@ public class Example {
     }
 }
 ```
-
-

@@ -1,11 +1,5 @@
-
-
 # IncidentServiceType
 
 ## Enum
 
-
-* `SERVICES` (value: `"services"`)
-
-
-
+- `SERVICES` (value: `"services"`)

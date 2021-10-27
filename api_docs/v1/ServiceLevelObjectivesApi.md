@@ -2,18 +2,16 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method        | HTTP request | Description
-------------- | ------------ | ------------
-[**checkCanDeleteSLO**](ServiceLevelObjectivesApi.md#checkCanDeleteSLO) | **GET** /api/v1/slo/can_delete | Check if SLOs can be safely deleted
-[**createSLO**](ServiceLevelObjectivesApi.md#createSLO) | **POST** /api/v1/slo | Create an SLO object
-[**deleteSLO**](ServiceLevelObjectivesApi.md#deleteSLO) | **DELETE** /api/v1/slo/{slo_id} | Delete an SLO
-[**deleteSLOTimeframeInBulk**](ServiceLevelObjectivesApi.md#deleteSLOTimeframeInBulk) | **POST** /api/v1/slo/bulk_delete | Bulk Delete SLO Timeframes
-[**getSLO**](ServiceLevelObjectivesApi.md#getSLO) | **GET** /api/v1/slo/{slo_id} | Get an SLO&#39;s details
-[**getSLOHistory**](ServiceLevelObjectivesApi.md#getSLOHistory) | **GET** /api/v1/slo/{slo_id}/history | Get an SLO&#39;s history
-[**listSLOs**](ServiceLevelObjectivesApi.md#listSLOs) | **GET** /api/v1/slo | Get all SLOs
-[**updateSLO**](ServiceLevelObjectivesApi.md#updateSLO) | **PUT** /api/v1/slo/{slo_id} | Update an SLO
-
-
+| Method                                                                                | HTTP request                         | Description                         |
+| ------------------------------------------------------------------------------------- | ------------------------------------ | ----------------------------------- |
+| [**checkCanDeleteSLO**](ServiceLevelObjectivesApi.md#checkCanDeleteSLO)               | **GET** /api/v1/slo/can_delete       | Check if SLOs can be safely deleted |
+| [**createSLO**](ServiceLevelObjectivesApi.md#createSLO)                               | **POST** /api/v1/slo                 | Create an SLO object                |
+| [**deleteSLO**](ServiceLevelObjectivesApi.md#deleteSLO)                               | **DELETE** /api/v1/slo/{slo_id}      | Delete an SLO                       |
+| [**deleteSLOTimeframeInBulk**](ServiceLevelObjectivesApi.md#deleteSLOTimeframeInBulk) | **POST** /api/v1/slo/bulk_delete     | Bulk Delete SLO Timeframes          |
+| [**getSLO**](ServiceLevelObjectivesApi.md#getSLO)                                     | **GET** /api/v1/slo/{slo_id}         | Get an SLO&#39;s details            |
+| [**getSLOHistory**](ServiceLevelObjectivesApi.md#getSLOHistory)                       | **GET** /api/v1/slo/{slo_id}/history | Get an SLO&#39;s history            |
+| [**listSLOs**](ServiceLevelObjectivesApi.md#listSLOs)                                 | **GET** /api/v1/slo                  | Get all SLOs                        |
+| [**updateSLO**](ServiceLevelObjectivesApi.md#updateSLO)                               | **PUT** /api/v1/slo/{slo_id}         | Update an SLO                       |
 
 ## checkCanDeleteSLO
 
@@ -54,10 +52,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ids** | **String**| A comma separated list of the IDs of the service level objectives objects. |
+| Name    | Type       | Description                                                                | Notes |
+| ------- | ---------- | -------------------------------------------------------------------------- | ----- |
+| **ids** | **String** | A comma separated list of the IDs of the service level objectives objects. |
 
 ### Return type
 
@@ -73,13 +70,13 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **409** | Conflict |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |
+| **409**     | Conflict    | -                |
 
 ## createSLO
 
@@ -119,10 +116,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**ServiceLevelObjectiveRequest**](ServiceLevelObjectiveRequest.md)| Service level objective request object. |
+| Name     | Type                                                                | Description                             | Notes |
+| -------- | ------------------------------------------------------------------- | --------------------------------------- | ----- |
+| **body** | [**ServiceLevelObjectiveRequest**](ServiceLevelObjectiveRequest.md) | Service level objective request object. |
 
 ### Return type
 
@@ -138,12 +134,12 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |
 
 ## deleteSLO
 
@@ -188,11 +184,10 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **sloId** | **String**| The ID of the service level objective. |
- **force** | **String**| Delete the monitor even if it&#39;s referenced by other resources (e.g. SLO, composite monitor). | [optional]
+| Name      | Type       | Description                                                                                      | Notes      |
+| --------- | ---------- | ------------------------------------------------------------------------------------------------ | ---------- |
+| **sloId** | **String** | The ID of the service level objective.                                                           |
+| **force** | **String** | Delete the monitor even if it&#39;s referenced by other resources (e.g. SLO, composite monitor). | [optional] |
 
 ### Return type
 
@@ -208,13 +203,13 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not found |  -  |
-| **409** | Conflict |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **403**     | Forbidden   | -                |
+| **404**     | Not found   | -                |
+| **409**     | Conflict    | -                |
 
 ## deleteSLOTimeframeInBulk
 
@@ -258,10 +253,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | **Map&lt;String,List&lt;SLOTimeframe&gt;&gt;**| Delete multiple service level objective objects request body. |
+| Name     | Type                                           | Description                                                   | Notes |
+| -------- | ---------------------------------------------- | ------------------------------------------------------------- | ----- |
+| **body** | **Map&lt;String,List&lt;SLOTimeframe&gt;&gt;** | Delete multiple service level objective objects request body. |
 
 ### Return type
 
@@ -277,12 +271,12 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |
 
 ## getSLO
 
@@ -324,11 +318,10 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **sloId** | **String**| The ID of the service level objective object. |
- **withConfiguredAlertIds** | **Boolean**| Get the IDs of SLO monitors that reference this SLO. | [optional]
+| Name                       | Type        | Description                                          | Notes      |
+| -------------------------- | ----------- | ---------------------------------------------------- | ---------- |
+| **sloId**                  | **String**  | The ID of the service level objective object.        |
+| **withConfiguredAlertIds** | **Boolean** | Get the IDs of SLO monitors that reference this SLO. | [optional] |
 
 ### Return type
 
@@ -344,12 +337,12 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not found |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **403**     | Forbidden   | -                |
+| **404**     | Not found   | -                |
 
 ## getSLOHistory
 
@@ -400,13 +393,12 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **sloId** | **String**| The ID of the service level objective object. |
- **fromTs** | **Long**| The &#x60;from&#x60; timestamp for the query window in epoch seconds. |
- **toTs** | **Long**| The &#x60;to&#x60; timestamp for the query window in epoch seconds. |
- **target** | **Double**| The SLO target. If &#x60;target&#x60; is passed in, the response will include the remaining error budget and a timeframe value of &#x60;custom&#x60;. | [optional]
+| Name       | Type       | Description                                                                                                                                           | Notes      |
+| ---------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **sloId**  | **String** | The ID of the service level objective object.                                                                                                         |
+| **fromTs** | **Long**   | The &#x60;from&#x60; timestamp for the query window in epoch seconds.                                                                                 |
+| **toTs**   | **Long**   | The &#x60;to&#x60; timestamp for the query window in epoch seconds.                                                                                   |
+| **target** | **Double** | The SLO target. If &#x60;target&#x60; is passed in, the response will include the remaining error budget and a timeframe value of &#x60;custom&#x60;. | [optional] |
 
 ### Return type
 
@@ -422,13 +414,13 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |
+| **404**     | Not Found   | -                |
 
 ## listSLOs
 
@@ -479,15 +471,14 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ids** | **String**| A comma separated list of the IDs of the service level objectives objects. | [optional]
- **query** | **String**| The query string to filter results based on SLO names. | [optional]
- **tagsQuery** | **String**| The query string to filter results based on a single SLO tag. | [optional]
- **metricsQuery** | **String**| The query string to filter results based on SLO numerator and denominator. | [optional]
- **limit** | **Long**| The number of SLOs to return in the response. | [optional]
- **offset** | **Long**| The specific offset to use as the beginning of the returned response. | [optional]
+| Name             | Type       | Description                                                                | Notes      |
+| ---------------- | ---------- | -------------------------------------------------------------------------- | ---------- |
+| **ids**          | **String** | A comma separated list of the IDs of the service level objectives objects. | [optional] |
+| **query**        | **String** | The query string to filter results based on SLO names.                     | [optional] |
+| **tagsQuery**    | **String** | The query string to filter results based on a single SLO tag.              | [optional] |
+| **metricsQuery** | **String** | The query string to filter results based on SLO numerator and denominator. | [optional] |
+| **limit**        | **Long**   | The number of SLOs to return in the response.                              | [optional] |
+| **offset**       | **Long**   | The specific offset to use as the beginning of the returned response.      | [optional] |
 
 ### Return type
 
@@ -503,13 +494,13 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |
+| **404**     | Not Found   | -                |
 
 ## updateSLO
 
@@ -550,11 +541,10 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **sloId** | **String**| The ID of the service level objective object. |
- **body** | [**ServiceLevelObjective**](ServiceLevelObjective.md)| The edited service level objective request object. |
+| Name      | Type                                                  | Description                                        | Notes |
+| --------- | ----------------------------------------------------- | -------------------------------------------------- | ----- |
+| **sloId** | **String**                                            | The ID of the service level objective object.      |
+| **body**  | [**ServiceLevelObjective**](ServiceLevelObjective.md) | The edited service level objective request object. |
 
 ### Return type
 
@@ -570,10 +560,10 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |
+| **404**     | Not Found   | -                |

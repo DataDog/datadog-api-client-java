@@ -1,11 +1,5 @@
-
-
 # LogStreamWidgetDefinitionType
 
 ## Enum
 
-
-* `LOG_STREAM` (value: `"log_stream"`)
-
-
-
+- `LOG_STREAM` (value: `"log_stream"`)

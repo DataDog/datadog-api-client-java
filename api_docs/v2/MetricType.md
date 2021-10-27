@@ -1,11 +1,5 @@
-
-
 # MetricType
 
 ## Enum
 
-
-* `METRICS` (value: `"metrics"`)
-
-
-
+- `METRICS` (value: `"metrics"`)

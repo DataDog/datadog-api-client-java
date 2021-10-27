@@ -1,19 +1,13 @@
-
-
 # SecurityMonitoringRuleQueryAggregation
 
 ## Enum
 
+- `COUNT` (value: `"count"`)
 
-* `COUNT` (value: `"count"`)
+- `CARDINALITY` (value: `"cardinality"`)
 
-* `CARDINALITY` (value: `"cardinality"`)
+- `SUM` (value: `"sum"`)
 
-* `SUM` (value: `"sum"`)
+- `MAX` (value: `"max"`)
 
-* `MAX` (value: `"max"`)
-
-* `NEW_VALUE` (value: `"new_value"`)
-
-
-
+- `NEW_VALUE` (value: `"new_value"`)
