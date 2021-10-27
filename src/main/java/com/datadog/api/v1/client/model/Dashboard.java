@@ -191,16 +191,18 @@ public class Dashboard {
 
   /**
    * Whether this dashboard is read-only. If True, only the author and admins can make changes to
-   * it.
+   * it. Prefer using &#x60;restricted_roles&#x60; to manage write authorization.
    *
    * @return isReadOnly
+   * @deprecated
    */
+  @Deprecated
   @javax.annotation.Nullable
   @ApiModelProperty(
       example = "false",
       value =
           "Whether this dashboard is read-only. If True, only the author and admins can make"
-              + " changes to it.")
+              + " changes to it. Prefer using `restricted_roles` to manage write authorization.")
   @JsonProperty(JSON_PROPERTY_IS_READ_ONLY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Boolean getIsReadOnly() {
@@ -335,8 +337,7 @@ public class Dashboard {
 
   /**
    * A list of role identifiers. Only the author and users associated with at least one of these
-   * roles can edit this dashboard. Overrides the &#x60;is_read_only&#x60; property if both are
-   * present. **This feature is currently in beta.**
+   * roles can edit this dashboard.
    *
    * @return restrictedRoles
    */
@@ -344,8 +345,7 @@ public class Dashboard {
   @ApiModelProperty(
       value =
           "A list of role identifiers. Only the author and users associated with at least one of"
-              + " these roles can edit this dashboard. Overrides the `is_read_only` property if"
-              + " both are present. **This feature is currently in beta.**")
+              + " these roles can edit this dashboard.")
   @JsonProperty(JSON_PROPERTY_RESTRICTED_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getRestrictedRoles() {
