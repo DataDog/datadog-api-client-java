@@ -1,14 +1,14 @@
-
-
 # IncidentFieldAttributes
 
 Dynamic fields for which selections can be made, with field names as keys.
 
 ## oneOf schemas
-* [IncidentFieldAttributesMultipleValue](IncidentFieldAttributesMultipleValue.md)
-* [IncidentFieldAttributesSingleValue](IncidentFieldAttributesSingleValue.md)
+
+- [IncidentFieldAttributesMultipleValue](IncidentFieldAttributesMultipleValue.md)
+- [IncidentFieldAttributesSingleValue](IncidentFieldAttributesSingleValue.md)
 
 ## Example
+
 ```java
 // Import classes:
 import com.datadog.api.v2.client.model.IncidentFieldAttributes;
@@ -35,5 +35,3 @@ public class Example {
     }
 }
 ```
-
-

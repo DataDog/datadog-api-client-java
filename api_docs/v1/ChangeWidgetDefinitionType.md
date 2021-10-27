@@ -1,11 +1,5 @@
-
-
 # ChangeWidgetDefinitionType
 
 ## Enum
 
-
-* `CHANGE` (value: `"change"`)
-
-
-
+- `CHANGE` (value: `"change"`)

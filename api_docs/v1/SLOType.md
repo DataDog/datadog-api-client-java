@@ -1,13 +1,7 @@
-
-
 # SLOType
 
 ## Enum
 
+- `METRIC` (value: `"metric"`)
 
-* `METRIC` (value: `"metric"`)
-
-* `MONITOR` (value: `"monitor"`)
-
-
-
+- `MONITOR` (value: `"monitor"`)

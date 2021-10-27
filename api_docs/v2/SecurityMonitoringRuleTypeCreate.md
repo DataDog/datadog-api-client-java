@@ -1,13 +1,7 @@
-
-
 # SecurityMonitoringRuleTypeCreate
 
 ## Enum
 
+- `LOG_DETECTION` (value: `"log_detection"`)
 
-* `LOG_DETECTION` (value: `"log_detection"`)
-
-* `WORKLOAD_SECURITY` (value: `"workload_security"`)
-
-
-
+- `WORKLOAD_SECURITY` (value: `"workload_security"`)

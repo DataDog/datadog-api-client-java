@@ -2,15 +2,13 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method        | HTTP request | Description
-------------- | ------------ | ------------
-[**createIncidentTeam**](IncidentTeamsApi.md#createIncidentTeam) | **POST** /api/v2/teams | Create a new incident team
-[**deleteIncidentTeam**](IncidentTeamsApi.md#deleteIncidentTeam) | **DELETE** /api/v2/teams/{team_id} | Delete an existing incident team
-[**getIncidentTeam**](IncidentTeamsApi.md#getIncidentTeam) | **GET** /api/v2/teams/{team_id} | Get details of an incident team
-[**listIncidentTeams**](IncidentTeamsApi.md#listIncidentTeams) | **GET** /api/v2/teams | Get a list of all incident teams
-[**updateIncidentTeam**](IncidentTeamsApi.md#updateIncidentTeam) | **PATCH** /api/v2/teams/{team_id} | Update an existing incident team
-
-
+| Method                                                           | HTTP request                       | Description                      |
+| ---------------------------------------------------------------- | ---------------------------------- | -------------------------------- |
+| [**createIncidentTeam**](IncidentTeamsApi.md#createIncidentTeam) | **POST** /api/v2/teams             | Create a new incident team       |
+| [**deleteIncidentTeam**](IncidentTeamsApi.md#deleteIncidentTeam) | **DELETE** /api/v2/teams/{team_id} | Delete an existing incident team |
+| [**getIncidentTeam**](IncidentTeamsApi.md#getIncidentTeam)       | **GET** /api/v2/teams/{team_id}    | Get details of an incident team  |
+| [**listIncidentTeams**](IncidentTeamsApi.md#listIncidentTeams)   | **GET** /api/v2/teams              | Get a list of all incident teams |
+| [**updateIncidentTeam**](IncidentTeamsApi.md#updateIncidentTeam) | **PATCH** /api/v2/teams/{team_id}  | Update an existing incident team |
 
 ## createIncidentTeam
 
@@ -50,10 +48,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**IncidentTeamCreateRequest**](IncidentTeamCreateRequest.md)| Incident Team Payload. |
+| Name     | Type                                                          | Description            | Notes |
+| -------- | ------------------------------------------------------------- | ---------------------- | ----- |
+| **body** | [**IncidentTeamCreateRequest**](IncidentTeamCreateRequest.md) | Incident Team Payload. |
 
 ### Return type
 
@@ -69,14 +66,14 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **201** | CREATED |  -  |
-| **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
 
+| Status code | Description  | Response headers |
+| ----------- | ------------ | ---------------- |
+| **201**     | CREATED      | -                |
+| **400**     | Bad Request  | -                |
+| **401**     | Unauthorized | -                |
+| **403**     | Forbidden    | -                |
+| **404**     | Not Found    | -                |
 
 ## deleteIncidentTeam
 
@@ -115,10 +112,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **teamId** | **String**| The ID of the incident team. |
+| Name       | Type       | Description                  | Notes |
+| ---------- | ---------- | ---------------------------- | ----- |
+| **teamId** | **String** | The ID of the incident team. |
 
 ### Return type
 
@@ -134,14 +130,14 @@ null (empty response body)
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
 
+| Status code | Description  | Response headers |
+| ----------- | ------------ | ---------------- |
+| **204**     | OK           | -                |
+| **400**     | Bad Request  | -                |
+| **401**     | Unauthorized | -                |
+| **403**     | Forbidden    | -                |
+| **404**     | Not Found    | -                |
 
 ## getIncidentTeam
 
@@ -184,11 +180,10 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **teamId** | **String**| The ID of the incident team. |
- **include** | **IncidentRelatedObject**| Specifies which types of related objects should be included in the response. | [optional] [enum: users]
+| Name        | Type                      | Description                                                                  | Notes                    |
+| ----------- | ------------------------- | ---------------------------------------------------------------------------- | ------------------------ |
+| **teamId**  | **String**                | The ID of the incident team.                                                 |
+| **include** | **IncidentRelatedObject** | Specifies which types of related objects should be included in the response. | [optional] [enum: users] |
 
 ### Return type
 
@@ -204,14 +199,14 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
 
+| Status code | Description  | Response headers |
+| ----------- | ------------ | ---------------- |
+| **200**     | OK           | -                |
+| **400**     | Bad Request  | -                |
+| **401**     | Unauthorized | -                |
+| **403**     | Forbidden    | -                |
+| **404**     | Not Found    | -                |
 
 ## listIncidentTeams
 
@@ -258,13 +253,12 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **include** | **IncidentRelatedObject**| Specifies which types of related objects should be included in the response. | [optional] [enum: users]
- **pageSize** | **Long**| Size for a given page. | [optional] [default to 10]
- **pageOffset** | **Long**| Specific offset to use as the beginning of the returned page. | [optional] [default to 0]
- **filter** | **String**| A search query that filters teams by name. | [optional]
+| Name           | Type                      | Description                                                                  | Notes                      |
+| -------------- | ------------------------- | ---------------------------------------------------------------------------- | -------------------------- |
+| **include**    | **IncidentRelatedObject** | Specifies which types of related objects should be included in the response. | [optional] [enum: users]   |
+| **pageSize**   | **Long**                  | Size for a given page.                                                       | [optional] [default to 10] |
+| **pageOffset** | **Long**                  | Specific offset to use as the beginning of the returned page.                | [optional] [default to 0]  |
+| **filter**     | **String**                | A search query that filters teams by name.                                   | [optional]                 |
 
 ### Return type
 
@@ -280,14 +274,14 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
 
+| Status code | Description  | Response headers |
+| ----------- | ------------ | ---------------- |
+| **200**     | OK           | -                |
+| **400**     | Bad Request  | -                |
+| **401**     | Unauthorized | -                |
+| **403**     | Forbidden    | -                |
+| **404**     | Not Found    | -                |
 
 ## updateIncidentTeam
 
@@ -328,11 +322,10 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **teamId** | **String**| The ID of the incident team. |
- **body** | [**IncidentTeamUpdateRequest**](IncidentTeamUpdateRequest.md)| Incident Team Payload. |
+| Name       | Type                                                          | Description                  | Notes |
+| ---------- | ------------------------------------------------------------- | ---------------------------- | ----- |
+| **teamId** | **String**                                                    | The ID of the incident team. |
+| **body**   | [**IncidentTeamUpdateRequest**](IncidentTeamUpdateRequest.md) | Incident Team Payload.       |
 
 ### Return type
 
@@ -348,11 +341,11 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
 
+| Status code | Description  | Response headers |
+| ----------- | ------------ | ---------------- |
+| **200**     | OK           | -                |
+| **400**     | Bad Request  | -                |
+| **401**     | Unauthorized | -                |
+| **403**     | Forbidden    | -                |
+| **404**     | Not Found    | -                |

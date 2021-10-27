@@ -28,9 +28,12 @@ import java.util.Objects;
   AWSAccount.JSON_PROPERTY_ACCESS_KEY_ID,
   AWSAccount.JSON_PROPERTY_ACCOUNT_ID,
   AWSAccount.JSON_PROPERTY_ACCOUNT_SPECIFIC_NAMESPACE_RULES,
+  AWSAccount.JSON_PROPERTY_CSPM_RESOURCE_COLLECTION_ENABLED,
   AWSAccount.JSON_PROPERTY_EXCLUDED_REGIONS,
   AWSAccount.JSON_PROPERTY_FILTER_TAGS,
   AWSAccount.JSON_PROPERTY_HOST_TAGS,
+  AWSAccount.JSON_PROPERTY_METRICS_COLLECTION_ENABLED,
+  AWSAccount.JSON_PROPERTY_RESOURCE_COLLECTION_ENABLED,
   AWSAccount.JSON_PROPERTY_ROLE_NAME,
   AWSAccount.JSON_PROPERTY_SECRET_ACCESS_KEY
 })
@@ -47,6 +50,10 @@ public class AWSAccount {
       "account_specific_namespace_rules";
   private Map<String, Boolean> accountSpecificNamespaceRules = null;
 
+  public static final String JSON_PROPERTY_CSPM_RESOURCE_COLLECTION_ENABLED =
+      "cspm_resource_collection_enabled";
+  private Boolean cspmResourceCollectionEnabled = false;
+
   public static final String JSON_PROPERTY_EXCLUDED_REGIONS = "excluded_regions";
   private List<String> excludedRegions = null;
 
@@ -55,6 +62,14 @@ public class AWSAccount {
 
   public static final String JSON_PROPERTY_HOST_TAGS = "host_tags";
   private List<String> hostTags = null;
+
+  public static final String JSON_PROPERTY_METRICS_COLLECTION_ENABLED =
+      "metrics_collection_enabled";
+  private Boolean metricsCollectionEnabled = true;
+
+  public static final String JSON_PROPERTY_RESOURCE_COLLECTION_ENABLED =
+      "resource_collection_enabled";
+  private Boolean resourceCollectionEnabled = false;
 
   public static final String JSON_PROPERTY_ROLE_NAME = "role_name";
   private String roleName;
@@ -146,6 +161,35 @@ public class AWSAccount {
 
   public void setAccountSpecificNamespaceRules(Map<String, Boolean> accountSpecificNamespaceRules) {
     this.accountSpecificNamespaceRules = accountSpecificNamespaceRules;
+  }
+
+  public AWSAccount cspmResourceCollectionEnabled(Boolean cspmResourceCollectionEnabled) {
+    this.cspmResourceCollectionEnabled = cspmResourceCollectionEnabled;
+    return this;
+  }
+
+  /**
+   * Whether Datadog collects cloud security posture management resources from your AWS account.
+   * This includes additional resources not covered under the general
+   * &#x60;resource_collection&#x60;.
+   *
+   * @return cspmResourceCollectionEnabled
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      example = "true",
+      value =
+          "Whether Datadog collects cloud security posture management resources from your AWS"
+              + " account. This includes additional resources not covered under the general"
+              + " `resource_collection`.")
+  @JsonProperty(JSON_PROPERTY_CSPM_RESOURCE_COLLECTION_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getCspmResourceCollectionEnabled() {
+    return cspmResourceCollectionEnabled;
+  }
+
+  public void setCspmResourceCollectionEnabled(Boolean cspmResourceCollectionEnabled) {
+    this.cspmResourceCollectionEnabled = cspmResourceCollectionEnabled;
   }
 
   public AWSAccount excludedRegions(List<String> excludedRegions) {
@@ -258,6 +302,54 @@ public class AWSAccount {
     this.hostTags = hostTags;
   }
 
+  public AWSAccount metricsCollectionEnabled(Boolean metricsCollectionEnabled) {
+    this.metricsCollectionEnabled = metricsCollectionEnabled;
+    return this;
+  }
+
+  /**
+   * Whether Datadog collects metrics for this AWS account.
+   *
+   * @return metricsCollectionEnabled
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      example = "false",
+      value = "Whether Datadog collects metrics for this AWS account.")
+  @JsonProperty(JSON_PROPERTY_METRICS_COLLECTION_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getMetricsCollectionEnabled() {
+    return metricsCollectionEnabled;
+  }
+
+  public void setMetricsCollectionEnabled(Boolean metricsCollectionEnabled) {
+    this.metricsCollectionEnabled = metricsCollectionEnabled;
+  }
+
+  public AWSAccount resourceCollectionEnabled(Boolean resourceCollectionEnabled) {
+    this.resourceCollectionEnabled = resourceCollectionEnabled;
+    return this;
+  }
+
+  /**
+   * Whether Datadog collects a standard set of resources from your AWS account.
+   *
+   * @return resourceCollectionEnabled
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      example = "true",
+      value = "Whether Datadog collects a standard set of resources from your AWS account.")
+  @JsonProperty(JSON_PROPERTY_RESOURCE_COLLECTION_ENABLED)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getResourceCollectionEnabled() {
+    return resourceCollectionEnabled;
+  }
+
+  public void setResourceCollectionEnabled(Boolean resourceCollectionEnabled) {
+    this.resourceCollectionEnabled = resourceCollectionEnabled;
+  }
+
   public AWSAccount roleName(String roleName) {
     this.roleName = roleName;
     return this;
@@ -321,9 +413,13 @@ public class AWSAccount {
         && Objects.equals(this.accountId, awSAccount.accountId)
         && Objects.equals(
             this.accountSpecificNamespaceRules, awSAccount.accountSpecificNamespaceRules)
+        && Objects.equals(
+            this.cspmResourceCollectionEnabled, awSAccount.cspmResourceCollectionEnabled)
         && Objects.equals(this.excludedRegions, awSAccount.excludedRegions)
         && Objects.equals(this.filterTags, awSAccount.filterTags)
         && Objects.equals(this.hostTags, awSAccount.hostTags)
+        && Objects.equals(this.metricsCollectionEnabled, awSAccount.metricsCollectionEnabled)
+        && Objects.equals(this.resourceCollectionEnabled, awSAccount.resourceCollectionEnabled)
         && Objects.equals(this.roleName, awSAccount.roleName)
         && Objects.equals(this.secretAccessKey, awSAccount.secretAccessKey);
   }
@@ -334,9 +430,12 @@ public class AWSAccount {
         accessKeyId,
         accountId,
         accountSpecificNamespaceRules,
+        cspmResourceCollectionEnabled,
         excludedRegions,
         filterTags,
         hostTags,
+        metricsCollectionEnabled,
+        resourceCollectionEnabled,
         roleName,
         secretAccessKey);
   }
@@ -350,9 +449,18 @@ public class AWSAccount {
     sb.append("    accountSpecificNamespaceRules: ")
         .append(toIndentedString(accountSpecificNamespaceRules))
         .append("\n");
+    sb.append("    cspmResourceCollectionEnabled: ")
+        .append(toIndentedString(cspmResourceCollectionEnabled))
+        .append("\n");
     sb.append("    excludedRegions: ").append(toIndentedString(excludedRegions)).append("\n");
     sb.append("    filterTags: ").append(toIndentedString(filterTags)).append("\n");
     sb.append("    hostTags: ").append(toIndentedString(hostTags)).append("\n");
+    sb.append("    metricsCollectionEnabled: ")
+        .append(toIndentedString(metricsCollectionEnabled))
+        .append("\n");
+    sb.append("    resourceCollectionEnabled: ")
+        .append(toIndentedString(resourceCollectionEnabled))
+        .append("\n");
     sb.append("    roleName: ").append(toIndentedString(roleName)).append("\n");
     sb.append("    secretAccessKey: ").append(toIndentedString(secretAccessKey)).append("\n");
     sb.append("}");

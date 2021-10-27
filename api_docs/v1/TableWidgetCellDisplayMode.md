@@ -1,13 +1,7 @@
-
-
 # TableWidgetCellDisplayMode
 
 ## Enum
 
+- `NUMBER` (value: `"number"`)
 
-* `NUMBER` (value: `"number"`)
-
-* `BAR` (value: `"bar"`)
-
-
-
+- `BAR` (value: `"bar"`)

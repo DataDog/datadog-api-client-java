@@ -1,11 +1,5 @@
-
-
 # MetricContentEncoding
 
 ## Enum
 
-
-* `DEFLATE` (value: `"deflate"`)
-
-
-
+- `DEFLATE` (value: `"deflate"`)

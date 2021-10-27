@@ -2,17 +2,15 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method        | HTTP request | Description
-------------- | ------------ | ------------
-[**createDashboard**](DashboardsApi.md#createDashboard) | **POST** /api/v1/dashboard | Create a new dashboard
-[**deleteDashboard**](DashboardsApi.md#deleteDashboard) | **DELETE** /api/v1/dashboard/{dashboard_id} | Delete a dashboard
-[**deleteDashboards**](DashboardsApi.md#deleteDashboards) | **DELETE** /api/v1/dashboard | Delete dashboards
-[**getDashboard**](DashboardsApi.md#getDashboard) | **GET** /api/v1/dashboard/{dashboard_id} | Get a dashboard
-[**listDashboards**](DashboardsApi.md#listDashboards) | **GET** /api/v1/dashboard | Get all dashboards
-[**restoreDashboards**](DashboardsApi.md#restoreDashboards) | **PATCH** /api/v1/dashboard | Restore deleted dashboards
-[**updateDashboard**](DashboardsApi.md#updateDashboard) | **PUT** /api/v1/dashboard/{dashboard_id} | Update a dashboard
-
-
+| Method                                                      | HTTP request                                | Description                |
+| ----------------------------------------------------------- | ------------------------------------------- | -------------------------- |
+| [**createDashboard**](DashboardsApi.md#createDashboard)     | **POST** /api/v1/dashboard                  | Create a new dashboard     |
+| [**deleteDashboard**](DashboardsApi.md#deleteDashboard)     | **DELETE** /api/v1/dashboard/{dashboard_id} | Delete a dashboard         |
+| [**deleteDashboards**](DashboardsApi.md#deleteDashboards)   | **DELETE** /api/v1/dashboard                | Delete dashboards          |
+| [**getDashboard**](DashboardsApi.md#getDashboard)           | **GET** /api/v1/dashboard/{dashboard_id}    | Get a dashboard            |
+| [**listDashboards**](DashboardsApi.md#listDashboards)       | **GET** /api/v1/dashboard                   | Get all dashboards         |
+| [**restoreDashboards**](DashboardsApi.md#restoreDashboards) | **PATCH** /api/v1/dashboard                 | Restore deleted dashboards |
+| [**updateDashboard**](DashboardsApi.md#updateDashboard)     | **PUT** /api/v1/dashboard/{dashboard_id}    | Update a dashboard         |
 
 ## createDashboard
 
@@ -53,10 +51,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**Dashboard**](Dashboard.md)| Create a dashboard request body. |
+| Name     | Type                          | Description                      | Notes |
+| -------- | ----------------------------- | -------------------------------- | ----- |
+| **body** | [**Dashboard**](Dashboard.md) | Create a dashboard request body. |
 
 ### Return type
 
@@ -72,12 +69,12 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication Error |  -  |
 
+| Status code | Description          | Response headers |
+| ----------- | -------------------- | ---------------- |
+| **200**     | OK                   | -                |
+| **400**     | Bad Request          | -                |
+| **403**     | Authentication Error | -                |
 
 ## deleteDashboard
 
@@ -117,10 +114,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **dashboardId** | **String**| The ID of the dashboard. |
+| Name            | Type       | Description              | Notes |
+| --------------- | ---------- | ------------------------ | ----- |
+| **dashboardId** | **String** | The ID of the dashboard. |
 
 ### Return type
 
@@ -136,12 +132,12 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **403** | Authentication Error |  -  |
-| **404** | Dashboards Not Found |  -  |
 
+| Status code | Description          | Response headers |
+| ----------- | -------------------- | ---------------- |
+| **200**     | OK                   | -                |
+| **403**     | Authentication Error | -                |
+| **404**     | Dashboards Not Found | -                |
 
 ## deleteDashboards
 
@@ -180,10 +176,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**DashboardBulkDeleteRequest**](DashboardBulkDeleteRequest.md)| Delete dashboards request body. |
+| Name     | Type                                                            | Description                     | Notes |
+| -------- | --------------------------------------------------------------- | ------------------------------- | ----- |
+| **body** | [**DashboardBulkDeleteRequest**](DashboardBulkDeleteRequest.md) | Delete dashboards request body. |
 
 ### Return type
 
@@ -199,13 +194,13 @@ null (empty response body)
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | No Content |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Dashboards Not Found |  -  |
 
+| Status code | Description          | Response headers |
+| ----------- | -------------------- | ---------------- |
+| **204**     | No Content           | -                |
+| **400**     | Bad Request          | -                |
+| **403**     | Forbidden            | -                |
+| **404**     | Dashboards Not Found | -                |
 
 ## getDashboard
 
@@ -245,10 +240,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **dashboardId** | **String**| The ID of the dashboard. |
+| Name            | Type       | Description              | Notes |
+| --------------- | ---------- | ------------------------ | ----- |
+| **dashboardId** | **String** | The ID of the dashboard. |
 
 ### Return type
 
@@ -264,12 +258,12 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **403** | Authentication Error |  -  |
-| **404** | Item Not Found |  -  |
 
+| Status code | Description          | Response headers |
+| ----------- | -------------------- | ---------------- |
+| **200**     | OK                   | -                |
+| **403**     | Authentication Error | -                |
+| **404**     | Item Not Found       | -                |
 
 ## listDashboards
 
@@ -313,10 +307,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **filterShared** | **Boolean**| When &#x60;true&#x60;, this query only returns shared custom created or cloned dashboards. | [optional]
+| Name             | Type        | Description                                                                                | Notes      |
+| ---------------- | ----------- | ------------------------------------------------------------------------------------------ | ---------- |
+| **filterShared** | **Boolean** | When &#x60;true&#x60;, this query only returns shared custom created or cloned dashboards. | [optional] |
 
 ### Return type
 
@@ -332,11 +325,11 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **403** | Authentication Error |  -  |
 
+| Status code | Description          | Response headers |
+| ----------- | -------------------- | ---------------- |
+| **200**     | OK                   | -                |
+| **403**     | Authentication Error | -                |
 
 ## restoreDashboards
 
@@ -375,10 +368,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**DashboardRestoreRequest**](DashboardRestoreRequest.md)| Restore dashboards request body. |
+| Name     | Type                                                      | Description                      | Notes |
+| -------- | --------------------------------------------------------- | -------------------------------- | ----- |
+| **body** | [**DashboardRestoreRequest**](DashboardRestoreRequest.md) | Restore dashboards request body. |
 
 ### Return type
 
@@ -394,13 +386,13 @@ null (empty response body)
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | No Content |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Dashboards Not Found |  -  |
 
+| Status code | Description          | Response headers |
+| ----------- | -------------------- | ---------------- |
+| **204**     | No Content           | -                |
+| **400**     | Bad Request          | -                |
+| **403**     | Forbidden            | -                |
+| **404**     | Dashboards Not Found | -                |
 
 ## updateDashboard
 
@@ -441,11 +433,10 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **dashboardId** | **String**| The ID of the dashboard. |
- **body** | [**Dashboard**](Dashboard.md)| Update Dashboard request body. |
+| Name            | Type                          | Description                    | Notes |
+| --------------- | ----------------------------- | ------------------------------ | ----- |
+| **dashboardId** | **String**                    | The ID of the dashboard.       |
+| **body**        | [**Dashboard**](Dashboard.md) | Update Dashboard request body. |
 
 ### Return type
 
@@ -461,10 +452,10 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Authentication Error |  -  |
-| **404** | Item Not Found |  -  |
 
+| Status code | Description          | Response headers |
+| ----------- | -------------------- | ---------------- |
+| **200**     | OK                   | -                |
+| **400**     | Bad Request          | -                |
+| **403**     | Authentication Error | -                |
+| **404**     | Item Not Found       | -                |

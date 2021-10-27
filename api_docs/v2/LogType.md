@@ -1,11 +1,5 @@
-
-
 # LogType
 
 ## Enum
 
-
-* `LOG` (value: `"log"`)
-
-
-
+- `LOG` (value: `"log"`)

@@ -84,6 +84,7 @@ public class ApiClient extends JavaTimeFormatter {
                                   Arrays.asList(
                                       "datadoghq.com",
                                       "us3.datadoghq.com",
+                                      "us5.datadoghq.com",
                                       "datadoghq.eu",
                                       "ddog-gov.com"))));
                       put(
@@ -151,6 +152,7 @@ public class ApiClient extends JavaTimeFormatter {
                                           Arrays.asList(
                                               "datadoghq.com",
                                               "us3.datadoghq.com",
+                                              "us5.datadoghq.com",
                                               "datadoghq.eu",
                                               "ddog-gov.com"))));
                               put(
@@ -211,6 +213,7 @@ public class ApiClient extends JavaTimeFormatter {
                                           Arrays.asList(
                                               "datadoghq.com",
                                               "us3.datadoghq.com",
+                                              "us5.datadoghq.com",
                                               "datadoghq.eu",
                                               "ddog-gov.com"))));
                               put(

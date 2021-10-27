@@ -1,11 +1,5 @@
-
-
 # LogsArchiveDestinationGCSType
 
 ## Enum
 
-
-* `GCS` (value: `"gcs"`)
-
-
-
+- `GCS` (value: `"gcs"`)

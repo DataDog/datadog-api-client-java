@@ -13,3 +13,29 @@ repos:
     entry: ./format.sh
     files: '^src/test/'
     types: [file, java]
+  - id: generate
+    name: Generate
+    language: node
+    entry: make
+    files: "^(.generator|.pre-commit-config.yaml|.prettierrc.yml|docker-compose.generator.yaml|Makefile)"
+    pass_filenames: false
+  - id: docs
+    name: Format documentation
+    stages: [manual]
+    language: node
+    language_version: 14.12.0
+    entry: prettier --write --list-different --ignore-unknown
+    "types": [text]
+    files: '^api_docs/'
+    args: []
+    additional_dependencies:
+      # When updating the version of prettier, make sure to check the  pre-commit file
+      # And keep the `entry` here up to date https://github.com/pre-commit/mirrors-prettier/blob/master/.pre-commit-hooks.yaml
+      - prettier@2.2.1
+  - id: lint
+    name: Format generated code
+    stages: [manual]
+    language: script
+    entry: ./format.sh
+    files: '^src/'
+    types: [file, java]

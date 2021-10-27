@@ -1,15 +1,9 @@
-
-
 # TreeMapGroupBy
 
 ## Enum
 
+- `USER` (value: `"user"`)
 
-* `USER` (value: `"user"`)
+- `FAMILY` (value: `"family"`)
 
-* `FAMILY` (value: `"family"`)
-
-* `PROCESS` (value: `"process"`)
-
-
-
+- `PROCESS` (value: `"process"`)

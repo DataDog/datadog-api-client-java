@@ -1,17 +1,17 @@
-
-
 # LogsArchiveDestination
 
 An archive's destination.
 
 ## oneOf schemas
-* [LogsArchiveDestinationAzure](LogsArchiveDestinationAzure.md)
-* [LogsArchiveDestinationGCS](LogsArchiveDestinationGCS.md)
-* [LogsArchiveDestinationS3](LogsArchiveDestinationS3.md)
+
+- [LogsArchiveDestinationAzure](LogsArchiveDestinationAzure.md)
+- [LogsArchiveDestinationGCS](LogsArchiveDestinationGCS.md)
+- [LogsArchiveDestinationS3](LogsArchiveDestinationS3.md)
 
 NOTE: this class is nullable.
 
 ## Example
+
 ```java
 // Import classes:
 import com.datadog.api.v2.client.model.LogsArchiveDestination;
@@ -46,5 +46,3 @@ public class Example {
     }
 }
 ```
-
-

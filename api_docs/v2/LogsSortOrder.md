@@ -1,13 +1,7 @@
-
-
 # LogsSortOrder
 
 ## Enum
 
+- `ASCENDING` (value: `"asc"`)
 
-* `ASCENDING` (value: `"asc"`)
-
-* `DESCENDING` (value: `"desc"`)
-
-
-
+- `DESCENDING` (value: `"desc"`)

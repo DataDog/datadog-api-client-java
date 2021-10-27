@@ -1,11 +1,5 @@
-
-
 # TreeMapColorBy
 
 ## Enum
 
-
-* `USER` (value: `"user"`)
-
-
-
+- `USER` (value: `"user"`)

@@ -2,16 +2,14 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method        | HTTP request | Description
-------------- | ------------ | ------------
-[**createLogsIndex**](LogsIndexesApi.md#createLogsIndex) | **POST** /api/v1/logs/config/indexes | Create an index
-[**getLogsIndex**](LogsIndexesApi.md#getLogsIndex) | **GET** /api/v1/logs/config/indexes/{name} | Get an index
-[**getLogsIndexOrder**](LogsIndexesApi.md#getLogsIndexOrder) | **GET** /api/v1/logs/config/index-order | Get indexes order
-[**listLogIndexes**](LogsIndexesApi.md#listLogIndexes) | **GET** /api/v1/logs/config/indexes | Get all indexes
-[**updateLogsIndex**](LogsIndexesApi.md#updateLogsIndex) | **PUT** /api/v1/logs/config/indexes/{name} | Update an index
-[**updateLogsIndexOrder**](LogsIndexesApi.md#updateLogsIndexOrder) | **PUT** /api/v1/logs/config/index-order | Update indexes order
-
-
+| Method                                                             | HTTP request                               | Description          |
+| ------------------------------------------------------------------ | ------------------------------------------ | -------------------- |
+| [**createLogsIndex**](LogsIndexesApi.md#createLogsIndex)           | **POST** /api/v1/logs/config/indexes       | Create an index      |
+| [**getLogsIndex**](LogsIndexesApi.md#getLogsIndex)                 | **GET** /api/v1/logs/config/indexes/{name} | Get an index         |
+| [**getLogsIndexOrder**](LogsIndexesApi.md#getLogsIndexOrder)       | **GET** /api/v1/logs/config/index-order    | Get indexes order    |
+| [**listLogIndexes**](LogsIndexesApi.md#listLogIndexes)             | **GET** /api/v1/logs/config/indexes        | Get all indexes      |
+| [**updateLogsIndex**](LogsIndexesApi.md#updateLogsIndex)           | **PUT** /api/v1/logs/config/indexes/{name} | Update an index      |
+| [**updateLogsIndexOrder**](LogsIndexesApi.md#updateLogsIndexOrder) | **PUT** /api/v1/logs/config/index-order    | Update indexes order |
 
 ## createLogsIndex
 
@@ -51,10 +49,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**LogsIndex**](LogsIndex.md)| Object containing the new index. |
+| Name     | Type                          | Description                      | Notes |
+| -------- | ----------------------------- | -------------------------------- | ----- |
+| **body** | [**LogsIndex**](LogsIndex.md) | Object containing the new index. |
 
 ### Return type
 
@@ -70,12 +67,12 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Invalid Parameter Error |  -  |
-| **403** | Forbidden |  -  |
 
+| Status code | Description             | Response headers |
+| ----------- | ----------------------- | ---------------- |
+| **200**     | OK                      | -                |
+| **400**     | Invalid Parameter Error | -                |
+| **403**     | Forbidden               | -                |
 
 ## getLogsIndex
 
@@ -115,10 +112,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| Name of the log index. |
+| Name     | Type       | Description            | Notes |
+| -------- | ---------- | ---------------------- | ----- |
+| **name** | **String** | Name of the log index. |
 
 ### Return type
 
@@ -134,12 +130,12 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **403**     | Forbidden   | -                |
+| **404**     | Not Found   | -                |
 
 ## getLogsIndexOrder
 
@@ -194,11 +190,11 @@ This endpoint does not need any parameter.
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **403** | Forbidden |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **403**     | Forbidden   | -                |
 
 ## listLogIndexes
 
@@ -254,11 +250,11 @@ This endpoint does not need any parameter.
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **403** | Forbidden |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **403**     | Forbidden   | -                |
 
 ## updateLogsIndex
 
@@ -303,11 +299,10 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| Name of the log index. |
- **body** | [**LogsIndexUpdateRequest**](LogsIndexUpdateRequest.md)| Object containing the new &#x60;LogsIndexUpdateRequest&#x60;. |
+| Name     | Type                                                    | Description                                                   | Notes |
+| -------- | ------------------------------------------------------- | ------------------------------------------------------------- | ----- |
+| **name** | **String**                                              | Name of the log index.                                        |
+| **body** | [**LogsIndexUpdateRequest**](LogsIndexUpdateRequest.md) | Object containing the new &#x60;LogsIndexUpdateRequest&#x60;. |
 
 ### Return type
 
@@ -323,13 +318,13 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Invalid Parameter Error |  -  |
-| **403** | Forbidden |  -  |
-| **429** | Too Many Requests |  -  |
 
+| Status code | Description             | Response headers |
+| ----------- | ----------------------- | ---------------- |
+| **200**     | OK                      | -                |
+| **400**     | Invalid Parameter Error | -                |
+| **403**     | Forbidden               | -                |
+| **429**     | Too Many Requests       | -                |
 
 ## updateLogsIndexOrder
 
@@ -370,10 +365,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**LogsIndexesOrder**](LogsIndexesOrder.md)| Object containing the new ordered list of index names |
+| Name     | Type                                        | Description                                           | Notes |
+| -------- | ------------------------------------------- | ----------------------------------------------------- | ----- |
+| **body** | [**LogsIndexesOrder**](LogsIndexesOrder.md) | Object containing the new ordered list of index names |
 
 ### Return type
 
@@ -389,9 +383,9 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |

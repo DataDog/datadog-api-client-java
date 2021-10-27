@@ -1,15 +1,9 @@
-
-
 # TableWidgetHasSearchBar
 
 ## Enum
 
+- `ALWAYS` (value: `"always"`)
 
-* `ALWAYS` (value: `"always"`)
+- `NEVER` (value: `"never"`)
 
-* `NEVER` (value: `"never"`)
-
-* `AUTO` (value: `"auto"`)
-
-
-
+- `AUTO` (value: `"auto"`)

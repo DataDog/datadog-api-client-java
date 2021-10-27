@@ -77,13 +77,13 @@ public class Monitor {
   private MonitorOverallStates overallState;
 
   public static final String JSON_PROPERTY_PRIORITY = "priority";
-  private Long priority;
+  private JsonNullable<Long> priority = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_QUERY = "query";
   private String query;
 
   public static final String JSON_PROPERTY_RESTRICTED_ROLES = "restricted_roles";
-  private List<String> restrictedRoles = null;
+  private JsonNullable<List<String>> restrictedRoles = JsonNullable.<List<String>>undefined();
 
   public static final String JSON_PROPERTY_STATE = "state";
   private MonitorState state;
@@ -301,7 +301,7 @@ public class Monitor {
   }
 
   public Monitor priority(Long priority) {
-    this.priority = priority;
+    this.priority = JsonNullable.<Long>of(priority);
     return this;
   }
 
@@ -312,14 +312,24 @@ public class Monitor {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Integer from 1 (high) to 5 (low) indicating alert severity.")
+  @JsonIgnore
+  public Long getPriority() {
+    return priority.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getPriority() {
+  public JsonNullable<Long> getPriority_JsonNullable() {
     return priority;
   }
 
-  public void setPriority(Long priority) {
+  @JsonProperty(JSON_PROPERTY_PRIORITY)
+  public void setPriority_JsonNullable(JsonNullable<Long> priority) {
     this.priority = priority;
+  }
+
+  public void setPriority(Long priority) {
+    this.priority = JsonNullable.<Long>of(priority);
   }
 
   public Monitor query(String query) {
@@ -347,15 +357,19 @@ public class Monitor {
   }
 
   public Monitor restrictedRoles(List<String> restrictedRoles) {
-    this.restrictedRoles = restrictedRoles;
+    this.restrictedRoles = JsonNullable.<List<String>>of(restrictedRoles);
     return this;
   }
 
   public Monitor addRestrictedRolesItem(String restrictedRolesItem) {
-    if (this.restrictedRoles == null) {
-      this.restrictedRoles = new ArrayList<>();
+    if (this.restrictedRoles == null || !this.restrictedRoles.isPresent()) {
+      this.restrictedRoles = JsonNullable.<List<String>>of(new ArrayList<>());
     }
-    this.restrictedRoles.add(restrictedRolesItem);
+    try {
+      this.restrictedRoles.get().add(restrictedRolesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -370,14 +384,24 @@ public class Monitor {
       value =
           "A list of role identifiers that can be pulled from the Roles API. Cannot be used with"
               + " `locked` option.")
+  @JsonIgnore
+  public List<String> getRestrictedRoles() {
+    return restrictedRoles.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_RESTRICTED_ROLES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getRestrictedRoles() {
+  public JsonNullable<List<String>> getRestrictedRoles_JsonNullable() {
     return restrictedRoles;
   }
 
-  public void setRestrictedRoles(List<String> restrictedRoles) {
+  @JsonProperty(JSON_PROPERTY_RESTRICTED_ROLES)
+  public void setRestrictedRoles_JsonNullable(JsonNullable<List<String>> restrictedRoles) {
     this.restrictedRoles = restrictedRoles;
+  }
+
+  public void setRestrictedRoles(List<String> restrictedRoles) {
+    this.restrictedRoles = JsonNullable.<List<String>>of(restrictedRoles);
   }
 
   public Monitor state(MonitorState state) {

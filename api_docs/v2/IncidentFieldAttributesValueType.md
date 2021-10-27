@@ -1,17 +1,11 @@
-
-
 # IncidentFieldAttributesValueType
 
 ## Enum
 
+- `MULTISELECT` (value: `"multiselect"`)
 
-* `MULTISELECT` (value: `"multiselect"`)
+- `TEXTARRAY` (value: `"textarray"`)
 
-* `TEXTARRAY` (value: `"textarray"`)
+- `METRICTAG` (value: `"metrictag"`)
 
-* `METRICTAG` (value: `"metrictag"`)
-
-* `AUTOCOMPLETE` (value: `"autocomplete"`)
-
-
-
+- `AUTOCOMPLETE` (value: `"autocomplete"`)

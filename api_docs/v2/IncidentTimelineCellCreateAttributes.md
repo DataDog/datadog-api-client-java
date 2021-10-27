@@ -1,13 +1,13 @@
-
-
 # IncidentTimelineCellCreateAttributes
 
 The timeline cell's attributes for a create request.
 
 ## oneOf schemas
-* [IncidentTimelineCellMarkdownCreateAttributes](IncidentTimelineCellMarkdownCreateAttributes.md)
+
+- [IncidentTimelineCellMarkdownCreateAttributes](IncidentTimelineCellMarkdownCreateAttributes.md)
 
 ## Example
+
 ```java
 // Import classes:
 import com.datadog.api.v2.client.model.IncidentTimelineCellCreateAttributes;
@@ -26,5 +26,3 @@ public class Example {
     }
 }
 ```
-
-

@@ -1,11 +1,5 @@
-
-
 # QueryValueWidgetDefinitionType
 
 ## Enum
 
-
-* `QUERY_VALUE` (value: `"query_value"`)
-
-
-
+- `QUERY_VALUE` (value: `"query_value"`)

@@ -1,19 +1,13 @@
-
-
 # WidgetMargin
 
 ## Enum
 
+- `SM` (value: `"sm"`)
 
-* `SM` (value: `"sm"`)
+- `MD` (value: `"md"`)
 
-* `MD` (value: `"md"`)
+- `LG` (value: `"lg"`)
 
-* `LG` (value: `"lg"`)
+- `SMALL` (value: `"small"`)
 
-* `SMALL` (value: `"small"`)
-
-* `LARGE` (value: `"large"`)
-
-
-
+- `LARGE` (value: `"large"`)

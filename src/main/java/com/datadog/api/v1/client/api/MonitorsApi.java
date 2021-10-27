@@ -100,7 +100,7 @@ public class MonitorsApi {
     Map<String, String> localVarCookieParams = new HashMap<String, String>();
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-    localVarQueryParams.addAll(apiClient.parameterToPairs("multi", "monitor_ids", monitorIds));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("csv", "monitor_ids", monitorIds));
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "checkCanDeleteMonitor");
@@ -198,8 +198,8 @@ public class MonitorsApi {
    * (between 1 and 2880), #h (between 1 and 48). - **&#x60;operator&#x60;** &#x60;&lt;&#x60;,
    * &#x60;&lt;&#x3D;&#x60;, &#x60;&gt;&#x60;, &#x60;&gt;&#x3D;&#x60;, &#x60;&#x3D;&#x3D;&#x60;, or
    * &#x60;!&#x3D;&#x60;. - **&#x60;#&#x60;** an integer or decimal number used to set the
-   * threshold. **NOTE** Only available on US1-FED, US3, and in closed beta on EU and US1. **Process
-   * Alert Query** Example:
+   * threshold. **NOTE** Only available on US1-FED, US3, US5 and in closed beta on EU and US1.
+   * **Process Alert Query** Example:
    * &#x60;processes(search).over(tags).rollup(&#39;count&#39;).last(timeframe) operator #&#x60; -
    * **&#x60;search&#x60;** free text search string for querying processes. Matching processes match
    * results on the [Live
@@ -242,7 +242,7 @@ public class MonitorsApi {
    * (between 1 and 2880), #h (between 1 and 48). - **&#x60;operator&#x60;** &#x60;&lt;&#x60;,
    * &#x60;&lt;&#x3D;&#x60;, &#x60;&gt;&#x60;, &#x60;&gt;&#x3D;&#x60;, &#x60;&#x3D;&#x3D;&#x60;, or
    * &#x60;!&#x3D;&#x60;. - **&#x60;#&#x60;** an integer or decimal number used to set the
-   * threshold. **NOTE** Only available on US1-FED and in closed beta on EU, US3, and US1.
+   * threshold. **NOTE** Only available on US1-FED and in closed beta on US1, EU, US3, and US5.
    *
    * @param body Create a monitor request body. (required)
    * @return Monitor
@@ -324,8 +324,8 @@ public class MonitorsApi {
    * (between 1 and 2880), #h (between 1 and 48). - **&#x60;operator&#x60;** &#x60;&lt;&#x60;,
    * &#x60;&lt;&#x3D;&#x60;, &#x60;&gt;&#x60;, &#x60;&gt;&#x3D;&#x60;, &#x60;&#x3D;&#x3D;&#x60;, or
    * &#x60;!&#x3D;&#x60;. - **&#x60;#&#x60;** an integer or decimal number used to set the
-   * threshold. **NOTE** Only available on US1-FED, US3, and in closed beta on EU and US1. **Process
-   * Alert Query** Example:
+   * threshold. **NOTE** Only available on US1-FED, US3, US5 and in closed beta on EU and US1.
+   * **Process Alert Query** Example:
    * &#x60;processes(search).over(tags).rollup(&#39;count&#39;).last(timeframe) operator #&#x60; -
    * **&#x60;search&#x60;** free text search string for querying processes. Matching processes match
    * results on the [Live
@@ -368,7 +368,7 @@ public class MonitorsApi {
    * (between 1 and 2880), #h (between 1 and 48). - **&#x60;operator&#x60;** &#x60;&lt;&#x60;,
    * &#x60;&lt;&#x3D;&#x60;, &#x60;&gt;&#x60;, &#x60;&gt;&#x3D;&#x60;, &#x60;&#x3D;&#x3D;&#x60;, or
    * &#x60;!&#x3D;&#x60;. - **&#x60;#&#x60;** an integer or decimal number used to set the
-   * threshold. **NOTE** Only available on US1-FED and in closed beta on EU, US3, and US1.
+   * threshold. **NOTE** Only available on US1-FED and in closed beta on US1, EU, US3, and US5.
    *
    * @param body Create a monitor request body. (required)
    * @return ApiResponse&lt;Monitor&gt;

@@ -21,6 +21,7 @@ import java.util.regex.Pattern;
 import javax.ws.rs.client.Client;
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.client.HttpUrlConnectorProvider;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 public class World {
   // Client information
@@ -109,15 +110,10 @@ public class World {
     return parts[parts.length - 4];
   }
 
-  public void setupClient(String apiVersion)
+  private void configureClient(Class<?> clientClass, Object client)
       throws java.lang.reflect.InvocationTargetException, java.lang.IllegalAccessException,
           java.lang.InstantiationException, java.lang.NoSuchMethodException,
           java.lang.ClassNotFoundException, java.lang.NoSuchFieldException {
-    // import com.datadog.api.{{ apiVersion }}.client.ApiClient
-    clientClass = Class.forName("com.datadog.api." + apiVersion + ".client.ApiClient");
-    // client = new ApiClient()
-    client = clientClass.getConstructor().newInstance();
-
     // client.setServerIndex(0);
     clientClass.getMethod("setServerIndex", Integer.class).invoke(client, 0);
 
@@ -173,6 +169,17 @@ public class World {
         .invoke(client, "JAVA-TEST-NAME", getName());
   }
 
+  public void setupClient(String apiVersion)
+      throws java.lang.reflect.InvocationTargetException, java.lang.IllegalAccessException,
+          java.lang.InstantiationException, java.lang.NoSuchMethodException,
+          java.lang.ClassNotFoundException, java.lang.NoSuchFieldException {
+    // import com.datadog.api.{{ apiVersion }}.client.ApiClient
+    clientClass = Class.forName("com.datadog.api." + apiVersion + ".client.ApiClient");
+    // client = new ApiClient()
+    client = clientClass.getConstructor().newInstance();
+    configureClient(clientClass, client);
+  }
+
   public void setupAPI(String apiVersion, String apiName)
       throws java.lang.ClassNotFoundException, java.lang.InstantiationException,
           java.lang.IllegalAccessException, java.lang.NoSuchMethodException,
@@ -196,6 +203,16 @@ public class World {
       throws java.lang.reflect.InvocationTargetException, java.lang.IllegalAccessException,
           java.lang.NoSuchMethodException {
     // client.configureApiKeys(secrets)
+    clientClass.getMethod("configureApiKeys", Map.class).invoke(client, secrets);
+  }
+
+  public void authenticateClient(Class<?> clientClass, Object client)
+      throws java.lang.reflect.InvocationTargetException, java.lang.IllegalAccessException,
+          java.lang.NoSuchMethodException {
+
+    HashMap<String, String> secrets = new HashMap<String, String>();
+    secrets.put("apiKeyAuth", System.getenv("DD_TEST_CLIENT_API_KEY"));
+    secrets.put("appKeyAuth", System.getenv("DD_TEST_CLIENT_APP_KEY"));
     clientClass.getMethod("configureApiKeys", Map.class).invoke(client, secrets);
   }
 
@@ -295,7 +312,13 @@ public class World {
     // find API service based on step tag value
     Class<?> givenAPIClass =
         Class.forName("com.datadog.api." + apiVersion + ".client.api." + step.getAPIName() + "Api");
-    Object givenAPI = givenAPIClass.getConstructor(clientClass).newInstance(client);
+    // import com.datadog.api.{{ apiVersion }}.client.ApiClient
+    Class<?> apiClientClass = Class.forName("com.datadog.api." + apiVersion + ".client.ApiClient");
+    Object clientAPI = apiClientClass.getConstructor().newInstance();
+    configureClient(apiClientClass, clientAPI);
+    authenticateClient(apiClientClass, clientAPI);
+
+    Object givenAPI = givenAPIClass.getConstructor(apiClientClass).newInstance(clientAPI);
 
     String givenOperationName = step.getOperationName();
     Method givenOperation = null;
@@ -308,12 +331,12 @@ public class World {
 
     // Enable unstable operation automatically
     if ((boolean)
-        clientClass
+        apiClientClass
             .getMethod("isUnstableOperation", String.class)
-            .invoke(client, givenOperationName)) {
-      clientClass
+            .invoke(clientAPI, givenOperationName)) {
+      apiClientClass
           .getMethod("setUnstableOperationEnabled", String.class, boolean.class)
-          .invoke(client, givenOperationName, true);
+          .invoke(clientAPI, givenOperationName, true);
     }
 
     Class<?> givenParametersClass = null;
@@ -380,18 +403,23 @@ public class World {
     Class<?> undoAPIClass =
         Class.forName(
             "com.datadog.api." + apiVersion + ".client.api." + undoSettings.getAPIName() + "Api");
-    Object undoAPI = undoAPIClass.getConstructor(clientClass).newInstance(client);
+    Class<?> apiClientClass = Class.forName("com.datadog.api." + apiVersion + ".client.ApiClient");
+    Object clientAPI = apiClientClass.getConstructor().newInstance();
+    configureClient(apiClientClass, clientAPI);
+    authenticateClient(apiClientClass, clientAPI);
+
+    Object undoAPI = undoAPIClass.getConstructor(apiClientClass).newInstance(clientAPI);
 
     String undoOperationName = undoSettings.getOperationName();
 
     // Enable unstable undo operation automatically
     if ((boolean)
-        clientClass
+        apiClientClass
             .getMethod("isUnstableOperation", String.class)
-            .invoke(client, undoOperationName)) {
-      clientClass
+            .invoke(clientAPI, undoOperationName)) {
+      apiClientClass
           .getMethod("setUnstableOperationEnabled", String.class, boolean.class)
-          .invoke(client, undoOperationName, true);
+          .invoke(clientAPI, undoOperationName, true);
     }
 
     return () -> {
@@ -550,6 +578,9 @@ public class World {
             }
           }
         }
+        if (result instanceof JsonNullable) {
+          result = ((JsonNullable<?>) result).get();
+        }
       }
     }
     return result;
@@ -566,7 +597,7 @@ public class World {
       throws java.lang.IllegalAccessException, java.lang.NoSuchFieldException {
     return replace(
         source,
-        Pattern.compile("\\{\\{ ?([^}]+) ?}}"),
+        Pattern.compile("\\{\\{ *([^{}]+|'[^']+'|\"[^\"]+\") *}}"),
         m -> {
           String path = m.group(1).trim();
           Pattern functionRE = Pattern.compile("^(.+)\\((.*)\\)$");
@@ -575,6 +606,9 @@ public class World {
             String funcName = funcM.group(1);
             String arg = funcM.group(2);
             return templateFunctions.get(funcName).apply(context, arg);
+          }
+          if (path.charAt(0) == '\'' || path.charAt(0) == '"') {
+            return path.substring(1, path.length() - 1);
           }
           try {
             return lookup(context, path).toString();

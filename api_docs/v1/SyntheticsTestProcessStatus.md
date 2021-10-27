@@ -1,19 +1,13 @@
-
-
 # SyntheticsTestProcessStatus
 
 ## Enum
 
+- `NOT_SCHEDULED` (value: `"not_scheduled"`)
 
-* `NOT_SCHEDULED` (value: `"not_scheduled"`)
+- `SCHEDULED` (value: `"scheduled"`)
 
-* `SCHEDULED` (value: `"scheduled"`)
+- `STARTED` (value: `"started"`)
 
-* `STARTED` (value: `"started"`)
+- `FINISHED` (value: `"finished"`)
 
-* `FINISHED` (value: `"finished"`)
-
-* `FINISHED_WITH_ERROR` (value: `"finished_with_error"`)
-
-
-
+- `FINISHED_WITH_ERROR` (value: `"finished_with_error"`)

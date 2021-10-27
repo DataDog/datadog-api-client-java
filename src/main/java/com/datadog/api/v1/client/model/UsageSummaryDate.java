@@ -65,6 +65,8 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_PROFILING_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_RUM_SESSION_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_RUM_TOTAL_SESSION_COUNT_SUM,
+  UsageSummaryDate.JSON_PROPERTY_SDS_LOGS_SCANNED_BYTES_SUM,
+  UsageSummaryDate.JSON_PROPERTY_SDS_TOTAL_SCANNED_BYTES_SUM,
   UsageSummaryDate.JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_SYNTHETICS_CHECK_CALLS_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_TRACE_SEARCH_INDEXED_EVENTS_COUNT_SUM,
@@ -203,6 +205,14 @@ public class UsageSummaryDate {
   public static final String JSON_PROPERTY_RUM_TOTAL_SESSION_COUNT_SUM =
       "rum_total_session_count_sum";
   private Long rumTotalSessionCountSum;
+
+  public static final String JSON_PROPERTY_SDS_LOGS_SCANNED_BYTES_SUM =
+      "sds_logs_scanned_bytes_sum";
+  private Long sdsLogsScannedBytesSum;
+
+  public static final String JSON_PROPERTY_SDS_TOTAL_SCANNED_BYTES_SUM =
+      "sds_total_scanned_bytes_sum";
+  private Long sdsTotalScannedBytesSum;
 
   public static final String JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_SUM =
       "synthetics_browser_check_calls_count_sum";
@@ -1269,6 +1279,58 @@ public class UsageSummaryDate {
     this.rumTotalSessionCountSum = rumTotalSessionCountSum;
   }
 
+  public UsageSummaryDate sdsLogsScannedBytesSum(Long sdsLogsScannedBytesSum) {
+    this.sdsLogsScannedBytesSum = sdsLogsScannedBytesSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all bytes scanned of logs usage by the Sensitive Data Scanner over all hours
+   * in the current month for all organizations.
+   *
+   * @return sdsLogsScannedBytesSum
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the sum of all bytes scanned of logs usage by the Sensitive Data Scanner over all"
+              + " hours in the current month for all organizations.")
+  @JsonProperty(JSON_PROPERTY_SDS_LOGS_SCANNED_BYTES_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getSdsLogsScannedBytesSum() {
+    return sdsLogsScannedBytesSum;
+  }
+
+  public void setSdsLogsScannedBytesSum(Long sdsLogsScannedBytesSum) {
+    this.sdsLogsScannedBytesSum = sdsLogsScannedBytesSum;
+  }
+
+  public UsageSummaryDate sdsTotalScannedBytesSum(Long sdsTotalScannedBytesSum) {
+    this.sdsTotalScannedBytesSum = sdsTotalScannedBytesSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all bytes scanned across all usage types by the Sensitive Data Scanner over
+   * all hours in the current month for all organizations.
+   *
+   * @return sdsTotalScannedBytesSum
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the sum of all bytes scanned across all usage types by the Sensitive Data Scanner"
+              + " over all hours in the current month for all organizations.")
+  @JsonProperty(JSON_PROPERTY_SDS_TOTAL_SCANNED_BYTES_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getSdsTotalScannedBytesSum() {
+    return sdsTotalScannedBytesSum;
+  }
+
+  public void setSdsTotalScannedBytesSum(Long sdsTotalScannedBytesSum) {
+    this.sdsTotalScannedBytesSum = sdsTotalScannedBytesSum;
+  }
+
   public UsageSummaryDate syntheticsBrowserCheckCallsCountSum(
       Long syntheticsBrowserCheckCallsCountSum) {
     this.syntheticsBrowserCheckCallsCountSum = syntheticsBrowserCheckCallsCountSum;
@@ -1456,6 +1518,8 @@ public class UsageSummaryDate {
         && Objects.equals(this.profilingHostTop99p, usageSummaryDate.profilingHostTop99p)
         && Objects.equals(this.rumSessionCountSum, usageSummaryDate.rumSessionCountSum)
         && Objects.equals(this.rumTotalSessionCountSum, usageSummaryDate.rumTotalSessionCountSum)
+        && Objects.equals(this.sdsLogsScannedBytesSum, usageSummaryDate.sdsLogsScannedBytesSum)
+        && Objects.equals(this.sdsTotalScannedBytesSum, usageSummaryDate.sdsTotalScannedBytesSum)
         && Objects.equals(
             this.syntheticsBrowserCheckCallsCountSum,
             usageSummaryDate.syntheticsBrowserCheckCallsCountSum)
@@ -1512,6 +1576,8 @@ public class UsageSummaryDate {
         profilingHostTop99p,
         rumSessionCountSum,
         rumTotalSessionCountSum,
+        sdsLogsScannedBytesSum,
+        sdsTotalScannedBytesSum,
         syntheticsBrowserCheckCallsCountSum,
         syntheticsCheckCallsCountSum,
         traceSearchIndexedEventsCountSum,
@@ -1598,6 +1664,12 @@ public class UsageSummaryDate {
     sb.append("    rumSessionCountSum: ").append(toIndentedString(rumSessionCountSum)).append("\n");
     sb.append("    rumTotalSessionCountSum: ")
         .append(toIndentedString(rumTotalSessionCountSum))
+        .append("\n");
+    sb.append("    sdsLogsScannedBytesSum: ")
+        .append(toIndentedString(sdsLogsScannedBytesSum))
+        .append("\n");
+    sb.append("    sdsTotalScannedBytesSum: ")
+        .append(toIndentedString(sdsTotalScannedBytesSum))
         .append("\n");
     sb.append("    syntheticsBrowserCheckCallsCountSum: ")
         .append(toIndentedString(syntheticsBrowserCheckCallsCountSum))

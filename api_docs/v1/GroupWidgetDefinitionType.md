@@ -1,11 +1,5 @@
-
-
 # GroupWidgetDefinitionType
 
 ## Enum
 
-
-* `GROUP` (value: `"group"`)
-
-
-
+- `GROUP` (value: `"group"`)

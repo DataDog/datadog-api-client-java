@@ -1,13 +1,7 @@
-
-
 # WidgetGrouping
 
 ## Enum
 
+- `CHECK` (value: `"check"`)
 
-* `CHECK` (value: `"check"`)
-
-* `CLUSTER` (value: `"cluster"`)
-
-
-
+- `CLUSTER` (value: `"cluster"`)

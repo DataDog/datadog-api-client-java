@@ -1,17 +1,11 @@
-
-
 # LogsArchiveState
 
 ## Enum
 
+- `UNKNOWN` (value: `"UNKNOWN"`)
 
-* `UNKNOWN` (value: `"UNKNOWN"`)
+- `WORKING` (value: `"WORKING"`)
 
-* `WORKING` (value: `"WORKING"`)
+- `FAILING` (value: `"FAILING"`)
 
-* `FAILING` (value: `"FAILING"`)
-
-* `WORKING_AUTH_LEGACY` (value: `"WORKING_AUTH_LEGACY"`)
-
-
-
+- `WORKING_AUTH_LEGACY` (value: `"WORKING_AUTH_LEGACY"`)

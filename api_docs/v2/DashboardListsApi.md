@@ -2,14 +2,12 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-Method        | HTTP request | Description
-------------- | ------------ | ------------
-[**createDashboardListItems**](DashboardListsApi.md#createDashboardListItems) | **POST** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Add Items to a Dashboard List
-[**deleteDashboardListItems**](DashboardListsApi.md#deleteDashboardListItems) | **DELETE** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Delete items from a dashboard list
-[**getDashboardListItems**](DashboardListsApi.md#getDashboardListItems) | **GET** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Get items of a Dashboard List
-[**updateDashboardListItems**](DashboardListsApi.md#updateDashboardListItems) | **PUT** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Update items of a dashboard list
-
-
+| Method                                                                        | HTTP request                                                             | Description                        |
+| ----------------------------------------------------------------------------- | ------------------------------------------------------------------------ | ---------------------------------- |
+| [**createDashboardListItems**](DashboardListsApi.md#createDashboardListItems) | **POST** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards   | Add Items to a Dashboard List      |
+| [**deleteDashboardListItems**](DashboardListsApi.md#deleteDashboardListItems) | **DELETE** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards | Delete items from a dashboard list |
+| [**getDashboardListItems**](DashboardListsApi.md#getDashboardListItems)       | **GET** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards    | Get items of a Dashboard List      |
+| [**updateDashboardListItems**](DashboardListsApi.md#updateDashboardListItems) | **PUT** /api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards    | Update items of a dashboard list   |
 
 ## createDashboardListItems
 
@@ -50,11 +48,10 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **dashboardListId** | **Long**| ID of the dashboard list to add items to. |
- **body** | [**DashboardListAddItemsRequest**](DashboardListAddItemsRequest.md)| Dashboards to add to the dashboard list. |
+| Name                | Type                                                                | Description                               | Notes |
+| ------------------- | ------------------------------------------------------------------- | ----------------------------------------- | ----- |
+| **dashboardListId** | **Long**                                                            | ID of the dashboard list to add items to. |
+| **body**            | [**DashboardListAddItemsRequest**](DashboardListAddItemsRequest.md) | Dashboards to add to the dashboard list.  |
 
 ### Return type
 
@@ -70,13 +67,13 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |
+| **404**     | Not Found   | -                |
 
 ## deleteDashboardListItems
 
@@ -117,11 +114,10 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **dashboardListId** | **Long**| ID of the dashboard list to delete items from. |
- **body** | [**DashboardListDeleteItemsRequest**](DashboardListDeleteItemsRequest.md)| Dashboards to delete from the dashboard list. |
+| Name                | Type                                                                      | Description                                    | Notes |
+| ------------------- | ------------------------------------------------------------------------- | ---------------------------------------------- | ----- |
+| **dashboardListId** | **Long**                                                                  | ID of the dashboard list to delete items from. |
+| **body**            | [**DashboardListDeleteItemsRequest**](DashboardListDeleteItemsRequest.md) | Dashboards to delete from the dashboard list.  |
 
 ### Return type
 
@@ -137,13 +133,13 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |
+| **404**     | Not Found   | -                |
 
 ## getDashboardListItems
 
@@ -183,10 +179,9 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **dashboardListId** | **Long**| ID of the dashboard list to get items from. |
+| Name                | Type     | Description                                 | Notes |
+| ------------------- | -------- | ------------------------------------------- | ----- |
+| **dashboardListId** | **Long** | ID of the dashboard list to get items from. |
 
 ### Return type
 
@@ -202,12 +197,12 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **403**     | Forbidden   | -                |
+| **404**     | Not Found   | -                |
 
 ## updateDashboardListItems
 
@@ -248,11 +243,10 @@ public class Example {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **dashboardListId** | **Long**| ID of the dashboard list to update items from. |
- **body** | [**DashboardListUpdateItemsRequest**](DashboardListUpdateItemsRequest.md)| New dashboards of the dashboard list. |
+| Name                | Type                                                                      | Description                                    | Notes |
+| ------------------- | ------------------------------------------------------------------------- | ---------------------------------------------- | ----- |
+| **dashboardListId** | **Long**                                                                  | ID of the dashboard list to update items from. |
+| **body**            | [**DashboardListUpdateItemsRequest**](DashboardListUpdateItemsRequest.md) | New dashboards of the dashboard list.          |
 
 ### Return type
 
@@ -268,10 +262,10 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad Request |  -  |
-| **403** | Forbidden |  -  |
-| **404** | Not Found |  -  |
 
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
+| **403**     | Forbidden   | -                |
+| **404**     | Not Found   | -                |

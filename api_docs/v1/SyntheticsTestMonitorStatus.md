@@ -1,15 +1,9 @@
-
-
 # SyntheticsTestMonitorStatus
 
 ## Enum
 
+- `UNTRIGGERED` (value: `0l`)
 
-* `UNTRIGGERED` (value: `0l`)
+- `TRIGGERED` (value: `1l`)
 
-* `TRIGGERED` (value: `1l`)
-
-* `NO_DATA` (value: `2l`)
-
-
-
+- `NO_DATA` (value: `2l`)
