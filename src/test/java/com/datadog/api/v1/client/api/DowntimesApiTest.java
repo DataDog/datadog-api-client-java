@@ -185,7 +185,7 @@ public class DowntimesApiTest extends V1ApiTest {
 
     // verify that downtimes 1 and 2 are canceled
     List<Downtime> allDowntimes =
-        api.listDowntimes(new DowntimesApi.ListDowntimesOptionalParameters().currentOnly(false));
+        api.listDowntimes(new DowntimesApi.ListDowntimesOptionalParameters().currentOnly(true));
     for (String message : messages) {
       boolean found = false;
       for (Downtime downtime : allDowntimes) {
@@ -199,10 +199,10 @@ public class DowntimesApiTest extends V1ApiTest {
         }
       }
       if (message.equals(messages.get(2))) {
-        assertTrue(String.format("Downtime %s not found", name), found);
+        assertTrue(String.format("Downtime %s not found", message), found);
       } else {
         assertFalse(
-            String.format("Downtime %s found, but it should have been canceled", name), found);
+            String.format("Downtime %s found, but it should have been canceled", message), found);
       }
     }
   }
