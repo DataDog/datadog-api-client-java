@@ -23,7 +23,9 @@ import java.util.Objects;
 @JsonPropertyOrder({
   SLOCorrectionUpdateRequestAttributes.JSON_PROPERTY_CATEGORY,
   SLOCorrectionUpdateRequestAttributes.JSON_PROPERTY_DESCRIPTION,
+  SLOCorrectionUpdateRequestAttributes.JSON_PROPERTY_DURATION,
   SLOCorrectionUpdateRequestAttributes.JSON_PROPERTY_END,
+  SLOCorrectionUpdateRequestAttributes.JSON_PROPERTY_RRULE,
   SLOCorrectionUpdateRequestAttributes.JSON_PROPERTY_START,
   SLOCorrectionUpdateRequestAttributes.JSON_PROPERTY_TIMEZONE
 })
@@ -36,8 +38,14 @@ public class SLOCorrectionUpdateRequestAttributes {
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
+  public static final String JSON_PROPERTY_DURATION = "duration";
+  private Long duration;
+
   public static final String JSON_PROPERTY_END = "end";
   private Long end;
+
+  public static final String JSON_PROPERTY_RRULE = "rrule";
+  private String rrule;
 
   public static final String JSON_PROPERTY_START = "start";
   private Long start;
@@ -93,6 +101,30 @@ public class SLOCorrectionUpdateRequestAttributes {
     this.description = description;
   }
 
+  public SLOCorrectionUpdateRequestAttributes duration(Long duration) {
+    this.duration = duration;
+    return this;
+  }
+
+  /**
+   * Length of time (in seconds) for a specified &#x60;rrule&#x60; recurring SLO correction.
+   *
+   * @return duration
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      example = "3600",
+      value = "Length of time (in seconds) for a specified `rrule` recurring SLO correction.")
+  @JsonProperty(JSON_PROPERTY_DURATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getDuration() {
+    return duration;
+  }
+
+  public void setDuration(Long duration) {
+    this.duration = duration;
+  }
+
   public SLOCorrectionUpdateRequestAttributes end(Long end) {
     this.end = end;
     return this;
@@ -115,6 +147,30 @@ public class SLOCorrectionUpdateRequestAttributes {
 
   public void setEnd(Long end) {
     this.end = end;
+  }
+
+  public SLOCorrectionUpdateRequestAttributes rrule(String rrule) {
+    this.rrule = rrule;
+    return this;
+  }
+
+  /**
+   * Recurrence rules as defined in the iCalendar RFC 5545.
+   *
+   * @return rrule
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      example = "RRULE:FREQ=DAILY;INTERVAL=10;COUNT=5",
+      value = "Recurrence rules as defined in the iCalendar RFC 5545.")
+  @JsonProperty(JSON_PROPERTY_RRULE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getRrule() {
+    return rrule;
+  }
+
+  public void setRrule(String rrule) {
+    this.rrule = rrule;
   }
 
   public SLOCorrectionUpdateRequestAttributes start(Long start) {
@@ -178,14 +234,16 @@ public class SLOCorrectionUpdateRequestAttributes {
         (SLOCorrectionUpdateRequestAttributes) o;
     return Objects.equals(this.category, slOCorrectionUpdateRequestAttributes.category)
         && Objects.equals(this.description, slOCorrectionUpdateRequestAttributes.description)
+        && Objects.equals(this.duration, slOCorrectionUpdateRequestAttributes.duration)
         && Objects.equals(this.end, slOCorrectionUpdateRequestAttributes.end)
+        && Objects.equals(this.rrule, slOCorrectionUpdateRequestAttributes.rrule)
         && Objects.equals(this.start, slOCorrectionUpdateRequestAttributes.start)
         && Objects.equals(this.timezone, slOCorrectionUpdateRequestAttributes.timezone);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(category, description, end, start, timezone);
+    return Objects.hash(category, description, duration, end, rrule, start, timezone);
   }
 
   @Override
@@ -194,7 +252,9 @@ public class SLOCorrectionUpdateRequestAttributes {
     sb.append("class SLOCorrectionUpdateRequestAttributes {\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
     sb.append("    end: ").append(toIndentedString(end)).append("\n");
+    sb.append("    rrule: ").append(toIndentedString(rrule)).append("\n");
     sb.append("    start: ").append(toIndentedString(start)).append("\n");
     sb.append("    timezone: ").append(toIndentedString(timezone)).append("\n");
     sb.append("}");

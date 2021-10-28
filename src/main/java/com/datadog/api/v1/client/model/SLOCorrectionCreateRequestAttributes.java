@@ -24,7 +24,9 @@ import java.util.Objects;
 @JsonPropertyOrder({
   SLOCorrectionCreateRequestAttributes.JSON_PROPERTY_CATEGORY,
   SLOCorrectionCreateRequestAttributes.JSON_PROPERTY_DESCRIPTION,
+  SLOCorrectionCreateRequestAttributes.JSON_PROPERTY_DURATION,
   SLOCorrectionCreateRequestAttributes.JSON_PROPERTY_END,
+  SLOCorrectionCreateRequestAttributes.JSON_PROPERTY_RRULE,
   SLOCorrectionCreateRequestAttributes.JSON_PROPERTY_SLO_ID,
   SLOCorrectionCreateRequestAttributes.JSON_PROPERTY_START,
   SLOCorrectionCreateRequestAttributes.JSON_PROPERTY_TIMEZONE
@@ -38,8 +40,14 @@ public class SLOCorrectionCreateRequestAttributes {
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
+  public static final String JSON_PROPERTY_DURATION = "duration";
+  private Long duration;
+
   public static final String JSON_PROPERTY_END = "end";
   private Long end;
+
+  public static final String JSON_PROPERTY_RRULE = "rrule";
+  private String rrule;
 
   public static final String JSON_PROPERTY_SLO_ID = "slo_id";
   private String sloId;
@@ -55,12 +63,10 @@ public class SLOCorrectionCreateRequestAttributes {
   @JsonCreator
   public SLOCorrectionCreateRequestAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_CATEGORY) SLOCorrectionCategory category,
-      @JsonProperty(required = true, value = JSON_PROPERTY_END) Long end,
       @JsonProperty(required = true, value = JSON_PROPERTY_SLO_ID) String sloId,
       @JsonProperty(required = true, value = JSON_PROPERTY_START) Long start) {
     this.category = category;
     this.unparsed |= !category.isValid();
-    this.end = end;
     this.sloId = sloId;
     this.start = start;
   }
@@ -112,6 +118,30 @@ public class SLOCorrectionCreateRequestAttributes {
     this.description = description;
   }
 
+  public SLOCorrectionCreateRequestAttributes duration(Long duration) {
+    this.duration = duration;
+    return this;
+  }
+
+  /**
+   * Length of time (in seconds) for a specified &#x60;rrule&#x60; recurring SLO correction.
+   *
+   * @return duration
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      example = "1600000000",
+      value = "Length of time (in seconds) for a specified `rrule` recurring SLO correction.")
+  @JsonProperty(JSON_PROPERTY_DURATION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getDuration() {
+    return duration;
+  }
+
+  public void setDuration(Long duration) {
+    this.duration = duration;
+  }
+
   public SLOCorrectionCreateRequestAttributes end(Long end) {
     this.end = end;
     return this;
@@ -122,18 +152,42 @@ public class SLOCorrectionCreateRequestAttributes {
    *
    * @return end
    */
+  @javax.annotation.Nullable
   @ApiModelProperty(
       example = "1600000000",
-      required = true,
       value = "Ending time of the correction in epoch seconds.")
   @JsonProperty(JSON_PROPERTY_END)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getEnd() {
     return end;
   }
 
   public void setEnd(Long end) {
     this.end = end;
+  }
+
+  public SLOCorrectionCreateRequestAttributes rrule(String rrule) {
+    this.rrule = rrule;
+    return this;
+  }
+
+  /**
+   * Recurrence rules as defined in the iCalendar RFC 5545.
+   *
+   * @return rrule
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      example = "RRULE:FREQ=DAILY;INTERVAL=10;COUNT=5",
+      value = "Recurrence rules as defined in the iCalendar RFC 5545.")
+  @JsonProperty(JSON_PROPERTY_RRULE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getRrule() {
+    return rrule;
+  }
+
+  public void setRrule(String rrule) {
+    this.rrule = rrule;
   }
 
   public SLOCorrectionCreateRequestAttributes sloId(String sloId) {
@@ -221,7 +275,9 @@ public class SLOCorrectionCreateRequestAttributes {
         (SLOCorrectionCreateRequestAttributes) o;
     return Objects.equals(this.category, slOCorrectionCreateRequestAttributes.category)
         && Objects.equals(this.description, slOCorrectionCreateRequestAttributes.description)
+        && Objects.equals(this.duration, slOCorrectionCreateRequestAttributes.duration)
         && Objects.equals(this.end, slOCorrectionCreateRequestAttributes.end)
+        && Objects.equals(this.rrule, slOCorrectionCreateRequestAttributes.rrule)
         && Objects.equals(this.sloId, slOCorrectionCreateRequestAttributes.sloId)
         && Objects.equals(this.start, slOCorrectionCreateRequestAttributes.start)
         && Objects.equals(this.timezone, slOCorrectionCreateRequestAttributes.timezone);
@@ -229,7 +285,7 @@ public class SLOCorrectionCreateRequestAttributes {
 
   @Override
   public int hashCode() {
-    return Objects.hash(category, description, end, sloId, start, timezone);
+    return Objects.hash(category, description, duration, end, rrule, sloId, start, timezone);
   }
 
   @Override
@@ -238,7 +294,9 @@ public class SLOCorrectionCreateRequestAttributes {
     sb.append("class SLOCorrectionCreateRequestAttributes {\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
     sb.append("    end: ").append(toIndentedString(end)).append("\n");
+    sb.append("    rrule: ").append(toIndentedString(rrule)).append("\n");
     sb.append("    sloId: ").append(toIndentedString(sloId)).append("\n");
     sb.append("    start: ").append(toIndentedString(start)).append("\n");
     sb.append("    timezone: ").append(toIndentedString(timezone)).append("\n");
