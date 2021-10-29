@@ -39,3 +39,5 @@ repos:
     entry: ./format.sh
     files: '^src/'
     types: [file, java]
+    pass_filenames: false
+    args: ['src/']
