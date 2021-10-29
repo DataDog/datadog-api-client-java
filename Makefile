@@ -8,8 +8,8 @@ generate: .generator .env
 	@mkdir -p api_docs/v1 api_docs/v2
 	@cp -r v1/src/main ./src/
 	@cp -r v2/src/main ./src/
-	@cp -nr v1/src/test ./src/
-	@cp -nr v2/src/test ./src/
+	@cp -nr v1/src/test ./src/ || true
+	@cp -nr v2/src/test ./src/ || true
 	@cp -r v1/docs/* ./api_docs/v1/
 	@cp -r v2/docs/* ./api_docs/v2/
 	@cp v1/README.md ./api_docs/v1/
