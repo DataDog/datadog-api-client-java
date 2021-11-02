@@ -510,7 +510,7 @@ public class Dashboard {
    */
   @ApiModelProperty(
       example =
-          "[{\"definition\":{\"requests\":{\"fill\":{\"q\":\"system.cpu.user\"}},\"type\":\"hostmap\"}}]",
+          "[{\"definition\":{\"requests\":{\"fill\":{\"q\":\"avg:system.cpu.user{*}\"}},\"type\":\"hostmap\"}}]",
       required = true,
       value = "List of widgets to display on the dashboard.")
   @JsonProperty(JSON_PROPERTY_WIDGETS)
