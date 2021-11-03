@@ -28,52 +28,54 @@ import java.util.Objects;
 public class SyntheticsCIBatchMetadataCI {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_PIPELINE = "pipeline";
-  private String pipeline;
+  private SyntheticsCIBatchMetadataPipeline pipeline;
 
   public static final String JSON_PROPERTY_PROVIDER = "provider";
-  private String provider;
+  private SyntheticsCIBatchMetadataProvider provider;
 
-  public SyntheticsCIBatchMetadataCI pipeline(String pipeline) {
+  public SyntheticsCIBatchMetadataCI pipeline(SyntheticsCIBatchMetadataPipeline pipeline) {
     this.pipeline = pipeline;
+    this.unparsed |= pipeline.unparsed;
     return this;
   }
 
   /**
-   * Name of the pipeline.
+   * Get pipeline
    *
    * @return pipeline
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the pipeline.")
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PIPELINE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getPipeline() {
+  public SyntheticsCIBatchMetadataPipeline getPipeline() {
     return pipeline;
   }
 
-  public void setPipeline(String pipeline) {
+  public void setPipeline(SyntheticsCIBatchMetadataPipeline pipeline) {
     this.pipeline = pipeline;
   }
 
-  public SyntheticsCIBatchMetadataCI provider(String provider) {
+  public SyntheticsCIBatchMetadataCI provider(SyntheticsCIBatchMetadataProvider provider) {
     this.provider = provider;
+    this.unparsed |= provider.unparsed;
     return this;
   }
 
   /**
-   * Name of the CI provider.
+   * Get provider
    *
    * @return provider
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the CI provider.")
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PROVIDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getProvider() {
+  public SyntheticsCIBatchMetadataProvider getProvider() {
     return provider;
   }
 
-  public void setProvider(String provider) {
+  public void setProvider(SyntheticsCIBatchMetadataProvider provider) {
     this.provider = provider;
   }
 

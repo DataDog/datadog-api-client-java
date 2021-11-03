@@ -30,7 +30,7 @@ public class SyntheticsCIBatchMetadataGit {
   public static final String JSON_PROPERTY_BRANCH = "branch";
   private String branch;
 
-  public static final String JSON_PROPERTY_COMMIT_SHA = "commit_sha";
+  public static final String JSON_PROPERTY_COMMIT_SHA = "commitSha";
   private String commitSha;
 
   public SyntheticsCIBatchMetadataGit branch(String branch) {
