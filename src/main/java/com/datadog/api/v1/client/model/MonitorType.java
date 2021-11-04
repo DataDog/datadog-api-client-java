@@ -33,15 +33,16 @@ public class MonitorType {
   public static final MonitorType COMPOSITE = new MonitorType("composite");
   public static final MonitorType EVENT_ALERT = new MonitorType("event alert");
   public static final MonitorType LOG_ALERT = new MonitorType("log alert");
-  public static final MonitorType METRIC_ALERT = new MonitorType("process alert");
-  public static final MonitorType PROCESS_ALERT = new MonitorType("query alert");
-  public static final MonitorType QUERY_ALERT = new MonitorType("rum alert");
-  public static final MonitorType RUM_ALERT = new MonitorType("service check");
-  public static final MonitorType SERVICE_CHECK = new MonitorType("synthetics alert");
-  public static final MonitorType SYNTHETICS_ALERT = new MonitorType("trace-analytics alert");
-  public static final MonitorType TRACE_ANALYTICS_ALERT = new MonitorType("slo alert");
-  public static final MonitorType SLO_ALERT = new MonitorType("event-v2 alert");
-  public static final MonitorType EVENT_V2_ALERT = new MonitorType("audit alert");
+  public static final MonitorType METRIC_ALERT = new MonitorType("metric alert");
+  public static final MonitorType PROCESS_ALERT = new MonitorType("process alert");
+  public static final MonitorType QUERY_ALERT = new MonitorType("query alert");
+  public static final MonitorType RUM_ALERT = new MonitorType("rum alert");
+  public static final MonitorType SERVICE_CHECK = new MonitorType("service check");
+  public static final MonitorType SYNTHETICS_ALERT = new MonitorType("synthetics alert");
+  public static final MonitorType TRACE_ANALYTICS_ALERT = new MonitorType("trace-analytics alert");
+  public static final MonitorType SLO_ALERT = new MonitorType("slo alert");
+  public static final MonitorType EVENT_V2_ALERT = new MonitorType("event-v2 alert");
+  public static final MonitorType AUDIT_ALERT = new MonitorType("audit alert");
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
@@ -49,6 +50,7 @@ public class MonitorType {
               "composite",
               "event alert",
               "log alert",
+              "metric alert",
               "process alert",
               "query alert",
               "rum alert",
