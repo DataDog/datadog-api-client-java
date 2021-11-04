@@ -182,7 +182,10 @@ public class LogsApi {
    *       <tr><td> 200 </td><td> Response from server (always 200 empty JSON). </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> unexpected error </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public Object submitLog(List<HTTPLogItem> body) throws ApiException {
     return submitLogWithHttpInfo(body, new SubmitLogOptionalParameters()).getData();
   }
@@ -210,7 +213,10 @@ public class LogsApi {
    *       <tr><td> 200 </td><td> Response from server (always 200 empty JSON). </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> unexpected error </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public Object submitLog(List<HTTPLogItem> body, SubmitLogOptionalParameters parameters)
       throws ApiException {
     return submitLogWithHttpInfo(body, parameters).getData();
@@ -239,7 +245,10 @@ public class LogsApi {
    *       <tr><td> 200 </td><td> Response from server (always 200 empty JSON). </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> unexpected error </td><td>  -  </td></tr>
    *     </table>
+   *
+   * @deprecated
    */
+  @Deprecated
   public ApiResponse<Object> submitLogWithHttpInfo(
       List<HTTPLogItem> body, SubmitLogOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = body;
