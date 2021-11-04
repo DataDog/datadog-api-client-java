@@ -139,7 +139,7 @@ public class MonitorsApi {
    * &#x60;trace-analytics alert&#x60; - composite: &#x60;composite&#x60; - custom: &#x60;service
    * check&#x60; - event: &#x60;event alert&#x60; - forecast: &#x60;query alert&#x60; - host:
    * &#x60;service check&#x60; - integration: &#x60;query alert&#x60; or &#x60;service check&#x60; -
-   * live process: &#x60;process alert&#x60; - logs: &#x60;log alert&#x60; - metric: &#x60;metric
+   * live process: &#x60;process alert&#x60; - logs: &#x60;log alert&#x60; - metric: &#x60;query
    * alert&#x60; - network: &#x60;service check&#x60; - outlier: &#x60;query alert&#x60; - process:
    * &#x60;service check&#x60; - rum: &#x60;rum alert&#x60; - SLO: &#x60;slo alert&#x60; - watchdog:
    * &#x60;event alert&#x60; - event-v2: &#x60;event-v2 alert&#x60; - audit: &#x60;audit alert&#x60;
@@ -265,7 +265,7 @@ public class MonitorsApi {
    * &#x60;trace-analytics alert&#x60; - composite: &#x60;composite&#x60; - custom: &#x60;service
    * check&#x60; - event: &#x60;event alert&#x60; - forecast: &#x60;query alert&#x60; - host:
    * &#x60;service check&#x60; - integration: &#x60;query alert&#x60; or &#x60;service check&#x60; -
-   * live process: &#x60;process alert&#x60; - logs: &#x60;log alert&#x60; - metric: &#x60;metric
+   * live process: &#x60;process alert&#x60; - logs: &#x60;log alert&#x60; - metric: &#x60;query
    * alert&#x60; - network: &#x60;service check&#x60; - outlier: &#x60;query alert&#x60; - process:
    * &#x60;service check&#x60; - rum: &#x60;rum alert&#x60; - SLO: &#x60;slo alert&#x60; - watchdog:
    * &#x60;event alert&#x60; - event-v2: &#x60;event-v2 alert&#x60; - audit: &#x60;audit alert&#x60;
