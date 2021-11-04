@@ -496,9 +496,8 @@ public class MonitorOptions {
 
   /**
    * The number of minutes before a monitor notifies after data stops reporting. Datadog recommends
-   * at least 2x the monitor timeframe for metric alerts or 2 minutes for service checks. If
-   * omitted, 2x the evaluation timeframe is used for metric alerts, and 24 hours is used for
-   * service checks.
+   * at least 2x the monitor timeframe for query alerts or 2 minutes for service checks. If omitted,
+   * 2x the evaluation timeframe is used for query alerts, and 24 hours is used for service checks.
    *
    * @return noDataTimeframe
    */
@@ -506,8 +505,8 @@ public class MonitorOptions {
   @ApiModelProperty(
       value =
           "The number of minutes before a monitor notifies after data stops reporting. Datadog"
-              + " recommends at least 2x the monitor timeframe for metric alerts or 2 minutes for"
-              + " service checks. If omitted, 2x the evaluation timeframe is used for metric"
+              + " recommends at least 2x the monitor timeframe for query alerts or 2 minutes for"
+              + " service checks. If omitted, 2x the evaluation timeframe is used for query"
               + " alerts, and 24 hours is used for service checks.")
   @JsonIgnore
   public Long getNoDataTimeframe() {
