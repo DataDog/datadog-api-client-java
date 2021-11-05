@@ -6,6 +6,7 @@ Datadog-Azure integrations configured for your organization.
 
 | Name              | Type                   | Description                                                                                                                                    | Notes      |
 | ----------------- | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **automute**      | **Boolean**            | Silence monitors for expected Azure VM shutdowns.                                                                                              | [optional] |
 | **clientId**      | **String**             | Your Azure web application ID.                                                                                                                 | [optional] |
 | **clientSecret**  | **String**             | Your Azure web application secret key.                                                                                                         | [optional] |
 | **errors**        | **List&lt;String&gt;** | Errors in your configuration.                                                                                                                  | [optional] |

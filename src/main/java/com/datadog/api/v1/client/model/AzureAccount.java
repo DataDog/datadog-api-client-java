@@ -23,6 +23,7 @@ import java.util.Objects;
 /** Datadog-Azure integrations configured for your organization. */
 @ApiModel(description = "Datadog-Azure integrations configured for your organization.")
 @JsonPropertyOrder({
+  AzureAccount.JSON_PROPERTY_AUTOMUTE,
   AzureAccount.JSON_PROPERTY_CLIENT_ID,
   AzureAccount.JSON_PROPERTY_CLIENT_SECRET,
   AzureAccount.JSON_PROPERTY_ERRORS,
@@ -34,6 +35,9 @@ import java.util.Objects;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AzureAccount {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_AUTOMUTE = "automute";
+  private Boolean automute;
+
   public static final String JSON_PROPERTY_CLIENT_ID = "client_id";
   private String clientId;
 
@@ -54,6 +58,28 @@ public class AzureAccount {
 
   public static final String JSON_PROPERTY_TENANT_NAME = "tenant_name";
   private String tenantName;
+
+  public AzureAccount automute(Boolean automute) {
+    this.automute = automute;
+    return this;
+  }
+
+  /**
+   * Silence monitors for expected Azure VM shutdowns.
+   *
+   * @return automute
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "true", value = "Silence monitors for expected Azure VM shutdowns.")
+  @JsonProperty(JSON_PROPERTY_AUTOMUTE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Boolean getAutomute() {
+    return automute;
+  }
+
+  public void setAutomute(Boolean automute) {
+    this.automute = automute;
+  }
 
   public AzureAccount clientId(String clientId) {
     this.clientId = clientId;
@@ -242,7 +268,8 @@ public class AzureAccount {
       return false;
     }
     AzureAccount azureAccount = (AzureAccount) o;
-    return Objects.equals(this.clientId, azureAccount.clientId)
+    return Objects.equals(this.automute, azureAccount.automute)
+        && Objects.equals(this.clientId, azureAccount.clientId)
         && Objects.equals(this.clientSecret, azureAccount.clientSecret)
         && Objects.equals(this.errors, azureAccount.errors)
         && Objects.equals(this.hostFilters, azureAccount.hostFilters)
@@ -254,13 +281,21 @@ public class AzureAccount {
   @Override
   public int hashCode() {
     return Objects.hash(
-        clientId, clientSecret, errors, hostFilters, newClientId, newTenantName, tenantName);
+        automute,
+        clientId,
+        clientSecret,
+        errors,
+        hostFilters,
+        newClientId,
+        newTenantName,
+        tenantName);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AzureAccount {\n");
+    sb.append("    automute: ").append(toIndentedString(automute)).append("\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
