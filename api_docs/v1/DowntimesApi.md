@@ -331,7 +331,7 @@ public class Example {
 
 > List&lt;Downtime&gt; listMonitorDowntimes(monitorId);
 
-Get all downtimes for the specified monitor
+Get all active downtimes for the specified monitor.
 
 ### Example
 

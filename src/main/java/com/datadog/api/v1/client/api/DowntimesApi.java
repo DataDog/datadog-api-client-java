@@ -475,7 +475,7 @@ public class DowntimesApi {
   }
 
   /**
-   * Get all downtimes for a monitor Get all downtimes for the specified monitor
+   * Get all downtimes for a monitor Get all active downtimes for the specified monitor.
    *
    * @param monitorId The id of the monitor (required)
    * @return List&lt;Downtime&gt;
@@ -493,7 +493,7 @@ public class DowntimesApi {
   }
 
   /**
-   * Get all downtimes for a monitor Get all downtimes for the specified monitor
+   * Get all downtimes for a monitor Get all active downtimes for the specified monitor.
    *
    * @param monitorId The id of the monitor (required)
    * @return ApiResponse&lt;List&lt;Downtime&gt;&gt;
