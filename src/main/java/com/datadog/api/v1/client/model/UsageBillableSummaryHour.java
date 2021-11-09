@@ -50,7 +50,7 @@ public class UsageBillableSummaryHour {
   private String publicId;
 
   public static final String JSON_PROPERTY_RATIO_IN_MONTH = "ratio_in_month";
-  private Long ratioInMonth;
+  private Double ratioInMonth;
 
   public static final String JSON_PROPERTY_START_DATE = "start_date";
   private OffsetDateTime startDate;
@@ -168,7 +168,7 @@ public class UsageBillableSummaryHour {
     this.publicId = publicId;
   }
 
-  public UsageBillableSummaryHour ratioInMonth(Long ratioInMonth) {
+  public UsageBillableSummaryHour ratioInMonth(Double ratioInMonth) {
     this.ratioInMonth = ratioInMonth;
     return this;
   }
@@ -182,11 +182,11 @@ public class UsageBillableSummaryHour {
   @ApiModelProperty(value = "Shows usage aggregation for a billing period.")
   @JsonProperty(JSON_PROPERTY_RATIO_IN_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getRatioInMonth() {
+  public Double getRatioInMonth() {
     return ratioInMonth;
   }
 
-  public void setRatioInMonth(Long ratioInMonth) {
+  public void setRatioInMonth(Double ratioInMonth) {
     this.ratioInMonth = ratioInMonth;
   }
 
