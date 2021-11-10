@@ -240,7 +240,7 @@ public class Monitor {
    * @return name
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The monitor name.")
+  @ApiModelProperty(example = "My monitor", value = "The monitor name.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
