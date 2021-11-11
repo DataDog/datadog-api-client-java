@@ -39,12 +39,12 @@ public class SyntheticsCIBatchMetadataGit {
   }
 
   /**
-   * The branch name.
+   * Branch name.
    *
    * @return branch
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The branch name.")
+  @ApiModelProperty(value = "Branch name.")
   @JsonProperty(JSON_PROPERTY_BRANCH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getBranch() {
