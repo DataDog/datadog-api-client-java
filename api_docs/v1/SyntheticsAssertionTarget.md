@@ -8,5 +8,5 @@ An assertion which uses a simple target.
 | ------------ | ------------------------------- | ---------------------------------- | ---------- |
 | **operator** | **SyntheticsAssertionOperator** |                                    |
 | **property** | **String**                      | The associated assertion property. | [optional] |
-| **target**   | **Object**                      | Value used by the operator.        | [optional] |
+| **target**   | **Object**                      | Value used by the operator.        |
 | **type**     | **SyntheticsAssertionType**     |                                    |

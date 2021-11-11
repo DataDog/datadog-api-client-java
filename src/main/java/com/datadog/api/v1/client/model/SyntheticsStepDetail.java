@@ -19,6 +19,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Object describing a step for a Synthetic test. */
 @ApiModel(description = "Object describing a step for a Synthetic test.")
@@ -87,7 +88,7 @@ public class SyntheticsStepDetail {
   private String url;
 
   public static final String JSON_PROPERTY_VALUE = "value";
-  private Object value;
+  private JsonNullable<Object> value = JsonNullable.<Object>of(null);
 
   public static final String JSON_PROPERTY_VITALS_METRICS = "vitalsMetrics";
   private List<SyntheticsCoreWebVitals> vitalsMetrics = null;
@@ -445,7 +446,7 @@ public class SyntheticsStepDetail {
   }
 
   public SyntheticsStepDetail value(Object value) {
-    this.value = value;
+    this.value = JsonNullable.<Object>of(value);
     return this;
   }
 
@@ -456,14 +457,24 @@ public class SyntheticsStepDetail {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Value for the step.")
+  @JsonIgnore
+  public Object getValue() {
+    return value.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Object getValue() {
+  public JsonNullable<Object> getValue_JsonNullable() {
     return value;
   }
 
-  public void setValue(Object value) {
+  @JsonProperty(JSON_PROPERTY_VALUE)
+  public void setValue_JsonNullable(JsonNullable<Object> value) {
     this.value = value;
+  }
+
+  public void setValue(Object value) {
+    this.value = JsonNullable.<Object>of(value);
   }
 
   public SyntheticsStepDetail vitalsMetrics(List<SyntheticsCoreWebVitals> vitalsMetrics) {

@@ -48,9 +48,11 @@ public class SyntheticsAssertionTarget {
   public SyntheticsAssertionTarget(
       @JsonProperty(required = true, value = JSON_PROPERTY_OPERATOR)
           SyntheticsAssertionOperator operator,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TARGET) Object target,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SyntheticsAssertionType type) {
     this.operator = operator;
     this.unparsed |= !operator.isValid();
+    this.target = target;
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -112,10 +114,9 @@ public class SyntheticsAssertionTarget {
    *
    * @return target
    */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Value used by the operator.")
+  @ApiModelProperty(example = "123456", required = true, value = "Value used by the operator.")
   @JsonProperty(JSON_PROPERTY_TARGET)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public Object getTarget() {
     return target;
   }
