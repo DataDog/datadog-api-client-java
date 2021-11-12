@@ -29,6 +29,7 @@ import com.datadog.api.v1.client.model.UsageNetworkFlowsResponse;
 import com.datadog.api.v1.client.model.UsageNetworkHostsResponse;
 import com.datadog.api.v1.client.model.UsageProfilingResponse;
 import com.datadog.api.v1.client.model.UsageRumSessionsResponse;
+import com.datadog.api.v1.client.model.UsageRumUnitsResponse;
 import com.datadog.api.v1.client.model.UsageSDSResponse;
 import com.datadog.api.v1.client.model.UsageSNMPResponse;
 import com.datadog.api.v1.client.model.UsageSort;
@@ -3320,6 +3321,136 @@ public class UsageMeteringApi {
 
     return apiClient.invokeAPI(
         "UsageMeteringApi.getUsageRumSessions",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /** Manage optional parameters to getUsageRumUnits. */
+  public static class GetUsageRumUnitsOptionalParameters {
+    private OffsetDateTime endHr;
+
+    /**
+     * Set endHr
+     *
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+     *     ending **before** this hour. (optional)
+     * @return GetUsageRumUnitsOptionalParameters
+     */
+    public GetUsageRumUnitsOptionalParameters endHr(OffsetDateTime endHr) {
+      this.endHr = endHr;
+      return this;
+    }
+  }
+
+  /**
+   * Get hourly usage for RUM Units Get hourly usage for
+   * [RUM](https://docs.datadoghq.com/real_user_monitoring/) Units.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+   *     beginning at this hour. (required)
+   * @return UsageRumUnitsResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public UsageRumUnitsResponse getUsageRumUnits(OffsetDateTime startHr) throws ApiException {
+    return getUsageRumUnitsWithHttpInfo(startHr, new GetUsageRumUnitsOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get hourly usage for RUM Units Get hourly usage for
+   * [RUM](https://docs.datadoghq.com/real_user_monitoring/) Units.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+   *     beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return UsageRumUnitsResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public UsageRumUnitsResponse getUsageRumUnits(
+      OffsetDateTime startHr, GetUsageRumUnitsOptionalParameters parameters) throws ApiException {
+    return getUsageRumUnitsWithHttpInfo(startHr, parameters).getData();
+  }
+
+  /**
+   * Get hourly usage for RUM Units Get hourly usage for
+   * [RUM](https://docs.datadoghq.com/real_user_monitoring/) Units.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage
+   *     beginning at this hour. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;UsageRumUnitsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<UsageRumUnitsResponse> getUsageRumUnitsWithHttpInfo(
+      OffsetDateTime startHr, GetUsageRumUnitsOptionalParameters parameters) throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'startHr' is set
+    if (startHr == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'startHr' when calling getUsageRumUnits");
+    }
+    OffsetDateTime endHr = parameters.endHr;
+    // create path and map variables
+    String localVarPath = "/api/v1/usage/rum";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getUsageRumUnits");
+
+    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
+
+    GenericType<UsageRumUnitsResponse> localVarReturnType =
+        new GenericType<UsageRumUnitsResponse>() {};
+
+    return apiClient.invokeAPI(
+        "UsageMeteringApi.getUsageRumUnits",
         localVarPath,
         "GET",
         localVarQueryParams,

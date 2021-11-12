@@ -31,6 +31,9 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_AWS_LAMBDA_INVOCATIONS_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_AZURE_APP_SERVICE_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_BILLABLE_INGESTED_BYTES_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_BROWSER_RUM_LITE_SESSION_COUNT_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_BROWSER_RUM_REPLAY_SESSION_COUNT_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_BROWSER_RUM_UNITS_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_CONTAINER_AVG,
   UsageSummaryDateOrg.JSON_PROPERTY_CONTAINER_HWM,
   UsageSummaryDateOrg.JSON_PROPERTY_CSPM_CONTAINER_AVG,
@@ -52,9 +55,11 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_INGESTED_EVENTS_BYTES_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_IOT_DEVICE_AGG_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_IOT_DEVICE_TOP99P_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_MOBILE_RUM_LITE_SESSION_COUNT_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ANDROID_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_IOS_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_MOBILE_RUM_UNITS_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_NAME,
   UsageSummaryDateOrg.JSON_PROPERTY_NETFLOW_INDEXED_EVENTS_COUNT_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_NPM_HOST_TOP99P,
@@ -63,6 +68,7 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_PUBLIC_ID,
   UsageSummaryDateOrg.JSON_PROPERTY_RUM_SESSION_COUNT_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_RUM_TOTAL_SESSION_COUNT_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_RUM_UNITS_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_SDS_LOGS_SCANNED_BYTES_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_SDS_TOTAL_SCANNED_BYTES_SUM,
   UsageSummaryDateOrg.JSON_PROPERTY_SYNTHETICS_BROWSER_CHECK_CALLS_COUNT_SUM,
@@ -104,6 +110,17 @@ public class UsageSummaryDateOrg {
   public static final String JSON_PROPERTY_BILLABLE_INGESTED_BYTES_SUM =
       "billable_ingested_bytes_sum";
   private Long billableIngestedBytesSum;
+
+  public static final String JSON_PROPERTY_BROWSER_RUM_LITE_SESSION_COUNT_SUM =
+      "browser_rum_lite_session_count_sum";
+  private Long browserRumLiteSessionCountSum;
+
+  public static final String JSON_PROPERTY_BROWSER_RUM_REPLAY_SESSION_COUNT_SUM =
+      "browser_rum_replay_session_count_sum";
+  private Long browserRumReplaySessionCountSum;
+
+  public static final String JSON_PROPERTY_BROWSER_RUM_UNITS_SUM = "browser_rum_units_sum";
+  private Long browserRumUnitsSum;
 
   public static final String JSON_PROPERTY_CONTAINER_AVG = "container_avg";
   private Long containerAvg;
@@ -169,6 +186,10 @@ public class UsageSummaryDateOrg {
   public static final String JSON_PROPERTY_IOT_DEVICE_TOP99P_SUM = "iot_device_top99p_sum";
   private Long iotDeviceTop99pSum;
 
+  public static final String JSON_PROPERTY_MOBILE_RUM_LITE_SESSION_COUNT_SUM =
+      "mobile_rum_lite_session_count_sum";
+  private Long mobileRumLiteSessionCountSum;
+
   public static final String JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_ANDROID_SUM =
       "mobile_rum_session_count_android_sum";
   private Long mobileRumSessionCountAndroidSum;
@@ -180,6 +201,9 @@ public class UsageSummaryDateOrg {
   public static final String JSON_PROPERTY_MOBILE_RUM_SESSION_COUNT_SUM =
       "mobile_rum_session_count_sum";
   private Long mobileRumSessionCountSum;
+
+  public static final String JSON_PROPERTY_MOBILE_RUM_UNITS_SUM = "mobile_rum_units_sum";
+  private Long mobileRumUnitsSum;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -206,6 +230,9 @@ public class UsageSummaryDateOrg {
   public static final String JSON_PROPERTY_RUM_TOTAL_SESSION_COUNT_SUM =
       "rum_total_session_count_sum";
   private Long rumTotalSessionCountSum;
+
+  public static final String JSON_PROPERTY_RUM_UNITS_SUM = "rum_units_sum";
+  private Long rumUnitsSum;
 
   public static final String JSON_PROPERTY_SDS_LOGS_SCANNED_BYTES_SUM =
       "sds_logs_scanned_bytes_sum";
@@ -467,6 +494,83 @@ public class UsageSummaryDateOrg {
     this.billableIngestedBytesSum = billableIngestedBytesSum;
   }
 
+  public UsageSummaryDateOrg browserRumLiteSessionCountSum(Long browserRumLiteSessionCountSum) {
+    this.browserRumLiteSessionCountSum = browserRumLiteSessionCountSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all browser lite sessions over all hours in the current date for the given
+   * org.
+   *
+   * @return browserRumLiteSessionCountSum
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the sum of all browser lite sessions over all hours in the current date for the"
+              + " given org.")
+  @JsonProperty(JSON_PROPERTY_BROWSER_RUM_LITE_SESSION_COUNT_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getBrowserRumLiteSessionCountSum() {
+    return browserRumLiteSessionCountSum;
+  }
+
+  public void setBrowserRumLiteSessionCountSum(Long browserRumLiteSessionCountSum) {
+    this.browserRumLiteSessionCountSum = browserRumLiteSessionCountSum;
+  }
+
+  public UsageSummaryDateOrg browserRumReplaySessionCountSum(Long browserRumReplaySessionCountSum) {
+    this.browserRumReplaySessionCountSum = browserRumReplaySessionCountSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all browser replay sessions over all hours in the current date for the given
+   * org.
+   *
+   * @return browserRumReplaySessionCountSum
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the sum of all browser replay sessions over all hours in the current date for the"
+              + " given org.")
+  @JsonProperty(JSON_PROPERTY_BROWSER_RUM_REPLAY_SESSION_COUNT_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getBrowserRumReplaySessionCountSum() {
+    return browserRumReplaySessionCountSum;
+  }
+
+  public void setBrowserRumReplaySessionCountSum(Long browserRumReplaySessionCountSum) {
+    this.browserRumReplaySessionCountSum = browserRumReplaySessionCountSum;
+  }
+
+  public UsageSummaryDateOrg browserRumUnitsSum(Long browserRumUnitsSum) {
+    this.browserRumUnitsSum = browserRumUnitsSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all browser RUM units over all hours in the current date for the given org.
+   *
+   * @return browserRumUnitsSum
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the sum of all browser RUM units over all hours in the current date for the given"
+              + " org.")
+  @JsonProperty(JSON_PROPERTY_BROWSER_RUM_UNITS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getBrowserRumUnitsSum() {
+    return browserRumUnitsSum;
+  }
+
+  public void setBrowserRumUnitsSum(Long browserRumUnitsSum) {
+    this.browserRumUnitsSum = browserRumUnitsSum;
+  }
+
   public UsageSummaryDateOrg containerAvg(Long containerAvg) {
     this.containerAvg = containerAvg;
     return this;
@@ -682,7 +786,7 @@ public class UsageSummaryDateOrg {
 
   /**
    * Shows the 99th percentile of all Database Monitoring hosts over all hours in the current month
-   * for all organizations.
+   * for the given org.
    *
    * @return dbmHostTop99pSum
    */
@@ -690,7 +794,7 @@ public class UsageSummaryDateOrg {
   @ApiModelProperty(
       value =
           "Shows the 99th percentile of all Database Monitoring hosts over all hours in the"
-              + " current month for all organizations.")
+              + " current month for the given org.")
   @JsonProperty(JSON_PROPERTY_DBM_HOST_TOP99P_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getDbmHostTop99pSum() {
@@ -708,7 +812,7 @@ public class UsageSummaryDateOrg {
 
   /**
    * Shows the average of all distinct Database Monitoring normalized queries over all hours in the
-   * current month for all organizations.
+   * current month for the given org.
    *
    * @return dbmQueriesAvgSum
    */
@@ -716,7 +820,7 @@ public class UsageSummaryDateOrg {
   @ApiModelProperty(
       value =
           "Shows the average of all distinct Database Monitoring normalized queries over all hours"
-              + " in the current month for all organizations.")
+              + " in the current month for the given org.")
   @JsonProperty(JSON_PROPERTY_DBM_QUERIES_AVG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getDbmQueriesAvgSum() {
@@ -1003,6 +1107,31 @@ public class UsageSummaryDateOrg {
     this.iotDeviceTop99pSum = iotDeviceTop99pSum;
   }
 
+  public UsageSummaryDateOrg mobileRumLiteSessionCountSum(Long mobileRumLiteSessionCountSum) {
+    this.mobileRumLiteSessionCountSum = mobileRumLiteSessionCountSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all mobile lite sessions over all hours in the current date for the given org.
+   *
+   * @return mobileRumLiteSessionCountSum
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the sum of all mobile lite sessions over all hours in the current date for the"
+              + " given org.")
+  @JsonProperty(JSON_PROPERTY_MOBILE_RUM_LITE_SESSION_COUNT_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getMobileRumLiteSessionCountSum() {
+    return mobileRumLiteSessionCountSum;
+  }
+
+  public void setMobileRumLiteSessionCountSum(Long mobileRumLiteSessionCountSum) {
+    this.mobileRumLiteSessionCountSum = mobileRumLiteSessionCountSum;
+  }
+
   public UsageSummaryDateOrg mobileRumSessionCountAndroidSum(Long mobileRumSessionCountAndroidSum) {
     this.mobileRumSessionCountAndroidSum = mobileRumSessionCountAndroidSum;
     return this;
@@ -1078,6 +1207,31 @@ public class UsageSummaryDateOrg {
 
   public void setMobileRumSessionCountSum(Long mobileRumSessionCountSum) {
     this.mobileRumSessionCountSum = mobileRumSessionCountSum;
+  }
+
+  public UsageSummaryDateOrg mobileRumUnitsSum(Long mobileRumUnitsSum) {
+    this.mobileRumUnitsSum = mobileRumUnitsSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all mobile RUM units over all hours in the current date for the given org.
+   *
+   * @return mobileRumUnitsSum
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the sum of all mobile RUM units over all hours in the current date for the given"
+              + " org.")
+  @JsonProperty(JSON_PROPERTY_MOBILE_RUM_UNITS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getMobileRumUnitsSum() {
+    return mobileRumUnitsSum;
+  }
+
+  public void setMobileRumUnitsSum(Long mobileRumUnitsSum) {
+    this.mobileRumUnitsSum = mobileRumUnitsSum;
   }
 
   public UsageSummaryDateOrg name(String name) {
@@ -1279,6 +1433,32 @@ public class UsageSummaryDateOrg {
     this.rumTotalSessionCountSum = rumTotalSessionCountSum;
   }
 
+  public UsageSummaryDateOrg rumUnitsSum(Long rumUnitsSum) {
+    this.rumUnitsSum = rumUnitsSum;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all browser and mobile RUM units over all hours in the current date for the
+   * given org.
+   *
+   * @return rumUnitsSum
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the sum of all browser and mobile RUM units over all hours in the current date"
+              + " for the given org.")
+  @JsonProperty(JSON_PROPERTY_RUM_UNITS_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getRumUnitsSum() {
+    return rumUnitsSum;
+  }
+
+  public void setRumUnitsSum(Long rumUnitsSum) {
+    this.rumUnitsSum = rumUnitsSum;
+  }
+
   public UsageSummaryDateOrg sdsLogsScannedBytesSum(Long sdsLogsScannedBytesSum) {
     this.sdsLogsScannedBytesSum = sdsLogsScannedBytesSum;
     return this;
@@ -1286,7 +1466,7 @@ public class UsageSummaryDateOrg {
 
   /**
    * Shows the sum of all bytes scanned of logs usage by the Sensitive Data Scanner over all hours
-   * in the current month for all organizations.
+   * in the current month for the given org.
    *
    * @return sdsLogsScannedBytesSum
    */
@@ -1294,7 +1474,7 @@ public class UsageSummaryDateOrg {
   @ApiModelProperty(
       value =
           "Shows the sum of all bytes scanned of logs usage by the Sensitive Data Scanner over all"
-              + " hours in the current month for all organizations.")
+              + " hours in the current month for the given org.")
   @JsonProperty(JSON_PROPERTY_SDS_LOGS_SCANNED_BYTES_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getSdsLogsScannedBytesSum() {
@@ -1312,7 +1492,7 @@ public class UsageSummaryDateOrg {
 
   /**
    * Shows the sum of all bytes scanned across all usage types by the Sensitive Data Scanner over
-   * all hours in the current month for all organizations.
+   * all hours in the current month for the given org.
    *
    * @return sdsTotalScannedBytesSum
    */
@@ -1320,7 +1500,7 @@ public class UsageSummaryDateOrg {
   @ApiModelProperty(
       value =
           "Shows the sum of all bytes scanned across all usage types by the Sensitive Data Scanner"
-              + " over all hours in the current month for all organizations.")
+              + " over all hours in the current month for the given org.")
   @JsonProperty(JSON_PROPERTY_SDS_TOTAL_SCANNED_BYTES_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getSdsTotalScannedBytesSum() {
@@ -1484,6 +1664,12 @@ public class UsageSummaryDateOrg {
         && Objects.equals(this.azureAppServiceTop99p, usageSummaryDateOrg.azureAppServiceTop99p)
         && Objects.equals(
             this.billableIngestedBytesSum, usageSummaryDateOrg.billableIngestedBytesSum)
+        && Objects.equals(
+            this.browserRumLiteSessionCountSum, usageSummaryDateOrg.browserRumLiteSessionCountSum)
+        && Objects.equals(
+            this.browserRumReplaySessionCountSum,
+            usageSummaryDateOrg.browserRumReplaySessionCountSum)
+        && Objects.equals(this.browserRumUnitsSum, usageSummaryDateOrg.browserRumUnitsSum)
         && Objects.equals(this.containerAvg, usageSummaryDateOrg.containerAvg)
         && Objects.equals(this.containerHwm, usageSummaryDateOrg.containerHwm)
         && Objects.equals(this.cspmContainerAvg, usageSummaryDateOrg.cspmContainerAvg)
@@ -1508,12 +1694,15 @@ public class UsageSummaryDateOrg {
         && Objects.equals(this.iotDeviceAggSum, usageSummaryDateOrg.iotDeviceAggSum)
         && Objects.equals(this.iotDeviceTop99pSum, usageSummaryDateOrg.iotDeviceTop99pSum)
         && Objects.equals(
+            this.mobileRumLiteSessionCountSum, usageSummaryDateOrg.mobileRumLiteSessionCountSum)
+        && Objects.equals(
             this.mobileRumSessionCountAndroidSum,
             usageSummaryDateOrg.mobileRumSessionCountAndroidSum)
         && Objects.equals(
             this.mobileRumSessionCountIosSum, usageSummaryDateOrg.mobileRumSessionCountIosSum)
         && Objects.equals(
             this.mobileRumSessionCountSum, usageSummaryDateOrg.mobileRumSessionCountSum)
+        && Objects.equals(this.mobileRumUnitsSum, usageSummaryDateOrg.mobileRumUnitsSum)
         && Objects.equals(this.name, usageSummaryDateOrg.name)
         && Objects.equals(
             this.netflowIndexedEventsCountSum, usageSummaryDateOrg.netflowIndexedEventsCountSum)
@@ -1523,6 +1712,7 @@ public class UsageSummaryDateOrg {
         && Objects.equals(this.publicId, usageSummaryDateOrg.publicId)
         && Objects.equals(this.rumSessionCountSum, usageSummaryDateOrg.rumSessionCountSum)
         && Objects.equals(this.rumTotalSessionCountSum, usageSummaryDateOrg.rumTotalSessionCountSum)
+        && Objects.equals(this.rumUnitsSum, usageSummaryDateOrg.rumUnitsSum)
         && Objects.equals(this.sdsLogsScannedBytesSum, usageSummaryDateOrg.sdsLogsScannedBytesSum)
         && Objects.equals(this.sdsTotalScannedBytesSum, usageSummaryDateOrg.sdsTotalScannedBytesSum)
         && Objects.equals(
@@ -1550,6 +1740,9 @@ public class UsageSummaryDateOrg {
         awsLambdaInvocationsSum,
         azureAppServiceTop99p,
         billableIngestedBytesSum,
+        browserRumLiteSessionCountSum,
+        browserRumReplaySessionCountSum,
+        browserRumUnitsSum,
         containerAvg,
         containerHwm,
         cspmContainerAvg,
@@ -1571,9 +1764,11 @@ public class UsageSummaryDateOrg {
         ingestedEventsBytesSum,
         iotDeviceAggSum,
         iotDeviceTop99pSum,
+        mobileRumLiteSessionCountSum,
         mobileRumSessionCountAndroidSum,
         mobileRumSessionCountIosSum,
         mobileRumSessionCountSum,
+        mobileRumUnitsSum,
         name,
         netflowIndexedEventsCountSum,
         npmHostTop99p,
@@ -1582,6 +1777,7 @@ public class UsageSummaryDateOrg {
         publicId,
         rumSessionCountSum,
         rumTotalSessionCountSum,
+        rumUnitsSum,
         sdsLogsScannedBytesSum,
         sdsTotalScannedBytesSum,
         syntheticsBrowserCheckCallsCountSum,
@@ -1614,6 +1810,13 @@ public class UsageSummaryDateOrg {
     sb.append("    billableIngestedBytesSum: ")
         .append(toIndentedString(billableIngestedBytesSum))
         .append("\n");
+    sb.append("    browserRumLiteSessionCountSum: ")
+        .append(toIndentedString(browserRumLiteSessionCountSum))
+        .append("\n");
+    sb.append("    browserRumReplaySessionCountSum: ")
+        .append(toIndentedString(browserRumReplaySessionCountSum))
+        .append("\n");
+    sb.append("    browserRumUnitsSum: ").append(toIndentedString(browserRumUnitsSum)).append("\n");
     sb.append("    containerAvg: ").append(toIndentedString(containerAvg)).append("\n");
     sb.append("    containerHwm: ").append(toIndentedString(containerHwm)).append("\n");
     sb.append("    cspmContainerAvg: ").append(toIndentedString(cspmContainerAvg)).append("\n");
@@ -1647,6 +1850,9 @@ public class UsageSummaryDateOrg {
         .append("\n");
     sb.append("    iotDeviceAggSum: ").append(toIndentedString(iotDeviceAggSum)).append("\n");
     sb.append("    iotDeviceTop99pSum: ").append(toIndentedString(iotDeviceTop99pSum)).append("\n");
+    sb.append("    mobileRumLiteSessionCountSum: ")
+        .append(toIndentedString(mobileRumLiteSessionCountSum))
+        .append("\n");
     sb.append("    mobileRumSessionCountAndroidSum: ")
         .append(toIndentedString(mobileRumSessionCountAndroidSum))
         .append("\n");
@@ -1656,6 +1862,7 @@ public class UsageSummaryDateOrg {
     sb.append("    mobileRumSessionCountSum: ")
         .append(toIndentedString(mobileRumSessionCountSum))
         .append("\n");
+    sb.append("    mobileRumUnitsSum: ").append(toIndentedString(mobileRumUnitsSum)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    netflowIndexedEventsCountSum: ")
         .append(toIndentedString(netflowIndexedEventsCountSum))
@@ -1672,6 +1879,7 @@ public class UsageSummaryDateOrg {
     sb.append("    rumTotalSessionCountSum: ")
         .append(toIndentedString(rumTotalSessionCountSum))
         .append("\n");
+    sb.append("    rumUnitsSum: ").append(toIndentedString(rumUnitsSum)).append("\n");
     sb.append("    sdsLogsScannedBytesSum: ")
         .append(toIndentedString(sdsLogsScannedBytesSum))
         .append("\n");

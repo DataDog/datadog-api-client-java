@@ -29,6 +29,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | [**getUsageNetworkHosts**](UsageMeteringApi.md#getUsageNetworkHosts)                                     | **GET** /api/v1/usage/network_hosts                | Get hourly usage for Network Hosts               |
 | [**getUsageProfiling**](UsageMeteringApi.md#getUsageProfiling)                                           | **GET** /api/v1/usage/profiling                    | Get hourly usage for profiled hosts              |
 | [**getUsageRumSessions**](UsageMeteringApi.md#getUsageRumSessions)                                       | **GET** /api/v1/usage/rum_sessions                 | Get hourly usage for RUM Sessions                |
+| [**getUsageRumUnits**](UsageMeteringApi.md#getUsageRumUnits)                                             | **GET** /api/v1/usage/rum                          | Get hourly usage for RUM Units                   |
 | [**getUsageSDS**](UsageMeteringApi.md#getUsageSDS)                                                       | **GET** /api/v1/usage/sds                          | Get hourly usage for Sensitive Data Scanner      |
 | [**getUsageSNMP**](UsageMeteringApi.md#getUsageSNMP)                                                     | **GET** /api/v1/usage/snmp                         | Get hourly usage for SNMP devices                |
 | [**getUsageSummary**](UsageMeteringApi.md#getUsageSummary)                                               | **GET** /api/v1/usage/summary                      | Get usage across your multi-org account          |
@@ -1712,6 +1713,73 @@ public class Example {
 ### Return type
 
 [**UsageRumSessionsResponse**](UsageRumSessionsResponse.md)
+
+### Authorization
+
+[AuthZ](README.md#AuthZ), [apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json;datetime-format=rfc3339
+
+### HTTP response details
+
+| Status code | Description                        | Response headers |
+| ----------- | ---------------------------------- | ---------------- |
+| **200**     | OK                                 | -                |
+| **400**     | Bad Request                        | -                |
+| **403**     | Forbidden - User is not authorized | -                |
+
+## getUsageRumUnits
+
+> UsageRumUnitsResponse getUsageRumUnits(startHr, parameters);
+
+Get hourly usage for [RUM](https://docs.datadoghq.com/real_user_monitoring/) Units.
+
+### Example
+
+```java
+import java.time.OffsetDateTime;
+import java.util.*;
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.Configuration;
+import com.datadog.api.v1.client.model.*;
+import com.datadog.api.v1.client.api.UsageMeteringApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+        UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);
+        OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
+        OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+        try {
+            UsageRumUnitsResponse result = apiInstance.getUsageRumUnits(startHr, new UsageMeteringApi.GetUsageRumUnitsOptionalParameters()
+                .endHr(endHr));
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UsageMeteringApi#getUsageRumUnits");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+| Name        | Type               | Description                                                                                               | Notes      |
+| ----------- | ------------------ | --------------------------------------------------------------------------------------------------------- | ---------- |
+| **startHr** | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.      |
+| **endHr**   | **OffsetDateTime** | Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour. | [optional] |
+
+### Return type
+
+[**UsageRumUnitsResponse**](UsageRumUnitsResponse.md)
 
 ### Authorization
 
