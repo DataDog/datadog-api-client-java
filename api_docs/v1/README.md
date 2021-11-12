@@ -187,6 +187,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | _UsageMeteringApi_                    | [**getUsageNetworkHosts**](UsageMeteringApi.md#getUsageNetworkHosts)                                             | **GET** /api/v1/usage/network_hosts                                                                | Get hourly usage for Network Hosts                |
 | _UsageMeteringApi_                    | [**getUsageProfiling**](UsageMeteringApi.md#getUsageProfiling)                                                   | **GET** /api/v1/usage/profiling                                                                    | Get hourly usage for profiled hosts               |
 | _UsageMeteringApi_                    | [**getUsageRumSessions**](UsageMeteringApi.md#getUsageRumSessions)                                               | **GET** /api/v1/usage/rum_sessions                                                                 | Get hourly usage for RUM Sessions                 |
+| _UsageMeteringApi_                    | [**getUsageRumUnits**](UsageMeteringApi.md#getUsageRumUnits)                                                     | **GET** /api/v1/usage/rum                                                                          | Get hourly usage for RUM Units                    |
 | _UsageMeteringApi_                    | [**getUsageSDS**](UsageMeteringApi.md#getUsageSDS)                                                               | **GET** /api/v1/usage/sds                                                                          | Get hourly usage for Sensitive Data Scanner       |
 | _UsageMeteringApi_                    | [**getUsageSNMP**](UsageMeteringApi.md#getUsageSNMP)                                                             | **GET** /api/v1/usage/snmp                                                                         | Get hourly usage for SNMP devices                 |
 | _UsageMeteringApi_                    | [**getUsageSummary**](UsageMeteringApi.md#getUsageSummary)                                                       | **GET** /api/v1/usage/summary                                                                      | Get usage across your multi-org account           |
@@ -768,6 +769,8 @@ All URIs are relative to *https://api.datadoghq.com*
 - [UsageReportsType](UsageReportsType.md)
 - [UsageRumSessionsHour](UsageRumSessionsHour.md)
 - [UsageRumSessionsResponse](UsageRumSessionsResponse.md)
+- [UsageRumUnitsHour](UsageRumUnitsHour.md)
+- [UsageRumUnitsResponse](UsageRumUnitsResponse.md)
 - [UsageSDSHour](UsageSDSHour.md)
 - [UsageSDSResponse](UsageSDSResponse.md)
 - [UsageSNMPHour](UsageSNMPHour.md)
