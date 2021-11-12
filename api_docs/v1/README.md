@@ -153,6 +153,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | _SyntheticsApi_                       | [**listLocations**](SyntheticsApi.md#listLocations)                                                              | **GET** /api/v1/synthetics/locations                                                               | Get all locations (public and private)            |
 | _SyntheticsApi_                       | [**listTests**](SyntheticsApi.md#listTests)                                                                      | **GET** /api/v1/synthetics/tests                                                                   | Get the list of all tests                         |
 | _SyntheticsApi_                       | [**triggerCITests**](SyntheticsApi.md#triggerCITests)                                                            | **POST** /api/v1/synthetics/tests/trigger/ci                                                       | Trigger tests from CI/CD pipelines                |
+| _SyntheticsApi_                       | [**triggerTests**](SyntheticsApi.md#triggerTests)                                                                | **POST** /api/v1/synthetics/tests/trigger                                                          | Trigger some Synthetics tests                     |
 | _SyntheticsApi_                       | [**updateAPITest**](SyntheticsApi.md#updateAPITest)                                                              | **PUT** /api/v1/synthetics/tests/api/{public_id}                                                   | Edit an API test                                  |
 | _SyntheticsApi_                       | [**updateBrowserTest**](SyntheticsApi.md#updateBrowserTest)                                                      | **PUT** /api/v1/synthetics/tests/browser/{public_id}                                               | Edit a browser test                               |
 | _SyntheticsApi_                       | [**updatePrivateLocation**](SyntheticsApi.md#updatePrivateLocation)                                              | **PUT** /api/v1/synthetics/private-locations/{location_id}                                         | Edit a private location                           |
@@ -684,9 +685,11 @@ All URIs are relative to *https://api.datadoghq.com*
 - [SyntheticsTestRequestCertificate](SyntheticsTestRequestCertificate.md)
 - [SyntheticsTestRequestCertificateItem](SyntheticsTestRequestCertificateItem.md)
 - [SyntheticsTiming](SyntheticsTiming.md)
+- [SyntheticsTriggerBody](SyntheticsTriggerBody.md)
 - [SyntheticsTriggerCITestLocation](SyntheticsTriggerCITestLocation.md)
 - [SyntheticsTriggerCITestRunResult](SyntheticsTriggerCITestRunResult.md)
 - [SyntheticsTriggerCITestsResponse](SyntheticsTriggerCITestsResponse.md)
+- [SyntheticsTriggerTest](SyntheticsTriggerTest.md)
 - [SyntheticsUpdateTestPauseStatusPayload](SyntheticsUpdateTestPauseStatusPayload.md)
 - [SyntheticsVariableParser](SyntheticsVariableParser.md)
 - [SyntheticsWarningType](SyntheticsWarningType.md)

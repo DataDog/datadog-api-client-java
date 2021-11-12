@@ -26,6 +26,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | [**listLocations**](SyntheticsApi.md#listLocations)                             | **GET** /api/v1/synthetics/locations                                     | Get all locations (public and private)            |
 | [**listTests**](SyntheticsApi.md#listTests)                                     | **GET** /api/v1/synthetics/tests                                         | Get the list of all tests                         |
 | [**triggerCITests**](SyntheticsApi.md#triggerCITests)                           | **POST** /api/v1/synthetics/tests/trigger/ci                             | Trigger tests from CI/CD pipelines                |
+| [**triggerTests**](SyntheticsApi.md#triggerTests)                               | **POST** /api/v1/synthetics/tests/trigger                                | Trigger some Synthetics tests                     |
 | [**updateAPITest**](SyntheticsApi.md#updateAPITest)                             | **PUT** /api/v1/synthetics/tests/api/{public_id}                         | Edit an API test                                  |
 | [**updateBrowserTest**](SyntheticsApi.md#updateBrowserTest)                     | **PUT** /api/v1/synthetics/tests/browser/{public_id}                     | Edit a browser test                               |
 | [**updatePrivateLocation**](SyntheticsApi.md#updatePrivateLocation)             | **PUT** /api/v1/synthetics/private-locations/{location_id}               | Edit a private location                           |
@@ -1429,6 +1430,68 @@ public class Example {
 | ----------- | -------------------- | ---------------- |
 | **200**     | OK                   | -                |
 | **400**     | JSON format is wrong | -                |
+
+## triggerTests
+
+> SyntheticsTriggerCITestsResponse triggerTests(body);
+
+Trigger a set of Synthetics tests.
+
+### Example
+
+```java
+import java.util.*;
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.Configuration;
+import com.datadog.api.v1.client.model.*;
+import com.datadog.api.v1.client.api.SyntheticsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+        SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
+        SyntheticsTriggerBody body = new SyntheticsTriggerBody(); // SyntheticsTriggerBody | The identifiers of the tests to trigger.
+        try {
+            SyntheticsTriggerCITestsResponse result = apiInstance.triggerTests(body);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SyntheticsApi#triggerTests");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+| Name     | Type                                                  | Description                              | Notes |
+| -------- | ----------------------------------------------------- | ---------------------------------------- | ----- |
+| **body** | [**SyntheticsTriggerBody**](SyntheticsTriggerBody.md) | The identifiers of the tests to trigger. |
+
+### Return type
+
+[**SyntheticsTriggerCITestsResponse**](SyntheticsTriggerCITestsResponse.md)
+
+### Authorization
+
+[apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+| ----------- | ----------- | ---------------- |
+| **200**     | OK          | -                |
+| **400**     | Bad Request | -                |
 
 ## updateAPITest
 
