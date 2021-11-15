@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(description = "Number of netflow events indexed for each hour for a given organization.")
 @JsonPropertyOrder({
   UsageNetworkFlowsHour.JSON_PROPERTY_HOUR,
-  UsageNetworkFlowsHour.JSON_PROPERTY_INDEXED_EVENT_COUNT
+  UsageNetworkFlowsHour.JSON_PROPERTY_INDEXED_EVENTS_COUNT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageNetworkFlowsHour {
@@ -31,8 +31,8 @@ public class UsageNetworkFlowsHour {
   public static final String JSON_PROPERTY_HOUR = "hour";
   private OffsetDateTime hour;
 
-  public static final String JSON_PROPERTY_INDEXED_EVENT_COUNT = "indexed_event_count";
-  private Long indexedEventCount;
+  public static final String JSON_PROPERTY_INDEXED_EVENTS_COUNT = "indexed_events_count";
+  private Long indexedEventsCount;
 
   public UsageNetworkFlowsHour hour(OffsetDateTime hour) {
     this.hour = hour;
@@ -56,26 +56,26 @@ public class UsageNetworkFlowsHour {
     this.hour = hour;
   }
 
-  public UsageNetworkFlowsHour indexedEventCount(Long indexedEventCount) {
-    this.indexedEventCount = indexedEventCount;
+  public UsageNetworkFlowsHour indexedEventsCount(Long indexedEventsCount) {
+    this.indexedEventsCount = indexedEventsCount;
     return this;
   }
 
   /**
    * Contains the number of netflow events indexed.
    *
-   * @return indexedEventCount
+   * @return indexedEventsCount
    */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Contains the number of netflow events indexed.")
-  @JsonProperty(JSON_PROPERTY_INDEXED_EVENT_COUNT)
+  @JsonProperty(JSON_PROPERTY_INDEXED_EVENTS_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getIndexedEventCount() {
-    return indexedEventCount;
+  public Long getIndexedEventsCount() {
+    return indexedEventsCount;
   }
 
-  public void setIndexedEventCount(Long indexedEventCount) {
-    this.indexedEventCount = indexedEventCount;
+  public void setIndexedEventsCount(Long indexedEventsCount) {
+    this.indexedEventsCount = indexedEventsCount;
   }
 
   /** Return true if this UsageNetworkFlowsHour object is equal to o. */
@@ -89,12 +89,12 @@ public class UsageNetworkFlowsHour {
     }
     UsageNetworkFlowsHour usageNetworkFlowsHour = (UsageNetworkFlowsHour) o;
     return Objects.equals(this.hour, usageNetworkFlowsHour.hour)
-        && Objects.equals(this.indexedEventCount, usageNetworkFlowsHour.indexedEventCount);
+        && Objects.equals(this.indexedEventsCount, usageNetworkFlowsHour.indexedEventsCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hour, indexedEventCount);
+    return Objects.hash(hour, indexedEventsCount);
   }
 
   @Override
@@ -102,7 +102,7 @@ public class UsageNetworkFlowsHour {
     StringBuilder sb = new StringBuilder();
     sb.append("class UsageNetworkFlowsHour {\n");
     sb.append("    hour: ").append(toIndentedString(hour)).append("\n");
-    sb.append("    indexedEventCount: ").append(toIndentedString(indexedEventCount)).append("\n");
+    sb.append("    indexedEventsCount: ").append(toIndentedString(indexedEventsCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }

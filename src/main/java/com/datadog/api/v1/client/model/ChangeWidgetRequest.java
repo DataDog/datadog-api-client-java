@@ -16,6 +16,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /** Updated change widget. */
@@ -25,6 +27,7 @@ import java.util.Objects;
   ChangeWidgetRequest.JSON_PROPERTY_CHANGE_TYPE,
   ChangeWidgetRequest.JSON_PROPERTY_COMPARE_TO,
   ChangeWidgetRequest.JSON_PROPERTY_EVENT_QUERY,
+  ChangeWidgetRequest.JSON_PROPERTY_FORMULAS,
   ChangeWidgetRequest.JSON_PROPERTY_INCREASE_GOOD,
   ChangeWidgetRequest.JSON_PROPERTY_LOG_QUERY,
   ChangeWidgetRequest.JSON_PROPERTY_NETWORK_QUERY,
@@ -33,6 +36,8 @@ import java.util.Objects;
   ChangeWidgetRequest.JSON_PROPERTY_PROCESS_QUERY,
   ChangeWidgetRequest.JSON_PROPERTY_PROFILE_METRICS_QUERY,
   ChangeWidgetRequest.JSON_PROPERTY_Q,
+  ChangeWidgetRequest.JSON_PROPERTY_QUERIES,
+  ChangeWidgetRequest.JSON_PROPERTY_RESPONSE_FORMAT,
   ChangeWidgetRequest.JSON_PROPERTY_RUM_QUERY,
   ChangeWidgetRequest.JSON_PROPERTY_SECURITY_QUERY,
   ChangeWidgetRequest.JSON_PROPERTY_SHOW_PRESENT
@@ -51,6 +56,9 @@ public class ChangeWidgetRequest {
 
   public static final String JSON_PROPERTY_EVENT_QUERY = "event_query";
   private LogQueryDefinition eventQuery;
+
+  public static final String JSON_PROPERTY_FORMULAS = "formulas";
+  private List<WidgetFormula> formulas = null;
 
   public static final String JSON_PROPERTY_INCREASE_GOOD = "increase_good";
   private Boolean increaseGood;
@@ -75,6 +83,12 @@ public class ChangeWidgetRequest {
 
   public static final String JSON_PROPERTY_Q = "q";
   private String q;
+
+  public static final String JSON_PROPERTY_QUERIES = "queries";
+  private List<FormulaAndFunctionQueryDefinition> queries = null;
+
+  public static final String JSON_PROPERTY_RESPONSE_FORMAT = "response_format";
+  private FormulaAndFunctionResponseFormat responseFormat;
 
   public static final String JSON_PROPERTY_RUM_QUERY = "rum_query";
   private LogQueryDefinition rumQuery;
@@ -181,6 +195,41 @@ public class ChangeWidgetRequest {
 
   public void setEventQuery(LogQueryDefinition eventQuery) {
     this.eventQuery = eventQuery;
+  }
+
+  public ChangeWidgetRequest formulas(List<WidgetFormula> formulas) {
+    this.formulas = formulas;
+    for (WidgetFormula item : formulas) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public ChangeWidgetRequest addFormulasItem(WidgetFormula formulasItem) {
+    if (this.formulas == null) {
+      this.formulas = new ArrayList<>();
+    }
+    this.formulas.add(formulasItem);
+    this.unparsed |= formulasItem.unparsed;
+    return this;
+  }
+
+  /**
+   * List of formulas that operate on queries. **This feature is currently in beta.**
+   *
+   * @return formulas
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value = "List of formulas that operate on queries. **This feature is currently in beta.**")
+  @JsonProperty(JSON_PROPERTY_FORMULAS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<WidgetFormula> getFormulas() {
+    return formulas;
+  }
+
+  public void setFormulas(List<WidgetFormula> formulas) {
+    this.formulas = formulas;
   }
 
   public ChangeWidgetRequest increaseGood(Boolean increaseGood) {
@@ -371,6 +420,70 @@ public class ChangeWidgetRequest {
     this.q = q;
   }
 
+  public ChangeWidgetRequest queries(List<FormulaAndFunctionQueryDefinition> queries) {
+    this.queries = queries;
+    for (FormulaAndFunctionQueryDefinition item : queries) {
+      this.unparsed |= item.unparsed;
+    }
+    return this;
+  }
+
+  public ChangeWidgetRequest addQueriesItem(FormulaAndFunctionQueryDefinition queriesItem) {
+    if (this.queries == null) {
+      this.queries = new ArrayList<>();
+    }
+    this.queries.add(queriesItem);
+    this.unparsed |= queriesItem.unparsed;
+    return this;
+  }
+
+  /**
+   * List of queries that can be returned directly or used in formulas. **This feature is currently
+   * in beta.**
+   *
+   * @return queries
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "List of queries that can be returned directly or used in formulas. **This feature is"
+              + " currently in beta.**")
+  @JsonProperty(JSON_PROPERTY_QUERIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<FormulaAndFunctionQueryDefinition> getQueries() {
+    return queries;
+  }
+
+  public void setQueries(List<FormulaAndFunctionQueryDefinition> queries) {
+    this.queries = queries;
+  }
+
+  public ChangeWidgetRequest responseFormat(FormulaAndFunctionResponseFormat responseFormat) {
+    this.responseFormat = responseFormat;
+    this.unparsed |= !responseFormat.isValid();
+    return this;
+  }
+
+  /**
+   * Get responseFormat
+   *
+   * @return responseFormat
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_RESPONSE_FORMAT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public FormulaAndFunctionResponseFormat getResponseFormat() {
+    return responseFormat;
+  }
+
+  public void setResponseFormat(FormulaAndFunctionResponseFormat responseFormat) {
+    if (!responseFormat.isValid()) {
+      this.unparsed = true;
+    }
+    this.responseFormat = responseFormat;
+  }
+
   public ChangeWidgetRequest rumQuery(LogQueryDefinition rumQuery) {
     this.rumQuery = rumQuery;
     this.unparsed |= rumQuery.unparsed;
@@ -453,6 +566,7 @@ public class ChangeWidgetRequest {
         && Objects.equals(this.changeType, changeWidgetRequest.changeType)
         && Objects.equals(this.compareTo, changeWidgetRequest.compareTo)
         && Objects.equals(this.eventQuery, changeWidgetRequest.eventQuery)
+        && Objects.equals(this.formulas, changeWidgetRequest.formulas)
         && Objects.equals(this.increaseGood, changeWidgetRequest.increaseGood)
         && Objects.equals(this.logQuery, changeWidgetRequest.logQuery)
         && Objects.equals(this.networkQuery, changeWidgetRequest.networkQuery)
@@ -461,6 +575,8 @@ public class ChangeWidgetRequest {
         && Objects.equals(this.processQuery, changeWidgetRequest.processQuery)
         && Objects.equals(this.profileMetricsQuery, changeWidgetRequest.profileMetricsQuery)
         && Objects.equals(this.q, changeWidgetRequest.q)
+        && Objects.equals(this.queries, changeWidgetRequest.queries)
+        && Objects.equals(this.responseFormat, changeWidgetRequest.responseFormat)
         && Objects.equals(this.rumQuery, changeWidgetRequest.rumQuery)
         && Objects.equals(this.securityQuery, changeWidgetRequest.securityQuery)
         && Objects.equals(this.showPresent, changeWidgetRequest.showPresent);
@@ -473,6 +589,7 @@ public class ChangeWidgetRequest {
         changeType,
         compareTo,
         eventQuery,
+        formulas,
         increaseGood,
         logQuery,
         networkQuery,
@@ -481,6 +598,8 @@ public class ChangeWidgetRequest {
         processQuery,
         profileMetricsQuery,
         q,
+        queries,
+        responseFormat,
         rumQuery,
         securityQuery,
         showPresent);
@@ -494,6 +613,7 @@ public class ChangeWidgetRequest {
     sb.append("    changeType: ").append(toIndentedString(changeType)).append("\n");
     sb.append("    compareTo: ").append(toIndentedString(compareTo)).append("\n");
     sb.append("    eventQuery: ").append(toIndentedString(eventQuery)).append("\n");
+    sb.append("    formulas: ").append(toIndentedString(formulas)).append("\n");
     sb.append("    increaseGood: ").append(toIndentedString(increaseGood)).append("\n");
     sb.append("    logQuery: ").append(toIndentedString(logQuery)).append("\n");
     sb.append("    networkQuery: ").append(toIndentedString(networkQuery)).append("\n");
@@ -504,6 +624,8 @@ public class ChangeWidgetRequest {
         .append(toIndentedString(profileMetricsQuery))
         .append("\n");
     sb.append("    q: ").append(toIndentedString(q)).append("\n");
+    sb.append("    queries: ").append(toIndentedString(queries)).append("\n");
+    sb.append("    responseFormat: ").append(toIndentedString(responseFormat)).append("\n");
     sb.append("    rumQuery: ").append(toIndentedString(rumQuery)).append("\n");
     sb.append("    securityQuery: ").append(toIndentedString(securityQuery)).append("\n");
     sb.append("    showPresent: ").append(toIndentedString(showPresent)).append("\n");

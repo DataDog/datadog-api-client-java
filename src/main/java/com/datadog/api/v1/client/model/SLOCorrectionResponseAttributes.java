@@ -17,6 +17,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** The attribute object associated with the SLO correction. */
 @ApiModel(description = "The attribute object associated with the SLO correction.")
@@ -44,13 +45,13 @@ public class SLOCorrectionResponseAttributes {
   private String description;
 
   public static final String JSON_PROPERTY_DURATION = "duration";
-  private Long duration;
+  private JsonNullable<Long> duration = JsonNullable.<Long>undefined();
 
   public static final String JSON_PROPERTY_END = "end";
   private Long end;
 
   public static final String JSON_PROPERTY_RRULE = "rrule";
-  private String rrule;
+  private JsonNullable<String> rrule = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_SLO_ID = "slo_id";
   private String sloId;
@@ -133,7 +134,7 @@ public class SLOCorrectionResponseAttributes {
   }
 
   public SLOCorrectionResponseAttributes duration(Long duration) {
-    this.duration = duration;
+    this.duration = JsonNullable.<Long>of(duration);
     return this;
   }
 
@@ -146,14 +147,24 @@ public class SLOCorrectionResponseAttributes {
   @ApiModelProperty(
       example = "3600",
       value = "Length of time (in seconds) for a specified `rrule` recurring SLO correction.")
+  @JsonIgnore
+  public Long getDuration() {
+    return duration.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getDuration() {
+  public JsonNullable<Long> getDuration_JsonNullable() {
     return duration;
   }
 
-  public void setDuration(Long duration) {
+  @JsonProperty(JSON_PROPERTY_DURATION)
+  public void setDuration_JsonNullable(JsonNullable<Long> duration) {
     this.duration = duration;
+  }
+
+  public void setDuration(Long duration) {
+    this.duration = JsonNullable.<Long>of(duration);
   }
 
   public SLOCorrectionResponseAttributes end(Long end) {
@@ -179,7 +190,7 @@ public class SLOCorrectionResponseAttributes {
   }
 
   public SLOCorrectionResponseAttributes rrule(String rrule) {
-    this.rrule = rrule;
+    this.rrule = JsonNullable.<String>of(rrule);
     return this;
   }
 
@@ -192,14 +203,24 @@ public class SLOCorrectionResponseAttributes {
   @ApiModelProperty(
       example = "RRULE:FREQ=DAILY;INTERVAL=10;COUNT=5",
       value = "Recurrence rules as defined in the iCalendar RFC 5545.")
+  @JsonIgnore
+  public String getRrule() {
+    return rrule.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_RRULE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getRrule() {
+  public JsonNullable<String> getRrule_JsonNullable() {
     return rrule;
   }
 
-  public void setRrule(String rrule) {
+  @JsonProperty(JSON_PROPERTY_RRULE)
+  public void setRrule_JsonNullable(JsonNullable<String> rrule) {
     this.rrule = rrule;
+  }
+
+  public void setRrule(String rrule) {
+    this.rrule = JsonNullable.<String>of(rrule);
   }
 
   public SLOCorrectionResponseAttributes sloId(String sloId) {

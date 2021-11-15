@@ -22,6 +22,7 @@ import com.datadog.api.v1.client.model.SyntheticsLocations;
 import com.datadog.api.v1.client.model.SyntheticsPrivateLocation;
 import com.datadog.api.v1.client.model.SyntheticsPrivateLocationCreationResponse;
 import com.datadog.api.v1.client.model.SyntheticsTestDetails;
+import com.datadog.api.v1.client.model.SyntheticsTriggerBody;
 import com.datadog.api.v1.client.model.SyntheticsTriggerCITestsResponse;
 import com.datadog.api.v1.client.model.SyntheticsUpdateTestPauseStatusPayload;
 import java.util.ArrayList;
@@ -2000,6 +2001,85 @@ public class SyntheticsApi {
 
     return apiClient.invokeAPI(
         "SyntheticsApi.triggerCITests",
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
+   * Trigger some Synthetics tests Trigger a set of Synthetics tests.
+   *
+   * @param body The identifiers of the tests to trigger. (required)
+   * @return SyntheticsTriggerCITestsResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public SyntheticsTriggerCITestsResponse triggerTests(SyntheticsTriggerBody body)
+      throws ApiException {
+    return triggerTestsWithHttpInfo(body).getData();
+  }
+
+  /**
+   * Trigger some Synthetics tests Trigger a set of Synthetics tests.
+   *
+   * @param body The identifiers of the tests to trigger. (required)
+   * @return ApiResponse&lt;SyntheticsTriggerCITestsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SyntheticsTriggerCITestsResponse> triggerTestsWithHttpInfo(
+      SyntheticsTriggerBody body) throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'body' when calling triggerTests");
+    }
+    // create path and map variables
+    String localVarPath = "/api/v1/synthetics/tests/trigger";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "triggerTests");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {"application/json"};
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    GenericType<SyntheticsTriggerCITestsResponse> localVarReturnType =
+        new GenericType<SyntheticsTriggerCITestsResponse>() {};
+
+    return apiClient.invokeAPI(
+        "SyntheticsApi.triggerTests",
         localVarPath,
         "POST",
         localVarQueryParams,
