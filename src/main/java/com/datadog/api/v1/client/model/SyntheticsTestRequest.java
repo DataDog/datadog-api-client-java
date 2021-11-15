@@ -32,6 +32,7 @@ import java.util.Objects;
   SyntheticsTestRequest.JSON_PROPERTY_FOLLOW_REDIRECTS,
   SyntheticsTestRequest.JSON_PROPERTY_HEADERS,
   SyntheticsTestRequest.JSON_PROPERTY_HOST,
+  SyntheticsTestRequest.JSON_PROPERTY_MESSAGE,
   SyntheticsTestRequest.JSON_PROPERTY_METHOD,
   SyntheticsTestRequest.JSON_PROPERTY_NO_SAVING_RESPONSE_BODY,
   SyntheticsTestRequest.JSON_PROPERTY_NUMBER_OF_PACKETS,
@@ -71,6 +72,9 @@ public class SyntheticsTestRequest {
 
   public static final String JSON_PROPERTY_HOST = "host";
   private String host;
+
+  public static final String JSON_PROPERTY_MESSAGE = "message";
+  private String message;
 
   public static final String JSON_PROPERTY_METHOD = "method";
   private HTTPMethod method;
@@ -308,6 +312,28 @@ public class SyntheticsTestRequest {
     this.host = host;
   }
 
+  public SyntheticsTestRequest message(String message) {
+    this.message = message;
+    return this;
+  }
+
+  /**
+   * Message to send for UDP tests.
+   *
+   * @return message
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Message to send for UDP tests.")
+  @JsonProperty(JSON_PROPERTY_MESSAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getMessage() {
+    return message;
+  }
+
+  public void setMessage(String message) {
+    this.message = message;
+  }
+
   public SyntheticsTestRequest method(HTTPMethod method) {
     this.method = method;
     this.unparsed |= !method.isValid();
@@ -538,6 +564,7 @@ public class SyntheticsTestRequest {
         && Objects.equals(this.followRedirects, syntheticsTestRequest.followRedirects)
         && Objects.equals(this.headers, syntheticsTestRequest.headers)
         && Objects.equals(this.host, syntheticsTestRequest.host)
+        && Objects.equals(this.message, syntheticsTestRequest.message)
         && Objects.equals(this.method, syntheticsTestRequest.method)
         && Objects.equals(this.noSavingResponseBody, syntheticsTestRequest.noSavingResponseBody)
         && Objects.equals(this.numberOfPackets, syntheticsTestRequest.numberOfPackets)
@@ -561,6 +588,7 @@ public class SyntheticsTestRequest {
         followRedirects,
         headers,
         host,
+        message,
         method,
         noSavingResponseBody,
         numberOfPackets,
@@ -585,6 +613,7 @@ public class SyntheticsTestRequest {
     sb.append("    followRedirects: ").append(toIndentedString(followRedirects)).append("\n");
     sb.append("    headers: ").append(toIndentedString(headers)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    method: ").append(toIndentedString(method)).append("\n");
     sb.append("    noSavingResponseBody: ")
         .append(toIndentedString(noSavingResponseBody))

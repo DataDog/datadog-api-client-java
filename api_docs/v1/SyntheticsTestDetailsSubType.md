@@ -13,3 +13,5 @@
 - `MULTI` (value: `"multi"`)
 
 - `ICMP` (value: `"icmp"`)
+
+- `UDP` (value: `"udp"`)

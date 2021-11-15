@@ -51,6 +51,8 @@ public class SyntheticsAssertionType {
       new SyntheticsAssertionType("packetsReceived");
   public static final SyntheticsAssertionType NETWORK_HOP =
       new SyntheticsAssertionType("networkHop");
+  public static final SyntheticsAssertionType RECEIVED_MESSAGE =
+      new SyntheticsAssertionType("receivedMessage");
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
@@ -68,7 +70,8 @@ public class SyntheticsAssertionType {
               "latency",
               "packetLossPercentage",
               "packetsReceived",
-              "networkHop"));
+              "networkHop",
+              "receivedMessage"));
 
   private String value;
 
