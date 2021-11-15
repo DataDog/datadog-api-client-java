@@ -29,3 +29,5 @@
 - `PACKETS_RECEIVED` (value: `"packetsReceived"`)
 
 - `NETWORK_HOP` (value: `"networkHop"`)
+
+- `RECEIVED_MESSAGE` (value: `"receivedMessage"`)
