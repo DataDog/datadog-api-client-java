@@ -15,3 +15,5 @@
 - `ICMP` (value: `"icmp"`)
 
 - `UDP` (value: `"udp"`)
+
+- `WEBSOCKET` (value: `"websocket"`)
