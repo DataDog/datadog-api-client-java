@@ -26,6 +26,7 @@ import java.util.Objects;
   UsageSummaryDateOrg.JSON_PROPERTY_APM_AZURE_APP_SERVICE_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_APM_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_AUDIT_LOGS_LINES_INDEXED_SUM,
+  UsageSummaryDateOrg.JSON_PROPERTY_AVG_PROFILED_FARGATE_TASKS,
   UsageSummaryDateOrg.JSON_PROPERTY_AWS_HOST_TOP99P,
   UsageSummaryDateOrg.JSON_PROPERTY_AWS_LAMBDA_FUNC_COUNT,
   UsageSummaryDateOrg.JSON_PROPERTY_AWS_LAMBDA_INVOCATIONS_SUM,
@@ -93,6 +94,10 @@ public class UsageSummaryDateOrg {
   public static final String JSON_PROPERTY_AUDIT_LOGS_LINES_INDEXED_SUM =
       "audit_logs_lines_indexed_sum";
   private Long auditLogsLinesIndexedSum;
+
+  public static final String JSON_PROPERTY_AVG_PROFILED_FARGATE_TASKS =
+      "avg_profiled_fargate_tasks";
+  private Long avgProfiledFargateTasks;
 
   public static final String JSON_PROPERTY_AWS_HOST_TOP99P = "aws_host_top99p";
   private Long awsHostTop99p;
@@ -363,6 +368,28 @@ public class UsageSummaryDateOrg {
 
   public void setAuditLogsLinesIndexedSum(Long auditLogsLinesIndexedSum) {
     this.auditLogsLinesIndexedSum = auditLogsLinesIndexedSum;
+  }
+
+  public UsageSummaryDateOrg avgProfiledFargateTasks(Long avgProfiledFargateTasks) {
+    this.avgProfiledFargateTasks = avgProfiledFargateTasks;
+    return this;
+  }
+
+  /**
+   * The average profiled task count for Fargate Profiling.
+   *
+   * @return avgProfiledFargateTasks
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The average profiled task count for Fargate Profiling.")
+  @JsonProperty(JSON_PROPERTY_AVG_PROFILED_FARGATE_TASKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getAvgProfiledFargateTasks() {
+    return avgProfiledFargateTasks;
+  }
+
+  public void setAvgProfiledFargateTasks(Long avgProfiledFargateTasks) {
+    this.avgProfiledFargateTasks = avgProfiledFargateTasks;
   }
 
   public UsageSummaryDateOrg awsHostTop99p(Long awsHostTop99p) {
@@ -1658,6 +1685,7 @@ public class UsageSummaryDateOrg {
         && Objects.equals(this.apmHostTop99p, usageSummaryDateOrg.apmHostTop99p)
         && Objects.equals(
             this.auditLogsLinesIndexedSum, usageSummaryDateOrg.auditLogsLinesIndexedSum)
+        && Objects.equals(this.avgProfiledFargateTasks, usageSummaryDateOrg.avgProfiledFargateTasks)
         && Objects.equals(this.awsHostTop99p, usageSummaryDateOrg.awsHostTop99p)
         && Objects.equals(this.awsLambdaFuncCount, usageSummaryDateOrg.awsLambdaFuncCount)
         && Objects.equals(this.awsLambdaInvocationsSum, usageSummaryDateOrg.awsLambdaInvocationsSum)
@@ -1735,6 +1763,7 @@ public class UsageSummaryDateOrg {
         apmAzureAppServiceHostTop99p,
         apmHostTop99p,
         auditLogsLinesIndexedSum,
+        avgProfiledFargateTasks,
         awsHostTop99p,
         awsLambdaFuncCount,
         awsLambdaInvocationsSum,
@@ -1798,6 +1827,9 @@ public class UsageSummaryDateOrg {
     sb.append("    apmHostTop99p: ").append(toIndentedString(apmHostTop99p)).append("\n");
     sb.append("    auditLogsLinesIndexedSum: ")
         .append(toIndentedString(auditLogsLinesIndexedSum))
+        .append("\n");
+    sb.append("    avgProfiledFargateTasks: ")
+        .append(toIndentedString(avgProfiledFargateTasks))
         .append("\n");
     sb.append("    awsHostTop99p: ").append(toIndentedString(awsHostTop99p)).append("\n");
     sb.append("    awsLambdaFuncCount: ").append(toIndentedString(awsLambdaFuncCount)).append("\n");
