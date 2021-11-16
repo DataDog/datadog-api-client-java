@@ -25,7 +25,7 @@ import java.util.Set;
 
 /**
  * The subtype of the Synthetic API test, &#x60;http&#x60;, &#x60;ssl&#x60;, &#x60;tcp&#x60;,
- * &#x60;dns&#x60;, &#x60;icmp&#x60;, &#x60;udp&#x60; or &#x60;multi&#x60;.
+ * &#x60;dns&#x60;, &#x60;icmp&#x60;, &#x60;udp&#x60;, &#x60;websocket&#x60; or &#x60;multi&#x60;.
  */
 @JsonSerialize(using = SyntheticsTestDetailsSubType.SyntheticsTestDetailsSubTypeSerializer.class)
 public class SyntheticsTestDetailsSubType {
@@ -38,9 +38,12 @@ public class SyntheticsTestDetailsSubType {
       new SyntheticsTestDetailsSubType("multi");
   public static final SyntheticsTestDetailsSubType ICMP = new SyntheticsTestDetailsSubType("icmp");
   public static final SyntheticsTestDetailsSubType UDP = new SyntheticsTestDetailsSubType("udp");
+  public static final SyntheticsTestDetailsSubType WEBSOCKET =
+      new SyntheticsTestDetailsSubType("websocket");
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("http", "ssl", "tcp", "dns", "multi", "icmp", "udp"));
+      new HashSet<String>(
+          Arrays.asList("http", "ssl", "tcp", "dns", "multi", "icmp", "udp", "websocket"));
 
   private String value;
 

@@ -318,12 +318,12 @@ public class SyntheticsTestRequest {
   }
 
   /**
-   * Message to send for UDP tests.
+   * Message to send for UDP or WebSocket tests.
    *
    * @return message
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Message to send for UDP tests.")
+  @ApiModelProperty(value = "Message to send for UDP or WebSocket tests.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessage() {
