@@ -27,3 +27,7 @@
 - `EVENT_V2_ALERT` (value: `"event-v2 alert"`)
 
 - `AUDIT_ALERT` (value: `"audit alert"`)
+
+- `METRIC_SLO_ALERT` (value: `"metric-slo alert"`)
+
+- `MONITOR_SLO_ALERT` (value: `"monitor-slo alert"`)

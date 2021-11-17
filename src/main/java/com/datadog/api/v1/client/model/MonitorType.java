@@ -43,6 +43,8 @@ public class MonitorType {
   public static final MonitorType SLO_ALERT = new MonitorType("slo alert");
   public static final MonitorType EVENT_V2_ALERT = new MonitorType("event-v2 alert");
   public static final MonitorType AUDIT_ALERT = new MonitorType("audit alert");
+  public static final MonitorType METRIC_SLO_ALERT = new MonitorType("metric-slo alert");
+  public static final MonitorType MONITOR_SLO_ALERT = new MonitorType("monitor-slo alert");
 
   private static final Set<String> allowedValues =
       new HashSet<String>(
@@ -59,7 +61,9 @@ public class MonitorType {
               "trace-analytics alert",
               "slo alert",
               "event-v2 alert",
-              "audit alert"));
+              "audit alert",
+              "metric-slo alert",
+              "monitor-slo alert"));
 
   private String value;
 
