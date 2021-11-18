@@ -77,6 +77,7 @@ public class Example {
 | **400**     | Bad Request             | -                |
 | **403**     | Forbidden               | -                |
 | **409**     | Deletion conflict error | -                |
+| **429**     | Too many requests       | -                |
 
 ## createMonitor
 
@@ -279,11 +280,12 @@ public class Example {
 
 ### HTTP response details
 
-| Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **400**     | Bad Request | -                |
-| **403**     | Forbidden   | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **400**     | Bad Request       | -                |
+| **403**     | Forbidden         | -                |
+| **429**     | Too many requests | -                |
 
 ## deleteMonitor
 
@@ -352,6 +354,7 @@ public class Example {
 | **401**     | Authentication error | -                |
 | **403**     | Forbidden            | -                |
 | **404**     | Item not found error | -                |
+| **429**     | Too many requests    | -                |
 
 ## getMonitor
 
@@ -419,6 +422,7 @@ public class Example {
 | **400**     | Bad Request             | -                |
 | **403**     | Authentication error    | -                |
 | **404**     | Monitor Not Found error | -                |
+| **429**     | Too many requests       | -                |
 
 ## listMonitors
 
@@ -499,11 +503,12 @@ public class Example {
 
 ### HTTP response details
 
-| Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **400**     | Bad Request | -                |
-| **403**     | Forbidden   | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **400**     | Bad Request       | -                |
+| **403**     | Forbidden         | -                |
+| **429**     | Too many requests | -                |
 
 ## searchMonitorGroups
 
@@ -572,11 +577,12 @@ public class Example {
 
 ### HTTP response details
 
-| Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **400**     | Bad Request | -                |
-| **403**     | Forbidden   | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **400**     | Bad Request       | -                |
+| **403**     | Forbidden         | -                |
+| **429**     | Too many requests | -                |
 
 ## searchMonitors
 
@@ -645,11 +651,12 @@ public class Example {
 
 ### HTTP response details
 
-| Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **400**     | Bad Request | -                |
-| **403**     | Forbidden   | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **400**     | Bad Request       | -                |
+| **403**     | Forbidden         | -                |
+| **429**     | Too many requests | -                |
 
 ## updateMonitor
 
@@ -717,6 +724,7 @@ public class Example {
 | **401**     | Authentication error    | -                |
 | **403**     | Forbidden               | -                |
 | **404**     | Monitor Not Found error | -                |
+| **429**     | Too many requests       | -                |
 
 ## validateMonitor
 
@@ -775,8 +783,9 @@ public class Example {
 
 ### HTTP response details
 
-| Status code | Description  | Response headers |
-| ----------- | ------------ | ---------------- |
-| **200**     | OK           | -                |
-| **400**     | Invalid JSON | -                |
-| **403**     | Forbidden    | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **400**     | Invalid JSON      | -                |
+| **403**     | Forbidden         | -                |
+| **429**     | Too many requests | -                |

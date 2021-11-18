@@ -75,6 +75,7 @@ public class Example {
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication error | -                |
 | **404**     | Item Not Found       | -                |
+| **429**     | Too many requests    | -                |
 
 ## getSlackIntegrationChannel
 
@@ -141,6 +142,7 @@ public class Example {
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication error | -                |
 | **404**     | Item Not Found       | -                |
+| **429**     | Too many requests    | -                |
 
 ## getSlackIntegrationChannels
 
@@ -205,6 +207,7 @@ public class Example {
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication error | -                |
 | **404**     | Item Not Found       | -                |
+| **429**     | Too many requests    | -                |
 
 ## removeSlackIntegrationChannel
 
@@ -270,6 +273,7 @@ null (empty response body)
 | **400**     | Bad Request                           | -                |
 | **403**     | Authentication error                  | -                |
 | **404**     | Item Not Found                        | -                |
+| **429**     | Too many requests                     | -                |
 
 ## updateSlackIntegrationChannel
 
@@ -338,3 +342,4 @@ public class Example {
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication error | -                |
 | **404**     | Item Not Found       | -                |
+| **429**     | Too many requests    | -                |

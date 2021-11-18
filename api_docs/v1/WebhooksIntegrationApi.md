@@ -75,6 +75,7 @@ public class Example {
 | **201**     | OK                   | -                |
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication error | -                |
+| **429**     | Too many requests    | -                |
 
 ## createWebhooksIntegrationCustomVariable
 
@@ -138,6 +139,7 @@ public class Example {
 | **201**     | OK                   | -                |
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication error | -                |
+| **429**     | Too many requests    | -                |
 
 ## deleteWebhooksIntegration
 
@@ -200,6 +202,7 @@ null (empty response body)
 | **200**     | OK                   | -                |
 | **403**     | Authentication error | -                |
 | **404**     | Item Not Found       | -                |
+| **429**     | Too many requests    | -                |
 
 ## deleteWebhooksIntegrationCustomVariable
 
@@ -262,6 +265,7 @@ null (empty response body)
 | **200**     | OK                   | -                |
 | **403**     | Authentication error | -                |
 | **404**     | Item Not Found       | -                |
+| **429**     | Too many requests    | -                |
 
 ## getWebhooksIntegration
 
@@ -326,6 +330,7 @@ public class Example {
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication error | -                |
 | **404**     | Item Not Found       | -                |
+| **429**     | Too many requests    | -                |
 
 ## getWebhooksIntegrationCustomVariable
 
@@ -393,6 +398,7 @@ public class Example {
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication error | -                |
 | **404**     | Item Not Found       | -                |
+| **429**     | Too many requests    | -                |
 
 ## updateWebhooksIntegration
 
@@ -459,6 +465,7 @@ public class Example {
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication error | -                |
 | **404**     | Item Not Found       | -                |
+| **429**     | Too many requests    | -                |
 
 ## updateWebhooksIntegrationCustomVariable
 
@@ -525,3 +532,4 @@ public class Example {
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication error | -                |
 | **404**     | Item Not Found       | -                |
+| **429**     | Too many requests    | -                |

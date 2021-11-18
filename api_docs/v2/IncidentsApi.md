@@ -67,13 +67,14 @@ public class Example {
 
 ### HTTP response details
 
-| Status code | Description  | Response headers |
-| ----------- | ------------ | ---------------- |
-| **201**     | CREATED      | -                |
-| **400**     | Bad Request  | -                |
-| **401**     | Unauthorized | -                |
-| **403**     | Forbidden    | -                |
-| **404**     | Not Found    | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **201**     | CREATED           | -                |
+| **400**     | Bad Request       | -                |
+| **401**     | Unauthorized      | -                |
+| **403**     | Forbidden         | -                |
+| **404**     | Not Found         | -                |
+| **429**     | Too many requests | -                |
 
 ## deleteIncident
 
@@ -131,13 +132,14 @@ null (empty response body)
 
 ### HTTP response details
 
-| Status code | Description  | Response headers |
-| ----------- | ------------ | ---------------- |
-| **204**     | OK           | -                |
-| **400**     | Bad Request  | -                |
-| **401**     | Unauthorized | -                |
-| **403**     | Forbidden    | -                |
-| **404**     | Not Found    | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **204**     | OK                | -                |
+| **400**     | Bad Request       | -                |
+| **401**     | Unauthorized      | -                |
+| **403**     | Forbidden         | -                |
+| **404**     | Not Found         | -                |
+| **429**     | Too many requests | -                |
 
 ## getIncident
 
@@ -199,13 +201,14 @@ public class Example {
 
 ### HTTP response details
 
-| Status code | Description  | Response headers |
-| ----------- | ------------ | ---------------- |
-| **200**     | OK           | -                |
-| **400**     | Bad Request  | -                |
-| **401**     | Unauthorized | -                |
-| **403**     | Forbidden    | -                |
-| **404**     | Not Found    | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **400**     | Bad Request       | -                |
+| **401**     | Unauthorized      | -                |
+| **403**     | Forbidden         | -                |
+| **404**     | Not Found         | -                |
+| **429**     | Too many requests | -                |
 
 ## listIncidents
 
@@ -271,13 +274,14 @@ public class Example {
 
 ### HTTP response details
 
-| Status code | Description  | Response headers |
-| ----------- | ------------ | ---------------- |
-| **200**     | OK           | -                |
-| **400**     | Bad Request  | -                |
-| **401**     | Unauthorized | -                |
-| **403**     | Forbidden    | -                |
-| **404**     | Not Found    | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **400**     | Bad Request       | -                |
+| **401**     | Unauthorized      | -                |
+| **403**     | Forbidden         | -                |
+| **404**     | Not Found         | -                |
+| **429**     | Too many requests | -                |
 
 ## updateIncident
 
@@ -338,10 +342,11 @@ public class Example {
 
 ### HTTP response details
 
-| Status code | Description  | Response headers |
-| ----------- | ------------ | ---------------- |
-| **200**     | OK           | -                |
-| **400**     | Bad Request  | -                |
-| **401**     | Unauthorized | -                |
-| **403**     | Forbidden    | -                |
-| **404**     | Not Found    | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **400**     | Bad Request       | -                |
+| **401**     | Unauthorized      | -                |
+| **403**     | Forbidden         | -                |
+| **404**     | Not Found         | -                |
+| **429**     | Too many requests | -                |

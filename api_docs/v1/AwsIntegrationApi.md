@@ -80,6 +80,7 @@ public class Example {
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication Error | -                |
 | **409**     | Conflict Error       | -                |
+| **429**     | Too many requests    | -                |
 
 ## createAWSTagFilter
 
@@ -143,6 +144,7 @@ public class Example {
 | **200**     | OK                   | -                |
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication Error | -                |
+| **429**     | Too many requests    | -                |
 
 ## createNewAWSExternalID
 
@@ -206,6 +208,7 @@ public class Example {
 | **200**     | OK                   | -                |
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication Error | -                |
+| **429**     | Too many requests    | -                |
 
 ## deleteAWSAccount
 
@@ -270,6 +273,7 @@ public class Example {
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication Error | -                |
 | **409**     | Conflict Error       | -                |
+| **429**     | Too many requests    | -                |
 
 ## deleteAWSTagFilter
 
@@ -333,6 +337,7 @@ public class Example {
 | **200**     | OK                   | -                |
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication Error | -                |
+| **429**     | Too many requests    | -                |
 
 ## listAWSAccounts
 
@@ -403,6 +408,7 @@ public class Example {
 | **200**     | OK                   | -                |
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication Error | -                |
+| **429**     | Too many requests    | -                |
 
 ## listAWSTagFilters
 
@@ -466,6 +472,7 @@ public class Example {
 | **200**     | OK                   | -                |
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication Error | -                |
+| **429**     | Too many requests    | -                |
 
 ## listAvailableAWSNamespaces
 
@@ -525,6 +532,7 @@ This endpoint does not need any parameter.
 | ----------- | -------------------- | ---------------- |
 | **200**     | OK                   | -                |
 | **403**     | Authentication Error | -                |
+| **429**     | Too many requests    | -                |
 
 ## updateAWSAccount
 
@@ -598,3 +606,4 @@ public class Example {
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication Error | -                |
 | **409**     | Conflict Error       | -                |
+| **429**     | Too many requests    | -                |

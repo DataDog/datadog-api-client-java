@@ -76,6 +76,7 @@ public class Example {
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication error | -                |
 | **409**     | Conflict             | -                |
+| **429**     | Too many requests    | -                |
 
 ## disableUser
 
@@ -143,6 +144,7 @@ public class Example {
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication error | -                |
 | **404**     | Not Found            | -                |
+| **429**     | Too many requests    | -                |
 
 ## getUser
 
@@ -206,6 +208,7 @@ public class Example {
 | **200**     | OK for get user      | -                |
 | **403**     | Authentication error | -                |
 | **404**     | Not Found            | -                |
+| **429**     | Too many requests    | -                |
 
 ## listUsers
 
@@ -265,6 +268,7 @@ This endpoint does not need any parameter.
 | ----------- | -------------------- | ---------------- |
 | **200**     | OK                   | -                |
 | **403**     | Authentication error | -                |
+| **429**     | Too many requests    | -                |
 
 ## updateUser
 
@@ -333,3 +337,4 @@ public class Example {
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication error | -                |
 | **404**     | Not Found            | -                |
+| **429**     | Too many requests    | -                |

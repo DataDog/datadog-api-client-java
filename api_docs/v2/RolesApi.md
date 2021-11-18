@@ -82,6 +82,7 @@ public class Example {
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication error | -                |
 | **404**     | Not found            | -                |
+| **429**     | Too many requests    | -                |
 
 ## addUserToRole
 
@@ -148,6 +149,7 @@ public class Example {
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication error | -                |
 | **404**     | Not found            | -                |
+| **429**     | Too many requests    | -                |
 
 ## createRole
 
@@ -211,6 +213,7 @@ public class Example {
 | **200**     | OK                   | -                |
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication error | -                |
+| **429**     | Too many requests    | -                |
 
 ## deleteRole
 
@@ -273,6 +276,7 @@ null (empty response body)
 | **204**     | OK                   | -                |
 | **403**     | Authentication error | -                |
 | **404**     | Not found            | -                |
+| **429**     | Too many requests    | -                |
 
 ## getRole
 
@@ -336,6 +340,7 @@ public class Example {
 | **200**     | OK                   | -                |
 | **403**     | Authentication error | -                |
 | **404**     | Not found            | -                |
+| **429**     | Too many requests    | -                |
 
 ## listPermissions
 
@@ -396,6 +401,7 @@ This endpoint does not need any parameter.
 | **200**     | OK                   | -                |
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication error | -                |
+| **429**     | Too many requests    | -                |
 
 ## listRolePermissions
 
@@ -459,6 +465,7 @@ public class Example {
 | **200**     | OK                   | -                |
 | **403**     | Authentication error | -                |
 | **404**     | Not found            | -                |
+| **429**     | Too many requests    | -                |
 
 ## listRoleUsers
 
@@ -534,6 +541,7 @@ public class Example {
 | **200**     | OK                   | -                |
 | **403**     | Authentication error | -                |
 | **404**     | Not found            | -                |
+| **429**     | Too many requests    | -                |
 
 ## listRoles
 
@@ -606,6 +614,7 @@ public class Example {
 | ----------- | -------------------- | ---------------- |
 | **200**     | OK                   | -                |
 | **403**     | Authentication error | -                |
+| **429**     | Too many requests    | -                |
 
 ## removePermissionFromRole
 
@@ -672,6 +681,7 @@ public class Example {
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication error | -                |
 | **404**     | Not found            | -                |
+| **429**     | Too many requests    | -                |
 
 ## removeUserFromRole
 
@@ -738,6 +748,7 @@ public class Example {
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication error | -                |
 | **404**     | Not found            | -                |
+| **429**     | Too many requests    | -                |
 
 ## updateRole
 
@@ -805,3 +816,4 @@ public class Example {
 | **403**     | Authentication error | -                |
 | **404**     | Not found            | -                |
 | **422**     | Unprocessable Entity | -                |
+| **429**     | Too many requests    | -                |

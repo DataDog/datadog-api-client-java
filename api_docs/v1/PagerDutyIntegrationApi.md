@@ -71,6 +71,7 @@ public class Example {
 | **201**     | OK                   | -                |
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication error | -                |
+| **429**     | Too many requests    | -                |
 
 ## deletePagerDutyIntegrationService
 
@@ -133,6 +134,7 @@ null (empty response body)
 | **200**     | OK                   | -                |
 | **403**     | Authentication error | -                |
 | **404**     | Item Not Found       | -                |
+| **429**     | Too many requests    | -                |
 
 ## getPagerDutyIntegrationService
 
@@ -196,6 +198,7 @@ public class Example {
 | **200**     | OK                   | -                |
 | **403**     | Authentication error | -                |
 | **404**     | Item Not Found       | -                |
+| **429**     | Too many requests    | -                |
 
 ## updatePagerDutyIntegrationService
 
@@ -261,3 +264,4 @@ null (empty response body)
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication error | -                |
 | **404**     | Item Not Found       | -                |
+| **429**     | Too many requests    | -                |
