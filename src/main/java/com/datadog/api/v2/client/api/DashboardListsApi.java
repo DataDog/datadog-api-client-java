@@ -62,6 +62,7 @@ public class DashboardListsApi {
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public DashboardListAddItemsResponse createDashboardListItems(
@@ -83,6 +84,7 @@ public class DashboardListsApi {
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<DashboardListAddItemsResponse> createDashboardListItemsWithHttpInfo(
@@ -158,6 +160,7 @@ public class DashboardListsApi {
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public DashboardListDeleteItemsResponse deleteDashboardListItems(
@@ -179,6 +182,7 @@ public class DashboardListsApi {
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<DashboardListDeleteItemsResponse> deleteDashboardListItemsWithHttpInfo(
@@ -252,6 +256,7 @@ public class DashboardListsApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public DashboardListItems getDashboardListItems(Long dashboardListId) throws ApiException {
@@ -270,6 +275,7 @@ public class DashboardListsApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<DashboardListItems> getDashboardListItemsWithHttpInfo(Long dashboardListId)
@@ -339,6 +345,7 @@ public class DashboardListsApi {
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public DashboardListUpdateItemsResponse updateDashboardListItems(
@@ -360,6 +367,7 @@ public class DashboardListsApi {
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<DashboardListUpdateItemsResponse> updateDashboardListItemsWithHttpInfo(

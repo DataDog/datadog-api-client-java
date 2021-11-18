@@ -73,12 +73,13 @@ null (empty response body)
 
 ### HTTP response details
 
-| Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **204**     | OK          | -                |
-| **400**     | Bad Request | -                |
-| **403**     | Forbidden   | -                |
-| **404**     | Not found   | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **204**     | OK                | -                |
+| **400**     | Bad Request       | -                |
+| **403**     | Forbidden         | -                |
+| **404**     | Not found         | -                |
+| **429**     | Too many requests | -                |
 
 ## createLogsArchive
 
@@ -137,11 +138,12 @@ public class Example {
 
 ### HTTP response details
 
-| Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **400**     | Bad Request | -                |
-| **403**     | Forbidden   | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **400**     | Bad Request       | -                |
+| **403**     | Forbidden         | -                |
+| **429**     | Too many requests | -                |
 
 ## deleteLogsArchive
 
@@ -199,12 +201,13 @@ null (empty response body)
 
 ### HTTP response details
 
-| Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **204**     | OK          | -                |
-| **400**     | Bad Request | -                |
-| **403**     | Forbidden   | -                |
-| **404**     | Not found   | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **204**     | OK                | -                |
+| **400**     | Bad Request       | -                |
+| **403**     | Forbidden         | -                |
+| **404**     | Not found         | -                |
+| **429**     | Too many requests | -                |
 
 ## getLogsArchive
 
@@ -263,12 +266,13 @@ public class Example {
 
 ### HTTP response details
 
-| Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **400**     | Bad Request | -                |
-| **403**     | Forbidden   | -                |
-| **404**     | Not found   | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **400**     | Bad Request       | -                |
+| **403**     | Forbidden         | -                |
+| **404**     | Not found         | -                |
+| **429**     | Too many requests | -                |
 
 ## getLogsArchiveOrder
 
@@ -325,10 +329,11 @@ This endpoint does not need any parameter.
 
 ### HTTP response details
 
-| Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **403**     | Forbidden   | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **403**     | Forbidden         | -                |
+| **429**     | Too many requests | -                |
 
 ## listArchiveReadRoles
 
@@ -387,12 +392,13 @@ public class Example {
 
 ### HTTP response details
 
-| Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **400**     | Bad Request | -                |
-| **403**     | Forbidden   | -                |
-| **404**     | Not found   | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **400**     | Bad Request       | -                |
+| **403**     | Forbidden         | -                |
+| **404**     | Not found         | -                |
+| **429**     | Too many requests | -                |
 
 ## listLogsArchives
 
@@ -448,10 +454,11 @@ This endpoint does not need any parameter.
 
 ### HTTP response details
 
-| Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **403**     | Forbidden   | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **403**     | Forbidden         | -                |
+| **429**     | Too many requests | -                |
 
 ## removeRoleFromArchive
 
@@ -511,12 +518,13 @@ null (empty response body)
 
 ### HTTP response details
 
-| Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **204**     | OK          | -                |
-| **400**     | Bad Request | -                |
-| **403**     | Forbidden   | -                |
-| **404**     | Not found   | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **204**     | OK                | -                |
+| **400**     | Bad Request       | -                |
+| **403**     | Forbidden         | -                |
+| **404**     | Not found         | -                |
+| **429**     | Too many requests | -                |
 
 ## updateLogsArchive
 
@@ -580,12 +588,13 @@ public class Example {
 
 ### HTTP response details
 
-| Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **400**     | Bad Request | -                |
-| **403**     | Forbidden   | -                |
-| **404**     | Not found   | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **400**     | Bad Request       | -                |
+| **403**     | Forbidden         | -                |
+| **404**     | Not found         | -                |
+| **429**     | Too many requests | -                |
 
 ## updateLogsArchiveOrder
 
@@ -654,3 +663,4 @@ public class Example {
 | **400**     | Bad Request          | -                |
 | **403**     | Forbidden            | -                |
 | **422**     | Unprocessable Entity | -                |
+| **429**     | Too many requests    | -                |

@@ -58,6 +58,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> SLO Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public SLOCorrectionResponse createSLOCorrection(SLOCorrectionCreateRequest body)
@@ -78,6 +79,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> SLO Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<SLOCorrectionResponse> createSLOCorrectionWithHttpInfo(
@@ -139,6 +141,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
    *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public void deleteSLOCorrection(String sloCorrectionId) throws ApiException {
@@ -157,6 +160,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
    *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<Void> deleteSLOCorrectionWithHttpInfo(String sloCorrectionId)
@@ -221,6 +225,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public SLOCorrectionResponse getSLOCorrection(String sloCorrectionId) throws ApiException {
@@ -239,6 +244,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<SLOCorrectionResponse> getSLOCorrectionWithHttpInfo(String sloCorrectionId)
@@ -304,6 +310,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public SLOCorrectionListResponse listSLOCorrection() throws ApiException {
@@ -320,6 +327,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<SLOCorrectionListResponse> listSLOCorrectionWithHttpInfo()
@@ -379,6 +387,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public SLOCorrectionResponse updateSLOCorrection(
@@ -400,6 +409,7 @@ public class ServiceLevelObjectiveCorrectionsApi {
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<SLOCorrectionResponse> updateSLOCorrectionWithHttpInfo(

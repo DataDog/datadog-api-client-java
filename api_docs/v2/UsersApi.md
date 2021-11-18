@@ -77,6 +77,7 @@ public class Example {
 | **201**     | OK                   | -                |
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication error | -                |
+| **429**     | Too many requests    | -                |
 
 ## createUser
 
@@ -140,6 +141,7 @@ public class Example {
 | **201**     | OK                   | -                |
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication error | -                |
+| **429**     | Too many requests    | -                |
 
 ## disableUser
 
@@ -203,6 +205,7 @@ null (empty response body)
 | **204**     | OK                   | -                |
 | **403**     | Authentication error | -                |
 | **404**     | Not found            | -                |
+| **429**     | Too many requests    | -                |
 
 ## getInvitation
 
@@ -266,6 +269,7 @@ public class Example {
 | **200**     | OK                   | -                |
 | **403**     | Authentication error | -                |
 | **404**     | Not found            | -                |
+| **429**     | Too many requests    | -                |
 
 ## getUser
 
@@ -329,6 +333,7 @@ public class Example {
 | **200**     | OK for get user      | -                |
 | **403**     | Authentication error | -                |
 | **404**     | Not found            | -                |
+| **429**     | Too many requests    | -                |
 
 ## listUserOrganizations
 
@@ -393,6 +398,7 @@ public class Example {
 | **200**     | OK                   | -                |
 | **403**     | Authentication error | -                |
 | **404**     | Not found            | -                |
+| **429**     | Too many requests    | -                |
 
 ## listUserPermissions
 
@@ -457,6 +463,7 @@ public class Example {
 | **200**     | OK                   | -                |
 | **403**     | Authentication error | -                |
 | **404**     | Not found            | -                |
+| **429**     | Too many requests    | -                |
 
 ## listUsers
 
@@ -537,6 +544,7 @@ public class Example {
 | **200**     | OK                   | -                |
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication error | -                |
+| **429**     | Too many requests    | -                |
 
 ## sendInvitations
 
@@ -600,6 +608,7 @@ public class Example {
 | **201**     | OK                   | -                |
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication error | -                |
+| **429**     | Too many requests    | -                |
 
 ## updateUser
 
@@ -668,3 +677,4 @@ public class Example {
 | **403**     | Authentication error | -                |
 | **404**     | Not found            | -                |
 | **422**     | Unprocessable Entity | -                |
+| **429**     | Too many requests    | -                |

@@ -76,11 +76,12 @@ public class Example {
 
 ### HTTP response details
 
-| Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **400**     | Bad Request | -                |
-| **403**     | Forbidden   | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **400**     | Bad Request       | -                |
+| **403**     | Forbidden         | -                |
+| **429**     | Too many requests | -                |
 
 ## getOrg
 
@@ -139,11 +140,12 @@ public class Example {
 
 ### HTTP response details
 
-| Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **400**     | Bad Request | -                |
-| **403**     | Forbidden   | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **400**     | Bad Request       | -                |
+| **403**     | Forbidden         | -                |
+| **429**     | Too many requests | -                |
 
 ## listOrgs
 
@@ -199,10 +201,11 @@ This endpoint does not need any parameter.
 
 ### HTTP response details
 
-| Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **403**     | Forbidden   | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **403**     | Forbidden         | -                |
+| **429**     | Too many requests | -                |
 
 ## updateOrg
 
@@ -263,11 +266,12 @@ public class Example {
 
 ### HTTP response details
 
-| Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **400**     | Bad Request | -                |
-| **403**     | Forbidden   | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **400**     | Bad Request       | -                |
+| **403**     | Forbidden         | -                |
+| **429**     | Too many requests | -                |
 
 ## uploadIdPForOrg
 
@@ -340,3 +344,4 @@ public class Example {
 | **400**     | Bad Request            | -                |
 | **403**     | Forbidden              | -                |
 | **415**     | Unsupported Media Type | -                |
+| **429**     | Too many requests      | -                |

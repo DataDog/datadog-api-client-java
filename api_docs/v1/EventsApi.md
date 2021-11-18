@@ -66,10 +66,11 @@ public class Example {
 
 ### HTTP response details
 
-| Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **202**     | OK          | -                |
-| **400**     | Bad Request | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **202**     | OK                | -                |
+| **400**     | Bad Request       | -                |
+| **429**     | Too many requests | -                |
 
 ## getEvent
 
@@ -136,6 +137,7 @@ public class Example {
 | **200**     | OK                   | -                |
 | **403**     | Authentication Error | -                |
 | **404**     | Item Not Found       | -                |
+| **429**     | Too many requests    | -                |
 
 ## listEvents
 
@@ -228,3 +230,4 @@ public class Example {
 | **200**     | OK                   | -                |
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication Error | -                |
+| **429**     | Too many requests    | -                |

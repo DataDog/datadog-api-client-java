@@ -67,13 +67,14 @@ public class Example {
 
 ### HTTP response details
 
-| Status code | Description  | Response headers |
-| ----------- | ------------ | ---------------- |
-| **201**     | CREATED      | -                |
-| **400**     | Bad Request  | -                |
-| **401**     | Unauthorized | -                |
-| **403**     | Forbidden    | -                |
-| **404**     | Not Found    | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **201**     | CREATED           | -                |
+| **400**     | Bad Request       | -                |
+| **401**     | Unauthorized      | -                |
+| **403**     | Forbidden         | -                |
+| **404**     | Not Found         | -                |
+| **429**     | Too many requests | -                |
 
 ## deleteIncidentTeam
 
@@ -131,13 +132,14 @@ null (empty response body)
 
 ### HTTP response details
 
-| Status code | Description  | Response headers |
-| ----------- | ------------ | ---------------- |
-| **204**     | OK           | -                |
-| **400**     | Bad Request  | -                |
-| **401**     | Unauthorized | -                |
-| **403**     | Forbidden    | -                |
-| **404**     | Not Found    | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **204**     | OK                | -                |
+| **400**     | Bad Request       | -                |
+| **401**     | Unauthorized      | -                |
+| **403**     | Forbidden         | -                |
+| **404**     | Not Found         | -                |
+| **429**     | Too many requests | -                |
 
 ## getIncidentTeam
 
@@ -200,13 +202,14 @@ public class Example {
 
 ### HTTP response details
 
-| Status code | Description  | Response headers |
-| ----------- | ------------ | ---------------- |
-| **200**     | OK           | -                |
-| **400**     | Bad Request  | -                |
-| **401**     | Unauthorized | -                |
-| **403**     | Forbidden    | -                |
-| **404**     | Not Found    | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **400**     | Bad Request       | -                |
+| **401**     | Unauthorized      | -                |
+| **403**     | Forbidden         | -                |
+| **404**     | Not Found         | -                |
+| **429**     | Too many requests | -                |
 
 ## listIncidentTeams
 
@@ -275,13 +278,14 @@ public class Example {
 
 ### HTTP response details
 
-| Status code | Description  | Response headers |
-| ----------- | ------------ | ---------------- |
-| **200**     | OK           | -                |
-| **400**     | Bad Request  | -                |
-| **401**     | Unauthorized | -                |
-| **403**     | Forbidden    | -                |
-| **404**     | Not Found    | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **400**     | Bad Request       | -                |
+| **401**     | Unauthorized      | -                |
+| **403**     | Forbidden         | -                |
+| **404**     | Not Found         | -                |
+| **429**     | Too many requests | -                |
 
 ## updateIncidentTeam
 
@@ -342,10 +346,11 @@ public class Example {
 
 ### HTTP response details
 
-| Status code | Description  | Response headers |
-| ----------- | ------------ | ---------------- |
-| **200**     | OK           | -                |
-| **400**     | Bad Request  | -                |
-| **401**     | Unauthorized | -                |
-| **403**     | Forbidden    | -                |
-| **404**     | Not Found    | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **400**     | Bad Request       | -                |
+| **401**     | Unauthorized      | -                |
+| **403**     | Forbidden         | -                |
+| **404**     | Not Found         | -                |
+| **429**     | Too many requests | -                |

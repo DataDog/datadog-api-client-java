@@ -68,11 +68,12 @@ public class Example {
 
 ### HTTP response details
 
-| Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **403**     | Forbidden   | -                |
-| **404**     | Not Found   | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **403**     | Forbidden         | -                |
+| **404**     | Not Found         | -                |
+| **429**     | Too many requests | -                |
 
 ## listActiveMetrics
 
@@ -137,11 +138,12 @@ public class Example {
 
 ### HTTP response details
 
-| Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **400**     | Bad Request | -                |
-| **403**     | Forbidden   | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **400**     | Bad Request       | -                |
+| **403**     | Forbidden         | -                |
+| **429**     | Too many requests | -                |
 
 ## listMetrics
 
@@ -200,11 +202,12 @@ public class Example {
 
 ### HTTP response details
 
-| Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **400**     | Bad Request | -                |
-| **403**     | Forbidden   | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **400**     | Bad Request       | -                |
+| **403**     | Forbidden         | -                |
+| **429**     | Too many requests | -                |
 
 ## queryMetrics
 
@@ -267,11 +270,12 @@ public class Example {
 
 ### HTTP response details
 
-| Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **400**     | Bad Request | -                |
-| **403**     | Forbidden   | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **400**     | Bad Request       | -                |
+| **403**     | Forbidden         | -                |
+| **429**     | Too many requests | -                |
 
 ## submitMetrics
 
@@ -339,7 +343,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: text/json
-- **Accept**: text/json
+- **Accept**: text/json, application/json
 
 ### HTTP response details
 
@@ -350,6 +354,7 @@ public class Example {
 | **403**     | Authentication error | -                |
 | **408**     | Request timeout      | -                |
 | **413**     | Payload too large    | -                |
+| **429**     | Too many requests    | -                |
 
 ## updateMetricMetadata
 
@@ -410,9 +415,10 @@ public class Example {
 
 ### HTTP response details
 
-| Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **400**     | Bad Request | -                |
-| **403**     | Forbidden   | -                |
-| **404**     | Not Found   | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **400**     | Bad Request       | -                |
+| **403**     | Forbidden         | -                |
+| **404**     | Not Found         | -                |
+| **429**     | Too many requests | -                |

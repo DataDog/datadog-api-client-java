@@ -64,3 +64,4 @@ This endpoint does not need any parameter.
 | ----------- | -------------------- | ---------------- |
 | **200**     | OK                   | -                |
 | **403**     | Authentication error | -                |
+| **429**     | Too many requests    | -                |

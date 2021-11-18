@@ -64,6 +64,7 @@ public class AwsIntegrationApi {
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
    *       <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public AWSAccountCreateResponse createAWSAccount(AWSAccount body) throws ApiException {
@@ -86,6 +87,7 @@ public class AwsIntegrationApi {
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
    *       <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<AWSAccountCreateResponse> createAWSAccountWithHttpInfo(AWSAccount body)
@@ -151,6 +153,7 @@ public class AwsIntegrationApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public Object createAWSTagFilter(AWSTagFilterCreateRequest body) throws ApiException {
@@ -172,6 +175,7 @@ public class AwsIntegrationApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<Object> createAWSTagFilterWithHttpInfo(AWSTagFilterCreateRequest body)
@@ -236,6 +240,7 @@ public class AwsIntegrationApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public AWSAccountCreateResponse createNewAWSExternalID(AWSAccount body) throws ApiException {
@@ -257,6 +262,7 @@ public class AwsIntegrationApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<AWSAccountCreateResponse> createNewAWSExternalIDWithHttpInfo(AWSAccount body)
@@ -321,6 +327,7 @@ public class AwsIntegrationApi {
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
    *       <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public Object deleteAWSAccount(AWSAccountDeleteRequest body) throws ApiException {
@@ -341,6 +348,7 @@ public class AwsIntegrationApi {
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
    *       <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<Object> deleteAWSAccountWithHttpInfo(AWSAccountDeleteRequest body)
@@ -403,6 +411,7 @@ public class AwsIntegrationApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public Object deleteAWSTagFilter(AWSTagFilterDeleteRequest body) throws ApiException {
@@ -422,6 +431,7 @@ public class AwsIntegrationApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<Object> deleteAWSTagFilterWithHttpInfo(AWSTagFilterDeleteRequest body)
@@ -525,6 +535,7 @@ public class AwsIntegrationApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public AWSAccountListResponse listAWSAccounts() throws ApiException {
@@ -544,6 +555,7 @@ public class AwsIntegrationApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public AWSAccountListResponse listAWSAccounts(ListAWSAccountsOptionalParameters parameters)
@@ -564,6 +576,7 @@ public class AwsIntegrationApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<AWSAccountListResponse> listAWSAccountsWithHttpInfo(
@@ -628,6 +641,7 @@ public class AwsIntegrationApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public AWSTagFilterListResponse listAWSTagFilters(String accountId) throws ApiException {
@@ -646,6 +660,7 @@ public class AwsIntegrationApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<AWSTagFilterListResponse> listAWSTagFiltersWithHttpInfo(String accountId)
@@ -710,6 +725,7 @@ public class AwsIntegrationApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public List<String> listAvailableAWSNamespaces() throws ApiException {
@@ -727,6 +743,7 @@ public class AwsIntegrationApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<List<String>> listAvailableAWSNamespacesWithHttpInfo() throws ApiException {
@@ -826,6 +843,7 @@ public class AwsIntegrationApi {
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
    *       <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public Object updateAWSAccount(AWSAccount body) throws ApiException {
@@ -846,6 +864,7 @@ public class AwsIntegrationApi {
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
    *       <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public Object updateAWSAccount(AWSAccount body, UpdateAWSAccountOptionalParameters parameters)
@@ -867,6 +886,7 @@ public class AwsIntegrationApi {
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
    *       <tr><td> 409 </td><td> Conflict Error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<Object> updateAWSAccountWithHttpInfo(

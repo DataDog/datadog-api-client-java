@@ -67,12 +67,13 @@ public class Example {
 
 ### HTTP response details
 
-| Status code | Description   | Response headers |
-| ----------- | ------------- | ---------------- |
-| **200**     | OK            | -                |
-| **400**     | Bad Request   | -                |
-| **403**     | Forbidden     | -                |
-| **404**     | SLO Not Found | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **400**     | Bad Request       | -                |
+| **403**     | Forbidden         | -                |
+| **404**     | SLO Not Found     | -                |
+| **429**     | Too many requests | -                |
 
 ## deleteSLOCorrection
 
@@ -130,11 +131,12 @@ null (empty response body)
 
 ### HTTP response details
 
-| Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **204**     | OK          | -                |
-| **403**     | Forbidden   | -                |
-| **404**     | Not found   | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **204**     | OK                | -                |
+| **403**     | Forbidden         | -                |
+| **404**     | Not found         | -                |
+| **429**     | Too many requests | -                |
 
 ## getSLOCorrection
 
@@ -193,11 +195,12 @@ public class Example {
 
 ### HTTP response details
 
-| Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **400**     | Bad Request | -                |
-| **403**     | Forbidden   | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **400**     | Bad Request       | -                |
+| **403**     | Forbidden         | -                |
+| **429**     | Too many requests | -                |
 
 ## listSLOCorrection
 
@@ -253,10 +256,11 @@ This endpoint does not need any parameter.
 
 ### HTTP response details
 
-| Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **403**     | Forbidden   | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **403**     | Forbidden         | -                |
+| **429**     | Too many requests | -                |
 
 ## updateSLOCorrection
 
@@ -317,9 +321,10 @@ public class Example {
 
 ### HTTP response details
 
-| Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **400**     | Bad Request | -                |
-| **403**     | Forbidden   | -                |
-| **404**     | Not Found   | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **400**     | Bad Request       | -                |
+| **403**     | Forbidden         | -                |
+| **404**     | Not Found         | -                |
+| **429**     | Too many requests | -                |

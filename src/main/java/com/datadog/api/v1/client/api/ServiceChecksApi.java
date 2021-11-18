@@ -58,6 +58,7 @@ public class ServiceChecksApi {
    *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
    *       <tr><td> 408 </td><td> Request timeout </td><td>  -  </td></tr>
    *       <tr><td> 413 </td><td> Payload too large </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public IntakePayloadAccepted submitServiceCheck(List<ServiceCheck> body) throws ApiException {
@@ -79,6 +80,7 @@ public class ServiceChecksApi {
    *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
    *       <tr><td> 408 </td><td> Request timeout </td><td>  -  </td></tr>
    *       <tr><td> 413 </td><td> Payload too large </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<IntakePayloadAccepted> submitServiceCheckWithHttpInfo(List<ServiceCheck> body)
@@ -102,7 +104,7 @@ public class ServiceChecksApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "submitServiceCheck");
 
-    final String[] localVarAccepts = {"text/json"};
+    final String[] localVarAccepts = {"text/json", "application/json"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {"application/json"};

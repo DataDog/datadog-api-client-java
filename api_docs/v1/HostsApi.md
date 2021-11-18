@@ -73,6 +73,7 @@ public class Example {
 | **200**     | OK                      | -                |
 | **400**     | Invalid Parameter Error | -                |
 | **403**     | Forbidden               | -                |
+| **429**     | Too many requests       | -                |
 
 ## listHosts
 
@@ -161,6 +162,7 @@ public class Example {
 | **200**     | OK                      | -                |
 | **400**     | Invalid Parameter Error | -                |
 | **403**     | Forbidden               | -                |
+| **429**     | Too many requests       | -                |
 
 ## muteHost
 
@@ -226,6 +228,7 @@ public class Example {
 | **200**     | OK                      | -                |
 | **400**     | Invalid Parameter Error | -                |
 | **403**     | Forbidden               | -                |
+| **429**     | Too many requests       | -                |
 
 ## unmuteHost
 
@@ -289,3 +292,4 @@ public class Example {
 | **200**     | OK                      | -                |
 | **400**     | Invalid Parameter Error | -                |
 | **403**     | Forbidden               | -                |
+| **429**     | Too many requests       | -                |

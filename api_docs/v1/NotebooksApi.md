@@ -72,6 +72,7 @@ public class Example {
 | **200**     | OK                   | -                |
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication Error | -                |
+| **429**     | Too many requests    | -                |
 
 ## deleteNotebook
 
@@ -135,6 +136,7 @@ null (empty response body)
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication Error | -                |
 | **404**     | Not Found            | -                |
+| **429**     | Too many requests    | -                |
 
 ## getNotebook
 
@@ -199,6 +201,7 @@ public class Example {
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication Error | -                |
 | **404**     | Not Found            | -                |
+| **429**     | Too many requests    | -                |
 
 ## listNotebooks
 
@@ -291,6 +294,7 @@ public class Example {
 | **200**     | OK                   | -                |
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication Error | -                |
+| **429**     | Too many requests    | -                |
 
 ## updateNotebook
 
@@ -358,3 +362,4 @@ public class Example {
 | **403**     | Authentication Error | -                |
 | **404**     | Not Found            | -                |
 | **409**     | Conflict             | -                |
+| **429**     | Too many requests    | -                |

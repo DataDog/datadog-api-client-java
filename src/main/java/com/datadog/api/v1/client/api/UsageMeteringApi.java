@@ -143,6 +143,7 @@ public class UsageMeteringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageCustomReportsResponse getDailyCustomReports() throws ApiException {
@@ -161,6 +162,7 @@ public class UsageMeteringApi {
    *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageCustomReportsResponse getDailyCustomReports(
@@ -179,6 +181,7 @@ public class UsageMeteringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<UsageCustomReportsResponse> getDailyCustomReportsWithHttpInfo(
@@ -205,7 +208,9 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getDailyCustomReports");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339", "application/json"
+    };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -263,6 +268,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageIncidentManagementResponse getIncidentManagement(OffsetDateTime startHr)
@@ -285,6 +291,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageIncidentManagementResponse getIncidentManagement(
@@ -307,6 +314,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<UsageIncidentManagementResponse> getIncidentManagementWithHttpInfo(
@@ -335,7 +343,9 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getIncidentManagement");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339", "application/json"
+    };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -393,6 +403,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageIngestedSpansResponse getIngestedSpans(OffsetDateTime startHr) throws ApiException {
@@ -414,6 +425,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageIngestedSpansResponse getIngestedSpans(
@@ -435,6 +447,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<UsageIngestedSpansResponse> getIngestedSpansWithHttpInfo(
@@ -462,7 +475,9 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getIngestedSpans");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339", "application/json"
+    };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -555,6 +570,7 @@ public class UsageMeteringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageCustomReportsResponse getMonthlyCustomReports() throws ApiException {
@@ -573,6 +589,7 @@ public class UsageMeteringApi {
    *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageCustomReportsResponse getMonthlyCustomReports(
@@ -591,6 +608,7 @@ public class UsageMeteringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<UsageCustomReportsResponse> getMonthlyCustomReportsWithHttpInfo(
@@ -617,7 +635,9 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getMonthlyCustomReports");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339", "application/json"
+    };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -657,6 +677,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageSpecifiedCustomReportsResponse getSpecifiedDailyCustomReports(String reportId)
@@ -676,6 +697,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<UsageSpecifiedCustomReportsResponse>
@@ -702,7 +724,9 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getSpecifiedDailyCustomReports");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339", "application/json"
+    };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -743,6 +767,7 @@ public class UsageMeteringApi {
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageSpecifiedCustomReportsResponse getSpecifiedMonthlyCustomReports(String reportId)
@@ -763,6 +788,7 @@ public class UsageMeteringApi {
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<UsageSpecifiedCustomReportsResponse>
@@ -790,7 +816,9 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getSpecifiedMonthlyCustomReports");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339", "application/json"
+    };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -848,6 +876,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageAnalyzedLogsResponse getUsageAnalyzedLogs(OffsetDateTime startHr)
@@ -870,6 +899,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageAnalyzedLogsResponse getUsageAnalyzedLogs(
@@ -892,6 +922,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<UsageAnalyzedLogsResponse> getUsageAnalyzedLogsWithHttpInfo(
@@ -920,7 +951,9 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageAnalyzedLogs");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339", "application/json"
+    };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -1017,6 +1050,7 @@ public class UsageMeteringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageAttributionResponse getUsageAttribution(
@@ -1041,6 +1075,7 @@ public class UsageMeteringApi {
    *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageAttributionResponse getUsageAttribution(
@@ -1066,6 +1101,7 @@ public class UsageMeteringApi {
    *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<UsageAttributionResponse> getUsageAttributionWithHttpInfo(
@@ -1110,7 +1146,9 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageAttribution");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339", "application/json"
+    };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -1168,6 +1206,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageAuditLogsResponse getUsageAuditLogs(OffsetDateTime startHr) throws ApiException {
@@ -1189,6 +1228,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageAuditLogsResponse getUsageAuditLogs(
@@ -1210,6 +1250,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<UsageAuditLogsResponse> getUsageAuditLogsWithHttpInfo(
@@ -1237,7 +1278,9 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageAuditLogs");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339", "application/json"
+    };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -1293,6 +1336,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageBillableSummaryResponse getUsageBillableSummary() throws ApiException {
@@ -1312,6 +1356,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageBillableSummaryResponse getUsageBillableSummary(
@@ -1331,6 +1376,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<UsageBillableSummaryResponse> getUsageBillableSummaryWithHttpInfo(
@@ -1351,7 +1397,9 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageBillableSummary");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339", "application/json"
+    };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -1409,6 +1457,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageCWSResponse getUsageCWS(OffsetDateTime startHr) throws ApiException {
@@ -1429,6 +1478,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageCWSResponse getUsageCWS(
@@ -1450,6 +1500,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<UsageCWSResponse> getUsageCWSWithHttpInfo(
@@ -1477,7 +1528,9 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageCWS");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339", "application/json"
+    };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -1534,6 +1587,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageCloudSecurityPostureManagementResponse getUsageCloudSecurityPostureManagement(
@@ -1557,6 +1611,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageCloudSecurityPostureManagementResponse getUsageCloudSecurityPostureManagement(
@@ -1579,6 +1634,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<UsageCloudSecurityPostureManagementResponse>
@@ -1611,7 +1667,9 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageCloudSecurityPostureManagement");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339", "application/json"
+    };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -1669,6 +1727,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageDBMResponse getUsageDBM(OffsetDateTime startHr) throws ApiException {
@@ -1689,6 +1748,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageDBMResponse getUsageDBM(
@@ -1710,6 +1770,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<UsageDBMResponse> getUsageDBMWithHttpInfo(
@@ -1737,7 +1798,9 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageDBM");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339", "application/json"
+    };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -1795,6 +1858,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageFargateResponse getUsageFargate(OffsetDateTime startHr) throws ApiException {
@@ -1816,6 +1880,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageFargateResponse getUsageFargate(
@@ -1838,6 +1903,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<UsageFargateResponse> getUsageFargateWithHttpInfo(
@@ -1865,7 +1931,9 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageFargate");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339", "application/json"
+    };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -1923,6 +1991,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageHostsResponse getUsageHosts(OffsetDateTime startHr) throws ApiException {
@@ -1943,6 +2012,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageHostsResponse getUsageHosts(
@@ -1964,6 +2034,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<UsageHostsResponse> getUsageHostsWithHttpInfo(
@@ -1991,7 +2062,9 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageHosts");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339", "application/json"
+    };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -2048,6 +2121,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageIndexedSpansResponse getUsageIndexedSpans(OffsetDateTime startHr)
@@ -2070,6 +2144,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageIndexedSpansResponse getUsageIndexedSpans(
@@ -2092,6 +2167,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<UsageIndexedSpansResponse> getUsageIndexedSpansWithHttpInfo(
@@ -2120,7 +2196,9 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageIndexedSpans");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339", "application/json"
+    };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -2178,6 +2256,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageIoTResponse getUsageInternetOfThings(OffsetDateTime startHr) throws ApiException {
@@ -2200,6 +2279,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageIoTResponse getUsageInternetOfThings(
@@ -2222,6 +2302,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<UsageIoTResponse> getUsageInternetOfThingsWithHttpInfo(
@@ -2250,7 +2331,9 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageInternetOfThings");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339", "application/json"
+    };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -2307,6 +2390,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageLambdaResponse getUsageLambda(OffsetDateTime startHr) throws ApiException {
@@ -2327,6 +2411,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageLambdaResponse getUsageLambda(
@@ -2348,6 +2433,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<UsageLambdaResponse> getUsageLambdaWithHttpInfo(
@@ -2375,7 +2461,9 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageLambda");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339", "application/json"
+    };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -2432,6 +2520,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageLogsResponse getUsageLogs(OffsetDateTime startHr) throws ApiException {
@@ -2452,6 +2541,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageLogsResponse getUsageLogs(
@@ -2473,6 +2563,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<UsageLogsResponse> getUsageLogsWithHttpInfo(
@@ -2500,7 +2591,9 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageLogs");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339", "application/json"
+    };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -2569,6 +2662,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageLogsByIndexResponse getUsageLogsByIndex(OffsetDateTime startHr) throws ApiException {
@@ -2590,6 +2684,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageLogsByIndexResponse getUsageLogsByIndex(
@@ -2612,6 +2707,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<UsageLogsByIndexResponse> getUsageLogsByIndexWithHttpInfo(
@@ -2642,7 +2738,9 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageLogsByIndex");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339", "application/json"
+    };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -2700,6 +2798,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageLogsByRetentionResponse getUsageLogsByRetention(OffsetDateTime startHr)
@@ -2723,6 +2822,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageLogsByRetentionResponse getUsageLogsByRetention(
@@ -2745,6 +2845,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<UsageLogsByRetentionResponse> getUsageLogsByRetentionWithHttpInfo(
@@ -2773,7 +2874,9 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageLogsByRetention");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339", "application/json"
+    };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -2831,6 +2934,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageNetworkFlowsResponse getUsageNetworkFlows(OffsetDateTime startHr)
@@ -2853,6 +2957,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageNetworkFlowsResponse getUsageNetworkFlows(
@@ -2875,6 +2980,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<UsageNetworkFlowsResponse> getUsageNetworkFlowsWithHttpInfo(
@@ -2903,7 +3009,9 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageNetworkFlows");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339", "application/json"
+    };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -2961,6 +3069,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageNetworkHostsResponse getUsageNetworkHosts(OffsetDateTime startHr)
@@ -2983,6 +3092,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageNetworkHostsResponse getUsageNetworkHosts(
@@ -3005,6 +3115,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<UsageNetworkHostsResponse> getUsageNetworkHostsWithHttpInfo(
@@ -3033,7 +3144,9 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageNetworkHosts");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339", "application/json"
+    };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -3091,6 +3204,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageProfilingResponse getUsageProfiling(OffsetDateTime startHr) throws ApiException {
@@ -3112,6 +3226,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageProfilingResponse getUsageProfiling(
@@ -3133,6 +3248,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<UsageProfilingResponse> getUsageProfilingWithHttpInfo(
@@ -3160,7 +3276,9 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageProfiling");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339", "application/json"
+    };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -3232,6 +3350,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageRumSessionsResponse getUsageRumSessions(OffsetDateTime startHr) throws ApiException {
@@ -3254,6 +3373,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageRumSessionsResponse getUsageRumSessions(
@@ -3277,6 +3397,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<UsageRumSessionsResponse> getUsageRumSessionsWithHttpInfo(
@@ -3307,7 +3428,9 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageRumSessions");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339", "application/json"
+    };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -3366,6 +3489,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageRumUnitsResponse getUsageRumUnits(OffsetDateTime startHr) throws ApiException {
@@ -3388,6 +3512,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageRumUnitsResponse getUsageRumUnits(
@@ -3410,6 +3535,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<UsageRumUnitsResponse> getUsageRumUnitsWithHttpInfo(
@@ -3437,7 +3563,9 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageRumUnits");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339", "application/json"
+    };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -3495,6 +3623,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageSDSResponse getUsageSDS(OffsetDateTime startHr) throws ApiException {
@@ -3515,6 +3644,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageSDSResponse getUsageSDS(
@@ -3536,6 +3666,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<UsageSDSResponse> getUsageSDSWithHttpInfo(
@@ -3563,7 +3694,9 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageSDS");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339", "application/json"
+    };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -3620,6 +3753,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageSNMPResponse getUsageSNMP(OffsetDateTime startHr) throws ApiException {
@@ -3640,6 +3774,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageSNMPResponse getUsageSNMP(
@@ -3661,6 +3796,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<UsageSNMPResponse> getUsageSNMPWithHttpInfo(
@@ -3688,7 +3824,9 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageSNMP");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339", "application/json"
+    };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -3758,6 +3896,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageSummaryResponse getUsageSummary(OffsetDateTime startMonth) throws ApiException {
@@ -3780,6 +3919,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageSummaryResponse getUsageSummary(
@@ -3802,6 +3942,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<UsageSummaryResponse> getUsageSummaryWithHttpInfo(
@@ -3832,7 +3973,9 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageSummary");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339", "application/json"
+    };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -3891,6 +4034,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    *
    * @deprecated
@@ -3916,6 +4060,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    *
    * @deprecated
@@ -3941,6 +4086,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    *
    * @deprecated
@@ -3971,7 +4117,9 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageSynthetics");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339", "application/json"
+    };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -4030,6 +4178,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageSyntheticsAPIResponse getUsageSyntheticsAPI(OffsetDateTime startHr)
@@ -4053,6 +4202,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageSyntheticsAPIResponse getUsageSyntheticsAPI(
@@ -4076,6 +4226,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<UsageSyntheticsAPIResponse> getUsageSyntheticsAPIWithHttpInfo(
@@ -4104,7 +4255,9 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageSyntheticsAPI");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339", "application/json"
+    };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -4162,6 +4315,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageSyntheticsBrowserResponse getUsageSyntheticsBrowser(OffsetDateTime startHr)
@@ -4185,6 +4339,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageSyntheticsBrowserResponse getUsageSyntheticsBrowser(
@@ -4207,6 +4362,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<UsageSyntheticsBrowserResponse> getUsageSyntheticsBrowserWithHttpInfo(
@@ -4235,7 +4391,9 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageSyntheticsBrowser");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339", "application/json"
+    };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -4294,6 +4452,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageTimeseriesResponse getUsageTimeseries(OffsetDateTime startHr) throws ApiException {
@@ -4316,6 +4475,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageTimeseriesResponse getUsageTimeseries(
@@ -4338,6 +4498,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<UsageTimeseriesResponse> getUsageTimeseriesWithHttpInfo(
@@ -4365,7 +4526,9 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageTimeseries");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339", "application/json"
+    };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -4476,6 +4639,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageTopAvgMetricsResponse getUsageTopAvgMetrics() throws ApiException {
@@ -4498,6 +4662,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsageTopAvgMetricsResponse getUsageTopAvgMetrics(
@@ -4520,6 +4685,7 @@ public class UsageMeteringApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<UsageTopAvgMetricsResponse> getUsageTopAvgMetricsWithHttpInfo(
@@ -4548,7 +4714,9 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageTopAvgMetrics");
 
-    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339", "application/json"
+    };
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};

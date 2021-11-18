@@ -71,6 +71,7 @@ public class Example {
 | **200**     | OK                   | -                |
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication error | -                |
+| **429**     | Too many requests    | -                |
 
 ## deleteGCPIntegration
 
@@ -134,6 +135,7 @@ public class Example {
 | **200**     | OK                   | -                |
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication error | -                |
+| **429**     | Too many requests    | -                |
 
 ## listGCPIntegration
 
@@ -194,6 +196,7 @@ This endpoint does not need any parameter.
 | **200**     | OK                   | -                |
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication error | -                |
+| **429**     | Too many requests    | -                |
 
 ## updateGCPIntegration
 
@@ -260,3 +263,4 @@ public class Example {
 | **200**     | OK                   | -                |
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication error | -                |
+| **429**     | Too many requests    | -                |

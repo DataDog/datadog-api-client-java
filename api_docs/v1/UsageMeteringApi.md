@@ -102,7 +102,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ### HTTP response details
 
@@ -110,6 +110,7 @@ public class Example {
 | ----------- | ---------------------------------- | ---------------- |
 | **200**     | OK                                 | -                |
 | **403**     | Forbidden - User is not authorized | -                |
+| **429**     | Too many requests                  | -                |
 
 ## getIncidentManagement
 
@@ -168,7 +169,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ### HTTP response details
 
@@ -177,6 +178,7 @@ public class Example {
 | **200**     | OK                                 | -                |
 | **400**     | Bad Request                        | -                |
 | **403**     | Forbidden - User is not authorized | -                |
+| **429**     | Too many requests                  | -                |
 
 ## getIngestedSpans
 
@@ -235,7 +237,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ### HTTP response details
 
@@ -244,6 +246,7 @@ public class Example {
 | **200**     | OK                                 | -                |
 | **400**     | Bad Request                        | -                |
 | **403**     | Forbidden - User is not authorized | -                |
+| **429**     | Too many requests                  | -                |
 
 ## getMonthlyCustomReports
 
@@ -308,7 +311,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ### HTTP response details
 
@@ -316,6 +319,7 @@ public class Example {
 | ----------- | ---------------------------------- | ---------------- |
 | **200**     | OK                                 | -                |
 | **403**     | Forbidden - User is not authorized | -                |
+| **429**     | Too many requests                  | -                |
 
 ## getSpecifiedDailyCustomReports
 
@@ -370,7 +374,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ### HTTP response details
 
@@ -379,6 +383,7 @@ public class Example {
 | **200**     | OK                                 | -                |
 | **403**     | Forbidden - User is not authorized | -                |
 | **404**     | Not Found                          | -                |
+| **429**     | Too many requests                  | -                |
 
 ## getSpecifiedMonthlyCustomReports
 
@@ -433,7 +438,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ### HTTP response details
 
@@ -443,6 +448,7 @@ public class Example {
 | **400**     | Bad Request                        | -                |
 | **403**     | Forbidden - User is not authorized | -                |
 | **404**     | Not Found                          | -                |
+| **429**     | Too many requests                  | -                |
 
 ## getUsageAnalyzedLogs
 
@@ -501,7 +507,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ### HTTP response details
 
@@ -510,6 +516,7 @@ public class Example {
 | **200**     | OK                                 | -                |
 | **400**     | Bad Request                        | -                |
 | **403**     | Forbidden - User is not authorized | -                |
+| **429**     | Too many requests                  | -                |
 
 ## getUsageAttribution
 
@@ -579,7 +586,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ### HTTP response details
 
@@ -587,6 +594,7 @@ public class Example {
 | ----------- | ---------------------------------- | ---------------- |
 | **200**     | OK                                 | -                |
 | **403**     | Forbidden - User is not authorized | -                |
+| **429**     | Too many requests                  | -                |
 
 ## getUsageAuditLogs
 
@@ -645,7 +653,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ### HTTP response details
 
@@ -654,6 +662,7 @@ public class Example {
 | **200**     | OK                                 | -                |
 | **400**     | Bad Request                        | -                |
 | **403**     | Forbidden - User is not authorized | -                |
+| **429**     | Too many requests                  | -                |
 
 ## getUsageBillableSummary
 
@@ -710,7 +719,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ### HTTP response details
 
@@ -719,6 +728,7 @@ public class Example {
 | **200**     | OK                                 | -                |
 | **400**     | Bad Request                        | -                |
 | **403**     | Forbidden - User is not authorized | -                |
+| **429**     | Too many requests                  | -                |
 
 ## getUsageCWS
 
@@ -777,7 +787,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ### HTTP response details
 
@@ -786,6 +796,7 @@ public class Example {
 | **200**     | OK                                 | -                |
 | **400**     | Bad Request                        | -                |
 | **403**     | Forbidden - User is not authorized | -                |
+| **429**     | Too many requests                  | -                |
 
 ## getUsageCloudSecurityPostureManagement
 
@@ -844,7 +855,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ### HTTP response details
 
@@ -853,6 +864,7 @@ public class Example {
 | **200**     | OK                                 | -                |
 | **400**     | Bad Request                        | -                |
 | **403**     | Forbidden - User is not authorized | -                |
+| **429**     | Too many requests                  | -                |
 
 ## getUsageDBM
 
@@ -911,7 +923,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ### HTTP response details
 
@@ -920,6 +932,7 @@ public class Example {
 | **200**     | OK                                 | -                |
 | **400**     | Bad Request                        | -                |
 | **403**     | Forbidden - User is not authorized | -                |
+| **429**     | Too many requests                  | -                |
 
 ## getUsageFargate
 
@@ -978,7 +991,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ### HTTP response details
 
@@ -987,6 +1000,7 @@ public class Example {
 | **200**     | OK                                 | -                |
 | **400**     | Bad Request                        | -                |
 | **403**     | Forbidden - User is not authorized | -                |
+| **429**     | Too many requests                  | -                |
 
 ## getUsageHosts
 
@@ -1045,7 +1059,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ### HTTP response details
 
@@ -1054,6 +1068,7 @@ public class Example {
 | **200**     | OK                                 | -                |
 | **400**     | Bad Request                        | -                |
 | **403**     | Forbidden - User is not authorized | -                |
+| **429**     | Too many requests                  | -                |
 
 ## getUsageIndexedSpans
 
@@ -1112,7 +1127,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ### HTTP response details
 
@@ -1121,6 +1136,7 @@ public class Example {
 | **200**     | OK                                 | -                |
 | **400**     | Bad Request                        | -                |
 | **403**     | Forbidden - User is not authorized | -                |
+| **429**     | Too many requests                  | -                |
 
 ## getUsageInternetOfThings
 
@@ -1179,7 +1195,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ### HTTP response details
 
@@ -1188,6 +1204,7 @@ public class Example {
 | **200**     | OK                                 | -                |
 | **400**     | Bad Request                        | -                |
 | **403**     | Forbidden - User is not authorized | -                |
+| **429**     | Too many requests                  | -                |
 
 ## getUsageLambda
 
@@ -1246,7 +1263,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ### HTTP response details
 
@@ -1255,6 +1272,7 @@ public class Example {
 | **200**     | OK                                 | -                |
 | **400**     | Bad Request                        | -                |
 | **403**     | Forbidden - User is not authorized | -                |
+| **429**     | Too many requests                  | -                |
 
 ## getUsageLogs
 
@@ -1313,7 +1331,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ### HTTP response details
 
@@ -1322,6 +1340,7 @@ public class Example {
 | **200**     | OK                                 | -                |
 | **400**     | Bad Request                        | -                |
 | **403**     | Forbidden - User is not authorized | -                |
+| **429**     | Too many requests                  | -                |
 
 ## getUsageLogsByIndex
 
@@ -1383,7 +1402,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ### HTTP response details
 
@@ -1392,6 +1411,7 @@ public class Example {
 | **200**     | OK                                 | -                |
 | **400**     | Bad Request                        | -                |
 | **403**     | Forbidden - User is not authorized | -                |
+| **429**     | Too many requests                  | -                |
 
 ## getUsageLogsByRetention
 
@@ -1450,7 +1470,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ### HTTP response details
 
@@ -1459,6 +1479,7 @@ public class Example {
 | **200**     | OK                                 | -                |
 | **400**     | Bad Request                        | -                |
 | **403**     | Forbidden - User is not authorized | -                |
+| **429**     | Too many requests                  | -                |
 
 ## getUsageNetworkFlows
 
@@ -1517,7 +1538,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ### HTTP response details
 
@@ -1526,6 +1547,7 @@ public class Example {
 | **200**     | OK                                 | -                |
 | **400**     | Bad Request                        | -                |
 | **403**     | Forbidden - User is not authorized | -                |
+| **429**     | Too many requests                  | -                |
 
 ## getUsageNetworkHosts
 
@@ -1584,7 +1606,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ### HTTP response details
 
@@ -1593,6 +1615,7 @@ public class Example {
 | **200**     | OK                                 | -                |
 | **400**     | Bad Request                        | -                |
 | **403**     | Forbidden - User is not authorized | -                |
+| **429**     | Too many requests                  | -                |
 
 ## getUsageProfiling
 
@@ -1651,7 +1674,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ### HTTP response details
 
@@ -1660,6 +1683,7 @@ public class Example {
 | **200**     | OK                                 | -                |
 | **400**     | Bad Request                        | -                |
 | **403**     | Forbidden - User is not authorized | -                |
+| **429**     | Too many requests                  | -                |
 
 ## getUsageRumSessions
 
@@ -1721,7 +1745,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ### HTTP response details
 
@@ -1730,6 +1754,7 @@ public class Example {
 | **200**     | OK                                 | -                |
 | **400**     | Bad Request                        | -                |
 | **403**     | Forbidden - User is not authorized | -                |
+| **429**     | Too many requests                  | -                |
 
 ## getUsageRumUnits
 
@@ -1788,7 +1813,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ### HTTP response details
 
@@ -1797,6 +1822,7 @@ public class Example {
 | **200**     | OK                                 | -                |
 | **400**     | Bad Request                        | -                |
 | **403**     | Forbidden - User is not authorized | -                |
+| **429**     | Too many requests                  | -                |
 
 ## getUsageSDS
 
@@ -1855,7 +1881,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ### HTTP response details
 
@@ -1864,6 +1890,7 @@ public class Example {
 | **200**     | OK                                 | -                |
 | **400**     | Bad Request                        | -                |
 | **403**     | Forbidden - User is not authorized | -                |
+| **429**     | Too many requests                  | -                |
 
 ## getUsageSNMP
 
@@ -1922,7 +1949,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ### HTTP response details
 
@@ -1931,6 +1958,7 @@ public class Example {
 | **200**     | OK                                 | -                |
 | **400**     | Bad Request                        | -                |
 | **403**     | Forbidden - User is not authorized | -                |
+| **429**     | Too many requests                  | -                |
 
 ## getUsageSummary
 
@@ -1992,7 +2020,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ### HTTP response details
 
@@ -2001,6 +2029,7 @@ public class Example {
 | **200**     | OK                                 | -                |
 | **400**     | Bad Request                        | -                |
 | **403**     | Forbidden - User is not authorized | -                |
+| **429**     | Too many requests                  | -                |
 
 ## getUsageSynthetics
 
@@ -2059,7 +2088,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ### HTTP response details
 
@@ -2068,6 +2097,7 @@ public class Example {
 | **200**     | OK                                 | -                |
 | **400**     | Bad Request                        | -                |
 | **403**     | Forbidden - User is not authorized | -                |
+| **429**     | Too many requests                  | -                |
 
 ## getUsageSyntheticsAPI
 
@@ -2126,7 +2156,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ### HTTP response details
 
@@ -2135,6 +2165,7 @@ public class Example {
 | **200**     | OK                                 | -                |
 | **400**     | Bad Request                        | -                |
 | **403**     | Forbidden - User is not authorized | -                |
+| **429**     | Too many requests                  | -                |
 
 ## getUsageSyntheticsBrowser
 
@@ -2193,7 +2224,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ### HTTP response details
 
@@ -2202,6 +2233,7 @@ public class Example {
 | **200**     | OK                                 | -                |
 | **400**     | Bad Request                        | -                |
 | **403**     | Forbidden - User is not authorized | -                |
+| **429**     | Too many requests                  | -                |
 
 ## getUsageTimeseries
 
@@ -2260,7 +2292,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ### HTTP response details
 
@@ -2269,6 +2301,7 @@ public class Example {
 | **200**     | OK                                 | -                |
 | **400**     | Bad Request                        | -                |
 | **403**     | Forbidden - User is not authorized | -                |
+| **429**     | Too many requests                  | -                |
 
 ## getUsageTopAvgMetrics
 
@@ -2337,7 +2370,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339
+- **Accept**: application/json;datetime-format=rfc3339, application/json
 
 ### HTTP response details
 
@@ -2346,3 +2379,4 @@ public class Example {
 | **200**     | OK                                 | -                |
 | **400**     | Bad Request                        | -                |
 | **403**     | Forbidden - User is not authorized | -                |
+| **429**     | Too many requests                  | -                |

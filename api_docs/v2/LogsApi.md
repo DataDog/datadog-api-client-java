@@ -66,11 +66,12 @@ public class Example {
 
 ### HTTP response details
 
-| Status code | Description    | Response headers |
-| ----------- | -------------- | ---------------- |
-| **200**     | OK             | -                |
-| **400**     | Bad Request    | -                |
-| **403**     | Not Authorized | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **400**     | Bad Request       | -                |
+| **403**     | Not Authorized    | -                |
+| **429**     | Too many requests | -                |
 
 ## listLogs
 
@@ -140,11 +141,12 @@ public class Example {
 
 ### HTTP response details
 
-| Status code | Description    | Response headers |
-| ----------- | -------------- | ---------------- |
-| **200**     | OK             | -                |
-| **400**     | Bad Request    | -                |
-| **403**     | Not Authorized | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **400**     | Bad Request       | -                |
+| **403**     | Not Authorized    | -                |
+| **429**     | Too many requests | -                |
 
 ## listLogsGet
 
@@ -233,11 +235,12 @@ public class Example {
 
 ### HTTP response details
 
-| Status code | Description    | Response headers |
-| ----------- | -------------- | ---------------- |
-| **200**     | OK             | -                |
-| **400**     | Bad Request    | -                |
-| **403**     | Not Authorized | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **400**     | Bad Request       | -                |
+| **403**     | Not Authorized    | -                |
+| **429**     | Too many requests | -                |
 
 ## submitLog
 

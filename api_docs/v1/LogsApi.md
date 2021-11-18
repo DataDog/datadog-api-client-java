@@ -77,6 +77,7 @@ public class Example {
 | **200**     | OK                   | -                |
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication error | -                |
+| **429**     | Too many requests    | -                |
 
 ## submitLog
 
@@ -165,3 +166,4 @@ public class Example {
 | ----------- | --------------------------------------------- | ---------------- |
 | **200**     | Response from server (always 200 empty JSON). | -                |
 | **400**     | unexpected error                              | -                |
+| **429**     | Too many requests                             | -                |

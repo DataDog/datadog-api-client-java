@@ -63,6 +63,7 @@ public class UsersApi {
    *       <tr><td> 201 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UserResponse createServiceAccount(ServiceAccountCreateRequest body) throws ApiException {
@@ -81,6 +82,7 @@ public class UsersApi {
    *       <tr><td> 201 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<UserResponse> createServiceAccountWithHttpInfo(
@@ -142,6 +144,7 @@ public class UsersApi {
    *       <tr><td> 201 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UserResponse createUser(UserCreateRequest body) throws ApiException {
@@ -160,6 +163,7 @@ public class UsersApi {
    *       <tr><td> 201 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<UserResponse> createUserWithHttpInfo(UserCreateRequest body)
@@ -220,6 +224,7 @@ public class UsersApi {
    *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public void disableUser(String userId) throws ApiException {
@@ -239,6 +244,7 @@ public class UsersApi {
    *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<Void> disableUserWithHttpInfo(String userId) throws ApiException {
@@ -300,6 +306,7 @@ public class UsersApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UserInvitationResponse getInvitation(String userInvitationUuid) throws ApiException {
@@ -318,6 +325,7 @@ public class UsersApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<UserInvitationResponse> getInvitationWithHttpInfo(String userInvitationUuid)
@@ -385,6 +393,7 @@ public class UsersApi {
    *       <tr><td> 200 </td><td> OK for get user </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UserResponse getUser(String userId) throws ApiException {
@@ -403,6 +412,7 @@ public class UsersApi {
    *       <tr><td> 200 </td><td> OK for get user </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<UserResponse> getUserWithHttpInfo(String userId) throws ApiException {
@@ -466,6 +476,7 @@ public class UsersApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UserResponse listUserOrganizations(String userId) throws ApiException {
@@ -485,6 +496,7 @@ public class UsersApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<UserResponse> listUserOrganizationsWithHttpInfo(String userId)
@@ -550,6 +562,7 @@ public class UsersApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public PermissionsResponse listUserPermissions(String userId) throws ApiException {
@@ -569,6 +582,7 @@ public class UsersApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<PermissionsResponse> listUserPermissionsWithHttpInfo(String userId)
@@ -715,6 +729,7 @@ public class UsersApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsersResponse listUsers() throws ApiException {
@@ -734,6 +749,7 @@ public class UsersApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UsersResponse listUsers(ListUsersOptionalParameters parameters) throws ApiException {
@@ -753,6 +769,7 @@ public class UsersApi {
    *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<UsersResponse> listUsersWithHttpInfo(ListUsersOptionalParameters parameters)
@@ -823,6 +840,7 @@ public class UsersApi {
    *       <tr><td> 201 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UserInvitationsResponse sendInvitations(UserInvitationsRequest body) throws ApiException {
@@ -842,6 +860,7 @@ public class UsersApi {
    *       <tr><td> 201 </td><td> OK </td><td>  -  </td></tr>
    *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
    *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<UserInvitationsResponse> sendInvitationsWithHttpInfo(
@@ -908,6 +927,7 @@ public class UsersApi {
    *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
    *       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public UserResponse updateUser(String userId, UserUpdateRequest body) throws ApiException {
@@ -930,6 +950,7 @@ public class UsersApi {
    *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
    *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
    *       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
    *     </table>
    */
   public ApiResponse<UserResponse> updateUserWithHttpInfo(String userId, UserUpdateRequest body)

@@ -73,6 +73,7 @@ null (empty response body)
 | **204**     | OK                 | -                |
 | **403**     | Forbidden          | -                |
 | **404**     | Downtime not found | -                |
+| **429**     | Too many requests  | -                |
 
 ## cancelDowntimesByScope
 
@@ -137,6 +138,7 @@ public class Example {
 | **400**     | Bad Request         | -                |
 | **403**     | Forbidden           | -                |
 | **404**     | Downtimes not found | -                |
+| **429**     | Too many requests   | -                |
 
 ## createDowntime
 
@@ -195,11 +197,12 @@ public class Example {
 
 ### HTTP response details
 
-| Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **400**     | Bad Request | -                |
-| **403**     | Forbidden   | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **400**     | Bad Request       | -                |
+| **403**     | Forbidden         | -                |
+| **429**     | Too many requests | -                |
 
 ## getDowntime
 
@@ -263,6 +266,7 @@ public class Example {
 | **200**     | OK                 | -                |
 | **403**     | Forbidden          | -                |
 | **404**     | Downtime not found | -                |
+| **429**     | Too many requests  | -                |
 
 ## listDowntimes
 
@@ -322,10 +326,11 @@ public class Example {
 
 ### HTTP response details
 
-| Status code | Description | Response headers |
-| ----------- | ----------- | ---------------- |
-| **200**     | OK          | -                |
-| **403**     | Forbidden   | -                |
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **403**     | Forbidden         | -                |
+| **429**     | Too many requests | -                |
 
 ## listMonitorDowntimes
 
@@ -389,6 +394,7 @@ public class Example {
 | **200**     | OK                      | -                |
 | **400**     | Bad Request             | -                |
 | **404**     | Monitor Not Found error | -                |
+| **429**     | Too many requests       | -                |
 
 ## updateDowntime
 
@@ -455,3 +461,4 @@ public class Example {
 | **400**     | Bad Request        | -                |
 | **403**     | Forbidden          | -                |
 | **404**     | Downtime not found | -                |
+| **429**     | Too many requests  | -                |

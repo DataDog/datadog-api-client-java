@@ -81,6 +81,7 @@ public class Example {
 | **200**     | OK                   | -                |
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication Error | -                |
+| **429**     | Too many requests    | -                |
 
 ## checkAWSLogsServicesAsync
 
@@ -153,6 +154,7 @@ public class Example {
 | **200**     | OK                   | -                |
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication Error | -                |
+| **429**     | Too many requests    | -                |
 
 ## createAWSLambdaARN
 
@@ -216,6 +218,7 @@ public class Example {
 | **200**     | OK                   | -                |
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication Error | -                |
+| **429**     | Too many requests    | -                |
 
 ## deleteAWSLambdaARN
 
@@ -279,6 +282,7 @@ public class Example {
 | **200**     | OK                   | -                |
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication Error | -                |
+| **429**     | Too many requests    | -                |
 
 ## enableAWSLogServices
 
@@ -342,6 +346,7 @@ public class Example {
 | **200**     | OK                   | -                |
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication Error | -                |
+| **429**     | Too many requests    | -                |
 
 ## listAWSLogsIntegrations
 
@@ -402,6 +407,7 @@ This endpoint does not need any parameter.
 | **200**     | OK                   | -                |
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication Error | -                |
+| **429**     | Too many requests    | -                |
 
 ## listAWSLogsServices
 
@@ -461,3 +467,4 @@ This endpoint does not need any parameter.
 | ----------- | -------------------- | ---------------- |
 | **200**     | OK                   | -                |
 | **403**     | Authentication Error | -                |
+| **429**     | Too many requests    | -                |

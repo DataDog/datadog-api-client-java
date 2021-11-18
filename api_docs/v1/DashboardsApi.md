@@ -75,6 +75,7 @@ public class Example {
 | **200**     | OK                   | -                |
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication Error | -                |
+| **429**     | Too many requests    | -                |
 
 ## deleteDashboard
 
@@ -138,6 +139,7 @@ public class Example {
 | **200**     | OK                   | -                |
 | **403**     | Authentication Error | -                |
 | **404**     | Dashboards Not Found | -                |
+| **429**     | Too many requests    | -                |
 
 ## deleteDashboards
 
@@ -201,6 +203,7 @@ null (empty response body)
 | **400**     | Bad Request          | -                |
 | **403**     | Forbidden            | -                |
 | **404**     | Dashboards Not Found | -                |
+| **429**     | Too many requests    | -                |
 
 ## getDashboard
 
@@ -264,6 +267,7 @@ public class Example {
 | **200**     | OK                   | -                |
 | **403**     | Authentication Error | -                |
 | **404**     | Item Not Found       | -                |
+| **429**     | Too many requests    | -                |
 
 ## listDashboards
 
@@ -330,6 +334,7 @@ public class Example {
 | ----------- | -------------------- | ---------------- |
 | **200**     | OK                   | -                |
 | **403**     | Authentication Error | -                |
+| **429**     | Too many requests    | -                |
 
 ## restoreDashboards
 
@@ -393,6 +398,7 @@ null (empty response body)
 | **400**     | Bad Request          | -                |
 | **403**     | Forbidden            | -                |
 | **404**     | Dashboards Not Found | -                |
+| **429**     | Too many requests    | -                |
 
 ## updateDashboard
 
@@ -459,3 +465,4 @@ public class Example {
 | **400**     | Bad Request          | -                |
 | **403**     | Authentication Error | -                |
 | **404**     | Item Not Found       | -                |
+| **429**     | Too many requests    | -                |
