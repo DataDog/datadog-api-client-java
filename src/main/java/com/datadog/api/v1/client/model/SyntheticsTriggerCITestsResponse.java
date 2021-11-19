@@ -19,6 +19,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Object containing information about the tests triggered. */
 @ApiModel(description = "Object containing information about the tests triggered.")
@@ -32,7 +33,7 @@ import java.util.Objects;
 public class SyntheticsTriggerCITestsResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_BATCH_ID = "batch_id";
-  private String batchId;
+  private JsonNullable<String> batchId = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_LOCATIONS = "locations";
   private List<SyntheticsTriggerCITestLocation> locations = null;
@@ -44,7 +45,7 @@ public class SyntheticsTriggerCITestsResponse {
   private List<String> triggeredCheckIds = null;
 
   public SyntheticsTriggerCITestsResponse batchId(String batchId) {
-    this.batchId = batchId;
+    this.batchId = JsonNullable.<String>of(batchId);
     return this;
   }
 
@@ -55,14 +56,24 @@ public class SyntheticsTriggerCITestsResponse {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The public ID of the batch triggered.")
+  @JsonIgnore
+  public String getBatchId() {
+    return batchId.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_BATCH_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getBatchId() {
+  public JsonNullable<String> getBatchId_JsonNullable() {
     return batchId;
   }
 
-  public void setBatchId(String batchId) {
+  @JsonProperty(JSON_PROPERTY_BATCH_ID)
+  public void setBatchId_JsonNullable(JsonNullable<String> batchId) {
     this.batchId = batchId;
+  }
+
+  public void setBatchId(String batchId) {
+    this.batchId = JsonNullable.<String>of(batchId);
   }
 
   public SyntheticsTriggerCITestsResponse locations(
