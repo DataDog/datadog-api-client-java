@@ -391,17 +391,14 @@ public class EventCreateRequest {
   }
 
   /**
-   * The event title. Limited to 100 characters. Use &#x60;msg_title&#x60; with the Datadog Ruby
-   * library.
+   * The event title.
    *
    * @return title
    */
   @ApiModelProperty(
       example = "Did you hear the news today?",
       required = true,
-      value =
-          "The event title. Limited to 100 characters. Use `msg_title` with the Datadog Ruby"
-              + " library.")
+      value = "The event title.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getTitle() {
