@@ -35,7 +35,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.datadoghq</groupId>
   <artifactId>datadog-api-client</artifactId>
-  <version>1.0.0-beta10</version>
+  <version>1.2.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -47,7 +47,7 @@ See the [Releases page](https://github.com/DataDog/datadog-api-client-java/relea
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.datadoghq:datadog-api-client:1.0.0-beta10"
+compile "com.datadoghq:datadog-api-client:1.2.0"
 ```
 
 See the [Releases page](https://github.com/DataDog/datadog-api-client-java/releases) for the latest available version.
@@ -156,32 +156,15 @@ Javadoc is available on [javadoc.io](https://www.javadoc.io/doc/com.datadoghq/da
 
 ## Documentation for Authorization
 
-Authentication schemes defined for the API:
+To programmatically defined authorization headers, calls the `configureApiKeys`
+method with a map containing the required secrets for the operations:
 
-### apiKeyAuth
-
-- **Type**: API key
-- **API key parameter name**: api_key
-- **Location**: URL query string
-
-### apiKeyAuthHeader
-
-- **Type**: API key
-- **API key parameter name**: DD-API-KEY
-- **Location**: HTTP header
-
-### appKeyAuth
-
-- **Type**: API key
-- **API key parameter name**: application_key
-- **Location**: URL query string
-
-### appKeyAuthHeader
-
-- **Type**: API key
-- **API key parameter name**: DD-APPLICATION-KEY
-- **Location**: HTTP header
-
+```java
+HashMap<String, String> secrets = new HashMap<>();
+secrets.put("apiKeyAuth", "<YOUR API KEY>");
+secrets.put("appKeyAuth", "<YOUR APPLICATION KEY>");
+generalApiClient.configureApiKeys(secrets);
+```
 
 ## Recommendation
 
