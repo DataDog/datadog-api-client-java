@@ -53,19 +53,6 @@ public class User {
   public static final String JSON_PROPERTY_VERIFIED = "verified";
   private Boolean verified;
 
-  public User accessRole(AccessRole accessRole) {
-    this.accessRole = accessRole;
-    this.unparsed |= !accessRole.isValid();
-    return this;
-  }
-
-  public void setAccessRole(AccessRole accessRole) {
-    if (!accessRole.isValid()) {
-      this.unparsed = true;
-    }
-    this.accessRole = accessRole;
-  }
-
   public User disabled(Boolean disabled) {
     this.disabled = disabled;
     return this;
