@@ -59,19 +59,6 @@ public class User {
     return this;
   }
 
-  /**
-   * Get accessRole
-   *
-   * @return accessRole
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-  @JsonProperty(JSON_PROPERTY_ACCESS_ROLE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public AccessRole getAccessRole() {
-    return accessRole;
-  }
-
   public void setAccessRole(AccessRole accessRole) {
     if (!accessRole.isValid()) {
       this.unparsed = true;
