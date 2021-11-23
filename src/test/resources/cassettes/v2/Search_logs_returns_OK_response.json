@@ -1,0 +1,78 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"filter\":{\"from\":\"2020-09-17T11:48:36+01:00\",\"indexes\":[\"main\"],\"query\":\"datadog-agent\",\"to\":\"2020-09-17T12:48:36+01:00\"},\"page\":{\"limit\":5},\"sort\":\"timestamp\"}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Search_logs_returns_OK_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v2/logs/events/search",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":[]}",
+      "headers": {
+        "Date": [
+          "Tue, 23 Nov 2021 09:37:55 GMT"
+        ],
+        "Content-Type": [
+          "application/json"
+        ],
+        "Content-Length": [
+          "11"
+        ],
+        "Connection": [
+          "close"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "X-Ratelimit-Remaining": [
+          "9"
+        ],
+        "X-Ratelimit-Limit": [
+          "10"
+        ],
+        "X-Ratelimit-Period": [
+          "10"
+        ],
+        "X-Ratelimit-Reset": [
+          "5"
+        ],
+        "X-Envoy-Upstream-Service-Time": [
+          "101"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=15724800;"
+        ],
+        "Content-Security-Policy": [
+          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
+        ],
+        "X-Frame-Options": [
+          "SAMEORIGIN"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "878b609d-86d7-590b-5153-18c645141231"
+  }
+]
