@@ -32,6 +32,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
   MonitorSearchResult.JSON_PROPERTY_NAME,
   MonitorSearchResult.JSON_PROPERTY_NOTIFICATIONS,
   MonitorSearchResult.JSON_PROPERTY_ORG_ID,
+  MonitorSearchResult.JSON_PROPERTY_QUERY,
   MonitorSearchResult.JSON_PROPERTY_SCOPES,
   MonitorSearchResult.JSON_PROPERTY_STATUS,
   MonitorSearchResult.JSON_PROPERTY_TAGS,
@@ -63,6 +64,9 @@ public class MonitorSearchResult {
 
   public static final String JSON_PROPERTY_ORG_ID = "org_id";
   private Long orgId;
+
+  public static final String JSON_PROPERTY_QUERY = "query";
+  private String query;
 
   public static final String JSON_PROPERTY_SCOPES = "scopes";
   private List<String> scopes = null;
@@ -204,6 +208,30 @@ public class MonitorSearchResult {
     return orgId;
   }
 
+  public MonitorSearchResult query(String query) {
+    this.query = query;
+    return this;
+  }
+
+  /**
+   * The monitor query.
+   *
+   * @return query
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      example = "avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100",
+      value = "The monitor query.")
+  @JsonProperty(JSON_PROPERTY_QUERY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getQuery() {
+    return query;
+  }
+
+  public void setQuery(String query) {
+    this.query = query;
+  }
+
   public MonitorSearchResult scopes(List<String> scopes) {
     this.scopes = scopes;
     return this;
@@ -326,6 +354,7 @@ public class MonitorSearchResult {
         && Objects.equals(this.name, monitorSearchResult.name)
         && Objects.equals(this.notifications, monitorSearchResult.notifications)
         && Objects.equals(this.orgId, monitorSearchResult.orgId)
+        && Objects.equals(this.query, monitorSearchResult.query)
         && Objects.equals(this.scopes, monitorSearchResult.scopes)
         && Objects.equals(this.status, monitorSearchResult.status)
         && Objects.equals(this.tags, monitorSearchResult.tags)
@@ -343,6 +372,7 @@ public class MonitorSearchResult {
         name,
         notifications,
         orgId,
+        query,
         scopes,
         status,
         tags,
@@ -361,6 +391,7 @@ public class MonitorSearchResult {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    notifications: ").append(toIndentedString(notifications)).append("\n");
     sb.append("    orgId: ").append(toIndentedString(orgId)).append("\n");
+    sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    scopes: ").append(toIndentedString(scopes)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
