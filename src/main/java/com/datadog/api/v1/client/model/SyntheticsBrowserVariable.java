@@ -93,12 +93,12 @@ public class SyntheticsBrowserVariable {
   }
 
   /**
-   * ID for the variable.
+   * ID for the variable. Global variables require an ID.
    *
    * @return id
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID for the variable.")
+  @ApiModelProperty(value = "ID for the variable. Global variables require an ID.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getId() {
