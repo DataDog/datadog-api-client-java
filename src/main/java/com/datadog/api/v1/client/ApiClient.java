@@ -289,6 +289,7 @@ public class ApiClient extends JavaTimeFormatter {
           put("getSLOCorrection", false);
           put("listSLOCorrection", false);
           put("updateSLOCorrection", false);
+          put("getSLOCorrections", false);
           put("getSLOHistory", false);
           put("getDailyCustomReports", false);
           put("getMonthlyCustomReports", false);
