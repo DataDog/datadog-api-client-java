@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"message\": \"some message Notify: @hipchat-channel\", \"name\": \"Test-Validate_a_monitor_returns_OK_response-1633076916\", \"options\": {\"enable_logs_sample\": true, \"escalation_message\": \"the situation has escalated\", \"evaluation_delay\": 700, \"groupby_simple_monitor\": true, \"include_tags\": true, \"locked\": false, \"new_host_delay\": 600, \"no_data_timeframe\": null, \"notify_audit\": false, \"notify_no_data\": false, \"renotify_interval\": 60, \"require_full_window\": true, \"thresholds\": {\"critical\": 2, \"warning\": 1}, \"timeout_h\": 60}, \"priority\": 3, \"query\": \"logs(\\\"service:foo AND type:error\\\").index(\\\"main\\\").rollup(\\\"count\\\").by(\\\"source\\\").last(\\\"5m\\\") > 2\", \"tags\": [\"test:testvalidateamonitorreturnsokresponse1633076916\", \"env:ci\"], \"type\": \"log alert\"}"
+        "json": "{\"message\": \"some message Notify: @hipchat-channel\", \"name\": \"Test-Validate_a_monitor_returns_OK_response-1633076916\", \"options\": {\"enable_logs_sample\": true, \"escalation_message\": \"the situation has escalated\", \"evaluation_delay\": 700, \"groupby_simple_monitor\": true, \"include_tags\": true, \"locked\": false, \"new_host_delay\": 600, \"no_data_timeframe\": null, \"notify_audit\": false, \"notify_no_data\": false, \"renotify_interval\": 60, \"require_full_window\": true, \"thresholds\": {\"critical\": 2, \"warning\": 1}, \"timeout_h\": 24}, \"priority\": 3, \"query\": \"logs(\\\"service:foo AND type:error\\\").index(\\\"main\\\").rollup(\\\"count\\\").by(\\\"source\\\").last(\\\"5m\\\") > 2\", \"tags\": [\"test:testvalidateamonitorreturnsokresponse1633076916\", \"env:ci\"], \"type\": \"log alert\"}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -19,7 +19,7 @@
       "body": "{}",
       "headers": {
         "Date": [
-          "Fri, 01 Oct 2021 08:28:36 GMT"
+          "Tue, 23 Nov 2021 16:30:01 GMT"
         ],
         "Content-Type": [
           "application/json"
@@ -35,6 +35,9 @@
         ],
         "Cache-Control": [
           "no-cache"
+        ],
+        "X-Envoy-Upstream-Service-Time": [
+          "156"
         ],
         "X-Content-Type-Options": [
           "nosniff"
@@ -58,6 +61,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "74a47470-e3c7-d02d-2575-bc15a45e1bd9"
+    "id": "6d93bf4e-1f01-2a79-ca10-21e1068cd0ac"
   }
 ]

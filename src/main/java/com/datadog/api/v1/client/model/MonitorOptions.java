@@ -839,7 +839,7 @@ public class MonitorOptions {
 
   /**
    * The number of hours of the monitor not reporting data before it automatically resolves from a
-   * triggered state.
+   * triggered state. The minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
    *
    * @return timeoutH
    */
@@ -847,7 +847,8 @@ public class MonitorOptions {
   @ApiModelProperty(
       value =
           "The number of hours of the monitor not reporting data before it automatically resolves"
-              + " from a triggered state.")
+              + " from a triggered state. The minimum allowed value is 0 hours. The maximum"
+              + " allowed value is 24 hours.")
   @JsonIgnore
   public Long getTimeoutH() {
     return timeoutH.orElse(null);
