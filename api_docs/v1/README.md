@@ -122,6 +122,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | _ServiceLevelObjectivesApi_           | [**deleteSLO**](ServiceLevelObjectivesApi.md#deleteSLO)                                                          | **DELETE** /api/v1/slo/{slo_id}                                                                    | Delete an SLO                                     |
 | _ServiceLevelObjectivesApi_           | [**deleteSLOTimeframeInBulk**](ServiceLevelObjectivesApi.md#deleteSLOTimeframeInBulk)                            | **POST** /api/v1/slo/bulk_delete                                                                   | Bulk Delete SLO Timeframes                        |
 | _ServiceLevelObjectivesApi_           | [**getSLO**](ServiceLevelObjectivesApi.md#getSLO)                                                                | **GET** /api/v1/slo/{slo_id}                                                                       | Get an SLO&#39;s details                          |
+| _ServiceLevelObjectivesApi_           | [**getSLOCorrections**](ServiceLevelObjectivesApi.md#getSLOCorrections)                                          | **GET** /api/v1/slo/{slo_id}/corrections                                                           | Get Corrections For an SLO                        |
 | _ServiceLevelObjectivesApi_           | [**getSLOHistory**](ServiceLevelObjectivesApi.md#getSLOHistory)                                                  | **GET** /api/v1/slo/{slo_id}/history                                                               | Get an SLO&#39;s history                          |
 | _ServiceLevelObjectivesApi_           | [**listSLOs**](ServiceLevelObjectivesApi.md#listSLOs)                                                            | **GET** /api/v1/slo                                                                                | Get all SLOs                                      |
 | _ServiceLevelObjectivesApi_           | [**updateSLO**](ServiceLevelObjectivesApi.md#updateSLO)                                                          | **PUT** /api/v1/slo/{slo_id}                                                                       | Update an SLO                                     |
@@ -545,6 +546,7 @@ All URIs are relative to *https://api.datadoghq.com*
 - [SLOCorrectionListResponse](SLOCorrectionListResponse.md)
 - [SLOCorrectionResponse](SLOCorrectionResponse.md)
 - [SLOCorrectionResponseAttributes](SLOCorrectionResponseAttributes.md)
+- [SLOCorrectionResponseAttributesModifier](SLOCorrectionResponseAttributesModifier.md)
 - [SLOCorrectionType](SLOCorrectionType.md)
 - [SLOCorrectionUpdateData](SLOCorrectionUpdateData.md)
 - [SLOCorrectionUpdateRequest](SLOCorrectionUpdateRequest.md)

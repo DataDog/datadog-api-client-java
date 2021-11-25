@@ -23,10 +23,13 @@ import org.openapitools.jackson.nullable.JsonNullable;
 @ApiModel(description = "The attribute object associated with the SLO correction.")
 @JsonPropertyOrder({
   SLOCorrectionResponseAttributes.JSON_PROPERTY_CATEGORY,
+  SLOCorrectionResponseAttributes.JSON_PROPERTY_CREATED_AT,
   SLOCorrectionResponseAttributes.JSON_PROPERTY_CREATOR,
   SLOCorrectionResponseAttributes.JSON_PROPERTY_DESCRIPTION,
   SLOCorrectionResponseAttributes.JSON_PROPERTY_DURATION,
   SLOCorrectionResponseAttributes.JSON_PROPERTY_END,
+  SLOCorrectionResponseAttributes.JSON_PROPERTY_MODIFIED_AT,
+  SLOCorrectionResponseAttributes.JSON_PROPERTY_MODIFIER,
   SLOCorrectionResponseAttributes.JSON_PROPERTY_RRULE,
   SLOCorrectionResponseAttributes.JSON_PROPERTY_SLO_ID,
   SLOCorrectionResponseAttributes.JSON_PROPERTY_START,
@@ -37,6 +40,9 @@ public class SLOCorrectionResponseAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_CATEGORY = "category";
   private SLOCorrectionCategory category;
+
+  public static final String JSON_PROPERTY_CREATED_AT = "created_at";
+  private Long createdAt;
 
   public static final String JSON_PROPERTY_CREATOR = "creator";
   private Creator creator;
@@ -49,6 +55,13 @@ public class SLOCorrectionResponseAttributes {
 
   public static final String JSON_PROPERTY_END = "end";
   private Long end;
+
+  public static final String JSON_PROPERTY_MODIFIED_AT = "modified_at";
+  private Long modifiedAt;
+
+  public static final String JSON_PROPERTY_MODIFIER = "modifier";
+  private JsonNullable<SLOCorrectionResponseAttributesModifier> modifier =
+      JsonNullable.<SLOCorrectionResponseAttributesModifier>undefined();
 
   public static final String JSON_PROPERTY_RRULE = "rrule";
   private JsonNullable<String> rrule = JsonNullable.<String>undefined();
@@ -86,6 +99,28 @@ public class SLOCorrectionResponseAttributes {
       this.unparsed = true;
     }
     this.category = category;
+  }
+
+  public SLOCorrectionResponseAttributes createdAt(Long createdAt) {
+    this.createdAt = createdAt;
+    return this;
+  }
+
+  /**
+   * The epoch timestamp of when the correction was created at
+   *
+   * @return createdAt
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The epoch timestamp of when the correction was created at")
+  @JsonProperty(JSON_PROPERTY_CREATED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCreatedAt() {
+    return createdAt;
+  }
+
+  public void setCreatedAt(Long createdAt) {
+    this.createdAt = createdAt;
   }
 
   public SLOCorrectionResponseAttributes creator(Creator creator) {
@@ -187,6 +222,62 @@ public class SLOCorrectionResponseAttributes {
 
   public void setEnd(Long end) {
     this.end = end;
+  }
+
+  public SLOCorrectionResponseAttributes modifiedAt(Long modifiedAt) {
+    this.modifiedAt = modifiedAt;
+    return this;
+  }
+
+  /**
+   * The epoch timestamp of when the correction was modified at
+   *
+   * @return modifiedAt
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The epoch timestamp of when the correction was modified at")
+  @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getModifiedAt() {
+    return modifiedAt;
+  }
+
+  public void setModifiedAt(Long modifiedAt) {
+    this.modifiedAt = modifiedAt;
+  }
+
+  public SLOCorrectionResponseAttributes modifier(
+      SLOCorrectionResponseAttributesModifier modifier) {
+    this.modifier = JsonNullable.<SLOCorrectionResponseAttributesModifier>of(modifier);
+    return this;
+  }
+
+  /**
+   * Get modifier
+   *
+   * @return modifier
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonIgnore
+  public SLOCorrectionResponseAttributesModifier getModifier() {
+    return modifier.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_MODIFIER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<SLOCorrectionResponseAttributesModifier> getModifier_JsonNullable() {
+    return modifier;
+  }
+
+  @JsonProperty(JSON_PROPERTY_MODIFIER)
+  public void setModifier_JsonNullable(
+      JsonNullable<SLOCorrectionResponseAttributesModifier> modifier) {
+    this.modifier = modifier;
+  }
+
+  public void setModifier(SLOCorrectionResponseAttributesModifier modifier) {
+    this.modifier = JsonNullable.<SLOCorrectionResponseAttributesModifier>of(modifier);
   }
 
   public SLOCorrectionResponseAttributes rrule(String rrule) {
@@ -302,10 +393,13 @@ public class SLOCorrectionResponseAttributes {
     SLOCorrectionResponseAttributes slOCorrectionResponseAttributes =
         (SLOCorrectionResponseAttributes) o;
     return Objects.equals(this.category, slOCorrectionResponseAttributes.category)
+        && Objects.equals(this.createdAt, slOCorrectionResponseAttributes.createdAt)
         && Objects.equals(this.creator, slOCorrectionResponseAttributes.creator)
         && Objects.equals(this.description, slOCorrectionResponseAttributes.description)
         && Objects.equals(this.duration, slOCorrectionResponseAttributes.duration)
         && Objects.equals(this.end, slOCorrectionResponseAttributes.end)
+        && Objects.equals(this.modifiedAt, slOCorrectionResponseAttributes.modifiedAt)
+        && Objects.equals(this.modifier, slOCorrectionResponseAttributes.modifier)
         && Objects.equals(this.rrule, slOCorrectionResponseAttributes.rrule)
         && Objects.equals(this.sloId, slOCorrectionResponseAttributes.sloId)
         && Objects.equals(this.start, slOCorrectionResponseAttributes.start)
@@ -315,7 +409,18 @@ public class SLOCorrectionResponseAttributes {
   @Override
   public int hashCode() {
     return Objects.hash(
-        category, creator, description, duration, end, rrule, sloId, start, timezone);
+        category,
+        createdAt,
+        creator,
+        description,
+        duration,
+        end,
+        modifiedAt,
+        modifier,
+        rrule,
+        sloId,
+        start,
+        timezone);
   }
 
   @Override
@@ -323,10 +428,13 @@ public class SLOCorrectionResponseAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class SLOCorrectionResponseAttributes {\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
     sb.append("    end: ").append(toIndentedString(end)).append("\n");
+    sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
+    sb.append("    modifier: ").append(toIndentedString(modifier)).append("\n");
     sb.append("    rrule: ").append(toIndentedString(rrule)).append("\n");
     sb.append("    sloId: ").append(toIndentedString(sloId)).append("\n");
     sb.append("    start: ").append(toIndentedString(start)).append("\n");

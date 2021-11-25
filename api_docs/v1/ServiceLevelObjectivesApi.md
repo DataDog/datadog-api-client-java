@@ -2,16 +2,17 @@
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method                                                                                | HTTP request                         | Description                         |
-| ------------------------------------------------------------------------------------- | ------------------------------------ | ----------------------------------- |
-| [**checkCanDeleteSLO**](ServiceLevelObjectivesApi.md#checkCanDeleteSLO)               | **GET** /api/v1/slo/can_delete       | Check if SLOs can be safely deleted |
-| [**createSLO**](ServiceLevelObjectivesApi.md#createSLO)                               | **POST** /api/v1/slo                 | Create an SLO object                |
-| [**deleteSLO**](ServiceLevelObjectivesApi.md#deleteSLO)                               | **DELETE** /api/v1/slo/{slo_id}      | Delete an SLO                       |
-| [**deleteSLOTimeframeInBulk**](ServiceLevelObjectivesApi.md#deleteSLOTimeframeInBulk) | **POST** /api/v1/slo/bulk_delete     | Bulk Delete SLO Timeframes          |
-| [**getSLO**](ServiceLevelObjectivesApi.md#getSLO)                                     | **GET** /api/v1/slo/{slo_id}         | Get an SLO&#39;s details            |
-| [**getSLOHistory**](ServiceLevelObjectivesApi.md#getSLOHistory)                       | **GET** /api/v1/slo/{slo_id}/history | Get an SLO&#39;s history            |
-| [**listSLOs**](ServiceLevelObjectivesApi.md#listSLOs)                                 | **GET** /api/v1/slo                  | Get all SLOs                        |
-| [**updateSLO**](ServiceLevelObjectivesApi.md#updateSLO)                               | **PUT** /api/v1/slo/{slo_id}         | Update an SLO                       |
+| Method                                                                                | HTTP request                             | Description                         |
+| ------------------------------------------------------------------------------------- | ---------------------------------------- | ----------------------------------- |
+| [**checkCanDeleteSLO**](ServiceLevelObjectivesApi.md#checkCanDeleteSLO)               | **GET** /api/v1/slo/can_delete           | Check if SLOs can be safely deleted |
+| [**createSLO**](ServiceLevelObjectivesApi.md#createSLO)                               | **POST** /api/v1/slo                     | Create an SLO object                |
+| [**deleteSLO**](ServiceLevelObjectivesApi.md#deleteSLO)                               | **DELETE** /api/v1/slo/{slo_id}          | Delete an SLO                       |
+| [**deleteSLOTimeframeInBulk**](ServiceLevelObjectivesApi.md#deleteSLOTimeframeInBulk) | **POST** /api/v1/slo/bulk_delete         | Bulk Delete SLO Timeframes          |
+| [**getSLO**](ServiceLevelObjectivesApi.md#getSLO)                                     | **GET** /api/v1/slo/{slo_id}             | Get an SLO&#39;s details            |
+| [**getSLOCorrections**](ServiceLevelObjectivesApi.md#getSLOCorrections)               | **GET** /api/v1/slo/{slo_id}/corrections | Get Corrections For an SLO          |
+| [**getSLOHistory**](ServiceLevelObjectivesApi.md#getSLOHistory)                       | **GET** /api/v1/slo/{slo_id}/history     | Get an SLO&#39;s history            |
+| [**listSLOs**](ServiceLevelObjectivesApi.md#listSLOs)                                 | **GET** /api/v1/slo                      | Get all SLOs                        |
+| [**updateSLO**](ServiceLevelObjectivesApi.md#updateSLO)                               | **PUT** /api/v1/slo/{slo_id}             | Update an SLO                       |
 
 ## checkCanDeleteSLO
 
@@ -349,6 +350,71 @@ public class Example {
 | **404**     | Not found         | -                |
 | **429**     | Too many requests | -                |
 
+## getSLOCorrections
+
+> SLOCorrectionListResponse getSLOCorrections(sloId);
+
+Get corrections applied to an SLO
+
+### Example
+
+```java
+import java.util.*;
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.Configuration;
+import com.datadog.api.v1.client.model.*;
+import com.datadog.api.v1.client.api.ServiceLevelObjectivesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+        ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
+        String sloId = "sloId_example"; // String | The ID of the service level objective object.
+        try {
+            SLOCorrectionListResponse result = apiInstance.getSLOCorrections(sloId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ServiceLevelObjectivesApi#getSLOCorrections");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+| Name      | Type       | Description                                   | Notes |
+| --------- | ---------- | --------------------------------------------- | ----- |
+| **sloId** | **String** | The ID of the service level objective object. |
+
+### Return type
+
+[**SLOCorrectionListResponse**](SLOCorrectionListResponse.md)
+
+### Authorization
+
+[AuthZ](README.md#AuthZ), [apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description       | Response headers |
+| ----------- | ----------------- | ---------------- |
+| **200**     | OK                | -                |
+| **400**     | Bad Request       | -                |
+| **403**     | Forbidden         | -                |
+| **404**     | Not Found         | -                |
+| **429**     | Too many requests | -                |
+
 ## getSLOHistory
 
 > SLOHistoryResponse getSLOHistory(sloId, fromTs, toTs, parameters);
@@ -381,9 +447,11 @@ public class Example {
         Long fromTs = 56L; // Long | The `from` timestamp for the query window in epoch seconds.
         Long toTs = 56L; // Long | The `to` timestamp for the query window in epoch seconds.
         Double target = 3.4D; // Double | The SLO target. If `target` is passed in, the response will include the remaining error budget and a timeframe value of `custom`.
+        Boolean applyCorrection = true; // Boolean | Defaults to `true`. If any SLO corrections are applied and this parameter is set to `false`, then the corrections will not be applied and the SLI values will not be affected.
         try {
             SLOHistoryResponse result = apiInstance.getSLOHistory(sloId, fromTs, toTs, new ServiceLevelObjectivesApi.GetSLOHistoryOptionalParameters()
-                .target(target));
+                .target(target)
+                .applyCorrection(applyCorrection));
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ServiceLevelObjectivesApi#getSLOHistory");
@@ -398,12 +466,13 @@ public class Example {
 
 ### Parameters
 
-| Name       | Type       | Description                                                                                                                                           | Notes      |
-| ---------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| **sloId**  | **String** | The ID of the service level objective object.                                                                                                         |
-| **fromTs** | **Long**   | The &#x60;from&#x60; timestamp for the query window in epoch seconds.                                                                                 |
-| **toTs**   | **Long**   | The &#x60;to&#x60; timestamp for the query window in epoch seconds.                                                                                   |
-| **target** | **Double** | The SLO target. If &#x60;target&#x60; is passed in, the response will include the remaining error budget and a timeframe value of &#x60;custom&#x60;. | [optional] |
+| Name                | Type        | Description                                                                                                                                                                                        | Notes      |
+| ------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **sloId**           | **String**  | The ID of the service level objective object.                                                                                                                                                      |
+| **fromTs**          | **Long**    | The &#x60;from&#x60; timestamp for the query window in epoch seconds.                                                                                                                              |
+| **toTs**            | **Long**    | The &#x60;to&#x60; timestamp for the query window in epoch seconds.                                                                                                                                |
+| **target**          | **Double**  | The SLO target. If &#x60;target&#x60; is passed in, the response will include the remaining error budget and a timeframe value of &#x60;custom&#x60;.                                              | [optional] |
+| **applyCorrection** | **Boolean** | Defaults to &#x60;true&#x60;. If any SLO corrections are applied and this parameter is set to &#x60;false&#x60;, then the corrections will not be applied and the SLI values will not be affected. | [optional] |
 
 ### Return type
 
