@@ -477,7 +477,11 @@ public class World {
         if (c.getParameterCount() == 3) {
           String body = (String) exceptionClass.getMethod("getResponseBody").invoke(e.getCause());
           Object data = fromJSON(getObjectMapper(), HashMap.class, body);
-          response = c.newInstance(responseCode, exceptionClass.getMethod("getResponseHeaders").invoke(e.getCause()), data);
+          response =
+              c.newInstance(
+                  responseCode,
+                  exceptionClass.getMethod("getResponseHeaders").invoke(e.getCause()),
+                  data);
         }
       }
     }
