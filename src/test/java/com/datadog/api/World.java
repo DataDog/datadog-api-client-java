@@ -474,8 +474,14 @@ public class World {
       // so we can make assertions on it
       int responseCode = (int) exceptionClass.getMethod("getCode").invoke(e.getCause());
       for (Constructor<?> c : responseClass.getConstructors()) {
-        if (c.getParameterCount() == 2) {
-          response = c.newInstance(responseCode, new HashMap<String, String>());
+        if (c.getParameterCount() == 3) {
+          String body = (String) exceptionClass.getMethod("getResponseBody").invoke(e.getCause());
+          Object data = fromJSON(getObjectMapper(), HashMap.class, body);
+          response =
+              c.newInstance(
+                  responseCode,
+                  exceptionClass.getMethod("getResponseHeaders").invoke(e.getCause()),
+                  data);
         }
       }
     }
