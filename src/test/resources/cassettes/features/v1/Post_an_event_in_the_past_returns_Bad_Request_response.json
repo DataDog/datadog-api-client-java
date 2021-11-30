@@ -1,0 +1,57 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"date_happened\":1,\"tags\":[\"test:TestPostaneventinthepastreturnsBadRequestresponse1638045281\"],\"text\":\"A text message.\",\"title\":\"Test-Post_an_event_in_the_past_returns_Bad_Request_response-1638045281\"}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Post_an_event_in_the_past_returns_Bad_Request_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v1/events",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\": [\"Event too far in the past\"]}",
+      "headers": {
+        "Date": [
+          "Sat, 27 Nov 2021 20:34:41 GMT"
+        ],
+        "Content-Type": [
+          "text/plain; charset=utf-8"
+        ],
+        "Content-Length": [
+          "41"
+        ],
+        "Connection": [
+          "close"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=15724800;"
+        ],
+        "Content-Security-Policy": [
+          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
+        ],
+        "X-Frame-Options": [
+          "SAMEORIGIN"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "20e05f20-3341-5f10-4368-6f1ff7eaa5d1"
+  }
+]

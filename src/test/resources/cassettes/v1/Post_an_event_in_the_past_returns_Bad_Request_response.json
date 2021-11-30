@@ -1,42 +1,34 @@
 [
   {
     "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"date_happened\":1,\"tags\":[\"test:TestPostaneventinthepastreturnsBadRequestresponse1638045281\"],\"text\":\"A text message.\",\"title\":\"Test-Post_an_event_in_the_past_returns_Bad_Request_response-1638045281\"}"
+      },
       "headers": {
         "JAVA-TEST-NAME": [
-          "Delete_a_non_existing_rule_returns_Not_Found_response"
+          "Post_an_event_in_the_past_returns_Bad_Request_response"
         ]
       },
-      "method": "DELETE",
-      "path": "/api/v2/security_monitoring/rules/ThisRuleIdProbablyDoesntExist",
+      "method": "POST",
+      "path": "/api/v1/events",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"message\": \"The resource could not be found.<br /><br />\\n\\n\\n\", \"code\": \"404 Not Found\", \"title\": \"Not Found\"}",
+      "body": "{\"errors\": [\"Event too far in the past\"]}",
       "headers": {
         "Date": [
-          "Thu, 15 Apr 2021 13:02:49 GMT"
+          "Sat, 27 Nov 2021 20:34:41 GMT"
         ],
         "Content-Type": [
-          "application/json"
+          "text/plain; charset=utf-8"
         ],
         "Content-Length": [
-          "112"
+          "41"
         ],
         "Connection": [
           "close"
-        ],
-        "Vary": [
-          "Accept-Encoding"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "X-Dd-Version": [
-          "35.4318655"
         ],
         "X-Content-Type-Options": [
           "nosniff"
@@ -51,8 +43,8 @@
           "SAMEORIGIN"
         ]
       },
-      "statusCode": 404,
-      "reasonPhrase": "Not Found"
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
     },
     "times": {
       "remainingTimes": 1
@@ -60,6 +52,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "49fce5e8-074d-4372-1da0-0156a7ea9999"
+    "id": "20e05f20-3341-5f10-4368-6f1ff7eaa5d1"
   }
 ]

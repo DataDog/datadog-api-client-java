@@ -24,6 +24,8 @@ import java.util.Objects;
 @JsonPropertyOrder({
   UsageFargateHour.JSON_PROPERTY_AVG_PROFILED_FARGATE_TASKS,
   UsageFargateHour.JSON_PROPERTY_HOUR,
+  UsageFargateHour.JSON_PROPERTY_ORG_NAME,
+  UsageFargateHour.JSON_PROPERTY_PUBLIC_ID,
   UsageFargateHour.JSON_PROPERTY_TASKS_COUNT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -35,6 +37,12 @@ public class UsageFargateHour {
 
   public static final String JSON_PROPERTY_HOUR = "hour";
   private OffsetDateTime hour;
+
+  public static final String JSON_PROPERTY_ORG_NAME = "org_name";
+  private String orgName;
+
+  public static final String JSON_PROPERTY_PUBLIC_ID = "public_id";
+  private String publicId;
 
   public static final String JSON_PROPERTY_TASKS_COUNT = "tasks_count";
   private Long tasksCount;
@@ -83,6 +91,50 @@ public class UsageFargateHour {
     this.hour = hour;
   }
 
+  public UsageFargateHour orgName(String orgName) {
+    this.orgName = orgName;
+    return this;
+  }
+
+  /**
+   * The organization name.
+   *
+   * @return orgName
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The organization name.")
+  @JsonProperty(JSON_PROPERTY_ORG_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getOrgName() {
+    return orgName;
+  }
+
+  public void setOrgName(String orgName) {
+    this.orgName = orgName;
+  }
+
+  public UsageFargateHour publicId(String publicId) {
+    this.publicId = publicId;
+    return this;
+  }
+
+  /**
+   * The organization public ID.
+   *
+   * @return publicId
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The organization public ID.")
+  @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPublicId() {
+    return publicId;
+  }
+
+  public void setPublicId(String publicId) {
+    this.publicId = publicId;
+  }
+
   public UsageFargateHour tasksCount(Long tasksCount) {
     this.tasksCount = tasksCount;
     return this;
@@ -117,12 +169,14 @@ public class UsageFargateHour {
     UsageFargateHour usageFargateHour = (UsageFargateHour) o;
     return Objects.equals(this.avgProfiledFargateTasks, usageFargateHour.avgProfiledFargateTasks)
         && Objects.equals(this.hour, usageFargateHour.hour)
+        && Objects.equals(this.orgName, usageFargateHour.orgName)
+        && Objects.equals(this.publicId, usageFargateHour.publicId)
         && Objects.equals(this.tasksCount, usageFargateHour.tasksCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(avgProfiledFargateTasks, hour, tasksCount);
+    return Objects.hash(avgProfiledFargateTasks, hour, orgName, publicId, tasksCount);
   }
 
   @Override
@@ -133,6 +187,8 @@ public class UsageFargateHour {
         .append(toIndentedString(avgProfiledFargateTasks))
         .append("\n");
     sb.append("    hour: ").append(toIndentedString(hour)).append("\n");
+    sb.append("    orgName: ").append(toIndentedString(orgName)).append("\n");
+    sb.append("    publicId: ").append(toIndentedString(publicId)).append("\n");
     sb.append("    tasksCount: ").append(toIndentedString(tasksCount)).append("\n");
     sb.append("}");
     return sb.toString();

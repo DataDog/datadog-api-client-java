@@ -7,6 +7,7 @@ import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.Pair;
 import com.datadog.api.v1.client.model.CheckCanDeleteSLOResponse;
 import com.datadog.api.v1.client.model.SLOBulkDeleteResponse;
+import com.datadog.api.v1.client.model.SLOCorrectionListResponse;
 import com.datadog.api.v1.client.model.SLODeleteResponse;
 import com.datadog.api.v1.client.model.SLOHistoryResponse;
 import com.datadog.api.v1.client.model.SLOListResponse;
@@ -568,9 +569,97 @@ public class ServiceLevelObjectivesApi {
         false);
   }
 
+  /**
+   * Get Corrections For an SLO Get corrections applied to an SLO
+   *
+   * @param sloId The ID of the service level objective object. (required)
+   * @return SLOCorrectionListResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public SLOCorrectionListResponse getSLOCorrections(String sloId) throws ApiException {
+    return getSLOCorrectionsWithHttpInfo(sloId).getData();
+  }
+
+  /**
+   * Get Corrections For an SLO Get corrections applied to an SLO
+   *
+   * @param sloId The ID of the service level objective object. (required)
+   * @return ApiResponse&lt;SLOCorrectionListResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<SLOCorrectionListResponse> getSLOCorrectionsWithHttpInfo(String sloId)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'sloId' is set
+    if (sloId == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'sloId' when calling getSLOCorrections");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/slo/{slo_id}/corrections"
+            .replaceAll("\\{" + "slo_id" + "\\}", apiClient.escapeString(sloId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getSLOCorrections");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
+
+    GenericType<SLOCorrectionListResponse> localVarReturnType =
+        new GenericType<SLOCorrectionListResponse>() {};
+
+    return apiClient.invokeAPI(
+        "ServiceLevelObjectivesApi.getSLOCorrections",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
   /** Manage optional parameters to getSLOHistory. */
   public static class GetSLOHistoryOptionalParameters {
     private Double target;
+    private Boolean applyCorrection;
 
     /**
      * Set target
@@ -581,6 +670,19 @@ public class ServiceLevelObjectivesApi {
      */
     public GetSLOHistoryOptionalParameters target(Double target) {
       this.target = target;
+      return this;
+    }
+
+    /**
+     * Set applyCorrection
+     *
+     * @param applyCorrection Defaults to &#x60;true&#x60;. If any SLO corrections are applied and
+     *     this parameter is set to &#x60;false&#x60;, then the corrections will not be applied and
+     *     the SLI values will not be affected. (optional)
+     * @return GetSLOHistoryOptionalParameters
+     */
+    public GetSLOHistoryOptionalParameters applyCorrection(Boolean applyCorrection) {
+      this.applyCorrection = applyCorrection;
       return this;
     }
   }
@@ -688,6 +790,7 @@ public class ServiceLevelObjectivesApi {
           400, "Missing the required parameter 'toTs' when calling getSLOHistory");
     }
     Double target = parameters.target;
+    Boolean applyCorrection = parameters.applyCorrection;
     // create path and map variables
     String localVarPath =
         "/api/v1/slo/{slo_id}/history"
@@ -702,6 +805,7 @@ public class ServiceLevelObjectivesApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "from_ts", fromTs));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "to_ts", toTs));
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "target", target));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "apply_correction", applyCorrection));
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getSLOHistory");

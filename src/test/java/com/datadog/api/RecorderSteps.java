@@ -31,7 +31,7 @@ import org.mockserver.model.Parameter;
 
 public class RecorderSteps {
 
-  protected static String cassettesDir = TestUtils.APITest.cassettesDir;
+  protected static String cassettesDir = TestUtils.APITest.cassettesDir + "/features";
 
   // Use the statically initialized mockServer
   public static ClientAndServer mockServer = TestUtils.APITest.mockServer;
@@ -101,9 +101,7 @@ public class RecorderSteps {
 
     if (TestUtils.getRecordingMode().equals(RecordingMode.MODE_REPLAYING)) {
       File cassette =
-          new File(
-              Paths.get(TestUtils.APITest.cassettesDir, world.getVersion(), getCassetteName())
-                  .toString());
+          new File(Paths.get(cassettesDir, world.getVersion(), getCassetteName()).toString());
 
       if (!cassette.exists()) {
         throw new IOException(

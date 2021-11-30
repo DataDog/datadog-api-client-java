@@ -95,6 +95,10 @@ public class UsageAttributionSupportedMetrics {
       new UsageAttributionSupportedMetrics("dbm_queries_usage");
   public static final UsageAttributionSupportedMetrics DBM_QUERIES_PERCENTAGE =
       new UsageAttributionSupportedMetrics("dbm_queries_percentage");
+  public static final UsageAttributionSupportedMetrics ESTIMATED_INDEXED_LOGS_USAGE =
+      new UsageAttributionSupportedMetrics("estimated_indexed_logs_usage");
+  public static final UsageAttributionSupportedMetrics ESTIMATED_INDEXED_LOGS_PERCENTAGE =
+      new UsageAttributionSupportedMetrics("estimated_indexed_logs_percentage");
   public static final UsageAttributionSupportedMetrics ALL =
       new UsageAttributionSupportedMetrics("*");
 
@@ -133,6 +137,8 @@ public class UsageAttributionSupportedMetrics {
               "dbm_hosts_percentage",
               "dbm_queries_usage",
               "dbm_queries_percentage",
+              "estimated_indexed_logs_usage",
+              "estimated_indexed_logs_percentage",
               "*"));
 
   private String value;
