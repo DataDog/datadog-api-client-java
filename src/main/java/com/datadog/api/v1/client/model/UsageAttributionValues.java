@@ -43,6 +43,8 @@ import java.util.Objects;
   UsageAttributionValues.JSON_PROPERTY_DBM_HOSTS_USAGE,
   UsageAttributionValues.JSON_PROPERTY_DBM_QUERIES_PERCENTAGE,
   UsageAttributionValues.JSON_PROPERTY_DBM_QUERIES_USAGE,
+  UsageAttributionValues.JSON_PROPERTY_ESTIMATED_INDEXED_LOGS_PERCENTAGE,
+  UsageAttributionValues.JSON_PROPERTY_ESTIMATED_INDEXED_LOGS_USAGE,
   UsageAttributionValues.JSON_PROPERTY_INFRA_HOST_PERCENTAGE,
   UsageAttributionValues.JSON_PROPERTY_INFRA_HOST_USAGE,
   UsageAttributionValues.JSON_PROPERTY_LAMBDA_FUNCTIONS_PERCENTAGE,
@@ -129,6 +131,14 @@ public class UsageAttributionValues {
 
   public static final String JSON_PROPERTY_DBM_QUERIES_USAGE = "dbm_queries_usage";
   private Double dbmQueriesUsage;
+
+  public static final String JSON_PROPERTY_ESTIMATED_INDEXED_LOGS_PERCENTAGE =
+      "estimated_indexed_logs_percentage";
+  private Double estimatedIndexedLogsPercentage;
+
+  public static final String JSON_PROPERTY_ESTIMATED_INDEXED_LOGS_USAGE =
+      "estimated_indexed_logs_usage";
+  private Double estimatedIndexedLogsUsage;
 
   public static final String JSON_PROPERTY_INFRA_HOST_PERCENTAGE = "infra_host_percentage";
   private Double infraHostPercentage;
@@ -668,6 +678,57 @@ public class UsageAttributionValues {
     this.dbmQueriesUsage = dbmQueriesUsage;
   }
 
+  public UsageAttributionValues estimatedIndexedLogsPercentage(
+      Double estimatedIndexedLogsPercentage) {
+    this.estimatedIndexedLogsPercentage = estimatedIndexedLogsPercentage;
+    return this;
+  }
+
+  /**
+   * The percentage of estimated live indexed logs usage by tag(s). Note this field is in private
+   * beta.
+   *
+   * @return estimatedIndexedLogsPercentage
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "The percentage of estimated live indexed logs usage by tag(s). Note this field is in"
+              + " private beta.")
+  @JsonProperty(JSON_PROPERTY_ESTIMATED_INDEXED_LOGS_PERCENTAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getEstimatedIndexedLogsPercentage() {
+    return estimatedIndexedLogsPercentage;
+  }
+
+  public void setEstimatedIndexedLogsPercentage(Double estimatedIndexedLogsPercentage) {
+    this.estimatedIndexedLogsPercentage = estimatedIndexedLogsPercentage;
+  }
+
+  public UsageAttributionValues estimatedIndexedLogsUsage(Double estimatedIndexedLogsUsage) {
+    this.estimatedIndexedLogsUsage = estimatedIndexedLogsUsage;
+    return this;
+  }
+
+  /**
+   * The estimated live indexed logs usage by tag(s). Note this field is in private beta.
+   *
+   * @return estimatedIndexedLogsUsage
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "The estimated live indexed logs usage by tag(s). Note this field is in private beta.")
+  @JsonProperty(JSON_PROPERTY_ESTIMATED_INDEXED_LOGS_USAGE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Double getEstimatedIndexedLogsUsage() {
+    return estimatedIndexedLogsUsage;
+  }
+
+  public void setEstimatedIndexedLogsUsage(Double estimatedIndexedLogsUsage) {
+    this.estimatedIndexedLogsUsage = estimatedIndexedLogsUsage;
+  }
+
   public UsageAttributionValues infraHostPercentage(Double infraHostPercentage) {
     this.infraHostPercentage = infraHostPercentage;
     return this;
@@ -1063,6 +1124,11 @@ public class UsageAttributionValues {
         && Objects.equals(this.dbmHostsUsage, usageAttributionValues.dbmHostsUsage)
         && Objects.equals(this.dbmQueriesPercentage, usageAttributionValues.dbmQueriesPercentage)
         && Objects.equals(this.dbmQueriesUsage, usageAttributionValues.dbmQueriesUsage)
+        && Objects.equals(
+            this.estimatedIndexedLogsPercentage,
+            usageAttributionValues.estimatedIndexedLogsPercentage)
+        && Objects.equals(
+            this.estimatedIndexedLogsUsage, usageAttributionValues.estimatedIndexedLogsUsage)
         && Objects.equals(this.infraHostPercentage, usageAttributionValues.infraHostPercentage)
         && Objects.equals(this.infraHostUsage, usageAttributionValues.infraHostUsage)
         && Objects.equals(
@@ -1112,6 +1178,8 @@ public class UsageAttributionValues {
         dbmHostsUsage,
         dbmQueriesPercentage,
         dbmQueriesUsage,
+        estimatedIndexedLogsPercentage,
+        estimatedIndexedLogsUsage,
         infraHostPercentage,
         infraHostUsage,
         lambdaFunctionsPercentage,
@@ -1168,6 +1236,12 @@ public class UsageAttributionValues {
         .append(toIndentedString(dbmQueriesPercentage))
         .append("\n");
     sb.append("    dbmQueriesUsage: ").append(toIndentedString(dbmQueriesUsage)).append("\n");
+    sb.append("    estimatedIndexedLogsPercentage: ")
+        .append(toIndentedString(estimatedIndexedLogsPercentage))
+        .append("\n");
+    sb.append("    estimatedIndexedLogsUsage: ")
+        .append(toIndentedString(estimatedIndexedLogsUsage))
+        .append("\n");
     sb.append("    infraHostPercentage: ")
         .append(toIndentedString(infraHostPercentage))
         .append("\n");
