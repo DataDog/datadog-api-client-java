@@ -21,7 +21,6 @@ import java.util.Objects;
 /** Create, edit, and disable users. */
 @ApiModel(description = "Create, edit, and disable users.")
 @JsonPropertyOrder({
-  User.JSON_PROPERTY_ACCESS_ROLE,
   User.JSON_PROPERTY_DISABLED,
   User.JSON_PROPERTY_EMAIL,
   User.JSON_PROPERTY_HANDLE,
@@ -32,9 +31,6 @@ import java.util.Objects;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class User {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_ACCESS_ROLE = "access_role";
-  private AccessRole accessRole = AccessRole.STANDARD;
-
   public static final String JSON_PROPERTY_DISABLED = "disabled";
   private Boolean disabled;
 

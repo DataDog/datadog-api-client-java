@@ -344,22 +344,6 @@ components:
             $ref: '#/components/schemas/AWSTagFilter'
           type: array
       type: object
-    AccessRole:
-      default: st
-      description: The access role of the user. Options are **st** (standard user),
-        **adm** (admin user), or **ro** (read-only user).
-      enum:
-      - st
-      - adm
-      - ro
-      - ERROR
-      example: st
-      type: string
-      x-enum-varnames:
-      - STANDARD
-      - ADMIN
-      - READ_ONLY
-      - ERROR
     AlertGraphWidgetDefinition:
       description: Alert graphs are timeseries graphs showing the current status of
         any monitor defined on your system.
@@ -14083,8 +14067,6 @@ components:
     User:
       description: Create, edit, and disable users.
       properties:
-        access_role:
-          $ref: '#/components/schemas/AccessRole'
         disabled:
           description: The new disabled status of the user.
           example: false
