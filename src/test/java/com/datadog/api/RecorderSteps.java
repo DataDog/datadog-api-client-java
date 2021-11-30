@@ -31,7 +31,7 @@ import org.mockserver.model.Parameter;
 
 public class RecorderSteps {
 
-  protected static String cassettesDir = TestUtils.APITest.cassettesDir;
+  protected static String cassettesDir = TestUtils.APITest.cassettesDir + "/features";
 
   // Use the statically initialized mockServer
   public static ClientAndServer mockServer = TestUtils.APITest.mockServer;
