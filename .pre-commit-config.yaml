@@ -41,3 +41,12 @@ repos:
     types: [file, java]
     pass_filenames: false
     args: ['src/']
+  - id: lint-examples
+    name: Format examples
+    stages: [manual]
+    language: script
+    entry: ./format.sh
+    files: '^examples/'
+    types: [file, java]
+    pass_filenames: false
+    args: ['examples/']
