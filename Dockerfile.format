@@ -1,4 +1,4 @@
-FROM openjdk:12-alpine
+FROM openjdk:15-alpine
 
 RUN mkdir -p /app
 WORKDIR /app
