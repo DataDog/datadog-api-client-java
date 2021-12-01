@@ -2062,7 +2062,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Trigger some Synthetics tests Trigger a set of Synthetics tests.
+   * Trigger Synthetics tests Trigger a set of Synthetics tests.
    *
    * @param body The identifiers of the tests to trigger. (required)
    * @return SyntheticsTriggerCITestsResponse
@@ -2081,7 +2081,7 @@ public class SyntheticsApi {
   }
 
   /**
-   * Trigger some Synthetics tests Trigger a set of Synthetics tests.
+   * Trigger Synthetics tests Trigger a set of Synthetics tests.
    *
    * @param body The identifiers of the tests to trigger. (required)
    * @return ApiResponse&lt;SyntheticsTriggerCITestsResponse&gt;
