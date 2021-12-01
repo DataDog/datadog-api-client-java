@@ -43,6 +43,7 @@ repos:
     args: ['src/']
   - id: lint-examples
     name: Format examples
+    stages: [manual]
     language: script
     entry: ./format.sh
     files: '^examples/'
