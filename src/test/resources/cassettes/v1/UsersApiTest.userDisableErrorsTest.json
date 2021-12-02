@@ -1,5 +1,5 @@
 [{
-  "id" : "bb41fab2-1481-49c0-8d4e-304eb93e92c2",
+  "id" : "96e67c22-6948-4a5b-aebb-578949dd59d0",
   "httpRequest" : {
     "method" : "POST",
     "path" : "/api/v1/user",
@@ -8,14 +8,15 @@
       "JAVA-TEST-NAME" : [ "userDisableErrorsTest" ],
       "DD-OPERATION-ID" : [ "createUser" ],
       "Content-Type" : [ "application/json" ],
-      "Connection" : [ "close" ],
-      "Content-Length" : [ "142" ]
+      "Content-Language" : [ "" ],
+      "x-datadog-origin" : [ "ciapp-test" ],
+      "Accept-Encoding" : [ "deflate,gzip,x-gzip" ]
     },
     "keepAlive" : false,
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"access_role\":\"st\",\"handle\":\"java-userDisableErrorsTest-local-1595946645@datadoghq.com\",\"name\":\"java-userDisableErrorsTest-local-1595946645\"}"
+      "json" : "{\"handle\":\"java-userDisableErrorsTest-local-1638432243@datadoghq.com\",\"name\":\"java-userDisableErrorsTest-local-1638432243\"}"
     }
   },
   "times" : {
@@ -28,45 +29,40 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Tue, 28 Jul 2020 14:30:46 GMT" ],
+      "Date" : [ "Thu, 02 Dec 2021 08:04:04 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
-      "Vary" : [ "Accept-Encoding" ],
-      "Pragma" : [ "no-cache" ],
-      "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 04-Aug-2020 14:30:46 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2796999" ],
-      "X-DD-Debug" : [ "OB5mKDkTpnaroHfC68bJA02FrHvFh+ZnZJt4iVWSdcDXwscitQ4X4SUEiSkBXj2+" ],
-      "DD-POOL" : [ "dogweb" ],
-      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "X-Frame-Options" : [ "SAMEORIGIN" ],
-      "X-Content-Type-Options" : [ "nosniff" ],
-      "Strict-Transport-Security" : [ "max-age=15724800;" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "x-envoy-upstream-service-time" : [ "361" ],
+      "vary" : [ "Accept-Encoding" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ],
       "content-length" : [ "385" ]
     },
-    "cookies" : {
-      "DD-PSHARD" : "233"
-    },
-    "body" : "{\"user\":{\"disabled\":false,\"handle\":\"java-userdisableerrorstest-local-1595946645@datadoghq.com\",\"name\":\"java-userDisableErrorsTest-local-1595946645\",\"title\":null,\"is_admin\":false,\"role\":null,\"access_role\":\"st\",\"verified\":false,\"email\":\"java-userdisableerrorstest-local-1595946645@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/7b20ed475a9bc62294bbdf3538295a93?s=48&d=retro\"}}"
+    "body" : "{\"user\":{\"disabled\":false,\"handle\":\"java-userdisableerrorstest-local-1638432243@datadoghq.com\",\"name\":\"java-userDisableErrorsTest-local-1638432243\",\"title\":null,\"is_admin\":false,\"role\":null,\"access_role\":\"st\",\"verified\":false,\"email\":\"java-userdisableerrorstest-local-1638432243@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/c0598bceaa29c6114304d470ab3e59c0?s=48&d=retro\"}}"
   }
 }, {
-  "id" : "1ede868c-1f1c-4629-b9d7-d410df6b7279",
+  "id" : "381f3ef2-ff98-42a2-a276-c37e2c8a8d06",
   "httpRequest" : {
     "method" : "PUT",
-    "path" : "/api/v1/user/java-userdisableerrorstest-local-1595946645%40datadoghq.com",
+    "path" : "/api/v1/user/java-userdisableerrorstest-local-1638432243%40datadoghq.com",
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "userDisableErrorsTest" ],
       "DD-OPERATION-ID" : [ "updateUser" ],
       "Content-Type" : [ "application/json" ],
-      "Connection" : [ "close" ],
-      "Content-Length" : [ "333" ]
+      "Content-Language" : [ "" ],
+      "x-datadog-origin" : [ "ciapp-test" ],
+      "Accept-Encoding" : [ "deflate,gzip,x-gzip" ]
     },
     "keepAlive" : false,
     "secure" : true,
     "body" : {
       "type" : "JSON",
-      "json" : "{\"access_role\":\"st\",\"disabled\":true,\"email\":\"java-userdisableerrorstest-local-1595946645@datadoghq.com\",\"handle\":\"java-userdisableerrorstest-local-1595946645@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/7b20ed475a9bc62294bbdf3538295a93?s=48&d=retro\",\"name\":\"java-userDisableErrorsTest-local-1595946645\",\"verified\":false}"
+      "json" : "{\"disabled\":true,\"email\":\"java-userdisableerrorstest-local-1638432243@datadoghq.com\",\"handle\":\"java-userdisableerrorstest-local-1638432243@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/c0598bceaa29c6114304d470ab3e59c0?s=48&d=retro\",\"name\":\"java-userDisableErrorsTest-local-1638432243\",\"verified\":false}"
     }
   },
   "times" : {
@@ -79,39 +75,34 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Tue, 28 Jul 2020 14:30:48 GMT" ],
+      "Date" : [ "Thu, 02 Dec 2021 08:04:04 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
-      "Vary" : [ "Accept-Encoding" ],
-      "Pragma" : [ "no-cache" ],
-      "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 04-Aug-2020 14:30:47 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2796999" ],
-      "X-DD-Debug" : [ "AlZtPps1ZiZsda+OMFNwIFs/UAGIj/nGE7PZ328MHrD9zdfH3CO9blYELjbwttyJ" ],
-      "DD-POOL" : [ "dogweb" ],
-      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "X-Frame-Options" : [ "SAMEORIGIN" ],
-      "X-Content-Type-Options" : [ "nosniff" ],
-      "Strict-Transport-Security" : [ "max-age=15724800;" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "x-envoy-upstream-service-time" : [ "229" ],
+      "vary" : [ "Accept-Encoding" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ],
       "content-length" : [ "384" ]
     },
-    "cookies" : {
-      "DD-PSHARD" : "233"
-    },
-    "body" : "{\"user\":{\"disabled\":true,\"handle\":\"java-userdisableerrorstest-local-1595946645@datadoghq.com\",\"name\":\"java-userDisableErrorsTest-local-1595946645\",\"title\":null,\"is_admin\":false,\"role\":null,\"access_role\":\"st\",\"verified\":false,\"email\":\"java-userdisableerrorstest-local-1595946645@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/7b20ed475a9bc62294bbdf3538295a93?s=48&d=retro\"}}"
+    "body" : "{\"user\":{\"disabled\":true,\"handle\":\"java-userdisableerrorstest-local-1638432243@datadoghq.com\",\"name\":\"java-userDisableErrorsTest-local-1638432243\",\"title\":null,\"is_admin\":false,\"role\":null,\"access_role\":\"st\",\"verified\":false,\"email\":\"java-userdisableerrorstest-local-1638432243@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/c0598bceaa29c6114304d470ab3e59c0?s=48&d=retro\"}}"
   }
 }, {
-  "id" : "df05ab71-9e1d-47bd-98d9-83b9a3c87527",
+  "id" : "2a2a7502-b71b-440b-a302-bfbd108f4811",
   "httpRequest" : {
     "method" : "DELETE",
-    "path" : "/api/v1/user/java-userdisableerrorstest-local-1595946645%40datadoghq.com",
+    "path" : "/api/v1/user/java-userdisableerrorstest-local-1638432243%40datadoghq.com",
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "userDisableErrorsTest" ],
       "DD-OPERATION-ID" : [ "disableUser" ],
       "Content-Type" : [ "application/json" ],
-      "Connection" : [ "close" ],
-      "Content-Length" : [ "0" ]
+      "Content-Language" : [ "" ],
+      "x-datadog-origin" : [ "ciapp-test" ],
+      "Accept-Encoding" : [ "deflate,gzip,x-gzip" ]
     },
     "keepAlive" : false,
     "secure" : true
@@ -126,23 +117,23 @@
     "statusCode" : 400,
     "reasonPhrase" : "Bad Request",
     "headers" : {
-      "Date" : [ "Tue, 28 Jul 2020 14:30:48 GMT" ],
+      "Date" : [ "Thu, 02 Dec 2021 08:04:05 GMT" ],
       "Content-Type" : [ "application/json" ],
-      "Content-Length" : [ "40" ],
       "Connection" : [ "keep-alive" ],
-      "Pragma" : [ "no-cache" ],
-      "Cache-Control" : [ "no-cache" ],
-      "X-DD-VERSION" : [ "35.2796999" ],
-      "DD-POOL" : [ "dogweb" ],
-      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "X-Frame-Options" : [ "SAMEORIGIN" ],
-      "X-Content-Type-Options" : [ "nosniff" ],
-      "Strict-Transport-Security" : [ "max-age=15724800;" ]
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "x-envoy-upstream-service-time" : [ "64" ],
+      "vary" : [ "Accept-Encoding" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ],
+      "content-length" : [ "40" ]
     },
     "body" : "{\"errors\": [\"User is already disabled\"]}"
   }
 }, {
-  "id" : "b45a66b6-beed-40a6-95b3-737239bd16f7",
+  "id" : "b13d9f95-4f7e-4411-893a-2bef3a5790ba",
   "httpRequest" : {
     "method" : "DELETE",
     "path" : "/api/v1/user/notahandle",
@@ -151,8 +142,9 @@
       "JAVA-TEST-NAME" : [ "userDisableErrorsTest" ],
       "DD-OPERATION-ID" : [ "disableUser" ],
       "Content-Type" : [ "application/json" ],
-      "Connection" : [ "close" ],
-      "Content-Length" : [ "0" ]
+      "Content-Language" : [ "" ],
+      "x-datadog-origin" : [ "ciapp-test" ],
+      "Accept-Encoding" : [ "deflate,gzip,x-gzip" ]
     },
     "keepAlive" : false,
     "secure" : true
@@ -167,17 +159,17 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Tue, 28 Jul 2020 14:30:49 GMT" ],
+      "Date" : [ "Thu, 02 Dec 2021 08:04:05 GMT" ],
       "Content-Type" : [ "application/json" ],
+      "Content-Length" : [ "170" ],
       "Connection" : [ "keep-alive" ],
-      "Cache-Control" : [ "no-cache" ],
-      "Via" : [ "1.1 haproxy" ],
-      "content-length" : [ "170" ]
+      "cache-control" : [ "no-cache" ],
+      "via" : [ "haproxy" ]
     },
     "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
   }
 }, {
-  "id" : "f2432993-4d67-4681-a631-72e9cf536716",
+  "id" : "92e8a7ab-5f31-4c65-bba1-c86750ed4f71",
   "httpRequest" : {
     "method" : "DELETE",
     "path" : "/api/v1/user/notahandle",
@@ -186,8 +178,9 @@
       "JAVA-TEST-NAME" : [ "userDisableErrorsTest" ],
       "DD-OPERATION-ID" : [ "disableUser" ],
       "Content-Type" : [ "application/json" ],
-      "Connection" : [ "close" ],
-      "Content-Length" : [ "0" ]
+      "Content-Language" : [ "" ],
+      "x-datadog-origin" : [ "ciapp-test" ],
+      "Accept-Encoding" : [ "deflate,gzip,x-gzip" ]
     },
     "keepAlive" : false,
     "secure" : true
@@ -202,32 +195,32 @@
     "statusCode" : 404,
     "reasonPhrase" : "Not Found",
     "headers" : {
-      "Date" : [ "Tue, 28 Jul 2020 14:30:51 GMT" ],
+      "Date" : [ "Thu, 02 Dec 2021 08:04:06 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
-      "Vary" : [ "Accept-Encoding" ],
-      "Pragma" : [ "no-cache" ],
-      "Cache-Control" : [ "no-cache" ],
-      "X-DD-VERSION" : [ "35.2796999" ],
-      "DD-POOL" : [ "dogweb" ],
-      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "X-Frame-Options" : [ "SAMEORIGIN" ],
-      "X-Content-Type-Options" : [ "nosniff" ],
-      "Strict-Transport-Security" : [ "max-age=15724800;" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "x-envoy-upstream-service-time" : [ "59" ],
+      "vary" : [ "Accept-Encoding" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ],
       "content-length" : [ "30" ]
     },
     "body" : "{\"errors\": [\"user not found\"]}"
   }
 }, {
-  "id" : "4230dc31-68d5-4dc6-b885-9f0c76a0d896",
+  "id" : "96ce8506-8bf9-4e20-83f1-9cf37afdaae1",
   "httpRequest" : {
     "method" : "GET",
-    "path" : "/api/v1/user/java-userDisableErrorsTest-local-1595946645%40datadoghq.com",
+    "path" : "/api/v1/user/java-userDisableErrorsTest-local-1638432243%40datadoghq.com",
     "headers" : {
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "userDisableErrorsTest" ],
       "DD-OPERATION-ID" : [ "getUser" ],
-      "Connection" : [ "close" ],
+      "x-datadog-origin" : [ "ciapp-test" ],
+      "Accept-Encoding" : [ "deflate,gzip,x-gzip" ],
       "content-length" : [ "0" ]
     },
     "keepAlive" : false,
@@ -243,25 +236,19 @@
     "statusCode" : 200,
     "reasonPhrase" : "OK",
     "headers" : {
-      "Date" : [ "Tue, 28 Jul 2020 14:30:51 GMT" ],
+      "Date" : [ "Thu, 02 Dec 2021 08:04:06 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
-      "Vary" : [ "Accept-Encoding" ],
-      "Pragma" : [ "no-cache" ],
-      "Cache-Control" : [ "no-cache" ],
-      "Set-Cookie" : [ "DD-PSHARD=233; Max-Age=604800; Path=/; expires=Tue, 04-Aug-2020 14:30:51 GMT; secure; HttpOnly" ],
-      "X-DD-VERSION" : [ "35.2796999" ],
-      "X-DD-Debug" : [ "3yUiF6X0JjoezPSdqlojiHxH2JfkzzhGhllRrSnvz5bccucb+34abaIS4hkIZDP5" ],
-      "DD-POOL" : [ "dogweb" ],
-      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "X-Frame-Options" : [ "SAMEORIGIN" ],
-      "X-Content-Type-Options" : [ "nosniff" ],
-      "Strict-Transport-Security" : [ "max-age=15724800;" ],
-      "content-length" : [ "6007" ]
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "x-envoy-upstream-service-time" : [ "105" ],
+      "vary" : [ "Accept-Encoding" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ],
+      "content-length" : [ "16961" ]
     },
-    "cookies" : {
-      "DD-PSHARD" : "233"
-    },
-    "body" : "{\"user\":{\"handle\":\"java-userdisableerrorstest-local-1595946645@datadoghq.com\",\"access_role\":\"st\",\"disabled\":true,\"is_admin\":false,\"icon\":\"https://secure.gravatar.com/avatar/7b20ed475a9bc62294bbdf3538295a93?s=48&d=retro\",\"verified\":false,\"name\":\"java-userDisableErrorsTest-local-1595946645\",\"roles\":[{\"uuid\":\"94172443-be03-11e9-a77a-373332f69711\",\"created_at\":\"2019-08-13T19:50:19.075284\",\"name\":\"Datadog Standard Role\",\"last_modified\":\"2019-08-13T19:50:19.075284\",\"id\":904116,\"permissions\":[{\"display_name\":\"Security Signals\",\"description\":\"The ability to view Security signals.\",\"restricted\":false,\"created_at\":\"2020-06-09T13:52:48.410398\",\"name\":\"security_monitoring_signals_read\",\"uuid\":\"80de1ec0-aa58-11ea-95e2-aff381626d5d\"},{\"display_name\":\"Detection Rules\",\"description\":\"The ability to create and edit Detection rules.\",\"restricted\":false,\"created_at\":\"2020-06-09T13:52:39.099413\",\"name\":\"security_monitoring_rules_write\",\"uuid\":\"7b516476-aa58-11ea-95e2-93718cd56369\"},{\"display_name\":\"Detection Rules\",\"description\":\"The ability to read Detection rules.\",\"restricted\":false,\"created_at\":\"2020-06-09T13:52:25.279909\",\"name\":\"security_monitoring_rules_read\",\"uuid\":\"7314eb20-aa58-11ea-95e2-6fb6e4a451d5\"},{\"display_name\":\"Logs Archives\",\"description\":\"The ability to read logs archives location and use it for rehydration.\",\"restricted\":false,\"created_at\":\"2020-04-23T07:40:27.966133\",\"name\":\"logs_read_archives\",\"uuid\":\"b382b982-8535-11ea-93de-2bf1bdf20798\"},{\"display_name\":\"Logs Read Data\",\"description\":\"The ability to read log data. Can be restricted with restriction queries.\",\"restricted\":false,\"created_at\":\"2020-04-06T16:24:35.989108\",\"name\":\"logs_read_data\",\"uuid\":\"1af86ce4-7823-11ea-93dc-d7cad1b1c6cb\"},{\"display_name\":\"Logs Read Index Data\",\"description\":\"The ability to read all or some log indexes. Can be granted in a limited capacity per index from the Logs interface or APIs. If granted via the Roles interface or API the permission has global scope.\",\"restricted\":false,\"created_at\":\"2018-10-31T13:39:19.727450\",\"name\":\"logs_read_index_data\",\"uuid\":\"5e605652-dd12-11e8-9e53-375565b8970e\"},{\"display_name\":\"Log Write Processors\",\"description\":\"The ability to add and change some or all log processor configurations. Can be granted in a limited capacity per pipeline to specific roles via the Logs interface or API. If granted via the Roles interface or API the permission has global scope.\",\"restricted\":false,\"created_at\":\"2018-10-31T13:40:23.969725\",\"name\":\"logs_write_processors\",\"uuid\":\"84aa3ae4-dd12-11e8-9e58-a373a514ccd0\"},{\"display_name\":\"Monitors Manage Downtimes\",\"description\":\"The ability to set downtimes for your organization. A user with this permission can suppress alerts from any monitor using a downtime, even if they do not have permission to edit those monitors explicitly.\",\"restricted\":false,\"created_at\":\"2019-09-16T18:39:23.306702\",\"name\":\"monitors_downtime\",\"uuid\":\"4d87d5f8-d8b1-11e9-a77a-eb9c8350d04f\"},{\"display_name\":\"Dashboards\",\"description\":\"The ability to view dashboards.\",\"restricted\":true,\"created_at\":\"2019-09-10T14:39:51.955175\",\"name\":\"dashboards_read\",\"uuid\":\"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2\"},{\"display_name\":\"Monitors\",\"description\":\"The ability to change, mute, and delete individual monitors.\",\"restricted\":false,\"created_at\":\"2019-09-16T18:39:15.597109\",\"name\":\"monitors_write\",\"uuid\":\"48ef71ea-d8b1-11e9-a77a-93f408470ad0\"},{\"display_name\":\"Monitors\",\"description\":\"The ability to view monitors.\",\"restricted\":true,\"created_at\":\"2019-09-16T18:39:07.744297\",\"name\":\"monitors_read\",\"uuid\":\"4441648c-d8b1-11e9-a77a-1b899a04b304\"},{\"display_name\":\"Dashboards Share\",\"description\":\"The ability to share dashboards externally.\",\"restricted\":false,\"created_at\":\"2019-09-10T14:39:51.967094\",\"name\":\"dashboards_public_share\",\"uuid\":\"d90f6832-d3d8-11e9-a77a-bf8a2607f864\"},{\"display_name\":\"Dashboards\",\"description\":\"The ability to create and change dashboards.\",\"restricted\":false,\"created_at\":\"2019-09-10T14:39:51.962944\",\"name\":\"dashboards_write\",\"uuid\":\"d90f6831-d3d8-11e9-a77a-4fd230ddbc6a\"},{\"display_name\":\"Log Generate Metrics\",\"description\":\"The ability to create custom metrics from logs.\",\"restricted\":false,\"created_at\":\"2019-07-25T12:27:39.640758\",\"name\":\"logs_generate_metrics\",\"uuid\":\"979df720-aed7-11e9-99c6-a7eb8373165a\"},{\"display_name\":\"Logs Write Pipelines\",\"description\":\"The ability to add and change log pipeline configurations, including the ability to grant the Logs Write Processors permission to other roles, for some or all pipelines. This permission also grants global Log Processor Write implicitly.\",\"restricted\":false,\"created_at\":\"2018-10-31T13:40:17.996379\",\"name\":\"logs_write_pipelines\",\"uuid\":\"811ac4ca-dd12-11e8-9e57-676a7f0beef9\"},{\"display_name\":\"Logs Live Tail Access\",\"description\":\"The ability to view the live tail feed for all log indexes, even if otherwise specifically restricted.\",\"restricted\":false,\"created_at\":\"2018-10-31T13:39:48.292879\",\"name\":\"logs_live_tail\",\"uuid\":\"6f66600e-dd12-11e8-9e55-7f30fbb45e73\"},{\"display_name\":\"Logs Modify Indexes\",\"description\":\"The ability to read and modify all indexes in your account. This includes the ability to grant the Logs Read Index Data and Logs Write Exclusion Filter permission to other roles, for some or all indexes. This permission also grants global Log Index Read and Log Exclusion Filter Write implicitly.\",\"restricted\":false,\"created_at\":\"2018-10-31T13:39:27.148615\",\"name\":\"logs_modify_indexes\",\"uuid\":\"62cc036c-dd12-11e8-9e54-db9995643092\"},{\"display_name\":\"Standard Access\",\"description\":\"This permission gives you the ability to view and edit components in your Datadog organization that do not have explicitly defined permissions. This includes APM, Events, and other non-Account Management functionality.\",\"restricted\":false,\"created_at\":\"2018-10-19T15:35:23.756736\",\"name\":\"standard\",\"uuid\":\"984d2f00-d3b4-11e8-a200-bb47109e9987\"}]}],\"title\":null,\"role\":null,\"email\":\"java-userdisableerrorstest-local-1595946645@datadoghq.com\"}}"
+    "body" : "{\"user\":{\"handle\":\"java-userdisableerrorstest-local-1638432243@datadoghq.com\",\"access_role\":\"st\",\"disabled\":true,\"is_admin\":false,\"icon\":\"https://secure.gravatar.com/avatar/c0598bceaa29c6114304d470ab3e59c0?s=48&d=retro\",\"verified\":false,\"name\":\"java-userDisableErrorsTest-local-1638432243\",\"roles\":[{\"uuid\":\"94172443-be03-11e9-a77a-373332f69711\",\"created_at\":\"2019-08-13T19:50:19.075284\",\"name\":\"Datadog Standard Role\",\"last_modified\":\"2019-08-13T19:50:19.075284\",\"id\":904116,\"permissions\":[{\"display_name\":\"Generate Metrics\",\"description\":\"The ability to create custom metrics from spans.\",\"restricted\":false,\"created_at\":\"2021-09-16T15:31:24.458963\",\"name\":\"apm_generate_metrics\",\"uuid\":\"26c79920-1703-11ec-85d2-da7ad0900002\"},{\"display_name\":\"Cloud Workload Security Agent Rules\",\"description\":\"The ability to read Cloud Workload Security Agent Rules.\",\"restricted\":false,\"created_at\":\"2021-11-17T10:41:43.074031\",\"name\":\"security_monitoring_cws_agent_rules_read\",\"uuid\":\"f4473c60-4792-11ec-a27b-da7ad0900002\"},{\"display_name\":\"Logs Archives\",\"description\":\"The ability to read logs archives location and use it for rehydration.\",\"restricted\":false,\"created_at\":\"2020-04-23T07:40:27.966133\",\"name\":\"logs_read_archives\",\"uuid\":\"b382b982-8535-11ea-93de-2bf1bdf20798\"},{\"display_name\":\"Logs Read Data\",\"description\":\"The ability to read log data. Can be restricted with restriction queries.\",\"restricted\":false,\"created_at\":\"2020-04-06T16:24:35.989108\",\"name\":\"logs_read_data\",\"uuid\":\"1af86ce4-7823-11ea-93dc-d7cad1b1c6cb\"},{\"display_name\":\"Dashboards\",\"description\":\"The ability to view dashboards.\",\"restricted\":true,\"created_at\":\"2019-09-10T14:39:51.955175\",\"name\":\"dashboards_read\",\"uuid\":\"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2\"},{\"display_name\":\"Dashboards\",\"description\":\"The ability to create and change dashboards.\",\"restricted\":false,\"created_at\":\"2019-09-10T14:39:51.962944\",\"name\":\"dashboards_write\",\"uuid\":\"d90f6831-d3d8-11e9-a77a-4fd230ddbc6a\"},{\"display_name\":\"Monitors\",\"description\":\"The ability to view monitors.\",\"restricted\":true,\"created_at\":\"2019-09-16T18:39:07.744297\",\"name\":\"monitors_read\",\"uuid\":\"4441648c-d8b1-11e9-a77a-1b899a04b304\"},{\"display_name\":\"Monitors\",\"description\":\"The ability to change, mute, and delete individual monitors.\",\"restricted\":false,\"created_at\":\"2019-09-16T18:39:15.597109\",\"name\":\"monitors_write\",\"uuid\":\"48ef71ea-d8b1-11e9-a77a-93f408470ad0\"},{\"display_name\":\"User Application Keys\",\"description\":\"The ability to view and manage Application Keys owned by the user.\",\"restricted\":false,\"created_at\":\"2020-09-01T14:06:05.444705\",\"name\":\"user_app_keys\",\"uuid\":\"46a301da-ec5c-11ea-aa9f-73bedeab67ee\"},{\"display_name\":\"Logs Read Index Data\",\"description\":\"The ability to read all or some log indexes. Can be granted in a limited capacity per index from the Logs interface or APIs. If granted via the Roles interface or API the permission has global scope.\",\"restricted\":false,\"created_at\":\"2018-10-31T13:39:19.727450\",\"name\":\"logs_read_index_data\",\"uuid\":\"5e605652-dd12-11e8-9e53-375565b8970e\"},{\"display_name\":\"Logs Modify Indexes\",\"description\":\"The ability to read and modify all indexes in your account. This includes the ability to grant the Logs Read Index Data and Logs Write Exclusion Filter permission to other roles, for some or all indexes. This permission also grants global Log Index Read and Log Exclusion Filter Write implicitly.\",\"restricted\":false,\"created_at\":\"2018-10-31T13:39:27.148615\",\"name\":\"logs_modify_indexes\",\"uuid\":\"62cc036c-dd12-11e8-9e54-db9995643092\"},{\"display_name\":\"Logs Live Tail Access\",\"description\":\"The ability to view the live tail feed for all log indexes, even if otherwise specifically restricted.\",\"restricted\":false,\"created_at\":\"2018-10-31T13:39:48.292879\",\"name\":\"logs_live_tail\",\"uuid\":\"6f66600e-dd12-11e8-9e55-7f30fbb45e73\"},{\"display_name\":\"Logs Write Pipelines\",\"description\":\"The ability to add and change log pipeline configurations, including the ability to grant the Logs Write Processors permission to other roles, for some or all pipelines. This permission also grants global Log Processor Write implicitly.\",\"restricted\":false,\"created_at\":\"2018-10-31T13:40:17.996379\",\"name\":\"logs_write_pipelines\",\"uuid\":\"811ac4ca-dd12-11e8-9e57-676a7f0beef9\"},{\"display_name\":\"Cloud Workload Security Agent Rules\",\"description\":\"The ability to create, edit, and delete Cloud Workload Security Agent Rules.\",\"restricted\":false,\"created_at\":\"2021-11-17T10:41:43.077905\",\"name\":\"security_monitoring_cws_agent_rules_write\",\"uuid\":\"f4473c61-4792-11ec-a27b-da7ad0900002\"},{\"display_name\":\"Detection Rules\",\"description\":\"The ability to read Detection rules.\",\"restricted\":false,\"created_at\":\"2020-06-09T13:52:25.279909\",\"name\":\"security_monitoring_rules_read\",\"uuid\":\"7314eb20-aa58-11ea-95e2-6fb6e4a451d5\"},{\"display_name\":\"Detection Rules\",\"description\":\"The ability to create and edit Detection rules.\",\"restricted\":false,\"created_at\":\"2020-06-09T13:52:39.099413\",\"name\":\"security_monitoring_rules_write\",\"uuid\":\"7b516476-aa58-11ea-95e2-93718cd56369\"},{\"display_name\":\"Security Signals\",\"description\":\"The ability to view Security signals.\",\"restricted\":false,\"created_at\":\"2020-06-09T13:52:48.410398\",\"name\":\"security_monitoring_signals_read\",\"uuid\":\"80de1ec0-aa58-11ea-95e2-aff381626d5d\"},{\"display_name\":\"Standard Access\",\"description\":\"This permission gives you the ability to view and edit components in your Datadog organization that do not have explicitly defined permissions. This includes Notebooks, Events, and other non-Account Management functionality.\",\"restricted\":false,\"created_at\":\"2018-10-19T15:35:23.756736\",\"name\":\"standard\",\"uuid\":\"984d2f00-d3b4-11e8-a200-bb47109e9987\"},{\"display_name\":\"RUM Applications\",\"description\":\"The ability to create, edit, and delete RUM Applications.\",\"restricted\":false,\"created_at\":\"2021-01-12T16:59:16.324480\",\"name\":\"rum_apps_write\",\"uuid\":\"8106300a-54f7-11eb-8cbc-7781a434a67b\"},{\"display_name\":\"Logs Historical View\",\"description\":\"The capability to rehydrate logs from Archives.\",\"restricted\":false,\"created_at\":\"2020-09-16T08:38:44.242076\",\"name\":\"logs_write_historical_view\",\"uuid\":\"07c3c146-f7f8-11ea-acf6-0bd62b9ae60e\"},{\"display_name\":\"Logs Facets\",\"description\":\"The capability to create or edit logs facets.\",\"restricted\":false,\"created_at\":\"2020-10-14T12:40:20.271908\",\"name\":\"logs_write_facets\",\"uuid\":\"6ba32d22-0e1a-11eb-ba44-bf9a5aafaa39\"},{\"display_name\":\"Organization Application Keys\",\"description\":\"The ability to view Application Keys owned by all users in the organization.\",\"restricted\":false,\"created_at\":\"2020-09-01T14:06:05.444705\",\"name\":\"org_app_keys_read\",\"uuid\":\"46a301db-ec5c-11ea-aa9f-2fe72193d60e\"},{\"display_name\":\"Manage Retention Filters\",\"description\":\"The ability to read trace retention filters. A user with this permission can view the retention filters page, list of filters, their statistics, and creation info.\",\"restricted\":false,\"created_at\":\"2020-11-23T20:55:49.190595\",\"name\":\"apm_retention_filter_read\",\"uuid\":\"43fa188e-2dce-11eb-84c0-835ad1fd6287\"},{\"display_name\":\"Global Variables\",\"description\":\"The ability to create, edit, and delete global variables for Synthetics.\",\"restricted\":false,\"created_at\":\"2020-09-17T20:20:56.322003\",\"name\":\"synthetics_global_variable_write\",\"uuid\":\"4ada6e36-f923-11ea-adbc-0788e5c5e3cf\"},{\"display_name\":\"Synthetic Tests\",\"description\":\"The ability to list and view configured Synthetic tests.\",\"restricted\":false,\"created_at\":\"2020-09-17T20:21:05.205361\",\"name\":\"synthetics_read\",\"uuid\":\"5025ee24-f923-11ea-adbc-576ea241df8d\"},{\"display_name\":\"Notification Profiles\",\"description\":\"The ability to read Notification Profiles.\",\"restricted\":false,\"created_at\":\"2021-09-16T08:26:27.366789\",\"name\":\"security_monitoring_notification_profiles_read\",\"uuid\":\"c95412b8-16c7-11ec-85c0-da7ad0900002\"},{\"display_name\":\"Dashboards Share\",\"description\":\"The ability to share dashboards externally.\",\"restricted\":false,\"created_at\":\"2019-09-10T14:39:51.967094\",\"name\":\"dashboards_public_share\",\"uuid\":\"d90f6832-d3d8-11e9-a77a-bf8a2607f864\"},{\"display_name\":\"Monitors Manage Downtimes\",\"description\":\"The ability to set downtimes for your organization. A user with this permission can suppress alerts from any monitor using a downtime, even if they do not have permission to edit those monitors explicitly.\",\"restricted\":false,\"created_at\":\"2019-09-16T18:39:23.306702\",\"name\":\"monitors_downtime\",\"uuid\":\"4d87d5f8-d8b1-11e9-a77a-eb9c8350d04f\"},{\"display_name\":\"Manage Tags for Metrics\",\"description\":\"The ability to edit and save tag configurations for custom metrics.\",\"restricted\":false,\"created_at\":\"2020-09-01T14:06:05.444705\",\"name\":\"metric_tags_write\",\"uuid\":\"46a301e4-ec5c-11ea-aa9f-87282b3a50cc\"},{\"display_name\":\"Private Locations\",\"description\":\"The ability to view, search and use in tests the list of private locations available.\",\"restricted\":false,\"created_at\":\"2020-09-01T14:06:05.444705\",\"name\":\"synthetics_private_location_read\",\"uuid\":\"46a301dd-ec5c-11ea-aa9f-97edfb345bc9\"},{\"display_name\":\"Integrations API Access\",\"description\":\"The ability to use the Integrations APIs to configure Integrations that the user has access to. This permission does not restrict or grant access to Integrations.\",\"restricted\":false,\"created_at\":\"2020-11-16T19:43:23.198568\",\"name\":\"integrations_api\",\"uuid\":\"fcac2ad8-2843-11eb-8315-0fe47949d625\"},{\"display_name\":\"Primary Tag Management\",\"description\":\"The ability to edit second primary tag selection. A user with this permission can modify the second primary tag dropdown in the APM settings page.\",\"restricted\":false,\"created_at\":\"2020-11-23T20:56:30.742299\",\"name\":\"apm_tag_management_write\",\"uuid\":\"5cbe5f9c-2dce-11eb-84c0-872d3e9f1076\"},{\"display_name\":\"APM Read Access\",\"description\":\"The ability to read and query APM and Trace Analytics.\",\"restricted\":true,\"created_at\":\"2020-11-23T20:55:45.006110\",\"name\":\"apm_read\",\"uuid\":\"417ba636-2dce-11eb-84c0-6bce5b0d9de0\"},{\"display_name\":\"Primary Operation\",\"description\":\"The ability to edit the operation name value selection. A user with this permission can modify the operation name list in the APM settings page and can modify the operation name controller on the service page.\",\"restricted\":false,\"created_at\":\"2020-11-23T20:56:38.658649\",\"name\":\"apm_primary_operation_write\",\"uuid\":\"61765026-2dce-11eb-84c0-833e230d1b8f\"},{\"display_name\":\"Security Signals\",\"description\":\"The ability to modify Security signals.\",\"restricted\":false,\"created_at\":\"2021-08-17T15:11:06.963503\",\"name\":\"security_monitoring_signals_write\",\"uuid\":\"58b412cc-ff6d-11eb-bc9c-da7ad0900002\"},{\"display_name\":\"API Keys\",\"description\":\"The ability to list and retrieve the key values of all API Keys in your organization.\",\"restricted\":false,\"created_at\":\"2020-09-17T20:20:23.279769\",\"name\":\"api_keys_read\",\"uuid\":\"372896c4-f923-11ea-adbc-4fecd107156d\"},{\"display_name\":\"Incidents App Experience\",\"description\":\"The ability to view incidents in Datadog.\",\"restricted\":true,\"created_at\":\"2021-06-22T15:11:09.255499\",\"name\":\"incident_read\",\"uuid\":\"12efc20e-d36c-11eb-a9b8-da7ad0900002\"},{\"display_name\":\"Events\",\"description\":\"The ability to read events data.\",\"restricted\":true,\"created_at\":\"2021-06-25T15:06:09.395051\",\"name\":\"events_read\",\"uuid\":\"df71ef12-d5c6-11eb-aa97-da7ad0900002\"},{\"display_name\":\"Metrics\",\"description\":\"The ability to view custom metrics.\",\"restricted\":true,\"created_at\":\"2021-06-25T15:06:09.399311\",\"name\":\"metrics_read\",\"uuid\":\"df71ef13-d5c6-11eb-aa97-da7ad0900002\"},{\"display_name\":\"Timeseries\",\"description\":\"The ability to query timeseries data.\",\"restricted\":true,\"created_at\":\"2021-06-25T15:06:09.401659\",\"name\":\"timeseries_query\",\"uuid\":\"df71ef14-d5c6-11eb-aa97-da7ad0900002\"},{\"display_name\":\"Global Variables\",\"description\":\"The ability to view, search and use in tests the list of global variables available for Synthetics.\",\"restricted\":false,\"created_at\":\"2020-09-17T20:20:48.446916\",\"name\":\"synthetics_global_variable_read\",\"uuid\":\"4628ca54-f923-11ea-adbc-4b2b7f88c5e9\"},{\"display_name\":\"Logs Generate Metrics\",\"description\":\"The ability to create custom metrics from logs.\",\"restricted\":false,\"created_at\":\"2019-07-25T12:27:39.640758\",\"name\":\"logs_generate_metrics\",\"uuid\":\"979df720-aed7-11e9-99c6-a7eb8373165a\"},{\"display_name\":\"Incidents Settings\",\"description\":\"The ability to view incidents Settings.\",\"restricted\":false,\"created_at\":\"2021-06-22T15:11:09.259568\",\"name\":\"incident_settings_read\",\"uuid\":\"12efc20f-d36c-11eb-a9b8-da7ad0900002\"},{\"display_name\":\"Manage Service Ingestion\",\"description\":\"The ability to access Service Ingestion pages. A user with this permission can view the service ingestion page, list of root service, their statistics, and creation info.\",\"restricted\":false,\"created_at\":\"2020-11-23T20:55:57.768261\",\"name\":\"apm_service_ingest_read\",\"uuid\":\"4916eebe-2dce-11eb-84c0-271cb2c672e8\"},{\"display_name\":\"Synthetic Tests\",\"description\":\"The ability to create, edit, and delete Synthetic tests.\",\"restricted\":false,\"created_at\":\"2020-09-17T20:21:14.949140\",\"name\":\"synthetics_write\",\"uuid\":\"55f4b5ec-f923-11ea-adbc-1bfa2334a755\"},{\"display_name\":\"Default Settings\",\"description\":\"The ability to view default settings for Synthetics Monitoring.\",\"restricted\":false,\"created_at\":\"2020-09-17T20:21:25.794160\",\"name\":\"synthetics_default_settings_read\",\"uuid\":\"5c6b88e2-f923-11ea-adbc-abf57d079420\"},{\"display_name\":\"Default Settings\",\"description\":\"The ability to edit default settings for Synthetics Monitoring.\",\"restricted\":false,\"created_at\":\"2020-09-17T20:21:38.818771\",\"name\":\"synthetics_default_settings_write\",\"uuid\":\"642eebe6-f923-11ea-adbc-eb617674ea04\"},{\"display_name\":\"Invite User\",\"description\":\"Allows users to invite other users to your organization.\",\"restricted\":false,\"created_at\":\"2020-08-25T19:17:23.539701\",\"name\":\"user_access_invite\",\"uuid\":\"9ac1d8cc-e707-11ea-aa2d-73d37e989a9d\"},{\"display_name\":\"Security Filters\",\"description\":\"The ability to read Security Filters.\",\"restricted\":false,\"created_at\":\"2021-05-10T08:56:23.676833\",\"name\":\"security_monitoring_filters_read\",\"uuid\":\"98b984f4-b16d-11eb-a2c6-da7ad0900002\"},{\"display_name\":\"RUM Applications\",\"description\":\"The ability to view RUM Applications data.\",\"restricted\":true,\"created_at\":\"2021-08-02T09:46:07.671535\",\"name\":\"rum_apps_read\",\"uuid\":\"7605ef24-f376-11eb-b90b-da7ad0900002\"},{\"display_name\":\"Session Replay\",\"description\":\"The ability to view session replays.\",\"restricted\":false,\"created_at\":\"2021-08-02T09:46:07.674640\",\"name\":\"rum_session_replay_read\",\"uuid\":\"7605ef25-f376-11eb-b90b-da7ad0900002\"},{\"display_name\":\"Notification Profiles\",\"description\":\"The ability to create, edit and delete Notification Profiles.\",\"restricted\":false,\"created_at\":\"2021-09-16T08:26:27.369359\",\"name\":\"security_monitoring_notification_profiles_write\",\"uuid\":\"c95412b9-16c7-11ec-85c0-da7ad0900002\"},{\"display_name\":\"App Platform\",\"description\":\"The ability to search, filter, and view an organization's published and in-development apps within the developer platform.\",\"restricted\":false,\"created_at\":\"2021-09-22T15:07:54.655590\",\"name\":\"org_apps_read\",\"uuid\":\"dcf32acc-1bb6-11ec-88b1-da7ad0900002\"},{\"display_name\":\"App Platform\",\"description\":\"The ability to create, delete, edit, and publish an organization's apps within the developer platform.\",\"restricted\":false,\"created_at\":\"2021-09-22T15:07:54.659339\",\"name\":\"org_apps_write\",\"uuid\":\"dcf32acd-1bb6-11ec-88b1-da7ad0900002\"},{\"display_name\":\"Incidents App Experience\",\"description\":\"The ability to create, view, and manage incidents in Datadog.\",\"restricted\":false,\"created_at\":\"2021-06-22T15:11:09.264369\",\"name\":\"incident_write\",\"uuid\":\"12efc211-d36c-11eb-a9b8-da7ad0900002\"},{\"display_name\":\"Incidents Settings\",\"description\":\"The ability to configure incident settings.\",\"restricted\":false,\"created_at\":\"2021-06-22T15:11:09.261986\",\"name\":\"incident_settings_write\",\"uuid\":\"12efc210-d36c-11eb-a9b8-da7ad0900002\"},{\"display_name\":\"Application Security Event Rules\",\"description\":\"The ability to view Application Security Event Rules.\",\"restricted\":true,\"created_at\":\"2021-07-19T13:31:15.595771\",\"name\":\"appsec_event_rule_read\",\"uuid\":\"97971c1c-e895-11eb-b13c-da7ad0900002\"},{\"display_name\":\"Application Security Event Rules\",\"description\":\"The ability to edit Application Security Event Rules.\",\"restricted\":false,\"created_at\":\"2021-07-19T13:31:15.598808\",\"name\":\"appsec_event_rule_write\",\"uuid\":\"97971c1d-e895-11eb-b13c-da7ad0900002\"},{\"display_name\":\"Logs Write Processors\",\"description\":\"The ability to add and change some or all log processor configurations. Can be granted in a limited capacity per pipeline to specific roles via the Logs interface or API. If granted via the Roles interface or API the permission has global scope.\",\"restricted\":false,\"created_at\":\"2018-10-31T13:40:23.969725\",\"name\":\"logs_write_processors\",\"uuid\":\"84aa3ae4-dd12-11e8-9e58-a373a514ccd0\"}]}],\"title\":null,\"role\":null,\"email\":\"java-userdisableerrorstest-local-1638432243@datadoghq.com\"}}"
   }
 }]
