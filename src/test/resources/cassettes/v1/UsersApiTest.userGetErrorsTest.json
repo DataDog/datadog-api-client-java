@@ -1,5 +1,5 @@
 [{
-  "id" : "d582bab4-3242-4e48-8dec-8643bbff0235",
+  "id" : "18ed36ba-616f-496e-9014-4a82b2113a65",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/user/notahandle",
@@ -7,7 +7,8 @@
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "userGetErrorsTest" ],
       "DD-OPERATION-ID" : [ "getUser" ],
-      "Connection" : [ "close" ],
+      "x-datadog-origin" : [ "ciapp-test" ],
+      "Accept-Encoding" : [ "deflate,gzip,x-gzip" ],
       "content-length" : [ "0" ]
     },
     "keepAlive" : false,
@@ -23,17 +24,17 @@
     "statusCode" : 403,
     "reasonPhrase" : "Forbidden",
     "headers" : {
-      "Date" : [ "Tue, 28 Jul 2020 14:30:57 GMT" ],
+      "Date" : [ "Thu, 02 Dec 2021 08:04:10 GMT" ],
       "Content-Type" : [ "application/json" ],
+      "Content-Length" : [ "170" ],
       "Connection" : [ "keep-alive" ],
-      "Cache-Control" : [ "no-cache" ],
-      "Via" : [ "1.1 haproxy" ],
-      "content-length" : [ "170" ]
+      "cache-control" : [ "no-cache" ],
+      "via" : [ "haproxy" ]
     },
     "body" : "{\"status\":\"error\",\"code\":403,\"errors\":[\"Forbidden\"],\"statuspage\":\"http://status.datadoghq.com\",\"twitter\":\"http://twitter.com/datadogops\",\"email\":\"support@datadoghq.com\"}\n"
   }
 }, {
-  "id" : "99667f18-10a5-466f-bf43-872ca2746296",
+  "id" : "8a498edb-a40a-4f20-a191-92e6c57b62d7",
   "httpRequest" : {
     "method" : "GET",
     "path" : "/api/v1/user/notahandle",
@@ -41,7 +42,8 @@
       "Accept" : [ "application/json" ],
       "JAVA-TEST-NAME" : [ "userGetErrorsTest" ],
       "DD-OPERATION-ID" : [ "getUser" ],
-      "Connection" : [ "close" ],
+      "x-datadog-origin" : [ "ciapp-test" ],
+      "Accept-Encoding" : [ "deflate,gzip,x-gzip" ],
       "content-length" : [ "0" ]
     },
     "keepAlive" : false,
@@ -57,18 +59,17 @@
     "statusCode" : 404,
     "reasonPhrase" : "Not Found",
     "headers" : {
-      "Date" : [ "Tue, 28 Jul 2020 14:30:58 GMT" ],
+      "Date" : [ "Thu, 02 Dec 2021 08:04:10 GMT" ],
       "Content-Type" : [ "application/json" ],
       "Connection" : [ "keep-alive" ],
-      "Vary" : [ "Accept-Encoding" ],
-      "Pragma" : [ "no-cache" ],
-      "Cache-Control" : [ "no-cache" ],
-      "X-DD-VERSION" : [ "35.2796999" ],
-      "DD-POOL" : [ "dogweb" ],
-      "Content-Security-Policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
-      "X-Frame-Options" : [ "SAMEORIGIN" ],
-      "X-Content-Type-Options" : [ "nosniff" ],
-      "Strict-Transport-Security" : [ "max-age=15724800;" ],
+      "pragma" : [ "no-cache" ],
+      "cache-control" : [ "no-cache" ],
+      "x-envoy-upstream-service-time" : [ "48" ],
+      "vary" : [ "Accept-Encoding" ],
+      "x-content-type-options" : [ "nosniff" ],
+      "strict-transport-security" : [ "max-age=15724800;" ],
+      "content-security-policy" : [ "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report" ],
+      "x-frame-options" : [ "SAMEORIGIN" ],
       "content-length" : [ "30" ]
     },
     "body" : "{\"errors\": [\"user not found\"]}"
