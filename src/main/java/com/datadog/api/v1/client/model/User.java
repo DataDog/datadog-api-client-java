@@ -179,8 +179,7 @@ public class User {
       return false;
     }
     User user = (User) o;
-    return Objects.equals(this.accessRole, user.accessRole)
-        && Objects.equals(this.disabled, user.disabled)
+    return Objects.equals(this.disabled, user.disabled)
         && Objects.equals(this.email, user.email)
         && Objects.equals(this.handle, user.handle)
         && Objects.equals(this.icon, user.icon)
@@ -190,14 +189,13 @@ public class User {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessRole, disabled, email, handle, icon, name, verified);
+    return Objects.hash(disabled, email, handle, icon, name, verified);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class User {\n");
-    sb.append("    accessRole: ").append(toIndentedString(accessRole)).append("\n");
     sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    handle: ").append(toIndentedString(handle)).append("\n");
