@@ -21,6 +21,7 @@ import java.util.Objects;
 /** Create, edit, and disable users. */
 @ApiModel(description = "Create, edit, and disable users.")
 @JsonPropertyOrder({
+  User.JSON_PROPERTY_ACCESS_ROLE,
   User.JSON_PROPERTY_DISABLED,
   User.JSON_PROPERTY_EMAIL,
   User.JSON_PROPERTY_HANDLE,
@@ -31,6 +32,9 @@ import java.util.Objects;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class User {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_ACCESS_ROLE = "access_role";
+  private AccessRole accessRole = AccessRole.STANDARD;
+
   public static final String JSON_PROPERTY_DISABLED = "disabled";
   private Boolean disabled;
 
@@ -48,6 +52,32 @@ public class User {
 
   public static final String JSON_PROPERTY_VERIFIED = "verified";
   private Boolean verified;
+
+  public User accessRole(AccessRole accessRole) {
+    this.accessRole = accessRole;
+    this.unparsed |= !accessRole.isValid();
+    return this;
+  }
+
+  /**
+   * Get accessRole
+   *
+   * @return accessRole
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_ACCESS_ROLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public AccessRole getAccessRole() {
+    return accessRole;
+  }
+
+  public void setAccessRole(AccessRole accessRole) {
+    if (!accessRole.isValid()) {
+      this.unparsed = true;
+    }
+    this.accessRole = accessRole;
+  }
 
   public User disabled(Boolean disabled) {
     this.disabled = disabled;
@@ -179,7 +209,8 @@ public class User {
       return false;
     }
     User user = (User) o;
-    return Objects.equals(this.disabled, user.disabled)
+    return Objects.equals(this.accessRole, user.accessRole)
+        && Objects.equals(this.disabled, user.disabled)
         && Objects.equals(this.email, user.email)
         && Objects.equals(this.handle, user.handle)
         && Objects.equals(this.icon, user.icon)
@@ -189,13 +220,14 @@ public class User {
 
   @Override
   public int hashCode() {
-    return Objects.hash(disabled, email, handle, icon, name, verified);
+    return Objects.hash(accessRole, disabled, email, handle, icon, name, verified);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class User {\n");
+    sb.append("    accessRole: ").append(toIndentedString(accessRole)).append("\n");
     sb.append("    disabled: ").append(toIndentedString(disabled)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    handle: ").append(toIndentedString(handle)).append("\n");

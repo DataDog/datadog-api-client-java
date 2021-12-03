@@ -36,6 +36,7 @@ public class UsersApiTest extends V1ApiTest {
   private final String apiUri = "/api/v1/user";
   private final String fixturePrefix = "v1/client/api/user_fixtures";
 
+  private final AccessRole testingUserAR = AccessRole.STANDARD;
   private ArrayList<String> disableUsers = null;
 
   @Override
@@ -75,6 +76,7 @@ public class UsersApiTest extends V1ApiTest {
     String testingUserName = getUniqueEntityName(47);
     String testingUserHandle = testingUserName.toLowerCase() + "@datadoghq.com";
     User user = new User();
+    user.setAccessRole(testingUserAR);
     user.setHandle(testingUserHandle);
     user.setName(testingUserName);
     UserResponse response = api.createUser(user);
@@ -84,6 +86,7 @@ public class UsersApiTest extends V1ApiTest {
     user = response.getUser();
     assertEquals(testingUserHandle, user.getHandle());
     assertEquals(testingUserName, user.getName());
+    assertEquals(testingUserAR.toString(), user.getAccessRole().toString());
 
     // Now test updating user
     user.setName(testingUserName + "-updated");
@@ -96,6 +99,7 @@ public class UsersApiTest extends V1ApiTest {
     response = api.getUser(user.getHandle());
     assertEquals(testingUserHandle, response.getUser().getHandle());
     assertEquals(testingUserName + "-updated", response.getUser().getName());
+    assertEquals(testingUserAR.toString(), response.getUser().getAccessRole().toString());
     assertEquals(false, response.getUser().getDisabled());
 
     // Now test disabling user
@@ -115,6 +119,7 @@ public class UsersApiTest extends V1ApiTest {
     String testingUserName = getUniqueEntityName(53);
     for (String suffix : suffixes) {
       User user = new User();
+      user.setAccessRole(testingUserAR);
       user.setHandle(String.format("%s-%s@datadoghq.com", testingUserName, suffix));
       user.setName(String.format("%s-%s", testingUserName, suffix));
       UserResponse response = api.createUser(user);
@@ -211,6 +216,7 @@ public class UsersApiTest extends V1ApiTest {
     String testingUserName = getUniqueEntityName(55);
     String testingUserHandle = testingUserName + "@datadoghq.com";
     User user = new User();
+    user.setAccessRole(testingUserAR);
     user.setHandle(testingUserHandle);
     user.setName(testingUserName);
     UserResponse response = api.createUser(user);
@@ -254,6 +260,7 @@ public class UsersApiTest extends V1ApiTest {
     String testingUserName = getUniqueEntityName(55);
     String testingUserHandle = testingUserName + "@datadoghq.com";
     User user = new User();
+    user.setAccessRole(testingUserAR);
     user.setHandle(testingUserHandle);
     user.setName(testingUserName);
     UserResponse response = api.createUser(user);
