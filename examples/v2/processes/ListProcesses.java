@@ -4,6 +4,7 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.api.ProcessesApi;
+import com.datadog.api.v2.client.api.ProcessesApi.ListProcessesOptionalParameters;
 import com.datadog.api.v2.client.model.ProcessSummariesResponse;
 import java.util.*;
 
@@ -13,7 +14,12 @@ public class Example {
     ProcessesApi apiInstance = new ProcessesApi(defaultClient);
 
     try {
-      ProcessSummariesResponse result = apiInstance.listProcesses();
+      ProcessSummariesResponse result =
+          apiInstance.listProcesses(
+              new ListProcessesOptionalParameters()
+                  .search("process-agent")
+                  .tags("testing:true")
+                  .pageLimit(2));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DowntimesApi#updateDowntime");

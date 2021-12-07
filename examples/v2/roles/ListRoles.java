@@ -4,6 +4,7 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.api.RolesApi;
+import com.datadog.api.v2.client.api.RolesApi.ListRolesOptionalParameters;
 import com.datadog.api.v2.client.model.RolesResponse;
 import java.util.*;
 
@@ -16,7 +17,9 @@ public class Example {
     String ROLE_DATA_ATTRIBUTES_NAME = System.getenv("ROLE_DATA_ATTRIBUTES_NAME");
 
     try {
-      RolesResponse result = apiInstance.listRoles();
+      RolesResponse result =
+          apiInstance.listRoles(
+              new ListRolesOptionalParameters().filter(ROLE_DATA_ATTRIBUTES_NAME));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DowntimesApi#updateDowntime");

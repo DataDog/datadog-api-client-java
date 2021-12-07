@@ -4,6 +4,7 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.api.UsersApi;
+import com.datadog.api.v2.client.api.UsersApi.ListUsersOptionalParameters;
 import com.datadog.api.v2.client.model.UsersResponse;
 import java.util.*;
 
@@ -16,7 +17,9 @@ public class Example {
     String USER_DATA_ATTRIBUTES_EMAIL = System.getenv("USER_DATA_ATTRIBUTES_EMAIL");
 
     try {
-      UsersResponse result = apiInstance.listUsers();
+      UsersResponse result =
+          apiInstance.listUsers(
+              new ListUsersOptionalParameters().filter(USER_DATA_ATTRIBUTES_EMAIL));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DowntimesApi#updateDowntime");
