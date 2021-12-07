@@ -14,6 +14,7 @@ import java.util.*;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setUnstableOperationEnabled("updateIncidentTeam", true);
     IncidentTeamsApi apiInstance = new IncidentTeamsApi(defaultClient);
 
     // there is a valid "team" in the system

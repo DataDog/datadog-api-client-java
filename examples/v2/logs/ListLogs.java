@@ -4,6 +4,7 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.api.LogsApi;
+import com.datadog.api.v2.client.api.LogsApi.ListLogsOptionalParameters;
 import com.datadog.api.v2.client.model.LogsListRequest;
 import com.datadog.api.v2.client.model.LogsListRequestPage;
 import com.datadog.api.v2.client.model.LogsListResponse;
@@ -33,7 +34,7 @@ public class Example {
             .page(new LogsListRequestPage().limit(5));
 
     try {
-      LogsListResponse result = apiInstance.listLogs();
+      LogsListResponse result = apiInstance.listLogs(new ListLogsOptionalParameters().body(body));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DowntimesApi#updateDowntime");
