@@ -4,6 +4,7 @@ import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.HostsApi;
+import com.datadog.api.v1.client.api.HostsApi.ListHostsOptionalParameters;
 import com.datadog.api.v1.client.model.HostListResponse;
 import java.util.*;
 
@@ -13,7 +14,8 @@ public class Example {
     HostsApi apiInstance = new HostsApi(defaultClient);
 
     try {
-      HostListResponse result = apiInstance.listHosts();
+      HostListResponse result =
+          apiInstance.listHosts(new ListHostsOptionalParameters().filter("env:ci"));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DowntimesApi#updateDowntime");

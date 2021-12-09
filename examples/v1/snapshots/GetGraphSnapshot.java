@@ -3,6 +3,7 @@ import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.SnapshotsApi;
+import com.datadog.api.v1.client.api.SnapshotsApi.GetGraphSnapshotOptionalParameters;
 import com.datadog.api.v1.client.model.GraphSnapshot;
 import java.time.*;
 import java.util.*;
@@ -15,7 +16,11 @@ public class Example {
     try {
       GraphSnapshot result =
           apiInstance.getGraphSnapshot(
-              (Instant.now().getEpochSecond() + -1 * 86400), Instant.now().getEpochSecond());
+              (Instant.now().getEpochSecond() + -1 * 86400),
+              Instant.now().getEpochSecond(),
+              new GetGraphSnapshotOptionalParameters()
+                  .metricQuery("avg:system.load.1{*}")
+                  .title("System load"));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DowntimesApi#updateDowntime");

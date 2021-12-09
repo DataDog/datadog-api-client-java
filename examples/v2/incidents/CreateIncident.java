@@ -21,6 +21,7 @@ import java.util.*;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setUnstableOperationEnabled("createIncident", true);
     IncidentsApi apiInstance = new IncidentsApi(defaultClient);
 
     // there is a valid "user" in the system
