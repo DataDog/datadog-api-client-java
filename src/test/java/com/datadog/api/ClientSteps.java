@@ -2,15 +2,20 @@ package com.datadog.api;
 
 import static org.junit.Assert.*;
 
+import datadog.trace.api.interceptor.MutableSpan;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.messages.internal.com.google.gson.Gson;
+import io.opentracing.Span;
+import io.opentracing.util.GlobalTracer;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -20,6 +25,7 @@ import java.util.regex.Pattern;
 public class ClientSteps {
   protected static final String TEST_API_KEY_NAME = "DD_TEST_CLIENT_API_KEY";
   protected static final String TEST_APP_KEY_NAME = "DD_TEST_CLIENT_APP_KEY";
+  protected static final String TEST_CODEOWNERS_TAG = "test.codeowners";
 
   private static String apiVersion;
 
@@ -33,7 +39,18 @@ public class ClientSteps {
   public void setupVersion(Scenario scenario) {
     world.scenario = scenario;
     apiVersion = world.getVersion();
-    // TODO scenario.getSourceTagNames();
+    final Span span = GlobalTracer.get().activeSpan();
+    if (span != null) {
+      ArrayList<String> codeowners = new ArrayList<String>();
+      for (String tag : scenario.getSourceTagNames()) {
+        if (tag.startsWith("@team:")) {
+          codeowners.add("@" + tag.substring(6));
+        }
+      }
+      // if the agent container is not running, span is null
+      MutableSpan localRootSpan = ((MutableSpan) span).getLocalRootSpan();
+      localRootSpan.setTag(TEST_CODEOWNERS_TAG, new Gson().toJson(codeowners));
+    }
   }
 
   @Before(order = 10)
