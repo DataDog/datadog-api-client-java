@@ -23,6 +23,7 @@ import java.util.Objects;
 /** Attributes of the created role. */
 @ApiModel(description = "Attributes of the created role.")
 @JsonPropertyOrder({
+  RoleCreateAttributes.JSON_PROPERTY_CLONE_FROM_UUID,
   RoleCreateAttributes.JSON_PROPERTY_CREATED_AT,
   RoleCreateAttributes.JSON_PROPERTY_MODIFIED_AT,
   RoleCreateAttributes.JSON_PROPERTY_NAME
@@ -30,6 +31,9 @@ import java.util.Objects;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class RoleCreateAttributes {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_CLONE_FROM_UUID = "clone_from_uuid";
+  private String cloneFromUuid;
+
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
 
@@ -45,6 +49,28 @@ public class RoleCreateAttributes {
   public RoleCreateAttributes(
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
     this.name = name;
+  }
+
+  public RoleCreateAttributes cloneFromUuid(String cloneFromUuid) {
+    this.cloneFromUuid = cloneFromUuid;
+    return this;
+  }
+
+  /**
+   * UUID of the role to clone from.
+   *
+   * @return cloneFromUuid
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "UUID of the role to clone from.")
+  @JsonProperty(JSON_PROPERTY_CLONE_FROM_UUID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getCloneFromUuid() {
+    return cloneFromUuid;
+  }
+
+  public void setCloneFromUuid(String cloneFromUuid) {
+    this.cloneFromUuid = cloneFromUuid;
   }
 
   /**
@@ -104,20 +130,22 @@ public class RoleCreateAttributes {
       return false;
     }
     RoleCreateAttributes roleCreateAttributes = (RoleCreateAttributes) o;
-    return Objects.equals(this.createdAt, roleCreateAttributes.createdAt)
+    return Objects.equals(this.cloneFromUuid, roleCreateAttributes.cloneFromUuid)
+        && Objects.equals(this.createdAt, roleCreateAttributes.createdAt)
         && Objects.equals(this.modifiedAt, roleCreateAttributes.modifiedAt)
         && Objects.equals(this.name, roleCreateAttributes.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, modifiedAt, name);
+    return Objects.hash(cloneFromUuid, createdAt, modifiedAt, name);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RoleCreateAttributes {\n");
+    sb.append("    cloneFromUuid: ").append(toIndentedString(cloneFromUuid)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    modifiedAt: ").append(toIndentedString(modifiedAt)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
