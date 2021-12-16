@@ -53,6 +53,9 @@ public class World {
   // Undo
   public List<Callable<?>> undo;
 
+  int sleepAfterRequestInterval;
+  String recordMode;
+
   public static Map<String, BiFunction<Object, String, String>> templateFunctions =
       new HashMap<String, BiFunction<Object, String, String>>() {
         {
@@ -101,6 +104,20 @@ public class World {
   public World() {
     context = new HashMap<>();
     undo = new ArrayList<>();
+    sleepAfterRequestInterval =
+        System.getenv("SLEEP_AFTER_REQUEST") != null
+            ? Integer.parseInt(System.getenv("SLEEP_AFTER_REQUEST"))
+            : 0;
+    recordMode = System.getenv("RECORD") != null ? System.getenv("RECORD") : "false";
+  }
+
+  public void sleepAfterRequest() {
+    if (recordMode == "false" || sleepAfterRequestInterval <= 0) return;
+    try {
+      Thread.sleep(sleepAfterRequestInterval * 1000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
   }
 
   public String getVersion() {
@@ -395,6 +412,8 @@ public class World {
     }
 
     context.put(step.key, data);
+
+    sleepAfterRequest();
   }
 
   public Callable<?> getRequestUndo(String apiVersion, Undo undoSettings, Object data)
