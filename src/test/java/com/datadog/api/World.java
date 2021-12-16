@@ -647,9 +647,13 @@ public class World {
    * Convert an identifier to property name.
    */
   public static String toPropertyName(String identifier) {
-    identifier = replace(identifier, Pattern.compile("_(.)"), m -> m.group(1).toUpperCase());
-    return replace(
-        identifier, Pattern.compile("\\[(.)([^]]*)]"), m -> m.group(1).toUpperCase() + m.group(2));
+    identifier = replace(identifier, Pattern.compile("[_-](.)"), m -> m.group(1).toUpperCase());
+    identifier =
+        replace(
+            identifier,
+            Pattern.compile("\\[(.)([^]]*)]"),
+            m -> m.group(1).toUpperCase() + m.group(2));
+    return identifier.substring(0, 1).toLowerCase() + identifier.substring(1);
   }
 
   /*
