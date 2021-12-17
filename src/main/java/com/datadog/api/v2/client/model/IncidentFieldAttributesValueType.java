@@ -23,7 +23,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-/** Type of the single value field definitions. */
+/** Type of the multiple value field definitions. */
 @JsonSerialize(
     using = IncidentFieldAttributesValueType.IncidentFieldAttributesValueTypeSerializer.class)
 public class IncidentFieldAttributesValueType {
