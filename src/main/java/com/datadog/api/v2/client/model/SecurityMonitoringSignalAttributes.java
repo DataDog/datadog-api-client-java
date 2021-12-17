@@ -41,7 +41,7 @@ public class SecurityMonitoringSignalAttributes {
   private String message;
 
   public static final String JSON_PROPERTY_TAGS = "tags";
-  private List<Object> tags = null;
+  private List<String> tags = null;
 
   public static final String JSON_PROPERTY_TIMESTAMP = "timestamp";
   private OffsetDateTime timestamp;
@@ -104,12 +104,12 @@ public class SecurityMonitoringSignalAttributes {
     this.message = message;
   }
 
-  public SecurityMonitoringSignalAttributes tags(List<Object> tags) {
+  public SecurityMonitoringSignalAttributes tags(List<String> tags) {
     this.tags = tags;
     return this;
   }
 
-  public SecurityMonitoringSignalAttributes addTagsItem(Object tagsItem) {
+  public SecurityMonitoringSignalAttributes addTagsItem(String tagsItem) {
     if (this.tags == null) {
       this.tags = new ArrayList<>();
     }
@@ -128,11 +128,11 @@ public class SecurityMonitoringSignalAttributes {
       value = "An array of tags associated with the security signal.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<Object> getTags() {
+  public List<String> getTags() {
     return tags;
   }
 
-  public void setTags(List<Object> tags) {
+  public void setTags(List<String> tags) {
     this.tags = tags;
   }
 
