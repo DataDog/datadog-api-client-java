@@ -28,10 +28,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
         "Number of RUM Units used for each hour for a given organization (data available as of"
             + " November 1, 2021).")
 @JsonPropertyOrder({
-  UsageRumUnitsHour.JSON_PROPERTY_BROWSER_RUM_LITE_SESSION_COUNT,
-  UsageRumUnitsHour.JSON_PROPERTY_BROWSER_RUM_REPLAY_SESSION_COUNT,
   UsageRumUnitsHour.JSON_PROPERTY_BROWSER_RUM_UNITS,
-  UsageRumUnitsHour.JSON_PROPERTY_MOBILE_RUM_LITE_SESSION_COUNT,
   UsageRumUnitsHour.JSON_PROPERTY_MOBILE_RUM_UNITS,
   UsageRumUnitsHour.JSON_PROPERTY_ORG_NAME,
   UsageRumUnitsHour.JSON_PROPERTY_PUBLIC_ID,
@@ -40,20 +37,8 @@ import org.openapitools.jackson.nullable.JsonNullable;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageRumUnitsHour {
   @JsonIgnore public boolean unparsed = false;
-  public static final String JSON_PROPERTY_BROWSER_RUM_LITE_SESSION_COUNT =
-      "browser_rum_lite_session_count";
-  private Long browserRumLiteSessionCount;
-
-  public static final String JSON_PROPERTY_BROWSER_RUM_REPLAY_SESSION_COUNT =
-      "browser_rum_replay_session_count";
-  private Long browserRumReplaySessionCount;
-
   public static final String JSON_PROPERTY_BROWSER_RUM_UNITS = "browser_rum_units";
   private Long browserRumUnits;
-
-  public static final String JSON_PROPERTY_MOBILE_RUM_LITE_SESSION_COUNT =
-      "mobile_rum_lite_session_count";
-  private Long mobileRumLiteSessionCount;
 
   public static final String JSON_PROPERTY_MOBILE_RUM_UNITS = "mobile_rum_units";
   private Long mobileRumUnits;
@@ -66,50 +51,6 @@ public class UsageRumUnitsHour {
 
   public static final String JSON_PROPERTY_RUM_UNITS = "rum_units";
   private JsonNullable<Long> rumUnits = JsonNullable.<Long>undefined();
-
-  public UsageRumUnitsHour browserRumLiteSessionCount(Long browserRumLiteSessionCount) {
-    this.browserRumLiteSessionCount = browserRumLiteSessionCount;
-    return this;
-  }
-
-  /**
-   * Number of browser RUM lite sessions.
-   *
-   * @return browserRumLiteSessionCount
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of browser RUM lite sessions.")
-  @JsonProperty(JSON_PROPERTY_BROWSER_RUM_LITE_SESSION_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getBrowserRumLiteSessionCount() {
-    return browserRumLiteSessionCount;
-  }
-
-  public void setBrowserRumLiteSessionCount(Long browserRumLiteSessionCount) {
-    this.browserRumLiteSessionCount = browserRumLiteSessionCount;
-  }
-
-  public UsageRumUnitsHour browserRumReplaySessionCount(Long browserRumReplaySessionCount) {
-    this.browserRumReplaySessionCount = browserRumReplaySessionCount;
-    return this;
-  }
-
-  /**
-   * Number of browser RUM replay sessions.
-   *
-   * @return browserRumReplaySessionCount
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of browser RUM replay sessions.")
-  @JsonProperty(JSON_PROPERTY_BROWSER_RUM_REPLAY_SESSION_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getBrowserRumReplaySessionCount() {
-    return browserRumReplaySessionCount;
-  }
-
-  public void setBrowserRumReplaySessionCount(Long browserRumReplaySessionCount) {
-    this.browserRumReplaySessionCount = browserRumReplaySessionCount;
-  }
 
   public UsageRumUnitsHour browserRumUnits(Long browserRumUnits) {
     this.browserRumUnits = browserRumUnits;
@@ -131,28 +72,6 @@ public class UsageRumUnitsHour {
 
   public void setBrowserRumUnits(Long browserRumUnits) {
     this.browserRumUnits = browserRumUnits;
-  }
-
-  public UsageRumUnitsHour mobileRumLiteSessionCount(Long mobileRumLiteSessionCount) {
-    this.mobileRumLiteSessionCount = mobileRumLiteSessionCount;
-    return this;
-  }
-
-  /**
-   * Number of mobile RUM lite sessions.
-   *
-   * @return mobileRumLiteSessionCount
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of mobile RUM lite sessions.")
-  @JsonProperty(JSON_PROPERTY_MOBILE_RUM_LITE_SESSION_COUNT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getMobileRumLiteSessionCount() {
-    return mobileRumLiteSessionCount;
-  }
-
-  public void setMobileRumLiteSessionCount(Long mobileRumLiteSessionCount) {
-    this.mobileRumLiteSessionCount = mobileRumLiteSessionCount;
   }
 
   public UsageRumUnitsHour mobileRumUnits(Long mobileRumUnits) {
@@ -263,13 +182,7 @@ public class UsageRumUnitsHour {
       return false;
     }
     UsageRumUnitsHour usageRumUnitsHour = (UsageRumUnitsHour) o;
-    return Objects.equals(
-            this.browserRumLiteSessionCount, usageRumUnitsHour.browserRumLiteSessionCount)
-        && Objects.equals(
-            this.browserRumReplaySessionCount, usageRumUnitsHour.browserRumReplaySessionCount)
-        && Objects.equals(this.browserRumUnits, usageRumUnitsHour.browserRumUnits)
-        && Objects.equals(
-            this.mobileRumLiteSessionCount, usageRumUnitsHour.mobileRumLiteSessionCount)
+    return Objects.equals(this.browserRumUnits, usageRumUnitsHour.browserRumUnits)
         && Objects.equals(this.mobileRumUnits, usageRumUnitsHour.mobileRumUnits)
         && Objects.equals(this.orgName, usageRumUnitsHour.orgName)
         && Objects.equals(this.publicId, usageRumUnitsHour.publicId)
@@ -278,31 +191,14 @@ public class UsageRumUnitsHour {
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        browserRumLiteSessionCount,
-        browserRumReplaySessionCount,
-        browserRumUnits,
-        mobileRumLiteSessionCount,
-        mobileRumUnits,
-        orgName,
-        publicId,
-        rumUnits);
+    return Objects.hash(browserRumUnits, mobileRumUnits, orgName, publicId, rumUnits);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UsageRumUnitsHour {\n");
-    sb.append("    browserRumLiteSessionCount: ")
-        .append(toIndentedString(browserRumLiteSessionCount))
-        .append("\n");
-    sb.append("    browserRumReplaySessionCount: ")
-        .append(toIndentedString(browserRumReplaySessionCount))
-        .append("\n");
     sb.append("    browserRumUnits: ").append(toIndentedString(browserRumUnits)).append("\n");
-    sb.append("    mobileRumLiteSessionCount: ")
-        .append(toIndentedString(mobileRumLiteSessionCount))
-        .append("\n");
     sb.append("    mobileRumUnits: ").append(toIndentedString(mobileRumUnits)).append("\n");
     sb.append("    orgName: ").append(toIndentedString(orgName)).append("\n");
     sb.append("    publicId: ").append(toIndentedString(publicId)).append("\n");
