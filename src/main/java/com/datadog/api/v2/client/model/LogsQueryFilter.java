@@ -50,13 +50,16 @@ public class LogsQueryFilter {
 
   /**
    * The minimum time for the requested logs, supports date math and regular timestamps
+   * (milliseconds).
    *
    * @return from
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       example = "now-15m",
-      value = "The minimum time for the requested logs, supports date math and regular timestamps")
+      value =
+          "The minimum time for the requested logs, supports date math and regular timestamps"
+              + " (milliseconds).")
   @JsonProperty(JSON_PROPERTY_FROM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getFrom() {
@@ -133,13 +136,16 @@ public class LogsQueryFilter {
 
   /**
    * The maximum time for the requested logs, supports date math and regular timestamps
+   * (milliseconds).
    *
    * @return to
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       example = "now",
-      value = "The maximum time for the requested logs, supports date math and regular timestamps")
+      value =
+          "The maximum time for the requested logs, supports date math and regular timestamps"
+              + " (milliseconds).")
   @JsonProperty(JSON_PROPERTY_TO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTo() {
