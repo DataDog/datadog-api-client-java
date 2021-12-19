@@ -1,0 +1,219 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Edit_an_application_key_owned_by_current_user_returns_OK_response-1639757118\"},\"type\":\"application_keys\"}}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Edit_an_application_key_owned_by_current_user_returns_OK_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v2/current_user/application_keys",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"application_keys\",\"id\":\"b1976d62-4147-4540-a98a-42c555dd500c\",\"attributes\":{\"name\":\"Test-Edit_an_application_key_owned_by_current_user_returns_OK_response-1639757118\",\"created_at\":\"2021-12-17T16:05:19.263508+00:00\",\"last4\":\"beef\",\"key\":\"deaddcc81a44288fbbbfb15efe1203df034abeef\"},\"relationships\":{\"owned_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}}}}}",
+      "headers": {
+        "Date": [
+          "Fri, 17 Dec 2021 16:05:19 GMT"
+        ],
+        "Content-Type": [
+          "application/json"
+        ],
+        "Content-Length": [
+          "397"
+        ],
+        "Connection": [
+          "close"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "X-Ratelimit-Remaining": [
+          "391"
+        ],
+        "X-Ratelimit-Limit": [
+          "400"
+        ],
+        "X-Ratelimit-Period": [
+          "3600"
+        ],
+        "X-Ratelimit-Reset": [
+          "3281"
+        ],
+        "Vary": [
+          "Accept-Encoding"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=15724800;"
+        ],
+        "Content-Security-Policy": [
+          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
+        ],
+        "X-Frame-Options": [
+          "SAMEORIGIN"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "8aec0572-03f3-ba1f-5f30-eb49cc00b62d"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"id\":\"b1976d62-4147-4540-a98a-42c555dd500c\",\"type\":\"application_keys\",\"attributes\":{\"name\":\"Test-Edit_an_application_key_owned_by_current_user_returns_OK_response-1639757118-updated\"}}}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Edit_an_application_key_owned_by_current_user_returns_OK_response"
+        ]
+      },
+      "method": "PATCH",
+      "path": "/api/v2/current_user/application_keys/b1976d62-4147-4540-a98a-42c555dd500c",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"application_keys\",\"id\":\"b1976d62-4147-4540-a98a-42c555dd500c\",\"attributes\":{\"name\":\"Test-Edit_an_application_key_owned_by_current_user_returns_OK_response-1639757118-updated\",\"created_at\":\"2021-12-17T16:05:19.263508+00:00\",\"last4\":\"beef\",\"key\":\"deaddcc81a44288fbbbfb15efe1203df034abeef\"},\"relationships\":{\"owned_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}}}}}",
+      "headers": {
+        "Date": [
+          "Fri, 17 Dec 2021 16:05:19 GMT"
+        ],
+        "Content-Type": [
+          "application/json"
+        ],
+        "Content-Length": [
+          "405"
+        ],
+        "Connection": [
+          "close"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "X-Ratelimit-Remaining": [
+          "390"
+        ],
+        "X-Ratelimit-Limit": [
+          "400"
+        ],
+        "X-Ratelimit-Period": [
+          "3600"
+        ],
+        "X-Ratelimit-Reset": [
+          "3281"
+        ],
+        "Vary": [
+          "Accept-Encoding"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=15724800;"
+        ],
+        "Content-Security-Policy": [
+          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
+        ],
+        "X-Frame-Options": [
+          "SAMEORIGIN"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "7cb795b7-d5d5-9e41-a8c7-1bf81506eb33"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Edit_an_application_key_owned_by_current_user_returns_OK_response"
+        ]
+      },
+      "method": "DELETE",
+      "path": "/api/v2/current_user/application_keys/b1976d62-4147-4540-a98a-42c555dd500c",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Date": [
+          "Fri, 17 Dec 2021 16:05:20 GMT"
+        ],
+        "Connection": [
+          "close"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "X-Ratelimit-Remaining": [
+          "389"
+        ],
+        "X-Ratelimit-Limit": [
+          "400"
+        ],
+        "X-Ratelimit-Period": [
+          "3600"
+        ],
+        "X-Ratelimit-Reset": [
+          "3280"
+        ],
+        "Vary": [
+          "Accept-Encoding"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=15724800;"
+        ],
+        "Content-Security-Policy": [
+          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
+        ],
+        "X-Frame-Options": [
+          "SAMEORIGIN"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "1f16d894-9abe-54dd-2848-94246f9ce1f4"
+  }
+]

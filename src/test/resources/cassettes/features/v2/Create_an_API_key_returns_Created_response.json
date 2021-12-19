@@ -1,0 +1,119 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"type\":\"api_keys\",\"attributes\":{\"name\":\"Test-Create_an_API_key_returns_Created_response-1639757110\"}}}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Create_an_API_key_returns_Created_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v2/api_keys",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"type\":\"api_keys\",\"attributes\":{\"created_at\":\"2021-12-17T16:05:11.162599+00:00\",\"key\":\"dead4087c6b3d1ae4b5e22e77a98beef\",\"last4\":\"beef\",\"modified_at\":\"2021-12-17T16:05:11.162599+00:00\",\"name\":\"Test-Create_an_API_key_returns_Created_response-1639757110\"},\"relationships\":{\"created_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}},\"modified_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}}},\"id\":\"b4826cba-c36e-5bb0-b789-a40a81b4acfa\"}}",
+      "headers": {
+        "Date": [
+          "Fri, 17 Dec 2021 16:05:11 GMT"
+        ],
+        "Content-Type": [
+          "application/json"
+        ],
+        "Content-Length": [
+          "493"
+        ],
+        "Connection": [
+          "close"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "Vary": [
+          "Accept-Encoding"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=15724800;"
+        ],
+        "Content-Security-Policy": [
+          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
+        ],
+        "X-Frame-Options": [
+          "SAMEORIGIN"
+        ]
+      },
+      "statusCode": 201,
+      "reasonPhrase": "Created"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "fde21dcf-1874-9c29-0a61-66d67696c2ef"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Create_an_API_key_returns_Created_response"
+        ]
+      },
+      "method": "DELETE",
+      "path": "/api/v2/api_keys/b4826cba-c36e-5bb0-b789-a40a81b4acfa",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {
+        "Date": [
+          "Fri, 17 Dec 2021 16:05:11 GMT"
+        ],
+        "Connection": [
+          "close"
+        ],
+        "Pragma": [
+          "no-cache"
+        ],
+        "Cache-Control": [
+          "no-cache"
+        ],
+        "Vary": [
+          "Accept-Encoding"
+        ],
+        "X-Content-Type-Options": [
+          "nosniff"
+        ],
+        "Strict-Transport-Security": [
+          "max-age=15724800;"
+        ],
+        "Content-Security-Policy": [
+          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
+        ],
+        "X-Frame-Options": [
+          "SAMEORIGIN"
+        ]
+      },
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "1d7c3358-0e23-f03d-9b0e-e42d44654deb"
+  }
+]
