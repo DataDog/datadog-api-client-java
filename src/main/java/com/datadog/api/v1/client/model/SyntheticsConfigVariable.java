@@ -50,9 +50,11 @@ public class SyntheticsConfigVariable {
 
   @JsonCreator
   public SyntheticsConfigVariable(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
           SyntheticsConfigVariableType type) {
+    this.id = id;
     this.name = name;
     this.type = type;
     this.unparsed |= !type.isValid();
@@ -90,10 +92,12 @@ public class SyntheticsConfigVariable {
    *
    * @return id
    */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the variable for global variables.")
+  @ApiModelProperty(
+      example = "123abcd4-5678-44ab-c234-d56e9999ff22",
+      required = true,
+      value = "ID of the variable for global variables.")
   @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getId() {
     return id;
   }
