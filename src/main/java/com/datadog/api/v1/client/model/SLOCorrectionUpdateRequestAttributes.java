@@ -155,14 +155,18 @@ public class SLOCorrectionUpdateRequestAttributes {
   }
 
   /**
-   * Recurrence rules as defined in the iCalendar RFC 5545.
+   * The recurrence rules as defined in the iCalendar RFC 5545. The supported rules for SLO
+   * corrections are &#x60;FREQ&#x60;, &#x60;INTERVAL&#x60;, &#x60;COUNT&#x60; and
+   * &#x60;UNTIL&#x60;.
    *
    * @return rrule
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
-      example = "RRULE:FREQ=DAILY;INTERVAL=10;COUNT=5",
-      value = "Recurrence rules as defined in the iCalendar RFC 5545.")
+      example = "FREQ=DAILY;INTERVAL=10;COUNT=5",
+      value =
+          "The recurrence rules as defined in the iCalendar RFC 5545. The supported rules for SLO"
+              + " corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.")
   @JsonProperty(JSON_PROPERTY_RRULE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getRrule() {
