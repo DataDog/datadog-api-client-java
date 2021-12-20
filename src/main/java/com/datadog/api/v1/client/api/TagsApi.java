@@ -194,7 +194,8 @@ public class TagsApi {
     /**
      * Set source
      *
-     * @param source The source of the tags (e.g. chef, puppet). [Complete list of source attribute
+     * @param source The source of the tags (for example chef, puppet). [Complete list of source
+     *     attribute
      *     values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
      *     (optional)
      * @return DeleteHostTagsOptionalParameters
@@ -562,7 +563,8 @@ public class TagsApi {
     /**
      * Set source
      *
-     * @param source The source of the tags (e.g. chef, puppet). [Complete list of source attribute
+     * @param source The source of the tags (for example chef, puppet). [Complete list of source
+     *     attribute
      *     values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value)
      *     (optional)
      * @return UpdateHostTagsOptionalParameters

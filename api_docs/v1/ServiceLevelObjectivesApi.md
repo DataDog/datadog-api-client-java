@@ -169,7 +169,7 @@ public class Example {
 
         ServiceLevelObjectivesApi apiInstance = new ServiceLevelObjectivesApi(defaultClient);
         String sloId = "sloId_example"; // String | The ID of the service level objective.
-        String force = "force_example"; // String | Delete the monitor even if it's referenced by other resources (e.g. SLO, composite monitor).
+        String force = "force_example"; // String | Delete the monitor even if it's referenced by other resources (for example SLO, composite monitor).
         try {
             SLODeleteResponse result = apiInstance.deleteSLO(sloId, new ServiceLevelObjectivesApi.DeleteSLOOptionalParameters()
                 .force(force));
@@ -187,10 +187,10 @@ public class Example {
 
 ### Parameters
 
-| Name      | Type       | Description                                                                                      | Notes      |
-| --------- | ---------- | ------------------------------------------------------------------------------------------------ | ---------- |
-| **sloId** | **String** | The ID of the service level objective.                                                           |
-| **force** | **String** | Delete the monitor even if it&#39;s referenced by other resources (e.g. SLO, composite monitor). | [optional] |
+| Name      | Type       | Description                                                                                             | Notes      |
+| --------- | ---------- | ------------------------------------------------------------------------------------------------------- | ---------- |
+| **sloId** | **String** | The ID of the service level objective.                                                                  |
+| **force** | **String** | Delete the monitor even if it&#39;s referenced by other resources (for example SLO, composite monitor). | [optional] |
 
 ### Return type
 

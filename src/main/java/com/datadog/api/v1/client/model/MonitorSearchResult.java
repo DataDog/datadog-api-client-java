@@ -246,10 +246,10 @@ public class MonitorSearchResult {
   }
 
   /**
-   * The scope(s) to which the downtime applies, e.g. &#x60;host:app2&#x60;. Provide multiple scopes
-   * as a comma-separated list, e.g. &#x60;env:dev,env:prod&#x60;. The resulting downtime applies to
-   * sources that matches ALL provided scopes (i.e. &#x60;env:dev AND env:prod&#x60;), NOT any of
-   * them.
+   * The scope(s) to which the downtime applies, for example &#x60;host:app2&#x60;. Provide multiple
+   * scopes as a comma-separated list, for example &#x60;env:dev,env:prod&#x60;. The resulting
+   * downtime applies to sources that matches ALL provided scopes (that is &#x60;env:dev AND
+   * env:prod&#x60;), NOT any of them.
    *
    * @return scopes
    */
@@ -257,10 +257,10 @@ public class MonitorSearchResult {
   @ApiModelProperty(
       example = "[\"host:app2\",\"env:dev,env:prod\"]",
       value =
-          "The scope(s) to which the downtime applies, e.g. `host:app2`. Provide multiple scopes"
-              + " as a comma-separated list, e.g. `env:dev,env:prod`. The resulting downtime"
-              + " applies to sources that matches ALL provided scopes (i.e. `env:dev AND"
-              + " env:prod`), NOT any of them.")
+          "The scope(s) to which the downtime applies, for example `host:app2`. Provide multiple"
+              + " scopes as a comma-separated list, for example `env:dev,env:prod`. The resulting"
+              + " downtime applies to sources that matches ALL provided scopes (that is `env:dev"
+              + " AND env:prod`), NOT any of them.")
   @JsonProperty(JSON_PROPERTY_SCOPES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public List<String> getScopes() {
