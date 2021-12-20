@@ -1,23 +1,19 @@
-// Get a synthetics monitor's details
+// Client is resilient to enum and oneOf deserialization errors
 
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.MonitorsApi;
-import com.datadog.api.v1.client.model.Monitor;
+import com.datadog.api.v1.client.api.SyntheticsApi;
+import com.datadog.api.v1.client.model.SyntheticsListTestsResponse;
 import java.util.*;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    MonitorsApi apiInstance = new MonitorsApi(defaultClient);
-
-    // there is a valid "synthetics_api_test" in the system
-    Long SYNTHETICS_API_TEST_MONITOR_ID =
-        Long.parseLong(System.getenv("SYNTHETICS_API_TEST_MONITOR_ID"));
+    SyntheticsApi apiInstance = new SyntheticsApi(defaultClient);
 
     try {
-      Monitor result = apiInstance.getMonitor(SYNTHETICS_API_TEST_MONITOR_ID);
+      SyntheticsListTestsResponse result = apiInstance.listTests();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DowntimesApi#updateDowntime");

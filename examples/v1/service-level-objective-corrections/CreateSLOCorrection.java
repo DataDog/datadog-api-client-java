@@ -1,4 +1,4 @@
-// Create an SLO correction returns "OK" response
+// Create an SLO correction with rrule returns "OK" response
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -29,10 +29,12 @@ public class Example {
                     .attributes(
                         new SLOCorrectionCreateRequestAttributes()
                             .category(SLOCorrectionCategory.SCHEDULED_MAINTENANCE)
-                            .description("Example-Create_an_SLO_correction_returns_OK_response")
-                            .end((Instant.now().getEpochSecond() + 1 * 3600))
+                            .description(
+                                "Example-Create_an_SLO_correction_with_rrule_returns_OK_response")
                             .sloId(SLO_DATA_0_ID)
                             .start(Instant.now().getEpochSecond())
+                            .duration(3600L)
+                            .rrule("FREQ=DAILY;INTERVAL=10;COUNT=5")
                             .timezone("UTC"))
                     .type(SLOCorrectionType.CORRECTION));
 

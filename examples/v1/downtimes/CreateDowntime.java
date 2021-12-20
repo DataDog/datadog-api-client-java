@@ -1,10 +1,9 @@
-// Schedule a downtime returns "OK" response
+// Schedule a monitor downtime returns "OK" response
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.DowntimesApi;
 import com.datadog.api.v1.client.model.Downtime;
-import com.datadog.api.v1.client.model.DowntimeRecurrence;
 import java.time.*;
 import java.util.*;
 
@@ -13,32 +12,21 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     DowntimesApi apiInstance = new DowntimesApi(defaultClient);
 
+    // there is a valid "monitor" in the system
+    Long MONITOR_ID = Long.parseLong(System.getenv("MONITOR_ID"));
+
     Downtime body =
         new Downtime()
-            .message("Example-Schedule_a_downtime_returns_OK_response")
+            .message("Example-Schedule_a_monitor_downtime_returns_OK_response")
             .start(Instant.now().getEpochSecond())
             .timezone("Etc/UTC")
             .scope(
                 new ArrayList<String>() {
                   {
-                    add("test:examplescheduleadowntimereturnsokresponse");
+                    add("test:examplescheduleamonitordowntimereturnsokresponse");
                   }
                 })
-            .recurrence(
-                new DowntimeRecurrence()
-                    .type("weeks")
-                    .period(1)
-                    .weekDays(
-                        new ArrayList<String>() {
-                          {
-                            add("Mon");
-                            add("Tue");
-                            add("Wed");
-                            add("Thu");
-                            add("Fri");
-                          }
-                        })
-                    .untilDate((Instant.now().getEpochSecond() + 21 * 86400)));
+            .monitorId(MONITOR_ID);
 
     try {
       Downtime result = apiInstance.createDowntime(body);

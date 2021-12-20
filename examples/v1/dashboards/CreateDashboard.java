@@ -1,4 +1,4 @@
-// Create a new dashboard returns "OK" response
+// Create a new dashboard with timeseries widget containing style attributes
 
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
@@ -6,17 +6,15 @@ import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.DashboardsApi;
 import com.datadog.api.v1.client.model.Dashboard;
 import com.datadog.api.v1.client.model.DashboardLayoutType;
-import com.datadog.api.v1.client.model.LogQueryDefinition;
-import com.datadog.api.v1.client.model.LogQueryDefinitionGroupBy;
-import com.datadog.api.v1.client.model.LogQueryDefinitionGroupBySort;
-import com.datadog.api.v1.client.model.LogQueryDefinitionSearch;
-import com.datadog.api.v1.client.model.LogsQueryCompute;
 import com.datadog.api.v1.client.model.TimeseriesWidgetDefinition;
 import com.datadog.api.v1.client.model.TimeseriesWidgetDefinitionType;
 import com.datadog.api.v1.client.model.TimeseriesWidgetRequest;
 import com.datadog.api.v1.client.model.Widget;
 import com.datadog.api.v1.client.model.WidgetDefinition;
-import com.datadog.api.v1.client.model.WidgetSort;
+import com.datadog.api.v1.client.model.WidgetDisplayType;
+import com.datadog.api.v1.client.model.WidgetLineType;
+import com.datadog.api.v1.client.model.WidgetLineWidth;
+import com.datadog.api.v1.client.model.WidgetRequestStyle;
 import java.util.*;
 
 public class Example {
@@ -27,7 +25,9 @@ public class Example {
     Dashboard body =
         new Dashboard()
             .layoutType(DashboardLayoutType.ORDERED)
-            .title("Example-Create_a_new_dashboard_returns_OK_response with Profile Metrics Query")
+            .title(
+                "Example-Create_a_new_dashboard_with_timeseries_widget_containing_style_attributes"
+                    + " with timeseries widget")
             .widgets(
                 new ArrayList<Widget>() {
                   {
@@ -42,35 +42,16 @@ public class Example {
                                               {
                                                 add(
                                                     new TimeseriesWidgetRequest()
-                                                        .profileMetricsQuery(
-                                                            new LogQueryDefinition()
-                                                                .compute(
-                                                                    new LogsQueryCompute()
-                                                                        .aggregation("sum")
-                                                                        .facet(
-                                                                            "@prof_core_cpu_cores"))
-                                                                .search(
-                                                                    new LogQueryDefinitionSearch()
-                                                                        .query("runtime:jvm"))
-                                                                .groupBy(
-                                                                    new ArrayList<
-                                                                        LogQueryDefinitionGroupBy>() {
-                                                                      {
-                                                                        add(
-                                                                            new LogQueryDefinitionGroupBy()
-                                                                                .facet("service")
-                                                                                .limit(10L)
-                                                                                .sort(
-                                                                                    new LogQueryDefinitionGroupBySort()
-                                                                                        .aggregation(
-                                                                                            "sum")
-                                                                                        .order(
-                                                                                            WidgetSort
-                                                                                                .DESCENDING)
-                                                                                        .facet(
-                                                                                            "@prof_core_cpu_cores")));
-                                                                      }
-                                                                    })));
+                                                        .q(
+                                                            "sum:trace.test.errors{env:prod,service:datadog-api-spec}"
+                                                                + " by {resource_name}.as_count()")
+                                                        .onRightYaxis(false)
+                                                        .style(
+                                                            new WidgetRequestStyle()
+                                                                .palette("warm")
+                                                                .lineType(WidgetLineType.SOLID)
+                                                                .lineWidth(WidgetLineWidth.NORMAL))
+                                                        .displayType(WidgetDisplayType.BARS));
                                               }
                                             }))));
                   }

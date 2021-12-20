@@ -1,4 +1,4 @@
-// Create a detection rule returns "OK" response
+// Create a detection rule with type 'workload_security' returns "OK" response
 
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
@@ -15,6 +15,8 @@ import com.datadog.api.v2.client.model.SecurityMonitoringRuleQueryAggregation;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleQueryCreate;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleResponse;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleSeverity;
+import com.datadog.api.v2.client.model.SecurityMonitoringRuleTypeCreate;
+import com.datadog.api.v2.client.model.SecurityMonitoringRuntimeAgentRule;
 import java.util.*;
 
 public class Example {
@@ -24,7 +26,7 @@ public class Example {
 
     SecurityMonitoringRuleCreatePayload body =
         new SecurityMonitoringRuleCreatePayload()
-            .name("Example-Create_a_detection_rule_returns_OK_response")
+            .name("Example-Create_a_detection_rule_with_type_workload_security_returns_OK_response")
             .queries(
                 new ArrayList<SecurityMonitoringRuleQueryCreate>() {
                   {
@@ -44,7 +46,12 @@ public class Example {
                                     ;
                                   }
                                 })
-                            .metric(""));
+                            .metric("")
+                            .agentRule(
+                                new SecurityMonitoringRuntimeAgentRule()
+                                    .agentRuleId("kernel_module_unlink_2")
+                                    .expression(
+                                        "(open.flags & ((O_CREAT|O_RDWR|O_WRONLY|O_TRUNC)) > 0)")));
                   }
                 })
             .filters(
@@ -81,7 +88,8 @@ public class Example {
                     ;
                   }
                 })
-            .isEnabled(true);
+            .isEnabled(true)
+            .type(SecurityMonitoringRuleTypeCreate.WORKLOAD_SECURITY);
 
     try {
       SecurityMonitoringRuleResponse result = apiInstance.createSecurityMonitoringRule(body);

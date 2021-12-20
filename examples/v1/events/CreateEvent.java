@@ -1,4 +1,4 @@
-// Post an event returns "OK" response
+// Post an event with a long title returns "OK" response
 
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
@@ -15,12 +15,15 @@ public class Example {
 
     EventCreateRequest body =
         new EventCreateRequest()
-            .title("Example-Post_an_event_returns_OK_response")
+            .title(
+                "Example-Post_an_event_with_a_long_title_returns_OK_response very very very"
+                    + " looooooooong looooooooooooong loooooooooooooooooooooong"
+                    + " looooooooooooooooooooooooooong title with 100+ characters")
             .text("A text message.")
             .tags(
                 new ArrayList<String>() {
                   {
-                    add("test:ExamplePostaneventreturnsOKresponse");
+                    add("test:ExamplePostaneventwithalongtitlereturnsOKresponse");
                   }
                 });
 
