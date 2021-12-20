@@ -79,16 +79,16 @@ public class LogsListRequestTime {
   }
 
   /**
-   * Timezone can be specified both as an offset (e.g. \&quot;UTC+03:00\&quot;) or a regional zone
-   * (e.g. \&quot;Europe/Paris\&quot;).
+   * Timezone can be specified both as an offset (for example \&quot;UTC+03:00\&quot;) or a regional
+   * zone (for example \&quot;Europe/Paris\&quot;).
    *
    * @return timezone
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Timezone can be specified both as an offset (e.g. \"UTC+03:00\") or a regional zone"
-              + " (e.g. \"Europe/Paris\").")
+          "Timezone can be specified both as an offset (for example \"UTC+03:00\") or a regional"
+              + " zone (for example \"Europe/Paris\").")
   @JsonProperty(JSON_PROPERTY_TIMEZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTimezone() {

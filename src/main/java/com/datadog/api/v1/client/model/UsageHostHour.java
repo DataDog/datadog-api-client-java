@@ -116,16 +116,16 @@ public class UsageHostHour {
   }
 
   /**
-   * Contains the total number of hosts that reported via Alibaba integration (and were NOT running
-   * the Datadog Agent).
+   * Contains the total number of hosts that reported through Alibaba integration (and were NOT
+   * running the Datadog Agent).
    *
    * @return alibabaHostCount
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Contains the total number of hosts that reported via Alibaba integration (and were NOT"
-              + " running the Datadog Agent).")
+          "Contains the total number of hosts that reported through Alibaba integration (and were"
+              + " NOT running the Datadog Agent).")
   @JsonProperty(JSON_PROPERTY_ALIBABA_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getAlibabaHostCount() {
@@ -190,16 +190,16 @@ public class UsageHostHour {
   }
 
   /**
-   * Contains the total number of hosts that reported via the AWS integration (and were NOT running
-   * the Datadog Agent).
+   * Contains the total number of hosts that reported through the AWS integration (and were NOT
+   * running the Datadog Agent).
    *
    * @return awsHostCount
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Contains the total number of hosts that reported via the AWS integration (and were NOT"
-              + " running the Datadog Agent).")
+          "Contains the total number of hosts that reported through the AWS integration (and were"
+              + " NOT running the Datadog Agent).")
   @JsonProperty(JSON_PROPERTY_AWS_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getAwsHostCount() {
@@ -216,16 +216,16 @@ public class UsageHostHour {
   }
 
   /**
-   * Contains the total number of hosts that reported via Azure integration (and were NOT running
-   * the Datadog Agent).
+   * Contains the total number of hosts that reported through Azure integration (and were NOT
+   * running the Datadog Agent).
    *
    * @return azureHostCount
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Contains the total number of hosts that reported via Azure integration (and were NOT"
-              + " running the Datadog Agent).")
+          "Contains the total number of hosts that reported through Azure integration (and were"
+              + " NOT running the Datadog Agent).")
   @JsonProperty(JSON_PROPERTY_AZURE_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getAzureHostCount() {
@@ -267,16 +267,16 @@ public class UsageHostHour {
   }
 
   /**
-   * Contains the total number of hosts that reported via the Google Cloud integration (and were NOT
-   * running the Datadog Agent).
+   * Contains the total number of hosts that reported through the Google Cloud integration (and were
+   * NOT running the Datadog Agent).
    *
    * @return gcpHostCount
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Contains the total number of hosts that reported via the Google Cloud integration (and"
-              + " were NOT running the Datadog Agent).")
+          "Contains the total number of hosts that reported through the Google Cloud integration"
+              + " (and were NOT running the Datadog Agent).")
   @JsonProperty(JSON_PROPERTY_GCP_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getGcpHostCount() {
@@ -366,16 +366,16 @@ public class UsageHostHour {
   }
 
   /**
-   * Contains the total number of hosts that reported via the Azure App Services integration (and
-   * were NOT running the Datadog Agent).
+   * Contains the total number of hosts that reported through the Azure App Services integration
+   * (and were NOT running the Datadog Agent).
    *
    * @return infraAzureAppService
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Contains the total number of hosts that reported via the Azure App Services integration"
-              + " (and were NOT running the Datadog Agent).")
+          "Contains the total number of hosts that reported through the Azure App Services"
+              + " integration (and were NOT running the Datadog Agent).")
   @JsonProperty(JSON_PROPERTY_INFRA_AZURE_APP_SERVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getInfraAzureAppService() {
@@ -418,16 +418,16 @@ public class UsageHostHour {
   }
 
   /**
-   * Contains the total number of hosts that reported via vSphere integration (and were NOT running
-   * the Datadog Agent).
+   * Contains the total number of hosts that reported through vSphere integration (and were NOT
+   * running the Datadog Agent).
    *
    * @return vsphereHostCount
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Contains the total number of hosts that reported via vSphere integration (and were NOT"
-              + " running the Datadog Agent).")
+          "Contains the total number of hosts that reported through vSphere integration (and were"
+              + " NOT running the Datadog Agent).")
   @JsonProperty(JSON_PROPERTY_VSPHERE_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getVsphereHostCount() {

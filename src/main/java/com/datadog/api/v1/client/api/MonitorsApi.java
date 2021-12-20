@@ -167,10 +167,10 @@ public class MonitorsApi {
    * &#x60;avg(last_30m):outliers(avg:system.cpu.user{role:es-events-data} by {host},
    * &#39;dbscan&#39;, 7) &gt; 0&#x60; **Service Check Query** Example:
    * &#x60;\&quot;check\&quot;.over(tags).last(count).by(group).count_by_status()&#x60; -
-   * **&#x60;check&#x60;** name of the check, e.g. &#x60;datadog.agent.up&#x60; -
-   * **&#x60;tags&#x60;** one or more quoted tags (comma-separated), or \&quot;*\&quot;. e.g.:
-   * &#x60;.over(\&quot;env:prod\&quot;, \&quot;role:db\&quot;)&#x60;; **&#x60;over&#x60;** cannot
-   * be blank. - **&#x60;count&#x60;** must be at greater than or equal to your max threshold
+   * **&#x60;check&#x60;** name of the check, for example &#x60;datadog.agent.up&#x60; -
+   * **&#x60;tags&#x60;** one or more quoted tags (comma-separated), or \&quot;*\&quot;. for
+   * example: &#x60;.over(\&quot;env:prod\&quot;, \&quot;role:db\&quot;)&#x60;; **&#x60;over&#x60;**
+   * cannot be blank. - **&#x60;count&#x60;** must be at greater than or equal to your max threshold
    * (defined in the &#x60;options&#x60;). It is limited to 100. For example, if you&#39;ve
    * specified to notify on 1 critical, 3 ok, and 2 warn statuses, &#x60;count&#x60; should be at
    * least 3. - **&#x60;group&#x60;** must be specified for check monitors. Per-check grouping is
@@ -294,10 +294,10 @@ public class MonitorsApi {
    * &#x60;avg(last_30m):outliers(avg:system.cpu.user{role:es-events-data} by {host},
    * &#39;dbscan&#39;, 7) &gt; 0&#x60; **Service Check Query** Example:
    * &#x60;\&quot;check\&quot;.over(tags).last(count).by(group).count_by_status()&#x60; -
-   * **&#x60;check&#x60;** name of the check, e.g. &#x60;datadog.agent.up&#x60; -
-   * **&#x60;tags&#x60;** one or more quoted tags (comma-separated), or \&quot;*\&quot;. e.g.:
-   * &#x60;.over(\&quot;env:prod\&quot;, \&quot;role:db\&quot;)&#x60;; **&#x60;over&#x60;** cannot
-   * be blank. - **&#x60;count&#x60;** must be at greater than or equal to your max threshold
+   * **&#x60;check&#x60;** name of the check, for example &#x60;datadog.agent.up&#x60; -
+   * **&#x60;tags&#x60;** one or more quoted tags (comma-separated), or \&quot;*\&quot;. for
+   * example: &#x60;.over(\&quot;env:prod\&quot;, \&quot;role:db\&quot;)&#x60;; **&#x60;over&#x60;**
+   * cannot be blank. - **&#x60;count&#x60;** must be at greater than or equal to your max threshold
    * (defined in the &#x60;options&#x60;). It is limited to 100. For example, if you&#39;ve
    * specified to notify on 1 critical, 3 ok, and 2 warn statuses, &#x60;count&#x60; should be at
    * least 3. - **&#x60;group&#x60;** must be specified for check monitors. Per-check grouping is
@@ -438,8 +438,8 @@ public class MonitorsApi {
     /**
      * Set force
      *
-     * @param force Delete the monitor even if it&#39;s referenced by other resources (e.g. SLO,
-     *     composite monitor). (optional)
+     * @param force Delete the monitor even if it&#39;s referenced by other resources (for example
+     *     SLO, composite monitor). (optional)
      * @return DeleteMonitorOptionalParameters
      */
     public DeleteMonitorOptionalParameters force(String force) {
@@ -965,9 +965,10 @@ public class MonitorsApi {
     /**
      * Set sort
      *
-     * @param sort String for sort order, composed of field and sort order separate by a comma, e.g.
-     *     &#x60;name,asc&#x60;. Supported sort directions: &#x60;asc&#x60;, &#x60;desc&#x60;.
-     *     Supported fields: * &#x60;name&#x60; * &#x60;status&#x60; * &#x60;tags&#x60; (optional)
+     * @param sort String for sort order, composed of field and sort order separate by a comma, for
+     *     example &#x60;name,asc&#x60;. Supported sort directions: &#x60;asc&#x60;,
+     *     &#x60;desc&#x60;. Supported fields: * &#x60;name&#x60; * &#x60;status&#x60; *
+     *     &#x60;tags&#x60; (optional)
      * @return SearchMonitorGroupsOptionalParameters
      */
     public SearchMonitorGroupsOptionalParameters sort(String sort) {
@@ -1129,9 +1130,10 @@ public class MonitorsApi {
     /**
      * Set sort
      *
-     * @param sort String for sort order, composed of field and sort order separate by a comma, e.g.
-     *     &#x60;name,asc&#x60;. Supported sort directions: &#x60;asc&#x60;, &#x60;desc&#x60;.
-     *     Supported fields: * &#x60;name&#x60; * &#x60;status&#x60; * &#x60;tags&#x60; (optional)
+     * @param sort String for sort order, composed of field and sort order separate by a comma, for
+     *     example &#x60;name,asc&#x60;. Supported sort directions: &#x60;asc&#x60;,
+     *     &#x60;desc&#x60;. Supported fields: * &#x60;name&#x60; * &#x60;status&#x60; *
+     *     &#x60;tags&#x60; (optional)
      * @return SearchMonitorsOptionalParameters
      */
     public SearchMonitorsOptionalParameters sort(String sort) {

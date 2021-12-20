@@ -89,8 +89,8 @@ public class SLOThreshold {
 
   /**
    * A string representation of the target that indicates its precision. It uses trailing zeros to
-   * show significant decimal places (e.g. &#x60;98.00&#x60;). Always included in service level
-   * objective responses. Ignored in create/update requests.
+   * show significant decimal places (for example &#x60;98.00&#x60;). Always included in service
+   * level objective responses. Ignored in create/update requests.
    *
    * @return targetDisplay
    */
@@ -99,8 +99,8 @@ public class SLOThreshold {
       example = "99.9",
       value =
           "A string representation of the target that indicates its precision. It uses trailing"
-              + " zeros to show significant decimal places (e.g. `98.00`).  Always included in"
-              + " service level objective responses. Ignored in create/update requests.")
+              + " zeros to show significant decimal places (for example `98.00`).  Always included"
+              + " in service level objective responses. Ignored in create/update requests.")
   @JsonProperty(JSON_PROPERTY_TARGET_DISPLAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getTargetDisplay() {

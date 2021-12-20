@@ -146,7 +146,7 @@ public class ApiClient extends JavaTimeFormatter {
                               put(
                                   "site",
                                   new ServerVariable(
-                                      "The regional site for our customers.",
+                                      "The regional site for Datadog customers.",
                                       "datadoghq.com",
                                       new HashSet<String>(
                                           Arrays.asList(
@@ -207,7 +207,7 @@ public class ApiClient extends JavaTimeFormatter {
                               put(
                                   "site",
                                   new ServerVariable(
-                                      "The regional site for our customers.",
+                                      "The regional site for Datadog customers.",
                                       "datadoghq.com",
                                       new HashSet<String>(
                                           Arrays.asList(

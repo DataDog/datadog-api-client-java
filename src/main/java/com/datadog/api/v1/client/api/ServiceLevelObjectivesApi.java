@@ -229,8 +229,8 @@ public class ServiceLevelObjectivesApi {
     /**
      * Set force
      *
-     * @param force Delete the monitor even if it&#39;s referenced by other resources (e.g. SLO,
-     *     composite monitor). (optional)
+     * @param force Delete the monitor even if it&#39;s referenced by other resources (for example
+     *     SLO, composite monitor). (optional)
      * @return DeleteSLOOptionalParameters
      */
     public DeleteSLOOptionalParameters force(String force) {

@@ -115,16 +115,16 @@ public class EventCreateResponse {
   }
 
   /**
-   * POSIX timestamp of the event. Must be sent as an integer (i.e. no quotes). Limited to events no
-   * older than 7 days.
+   * POSIX timestamp of the event. Must be sent as an integer (that is no quotes). Limited to events
+   * no older than 7 days.
    *
    * @return dateHappened
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "POSIX timestamp of the event. Must be sent as an integer (i.e. no quotes). Limited to"
-              + " events no older than 7 days.")
+          "POSIX timestamp of the event. Must be sent as an integer (that is no quotes). Limited"
+              + " to events no older than 7 days.")
   @JsonProperty(JSON_PROPERTY_DATE_HAPPENED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getDateHappened() {
@@ -241,12 +241,13 @@ public class EventCreateResponse {
   }
 
   /**
-   * ID of the parent event. Must be sent as an integer (i.e. no quotes).
+   * ID of the parent event. Must be sent as an integer (that is no quotes).
    *
    * @return relatedEventId
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "ID of the parent event. Must be sent as an integer (i.e. no quotes).")
+  @ApiModelProperty(
+      value = "ID of the parent event. Must be sent as an integer (that is no quotes).")
   @JsonProperty(JSON_PROPERTY_RELATED_EVENT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getRelatedEventId() {
