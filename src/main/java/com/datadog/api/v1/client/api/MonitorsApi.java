@@ -244,7 +244,18 @@ public class MonitorsApi {
    * (between 1 and 2880), #h (between 1 and 48). - **&#x60;operator&#x60;** &#x60;&lt;&#x60;,
    * &#x60;&lt;&#x3D;&#x60;, &#x60;&gt;&#x60;, &#x60;&gt;&#x3D;&#x60;, &#x60;&#x3D;&#x3D;&#x60;, or
    * &#x60;!&#x3D;&#x60;. - **&#x60;#&#x60;** an integer or decimal number used to set the
-   * threshold. **NOTE** Only available on US1-FED and in closed beta on US1, EU, US3, and US5.
+   * threshold. **NOTE** Only available on US1-FED and in closed beta on US1, EU, US3, and US5. **CI
+   * Pipelines Alert Query** Example: &#x60;ci-pipelines(query).rollup(rollup_method[,
+   * measure]).last(time_window) operator #&#x60; - **&#x60;query&#x60;** The search query -
+   * following the [Log search syntax](https://docs.datadoghq.com/logs/search_syntax/). -
+   * **&#x60;rollup_method&#x60;** The stats roll-up method - supports &#x60;count&#x60;,
+   * &#x60;avg&#x60;, and &#x60;cardinality&#x60;. - **&#x60;measure&#x60;** For &#x60;avg&#x60; and
+   * cardinality &#x60;rollup_method&#x60; - specify the measure or the facet name you want to use.
+   * - **&#x60;time_window&#x60;** #m (between 1 and 2880), #h (between 1 and 48). -
+   * **&#x60;operator&#x60;** &#x60;&lt;&#x60;, &#x60;&lt;&#x3D;&#x60;, &#x60;&gt;&#x60;,
+   * &#x60;&gt;&#x3D;&#x60;, &#x60;&#x3D;&#x3D;&#x60;, or &#x60;!&#x3D;&#x60;. - **&#x60;#&#x60;**
+   * an integer or decimal number used to set the threshold. **NOTE** Only available in closed beta
+   * on US1, EU, US3 and US5.
    *
    * @param body Create a monitor request body. (required)
    * @return Monitor
@@ -371,7 +382,18 @@ public class MonitorsApi {
    * (between 1 and 2880), #h (between 1 and 48). - **&#x60;operator&#x60;** &#x60;&lt;&#x60;,
    * &#x60;&lt;&#x3D;&#x60;, &#x60;&gt;&#x60;, &#x60;&gt;&#x3D;&#x60;, &#x60;&#x3D;&#x3D;&#x60;, or
    * &#x60;!&#x3D;&#x60;. - **&#x60;#&#x60;** an integer or decimal number used to set the
-   * threshold. **NOTE** Only available on US1-FED and in closed beta on US1, EU, US3, and US5.
+   * threshold. **NOTE** Only available on US1-FED and in closed beta on US1, EU, US3, and US5. **CI
+   * Pipelines Alert Query** Example: &#x60;ci-pipelines(query).rollup(rollup_method[,
+   * measure]).last(time_window) operator #&#x60; - **&#x60;query&#x60;** The search query -
+   * following the [Log search syntax](https://docs.datadoghq.com/logs/search_syntax/). -
+   * **&#x60;rollup_method&#x60;** The stats roll-up method - supports &#x60;count&#x60;,
+   * &#x60;avg&#x60;, and &#x60;cardinality&#x60;. - **&#x60;measure&#x60;** For &#x60;avg&#x60; and
+   * cardinality &#x60;rollup_method&#x60; - specify the measure or the facet name you want to use.
+   * - **&#x60;time_window&#x60;** #m (between 1 and 2880), #h (between 1 and 48). -
+   * **&#x60;operator&#x60;** &#x60;&lt;&#x60;, &#x60;&lt;&#x3D;&#x60;, &#x60;&gt;&#x60;,
+   * &#x60;&gt;&#x3D;&#x60;, &#x60;&#x3D;&#x3D;&#x60;, or &#x60;!&#x3D;&#x60;. - **&#x60;#&#x60;**
+   * an integer or decimal number used to set the threshold. **NOTE** Only available in closed beta
+   * on US1, EU, US3 and US5.
    *
    * @param body Create a monitor request body. (required)
    * @return ApiResponse&lt;Monitor&gt;

@@ -27,3 +27,5 @@
 - `EVENT_V2_ALERT` (value: `"event-v2 alert"`)
 
 - `AUDIT_ALERT` (value: `"audit alert"`)
+
+- `CI_PIPELINES_ALERT` (value: `"ci-pipelines alert"`)
