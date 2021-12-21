@@ -24,7 +24,9 @@ import java.util.Objects;
 @JsonPropertyOrder({
   UsageCWSHour.JSON_PROPERTY_CWS_CONTAINER_COUNT,
   UsageCWSHour.JSON_PROPERTY_CWS_HOST_COUNT,
-  UsageCWSHour.JSON_PROPERTY_HOUR
+  UsageCWSHour.JSON_PROPERTY_HOUR,
+  UsageCWSHour.JSON_PROPERTY_ORG_NAME,
+  UsageCWSHour.JSON_PROPERTY_PUBLIC_ID
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageCWSHour {
@@ -37,6 +39,12 @@ public class UsageCWSHour {
 
   public static final String JSON_PROPERTY_HOUR = "hour";
   private OffsetDateTime hour;
+
+  public static final String JSON_PROPERTY_ORG_NAME = "org_name";
+  private String orgName;
+
+  public static final String JSON_PROPERTY_PUBLIC_ID = "public_id";
+  private String publicId;
 
   public UsageCWSHour cwsContainerCount(Long cwsContainerCount) {
     this.cwsContainerCount = cwsContainerCount;
@@ -112,6 +120,50 @@ public class UsageCWSHour {
     this.hour = hour;
   }
 
+  public UsageCWSHour orgName(String orgName) {
+    this.orgName = orgName;
+    return this;
+  }
+
+  /**
+   * The organization name.
+   *
+   * @return orgName
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The organization name.")
+  @JsonProperty(JSON_PROPERTY_ORG_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getOrgName() {
+    return orgName;
+  }
+
+  public void setOrgName(String orgName) {
+    this.orgName = orgName;
+  }
+
+  public UsageCWSHour publicId(String publicId) {
+    this.publicId = publicId;
+    return this;
+  }
+
+  /**
+   * The organization public ID.
+   *
+   * @return publicId
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The organization public ID.")
+  @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPublicId() {
+    return publicId;
+  }
+
+  public void setPublicId(String publicId) {
+    this.publicId = publicId;
+  }
+
   /** Return true if this UsageCWSHour object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -124,12 +176,14 @@ public class UsageCWSHour {
     UsageCWSHour usageCWSHour = (UsageCWSHour) o;
     return Objects.equals(this.cwsContainerCount, usageCWSHour.cwsContainerCount)
         && Objects.equals(this.cwsHostCount, usageCWSHour.cwsHostCount)
-        && Objects.equals(this.hour, usageCWSHour.hour);
+        && Objects.equals(this.hour, usageCWSHour.hour)
+        && Objects.equals(this.orgName, usageCWSHour.orgName)
+        && Objects.equals(this.publicId, usageCWSHour.publicId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cwsContainerCount, cwsHostCount, hour);
+    return Objects.hash(cwsContainerCount, cwsHostCount, hour, orgName, publicId);
   }
 
   @Override
@@ -139,6 +193,8 @@ public class UsageCWSHour {
     sb.append("    cwsContainerCount: ").append(toIndentedString(cwsContainerCount)).append("\n");
     sb.append("    cwsHostCount: ").append(toIndentedString(cwsHostCount)).append("\n");
     sb.append("    hour: ").append(toIndentedString(hour)).append("\n");
+    sb.append("    orgName: ").append(toIndentedString(orgName)).append("\n");
+    sb.append("    publicId: ").append(toIndentedString(publicId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

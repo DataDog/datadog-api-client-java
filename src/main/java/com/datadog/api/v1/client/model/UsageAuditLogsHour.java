@@ -23,7 +23,9 @@ import java.util.Objects;
 @ApiModel(description = "Audit logs usage for a given organization for a given hour.")
 @JsonPropertyOrder({
   UsageAuditLogsHour.JSON_PROPERTY_HOUR,
-  UsageAuditLogsHour.JSON_PROPERTY_LINES_INDEXED
+  UsageAuditLogsHour.JSON_PROPERTY_LINES_INDEXED,
+  UsageAuditLogsHour.JSON_PROPERTY_ORG_NAME,
+  UsageAuditLogsHour.JSON_PROPERTY_PUBLIC_ID
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageAuditLogsHour {
@@ -33,6 +35,12 @@ public class UsageAuditLogsHour {
 
   public static final String JSON_PROPERTY_LINES_INDEXED = "lines_indexed";
   private Long linesIndexed;
+
+  public static final String JSON_PROPERTY_ORG_NAME = "org_name";
+  private String orgName;
+
+  public static final String JSON_PROPERTY_PUBLIC_ID = "public_id";
+  private String publicId;
 
   public UsageAuditLogsHour hour(OffsetDateTime hour) {
     this.hour = hour;
@@ -78,6 +86,50 @@ public class UsageAuditLogsHour {
     this.linesIndexed = linesIndexed;
   }
 
+  public UsageAuditLogsHour orgName(String orgName) {
+    this.orgName = orgName;
+    return this;
+  }
+
+  /**
+   * The organization name.
+   *
+   * @return orgName
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The organization name.")
+  @JsonProperty(JSON_PROPERTY_ORG_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getOrgName() {
+    return orgName;
+  }
+
+  public void setOrgName(String orgName) {
+    this.orgName = orgName;
+  }
+
+  public UsageAuditLogsHour publicId(String publicId) {
+    this.publicId = publicId;
+    return this;
+  }
+
+  /**
+   * The organization public ID.
+   *
+   * @return publicId
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The organization public ID.")
+  @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPublicId() {
+    return publicId;
+  }
+
+  public void setPublicId(String publicId) {
+    this.publicId = publicId;
+  }
+
   /** Return true if this UsageAuditLogsHour object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -89,12 +141,14 @@ public class UsageAuditLogsHour {
     }
     UsageAuditLogsHour usageAuditLogsHour = (UsageAuditLogsHour) o;
     return Objects.equals(this.hour, usageAuditLogsHour.hour)
-        && Objects.equals(this.linesIndexed, usageAuditLogsHour.linesIndexed);
+        && Objects.equals(this.linesIndexed, usageAuditLogsHour.linesIndexed)
+        && Objects.equals(this.orgName, usageAuditLogsHour.orgName)
+        && Objects.equals(this.publicId, usageAuditLogsHour.publicId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hour, linesIndexed);
+    return Objects.hash(hour, linesIndexed, orgName, publicId);
   }
 
   @Override
@@ -103,6 +157,8 @@ public class UsageAuditLogsHour {
     sb.append("class UsageAuditLogsHour {\n");
     sb.append("    hour: ").append(toIndentedString(hour)).append("\n");
     sb.append("    linesIndexed: ").append(toIndentedString(linesIndexed)).append("\n");
+    sb.append("    orgName: ").append(toIndentedString(orgName)).append("\n");
+    sb.append("    publicId: ").append(toIndentedString(publicId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
