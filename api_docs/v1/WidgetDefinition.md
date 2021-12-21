@@ -28,6 +28,7 @@
 - [ScatterPlotWidgetDefinition](ScatterPlotWidgetDefinition.md)
 - [ServiceMapWidgetDefinition](ServiceMapWidgetDefinition.md)
 - [ServiceSummaryWidgetDefinition](ServiceSummaryWidgetDefinition.md)
+- [SunburstWidgetDefinition](SunburstWidgetDefinition.md)
 - [TableWidgetDefinition](TableWidgetDefinition.md)
 - [TimeseriesWidgetDefinition](TimeseriesWidgetDefinition.md)
 - [ToplistWidgetDefinition](ToplistWidgetDefinition.md)
@@ -62,6 +63,7 @@ import com.datadog.api.v1.client.model.SLOWidgetDefinition;
 import com.datadog.api.v1.client.model.ScatterPlotWidgetDefinition;
 import com.datadog.api.v1.client.model.ServiceMapWidgetDefinition;
 import com.datadog.api.v1.client.model.ServiceSummaryWidgetDefinition;
+import com.datadog.api.v1.client.model.SunburstWidgetDefinition;
 import com.datadog.api.v1.client.model.TableWidgetDefinition;
 import com.datadog.api.v1.client.model.TimeseriesWidgetDefinition;
 import com.datadog.api.v1.client.model.ToplistWidgetDefinition;
@@ -238,6 +240,13 @@ public class Example {
         exampleWidgetDefinition.setActualInstance(exampleServiceSummaryWidgetDefinition);
         // to get back the ServiceSummaryWidgetDefinition set earlier
         ServiceSummaryWidgetDefinition testServiceSummaryWidgetDefinition = (ServiceSummaryWidgetDefinition) exampleWidgetDefinition.getActualInstance();
+
+        // create a new SunburstWidgetDefinition
+        SunburstWidgetDefinition exampleSunburstWidgetDefinition = new SunburstWidgetDefinition();
+        // set WidgetDefinition to SunburstWidgetDefinition
+        exampleWidgetDefinition.setActualInstance(exampleSunburstWidgetDefinition);
+        // to get back the SunburstWidgetDefinition set earlier
+        SunburstWidgetDefinition testSunburstWidgetDefinition = (SunburstWidgetDefinition) exampleWidgetDefinition.getActualInstance();
 
         // create a new TableWidgetDefinition
         TableWidgetDefinition exampleTableWidgetDefinition = new TableWidgetDefinition();
