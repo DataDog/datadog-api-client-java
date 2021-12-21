@@ -15,6 +15,7 @@ import com.datadog.api.v1.client.model.SyntheticsDeviceID;
 import com.datadog.api.v1.client.model.SyntheticsTestOptions;
 import com.datadog.api.v1.client.model.SyntheticsTestOptionsRetry;
 import com.datadog.api.v1.client.model.SyntheticsTestRequest;
+import java.time.*;
 import java.util.*;
 
 public class Example {
