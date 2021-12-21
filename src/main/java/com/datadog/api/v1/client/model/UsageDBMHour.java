@@ -24,7 +24,9 @@ import java.util.Objects;
 @JsonPropertyOrder({
   UsageDBMHour.JSON_PROPERTY_DBM_HOST_COUNT,
   UsageDBMHour.JSON_PROPERTY_DBM_QUERIES_COUNT,
-  UsageDBMHour.JSON_PROPERTY_HOUR
+  UsageDBMHour.JSON_PROPERTY_HOUR,
+  UsageDBMHour.JSON_PROPERTY_ORG_NAME,
+  UsageDBMHour.JSON_PROPERTY_PUBLIC_ID
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageDBMHour {
@@ -37,6 +39,12 @@ public class UsageDBMHour {
 
   public static final String JSON_PROPERTY_HOUR = "hour";
   private OffsetDateTime hour;
+
+  public static final String JSON_PROPERTY_ORG_NAME = "org_name";
+  private String orgName;
+
+  public static final String JSON_PROPERTY_PUBLIC_ID = "public_id";
+  private String publicId;
 
   public UsageDBMHour dbmHostCount(Long dbmHostCount) {
     this.dbmHostCount = dbmHostCount;
@@ -112,6 +120,50 @@ public class UsageDBMHour {
     this.hour = hour;
   }
 
+  public UsageDBMHour orgName(String orgName) {
+    this.orgName = orgName;
+    return this;
+  }
+
+  /**
+   * The organization name.
+   *
+   * @return orgName
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The organization name.")
+  @JsonProperty(JSON_PROPERTY_ORG_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getOrgName() {
+    return orgName;
+  }
+
+  public void setOrgName(String orgName) {
+    this.orgName = orgName;
+  }
+
+  public UsageDBMHour publicId(String publicId) {
+    this.publicId = publicId;
+    return this;
+  }
+
+  /**
+   * The organization public ID.
+   *
+   * @return publicId
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The organization public ID.")
+  @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPublicId() {
+    return publicId;
+  }
+
+  public void setPublicId(String publicId) {
+    this.publicId = publicId;
+  }
+
   /** Return true if this UsageDBMHour object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -124,12 +176,14 @@ public class UsageDBMHour {
     UsageDBMHour usageDBMHour = (UsageDBMHour) o;
     return Objects.equals(this.dbmHostCount, usageDBMHour.dbmHostCount)
         && Objects.equals(this.dbmQueriesCount, usageDBMHour.dbmQueriesCount)
-        && Objects.equals(this.hour, usageDBMHour.hour);
+        && Objects.equals(this.hour, usageDBMHour.hour)
+        && Objects.equals(this.orgName, usageDBMHour.orgName)
+        && Objects.equals(this.publicId, usageDBMHour.publicId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dbmHostCount, dbmQueriesCount, hour);
+    return Objects.hash(dbmHostCount, dbmQueriesCount, hour, orgName, publicId);
   }
 
   @Override
@@ -139,6 +193,8 @@ public class UsageDBMHour {
     sb.append("    dbmHostCount: ").append(toIndentedString(dbmHostCount)).append("\n");
     sb.append("    dbmQueriesCount: ").append(toIndentedString(dbmQueriesCount)).append("\n");
     sb.append("    hour: ").append(toIndentedString(hour)).append("\n");
+    sb.append("    orgName: ").append(toIndentedString(orgName)).append("\n");
+    sb.append("    publicId: ").append(toIndentedString(publicId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
