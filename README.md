@@ -140,9 +140,9 @@ on your client:
 defaultClient.setCompress(false)
 ```
 
-### Enable requests tracing
+### Enable requests logging
 
-If you want to enable requests tracing, set the `debugging` flag on your client:
+If you want to enable requests logging, set the `debugging` flag on your client:
 
 ```java
 defaultClient.setDebugging(true)
