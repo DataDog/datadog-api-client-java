@@ -8,6 +8,7 @@ import com.datadog.api.v2.client.Pair;
 import com.datadog.api.v2.client.model.PermissionsResponse;
 import com.datadog.api.v2.client.model.RelationshipToPermission;
 import com.datadog.api.v2.client.model.RelationshipToUser;
+import com.datadog.api.v2.client.model.RoleCloneRequest;
 import com.datadog.api.v2.client.model.RoleCreateRequest;
 import com.datadog.api.v2.client.model.RoleCreateResponse;
 import com.datadog.api.v2.client.model.RoleResponse;
@@ -225,6 +226,99 @@ public class RolesApi {
 
     return apiClient.invokeAPI(
         "RolesApi.addUserToRole",
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
+   * Create a new role by cloning an existing role Clone an existing role
+   *
+   * @param roleId The ID of the role. (required)
+   * @param body (required)
+   * @return RoleResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public RoleResponse cloneRole(String roleId, RoleCloneRequest body) throws ApiException {
+    return cloneRoleWithHttpInfo(roleId, body).getData();
+  }
+
+  /**
+   * Create a new role by cloning an existing role Clone an existing role
+   *
+   * @param roleId The ID of the role. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;RoleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<RoleResponse> cloneRoleWithHttpInfo(String roleId, RoleCloneRequest body)
+      throws ApiException {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'roleId' is set
+    if (roleId == null) {
+      throw new ApiException(400, "Missing the required parameter 'roleId' when calling cloneRole");
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      throw new ApiException(400, "Missing the required parameter 'body' when calling cloneRole");
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/roles/{role_id}/clone"
+            .replaceAll("\\{" + "role_id" + "\\}", apiClient.escapeString(roleId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "cloneRole");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {"application/json"};
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
+
+    GenericType<RoleResponse> localVarReturnType = new GenericType<RoleResponse>() {};
+
+    return apiClient.invokeAPI(
+        "RolesApi.cloneRole",
         localVarPath,
         "POST",
         localVarQueryParams,

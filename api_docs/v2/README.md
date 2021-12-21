@@ -66,6 +66,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | _ProcessesApi_          | [**listProcesses**](ProcessesApi.md#listProcesses)                                                 | **GET** /api/v2/processes                                                                  | Get all processes                                  |
 | _RolesApi_              | [**addPermissionToRole**](RolesApi.md#addPermissionToRole)                                         | **POST** /api/v2/roles/{role_id}/permissions                                               | Grant permission to a role                         |
 | _RolesApi_              | [**addUserToRole**](RolesApi.md#addUserToRole)                                                     | **POST** /api/v2/roles/{role_id}/users                                                     | Add a user to a role                               |
+| _RolesApi_              | [**cloneRole**](RolesApi.md#cloneRole)                                                             | **POST** /api/v2/roles/{role_id}/clone                                                     | Create a new role by cloning an existing role      |
 | _RolesApi_              | [**createRole**](RolesApi.md#createRole)                                                           | **POST** /api/v2/roles                                                                     | Create role                                        |
 | _RolesApi_              | [**deleteRole**](RolesApi.md#deleteRole)                                                           | **DELETE** /api/v2/roles/{role_id}                                                         | Delete role                                        |
 | _RolesApi_              | [**getRole**](RolesApi.md#getRole)                                                                 | **GET** /api/v2/roles/{role_id}                                                            | Get a role                                         |
@@ -349,6 +350,9 @@ All URIs are relative to *https://api.datadoghq.com*
 - [ResponseMetaAttributes](ResponseMetaAttributes.md)
 - [Role](Role.md)
 - [RoleAttributes](RoleAttributes.md)
+- [RoleClone](RoleClone.md)
+- [RoleCloneAttributes](RoleCloneAttributes.md)
+- [RoleCloneRequest](RoleCloneRequest.md)
 - [RoleCreateAttributes](RoleCreateAttributes.md)
 - [RoleCreateData](RoleCreateData.md)
 - [RoleCreateRequest](RoleCreateRequest.md)
