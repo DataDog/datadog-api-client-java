@@ -9,6 +9,7 @@ import com.datadog.api.v2.client.model.UserUpdateAttributes;
 import com.datadog.api.v2.client.model.UserUpdateData;
 import com.datadog.api.v2.client.model.UserUpdateRequest;
 import com.datadog.api.v2.client.model.UsersType;
+import java.time.*;
 import java.util.*;
 
 public class Example {

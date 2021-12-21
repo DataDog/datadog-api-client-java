@@ -23,6 +23,7 @@ import com.datadog.api.v1.client.model.SyntheticsTestOptionsRetry;
 import com.datadog.api.v1.client.model.SyntheticsTestRequest;
 import com.datadog.api.v1.client.model.SyntheticsTestRequestCertificate;
 import com.datadog.api.v1.client.model.SyntheticsTestRequestCertificateItem;
+import java.time.*;
 import java.util.*;
 
 public class Example {
@@ -48,7 +49,7 @@ public class Example {
                                 new SyntheticsAssertion(
                                     new SyntheticsAssertionTarget()
                                         .operator(SyntheticsAssertionOperator.LESS_THAN)
-                                        .target("2000")
+                                        .target(2000)
                                         .type(SyntheticsAssertionType.RESPONSE_TIME)));
                             add(
                                 new SyntheticsAssertion(

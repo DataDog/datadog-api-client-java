@@ -30,6 +30,7 @@ import com.datadog.api.v1.client.model.WidgetLineType;
 import com.datadog.api.v1.client.model.WidgetLineWidth;
 import com.datadog.api.v1.client.model.WidgetLiveSpan;
 import com.datadog.api.v1.client.model.WidgetRequestStyle;
+import java.time.*;
 import java.util.*;
 
 public class Example {

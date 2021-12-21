@@ -11,6 +11,7 @@ import com.datadog.api.v2.client.model.LogsMetricCreateData;
 import com.datadog.api.v2.client.model.LogsMetricCreateRequest;
 import com.datadog.api.v2.client.model.LogsMetricResponse;
 import com.datadog.api.v2.client.model.LogsMetricType;
+import java.time.*;
 import java.util.*;
 
 public class Example {

@@ -6,6 +6,7 @@ import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.DowntimesApi;
 import com.datadog.api.v1.client.model.CancelDowntimesByScopeRequest;
 import com.datadog.api.v1.client.model.CanceledDowntimesIds;
+import java.time.*;
 import java.util.*;
 
 public class Example {

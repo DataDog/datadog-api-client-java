@@ -10,6 +10,7 @@ import com.datadog.api.v2.client.model.LogsListRequestPage;
 import com.datadog.api.v2.client.model.LogsListResponse;
 import com.datadog.api.v2.client.model.LogsQueryFilter;
 import com.datadog.api.v2.client.model.LogsSort;
+import java.time.*;
 import java.util.*;
 
 public class Example {
