@@ -1,5 +1,44 @@
 # CHANGELOG
 
+## 1.3.0 / 2021-12-21
+
+* [Added] Provide an all-in-one jar. See [#1088](https://github.com/DataDog/datadog-api-client-java/pull/1088).
+* [Added] Add Limit Note for Hourly Requests. See [#1076](https://github.com/DataDog/datadog-api-client-java/pull/1076).
+* [Added] Expose estimated logs usage in Usage Attribution API. See [#1077](https://github.com/DataDog/datadog-api-client-java/pull/1077).
+* [Added] Add endpoint to get corrections applied to an SLO. See [#1066](https://github.com/DataDog/datadog-api-client-java/pull/1066).
+* [Added] Expose `public_id` and `org_name` in Usage API response. See [#1069](https://github.com/DataDog/datadog-api-client-java/pull/1069).
+* [Added] Document query in `MonitorSearchResult`. See [#1067](https://github.com/DataDog/datadog-api-client-java/pull/1067).
+* [Added] Add 429 error responses. See [#1053](https://github.com/DataDog/datadog-api-client-java/pull/1053).
+* [Added] Add support for profiled Fargate tasks in Usage API. See [#1048](https://github.com/DataDog/datadog-api-client-java/pull/1048).
+* [Added] Add support for `websocket` synthetics tests. See [#1051](https://github.com/DataDog/datadog-api-client-java/pull/1051).
+* [Added] Add support for UDP Synthetics API tests. See [#1040](https://github.com/DataDog/datadog-api-client-java/pull/1040).
+* [Added] Add trigger synthetics tests endpoint. See [#1020](https://github.com/DataDog/datadog-api-client-java/pull/1020).
+* [Added] Add RUM Units to usage metering API. See [#1036](https://github.com/DataDog/datadog-api-client-java/pull/1036).
+* [Added] Add formulas and functions support to change widget. See [#952](https://github.com/DataDog/datadog-api-client-java/pull/952).
+* [Added] Add support for Azure `automute` option. See [#1028](https://github.com/DataDog/datadog-api-client-java/pull/1028).
+* [Added] Add v2 intake endpoint. See [#1019](https://github.com/DataDog/datadog-api-client-java/pull/1019).
+* [Added] Add support for RRULE fields in SLO corrections. See [#979](https://github.com/DataDog/datadog-api-client-java/pull/979).
+* [Added] Add aggregations attribute to v2 metric tag configuration. See [#959](https://github.com/DataDog/datadog-api-client-java/pull/959).
+* [Added] Add `apm_stats_query` property to `DistributionWidgetRequest`. See [#1009](https://github.com/DataDog/datadog-api-client-java/pull/1009).
+* [Added] Add `metrics_collection_enabled`, `cspm_resource_collection_enabled ` and `resource_collection_enabled` to AWS integration request. See [#1000](https://github.com/DataDog/datadog-api-client-java/pull/1000).
+* [Added] Add SDS to usage metering endpoint. See [#1003](https://github.com/DataDog/datadog-api-client-java/pull/1003).
+* [Added] Add endpoint to get details of a Synthetics batch. See [#951](https://github.com/DataDog/datadog-api-client-java/pull/951).
+* [Fixed] Fix a typo in an incident field attribute description. See [#1087](https://github.com/DataDog/datadog-api-client-java/pull/1087).
+* [Fixed] Fix `SecurityMonitoringSignal.attributes.tags` type. See [#1089](https://github.com/DataDog/datadog-api-client-java/pull/1089).
+* [Fixed] Be more resilient to plain text errors. See [#1074](https://github.com/DataDog/datadog-api-client-java/pull/1074).
+* [Fixed] Fix monitor `timeout_h` example and limits. See [#1064](https://github.com/DataDog/datadog-api-client-java/pull/1064).
+* [Fixed] Remove event title length constraint. See [#1060](https://github.com/DataDog/datadog-api-client-java/pull/1060).
+* [Fixed] Mark `batch_id` in Synthetics Trigger CI response as nullable. See [#1055](https://github.com/DataDog/datadog-api-client-java/pull/1055).
+* [Fixed] SLO Correction attributes `rrule` and `duration` can be nullable. See [#1043](https://github.com/DataDog/datadog-api-client-java/pull/1043).
+* [Fixed] Change `UsageNetworkFlowsHour.indexed_event_count` to match actual API. See [#1039](https://github.com/DataDog/datadog-api-client-java/pull/1039).
+* [Fixed] Fix type for `ratio_in_month` in usage metering. See [#1032](https://github.com/DataDog/datadog-api-client-java/pull/1032).
+* [Fixed] Use plural form for dbm hosts usage properties. See [#991](https://github.com/DataDog/datadog-api-client-java/pull/991).
+* [Fixed] Make monitor properties `priority` and `restricted_roles` nullable. See [#1008](https://github.com/DataDog/datadog-api-client-java/pull/1008).
+* [Changed] Fix required target in assertions and type in Synthetics step results. See [#1044](https://github.com/DataDog/datadog-api-client-java/pull/1044).
+* [Changed] Update Synthetics CI test metadata. See [#990](https://github.com/DataDog/datadog-api-client-java/pull/990).
+* [Deprecated] Remove session counts from RUM units response. See [#1101](https://github.com/DataDog/datadog-api-client-java/pull/1101).
+* [Deprecated] Update property descriptions for Dashboard RBAC release. See [#1018](https://github.com/DataDog/datadog-api-client-java/pull/1018).
+
 ## 1.2.0 / 2021-10-13
 
 * [Added] Add support for list widget in dashboards. See [#888](https://github.com/DataDog/datadog-api-client-java/pull/888).
