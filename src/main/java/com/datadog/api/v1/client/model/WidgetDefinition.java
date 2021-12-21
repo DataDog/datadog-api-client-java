@@ -1069,6 +1069,51 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
             Level.FINER, "Input data does not match schema 'ServiceSummaryWidgetDefinition'", e);
       }
 
+      // deserialize SunburstWidgetDefinition
+      try {
+        boolean attemptParsing = true;
+        // ensure that we respect type coercion as set on the client ObjectMapper
+        if (SunburstWidgetDefinition.class.equals(Integer.class)
+            || SunburstWidgetDefinition.class.equals(Long.class)
+            || SunburstWidgetDefinition.class.equals(Float.class)
+            || SunburstWidgetDefinition.class.equals(Double.class)
+            || SunburstWidgetDefinition.class.equals(Boolean.class)
+            || SunburstWidgetDefinition.class.equals(String.class)) {
+          attemptParsing = typeCoercion;
+          if (!attemptParsing) {
+            attemptParsing |=
+                ((SunburstWidgetDefinition.class.equals(Integer.class)
+                        || SunburstWidgetDefinition.class.equals(Long.class))
+                    && token == JsonToken.VALUE_NUMBER_INT);
+            attemptParsing |=
+                ((SunburstWidgetDefinition.class.equals(Float.class)
+                        || SunburstWidgetDefinition.class.equals(Double.class))
+                    && (token == JsonToken.VALUE_NUMBER_FLOAT
+                        || token == JsonToken.VALUE_NUMBER_INT));
+            attemptParsing |=
+                (SunburstWidgetDefinition.class.equals(Boolean.class)
+                    && (token == JsonToken.VALUE_FALSE || token == JsonToken.VALUE_TRUE));
+            attemptParsing |=
+                (SunburstWidgetDefinition.class.equals(String.class)
+                    && token == JsonToken.VALUE_STRING);
+          }
+        }
+        if (attemptParsing) {
+          tmp = tree.traverse(jp.getCodec()).readValueAs(SunburstWidgetDefinition.class);
+          // TODO: there is no validation against JSON schema constraints
+          // (min, max, enum, pattern...), this does not perform a strict JSON
+          // validation, which means the 'match' count may be higher than it should be.
+          if (!((SunburstWidgetDefinition) tmp).unparsed) {
+            deserialized = tmp;
+            match++;
+          }
+          log.log(Level.FINER, "Input data matches schema 'SunburstWidgetDefinition'");
+        }
+      } catch (Exception e) {
+        // deserialization failed, continue
+        log.log(Level.FINER, "Input data does not match schema 'SunburstWidgetDefinition'", e);
+      }
+
       // deserialize TableWidgetDefinition
       try {
         boolean attemptParsing = true;
@@ -1487,6 +1532,11 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
     setActualInstance(o);
   }
 
+  public WidgetDefinition(SunburstWidgetDefinition o) {
+    super("oneOf", Boolean.FALSE);
+    setActualInstance(o);
+  }
+
   public WidgetDefinition(TableWidgetDefinition o) {
     super("oneOf", Boolean.FALSE);
     setActualInstance(o);
@@ -1535,6 +1585,7 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
     schemas.put("ServiceMapWidgetDefinition", new GenericType<ServiceMapWidgetDefinition>() {});
     schemas.put(
         "ServiceSummaryWidgetDefinition", new GenericType<ServiceSummaryWidgetDefinition>() {});
+    schemas.put("SunburstWidgetDefinition", new GenericType<SunburstWidgetDefinition>() {});
     schemas.put("TableWidgetDefinition", new GenericType<TableWidgetDefinition>() {});
     schemas.put("TimeseriesWidgetDefinition", new GenericType<TimeseriesWidgetDefinition>() {});
     schemas.put("ToplistWidgetDefinition", new GenericType<ToplistWidgetDefinition>() {});
@@ -1557,8 +1608,8 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
    * ListStreamWidgetDefinition, LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition,
    * NoteWidgetDefinition, QueryValueWidgetDefinition, SLOWidgetDefinition,
    * ScatterPlotWidgetDefinition, ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition,
-   * TableWidgetDefinition, TimeseriesWidgetDefinition, ToplistWidgetDefinition,
-   * TreeMapWidgetDefinition
+   * SunburstWidgetDefinition, TableWidgetDefinition, TimeseriesWidgetDefinition,
+   * ToplistWidgetDefinition, TreeMapWidgetDefinition
    *
    * <p>It could be an instance of the 'oneOf' schemas. The oneOf child schemas may themselves be a
    * composed schema (allOf, anyOf, oneOf).
@@ -1687,6 +1738,11 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
       return;
     }
 
+    if (JSON.isInstanceOf(SunburstWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
+      super.setActualInstance(instance);
+      return;
+    }
+
     if (JSON.isInstanceOf(TableWidgetDefinition.class, instance, new HashSet<Class<?>>())) {
       super.setActualInstance(instance);
       return;
@@ -1720,8 +1776,9 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
             + " IFrameWidgetDefinition, ImageWidgetDefinition, ListStreamWidgetDefinition,"
             + " LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition, NoteWidgetDefinition,"
             + " QueryValueWidgetDefinition, SLOWidgetDefinition, ScatterPlotWidgetDefinition,"
-            + " ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition, TableWidgetDefinition,"
-            + " TimeseriesWidgetDefinition, ToplistWidgetDefinition, TreeMapWidgetDefinition");
+            + " ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition,"
+            + " SunburstWidgetDefinition, TableWidgetDefinition, TimeseriesWidgetDefinition,"
+            + " ToplistWidgetDefinition, TreeMapWidgetDefinition");
   }
 
   /**
@@ -1733,8 +1790,9 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
    * IFrameWidgetDefinition, ImageWidgetDefinition, ListStreamWidgetDefinition,
    * LogStreamWidgetDefinition, MonitorSummaryWidgetDefinition, NoteWidgetDefinition,
    * QueryValueWidgetDefinition, SLOWidgetDefinition, ScatterPlotWidgetDefinition,
-   * ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition, TableWidgetDefinition,
-   * TimeseriesWidgetDefinition, ToplistWidgetDefinition, TreeMapWidgetDefinition
+   * ServiceMapWidgetDefinition, ServiceSummaryWidgetDefinition, SunburstWidgetDefinition,
+   * TableWidgetDefinition, TimeseriesWidgetDefinition, ToplistWidgetDefinition,
+   * TreeMapWidgetDefinition
    *
    * @return The actual instance (AlertGraphWidgetDefinition, AlertValueWidgetDefinition,
    *     ChangeWidgetDefinition, CheckStatusWidgetDefinition, DistributionWidgetDefinition,
@@ -1744,8 +1802,8 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
    *     ImageWidgetDefinition, ListStreamWidgetDefinition, LogStreamWidgetDefinition,
    *     MonitorSummaryWidgetDefinition, NoteWidgetDefinition, QueryValueWidgetDefinition,
    *     SLOWidgetDefinition, ScatterPlotWidgetDefinition, ServiceMapWidgetDefinition,
-   *     ServiceSummaryWidgetDefinition, TableWidgetDefinition, TimeseriesWidgetDefinition,
-   *     ToplistWidgetDefinition, TreeMapWidgetDefinition)
+   *     ServiceSummaryWidgetDefinition, SunburstWidgetDefinition, TableWidgetDefinition,
+   *     TimeseriesWidgetDefinition, ToplistWidgetDefinition, TreeMapWidgetDefinition)
    */
   @Override
   public Object getActualInstance() {
@@ -2017,6 +2075,17 @@ public class WidgetDefinition extends AbstractOpenApiSchema {
   public ServiceSummaryWidgetDefinition getServiceSummaryWidgetDefinition()
       throws ClassCastException {
     return (ServiceSummaryWidgetDefinition) super.getActualInstance();
+  }
+
+  /**
+   * Get the actual instance of `SunburstWidgetDefinition`. If the actual instance is not
+   * `SunburstWidgetDefinition`, the ClassCastException will be thrown.
+   *
+   * @return The actual instance of `SunburstWidgetDefinition`
+   * @throws ClassCastException if the instance is not `SunburstWidgetDefinition`
+   */
+  public SunburstWidgetDefinition getSunburstWidgetDefinition() throws ClassCastException {
+    return (SunburstWidgetDefinition) super.getActualInstance();
   }
 
   /**
