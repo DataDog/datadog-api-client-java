@@ -1,13 +1,7 @@
-
-
 # SunburstWidgetLegendTableType
 
 ## Enum
 
+- `TABLE` (value: `"table"`)
 
-* `TABLE` (value: `"table"`)
-
-* `NONE` (value: `"none"`)
-
-
-
+- `NONE` (value: `"none"`)
