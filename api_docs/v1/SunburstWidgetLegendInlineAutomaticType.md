@@ -1,13 +1,7 @@
-
-
 # SunburstWidgetLegendInlineAutomaticType
 
 ## Enum
 
+- `INLINE` (value: `"inline"`)
 
-* `INLINE` (value: `"inline"`)
-
-* `AUTOMATIC` (value: `"automatic"`)
-
-
-
+- `AUTOMATIC` (value: `"automatic"`)

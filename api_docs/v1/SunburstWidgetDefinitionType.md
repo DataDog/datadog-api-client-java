@@ -1,11 +1,5 @@
-
-
 # SunburstWidgetDefinitionType
 
 ## Enum
 
-
-* `SUNBURST` (value: `"sunburst"`)
-
-
-
+- `SUNBURST` (value: `"sunburst"`)

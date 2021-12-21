@@ -1,14 +1,14 @@
-
-
 # SunburstWidgetLegend
 
 Configuration of the legend.
 
 ## oneOf schemas
-* [SunburstWidgetLegendInlineAutomatic](SunburstWidgetLegendInlineAutomatic.md)
-* [SunburstWidgetLegendTable](SunburstWidgetLegendTable.md)
+
+- [SunburstWidgetLegendInlineAutomatic](SunburstWidgetLegendInlineAutomatic.md)
+- [SunburstWidgetLegendTable](SunburstWidgetLegendTable.md)
 
 ## Example
+
 ```java
 // Import classes:
 import com.datadog.api.v1.client.model.SunburstWidgetLegend;
@@ -35,5 +35,3 @@ public class Example {
     }
 }
 ```
-
-
