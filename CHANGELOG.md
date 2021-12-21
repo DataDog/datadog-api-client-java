@@ -2,7 +2,7 @@
 
 ## 1.3.0 / 2021-12-21
 
-* [Added] Provide a all-in-one jar. See [#1088](https://github.com/DataDog/datadog-api-client-java/pull/1088).
+* [Added] Provide an all-in-one jar. See [#1088](https://github.com/DataDog/datadog-api-client-java/pull/1088).
 * [Added] Add Limit Note for Hourly Requests. See [#1076](https://github.com/DataDog/datadog-api-client-java/pull/1076).
 * [Added] Expose estimated logs usage in Usage Attribution API. See [#1077](https://github.com/DataDog/datadog-api-client-java/pull/1077).
 * [Added] Add endpoint to get corrections applied to an SLO. See [#1066](https://github.com/DataDog/datadog-api-client-java/pull/1066).
