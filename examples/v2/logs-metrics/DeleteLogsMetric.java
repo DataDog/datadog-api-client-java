@@ -18,7 +18,7 @@ public class Example {
     try {
       apiInstance.deleteLogsMetric(LOGS_METRIC_DATA_ID);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DowntimesApi#updateDowntime");
+      System.err.println("Exception when calling LogsMetricsApi#deleteLogsMetric");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

@@ -31,7 +31,7 @@ public class Example {
       apiInstance.submitLog(
           body, new SubmitLogOptionalParameters().contentEncoding(ContentEncoding.GZIP));
     } catch (ApiException e) {
-      System.err.println("Exception when calling DowntimesApi#updateDowntime");
+      System.err.println("Exception when calling LogsApi#submitLog");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

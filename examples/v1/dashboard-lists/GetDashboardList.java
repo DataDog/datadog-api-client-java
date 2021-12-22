@@ -20,7 +20,7 @@ public class Example {
       DashboardList result = apiInstance.getDashboardList(DASHBOARD_LIST_ID);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DowntimesApi#updateDowntime");
+      System.err.println("Exception when calling DashboardListsApi#getDashboardList");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

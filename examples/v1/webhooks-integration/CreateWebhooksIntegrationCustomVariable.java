@@ -25,7 +25,8 @@ public class Example {
           apiInstance.createWebhooksIntegrationCustomVariable(body);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DowntimesApi#updateDowntime");
+      System.err.println(
+          "Exception when calling WebhooksIntegrationApi#createWebhooksIntegrationCustomVariable");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
