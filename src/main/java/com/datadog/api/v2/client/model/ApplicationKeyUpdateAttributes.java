@@ -10,31 +10,31 @@
 
 package com.datadog.api.v2.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Attributes used to update an application Key. */
 @ApiModel(description = "Attributes used to update an application Key.")
-@JsonPropertyOrder({ApplicationKeyUpdateAttributes.JSON_PROPERTY_NAME})
+@JsonPropertyOrder({
+  ApplicationKeyUpdateAttributes.JSON_PROPERTY_NAME,
+  ApplicationKeyUpdateAttributes.JSON_PROPERTY_SCOPES
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ApplicationKeyUpdateAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  public ApplicationKeyUpdateAttributes() {}
-
-  @JsonCreator
-  public ApplicationKeyUpdateAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
-    this.name = name;
-  }
+  public static final String JSON_PROPERTY_SCOPES = "scopes";
+  private JsonNullable<List<String>> scopes = JsonNullable.<List<String>>undefined();
 
   public ApplicationKeyUpdateAttributes name(String name) {
     this.name = name;
@@ -46,18 +46,67 @@ public class ApplicationKeyUpdateAttributes {
    *
    * @return name
    */
+  @javax.annotation.Nullable
   @ApiModelProperty(
-      example = "Application Key for submitting metrics",
-      required = true,
+      example = "Application Key for managing dashboards",
       value = "Name of the application key.")
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getName() {
     return name;
   }
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public ApplicationKeyUpdateAttributes scopes(List<String> scopes) {
+    this.scopes = JsonNullable.<List<String>>of(scopes);
+    return this;
+  }
+
+  public ApplicationKeyUpdateAttributes addScopesItem(String scopesItem) {
+    if (this.scopes == null || !this.scopes.isPresent()) {
+      this.scopes = JsonNullable.<List<String>>of(new ArrayList<>());
+    }
+    try {
+      this.scopes.get().add(scopesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Array of scopes to grant the application key. This feature is in private beta, please contact
+   * Datadog support to enable scopes for your application keys.
+   *
+   * @return scopes
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      example = "[\"dashboards_read\",\"dashboards_write\",\"dashboards_public_share\"]",
+      value =
+          "Array of scopes to grant the application key. This feature is in private beta, please"
+              + " contact Datadog support to enable scopes for your application keys.")
+  @JsonIgnore
+  public List<String> getScopes() {
+    return scopes.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_SCOPES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<List<String>> getScopes_JsonNullable() {
+    return scopes;
+  }
+
+  @JsonProperty(JSON_PROPERTY_SCOPES)
+  public void setScopes_JsonNullable(JsonNullable<List<String>> scopes) {
+    this.scopes = scopes;
+  }
+
+  public void setScopes(List<String> scopes) {
+    this.scopes = JsonNullable.<List<String>>of(scopes);
   }
 
   /** Return true if this ApplicationKeyUpdateAttributes object is equal to o. */
@@ -71,12 +120,13 @@ public class ApplicationKeyUpdateAttributes {
     }
     ApplicationKeyUpdateAttributes applicationKeyUpdateAttributes =
         (ApplicationKeyUpdateAttributes) o;
-    return Objects.equals(this.name, applicationKeyUpdateAttributes.name);
+    return Objects.equals(this.name, applicationKeyUpdateAttributes.name)
+        && Objects.equals(this.scopes, applicationKeyUpdateAttributes.scopes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name);
+    return Objects.hash(name, scopes);
   }
 
   @Override
@@ -84,6 +134,7 @@ public class ApplicationKeyUpdateAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class ApplicationKeyUpdateAttributes {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    scopes: ").append(toIndentedString(scopes)).append("\n");
     sb.append("}");
     return sb.toString();
   }

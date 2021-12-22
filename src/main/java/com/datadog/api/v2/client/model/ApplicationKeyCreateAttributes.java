@@ -17,16 +17,25 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Attributes used to create an application Key. */
 @ApiModel(description = "Attributes used to create an application Key.")
-@JsonPropertyOrder({ApplicationKeyCreateAttributes.JSON_PROPERTY_NAME})
+@JsonPropertyOrder({
+  ApplicationKeyCreateAttributes.JSON_PROPERTY_NAME,
+  ApplicationKeyCreateAttributes.JSON_PROPERTY_SCOPES
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ApplicationKeyCreateAttributes {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_SCOPES = "scopes";
+  private JsonNullable<List<String>> scopes = JsonNullable.<List<String>>undefined();
 
   public ApplicationKeyCreateAttributes() {}
 
@@ -47,7 +56,7 @@ public class ApplicationKeyCreateAttributes {
    * @return name
    */
   @ApiModelProperty(
-      example = "Application Key for submitting metrics",
+      example = "Application Key for managing dashboards",
       required = true,
       value = "Name of the application key.")
   @JsonProperty(JSON_PROPERTY_NAME)
@@ -58,6 +67,55 @@ public class ApplicationKeyCreateAttributes {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public ApplicationKeyCreateAttributes scopes(List<String> scopes) {
+    this.scopes = JsonNullable.<List<String>>of(scopes);
+    return this;
+  }
+
+  public ApplicationKeyCreateAttributes addScopesItem(String scopesItem) {
+    if (this.scopes == null || !this.scopes.isPresent()) {
+      this.scopes = JsonNullable.<List<String>>of(new ArrayList<>());
+    }
+    try {
+      this.scopes.get().add(scopesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Array of scopes to grant the application key. This feature is in private beta, please contact
+   * Datadog support to enable scopes for your application keys.
+   *
+   * @return scopes
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      example = "[\"dashboards_read\",\"dashboards_write\",\"dashboards_public_share\"]",
+      value =
+          "Array of scopes to grant the application key. This feature is in private beta, please"
+              + " contact Datadog support to enable scopes for your application keys.")
+  @JsonIgnore
+  public List<String> getScopes() {
+    return scopes.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_SCOPES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<List<String>> getScopes_JsonNullable() {
+    return scopes;
+  }
+
+  @JsonProperty(JSON_PROPERTY_SCOPES)
+  public void setScopes_JsonNullable(JsonNullable<List<String>> scopes) {
+    this.scopes = scopes;
+  }
+
+  public void setScopes(List<String> scopes) {
+    this.scopes = JsonNullable.<List<String>>of(scopes);
   }
 
   /** Return true if this ApplicationKeyCreateAttributes object is equal to o. */
@@ -71,12 +129,13 @@ public class ApplicationKeyCreateAttributes {
     }
     ApplicationKeyCreateAttributes applicationKeyCreateAttributes =
         (ApplicationKeyCreateAttributes) o;
-    return Objects.equals(this.name, applicationKeyCreateAttributes.name);
+    return Objects.equals(this.name, applicationKeyCreateAttributes.name)
+        && Objects.equals(this.scopes, applicationKeyCreateAttributes.scopes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name);
+    return Objects.hash(name, scopes);
   }
 
   @Override
@@ -84,6 +143,7 @@ public class ApplicationKeyCreateAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class ApplicationKeyCreateAttributes {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    scopes: ").append(toIndentedString(scopes)).append("\n");
     sb.append("}");
     return sb.toString();
   }

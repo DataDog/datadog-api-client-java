@@ -16,7 +16,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Attributes of a full application key. */
 @ApiModel(description = "Attributes of a full application key.")
@@ -24,7 +27,8 @@ import java.util.Objects;
   FullApplicationKeyAttributes.JSON_PROPERTY_CREATED_AT,
   FullApplicationKeyAttributes.JSON_PROPERTY_KEY,
   FullApplicationKeyAttributes.JSON_PROPERTY_LAST4,
-  FullApplicationKeyAttributes.JSON_PROPERTY_NAME
+  FullApplicationKeyAttributes.JSON_PROPERTY_NAME,
+  FullApplicationKeyAttributes.JSON_PROPERTY_SCOPES
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FullApplicationKeyAttributes {
@@ -40,6 +44,9 @@ public class FullApplicationKeyAttributes {
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
+  public static final String JSON_PROPERTY_SCOPES = "scopes";
+  private JsonNullable<List<String>> scopes = JsonNullable.<List<String>>undefined();
 
   /**
    * Creation date of the application key.
@@ -94,7 +101,7 @@ public class FullApplicationKeyAttributes {
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
-      example = "Application Key for submitting metrics",
+      example = "Application Key for managing dashboards",
       value = "Name of the application key.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -104,6 +111,55 @@ public class FullApplicationKeyAttributes {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public FullApplicationKeyAttributes scopes(List<String> scopes) {
+    this.scopes = JsonNullable.<List<String>>of(scopes);
+    return this;
+  }
+
+  public FullApplicationKeyAttributes addScopesItem(String scopesItem) {
+    if (this.scopes == null || !this.scopes.isPresent()) {
+      this.scopes = JsonNullable.<List<String>>of(new ArrayList<>());
+    }
+    try {
+      this.scopes.get().add(scopesItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
+    return this;
+  }
+
+  /**
+   * Array of scopes to grant the application key. This feature is in private beta, please contact
+   * Datadog support to enable scopes for your application keys.
+   *
+   * @return scopes
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      example = "[\"dashboards_read\",\"dashboards_write\",\"dashboards_public_share\"]",
+      value =
+          "Array of scopes to grant the application key. This feature is in private beta, please"
+              + " contact Datadog support to enable scopes for your application keys.")
+  @JsonIgnore
+  public List<String> getScopes() {
+    return scopes.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_SCOPES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<List<String>> getScopes_JsonNullable() {
+    return scopes;
+  }
+
+  @JsonProperty(JSON_PROPERTY_SCOPES)
+  public void setScopes_JsonNullable(JsonNullable<List<String>> scopes) {
+    this.scopes = scopes;
+  }
+
+  public void setScopes(List<String> scopes) {
+    this.scopes = JsonNullable.<List<String>>of(scopes);
   }
 
   /** Return true if this FullApplicationKeyAttributes object is equal to o. */
@@ -119,12 +175,13 @@ public class FullApplicationKeyAttributes {
     return Objects.equals(this.createdAt, fullApplicationKeyAttributes.createdAt)
         && Objects.equals(this.key, fullApplicationKeyAttributes.key)
         && Objects.equals(this.last4, fullApplicationKeyAttributes.last4)
-        && Objects.equals(this.name, fullApplicationKeyAttributes.name);
+        && Objects.equals(this.name, fullApplicationKeyAttributes.name)
+        && Objects.equals(this.scopes, fullApplicationKeyAttributes.scopes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(createdAt, key, last4, name);
+    return Objects.hash(createdAt, key, last4, name, scopes);
   }
 
   @Override
@@ -135,6 +192,7 @@ public class FullApplicationKeyAttributes {
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    last4: ").append(toIndentedString(last4)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    scopes: ").append(toIndentedString(scopes)).append("\n");
     sb.append("}");
     return sb.toString();
   }
