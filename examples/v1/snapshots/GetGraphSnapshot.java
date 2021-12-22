@@ -16,8 +16,8 @@ public class Example {
     try {
       GraphSnapshot result =
           apiInstance.getGraphSnapshot(
-              (Instant.now().getEpochSecond() + -1 * 86400),
-              Instant.now().getEpochSecond(),
+              OffsetDateTime.now().plusDays(-1).toInstant().getEpochSecond(),
+              OffsetDateTime.now().toInstant().getEpochSecond(),
               new GetGraphSnapshotOptionalParameters()
                   .metricQuery("avg:system.load.1{*}")
                   .title("System load"));

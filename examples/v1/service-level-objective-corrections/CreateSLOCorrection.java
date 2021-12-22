@@ -30,9 +30,9 @@ public class Example {
                         new SLOCorrectionCreateRequestAttributes()
                             .category(SLOCorrectionCategory.SCHEDULED_MAINTENANCE)
                             .description("Example-Create_an_SLO_correction_returns_OK_response")
-                            .end((Instant.now().getEpochSecond() + 1 * 3600))
+                            .end(OffsetDateTime.now().plusHours(1).toInstant().getEpochSecond())
                             .sloId(SLO_DATA_0_ID)
-                            .start(Instant.now().getEpochSecond())
+                            .start(OffsetDateTime.now().toInstant().getEpochSecond())
                             .timezone("UTC"))
                     .type(SLOCorrectionType.CORRECTION));
 

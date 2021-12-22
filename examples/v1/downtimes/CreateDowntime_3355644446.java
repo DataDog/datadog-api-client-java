@@ -18,7 +18,7 @@ public class Example {
     Downtime body =
         new Downtime()
             .message("Example-Schedule_a_monitor_downtime_returns_OK_response")
-            .start(Instant.now().getEpochSecond())
+            .start(OffsetDateTime.now().toInstant().getEpochSecond())
             .timezone("Etc/UTC")
             .scope(
                 new ArrayList<String>() {

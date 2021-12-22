@@ -16,7 +16,7 @@ public class Example {
     Downtime body =
         new Downtime()
             .message("Example-Schedule_a_downtime_returns_OK_response")
-            .start(Instant.now().getEpochSecond())
+            .start(OffsetDateTime.now().toInstant().getEpochSecond())
             .timezone("Etc/UTC")
             .scope(
                 new ArrayList<String>() {
@@ -38,7 +38,7 @@ public class Example {
                             add("Fri");
                           }
                         })
-                    .untilDate((Instant.now().getEpochSecond() + 21 * 86400)));
+                    .untilDate(OffsetDateTime.now().plusDays(21).toInstant().getEpochSecond()));
 
     try {
       Downtime result = apiInstance.createDowntime(body);

@@ -23,8 +23,8 @@ public class Example {
                     add("*");
                   }
                 })
-            .start(Instant.now().getEpochSecond())
-            .end((Instant.now().getEpochSecond() + 1 * 3600))
+            .start(OffsetDateTime.now().toInstant().getEpochSecond())
+            .end(OffsetDateTime.now().plusHours(1).toInstant().getEpochSecond())
             .timezone("Etc/UTC");
 
     try {

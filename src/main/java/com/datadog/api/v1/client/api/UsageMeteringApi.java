@@ -5,6 +5,8 @@ import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.ApiResponse;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.Pair;
+import com.datadog.api.v1.client.model.HourlyUsageAttributionResponse;
+import com.datadog.api.v1.client.model.HourlyUsageAttributionUsageType;
 import com.datadog.api.v1.client.model.UsageAnalyzedLogsResponse;
 import com.datadog.api.v1.client.model.UsageAttributionResponse;
 import com.datadog.api.v1.client.model.UsageAttributionSort;
@@ -224,6 +226,184 @@ public class UsageMeteringApi {
 
     return apiClient.invokeAPI(
         "UsageMeteringApi.getDailyCustomReports",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /** Manage optional parameters to getHourlyUsageAttribution. */
+  public static class GetHourlyUsageAttributionOptionalParameters {
+    private OffsetDateTime endHr;
+    private String nextRecordId;
+    private String tagBreakdownKeys;
+
+    /**
+     * Set endHr
+     *
+     * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+     *     for usage ending **before** this hour. (optional)
+     * @return GetHourlyUsageAttributionOptionalParameters
+     */
+    public GetHourlyUsageAttributionOptionalParameters endHr(OffsetDateTime endHr) {
+      this.endHr = endHr;
+      return this;
+    }
+
+    /**
+     * Set nextRecordId
+     *
+     * @param nextRecordId List following results with a next_record_id provided in the previous
+     *     query. (optional)
+     * @return GetHourlyUsageAttributionOptionalParameters
+     */
+    public GetHourlyUsageAttributionOptionalParameters nextRecordId(String nextRecordId) {
+      this.nextRecordId = nextRecordId;
+      return this;
+    }
+
+    /**
+     * Set tagBreakdownKeys
+     *
+     * @param tagBreakdownKeys Comma separated list of tags used to group usage. If no value is
+     *     provided the usage will not be broken down by tags. (optional)
+     * @return GetHourlyUsageAttributionOptionalParameters
+     */
+    public GetHourlyUsageAttributionOptionalParameters tagBreakdownKeys(String tagBreakdownKeys) {
+      this.tagBreakdownKeys = tagBreakdownKeys;
+      return this;
+    }
+  }
+
+  /**
+   * Get Hourly Usage Attribution Get Hourly Usage Attribution.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param usageType Usage type to retrieve. (required)
+   * @return HourlyUsageAttributionResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public HourlyUsageAttributionResponse getHourlyUsageAttribution(
+      OffsetDateTime startHr, HourlyUsageAttributionUsageType usageType) throws ApiException {
+    return getHourlyUsageAttributionWithHttpInfo(
+            startHr, usageType, new GetHourlyUsageAttributionOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get Hourly Usage Attribution Get Hourly Usage Attribution.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param usageType Usage type to retrieve. (required)
+   * @param parameters Optional parameters for the request.
+   * @return HourlyUsageAttributionResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public HourlyUsageAttributionResponse getHourlyUsageAttribution(
+      OffsetDateTime startHr,
+      HourlyUsageAttributionUsageType usageType,
+      GetHourlyUsageAttributionOptionalParameters parameters)
+      throws ApiException {
+    return getHourlyUsageAttributionWithHttpInfo(startHr, usageType, parameters).getData();
+  }
+
+  /**
+   * Get Hourly Usage Attribution Get Hourly Usage Attribution.
+   *
+   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60;
+   *     for usage beginning at this hour. (required)
+   * @param usageType Usage type to retrieve. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;HourlyUsageAttributionResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<HourlyUsageAttributionResponse> getHourlyUsageAttributionWithHttpInfo(
+      OffsetDateTime startHr,
+      HourlyUsageAttributionUsageType usageType,
+      GetHourlyUsageAttributionOptionalParameters parameters)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'startHr' is set
+    if (startHr == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'startHr' when calling getHourlyUsageAttribution");
+    }
+
+    // verify the required parameter 'usageType' is set
+    if (usageType == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'usageType' when calling getHourlyUsageAttribution");
+    }
+    OffsetDateTime endHr = parameters.endHr;
+    String nextRecordId = parameters.nextRecordId;
+    String tagBreakdownKeys = parameters.tagBreakdownKeys;
+    // create path and map variables
+    String localVarPath = "/api/v1/usage/hourly-attribution";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_hr", startHr));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_hr", endHr));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "usage_type", usageType));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "next_record_id", nextRecordId));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "tag_breakdown_keys", tagBreakdownKeys));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getHourlyUsageAttribution");
+
+    final String[] localVarAccepts = {
+      "application/json;datetime-format=rfc3339", "application/json"
+    };
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
+
+    GenericType<HourlyUsageAttributionResponse> localVarReturnType =
+        new GenericType<HourlyUsageAttributionResponse>() {};
+
+    return apiClient.invokeAPI(
+        "UsageMeteringApi.getHourlyUsageAttribution",
         localVarPath,
         "GET",
         localVarQueryParams,

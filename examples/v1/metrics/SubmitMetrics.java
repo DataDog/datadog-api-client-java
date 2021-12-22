@@ -30,7 +30,10 @@ public class Example {
                                         new ArrayList<Double>() {
                                           {
                                             add(
-                                                Long.valueOf(Instant.now().getEpochSecond())
+                                                Long.valueOf(
+                                                        OffsetDateTime.now()
+                                                            .toInstant()
+                                                            .getEpochSecond())
                                                     .doubleValue());
                                             add(1.1);
                                           }

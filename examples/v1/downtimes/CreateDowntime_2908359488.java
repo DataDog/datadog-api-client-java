@@ -20,7 +20,7 @@ public class Example {
                 new DowntimeRecurrence()
                     .period(1)
                     .type("weeks")
-                    .untilDate((Instant.now().getEpochSecond() + 21 * 86400))
+                    .untilDate(OffsetDateTime.now().plusDays(21).toInstant().getEpochSecond())
                     .weekDays(
                         new ArrayList<String>() {
                           {
@@ -37,8 +37,8 @@ public class Example {
                     add("*");
                   }
                 })
-            .start(Instant.now().getEpochSecond())
-            .end((Instant.now().getEpochSecond() + 1 * 3600))
+            .start(OffsetDateTime.now().toInstant().getEpochSecond())
+            .end(OffsetDateTime.now().plusHours(1).toInstant().getEpochSecond())
             .timezone("Etc/UTC");
 
     try {
