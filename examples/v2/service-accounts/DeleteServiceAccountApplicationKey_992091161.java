@@ -23,7 +23,8 @@ public class Example {
       apiInstance.deleteServiceAccountApplicationKey(
           SERVICE_ACCOUNT_USER_DATA_ID, SERVICE_ACCOUNT_APPLICATION_KEY_DATA_ID);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DowntimesApi#updateDowntime");
+      System.err.println(
+          "Exception when calling ServiceAccountsApi#deleteServiceAccountApplicationKey");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

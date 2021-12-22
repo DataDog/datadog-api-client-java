@@ -23,7 +23,7 @@ public class Example {
               new ListRolesOptionalParameters().filter(ROLE_DATA_ATTRIBUTES_NAME));
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DowntimesApi#updateDowntime");
+      System.err.println("Exception when calling RolesApi#listRoles");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

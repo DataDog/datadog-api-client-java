@@ -53,7 +53,7 @@ logs("service:foo AND type:error").index("main").rollup("count").by("source").la
     try {
       apiInstance.validateMonitor(body);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DowntimesApi#updateDowntime");
+      System.err.println("Exception when calling MonitorsApi#validateMonitor");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

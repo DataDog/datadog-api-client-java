@@ -18,7 +18,7 @@ public class Example {
     try {
       apiInstance.deleteApplicationKey(APPLICATION_KEY_DATA_ID);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DowntimesApi#updateDowntime");
+      System.err.println("Exception when calling KeyManagementApi#deleteApplicationKey");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

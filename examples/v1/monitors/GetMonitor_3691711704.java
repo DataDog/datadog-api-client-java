@@ -21,7 +21,7 @@ public class Example {
       Monitor result = apiInstance.getMonitor(SYNTHETICS_API_TEST_MONITOR_ID);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DowntimesApi#updateDowntime");
+      System.err.println("Exception when calling MonitorsApi#getMonitor");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

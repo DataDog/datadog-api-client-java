@@ -33,7 +33,7 @@ public class Example {
     try {
       apiInstance.deleteDashboards(body);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DowntimesApi#updateDowntime");
+      System.err.println("Exception when calling DashboardsApi#deleteDashboards");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

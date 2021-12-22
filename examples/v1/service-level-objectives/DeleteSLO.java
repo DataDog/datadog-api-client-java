@@ -20,7 +20,7 @@ public class Example {
       SLODeleteResponse result = apiInstance.deleteSLO(SLO_DATA_0_ID);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DowntimesApi#updateDowntime");
+      System.err.println("Exception when calling ServiceLevelObjectivesApi#deleteSLO");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

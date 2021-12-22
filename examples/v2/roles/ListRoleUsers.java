@@ -20,7 +20,7 @@ public class Example {
       UsersResponse result = apiInstance.listRoleUsers(ROLE_DATA_ID);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DowntimesApi#updateDowntime");
+      System.err.println("Exception when calling RolesApi#listRoleUsers");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

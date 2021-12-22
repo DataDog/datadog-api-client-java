@@ -130,7 +130,7 @@ public class Example {
       SyntheticsAPITest result = apiInstance.updateAPITest(SYNTHETICS_API_TEST_PUBLIC_ID, body);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling DowntimesApi#updateDowntime");
+      System.err.println("Exception when calling SyntheticsApi#updateAPITest");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
