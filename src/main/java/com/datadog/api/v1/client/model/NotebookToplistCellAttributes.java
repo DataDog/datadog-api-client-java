@@ -8,19 +8,37 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.NotebookCellTime;
+import com.datadog.api.v1.client.model.NotebookGraphSize;
+import com.datadog.api.v1.client.model.NotebookSplitBy;
+import com.datadog.api.v1.client.model.ToplistWidgetDefinition;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** The attributes of a notebook &#x60;toplist&#x60; cell. */
+
+/**
+ * The attributes of a notebook &#x60;toplist&#x60; cell.
+ */
 @ApiModel(description = "The attributes of a notebook `toplist` cell.")
 @JsonPropertyOrder({
   NotebookToplistCellAttributes.JSON_PROPERTY_DEFINITION,
@@ -29,8 +47,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
   NotebookToplistCellAttributes.JSON_PROPERTY_TIME
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class NotebookToplistCellAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DEFINITION = "definition";
   private ToplistWidgetDefinition definition;
 
@@ -47,10 +67,10 @@ public class NotebookToplistCellAttributes {
 
   @JsonCreator
   public NotebookToplistCellAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DEFINITION)
-          ToplistWidgetDefinition definition) {
-    this.definition = definition;
-    this.unparsed |= definition.unparsed;
+            @JsonProperty(required=true, value=JSON_PROPERTY_DEFINITION) ToplistWidgetDefinition definition
+            ) {
+        this.definition = definition;
+        this.unparsed |= definition.unparsed;
   }
 
   public NotebookToplistCellAttributes definition(ToplistWidgetDefinition definition) {
@@ -59,21 +79,23 @@ public class NotebookToplistCellAttributes {
     return this;
   }
 
-  /**
+   /**
    * Get definition
-   *
    * @return definition
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DEFINITION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public ToplistWidgetDefinition getDefinition() {
     return definition;
   }
 
+
   public void setDefinition(ToplistWidgetDefinition definition) {
     this.definition = definition;
   }
+
 
   public NotebookToplistCellAttributes graphSize(NotebookGraphSize graphSize) {
     this.graphSize = graphSize;
@@ -81,25 +103,27 @@ public class NotebookToplistCellAttributes {
     return this;
   }
 
-  /**
+   /**
    * Get graphSize
-   *
    * @return graphSize
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_GRAPH_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public NotebookGraphSize getGraphSize() {
     return graphSize;
   }
 
+
   public void setGraphSize(NotebookGraphSize graphSize) {
     if (!graphSize.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.graphSize = graphSize;
   }
+
 
   public NotebookToplistCellAttributes splitBy(NotebookSplitBy splitBy) {
     this.splitBy = splitBy;
@@ -107,46 +131,49 @@ public class NotebookToplistCellAttributes {
     return this;
   }
 
-  /**
+   /**
    * Get splitBy
-   *
    * @return splitBy
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SPLIT_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public NotebookSplitBy getSplitBy() {
     return splitBy;
   }
 
+
   public void setSplitBy(NotebookSplitBy splitBy) {
     this.splitBy = splitBy;
   }
+
 
   public NotebookToplistCellAttributes time(NotebookCellTime time) {
     this.time = JsonNullable.<NotebookCellTime>of(time);
     return this;
   }
 
-  /**
+   /**
    * Get time
-   *
    * @return time
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonIgnore
+
   public NotebookCellTime getTime() {
-    return time.orElse(null);
+        return time.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public JsonNullable<NotebookCellTime> getTime_JsonNullable() {
     return time;
   }
-
+  
   @JsonProperty(JSON_PROPERTY_TIME)
   public void setTime_JsonNullable(JsonNullable<NotebookCellTime> time) {
     this.time = time;
@@ -156,7 +183,10 @@ public class NotebookToplistCellAttributes {
     this.time = JsonNullable.<NotebookCellTime>of(time);
   }
 
-  /** Return true if this NotebookToplistCellAttributes object is equal to o. */
+
+  /**
+   * Return true if this NotebookToplistCellAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -166,10 +196,10 @@ public class NotebookToplistCellAttributes {
       return false;
     }
     NotebookToplistCellAttributes notebookToplistCellAttributes = (NotebookToplistCellAttributes) o;
-    return Objects.equals(this.definition, notebookToplistCellAttributes.definition)
-        && Objects.equals(this.graphSize, notebookToplistCellAttributes.graphSize)
-        && Objects.equals(this.splitBy, notebookToplistCellAttributes.splitBy)
-        && Objects.equals(this.time, notebookToplistCellAttributes.time);
+    return Objects.equals(this.definition, notebookToplistCellAttributes.definition) &&
+        Objects.equals(this.graphSize, notebookToplistCellAttributes.graphSize) &&
+        Objects.equals(this.splitBy, notebookToplistCellAttributes.splitBy) &&
+        Objects.equals(this.time, notebookToplistCellAttributes.time);
   }
 
   @Override
@@ -190,7 +220,8 @@ public class NotebookToplistCellAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -198,4 +229,6 @@ public class NotebookToplistCellAttributes {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

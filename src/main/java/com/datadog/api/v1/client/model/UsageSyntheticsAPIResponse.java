@@ -8,32 +8,44 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.UsageSyntheticsAPIHour;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
- * Response containing the number of Synthetics API tests run for each hour for a given
- * organization.
+ * Response containing the number of Synthetics API tests run for each hour for a given organization.
  */
-@ApiModel(
-    description =
-        "Response containing the number of Synthetics API tests run for each hour for a given"
-            + " organization.")
-@JsonPropertyOrder({UsageSyntheticsAPIResponse.JSON_PROPERTY_USAGE})
+@ApiModel(description = "Response containing the number of Synthetics API tests run for each hour for a given organization.")
+@JsonPropertyOrder({
+  UsageSyntheticsAPIResponse.JSON_PROPERTY_USAGE
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class UsageSyntheticsAPIResponse {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_USAGE = "usage";
   private List<UsageSyntheticsAPIHour> usage = null;
+
 
   public UsageSyntheticsAPIResponse usage(List<UsageSyntheticsAPIHour> usage) {
     this.usage = usage;
@@ -52,24 +64,28 @@ public class UsageSyntheticsAPIResponse {
     return this;
   }
 
-  /**
+   /**
    * Get hourly usage for Synthetics API tests.
-   *
    * @return usage
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Get hourly usage for Synthetics API tests.")
   @JsonProperty(JSON_PROPERTY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<UsageSyntheticsAPIHour> getUsage() {
     return usage;
   }
+
 
   public void setUsage(List<UsageSyntheticsAPIHour> usage) {
     this.usage = usage;
   }
 
-  /** Return true if this UsageSyntheticsAPIResponse object is equal to o. */
+
+  /**
+   * Return true if this UsageSyntheticsAPIResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -97,7 +113,8 @@ public class UsageSyntheticsAPIResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -105,4 +122,6 @@ public class UsageSyntheticsAPIResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

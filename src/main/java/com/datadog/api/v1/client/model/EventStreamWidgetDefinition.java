@@ -8,25 +8,34 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.EventStreamWidgetDefinitionType;
+import com.datadog.api.v1.client.model.WidgetEventSize;
+import com.datadog.api.v1.client.model.WidgetTextAlign;
+import com.datadog.api.v1.client.model.WidgetTime;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
- * The event stream is a widget version of the stream of events on the Event Stream view. Only
- * available on FREE layout dashboards.
+ * The event stream is a widget version of the stream of events on the Event Stream view. Only available on FREE layout dashboards.
  */
-@ApiModel(
-    description =
-        "The event stream is a widget version of the stream of events on the Event Stream view."
-            + " Only available on FREE layout dashboards.")
+@ApiModel(description = "The event stream is a widget version of the stream of events on the Event Stream view. Only available on FREE layout dashboards.")
 @JsonPropertyOrder({
   EventStreamWidgetDefinition.JSON_PROPERTY_EVENT_SIZE,
   EventStreamWidgetDefinition.JSON_PROPERTY_QUERY,
@@ -38,8 +47,10 @@ import java.util.Objects;
   EventStreamWidgetDefinition.JSON_PROPERTY_TYPE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class EventStreamWidgetDefinition {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_EVENT_SIZE = "event_size";
   private WidgetEventSize eventSize;
 
@@ -68,12 +79,12 @@ public class EventStreamWidgetDefinition {
 
   @JsonCreator
   public EventStreamWidgetDefinition(
-      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          EventStreamWidgetDefinitionType type) {
-    this.query = query;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_QUERY) String query,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE) EventStreamWidgetDefinitionType type
+            ) {
+        this.query = query;
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
 
   public EventStreamWidgetDefinition eventSize(WidgetEventSize eventSize) {
@@ -82,69 +93,74 @@ public class EventStreamWidgetDefinition {
     return this;
   }
 
-  /**
+   /**
    * Get eventSize
-   *
    * @return eventSize
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EVENT_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public WidgetEventSize getEventSize() {
     return eventSize;
   }
 
+
   public void setEventSize(WidgetEventSize eventSize) {
     if (!eventSize.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.eventSize = eventSize;
   }
+
 
   public EventStreamWidgetDefinition query(String query) {
     this.query = query;
     return this;
   }
 
-  /**
+   /**
    * Query to filter the event stream with.
-   *
    * @return query
-   */
+  **/
   @ApiModelProperty(example = "", required = true, value = "Query to filter the event stream with.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getQuery() {
     return query;
   }
 
+
   public void setQuery(String query) {
     this.query = query;
   }
+
 
   public EventStreamWidgetDefinition tagsExecution(String tagsExecution) {
     this.tagsExecution = tagsExecution;
     return this;
   }
 
-  /**
+   /**
    * The execution method for multi-value filters. Can be either and or or.
-   *
    * @return tagsExecution
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "The execution method for multi-value filters. Can be either and or or.")
+  @ApiModelProperty(value = "The execution method for multi-value filters. Can be either and or or.")
   @JsonProperty(JSON_PROPERTY_TAGS_EXECUTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getTagsExecution() {
     return tagsExecution;
   }
 
+
   public void setTagsExecution(String tagsExecution) {
     this.tagsExecution = tagsExecution;
   }
+
 
   public EventStreamWidgetDefinition time(WidgetTime time) {
     this.time = time;
@@ -152,44 +168,48 @@ public class EventStreamWidgetDefinition {
     return this;
   }
 
-  /**
+   /**
    * Get time
-   *
    * @return time
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public WidgetTime getTime() {
     return time;
   }
 
+
   public void setTime(WidgetTime time) {
     this.time = time;
   }
+
 
   public EventStreamWidgetDefinition title(String title) {
     this.title = title;
     return this;
   }
 
-  /**
+   /**
    * Title of the widget.
-   *
    * @return title
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Title of the widget.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getTitle() {
     return title;
   }
 
+
   public void setTitle(String title) {
     this.title = title;
   }
+
 
   public EventStreamWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
@@ -197,47 +217,51 @@ public class EventStreamWidgetDefinition {
     return this;
   }
 
-  /**
+   /**
    * Get titleAlign
-   *
    * @return titleAlign
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public WidgetTextAlign getTitleAlign() {
     return titleAlign;
   }
 
+
   public void setTitleAlign(WidgetTextAlign titleAlign) {
     if (!titleAlign.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.titleAlign = titleAlign;
   }
+
 
   public EventStreamWidgetDefinition titleSize(String titleSize) {
     this.titleSize = titleSize;
     return this;
   }
 
-  /**
+   /**
    * Size of the title.
-   *
    * @return titleSize
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Size of the title.")
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getTitleSize() {
     return titleSize;
   }
 
+
   public void setTitleSize(String titleSize) {
     this.titleSize = titleSize;
   }
+
 
   public EventStreamWidgetDefinition type(EventStreamWidgetDefinitionType type) {
     this.type = type;
@@ -245,26 +269,30 @@ public class EventStreamWidgetDefinition {
     return this;
   }
 
-  /**
+   /**
    * Get type
-   *
    * @return type
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public EventStreamWidgetDefinitionType getType() {
     return type;
   }
 
+
   public void setType(EventStreamWidgetDefinitionType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
-  /** Return true if this EventStreamWidgetDefinition object is equal to o. */
+
+  /**
+   * Return true if this EventStreamWidgetDefinition object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -274,14 +302,14 @@ public class EventStreamWidgetDefinition {
       return false;
     }
     EventStreamWidgetDefinition eventStreamWidgetDefinition = (EventStreamWidgetDefinition) o;
-    return Objects.equals(this.eventSize, eventStreamWidgetDefinition.eventSize)
-        && Objects.equals(this.query, eventStreamWidgetDefinition.query)
-        && Objects.equals(this.tagsExecution, eventStreamWidgetDefinition.tagsExecution)
-        && Objects.equals(this.time, eventStreamWidgetDefinition.time)
-        && Objects.equals(this.title, eventStreamWidgetDefinition.title)
-        && Objects.equals(this.titleAlign, eventStreamWidgetDefinition.titleAlign)
-        && Objects.equals(this.titleSize, eventStreamWidgetDefinition.titleSize)
-        && Objects.equals(this.type, eventStreamWidgetDefinition.type);
+    return Objects.equals(this.eventSize, eventStreamWidgetDefinition.eventSize) &&
+        Objects.equals(this.query, eventStreamWidgetDefinition.query) &&
+        Objects.equals(this.tagsExecution, eventStreamWidgetDefinition.tagsExecution) &&
+        Objects.equals(this.time, eventStreamWidgetDefinition.time) &&
+        Objects.equals(this.title, eventStreamWidgetDefinition.title) &&
+        Objects.equals(this.titleAlign, eventStreamWidgetDefinition.titleAlign) &&
+        Objects.equals(this.titleSize, eventStreamWidgetDefinition.titleSize) &&
+        Objects.equals(this.type, eventStreamWidgetDefinition.type);
   }
 
   @Override
@@ -306,7 +334,8 @@ public class EventStreamWidgetDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -314,4 +343,6 @@ public class EventStreamWidgetDefinition {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

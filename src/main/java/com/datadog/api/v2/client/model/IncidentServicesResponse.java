@@ -8,20 +8,34 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v2.client.model.IncidentServiceIncludedItems;
+import com.datadog.api.v2.client.model.IncidentServiceResponseData;
+import com.datadog.api.v2.client.model.IncidentServicesResponseMeta;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
 
-/** Response with a list of incident service payloads. */
+
+/**
+ * Response with a list of incident service payloads.
+ */
 @ApiModel(description = "Response with a list of incident service payloads.")
 @JsonPropertyOrder({
   IncidentServicesResponse.JSON_PROPERTY_DATA,
@@ -29,8 +43,10 @@ import java.util.Objects;
   IncidentServicesResponse.JSON_PROPERTY_META
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class IncidentServicesResponse {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<IncidentServiceResponseData> data = new ArrayList<>();
 
@@ -44,9 +60,9 @@ public class IncidentServicesResponse {
 
   @JsonCreator
   public IncidentServicesResponse(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
-          List<IncidentServiceResponseData> data) {
-    this.data = data;
+            @JsonProperty(required=true, value=JSON_PROPERTY_DATA) List<IncidentServiceResponseData> data
+            ) {
+        this.data = data;
   }
 
   public IncidentServicesResponse data(List<IncidentServiceResponseData> data) {
@@ -63,37 +79,39 @@ public class IncidentServicesResponse {
     return this;
   }
 
-  /**
+   /**
    * An array of incident services.
-   *
    * @return data
-   */
-  @ApiModelProperty(
-      example = "[{\"id\":\"00000000-0000-0000-0000-000000000000\",\"type\":\"services\"}]",
-      required = true,
-      value = "An array of incident services.")
+  **/
+  @ApiModelProperty(example = "[{\"id\":\"00000000-0000-0000-0000-000000000000\",\"type\":\"services\"}]", required = true, value = "An array of incident services.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<IncidentServiceResponseData> getData() {
     return data;
   }
+
 
   public void setData(List<IncidentServiceResponseData> data) {
     this.data = data;
   }
 
-  /**
+
+   /**
    * Included related resources which the user requested.
-   *
    * @return included
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Included related resources which the user requested.")
   @JsonProperty(JSON_PROPERTY_INCLUDED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<IncidentServiceIncludedItems> getIncluded() {
     return included;
   }
+
+
+
 
   public IncidentServicesResponse meta(IncidentServicesResponseMeta meta) {
     this.meta = meta;
@@ -101,24 +119,28 @@ public class IncidentServicesResponse {
     return this;
   }
 
-  /**
+   /**
    * Get meta
-   *
    * @return meta
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public IncidentServicesResponseMeta getMeta() {
     return meta;
   }
+
 
   public void setMeta(IncidentServicesResponseMeta meta) {
     this.meta = meta;
   }
 
-  /** Return true if this IncidentServicesResponse object is equal to o. */
+
+  /**
+   * Return true if this IncidentServicesResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -128,9 +150,9 @@ public class IncidentServicesResponse {
       return false;
     }
     IncidentServicesResponse incidentServicesResponse = (IncidentServicesResponse) o;
-    return Objects.equals(this.data, incidentServicesResponse.data)
-        && Objects.equals(this.included, incidentServicesResponse.included)
-        && Objects.equals(this.meta, incidentServicesResponse.meta);
+    return Objects.equals(this.data, incidentServicesResponse.data) &&
+        Objects.equals(this.included, incidentServicesResponse.included) &&
+        Objects.equals(this.meta, incidentServicesResponse.meta);
   }
 
   @Override
@@ -150,7 +172,8 @@ public class IncidentServicesResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -158,4 +181,6 @@ public class IncidentServicesResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

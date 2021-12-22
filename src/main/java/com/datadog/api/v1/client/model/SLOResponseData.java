@@ -8,27 +8,40 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.Creator;
+import com.datadog.api.v1.client.model.SLOThreshold;
+import com.datadog.api.v1.client.model.SLOType;
+import com.datadog.api.v1.client.model.ServiceLevelObjectiveQuery;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
- * A service level objective object includes a service level indicator, thresholds for one or more
- * timeframes, and metadata (&#x60;name&#x60;, &#x60;description&#x60;, &#x60;tags&#x60;, etc.).
+ * A service level objective object includes a service level indicator, thresholds for one or more timeframes, and metadata (&#x60;name&#x60;, &#x60;description&#x60;, &#x60;tags&#x60;, etc.).
  */
-@ApiModel(
-    description =
-        "A service level objective object includes a service level indicator, thresholds for one"
-            + " or more timeframes, and metadata (`name`, `description`, `tags`, etc.).")
+@ApiModel(description = "A service level objective object includes a service level indicator, thresholds for one or more timeframes, and metadata (`name`, `description`, `tags`, etc.).")
 @JsonPropertyOrder({
   SLOResponseData.JSON_PROPERTY_CONFIGURED_ALERT_IDS,
   SLOResponseData.JSON_PROPERTY_CREATED_AT,
@@ -46,8 +59,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
   SLOResponseData.JSON_PROPERTY_TYPE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SLOResponseData {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CONFIGURED_ALERT_IDS = "configured_alert_ids";
   private List<Long> configuredAlertIds = null;
 
@@ -90,6 +105,7 @@ public class SLOResponseData {
   public static final String JSON_PROPERTY_TYPE = "type";
   private SLOType type;
 
+
   public SLOResponseData configuredAlertIds(List<Long> configuredAlertIds) {
     this.configuredAlertIds = configuredAlertIds;
     return this;
@@ -103,43 +119,40 @@ public class SLOResponseData {
     return this;
   }
 
-  /**
-   * A list of SLO monitors IDs that reference this SLO. This field is returned only when
-   * &#x60;with_configured_alert_ids&#x60; parameter is true in query.
-   *
+   /**
+   * A list of SLO monitors IDs that reference this SLO. This field is returned only when &#x60;with_configured_alert_ids&#x60; parameter is true in query.
    * @return configuredAlertIds
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[123,456,789]",
-      value =
-          "A list of SLO monitors IDs that reference this SLO. This field is returned only when"
-              + " `with_configured_alert_ids` parameter is true in query.")
+  @ApiModelProperty(example = "[123,456,789]", value = "A list of SLO monitors IDs that reference this SLO. This field is returned only when `with_configured_alert_ids` parameter is true in query.")
   @JsonProperty(JSON_PROPERTY_CONFIGURED_ALERT_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<Long> getConfiguredAlertIds() {
     return configuredAlertIds;
   }
+
 
   public void setConfiguredAlertIds(List<Long> configuredAlertIds) {
     this.configuredAlertIds = configuredAlertIds;
   }
 
-  /**
-   * Creation timestamp (UNIX time in seconds) Always included in service level objective responses.
-   *
+
+   /**
+   * Creation timestamp (UNIX time in seconds)  Always included in service level objective responses.
    * @return createdAt
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Creation timestamp (UNIX time in seconds)  Always included in service level objective"
-              + " responses.")
+  @ApiModelProperty(value = "Creation timestamp (UNIX time in seconds)  Always included in service level objective responses.")
   @JsonProperty(JSON_PROPERTY_CREATED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Long getCreatedAt() {
     return createdAt;
   }
+
+
+
 
   public SLOResponseData creator(Creator creator) {
     this.creator = creator;
@@ -147,51 +160,49 @@ public class SLOResponseData {
     return this;
   }
 
-  /**
+   /**
    * Get creator
-   *
    * @return creator
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CREATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Creator getCreator() {
     return creator;
   }
 
+
   public void setCreator(Creator creator) {
     this.creator = creator;
   }
+
 
   public SLOResponseData description(String description) {
     this.description = JsonNullable.<String>of(description);
     return this;
   }
 
-  /**
-   * A user-defined description of the service level objective. Always included in service level
-   * objective responses (but may be &#x60;null&#x60;). Optional in create/update requests.
-   *
+   /**
+   * A user-defined description of the service level objective.  Always included in service level objective responses (but may be &#x60;null&#x60;). Optional in create/update requests.
    * @return description
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "A user-defined description of the service level objective.  Always included in service"
-              + " level objective responses (but may be `null`). Optional in create/update"
-              + " requests.")
+  @ApiModelProperty(value = "A user-defined description of the service level objective.  Always included in service level objective responses (but may be `null`). Optional in create/update requests.")
   @JsonIgnore
+
   public String getDescription() {
-    return description.orElse(null);
+        return description.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public JsonNullable<String> getDescription_JsonNullable() {
     return description;
   }
-
+  
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   public void setDescription_JsonNullable(JsonNullable<String> description) {
     this.description = description;
@@ -200,6 +211,7 @@ public class SLOResponseData {
   public void setDescription(String description) {
     this.description = JsonNullable.<String>of(description);
   }
+
 
   public SLOResponseData groups(List<String> groups) {
     this.groups = groups;
@@ -214,65 +226,56 @@ public class SLOResponseData {
     return this;
   }
 
-  /**
-   * A list of (up to 20) monitor groups that narrow the scope of a monitor service level objective.
-   * Included in service level objective responses if it is not empty. Optional in create/update
-   * requests for monitor service level objectives, but may only be used when then length of the
-   * &#x60;monitor_ids&#x60; field is one.
-   *
+   /**
+   * A list of (up to 20) monitor groups that narrow the scope of a monitor service level objective.  Included in service level objective responses if it is not empty. Optional in create/update requests for monitor service level objectives, but may only be used when then length of the &#x60;monitor_ids&#x60; field is one.
    * @return groups
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[\"env:prod\",\"role:mysql\"]",
-      value =
-          "A list of (up to 20) monitor groups that narrow the scope of a monitor service level"
-              + " objective.  Included in service level objective responses if it is not empty."
-              + " Optional in create/update requests for monitor service level objectives, but may"
-              + " only be used when then length of the `monitor_ids` field is one.")
+  @ApiModelProperty(example = "[\"env:prod\",\"role:mysql\"]", value = "A list of (up to 20) monitor groups that narrow the scope of a monitor service level objective.  Included in service level objective responses if it is not empty. Optional in create/update requests for monitor service level objectives, but may only be used when then length of the `monitor_ids` field is one.")
   @JsonProperty(JSON_PROPERTY_GROUPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<String> getGroups() {
     return groups;
   }
+
 
   public void setGroups(List<String> groups) {
     this.groups = groups;
   }
 
-  /**
-   * A unique identifier for the service level objective object. Always included in service level
-   * objective responses.
-   *
+
+   /**
+   * A unique identifier for the service level objective object.  Always included in service level objective responses.
    * @return id
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "A unique identifier for the service level objective object.  Always included in service"
-              + " level objective responses.")
+  @ApiModelProperty(value = "A unique identifier for the service level objective object.  Always included in service level objective responses.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getId() {
     return id;
   }
 
-  /**
-   * Modification timestamp (UNIX time in seconds) Always included in service level objective
-   * responses.
-   *
+
+
+
+   /**
+   * Modification timestamp (UNIX time in seconds)  Always included in service level objective responses.
    * @return modifiedAt
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Modification timestamp (UNIX time in seconds)  Always included in service level"
-              + " objective responses.")
+  @ApiModelProperty(value = "Modification timestamp (UNIX time in seconds)  Always included in service level objective responses.")
   @JsonProperty(JSON_PROPERTY_MODIFIED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Long getModifiedAt() {
     return modifiedAt;
   }
+
+
+
 
   public SLOResponseData monitorIds(List<Long> monitorIds) {
     this.monitorIds = monitorIds;
@@ -287,26 +290,24 @@ public class SLOResponseData {
     return this;
   }
 
-  /**
-   * A list of monitor ids that defines the scope of a monitor service level objective. **Required
-   * if type is &#x60;monitor&#x60;**.
-   *
+   /**
+   * A list of monitor ids that defines the scope of a monitor service level objective. **Required if type is &#x60;monitor&#x60;**.
    * @return monitorIds
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "A list of monitor ids that defines the scope of a monitor service level objective."
-              + " **Required if type is `monitor`**.")
+  @ApiModelProperty(value = "A list of monitor ids that defines the scope of a monitor service level objective. **Required if type is `monitor`**.")
   @JsonProperty(JSON_PROPERTY_MONITOR_IDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<Long> getMonitorIds() {
     return monitorIds;
   }
 
+
   public void setMonitorIds(List<Long> monitorIds) {
     this.monitorIds = monitorIds;
   }
+
 
   public SLOResponseData monitorTags(List<String> monitorTags) {
     this.monitorTags = monitorTags;
@@ -321,56 +322,48 @@ public class SLOResponseData {
     return this;
   }
 
-  /**
-   * The union of monitor tags for all monitors referenced by the &#x60;monitor_ids&#x60; field.
-   * Always included in service level objective responses for monitor service level objectives (but
-   * may be empty). Ignored in create/update requests. Does not affect which monitors are included
-   * in the service level objective (that is determined entirely by the &#x60;monitor_ids&#x60;
-   * field).
-   *
+   /**
+   * The union of monitor tags for all monitors referenced by the &#x60;monitor_ids&#x60; field. Always included in service level objective responses for monitor service level objectives (but may be empty). Ignored in create/update requests. Does not affect which monitors are included in the service level objective (that is determined entirely by the &#x60;monitor_ids&#x60; field).
    * @return monitorTags
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "The union of monitor tags for all monitors referenced by the `monitor_ids` field."
-              + " Always included in service level objective responses for monitor service level"
-              + " objectives (but may be empty). Ignored in create/update requests. Does not"
-              + " affect which monitors are included in the service level objective (that is"
-              + " determined entirely by the `monitor_ids` field).")
+  @ApiModelProperty(value = "The union of monitor tags for all monitors referenced by the `monitor_ids` field. Always included in service level objective responses for monitor service level objectives (but may be empty). Ignored in create/update requests. Does not affect which monitors are included in the service level objective (that is determined entirely by the `monitor_ids` field).")
   @JsonProperty(JSON_PROPERTY_MONITOR_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<String> getMonitorTags() {
     return monitorTags;
   }
 
+
   public void setMonitorTags(List<String> monitorTags) {
     this.monitorTags = monitorTags;
   }
+
 
   public SLOResponseData name(String name) {
     this.name = name;
     return this;
   }
 
-  /**
+   /**
    * The name of the service level objective object.
-   *
    * @return name
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "Custom Metric SLO",
-      value = "The name of the service level objective object.")
+  @ApiModelProperty(example = "Custom Metric SLO", value = "The name of the service level objective object.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getName() {
     return name;
   }
 
+
   public void setName(String name) {
     this.name = name;
   }
+
 
   public SLOResponseData query(ServiceLevelObjectiveQuery query) {
     this.query = query;
@@ -378,22 +371,24 @@ public class SLOResponseData {
     return this;
   }
 
-  /**
+   /**
    * Get query
-   *
    * @return query
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public ServiceLevelObjectiveQuery getQuery() {
     return query;
   }
 
+
   public void setQuery(ServiceLevelObjectiveQuery query) {
     this.query = query;
   }
+
 
   public SLOResponseData tags(List<String> tags) {
     this.tags = tags;
@@ -408,28 +403,24 @@ public class SLOResponseData {
     return this;
   }
 
-  /**
-   * A list of tags associated with this service level objective. Always included in service level
-   * objective responses (but may be empty). Optional in create/update requests.
-   *
+   /**
+   * A list of tags associated with this service level objective. Always included in service level objective responses (but may be empty). Optional in create/update requests.
    * @return tags
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[\"env:prod\",\"app:core\"]",
-      value =
-          "A list of tags associated with this service level objective. Always included in service"
-              + " level objective responses (but may be empty). Optional in create/update"
-              + " requests.")
+  @ApiModelProperty(example = "[\"env:prod\",\"app:core\"]", value = "A list of tags associated with this service level objective. Always included in service level objective responses (but may be empty). Optional in create/update requests.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<String> getTags() {
     return tags;
   }
 
+
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
+
 
   public SLOResponseData thresholds(List<SLOThreshold> thresholds) {
     this.thresholds = thresholds;
@@ -448,27 +439,24 @@ public class SLOResponseData {
     return this;
   }
 
-  /**
+   /**
    * The thresholds (timeframes and associated targets) for this service level objective object.
-   *
    * @return thresholds
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example =
-          "[{\"target\":95,\"timeframe\":\"7d\"},{\"target\":95,\"timeframe\":\"30d\",\"warning\":97}]",
-      value =
-          "The thresholds (timeframes and associated targets) for this service level objective"
-              + " object.")
+  @ApiModelProperty(example = "[{\"target\":95,\"timeframe\":\"7d\"},{\"target\":95,\"timeframe\":\"30d\",\"warning\":97}]", value = "The thresholds (timeframes and associated targets) for this service level objective object.")
   @JsonProperty(JSON_PROPERTY_THRESHOLDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<SLOThreshold> getThresholds() {
     return thresholds;
   }
 
+
   public void setThresholds(List<SLOThreshold> thresholds) {
     this.thresholds = thresholds;
   }
+
 
   public SLOResponseData type(SLOType type) {
     this.type = type;
@@ -476,27 +464,31 @@ public class SLOResponseData {
     return this;
   }
 
-  /**
+   /**
    * Get type
-   *
    * @return type
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public SLOType getType() {
     return type;
   }
 
+
   public void setType(SLOType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
-  /** Return true if this SLOResponse_data object is equal to o. */
+
+  /**
+   * Return true if this SLOResponse_data object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -506,39 +498,25 @@ public class SLOResponseData {
       return false;
     }
     SLOResponseData slOResponseData = (SLOResponseData) o;
-    return Objects.equals(this.configuredAlertIds, slOResponseData.configuredAlertIds)
-        && Objects.equals(this.createdAt, slOResponseData.createdAt)
-        && Objects.equals(this.creator, slOResponseData.creator)
-        && Objects.equals(this.description, slOResponseData.description)
-        && Objects.equals(this.groups, slOResponseData.groups)
-        && Objects.equals(this.id, slOResponseData.id)
-        && Objects.equals(this.modifiedAt, slOResponseData.modifiedAt)
-        && Objects.equals(this.monitorIds, slOResponseData.monitorIds)
-        && Objects.equals(this.monitorTags, slOResponseData.monitorTags)
-        && Objects.equals(this.name, slOResponseData.name)
-        && Objects.equals(this.query, slOResponseData.query)
-        && Objects.equals(this.tags, slOResponseData.tags)
-        && Objects.equals(this.thresholds, slOResponseData.thresholds)
-        && Objects.equals(this.type, slOResponseData.type);
+    return Objects.equals(this.configuredAlertIds, slOResponseData.configuredAlertIds) &&
+        Objects.equals(this.createdAt, slOResponseData.createdAt) &&
+        Objects.equals(this.creator, slOResponseData.creator) &&
+        Objects.equals(this.description, slOResponseData.description) &&
+        Objects.equals(this.groups, slOResponseData.groups) &&
+        Objects.equals(this.id, slOResponseData.id) &&
+        Objects.equals(this.modifiedAt, slOResponseData.modifiedAt) &&
+        Objects.equals(this.monitorIds, slOResponseData.monitorIds) &&
+        Objects.equals(this.monitorTags, slOResponseData.monitorTags) &&
+        Objects.equals(this.name, slOResponseData.name) &&
+        Objects.equals(this.query, slOResponseData.query) &&
+        Objects.equals(this.tags, slOResponseData.tags) &&
+        Objects.equals(this.thresholds, slOResponseData.thresholds) &&
+        Objects.equals(this.type, slOResponseData.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        configuredAlertIds,
-        createdAt,
-        creator,
-        description,
-        groups,
-        id,
-        modifiedAt,
-        monitorIds,
-        monitorTags,
-        name,
-        query,
-        tags,
-        thresholds,
-        type);
+    return Objects.hash(configuredAlertIds, createdAt, creator, description, groups, id, modifiedAt, monitorIds, monitorTags, name, query, tags, thresholds, type);
   }
 
   @Override
@@ -564,7 +542,8 @@ public class SLOResponseData {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -572,4 +551,6 @@ public class SLOResponseData {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

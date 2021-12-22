@@ -8,25 +8,41 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.DashboardBulkActionData;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Dashboard bulk delete request body. */
+
+/**
+ * Dashboard bulk delete request body.
+ */
 @ApiModel(description = "Dashboard bulk delete request body.")
-@JsonPropertyOrder({DashboardBulkDeleteRequest.JSON_PROPERTY_DATA})
+@JsonPropertyOrder({
+  DashboardBulkDeleteRequest.JSON_PROPERTY_DATA
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class DashboardBulkDeleteRequest {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<DashboardBulkActionData> data = new ArrayList<>();
 
@@ -34,9 +50,9 @@ public class DashboardBulkDeleteRequest {
 
   @JsonCreator
   public DashboardBulkDeleteRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA)
-          List<DashboardBulkActionData> data) {
-    this.data = data;
+            @JsonProperty(required=true, value=JSON_PROPERTY_DATA) List<DashboardBulkActionData> data
+            ) {
+        this.data = data;
   }
 
   public DashboardBulkDeleteRequest data(List<DashboardBulkActionData> data) {
@@ -53,26 +69,27 @@ public class DashboardBulkDeleteRequest {
     return this;
   }
 
-  /**
+   /**
    * List of dashboard bulk action request data objects.
-   *
    * @return data
-   */
-  @ApiModelProperty(
-      example = "[{\"id\":\"123-abc-456\",\"type\":\"dashboard\"}]",
-      required = true,
-      value = "List of dashboard bulk action request data objects.")
+  **/
+  @ApiModelProperty(example = "[{\"id\":\"123-abc-456\",\"type\":\"dashboard\"}]", required = true, value = "List of dashboard bulk action request data objects.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<DashboardBulkActionData> getData() {
     return data;
   }
+
 
   public void setData(List<DashboardBulkActionData> data) {
     this.data = data;
   }
 
-  /** Return true if this DashboardBulkDeleteRequest object is equal to o. */
+
+  /**
+   * Return true if this DashboardBulkDeleteRequest object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -100,7 +117,8 @@ public class DashboardBulkDeleteRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -108,4 +126,6 @@ public class DashboardBulkDeleteRequest {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

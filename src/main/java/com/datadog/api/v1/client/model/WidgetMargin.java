@@ -8,36 +8,45 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import io.swagger.annotations.ApiModel;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
+
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
 
+
+import java.util.Set;
+import java.util.HashSet;
 /**
- * Size of the margins around the image. **Note**: &#x60;small&#x60; and &#x60;large&#x60; values
- * are deprecated.
+ * Size of the margins around the image. **Note**: &#x60;small&#x60; and &#x60;large&#x60; values are deprecated.
  */
 @JsonSerialize(using = WidgetMargin.WidgetMarginSerializer.class)
 public class WidgetMargin {
-
+  
   public static final WidgetMargin SM = new WidgetMargin("sm");
   public static final WidgetMargin MD = new WidgetMargin("md");
   public static final WidgetMargin LG = new WidgetMargin("lg");
   public static final WidgetMargin SMALL = new WidgetMargin("small");
   public static final WidgetMargin LARGE = new WidgetMargin("large");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("sm", "md", "lg", "small", "large"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("sm","md","lg","small","large"));
 
   private String value;
 
@@ -50,19 +59,18 @@ public class WidgetMargin {
   }
 
   public static class WidgetMarginSerializer extends StdSerializer<WidgetMargin> {
-    public WidgetMarginSerializer(Class<WidgetMargin> t) {
-      super(t);
-    }
+      public WidgetMarginSerializer(Class<WidgetMargin> t) {
+          super(t);
+      }
 
-    public WidgetMarginSerializer() {
-      this(null);
-    }
+      public WidgetMarginSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(WidgetMargin value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(WidgetMargin value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -74,7 +82,9 @@ public class WidgetMargin {
     this.value = value;
   }
 
-  /** Return true if this WidgetMargin object is equal to o. */
+  /**
+   * Return true if this WidgetMargin object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -88,7 +98,7 @@ public class WidgetMargin {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override
@@ -101,3 +111,4 @@ public class WidgetMargin {
     return new WidgetMargin(value);
   }
 }
+

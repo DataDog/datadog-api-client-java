@@ -8,30 +8,41 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import io.swagger.annotations.ApiModel;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
+
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
 
-/** Application Keys resource type. */
+
+import java.util.Set;
+import java.util.HashSet;
+/**
+ * Application Keys resource type.
+ */
 @JsonSerialize(using = ApplicationKeysType.ApplicationKeysTypeSerializer.class)
 public class ApplicationKeysType {
+  
+  public static final ApplicationKeysType APPLICATION_KEYS = new ApplicationKeysType("application_keys");
 
-  public static final ApplicationKeysType APPLICATION_KEYS =
-      new ApplicationKeysType("application_keys");
-
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("application_keys"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("application_keys"));
 
   private String value;
 
@@ -44,20 +55,18 @@ public class ApplicationKeysType {
   }
 
   public static class ApplicationKeysTypeSerializer extends StdSerializer<ApplicationKeysType> {
-    public ApplicationKeysTypeSerializer(Class<ApplicationKeysType> t) {
-      super(t);
-    }
+      public ApplicationKeysTypeSerializer(Class<ApplicationKeysType> t) {
+          super(t);
+      }
 
-    public ApplicationKeysTypeSerializer() {
-      this(null);
-    }
+      public ApplicationKeysTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        ApplicationKeysType value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(ApplicationKeysType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -69,7 +78,9 @@ public class ApplicationKeysType {
     this.value = value;
   }
 
-  /** Return true if this ApplicationKeysType object is equal to o. */
+  /**
+   * Return true if this ApplicationKeysType object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -83,7 +94,7 @@ public class ApplicationKeysType {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override
@@ -96,3 +107,4 @@ public class ApplicationKeysType {
     return new ApplicationKeysType(value);
   }
 }
+

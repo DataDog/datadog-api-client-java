@@ -14,8 +14,7 @@ public class Example {
     MonitorsApi apiInstance = new MonitorsApi(defaultClient);
 
     // there is a valid "synthetics_api_test" in the system
-    Long SYNTHETICS_API_TEST_MONITOR_ID =
-        Long.parseLong(System.getenv("SYNTHETICS_API_TEST_MONITOR_ID"));
+    Long SYNTHETICS_API_TEST_MONITOR_ID = Long.parseLong(System.getenv("SYNTHETICS_API_TEST_MONITOR_ID"));
 
     try {
       Monitor result = apiInstance.getMonitor(SYNTHETICS_API_TEST_MONITOR_ID);

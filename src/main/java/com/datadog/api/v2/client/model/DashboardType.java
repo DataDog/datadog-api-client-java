@@ -8,41 +8,45 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import io.swagger.annotations.ApiModel;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
+
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
 
-/** The type of the dashboard. */
+
+import java.util.Set;
+import java.util.HashSet;
+/**
+ * The type of the dashboard.
+ */
 @JsonSerialize(using = DashboardType.DashboardTypeSerializer.class)
 public class DashboardType {
-
+  
   public static final DashboardType CUSTOM_TIMEBOARD = new DashboardType("custom_timeboard");
   public static final DashboardType CUSTOM_SCREENBOARD = new DashboardType("custom_screenboard");
-  public static final DashboardType INTEGRATION_SCREENBOARD =
-      new DashboardType("integration_screenboard");
-  public static final DashboardType INTEGRATION_TIMEBOARD =
-      new DashboardType("integration_timeboard");
+  public static final DashboardType INTEGRATION_SCREENBOARD = new DashboardType("integration_screenboard");
+  public static final DashboardType INTEGRATION_TIMEBOARD = new DashboardType("integration_timeboard");
   public static final DashboardType HOST_TIMEBOARD = new DashboardType("host_timeboard");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "custom_timeboard",
-              "custom_screenboard",
-              "integration_screenboard",
-              "integration_timeboard",
-              "host_timeboard"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("custom_timeboard","custom_screenboard","integration_screenboard","integration_timeboard","host_timeboard"));
 
   private String value;
 
@@ -55,19 +59,18 @@ public class DashboardType {
   }
 
   public static class DashboardTypeSerializer extends StdSerializer<DashboardType> {
-    public DashboardTypeSerializer(Class<DashboardType> t) {
-      super(t);
-    }
+      public DashboardTypeSerializer(Class<DashboardType> t) {
+          super(t);
+      }
 
-    public DashboardTypeSerializer() {
-      this(null);
-    }
+      public DashboardTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(DashboardType value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(DashboardType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -79,7 +82,9 @@ public class DashboardType {
     this.value = value;
   }
 
-  /** Return true if this DashboardType object is equal to o. */
+  /**
+   * Return true if this DashboardType object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -93,7 +98,7 @@ public class DashboardType {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override
@@ -106,3 +111,4 @@ public class DashboardType {
     return new DashboardType(value);
   }
 }
+

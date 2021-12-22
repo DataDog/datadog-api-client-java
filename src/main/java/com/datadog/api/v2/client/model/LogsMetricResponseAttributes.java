@@ -8,19 +8,34 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v2.client.model.LogsMetricResponseCompute;
+import com.datadog.api.v2.client.model.LogsMetricResponseFilter;
+import com.datadog.api.v2.client.model.LogsMetricResponseGroupBy;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
 
-/** The object describing a Datadog log-based metric. */
+
+/**
+ * The object describing a Datadog log-based metric.
+ */
 @ApiModel(description = "The object describing a Datadog log-based metric.")
 @JsonPropertyOrder({
   LogsMetricResponseAttributes.JSON_PROPERTY_COMPUTE,
@@ -28,8 +43,10 @@ import java.util.Objects;
   LogsMetricResponseAttributes.JSON_PROPERTY_GROUP_BY
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class LogsMetricResponseAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMPUTE = "compute";
   private LogsMetricResponseCompute compute;
 
@@ -39,28 +56,31 @@ public class LogsMetricResponseAttributes {
   public static final String JSON_PROPERTY_GROUP_BY = "group_by";
   private List<LogsMetricResponseGroupBy> groupBy = null;
 
+
   public LogsMetricResponseAttributes compute(LogsMetricResponseCompute compute) {
     this.compute = compute;
     this.unparsed |= compute.unparsed;
     return this;
   }
 
-  /**
+   /**
    * Get compute
-   *
    * @return compute
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COMPUTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public LogsMetricResponseCompute getCompute() {
     return compute;
   }
 
+
   public void setCompute(LogsMetricResponseCompute compute) {
     this.compute = compute;
   }
+
 
   public LogsMetricResponseAttributes filter(LogsMetricResponseFilter filter) {
     this.filter = filter;
@@ -68,22 +88,24 @@ public class LogsMetricResponseAttributes {
     return this;
   }
 
-  /**
+   /**
    * Get filter
-   *
    * @return filter
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FILTER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public LogsMetricResponseFilter getFilter() {
     return filter;
   }
 
+
   public void setFilter(LogsMetricResponseFilter filter) {
     this.filter = filter;
   }
+
 
   public LogsMetricResponseAttributes groupBy(List<LogsMetricResponseGroupBy> groupBy) {
     this.groupBy = groupBy;
@@ -102,24 +124,28 @@ public class LogsMetricResponseAttributes {
     return this;
   }
 
-  /**
+   /**
    * The rules for the group by.
-   *
    * @return groupBy
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The rules for the group by.")
   @JsonProperty(JSON_PROPERTY_GROUP_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<LogsMetricResponseGroupBy> getGroupBy() {
     return groupBy;
   }
+
 
   public void setGroupBy(List<LogsMetricResponseGroupBy> groupBy) {
     this.groupBy = groupBy;
   }
 
-  /** Return true if this LogsMetricResponseAttributes object is equal to o. */
+
+  /**
+   * Return true if this LogsMetricResponseAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -129,9 +155,9 @@ public class LogsMetricResponseAttributes {
       return false;
     }
     LogsMetricResponseAttributes logsMetricResponseAttributes = (LogsMetricResponseAttributes) o;
-    return Objects.equals(this.compute, logsMetricResponseAttributes.compute)
-        && Objects.equals(this.filter, logsMetricResponseAttributes.filter)
-        && Objects.equals(this.groupBy, logsMetricResponseAttributes.groupBy);
+    return Objects.equals(this.compute, logsMetricResponseAttributes.compute) &&
+        Objects.equals(this.filter, logsMetricResponseAttributes.filter) &&
+        Objects.equals(this.groupBy, logsMetricResponseAttributes.groupBy);
   }
 
   @Override
@@ -151,7 +177,8 @@ public class LogsMetricResponseAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -159,4 +186,6 @@ public class LogsMetricResponseAttributes {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

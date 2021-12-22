@@ -8,30 +8,47 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.SyntheticsCIBatchMetadataPipeline;
+import com.datadog.api.v1.client.model.SyntheticsCIBatchMetadataProvider;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Description of the CI provider. */
+
+/**
+ * Description of the CI provider.
+ */
 @ApiModel(description = "Description of the CI provider.")
 @JsonPropertyOrder({
   SyntheticsCIBatchMetadataCI.JSON_PROPERTY_PIPELINE,
   SyntheticsCIBatchMetadataCI.JSON_PROPERTY_PROVIDER
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SyntheticsCIBatchMetadataCI {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_PIPELINE = "pipeline";
   private SyntheticsCIBatchMetadataPipeline pipeline;
 
   public static final String JSON_PROPERTY_PROVIDER = "provider";
   private SyntheticsCIBatchMetadataProvider provider;
+
 
   public SyntheticsCIBatchMetadataCI pipeline(SyntheticsCIBatchMetadataPipeline pipeline) {
     this.pipeline = pipeline;
@@ -39,22 +56,24 @@ public class SyntheticsCIBatchMetadataCI {
     return this;
   }
 
-  /**
+   /**
    * Get pipeline
-   *
    * @return pipeline
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PIPELINE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public SyntheticsCIBatchMetadataPipeline getPipeline() {
     return pipeline;
   }
 
+
   public void setPipeline(SyntheticsCIBatchMetadataPipeline pipeline) {
     this.pipeline = pipeline;
   }
+
 
   public SyntheticsCIBatchMetadataCI provider(SyntheticsCIBatchMetadataProvider provider) {
     this.provider = provider;
@@ -62,24 +81,28 @@ public class SyntheticsCIBatchMetadataCI {
     return this;
   }
 
-  /**
+   /**
    * Get provider
-   *
    * @return provider
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PROVIDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public SyntheticsCIBatchMetadataProvider getProvider() {
     return provider;
   }
+
 
   public void setProvider(SyntheticsCIBatchMetadataProvider provider) {
     this.provider = provider;
   }
 
-  /** Return true if this SyntheticsCIBatchMetadataCI object is equal to o. */
+
+  /**
+   * Return true if this SyntheticsCIBatchMetadataCI object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -89,8 +112,8 @@ public class SyntheticsCIBatchMetadataCI {
       return false;
     }
     SyntheticsCIBatchMetadataCI syntheticsCIBatchMetadataCI = (SyntheticsCIBatchMetadataCI) o;
-    return Objects.equals(this.pipeline, syntheticsCIBatchMetadataCI.pipeline)
-        && Objects.equals(this.provider, syntheticsCIBatchMetadataCI.provider);
+    return Objects.equals(this.pipeline, syntheticsCIBatchMetadataCI.pipeline) &&
+        Objects.equals(this.provider, syntheticsCIBatchMetadataCI.provider);
   }
 
   @Override
@@ -109,7 +132,8 @@ public class SyntheticsCIBatchMetadataCI {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -117,4 +141,6 @@ public class SyntheticsCIBatchMetadataCI {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

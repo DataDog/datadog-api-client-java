@@ -15,12 +15,7 @@ public class Example {
     ProcessesApi apiInstance = new ProcessesApi(defaultClient);
 
     try {
-      ProcessSummariesResponse result =
-          apiInstance.listProcesses(
-              new ListProcessesOptionalParameters()
-                  .search("process-agent")
-                  .tags("testing:true")
-                  .pageLimit(2));
+      ProcessSummariesResponse result = apiInstance.listProcesses(new ListProcessesOptionalParameters().search("process-agent").tags("testing:true").pageLimit(2));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DowntimesApi#updateDowntime");

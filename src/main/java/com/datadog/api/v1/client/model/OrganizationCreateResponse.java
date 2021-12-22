@@ -8,17 +8,33 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.ApiKey;
+import com.datadog.api.v1.client.model.ApplicationKey;
+import com.datadog.api.v1.client.model.Organization;
+import com.datadog.api.v1.client.model.User;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Response object for an organization creation. */
+
+/**
+ * Response object for an organization creation.
+ */
 @ApiModel(description = "Response object for an organization creation.")
 @JsonPropertyOrder({
   OrganizationCreateResponse.JSON_PROPERTY_API_KEY,
@@ -27,8 +43,10 @@ import java.util.Objects;
   OrganizationCreateResponse.JSON_PROPERTY_USER
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OrganizationCreateResponse {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_API_KEY = "api_key";
   private ApiKey apiKey;
 
@@ -41,28 +59,31 @@ public class OrganizationCreateResponse {
   public static final String JSON_PROPERTY_USER = "user";
   private User user;
 
+
   public OrganizationCreateResponse apiKey(ApiKey apiKey) {
     this.apiKey = apiKey;
     this.unparsed |= apiKey.unparsed;
     return this;
   }
 
-  /**
+   /**
    * Get apiKey
-   *
    * @return apiKey
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_API_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public ApiKey getApiKey() {
     return apiKey;
   }
 
+
   public void setApiKey(ApiKey apiKey) {
     this.apiKey = apiKey;
   }
+
 
   public OrganizationCreateResponse applicationKey(ApplicationKey applicationKey) {
     this.applicationKey = applicationKey;
@@ -70,22 +91,24 @@ public class OrganizationCreateResponse {
     return this;
   }
 
-  /**
+   /**
    * Get applicationKey
-   *
    * @return applicationKey
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_APPLICATION_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public ApplicationKey getApplicationKey() {
     return applicationKey;
   }
 
+
   public void setApplicationKey(ApplicationKey applicationKey) {
     this.applicationKey = applicationKey;
   }
+
 
   public OrganizationCreateResponse org(Organization org) {
     this.org = org;
@@ -93,22 +116,24 @@ public class OrganizationCreateResponse {
     return this;
   }
 
-  /**
+   /**
    * Get org
-   *
    * @return org
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ORG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Organization getOrg() {
     return org;
   }
 
+
   public void setOrg(Organization org) {
     this.org = org;
   }
+
 
   public OrganizationCreateResponse user(User user) {
     this.user = user;
@@ -116,24 +141,28 @@ public class OrganizationCreateResponse {
     return this;
   }
 
-  /**
+   /**
    * Get user
-   *
    * @return user
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_USER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public User getUser() {
     return user;
   }
+
 
   public void setUser(User user) {
     this.user = user;
   }
 
-  /** Return true if this OrganizationCreateResponse object is equal to o. */
+
+  /**
+   * Return true if this OrganizationCreateResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -143,10 +172,10 @@ public class OrganizationCreateResponse {
       return false;
     }
     OrganizationCreateResponse organizationCreateResponse = (OrganizationCreateResponse) o;
-    return Objects.equals(this.apiKey, organizationCreateResponse.apiKey)
-        && Objects.equals(this.applicationKey, organizationCreateResponse.applicationKey)
-        && Objects.equals(this.org, organizationCreateResponse.org)
-        && Objects.equals(this.user, organizationCreateResponse.user);
+    return Objects.equals(this.apiKey, organizationCreateResponse.apiKey) &&
+        Objects.equals(this.applicationKey, organizationCreateResponse.applicationKey) &&
+        Objects.equals(this.org, organizationCreateResponse.org) &&
+        Objects.equals(this.user, organizationCreateResponse.user);
   }
 
   @Override
@@ -167,7 +196,8 @@ public class OrganizationCreateResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -175,4 +205,6 @@ public class OrganizationCreateResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

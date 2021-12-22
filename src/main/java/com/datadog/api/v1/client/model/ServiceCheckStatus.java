@@ -8,31 +8,44 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import io.swagger.annotations.ApiModel;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
+
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
 
-/** The status of a service check. */
+
+import java.util.Set;
+import java.util.HashSet;
+/**
+ * The status of a service check.
+ */
 @JsonSerialize(using = ServiceCheckStatus.ServiceCheckStatusSerializer.class)
 public class ServiceCheckStatus {
-
+  
   public static final ServiceCheckStatus OK = new ServiceCheckStatus(0);
   public static final ServiceCheckStatus WARNING = new ServiceCheckStatus(1);
   public static final ServiceCheckStatus CRITICAL = new ServiceCheckStatus(2);
   public static final ServiceCheckStatus UNKNOWN = new ServiceCheckStatus(3);
 
-  private static final Set<Integer> allowedValues = new HashSet<Integer>(Arrays.asList(0, 1, 2, 3));
+  private static final Set<Integer> allowedValues = new HashSet<Integer>(Arrays.asList(0,1,2,3));
 
   private Integer value;
 
@@ -45,19 +58,18 @@ public class ServiceCheckStatus {
   }
 
   public static class ServiceCheckStatusSerializer extends StdSerializer<ServiceCheckStatus> {
-    public ServiceCheckStatusSerializer(Class<ServiceCheckStatus> t) {
-      super(t);
-    }
+      public ServiceCheckStatusSerializer(Class<ServiceCheckStatus> t) {
+          super(t);
+      }
 
-    public ServiceCheckStatusSerializer() {
-      this(null);
-    }
+      public ServiceCheckStatusSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(ServiceCheckStatus value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(ServiceCheckStatus value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -69,7 +81,9 @@ public class ServiceCheckStatus {
     this.value = value;
   }
 
-  /** Return true if this ServiceCheckStatus object is equal to o. */
+  /**
+   * Return true if this ServiceCheckStatus object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -83,7 +97,7 @@ public class ServiceCheckStatus {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override
@@ -96,3 +110,4 @@ public class ServiceCheckStatus {
     return new ServiceCheckStatus(value);
   }
 }
+

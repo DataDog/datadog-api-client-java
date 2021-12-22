@@ -8,29 +8,44 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.UsageSDSHour;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Response containing the Sensitive Data Scanner usage for each hour for a given organization. */
-@ApiModel(
-    description =
-        "Response containing the Sensitive Data Scanner usage for each hour for a given"
-            + " organization.")
-@JsonPropertyOrder({UsageSDSResponse.JSON_PROPERTY_USAGE})
+
+/**
+ * Response containing the Sensitive Data Scanner usage for each hour for a given organization.
+ */
+@ApiModel(description = "Response containing the Sensitive Data Scanner usage for each hour for a given organization.")
+@JsonPropertyOrder({
+  UsageSDSResponse.JSON_PROPERTY_USAGE
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class UsageSDSResponse {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_USAGE = "usage";
   private List<UsageSDSHour> usage = null;
+
 
   public UsageSDSResponse usage(List<UsageSDSHour> usage) {
     this.usage = usage;
@@ -49,24 +64,28 @@ public class UsageSDSResponse {
     return this;
   }
 
-  /**
+   /**
    * Get hourly usage for Sensitive Data Scanner.
-   *
    * @return usage
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Get hourly usage for Sensitive Data Scanner.")
   @JsonProperty(JSON_PROPERTY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<UsageSDSHour> getUsage() {
     return usage;
   }
+
 
   public void setUsage(List<UsageSDSHour> usage) {
     this.usage = usage;
   }
 
-  /** Return true if this UsageSDSResponse object is equal to o. */
+
+  /**
+   * Return true if this UsageSDSResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -94,7 +113,8 @@ public class UsageSDSResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -102,4 +122,6 @@ public class UsageSDSResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

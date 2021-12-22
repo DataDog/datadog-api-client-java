@@ -5,6 +5,7 @@ import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.MonitorsApi;
 import com.datadog.api.v1.client.model.Monitor;
+import com.datadog.api.v1.client.model.Monitor;
 import com.datadog.api.v1.client.model.MonitorOptions;
 import com.datadog.api.v1.client.model.MonitorThresholds;
 import com.datadog.api.v1.client.model.MonitorType;
@@ -16,24 +17,18 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     MonitorsApi apiInstance = new MonitorsApi(defaultClient);
 
-    Monitor body =
-        new Monitor()
-            .name("Example-Create_a_ci_pipelines_monitor_returns_OK_response")
-            .type(MonitorType.CI_PIPELINES_ALERT)
-            .query(
-                """
+    Monitor body = new Monitor()
+.name("Example-Create_a_ci_pipelines_monitor_returns_OK_response")
+.type(MonitorType.CI_PIPELINES_ALERT)
+.query("""
 ci-pipelines("ci_level:pipeline @git.branch:staging* @ci.status:error").rollup("count").by("@git.branch,@ci.pipeline.name").last("5m") >= 1
 """)
-            .message("some message Notify: @hipchat-channel")
-            .tags(
-                new ArrayList<String>() {
-                  {
-                    add("test:examplecreateacipipelinesmonitorreturnsokresponse");
-                    add("env:ci");
-                  }
-                })
-            .priority(3L)
-            .options(new MonitorOptions().thresholds(new MonitorThresholds().critical(1.0)));
+.message("some message Notify: @hipchat-channel")
+.tags(new ArrayList<String>() {{add("test:examplecreateacipipelinesmonitorreturnsokresponse"); add("env:ci");}})
+.priority(3L)
+.options(new MonitorOptions()
+.thresholds(new MonitorThresholds()
+.critical(1.0)));
 
     try {
       Monitor result = apiInstance.createMonitor(body);

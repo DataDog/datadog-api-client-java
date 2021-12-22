@@ -8,19 +8,33 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v2.client.model.SecurityFilterExclusionFilterResponse;
+import com.datadog.api.v2.client.model.SecurityFilterFilteredDataType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
 
-/** The object describing a security filter. */
+
+/**
+ * The object describing a security filter.
+ */
 @ApiModel(description = "The object describing a security filter.")
 @JsonPropertyOrder({
   SecurityFilterAttributes.JSON_PROPERTY_EXCLUSION_FILTERS,
@@ -32,8 +46,10 @@ import java.util.Objects;
   SecurityFilterAttributes.JSON_PROPERTY_VERSION
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SecurityFilterAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_EXCLUSION_FILTERS = "exclusion_filters";
   private List<SecurityFilterExclusionFilterResponse> exclusionFilters = null;
 
@@ -55,8 +71,8 @@ public class SecurityFilterAttributes {
   public static final String JSON_PROPERTY_VERSION = "version";
   private Integer version;
 
-  public SecurityFilterAttributes exclusionFilters(
-      List<SecurityFilterExclusionFilterResponse> exclusionFilters) {
+
+  public SecurityFilterAttributes exclusionFilters(List<SecurityFilterExclusionFilterResponse> exclusionFilters) {
     this.exclusionFilters = exclusionFilters;
     for (SecurityFilterExclusionFilterResponse item : exclusionFilters) {
       this.unparsed |= item.unparsed;
@@ -64,8 +80,7 @@ public class SecurityFilterAttributes {
     return this;
   }
 
-  public SecurityFilterAttributes addExclusionFiltersItem(
-      SecurityFilterExclusionFilterResponse exclusionFiltersItem) {
+  public SecurityFilterAttributes addExclusionFiltersItem(SecurityFilterExclusionFilterResponse exclusionFiltersItem) {
     if (this.exclusionFilters == null) {
       this.exclusionFilters = new ArrayList<>();
     }
@@ -74,166 +89,177 @@ public class SecurityFilterAttributes {
     return this;
   }
 
-  /**
+   /**
    * The list of exclusion filters applied in this security filter.
-   *
    * @return exclusionFilters
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The list of exclusion filters applied in this security filter.")
   @JsonProperty(JSON_PROPERTY_EXCLUSION_FILTERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<SecurityFilterExclusionFilterResponse> getExclusionFilters() {
     return exclusionFilters;
   }
+
 
   public void setExclusionFilters(List<SecurityFilterExclusionFilterResponse> exclusionFilters) {
     this.exclusionFilters = exclusionFilters;
   }
 
-  public SecurityFilterAttributes filteredDataType(
-      SecurityFilterFilteredDataType filteredDataType) {
+
+  public SecurityFilterAttributes filteredDataType(SecurityFilterFilteredDataType filteredDataType) {
     this.filteredDataType = filteredDataType;
     this.unparsed |= !filteredDataType.isValid();
     return this;
   }
 
-  /**
+   /**
    * Get filteredDataType
-   *
    * @return filteredDataType
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FILTERED_DATA_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public SecurityFilterFilteredDataType getFilteredDataType() {
     return filteredDataType;
   }
 
+
   public void setFilteredDataType(SecurityFilterFilteredDataType filteredDataType) {
     if (!filteredDataType.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.filteredDataType = filteredDataType;
   }
+
 
   public SecurityFilterAttributes isBuiltin(Boolean isBuiltin) {
     this.isBuiltin = isBuiltin;
     return this;
   }
 
-  /**
+   /**
    * Whether the security filter is the built-in filter.
-   *
    * @return isBuiltin
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "false",
-      value = "Whether the security filter is the built-in filter.")
+  @ApiModelProperty(example = "false", value = "Whether the security filter is the built-in filter.")
   @JsonProperty(JSON_PROPERTY_IS_BUILTIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Boolean getIsBuiltin() {
     return isBuiltin;
   }
 
+
   public void setIsBuiltin(Boolean isBuiltin) {
     this.isBuiltin = isBuiltin;
   }
+
 
   public SecurityFilterAttributes isEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
     return this;
   }
 
-  /**
+   /**
    * Whether the security filter is enabled.
-   *
    * @return isEnabled
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "false", value = "Whether the security filter is enabled.")
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Boolean getIsEnabled() {
     return isEnabled;
   }
 
+
   public void setIsEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
   }
+
 
   public SecurityFilterAttributes name(String name) {
     this.name = name;
     return this;
   }
 
-  /**
+   /**
    * The security filter name.
-   *
    * @return name
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Custom security filter", value = "The security filter name.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getName() {
     return name;
   }
 
+
   public void setName(String name) {
     this.name = name;
   }
+
 
   public SecurityFilterAttributes query(String query) {
     this.query = query;
     return this;
   }
 
-  /**
+   /**
    * The security filter query. Logs accepted by this query will be accepted by this filter.
-   *
    * @return query
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "service:api",
-      value =
-          "The security filter query. Logs accepted by this query will be accepted by this filter.")
+  @ApiModelProperty(example = "service:api", value = "The security filter query. Logs accepted by this query will be accepted by this filter.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getQuery() {
     return query;
   }
 
+
   public void setQuery(String query) {
     this.query = query;
   }
+
 
   public SecurityFilterAttributes version(Integer version) {
     this.version = version;
     return this;
   }
 
-  /**
-   * The version of the security filter. maximum: 2147483647
-   *
+   /**
+   * The version of the security filter.
+   * maximum: 2147483647
    * @return version
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "1", value = "The version of the security filter.")
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Integer getVersion() {
     return version;
   }
+
 
   public void setVersion(Integer version) {
     this.version = version;
   }
 
-  /** Return true if this SecurityFilterAttributes object is equal to o. */
+
+  /**
+   * Return true if this SecurityFilterAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -243,19 +269,18 @@ public class SecurityFilterAttributes {
       return false;
     }
     SecurityFilterAttributes securityFilterAttributes = (SecurityFilterAttributes) o;
-    return Objects.equals(this.exclusionFilters, securityFilterAttributes.exclusionFilters)
-        && Objects.equals(this.filteredDataType, securityFilterAttributes.filteredDataType)
-        && Objects.equals(this.isBuiltin, securityFilterAttributes.isBuiltin)
-        && Objects.equals(this.isEnabled, securityFilterAttributes.isEnabled)
-        && Objects.equals(this.name, securityFilterAttributes.name)
-        && Objects.equals(this.query, securityFilterAttributes.query)
-        && Objects.equals(this.version, securityFilterAttributes.version);
+    return Objects.equals(this.exclusionFilters, securityFilterAttributes.exclusionFilters) &&
+        Objects.equals(this.filteredDataType, securityFilterAttributes.filteredDataType) &&
+        Objects.equals(this.isBuiltin, securityFilterAttributes.isBuiltin) &&
+        Objects.equals(this.isEnabled, securityFilterAttributes.isEnabled) &&
+        Objects.equals(this.name, securityFilterAttributes.name) &&
+        Objects.equals(this.query, securityFilterAttributes.query) &&
+        Objects.equals(this.version, securityFilterAttributes.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        exclusionFilters, filteredDataType, isBuiltin, isEnabled, name, query, version);
+    return Objects.hash(exclusionFilters, filteredDataType, isBuiltin, isEnabled, name, query, version);
   }
 
   @Override
@@ -274,7 +299,8 @@ public class SecurityFilterAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -282,4 +308,6 @@ public class SecurityFilterAttributes {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

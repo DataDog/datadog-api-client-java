@@ -8,51 +8,53 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import io.swagger.annotations.ApiModel;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
+
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
 
-/** Step type used in your Synthetic test. */
+
+import java.util.Set;
+import java.util.HashSet;
+/**
+ * Step type used in your Synthetic test.
+ */
 @JsonSerialize(using = SyntheticsStepType.SyntheticsStepTypeSerializer.class)
 public class SyntheticsStepType {
-
-  public static final SyntheticsStepType ASSERT_CURRENT_URL =
-      new SyntheticsStepType("assertCurrentUrl");
-  public static final SyntheticsStepType ASSERT_ELEMENT_ATTRIBUTE =
-      new SyntheticsStepType("assertElementAttribute");
-  public static final SyntheticsStepType ASSERT_ELEMENT_CONTENT =
-      new SyntheticsStepType("assertElementContent");
-  public static final SyntheticsStepType ASSERT_ELEMENT_PRESENT =
-      new SyntheticsStepType("assertElementPresent");
+  
+  public static final SyntheticsStepType ASSERT_CURRENT_URL = new SyntheticsStepType("assertCurrentUrl");
+  public static final SyntheticsStepType ASSERT_ELEMENT_ATTRIBUTE = new SyntheticsStepType("assertElementAttribute");
+  public static final SyntheticsStepType ASSERT_ELEMENT_CONTENT = new SyntheticsStepType("assertElementContent");
+  public static final SyntheticsStepType ASSERT_ELEMENT_PRESENT = new SyntheticsStepType("assertElementPresent");
   public static final SyntheticsStepType ASSERT_EMAIL = new SyntheticsStepType("assertEmail");
-  public static final SyntheticsStepType ASSERT_FILE_DOWNLOAD =
-      new SyntheticsStepType("assertFileDownload");
-  public static final SyntheticsStepType ASSERT_FROM_JAVASCRIPT =
-      new SyntheticsStepType("assertFromJavascript");
-  public static final SyntheticsStepType ASSERT_PAGE_CONTAINS =
-      new SyntheticsStepType("assertPageContains");
-  public static final SyntheticsStepType ASSERT_PAGE_LACKS =
-      new SyntheticsStepType("assertPageLacks");
+  public static final SyntheticsStepType ASSERT_FILE_DOWNLOAD = new SyntheticsStepType("assertFileDownload");
+  public static final SyntheticsStepType ASSERT_FROM_JAVASCRIPT = new SyntheticsStepType("assertFromJavascript");
+  public static final SyntheticsStepType ASSERT_PAGE_CONTAINS = new SyntheticsStepType("assertPageContains");
+  public static final SyntheticsStepType ASSERT_PAGE_LACKS = new SyntheticsStepType("assertPageLacks");
   public static final SyntheticsStepType CLICK = new SyntheticsStepType("click");
-  public static final SyntheticsStepType EXTRACT_FROM_JAVASCRIPT =
-      new SyntheticsStepType("extractFromJavascript");
-  public static final SyntheticsStepType EXTRACT_VARIABLE =
-      new SyntheticsStepType("extractVariable");
+  public static final SyntheticsStepType EXTRACT_FROM_JAVASCRIPT = new SyntheticsStepType("extractFromJavascript");
+  public static final SyntheticsStepType EXTRACT_VARIABLE = new SyntheticsStepType("extractVariable");
   public static final SyntheticsStepType GO_TO_EMAIL_LINK = new SyntheticsStepType("goToEmailLink");
   public static final SyntheticsStepType GO_TO_URL = new SyntheticsStepType("goToUrl");
-  public static final SyntheticsStepType GO_TO_URL_AND_MEASURE_TTI =
-      new SyntheticsStepType("goToUrlAndMeasureTti");
+  public static final SyntheticsStepType GO_TO_URL_AND_MEASURE_TTI = new SyntheticsStepType("goToUrlAndMeasureTti");
   public static final SyntheticsStepType HOVER = new SyntheticsStepType("hover");
   public static final SyntheticsStepType PLAY_SUB_TEST = new SyntheticsStepType("playSubTest");
   public static final SyntheticsStepType PRESS_KEY = new SyntheticsStepType("pressKey");
@@ -64,34 +66,7 @@ public class SyntheticsStepType {
   public static final SyntheticsStepType UPLOAD_FILES = new SyntheticsStepType("uploadFiles");
   public static final SyntheticsStepType WAIT = new SyntheticsStepType("wait");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "assertCurrentUrl",
-              "assertElementAttribute",
-              "assertElementContent",
-              "assertElementPresent",
-              "assertEmail",
-              "assertFileDownload",
-              "assertFromJavascript",
-              "assertPageContains",
-              "assertPageLacks",
-              "click",
-              "extractFromJavascript",
-              "extractVariable",
-              "goToEmailLink",
-              "goToUrl",
-              "goToUrlAndMeasureTti",
-              "hover",
-              "playSubTest",
-              "pressKey",
-              "refresh",
-              "runApiTest",
-              "scroll",
-              "selectOption",
-              "typeText",
-              "uploadFiles",
-              "wait"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("assertCurrentUrl","assertElementAttribute","assertElementContent","assertElementPresent","assertEmail","assertFileDownload","assertFromJavascript","assertPageContains","assertPageLacks","click","extractFromJavascript","extractVariable","goToEmailLink","goToUrl","goToUrlAndMeasureTti","hover","playSubTest","pressKey","refresh","runApiTest","scroll","selectOption","typeText","uploadFiles","wait"));
 
   private String value;
 
@@ -104,19 +79,18 @@ public class SyntheticsStepType {
   }
 
   public static class SyntheticsStepTypeSerializer extends StdSerializer<SyntheticsStepType> {
-    public SyntheticsStepTypeSerializer(Class<SyntheticsStepType> t) {
-      super(t);
-    }
+      public SyntheticsStepTypeSerializer(Class<SyntheticsStepType> t) {
+          super(t);
+      }
 
-    public SyntheticsStepTypeSerializer() {
-      this(null);
-    }
+      public SyntheticsStepTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(SyntheticsStepType value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(SyntheticsStepType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -128,7 +102,9 @@ public class SyntheticsStepType {
     this.value = value;
   }
 
-  /** Return true if this SyntheticsStepType object is equal to o. */
+  /**
+   * Return true if this SyntheticsStepType object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -142,7 +118,7 @@ public class SyntheticsStepType {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override
@@ -155,3 +131,4 @@ public class SyntheticsStepType {
     return new SyntheticsStepType(value);
   }
 }
+

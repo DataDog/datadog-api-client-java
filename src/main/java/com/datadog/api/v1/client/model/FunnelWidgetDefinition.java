@@ -8,27 +8,36 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.FunnelWidgetDefinitionType;
+import com.datadog.api.v1.client.model.FunnelWidgetRequest;
+import com.datadog.api.v1.client.model.WidgetTextAlign;
+import com.datadog.api.v1.client.model.WidgetTime;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
- * The funnel visualization displays a funnel of user sessions that maps a sequence of view
- * navigation and user interaction in your application.
+ * The funnel visualization displays a funnel of user sessions that maps a sequence of view navigation and user interaction in your application. 
  */
-@ApiModel(
-    description =
-        "The funnel visualization displays a funnel of user sessions that maps a sequence of view"
-            + " navigation and user interaction in your application. ")
+@ApiModel(description = "The funnel visualization displays a funnel of user sessions that maps a sequence of view navigation and user interaction in your application. ")
 @JsonPropertyOrder({
   FunnelWidgetDefinition.JSON_PROPERTY_REQUESTS,
   FunnelWidgetDefinition.JSON_PROPERTY_TIME,
@@ -38,8 +47,10 @@ import java.util.Objects;
   FunnelWidgetDefinition.JSON_PROPERTY_TYPE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FunnelWidgetDefinition {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_REQUESTS = "requests";
   private List<FunnelWidgetRequest> requests = new ArrayList<>();
 
@@ -62,12 +73,12 @@ public class FunnelWidgetDefinition {
 
   @JsonCreator
   public FunnelWidgetDefinition(
-      @JsonProperty(required = true, value = JSON_PROPERTY_REQUESTS)
-          List<FunnelWidgetRequest> requests,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) FunnelWidgetDefinitionType type) {
-    this.requests = requests;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_REQUESTS) List<FunnelWidgetRequest> requests,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE) FunnelWidgetDefinitionType type
+            ) {
+        this.requests = requests;
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
 
   public FunnelWidgetDefinition requests(List<FunnelWidgetRequest> requests) {
@@ -84,25 +95,23 @@ public class FunnelWidgetDefinition {
     return this;
   }
 
-  /**
+   /**
    * Request payload used to query items.
-   *
    * @return requests
-   */
-  @ApiModelProperty(
-      example =
-          "[{\"request_type\":\"funnel\"},{\"query\":{\"data_source\":\"rum\",\"query_string\":\"@browser.name:Chrome\",\"steps\":[{\"facet\":\"@view.name\",\"value\":\"/logs\"},{\"facet\":\"@view.name\",\"value\":\"/apm/home\"}]}}]",
-      required = true,
-      value = "Request payload used to query items.")
+  **/
+  @ApiModelProperty(example = "[{\"request_type\":\"funnel\"},{\"query\":{\"data_source\":\"rum\",\"query_string\":\"@browser.name:Chrome\",\"steps\":[{\"facet\":\"@view.name\",\"value\":\"/logs\"},{\"facet\":\"@view.name\",\"value\":\"/apm/home\"}]}}]", required = true, value = "Request payload used to query items.")
   @JsonProperty(JSON_PROPERTY_REQUESTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<FunnelWidgetRequest> getRequests() {
     return requests;
   }
 
+
   public void setRequests(List<FunnelWidgetRequest> requests) {
     this.requests = requests;
   }
+
 
   public FunnelWidgetDefinition time(WidgetTime time) {
     this.time = time;
@@ -110,44 +119,48 @@ public class FunnelWidgetDefinition {
     return this;
   }
 
-  /**
+   /**
    * Get time
-   *
    * @return time
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public WidgetTime getTime() {
     return time;
   }
 
+
   public void setTime(WidgetTime time) {
     this.time = time;
   }
+
 
   public FunnelWidgetDefinition title(String title) {
     this.title = title;
     return this;
   }
 
-  /**
+   /**
    * The title of the widget.
-   *
    * @return title
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The title of the widget.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getTitle() {
     return title;
   }
 
+
   public void setTitle(String title) {
     this.title = title;
   }
+
 
   public FunnelWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
@@ -155,47 +168,51 @@ public class FunnelWidgetDefinition {
     return this;
   }
 
-  /**
+   /**
    * Get titleAlign
-   *
    * @return titleAlign
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public WidgetTextAlign getTitleAlign() {
     return titleAlign;
   }
 
+
   public void setTitleAlign(WidgetTextAlign titleAlign) {
     if (!titleAlign.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.titleAlign = titleAlign;
   }
+
 
   public FunnelWidgetDefinition titleSize(String titleSize) {
     this.titleSize = titleSize;
     return this;
   }
 
-  /**
+   /**
    * The size of the title.
-   *
    * @return titleSize
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The size of the title.")
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getTitleSize() {
     return titleSize;
   }
 
+
   public void setTitleSize(String titleSize) {
     this.titleSize = titleSize;
   }
+
 
   public FunnelWidgetDefinition type(FunnelWidgetDefinitionType type) {
     this.type = type;
@@ -203,26 +220,30 @@ public class FunnelWidgetDefinition {
     return this;
   }
 
-  /**
+   /**
    * Get type
-   *
    * @return type
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public FunnelWidgetDefinitionType getType() {
     return type;
   }
 
+
   public void setType(FunnelWidgetDefinitionType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
-  /** Return true if this FunnelWidgetDefinition object is equal to o. */
+
+  /**
+   * Return true if this FunnelWidgetDefinition object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -232,12 +253,12 @@ public class FunnelWidgetDefinition {
       return false;
     }
     FunnelWidgetDefinition funnelWidgetDefinition = (FunnelWidgetDefinition) o;
-    return Objects.equals(this.requests, funnelWidgetDefinition.requests)
-        && Objects.equals(this.time, funnelWidgetDefinition.time)
-        && Objects.equals(this.title, funnelWidgetDefinition.title)
-        && Objects.equals(this.titleAlign, funnelWidgetDefinition.titleAlign)
-        && Objects.equals(this.titleSize, funnelWidgetDefinition.titleSize)
-        && Objects.equals(this.type, funnelWidgetDefinition.type);
+    return Objects.equals(this.requests, funnelWidgetDefinition.requests) &&
+        Objects.equals(this.time, funnelWidgetDefinition.time) &&
+        Objects.equals(this.title, funnelWidgetDefinition.title) &&
+        Objects.equals(this.titleAlign, funnelWidgetDefinition.titleAlign) &&
+        Objects.equals(this.titleSize, funnelWidgetDefinition.titleSize) &&
+        Objects.equals(this.type, funnelWidgetDefinition.type);
   }
 
   @Override
@@ -260,7 +281,8 @@ public class FunnelWidgetDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -268,4 +290,6 @@ public class FunnelWidgetDefinition {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

@@ -8,42 +8,44 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import io.swagger.annotations.ApiModel;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
+
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
+
+
 import java.util.Set;
-
-/** The rule type. */
-@JsonSerialize(
-    using = SecurityMonitoringRuleTypeRead.SecurityMonitoringRuleTypeReadSerializer.class)
+import java.util.HashSet;
+/**
+ * The rule type.
+ */
+@JsonSerialize(using = SecurityMonitoringRuleTypeRead.SecurityMonitoringRuleTypeReadSerializer.class)
 public class SecurityMonitoringRuleTypeRead {
+  
+  public static final SecurityMonitoringRuleTypeRead LOG_DETECTION = new SecurityMonitoringRuleTypeRead("log_detection");
+  public static final SecurityMonitoringRuleTypeRead INFRASTRUCTURE_CONFIGURATION = new SecurityMonitoringRuleTypeRead("infrastructure_configuration");
+  public static final SecurityMonitoringRuleTypeRead WORKLOAD_SECURITY = new SecurityMonitoringRuleTypeRead("workload_security");
+  public static final SecurityMonitoringRuleTypeRead CLOUD_CONFIGURATION = new SecurityMonitoringRuleTypeRead("cloud_configuration");
 
-  public static final SecurityMonitoringRuleTypeRead LOG_DETECTION =
-      new SecurityMonitoringRuleTypeRead("log_detection");
-  public static final SecurityMonitoringRuleTypeRead INFRASTRUCTURE_CONFIGURATION =
-      new SecurityMonitoringRuleTypeRead("infrastructure_configuration");
-  public static final SecurityMonitoringRuleTypeRead WORKLOAD_SECURITY =
-      new SecurityMonitoringRuleTypeRead("workload_security");
-  public static final SecurityMonitoringRuleTypeRead CLOUD_CONFIGURATION =
-      new SecurityMonitoringRuleTypeRead("cloud_configuration");
-
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "log_detection",
-              "infrastructure_configuration",
-              "workload_security",
-              "cloud_configuration"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("log_detection","infrastructure_configuration","workload_security","cloud_configuration"));
 
   private String value;
 
@@ -55,22 +57,19 @@ public class SecurityMonitoringRuleTypeRead {
     this.value = value;
   }
 
-  public static class SecurityMonitoringRuleTypeReadSerializer
-      extends StdSerializer<SecurityMonitoringRuleTypeRead> {
-    public SecurityMonitoringRuleTypeReadSerializer(Class<SecurityMonitoringRuleTypeRead> t) {
-      super(t);
-    }
+  public static class SecurityMonitoringRuleTypeReadSerializer extends StdSerializer<SecurityMonitoringRuleTypeRead> {
+      public SecurityMonitoringRuleTypeReadSerializer(Class<SecurityMonitoringRuleTypeRead> t) {
+          super(t);
+      }
 
-    public SecurityMonitoringRuleTypeReadSerializer() {
-      this(null);
-    }
+      public SecurityMonitoringRuleTypeReadSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        SecurityMonitoringRuleTypeRead value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(SecurityMonitoringRuleTypeRead value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -82,7 +81,9 @@ public class SecurityMonitoringRuleTypeRead {
     this.value = value;
   }
 
-  /** Return true if this SecurityMonitoringRuleTypeRead object is equal to o. */
+  /**
+   * Return true if this SecurityMonitoringRuleTypeRead object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -96,7 +97,7 @@ public class SecurityMonitoringRuleTypeRead {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override
@@ -109,3 +110,4 @@ public class SecurityMonitoringRuleTypeRead {
     return new SecurityMonitoringRuleTypeRead(value);
   }
 }
+

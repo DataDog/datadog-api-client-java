@@ -8,18 +8,31 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.NotebookCellResourceType;
+import com.datadog.api.v1.client.model.NotebookCellResponseAttributes;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** The description of a notebook cell response. */
+
+/**
+ * The description of a notebook cell response.
+ */
 @ApiModel(description = "The description of a notebook cell response.")
 @JsonPropertyOrder({
   NotebookCellResponse.JSON_PROPERTY_ATTRIBUTES,
@@ -27,8 +40,10 @@ import java.util.Objects;
   NotebookCellResponse.JSON_PROPERTY_TYPE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class NotebookCellResponse {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private NotebookCellResponseAttributes attributes;
 
@@ -42,15 +57,15 @@ public class NotebookCellResponse {
 
   @JsonCreator
   public NotebookCellResponse(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          NotebookCellResponseAttributes attributes,
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) NotebookCellResourceType type) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
-    this.id = id;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_ATTRIBUTES) NotebookCellResponseAttributes attributes,
+            @JsonProperty(required=true, value=JSON_PROPERTY_ID) String id,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE) NotebookCellResourceType type
+            ) {
+        this.attributes = attributes;
+        this.unparsed |= attributes.unparsed;
+        this.id = id;
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
 
   public NotebookCellResponse attributes(NotebookCellResponseAttributes attributes) {
@@ -59,42 +74,46 @@ public class NotebookCellResponse {
     return this;
   }
 
-  /**
+   /**
    * Get attributes
-   *
    * @return attributes
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public NotebookCellResponseAttributes getAttributes() {
     return attributes;
   }
 
+
   public void setAttributes(NotebookCellResponseAttributes attributes) {
     this.attributes = attributes;
   }
+
 
   public NotebookCellResponse id(String id) {
     this.id = id;
     return this;
   }
 
-  /**
+   /**
    * Notebook cell ID.
-   *
    * @return id
-   */
+  **/
   @ApiModelProperty(example = "abcd1234", required = true, value = "Notebook cell ID.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getId() {
     return id;
   }
 
+
   public void setId(String id) {
     this.id = id;
   }
+
 
   public NotebookCellResponse type(NotebookCellResourceType type) {
     this.type = type;
@@ -102,26 +121,30 @@ public class NotebookCellResponse {
     return this;
   }
 
-  /**
+   /**
    * Get type
-   *
    * @return type
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public NotebookCellResourceType getType() {
     return type;
   }
 
+
   public void setType(NotebookCellResourceType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
-  /** Return true if this NotebookCellResponse object is equal to o. */
+
+  /**
+   * Return true if this NotebookCellResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -131,9 +154,9 @@ public class NotebookCellResponse {
       return false;
     }
     NotebookCellResponse notebookCellResponse = (NotebookCellResponse) o;
-    return Objects.equals(this.attributes, notebookCellResponse.attributes)
-        && Objects.equals(this.id, notebookCellResponse.id)
-        && Objects.equals(this.type, notebookCellResponse.type);
+    return Objects.equals(this.attributes, notebookCellResponse.attributes) &&
+        Objects.equals(this.id, notebookCellResponse.id) &&
+        Objects.equals(this.type, notebookCellResponse.type);
   }
 
   @Override
@@ -153,7 +176,8 @@ public class NotebookCellResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -161,4 +185,6 @@ public class NotebookCellResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

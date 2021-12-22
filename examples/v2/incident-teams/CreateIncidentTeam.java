@@ -4,10 +4,10 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.api.IncidentTeamsApi;
+import com.datadog.api.v2.client.model.IncidentTeamResponse;
 import com.datadog.api.v2.client.model.IncidentTeamCreateAttributes;
 import com.datadog.api.v2.client.model.IncidentTeamCreateData;
 import com.datadog.api.v2.client.model.IncidentTeamCreateRequest;
-import com.datadog.api.v2.client.model.IncidentTeamResponse;
 import com.datadog.api.v2.client.model.IncidentTeamType;
 import java.time.*;
 import java.util.*;
@@ -18,14 +18,11 @@ public class Example {
     defaultClient.setUnstableOperationEnabled("createIncidentTeam", true);
     IncidentTeamsApi apiInstance = new IncidentTeamsApi(defaultClient);
 
-    IncidentTeamCreateRequest body =
-        new IncidentTeamCreateRequest()
-            .data(
-                new IncidentTeamCreateData()
-                    .type(IncidentTeamType.TEAMS)
-                    .attributes(
-                        new IncidentTeamCreateAttributes()
-                            .name("Example-Create_a_new_incident_team_returns_CREATED_response")));
+    IncidentTeamCreateRequest body = new IncidentTeamCreateRequest()
+.data(new IncidentTeamCreateData()
+.type(IncidentTeamType.TEAMS)
+.attributes(new IncidentTeamCreateAttributes()
+.name("Example-Create_a_new_incident_team_returns_CREATED_response")));
 
     try {
       IncidentTeamResponse result = apiInstance.createIncidentTeam(body);

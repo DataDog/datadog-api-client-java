@@ -8,33 +8,42 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import io.swagger.annotations.ApiModel;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
+
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
 
+
+import java.util.Set;
+import java.util.HashSet;
 /**
- * A numeric representation of the type of the service level objective (&#x60;0&#x60; for monitor,
- * &#x60;1&#x60; for metric). Always included in service level objective responses. Ignored in
- * create/update requests.
+ * A numeric representation of the type of the service level objective (&#x60;0&#x60; for monitor, &#x60;1&#x60; for metric). Always included in service level objective responses. Ignored in create/update requests.
  */
 @JsonSerialize(using = SLOTypeNumeric.SLOTypeNumericSerializer.class)
 public class SLOTypeNumeric {
-
+  
   public static final SLOTypeNumeric MONITOR = new SLOTypeNumeric(0);
   public static final SLOTypeNumeric METRIC = new SLOTypeNumeric(1);
 
-  private static final Set<Integer> allowedValues = new HashSet<Integer>(Arrays.asList(0, 1));
+  private static final Set<Integer> allowedValues = new HashSet<Integer>(Arrays.asList(0,1));
 
   private Integer value;
 
@@ -47,19 +56,18 @@ public class SLOTypeNumeric {
   }
 
   public static class SLOTypeNumericSerializer extends StdSerializer<SLOTypeNumeric> {
-    public SLOTypeNumericSerializer(Class<SLOTypeNumeric> t) {
-      super(t);
-    }
+      public SLOTypeNumericSerializer(Class<SLOTypeNumeric> t) {
+          super(t);
+      }
 
-    public SLOTypeNumericSerializer() {
-      this(null);
-    }
+      public SLOTypeNumericSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(SLOTypeNumeric value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(SLOTypeNumeric value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -71,7 +79,9 @@ public class SLOTypeNumeric {
     this.value = value;
   }
 
-  /** Return true if this SLOTypeNumeric object is equal to o. */
+  /**
+   * Return true if this SLOTypeNumeric object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -85,7 +95,7 @@ public class SLOTypeNumeric {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override
@@ -98,3 +108,4 @@ public class SLOTypeNumeric {
     return new SLOTypeNumeric(value);
   }
 }
+

@@ -8,25 +8,41 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v2.client.model.UserInvitationData;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
 
-/** Object to invite users to join the organization. */
+
+/**
+ * Object to invite users to join the organization.
+ */
 @ApiModel(description = "Object to invite users to join the organization.")
-@JsonPropertyOrder({UserInvitationsRequest.JSON_PROPERTY_DATA})
+@JsonPropertyOrder({
+  UserInvitationsRequest.JSON_PROPERTY_DATA
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class UserInvitationsRequest {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<UserInvitationData> data = new ArrayList<>();
 
@@ -34,8 +50,9 @@ public class UserInvitationsRequest {
 
   @JsonCreator
   public UserInvitationsRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) List<UserInvitationData> data) {
-    this.data = data;
+            @JsonProperty(required=true, value=JSON_PROPERTY_DATA) List<UserInvitationData> data
+            ) {
+        this.data = data;
   }
 
   public UserInvitationsRequest data(List<UserInvitationData> data) {
@@ -52,23 +69,27 @@ public class UserInvitationsRequest {
     return this;
   }
 
-  /**
+   /**
    * List of user invitations.
-   *
    * @return data
-   */
+  **/
   @ApiModelProperty(example = "[]", required = true, value = "List of user invitations.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<UserInvitationData> getData() {
     return data;
   }
+
 
   public void setData(List<UserInvitationData> data) {
     this.data = data;
   }
 
-  /** Return true if this UserInvitationsRequest object is equal to o. */
+
+  /**
+   * Return true if this UserInvitationsRequest object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -96,7 +117,8 @@ public class UserInvitationsRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -104,4 +126,6 @@ public class UserInvitationsRequest {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

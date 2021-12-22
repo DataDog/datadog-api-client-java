@@ -8,19 +8,34 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v2.client.model.ResponseMetaAttributes;
+import com.datadog.api.v2.client.model.User;
+import com.datadog.api.v2.client.model.UserResponseIncludedItem;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
 
-/** Response containing information about multiple users. */
+
+/**
+ * Response containing information about multiple users.
+ */
 @ApiModel(description = "Response containing information about multiple users.")
 @JsonPropertyOrder({
   UsersResponse.JSON_PROPERTY_DATA,
@@ -28,8 +43,10 @@ import java.util.Objects;
   UsersResponse.JSON_PROPERTY_META
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class UsersResponse {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<User> data = null;
 
@@ -38,6 +55,7 @@ public class UsersResponse {
 
   public static final String JSON_PROPERTY_META = "meta";
   private ResponseMetaAttributes meta;
+
 
   public UsersResponse data(List<User> data) {
     this.data = data;
@@ -56,22 +74,24 @@ public class UsersResponse {
     return this;
   }
 
-  /**
+   /**
    * Array of returned users.
-   *
    * @return data
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Array of returned users.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<User> getData() {
     return data;
   }
 
+
   public void setData(List<User> data) {
     this.data = data;
   }
+
 
   public UsersResponse included(List<UserResponseIncludedItem> included) {
     this.included = included;
@@ -90,22 +110,24 @@ public class UsersResponse {
     return this;
   }
 
-  /**
+   /**
    * Array of objects related to the users.
-   *
    * @return included
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Array of objects related to the users.")
   @JsonProperty(JSON_PROPERTY_INCLUDED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<UserResponseIncludedItem> getIncluded() {
     return included;
   }
 
+
   public void setIncluded(List<UserResponseIncludedItem> included) {
     this.included = included;
   }
+
 
   public UsersResponse meta(ResponseMetaAttributes meta) {
     this.meta = meta;
@@ -113,24 +135,28 @@ public class UsersResponse {
     return this;
   }
 
-  /**
+   /**
    * Get meta
-   *
    * @return meta
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public ResponseMetaAttributes getMeta() {
     return meta;
   }
+
 
   public void setMeta(ResponseMetaAttributes meta) {
     this.meta = meta;
   }
 
-  /** Return true if this UsersResponse object is equal to o. */
+
+  /**
+   * Return true if this UsersResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -140,9 +166,9 @@ public class UsersResponse {
       return false;
     }
     UsersResponse usersResponse = (UsersResponse) o;
-    return Objects.equals(this.data, usersResponse.data)
-        && Objects.equals(this.included, usersResponse.included)
-        && Objects.equals(this.meta, usersResponse.meta);
+    return Objects.equals(this.data, usersResponse.data) &&
+        Objects.equals(this.included, usersResponse.included) &&
+        Objects.equals(this.meta, usersResponse.meta);
   }
 
   @Override
@@ -162,7 +188,8 @@ public class UsersResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -170,4 +197,6 @@ public class UsersResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

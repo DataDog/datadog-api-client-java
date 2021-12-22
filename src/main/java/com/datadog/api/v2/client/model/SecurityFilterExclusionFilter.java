@@ -8,26 +8,39 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
 
-/** Exclusion filter for the security filter. */
+
+/**
+ * Exclusion filter for the security filter.
+ */
 @ApiModel(description = "Exclusion filter for the security filter.")
 @JsonPropertyOrder({
   SecurityFilterExclusionFilter.JSON_PROPERTY_NAME,
   SecurityFilterExclusionFilter.JSON_PROPERTY_QUERY
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SecurityFilterExclusionFilter {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
@@ -38,10 +51,11 @@ public class SecurityFilterExclusionFilter {
 
   @JsonCreator
   public SecurityFilterExclusionFilter(
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query) {
-    this.name = name;
-    this.query = query;
+            @JsonProperty(required=true, value=JSON_PROPERTY_NAME) String name,
+            @JsonProperty(required=true, value=JSON_PROPERTY_QUERY) String query
+            ) {
+        this.name = name;
+        this.query = query;
   }
 
   public SecurityFilterExclusionFilter name(String name) {
@@ -49,49 +63,50 @@ public class SecurityFilterExclusionFilter {
     return this;
   }
 
-  /**
+   /**
    * Exclusion filter name.
-   *
    * @return name
-   */
+  **/
   @ApiModelProperty(example = "Exclude staging", required = true, value = "Exclusion filter name.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getName() {
     return name;
   }
 
+
   public void setName(String name) {
     this.name = name;
   }
+
 
   public SecurityFilterExclusionFilter query(String query) {
     this.query = query;
     return this;
   }
 
-  /**
+   /**
    * Exclusion filter query. Logs that match this query are excluded from the security filter.
-   *
    * @return query
-   */
-  @ApiModelProperty(
-      example = "source:staging",
-      required = true,
-      value =
-          "Exclusion filter query. Logs that match this query are excluded from the security"
-              + " filter.")
+  **/
+  @ApiModelProperty(example = "source:staging", required = true, value = "Exclusion filter query. Logs that match this query are excluded from the security filter.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getQuery() {
     return query;
   }
+
 
   public void setQuery(String query) {
     this.query = query;
   }
 
-  /** Return true if this SecurityFilterExclusionFilter object is equal to o. */
+
+  /**
+   * Return true if this SecurityFilterExclusionFilter object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -101,8 +116,8 @@ public class SecurityFilterExclusionFilter {
       return false;
     }
     SecurityFilterExclusionFilter securityFilterExclusionFilter = (SecurityFilterExclusionFilter) o;
-    return Objects.equals(this.name, securityFilterExclusionFilter.name)
-        && Objects.equals(this.query, securityFilterExclusionFilter.query);
+    return Objects.equals(this.name, securityFilterExclusionFilter.name) &&
+        Objects.equals(this.query, securityFilterExclusionFilter.query);
   }
 
   @Override
@@ -121,7 +136,8 @@ public class SecurityFilterExclusionFilter {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -129,4 +145,6 @@ public class SecurityFilterExclusionFilter {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

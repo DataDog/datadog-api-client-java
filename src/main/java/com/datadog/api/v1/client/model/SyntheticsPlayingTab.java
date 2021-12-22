@@ -8,33 +8,45 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import io.swagger.annotations.ApiModel;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
+
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
 
-/** Navigate between different tabs for your browser test. */
+
+import java.util.Set;
+import java.util.HashSet;
+/**
+ * Navigate between different tabs for your browser test.
+ */
 @JsonSerialize(using = SyntheticsPlayingTab.SyntheticsPlayingTabSerializer.class)
 public class SyntheticsPlayingTab {
-
+  
   public static final SyntheticsPlayingTab MAIN_TAB = new SyntheticsPlayingTab(-1l);
   public static final SyntheticsPlayingTab NEW_TAB = new SyntheticsPlayingTab(0l);
   public static final SyntheticsPlayingTab TAB_1 = new SyntheticsPlayingTab(1l);
   public static final SyntheticsPlayingTab TAB_2 = new SyntheticsPlayingTab(2l);
   public static final SyntheticsPlayingTab TAB_3 = new SyntheticsPlayingTab(3l);
 
-  private static final Set<Long> allowedValues =
-      new HashSet<Long>(Arrays.asList(-1l, 0l, 1l, 2l, 3l));
+  private static final Set<Long> allowedValues = new HashSet<Long>(Arrays.asList(-1l,0l,1l,2l,3l));
 
   private Long value;
 
@@ -47,20 +59,18 @@ public class SyntheticsPlayingTab {
   }
 
   public static class SyntheticsPlayingTabSerializer extends StdSerializer<SyntheticsPlayingTab> {
-    public SyntheticsPlayingTabSerializer(Class<SyntheticsPlayingTab> t) {
-      super(t);
-    }
+      public SyntheticsPlayingTabSerializer(Class<SyntheticsPlayingTab> t) {
+          super(t);
+      }
 
-    public SyntheticsPlayingTabSerializer() {
-      this(null);
-    }
+      public SyntheticsPlayingTabSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        SyntheticsPlayingTab value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(SyntheticsPlayingTab value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -72,7 +82,9 @@ public class SyntheticsPlayingTab {
     this.value = value;
   }
 
-  /** Return true if this SyntheticsPlayingTab object is equal to o. */
+  /**
+   * Return true if this SyntheticsPlayingTab object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -86,7 +98,7 @@ public class SyntheticsPlayingTab {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override
@@ -99,3 +111,4 @@ public class SyntheticsPlayingTab {
     return new SyntheticsPlayingTab(value);
   }
 }
+

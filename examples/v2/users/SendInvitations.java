@@ -4,12 +4,12 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.api.UsersApi;
+import com.datadog.api.v2.client.model.UserInvitationsResponse;
 import com.datadog.api.v2.client.model.RelationshipToUser;
 import com.datadog.api.v2.client.model.RelationshipToUserData;
 import com.datadog.api.v2.client.model.UserInvitationData;
 import com.datadog.api.v2.client.model.UserInvitationRelationships;
 import com.datadog.api.v2.client.model.UserInvitationsRequest;
-import com.datadog.api.v2.client.model.UserInvitationsResponse;
 import com.datadog.api.v2.client.model.UserInvitationsType;
 import com.datadog.api.v2.client.model.UsersType;
 import java.time.*;
@@ -23,24 +23,14 @@ public class Example {
     // there is a valid "user" in the system
     String USER_DATA_ID = System.getenv("USER_DATA_ID");
 
-    UserInvitationsRequest body =
-        new UserInvitationsRequest()
-            .data(
-                new ArrayList<UserInvitationData>() {
-                  {
-                    add(
-                        new UserInvitationData()
-                            .type(UserInvitationsType.USER_INVITATIONS)
-                            .relationships(
-                                new UserInvitationRelationships()
-                                    .user(
-                                        new RelationshipToUser()
-                                            .data(
-                                                new RelationshipToUserData()
-                                                    .type(UsersType.USERS)
-                                                    .id(USER_DATA_ID)))));
-                  }
-                });
+    UserInvitationsRequest body = new UserInvitationsRequest()
+.data(new ArrayList<UserInvitationData>() {{add(new UserInvitationData()
+.type(UserInvitationsType.USER_INVITATIONS)
+.relationships(new UserInvitationRelationships()
+.user(new RelationshipToUser()
+.data(new RelationshipToUserData()
+.type(UsersType.USERS)
+.id(USER_DATA_ID)))));}});
 
     try {
       UserInvitationsResponse result = apiInstance.sendInvitations(body);

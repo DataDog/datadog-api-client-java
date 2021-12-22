@@ -8,18 +8,30 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.SyntheticsConfigVariableType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Object defining a variable that can be used in your test configuration. */
+
+/**
+ * Object defining a variable that can be used in your test configuration.
+ */
 @ApiModel(description = "Object defining a variable that can be used in your test configuration.")
 @JsonPropertyOrder({
   SyntheticsConfigVariable.JSON_PROPERTY_EXAMPLE,
@@ -29,8 +41,10 @@ import java.util.Objects;
   SyntheticsConfigVariable.JSON_PROPERTY_TYPE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SyntheticsConfigVariable {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_EXAMPLE = "example";
   private String example;
 
@@ -50,12 +64,12 @@ public class SyntheticsConfigVariable {
 
   @JsonCreator
   public SyntheticsConfigVariable(
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          SyntheticsConfigVariableType type) {
-    this.name = name;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_NAME) String name,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE) SyntheticsConfigVariableType type
+            ) {
+        this.name = name;
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
 
   public SyntheticsConfigVariable example(String example) {
@@ -63,87 +77,95 @@ public class SyntheticsConfigVariable {
     return this;
   }
 
-  /**
+   /**
    * Example for the variable.
-   *
    * @return example
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Example for the variable.")
   @JsonProperty(JSON_PROPERTY_EXAMPLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getExample() {
     return example;
   }
 
+
   public void setExample(String example) {
     this.example = example;
   }
+
 
   public SyntheticsConfigVariable id(String id) {
     this.id = id;
     return this;
   }
 
-  /**
+   /**
    * ID of the variable for global variables.
-   *
    * @return id
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "ID of the variable for global variables.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getId() {
     return id;
   }
 
+
   public void setId(String id) {
     this.id = id;
   }
+
 
   public SyntheticsConfigVariable name(String name) {
     this.name = name;
     return this;
   }
 
-  /**
+   /**
    * Name of the variable.
-   *
    * @return name
-   */
+  **/
   @ApiModelProperty(example = "VARIABLE_NAME", required = true, value = "Name of the variable.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getName() {
     return name;
   }
 
+
   public void setName(String name) {
     this.name = name;
   }
+
 
   public SyntheticsConfigVariable pattern(String pattern) {
     this.pattern = pattern;
     return this;
   }
 
-  /**
+   /**
    * Pattern of the variable.
-   *
    * @return pattern
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Pattern of the variable.")
   @JsonProperty(JSON_PROPERTY_PATTERN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getPattern() {
     return pattern;
   }
 
+
   public void setPattern(String pattern) {
     this.pattern = pattern;
   }
+
 
   public SyntheticsConfigVariable type(SyntheticsConfigVariableType type) {
     this.type = type;
@@ -151,26 +173,30 @@ public class SyntheticsConfigVariable {
     return this;
   }
 
-  /**
+   /**
    * Get type
-   *
    * @return type
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public SyntheticsConfigVariableType getType() {
     return type;
   }
 
+
   public void setType(SyntheticsConfigVariableType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
-  /** Return true if this SyntheticsConfigVariable object is equal to o. */
+
+  /**
+   * Return true if this SyntheticsConfigVariable object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -180,11 +206,11 @@ public class SyntheticsConfigVariable {
       return false;
     }
     SyntheticsConfigVariable syntheticsConfigVariable = (SyntheticsConfigVariable) o;
-    return Objects.equals(this.example, syntheticsConfigVariable.example)
-        && Objects.equals(this.id, syntheticsConfigVariable.id)
-        && Objects.equals(this.name, syntheticsConfigVariable.name)
-        && Objects.equals(this.pattern, syntheticsConfigVariable.pattern)
-        && Objects.equals(this.type, syntheticsConfigVariable.type);
+    return Objects.equals(this.example, syntheticsConfigVariable.example) &&
+        Objects.equals(this.id, syntheticsConfigVariable.id) &&
+        Objects.equals(this.name, syntheticsConfigVariable.name) &&
+        Objects.equals(this.pattern, syntheticsConfigVariable.pattern) &&
+        Objects.equals(this.type, syntheticsConfigVariable.type);
   }
 
   @Override
@@ -206,7 +232,8 @@ public class SyntheticsConfigVariable {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -214,4 +241,6 @@ public class SyntheticsConfigVariable {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

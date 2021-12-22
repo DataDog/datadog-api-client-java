@@ -8,34 +8,42 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import io.swagger.annotations.ApiModel;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
+
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
 
+
+import java.util.Set;
+import java.util.HashSet;
 /**
- * Reflow type for a **new dashboard layout** dashboard. Set this only when layout type is
- * &#39;ordered&#39;. If set to &#39;fixed&#39;, the dashboard expects all widgets to have a layout,
- * and if it&#39;s set to &#39;auto&#39;, widgets should not have layouts.
+ * Reflow type for a **new dashboard layout** dashboard. Set this only when layout type is &#39;ordered&#39;. If set to &#39;fixed&#39;, the dashboard expects all widgets to have a layout, and if it&#39;s set to &#39;auto&#39;, widgets should not have layouts.
  */
 @JsonSerialize(using = DashboardReflowType.DashboardReflowTypeSerializer.class)
 public class DashboardReflowType {
-
+  
   public static final DashboardReflowType AUTO = new DashboardReflowType("auto");
   public static final DashboardReflowType FIXED = new DashboardReflowType("fixed");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("auto", "fixed"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("auto","fixed"));
 
   private String value;
 
@@ -48,20 +56,18 @@ public class DashboardReflowType {
   }
 
   public static class DashboardReflowTypeSerializer extends StdSerializer<DashboardReflowType> {
-    public DashboardReflowTypeSerializer(Class<DashboardReflowType> t) {
-      super(t);
-    }
+      public DashboardReflowTypeSerializer(Class<DashboardReflowType> t) {
+          super(t);
+      }
 
-    public DashboardReflowTypeSerializer() {
-      this(null);
-    }
+      public DashboardReflowTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        DashboardReflowType value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(DashboardReflowType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -73,7 +79,9 @@ public class DashboardReflowType {
     this.value = value;
   }
 
-  /** Return true if this DashboardReflowType object is equal to o. */
+  /**
+   * Return true if this DashboardReflowType object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -87,7 +95,7 @@ public class DashboardReflowType {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override
@@ -100,3 +108,4 @@ public class DashboardReflowType {
     return new DashboardReflowType(value);
   }
 }
+

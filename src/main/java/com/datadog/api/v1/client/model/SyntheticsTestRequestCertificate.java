@@ -8,30 +8,46 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.SyntheticsTestRequestCertificateItem;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Client certificate to use when performing the test request. */
+
+/**
+ * Client certificate to use when performing the test request.
+ */
 @ApiModel(description = "Client certificate to use when performing the test request.")
 @JsonPropertyOrder({
   SyntheticsTestRequestCertificate.JSON_PROPERTY_CERT,
   SyntheticsTestRequestCertificate.JSON_PROPERTY_KEY
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SyntheticsTestRequestCertificate {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CERT = "cert";
   private SyntheticsTestRequestCertificateItem cert;
 
   public static final String JSON_PROPERTY_KEY = "key";
   private SyntheticsTestRequestCertificateItem key;
+
 
   public SyntheticsTestRequestCertificate cert(SyntheticsTestRequestCertificateItem cert) {
     this.cert = cert;
@@ -39,22 +55,24 @@ public class SyntheticsTestRequestCertificate {
     return this;
   }
 
-  /**
+   /**
    * Get cert
-   *
    * @return cert
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CERT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public SyntheticsTestRequestCertificateItem getCert() {
     return cert;
   }
 
+
   public void setCert(SyntheticsTestRequestCertificateItem cert) {
     this.cert = cert;
   }
+
 
   public SyntheticsTestRequestCertificate key(SyntheticsTestRequestCertificateItem key) {
     this.key = key;
@@ -62,24 +80,28 @@ public class SyntheticsTestRequestCertificate {
     return this;
   }
 
-  /**
+   /**
    * Get key
-   *
    * @return key
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public SyntheticsTestRequestCertificateItem getKey() {
     return key;
   }
+
 
   public void setKey(SyntheticsTestRequestCertificateItem key) {
     this.key = key;
   }
 
-  /** Return true if this SyntheticsTestRequestCertificate object is equal to o. */
+
+  /**
+   * Return true if this SyntheticsTestRequestCertificate object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -88,10 +110,9 @@ public class SyntheticsTestRequestCertificate {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsTestRequestCertificate syntheticsTestRequestCertificate =
-        (SyntheticsTestRequestCertificate) o;
-    return Objects.equals(this.cert, syntheticsTestRequestCertificate.cert)
-        && Objects.equals(this.key, syntheticsTestRequestCertificate.key);
+    SyntheticsTestRequestCertificate syntheticsTestRequestCertificate = (SyntheticsTestRequestCertificate) o;
+    return Objects.equals(this.cert, syntheticsTestRequestCertificate.cert) &&
+        Objects.equals(this.key, syntheticsTestRequestCertificate.key);
   }
 
   @Override
@@ -110,7 +131,8 @@ public class SyntheticsTestRequestCertificate {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -118,4 +140,6 @@ public class SyntheticsTestRequestCertificate {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

@@ -5,6 +5,7 @@ import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.DashboardsApi;
 import com.datadog.api.v1.client.model.Dashboard;
+import com.datadog.api.v1.client.model.Dashboard;
 import com.datadog.api.v1.client.model.DashboardLayoutType;
 import com.datadog.api.v1.client.model.ListStreamColumn;
 import com.datadog.api.v1.client.model.ListStreamColumnWidth;
@@ -24,46 +25,21 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     DashboardsApi apiInstance = new DashboardsApi(defaultClient);
 
-    Dashboard body =
-        new Dashboard()
-            .layoutType(DashboardLayoutType.ORDERED)
-            .title("Example-Create_a_new_dashboard_with_list_stream_widget with list_stream widget")
-            .widgets(
-                new ArrayList<Widget>() {
-                  {
-                    add(
-                        new Widget()
-                            .definition(
-                                new WidgetDefinition(
-                                    new ListStreamWidgetDefinition()
-                                        .type(ListStreamWidgetDefinitionType.LIST_STREAM)
-                                        .requests(
-                                            new ArrayList<ListStreamWidgetRequest>() {
-                                              {
-                                                add(
-                                                    new ListStreamWidgetRequest()
-                                                        .columns(
-                                                            new ArrayList<ListStreamColumn>() {
-                                                              {
-                                                                add(
-                                                                    new ListStreamColumn()
-                                                                        .width(
-                                                                            ListStreamColumnWidth
-                                                                                .AUTO)
-                                                                        .field("timestamp"));
-                                                              }
-                                                            })
-                                                        .query(
-                                                            new ListStreamQuery()
-                                                                .dataSource(
-                                                                    ListStreamSource.ISSUE_STREAM)
-                                                                .queryString(""))
-                                                        .responseFormat(
-                                                            ListStreamResponseFormat.EVENT_LIST));
-                                              }
-                                            }))));
-                  }
-                });
+    Dashboard body = new Dashboard()
+.layoutType(DashboardLayoutType.ORDERED)
+.title("Example-Create_a_new_dashboard_with_list_stream_widget with list_stream widget")
+.widgets(new ArrayList<Widget>() {{add(new Widget()
+.definition(new WidgetDefinition(
+new ListStreamWidgetDefinition()
+.type(ListStreamWidgetDefinitionType.LIST_STREAM)
+.requests(new ArrayList<ListStreamWidgetRequest>() {{add(new ListStreamWidgetRequest()
+.columns(new ArrayList<ListStreamColumn>() {{add(new ListStreamColumn()
+.width(ListStreamColumnWidth.AUTO)
+.field("timestamp"));}})
+.query(new ListStreamQuery()
+.dataSource(ListStreamSource.ISSUE_STREAM)
+.queryString(""))
+.responseFormat(ListStreamResponseFormat.EVENT_LIST));}}))));}});
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

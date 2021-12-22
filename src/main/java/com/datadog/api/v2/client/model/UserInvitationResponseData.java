@@ -8,17 +8,31 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v2.client.model.UserInvitationDataAttributes;
+import com.datadog.api.v2.client.model.UserInvitationsType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
 
-/** Object of a user invitation returned by the API. */
+
+/**
+ * Object of a user invitation returned by the API.
+ */
 @ApiModel(description = "Object of a user invitation returned by the API.")
 @JsonPropertyOrder({
   UserInvitationResponseData.JSON_PROPERTY_ATTRIBUTES,
@@ -26,8 +40,10 @@ import java.util.Objects;
   UserInvitationResponseData.JSON_PROPERTY_TYPE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class UserInvitationResponseData {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private UserInvitationDataAttributes attributes;
 
@@ -37,50 +53,55 @@ public class UserInvitationResponseData {
   public static final String JSON_PROPERTY_TYPE = "type";
   private UserInvitationsType type = UserInvitationsType.USER_INVITATIONS;
 
+
   public UserInvitationResponseData attributes(UserInvitationDataAttributes attributes) {
     this.attributes = attributes;
     this.unparsed |= attributes.unparsed;
     return this;
   }
 
-  /**
+   /**
    * Get attributes
-   *
    * @return attributes
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public UserInvitationDataAttributes getAttributes() {
     return attributes;
   }
 
+
   public void setAttributes(UserInvitationDataAttributes attributes) {
     this.attributes = attributes;
   }
+
 
   public UserInvitationResponseData id(String id) {
     this.id = id;
     return this;
   }
 
-  /**
+   /**
    * ID of the user invitation.
-   *
    * @return id
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "ID of the user invitation.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getId() {
     return id;
   }
 
+
   public void setId(String id) {
     this.id = id;
   }
+
 
   public UserInvitationResponseData type(UserInvitationsType type) {
     this.type = type;
@@ -88,27 +109,31 @@ public class UserInvitationResponseData {
     return this;
   }
 
-  /**
+   /**
    * Get type
-   *
    * @return type
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public UserInvitationsType getType() {
     return type;
   }
 
+
   public void setType(UserInvitationsType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
-  /** Return true if this UserInvitationResponseData object is equal to o. */
+
+  /**
+   * Return true if this UserInvitationResponseData object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -118,9 +143,9 @@ public class UserInvitationResponseData {
       return false;
     }
     UserInvitationResponseData userInvitationResponseData = (UserInvitationResponseData) o;
-    return Objects.equals(this.attributes, userInvitationResponseData.attributes)
-        && Objects.equals(this.id, userInvitationResponseData.id)
-        && Objects.equals(this.type, userInvitationResponseData.type);
+    return Objects.equals(this.attributes, userInvitationResponseData.attributes) &&
+        Objects.equals(this.id, userInvitationResponseData.id) &&
+        Objects.equals(this.type, userInvitationResponseData.type);
   }
 
   @Override
@@ -140,7 +165,8 @@ public class UserInvitationResponseData {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -148,4 +174,6 @@ public class UserInvitationResponseData {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

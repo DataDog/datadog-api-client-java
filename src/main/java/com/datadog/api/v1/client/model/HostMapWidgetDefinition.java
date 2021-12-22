@@ -8,27 +8,38 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.HostMapWidgetDefinitionRequests;
+import com.datadog.api.v1.client.model.HostMapWidgetDefinitionStyle;
+import com.datadog.api.v1.client.model.HostMapWidgetDefinitionType;
+import com.datadog.api.v1.client.model.WidgetCustomLink;
+import com.datadog.api.v1.client.model.WidgetNodeType;
+import com.datadog.api.v1.client.model.WidgetTextAlign;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
- * The host map widget graphs any metric across your hosts using the same visualization available
- * from the main Host Map page.
+ * The host map widget graphs any metric across your hosts using the same visualization available from the main Host Map page.
  */
-@ApiModel(
-    description =
-        "The host map widget graphs any metric across your hosts using the same visualization"
-            + " available from the main Host Map page.")
+@ApiModel(description = "The host map widget graphs any metric across your hosts using the same visualization available from the main Host Map page.")
 @JsonPropertyOrder({
   HostMapWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
   HostMapWidgetDefinition.JSON_PROPERTY_GROUP,
@@ -45,8 +56,10 @@ import java.util.Objects;
   HostMapWidgetDefinition.JSON_PROPERTY_TYPE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class HostMapWidgetDefinition {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
   private List<WidgetCustomLink> customLinks = null;
 
@@ -90,13 +103,13 @@ public class HostMapWidgetDefinition {
 
   @JsonCreator
   public HostMapWidgetDefinition(
-      @JsonProperty(required = true, value = JSON_PROPERTY_REQUESTS)
-          HostMapWidgetDefinitionRequests requests,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) HostMapWidgetDefinitionType type) {
-    this.requests = requests;
-    this.unparsed |= requests.unparsed;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_REQUESTS) HostMapWidgetDefinitionRequests requests,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE) HostMapWidgetDefinitionType type
+            ) {
+        this.requests = requests;
+        this.unparsed |= requests.unparsed;
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
 
   public HostMapWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
@@ -116,22 +129,24 @@ public class HostMapWidgetDefinition {
     return this;
   }
 
-  /**
+   /**
    * List of custom links.
-   *
    * @return customLinks
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "List of custom links.")
   @JsonProperty(JSON_PROPERTY_CUSTOM_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<WidgetCustomLink> getCustomLinks() {
     return customLinks;
   }
 
+
   public void setCustomLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
   }
+
 
   public HostMapWidgetDefinition group(List<String> group) {
     this.group = group;
@@ -146,66 +161,72 @@ public class HostMapWidgetDefinition {
     return this;
   }
 
-  /**
+   /**
    * List of tag prefixes to group by.
-   *
    * @return group
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "List of tag prefixes to group by.")
   @JsonProperty(JSON_PROPERTY_GROUP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<String> getGroup() {
     return group;
   }
 
+
   public void setGroup(List<String> group) {
     this.group = group;
   }
+
 
   public HostMapWidgetDefinition noGroupHosts(Boolean noGroupHosts) {
     this.noGroupHosts = noGroupHosts;
     return this;
   }
 
-  /**
+   /**
    * Whether to show the hosts that don’t fit in a group.
-   *
    * @return noGroupHosts
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Whether to show the hosts that don’t fit in a group.")
   @JsonProperty(JSON_PROPERTY_NO_GROUP_HOSTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Boolean getNoGroupHosts() {
     return noGroupHosts;
   }
 
+
   public void setNoGroupHosts(Boolean noGroupHosts) {
     this.noGroupHosts = noGroupHosts;
   }
+
 
   public HostMapWidgetDefinition noMetricHosts(Boolean noMetricHosts) {
     this.noMetricHosts = noMetricHosts;
     return this;
   }
 
-  /**
+   /**
    * Whether to show the hosts with no metrics.
-   *
    * @return noMetricHosts
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Whether to show the hosts with no metrics.")
   @JsonProperty(JSON_PROPERTY_NO_METRIC_HOSTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Boolean getNoMetricHosts() {
     return noMetricHosts;
   }
 
+
   public void setNoMetricHosts(Boolean noMetricHosts) {
     this.noMetricHosts = noMetricHosts;
   }
+
 
   public HostMapWidgetDefinition nodeType(WidgetNodeType nodeType) {
     this.nodeType = nodeType;
@@ -213,47 +234,51 @@ public class HostMapWidgetDefinition {
     return this;
   }
 
-  /**
+   /**
    * Get nodeType
-   *
    * @return nodeType
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NODE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public WidgetNodeType getNodeType() {
     return nodeType;
   }
 
+
   public void setNodeType(WidgetNodeType nodeType) {
     if (!nodeType.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.nodeType = nodeType;
   }
+
 
   public HostMapWidgetDefinition notes(String notes) {
     this.notes = notes;
     return this;
   }
 
-  /**
+   /**
    * Notes on the title.
-   *
    * @return notes
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Notes on the title.")
   @JsonProperty(JSON_PROPERTY_NOTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getNotes() {
     return notes;
   }
 
+
   public void setNotes(String notes) {
     this.notes = notes;
   }
+
 
   public HostMapWidgetDefinition requests(HostMapWidgetDefinitionRequests requests) {
     this.requests = requests;
@@ -261,21 +286,23 @@ public class HostMapWidgetDefinition {
     return this;
   }
 
-  /**
+   /**
    * Get requests
-   *
    * @return requests
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_REQUESTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public HostMapWidgetDefinitionRequests getRequests() {
     return requests;
   }
 
+
   public void setRequests(HostMapWidgetDefinitionRequests requests) {
     this.requests = requests;
   }
+
 
   public HostMapWidgetDefinition scope(List<String> scope) {
     this.scope = scope;
@@ -290,22 +317,24 @@ public class HostMapWidgetDefinition {
     return this;
   }
 
-  /**
+   /**
    * List of tags used to filter the map.
-   *
    * @return scope
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "List of tags used to filter the map.")
   @JsonProperty(JSON_PROPERTY_SCOPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<String> getScope() {
     return scope;
   }
 
+
   public void setScope(List<String> scope) {
     this.scope = scope;
   }
+
 
   public HostMapWidgetDefinition style(HostMapWidgetDefinitionStyle style) {
     this.style = style;
@@ -313,44 +342,48 @@ public class HostMapWidgetDefinition {
     return this;
   }
 
-  /**
+   /**
    * Get style
-   *
    * @return style
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STYLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public HostMapWidgetDefinitionStyle getStyle() {
     return style;
   }
 
+
   public void setStyle(HostMapWidgetDefinitionStyle style) {
     this.style = style;
   }
+
 
   public HostMapWidgetDefinition title(String title) {
     this.title = title;
     return this;
   }
 
-  /**
+   /**
    * Title of the widget.
-   *
    * @return title
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Title of the widget.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getTitle() {
     return title;
   }
 
+
   public void setTitle(String title) {
     this.title = title;
   }
+
 
   public HostMapWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
@@ -358,47 +391,51 @@ public class HostMapWidgetDefinition {
     return this;
   }
 
-  /**
+   /**
    * Get titleAlign
-   *
    * @return titleAlign
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public WidgetTextAlign getTitleAlign() {
     return titleAlign;
   }
 
+
   public void setTitleAlign(WidgetTextAlign titleAlign) {
     if (!titleAlign.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.titleAlign = titleAlign;
   }
+
 
   public HostMapWidgetDefinition titleSize(String titleSize) {
     this.titleSize = titleSize;
     return this;
   }
 
-  /**
+   /**
    * Size of the title.
-   *
    * @return titleSize
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Size of the title.")
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getTitleSize() {
     return titleSize;
   }
 
+
   public void setTitleSize(String titleSize) {
     this.titleSize = titleSize;
   }
+
 
   public HostMapWidgetDefinition type(HostMapWidgetDefinitionType type) {
     this.type = type;
@@ -406,26 +443,30 @@ public class HostMapWidgetDefinition {
     return this;
   }
 
-  /**
+   /**
    * Get type
-   *
    * @return type
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public HostMapWidgetDefinitionType getType() {
     return type;
   }
 
+
   public void setType(HostMapWidgetDefinitionType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
-  /** Return true if this HostMapWidgetDefinition object is equal to o. */
+
+  /**
+   * Return true if this HostMapWidgetDefinition object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -435,37 +476,24 @@ public class HostMapWidgetDefinition {
       return false;
     }
     HostMapWidgetDefinition hostMapWidgetDefinition = (HostMapWidgetDefinition) o;
-    return Objects.equals(this.customLinks, hostMapWidgetDefinition.customLinks)
-        && Objects.equals(this.group, hostMapWidgetDefinition.group)
-        && Objects.equals(this.noGroupHosts, hostMapWidgetDefinition.noGroupHosts)
-        && Objects.equals(this.noMetricHosts, hostMapWidgetDefinition.noMetricHosts)
-        && Objects.equals(this.nodeType, hostMapWidgetDefinition.nodeType)
-        && Objects.equals(this.notes, hostMapWidgetDefinition.notes)
-        && Objects.equals(this.requests, hostMapWidgetDefinition.requests)
-        && Objects.equals(this.scope, hostMapWidgetDefinition.scope)
-        && Objects.equals(this.style, hostMapWidgetDefinition.style)
-        && Objects.equals(this.title, hostMapWidgetDefinition.title)
-        && Objects.equals(this.titleAlign, hostMapWidgetDefinition.titleAlign)
-        && Objects.equals(this.titleSize, hostMapWidgetDefinition.titleSize)
-        && Objects.equals(this.type, hostMapWidgetDefinition.type);
+    return Objects.equals(this.customLinks, hostMapWidgetDefinition.customLinks) &&
+        Objects.equals(this.group, hostMapWidgetDefinition.group) &&
+        Objects.equals(this.noGroupHosts, hostMapWidgetDefinition.noGroupHosts) &&
+        Objects.equals(this.noMetricHosts, hostMapWidgetDefinition.noMetricHosts) &&
+        Objects.equals(this.nodeType, hostMapWidgetDefinition.nodeType) &&
+        Objects.equals(this.notes, hostMapWidgetDefinition.notes) &&
+        Objects.equals(this.requests, hostMapWidgetDefinition.requests) &&
+        Objects.equals(this.scope, hostMapWidgetDefinition.scope) &&
+        Objects.equals(this.style, hostMapWidgetDefinition.style) &&
+        Objects.equals(this.title, hostMapWidgetDefinition.title) &&
+        Objects.equals(this.titleAlign, hostMapWidgetDefinition.titleAlign) &&
+        Objects.equals(this.titleSize, hostMapWidgetDefinition.titleSize) &&
+        Objects.equals(this.type, hostMapWidgetDefinition.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        customLinks,
-        group,
-        noGroupHosts,
-        noMetricHosts,
-        nodeType,
-        notes,
-        requests,
-        scope,
-        style,
-        title,
-        titleAlign,
-        titleSize,
-        type);
+    return Objects.hash(customLinks, group, noGroupHosts, noMetricHosts, nodeType, notes, requests, scope, style, title, titleAlign, titleSize, type);
   }
 
   @Override
@@ -490,7 +518,8 @@ public class HostMapWidgetDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -498,4 +527,6 @@ public class HostMapWidgetDefinition {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

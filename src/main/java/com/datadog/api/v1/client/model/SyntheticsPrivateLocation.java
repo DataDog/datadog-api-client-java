@@ -8,20 +8,32 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.SyntheticsPrivateLocationSecrets;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Object containing information about the private location to create. */
+
+/**
+ * Object containing information about the private location to create.
+ */
 @ApiModel(description = "Object containing information about the private location to create.")
 @JsonPropertyOrder({
   SyntheticsPrivateLocation.JSON_PROPERTY_DESCRIPTION,
@@ -31,8 +43,10 @@ import java.util.Objects;
   SyntheticsPrivateLocation.JSON_PROPERTY_TAGS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SyntheticsPrivateLocation {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
@@ -52,12 +66,13 @@ public class SyntheticsPrivateLocation {
 
   @JsonCreator
   public SyntheticsPrivateLocation(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DESCRIPTION) String description,
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TAGS) List<String> tags) {
-    this.description = description;
-    this.name = name;
-    this.tags = tags;
+            @JsonProperty(required=true, value=JSON_PROPERTY_DESCRIPTION) String description,
+            @JsonProperty(required=true, value=JSON_PROPERTY_NAME) String name,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TAGS) List<String> tags
+            ) {
+        this.description = description;
+        this.name = name;
+        this.tags = tags;
   }
 
   public SyntheticsPrivateLocation description(String description) {
@@ -65,61 +80,62 @@ public class SyntheticsPrivateLocation {
     return this;
   }
 
-  /**
+   /**
    * Description of the private location.
-   *
    * @return description
-   */
-  @ApiModelProperty(
-      example = "Description of private location",
-      required = true,
-      value = "Description of the private location.")
+  **/
+  @ApiModelProperty(example = "Description of private location", required = true, value = "Description of the private location.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getDescription() {
     return description;
   }
+
 
   public void setDescription(String description) {
     this.description = description;
   }
 
-  /**
+
+   /**
    * Unique identifier of the private location.
-   *
    * @return id
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Unique identifier of the private location.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getId() {
     return id;
   }
+
+
+
 
   public SyntheticsPrivateLocation name(String name) {
     this.name = name;
     return this;
   }
 
-  /**
+   /**
    * Name of the private location.
-   *
    * @return name
-   */
-  @ApiModelProperty(
-      example = "New private location",
-      required = true,
-      value = "Name of the private location.")
+  **/
+  @ApiModelProperty(example = "New private location", required = true, value = "Name of the private location.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getName() {
     return name;
   }
 
+
   public void setName(String name) {
     this.name = name;
   }
+
 
   public SyntheticsPrivateLocation secrets(SyntheticsPrivateLocationSecrets secrets) {
     this.secrets = secrets;
@@ -127,22 +143,24 @@ public class SyntheticsPrivateLocation {
     return this;
   }
 
-  /**
+   /**
    * Get secrets
-   *
    * @return secrets
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SECRETS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public SyntheticsPrivateLocationSecrets getSecrets() {
     return secrets;
   }
 
+
   public void setSecrets(SyntheticsPrivateLocationSecrets secrets) {
     this.secrets = secrets;
   }
+
 
   public SyntheticsPrivateLocation tags(List<String> tags) {
     this.tags = tags;
@@ -154,26 +172,27 @@ public class SyntheticsPrivateLocation {
     return this;
   }
 
-  /**
+   /**
    * Array of tags attached to the private location.
-   *
    * @return tags
-   */
-  @ApiModelProperty(
-      example = "[\"team:front\"]",
-      required = true,
-      value = "Array of tags attached to the private location.")
+  **/
+  @ApiModelProperty(example = "[\"team:front\"]", required = true, value = "Array of tags attached to the private location.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<String> getTags() {
     return tags;
   }
+
 
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
 
-  /** Return true if this SyntheticsPrivateLocation object is equal to o. */
+
+  /**
+   * Return true if this SyntheticsPrivateLocation object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -183,11 +202,11 @@ public class SyntheticsPrivateLocation {
       return false;
     }
     SyntheticsPrivateLocation syntheticsPrivateLocation = (SyntheticsPrivateLocation) o;
-    return Objects.equals(this.description, syntheticsPrivateLocation.description)
-        && Objects.equals(this.id, syntheticsPrivateLocation.id)
-        && Objects.equals(this.name, syntheticsPrivateLocation.name)
-        && Objects.equals(this.secrets, syntheticsPrivateLocation.secrets)
-        && Objects.equals(this.tags, syntheticsPrivateLocation.tags);
+    return Objects.equals(this.description, syntheticsPrivateLocation.description) &&
+        Objects.equals(this.id, syntheticsPrivateLocation.id) &&
+        Objects.equals(this.name, syntheticsPrivateLocation.name) &&
+        Objects.equals(this.secrets, syntheticsPrivateLocation.secrets) &&
+        Objects.equals(this.tags, syntheticsPrivateLocation.tags);
   }
 
   @Override
@@ -209,7 +228,8 @@ public class SyntheticsPrivateLocation {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -217,4 +237,6 @@ public class SyntheticsPrivateLocation {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

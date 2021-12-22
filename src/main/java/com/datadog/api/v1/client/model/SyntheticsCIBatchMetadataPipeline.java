@@ -8,48 +8,69 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Description of the CI pipeline. */
+
+/**
+ * Description of the CI pipeline.
+ */
 @ApiModel(description = "Description of the CI pipeline.")
-@JsonPropertyOrder({SyntheticsCIBatchMetadataPipeline.JSON_PROPERTY_URL})
+@JsonPropertyOrder({
+  SyntheticsCIBatchMetadataPipeline.JSON_PROPERTY_URL
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SyntheticsCIBatchMetadataPipeline {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_URL = "url";
   private String url;
+
 
   public SyntheticsCIBatchMetadataPipeline url(String url) {
     this.url = url;
     return this;
   }
 
-  /**
+   /**
    * URL of the pipeline.
-   *
    * @return url
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "URL of the pipeline.")
   @JsonProperty(JSON_PROPERTY_URL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getUrl() {
     return url;
   }
+
 
   public void setUrl(String url) {
     this.url = url;
   }
 
-  /** Return true if this SyntheticsCIBatchMetadataPipeline object is equal to o. */
+
+  /**
+   * Return true if this SyntheticsCIBatchMetadataPipeline object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -58,8 +79,7 @@ public class SyntheticsCIBatchMetadataPipeline {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsCIBatchMetadataPipeline syntheticsCIBatchMetadataPipeline =
-        (SyntheticsCIBatchMetadataPipeline) o;
+    SyntheticsCIBatchMetadataPipeline syntheticsCIBatchMetadataPipeline = (SyntheticsCIBatchMetadataPipeline) o;
     return Objects.equals(this.url, syntheticsCIBatchMetadataPipeline.url);
   }
 
@@ -78,7 +98,8 @@ public class SyntheticsCIBatchMetadataPipeline {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -86,4 +107,6 @@ public class SyntheticsCIBatchMetadataPipeline {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

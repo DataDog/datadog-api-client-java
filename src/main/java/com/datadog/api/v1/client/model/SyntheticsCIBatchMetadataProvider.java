@@ -8,48 +8,69 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Description of the CI provider. */
+
+/**
+ * Description of the CI provider.
+ */
 @ApiModel(description = "Description of the CI provider.")
-@JsonPropertyOrder({SyntheticsCIBatchMetadataProvider.JSON_PROPERTY_NAME})
+@JsonPropertyOrder({
+  SyntheticsCIBatchMetadataProvider.JSON_PROPERTY_NAME
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SyntheticsCIBatchMetadataProvider {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
+
 
   public SyntheticsCIBatchMetadataProvider name(String name) {
     this.name = name;
     return this;
   }
 
-  /**
+   /**
    * Name of the CI provider.
-   *
    * @return name
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Name of the CI provider.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getName() {
     return name;
   }
+
 
   public void setName(String name) {
     this.name = name;
   }
 
-  /** Return true if this SyntheticsCIBatchMetadataProvider object is equal to o. */
+
+  /**
+   * Return true if this SyntheticsCIBatchMetadataProvider object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -58,8 +79,7 @@ public class SyntheticsCIBatchMetadataProvider {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsCIBatchMetadataProvider syntheticsCIBatchMetadataProvider =
-        (SyntheticsCIBatchMetadataProvider) o;
+    SyntheticsCIBatchMetadataProvider syntheticsCIBatchMetadataProvider = (SyntheticsCIBatchMetadataProvider) o;
     return Objects.equals(this.name, syntheticsCIBatchMetadataProvider.name);
   }
 
@@ -78,7 +98,8 @@ public class SyntheticsCIBatchMetadataProvider {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -86,4 +107,6 @@ public class SyntheticsCIBatchMetadataProvider {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

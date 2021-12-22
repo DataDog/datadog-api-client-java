@@ -18,9 +18,7 @@ public class Example {
     String API_KEY_DATA_ATTRIBUTES_NAME = System.getenv("API_KEY_DATA_ATTRIBUTES_NAME");
 
     try {
-      APIKeysResponse result =
-          apiInstance.listAPIKeys(
-              new ListAPIKeysOptionalParameters().filter(API_KEY_DATA_ATTRIBUTES_NAME));
+      APIKeysResponse result = apiInstance.listAPIKeys(new ListAPIKeysOptionalParameters().filter(API_KEY_DATA_ATTRIBUTES_NAME));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DowntimesApi#updateDowntime");

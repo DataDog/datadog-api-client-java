@@ -15,8 +15,7 @@ public class Example {
     DashboardsApi apiInstance = new DashboardsApi(defaultClient);
 
     try {
-      DashboardSummary result =
-          apiInstance.listDashboards(new ListDashboardsOptionalParameters().filterShared(false));
+      DashboardSummary result = apiInstance.listDashboards(new ListDashboardsOptionalParameters().filterShared(false));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DowntimesApi#updateDowntime");

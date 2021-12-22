@@ -8,19 +8,33 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v2.client.model.SecurityFilterExclusionFilter;
+import com.datadog.api.v2.client.model.SecurityFilterFilteredDataType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
 
-/** The security filters properties to be updated. */
+
+/**
+ * The security filters properties to be updated.
+ */
 @ApiModel(description = "The security filters properties to be updated.")
 @JsonPropertyOrder({
   SecurityFilterUpdateAttributes.JSON_PROPERTY_EXCLUSION_FILTERS,
@@ -31,8 +45,10 @@ import java.util.Objects;
   SecurityFilterUpdateAttributes.JSON_PROPERTY_VERSION
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SecurityFilterUpdateAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_EXCLUSION_FILTERS = "exclusion_filters";
   private List<SecurityFilterExclusionFilter> exclusionFilters = null;
 
@@ -51,8 +67,8 @@ public class SecurityFilterUpdateAttributes {
   public static final String JSON_PROPERTY_VERSION = "version";
   private Integer version;
 
-  public SecurityFilterUpdateAttributes exclusionFilters(
-      List<SecurityFilterExclusionFilter> exclusionFilters) {
+
+  public SecurityFilterUpdateAttributes exclusionFilters(List<SecurityFilterExclusionFilter> exclusionFilters) {
     this.exclusionFilters = exclusionFilters;
     for (SecurityFilterExclusionFilter item : exclusionFilters) {
       this.unparsed |= item.unparsed;
@@ -60,8 +76,7 @@ public class SecurityFilterUpdateAttributes {
     return this;
   }
 
-  public SecurityFilterUpdateAttributes addExclusionFiltersItem(
-      SecurityFilterExclusionFilter exclusionFiltersItem) {
+  public SecurityFilterUpdateAttributes addExclusionFiltersItem(SecurityFilterExclusionFilter exclusionFiltersItem) {
     if (this.exclusionFilters == null) {
       this.exclusionFilters = new ArrayList<>();
     }
@@ -70,141 +85,153 @@ public class SecurityFilterUpdateAttributes {
     return this;
   }
 
-  /**
+   /**
    * Exclusion filters to exclude some logs from the security filter.
-   *
    * @return exclusionFilters
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[]",
-      value = "Exclusion filters to exclude some logs from the security filter.")
+  @ApiModelProperty(example = "[]", value = "Exclusion filters to exclude some logs from the security filter.")
   @JsonProperty(JSON_PROPERTY_EXCLUSION_FILTERS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<SecurityFilterExclusionFilter> getExclusionFilters() {
     return exclusionFilters;
   }
+
 
   public void setExclusionFilters(List<SecurityFilterExclusionFilter> exclusionFilters) {
     this.exclusionFilters = exclusionFilters;
   }
 
-  public SecurityFilterUpdateAttributes filteredDataType(
-      SecurityFilterFilteredDataType filteredDataType) {
+
+  public SecurityFilterUpdateAttributes filteredDataType(SecurityFilterFilteredDataType filteredDataType) {
     this.filteredDataType = filteredDataType;
     this.unparsed |= !filteredDataType.isValid();
     return this;
   }
 
-  /**
+   /**
    * Get filteredDataType
-   *
    * @return filteredDataType
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_FILTERED_DATA_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public SecurityFilterFilteredDataType getFilteredDataType() {
     return filteredDataType;
   }
 
+
   public void setFilteredDataType(SecurityFilterFilteredDataType filteredDataType) {
     if (!filteredDataType.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.filteredDataType = filteredDataType;
   }
+
 
   public SecurityFilterUpdateAttributes isEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
     return this;
   }
 
-  /**
+   /**
    * Whether the security filter is enabled.
-   *
    * @return isEnabled
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "true", value = "Whether the security filter is enabled.")
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Boolean getIsEnabled() {
     return isEnabled;
   }
 
+
   public void setIsEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
   }
+
 
   public SecurityFilterUpdateAttributes name(String name) {
     this.name = name;
     return this;
   }
 
-  /**
+   /**
    * The name of the security filter.
-   *
    * @return name
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Custom security filter", value = "The name of the security filter.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getName() {
     return name;
   }
 
+
   public void setName(String name) {
     this.name = name;
   }
+
 
   public SecurityFilterUpdateAttributes query(String query) {
     this.query = query;
     return this;
   }
 
-  /**
+   /**
    * The query of the security filter.
-   *
    * @return query
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "service:api", value = "The query of the security filter.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getQuery() {
     return query;
   }
 
+
   public void setQuery(String query) {
     this.query = query;
   }
+
 
   public SecurityFilterUpdateAttributes version(Integer version) {
     this.version = version;
     return this;
   }
 
-  /**
-   * The version of the security filter to update. maximum: 2147483647
-   *
+   /**
+   * The version of the security filter to update.
+   * maximum: 2147483647
    * @return version
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "1", value = "The version of the security filter to update.")
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Integer getVersion() {
     return version;
   }
+
 
   public void setVersion(Integer version) {
     this.version = version;
   }
 
-  /** Return true if this SecurityFilterUpdateAttributes object is equal to o. */
+
+  /**
+   * Return true if this SecurityFilterUpdateAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -213,14 +240,13 @@ public class SecurityFilterUpdateAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SecurityFilterUpdateAttributes securityFilterUpdateAttributes =
-        (SecurityFilterUpdateAttributes) o;
-    return Objects.equals(this.exclusionFilters, securityFilterUpdateAttributes.exclusionFilters)
-        && Objects.equals(this.filteredDataType, securityFilterUpdateAttributes.filteredDataType)
-        && Objects.equals(this.isEnabled, securityFilterUpdateAttributes.isEnabled)
-        && Objects.equals(this.name, securityFilterUpdateAttributes.name)
-        && Objects.equals(this.query, securityFilterUpdateAttributes.query)
-        && Objects.equals(this.version, securityFilterUpdateAttributes.version);
+    SecurityFilterUpdateAttributes securityFilterUpdateAttributes = (SecurityFilterUpdateAttributes) o;
+    return Objects.equals(this.exclusionFilters, securityFilterUpdateAttributes.exclusionFilters) &&
+        Objects.equals(this.filteredDataType, securityFilterUpdateAttributes.filteredDataType) &&
+        Objects.equals(this.isEnabled, securityFilterUpdateAttributes.isEnabled) &&
+        Objects.equals(this.name, securityFilterUpdateAttributes.name) &&
+        Objects.equals(this.query, securityFilterUpdateAttributes.query) &&
+        Objects.equals(this.version, securityFilterUpdateAttributes.version);
   }
 
   @Override
@@ -243,7 +269,8 @@ public class SecurityFilterUpdateAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -251,4 +278,6 @@ public class SecurityFilterUpdateAttributes {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

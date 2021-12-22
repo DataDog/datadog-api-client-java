@@ -4,6 +4,7 @@ import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.SyntheticsApi;
+import com.datadog.api.v1.client.model.SyntheticsAPITest;
 import com.datadog.api.v1.client.model.HTTPMethod;
 import com.datadog.api.v1.client.model.SyntheticsAPITest;
 import com.datadog.api.v1.client.model.SyntheticsAPITestConfig;
@@ -35,96 +36,61 @@ public class Example {
     // there is a valid "synthetics_api_test" in the system
     String SYNTHETICS_API_TEST_PUBLIC_ID = System.getenv("SYNTHETICS_API_TEST_PUBLIC_ID");
 
-    SyntheticsAPITest body =
-        new SyntheticsAPITest()
-            .config(
-                new SyntheticsAPITestConfig()
-                    .assertions(
-                        new ArrayList<SyntheticsAssertion>() {
-                          {
-                            add(
-                                new SyntheticsAssertion(
-                                    new SyntheticsAssertionTarget()
-                                        .operator(SyntheticsAssertionOperator.IS)
-                                        .property("{{ PROPERTY }}")
-                                        .target("text/html")
-                                        .type(SyntheticsAssertionType.HEADER)));
-                            add(
-                                new SyntheticsAssertion(
-                                    new SyntheticsAssertionTarget()
-                                        .operator(SyntheticsAssertionOperator.LESS_THAN)
-                                        .target(2000)
-                                        .type(SyntheticsAssertionType.RESPONSE_TIME)));
-                            add(
-                                new SyntheticsAssertion(
-                                    new SyntheticsAssertionJSONPathTarget()
-                                        .operator(
-                                            SyntheticsAssertionJSONPathOperator.VALIDATES_JSON_PATH)
-                                        .target(
-                                            new SyntheticsAssertionJSONPathTargetTarget()
-                                                .jsonPath("topKey")
-                                                .operator("isNot")
-                                                .targetValue("0"))
-                                        .type(SyntheticsAssertionType.BODY)));
-                          }
-                        })
-                    .configVariables(
-                        new ArrayList<SyntheticsConfigVariable>() {
-                          {
-                            add(
-                                new SyntheticsConfigVariable()
-                                    .example("content-type")
-                                    .name("PROPERTY")
-                                    .pattern("content-type")
-                                    .type(SyntheticsConfigVariableType.TEXT));
-                          }
-                        })
-                    .request(
-                        new SyntheticsTestRequest()
-                            .certificate(
-                                new SyntheticsTestRequestCertificate()
-                                    .cert(
-                                        new SyntheticsTestRequestCertificateItem()
-                                            .filename("cert-filename")
-                                            .updatedAt("2020-10-16T09:23:24.857Z"))
-                                    .key(
-                                        new SyntheticsTestRequestCertificateItem()
-                                            .filename("key-filename")
-                                            .updatedAt("2020-10-16T09:23:24.857Z")))
-                            .headers(
-                                Map.ofEntries(
-                                    Map.entry("unique", "exampleeditanapitestreturnsokresponse")))
-                            .method(HTTPMethod.GET)
-                            .timeout(10.0)
-                            .url("https://datadoghq.com")))
-            .locations(
-                new ArrayList<String>() {
-                  {
-                    add("aws:us-east-2");
-                  }
-                })
-            .message("BDD test payload: synthetics_api_test_payload.json")
-            .name("Example-Edit_an_API_test_returns_OK_response-updated")
-            .options(
-                new SyntheticsTestOptions()
-                    .acceptSelfSigned(false)
-                    .allowInsecure(true)
-                    .followRedirects(true)
-                    .minFailureDuration(10L)
-                    .minLocationFailed(1L)
-                    .monitorName("Test-TestSyntheticsAPITestLifecycle-1623076664")
-                    .monitorPriority(5)
-                    .retry(new SyntheticsTestOptionsRetry().count(3L).interval(10.0))
-                    .tickEvery(60L))
-            .status(SyntheticsTestPauseStatus.LIVE)
-            .subtype(SyntheticsTestDetailsSubType.HTTP)
-            .tags(
-                new ArrayList<String>() {
-                  {
-                    add("testing:api");
-                  }
-                })
-            .type(SyntheticsAPITestType.API);
+    SyntheticsAPITest body = new SyntheticsAPITest()
+.config(new SyntheticsAPITestConfig()
+.assertions(new ArrayList<SyntheticsAssertion>() {{add(new SyntheticsAssertion(
+new SyntheticsAssertionTarget()
+.operator(SyntheticsAssertionOperator.IS)
+.property("{{ PROPERTY }}")
+.target("text/html")
+.type(SyntheticsAssertionType.HEADER))); add(new SyntheticsAssertion(
+new SyntheticsAssertionTarget()
+.operator(SyntheticsAssertionOperator.LESS_THAN)
+.target(2000)
+.type(SyntheticsAssertionType.RESPONSE_TIME))); add(new SyntheticsAssertion(
+new SyntheticsAssertionJSONPathTarget()
+.operator(SyntheticsAssertionJSONPathOperator.VALIDATES_JSON_PATH)
+.target(new SyntheticsAssertionJSONPathTargetTarget()
+.jsonPath("topKey")
+.operator("isNot")
+.targetValue("0"))
+.type(SyntheticsAssertionType.BODY)));}})
+.configVariables(new ArrayList<SyntheticsConfigVariable>() {{add(new SyntheticsConfigVariable()
+.example("content-type")
+.name("PROPERTY")
+.pattern("content-type")
+.type(SyntheticsConfigVariableType.TEXT));}})
+.request(new SyntheticsTestRequest()
+.certificate(new SyntheticsTestRequestCertificate()
+.cert(new SyntheticsTestRequestCertificateItem()
+.filename("cert-filename")
+.updatedAt("2020-10-16T09:23:24.857Z"))
+.key(new SyntheticsTestRequestCertificateItem()
+.filename("key-filename")
+.updatedAt("2020-10-16T09:23:24.857Z")))
+.headers(Map.ofEntries(Map.entry("unique", "exampleeditanapitestreturnsokresponse")))
+.method(HTTPMethod.GET)
+.timeout(10.0)
+.url("https://datadoghq.com")))
+.locations(new ArrayList<String>() {{add("aws:us-east-2");}})
+.message("BDD test payload: synthetics_api_test_payload.json")
+.name("Example-Edit_an_API_test_returns_OK_response-updated")
+.options(new SyntheticsTestOptions()
+.acceptSelfSigned(false)
+.allowInsecure(true)
+.followRedirects(true)
+.minFailureDuration(10L)
+.minLocationFailed(1L)
+.monitorName("Test-TestSyntheticsAPITestLifecycle-1623076664")
+.monitorPriority(5)
+.retry(new SyntheticsTestOptionsRetry()
+.count(3L)
+.interval(10.0))
+.tickEvery(60L))
+.status(SyntheticsTestPauseStatus.LIVE)
+.subtype(SyntheticsTestDetailsSubType.HTTP)
+.tags(new ArrayList<String>() {{add("testing:api");}})
+.type(SyntheticsAPITestType.API);
 
     try {
       SyntheticsAPITest result = apiInstance.updateAPITest(SYNTHETICS_API_TEST_PUBLIC_ID, body);

@@ -8,26 +8,41 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v2.client.model.MetricCustomSpaceAggregation;
+import com.datadog.api.v2.client.model.MetricCustomTimeAggregation;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
 
-/** A time and space aggregation combination for use in query. */
+
+/**
+ * A time and space aggregation combination for use in query.
+ */
 @ApiModel(description = "A time and space aggregation combination for use in query.")
 @JsonPropertyOrder({
   MetricCustomAggregation.JSON_PROPERTY_SPACE,
   MetricCustomAggregation.JSON_PROPERTY_TIME
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class MetricCustomAggregation {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_SPACE = "space";
   private MetricCustomSpaceAggregation space;
 
@@ -38,13 +53,13 @@ public class MetricCustomAggregation {
 
   @JsonCreator
   public MetricCustomAggregation(
-      @JsonProperty(required = true, value = JSON_PROPERTY_SPACE)
-          MetricCustomSpaceAggregation space,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TIME) MetricCustomTimeAggregation time) {
-    this.space = space;
-    this.unparsed |= !space.isValid();
-    this.time = time;
-    this.unparsed |= !time.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_SPACE) MetricCustomSpaceAggregation space,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TIME) MetricCustomTimeAggregation time
+            ) {
+        this.space = space;
+        this.unparsed |= !space.isValid();
+        this.time = time;
+        this.unparsed |= !time.isValid();
   }
 
   public MetricCustomAggregation space(MetricCustomSpaceAggregation space) {
@@ -53,24 +68,26 @@ public class MetricCustomAggregation {
     return this;
   }
 
-  /**
+   /**
    * Get space
-   *
    * @return space
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SPACE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public MetricCustomSpaceAggregation getSpace() {
     return space;
   }
 
+
   public void setSpace(MetricCustomSpaceAggregation space) {
     if (!space.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.space = space;
   }
+
 
   public MetricCustomAggregation time(MetricCustomTimeAggregation time) {
     this.time = time;
@@ -78,26 +95,30 @@ public class MetricCustomAggregation {
     return this;
   }
 
-  /**
+   /**
    * Get time
-   *
    * @return time
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public MetricCustomTimeAggregation getTime() {
     return time;
   }
 
+
   public void setTime(MetricCustomTimeAggregation time) {
     if (!time.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.time = time;
   }
 
-  /** Return true if this MetricCustomAggregation object is equal to o. */
+
+  /**
+   * Return true if this MetricCustomAggregation object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -107,8 +128,8 @@ public class MetricCustomAggregation {
       return false;
     }
     MetricCustomAggregation metricCustomAggregation = (MetricCustomAggregation) o;
-    return Objects.equals(this.space, metricCustomAggregation.space)
-        && Objects.equals(this.time, metricCustomAggregation.time);
+    return Objects.equals(this.space, metricCustomAggregation.space) &&
+        Objects.equals(this.time, metricCustomAggregation.time);
   }
 
   @Override
@@ -127,7 +148,8 @@ public class MetricCustomAggregation {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -135,4 +157,6 @@ public class MetricCustomAggregation {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

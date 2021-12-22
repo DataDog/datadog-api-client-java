@@ -17,8 +17,8 @@ public class Example {
     // there is a valid "webhook" in the system
     String WEBHOOK_NAME = System.getenv("WEBHOOK_NAME");
 
-    WebhooksIntegrationUpdateRequest body =
-        new WebhooksIntegrationUpdateRequest().url("https://example.com/webhook-updated");
+    WebhooksIntegrationUpdateRequest body = new WebhooksIntegrationUpdateRequest()
+.url("https://example.com/webhook-updated");
 
     try {
       WebhooksIntegration result = apiInstance.updateWebhooksIntegration(WEBHOOK_NAME, body);

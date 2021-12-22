@@ -17,8 +17,7 @@ public class Example {
     String SERVICE_ACCOUNT_USER_DATA_ID = System.getenv("SERVICE_ACCOUNT_USER_DATA_ID");
 
     try {
-      ListApplicationKeysResponse result =
-          apiInstance.listServiceAccountApplicationKeys(SERVICE_ACCOUNT_USER_DATA_ID);
+      ListApplicationKeysResponse result = apiInstance.listServiceAccountApplicationKeys(SERVICE_ACCOUNT_USER_DATA_ID);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DowntimesApi#updateDowntime");

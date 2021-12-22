@@ -8,28 +8,38 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import io.swagger.annotations.ApiModel;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
+
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
 
+
+import java.util.Set;
+import java.util.HashSet;
 /**
- * The type of the monitor. For more information about &#x60;type&#x60;, see the [monitor
- * options](https://docs.datadoghq.com/monitors/guide/monitor_api_options/) docs.
+ * The type of the monitor. For more information about &#x60;type&#x60;, see the [monitor options](https://docs.datadoghq.com/monitors/guide/monitor_api_options/) docs.
  */
 @JsonSerialize(using = MonitorType.MonitorTypeSerializer.class)
 public class MonitorType {
-
+  
   public static final MonitorType COMPOSITE = new MonitorType("composite");
   public static final MonitorType EVENT_ALERT = new MonitorType("event alert");
   public static final MonitorType LOG_ALERT = new MonitorType("log alert");
@@ -45,23 +55,7 @@ public class MonitorType {
   public static final MonitorType AUDIT_ALERT = new MonitorType("audit alert");
   public static final MonitorType CI_PIPELINES_ALERT = new MonitorType("ci-pipelines alert");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "composite",
-              "event alert",
-              "log alert",
-              "metric alert",
-              "process alert",
-              "query alert",
-              "rum alert",
-              "service check",
-              "synthetics alert",
-              "trace-analytics alert",
-              "slo alert",
-              "event-v2 alert",
-              "audit alert",
-              "ci-pipelines alert"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("composite","event alert","log alert","metric alert","process alert","query alert","rum alert","service check","synthetics alert","trace-analytics alert","slo alert","event-v2 alert","audit alert","ci-pipelines alert"));
 
   private String value;
 
@@ -74,19 +68,18 @@ public class MonitorType {
   }
 
   public static class MonitorTypeSerializer extends StdSerializer<MonitorType> {
-    public MonitorTypeSerializer(Class<MonitorType> t) {
-      super(t);
-    }
+      public MonitorTypeSerializer(Class<MonitorType> t) {
+          super(t);
+      }
 
-    public MonitorTypeSerializer() {
-      this(null);
-    }
+      public MonitorTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(MonitorType value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(MonitorType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -98,7 +91,9 @@ public class MonitorType {
     this.value = value;
   }
 
-  /** Return true if this MonitorType object is equal to o. */
+  /**
+   * Return true if this MonitorType object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -112,7 +107,7 @@ public class MonitorType {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override
@@ -125,3 +120,4 @@ public class MonitorType {
     return new MonitorType(value);
   }
 }
+

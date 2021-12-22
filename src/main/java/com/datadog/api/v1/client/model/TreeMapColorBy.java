@@ -8,25 +8,38 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import io.swagger.annotations.ApiModel;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
+
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
 
-/** The attribute used to determine color in the widget. */
+
+import java.util.Set;
+import java.util.HashSet;
+/**
+ * The attribute used to determine color in the widget.
+ */
 @JsonSerialize(using = TreeMapColorBy.TreeMapColorBySerializer.class)
 public class TreeMapColorBy {
-
+  
   public static final TreeMapColorBy USER = new TreeMapColorBy("user");
 
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("user"));
@@ -42,19 +55,18 @@ public class TreeMapColorBy {
   }
 
   public static class TreeMapColorBySerializer extends StdSerializer<TreeMapColorBy> {
-    public TreeMapColorBySerializer(Class<TreeMapColorBy> t) {
-      super(t);
-    }
+      public TreeMapColorBySerializer(Class<TreeMapColorBy> t) {
+          super(t);
+      }
 
-    public TreeMapColorBySerializer() {
-      this(null);
-    }
+      public TreeMapColorBySerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(TreeMapColorBy value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(TreeMapColorBy value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -66,7 +78,9 @@ public class TreeMapColorBy {
     this.value = value;
   }
 
-  /** Return true if this TreeMapColorBy object is equal to o. */
+  /**
+   * Return true if this TreeMapColorBy object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -80,7 +94,7 @@ public class TreeMapColorBy {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override
@@ -93,3 +107,4 @@ public class TreeMapColorBy {
     return new TreeMapColorBy(value);
   }
 }
+

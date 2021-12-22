@@ -8,30 +8,41 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import io.swagger.annotations.ApiModel;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
+
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
 
-/** Incident postmortem resource type. */
+
+import java.util.Set;
+import java.util.HashSet;
+/**
+ * Incident postmortem resource type.
+ */
 @JsonSerialize(using = IncidentPostmortemType.IncidentPostmortemTypeSerializer.class)
 public class IncidentPostmortemType {
+  
+  public static final IncidentPostmortemType INCIDENT_POSTMORTEMS = new IncidentPostmortemType("incident_postmortems");
 
-  public static final IncidentPostmortemType INCIDENT_POSTMORTEMS =
-      new IncidentPostmortemType("incident_postmortems");
-
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("incident_postmortems"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("incident_postmortems"));
 
   private String value;
 
@@ -43,22 +54,19 @@ public class IncidentPostmortemType {
     this.value = value;
   }
 
-  public static class IncidentPostmortemTypeSerializer
-      extends StdSerializer<IncidentPostmortemType> {
-    public IncidentPostmortemTypeSerializer(Class<IncidentPostmortemType> t) {
-      super(t);
-    }
+  public static class IncidentPostmortemTypeSerializer extends StdSerializer<IncidentPostmortemType> {
+      public IncidentPostmortemTypeSerializer(Class<IncidentPostmortemType> t) {
+          super(t);
+      }
 
-    public IncidentPostmortemTypeSerializer() {
-      this(null);
-    }
+      public IncidentPostmortemTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        IncidentPostmortemType value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(IncidentPostmortemType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -70,7 +78,9 @@ public class IncidentPostmortemType {
     this.value = value;
   }
 
-  /** Return true if this IncidentPostmortemType object is equal to o. */
+  /**
+   * Return true if this IncidentPostmortemType object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -84,7 +94,7 @@ public class IncidentPostmortemType {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override
@@ -97,3 +107,4 @@ public class IncidentPostmortemType {
     return new IncidentPostmortemType(value);
   }
 }
+

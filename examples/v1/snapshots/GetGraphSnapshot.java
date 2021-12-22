@@ -1,4 +1,6 @@
 // Take graph snapshots returns "OK" response
+import java.time.*;
+
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -14,13 +16,7 @@ public class Example {
     SnapshotsApi apiInstance = new SnapshotsApi(defaultClient);
 
     try {
-      GraphSnapshot result =
-          apiInstance.getGraphSnapshot(
-              (Instant.now().getEpochSecond() + -1 * 86400),
-              Instant.now().getEpochSecond(),
-              new GetGraphSnapshotOptionalParameters()
-                  .metricQuery("avg:system.load.1{*}")
-                  .title("System load"));
+      GraphSnapshot result = apiInstance.getGraphSnapshot((Instant.now().getEpochSecond() + -1*86400), Instant.now().getEpochSecond(),new GetGraphSnapshotOptionalParameters().metricQuery("avg:system.load.1{*}").title("System load"));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DowntimesApi#updateDowntime");

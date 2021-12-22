@@ -8,78 +8,98 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Number of Synthetics API tests run for each hour for a given organization. */
-@ApiModel(
-    description = "Number of Synthetics API tests run for each hour for a given organization.")
+
+/**
+ * Number of Synthetics API tests run for each hour for a given organization.
+ */
+@ApiModel(description = "Number of Synthetics API tests run for each hour for a given organization.")
 @JsonPropertyOrder({
   UsageSyntheticsAPIHour.JSON_PROPERTY_CHECK_CALLS_COUNT,
   UsageSyntheticsAPIHour.JSON_PROPERTY_HOUR
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class UsageSyntheticsAPIHour {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CHECK_CALLS_COUNT = "check_calls_count";
   private Long checkCallsCount;
 
   public static final String JSON_PROPERTY_HOUR = "hour";
   private OffsetDateTime hour;
 
+
   public UsageSyntheticsAPIHour checkCallsCount(Long checkCallsCount) {
     this.checkCallsCount = checkCallsCount;
     return this;
   }
 
-  /**
+   /**
    * Contains the number of Synthetics API tests run.
-   *
    * @return checkCallsCount
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Contains the number of Synthetics API tests run.")
   @JsonProperty(JSON_PROPERTY_CHECK_CALLS_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Long getCheckCallsCount() {
     return checkCallsCount;
   }
 
+
   public void setCheckCallsCount(Long checkCallsCount) {
     this.checkCallsCount = checkCallsCount;
   }
+
 
   public UsageSyntheticsAPIHour hour(OffsetDateTime hour) {
     this.hour = hour;
     return this;
   }
 
-  /**
+   /**
    * The hour for the usage.
-   *
    * @return hour
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The hour for the usage.")
   @JsonProperty(JSON_PROPERTY_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public OffsetDateTime getHour() {
     return hour;
   }
+
 
   public void setHour(OffsetDateTime hour) {
     this.hour = hour;
   }
 
-  /** Return true if this UsageSyntheticsAPIHour object is equal to o. */
+
+  /**
+   * Return true if this UsageSyntheticsAPIHour object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -89,8 +109,8 @@ public class UsageSyntheticsAPIHour {
       return false;
     }
     UsageSyntheticsAPIHour usageSyntheticsAPIHour = (UsageSyntheticsAPIHour) o;
-    return Objects.equals(this.checkCallsCount, usageSyntheticsAPIHour.checkCallsCount)
-        && Objects.equals(this.hour, usageSyntheticsAPIHour.hour);
+    return Objects.equals(this.checkCallsCount, usageSyntheticsAPIHour.checkCallsCount) &&
+        Objects.equals(this.hour, usageSyntheticsAPIHour.hour);
   }
 
   @Override
@@ -109,7 +129,8 @@ public class UsageSyntheticsAPIHour {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -117,4 +138,6 @@ public class UsageSyntheticsAPIHour {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

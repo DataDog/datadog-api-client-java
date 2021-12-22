@@ -8,40 +8,45 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import io.swagger.annotations.ApiModel;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
+
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
 
-/** Status of a Synthetic test. */
+
+import java.util.Set;
+import java.util.HashSet;
+/**
+ * Status of a Synthetic test.
+ */
 @JsonSerialize(using = SyntheticsTestProcessStatus.SyntheticsTestProcessStatusSerializer.class)
 public class SyntheticsTestProcessStatus {
+  
+  public static final SyntheticsTestProcessStatus NOT_SCHEDULED = new SyntheticsTestProcessStatus("not_scheduled");
+  public static final SyntheticsTestProcessStatus SCHEDULED = new SyntheticsTestProcessStatus("scheduled");
+  public static final SyntheticsTestProcessStatus STARTED = new SyntheticsTestProcessStatus("started");
+  public static final SyntheticsTestProcessStatus FINISHED = new SyntheticsTestProcessStatus("finished");
+  public static final SyntheticsTestProcessStatus FINISHED_WITH_ERROR = new SyntheticsTestProcessStatus("finished_with_error");
 
-  public static final SyntheticsTestProcessStatus NOT_SCHEDULED =
-      new SyntheticsTestProcessStatus("not_scheduled");
-  public static final SyntheticsTestProcessStatus SCHEDULED =
-      new SyntheticsTestProcessStatus("scheduled");
-  public static final SyntheticsTestProcessStatus STARTED =
-      new SyntheticsTestProcessStatus("started");
-  public static final SyntheticsTestProcessStatus FINISHED =
-      new SyntheticsTestProcessStatus("finished");
-  public static final SyntheticsTestProcessStatus FINISHED_WITH_ERROR =
-      new SyntheticsTestProcessStatus("finished_with_error");
-
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "not_scheduled", "scheduled", "started", "finished", "finished_with_error"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("not_scheduled","scheduled","started","finished","finished_with_error"));
 
   private String value;
 
@@ -53,22 +58,19 @@ public class SyntheticsTestProcessStatus {
     this.value = value;
   }
 
-  public static class SyntheticsTestProcessStatusSerializer
-      extends StdSerializer<SyntheticsTestProcessStatus> {
-    public SyntheticsTestProcessStatusSerializer(Class<SyntheticsTestProcessStatus> t) {
-      super(t);
-    }
+  public static class SyntheticsTestProcessStatusSerializer extends StdSerializer<SyntheticsTestProcessStatus> {
+      public SyntheticsTestProcessStatusSerializer(Class<SyntheticsTestProcessStatus> t) {
+          super(t);
+      }
 
-    public SyntheticsTestProcessStatusSerializer() {
-      this(null);
-    }
+      public SyntheticsTestProcessStatusSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        SyntheticsTestProcessStatus value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(SyntheticsTestProcessStatus value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -80,7 +82,9 @@ public class SyntheticsTestProcessStatus {
     this.value = value;
   }
 
-  /** Return true if this SyntheticsTestProcessStatus object is equal to o. */
+  /**
+   * Return true if this SyntheticsTestProcessStatus object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -94,7 +98,7 @@ public class SyntheticsTestProcessStatus {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override
@@ -107,3 +111,4 @@ public class SyntheticsTestProcessStatus {
     return new SyntheticsTestProcessStatus(value);
   }
 }
+

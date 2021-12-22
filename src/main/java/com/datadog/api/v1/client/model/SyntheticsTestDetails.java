@@ -8,19 +8,38 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.Creator;
+import com.datadog.api.v1.client.model.SyntheticsStep;
+import com.datadog.api.v1.client.model.SyntheticsTestConfig;
+import com.datadog.api.v1.client.model.SyntheticsTestDetailsSubType;
+import com.datadog.api.v1.client.model.SyntheticsTestDetailsType;
+import com.datadog.api.v1.client.model.SyntheticsTestOptions;
+import com.datadog.api.v1.client.model.SyntheticsTestPauseStatus;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Object containing details about your Synthetic test. */
+
+/**
+ * Object containing details about your Synthetic test.
+ */
 @ApiModel(description = "Object containing details about your Synthetic test.")
 @JsonPropertyOrder({
   SyntheticsTestDetails.JSON_PROPERTY_CONFIG,
@@ -38,8 +57,10 @@ import java.util.Objects;
   SyntheticsTestDetails.JSON_PROPERTY_TYPE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SyntheticsTestDetails {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CONFIG = "config";
   private SyntheticsTestConfig config;
 
@@ -79,28 +100,31 @@ public class SyntheticsTestDetails {
   public static final String JSON_PROPERTY_TYPE = "type";
   private SyntheticsTestDetailsType type;
 
+
   public SyntheticsTestDetails config(SyntheticsTestConfig config) {
     this.config = config;
     this.unparsed |= config.unparsed;
     return this;
   }
 
-  /**
+   /**
    * Get config
-   *
    * @return config
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CONFIG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public SyntheticsTestConfig getConfig() {
     return config;
   }
 
+
   public void setConfig(SyntheticsTestConfig config) {
     this.config = config;
   }
+
 
   public SyntheticsTestDetails creator(Creator creator) {
     this.creator = creator;
@@ -108,22 +132,24 @@ public class SyntheticsTestDetails {
     return this;
   }
 
-  /**
+   /**
    * Get creator
-   *
    * @return creator
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CREATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Creator getCreator() {
     return creator;
   }
 
+
   public void setCreator(Creator creator) {
     this.creator = creator;
   }
+
 
   public SyntheticsTestDetails locations(List<String> locations) {
     this.locations = locations;
@@ -138,79 +164,88 @@ public class SyntheticsTestDetails {
     return this;
   }
 
-  /**
+   /**
    * Array of locations used to run the test.
-   *
    * @return locations
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Array of locations used to run the test.")
   @JsonProperty(JSON_PROPERTY_LOCATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<String> getLocations() {
     return locations;
   }
 
+
   public void setLocations(List<String> locations) {
     this.locations = locations;
   }
+
 
   public SyntheticsTestDetails message(String message) {
     this.message = message;
     return this;
   }
 
-  /**
+   /**
    * Notification message associated with the test.
-   *
    * @return message
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Notification message associated with the test.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getMessage() {
     return message;
   }
+
 
   public void setMessage(String message) {
     this.message = message;
   }
 
-  /**
+
+   /**
    * The associated monitor ID.
-   *
    * @return monitorId
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The associated monitor ID.")
   @JsonProperty(JSON_PROPERTY_MONITOR_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Long getMonitorId() {
     return monitorId;
   }
+
+
+
 
   public SyntheticsTestDetails name(String name) {
     this.name = name;
     return this;
   }
 
-  /**
+   /**
    * Name of the test.
-   *
    * @return name
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Name of the test.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getName() {
     return name;
   }
 
+
   public void setName(String name) {
     this.name = name;
   }
+
 
   public SyntheticsTestDetails options(SyntheticsTestOptions options) {
     this.options = options;
@@ -218,35 +253,40 @@ public class SyntheticsTestDetails {
     return this;
   }
 
-  /**
+   /**
    * Get options
-   *
    * @return options
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_OPTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public SyntheticsTestOptions getOptions() {
     return options;
   }
+
 
   public void setOptions(SyntheticsTestOptions options) {
     this.options = options;
   }
 
-  /**
+
+   /**
    * The test public ID.
-   *
    * @return publicId
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The test public ID.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getPublicId() {
     return publicId;
   }
+
+
+
 
   public SyntheticsTestDetails status(SyntheticsTestPauseStatus status) {
     this.status = status;
@@ -254,25 +294,27 @@ public class SyntheticsTestDetails {
     return this;
   }
 
-  /**
+   /**
    * Get status
-   *
    * @return status
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public SyntheticsTestPauseStatus getStatus() {
     return status;
   }
 
+
   public void setStatus(SyntheticsTestPauseStatus status) {
     if (!status.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.status = status;
   }
+
 
   public SyntheticsTestDetails steps(List<SyntheticsStep> steps) {
     this.steps = steps;
@@ -291,22 +333,24 @@ public class SyntheticsTestDetails {
     return this;
   }
 
-  /**
+   /**
    * For browser test, the steps of the test.
-   *
    * @return steps
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "For browser test, the steps of the test.")
   @JsonProperty(JSON_PROPERTY_STEPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<SyntheticsStep> getSteps() {
     return steps;
   }
 
+
   public void setSteps(List<SyntheticsStep> steps) {
     this.steps = steps;
   }
+
 
   public SyntheticsTestDetails subtype(SyntheticsTestDetailsSubType subtype) {
     this.subtype = subtype;
@@ -314,25 +358,27 @@ public class SyntheticsTestDetails {
     return this;
   }
 
-  /**
+   /**
    * Get subtype
-   *
    * @return subtype
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SUBTYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public SyntheticsTestDetailsSubType getSubtype() {
     return subtype;
   }
 
+
   public void setSubtype(SyntheticsTestDetailsSubType subtype) {
     if (!subtype.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.subtype = subtype;
   }
+
 
   public SyntheticsTestDetails tags(List<String> tags) {
     this.tags = tags;
@@ -347,22 +393,24 @@ public class SyntheticsTestDetails {
     return this;
   }
 
-  /**
+   /**
    * Array of tags attached to the test.
-   *
    * @return tags
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Array of tags attached to the test.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<String> getTags() {
     return tags;
   }
 
+
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
+
 
   public SyntheticsTestDetails type(SyntheticsTestDetailsType type) {
     this.type = type;
@@ -370,27 +418,31 @@ public class SyntheticsTestDetails {
     return this;
   }
 
-  /**
+   /**
    * Get type
-   *
    * @return type
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public SyntheticsTestDetailsType getType() {
     return type;
   }
 
+
   public void setType(SyntheticsTestDetailsType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
-  /** Return true if this SyntheticsTestDetails object is equal to o. */
+
+  /**
+   * Return true if this SyntheticsTestDetails object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -400,26 +452,24 @@ public class SyntheticsTestDetails {
       return false;
     }
     SyntheticsTestDetails syntheticsTestDetails = (SyntheticsTestDetails) o;
-    return Objects.equals(this.config, syntheticsTestDetails.config)
-        && Objects.equals(this.creator, syntheticsTestDetails.creator)
-        && Objects.equals(this.locations, syntheticsTestDetails.locations)
-        && Objects.equals(this.message, syntheticsTestDetails.message)
-        && Objects.equals(this.monitorId, syntheticsTestDetails.monitorId)
-        && Objects.equals(this.name, syntheticsTestDetails.name)
-        && Objects.equals(this.options, syntheticsTestDetails.options)
-        && Objects.equals(this.publicId, syntheticsTestDetails.publicId)
-        && Objects.equals(this.status, syntheticsTestDetails.status)
-        && Objects.equals(this.steps, syntheticsTestDetails.steps)
-        && Objects.equals(this.subtype, syntheticsTestDetails.subtype)
-        && Objects.equals(this.tags, syntheticsTestDetails.tags)
-        && Objects.equals(this.type, syntheticsTestDetails.type);
+    return Objects.equals(this.config, syntheticsTestDetails.config) &&
+        Objects.equals(this.creator, syntheticsTestDetails.creator) &&
+        Objects.equals(this.locations, syntheticsTestDetails.locations) &&
+        Objects.equals(this.message, syntheticsTestDetails.message) &&
+        Objects.equals(this.monitorId, syntheticsTestDetails.monitorId) &&
+        Objects.equals(this.name, syntheticsTestDetails.name) &&
+        Objects.equals(this.options, syntheticsTestDetails.options) &&
+        Objects.equals(this.publicId, syntheticsTestDetails.publicId) &&
+        Objects.equals(this.status, syntheticsTestDetails.status) &&
+        Objects.equals(this.steps, syntheticsTestDetails.steps) &&
+        Objects.equals(this.subtype, syntheticsTestDetails.subtype) &&
+        Objects.equals(this.tags, syntheticsTestDetails.tags) &&
+        Objects.equals(this.type, syntheticsTestDetails.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        config, creator, locations, message, monitorId, name, options, publicId, status, steps,
-        subtype, tags, type);
+    return Objects.hash(config, creator, locations, message, monitorId, name, options, publicId, status, steps, subtype, tags, type);
   }
 
   @Override
@@ -444,7 +494,8 @@ public class SyntheticsTestDetails {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -452,4 +503,6 @@ public class SyntheticsTestDetails {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

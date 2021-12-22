@@ -5,10 +5,10 @@ import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.api.UsersApi;
 import com.datadog.api.v2.client.model.UserResponse;
+import com.datadog.api.v2.client.model.UsersType;
 import com.datadog.api.v2.client.model.UserUpdateAttributes;
 import com.datadog.api.v2.client.model.UserUpdateData;
 import com.datadog.api.v2.client.model.UserUpdateRequest;
-import com.datadog.api.v2.client.model.UsersType;
 import java.time.*;
 import java.util.*;
 
@@ -20,13 +20,13 @@ public class Example {
     // there is a valid "user" in the system
     String USER_DATA_ID = System.getenv("USER_DATA_ID");
 
-    UserUpdateRequest body =
-        new UserUpdateRequest()
-            .data(
-                new UserUpdateData()
-                    .id(USER_DATA_ID)
-                    .type(UsersType.USERS)
-                    .attributes(new UserUpdateAttributes().name("updated").disabled(true)));
+    UserUpdateRequest body = new UserUpdateRequest()
+.data(new UserUpdateData()
+.id(USER_DATA_ID)
+.type(UsersType.USERS)
+.attributes(new UserUpdateAttributes()
+.name("updated")
+.disabled(true)));
 
     try {
       UserResponse result = apiInstance.updateUser(USER_DATA_ID, body);

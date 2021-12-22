@@ -8,28 +8,44 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.LogsByRetentionOrgUsage;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Indexed logs usage summary for each organization for each retention period with usage. */
-@ApiModel(
-    description =
-        "Indexed logs usage summary for each organization for each retention period with usage.")
-@JsonPropertyOrder({LogsByRetentionOrgs.JSON_PROPERTY_USAGE})
+
+/**
+ * Indexed logs usage summary for each organization for each retention period with usage.
+ */
+@ApiModel(description = "Indexed logs usage summary for each organization for each retention period with usage.")
+@JsonPropertyOrder({
+  LogsByRetentionOrgs.JSON_PROPERTY_USAGE
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class LogsByRetentionOrgs {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_USAGE = "usage";
   private List<LogsByRetentionOrgUsage> usage = null;
+
 
   public LogsByRetentionOrgs usage(List<LogsByRetentionOrgUsage> usage) {
     this.usage = usage;
@@ -48,24 +64,28 @@ public class LogsByRetentionOrgs {
     return this;
   }
 
-  /**
+   /**
    * Indexed logs usage summary for each organization.
-   *
    * @return usage
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Indexed logs usage summary for each organization.")
   @JsonProperty(JSON_PROPERTY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<LogsByRetentionOrgUsage> getUsage() {
     return usage;
   }
+
 
   public void setUsage(List<LogsByRetentionOrgUsage> usage) {
     this.usage = usage;
   }
 
-  /** Return true if this LogsByRetention_orgs object is equal to o. */
+
+  /**
+   * Return true if this LogsByRetention_orgs object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -93,7 +113,8 @@ public class LogsByRetentionOrgs {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -101,4 +122,6 @@ public class LogsByRetentionOrgs {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

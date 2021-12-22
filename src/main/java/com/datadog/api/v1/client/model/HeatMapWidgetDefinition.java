@@ -8,27 +8,39 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.HeatMapWidgetDefinitionType;
+import com.datadog.api.v1.client.model.HeatMapWidgetRequest;
+import com.datadog.api.v1.client.model.WidgetAxis;
+import com.datadog.api.v1.client.model.WidgetCustomLink;
+import com.datadog.api.v1.client.model.WidgetEvent;
+import com.datadog.api.v1.client.model.WidgetTextAlign;
+import com.datadog.api.v1.client.model.WidgetTime;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
- * The heat map visualization shows metrics aggregated across many tags, such as hosts. The more
- * hosts that have a particular value, the darker that square is.
+ * The heat map visualization shows metrics aggregated across many tags, such as hosts. The more hosts that have a particular value, the darker that square is.
  */
-@ApiModel(
-    description =
-        "The heat map visualization shows metrics aggregated across many tags, such as hosts. The"
-            + " more hosts that have a particular value, the darker that square is.")
+@ApiModel(description = "The heat map visualization shows metrics aggregated across many tags, such as hosts. The more hosts that have a particular value, the darker that square is.")
 @JsonPropertyOrder({
   HeatMapWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
   HeatMapWidgetDefinition.JSON_PROPERTY_EVENTS,
@@ -43,8 +55,10 @@ import java.util.Objects;
   HeatMapWidgetDefinition.JSON_PROPERTY_YAXIS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class HeatMapWidgetDefinition {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
   private List<WidgetCustomLink> customLinks = null;
 
@@ -82,12 +96,12 @@ public class HeatMapWidgetDefinition {
 
   @JsonCreator
   public HeatMapWidgetDefinition(
-      @JsonProperty(required = true, value = JSON_PROPERTY_REQUESTS)
-          List<HeatMapWidgetRequest> requests,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) HeatMapWidgetDefinitionType type) {
-    this.requests = requests;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_REQUESTS) List<HeatMapWidgetRequest> requests,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE) HeatMapWidgetDefinitionType type
+            ) {
+        this.requests = requests;
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
 
   public HeatMapWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
@@ -107,22 +121,24 @@ public class HeatMapWidgetDefinition {
     return this;
   }
 
-  /**
+   /**
    * List of custom links.
-   *
    * @return customLinks
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "List of custom links.")
   @JsonProperty(JSON_PROPERTY_CUSTOM_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<WidgetCustomLink> getCustomLinks() {
     return customLinks;
   }
 
+
   public void setCustomLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
   }
+
 
   public HeatMapWidgetDefinition events(List<WidgetEvent> events) {
     this.events = events;
@@ -141,48 +157,48 @@ public class HeatMapWidgetDefinition {
     return this;
   }
 
-  /**
+   /**
    * List of widget events.
-   *
    * @return events
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "List of widget events.")
   @JsonProperty(JSON_PROPERTY_EVENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<WidgetEvent> getEvents() {
     return events;
   }
 
+
   public void setEvents(List<WidgetEvent> events) {
     this.events = events;
   }
+
 
   public HeatMapWidgetDefinition legendSize(String legendSize) {
     this.legendSize = legendSize;
     return this;
   }
 
-  /**
-   * Available legend sizes for a widget. Should be one of \&quot;0\&quot;, \&quot;2\&quot;,
-   * \&quot;4\&quot;, \&quot;8\&quot;, \&quot;16\&quot;, or \&quot;auto\&quot;.
-   *
+   /**
+   * Available legend sizes for a widget. Should be one of \&quot;0\&quot;, \&quot;2\&quot;, \&quot;4\&quot;, \&quot;8\&quot;, \&quot;16\&quot;, or \&quot;auto\&quot;.
    * @return legendSize
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Available legend sizes for a widget. Should be one of \"0\", \"2\", \"4\", \"8\","
-              + " \"16\", or \"auto\".")
+  @ApiModelProperty(value = "Available legend sizes for a widget. Should be one of \"0\", \"2\", \"4\", \"8\", \"16\", or \"auto\".")
   @JsonProperty(JSON_PROPERTY_LEGEND_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getLegendSize() {
     return legendSize;
   }
 
+
   public void setLegendSize(String legendSize) {
     this.legendSize = legendSize;
   }
+
 
   public HeatMapWidgetDefinition requests(List<HeatMapWidgetRequest> requests) {
     this.requests = requests;
@@ -198,46 +214,47 @@ public class HeatMapWidgetDefinition {
     return this;
   }
 
-  /**
+   /**
    * List of widget types.
-   *
    * @return requests
-   */
-  @ApiModelProperty(
-      example = "[{\"q\":\"jvm.heap.memory\"}]",
-      required = true,
-      value = "List of widget types.")
+  **/
+  @ApiModelProperty(example = "[{\"q\":\"jvm.heap.memory\"}]", required = true, value = "List of widget types.")
   @JsonProperty(JSON_PROPERTY_REQUESTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<HeatMapWidgetRequest> getRequests() {
     return requests;
   }
 
+
   public void setRequests(List<HeatMapWidgetRequest> requests) {
     this.requests = requests;
   }
+
 
   public HeatMapWidgetDefinition showLegend(Boolean showLegend) {
     this.showLegend = showLegend;
     return this;
   }
 
-  /**
+   /**
    * Whether or not to display the legend on this widget.
-   *
    * @return showLegend
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Whether or not to display the legend on this widget.")
   @JsonProperty(JSON_PROPERTY_SHOW_LEGEND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Boolean getShowLegend() {
     return showLegend;
   }
 
+
   public void setShowLegend(Boolean showLegend) {
     this.showLegend = showLegend;
   }
+
 
   public HeatMapWidgetDefinition time(WidgetTime time) {
     this.time = time;
@@ -245,44 +262,48 @@ public class HeatMapWidgetDefinition {
     return this;
   }
 
-  /**
+   /**
    * Get time
-   *
    * @return time
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public WidgetTime getTime() {
     return time;
   }
 
+
   public void setTime(WidgetTime time) {
     this.time = time;
   }
+
 
   public HeatMapWidgetDefinition title(String title) {
     this.title = title;
     return this;
   }
 
-  /**
+   /**
    * Title of the widget.
-   *
    * @return title
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Title of the widget.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getTitle() {
     return title;
   }
 
+
   public void setTitle(String title) {
     this.title = title;
   }
+
 
   public HeatMapWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
@@ -290,47 +311,51 @@ public class HeatMapWidgetDefinition {
     return this;
   }
 
-  /**
+   /**
    * Get titleAlign
-   *
    * @return titleAlign
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public WidgetTextAlign getTitleAlign() {
     return titleAlign;
   }
 
+
   public void setTitleAlign(WidgetTextAlign titleAlign) {
     if (!titleAlign.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.titleAlign = titleAlign;
   }
+
 
   public HeatMapWidgetDefinition titleSize(String titleSize) {
     this.titleSize = titleSize;
     return this;
   }
 
-  /**
+   /**
    * Size of the title.
-   *
    * @return titleSize
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Size of the title.")
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getTitleSize() {
     return titleSize;
   }
 
+
   public void setTitleSize(String titleSize) {
     this.titleSize = titleSize;
   }
+
 
   public HeatMapWidgetDefinition type(HeatMapWidgetDefinitionType type) {
     this.type = type;
@@ -338,24 +363,26 @@ public class HeatMapWidgetDefinition {
     return this;
   }
 
-  /**
+   /**
    * Get type
-   *
    * @return type
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public HeatMapWidgetDefinitionType getType() {
     return type;
   }
 
+
   public void setType(HeatMapWidgetDefinitionType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
+
 
   public HeatMapWidgetDefinition yaxis(WidgetAxis yaxis) {
     this.yaxis = yaxis;
@@ -363,24 +390,28 @@ public class HeatMapWidgetDefinition {
     return this;
   }
 
-  /**
+   /**
    * Get yaxis
-   *
    * @return yaxis
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_YAXIS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public WidgetAxis getYaxis() {
     return yaxis;
   }
+
 
   public void setYaxis(WidgetAxis yaxis) {
     this.yaxis = yaxis;
   }
 
-  /** Return true if this HeatMapWidgetDefinition object is equal to o. */
+
+  /**
+   * Return true if this HeatMapWidgetDefinition object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -390,33 +421,22 @@ public class HeatMapWidgetDefinition {
       return false;
     }
     HeatMapWidgetDefinition heatMapWidgetDefinition = (HeatMapWidgetDefinition) o;
-    return Objects.equals(this.customLinks, heatMapWidgetDefinition.customLinks)
-        && Objects.equals(this.events, heatMapWidgetDefinition.events)
-        && Objects.equals(this.legendSize, heatMapWidgetDefinition.legendSize)
-        && Objects.equals(this.requests, heatMapWidgetDefinition.requests)
-        && Objects.equals(this.showLegend, heatMapWidgetDefinition.showLegend)
-        && Objects.equals(this.time, heatMapWidgetDefinition.time)
-        && Objects.equals(this.title, heatMapWidgetDefinition.title)
-        && Objects.equals(this.titleAlign, heatMapWidgetDefinition.titleAlign)
-        && Objects.equals(this.titleSize, heatMapWidgetDefinition.titleSize)
-        && Objects.equals(this.type, heatMapWidgetDefinition.type)
-        && Objects.equals(this.yaxis, heatMapWidgetDefinition.yaxis);
+    return Objects.equals(this.customLinks, heatMapWidgetDefinition.customLinks) &&
+        Objects.equals(this.events, heatMapWidgetDefinition.events) &&
+        Objects.equals(this.legendSize, heatMapWidgetDefinition.legendSize) &&
+        Objects.equals(this.requests, heatMapWidgetDefinition.requests) &&
+        Objects.equals(this.showLegend, heatMapWidgetDefinition.showLegend) &&
+        Objects.equals(this.time, heatMapWidgetDefinition.time) &&
+        Objects.equals(this.title, heatMapWidgetDefinition.title) &&
+        Objects.equals(this.titleAlign, heatMapWidgetDefinition.titleAlign) &&
+        Objects.equals(this.titleSize, heatMapWidgetDefinition.titleSize) &&
+        Objects.equals(this.type, heatMapWidgetDefinition.type) &&
+        Objects.equals(this.yaxis, heatMapWidgetDefinition.yaxis);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        customLinks,
-        events,
-        legendSize,
-        requests,
-        showLegend,
-        time,
-        title,
-        titleAlign,
-        titleSize,
-        type,
-        yaxis);
+    return Objects.hash(customLinks, events, legendSize, requests, showLegend, time, title, titleAlign, titleSize, type, yaxis);
   }
 
   @Override
@@ -439,7 +459,8 @@ public class HeatMapWidgetDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -447,4 +468,6 @@ public class HeatMapWidgetDefinition {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

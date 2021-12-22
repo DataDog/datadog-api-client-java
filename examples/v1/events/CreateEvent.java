@@ -4,8 +4,8 @@ import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.EventsApi;
-import com.datadog.api.v1.client.model.EventCreateRequest;
 import com.datadog.api.v1.client.model.EventCreateResponse;
+import com.datadog.api.v1.client.model.EventCreateRequest;
 import java.time.*;
 import java.util.*;
 
@@ -14,16 +14,10 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     EventsApi apiInstance = new EventsApi(defaultClient);
 
-    EventCreateRequest body =
-        new EventCreateRequest()
-            .title("Example-Post_an_event_returns_OK_response")
-            .text("A text message.")
-            .tags(
-                new ArrayList<String>() {
-                  {
-                    add("test:ExamplePostaneventreturnsOKresponse");
-                  }
-                });
+    EventCreateRequest body = new EventCreateRequest()
+.title("Example-Post_an_event_returns_OK_response")
+.text("A text message.")
+.tags(new ArrayList<String>() {{add("test:ExamplePostaneventreturnsOKresponse");}});
 
     try {
       EventCreateResponse result = apiInstance.createEvent(body);

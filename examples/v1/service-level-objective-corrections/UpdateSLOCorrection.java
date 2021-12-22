@@ -1,10 +1,12 @@
 // Update an SLO correction returns "OK" response
+import java.time.*;
+
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.ServiceLevelObjectiveCorrectionsApi;
-import com.datadog.api.v1.client.model.SLOCorrectionCategory;
 import com.datadog.api.v1.client.model.SLOCorrectionResponse;
+import com.datadog.api.v1.client.model.SLOCorrectionCategory;
 import com.datadog.api.v1.client.model.SLOCorrectionType;
 import com.datadog.api.v1.client.model.SLOCorrectionUpdateData;
 import com.datadog.api.v1.client.model.SLOCorrectionUpdateRequest;
@@ -16,24 +18,20 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setUnstableOperationEnabled("updateSloCorrection", true);
-    ServiceLevelObjectiveCorrectionsApi apiInstance =
-        new ServiceLevelObjectiveCorrectionsApi(defaultClient);
+    ServiceLevelObjectiveCorrectionsApi apiInstance = new ServiceLevelObjectiveCorrectionsApi(defaultClient);
 
     // there is a valid "correction" for "slo"
     String CORRECTION_DATA_ID = System.getenv("CORRECTION_DATA_ID");
 
-    SLOCorrectionUpdateRequest body =
-        new SLOCorrectionUpdateRequest()
-            .data(
-                new SLOCorrectionUpdateData()
-                    .attributes(
-                        new SLOCorrectionUpdateRequestAttributes()
-                            .category(SLOCorrectionCategory.DEPLOYMENT)
-                            .description("Example-Update_an_SLO_correction_returns_OK_response")
-                            .end((Instant.now().getEpochSecond() + 1 * 3600))
-                            .start(Instant.now().getEpochSecond())
-                            .timezone("UTC"))
-                    .type(SLOCorrectionType.CORRECTION));
+    SLOCorrectionUpdateRequest body = new SLOCorrectionUpdateRequest()
+.data(new SLOCorrectionUpdateData()
+.attributes(new SLOCorrectionUpdateRequestAttributes()
+.category(SLOCorrectionCategory.DEPLOYMENT)
+.description("Example-Update_an_SLO_correction_returns_OK_response")
+.end((Instant.now().getEpochSecond() + 1*3600))
+.start(Instant.now().getEpochSecond())
+.timezone("UTC"))
+.type(SLOCorrectionType.CORRECTION));
 
     try {
       SLOCorrectionResponse result = apiInstance.updateSLOCorrection(CORRECTION_DATA_ID, body);

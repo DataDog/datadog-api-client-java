@@ -18,9 +18,7 @@ public class Example {
     String USER_DATA_ATTRIBUTES_EMAIL = System.getenv("USER_DATA_ATTRIBUTES_EMAIL");
 
     try {
-      UsersResponse result =
-          apiInstance.listUsers(
-              new ListUsersOptionalParameters().filter(USER_DATA_ATTRIBUTES_EMAIL));
+      UsersResponse result = apiInstance.listUsers(new ListUsersOptionalParameters().filter(USER_DATA_ATTRIBUTES_EMAIL));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DowntimesApi#updateDowntime");

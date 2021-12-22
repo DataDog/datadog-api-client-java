@@ -16,12 +16,10 @@ public class Example {
     String SERVICE_ACCOUNT_USER_DATA_ID = System.getenv("SERVICE_ACCOUNT_USER_DATA_ID");
 
     // there is a valid "service_account_application_key" for "service_account_user"
-    String SERVICE_ACCOUNT_APPLICATION_KEY_DATA_ID =
-        System.getenv("SERVICE_ACCOUNT_APPLICATION_KEY_DATA_ID");
+    String SERVICE_ACCOUNT_APPLICATION_KEY_DATA_ID = System.getenv("SERVICE_ACCOUNT_APPLICATION_KEY_DATA_ID");
 
     try {
-      apiInstance.deleteServiceAccountApplicationKey(
-          SERVICE_ACCOUNT_USER_DATA_ID, SERVICE_ACCOUNT_APPLICATION_KEY_DATA_ID);
+      apiInstance.deleteServiceAccountApplicationKey(SERVICE_ACCOUNT_USER_DATA_ID, SERVICE_ACCOUNT_APPLICATION_KEY_DATA_ID);
     } catch (ApiException e) {
       System.err.println("Exception when calling DowntimesApi#updateDowntime");
       System.err.println("Status code: " + e.getCode());

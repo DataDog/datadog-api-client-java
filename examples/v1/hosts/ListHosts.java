@@ -15,8 +15,7 @@ public class Example {
     HostsApi apiInstance = new HostsApi(defaultClient);
 
     try {
-      HostListResponse result =
-          apiInstance.listHosts(new ListHostsOptionalParameters().filter("env:ci"));
+      HostListResponse result = apiInstance.listHosts(new ListHostsOptionalParameters().filter("env:ci"));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DowntimesApi#updateDowntime");

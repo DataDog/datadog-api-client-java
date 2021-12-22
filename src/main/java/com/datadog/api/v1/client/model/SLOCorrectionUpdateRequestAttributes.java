@@ -8,17 +8,30 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.SLOCorrectionCategory;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** The attribute object associated with the SLO correction to be updated. */
+
+/**
+ * The attribute object associated with the SLO correction to be updated.
+ */
 @ApiModel(description = "The attribute object associated with the SLO correction to be updated.")
 @JsonPropertyOrder({
   SLOCorrectionUpdateRequestAttributes.JSON_PROPERTY_CATEGORY,
@@ -30,8 +43,10 @@ import java.util.Objects;
   SLOCorrectionUpdateRequestAttributes.JSON_PROPERTY_TIMEZONE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SLOCorrectionUpdateRequestAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CATEGORY = "category";
   private SLOCorrectionCategory category;
 
@@ -53,179 +68,182 @@ public class SLOCorrectionUpdateRequestAttributes {
   public static final String JSON_PROPERTY_TIMEZONE = "timezone";
   private String timezone;
 
+
   public SLOCorrectionUpdateRequestAttributes category(SLOCorrectionCategory category) {
     this.category = category;
     this.unparsed |= !category.isValid();
     return this;
   }
 
-  /**
+   /**
    * Get category
-   *
    * @return category
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CATEGORY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public SLOCorrectionCategory getCategory() {
     return category;
   }
 
+
   public void setCategory(SLOCorrectionCategory category) {
     if (!category.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.category = category;
   }
+
 
   public SLOCorrectionUpdateRequestAttributes description(String description) {
     this.description = description;
     return this;
   }
 
-  /**
+   /**
    * Description of the correction being made.
-   *
    * @return description
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Description of the correction being made.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getDescription() {
     return description;
   }
 
+
   public void setDescription(String description) {
     this.description = description;
   }
+
 
   public SLOCorrectionUpdateRequestAttributes duration(Long duration) {
     this.duration = duration;
     return this;
   }
 
-  /**
+   /**
    * Length of time (in seconds) for a specified &#x60;rrule&#x60; recurring SLO correction.
-   *
    * @return duration
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "3600",
-      value = "Length of time (in seconds) for a specified `rrule` recurring SLO correction.")
+  @ApiModelProperty(example = "3600", value = "Length of time (in seconds) for a specified `rrule` recurring SLO correction.")
   @JsonProperty(JSON_PROPERTY_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Long getDuration() {
     return duration;
   }
 
+
   public void setDuration(Long duration) {
     this.duration = duration;
   }
+
 
   public SLOCorrectionUpdateRequestAttributes end(Long end) {
     this.end = end;
     return this;
   }
 
-  /**
+   /**
    * Ending time of the correction in epoch seconds.
-   *
    * @return end
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "1600000000",
-      value = "Ending time of the correction in epoch seconds.")
+  @ApiModelProperty(example = "1600000000", value = "Ending time of the correction in epoch seconds.")
   @JsonProperty(JSON_PROPERTY_END)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Long getEnd() {
     return end;
   }
 
+
   public void setEnd(Long end) {
     this.end = end;
   }
+
 
   public SLOCorrectionUpdateRequestAttributes rrule(String rrule) {
     this.rrule = rrule;
     return this;
   }
 
-  /**
-   * The recurrence rules as defined in the iCalendar RFC 5545. The supported rules for SLO
-   * corrections are &#x60;FREQ&#x60;, &#x60;INTERVAL&#x60;, &#x60;COUNT&#x60; and
-   * &#x60;UNTIL&#x60;.
-   *
+   /**
+   * The recurrence rules as defined in the iCalendar RFC 5545. The supported rules for SLO corrections are &#x60;FREQ&#x60;, &#x60;INTERVAL&#x60;, &#x60;COUNT&#x60; and &#x60;UNTIL&#x60;.
    * @return rrule
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "FREQ=DAILY;INTERVAL=10;COUNT=5",
-      value =
-          "The recurrence rules as defined in the iCalendar RFC 5545. The supported rules for SLO"
-              + " corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.")
+  @ApiModelProperty(example = "FREQ=DAILY;INTERVAL=10;COUNT=5", value = "The recurrence rules as defined in the iCalendar RFC 5545. The supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.")
   @JsonProperty(JSON_PROPERTY_RRULE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getRrule() {
     return rrule;
   }
 
+
   public void setRrule(String rrule) {
     this.rrule = rrule;
   }
+
 
   public SLOCorrectionUpdateRequestAttributes start(Long start) {
     this.start = start;
     return this;
   }
 
-  /**
+   /**
    * Starting time of the correction in epoch seconds.
-   *
    * @return start
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "1600000000",
-      value = "Starting time of the correction in epoch seconds.")
+  @ApiModelProperty(example = "1600000000", value = "Starting time of the correction in epoch seconds.")
   @JsonProperty(JSON_PROPERTY_START)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Long getStart() {
     return start;
   }
 
+
   public void setStart(Long start) {
     this.start = start;
   }
+
 
   public SLOCorrectionUpdateRequestAttributes timezone(String timezone) {
     this.timezone = timezone;
     return this;
   }
 
-  /**
+   /**
    * The timezone to display in the UI for the correction times (defaults to \&quot;UTC\&quot;).
-   *
    * @return timezone
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "UTC",
-      value = "The timezone to display in the UI for the correction times (defaults to \"UTC\").")
+  @ApiModelProperty(example = "UTC", value = "The timezone to display in the UI for the correction times (defaults to \"UTC\").")
   @JsonProperty(JSON_PROPERTY_TIMEZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getTimezone() {
     return timezone;
   }
+
 
   public void setTimezone(String timezone) {
     this.timezone = timezone;
   }
 
-  /** Return true if this SLOCorrectionUpdateRequestAttributes object is equal to o. */
+
+  /**
+   * Return true if this SLOCorrectionUpdateRequestAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -234,15 +252,14 @@ public class SLOCorrectionUpdateRequestAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOCorrectionUpdateRequestAttributes slOCorrectionUpdateRequestAttributes =
-        (SLOCorrectionUpdateRequestAttributes) o;
-    return Objects.equals(this.category, slOCorrectionUpdateRequestAttributes.category)
-        && Objects.equals(this.description, slOCorrectionUpdateRequestAttributes.description)
-        && Objects.equals(this.duration, slOCorrectionUpdateRequestAttributes.duration)
-        && Objects.equals(this.end, slOCorrectionUpdateRequestAttributes.end)
-        && Objects.equals(this.rrule, slOCorrectionUpdateRequestAttributes.rrule)
-        && Objects.equals(this.start, slOCorrectionUpdateRequestAttributes.start)
-        && Objects.equals(this.timezone, slOCorrectionUpdateRequestAttributes.timezone);
+    SLOCorrectionUpdateRequestAttributes slOCorrectionUpdateRequestAttributes = (SLOCorrectionUpdateRequestAttributes) o;
+    return Objects.equals(this.category, slOCorrectionUpdateRequestAttributes.category) &&
+        Objects.equals(this.description, slOCorrectionUpdateRequestAttributes.description) &&
+        Objects.equals(this.duration, slOCorrectionUpdateRequestAttributes.duration) &&
+        Objects.equals(this.end, slOCorrectionUpdateRequestAttributes.end) &&
+        Objects.equals(this.rrule, slOCorrectionUpdateRequestAttributes.rrule) &&
+        Objects.equals(this.start, slOCorrectionUpdateRequestAttributes.start) &&
+        Objects.equals(this.timezone, slOCorrectionUpdateRequestAttributes.timezone);
   }
 
   @Override
@@ -266,7 +283,8 @@ public class SLOCorrectionUpdateRequestAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -274,4 +292,6 @@ public class SLOCorrectionUpdateRequestAttributes {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

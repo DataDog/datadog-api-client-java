@@ -8,22 +8,37 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.ChangeWidgetDefinitionType;
+import com.datadog.api.v1.client.model.ChangeWidgetRequest;
+import com.datadog.api.v1.client.model.WidgetCustomLink;
+import com.datadog.api.v1.client.model.WidgetTextAlign;
+import com.datadog.api.v1.client.model.WidgetTime;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** The Change graph shows you the change in a value over the time period chosen. */
-@ApiModel(
-    description = "The Change graph shows you the change in a value over the time period chosen.")
+
+/**
+ * The Change graph shows you the change in a value over the time period chosen.
+ */
+@ApiModel(description = "The Change graph shows you the change in a value over the time period chosen.")
 @JsonPropertyOrder({
   ChangeWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
   ChangeWidgetDefinition.JSON_PROPERTY_REQUESTS,
@@ -34,8 +49,10 @@ import java.util.Objects;
   ChangeWidgetDefinition.JSON_PROPERTY_TYPE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ChangeWidgetDefinition {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
   private List<WidgetCustomLink> customLinks = null;
 
@@ -61,12 +78,12 @@ public class ChangeWidgetDefinition {
 
   @JsonCreator
   public ChangeWidgetDefinition(
-      @JsonProperty(required = true, value = JSON_PROPERTY_REQUESTS)
-          List<ChangeWidgetRequest> requests,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) ChangeWidgetDefinitionType type) {
-    this.requests = requests;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_REQUESTS) List<ChangeWidgetRequest> requests,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE) ChangeWidgetDefinitionType type
+            ) {
+        this.requests = requests;
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
 
   public ChangeWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
@@ -86,22 +103,24 @@ public class ChangeWidgetDefinition {
     return this;
   }
 
-  /**
+   /**
    * List of custom links.
-   *
    * @return customLinks
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "List of custom links.")
   @JsonProperty(JSON_PROPERTY_CUSTOM_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<WidgetCustomLink> getCustomLinks() {
     return customLinks;
   }
 
+
   public void setCustomLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
   }
+
 
   public ChangeWidgetDefinition requests(List<ChangeWidgetRequest> requests) {
     this.requests = requests;
@@ -117,30 +136,23 @@ public class ChangeWidgetDefinition {
     return this;
   }
 
-  /**
-   * Array of one request object to display in the widget. See the dedicated [Request JSON schema
-   * documentation](https://docs.datadoghq.com/dashboards/graphing_json/request_json) to learn how
-   * to build the &#x60;REQUEST_SCHEMA&#x60;.
-   *
+   /**
+   * Array of one request object to display in the widget.  See the dedicated [Request JSON schema documentation](https://docs.datadoghq.com/dashboards/graphing_json/request_json)  to learn how to build the &#x60;REQUEST_SCHEMA&#x60;.
    * @return requests
-   */
-  @ApiModelProperty(
-      example = "[{\"q/apm_query/log_query\":\"<METRIC_1>{<SCOPE_1>}\"}]",
-      required = true,
-      value =
-          "Array of one request object to display in the widget.  See the dedicated [Request JSON"
-              + " schema"
-              + " documentation](https://docs.datadoghq.com/dashboards/graphing_json/request_json)"
-              + "  to learn how to build the `REQUEST_SCHEMA`.")
+  **/
+  @ApiModelProperty(example = "[{\"q/apm_query/log_query\":\"<METRIC_1>{<SCOPE_1>}\"}]", required = true, value = "Array of one request object to display in the widget.  See the dedicated [Request JSON schema documentation](https://docs.datadoghq.com/dashboards/graphing_json/request_json)  to learn how to build the `REQUEST_SCHEMA`.")
   @JsonProperty(JSON_PROPERTY_REQUESTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<ChangeWidgetRequest> getRequests() {
     return requests;
   }
 
+
   public void setRequests(List<ChangeWidgetRequest> requests) {
     this.requests = requests;
   }
+
 
   public ChangeWidgetDefinition time(WidgetTime time) {
     this.time = time;
@@ -148,44 +160,48 @@ public class ChangeWidgetDefinition {
     return this;
   }
 
-  /**
+   /**
    * Get time
-   *
    * @return time
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public WidgetTime getTime() {
     return time;
   }
 
+
   public void setTime(WidgetTime time) {
     this.time = time;
   }
+
 
   public ChangeWidgetDefinition title(String title) {
     this.title = title;
     return this;
   }
 
-  /**
+   /**
    * Title of the widget.
-   *
    * @return title
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Title of the widget.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getTitle() {
     return title;
   }
 
+
   public void setTitle(String title) {
     this.title = title;
   }
+
 
   public ChangeWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
@@ -193,47 +209,51 @@ public class ChangeWidgetDefinition {
     return this;
   }
 
-  /**
+   /**
    * Get titleAlign
-   *
    * @return titleAlign
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public WidgetTextAlign getTitleAlign() {
     return titleAlign;
   }
 
+
   public void setTitleAlign(WidgetTextAlign titleAlign) {
     if (!titleAlign.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.titleAlign = titleAlign;
   }
+
 
   public ChangeWidgetDefinition titleSize(String titleSize) {
     this.titleSize = titleSize;
     return this;
   }
 
-  /**
+   /**
    * Size of the title.
-   *
    * @return titleSize
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Size of the title.")
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getTitleSize() {
     return titleSize;
   }
 
+
   public void setTitleSize(String titleSize) {
     this.titleSize = titleSize;
   }
+
 
   public ChangeWidgetDefinition type(ChangeWidgetDefinitionType type) {
     this.type = type;
@@ -241,26 +261,30 @@ public class ChangeWidgetDefinition {
     return this;
   }
 
-  /**
+   /**
    * Get type
-   *
    * @return type
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public ChangeWidgetDefinitionType getType() {
     return type;
   }
 
+
   public void setType(ChangeWidgetDefinitionType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
-  /** Return true if this ChangeWidgetDefinition object is equal to o. */
+
+  /**
+   * Return true if this ChangeWidgetDefinition object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -270,13 +294,13 @@ public class ChangeWidgetDefinition {
       return false;
     }
     ChangeWidgetDefinition changeWidgetDefinition = (ChangeWidgetDefinition) o;
-    return Objects.equals(this.customLinks, changeWidgetDefinition.customLinks)
-        && Objects.equals(this.requests, changeWidgetDefinition.requests)
-        && Objects.equals(this.time, changeWidgetDefinition.time)
-        && Objects.equals(this.title, changeWidgetDefinition.title)
-        && Objects.equals(this.titleAlign, changeWidgetDefinition.titleAlign)
-        && Objects.equals(this.titleSize, changeWidgetDefinition.titleSize)
-        && Objects.equals(this.type, changeWidgetDefinition.type);
+    return Objects.equals(this.customLinks, changeWidgetDefinition.customLinks) &&
+        Objects.equals(this.requests, changeWidgetDefinition.requests) &&
+        Objects.equals(this.time, changeWidgetDefinition.time) &&
+        Objects.equals(this.title, changeWidgetDefinition.title) &&
+        Objects.equals(this.titleAlign, changeWidgetDefinition.titleAlign) &&
+        Objects.equals(this.titleSize, changeWidgetDefinition.titleSize) &&
+        Objects.equals(this.type, changeWidgetDefinition.type);
   }
 
   @Override
@@ -300,7 +324,8 @@ public class ChangeWidgetDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -308,4 +333,6 @@ public class ChangeWidgetDefinition {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

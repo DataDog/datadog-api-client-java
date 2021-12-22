@@ -4,10 +4,10 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.api.RolesApi;
+import com.datadog.api.v2.client.model.RoleCreateResponse;
 import com.datadog.api.v2.client.model.RoleCreateAttributes;
 import com.datadog.api.v2.client.model.RoleCreateData;
 import com.datadog.api.v2.client.model.RoleCreateRequest;
-import com.datadog.api.v2.client.model.RoleCreateResponse;
 import com.datadog.api.v2.client.model.RolesType;
 import java.time.*;
 import java.util.*;
@@ -17,14 +17,11 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     RolesApi apiInstance = new RolesApi(defaultClient);
 
-    RoleCreateRequest body =
-        new RoleCreateRequest()
-            .data(
-                new RoleCreateData()
-                    .type(RolesType.ROLES)
-                    .attributes(
-                        new RoleCreateAttributes()
-                            .name("Example-Create_role_returns_OK_response")));
+    RoleCreateRequest body = new RoleCreateRequest()
+.data(new RoleCreateData()
+.type(RolesType.ROLES)
+.attributes(new RoleCreateAttributes()
+.name("Example-Create_role_returns_OK_response")));
 
     try {
       RoleCreateResponse result = apiInstance.createRole(body);

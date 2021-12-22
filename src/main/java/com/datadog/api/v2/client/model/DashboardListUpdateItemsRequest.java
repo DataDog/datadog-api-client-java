@@ -8,26 +8,44 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v2.client.model.DashboardListItemRequest;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
 
-/** Request containing the list of dashboards to update to. */
+
+/**
+ * Request containing the list of dashboards to update to.
+ */
 @ApiModel(description = "Request containing the list of dashboards to update to.")
-@JsonPropertyOrder({DashboardListUpdateItemsRequest.JSON_PROPERTY_DASHBOARDS})
+@JsonPropertyOrder({
+  DashboardListUpdateItemsRequest.JSON_PROPERTY_DASHBOARDS
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class DashboardListUpdateItemsRequest {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DASHBOARDS = "dashboards";
   private List<DashboardListItemRequest> dashboards = null;
+
 
   public DashboardListUpdateItemsRequest dashboards(List<DashboardListItemRequest> dashboards) {
     this.dashboards = dashboards;
@@ -37,8 +55,7 @@ public class DashboardListUpdateItemsRequest {
     return this;
   }
 
-  public DashboardListUpdateItemsRequest addDashboardsItem(
-      DashboardListItemRequest dashboardsItem) {
+  public DashboardListUpdateItemsRequest addDashboardsItem(DashboardListItemRequest dashboardsItem) {
     if (this.dashboards == null) {
       this.dashboards = new ArrayList<>();
     }
@@ -47,24 +64,28 @@ public class DashboardListUpdateItemsRequest {
     return this;
   }
 
-  /**
+   /**
    * List of dashboards to update the dashboard list to.
-   *
    * @return dashboards
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "List of dashboards to update the dashboard list to.")
   @JsonProperty(JSON_PROPERTY_DASHBOARDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<DashboardListItemRequest> getDashboards() {
     return dashboards;
   }
+
 
   public void setDashboards(List<DashboardListItemRequest> dashboards) {
     this.dashboards = dashboards;
   }
 
-  /** Return true if this DashboardListUpdateItemsRequest object is equal to o. */
+
+  /**
+   * Return true if this DashboardListUpdateItemsRequest object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -73,8 +94,7 @@ public class DashboardListUpdateItemsRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DashboardListUpdateItemsRequest dashboardListUpdateItemsRequest =
-        (DashboardListUpdateItemsRequest) o;
+    DashboardListUpdateItemsRequest dashboardListUpdateItemsRequest = (DashboardListUpdateItemsRequest) o;
     return Objects.equals(this.dashboards, dashboardListUpdateItemsRequest.dashboards);
   }
 
@@ -93,7 +113,8 @@ public class DashboardListUpdateItemsRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -101,4 +122,6 @@ public class DashboardListUpdateItemsRequest {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

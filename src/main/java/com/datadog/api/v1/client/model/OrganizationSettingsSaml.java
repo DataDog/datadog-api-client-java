@@ -8,56 +8,69 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
- * Set the boolean property enabled to enable or disable single sign on with SAML. See the SAML
- * documentation for more information about all SAML settings.
+ * Set the boolean property enabled to enable or disable single sign on with SAML. See the SAML documentation for more information about all SAML settings.
  */
-@ApiModel(
-    description =
-        "Set the boolean property enabled to enable or disable single sign on with SAML. See the"
-            + " SAML documentation for more information about all SAML settings.")
-@JsonPropertyOrder({OrganizationSettingsSaml.JSON_PROPERTY_ENABLED})
+@ApiModel(description = "Set the boolean property enabled to enable or disable single sign on with SAML. See the SAML documentation for more information about all SAML settings.")
+@JsonPropertyOrder({
+  OrganizationSettingsSaml.JSON_PROPERTY_ENABLED
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OrganizationSettingsSaml {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ENABLED = "enabled";
   private Boolean enabled;
+
 
   public OrganizationSettingsSaml enabled(Boolean enabled) {
     this.enabled = enabled;
     return this;
   }
 
-  /**
+   /**
    * Whether or not SAML is enabled for this organization.
-   *
    * @return enabled
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "false",
-      value = "Whether or not SAML is enabled for this organization.")
+  @ApiModelProperty(example = "false", value = "Whether or not SAML is enabled for this organization.")
   @JsonProperty(JSON_PROPERTY_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Boolean getEnabled() {
     return enabled;
   }
+
 
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
   }
 
-  /** Return true if this Organization_settings_saml object is equal to o. */
+
+  /**
+   * Return true if this Organization_settings_saml object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -85,7 +98,8 @@ public class OrganizationSettingsSaml {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -93,4 +107,6 @@ public class OrganizationSettingsSaml {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

@@ -12,8 +12,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setUnstableOperationEnabled("getSloCorrection", true);
-    ServiceLevelObjectiveCorrectionsApi apiInstance =
-        new ServiceLevelObjectiveCorrectionsApi(defaultClient);
+    ServiceLevelObjectiveCorrectionsApi apiInstance = new ServiceLevelObjectiveCorrectionsApi(defaultClient);
 
     // there is a valid "correction" for "slo"
     String CORRECTION_DATA_ID = System.getenv("CORRECTION_DATA_ID");

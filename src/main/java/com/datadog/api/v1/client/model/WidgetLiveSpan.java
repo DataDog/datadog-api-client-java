@@ -8,25 +8,38 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import io.swagger.annotations.ApiModel;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
+
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
 
-/** The available timeframes depend on the widget you are using. */
+
+import java.util.Set;
+import java.util.HashSet;
+/**
+ * The available timeframes depend on the widget you are using.
+ */
 @JsonSerialize(using = WidgetLiveSpan.WidgetLiveSpanSerializer.class)
 public class WidgetLiveSpan {
-
+  
   public static final WidgetLiveSpan PAST_ONE_MINUTE = new WidgetLiveSpan("1m");
   public static final WidgetLiveSpan PAST_FIVE_MINUTES = new WidgetLiveSpan("5m");
   public static final WidgetLiveSpan PAST_TEN_MINUTES = new WidgetLiveSpan("10m");
@@ -43,11 +56,7 @@ public class WidgetLiveSpan {
   public static final WidgetLiveSpan PAST_ONE_YEAR = new WidgetLiveSpan("1y");
   public static final WidgetLiveSpan ALERT = new WidgetLiveSpan("alert");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "1m", "5m", "10m", "15m", "30m", "1h", "4h", "1d", "2d", "1w", "1mo", "3mo", "6mo",
-              "1y", "alert"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("1m","5m","10m","15m","30m","1h","4h","1d","2d","1w","1mo","3mo","6mo","1y","alert"));
 
   private String value;
 
@@ -60,19 +69,18 @@ public class WidgetLiveSpan {
   }
 
   public static class WidgetLiveSpanSerializer extends StdSerializer<WidgetLiveSpan> {
-    public WidgetLiveSpanSerializer(Class<WidgetLiveSpan> t) {
-      super(t);
-    }
+      public WidgetLiveSpanSerializer(Class<WidgetLiveSpan> t) {
+          super(t);
+      }
 
-    public WidgetLiveSpanSerializer() {
-      this(null);
-    }
+      public WidgetLiveSpanSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(WidgetLiveSpan value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(WidgetLiveSpan value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -84,7 +92,9 @@ public class WidgetLiveSpan {
     this.value = value;
   }
 
-  /** Return true if this WidgetLiveSpan object is equal to o. */
+  /**
+   * Return true if this WidgetLiveSpan object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -98,7 +108,7 @@ public class WidgetLiveSpan {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override
@@ -111,3 +121,4 @@ public class WidgetLiveSpan {
     return new WidgetLiveSpan(value);
   }
 }
+

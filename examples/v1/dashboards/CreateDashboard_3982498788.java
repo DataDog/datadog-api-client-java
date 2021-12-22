@@ -5,6 +5,7 @@ import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.DashboardsApi;
 import com.datadog.api.v1.client.model.Dashboard;
+import com.datadog.api.v1.client.model.Dashboard;
 import com.datadog.api.v1.client.model.DashboardLayoutType;
 import com.datadog.api.v1.client.model.TimeseriesWidgetDefinition;
 import com.datadog.api.v1.client.model.TimeseriesWidgetDefinitionType;
@@ -23,40 +24,21 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     DashboardsApi apiInstance = new DashboardsApi(defaultClient);
 
-    Dashboard body =
-        new Dashboard()
-            .layoutType(DashboardLayoutType.ORDERED)
-            .title(
-                "Example-Create_a_new_dashboard_with_timeseries_widget_containing_style_attributes"
-                    + " with timeseries widget")
-            .widgets(
-                new ArrayList<Widget>() {
-                  {
-                    add(
-                        new Widget()
-                            .definition(
-                                new WidgetDefinition(
-                                    new TimeseriesWidgetDefinition()
-                                        .type(TimeseriesWidgetDefinitionType.TIMESERIES)
-                                        .requests(
-                                            new ArrayList<TimeseriesWidgetRequest>() {
-                                              {
-                                                add(
-                                                    new TimeseriesWidgetRequest()
-                                                        .q(
-                                                            "sum:trace.test.errors{env:prod,service:datadog-api-spec}"
-                                                                + " by {resource_name}.as_count()")
-                                                        .onRightYaxis(false)
-                                                        .style(
-                                                            new WidgetRequestStyle()
-                                                                .palette("warm")
-                                                                .lineType(WidgetLineType.SOLID)
-                                                                .lineWidth(WidgetLineWidth.NORMAL))
-                                                        .displayType(WidgetDisplayType.BARS));
-                                              }
-                                            }))));
-                  }
-                });
+    Dashboard body = new Dashboard()
+.layoutType(DashboardLayoutType.ORDERED)
+.title("Example-Create_a_new_dashboard_with_timeseries_widget_containing_style_attributes with timeseries widget")
+.widgets(new ArrayList<Widget>() {{add(new Widget()
+.definition(new WidgetDefinition(
+new TimeseriesWidgetDefinition()
+.type(TimeseriesWidgetDefinitionType.TIMESERIES)
+.requests(new ArrayList<TimeseriesWidgetRequest>() {{add(new TimeseriesWidgetRequest()
+.q("sum:trace.test.errors{env:prod,service:datadog-api-spec} by {resource_name}.as_count()")
+.onRightYaxis(false)
+.style(new WidgetRequestStyle()
+.palette("warm")
+.lineType(WidgetLineType.SOLID)
+.lineWidth(WidgetLineWidth.NORMAL))
+.displayType(WidgetDisplayType.BARS));}}))));}});
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

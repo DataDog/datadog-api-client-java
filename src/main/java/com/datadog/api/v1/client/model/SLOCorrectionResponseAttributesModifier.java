@@ -8,17 +8,29 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Modifier of the object. */
+
+/**
+ * Modifier of the object.
+ */
 @ApiModel(description = "Modifier of the object.")
 @JsonPropertyOrder({
   SLOCorrectionResponseAttributesModifier.JSON_PROPERTY_EMAIL,
@@ -26,8 +38,10 @@ import java.util.Objects;
   SLOCorrectionResponseAttributesModifier.JSON_PROPERTY_NAME
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SLOCorrectionResponseAttributesModifier {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_EMAIL = "email";
   private String email;
 
@@ -37,73 +51,82 @@ public class SLOCorrectionResponseAttributesModifier {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+
   public SLOCorrectionResponseAttributesModifier email(String email) {
     this.email = email;
     return this;
   }
 
-  /**
+   /**
    * Email of the Modifier.
-   *
    * @return email
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Email of the Modifier.")
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getEmail() {
     return email;
   }
 
+
   public void setEmail(String email) {
     this.email = email;
   }
+
 
   public SLOCorrectionResponseAttributesModifier handle(String handle) {
     this.handle = handle;
     return this;
   }
 
-  /**
+   /**
    * Handle of the Modifier.
-   *
    * @return handle
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Handle of the Modifier.")
   @JsonProperty(JSON_PROPERTY_HANDLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getHandle() {
     return handle;
   }
 
+
   public void setHandle(String handle) {
     this.handle = handle;
   }
+
 
   public SLOCorrectionResponseAttributesModifier name(String name) {
     this.name = name;
     return this;
   }
 
-  /**
+   /**
    * Name of the Modifier.
-   *
    * @return name
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Name of the Modifier.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getName() {
     return name;
   }
+
 
   public void setName(String name) {
     this.name = name;
   }
 
-  /** Return true if this SLOCorrectionResponseAttributes_modifier object is equal to o. */
+
+  /**
+   * Return true if this SLOCorrectionResponseAttributes_modifier object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -112,11 +135,10 @@ public class SLOCorrectionResponseAttributesModifier {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SLOCorrectionResponseAttributesModifier slOCorrectionResponseAttributesModifier =
-        (SLOCorrectionResponseAttributesModifier) o;
-    return Objects.equals(this.email, slOCorrectionResponseAttributesModifier.email)
-        && Objects.equals(this.handle, slOCorrectionResponseAttributesModifier.handle)
-        && Objects.equals(this.name, slOCorrectionResponseAttributesModifier.name);
+    SLOCorrectionResponseAttributesModifier slOCorrectionResponseAttributesModifier = (SLOCorrectionResponseAttributesModifier) o;
+    return Objects.equals(this.email, slOCorrectionResponseAttributesModifier.email) &&
+        Objects.equals(this.handle, slOCorrectionResponseAttributesModifier.handle) &&
+        Objects.equals(this.name, slOCorrectionResponseAttributesModifier.name);
   }
 
   @Override
@@ -136,7 +158,8 @@ public class SLOCorrectionResponseAttributesModifier {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -144,4 +167,6 @@ public class SLOCorrectionResponseAttributesModifier {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

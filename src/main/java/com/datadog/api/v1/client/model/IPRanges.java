@@ -8,17 +8,36 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.IPPrefixesAPI;
+import com.datadog.api.v1.client.model.IPPrefixesAPM;
+import com.datadog.api.v1.client.model.IPPrefixesAgents;
+import com.datadog.api.v1.client.model.IPPrefixesLogs;
+import com.datadog.api.v1.client.model.IPPrefixesProcess;
+import com.datadog.api.v1.client.model.IPPrefixesSynthetics;
+import com.datadog.api.v1.client.model.IPPrefixesWebhooks;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** IP ranges. */
+
+/**
+ * IP ranges.
+ */
 @ApiModel(description = "IP ranges.")
 @JsonPropertyOrder({
   IPRanges.JSON_PROPERTY_AGENTS,
@@ -32,8 +51,10 @@ import java.util.Objects;
   IPRanges.JSON_PROPERTY_WEBHOOKS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class IPRanges {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGENTS = "agents";
   private IPPrefixesAgents agents;
 
@@ -61,28 +82,31 @@ public class IPRanges {
   public static final String JSON_PROPERTY_WEBHOOKS = "webhooks";
   private IPPrefixesWebhooks webhooks;
 
+
   public IPRanges agents(IPPrefixesAgents agents) {
     this.agents = agents;
     this.unparsed |= agents.unparsed;
     return this;
   }
 
-  /**
+   /**
    * Get agents
-   *
    * @return agents
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AGENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public IPPrefixesAgents getAgents() {
     return agents;
   }
 
+
   public void setAgents(IPPrefixesAgents agents) {
     this.agents = agents;
   }
+
 
   public IPRanges api(IPPrefixesAPI api) {
     this.api = api;
@@ -90,22 +114,24 @@ public class IPRanges {
     return this;
   }
 
-  /**
+   /**
    * Get api
-   *
    * @return api
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_API)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public IPPrefixesAPI getApi() {
     return api;
   }
 
+
   public void setApi(IPPrefixesAPI api) {
     this.api = api;
   }
+
 
   public IPRanges apm(IPPrefixesAPM apm) {
     this.apm = apm;
@@ -113,22 +139,24 @@ public class IPRanges {
     return this;
   }
 
-  /**
+   /**
    * Get apm
-   *
    * @return apm
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_APM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public IPPrefixesAPM getApm() {
     return apm;
   }
 
+
   public void setApm(IPPrefixesAPM apm) {
     this.apm = apm;
   }
+
 
   public IPRanges logs(IPPrefixesLogs logs) {
     this.logs = logs;
@@ -136,46 +164,48 @@ public class IPRanges {
     return this;
   }
 
-  /**
+   /**
    * Get logs
-   *
    * @return logs
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LOGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public IPPrefixesLogs getLogs() {
     return logs;
   }
 
+
   public void setLogs(IPPrefixesLogs logs) {
     this.logs = logs;
   }
+
 
   public IPRanges modified(String modified) {
     this.modified = modified;
     return this;
   }
 
-  /**
+   /**
    * Date when last updated, in the form &#x60;YYYY-MM-DD-hh-mm-ss&#x60;.
-   *
    * @return modified
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "2019-10-31-20-00-00",
-      value = "Date when last updated, in the form `YYYY-MM-DD-hh-mm-ss`.")
+  @ApiModelProperty(example = "2019-10-31-20-00-00", value = "Date when last updated, in the form `YYYY-MM-DD-hh-mm-ss`.")
   @JsonProperty(JSON_PROPERTY_MODIFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getModified() {
     return modified;
   }
 
+
   public void setModified(String modified) {
     this.modified = modified;
   }
+
 
   public IPRanges process(IPPrefixesProcess process) {
     this.process = process;
@@ -183,22 +213,24 @@ public class IPRanges {
     return this;
   }
 
-  /**
+   /**
    * Get process
-   *
    * @return process
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PROCESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public IPPrefixesProcess getProcess() {
     return process;
   }
 
+
   public void setProcess(IPPrefixesProcess process) {
     this.process = process;
   }
+
 
   public IPRanges synthetics(IPPrefixesSynthetics synthetics) {
     this.synthetics = synthetics;
@@ -206,44 +238,48 @@ public class IPRanges {
     return this;
   }
 
-  /**
+   /**
    * Get synthetics
-   *
    * @return synthetics
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SYNTHETICS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public IPPrefixesSynthetics getSynthetics() {
     return synthetics;
   }
 
+
   public void setSynthetics(IPPrefixesSynthetics synthetics) {
     this.synthetics = synthetics;
   }
+
 
   public IPRanges version(Long version) {
     this.version = version;
     return this;
   }
 
-  /**
+   /**
    * Version of the IP list.
-   *
    * @return version
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "11", value = "Version of the IP list.")
   @JsonProperty(JSON_PROPERTY_VERSION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Long getVersion() {
     return version;
   }
 
+
   public void setVersion(Long version) {
     this.version = version;
   }
+
 
   public IPRanges webhooks(IPPrefixesWebhooks webhooks) {
     this.webhooks = webhooks;
@@ -251,24 +287,28 @@ public class IPRanges {
     return this;
   }
 
-  /**
+   /**
    * Get webhooks
-   *
    * @return webhooks
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_WEBHOOKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public IPPrefixesWebhooks getWebhooks() {
     return webhooks;
   }
+
 
   public void setWebhooks(IPPrefixesWebhooks webhooks) {
     this.webhooks = webhooks;
   }
 
-  /** Return true if this IPRanges object is equal to o. */
+
+  /**
+   * Return true if this IPRanges object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -278,15 +318,15 @@ public class IPRanges {
       return false;
     }
     IPRanges ipRanges = (IPRanges) o;
-    return Objects.equals(this.agents, ipRanges.agents)
-        && Objects.equals(this.api, ipRanges.api)
-        && Objects.equals(this.apm, ipRanges.apm)
-        && Objects.equals(this.logs, ipRanges.logs)
-        && Objects.equals(this.modified, ipRanges.modified)
-        && Objects.equals(this.process, ipRanges.process)
-        && Objects.equals(this.synthetics, ipRanges.synthetics)
-        && Objects.equals(this.version, ipRanges.version)
-        && Objects.equals(this.webhooks, ipRanges.webhooks);
+    return Objects.equals(this.agents, ipRanges.agents) &&
+        Objects.equals(this.api, ipRanges.api) &&
+        Objects.equals(this.apm, ipRanges.apm) &&
+        Objects.equals(this.logs, ipRanges.logs) &&
+        Objects.equals(this.modified, ipRanges.modified) &&
+        Objects.equals(this.process, ipRanges.process) &&
+        Objects.equals(this.synthetics, ipRanges.synthetics) &&
+        Objects.equals(this.version, ipRanges.version) &&
+        Objects.equals(this.webhooks, ipRanges.webhooks);
   }
 
   @Override
@@ -312,7 +352,8 @@ public class IPRanges {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -320,4 +361,6 @@ public class IPRanges {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

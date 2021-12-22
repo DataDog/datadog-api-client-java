@@ -8,29 +8,38 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import io.swagger.annotations.ApiModel;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
+
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
 
+
+import java.util.Set;
+import java.util.HashSet;
 /**
- * If an alert event is enabled, set its type. For example, &#x60;error&#x60;, &#x60;warning&#x60;,
- * &#x60;info&#x60;, &#x60;success&#x60;, &#x60;user_update&#x60;, &#x60;recommendation&#x60;, and
- * &#x60;snapshot&#x60;.
+ * If an alert event is enabled, set its type. For example, &#x60;error&#x60;, &#x60;warning&#x60;, &#x60;info&#x60;, &#x60;success&#x60;, &#x60;user_update&#x60;, &#x60;recommendation&#x60;, and &#x60;snapshot&#x60;.
  */
 @JsonSerialize(using = EventAlertType.EventAlertTypeSerializer.class)
 public class EventAlertType {
-
+  
   public static final EventAlertType ERROR = new EventAlertType("error");
   public static final EventAlertType WARNING = new EventAlertType("warning");
   public static final EventAlertType INFO = new EventAlertType("info");
@@ -39,10 +48,7 @@ public class EventAlertType {
   public static final EventAlertType RECOMMENDATION = new EventAlertType("recommendation");
   public static final EventAlertType SNAPSHOT = new EventAlertType("snapshot");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "error", "warning", "info", "success", "user_update", "recommendation", "snapshot"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("error","warning","info","success","user_update","recommendation","snapshot"));
 
   private String value;
 
@@ -55,19 +61,18 @@ public class EventAlertType {
   }
 
   public static class EventAlertTypeSerializer extends StdSerializer<EventAlertType> {
-    public EventAlertTypeSerializer(Class<EventAlertType> t) {
-      super(t);
-    }
+      public EventAlertTypeSerializer(Class<EventAlertType> t) {
+          super(t);
+      }
 
-    public EventAlertTypeSerializer() {
-      this(null);
-    }
+      public EventAlertTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(EventAlertType value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(EventAlertType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -79,7 +84,9 @@ public class EventAlertType {
     this.value = value;
   }
 
-  /** Return true if this EventAlertType object is equal to o. */
+  /**
+   * Return true if this EventAlertType object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -93,7 +100,7 @@ public class EventAlertType {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override
@@ -106,3 +113,4 @@ public class EventAlertType {
     return new EventAlertType(value);
   }
 }
+

@@ -8,26 +8,39 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Set of rules for the grok parser. */
+
+/**
+ * Set of rules for the grok parser.
+ */
 @ApiModel(description = "Set of rules for the grok parser.")
 @JsonPropertyOrder({
   LogsGrokParserRules.JSON_PROPERTY_MATCH_RULES,
   LogsGrokParserRules.JSON_PROPERTY_SUPPORT_RULES
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class LogsGrokParserRules {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_MATCH_RULES = "match_rules";
   private String matchRules;
 
@@ -38,8 +51,9 @@ public class LogsGrokParserRules {
 
   @JsonCreator
   public LogsGrokParserRules(
-      @JsonProperty(required = true, value = JSON_PROPERTY_MATCH_RULES) String matchRules) {
-    this.matchRules = matchRules;
+            @JsonProperty(required=true, value=JSON_PROPERTY_MATCH_RULES) String matchRules
+            ) {
+        this.matchRules = matchRules;
   }
 
   public LogsGrokParserRules matchRules(String matchRules) {
@@ -47,50 +61,51 @@ public class LogsGrokParserRules {
     return this;
   }
 
-  /**
+   /**
    * List of match rules for the grok parser, separated by a new line.
-   *
    * @return matchRules
-   */
-  @ApiModelProperty(
-      example = "rule_name_1 foo rule_name_2 bar ",
-      required = true,
-      value = "List of match rules for the grok parser, separated by a new line.")
+  **/
+  @ApiModelProperty(example = "rule_name_1 foo rule_name_2 bar ", required = true, value = "List of match rules for the grok parser, separated by a new line.")
   @JsonProperty(JSON_PROPERTY_MATCH_RULES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getMatchRules() {
     return matchRules;
   }
 
+
   public void setMatchRules(String matchRules) {
     this.matchRules = matchRules;
   }
+
 
   public LogsGrokParserRules supportRules(String supportRules) {
     this.supportRules = supportRules;
     return this;
   }
 
-  /**
+   /**
    * List of support rules for the grok parser, separated by a new line.
-   *
    * @return supportRules
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "rule_name_1 foo rule_name_2 bar ",
-      value = "List of support rules for the grok parser, separated by a new line.")
+  @ApiModelProperty(example = "rule_name_1 foo rule_name_2 bar ", value = "List of support rules for the grok parser, separated by a new line.")
   @JsonProperty(JSON_PROPERTY_SUPPORT_RULES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getSupportRules() {
     return supportRules;
   }
+
 
   public void setSupportRules(String supportRules) {
     this.supportRules = supportRules;
   }
 
-  /** Return true if this LogsGrokParserRules object is equal to o. */
+
+  /**
+   * Return true if this LogsGrokParserRules object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -100,8 +115,8 @@ public class LogsGrokParserRules {
       return false;
     }
     LogsGrokParserRules logsGrokParserRules = (LogsGrokParserRules) o;
-    return Objects.equals(this.matchRules, logsGrokParserRules.matchRules)
-        && Objects.equals(this.supportRules, logsGrokParserRules.supportRules);
+    return Objects.equals(this.matchRules, logsGrokParserRules.matchRules) &&
+        Objects.equals(this.supportRules, logsGrokParserRules.supportRules);
   }
 
   @Override
@@ -120,7 +135,8 @@ public class LogsGrokParserRules {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -128,4 +144,6 @@ public class LogsGrokParserRules {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

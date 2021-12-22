@@ -8,18 +8,30 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.FormulaAndFunctionEventQueryGroupBySort;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** List of objects used to group by. */
+
+/**
+ * List of objects used to group by.
+ */
 @ApiModel(description = "List of objects used to group by.")
 @JsonPropertyOrder({
   FormulaAndFunctionEventQueryGroupBy.JSON_PROPERTY_FACET,
@@ -27,8 +39,10 @@ import java.util.Objects;
   FormulaAndFunctionEventQueryGroupBy.JSON_PROPERTY_SORT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FormulaAndFunctionEventQueryGroupBy {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_FACET = "facet";
   private String facet;
 
@@ -42,8 +56,9 @@ public class FormulaAndFunctionEventQueryGroupBy {
 
   @JsonCreator
   public FormulaAndFunctionEventQueryGroupBy(
-      @JsonProperty(required = true, value = JSON_PROPERTY_FACET) String facet) {
-    this.facet = facet;
+            @JsonProperty(required=true, value=JSON_PROPERTY_FACET) String facet
+            ) {
+        this.facet = facet;
   }
 
   public FormulaAndFunctionEventQueryGroupBy facet(String facet) {
@@ -51,43 +66,47 @@ public class FormulaAndFunctionEventQueryGroupBy {
     return this;
   }
 
-  /**
+   /**
    * Event facet.
-   *
    * @return facet
-   */
+  **/
   @ApiModelProperty(example = "status.", required = true, value = "Event facet.")
   @JsonProperty(JSON_PROPERTY_FACET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getFacet() {
     return facet;
   }
 
+
   public void setFacet(String facet) {
     this.facet = facet;
   }
+
 
   public FormulaAndFunctionEventQueryGroupBy limit(Long limit) {
     this.limit = limit;
     return this;
   }
 
-  /**
+   /**
    * Number of groups to return.
-   *
    * @return limit
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "10", value = "Number of groups to return.")
   @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Long getLimit() {
     return limit;
   }
 
+
   public void setLimit(Long limit) {
     this.limit = limit;
   }
+
 
   public FormulaAndFunctionEventQueryGroupBy sort(FormulaAndFunctionEventQueryGroupBySort sort) {
     this.sort = sort;
@@ -95,24 +114,28 @@ public class FormulaAndFunctionEventQueryGroupBy {
     return this;
   }
 
-  /**
+   /**
    * Get sort
-   *
    * @return sort
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public FormulaAndFunctionEventQueryGroupBySort getSort() {
     return sort;
   }
+
 
   public void setSort(FormulaAndFunctionEventQueryGroupBySort sort) {
     this.sort = sort;
   }
 
-  /** Return true if this FormulaAndFunctionEventQueryGroupBy object is equal to o. */
+
+  /**
+   * Return true if this FormulaAndFunctionEventQueryGroupBy object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -121,11 +144,10 @@ public class FormulaAndFunctionEventQueryGroupBy {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FormulaAndFunctionEventQueryGroupBy formulaAndFunctionEventQueryGroupBy =
-        (FormulaAndFunctionEventQueryGroupBy) o;
-    return Objects.equals(this.facet, formulaAndFunctionEventQueryGroupBy.facet)
-        && Objects.equals(this.limit, formulaAndFunctionEventQueryGroupBy.limit)
-        && Objects.equals(this.sort, formulaAndFunctionEventQueryGroupBy.sort);
+    FormulaAndFunctionEventQueryGroupBy formulaAndFunctionEventQueryGroupBy = (FormulaAndFunctionEventQueryGroupBy) o;
+    return Objects.equals(this.facet, formulaAndFunctionEventQueryGroupBy.facet) &&
+        Objects.equals(this.limit, formulaAndFunctionEventQueryGroupBy.limit) &&
+        Objects.equals(this.sort, formulaAndFunctionEventQueryGroupBy.sort);
   }
 
   @Override
@@ -145,7 +167,8 @@ public class FormulaAndFunctionEventQueryGroupBy {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -153,4 +176,6 @@ public class FormulaAndFunctionEventQueryGroupBy {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

@@ -8,24 +8,39 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v2.client.model.RelationshipToUser;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
 
-/** The relationships the incident will have with other resources once created. */
-@ApiModel(
-    description = "The relationships the incident will have with other resources once created.")
-@JsonPropertyOrder({IncidentCreateRelationships.JSON_PROPERTY_COMMANDER})
+
+/**
+ * The relationships the incident will have with other resources once created.
+ */
+@ApiModel(description = "The relationships the incident will have with other resources once created.")
+@JsonPropertyOrder({
+  IncidentCreateRelationships.JSON_PROPERTY_COMMANDER
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class IncidentCreateRelationships {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMMANDER = "commander";
   private RelationshipToUser commander;
 
@@ -33,10 +48,10 @@ public class IncidentCreateRelationships {
 
   @JsonCreator
   public IncidentCreateRelationships(
-      @JsonProperty(required = true, value = JSON_PROPERTY_COMMANDER)
-          RelationshipToUser commander) {
-    this.commander = commander;
-    this.unparsed |= commander.unparsed;
+            @JsonProperty(required=true, value=JSON_PROPERTY_COMMANDER) RelationshipToUser commander
+            ) {
+        this.commander = commander;
+        this.unparsed |= commander.unparsed;
   }
 
   public IncidentCreateRelationships commander(RelationshipToUser commander) {
@@ -45,23 +60,27 @@ public class IncidentCreateRelationships {
     return this;
   }
 
-  /**
+   /**
    * Get commander
-   *
    * @return commander
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_COMMANDER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public RelationshipToUser getCommander() {
     return commander;
   }
+
 
   public void setCommander(RelationshipToUser commander) {
     this.commander = commander;
   }
 
-  /** Return true if this IncidentCreateRelationships object is equal to o. */
+
+  /**
+   * Return true if this IncidentCreateRelationships object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -89,7 +108,8 @@ public class IncidentCreateRelationships {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -97,4 +117,6 @@ public class IncidentCreateRelationships {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

@@ -8,81 +8,98 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
 
-/** The paging attributes for listing security signals. */
+
+/**
+ * The paging attributes for listing security signals.
+ */
 @ApiModel(description = "The paging attributes for listing security signals.")
 @JsonPropertyOrder({
   SecurityMonitoringSignalListRequestPage.JSON_PROPERTY_CURSOR,
   SecurityMonitoringSignalListRequestPage.JSON_PROPERTY_LIMIT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SecurityMonitoringSignalListRequestPage {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CURSOR = "cursor";
   private String cursor;
 
   public static final String JSON_PROPERTY_LIMIT = "limit";
   private Integer limit = 10;
 
+
   public SecurityMonitoringSignalListRequestPage cursor(String cursor) {
     this.cursor = cursor;
     return this;
   }
 
-  /**
+   /**
    * A list of results using the cursor provided in the previous query.
-   *
    * @return cursor
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example =
-          "eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ==",
-      value = "A list of results using the cursor provided in the previous query.")
+  @ApiModelProperty(example = "eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ==", value = "A list of results using the cursor provided in the previous query.")
   @JsonProperty(JSON_PROPERTY_CURSOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getCursor() {
     return cursor;
   }
 
+
   public void setCursor(String cursor) {
     this.cursor = cursor;
   }
+
 
   public SecurityMonitoringSignalListRequestPage limit(Integer limit) {
     this.limit = limit;
     return this;
   }
 
-  /**
-   * The maximum number of security signals in the response. maximum: 1000
-   *
+   /**
+   * The maximum number of security signals in the response.
+   * maximum: 1000
    * @return limit
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "25",
-      value = "The maximum number of security signals in the response.")
+  @ApiModelProperty(example = "25", value = "The maximum number of security signals in the response.")
   @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Integer getLimit() {
     return limit;
   }
+
 
   public void setLimit(Integer limit) {
     this.limit = limit;
   }
 
-  /** Return true if this SecurityMonitoringSignalListRequest_page object is equal to o. */
+
+  /**
+   * Return true if this SecurityMonitoringSignalListRequest_page object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -91,10 +108,9 @@ public class SecurityMonitoringSignalListRequestPage {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SecurityMonitoringSignalListRequestPage securityMonitoringSignalListRequestPage =
-        (SecurityMonitoringSignalListRequestPage) o;
-    return Objects.equals(this.cursor, securityMonitoringSignalListRequestPage.cursor)
-        && Objects.equals(this.limit, securityMonitoringSignalListRequestPage.limit);
+    SecurityMonitoringSignalListRequestPage securityMonitoringSignalListRequestPage = (SecurityMonitoringSignalListRequestPage) o;
+    return Objects.equals(this.cursor, securityMonitoringSignalListRequestPage.cursor) &&
+        Objects.equals(this.limit, securityMonitoringSignalListRequestPage.limit);
   }
 
   @Override
@@ -113,7 +129,8 @@ public class SecurityMonitoringSignalListRequestPage {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -121,4 +138,6 @@ public class SecurityMonitoringSignalListRequestPage {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

@@ -8,17 +8,30 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.AWSNamespace;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** The objects used to set an AWS tag filter. */
+
+/**
+ * The objects used to set an AWS tag filter.
+ */
 @ApiModel(description = "The objects used to set an AWS tag filter.")
 @JsonPropertyOrder({
   AWSTagFilterCreateRequest.JSON_PROPERTY_ACCOUNT_ID,
@@ -26,8 +39,10 @@ import java.util.Objects;
   AWSTagFilterCreateRequest.JSON_PROPERTY_TAG_FILTER_STR
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class AWSTagFilterCreateRequest {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACCOUNT_ID = "account_id";
   private String accountId;
 
@@ -37,27 +52,30 @@ public class AWSTagFilterCreateRequest {
   public static final String JSON_PROPERTY_TAG_FILTER_STR = "tag_filter_str";
   private String tagFilterStr;
 
+
   public AWSTagFilterCreateRequest accountId(String accountId) {
     this.accountId = accountId;
     return this;
   }
 
-  /**
+   /**
    * Your AWS Account ID without dashes.
-   *
    * @return accountId
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "1234567", value = "Your AWS Account ID without dashes.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getAccountId() {
     return accountId;
   }
 
+
   public void setAccountId(String accountId) {
     this.accountId = accountId;
   }
+
 
   public AWSTagFilterCreateRequest namespace(AWSNamespace namespace) {
     this.namespace = namespace;
@@ -65,49 +83,55 @@ public class AWSTagFilterCreateRequest {
     return this;
   }
 
-  /**
+   /**
    * Get namespace
-   *
    * @return namespace
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NAMESPACE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public AWSNamespace getNamespace() {
     return namespace;
   }
 
+
   public void setNamespace(AWSNamespace namespace) {
     if (!namespace.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.namespace = namespace;
   }
+
 
   public AWSTagFilterCreateRequest tagFilterStr(String tagFilterStr) {
     this.tagFilterStr = tagFilterStr;
     return this;
   }
 
-  /**
+   /**
    * The tag filter string.
-   *
    * @return tagFilterStr
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "prod*", value = "The tag filter string.")
   @JsonProperty(JSON_PROPERTY_TAG_FILTER_STR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getTagFilterStr() {
     return tagFilterStr;
   }
+
 
   public void setTagFilterStr(String tagFilterStr) {
     this.tagFilterStr = tagFilterStr;
   }
 
-  /** Return true if this AWSTagFilterCreateRequest object is equal to o. */
+
+  /**
+   * Return true if this AWSTagFilterCreateRequest object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -117,9 +141,9 @@ public class AWSTagFilterCreateRequest {
       return false;
     }
     AWSTagFilterCreateRequest awSTagFilterCreateRequest = (AWSTagFilterCreateRequest) o;
-    return Objects.equals(this.accountId, awSTagFilterCreateRequest.accountId)
-        && Objects.equals(this.namespace, awSTagFilterCreateRequest.namespace)
-        && Objects.equals(this.tagFilterStr, awSTagFilterCreateRequest.tagFilterStr);
+    return Objects.equals(this.accountId, awSTagFilterCreateRequest.accountId) &&
+        Objects.equals(this.namespace, awSTagFilterCreateRequest.namespace) &&
+        Objects.equals(this.tagFilterStr, awSTagFilterCreateRequest.tagFilterStr);
   }
 
   @Override
@@ -139,7 +163,8 @@ public class AWSTagFilterCreateRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -147,4 +172,6 @@ public class AWSTagFilterCreateRequest {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

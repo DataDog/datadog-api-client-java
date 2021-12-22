@@ -8,23 +8,38 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v2.client.model.LogsAggregateBucketValueTimeseriesPoint;
 import io.swagger.annotations.ApiModel;
 import java.util.ArrayList;
-import java.util.Objects;
+import java.util.List;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
 
-/** A timeseries array */
+
+/**
+ * A timeseries array
+ */
 @ApiModel(description = "A timeseries array")
-@JsonPropertyOrder({})
+@JsonPropertyOrder({
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class LogsAggregateBucketValueTimeseries
-    extends ArrayList<LogsAggregateBucketValueTimeseriesPoint> {
-  @JsonIgnore public boolean unparsed = false;
 
-  /** Return true if this LogsAggregateBucketValueTimeseries object is equal to o. */
+public class LogsAggregateBucketValueTimeseries extends ArrayList<LogsAggregateBucketValueTimeseriesPoint> {
+  @JsonIgnore
+  public boolean unparsed = false;
+
+  /**
+   * Return true if this LogsAggregateBucketValueTimeseries object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -51,7 +66,8 @@ public class LogsAggregateBucketValueTimeseries
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -59,4 +75,6 @@ public class LogsAggregateBucketValueTimeseries
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

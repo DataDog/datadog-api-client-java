@@ -8,18 +8,33 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v2.client.model.LogsAggregateSort;
+import com.datadog.api.v2.client.model.LogsGroupByHistogram;
+import com.datadog.api.v2.client.model.LogsGroupByMissing;
+import com.datadog.api.v2.client.model.LogsGroupByTotal;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
 
-/** A group by rule */
+
+/**
+ * A group by rule
+ */
 @ApiModel(description = "A group by rule")
 @JsonPropertyOrder({
   LogsGroupBy.JSON_PROPERTY_FACET,
@@ -30,8 +45,10 @@ import java.util.Objects;
   LogsGroupBy.JSON_PROPERTY_TOTAL
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class LogsGroupBy {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_FACET = "facet";
   private String facet;
 
@@ -53,8 +70,10 @@ public class LogsGroupBy {
   public LogsGroupBy() {}
 
   @JsonCreator
-  public LogsGroupBy(@JsonProperty(required = true, value = JSON_PROPERTY_FACET) String facet) {
-    this.facet = facet;
+  public LogsGroupBy(
+            @JsonProperty(required=true, value=JSON_PROPERTY_FACET) String facet
+            ) {
+        this.facet = facet;
   }
 
   public LogsGroupBy facet(String facet) {
@@ -62,24 +81,23 @@ public class LogsGroupBy {
     return this;
   }
 
-  /**
+   /**
    * The name of the facet to use (required)
-   *
    * @return facet
-   */
-  @ApiModelProperty(
-      example = "host",
-      required = true,
-      value = "The name of the facet to use (required)")
+  **/
+  @ApiModelProperty(example = "host", required = true, value = "The name of the facet to use (required)")
   @JsonProperty(JSON_PROPERTY_FACET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getFacet() {
     return facet;
   }
 
+
   public void setFacet(String facet) {
     this.facet = facet;
   }
+
 
   public LogsGroupBy histogram(LogsGroupByHistogram histogram) {
     this.histogram = histogram;
@@ -87,44 +105,48 @@ public class LogsGroupBy {
     return this;
   }
 
-  /**
+   /**
    * Get histogram
-   *
    * @return histogram
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_HISTOGRAM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public LogsGroupByHistogram getHistogram() {
     return histogram;
   }
 
+
   public void setHistogram(LogsGroupByHistogram histogram) {
     this.histogram = histogram;
   }
+
 
   public LogsGroupBy limit(Long limit) {
     this.limit = limit;
     return this;
   }
 
-  /**
+   /**
    * The maximum buckets to return for this group by
-   *
    * @return limit
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The maximum buckets to return for this group by")
   @JsonProperty(JSON_PROPERTY_LIMIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Long getLimit() {
     return limit;
   }
 
+
   public void setLimit(Long limit) {
     this.limit = limit;
   }
+
 
   public LogsGroupBy missing(LogsGroupByMissing missing) {
     this.missing = missing;
@@ -132,22 +154,24 @@ public class LogsGroupBy {
     return this;
   }
 
-  /**
+   /**
    * Get missing
-   *
    * @return missing
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_MISSING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public LogsGroupByMissing getMissing() {
     return missing;
   }
 
+
   public void setMissing(LogsGroupByMissing missing) {
     this.missing = missing;
   }
+
 
   public LogsGroupBy sort(LogsAggregateSort sort) {
     this.sort = sort;
@@ -155,22 +179,24 @@ public class LogsGroupBy {
     return this;
   }
 
-  /**
+   /**
    * Get sort
-   *
    * @return sort
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SORT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public LogsAggregateSort getSort() {
     return sort;
   }
 
+
   public void setSort(LogsAggregateSort sort) {
     this.sort = sort;
   }
+
 
   public LogsGroupBy total(LogsGroupByTotal total) {
     this.total = total;
@@ -178,24 +204,28 @@ public class LogsGroupBy {
     return this;
   }
 
-  /**
+   /**
    * Get total
-   *
    * @return total
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public LogsGroupByTotal getTotal() {
     return total;
   }
+
 
   public void setTotal(LogsGroupByTotal total) {
     this.total = total;
   }
 
-  /** Return true if this LogsGroupBy object is equal to o. */
+
+  /**
+   * Return true if this LogsGroupBy object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -205,12 +235,12 @@ public class LogsGroupBy {
       return false;
     }
     LogsGroupBy logsGroupBy = (LogsGroupBy) o;
-    return Objects.equals(this.facet, logsGroupBy.facet)
-        && Objects.equals(this.histogram, logsGroupBy.histogram)
-        && Objects.equals(this.limit, logsGroupBy.limit)
-        && Objects.equals(this.missing, logsGroupBy.missing)
-        && Objects.equals(this.sort, logsGroupBy.sort)
-        && Objects.equals(this.total, logsGroupBy.total);
+    return Objects.equals(this.facet, logsGroupBy.facet) &&
+        Objects.equals(this.histogram, logsGroupBy.histogram) &&
+        Objects.equals(this.limit, logsGroupBy.limit) &&
+        Objects.equals(this.missing, logsGroupBy.missing) &&
+        Objects.equals(this.sort, logsGroupBy.sort) &&
+        Objects.equals(this.total, logsGroupBy.total);
   }
 
   @Override
@@ -233,7 +263,8 @@ public class LogsGroupBy {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -241,4 +272,6 @@ public class LogsGroupBy {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

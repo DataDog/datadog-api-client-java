@@ -4,8 +4,8 @@ import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.EventsApi;
-import com.datadog.api.v1.client.model.EventCreateRequest;
 import com.datadog.api.v1.client.model.EventCreateResponse;
+import com.datadog.api.v1.client.model.EventCreateRequest;
 import java.time.*;
 import java.util.*;
 
@@ -14,19 +14,10 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     EventsApi apiInstance = new EventsApi(defaultClient);
 
-    EventCreateRequest body =
-        new EventCreateRequest()
-            .title(
-                "Example-Post_an_event_with_a_long_title_returns_OK_response very very very"
-                    + " looooooooong looooooooooooong loooooooooooooooooooooong"
-                    + " looooooooooooooooooooooooooong title with 100+ characters")
-            .text("A text message.")
-            .tags(
-                new ArrayList<String>() {
-                  {
-                    add("test:ExamplePostaneventwithalongtitlereturnsOKresponse");
-                  }
-                });
+    EventCreateRequest body = new EventCreateRequest()
+.title("Example-Post_an_event_with_a_long_title_returns_OK_response very very very looooooooong looooooooooooong loooooooooooooooooooooong looooooooooooooooooooooooooong title with 100+ characters")
+.text("A text message.")
+.tags(new ArrayList<String>() {{add("test:ExamplePostaneventwithalongtitlereturnsOKresponse");}});
 
     try {
       EventCreateResponse result = apiInstance.createEvent(body);

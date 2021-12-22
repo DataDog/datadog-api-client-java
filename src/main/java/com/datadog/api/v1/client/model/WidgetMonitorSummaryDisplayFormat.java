@@ -8,35 +8,43 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import io.swagger.annotations.ApiModel;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
+
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
+
+
 import java.util.Set;
-
-/** What to display on the widget. */
-@JsonSerialize(
-    using = WidgetMonitorSummaryDisplayFormat.WidgetMonitorSummaryDisplayFormatSerializer.class)
+import java.util.HashSet;
+/**
+ * What to display on the widget.
+ */
+@JsonSerialize(using = WidgetMonitorSummaryDisplayFormat.WidgetMonitorSummaryDisplayFormatSerializer.class)
 public class WidgetMonitorSummaryDisplayFormat {
+  
+  public static final WidgetMonitorSummaryDisplayFormat COUNTS = new WidgetMonitorSummaryDisplayFormat("counts");
+  public static final WidgetMonitorSummaryDisplayFormat COUNTS_AND_LIST = new WidgetMonitorSummaryDisplayFormat("countsAndList");
+  public static final WidgetMonitorSummaryDisplayFormat LIST = new WidgetMonitorSummaryDisplayFormat("list");
 
-  public static final WidgetMonitorSummaryDisplayFormat COUNTS =
-      new WidgetMonitorSummaryDisplayFormat("counts");
-  public static final WidgetMonitorSummaryDisplayFormat COUNTS_AND_LIST =
-      new WidgetMonitorSummaryDisplayFormat("countsAndList");
-  public static final WidgetMonitorSummaryDisplayFormat LIST =
-      new WidgetMonitorSummaryDisplayFormat("list");
-
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("counts", "countsAndList", "list"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("counts","countsAndList","list"));
 
   private String value;
 
@@ -48,22 +56,19 @@ public class WidgetMonitorSummaryDisplayFormat {
     this.value = value;
   }
 
-  public static class WidgetMonitorSummaryDisplayFormatSerializer
-      extends StdSerializer<WidgetMonitorSummaryDisplayFormat> {
-    public WidgetMonitorSummaryDisplayFormatSerializer(Class<WidgetMonitorSummaryDisplayFormat> t) {
-      super(t);
-    }
+  public static class WidgetMonitorSummaryDisplayFormatSerializer extends StdSerializer<WidgetMonitorSummaryDisplayFormat> {
+      public WidgetMonitorSummaryDisplayFormatSerializer(Class<WidgetMonitorSummaryDisplayFormat> t) {
+          super(t);
+      }
 
-    public WidgetMonitorSummaryDisplayFormatSerializer() {
-      this(null);
-    }
+      public WidgetMonitorSummaryDisplayFormatSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        WidgetMonitorSummaryDisplayFormat value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(WidgetMonitorSummaryDisplayFormat value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -75,7 +80,9 @@ public class WidgetMonitorSummaryDisplayFormat {
     this.value = value;
   }
 
-  /** Return true if this WidgetMonitorSummaryDisplayFormat object is equal to o. */
+  /**
+   * Return true if this WidgetMonitorSummaryDisplayFormat object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -89,7 +96,7 @@ public class WidgetMonitorSummaryDisplayFormat {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override
@@ -102,3 +109,4 @@ public class WidgetMonitorSummaryDisplayFormat {
     return new WidgetMonitorSummaryDisplayFormat(value);
   }
 }
+

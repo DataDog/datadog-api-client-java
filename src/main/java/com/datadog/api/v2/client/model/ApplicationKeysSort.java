@@ -8,37 +8,46 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import io.swagger.annotations.ApiModel;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
+
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
 
-/** Sorting options */
+
+import java.util.Set;
+import java.util.HashSet;
+/**
+ * Sorting options
+ */
 @JsonSerialize(using = ApplicationKeysSort.ApplicationKeysSortSerializer.class)
 public class ApplicationKeysSort {
-
-  public static final ApplicationKeysSort CREATED_AT_ASCENDING =
-      new ApplicationKeysSort("created_at");
-  public static final ApplicationKeysSort CREATED_AT_DESCENDING =
-      new ApplicationKeysSort("-created_at");
+  
+  public static final ApplicationKeysSort CREATED_AT_ASCENDING = new ApplicationKeysSort("created_at");
+  public static final ApplicationKeysSort CREATED_AT_DESCENDING = new ApplicationKeysSort("-created_at");
   public static final ApplicationKeysSort LAST4_ASCENDING = new ApplicationKeysSort("last4");
   public static final ApplicationKeysSort LAST4_DESCENDING = new ApplicationKeysSort("-last4");
   public static final ApplicationKeysSort NAME_ASCENDING = new ApplicationKeysSort("name");
   public static final ApplicationKeysSort NAME_DESCENDING = new ApplicationKeysSort("-name");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList("created_at", "-created_at", "last4", "-last4", "name", "-name"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("created_at","-created_at","last4","-last4","name","-name"));
 
   private String value;
 
@@ -51,20 +60,18 @@ public class ApplicationKeysSort {
   }
 
   public static class ApplicationKeysSortSerializer extends StdSerializer<ApplicationKeysSort> {
-    public ApplicationKeysSortSerializer(Class<ApplicationKeysSort> t) {
-      super(t);
-    }
+      public ApplicationKeysSortSerializer(Class<ApplicationKeysSort> t) {
+          super(t);
+      }
 
-    public ApplicationKeysSortSerializer() {
-      this(null);
-    }
+      public ApplicationKeysSortSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        ApplicationKeysSort value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(ApplicationKeysSort value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -76,7 +83,9 @@ public class ApplicationKeysSort {
     this.value = value;
   }
 
-  /** Return true if this ApplicationKeysSort object is equal to o. */
+  /**
+   * Return true if this ApplicationKeysSort object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -90,7 +99,7 @@ public class ApplicationKeysSort {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override
@@ -103,3 +112,4 @@ public class ApplicationKeysSort {
     return new ApplicationKeysSort(value);
   }
 }
+

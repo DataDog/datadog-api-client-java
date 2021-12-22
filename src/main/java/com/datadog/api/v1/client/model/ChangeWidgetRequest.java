@@ -8,19 +8,40 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.FormulaAndFunctionQueryDefinition;
+import com.datadog.api.v1.client.model.FormulaAndFunctionResponseFormat;
+import com.datadog.api.v1.client.model.LogQueryDefinition;
+import com.datadog.api.v1.client.model.ProcessQueryDefinition;
+import com.datadog.api.v1.client.model.WidgetChangeType;
+import com.datadog.api.v1.client.model.WidgetCompareTo;
+import com.datadog.api.v1.client.model.WidgetFormula;
+import com.datadog.api.v1.client.model.WidgetOrderBy;
+import com.datadog.api.v1.client.model.WidgetSort;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Updated change widget. */
+
+/**
+ * Updated change widget.
+ */
 @ApiModel(description = "Updated change widget.")
 @JsonPropertyOrder({
   ChangeWidgetRequest.JSON_PROPERTY_APM_QUERY,
@@ -43,8 +64,10 @@ import java.util.Objects;
   ChangeWidgetRequest.JSON_PROPERTY_SHOW_PRESENT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ChangeWidgetRequest {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_APM_QUERY = "apm_query";
   private LogQueryDefinition apmQuery;
 
@@ -99,28 +122,31 @@ public class ChangeWidgetRequest {
   public static final String JSON_PROPERTY_SHOW_PRESENT = "show_present";
   private Boolean showPresent;
 
+
   public ChangeWidgetRequest apmQuery(LogQueryDefinition apmQuery) {
     this.apmQuery = apmQuery;
     this.unparsed |= apmQuery.unparsed;
     return this;
   }
 
-  /**
+   /**
    * Get apmQuery
-   *
    * @return apmQuery
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_APM_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public LogQueryDefinition getApmQuery() {
     return apmQuery;
   }
 
+
   public void setApmQuery(LogQueryDefinition apmQuery) {
     this.apmQuery = apmQuery;
   }
+
 
   public ChangeWidgetRequest changeType(WidgetChangeType changeType) {
     this.changeType = changeType;
@@ -128,25 +154,27 @@ public class ChangeWidgetRequest {
     return this;
   }
 
-  /**
+   /**
    * Get changeType
-   *
    * @return changeType
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CHANGE_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public WidgetChangeType getChangeType() {
     return changeType;
   }
 
+
   public void setChangeType(WidgetChangeType changeType) {
     if (!changeType.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.changeType = changeType;
   }
+
 
   public ChangeWidgetRequest compareTo(WidgetCompareTo compareTo) {
     this.compareTo = compareTo;
@@ -154,25 +182,27 @@ public class ChangeWidgetRequest {
     return this;
   }
 
-  /**
+   /**
    * Get compareTo
-   *
    * @return compareTo
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COMPARE_TO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public WidgetCompareTo getCompareTo() {
     return compareTo;
   }
 
+
   public void setCompareTo(WidgetCompareTo compareTo) {
     if (!compareTo.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.compareTo = compareTo;
   }
+
 
   public ChangeWidgetRequest eventQuery(LogQueryDefinition eventQuery) {
     this.eventQuery = eventQuery;
@@ -180,22 +210,24 @@ public class ChangeWidgetRequest {
     return this;
   }
 
-  /**
+   /**
    * Get eventQuery
-   *
    * @return eventQuery
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EVENT_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public LogQueryDefinition getEventQuery() {
     return eventQuery;
   }
 
+
   public void setEventQuery(LogQueryDefinition eventQuery) {
     this.eventQuery = eventQuery;
   }
+
 
   public ChangeWidgetRequest formulas(List<WidgetFormula> formulas) {
     this.formulas = formulas;
@@ -214,45 +246,48 @@ public class ChangeWidgetRequest {
     return this;
   }
 
-  /**
+   /**
    * List of formulas that operate on queries. **This feature is currently in beta.**
-   *
    * @return formulas
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "List of formulas that operate on queries. **This feature is currently in beta.**")
+  @ApiModelProperty(value = "List of formulas that operate on queries. **This feature is currently in beta.**")
   @JsonProperty(JSON_PROPERTY_FORMULAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<WidgetFormula> getFormulas() {
     return formulas;
   }
 
+
   public void setFormulas(List<WidgetFormula> formulas) {
     this.formulas = formulas;
   }
+
 
   public ChangeWidgetRequest increaseGood(Boolean increaseGood) {
     this.increaseGood = increaseGood;
     return this;
   }
 
-  /**
+   /**
    * Whether to show increase as good.
-   *
    * @return increaseGood
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Whether to show increase as good.")
   @JsonProperty(JSON_PROPERTY_INCREASE_GOOD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Boolean getIncreaseGood() {
     return increaseGood;
   }
 
+
   public void setIncreaseGood(Boolean increaseGood) {
     this.increaseGood = increaseGood;
   }
+
 
   public ChangeWidgetRequest logQuery(LogQueryDefinition logQuery) {
     this.logQuery = logQuery;
@@ -260,22 +295,24 @@ public class ChangeWidgetRequest {
     return this;
   }
 
-  /**
+   /**
    * Get logQuery
-   *
    * @return logQuery
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LOG_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public LogQueryDefinition getLogQuery() {
     return logQuery;
   }
 
+
   public void setLogQuery(LogQueryDefinition logQuery) {
     this.logQuery = logQuery;
   }
+
 
   public ChangeWidgetRequest networkQuery(LogQueryDefinition networkQuery) {
     this.networkQuery = networkQuery;
@@ -283,22 +320,24 @@ public class ChangeWidgetRequest {
     return this;
   }
 
-  /**
+   /**
    * Get networkQuery
-   *
    * @return networkQuery
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NETWORK_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public LogQueryDefinition getNetworkQuery() {
     return networkQuery;
   }
 
+
   public void setNetworkQuery(LogQueryDefinition networkQuery) {
     this.networkQuery = networkQuery;
   }
+
 
   public ChangeWidgetRequest orderBy(WidgetOrderBy orderBy) {
     this.orderBy = orderBy;
@@ -306,25 +345,27 @@ public class ChangeWidgetRequest {
     return this;
   }
 
-  /**
+   /**
    * Get orderBy
-   *
    * @return orderBy
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ORDER_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public WidgetOrderBy getOrderBy() {
     return orderBy;
   }
 
+
   public void setOrderBy(WidgetOrderBy orderBy) {
     if (!orderBy.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.orderBy = orderBy;
   }
+
 
   public ChangeWidgetRequest orderDir(WidgetSort orderDir) {
     this.orderDir = orderDir;
@@ -332,25 +373,27 @@ public class ChangeWidgetRequest {
     return this;
   }
 
-  /**
+   /**
    * Get orderDir
-   *
    * @return orderDir
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ORDER_DIR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public WidgetSort getOrderDir() {
     return orderDir;
   }
 
+
   public void setOrderDir(WidgetSort orderDir) {
     if (!orderDir.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.orderDir = orderDir;
   }
+
 
   public ChangeWidgetRequest processQuery(ProcessQueryDefinition processQuery) {
     this.processQuery = processQuery;
@@ -358,22 +401,24 @@ public class ChangeWidgetRequest {
     return this;
   }
 
-  /**
+   /**
    * Get processQuery
-   *
    * @return processQuery
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PROCESS_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public ProcessQueryDefinition getProcessQuery() {
     return processQuery;
   }
 
+
   public void setProcessQuery(ProcessQueryDefinition processQuery) {
     this.processQuery = processQuery;
   }
+
 
   public ChangeWidgetRequest profileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
     this.profileMetricsQuery = profileMetricsQuery;
@@ -381,44 +426,48 @@ public class ChangeWidgetRequest {
     return this;
   }
 
-  /**
+   /**
    * Get profileMetricsQuery
-   *
    * @return profileMetricsQuery
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PROFILE_METRICS_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public LogQueryDefinition getProfileMetricsQuery() {
     return profileMetricsQuery;
   }
 
+
   public void setProfileMetricsQuery(LogQueryDefinition profileMetricsQuery) {
     this.profileMetricsQuery = profileMetricsQuery;
   }
+
 
   public ChangeWidgetRequest q(String q) {
     this.q = q;
     return this;
   }
 
-  /**
+   /**
    * Query definition.
-   *
    * @return q
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Query definition.")
   @JsonProperty(JSON_PROPERTY_Q)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getQ() {
     return q;
   }
 
+
   public void setQ(String q) {
     this.q = q;
   }
+
 
   public ChangeWidgetRequest queries(List<FormulaAndFunctionQueryDefinition> queries) {
     this.queries = queries;
@@ -437,26 +486,24 @@ public class ChangeWidgetRequest {
     return this;
   }
 
-  /**
-   * List of queries that can be returned directly or used in formulas. **This feature is currently
-   * in beta.**
-   *
+   /**
+   * List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
    * @return queries
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "List of queries that can be returned directly or used in formulas. **This feature is"
-              + " currently in beta.**")
+  @ApiModelProperty(value = "List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**")
   @JsonProperty(JSON_PROPERTY_QUERIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<FormulaAndFunctionQueryDefinition> getQueries() {
     return queries;
   }
 
+
   public void setQueries(List<FormulaAndFunctionQueryDefinition> queries) {
     this.queries = queries;
   }
+
 
   public ChangeWidgetRequest responseFormat(FormulaAndFunctionResponseFormat responseFormat) {
     this.responseFormat = responseFormat;
@@ -464,25 +511,27 @@ public class ChangeWidgetRequest {
     return this;
   }
 
-  /**
+   /**
    * Get responseFormat
-   *
    * @return responseFormat
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RESPONSE_FORMAT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public FormulaAndFunctionResponseFormat getResponseFormat() {
     return responseFormat;
   }
 
+
   public void setResponseFormat(FormulaAndFunctionResponseFormat responseFormat) {
     if (!responseFormat.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.responseFormat = responseFormat;
   }
+
 
   public ChangeWidgetRequest rumQuery(LogQueryDefinition rumQuery) {
     this.rumQuery = rumQuery;
@@ -490,22 +539,24 @@ public class ChangeWidgetRequest {
     return this;
   }
 
-  /**
+   /**
    * Get rumQuery
-   *
    * @return rumQuery
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RUM_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public LogQueryDefinition getRumQuery() {
     return rumQuery;
   }
 
+
   public void setRumQuery(LogQueryDefinition rumQuery) {
     this.rumQuery = rumQuery;
   }
+
 
   public ChangeWidgetRequest securityQuery(LogQueryDefinition securityQuery) {
     this.securityQuery = securityQuery;
@@ -513,46 +564,52 @@ public class ChangeWidgetRequest {
     return this;
   }
 
-  /**
+   /**
    * Get securityQuery
-   *
    * @return securityQuery
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SECURITY_QUERY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public LogQueryDefinition getSecurityQuery() {
     return securityQuery;
   }
 
+
   public void setSecurityQuery(LogQueryDefinition securityQuery) {
     this.securityQuery = securityQuery;
   }
+
 
   public ChangeWidgetRequest showPresent(Boolean showPresent) {
     this.showPresent = showPresent;
     return this;
   }
 
-  /**
+   /**
    * Whether to show the present value.
-   *
    * @return showPresent
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Whether to show the present value.")
   @JsonProperty(JSON_PROPERTY_SHOW_PRESENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Boolean getShowPresent() {
     return showPresent;
   }
+
 
   public void setShowPresent(Boolean showPresent) {
     this.showPresent = showPresent;
   }
 
-  /** Return true if this ChangeWidgetRequest object is equal to o. */
+
+  /**
+   * Return true if this ChangeWidgetRequest object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -562,47 +619,29 @@ public class ChangeWidgetRequest {
       return false;
     }
     ChangeWidgetRequest changeWidgetRequest = (ChangeWidgetRequest) o;
-    return Objects.equals(this.apmQuery, changeWidgetRequest.apmQuery)
-        && Objects.equals(this.changeType, changeWidgetRequest.changeType)
-        && Objects.equals(this.compareTo, changeWidgetRequest.compareTo)
-        && Objects.equals(this.eventQuery, changeWidgetRequest.eventQuery)
-        && Objects.equals(this.formulas, changeWidgetRequest.formulas)
-        && Objects.equals(this.increaseGood, changeWidgetRequest.increaseGood)
-        && Objects.equals(this.logQuery, changeWidgetRequest.logQuery)
-        && Objects.equals(this.networkQuery, changeWidgetRequest.networkQuery)
-        && Objects.equals(this.orderBy, changeWidgetRequest.orderBy)
-        && Objects.equals(this.orderDir, changeWidgetRequest.orderDir)
-        && Objects.equals(this.processQuery, changeWidgetRequest.processQuery)
-        && Objects.equals(this.profileMetricsQuery, changeWidgetRequest.profileMetricsQuery)
-        && Objects.equals(this.q, changeWidgetRequest.q)
-        && Objects.equals(this.queries, changeWidgetRequest.queries)
-        && Objects.equals(this.responseFormat, changeWidgetRequest.responseFormat)
-        && Objects.equals(this.rumQuery, changeWidgetRequest.rumQuery)
-        && Objects.equals(this.securityQuery, changeWidgetRequest.securityQuery)
-        && Objects.equals(this.showPresent, changeWidgetRequest.showPresent);
+    return Objects.equals(this.apmQuery, changeWidgetRequest.apmQuery) &&
+        Objects.equals(this.changeType, changeWidgetRequest.changeType) &&
+        Objects.equals(this.compareTo, changeWidgetRequest.compareTo) &&
+        Objects.equals(this.eventQuery, changeWidgetRequest.eventQuery) &&
+        Objects.equals(this.formulas, changeWidgetRequest.formulas) &&
+        Objects.equals(this.increaseGood, changeWidgetRequest.increaseGood) &&
+        Objects.equals(this.logQuery, changeWidgetRequest.logQuery) &&
+        Objects.equals(this.networkQuery, changeWidgetRequest.networkQuery) &&
+        Objects.equals(this.orderBy, changeWidgetRequest.orderBy) &&
+        Objects.equals(this.orderDir, changeWidgetRequest.orderDir) &&
+        Objects.equals(this.processQuery, changeWidgetRequest.processQuery) &&
+        Objects.equals(this.profileMetricsQuery, changeWidgetRequest.profileMetricsQuery) &&
+        Objects.equals(this.q, changeWidgetRequest.q) &&
+        Objects.equals(this.queries, changeWidgetRequest.queries) &&
+        Objects.equals(this.responseFormat, changeWidgetRequest.responseFormat) &&
+        Objects.equals(this.rumQuery, changeWidgetRequest.rumQuery) &&
+        Objects.equals(this.securityQuery, changeWidgetRequest.securityQuery) &&
+        Objects.equals(this.showPresent, changeWidgetRequest.showPresent);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        apmQuery,
-        changeType,
-        compareTo,
-        eventQuery,
-        formulas,
-        increaseGood,
-        logQuery,
-        networkQuery,
-        orderBy,
-        orderDir,
-        processQuery,
-        profileMetricsQuery,
-        q,
-        queries,
-        responseFormat,
-        rumQuery,
-        securityQuery,
-        showPresent);
+    return Objects.hash(apmQuery, changeType, compareTo, eventQuery, formulas, increaseGood, logQuery, networkQuery, orderBy, orderDir, processQuery, profileMetricsQuery, q, queries, responseFormat, rumQuery, securityQuery, showPresent);
   }
 
   @Override
@@ -620,9 +659,7 @@ public class ChangeWidgetRequest {
     sb.append("    orderBy: ").append(toIndentedString(orderBy)).append("\n");
     sb.append("    orderDir: ").append(toIndentedString(orderDir)).append("\n");
     sb.append("    processQuery: ").append(toIndentedString(processQuery)).append("\n");
-    sb.append("    profileMetricsQuery: ")
-        .append(toIndentedString(profileMetricsQuery))
-        .append("\n");
+    sb.append("    profileMetricsQuery: ").append(toIndentedString(profileMetricsQuery)).append("\n");
     sb.append("    q: ").append(toIndentedString(q)).append("\n");
     sb.append("    queries: ").append(toIndentedString(queries)).append("\n");
     sb.append("    responseFormat: ").append(toIndentedString(responseFormat)).append("\n");
@@ -634,7 +671,8 @@ public class ChangeWidgetRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -642,4 +680,6 @@ public class ChangeWidgetRequest {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

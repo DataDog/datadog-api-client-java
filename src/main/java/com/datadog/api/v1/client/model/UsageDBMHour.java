@@ -8,18 +8,30 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Database Monitoring usage for a given organization for a given hour. */
+
+/**
+ * Database Monitoring usage for a given organization for a given hour.
+ */
 @ApiModel(description = "Database Monitoring usage for a given organization for a given hour.")
 @JsonPropertyOrder({
   UsageDBMHour.JSON_PROPERTY_DBM_HOST_COUNT,
@@ -29,8 +41,10 @@ import java.util.Objects;
   UsageDBMHour.JSON_PROPERTY_PUBLIC_ID
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class UsageDBMHour {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DBM_HOST_COUNT = "dbm_host_count";
   private Long dbmHostCount;
 
@@ -46,125 +60,130 @@ public class UsageDBMHour {
   public static final String JSON_PROPERTY_PUBLIC_ID = "public_id";
   private String publicId;
 
+
   public UsageDBMHour dbmHostCount(Long dbmHostCount) {
     this.dbmHostCount = dbmHostCount;
     return this;
   }
 
-  /**
-   * The total number of Database Monitoring host hours from the start of the given hour’s month
-   * until the given hour.
-   *
+   /**
+   * The total number of Database Monitoring host hours from the start of the given hour’s month until the given hour.
    * @return dbmHostCount
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "The total number of Database Monitoring host hours from the start of the given hour’s"
-              + " month until the given hour.")
+  @ApiModelProperty(value = "The total number of Database Monitoring host hours from the start of the given hour’s month until the given hour.")
   @JsonProperty(JSON_PROPERTY_DBM_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Long getDbmHostCount() {
     return dbmHostCount;
   }
 
+
   public void setDbmHostCount(Long dbmHostCount) {
     this.dbmHostCount = dbmHostCount;
   }
+
 
   public UsageDBMHour dbmQueriesCount(Long dbmQueriesCount) {
     this.dbmQueriesCount = dbmQueriesCount;
     return this;
   }
 
-  /**
-   * The total number of normalized Database Monitoring queries from the start of the given hour’s
-   * month until the given hour.
-   *
+   /**
+   * The total number of normalized Database Monitoring queries from the start of the given hour’s month until the given hour.
    * @return dbmQueriesCount
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "The total number of normalized Database Monitoring queries from the start of the given"
-              + " hour’s month until the given hour.")
+  @ApiModelProperty(value = "The total number of normalized Database Monitoring queries from the start of the given hour’s month until the given hour.")
   @JsonProperty(JSON_PROPERTY_DBM_QUERIES_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Long getDbmQueriesCount() {
     return dbmQueriesCount;
   }
 
+
   public void setDbmQueriesCount(Long dbmQueriesCount) {
     this.dbmQueriesCount = dbmQueriesCount;
   }
+
 
   public UsageDBMHour hour(OffsetDateTime hour) {
     this.hour = hour;
     return this;
   }
 
-  /**
+   /**
    * The hour for the usage.
-   *
    * @return hour
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The hour for the usage.")
   @JsonProperty(JSON_PROPERTY_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public OffsetDateTime getHour() {
     return hour;
   }
 
+
   public void setHour(OffsetDateTime hour) {
     this.hour = hour;
   }
+
 
   public UsageDBMHour orgName(String orgName) {
     this.orgName = orgName;
     return this;
   }
 
-  /**
+   /**
    * The organization name.
-   *
    * @return orgName
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The organization name.")
   @JsonProperty(JSON_PROPERTY_ORG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getOrgName() {
     return orgName;
   }
 
+
   public void setOrgName(String orgName) {
     this.orgName = orgName;
   }
+
 
   public UsageDBMHour publicId(String publicId) {
     this.publicId = publicId;
     return this;
   }
 
-  /**
+   /**
    * The organization public ID.
-   *
    * @return publicId
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The organization public ID.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getPublicId() {
     return publicId;
   }
+
 
   public void setPublicId(String publicId) {
     this.publicId = publicId;
   }
 
-  /** Return true if this UsageDBMHour object is equal to o. */
+
+  /**
+   * Return true if this UsageDBMHour object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -174,11 +193,11 @@ public class UsageDBMHour {
       return false;
     }
     UsageDBMHour usageDBMHour = (UsageDBMHour) o;
-    return Objects.equals(this.dbmHostCount, usageDBMHour.dbmHostCount)
-        && Objects.equals(this.dbmQueriesCount, usageDBMHour.dbmQueriesCount)
-        && Objects.equals(this.hour, usageDBMHour.hour)
-        && Objects.equals(this.orgName, usageDBMHour.orgName)
-        && Objects.equals(this.publicId, usageDBMHour.publicId);
+    return Objects.equals(this.dbmHostCount, usageDBMHour.dbmHostCount) &&
+        Objects.equals(this.dbmQueriesCount, usageDBMHour.dbmQueriesCount) &&
+        Objects.equals(this.hour, usageDBMHour.hour) &&
+        Objects.equals(this.orgName, usageDBMHour.orgName) &&
+        Objects.equals(this.publicId, usageDBMHour.publicId);
   }
 
   @Override
@@ -200,7 +219,8 @@ public class UsageDBMHour {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -208,4 +228,6 @@ public class UsageDBMHour {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

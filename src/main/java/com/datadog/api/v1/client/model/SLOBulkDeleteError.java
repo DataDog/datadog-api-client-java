@@ -8,18 +8,30 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.SLOErrorTimeframe;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Object describing the error. */
+
+/**
+ * Object describing the error.
+ */
 @ApiModel(description = "Object describing the error.")
 @JsonPropertyOrder({
   SLOBulkDeleteError.JSON_PROPERTY_ID,
@@ -27,8 +39,10 @@ import java.util.Objects;
   SLOBulkDeleteError.JSON_PROPERTY_TIMEFRAME
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SLOBulkDeleteError {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
@@ -42,13 +56,14 @@ public class SLOBulkDeleteError {
 
   @JsonCreator
   public SLOBulkDeleteError(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_MESSAGE) String message,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TIMEFRAME) SLOErrorTimeframe timeframe) {
-    this.id = id;
-    this.message = message;
-    this.timeframe = timeframe;
-    this.unparsed |= !timeframe.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_ID) String id,
+            @JsonProperty(required=true, value=JSON_PROPERTY_MESSAGE) String message,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TIMEFRAME) SLOErrorTimeframe timeframe
+            ) {
+        this.id = id;
+        this.message = message;
+        this.timeframe = timeframe;
+        this.unparsed |= !timeframe.isValid();
   }
 
   public SLOBulkDeleteError id(String id) {
@@ -56,45 +71,46 @@ public class SLOBulkDeleteError {
     return this;
   }
 
-  /**
+   /**
    * The ID of the service level objective object associated with this error.
-   *
    * @return id
-   */
-  @ApiModelProperty(
-      example = "",
-      required = true,
-      value = "The ID of the service level objective object associated with this error.")
+  **/
+  @ApiModelProperty(example = "", required = true, value = "The ID of the service level objective object associated with this error.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getId() {
     return id;
   }
 
+
   public void setId(String id) {
     this.id = id;
   }
+
 
   public SLOBulkDeleteError message(String message) {
     this.message = message;
     return this;
   }
 
-  /**
+   /**
    * The error message.
-   *
    * @return message
-   */
+  **/
   @ApiModelProperty(example = "", required = true, value = "The error message.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getMessage() {
     return message;
   }
 
+
   public void setMessage(String message) {
     this.message = message;
   }
+
 
   public SLOBulkDeleteError timeframe(SLOErrorTimeframe timeframe) {
     this.timeframe = timeframe;
@@ -102,26 +118,30 @@ public class SLOBulkDeleteError {
     return this;
   }
 
-  /**
+   /**
    * Get timeframe
-   *
    * @return timeframe
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TIMEFRAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public SLOErrorTimeframe getTimeframe() {
     return timeframe;
   }
 
+
   public void setTimeframe(SLOErrorTimeframe timeframe) {
     if (!timeframe.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.timeframe = timeframe;
   }
 
-  /** Return true if this SLOBulkDeleteError object is equal to o. */
+
+  /**
+   * Return true if this SLOBulkDeleteError object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -131,9 +151,9 @@ public class SLOBulkDeleteError {
       return false;
     }
     SLOBulkDeleteError slOBulkDeleteError = (SLOBulkDeleteError) o;
-    return Objects.equals(this.id, slOBulkDeleteError.id)
-        && Objects.equals(this.message, slOBulkDeleteError.message)
-        && Objects.equals(this.timeframe, slOBulkDeleteError.timeframe);
+    return Objects.equals(this.id, slOBulkDeleteError.id) &&
+        Objects.equals(this.message, slOBulkDeleteError.message) &&
+        Objects.equals(this.timeframe, slOBulkDeleteError.timeframe);
   }
 
   @Override
@@ -153,7 +173,8 @@ public class SLOBulkDeleteError {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -161,4 +182,6 @@ public class SLOBulkDeleteError {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

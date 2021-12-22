@@ -4,10 +4,10 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.api.IncidentServicesApi;
+import com.datadog.api.v2.client.model.IncidentServiceResponse;
 import com.datadog.api.v2.client.model.IncidentServiceCreateAttributes;
 import com.datadog.api.v2.client.model.IncidentServiceCreateData;
 import com.datadog.api.v2.client.model.IncidentServiceCreateRequest;
-import com.datadog.api.v2.client.model.IncidentServiceResponse;
 import com.datadog.api.v2.client.model.IncidentServiceType;
 import java.time.*;
 import java.util.*;
@@ -18,15 +18,11 @@ public class Example {
     defaultClient.setUnstableOperationEnabled("createIncidentService", true);
     IncidentServicesApi apiInstance = new IncidentServicesApi(defaultClient);
 
-    IncidentServiceCreateRequest body =
-        new IncidentServiceCreateRequest()
-            .data(
-                new IncidentServiceCreateData()
-                    .type(IncidentServiceType.SERVICES)
-                    .attributes(
-                        new IncidentServiceCreateAttributes()
-                            .name(
-                                "Example-Create_a_new_incident_service_returns_CREATED_response")));
+    IncidentServiceCreateRequest body = new IncidentServiceCreateRequest()
+.data(new IncidentServiceCreateData()
+.type(IncidentServiceType.SERVICES)
+.attributes(new IncidentServiceCreateAttributes()
+.name("Example-Create_a_new_incident_service_returns_CREATED_response")));
 
     try {
       IncidentServiceResponse result = apiInstance.createIncidentService(body);

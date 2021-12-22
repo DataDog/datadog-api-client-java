@@ -8,42 +8,48 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import io.swagger.annotations.ApiModel;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
+
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
 
+
+import java.util.Set;
+import java.util.HashSet;
 /**
- * The subtype of the Synthetic API test, &#x60;http&#x60;, &#x60;ssl&#x60;, &#x60;tcp&#x60;,
- * &#x60;dns&#x60;, &#x60;icmp&#x60;, &#x60;udp&#x60;, &#x60;websocket&#x60; or &#x60;multi&#x60;.
+ * The subtype of the Synthetic API test, &#x60;http&#x60;, &#x60;ssl&#x60;, &#x60;tcp&#x60;, &#x60;dns&#x60;, &#x60;icmp&#x60;, &#x60;udp&#x60;, &#x60;websocket&#x60; or &#x60;multi&#x60;.
  */
 @JsonSerialize(using = SyntheticsTestDetailsSubType.SyntheticsTestDetailsSubTypeSerializer.class)
 public class SyntheticsTestDetailsSubType {
-
+  
   public static final SyntheticsTestDetailsSubType HTTP = new SyntheticsTestDetailsSubType("http");
   public static final SyntheticsTestDetailsSubType SSL = new SyntheticsTestDetailsSubType("ssl");
   public static final SyntheticsTestDetailsSubType TCP = new SyntheticsTestDetailsSubType("tcp");
   public static final SyntheticsTestDetailsSubType DNS = new SyntheticsTestDetailsSubType("dns");
-  public static final SyntheticsTestDetailsSubType MULTI =
-      new SyntheticsTestDetailsSubType("multi");
+  public static final SyntheticsTestDetailsSubType MULTI = new SyntheticsTestDetailsSubType("multi");
   public static final SyntheticsTestDetailsSubType ICMP = new SyntheticsTestDetailsSubType("icmp");
   public static final SyntheticsTestDetailsSubType UDP = new SyntheticsTestDetailsSubType("udp");
-  public static final SyntheticsTestDetailsSubType WEBSOCKET =
-      new SyntheticsTestDetailsSubType("websocket");
+  public static final SyntheticsTestDetailsSubType WEBSOCKET = new SyntheticsTestDetailsSubType("websocket");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList("http", "ssl", "tcp", "dns", "multi", "icmp", "udp", "websocket"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("http","ssl","tcp","dns","multi","icmp","udp","websocket"));
 
   private String value;
 
@@ -55,22 +61,19 @@ public class SyntheticsTestDetailsSubType {
     this.value = value;
   }
 
-  public static class SyntheticsTestDetailsSubTypeSerializer
-      extends StdSerializer<SyntheticsTestDetailsSubType> {
-    public SyntheticsTestDetailsSubTypeSerializer(Class<SyntheticsTestDetailsSubType> t) {
-      super(t);
-    }
+  public static class SyntheticsTestDetailsSubTypeSerializer extends StdSerializer<SyntheticsTestDetailsSubType> {
+      public SyntheticsTestDetailsSubTypeSerializer(Class<SyntheticsTestDetailsSubType> t) {
+          super(t);
+      }
 
-    public SyntheticsTestDetailsSubTypeSerializer() {
-      this(null);
-    }
+      public SyntheticsTestDetailsSubTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        SyntheticsTestDetailsSubType value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(SyntheticsTestDetailsSubType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -82,7 +85,9 @@ public class SyntheticsTestDetailsSubType {
     this.value = value;
   }
 
-  /** Return true if this SyntheticsTestDetailsSubType object is equal to o. */
+  /**
+   * Return true if this SyntheticsTestDetailsSubType object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -96,7 +101,7 @@ public class SyntheticsTestDetailsSubType {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override
@@ -109,3 +114,4 @@ public class SyntheticsTestDetailsSubType {
     return new SyntheticsTestDetailsSubType(value);
   }
 }
+

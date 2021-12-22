@@ -22,12 +22,10 @@ public class Example {
     // there is a valid "permission" in the system
     String PERMISSION_ID = System.getenv("PERMISSION_ID");
 
-    RelationshipToPermission body =
-        new RelationshipToPermission()
-            .data(
-                new RelationshipToPermissionData()
-                    .id(PERMISSION_ID)
-                    .type(PermissionsType.PERMISSIONS));
+    RelationshipToPermission body = new RelationshipToPermission()
+.data(new RelationshipToPermissionData()
+.id(PERMISSION_ID)
+.type(PermissionsType.PERMISSIONS));
 
     try {
       PermissionsResponse result = apiInstance.removePermissionFromRole(ROLE_DATA_ID, body);

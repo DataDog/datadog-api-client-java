@@ -8,25 +8,40 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Object containing the ordered list of pipeline IDs. */
+
+/**
+ * Object containing the ordered list of pipeline IDs.
+ */
 @ApiModel(description = "Object containing the ordered list of pipeline IDs.")
-@JsonPropertyOrder({LogsPipelinesOrder.JSON_PROPERTY_PIPELINE_IDS})
+@JsonPropertyOrder({
+  LogsPipelinesOrder.JSON_PROPERTY_PIPELINE_IDS
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class LogsPipelinesOrder {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_PIPELINE_IDS = "pipeline_ids";
   private List<String> pipelineIds = new ArrayList<>();
 
@@ -34,8 +49,9 @@ public class LogsPipelinesOrder {
 
   @JsonCreator
   public LogsPipelinesOrder(
-      @JsonProperty(required = true, value = JSON_PROPERTY_PIPELINE_IDS) List<String> pipelineIds) {
-    this.pipelineIds = pipelineIds;
+            @JsonProperty(required=true, value=JSON_PROPERTY_PIPELINE_IDS) List<String> pipelineIds
+            ) {
+        this.pipelineIds = pipelineIds;
   }
 
   public LogsPipelinesOrder pipelineIds(List<String> pipelineIds) {
@@ -48,29 +64,27 @@ public class LogsPipelinesOrder {
     return this;
   }
 
-  /**
-   * Ordered Array of &#x60;&lt;PIPELINE_ID&gt;&#x60; strings, the order of pipeline IDs in the
-   * array define the overall Pipelines order for Datadog.
-   *
+   /**
+   * Ordered Array of &#x60;&lt;PIPELINE_ID&gt;&#x60; strings, the order of pipeline IDs in the array define the overall Pipelines order for Datadog.
    * @return pipelineIds
-   */
-  @ApiModelProperty(
-      example = "[\"tags\",\"org_ids\",\"products\"]",
-      required = true,
-      value =
-          "Ordered Array of `<PIPELINE_ID>` strings, the order of pipeline IDs in the array define"
-              + " the overall Pipelines order for Datadog.")
+  **/
+  @ApiModelProperty(example = "[\"tags\",\"org_ids\",\"products\"]", required = true, value = "Ordered Array of `<PIPELINE_ID>` strings, the order of pipeline IDs in the array define the overall Pipelines order for Datadog.")
   @JsonProperty(JSON_PROPERTY_PIPELINE_IDS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<String> getPipelineIds() {
     return pipelineIds;
   }
+
 
   public void setPipelineIds(List<String> pipelineIds) {
     this.pipelineIds = pipelineIds;
   }
 
-  /** Return true if this LogsPipelinesOrder object is equal to o. */
+
+  /**
+   * Return true if this LogsPipelinesOrder object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -98,7 +112,8 @@ public class LogsPipelinesOrder {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -106,4 +121,6 @@ public class LogsPipelinesOrder {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

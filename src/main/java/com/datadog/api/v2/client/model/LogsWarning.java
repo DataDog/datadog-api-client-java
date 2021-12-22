@@ -8,17 +8,29 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
 
-/** A warning message indicating something that went wrong with the query */
+
+/**
+ * A warning message indicating something that went wrong with the query
+ */
 @ApiModel(description = "A warning message indicating something that went wrong with the query")
 @JsonPropertyOrder({
   LogsWarning.JSON_PROPERTY_CODE,
@@ -26,8 +38,10 @@ import java.util.Objects;
   LogsWarning.JSON_PROPERTY_TITLE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class LogsWarning {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CODE = "code";
   private String code;
 
@@ -37,78 +51,82 @@ public class LogsWarning {
   public static final String JSON_PROPERTY_TITLE = "title";
   private String title;
 
+
   public LogsWarning code(String code) {
     this.code = code;
     return this;
   }
 
-  /**
+   /**
    * A unique code for this type of warning
-   *
    * @return code
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "unknown_index", value = "A unique code for this type of warning")
   @JsonProperty(JSON_PROPERTY_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getCode() {
     return code;
   }
 
+
   public void setCode(String code) {
     this.code = code;
   }
+
 
   public LogsWarning detail(String detail) {
     this.detail = detail;
     return this;
   }
 
-  /**
+   /**
    * A detailed explanation of this specific warning
-   *
    * @return detail
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "indexes: foo, bar",
-      value = "A detailed explanation of this specific warning")
+  @ApiModelProperty(example = "indexes: foo, bar", value = "A detailed explanation of this specific warning")
   @JsonProperty(JSON_PROPERTY_DETAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getDetail() {
     return detail;
   }
 
+
   public void setDetail(String detail) {
     this.detail = detail;
   }
+
 
   public LogsWarning title(String title) {
     this.title = title;
     return this;
   }
 
-  /**
+   /**
    * A short human-readable summary of the warning
-   *
    * @return title
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example =
-          "One or several indexes are missing or invalid, results hold data from the other indexes",
-      value = "A short human-readable summary of the warning")
+  @ApiModelProperty(example = "One or several indexes are missing or invalid, results hold data from the other indexes", value = "A short human-readable summary of the warning")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getTitle() {
     return title;
   }
+
 
   public void setTitle(String title) {
     this.title = title;
   }
 
-  /** Return true if this LogsWarning object is equal to o. */
+
+  /**
+   * Return true if this LogsWarning object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -118,9 +136,9 @@ public class LogsWarning {
       return false;
     }
     LogsWarning logsWarning = (LogsWarning) o;
-    return Objects.equals(this.code, logsWarning.code)
-        && Objects.equals(this.detail, logsWarning.detail)
-        && Objects.equals(this.title, logsWarning.title);
+    return Objects.equals(this.code, logsWarning.code) &&
+        Objects.equals(this.detail, logsWarning.detail) &&
+        Objects.equals(this.title, logsWarning.title);
   }
 
   @Override
@@ -140,7 +158,8 @@ public class LogsWarning {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -148,4 +167,6 @@ public class LogsWarning {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

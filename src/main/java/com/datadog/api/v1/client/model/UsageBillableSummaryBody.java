@@ -8,18 +8,30 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Response with properties for each aggregated usage type. */
+
+/**
+ * Response with properties for each aggregated usage type.
+ */
 @ApiModel(description = "Response with properties for each aggregated usage type.")
 @JsonPropertyOrder({
   UsageBillableSummaryBody.JSON_PROPERTY_ACCOUNT_BILLABLE_USAGE,
@@ -31,8 +43,10 @@ import java.util.Objects;
   UsageBillableSummaryBody.JSON_PROPERTY_USAGE_UNIT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class UsageBillableSummaryBody {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ACCOUNT_BILLABLE_USAGE = "account_billable_usage";
   private Long accountBillableUsage;
 
@@ -54,161 +68,178 @@ public class UsageBillableSummaryBody {
   public static final String JSON_PROPERTY_USAGE_UNIT = "usage_unit";
   private String usageUnit;
 
+
   public UsageBillableSummaryBody accountBillableUsage(Long accountBillableUsage) {
     this.accountBillableUsage = accountBillableUsage;
     return this;
   }
 
-  /**
+   /**
    * The total account usage.
-   *
    * @return accountBillableUsage
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The total account usage.")
   @JsonProperty(JSON_PROPERTY_ACCOUNT_BILLABLE_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Long getAccountBillableUsage() {
     return accountBillableUsage;
   }
 
+
   public void setAccountBillableUsage(Long accountBillableUsage) {
     this.accountBillableUsage = accountBillableUsage;
   }
+
 
   public UsageBillableSummaryBody elapsedUsageHours(Long elapsedUsageHours) {
     this.elapsedUsageHours = elapsedUsageHours;
     return this;
   }
 
-  /**
+   /**
    * Elapsed usage hours for some billable product.
-   *
    * @return elapsedUsageHours
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Elapsed usage hours for some billable product.")
   @JsonProperty(JSON_PROPERTY_ELAPSED_USAGE_HOURS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Long getElapsedUsageHours() {
     return elapsedUsageHours;
   }
 
+
   public void setElapsedUsageHours(Long elapsedUsageHours) {
     this.elapsedUsageHours = elapsedUsageHours;
   }
+
 
   public UsageBillableSummaryBody firstBillableUsageHour(OffsetDateTime firstBillableUsageHour) {
     this.firstBillableUsageHour = firstBillableUsageHour;
     return this;
   }
 
-  /**
+   /**
    * The first billable hour for the org.
-   *
    * @return firstBillableUsageHour
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The first billable hour for the org.")
   @JsonProperty(JSON_PROPERTY_FIRST_BILLABLE_USAGE_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public OffsetDateTime getFirstBillableUsageHour() {
     return firstBillableUsageHour;
   }
 
+
   public void setFirstBillableUsageHour(OffsetDateTime firstBillableUsageHour) {
     this.firstBillableUsageHour = firstBillableUsageHour;
   }
+
 
   public UsageBillableSummaryBody lastBillableUsageHour(OffsetDateTime lastBillableUsageHour) {
     this.lastBillableUsageHour = lastBillableUsageHour;
     return this;
   }
 
-  /**
+   /**
    * The last billable hour for the org.
-   *
    * @return lastBillableUsageHour
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The last billable hour for the org.")
   @JsonProperty(JSON_PROPERTY_LAST_BILLABLE_USAGE_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public OffsetDateTime getLastBillableUsageHour() {
     return lastBillableUsageHour;
   }
 
+
   public void setLastBillableUsageHour(OffsetDateTime lastBillableUsageHour) {
     this.lastBillableUsageHour = lastBillableUsageHour;
   }
+
 
   public UsageBillableSummaryBody orgBillableUsage(Long orgBillableUsage) {
     this.orgBillableUsage = orgBillableUsage;
     return this;
   }
 
-  /**
+   /**
    * The number of units used within the billable timeframe.
-   *
    * @return orgBillableUsage
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The number of units used within the billable timeframe.")
   @JsonProperty(JSON_PROPERTY_ORG_BILLABLE_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Long getOrgBillableUsage() {
     return orgBillableUsage;
   }
 
+
   public void setOrgBillableUsage(Long orgBillableUsage) {
     this.orgBillableUsage = orgBillableUsage;
   }
+
 
   public UsageBillableSummaryBody percentageInAccount(Double percentageInAccount) {
     this.percentageInAccount = percentageInAccount;
     return this;
   }
 
-  /**
+   /**
    * The percentage of account usage the org represents.
-   *
    * @return percentageInAccount
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The percentage of account usage the org represents.")
   @JsonProperty(JSON_PROPERTY_PERCENTAGE_IN_ACCOUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Double getPercentageInAccount() {
     return percentageInAccount;
   }
 
+
   public void setPercentageInAccount(Double percentageInAccount) {
     this.percentageInAccount = percentageInAccount;
   }
+
 
   public UsageBillableSummaryBody usageUnit(String usageUnit) {
     this.usageUnit = usageUnit;
     return this;
   }
 
-  /**
+   /**
    * Units pertaining to the usage.
-   *
    * @return usageUnit
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Units pertaining to the usage.")
   @JsonProperty(JSON_PROPERTY_USAGE_UNIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getUsageUnit() {
     return usageUnit;
   }
+
 
   public void setUsageUnit(String usageUnit) {
     this.usageUnit = usageUnit;
   }
 
-  /** Return true if this UsageBillableSummaryBody object is equal to o. */
+
+  /**
+   * Return true if this UsageBillableSummaryBody object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -218,54 +249,38 @@ public class UsageBillableSummaryBody {
       return false;
     }
     UsageBillableSummaryBody usageBillableSummaryBody = (UsageBillableSummaryBody) o;
-    return Objects.equals(this.accountBillableUsage, usageBillableSummaryBody.accountBillableUsage)
-        && Objects.equals(this.elapsedUsageHours, usageBillableSummaryBody.elapsedUsageHours)
-        && Objects.equals(
-            this.firstBillableUsageHour, usageBillableSummaryBody.firstBillableUsageHour)
-        && Objects.equals(
-            this.lastBillableUsageHour, usageBillableSummaryBody.lastBillableUsageHour)
-        && Objects.equals(this.orgBillableUsage, usageBillableSummaryBody.orgBillableUsage)
-        && Objects.equals(this.percentageInAccount, usageBillableSummaryBody.percentageInAccount)
-        && Objects.equals(this.usageUnit, usageBillableSummaryBody.usageUnit);
+    return Objects.equals(this.accountBillableUsage, usageBillableSummaryBody.accountBillableUsage) &&
+        Objects.equals(this.elapsedUsageHours, usageBillableSummaryBody.elapsedUsageHours) &&
+        Objects.equals(this.firstBillableUsageHour, usageBillableSummaryBody.firstBillableUsageHour) &&
+        Objects.equals(this.lastBillableUsageHour, usageBillableSummaryBody.lastBillableUsageHour) &&
+        Objects.equals(this.orgBillableUsage, usageBillableSummaryBody.orgBillableUsage) &&
+        Objects.equals(this.percentageInAccount, usageBillableSummaryBody.percentageInAccount) &&
+        Objects.equals(this.usageUnit, usageBillableSummaryBody.usageUnit);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        accountBillableUsage,
-        elapsedUsageHours,
-        firstBillableUsageHour,
-        lastBillableUsageHour,
-        orgBillableUsage,
-        percentageInAccount,
-        usageUnit);
+    return Objects.hash(accountBillableUsage, elapsedUsageHours, firstBillableUsageHour, lastBillableUsageHour, orgBillableUsage, percentageInAccount, usageUnit);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UsageBillableSummaryBody {\n");
-    sb.append("    accountBillableUsage: ")
-        .append(toIndentedString(accountBillableUsage))
-        .append("\n");
+    sb.append("    accountBillableUsage: ").append(toIndentedString(accountBillableUsage)).append("\n");
     sb.append("    elapsedUsageHours: ").append(toIndentedString(elapsedUsageHours)).append("\n");
-    sb.append("    firstBillableUsageHour: ")
-        .append(toIndentedString(firstBillableUsageHour))
-        .append("\n");
-    sb.append("    lastBillableUsageHour: ")
-        .append(toIndentedString(lastBillableUsageHour))
-        .append("\n");
+    sb.append("    firstBillableUsageHour: ").append(toIndentedString(firstBillableUsageHour)).append("\n");
+    sb.append("    lastBillableUsageHour: ").append(toIndentedString(lastBillableUsageHour)).append("\n");
     sb.append("    orgBillableUsage: ").append(toIndentedString(orgBillableUsage)).append("\n");
-    sb.append("    percentageInAccount: ")
-        .append(toIndentedString(percentageInAccount))
-        .append("\n");
+    sb.append("    percentageInAccount: ").append(toIndentedString(percentageInAccount)).append("\n");
     sb.append("    usageUnit: ").append(toIndentedString(usageUnit)).append("\n");
     sb.append("}");
     return sb.toString();
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -273,4 +288,6 @@ public class UsageBillableSummaryBody {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

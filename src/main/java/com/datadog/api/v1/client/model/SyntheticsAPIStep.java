@@ -8,19 +8,35 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.SyntheticsAPIStepSubtype;
+import com.datadog.api.v1.client.model.SyntheticsAssertion;
+import com.datadog.api.v1.client.model.SyntheticsParsingOptions;
+import com.datadog.api.v1.client.model.SyntheticsTestRequest;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** The steps used in a Synthetics multistep API test. */
+
+/**
+ * The steps used in a Synthetics multistep API test.
+ */
 @ApiModel(description = "The steps used in a Synthetics multistep API test.")
 @JsonPropertyOrder({
   SyntheticsAPIStep.JSON_PROPERTY_ALLOW_FAILURE,
@@ -32,8 +48,10 @@ import java.util.Objects;
   SyntheticsAPIStep.JSON_PROPERTY_SUBTYPE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SyntheticsAPIStep {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ALLOW_FAILURE = "allowFailure";
   private Boolean allowFailure;
 
@@ -55,27 +73,30 @@ public class SyntheticsAPIStep {
   public static final String JSON_PROPERTY_SUBTYPE = "subtype";
   private SyntheticsAPIStepSubtype subtype;
 
+
   public SyntheticsAPIStep allowFailure(Boolean allowFailure) {
     this.allowFailure = allowFailure;
     return this;
   }
 
-  /**
+   /**
    * Determines whether or not to continue with test if this step fails.
-   *
    * @return allowFailure
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Determines whether or not to continue with test if this step fails.")
   @JsonProperty(JSON_PROPERTY_ALLOW_FAILURE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Boolean getAllowFailure() {
     return allowFailure;
   }
 
+
   public void setAllowFailure(Boolean allowFailure) {
     this.allowFailure = allowFailure;
   }
+
 
   public SyntheticsAPIStep assertions(List<SyntheticsAssertion> assertions) {
     this.assertions = assertions;
@@ -94,22 +115,24 @@ public class SyntheticsAPIStep {
     return this;
   }
 
-  /**
+   /**
    * Array of assertions used for the test.
-   *
    * @return assertions
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Array of assertions used for the test.")
   @JsonProperty(JSON_PROPERTY_ASSERTIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<SyntheticsAssertion> getAssertions() {
     return assertions;
   }
 
+
   public void setAssertions(List<SyntheticsAssertion> assertions) {
     this.assertions = assertions;
   }
+
 
   public SyntheticsAPIStep extractedValues(List<SyntheticsParsingOptions> extractedValues) {
     this.extractedValues = extractedValues;
@@ -128,70 +151,72 @@ public class SyntheticsAPIStep {
     return this;
   }
 
-  /**
+   /**
    * Array of values to parse and save as variables from the response.
-   *
    * @return extractedValues
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Array of values to parse and save as variables from the response.")
   @JsonProperty(JSON_PROPERTY_EXTRACTED_VALUES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<SyntheticsParsingOptions> getExtractedValues() {
     return extractedValues;
   }
 
+
   public void setExtractedValues(List<SyntheticsParsingOptions> extractedValues) {
     this.extractedValues = extractedValues;
   }
+
 
   public SyntheticsAPIStep isCritical(Boolean isCritical) {
     this.isCritical = isCritical;
     return this;
   }
 
-  /**
-   * Determines whether or not to consider the entire test as failed if this step fails. Can be used
-   * only if &#x60;allowFailure&#x60; is &#x60;true&#x60;.
-   *
+   /**
+   * Determines whether or not to consider the entire test as failed if this step fails. Can be used only if &#x60;allowFailure&#x60; is &#x60;true&#x60;.
    * @return isCritical
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Determines whether or not to consider the entire test as failed if this step fails. Can"
-              + " be used only if `allowFailure` is `true`.")
+  @ApiModelProperty(value = "Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allowFailure` is `true`.")
   @JsonProperty(JSON_PROPERTY_IS_CRITICAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Boolean getIsCritical() {
     return isCritical;
   }
 
+
   public void setIsCritical(Boolean isCritical) {
     this.isCritical = isCritical;
   }
+
 
   public SyntheticsAPIStep name(String name) {
     this.name = name;
     return this;
   }
 
-  /**
+   /**
    * The name of the step.
-   *
    * @return name
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The name of the step.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getName() {
     return name;
   }
 
+
   public void setName(String name) {
     this.name = name;
   }
+
 
   public SyntheticsAPIStep request(SyntheticsTestRequest request) {
     this.request = request;
@@ -199,22 +224,24 @@ public class SyntheticsAPIStep {
     return this;
   }
 
-  /**
+   /**
    * Get request
-   *
    * @return request
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_REQUEST)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public SyntheticsTestRequest getRequest() {
     return request;
   }
 
+
   public void setRequest(SyntheticsTestRequest request) {
     this.request = request;
   }
+
 
   public SyntheticsAPIStep subtype(SyntheticsAPIStepSubtype subtype) {
     this.subtype = subtype;
@@ -222,27 +249,31 @@ public class SyntheticsAPIStep {
     return this;
   }
 
-  /**
+   /**
    * Get subtype
-   *
    * @return subtype
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SUBTYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public SyntheticsAPIStepSubtype getSubtype() {
     return subtype;
   }
 
+
   public void setSubtype(SyntheticsAPIStepSubtype subtype) {
     if (!subtype.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.subtype = subtype;
   }
 
-  /** Return true if this SyntheticsAPIStep object is equal to o. */
+
+  /**
+   * Return true if this SyntheticsAPIStep object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -252,19 +283,18 @@ public class SyntheticsAPIStep {
       return false;
     }
     SyntheticsAPIStep syntheticsAPIStep = (SyntheticsAPIStep) o;
-    return Objects.equals(this.allowFailure, syntheticsAPIStep.allowFailure)
-        && Objects.equals(this.assertions, syntheticsAPIStep.assertions)
-        && Objects.equals(this.extractedValues, syntheticsAPIStep.extractedValues)
-        && Objects.equals(this.isCritical, syntheticsAPIStep.isCritical)
-        && Objects.equals(this.name, syntheticsAPIStep.name)
-        && Objects.equals(this.request, syntheticsAPIStep.request)
-        && Objects.equals(this.subtype, syntheticsAPIStep.subtype);
+    return Objects.equals(this.allowFailure, syntheticsAPIStep.allowFailure) &&
+        Objects.equals(this.assertions, syntheticsAPIStep.assertions) &&
+        Objects.equals(this.extractedValues, syntheticsAPIStep.extractedValues) &&
+        Objects.equals(this.isCritical, syntheticsAPIStep.isCritical) &&
+        Objects.equals(this.name, syntheticsAPIStep.name) &&
+        Objects.equals(this.request, syntheticsAPIStep.request) &&
+        Objects.equals(this.subtype, syntheticsAPIStep.subtype);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        allowFailure, assertions, extractedValues, isCritical, name, request, subtype);
+    return Objects.hash(allowFailure, assertions, extractedValues, isCritical, name, request, subtype);
   }
 
   @Override
@@ -283,7 +313,8 @@ public class SyntheticsAPIStep {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -291,4 +322,6 @@ public class SyntheticsAPIStep {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

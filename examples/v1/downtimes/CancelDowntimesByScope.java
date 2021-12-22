@@ -4,8 +4,8 @@ import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.DowntimesApi;
-import com.datadog.api.v1.client.model.CancelDowntimesByScopeRequest;
 import com.datadog.api.v1.client.model.CanceledDowntimesIds;
+import com.datadog.api.v1.client.model.CancelDowntimesByScopeRequest;
 import java.time.*;
 import java.util.*;
 
@@ -17,8 +17,8 @@ public class Example {
     // there is a valid "downtime" in the system
     String DOWNTIME_SCOPE_0 = System.getenv("DOWNTIME_SCOPE_0");
 
-    CancelDowntimesByScopeRequest body =
-        new CancelDowntimesByScopeRequest().scope(DOWNTIME_SCOPE_0);
+    CancelDowntimesByScopeRequest body = new CancelDowntimesByScopeRequest()
+.scope(DOWNTIME_SCOPE_0);
 
     try {
       CanceledDowntimesIds result = apiInstance.cancelDowntimesByScope(body);

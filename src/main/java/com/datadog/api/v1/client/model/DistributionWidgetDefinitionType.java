@@ -8,31 +8,41 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import io.swagger.annotations.ApiModel;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
+
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
+
+
 import java.util.Set;
-
-/** Type of the distribution widget. */
-@JsonSerialize(
-    using = DistributionWidgetDefinitionType.DistributionWidgetDefinitionTypeSerializer.class)
+import java.util.HashSet;
+/**
+ * Type of the distribution widget.
+ */
+@JsonSerialize(using = DistributionWidgetDefinitionType.DistributionWidgetDefinitionTypeSerializer.class)
 public class DistributionWidgetDefinitionType {
+  
+  public static final DistributionWidgetDefinitionType DISTRIBUTION = new DistributionWidgetDefinitionType("distribution");
 
-  public static final DistributionWidgetDefinitionType DISTRIBUTION =
-      new DistributionWidgetDefinitionType("distribution");
-
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("distribution"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("distribution"));
 
   private String value;
 
@@ -44,22 +54,19 @@ public class DistributionWidgetDefinitionType {
     this.value = value;
   }
 
-  public static class DistributionWidgetDefinitionTypeSerializer
-      extends StdSerializer<DistributionWidgetDefinitionType> {
-    public DistributionWidgetDefinitionTypeSerializer(Class<DistributionWidgetDefinitionType> t) {
-      super(t);
-    }
+  public static class DistributionWidgetDefinitionTypeSerializer extends StdSerializer<DistributionWidgetDefinitionType> {
+      public DistributionWidgetDefinitionTypeSerializer(Class<DistributionWidgetDefinitionType> t) {
+          super(t);
+      }
 
-    public DistributionWidgetDefinitionTypeSerializer() {
-      this(null);
-    }
+      public DistributionWidgetDefinitionTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        DistributionWidgetDefinitionType value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(DistributionWidgetDefinitionType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -71,7 +78,9 @@ public class DistributionWidgetDefinitionType {
     this.value = value;
   }
 
-  /** Return true if this DistributionWidgetDefinitionType object is equal to o. */
+  /**
+   * Return true if this DistributionWidgetDefinitionType object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -85,7 +94,7 @@ public class DistributionWidgetDefinitionType {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override
@@ -98,3 +107,4 @@ public class DistributionWidgetDefinitionType {
     return new DistributionWidgetDefinitionType(value);
   }
 }
+

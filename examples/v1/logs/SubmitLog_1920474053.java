@@ -15,21 +15,12 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     LogsApi apiInstance = new LogsApi(defaultClient);
 
-    ArrayList<HTTPLogItem> body =
-        new ArrayList<HTTPLogItem>() {
-          {
-            add(
-                new HTTPLogItem()
-                    .message(
-                        "Example-Send_gzip_logs_returns_Response_from_server_always_200_empty_JSON_response")
-                    .ddtags(
-                        "host:ExampleSendgziplogsreturnsResponsefromserveralways200emptyJSONresponse"));
-          }
-        };
+    ArrayList<HTTPLogItem> body = new ArrayList<HTTPLogItem>() {{add(new HTTPLogItem()
+.message("Example-Send_gzip_logs_returns_Response_from_server_always_200_empty_JSON_response")
+.ddtags("host:ExampleSendgziplogsreturnsResponsefromserveralways200emptyJSONresponse"));}};
 
     try {
-      apiInstance.submitLog(
-          body, new SubmitLogOptionalParameters().contentEncoding(ContentEncoding.GZIP));
+      apiInstance.submitLog(body,new SubmitLogOptionalParameters().contentEncoding(ContentEncoding.GZIP));
     } catch (ApiException e) {
       System.err.println("Exception when calling DowntimesApi#updateDowntime");
       System.err.println("Status code: " + e.getCode());

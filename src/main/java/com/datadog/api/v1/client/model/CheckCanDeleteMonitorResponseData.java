@@ -8,26 +8,43 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Wrapper object with the list of monitor IDs. */
+
+/**
+ * Wrapper object with the list of monitor IDs.
+ */
 @ApiModel(description = "Wrapper object with the list of monitor IDs.")
-@JsonPropertyOrder({CheckCanDeleteMonitorResponseData.JSON_PROPERTY_OK})
+@JsonPropertyOrder({
+  CheckCanDeleteMonitorResponseData.JSON_PROPERTY_OK
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class CheckCanDeleteMonitorResponseData {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_OK = "ok";
   private List<Long> ok = null;
+
 
   public CheckCanDeleteMonitorResponseData ok(List<Long> ok) {
     this.ok = ok;
@@ -42,24 +59,28 @@ public class CheckCanDeleteMonitorResponseData {
     return this;
   }
 
-  /**
+   /**
    * An array of of Monitor IDs that can be safely deleted.
-   *
    * @return ok
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "An array of of Monitor IDs that can be safely deleted.")
   @JsonProperty(JSON_PROPERTY_OK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<Long> getOk() {
     return ok;
   }
+
 
   public void setOk(List<Long> ok) {
     this.ok = ok;
   }
 
-  /** Return true if this CheckCanDeleteMonitorResponse_data object is equal to o. */
+
+  /**
+   * Return true if this CheckCanDeleteMonitorResponse_data object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -68,8 +89,7 @@ public class CheckCanDeleteMonitorResponseData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CheckCanDeleteMonitorResponseData checkCanDeleteMonitorResponseData =
-        (CheckCanDeleteMonitorResponseData) o;
+    CheckCanDeleteMonitorResponseData checkCanDeleteMonitorResponseData = (CheckCanDeleteMonitorResponseData) o;
     return Objects.equals(this.ok, checkCanDeleteMonitorResponseData.ok);
   }
 
@@ -88,7 +108,8 @@ public class CheckCanDeleteMonitorResponseData {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -96,4 +117,6 @@ public class CheckCanDeleteMonitorResponseData {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

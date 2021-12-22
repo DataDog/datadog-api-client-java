@@ -8,30 +8,42 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import io.swagger.annotations.ApiModel;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
+
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
 
-/** HTTP header used to compress the media-type. */
+
+import java.util.Set;
+import java.util.HashSet;
+/**
+ * HTTP header used to compress the media-type.
+ */
 @JsonSerialize(using = ContentEncoding.ContentEncodingSerializer.class)
 public class ContentEncoding {
-
+  
   public static final ContentEncoding GZIP = new ContentEncoding("gzip");
   public static final ContentEncoding DEFLATE = new ContentEncoding("deflate");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("gzip", "deflate"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("gzip","deflate"));
 
   private String value;
 
@@ -44,19 +56,18 @@ public class ContentEncoding {
   }
 
   public static class ContentEncodingSerializer extends StdSerializer<ContentEncoding> {
-    public ContentEncodingSerializer(Class<ContentEncoding> t) {
-      super(t);
-    }
+      public ContentEncodingSerializer(Class<ContentEncoding> t) {
+          super(t);
+      }
 
-    public ContentEncodingSerializer() {
-      this(null);
-    }
+      public ContentEncodingSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(ContentEncoding value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(ContentEncoding value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -68,7 +79,9 @@ public class ContentEncoding {
     this.value = value;
   }
 
-  /** Return true if this ContentEncoding object is equal to o. */
+  /**
+   * Return true if this ContentEncoding object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -82,7 +95,7 @@ public class ContentEncoding {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override
@@ -95,3 +108,4 @@ public class ContentEncoding {
     return new ContentEncoding(value);
   }
 }
+

@@ -22,13 +22,11 @@ public class Example {
     String SERVICE_DATA_ATTRIBUTES_NAME = System.getenv("SERVICE_DATA_ATTRIBUTES_NAME");
     String SERVICE_DATA_ID = System.getenv("SERVICE_DATA_ID");
 
-    IncidentServiceUpdateRequest body =
-        new IncidentServiceUpdateRequest()
-            .data(
-                new IncidentServiceUpdateData()
-                    .type(IncidentServiceType.SERVICES)
-                    .attributes(
-                        new IncidentServiceUpdateAttributes().name("service name-updated")));
+    IncidentServiceUpdateRequest body = new IncidentServiceUpdateRequest()
+.data(new IncidentServiceUpdateData()
+.type(IncidentServiceType.SERVICES)
+.attributes(new IncidentServiceUpdateAttributes()
+.name("service name-updated")));
 
     try {
       IncidentServiceResponse result = apiInstance.updateIncidentService(SERVICE_DATA_ID, body);

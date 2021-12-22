@@ -8,41 +8,61 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Represent validation endpoint responses. */
+
+/**
+ * Represent validation endpoint responses.
+ */
 @ApiModel(description = "Represent validation endpoint responses.")
-@JsonPropertyOrder({AuthenticationValidationResponse.JSON_PROPERTY_VALID})
+@JsonPropertyOrder({
+  AuthenticationValidationResponse.JSON_PROPERTY_VALID
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class AuthenticationValidationResponse {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_VALID = "valid";
   private Boolean valid;
 
-  /**
+
+   /**
    * Return &#x60;true&#x60; if the authentication response is valid.
-   *
    * @return valid
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "true",
-      value = "Return `true` if the authentication response is valid.")
+  @ApiModelProperty(example = "true", value = "Return `true` if the authentication response is valid.")
   @JsonProperty(JSON_PROPERTY_VALID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Boolean getValid() {
     return valid;
   }
 
-  /** Return true if this AuthenticationValidationResponse object is equal to o. */
+
+
+
+  /**
+   * Return true if this AuthenticationValidationResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -51,8 +71,7 @@ public class AuthenticationValidationResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    AuthenticationValidationResponse authenticationValidationResponse =
-        (AuthenticationValidationResponse) o;
+    AuthenticationValidationResponse authenticationValidationResponse = (AuthenticationValidationResponse) o;
     return Objects.equals(this.valid, authenticationValidationResponse.valid);
   }
 
@@ -71,7 +90,8 @@ public class AuthenticationValidationResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -79,4 +99,6 @@ public class AuthenticationValidationResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

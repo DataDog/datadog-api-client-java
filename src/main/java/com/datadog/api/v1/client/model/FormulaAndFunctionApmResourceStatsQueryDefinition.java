@@ -8,20 +8,33 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.FormulaAndFunctionApmResourceStatName;
+import com.datadog.api.v1.client.model.FormulaAndFunctionApmResourceStatsDataSource;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** APM resource stats query using formulas and functions. */
+
+/**
+ * APM resource stats query using formulas and functions.
+ */
 @ApiModel(description = "APM resource stats query using formulas and functions.")
 @JsonPropertyOrder({
   FormulaAndFunctionApmResourceStatsQueryDefinition.JSON_PROPERTY_DATA_SOURCE,
@@ -36,8 +49,10 @@ import java.util.Objects;
   FormulaAndFunctionApmResourceStatsQueryDefinition.JSON_PROPERTY_STAT
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FormulaAndFunctionApmResourceStatsQueryDefinition {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA_SOURCE = "data_source";
   private FormulaAndFunctionApmResourceStatsDataSource dataSource;
 
@@ -72,68 +87,70 @@ public class FormulaAndFunctionApmResourceStatsQueryDefinition {
 
   @JsonCreator
   public FormulaAndFunctionApmResourceStatsQueryDefinition(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA_SOURCE)
-          FormulaAndFunctionApmResourceStatsDataSource dataSource,
-      @JsonProperty(required = true, value = JSON_PROPERTY_ENV) String env,
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SERVICE) String service,
-      @JsonProperty(required = true, value = JSON_PROPERTY_STAT)
-          FormulaAndFunctionApmResourceStatName stat) {
-    this.dataSource = dataSource;
-    this.unparsed |= !dataSource.isValid();
-    this.env = env;
-    this.name = name;
-    this.service = service;
-    this.stat = stat;
-    this.unparsed |= !stat.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_DATA_SOURCE) FormulaAndFunctionApmResourceStatsDataSource dataSource,
+            @JsonProperty(required=true, value=JSON_PROPERTY_ENV) String env,
+            @JsonProperty(required=true, value=JSON_PROPERTY_NAME) String name,
+            @JsonProperty(required=true, value=JSON_PROPERTY_SERVICE) String service,
+            @JsonProperty(required=true, value=JSON_PROPERTY_STAT) FormulaAndFunctionApmResourceStatName stat
+            ) {
+        this.dataSource = dataSource;
+        this.unparsed |= !dataSource.isValid();
+        this.env = env;
+        this.name = name;
+        this.service = service;
+        this.stat = stat;
+        this.unparsed |= !stat.isValid();
   }
 
-  public FormulaAndFunctionApmResourceStatsQueryDefinition dataSource(
-      FormulaAndFunctionApmResourceStatsDataSource dataSource) {
+  public FormulaAndFunctionApmResourceStatsQueryDefinition dataSource(FormulaAndFunctionApmResourceStatsDataSource dataSource) {
     this.dataSource = dataSource;
     this.unparsed |= !dataSource.isValid();
     return this;
   }
 
-  /**
+   /**
    * Get dataSource
-   *
    * @return dataSource
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public FormulaAndFunctionApmResourceStatsDataSource getDataSource() {
     return dataSource;
   }
 
+
   public void setDataSource(FormulaAndFunctionApmResourceStatsDataSource dataSource) {
     if (!dataSource.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.dataSource = dataSource;
   }
+
 
   public FormulaAndFunctionApmResourceStatsQueryDefinition env(String env) {
     this.env = env;
     return this;
   }
 
-  /**
+   /**
    * APM environment.
-   *
    * @return env
-   */
+  **/
   @ApiModelProperty(example = "staging", required = true, value = "APM environment.")
   @JsonProperty(JSON_PROPERTY_ENV)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getEnv() {
     return env;
   }
 
+
   public void setEnv(String env) {
     this.env = env;
   }
+
 
   public FormulaAndFunctionApmResourceStatsQueryDefinition groupBy(List<String> groupBy) {
     this.groupBy = groupBy;
@@ -148,195 +165,197 @@ public class FormulaAndFunctionApmResourceStatsQueryDefinition {
     return this;
   }
 
-  /**
+   /**
    * Array of fields to group results by.
-   *
    * @return groupBy
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Array of fields to group results by.")
   @JsonProperty(JSON_PROPERTY_GROUP_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<String> getGroupBy() {
     return groupBy;
   }
 
+
   public void setGroupBy(List<String> groupBy) {
     this.groupBy = groupBy;
   }
+
 
   public FormulaAndFunctionApmResourceStatsQueryDefinition name(String name) {
     this.name = name;
     return this;
   }
 
-  /**
+   /**
    * Name of this query to use in formulas.
-   *
    * @return name
-   */
-  @ApiModelProperty(
-      example = "query_errors",
-      required = true,
-      value = "Name of this query to use in formulas.")
+  **/
+  @ApiModelProperty(example = "query_errors", required = true, value = "Name of this query to use in formulas.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getName() {
     return name;
   }
 
+
   public void setName(String name) {
     this.name = name;
   }
+
 
   public FormulaAndFunctionApmResourceStatsQueryDefinition operationName(String operationName) {
     this.operationName = operationName;
     return this;
   }
 
-  /**
+   /**
    * Name of operation on service.
-   *
    * @return operationName
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "cassandra.query", value = "Name of operation on service.")
   @JsonProperty(JSON_PROPERTY_OPERATION_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getOperationName() {
     return operationName;
   }
 
+
   public void setOperationName(String operationName) {
     this.operationName = operationName;
   }
+
 
   public FormulaAndFunctionApmResourceStatsQueryDefinition primaryTagName(String primaryTagName) {
     this.primaryTagName = primaryTagName;
     return this;
   }
 
-  /**
-   * Name of the second primary tag used within APM. Required when &#x60;primary_tag_value&#x60; is
-   * specified. See
-   * https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog
-   *
+   /**
+   * Name of the second primary tag used within APM. Required when &#x60;primary_tag_value&#x60; is specified. See https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog
    * @return primaryTagName
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "datacenter",
-      value =
-          "Name of the second primary tag used within APM. Required when `primary_tag_value` is"
-              + " specified. See"
-              + " https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog")
+  @ApiModelProperty(example = "datacenter", value = "Name of the second primary tag used within APM. Required when `primary_tag_value` is specified. See https://docs.datadoghq.com/tracing/guide/setting_primary_tags_to_scope/#add-a-second-primary-tag-in-datadog")
   @JsonProperty(JSON_PROPERTY_PRIMARY_TAG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getPrimaryTagName() {
     return primaryTagName;
   }
 
+
   public void setPrimaryTagName(String primaryTagName) {
     this.primaryTagName = primaryTagName;
   }
+
 
   public FormulaAndFunctionApmResourceStatsQueryDefinition primaryTagValue(String primaryTagValue) {
     this.primaryTagValue = primaryTagValue;
     return this;
   }
 
-  /**
-   * Value of the second primary tag by which to filter APM data. &#x60;primary_tag_name&#x60; must
-   * also be specified.
-   *
+   /**
+   * Value of the second primary tag by which to filter APM data. &#x60;primary_tag_name&#x60; must also be specified.
    * @return primaryTagValue
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "us-east-az",
-      value =
-          "Value of the second primary tag by which to filter APM data. `primary_tag_name` must"
-              + " also be specified.")
+  @ApiModelProperty(example = "us-east-az", value = "Value of the second primary tag by which to filter APM data. `primary_tag_name` must also be specified.")
   @JsonProperty(JSON_PROPERTY_PRIMARY_TAG_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getPrimaryTagValue() {
     return primaryTagValue;
   }
 
+
   public void setPrimaryTagValue(String primaryTagValue) {
     this.primaryTagValue = primaryTagValue;
   }
+
 
   public FormulaAndFunctionApmResourceStatsQueryDefinition resourceName(String resourceName) {
     this.resourceName = resourceName;
     return this;
   }
 
-  /**
+   /**
    * APM resource name.
-   *
    * @return resourceName
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Admin::ProductsController#create", value = "APM resource name.")
   @JsonProperty(JSON_PROPERTY_RESOURCE_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getResourceName() {
     return resourceName;
   }
 
+
   public void setResourceName(String resourceName) {
     this.resourceName = resourceName;
   }
+
 
   public FormulaAndFunctionApmResourceStatsQueryDefinition service(String service) {
     this.service = service;
     return this;
   }
 
-  /**
+   /**
    * APM service name.
-   *
    * @return service
-   */
+  **/
   @ApiModelProperty(example = "web-store", required = true, value = "APM service name.")
   @JsonProperty(JSON_PROPERTY_SERVICE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getService() {
     return service;
   }
+
 
   public void setService(String service) {
     this.service = service;
   }
 
-  public FormulaAndFunctionApmResourceStatsQueryDefinition stat(
-      FormulaAndFunctionApmResourceStatName stat) {
+
+  public FormulaAndFunctionApmResourceStatsQueryDefinition stat(FormulaAndFunctionApmResourceStatName stat) {
     this.stat = stat;
     this.unparsed |= !stat.isValid();
     return this;
   }
 
-  /**
+   /**
    * Get stat
-   *
    * @return stat
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_STAT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public FormulaAndFunctionApmResourceStatName getStat() {
     return stat;
   }
 
+
   public void setStat(FormulaAndFunctionApmResourceStatName stat) {
     if (!stat.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.stat = stat;
   }
 
-  /** Return true if this FormulaAndFunctionApmResourceStatsQueryDefinition object is equal to o. */
+
+  /**
+   * Return true if this FormulaAndFunctionApmResourceStatsQueryDefinition object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -345,39 +364,22 @@ public class FormulaAndFunctionApmResourceStatsQueryDefinition {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FormulaAndFunctionApmResourceStatsQueryDefinition
-        formulaAndFunctionApmResourceStatsQueryDefinition =
-            (FormulaAndFunctionApmResourceStatsQueryDefinition) o;
-    return Objects.equals(
-            this.dataSource, formulaAndFunctionApmResourceStatsQueryDefinition.dataSource)
-        && Objects.equals(this.env, formulaAndFunctionApmResourceStatsQueryDefinition.env)
-        && Objects.equals(this.groupBy, formulaAndFunctionApmResourceStatsQueryDefinition.groupBy)
-        && Objects.equals(this.name, formulaAndFunctionApmResourceStatsQueryDefinition.name)
-        && Objects.equals(
-            this.operationName, formulaAndFunctionApmResourceStatsQueryDefinition.operationName)
-        && Objects.equals(
-            this.primaryTagName, formulaAndFunctionApmResourceStatsQueryDefinition.primaryTagName)
-        && Objects.equals(
-            this.primaryTagValue, formulaAndFunctionApmResourceStatsQueryDefinition.primaryTagValue)
-        && Objects.equals(
-            this.resourceName, formulaAndFunctionApmResourceStatsQueryDefinition.resourceName)
-        && Objects.equals(this.service, formulaAndFunctionApmResourceStatsQueryDefinition.service)
-        && Objects.equals(this.stat, formulaAndFunctionApmResourceStatsQueryDefinition.stat);
+    FormulaAndFunctionApmResourceStatsQueryDefinition formulaAndFunctionApmResourceStatsQueryDefinition = (FormulaAndFunctionApmResourceStatsQueryDefinition) o;
+    return Objects.equals(this.dataSource, formulaAndFunctionApmResourceStatsQueryDefinition.dataSource) &&
+        Objects.equals(this.env, formulaAndFunctionApmResourceStatsQueryDefinition.env) &&
+        Objects.equals(this.groupBy, formulaAndFunctionApmResourceStatsQueryDefinition.groupBy) &&
+        Objects.equals(this.name, formulaAndFunctionApmResourceStatsQueryDefinition.name) &&
+        Objects.equals(this.operationName, formulaAndFunctionApmResourceStatsQueryDefinition.operationName) &&
+        Objects.equals(this.primaryTagName, formulaAndFunctionApmResourceStatsQueryDefinition.primaryTagName) &&
+        Objects.equals(this.primaryTagValue, formulaAndFunctionApmResourceStatsQueryDefinition.primaryTagValue) &&
+        Objects.equals(this.resourceName, formulaAndFunctionApmResourceStatsQueryDefinition.resourceName) &&
+        Objects.equals(this.service, formulaAndFunctionApmResourceStatsQueryDefinition.service) &&
+        Objects.equals(this.stat, formulaAndFunctionApmResourceStatsQueryDefinition.stat);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        dataSource,
-        env,
-        groupBy,
-        name,
-        operationName,
-        primaryTagName,
-        primaryTagValue,
-        resourceName,
-        service,
-        stat);
+    return Objects.hash(dataSource, env, groupBy, name, operationName, primaryTagName, primaryTagValue, resourceName, service, stat);
   }
 
   @Override
@@ -399,7 +401,8 @@ public class FormulaAndFunctionApmResourceStatsQueryDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -407,4 +410,6 @@ public class FormulaAndFunctionApmResourceStatsQueryDefinition {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

@@ -8,19 +8,34 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.SyntheticsBatchResult;
+import com.datadog.api.v1.client.model.SyntheticsCIBatchMetadata;
+import com.datadog.api.v1.client.model.SyntheticsStatus;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Wrapper object that contains the details of a batch. */
+
+/**
+ * Wrapper object that contains the details of a batch.
+ */
 @ApiModel(description = "Wrapper object that contains the details of a batch.")
 @JsonPropertyOrder({
   SyntheticsBatchDetailsData.JSON_PROPERTY_METADATA,
@@ -28,8 +43,10 @@ import java.util.Objects;
   SyntheticsBatchDetailsData.JSON_PROPERTY_STATUS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SyntheticsBatchDetailsData {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_METADATA = "metadata";
   private SyntheticsCIBatchMetadata metadata;
 
@@ -39,28 +56,31 @@ public class SyntheticsBatchDetailsData {
   public static final String JSON_PROPERTY_STATUS = "status";
   private SyntheticsStatus status;
 
+
   public SyntheticsBatchDetailsData metadata(SyntheticsCIBatchMetadata metadata) {
     this.metadata = metadata;
     this.unparsed |= metadata.unparsed;
     return this;
   }
 
-  /**
+   /**
    * Get metadata
-   *
    * @return metadata
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public SyntheticsCIBatchMetadata getMetadata() {
     return metadata;
   }
 
+
   public void setMetadata(SyntheticsCIBatchMetadata metadata) {
     this.metadata = metadata;
   }
+
 
   public SyntheticsBatchDetailsData results(List<SyntheticsBatchResult> results) {
     this.results = results;
@@ -79,22 +99,24 @@ public class SyntheticsBatchDetailsData {
     return this;
   }
 
-  /**
+   /**
    * List of results for the batch.
-   *
    * @return results
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "List of results for the batch.")
   @JsonProperty(JSON_PROPERTY_RESULTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<SyntheticsBatchResult> getResults() {
     return results;
   }
 
+
   public void setResults(List<SyntheticsBatchResult> results) {
     this.results = results;
   }
+
 
   public SyntheticsBatchDetailsData status(SyntheticsStatus status) {
     this.status = status;
@@ -102,27 +124,31 @@ public class SyntheticsBatchDetailsData {
     return this;
   }
 
-  /**
+   /**
    * Get status
-   *
    * @return status
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public SyntheticsStatus getStatus() {
     return status;
   }
 
+
   public void setStatus(SyntheticsStatus status) {
     if (!status.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.status = status;
   }
 
-  /** Return true if this SyntheticsBatchDetailsData object is equal to o. */
+
+  /**
+   * Return true if this SyntheticsBatchDetailsData object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -132,9 +158,9 @@ public class SyntheticsBatchDetailsData {
       return false;
     }
     SyntheticsBatchDetailsData syntheticsBatchDetailsData = (SyntheticsBatchDetailsData) o;
-    return Objects.equals(this.metadata, syntheticsBatchDetailsData.metadata)
-        && Objects.equals(this.results, syntheticsBatchDetailsData.results)
-        && Objects.equals(this.status, syntheticsBatchDetailsData.status);
+    return Objects.equals(this.metadata, syntheticsBatchDetailsData.metadata) &&
+        Objects.equals(this.results, syntheticsBatchDetailsData.results) &&
+        Objects.equals(this.status, syntheticsBatchDetailsData.status);
   }
 
   @Override
@@ -154,7 +180,8 @@ public class SyntheticsBatchDetailsData {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -162,4 +189,6 @@ public class SyntheticsBatchDetailsData {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

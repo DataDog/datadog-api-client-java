@@ -8,23 +8,38 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.SunburstWidgetDefinitionType;
+import com.datadog.api.v1.client.model.SunburstWidgetLegend;
+import com.datadog.api.v1.client.model.SunburstWidgetRequest;
+import com.datadog.api.v1.client.model.WidgetCustomLink;
+import com.datadog.api.v1.client.model.WidgetTextAlign;
+import com.datadog.api.v1.client.model.WidgetTime;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Sunbursts are spot on to highlight how groups contribute to the total of a query. */
-@ApiModel(
-    description =
-        "Sunbursts are spot on to highlight how groups contribute to the total of a query.")
+
+/**
+ * Sunbursts are spot on to highlight how groups contribute to the total of a query.
+ */
+@ApiModel(description = "Sunbursts are spot on to highlight how groups contribute to the total of a query.")
 @JsonPropertyOrder({
   SunburstWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
   SunburstWidgetDefinition.JSON_PROPERTY_HIDE_TOTAL,
@@ -37,8 +52,10 @@ import java.util.Objects;
   SunburstWidgetDefinition.JSON_PROPERTY_TYPE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SunburstWidgetDefinition {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
   private List<WidgetCustomLink> customLinks = null;
 
@@ -70,13 +87,12 @@ public class SunburstWidgetDefinition {
 
   @JsonCreator
   public SunburstWidgetDefinition(
-      @JsonProperty(required = true, value = JSON_PROPERTY_REQUESTS)
-          List<SunburstWidgetRequest> requests,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          SunburstWidgetDefinitionType type) {
-    this.requests = requests;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_REQUESTS) List<SunburstWidgetRequest> requests,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE) SunburstWidgetDefinitionType type
+            ) {
+        this.requests = requests;
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
 
   public SunburstWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
@@ -96,44 +112,48 @@ public class SunburstWidgetDefinition {
     return this;
   }
 
-  /**
+   /**
    * List of custom links.
-   *
    * @return customLinks
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "List of custom links.")
   @JsonProperty(JSON_PROPERTY_CUSTOM_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<WidgetCustomLink> getCustomLinks() {
     return customLinks;
   }
 
+
   public void setCustomLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
   }
+
 
   public SunburstWidgetDefinition hideTotal(Boolean hideTotal) {
     this.hideTotal = hideTotal;
     return this;
   }
 
-  /**
+   /**
    * Show the total value in this widget.
-   *
    * @return hideTotal
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Show the total value in this widget.")
   @JsonProperty(JSON_PROPERTY_HIDE_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Boolean getHideTotal() {
     return hideTotal;
   }
 
+
   public void setHideTotal(Boolean hideTotal) {
     this.hideTotal = hideTotal;
   }
+
 
   public SunburstWidgetDefinition legend(SunburstWidgetLegend legend) {
     this.legend = legend;
@@ -141,22 +161,24 @@ public class SunburstWidgetDefinition {
     return this;
   }
 
-  /**
+   /**
    * Get legend
-   *
    * @return legend
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LEGEND)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public SunburstWidgetLegend getLegend() {
     return legend;
   }
 
+
   public void setLegend(SunburstWidgetLegend legend) {
     this.legend = legend;
   }
+
 
   public SunburstWidgetDefinition requests(List<SunburstWidgetRequest> requests) {
     this.requests = requests;
@@ -172,24 +194,23 @@ public class SunburstWidgetDefinition {
     return this;
   }
 
-  /**
+   /**
    * List of sunburst widget requests.
-   *
    * @return requests
-   */
-  @ApiModelProperty(
-      example = "[{\"q/apm_query/log_query\":\"<METRIC_1>{<SCOPE_1>}\"}]",
-      required = true,
-      value = "List of sunburst widget requests.")
+  **/
+  @ApiModelProperty(example = "[{\"q/apm_query/log_query\":\"<METRIC_1>{<SCOPE_1>}\"}]", required = true, value = "List of sunburst widget requests.")
   @JsonProperty(JSON_PROPERTY_REQUESTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<SunburstWidgetRequest> getRequests() {
     return requests;
   }
 
+
   public void setRequests(List<SunburstWidgetRequest> requests) {
     this.requests = requests;
   }
+
 
   public SunburstWidgetDefinition time(WidgetTime time) {
     this.time = time;
@@ -197,44 +218,48 @@ public class SunburstWidgetDefinition {
     return this;
   }
 
-  /**
+   /**
    * Get time
-   *
    * @return time
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public WidgetTime getTime() {
     return time;
   }
 
+
   public void setTime(WidgetTime time) {
     this.time = time;
   }
+
 
   public SunburstWidgetDefinition title(String title) {
     this.title = title;
     return this;
   }
 
-  /**
+   /**
    * Title of your widget.
-   *
    * @return title
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Title of your widget.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getTitle() {
     return title;
   }
 
+
   public void setTitle(String title) {
     this.title = title;
   }
+
 
   public SunburstWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
@@ -242,47 +267,51 @@ public class SunburstWidgetDefinition {
     return this;
   }
 
-  /**
+   /**
    * Get titleAlign
-   *
    * @return titleAlign
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public WidgetTextAlign getTitleAlign() {
     return titleAlign;
   }
 
+
   public void setTitleAlign(WidgetTextAlign titleAlign) {
     if (!titleAlign.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.titleAlign = titleAlign;
   }
+
 
   public SunburstWidgetDefinition titleSize(String titleSize) {
     this.titleSize = titleSize;
     return this;
   }
 
-  /**
+   /**
    * Size of the title.
-   *
    * @return titleSize
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Size of the title.")
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getTitleSize() {
     return titleSize;
   }
 
+
   public void setTitleSize(String titleSize) {
     this.titleSize = titleSize;
   }
+
 
   public SunburstWidgetDefinition type(SunburstWidgetDefinitionType type) {
     this.type = type;
@@ -290,26 +319,30 @@ public class SunburstWidgetDefinition {
     return this;
   }
 
-  /**
+   /**
    * Get type
-   *
    * @return type
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public SunburstWidgetDefinitionType getType() {
     return type;
   }
 
+
   public void setType(SunburstWidgetDefinitionType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
-  /** Return true if this SunburstWidgetDefinition object is equal to o. */
+
+  /**
+   * Return true if this SunburstWidgetDefinition object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -319,21 +352,20 @@ public class SunburstWidgetDefinition {
       return false;
     }
     SunburstWidgetDefinition sunburstWidgetDefinition = (SunburstWidgetDefinition) o;
-    return Objects.equals(this.customLinks, sunburstWidgetDefinition.customLinks)
-        && Objects.equals(this.hideTotal, sunburstWidgetDefinition.hideTotal)
-        && Objects.equals(this.legend, sunburstWidgetDefinition.legend)
-        && Objects.equals(this.requests, sunburstWidgetDefinition.requests)
-        && Objects.equals(this.time, sunburstWidgetDefinition.time)
-        && Objects.equals(this.title, sunburstWidgetDefinition.title)
-        && Objects.equals(this.titleAlign, sunburstWidgetDefinition.titleAlign)
-        && Objects.equals(this.titleSize, sunburstWidgetDefinition.titleSize)
-        && Objects.equals(this.type, sunburstWidgetDefinition.type);
+    return Objects.equals(this.customLinks, sunburstWidgetDefinition.customLinks) &&
+        Objects.equals(this.hideTotal, sunburstWidgetDefinition.hideTotal) &&
+        Objects.equals(this.legend, sunburstWidgetDefinition.legend) &&
+        Objects.equals(this.requests, sunburstWidgetDefinition.requests) &&
+        Objects.equals(this.time, sunburstWidgetDefinition.time) &&
+        Objects.equals(this.title, sunburstWidgetDefinition.title) &&
+        Objects.equals(this.titleAlign, sunburstWidgetDefinition.titleAlign) &&
+        Objects.equals(this.titleSize, sunburstWidgetDefinition.titleSize) &&
+        Objects.equals(this.type, sunburstWidgetDefinition.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        customLinks, hideTotal, legend, requests, time, title, titleAlign, titleSize, type);
+    return Objects.hash(customLinks, hideTotal, legend, requests, time, title, titleAlign, titleSize, type);
   }
 
   @Override
@@ -354,7 +386,8 @@ public class SunburstWidgetDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -362,4 +395,6 @@ public class SunburstWidgetDefinition {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

@@ -8,33 +8,43 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import io.swagger.annotations.ApiModel;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
+
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
 
+
+import java.util.Set;
+import java.util.HashSet;
 /**
- * The status of your Synthetic monitor. * &#x60;O&#x60; for not triggered * &#x60;1&#x60; for
- * triggered * &#x60;2&#x60; for no data
+ * The status of your Synthetic monitor. * &#x60;O&#x60; for not triggered * &#x60;1&#x60; for triggered * &#x60;2&#x60; for no data
  */
 @JsonSerialize(using = SyntheticsTestMonitorStatus.SyntheticsTestMonitorStatusSerializer.class)
 public class SyntheticsTestMonitorStatus {
-
+  
   public static final SyntheticsTestMonitorStatus UNTRIGGERED = new SyntheticsTestMonitorStatus(0l);
   public static final SyntheticsTestMonitorStatus TRIGGERED = new SyntheticsTestMonitorStatus(1l);
   public static final SyntheticsTestMonitorStatus NO_DATA = new SyntheticsTestMonitorStatus(2l);
 
-  private static final Set<Long> allowedValues = new HashSet<Long>(Arrays.asList(0l, 1l, 2l));
+  private static final Set<Long> allowedValues = new HashSet<Long>(Arrays.asList(0l,1l,2l));
 
   private Long value;
 
@@ -46,22 +56,19 @@ public class SyntheticsTestMonitorStatus {
     this.value = value;
   }
 
-  public static class SyntheticsTestMonitorStatusSerializer
-      extends StdSerializer<SyntheticsTestMonitorStatus> {
-    public SyntheticsTestMonitorStatusSerializer(Class<SyntheticsTestMonitorStatus> t) {
-      super(t);
-    }
+  public static class SyntheticsTestMonitorStatusSerializer extends StdSerializer<SyntheticsTestMonitorStatus> {
+      public SyntheticsTestMonitorStatusSerializer(Class<SyntheticsTestMonitorStatus> t) {
+          super(t);
+      }
 
-    public SyntheticsTestMonitorStatusSerializer() {
-      this(null);
-    }
+      public SyntheticsTestMonitorStatusSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        SyntheticsTestMonitorStatus value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(SyntheticsTestMonitorStatus value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -73,7 +80,9 @@ public class SyntheticsTestMonitorStatus {
     this.value = value;
   }
 
-  /** Return true if this SyntheticsTestMonitorStatus object is equal to o. */
+  /**
+   * Return true if this SyntheticsTestMonitorStatus object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -87,7 +96,7 @@ public class SyntheticsTestMonitorStatus {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override
@@ -100,3 +109,4 @@ public class SyntheticsTestMonitorStatus {
     return new SyntheticsTestMonitorStatus(value);
   }
 }
+

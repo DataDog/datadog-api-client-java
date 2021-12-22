@@ -5,6 +5,7 @@ import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.DashboardsApi;
 import com.datadog.api.v1.client.model.Dashboard;
+import com.datadog.api.v1.client.model.Dashboard;
 import com.datadog.api.v1.client.model.DashboardLayoutType;
 import com.datadog.api.v1.client.model.FormulaAndFunctionMetricAggregation;
 import com.datadog.api.v1.client.model.FormulaAndFunctionMetricDataSource;
@@ -28,65 +29,34 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     DashboardsApi apiInstance = new DashboardsApi(defaultClient);
 
-    Dashboard body =
-        new Dashboard()
-            .layoutType(DashboardLayoutType.ORDERED)
-            .title(
-                "Example-Create_a_new_dashboard_with_a_query_value_widget_using_the_percentile_aggregator"
-                    + " with QVW Percentile Aggregator")
-            .widgets(
-                new ArrayList<Widget>() {
-                  {
-                    add(
-                        new Widget()
-                            .definition(
-                                new WidgetDefinition(
-                                    new QueryValueWidgetDefinition()
-                                        .titleSize("16")
-                                        .title("")
-                                        .titleAlign(WidgetTextAlign.LEFT)
-                                        .precision(2L)
-                                        .time(new WidgetTime())
-                                        .autoscale(true)
-                                        .requests(
-                                            new ArrayList<QueryValueWidgetRequest>() {
-                                              {
-                                                add(
-                                                    new QueryValueWidgetRequest()
-                                                        .formulas(
-                                                            new ArrayList<WidgetFormula>() {
-                                                              {
-                                                                add(
-                                                                    new WidgetFormula()
-                                                                        .formula("query1"));
-                                                              }
-                                                            })
-                                                        .responseFormat(
-                                                            FormulaAndFunctionResponseFormat.SCALAR)
-                                                        .queries(
-                                                            new ArrayList<
-                                                                FormulaAndFunctionQueryDefinition>() {
-                                                              {
-                                                                add(
-                                                                    new FormulaAndFunctionQueryDefinition(
-                                                                        new FormulaAndFunctionMetricQueryDefinition()
-                                                                            .query(
-                                                                                "p90:dist.dd.dogweb.latency{*}")
-                                                                            .dataSource(
-                                                                                FormulaAndFunctionMetricDataSource
-                                                                                    .METRICS)
-                                                                            .name("query1")
-                                                                            .aggregator(
-                                                                                FormulaAndFunctionMetricAggregation
-                                                                                    .PERCENTILE)));
-                                                              }
-                                                            }));
-                                              }
-                                            })
-                                        .type(QueryValueWidgetDefinitionType.QUERY_VALUE)))
-                            .layout(new WidgetLayout().y(0L).x(0L).height(2L).width(2L)));
-                  }
-                });
+    Dashboard body = new Dashboard()
+.layoutType(DashboardLayoutType.ORDERED)
+.title("Example-Create_a_new_dashboard_with_a_query_value_widget_using_the_percentile_aggregator with QVW Percentile Aggregator")
+.widgets(new ArrayList<Widget>() {{add(new Widget()
+.definition(new WidgetDefinition(
+new QueryValueWidgetDefinition()
+.titleSize("16")
+.title("")
+.titleAlign(WidgetTextAlign.LEFT)
+.precision(2L)
+.time(new WidgetTime())
+.autoscale(true)
+.requests(new ArrayList<QueryValueWidgetRequest>() {{add(new QueryValueWidgetRequest()
+.formulas(new ArrayList<WidgetFormula>() {{add(new WidgetFormula()
+.formula("query1"));}})
+.responseFormat(FormulaAndFunctionResponseFormat.SCALAR)
+.queries(new ArrayList<FormulaAndFunctionQueryDefinition>() {{add(new FormulaAndFunctionQueryDefinition(
+new FormulaAndFunctionMetricQueryDefinition()
+.query("p90:dist.dd.dogweb.latency{*}")
+.dataSource(FormulaAndFunctionMetricDataSource.METRICS)
+.name("query1")
+.aggregator(FormulaAndFunctionMetricAggregation.PERCENTILE)));}}));}})
+.type(QueryValueWidgetDefinitionType.QUERY_VALUE)))
+.layout(new WidgetLayout()
+.y(0L)
+.x(0L)
+.height(2L)
+.width(2L)));}});
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

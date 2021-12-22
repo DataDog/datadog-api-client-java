@@ -8,17 +8,33 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.SyntheticsDeviceID;
+import com.datadog.api.v1.client.model.SyntheticsStatus;
+import com.datadog.api.v1.client.model.SyntheticsTestDetailsType;
+import com.datadog.api.v1.client.model.SyntheticsTestExecutionRule;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Object with the results of a Synthetics batch. */
+
+/**
+ * Object with the results of a Synthetics batch.
+ */
 @ApiModel(description = "Object with the results of a Synthetics batch.")
 @JsonPropertyOrder({
   SyntheticsBatchResult.JSON_PROPERTY_DEVICE,
@@ -33,8 +49,10 @@ import java.util.Objects;
   SyntheticsBatchResult.JSON_PROPERTY_TEST_TYPE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SyntheticsBatchResult {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DEVICE = "device";
   private SyntheticsDeviceID device;
 
@@ -65,53 +83,58 @@ public class SyntheticsBatchResult {
   public static final String JSON_PROPERTY_TEST_TYPE = "test_type";
   private SyntheticsTestDetailsType testType;
 
+
   public SyntheticsBatchResult device(SyntheticsDeviceID device) {
     this.device = device;
     this.unparsed |= !device.isValid();
     return this;
   }
 
-  /**
+   /**
    * Get device
-   *
    * @return device
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DEVICE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public SyntheticsDeviceID getDevice() {
     return device;
   }
 
+
   public void setDevice(SyntheticsDeviceID device) {
     if (!device.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.device = device;
   }
+
 
   public SyntheticsBatchResult duration(Double duration) {
     this.duration = duration;
     return this;
   }
 
-  /**
+   /**
    * Total duration in millisecond of the test.
-   *
    * @return duration
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Total duration in millisecond of the test.")
   @JsonProperty(JSON_PROPERTY_DURATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Double getDuration() {
     return duration;
   }
 
+
   public void setDuration(Double duration) {
     this.duration = duration;
   }
+
 
   public SyntheticsBatchResult executionRule(SyntheticsTestExecutionRule executionRule) {
     this.executionRule = executionRule;
@@ -119,91 +142,99 @@ public class SyntheticsBatchResult {
     return this;
   }
 
-  /**
+   /**
    * Get executionRule
-   *
    * @return executionRule
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_EXECUTION_RULE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public SyntheticsTestExecutionRule getExecutionRule() {
     return executionRule;
   }
 
+
   public void setExecutionRule(SyntheticsTestExecutionRule executionRule) {
     if (!executionRule.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.executionRule = executionRule;
   }
+
 
   public SyntheticsBatchResult location(String location) {
     this.location = location;
     return this;
   }
 
-  /**
+   /**
    * Name of the location.
-   *
    * @return location
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Name of the location.")
   @JsonProperty(JSON_PROPERTY_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getLocation() {
     return location;
   }
 
+
   public void setLocation(String location) {
     this.location = location;
   }
+
 
   public SyntheticsBatchResult resultId(String resultId) {
     this.resultId = resultId;
     return this;
   }
 
-  /**
+   /**
    * The ID of the result to get.
-   *
    * @return resultId
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The ID of the result to get.")
   @JsonProperty(JSON_PROPERTY_RESULT_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getResultId() {
     return resultId;
   }
 
+
   public void setResultId(String resultId) {
     this.resultId = resultId;
   }
+
 
   public SyntheticsBatchResult retries(Double retries) {
     this.retries = retries;
     return this;
   }
 
-  /**
+   /**
    * Total duration in millisecond of the test.
-   *
    * @return retries
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Total duration in millisecond of the test.")
   @JsonProperty(JSON_PROPERTY_RETRIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Double getRetries() {
     return retries;
   }
 
+
   public void setRetries(Double retries) {
     this.retries = retries;
   }
+
 
   public SyntheticsBatchResult status(SyntheticsStatus status) {
     this.status = status;
@@ -211,69 +242,75 @@ public class SyntheticsBatchResult {
     return this;
   }
 
-  /**
+   /**
    * Get status
-   *
    * @return status
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public SyntheticsStatus getStatus() {
     return status;
   }
 
+
   public void setStatus(SyntheticsStatus status) {
     if (!status.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.status = status;
   }
+
 
   public SyntheticsBatchResult testName(String testName) {
     this.testName = testName;
     return this;
   }
 
-  /**
+   /**
    * Name of the test.
-   *
    * @return testName
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Name of the test.")
   @JsonProperty(JSON_PROPERTY_TEST_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getTestName() {
     return testName;
   }
 
+
   public void setTestName(String testName) {
     this.testName = testName;
   }
+
 
   public SyntheticsBatchResult testPublicId(String testPublicId) {
     this.testPublicId = testPublicId;
     return this;
   }
 
-  /**
+   /**
    * The public ID of the Synthetic test.
-   *
    * @return testPublicId
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The public ID of the Synthetic test.")
   @JsonProperty(JSON_PROPERTY_TEST_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getTestPublicId() {
     return testPublicId;
   }
 
+
   public void setTestPublicId(String testPublicId) {
     this.testPublicId = testPublicId;
   }
+
 
   public SyntheticsBatchResult testType(SyntheticsTestDetailsType testType) {
     this.testType = testType;
@@ -281,27 +318,31 @@ public class SyntheticsBatchResult {
     return this;
   }
 
-  /**
+   /**
    * Get testType
-   *
    * @return testType
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TEST_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public SyntheticsTestDetailsType getTestType() {
     return testType;
   }
 
+
   public void setTestType(SyntheticsTestDetailsType testType) {
     if (!testType.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.testType = testType;
   }
 
-  /** Return true if this SyntheticsBatchResult object is equal to o. */
+
+  /**
+   * Return true if this SyntheticsBatchResult object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -311,31 +352,21 @@ public class SyntheticsBatchResult {
       return false;
     }
     SyntheticsBatchResult syntheticsBatchResult = (SyntheticsBatchResult) o;
-    return Objects.equals(this.device, syntheticsBatchResult.device)
-        && Objects.equals(this.duration, syntheticsBatchResult.duration)
-        && Objects.equals(this.executionRule, syntheticsBatchResult.executionRule)
-        && Objects.equals(this.location, syntheticsBatchResult.location)
-        && Objects.equals(this.resultId, syntheticsBatchResult.resultId)
-        && Objects.equals(this.retries, syntheticsBatchResult.retries)
-        && Objects.equals(this.status, syntheticsBatchResult.status)
-        && Objects.equals(this.testName, syntheticsBatchResult.testName)
-        && Objects.equals(this.testPublicId, syntheticsBatchResult.testPublicId)
-        && Objects.equals(this.testType, syntheticsBatchResult.testType);
+    return Objects.equals(this.device, syntheticsBatchResult.device) &&
+        Objects.equals(this.duration, syntheticsBatchResult.duration) &&
+        Objects.equals(this.executionRule, syntheticsBatchResult.executionRule) &&
+        Objects.equals(this.location, syntheticsBatchResult.location) &&
+        Objects.equals(this.resultId, syntheticsBatchResult.resultId) &&
+        Objects.equals(this.retries, syntheticsBatchResult.retries) &&
+        Objects.equals(this.status, syntheticsBatchResult.status) &&
+        Objects.equals(this.testName, syntheticsBatchResult.testName) &&
+        Objects.equals(this.testPublicId, syntheticsBatchResult.testPublicId) &&
+        Objects.equals(this.testType, syntheticsBatchResult.testType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        device,
-        duration,
-        executionRule,
-        location,
-        resultId,
-        retries,
-        status,
-        testName,
-        testPublicId,
-        testType);
+    return Objects.hash(device, duration, executionRule, location, resultId, retries, status, testName, testPublicId, testType);
   }
 
   @Override
@@ -357,7 +388,8 @@ public class SyntheticsBatchResult {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -365,4 +397,6 @@ public class SyntheticsBatchResult {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

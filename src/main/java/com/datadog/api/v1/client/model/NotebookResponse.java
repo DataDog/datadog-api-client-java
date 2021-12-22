@@ -8,24 +8,42 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.NotebookResponseData;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** The description of a notebook response. */
+
+/**
+ * The description of a notebook response.
+ */
 @ApiModel(description = "The description of a notebook response.")
-@JsonPropertyOrder({NotebookResponse.JSON_PROPERTY_DATA})
+@JsonPropertyOrder({
+  NotebookResponse.JSON_PROPERTY_DATA
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class NotebookResponse {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private NotebookResponseData data;
+
 
   public NotebookResponse data(NotebookResponseData data) {
     this.data = data;
@@ -33,24 +51,28 @@ public class NotebookResponse {
     return this;
   }
 
-  /**
+   /**
    * Get data
-   *
    * @return data
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public NotebookResponseData getData() {
     return data;
   }
+
 
   public void setData(NotebookResponseData data) {
     this.data = data;
   }
 
-  /** Return true if this NotebookResponse object is equal to o. */
+
+  /**
+   * Return true if this NotebookResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -78,7 +100,8 @@ public class NotebookResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -86,4 +109,6 @@ public class NotebookResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

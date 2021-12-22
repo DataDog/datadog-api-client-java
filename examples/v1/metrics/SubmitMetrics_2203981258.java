@@ -1,4 +1,6 @@
 // Submit deflate metrics returns "Payload accepted" response
+import java.time.*;
+
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -16,44 +18,15 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     MetricsApi apiInstance = new MetricsApi(defaultClient);
 
-    MetricsPayload body =
-        new MetricsPayload()
-            .series(
-                new ArrayList<Series>() {
-                  {
-                    add(
-                        new Series()
-                            .metric("system.load.1")
-                            .type("gauge")
-                            .points(
-                                new ArrayList<List<Double>>() {
-                                  {
-                                    add(
-                                        new ArrayList<Double>() {
-                                          {
-                                            add(
-                                                Long.valueOf(Instant.now().getEpochSecond())
-                                                    .doubleValue());
-                                            add(1.1);
-                                          }
-                                        });
-                                  }
-                                })
-                            .tags(
-                                new ArrayList<String>() {
-                                  {
-                                    add(
-                                        "test:ExampleSubmitdeflatemetricsreturnsPayloadacceptedresponse");
-                                  }
-                                }));
-                  }
-                });
+    MetricsPayload body = new MetricsPayload()
+.series(new ArrayList<Series>() {{add(new Series()
+.metric("system.load.1")
+.type("gauge")
+.points(new ArrayList<List<Double>>() {{add(new ArrayList<Double>() {{add(Long.valueOf(Instant.now().getEpochSecond()).doubleValue()); add(1.1);}});}})
+.tags(new ArrayList<String>() {{add("test:ExampleSubmitdeflatemetricsreturnsPayloadacceptedresponse");}}));}});
 
     try {
-      IntakePayloadAccepted result =
-          apiInstance.submitMetrics(
-              body,
-              new SubmitMetricsOptionalParameters().contentEncoding(MetricContentEncoding.DEFLATE));
+      IntakePayloadAccepted result = apiInstance.submitMetrics(body,new SubmitMetricsOptionalParameters().contentEncoding(MetricContentEncoding.DEFLATE));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DowntimesApi#updateDowntime");

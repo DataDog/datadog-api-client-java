@@ -4,12 +4,12 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.api.LogsMetricsApi;
+import com.datadog.api.v2.client.model.LogsMetricResponse;
 import com.datadog.api.v2.client.model.LogsMetricCompute;
 import com.datadog.api.v2.client.model.LogsMetricComputeAggregationType;
 import com.datadog.api.v2.client.model.LogsMetricCreateAttributes;
 import com.datadog.api.v2.client.model.LogsMetricCreateData;
 import com.datadog.api.v2.client.model.LogsMetricCreateRequest;
-import com.datadog.api.v2.client.model.LogsMetricResponse;
 import com.datadog.api.v2.client.model.LogsMetricType;
 import java.time.*;
 import java.util.*;
@@ -19,17 +19,13 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     LogsMetricsApi apiInstance = new LogsMetricsApi(defaultClient);
 
-    LogsMetricCreateRequest body =
-        new LogsMetricCreateRequest()
-            .data(
-                new LogsMetricCreateData()
-                    .id("Example-Create_a_log_based_metric_returns_OK_response")
-                    .type(LogsMetricType.LOGS_METRICS)
-                    .attributes(
-                        new LogsMetricCreateAttributes()
-                            .compute(
-                                new LogsMetricCompute()
-                                    .aggregationType(LogsMetricComputeAggregationType.COUNT))));
+    LogsMetricCreateRequest body = new LogsMetricCreateRequest()
+.data(new LogsMetricCreateData()
+.id("Example-Create_a_log_based_metric_returns_OK_response")
+.type(LogsMetricType.LOGS_METRICS)
+.attributes(new LogsMetricCreateAttributes()
+.compute(new LogsMetricCompute()
+.aggregationType(LogsMetricComputeAggregationType.COUNT))));
 
     try {
       LogsMetricResponse result = apiInstance.createLogsMetric(body);

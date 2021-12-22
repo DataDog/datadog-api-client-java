@@ -4,8 +4,8 @@ import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.WebhooksIntegrationApi;
-import com.datadog.api.v1.client.model.WebhooksIntegrationCustomVariable;
 import com.datadog.api.v1.client.model.WebhooksIntegrationCustomVariableResponse;
+import com.datadog.api.v1.client.model.WebhooksIntegrationCustomVariable;
 import java.time.*;
 import java.util.*;
 
@@ -14,15 +14,13 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     WebhooksIntegrationApi apiInstance = new WebhooksIntegrationApi(defaultClient);
 
-    WebhooksIntegrationCustomVariable body =
-        new WebhooksIntegrationCustomVariable()
-            .isSecret(true)
-            .name("EXAMPLECREATEACUSTOMVARIABLERETURNSOKRESPONSE")
-            .value("CUSTOM_VARIABLE_VALUE");
+    WebhooksIntegrationCustomVariable body = new WebhooksIntegrationCustomVariable()
+.isSecret(true)
+.name("EXAMPLECREATEACUSTOMVARIABLERETURNSOKRESPONSE")
+.value("CUSTOM_VARIABLE_VALUE");
 
     try {
-      WebhooksIntegrationCustomVariableResponse result =
-          apiInstance.createWebhooksIntegrationCustomVariable(body);
+      WebhooksIntegrationCustomVariableResponse result = apiInstance.createWebhooksIntegrationCustomVariable(body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DowntimesApi#updateDowntime");

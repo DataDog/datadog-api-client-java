@@ -8,32 +8,49 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v2.client.model.LogsAggregateBucketValue;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
 
-/** A bucket values */
+
+/**
+ * A bucket values
+ */
 @ApiModel(description = "A bucket values")
 @JsonPropertyOrder({
   LogsAggregateBucket.JSON_PROPERTY_BY,
   LogsAggregateBucket.JSON_PROPERTY_COMPUTES
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class LogsAggregateBucket {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_BY = "by";
   private Map<String, String> by = null;
 
   public static final String JSON_PROPERTY_COMPUTES = "computes";
   private Map<String, LogsAggregateBucketValue> computes = null;
+
 
   public LogsAggregateBucket by(Map<String, String> by) {
     this.by = by;
@@ -48,24 +65,24 @@ public class LogsAggregateBucket {
     return this;
   }
 
-  /**
+   /**
    * The key, value pairs for each group by
-   *
    * @return by
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "{\"@state\":\"success\",\"@version\":\"abc\"}",
-      value = "The key, value pairs for each group by")
+  @ApiModelProperty(example = "{\"@state\":\"success\",\"@version\":\"abc\"}", value = "The key, value pairs for each group by")
   @JsonProperty(JSON_PROPERTY_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Map<String, String> getBy() {
     return by;
   }
 
+
   public void setBy(Map<String, String> by) {
     this.by = by;
   }
+
 
   public LogsAggregateBucket computes(Map<String, LogsAggregateBucketValue> computes) {
     this.computes = computes;
@@ -80,27 +97,28 @@ public class LogsAggregateBucket {
     return this;
   }
 
-  /**
+   /**
    * A map of the metric name -&gt; value for regular compute or list of values for a timeseries
-   *
    * @return computes
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "A map of the metric name -> value for regular compute or list of values for a"
-              + " timeseries")
+  @ApiModelProperty(value = "A map of the metric name -> value for regular compute or list of values for a timeseries")
   @JsonProperty(JSON_PROPERTY_COMPUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Map<String, LogsAggregateBucketValue> getComputes() {
     return computes;
   }
+
 
   public void setComputes(Map<String, LogsAggregateBucketValue> computes) {
     this.computes = computes;
   }
 
-  /** Return true if this LogsAggregateBucket object is equal to o. */
+
+  /**
+   * Return true if this LogsAggregateBucket object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -110,8 +128,8 @@ public class LogsAggregateBucket {
       return false;
     }
     LogsAggregateBucket logsAggregateBucket = (LogsAggregateBucket) o;
-    return Objects.equals(this.by, logsAggregateBucket.by)
-        && Objects.equals(this.computes, logsAggregateBucket.computes);
+    return Objects.equals(this.by, logsAggregateBucket.by) &&
+        Objects.equals(this.computes, logsAggregateBucket.computes);
   }
 
   @Override
@@ -130,7 +148,8 @@ public class LogsAggregateBucket {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -138,4 +157,6 @@ public class LogsAggregateBucket {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

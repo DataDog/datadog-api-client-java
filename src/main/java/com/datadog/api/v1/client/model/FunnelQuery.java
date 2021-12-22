@@ -8,20 +8,32 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.FunnelSource;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Updated funnel widget. */
+
+/**
+ * Updated funnel widget.
+ */
 @ApiModel(description = "Updated funnel widget.")
 @JsonPropertyOrder({
   FunnelQuery.JSON_PROPERTY_DATA_SOURCE,
@@ -29,8 +41,10 @@ import java.util.Objects;
   FunnelQuery.JSON_PROPERTY_STEPS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FunnelQuery {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA_SOURCE = "data_source";
   private FunnelSource dataSource = FunnelSource.RUM;
 
@@ -44,13 +58,14 @@ public class FunnelQuery {
 
   @JsonCreator
   public FunnelQuery(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA_SOURCE) FunnelSource dataSource,
-      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY_STRING) String queryString,
-      @JsonProperty(required = true, value = JSON_PROPERTY_STEPS) List<Object> steps) {
-    this.dataSource = dataSource;
-    this.unparsed |= !dataSource.isValid();
-    this.queryString = queryString;
-    this.steps = steps;
+            @JsonProperty(required=true, value=JSON_PROPERTY_DATA_SOURCE) FunnelSource dataSource,
+            @JsonProperty(required=true, value=JSON_PROPERTY_QUERY_STRING) String queryString,
+            @JsonProperty(required=true, value=JSON_PROPERTY_STEPS) List<Object> steps
+            ) {
+        this.dataSource = dataSource;
+        this.unparsed |= !dataSource.isValid();
+        this.queryString = queryString;
+        this.steps = steps;
   }
 
   public FunnelQuery dataSource(FunnelSource dataSource) {
@@ -59,45 +74,49 @@ public class FunnelQuery {
     return this;
   }
 
-  /**
+   /**
    * Get dataSource
-   *
    * @return dataSource
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATA_SOURCE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public FunnelSource getDataSource() {
     return dataSource;
   }
 
+
   public void setDataSource(FunnelSource dataSource) {
     if (!dataSource.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.dataSource = dataSource;
   }
+
 
   public FunnelQuery queryString(String queryString) {
     this.queryString = queryString;
     return this;
   }
 
-  /**
+   /**
    * The widget query.
-   *
    * @return queryString
-   */
+  **/
   @ApiModelProperty(example = "@browser.name:Chrome", required = true, value = "The widget query.")
   @JsonProperty(JSON_PROPERTY_QUERY_STRING)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getQueryString() {
     return queryString;
   }
 
+
   public void setQueryString(String queryString) {
     this.queryString = queryString;
   }
+
 
   public FunnelQuery steps(List<Object> steps) {
     this.steps = steps;
@@ -109,23 +128,27 @@ public class FunnelQuery {
     return this;
   }
 
-  /**
+   /**
    * List of funnel steps.
-   *
    * @return steps
-   */
+  **/
   @ApiModelProperty(required = true, value = "List of funnel steps.")
   @JsonProperty(JSON_PROPERTY_STEPS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<Object> getSteps() {
     return steps;
   }
+
 
   public void setSteps(List<Object> steps) {
     this.steps = steps;
   }
 
-  /** Return true if this FunnelQuery object is equal to o. */
+
+  /**
+   * Return true if this FunnelQuery object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -135,9 +158,9 @@ public class FunnelQuery {
       return false;
     }
     FunnelQuery funnelQuery = (FunnelQuery) o;
-    return Objects.equals(this.dataSource, funnelQuery.dataSource)
-        && Objects.equals(this.queryString, funnelQuery.queryString)
-        && Objects.equals(this.steps, funnelQuery.steps);
+    return Objects.equals(this.dataSource, funnelQuery.dataSource) &&
+        Objects.equals(this.queryString, funnelQuery.queryString) &&
+        Objects.equals(this.steps, funnelQuery.steps);
   }
 
   @Override
@@ -157,7 +180,8 @@ public class FunnelQuery {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -165,4 +189,6 @@ public class FunnelQuery {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

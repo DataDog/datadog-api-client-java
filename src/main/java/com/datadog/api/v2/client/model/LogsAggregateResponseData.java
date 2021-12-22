@@ -8,26 +8,44 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v2.client.model.LogsAggregateBucket;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
 
-/** The query results */
+
+/**
+ * The query results
+ */
 @ApiModel(description = "The query results")
-@JsonPropertyOrder({LogsAggregateResponseData.JSON_PROPERTY_BUCKETS})
+@JsonPropertyOrder({
+  LogsAggregateResponseData.JSON_PROPERTY_BUCKETS
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class LogsAggregateResponseData {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_BUCKETS = "buckets";
   private List<LogsAggregateBucket> buckets = null;
+
 
   public LogsAggregateResponseData buckets(List<LogsAggregateBucket> buckets) {
     this.buckets = buckets;
@@ -46,24 +64,28 @@ public class LogsAggregateResponseData {
     return this;
   }
 
-  /**
+   /**
    * The list of matching buckets, one item per bucket
-   *
    * @return buckets
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The list of matching buckets, one item per bucket")
   @JsonProperty(JSON_PROPERTY_BUCKETS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<LogsAggregateBucket> getBuckets() {
     return buckets;
   }
+
 
   public void setBuckets(List<LogsAggregateBucket> buckets) {
     this.buckets = buckets;
   }
 
-  /** Return true if this LogsAggregateResponse_data object is equal to o. */
+
+  /**
+   * Return true if this LogsAggregateResponse_data object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -91,7 +113,8 @@ public class LogsAggregateResponseData {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -99,4 +122,6 @@ public class LogsAggregateResponseData {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

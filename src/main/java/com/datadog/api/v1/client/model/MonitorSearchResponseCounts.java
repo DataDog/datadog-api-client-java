@@ -8,19 +8,31 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** The counts of monitors per different criteria. */
+
+/**
+ * The counts of monitors per different criteria.
+ */
 @ApiModel(description = "The counts of monitors per different criteria.")
 @JsonPropertyOrder({
   MonitorSearchResponseCounts.JSON_PROPERTY_MUTED,
@@ -29,8 +41,10 @@ import java.util.Objects;
   MonitorSearchResponseCounts.JSON_PROPERTY_TYPE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class MonitorSearchResponseCounts {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_MUTED = "muted";
   private List<Object> muted = null;
 
@@ -42,6 +56,7 @@ public class MonitorSearchResponseCounts {
 
   public static final String JSON_PROPERTY_TYPE = "type";
   private List<Object> type = null;
+
 
   public MonitorSearchResponseCounts muted(List<Object> muted) {
     this.muted = muted;
@@ -56,22 +71,24 @@ public class MonitorSearchResponseCounts {
     return this;
   }
 
-  /**
+   /**
    * Search facets.
-   *
    * @return muted
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Search facets.")
   @JsonProperty(JSON_PROPERTY_MUTED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<Object> getMuted() {
     return muted;
   }
 
+
   public void setMuted(List<Object> muted) {
     this.muted = muted;
   }
+
 
   public MonitorSearchResponseCounts status(List<Object> status) {
     this.status = status;
@@ -86,22 +103,24 @@ public class MonitorSearchResponseCounts {
     return this;
   }
 
-  /**
+   /**
    * Search facets.
-   *
    * @return status
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Search facets.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<Object> getStatus() {
     return status;
   }
 
+
   public void setStatus(List<Object> status) {
     this.status = status;
   }
+
 
   public MonitorSearchResponseCounts tag(List<Object> tag) {
     this.tag = tag;
@@ -116,22 +135,24 @@ public class MonitorSearchResponseCounts {
     return this;
   }
 
-  /**
+   /**
    * Search facets.
-   *
    * @return tag
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Search facets.")
   @JsonProperty(JSON_PROPERTY_TAG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<Object> getTag() {
     return tag;
   }
 
+
   public void setTag(List<Object> tag) {
     this.tag = tag;
   }
+
 
   public MonitorSearchResponseCounts type(List<Object> type) {
     this.type = type;
@@ -146,24 +167,28 @@ public class MonitorSearchResponseCounts {
     return this;
   }
 
-  /**
+   /**
    * Search facets.
-   *
    * @return type
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Search facets.")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<Object> getType() {
     return type;
   }
+
 
   public void setType(List<Object> type) {
     this.type = type;
   }
 
-  /** Return true if this MonitorSearchResponse_counts object is equal to o. */
+
+  /**
+   * Return true if this MonitorSearchResponse_counts object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -173,10 +198,10 @@ public class MonitorSearchResponseCounts {
       return false;
     }
     MonitorSearchResponseCounts monitorSearchResponseCounts = (MonitorSearchResponseCounts) o;
-    return Objects.equals(this.muted, monitorSearchResponseCounts.muted)
-        && Objects.equals(this.status, monitorSearchResponseCounts.status)
-        && Objects.equals(this.tag, monitorSearchResponseCounts.tag)
-        && Objects.equals(this.type, monitorSearchResponseCounts.type);
+    return Objects.equals(this.muted, monitorSearchResponseCounts.muted) &&
+        Objects.equals(this.status, monitorSearchResponseCounts.status) &&
+        Objects.equals(this.tag, monitorSearchResponseCounts.tag) &&
+        Objects.equals(this.type, monitorSearchResponseCounts.type);
   }
 
   @Override
@@ -197,7 +222,8 @@ public class MonitorSearchResponseCounts {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -205,4 +231,6 @@ public class MonitorSearchResponseCounts {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

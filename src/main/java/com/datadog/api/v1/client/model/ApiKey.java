@@ -8,17 +8,29 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Datadog API key. */
+
+/**
+ * Datadog API key.
+ */
 @ApiModel(description = "Datadog API key.")
 @JsonPropertyOrder({
   ApiKey.JSON_PROPERTY_CREATED,
@@ -27,8 +39,10 @@ import java.util.Objects;
   ApiKey.JSON_PROPERTY_NAME
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ApiKey {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED = "created";
   private String created;
 
@@ -41,70 +55,82 @@ public class ApiKey {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  /**
+
+   /**
    * Date of creation of the API key.
-   *
    * @return created
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "2019-08-02 15:31:07", value = "Date of creation of the API key.")
   @JsonProperty(JSON_PROPERTY_CREATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getCreated() {
     return created;
   }
 
-  /**
+
+
+
+   /**
    * Datadog user handle that created the API key.
-   *
    * @return createdBy
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "john@example.com",
-      value = "Datadog user handle that created the API key.")
+  @ApiModelProperty(example = "john@example.com", value = "Datadog user handle that created the API key.")
   @JsonProperty(JSON_PROPERTY_CREATED_BY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getCreatedBy() {
     return createdBy;
   }
 
-  /**
+
+
+
+   /**
    * API key.
-   *
    * @return key
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "1234512345123456abcabc912349abcd", value = "API key.")
   @JsonProperty(JSON_PROPERTY_KEY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getKey() {
     return key;
   }
+
+
+
 
   public ApiKey name(String name) {
     this.name = name;
     return this;
   }
 
-  /**
+   /**
    * Name of your API key.
-   *
    * @return name
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "example user", value = "Name of your API key.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getName() {
     return name;
   }
+
 
   public void setName(String name) {
     this.name = name;
   }
 
-  /** Return true if this ApiKey object is equal to o. */
+
+  /**
+   * Return true if this ApiKey object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -114,10 +140,10 @@ public class ApiKey {
       return false;
     }
     ApiKey apiKey = (ApiKey) o;
-    return Objects.equals(this.created, apiKey.created)
-        && Objects.equals(this.createdBy, apiKey.createdBy)
-        && Objects.equals(this.key, apiKey.key)
-        && Objects.equals(this.name, apiKey.name);
+    return Objects.equals(this.created, apiKey.created) &&
+        Objects.equals(this.createdBy, apiKey.createdBy) &&
+        Objects.equals(this.key, apiKey.key) &&
+        Objects.equals(this.name, apiKey.name);
   }
 
   @Override
@@ -138,7 +164,8 @@ public class ApiKey {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -146,4 +173,6 @@ public class ApiKey {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

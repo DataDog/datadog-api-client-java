@@ -8,31 +8,41 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import io.swagger.annotations.ApiModel;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
+
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
+
+
 import java.util.Set;
-
-/** Type of the service summary widget. */
-@JsonSerialize(
-    using = ServiceSummaryWidgetDefinitionType.ServiceSummaryWidgetDefinitionTypeSerializer.class)
+import java.util.HashSet;
+/**
+ * Type of the service summary widget.
+ */
+@JsonSerialize(using = ServiceSummaryWidgetDefinitionType.ServiceSummaryWidgetDefinitionTypeSerializer.class)
 public class ServiceSummaryWidgetDefinitionType {
+  
+  public static final ServiceSummaryWidgetDefinitionType TRACE_SERVICE = new ServiceSummaryWidgetDefinitionType("trace_service");
 
-  public static final ServiceSummaryWidgetDefinitionType TRACE_SERVICE =
-      new ServiceSummaryWidgetDefinitionType("trace_service");
-
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("trace_service"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("trace_service"));
 
   private String value;
 
@@ -44,23 +54,19 @@ public class ServiceSummaryWidgetDefinitionType {
     this.value = value;
   }
 
-  public static class ServiceSummaryWidgetDefinitionTypeSerializer
-      extends StdSerializer<ServiceSummaryWidgetDefinitionType> {
-    public ServiceSummaryWidgetDefinitionTypeSerializer(
-        Class<ServiceSummaryWidgetDefinitionType> t) {
-      super(t);
-    }
+  public static class ServiceSummaryWidgetDefinitionTypeSerializer extends StdSerializer<ServiceSummaryWidgetDefinitionType> {
+      public ServiceSummaryWidgetDefinitionTypeSerializer(Class<ServiceSummaryWidgetDefinitionType> t) {
+          super(t);
+      }
 
-    public ServiceSummaryWidgetDefinitionTypeSerializer() {
-      this(null);
-    }
+      public ServiceSummaryWidgetDefinitionTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        ServiceSummaryWidgetDefinitionType value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(ServiceSummaryWidgetDefinitionType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -72,7 +78,9 @@ public class ServiceSummaryWidgetDefinitionType {
     this.value = value;
   }
 
-  /** Return true if this ServiceSummaryWidgetDefinitionType object is equal to o. */
+  /**
+   * Return true if this ServiceSummaryWidgetDefinitionType object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -86,7 +94,7 @@ public class ServiceSummaryWidgetDefinitionType {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override
@@ -99,3 +107,4 @@ public class ServiceSummaryWidgetDefinitionType {
     return new ServiceSummaryWidgetDefinitionType(value);
   }
 }
+

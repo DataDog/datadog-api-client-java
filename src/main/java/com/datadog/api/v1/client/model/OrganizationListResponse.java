@@ -8,26 +8,44 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.Organization;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Response with the list of organizations. */
+
+/**
+ * Response with the list of organizations.
+ */
 @ApiModel(description = "Response with the list of organizations.")
-@JsonPropertyOrder({OrganizationListResponse.JSON_PROPERTY_ORGS})
+@JsonPropertyOrder({
+  OrganizationListResponse.JSON_PROPERTY_ORGS
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class OrganizationListResponse {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ORGS = "orgs";
   private List<Organization> orgs = null;
+
 
   public OrganizationListResponse orgs(List<Organization> orgs) {
     this.orgs = orgs;
@@ -46,24 +64,28 @@ public class OrganizationListResponse {
     return this;
   }
 
-  /**
+   /**
    * Array of organization objects.
-   *
    * @return orgs
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Array of organization objects.")
   @JsonProperty(JSON_PROPERTY_ORGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<Organization> getOrgs() {
     return orgs;
   }
+
 
   public void setOrgs(List<Organization> orgs) {
     this.orgs = orgs;
   }
 
-  /** Return true if this OrganizationListResponse object is equal to o. */
+
+  /**
+   * Return true if this OrganizationListResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -91,7 +113,8 @@ public class OrganizationListResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -99,4 +122,6 @@ public class OrganizationListResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

@@ -8,41 +8,45 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import io.swagger.annotations.ApiModel;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
+
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
+
+
 import java.util.Set;
-
-/** The aggregation type. */
-@JsonSerialize(
-    using =
-        SecurityMonitoringRuleQueryAggregation.SecurityMonitoringRuleQueryAggregationSerializer
-            .class)
+import java.util.HashSet;
+/**
+ * The aggregation type.
+ */
+@JsonSerialize(using = SecurityMonitoringRuleQueryAggregation.SecurityMonitoringRuleQueryAggregationSerializer.class)
 public class SecurityMonitoringRuleQueryAggregation {
+  
+  public static final SecurityMonitoringRuleQueryAggregation COUNT = new SecurityMonitoringRuleQueryAggregation("count");
+  public static final SecurityMonitoringRuleQueryAggregation CARDINALITY = new SecurityMonitoringRuleQueryAggregation("cardinality");
+  public static final SecurityMonitoringRuleQueryAggregation SUM = new SecurityMonitoringRuleQueryAggregation("sum");
+  public static final SecurityMonitoringRuleQueryAggregation MAX = new SecurityMonitoringRuleQueryAggregation("max");
+  public static final SecurityMonitoringRuleQueryAggregation NEW_VALUE = new SecurityMonitoringRuleQueryAggregation("new_value");
 
-  public static final SecurityMonitoringRuleQueryAggregation COUNT =
-      new SecurityMonitoringRuleQueryAggregation("count");
-  public static final SecurityMonitoringRuleQueryAggregation CARDINALITY =
-      new SecurityMonitoringRuleQueryAggregation("cardinality");
-  public static final SecurityMonitoringRuleQueryAggregation SUM =
-      new SecurityMonitoringRuleQueryAggregation("sum");
-  public static final SecurityMonitoringRuleQueryAggregation MAX =
-      new SecurityMonitoringRuleQueryAggregation("max");
-  public static final SecurityMonitoringRuleQueryAggregation NEW_VALUE =
-      new SecurityMonitoringRuleQueryAggregation("new_value");
-
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("count", "cardinality", "sum", "max", "new_value"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("count","cardinality","sum","max","new_value"));
 
   private String value;
 
@@ -54,25 +58,19 @@ public class SecurityMonitoringRuleQueryAggregation {
     this.value = value;
   }
 
-  public static class SecurityMonitoringRuleQueryAggregationSerializer
-      extends StdSerializer<SecurityMonitoringRuleQueryAggregation> {
-    public SecurityMonitoringRuleQueryAggregationSerializer(
-        Class<SecurityMonitoringRuleQueryAggregation> t) {
-      super(t);
-    }
+  public static class SecurityMonitoringRuleQueryAggregationSerializer extends StdSerializer<SecurityMonitoringRuleQueryAggregation> {
+      public SecurityMonitoringRuleQueryAggregationSerializer(Class<SecurityMonitoringRuleQueryAggregation> t) {
+          super(t);
+      }
 
-    public SecurityMonitoringRuleQueryAggregationSerializer() {
-      this(null);
-    }
+      public SecurityMonitoringRuleQueryAggregationSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        SecurityMonitoringRuleQueryAggregation value,
-        JsonGenerator jgen,
-        SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(SecurityMonitoringRuleQueryAggregation value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -84,7 +82,9 @@ public class SecurityMonitoringRuleQueryAggregation {
     this.value = value;
   }
 
-  /** Return true if this SecurityMonitoringRuleQueryAggregation object is equal to o. */
+  /**
+   * Return true if this SecurityMonitoringRuleQueryAggregation object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -98,7 +98,7 @@ public class SecurityMonitoringRuleQueryAggregation {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override
@@ -111,3 +111,4 @@ public class SecurityMonitoringRuleQueryAggregation {
     return new SecurityMonitoringRuleQueryAggregation(value);
   }
 }
+

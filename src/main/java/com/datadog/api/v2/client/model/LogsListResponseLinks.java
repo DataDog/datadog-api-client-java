@@ -8,54 +8,69 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
 
-/** Links attributes. */
+
+/**
+ * Links attributes.
+ */
 @ApiModel(description = "Links attributes.")
-@JsonPropertyOrder({LogsListResponseLinks.JSON_PROPERTY_NEXT})
+@JsonPropertyOrder({
+  LogsListResponseLinks.JSON_PROPERTY_NEXT
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class LogsListResponseLinks {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_NEXT = "next";
   private String next;
+
 
   public LogsListResponseLinks next(String next) {
     this.next = next;
     return this;
   }
 
-  /**
-   * Link for the next set of results. Note that the request can also be made using the POST
-   * endpoint.
-   *
+   /**
+   * Link for the next set of results. Note that the request can also be made using the POST endpoint.
    * @return next
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example =
-          "https://app.datadoghq.com/api/v2/logs/event?filter[query]=foo&page[cursor]=eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ==",
-      value =
-          "Link for the next set of results. Note that the request can also be made using the POST"
-              + " endpoint.")
+  @ApiModelProperty(example = "https://app.datadoghq.com/api/v2/logs/event?filter[query]=foo&page[cursor]=eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ==", value = "Link for the next set of results. Note that the request can also be made using the POST endpoint.")
   @JsonProperty(JSON_PROPERTY_NEXT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getNext() {
     return next;
   }
+
 
   public void setNext(String next) {
     this.next = next;
   }
 
-  /** Return true if this LogsListResponse_links object is equal to o. */
+
+  /**
+   * Return true if this LogsListResponse_links object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -83,7 +98,8 @@ public class LogsListResponseLinks {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -91,4 +107,6 @@ public class LogsListResponseLinks {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

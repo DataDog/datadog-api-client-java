@@ -20,17 +20,17 @@ public class Example {
     Long MONITOR_ID = Long.parseLong(System.getenv("MONITOR_ID"));
     String MONITOR_NAME = System.getenv("MONITOR_NAME");
 
-    MonitorUpdateRequest body =
-        new MonitorUpdateRequest()
-            .name("My monitor-updated")
-            .options(
-                new MonitorOptions()
-                    .evaluationDelay(null)
-                    .newGroupDelay(600L)
-                    .newHostDelay(null)
-                    .renotifyInterval(null)
-                    .thresholds(new MonitorThresholds().critical(2.0).warning(null))
-                    .timeoutH(null));
+    MonitorUpdateRequest body = new MonitorUpdateRequest()
+.name("My monitor-updated")
+.options(new MonitorOptions()
+.evaluationDelay(null)
+.newGroupDelay(600L)
+.newHostDelay(null)
+.renotifyInterval(null)
+.thresholds(new MonitorThresholds()
+.critical(2.0)
+.warning(null))
+.timeoutH(null));
 
     try {
       Monitor result = apiInstance.updateMonitor(MONITOR_ID, body);

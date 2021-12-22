@@ -5,6 +5,7 @@ import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.DashboardListsApi;
 import com.datadog.api.v1.client.model.DashboardList;
+import com.datadog.api.v1.client.model.DashboardList;
 import java.time.*;
 import java.util.*;
 
@@ -13,8 +14,8 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     DashboardListsApi apiInstance = new DashboardListsApi(defaultClient);
 
-    DashboardList body =
-        new DashboardList().name("Example-Create_a_dashboard_list_returns_OK_response");
+    DashboardList body = new DashboardList()
+.name("Example-Create_a_dashboard_list_returns_OK_response");
 
     try {
       DashboardList result = apiInstance.createDashboardList(body);

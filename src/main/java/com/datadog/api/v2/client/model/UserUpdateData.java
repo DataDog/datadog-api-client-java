@@ -8,18 +8,31 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v2.client.model.UserUpdateAttributes;
+import com.datadog.api.v2.client.model.UsersType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
 
-/** Object to update a user. */
+
+/**
+ * Object to update a user.
+ */
 @ApiModel(description = "Object to update a user.")
 @JsonPropertyOrder({
   UserUpdateData.JSON_PROPERTY_ATTRIBUTES,
@@ -27,8 +40,10 @@ import java.util.Objects;
   UserUpdateData.JSON_PROPERTY_TYPE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class UserUpdateData {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private UserUpdateAttributes attributes;
 
@@ -42,15 +57,15 @@ public class UserUpdateData {
 
   @JsonCreator
   public UserUpdateData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          UserUpdateAttributes attributes,
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) UsersType type) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
-    this.id = id;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_ATTRIBUTES) UserUpdateAttributes attributes,
+            @JsonProperty(required=true, value=JSON_PROPERTY_ID) String id,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE) UsersType type
+            ) {
+        this.attributes = attributes;
+        this.unparsed |= attributes.unparsed;
+        this.id = id;
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
 
   public UserUpdateData attributes(UserUpdateAttributes attributes) {
@@ -59,45 +74,46 @@ public class UserUpdateData {
     return this;
   }
 
-  /**
+   /**
    * Get attributes
-   *
    * @return attributes
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UserUpdateAttributes getAttributes() {
     return attributes;
   }
 
+
   public void setAttributes(UserUpdateAttributes attributes) {
     this.attributes = attributes;
   }
+
 
   public UserUpdateData id(String id) {
     this.id = id;
     return this;
   }
 
-  /**
+   /**
    * ID of the user.
-   *
    * @return id
-   */
-  @ApiModelProperty(
-      example = "00000000-0000-0000-0000-000000000000",
-      required = true,
-      value = "ID of the user.")
+  **/
+  @ApiModelProperty(example = "00000000-0000-0000-0000-000000000000", required = true, value = "ID of the user.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getId() {
     return id;
   }
 
+
   public void setId(String id) {
     this.id = id;
   }
+
 
   public UserUpdateData type(UsersType type) {
     this.type = type;
@@ -105,26 +121,30 @@ public class UserUpdateData {
     return this;
   }
 
-  /**
+   /**
    * Get type
-   *
    * @return type
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UsersType getType() {
     return type;
   }
 
+
   public void setType(UsersType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
-  /** Return true if this UserUpdateData object is equal to o. */
+
+  /**
+   * Return true if this UserUpdateData object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -134,9 +154,9 @@ public class UserUpdateData {
       return false;
     }
     UserUpdateData userUpdateData = (UserUpdateData) o;
-    return Objects.equals(this.attributes, userUpdateData.attributes)
-        && Objects.equals(this.id, userUpdateData.id)
-        && Objects.equals(this.type, userUpdateData.type);
+    return Objects.equals(this.attributes, userUpdateData.attributes) &&
+        Objects.equals(this.id, userUpdateData.id) &&
+        Objects.equals(this.type, userUpdateData.type);
   }
 
   @Override
@@ -156,7 +176,8 @@ public class UserUpdateData {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -164,4 +185,6 @@ public class UserUpdateData {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

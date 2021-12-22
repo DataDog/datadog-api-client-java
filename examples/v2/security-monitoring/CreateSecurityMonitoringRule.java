@@ -4,6 +4,7 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.api.SecurityMonitoringApi;
+import com.datadog.api.v2.client.model.SecurityMonitoringRuleResponse;
 import com.datadog.api.v2.client.model.SecurityMonitoringFilter;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleCaseCreate;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleCreatePayload;
@@ -13,7 +14,6 @@ import com.datadog.api.v2.client.model.SecurityMonitoringRuleMaxSignalDuration;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleOptions;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleQueryAggregation;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleQueryCreate;
-import com.datadog.api.v2.client.model.SecurityMonitoringRuleResponse;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleSeverity;
 import java.time.*;
 import java.util.*;
@@ -23,66 +23,27 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
 
-    SecurityMonitoringRuleCreatePayload body =
-        new SecurityMonitoringRuleCreatePayload()
-            .name("Example-Create_a_detection_rule_returns_OK_response")
-            .queries(
-                new ArrayList<SecurityMonitoringRuleQueryCreate>() {
-                  {
-                    add(
-                        new SecurityMonitoringRuleQueryCreate()
-                            .query("@test:true")
-                            .aggregation(SecurityMonitoringRuleQueryAggregation.COUNT)
-                            .groupByFields(
-                                new ArrayList<String>() {
-                                  {
-                                    ;
-                                  }
-                                })
-                            .distinctFields(
-                                new ArrayList<String>() {
-                                  {
-                                    ;
-                                  }
-                                })
-                            .metric(""));
-                  }
-                })
-            .filters(
-                new ArrayList<SecurityMonitoringFilter>() {
-                  {
-                    ;
-                  }
-                })
-            .cases(
-                new ArrayList<SecurityMonitoringRuleCaseCreate>() {
-                  {
-                    add(
-                        new SecurityMonitoringRuleCaseCreate()
-                            .name("")
-                            .status(SecurityMonitoringRuleSeverity.INFO)
-                            .condition("a > 0")
-                            .notifications(
-                                new ArrayList<String>() {
-                                  {
-                                    ;
-                                  }
-                                }));
-                  }
-                })
-            .options(
-                new SecurityMonitoringRuleOptions()
-                    .evaluationWindow(SecurityMonitoringRuleEvaluationWindow.FIFTEEN_MINUTES)
-                    .keepAlive(SecurityMonitoringRuleKeepAlive.ONE_HOUR)
-                    .maxSignalDuration(SecurityMonitoringRuleMaxSignalDuration.ONE_DAY))
-            .message("Test rule")
-            .tags(
-                new ArrayList<String>() {
-                  {
-                    ;
-                  }
-                })
-            .isEnabled(true);
+    SecurityMonitoringRuleCreatePayload body = new SecurityMonitoringRuleCreatePayload()
+.name("Example-Create_a_detection_rule_returns_OK_response")
+.queries(new ArrayList<SecurityMonitoringRuleQueryCreate>() {{add(new SecurityMonitoringRuleQueryCreate()
+.query("@test:true")
+.aggregation(SecurityMonitoringRuleQueryAggregation.COUNT)
+.groupByFields(new ArrayList<String>() {{;}})
+.distinctFields(new ArrayList<String>() {{;}})
+.metric(""));}})
+.filters(new ArrayList<SecurityMonitoringFilter>() {{;}})
+.cases(new ArrayList<SecurityMonitoringRuleCaseCreate>() {{add(new SecurityMonitoringRuleCaseCreate()
+.name("")
+.status(SecurityMonitoringRuleSeverity.INFO)
+.condition("a > 0")
+.notifications(new ArrayList<String>() {{;}}));}})
+.options(new SecurityMonitoringRuleOptions()
+.evaluationWindow(SecurityMonitoringRuleEvaluationWindow.FIFTEEN_MINUTES)
+.keepAlive(SecurityMonitoringRuleKeepAlive.ONE_HOUR)
+.maxSignalDuration(SecurityMonitoringRuleMaxSignalDuration.ONE_DAY))
+.message("Test rule")
+.tags(new ArrayList<String>() {{;}})
+.isEnabled(true);
 
     try {
       SecurityMonitoringRuleResponse result = apiInstance.createSecurityMonitoringRule(body);

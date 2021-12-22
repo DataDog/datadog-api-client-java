@@ -8,30 +8,46 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.AWSNamespace;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** A tag filter. */
+
+/**
+ * A tag filter.
+ */
 @ApiModel(description = "A tag filter.")
 @JsonPropertyOrder({
   AWSTagFilter.JSON_PROPERTY_NAMESPACE,
   AWSTagFilter.JSON_PROPERTY_TAG_FILTER_STR
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class AWSTagFilter {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_NAMESPACE = "namespace";
   private AWSNamespace namespace;
 
   public static final String JSON_PROPERTY_TAG_FILTER_STR = "tag_filter_str";
   private String tagFilterStr;
+
 
   public AWSTagFilter namespace(AWSNamespace namespace) {
     this.namespace = namespace;
@@ -39,49 +55,55 @@ public class AWSTagFilter {
     return this;
   }
 
-  /**
+   /**
    * Get namespace
-   *
    * @return namespace
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_NAMESPACE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public AWSNamespace getNamespace() {
     return namespace;
   }
 
+
   public void setNamespace(AWSNamespace namespace) {
     if (!namespace.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.namespace = namespace;
   }
+
 
   public AWSTagFilter tagFilterStr(String tagFilterStr) {
     this.tagFilterStr = tagFilterStr;
     return this;
   }
 
-  /**
+   /**
    * The tag filter string.
-   *
    * @return tagFilterStr
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "prod*", value = "The tag filter string.")
   @JsonProperty(JSON_PROPERTY_TAG_FILTER_STR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getTagFilterStr() {
     return tagFilterStr;
   }
+
 
   public void setTagFilterStr(String tagFilterStr) {
     this.tagFilterStr = tagFilterStr;
   }
 
-  /** Return true if this AWSTagFilter object is equal to o. */
+
+  /**
+   * Return true if this AWSTagFilter object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -91,8 +113,8 @@ public class AWSTagFilter {
       return false;
     }
     AWSTagFilter awSTagFilter = (AWSTagFilter) o;
-    return Objects.equals(this.namespace, awSTagFilter.namespace)
-        && Objects.equals(this.tagFilterStr, awSTagFilter.tagFilterStr);
+    return Objects.equals(this.namespace, awSTagFilter.namespace) &&
+        Objects.equals(this.tagFilterStr, awSTagFilter.tagFilterStr);
   }
 
   @Override
@@ -111,7 +133,8 @@ public class AWSTagFilter {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -119,4 +142,6 @@ public class AWSTagFilter {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

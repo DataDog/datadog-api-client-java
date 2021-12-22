@@ -8,33 +8,52 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v2.client.model.IncidentFieldAttributesValueType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
 
-/** A field with potentially multiple values selected. */
+
+/**
+ * A field with potentially multiple values selected.
+ */
 @ApiModel(description = "A field with potentially multiple values selected.")
 @JsonPropertyOrder({
   IncidentFieldAttributesMultipleValue.JSON_PROPERTY_TYPE,
   IncidentFieldAttributesMultipleValue.JSON_PROPERTY_VALUE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class IncidentFieldAttributesMultipleValue {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_TYPE = "type";
   private IncidentFieldAttributesValueType type = IncidentFieldAttributesValueType.MULTISELECT;
 
   public static final String JSON_PROPERTY_VALUE = "value";
   private JsonNullable<List<String>> value = JsonNullable.<List<String>>undefined();
+
 
   public IncidentFieldAttributesMultipleValue type(IncidentFieldAttributesValueType type) {
     this.type = type;
@@ -42,25 +61,27 @@ public class IncidentFieldAttributesMultipleValue {
     return this;
   }
 
-  /**
+   /**
    * Get type
-   *
    * @return type
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public IncidentFieldAttributesValueType getType() {
     return type;
   }
 
+
   public void setType(IncidentFieldAttributesValueType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
+
 
   public IncidentFieldAttributesMultipleValue value(List<String> value) {
     this.value = JsonNullable.<List<String>>of(value);
@@ -79,26 +100,25 @@ public class IncidentFieldAttributesMultipleValue {
     return this;
   }
 
-  /**
+   /**
    * The multiple values selected for this field.
-   *
    * @return value
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "[\"1.0\",\"1.1\"]",
-      value = "The multiple values selected for this field.")
+  @ApiModelProperty(example = "[\"1.0\",\"1.1\"]", value = "The multiple values selected for this field.")
   @JsonIgnore
+
   public List<String> getValue() {
-    return value.orElse(null);
+        return value.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public JsonNullable<List<String>> getValue_JsonNullable() {
     return value;
   }
-
+  
   @JsonProperty(JSON_PROPERTY_VALUE)
   public void setValue_JsonNullable(JsonNullable<List<String>> value) {
     this.value = value;
@@ -108,7 +128,10 @@ public class IncidentFieldAttributesMultipleValue {
     this.value = JsonNullable.<List<String>>of(value);
   }
 
-  /** Return true if this IncidentFieldAttributesMultipleValue object is equal to o. */
+
+  /**
+   * Return true if this IncidentFieldAttributesMultipleValue object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -117,10 +140,9 @@ public class IncidentFieldAttributesMultipleValue {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IncidentFieldAttributesMultipleValue incidentFieldAttributesMultipleValue =
-        (IncidentFieldAttributesMultipleValue) o;
-    return Objects.equals(this.type, incidentFieldAttributesMultipleValue.type)
-        && Objects.equals(this.value, incidentFieldAttributesMultipleValue.value);
+    IncidentFieldAttributesMultipleValue incidentFieldAttributesMultipleValue = (IncidentFieldAttributesMultipleValue) o;
+    return Objects.equals(this.type, incidentFieldAttributesMultipleValue.type) &&
+        Objects.equals(this.value, incidentFieldAttributesMultipleValue.value);
   }
 
   @Override
@@ -139,7 +161,8 @@ public class IncidentFieldAttributesMultipleValue {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -147,4 +170,6 @@ public class IncidentFieldAttributesMultipleValue {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

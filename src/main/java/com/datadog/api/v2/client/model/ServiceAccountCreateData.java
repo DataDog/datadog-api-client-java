@@ -8,18 +8,32 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v2.client.model.ServiceAccountCreateAttributes;
+import com.datadog.api.v2.client.model.UserRelationships;
+import com.datadog.api.v2.client.model.UsersType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
 
-/** Object to create a service account User. */
+
+/**
+ * Object to create a service account User.
+ */
 @ApiModel(description = "Object to create a service account User.")
 @JsonPropertyOrder({
   ServiceAccountCreateData.JSON_PROPERTY_ATTRIBUTES,
@@ -27,8 +41,10 @@ import java.util.Objects;
   ServiceAccountCreateData.JSON_PROPERTY_TYPE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ServiceAccountCreateData {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private ServiceAccountCreateAttributes attributes;
 
@@ -42,13 +58,13 @@ public class ServiceAccountCreateData {
 
   @JsonCreator
   public ServiceAccountCreateData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ATTRIBUTES)
-          ServiceAccountCreateAttributes attributes,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) UsersType type) {
-    this.attributes = attributes;
-    this.unparsed |= attributes.unparsed;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_ATTRIBUTES) ServiceAccountCreateAttributes attributes,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE) UsersType type
+            ) {
+        this.attributes = attributes;
+        this.unparsed |= attributes.unparsed;
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
 
   public ServiceAccountCreateData attributes(ServiceAccountCreateAttributes attributes) {
@@ -57,21 +73,23 @@ public class ServiceAccountCreateData {
     return this;
   }
 
-  /**
+   /**
    * Get attributes
-   *
    * @return attributes
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public ServiceAccountCreateAttributes getAttributes() {
     return attributes;
   }
 
+
   public void setAttributes(ServiceAccountCreateAttributes attributes) {
     this.attributes = attributes;
   }
+
 
   public ServiceAccountCreateData relationships(UserRelationships relationships) {
     this.relationships = relationships;
@@ -79,22 +97,24 @@ public class ServiceAccountCreateData {
     return this;
   }
 
-  /**
+   /**
    * Get relationships
-   *
    * @return relationships
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public UserRelationships getRelationships() {
     return relationships;
   }
 
+
   public void setRelationships(UserRelationships relationships) {
     this.relationships = relationships;
   }
+
 
   public ServiceAccountCreateData type(UsersType type) {
     this.type = type;
@@ -102,26 +122,30 @@ public class ServiceAccountCreateData {
     return this;
   }
 
-  /**
+   /**
    * Get type
-   *
    * @return type
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UsersType getType() {
     return type;
   }
 
+
   public void setType(UsersType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
-  /** Return true if this ServiceAccountCreateData object is equal to o. */
+
+  /**
+   * Return true if this ServiceAccountCreateData object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -131,9 +155,9 @@ public class ServiceAccountCreateData {
       return false;
     }
     ServiceAccountCreateData serviceAccountCreateData = (ServiceAccountCreateData) o;
-    return Objects.equals(this.attributes, serviceAccountCreateData.attributes)
-        && Objects.equals(this.relationships, serviceAccountCreateData.relationships)
-        && Objects.equals(this.type, serviceAccountCreateData.type);
+    return Objects.equals(this.attributes, serviceAccountCreateData.attributes) &&
+        Objects.equals(this.relationships, serviceAccountCreateData.relationships) &&
+        Objects.equals(this.type, serviceAccountCreateData.type);
   }
 
   @Override
@@ -153,7 +177,8 @@ public class ServiceAccountCreateData {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -161,4 +186,6 @@ public class ServiceAccountCreateData {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

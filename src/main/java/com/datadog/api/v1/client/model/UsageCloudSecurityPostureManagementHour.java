@@ -8,21 +8,31 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Cloud Security Posture Management usage for a given organization for a given hour. */
-@ApiModel(
-    description =
-        "Cloud Security Posture Management usage for a given organization for a given hour.")
+
+/**
+ * Cloud Security Posture Management usage for a given organization for a given hour.
+ */
+@ApiModel(description = "Cloud Security Posture Management usage for a given organization for a given hour.")
 @JsonPropertyOrder({
   UsageCloudSecurityPostureManagementHour.JSON_PROPERTY_CONTAINER_COUNT,
   UsageCloudSecurityPostureManagementHour.JSON_PROPERTY_HOST_COUNT,
@@ -31,8 +41,10 @@ import java.util.Objects;
   UsageCloudSecurityPostureManagementHour.JSON_PROPERTY_PUBLIC_ID
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class UsageCloudSecurityPostureManagementHour {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CONTAINER_COUNT = "container_count";
   private Long containerCount;
 
@@ -48,120 +60,130 @@ public class UsageCloudSecurityPostureManagementHour {
   public static final String JSON_PROPERTY_PUBLIC_ID = "public_id";
   private String publicId;
 
+
   public UsageCloudSecurityPostureManagementHour containerCount(Long containerCount) {
     this.containerCount = containerCount;
     return this;
   }
 
-  /**
+   /**
    * The total number of Cloud Security Posture Management containers during a given hour.
-   *
    * @return containerCount
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "The total number of Cloud Security Posture Management containers during a given hour.")
+  @ApiModelProperty(value = "The total number of Cloud Security Posture Management containers during a given hour.")
   @JsonProperty(JSON_PROPERTY_CONTAINER_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Long getContainerCount() {
     return containerCount;
   }
 
+
   public void setContainerCount(Long containerCount) {
     this.containerCount = containerCount;
   }
+
 
   public UsageCloudSecurityPostureManagementHour hostCount(Long hostCount) {
     this.hostCount = hostCount;
     return this;
   }
 
-  /**
+   /**
    * The total number of Cloud Security Posture Management hosts during a given hour.
-   *
    * @return hostCount
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "The total number of Cloud Security Posture Management hosts during a given hour.")
+  @ApiModelProperty(value = "The total number of Cloud Security Posture Management hosts during a given hour.")
   @JsonProperty(JSON_PROPERTY_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Long getHostCount() {
     return hostCount;
   }
 
+
   public void setHostCount(Long hostCount) {
     this.hostCount = hostCount;
   }
+
 
   public UsageCloudSecurityPostureManagementHour hour(OffsetDateTime hour) {
     this.hour = hour;
     return this;
   }
 
-  /**
+   /**
    * The hour for the usage.
-   *
    * @return hour
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The hour for the usage.")
   @JsonProperty(JSON_PROPERTY_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public OffsetDateTime getHour() {
     return hour;
   }
 
+
   public void setHour(OffsetDateTime hour) {
     this.hour = hour;
   }
+
 
   public UsageCloudSecurityPostureManagementHour orgName(String orgName) {
     this.orgName = orgName;
     return this;
   }
 
-  /**
+   /**
    * The organization name.
-   *
    * @return orgName
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The organization name.")
   @JsonProperty(JSON_PROPERTY_ORG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getOrgName() {
     return orgName;
   }
 
+
   public void setOrgName(String orgName) {
     this.orgName = orgName;
   }
+
 
   public UsageCloudSecurityPostureManagementHour publicId(String publicId) {
     this.publicId = publicId;
     return this;
   }
 
-  /**
+   /**
    * The organization public ID.
-   *
    * @return publicId
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The organization public ID.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getPublicId() {
     return publicId;
   }
+
 
   public void setPublicId(String publicId) {
     this.publicId = publicId;
   }
 
-  /** Return true if this UsageCloudSecurityPostureManagementHour object is equal to o. */
+
+  /**
+   * Return true if this UsageCloudSecurityPostureManagementHour object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -170,14 +192,12 @@ public class UsageCloudSecurityPostureManagementHour {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UsageCloudSecurityPostureManagementHour usageCloudSecurityPostureManagementHour =
-        (UsageCloudSecurityPostureManagementHour) o;
-    return Objects.equals(
-            this.containerCount, usageCloudSecurityPostureManagementHour.containerCount)
-        && Objects.equals(this.hostCount, usageCloudSecurityPostureManagementHour.hostCount)
-        && Objects.equals(this.hour, usageCloudSecurityPostureManagementHour.hour)
-        && Objects.equals(this.orgName, usageCloudSecurityPostureManagementHour.orgName)
-        && Objects.equals(this.publicId, usageCloudSecurityPostureManagementHour.publicId);
+    UsageCloudSecurityPostureManagementHour usageCloudSecurityPostureManagementHour = (UsageCloudSecurityPostureManagementHour) o;
+    return Objects.equals(this.containerCount, usageCloudSecurityPostureManagementHour.containerCount) &&
+        Objects.equals(this.hostCount, usageCloudSecurityPostureManagementHour.hostCount) &&
+        Objects.equals(this.hour, usageCloudSecurityPostureManagementHour.hour) &&
+        Objects.equals(this.orgName, usageCloudSecurityPostureManagementHour.orgName) &&
+        Objects.equals(this.publicId, usageCloudSecurityPostureManagementHour.publicId);
   }
 
   @Override
@@ -199,7 +219,8 @@ public class UsageCloudSecurityPostureManagementHour {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -207,4 +228,6 @@ public class UsageCloudSecurityPostureManagementHour {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

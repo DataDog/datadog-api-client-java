@@ -8,23 +8,39 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.NotebookMarkdownCellDefinition;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** The attributes of a notebook &#x60;markdown&#x60; cell. */
+
+/**
+ * The attributes of a notebook &#x60;markdown&#x60; cell.
+ */
 @ApiModel(description = "The attributes of a notebook `markdown` cell.")
-@JsonPropertyOrder({NotebookMarkdownCellAttributes.JSON_PROPERTY_DEFINITION})
+@JsonPropertyOrder({
+  NotebookMarkdownCellAttributes.JSON_PROPERTY_DEFINITION
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class NotebookMarkdownCellAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DEFINITION = "definition";
   private NotebookMarkdownCellDefinition definition;
 
@@ -32,10 +48,10 @@ public class NotebookMarkdownCellAttributes {
 
   @JsonCreator
   public NotebookMarkdownCellAttributes(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DEFINITION)
-          NotebookMarkdownCellDefinition definition) {
-    this.definition = definition;
-    this.unparsed |= definition.unparsed;
+            @JsonProperty(required=true, value=JSON_PROPERTY_DEFINITION) NotebookMarkdownCellDefinition definition
+            ) {
+        this.definition = definition;
+        this.unparsed |= definition.unparsed;
   }
 
   public NotebookMarkdownCellAttributes definition(NotebookMarkdownCellDefinition definition) {
@@ -44,23 +60,27 @@ public class NotebookMarkdownCellAttributes {
     return this;
   }
 
-  /**
+   /**
    * Get definition
-   *
    * @return definition
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DEFINITION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public NotebookMarkdownCellDefinition getDefinition() {
     return definition;
   }
+
 
   public void setDefinition(NotebookMarkdownCellDefinition definition) {
     this.definition = definition;
   }
 
-  /** Return true if this NotebookMarkdownCellAttributes object is equal to o. */
+
+  /**
+   * Return true if this NotebookMarkdownCellAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -69,8 +89,7 @@ public class NotebookMarkdownCellAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    NotebookMarkdownCellAttributes notebookMarkdownCellAttributes =
-        (NotebookMarkdownCellAttributes) o;
+    NotebookMarkdownCellAttributes notebookMarkdownCellAttributes = (NotebookMarkdownCellAttributes) o;
     return Objects.equals(this.definition, notebookMarkdownCellAttributes.definition);
   }
 
@@ -89,7 +108,8 @@ public class NotebookMarkdownCellAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -97,4 +117,6 @@ public class NotebookMarkdownCellAttributes {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

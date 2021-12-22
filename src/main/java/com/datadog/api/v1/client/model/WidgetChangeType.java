@@ -8,30 +8,42 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import io.swagger.annotations.ApiModel;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
+
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
 
-/** Show the absolute or the relative change. */
+
+import java.util.Set;
+import java.util.HashSet;
+/**
+ * Show the absolute or the relative change.
+ */
 @JsonSerialize(using = WidgetChangeType.WidgetChangeTypeSerializer.class)
 public class WidgetChangeType {
-
+  
   public static final WidgetChangeType ABSOLUTE = new WidgetChangeType("absolute");
   public static final WidgetChangeType RELATIVE = new WidgetChangeType("relative");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("absolute", "relative"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("absolute","relative"));
 
   private String value;
 
@@ -44,19 +56,18 @@ public class WidgetChangeType {
   }
 
   public static class WidgetChangeTypeSerializer extends StdSerializer<WidgetChangeType> {
-    public WidgetChangeTypeSerializer(Class<WidgetChangeType> t) {
-      super(t);
-    }
+      public WidgetChangeTypeSerializer(Class<WidgetChangeType> t) {
+          super(t);
+      }
 
-    public WidgetChangeTypeSerializer() {
-      this(null);
-    }
+      public WidgetChangeTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(WidgetChangeType value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(WidgetChangeType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -68,7 +79,9 @@ public class WidgetChangeType {
     this.value = value;
   }
 
-  /** Return true if this WidgetChangeType object is equal to o. */
+  /**
+   * Return true if this WidgetChangeType object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -82,7 +95,7 @@ public class WidgetChangeType {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override
@@ -95,3 +108,4 @@ public class WidgetChangeType {
     return new WidgetChangeType(value);
   }
 }
+

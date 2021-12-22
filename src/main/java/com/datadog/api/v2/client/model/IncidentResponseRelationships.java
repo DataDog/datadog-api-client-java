@@ -8,17 +8,32 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v2.client.model.RelationshipToIncidentIntegrationMetadatas;
+import com.datadog.api.v2.client.model.RelationshipToIncidentPostmortem;
+import com.datadog.api.v2.client.model.RelationshipToUser;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
 
-/** The incident&#39;s relationships from a response. */
+
+/**
+ * The incident&#39;s relationships from a response.
+ */
 @ApiModel(description = "The incident's relationships from a response.")
 @JsonPropertyOrder({
   IncidentResponseRelationships.JSON_PROPERTY_COMMANDER_USER,
@@ -28,8 +43,10 @@ import java.util.Objects;
   IncidentResponseRelationships.JSON_PROPERTY_POSTMORTEM
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class IncidentResponseRelationships {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMMANDER_USER = "commander_user";
   private RelationshipToUser commanderUser;
 
@@ -45,28 +62,31 @@ public class IncidentResponseRelationships {
   public static final String JSON_PROPERTY_POSTMORTEM = "postmortem";
   private RelationshipToIncidentPostmortem postmortem;
 
+
   public IncidentResponseRelationships commanderUser(RelationshipToUser commanderUser) {
     this.commanderUser = commanderUser;
     this.unparsed |= commanderUser.unparsed;
     return this;
   }
 
-  /**
+   /**
    * Get commanderUser
-   *
    * @return commanderUser
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COMMANDER_USER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public RelationshipToUser getCommanderUser() {
     return commanderUser;
   }
 
+
   public void setCommanderUser(RelationshipToUser commanderUser) {
     this.commanderUser = commanderUser;
   }
+
 
   public IncidentResponseRelationships createdByUser(RelationshipToUser createdByUser) {
     this.createdByUser = createdByUser;
@@ -74,46 +94,49 @@ public class IncidentResponseRelationships {
     return this;
   }
 
-  /**
+   /**
    * Get createdByUser
-   *
    * @return createdByUser
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CREATED_BY_USER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public RelationshipToUser getCreatedByUser() {
     return createdByUser;
   }
+
 
   public void setCreatedByUser(RelationshipToUser createdByUser) {
     this.createdByUser = createdByUser;
   }
 
-  public IncidentResponseRelationships integrations(
-      RelationshipToIncidentIntegrationMetadatas integrations) {
+
+  public IncidentResponseRelationships integrations(RelationshipToIncidentIntegrationMetadatas integrations) {
     this.integrations = integrations;
     this.unparsed |= integrations.unparsed;
     return this;
   }
 
-  /**
+   /**
    * Get integrations
-   *
    * @return integrations
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_INTEGRATIONS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public RelationshipToIncidentIntegrationMetadatas getIntegrations() {
     return integrations;
   }
 
+
   public void setIntegrations(RelationshipToIncidentIntegrationMetadatas integrations) {
     this.integrations = integrations;
   }
+
 
   public IncidentResponseRelationships lastModifiedByUser(RelationshipToUser lastModifiedByUser) {
     this.lastModifiedByUser = lastModifiedByUser;
@@ -121,22 +144,24 @@ public class IncidentResponseRelationships {
     return this;
   }
 
-  /**
+   /**
    * Get lastModifiedByUser
-   *
    * @return lastModifiedByUser
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_LAST_MODIFIED_BY_USER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public RelationshipToUser getLastModifiedByUser() {
     return lastModifiedByUser;
   }
 
+
   public void setLastModifiedByUser(RelationshipToUser lastModifiedByUser) {
     this.lastModifiedByUser = lastModifiedByUser;
   }
+
 
   public IncidentResponseRelationships postmortem(RelationshipToIncidentPostmortem postmortem) {
     this.postmortem = postmortem;
@@ -144,24 +169,28 @@ public class IncidentResponseRelationships {
     return this;
   }
 
-  /**
+   /**
    * Get postmortem
-   *
    * @return postmortem
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_POSTMORTEM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public RelationshipToIncidentPostmortem getPostmortem() {
     return postmortem;
   }
+
 
   public void setPostmortem(RelationshipToIncidentPostmortem postmortem) {
     this.postmortem = postmortem;
   }
 
-  /** Return true if this IncidentResponseRelationships object is equal to o. */
+
+  /**
+   * Return true if this IncidentResponseRelationships object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -171,11 +200,11 @@ public class IncidentResponseRelationships {
       return false;
     }
     IncidentResponseRelationships incidentResponseRelationships = (IncidentResponseRelationships) o;
-    return Objects.equals(this.commanderUser, incidentResponseRelationships.commanderUser)
-        && Objects.equals(this.createdByUser, incidentResponseRelationships.createdByUser)
-        && Objects.equals(this.integrations, incidentResponseRelationships.integrations)
-        && Objects.equals(this.lastModifiedByUser, incidentResponseRelationships.lastModifiedByUser)
-        && Objects.equals(this.postmortem, incidentResponseRelationships.postmortem);
+    return Objects.equals(this.commanderUser, incidentResponseRelationships.commanderUser) &&
+        Objects.equals(this.createdByUser, incidentResponseRelationships.createdByUser) &&
+        Objects.equals(this.integrations, incidentResponseRelationships.integrations) &&
+        Objects.equals(this.lastModifiedByUser, incidentResponseRelationships.lastModifiedByUser) &&
+        Objects.equals(this.postmortem, incidentResponseRelationships.postmortem);
   }
 
   @Override
@@ -197,7 +226,8 @@ public class IncidentResponseRelationships {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -205,4 +235,6 @@ public class IncidentResponseRelationships {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

@@ -8,49 +8,70 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.QuerySortOrder;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Options for limiting results returned. */
+
+/**
+ * Options for limiting results returned.
+ */
 @ApiModel(description = "Options for limiting results returned.")
-@JsonPropertyOrder({WidgetFormulaLimit.JSON_PROPERTY_COUNT, WidgetFormulaLimit.JSON_PROPERTY_ORDER})
+@JsonPropertyOrder({
+  WidgetFormulaLimit.JSON_PROPERTY_COUNT,
+  WidgetFormulaLimit.JSON_PROPERTY_ORDER
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class WidgetFormulaLimit {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_COUNT = "count";
   private Long count;
 
   public static final String JSON_PROPERTY_ORDER = "order";
   private QuerySortOrder order = QuerySortOrder.DESC;
 
+
   public WidgetFormulaLimit count(Long count) {
     this.count = count;
     return this;
   }
 
-  /**
+   /**
    * Number of results to return.
-   *
    * @return count
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Number of results to return.")
   @JsonProperty(JSON_PROPERTY_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Long getCount() {
     return count;
   }
 
+
   public void setCount(Long count) {
     this.count = count;
   }
+
 
   public WidgetFormulaLimit order(QuerySortOrder order) {
     this.order = order;
@@ -58,27 +79,31 @@ public class WidgetFormulaLimit {
     return this;
   }
 
-  /**
+   /**
    * Get order
-   *
    * @return order
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public QuerySortOrder getOrder() {
     return order;
   }
 
+
   public void setOrder(QuerySortOrder order) {
     if (!order.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.order = order;
   }
 
-  /** Return true if this WidgetFormula_limit object is equal to o. */
+
+  /**
+   * Return true if this WidgetFormula_limit object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -88,8 +113,8 @@ public class WidgetFormulaLimit {
       return false;
     }
     WidgetFormulaLimit widgetFormulaLimit = (WidgetFormulaLimit) o;
-    return Objects.equals(this.count, widgetFormulaLimit.count)
-        && Objects.equals(this.order, widgetFormulaLimit.order);
+    return Objects.equals(this.count, widgetFormulaLimit.count) &&
+        Objects.equals(this.order, widgetFormulaLimit.order);
   }
 
   @Override
@@ -108,7 +133,8 @@ public class WidgetFormulaLimit {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -116,4 +142,6 @@ public class WidgetFormulaLimit {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

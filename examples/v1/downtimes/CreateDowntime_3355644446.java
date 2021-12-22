@@ -1,8 +1,11 @@
 // Schedule a monitor downtime returns "OK" response
+import java.time.*;
+
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.DowntimesApi;
+import com.datadog.api.v1.client.model.Downtime;
 import com.datadog.api.v1.client.model.Downtime;
 import java.time.*;
 import java.util.*;
@@ -15,18 +18,12 @@ public class Example {
     // there is a valid "monitor" in the system
     Long MONITOR_ID = Long.parseLong(System.getenv("MONITOR_ID"));
 
-    Downtime body =
-        new Downtime()
-            .message("Example-Schedule_a_monitor_downtime_returns_OK_response")
-            .start(Instant.now().getEpochSecond())
-            .timezone("Etc/UTC")
-            .scope(
-                new ArrayList<String>() {
-                  {
-                    add("test:examplescheduleamonitordowntimereturnsokresponse");
-                  }
-                })
-            .monitorId(MONITOR_ID);
+    Downtime body = new Downtime()
+.message("Example-Schedule_a_monitor_downtime_returns_OK_response")
+.start(Instant.now().getEpochSecond())
+.timezone("Etc/UTC")
+.scope(new ArrayList<String>() {{add("test:examplescheduleamonitordowntimereturnsokresponse");}})
+.monitorId(MONITOR_ID);
 
     try {
       Downtime result = apiInstance.createDowntime(body);

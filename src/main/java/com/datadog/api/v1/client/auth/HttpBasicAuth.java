@@ -8,15 +8,19 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.auth;
 
-import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Pair;
-import java.net.URI;
-import java.nio.charset.StandardCharsets;
+import com.datadog.api.v1.client.ApiException;
+
 import java.util.Base64;
-import java.util.List;
+import java.nio.charset.StandardCharsets;
+
+import java.net.URI;
 import java.util.Map;
+import java.util.List;
+
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class HttpBasicAuth implements Authentication {
@@ -40,20 +44,11 @@ public class HttpBasicAuth implements Authentication {
   }
 
   @Override
-  public void applyToParams(
-      List<Pair> queryParams,
-      Map<String, String> headerParams,
-      Map<String, String> cookieParams,
-      String payload,
-      String method,
-      URI uri)
-      throws ApiException {
+  public void applyToParams(List<Pair> queryParams, Map<String, String> headerParams, Map<String, String> cookieParams, String payload, String method, URI uri) throws ApiException {
     if (username == null && password == null) {
       return;
     }
     String str = (username == null ? "" : username) + ":" + (password == null ? "" : password);
-    headerParams.put(
-        "Authorization",
-        "Basic " + Base64.getEncoder().encodeToString(str.getBytes(StandardCharsets.UTF_8)));
+    headerParams.put("Authorization", "Basic " + Base64.getEncoder().encodeToString(str.getBytes(StandardCharsets.UTF_8)));
   }
 }

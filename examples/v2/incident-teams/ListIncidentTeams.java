@@ -19,9 +19,7 @@ public class Example {
     String TEAM_DATA_ATTRIBUTES_NAME = System.getenv("TEAM_DATA_ATTRIBUTES_NAME");
 
     try {
-      IncidentTeamsResponse result =
-          apiInstance.listIncidentTeams(
-              new ListIncidentTeamsOptionalParameters().filter(TEAM_DATA_ATTRIBUTES_NAME));
+      IncidentTeamsResponse result = apiInstance.listIncidentTeams(new ListIncidentTeamsOptionalParameters().filter(TEAM_DATA_ATTRIBUTES_NAME));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DowntimesApi#updateDowntime");

@@ -4,8 +4,8 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.api.LogsApi;
-import com.datadog.api.v2.client.model.LogsAggregateRequest;
 import com.datadog.api.v2.client.model.LogsAggregateResponse;
+import com.datadog.api.v2.client.model.LogsAggregateRequest;
 import com.datadog.api.v2.client.model.LogsAggregationFunction;
 import com.datadog.api.v2.client.model.LogsCompute;
 import com.datadog.api.v2.client.model.LogsComputeType;
@@ -18,29 +18,16 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     LogsApi apiInstance = new LogsApi(defaultClient);
 
-    LogsAggregateRequest body =
-        new LogsAggregateRequest()
-            .compute(
-                new ArrayList<LogsCompute>() {
-                  {
-                    add(
-                        new LogsCompute()
-                            .aggregation(LogsAggregationFunction.COUNT)
-                            .interval("5m")
-                            .type(LogsComputeType.TIMESERIES));
-                  }
-                })
-            .filter(
-                new LogsQueryFilter()
-                    .from("now-15m")
-                    .indexes(
-                        new ArrayList<String>() {
-                          {
-                            add("main");
-                          }
-                        })
-                    .query("*")
-                    .to("now"));
+    LogsAggregateRequest body = new LogsAggregateRequest()
+.compute(new ArrayList<LogsCompute>() {{add(new LogsCompute()
+.aggregation(LogsAggregationFunction.COUNT)
+.interval("5m")
+.type(LogsComputeType.TIMESERIES));}})
+.filter(new LogsQueryFilter()
+.from("now-15m")
+.indexes(new ArrayList<String>() {{add("main");}})
+.query("*")
+.to("now"));
 
     try {
       LogsAggregateResponse result = apiInstance.aggregateLogs(body);

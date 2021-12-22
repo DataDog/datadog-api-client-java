@@ -8,18 +8,31 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.TableWidgetCellDisplayMode;
+import com.datadog.api.v1.client.model.WidgetSort;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Column properties. */
+
+/**
+ * Column properties.
+ */
 @ApiModel(description = "Column properties.")
 @JsonPropertyOrder({
   ApmStatsQueryColumnType.JSON_PROPERTY_ALIAS,
@@ -28,8 +41,10 @@ import java.util.Objects;
   ApmStatsQueryColumnType.JSON_PROPERTY_ORDER
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ApmStatsQueryColumnType {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ALIAS = "alias";
   private String alias;
 
@@ -46,8 +61,9 @@ public class ApmStatsQueryColumnType {
 
   @JsonCreator
   public ApmStatsQueryColumnType(
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name) {
-    this.name = name;
+            @JsonProperty(required=true, value=JSON_PROPERTY_NAME) String name
+            ) {
+        this.name = name;
   }
 
   public ApmStatsQueryColumnType alias(String alias) {
@@ -55,22 +71,24 @@ public class ApmStatsQueryColumnType {
     return this;
   }
 
-  /**
+   /**
    * A user-assigned alias for the column.
-   *
    * @return alias
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Requests", value = "A user-assigned alias for the column.")
   @JsonProperty(JSON_PROPERTY_ALIAS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getAlias() {
     return alias;
   }
 
+
   public void setAlias(String alias) {
     this.alias = alias;
   }
+
 
   public ApmStatsQueryColumnType cellDisplayMode(TableWidgetCellDisplayMode cellDisplayMode) {
     this.cellDisplayMode = cellDisplayMode;
@@ -78,46 +96,50 @@ public class ApmStatsQueryColumnType {
     return this;
   }
 
-  /**
+   /**
    * Get cellDisplayMode
-   *
    * @return cellDisplayMode
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_CELL_DISPLAY_MODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public TableWidgetCellDisplayMode getCellDisplayMode() {
     return cellDisplayMode;
   }
 
+
   public void setCellDisplayMode(TableWidgetCellDisplayMode cellDisplayMode) {
     if (!cellDisplayMode.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.cellDisplayMode = cellDisplayMode;
   }
+
 
   public ApmStatsQueryColumnType name(String name) {
     this.name = name;
     return this;
   }
 
-  /**
+   /**
    * Column name.
-   *
    * @return name
-   */
+  **/
   @ApiModelProperty(example = "Reqs", required = true, value = "Column name.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getName() {
     return name;
   }
 
+
   public void setName(String name) {
     this.name = name;
   }
+
 
   public ApmStatsQueryColumnType order(WidgetSort order) {
     this.order = order;
@@ -125,27 +147,31 @@ public class ApmStatsQueryColumnType {
     return this;
   }
 
-  /**
+   /**
    * Get order
-   *
    * @return order
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ORDER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public WidgetSort getOrder() {
     return order;
   }
 
+
   public void setOrder(WidgetSort order) {
     if (!order.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.order = order;
   }
 
-  /** Return true if this ApmStatsQueryColumnType object is equal to o. */
+
+  /**
+   * Return true if this ApmStatsQueryColumnType object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -155,10 +181,10 @@ public class ApmStatsQueryColumnType {
       return false;
     }
     ApmStatsQueryColumnType apmStatsQueryColumnType = (ApmStatsQueryColumnType) o;
-    return Objects.equals(this.alias, apmStatsQueryColumnType.alias)
-        && Objects.equals(this.cellDisplayMode, apmStatsQueryColumnType.cellDisplayMode)
-        && Objects.equals(this.name, apmStatsQueryColumnType.name)
-        && Objects.equals(this.order, apmStatsQueryColumnType.order);
+    return Objects.equals(this.alias, apmStatsQueryColumnType.alias) &&
+        Objects.equals(this.cellDisplayMode, apmStatsQueryColumnType.cellDisplayMode) &&
+        Objects.equals(this.name, apmStatsQueryColumnType.name) &&
+        Objects.equals(this.order, apmStatsQueryColumnType.order);
   }
 
   @Override
@@ -179,7 +205,8 @@ public class ApmStatsQueryColumnType {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -187,4 +214,6 @@ public class ApmStatsQueryColumnType {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

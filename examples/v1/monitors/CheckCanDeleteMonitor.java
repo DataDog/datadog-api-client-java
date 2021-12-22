@@ -17,13 +17,7 @@ public class Example {
     Long MONITOR_ID = Long.parseLong(System.getenv("MONITOR_ID"));
 
     try {
-      CheckCanDeleteMonitorResponse result =
-          apiInstance.checkCanDeleteMonitor(
-              new ArrayList<Long>() {
-                {
-                  add(MONITOR_ID);
-                }
-              });
+      CheckCanDeleteMonitorResponse result = apiInstance.checkCanDeleteMonitor(new ArrayList<Long>() {{add(MONITOR_ID);}});
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DowntimesApi#updateDowntime");

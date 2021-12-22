@@ -4,6 +4,7 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.api.UsersApi;
+import com.datadog.api.v2.client.model.UserResponse;
 import com.datadog.api.v2.client.model.RelationshipToRoleData;
 import com.datadog.api.v2.client.model.RelationshipToRoles;
 import com.datadog.api.v2.client.model.RolesType;
@@ -11,7 +12,6 @@ import com.datadog.api.v2.client.model.ServiceAccountCreateAttributes;
 import com.datadog.api.v2.client.model.ServiceAccountCreateData;
 import com.datadog.api.v2.client.model.ServiceAccountCreateRequest;
 import com.datadog.api.v2.client.model.UserRelationships;
-import com.datadog.api.v2.client.model.UserResponse;
 import com.datadog.api.v2.client.model.UsersType;
 import java.time.*;
 import java.util.*;
@@ -24,30 +24,18 @@ public class Example {
     // there is a valid "role" in the system
     String ROLE_DATA_ID = System.getenv("ROLE_DATA_ID");
 
-    ServiceAccountCreateRequest body =
-        new ServiceAccountCreateRequest()
-            .data(
-                new ServiceAccountCreateData()
-                    .type(UsersType.USERS)
-                    .attributes(
-                        new ServiceAccountCreateAttributes()
-                            .name("Test API Client")
-                            .email(
-                                "Example-Create_a_service_account_returns_OK_response@datadoghq.com")
-                            .serviceAccount(true))
-                    .relationships(
-                        new UserRelationships()
-                            .roles(
-                                new RelationshipToRoles()
-                                    .data(
-                                        new ArrayList<RelationshipToRoleData>() {
-                                          {
-                                            add(
-                                                new RelationshipToRoleData()
-                                                    .id(ROLE_DATA_ID)
-                                                    .type(RolesType.ROLES));
-                                          }
-                                        }))));
+    ServiceAccountCreateRequest body = new ServiceAccountCreateRequest()
+.data(new ServiceAccountCreateData()
+.type(UsersType.USERS)
+.attributes(new ServiceAccountCreateAttributes()
+.name("Test API Client")
+.email("Example-Create_a_service_account_returns_OK_response@datadoghq.com")
+.serviceAccount(true))
+.relationships(new UserRelationships()
+.roles(new RelationshipToRoles()
+.data(new ArrayList<RelationshipToRoleData>() {{add(new RelationshipToRoleData()
+.id(ROLE_DATA_ID)
+.type(RolesType.ROLES));}}))));
 
     try {
       UserResponse result = apiInstance.createServiceAccount(body);

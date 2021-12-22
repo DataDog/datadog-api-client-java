@@ -8,32 +8,44 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import io.swagger.annotations.ApiModel;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
+
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
 
-/** The field to sort by. */
+
+import java.util.Set;
+import java.util.HashSet;
+/**
+ * The field to sort by.
+ */
 @JsonSerialize(using = UsageSort.UsageSortSerializer.class)
 public class UsageSort {
-
+  
   public static final UsageSort COMPUTED_ON = new UsageSort("computed_on");
   public static final UsageSort SIZE = new UsageSort("size");
   public static final UsageSort START_DATE = new UsageSort("start_date");
   public static final UsageSort END_DATE = new UsageSort("end_date");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("computed_on", "size", "start_date", "end_date"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("computed_on","size","start_date","end_date"));
 
   private String value;
 
@@ -46,19 +58,18 @@ public class UsageSort {
   }
 
   public static class UsageSortSerializer extends StdSerializer<UsageSort> {
-    public UsageSortSerializer(Class<UsageSort> t) {
-      super(t);
-    }
+      public UsageSortSerializer(Class<UsageSort> t) {
+          super(t);
+      }
 
-    public UsageSortSerializer() {
-      this(null);
-    }
+      public UsageSortSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(UsageSort value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(UsageSort value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -70,7 +81,9 @@ public class UsageSort {
     this.value = value;
   }
 
-  /** Return true if this UsageSort object is equal to o. */
+  /**
+   * Return true if this UsageSort object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -84,7 +97,7 @@ public class UsageSort {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override
@@ -97,3 +110,4 @@ public class UsageSort {
     return new UsageSort(value);
   }
 }
+

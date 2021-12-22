@@ -8,32 +8,49 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v2.client.model.ProcessSummariesMeta;
+import com.datadog.api.v2.client.model.ProcessSummary;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
 
-/** List of process summaries. */
+
+/**
+ * List of process summaries.
+ */
 @ApiModel(description = "List of process summaries.")
 @JsonPropertyOrder({
   ProcessSummariesResponse.JSON_PROPERTY_DATA,
   ProcessSummariesResponse.JSON_PROPERTY_META
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ProcessSummariesResponse {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<ProcessSummary> data = null;
 
   public static final String JSON_PROPERTY_META = "meta";
   private ProcessSummariesMeta meta;
+
 
   public ProcessSummariesResponse data(List<ProcessSummary> data) {
     this.data = data;
@@ -52,22 +69,24 @@ public class ProcessSummariesResponse {
     return this;
   }
 
-  /**
+   /**
    * Array of process summary objects.
-   *
    * @return data
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Array of process summary objects.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<ProcessSummary> getData() {
     return data;
   }
 
+
   public void setData(List<ProcessSummary> data) {
     this.data = data;
   }
+
 
   public ProcessSummariesResponse meta(ProcessSummariesMeta meta) {
     this.meta = meta;
@@ -75,24 +94,28 @@ public class ProcessSummariesResponse {
     return this;
   }
 
-  /**
+   /**
    * Get meta
-   *
    * @return meta
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_META)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public ProcessSummariesMeta getMeta() {
     return meta;
   }
+
 
   public void setMeta(ProcessSummariesMeta meta) {
     this.meta = meta;
   }
 
-  /** Return true if this ProcessSummariesResponse object is equal to o. */
+
+  /**
+   * Return true if this ProcessSummariesResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -102,8 +125,8 @@ public class ProcessSummariesResponse {
       return false;
     }
     ProcessSummariesResponse processSummariesResponse = (ProcessSummariesResponse) o;
-    return Objects.equals(this.data, processSummariesResponse.data)
-        && Objects.equals(this.meta, processSummariesResponse.meta);
+    return Objects.equals(this.data, processSummariesResponse.data) &&
+        Objects.equals(this.meta, processSummariesResponse.meta);
   }
 
   @Override
@@ -122,7 +145,8 @@ public class ProcessSummariesResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -130,4 +154,6 @@ public class ProcessSummariesResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

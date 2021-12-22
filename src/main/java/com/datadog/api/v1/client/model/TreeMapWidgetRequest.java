@@ -8,48 +8,69 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** An updated treemap widget. */
+
+/**
+ * An updated treemap widget.
+ */
 @ApiModel(description = "An updated treemap widget.")
-@JsonPropertyOrder({TreeMapWidgetRequest.JSON_PROPERTY_Q})
+@JsonPropertyOrder({
+  TreeMapWidgetRequest.JSON_PROPERTY_Q
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class TreeMapWidgetRequest {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_Q = "q";
   private String q;
+
 
   public TreeMapWidgetRequest q(String q) {
     this.q = q;
     return this;
   }
 
-  /**
+   /**
    * The widget metrics query.
-   *
    * @return q
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The widget metrics query.")
   @JsonProperty(JSON_PROPERTY_Q)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getQ() {
     return q;
   }
+
 
   public void setQ(String q) {
     this.q = q;
   }
 
-  /** Return true if this TreeMapWidgetRequest object is equal to o. */
+
+  /**
+   * Return true if this TreeMapWidgetRequest object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -77,7 +98,8 @@ public class TreeMapWidgetRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -85,4 +107,6 @@ public class TreeMapWidgetRequest {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

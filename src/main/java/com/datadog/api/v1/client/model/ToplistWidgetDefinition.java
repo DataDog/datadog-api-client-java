@@ -8,29 +8,37 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.ToplistWidgetDefinitionType;
+import com.datadog.api.v1.client.model.ToplistWidgetRequest;
+import com.datadog.api.v1.client.model.WidgetCustomLink;
+import com.datadog.api.v1.client.model.WidgetTextAlign;
+import com.datadog.api.v1.client.model.WidgetTime;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
- * The top list visualization enables you to display a list of Tag value like hostname or service
- * with the most or least of any metric value, such as highest consumers of CPU, hosts with the
- * least disk space, etc.
+ * The top list visualization enables you to display a list of Tag value like hostname or service with the most or least of any metric value, such as highest consumers of CPU, hosts with the least disk space, etc.
  */
-@ApiModel(
-    description =
-        "The top list visualization enables you to display a list of Tag value like hostname or"
-            + " service with the most or least of any metric value, such as highest consumers of"
-            + " CPU, hosts with the least disk space, etc.")
+@ApiModel(description = "The top list visualization enables you to display a list of Tag value like hostname or service with the most or least of any metric value, such as highest consumers of CPU, hosts with the least disk space, etc.")
 @JsonPropertyOrder({
   ToplistWidgetDefinition.JSON_PROPERTY_CUSTOM_LINKS,
   ToplistWidgetDefinition.JSON_PROPERTY_REQUESTS,
@@ -41,8 +49,10 @@ import java.util.Objects;
   ToplistWidgetDefinition.JSON_PROPERTY_TYPE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ToplistWidgetDefinition {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CUSTOM_LINKS = "custom_links";
   private List<WidgetCustomLink> customLinks = null;
 
@@ -68,12 +78,12 @@ public class ToplistWidgetDefinition {
 
   @JsonCreator
   public ToplistWidgetDefinition(
-      @JsonProperty(required = true, value = JSON_PROPERTY_REQUESTS)
-          List<ToplistWidgetRequest> requests,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) ToplistWidgetDefinitionType type) {
-    this.requests = requests;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_REQUESTS) List<ToplistWidgetRequest> requests,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE) ToplistWidgetDefinitionType type
+            ) {
+        this.requests = requests;
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
 
   public ToplistWidgetDefinition customLinks(List<WidgetCustomLink> customLinks) {
@@ -93,22 +103,24 @@ public class ToplistWidgetDefinition {
     return this;
   }
 
-  /**
+   /**
    * List of custom links.
-   *
    * @return customLinks
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "List of custom links.")
   @JsonProperty(JSON_PROPERTY_CUSTOM_LINKS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<WidgetCustomLink> getCustomLinks() {
     return customLinks;
   }
 
+
   public void setCustomLinks(List<WidgetCustomLink> customLinks) {
     this.customLinks = customLinks;
   }
+
 
   public ToplistWidgetDefinition requests(List<ToplistWidgetRequest> requests) {
     this.requests = requests;
@@ -124,24 +136,23 @@ public class ToplistWidgetDefinition {
     return this;
   }
 
-  /**
+   /**
    * List of top list widget requests.
-   *
    * @return requests
-   */
-  @ApiModelProperty(
-      example = "[{\"q\":\"system.load.1\"}]",
-      required = true,
-      value = "List of top list widget requests.")
+  **/
+  @ApiModelProperty(example = "[{\"q\":\"system.load.1\"}]", required = true, value = "List of top list widget requests.")
   @JsonProperty(JSON_PROPERTY_REQUESTS)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<ToplistWidgetRequest> getRequests() {
     return requests;
   }
 
+
   public void setRequests(List<ToplistWidgetRequest> requests) {
     this.requests = requests;
   }
+
 
   public ToplistWidgetDefinition time(WidgetTime time) {
     this.time = time;
@@ -149,44 +160,48 @@ public class ToplistWidgetDefinition {
     return this;
   }
 
-  /**
+   /**
    * Get time
-   *
    * @return time
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TIME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public WidgetTime getTime() {
     return time;
   }
 
+
   public void setTime(WidgetTime time) {
     this.time = time;
   }
+
 
   public ToplistWidgetDefinition title(String title) {
     this.title = title;
     return this;
   }
 
-  /**
+   /**
    * Title of your widget.
-   *
    * @return title
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Title of your widget.")
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getTitle() {
     return title;
   }
 
+
   public void setTitle(String title) {
     this.title = title;
   }
+
 
   public ToplistWidgetDefinition titleAlign(WidgetTextAlign titleAlign) {
     this.titleAlign = titleAlign;
@@ -194,47 +209,51 @@ public class ToplistWidgetDefinition {
     return this;
   }
 
-  /**
+   /**
    * Get titleAlign
-   *
    * @return titleAlign
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TITLE_ALIGN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public WidgetTextAlign getTitleAlign() {
     return titleAlign;
   }
 
+
   public void setTitleAlign(WidgetTextAlign titleAlign) {
     if (!titleAlign.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.titleAlign = titleAlign;
   }
+
 
   public ToplistWidgetDefinition titleSize(String titleSize) {
     this.titleSize = titleSize;
     return this;
   }
 
-  /**
+   /**
    * Size of the title.
-   *
    * @return titleSize
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Size of the title.")
   @JsonProperty(JSON_PROPERTY_TITLE_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getTitleSize() {
     return titleSize;
   }
 
+
   public void setTitleSize(String titleSize) {
     this.titleSize = titleSize;
   }
+
 
   public ToplistWidgetDefinition type(ToplistWidgetDefinitionType type) {
     this.type = type;
@@ -242,26 +261,30 @@ public class ToplistWidgetDefinition {
     return this;
   }
 
-  /**
+   /**
    * Get type
-   *
    * @return type
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public ToplistWidgetDefinitionType getType() {
     return type;
   }
 
+
   public void setType(ToplistWidgetDefinitionType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
-  /** Return true if this ToplistWidgetDefinition object is equal to o. */
+
+  /**
+   * Return true if this ToplistWidgetDefinition object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -271,13 +294,13 @@ public class ToplistWidgetDefinition {
       return false;
     }
     ToplistWidgetDefinition toplistWidgetDefinition = (ToplistWidgetDefinition) o;
-    return Objects.equals(this.customLinks, toplistWidgetDefinition.customLinks)
-        && Objects.equals(this.requests, toplistWidgetDefinition.requests)
-        && Objects.equals(this.time, toplistWidgetDefinition.time)
-        && Objects.equals(this.title, toplistWidgetDefinition.title)
-        && Objects.equals(this.titleAlign, toplistWidgetDefinition.titleAlign)
-        && Objects.equals(this.titleSize, toplistWidgetDefinition.titleSize)
-        && Objects.equals(this.type, toplistWidgetDefinition.type);
+    return Objects.equals(this.customLinks, toplistWidgetDefinition.customLinks) &&
+        Objects.equals(this.requests, toplistWidgetDefinition.requests) &&
+        Objects.equals(this.time, toplistWidgetDefinition.time) &&
+        Objects.equals(this.title, toplistWidgetDefinition.title) &&
+        Objects.equals(this.titleAlign, toplistWidgetDefinition.titleAlign) &&
+        Objects.equals(this.titleSize, toplistWidgetDefinition.titleSize) &&
+        Objects.equals(this.type, toplistWidgetDefinition.type);
   }
 
   @Override
@@ -301,7 +324,8 @@ public class ToplistWidgetDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -309,4 +333,6 @@ public class ToplistWidgetDefinition {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

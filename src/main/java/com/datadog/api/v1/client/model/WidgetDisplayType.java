@@ -8,31 +8,43 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import io.swagger.annotations.ApiModel;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
+
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
 
-/** Type of display to use for the request. */
+
+import java.util.Set;
+import java.util.HashSet;
+/**
+ * Type of display to use for the request.
+ */
 @JsonSerialize(using = WidgetDisplayType.WidgetDisplayTypeSerializer.class)
 public class WidgetDisplayType {
-
+  
   public static final WidgetDisplayType AREA = new WidgetDisplayType("area");
   public static final WidgetDisplayType BARS = new WidgetDisplayType("bars");
   public static final WidgetDisplayType LINE = new WidgetDisplayType("line");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("area", "bars", "line"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("area","bars","line"));
 
   private String value;
 
@@ -45,19 +57,18 @@ public class WidgetDisplayType {
   }
 
   public static class WidgetDisplayTypeSerializer extends StdSerializer<WidgetDisplayType> {
-    public WidgetDisplayTypeSerializer(Class<WidgetDisplayType> t) {
-      super(t);
-    }
+      public WidgetDisplayTypeSerializer(Class<WidgetDisplayType> t) {
+          super(t);
+      }
 
-    public WidgetDisplayTypeSerializer() {
-      this(null);
-    }
+      public WidgetDisplayTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(WidgetDisplayType value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(WidgetDisplayType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -69,7 +80,9 @@ public class WidgetDisplayType {
     this.value = value;
   }
 
-  /** Return true if this WidgetDisplayType object is equal to o. */
+  /**
+   * Return true if this WidgetDisplayType object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -83,7 +96,7 @@ public class WidgetDisplayType {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override
@@ -96,3 +109,4 @@ public class WidgetDisplayType {
     return new WidgetDisplayType(value);
   }
 }
+

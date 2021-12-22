@@ -4,10 +4,10 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.api.UsersApi;
+import com.datadog.api.v2.client.model.UserResponse;
 import com.datadog.api.v2.client.model.UserCreateAttributes;
 import com.datadog.api.v2.client.model.UserCreateData;
 import com.datadog.api.v2.client.model.UserCreateRequest;
-import com.datadog.api.v2.client.model.UserResponse;
 import com.datadog.api.v2.client.model.UsersType;
 import java.time.*;
 import java.util.*;
@@ -17,15 +17,12 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     UsersApi apiInstance = new UsersApi(defaultClient);
 
-    UserCreateRequest body =
-        new UserCreateRequest()
-            .data(
-                new UserCreateData()
-                    .type(UsersType.USERS)
-                    .attributes(
-                        new UserCreateAttributes()
-                            .name("Datadog API Client Python")
-                            .email("Example-Create_a_user_returns_OK_response@datadoghq.com")));
+    UserCreateRequest body = new UserCreateRequest()
+.data(new UserCreateData()
+.type(UsersType.USERS)
+.attributes(new UserCreateAttributes()
+.name("Datadog API Client Python")
+.email("Example-Create_a_user_returns_OK_response@datadoghq.com")));
 
     try {
       UserResponse result = apiInstance.createUser(body);

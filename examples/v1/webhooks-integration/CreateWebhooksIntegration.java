@@ -5,6 +5,7 @@ import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.WebhooksIntegrationApi;
 import com.datadog.api.v1.client.model.WebhooksIntegration;
+import com.datadog.api.v1.client.model.WebhooksIntegration;
 import java.time.*;
 import java.util.*;
 
@@ -13,10 +14,9 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     WebhooksIntegrationApi apiInstance = new WebhooksIntegrationApi(defaultClient);
 
-    WebhooksIntegration body =
-        new WebhooksIntegration()
-            .name("Example-Create_a_webhooks_integration_returns_OK_response")
-            .url("https://example.com/webhook");
+    WebhooksIntegration body = new WebhooksIntegration()
+.name("Example-Create_a_webhooks_integration_returns_OK_response")
+.url("https://example.com/webhook");
 
     try {
       WebhooksIntegration result = apiInstance.createWebhooksIntegration(body);

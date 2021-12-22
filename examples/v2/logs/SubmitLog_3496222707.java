@@ -15,22 +15,15 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     LogsApi apiInstance = new LogsApi(defaultClient);
 
-    ArrayList<HTTPLogItem> body =
-        new ArrayList<HTTPLogItem>() {
-          {
-            add(
-                new HTTPLogItem()
-                    .ddsource("nginx")
-                    .ddtags("env:staging,version:5.1")
-                    .hostname("i-012345678")
-                    .message("2019-11-19T14:37:58,995 INFO [process.name][20081] Hello World")
-                    .service("payment"));
-          }
-        };
+    ArrayList<HTTPLogItem> body = new ArrayList<HTTPLogItem>() {{add(new HTTPLogItem()
+.ddsource("nginx")
+.ddtags("env:staging,version:5.1")
+.hostname("i-012345678")
+.message("2019-11-19T14:37:58,995 INFO [process.name][20081] Hello World")
+.service("payment"));}};
 
     try {
-      apiInstance.submitLog(
-          body, new SubmitLogOptionalParameters().contentEncoding(ContentEncoding.GZIP));
+      apiInstance.submitLog(body,new SubmitLogOptionalParameters().contentEncoding(ContentEncoding.GZIP));
     } catch (ApiException e) {
       System.err.println("Exception when calling DowntimesApi#updateDowntime");
       System.err.println("Status code: " + e.getCode());

@@ -4,8 +4,8 @@ import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.SyntheticsApi;
-import com.datadog.api.v1.client.model.SyntheticsTriggerBody;
 import com.datadog.api.v1.client.model.SyntheticsTriggerCITestsResponse;
+import com.datadog.api.v1.client.model.SyntheticsTriggerBody;
 import com.datadog.api.v1.client.model.SyntheticsTriggerTest;
 import java.time.*;
 import java.util.*;
@@ -18,14 +18,9 @@ public class Example {
     // there is a valid "synthetics_api_test" in the system
     String SYNTHETICS_API_TEST_PUBLIC_ID = System.getenv("SYNTHETICS_API_TEST_PUBLIC_ID");
 
-    SyntheticsTriggerBody body =
-        new SyntheticsTriggerBody()
-            .tests(
-                new ArrayList<SyntheticsTriggerTest>() {
-                  {
-                    add(new SyntheticsTriggerTest().publicId(SYNTHETICS_API_TEST_PUBLIC_ID));
-                  }
-                });
+    SyntheticsTriggerBody body = new SyntheticsTriggerBody()
+.tests(new ArrayList<SyntheticsTriggerTest>() {{add(new SyntheticsTriggerTest()
+.publicId(SYNTHETICS_API_TEST_PUBLIC_ID));}});
 
     try {
       SyntheticsTriggerCITestsResponse result = apiInstance.triggerTests(body);

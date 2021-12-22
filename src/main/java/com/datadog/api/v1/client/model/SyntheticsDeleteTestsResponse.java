@@ -8,26 +8,44 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.SyntheticsDeletedTest;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Response object for deleting Synthetic tests. */
+
+/**
+ * Response object for deleting Synthetic tests.
+ */
 @ApiModel(description = "Response object for deleting Synthetic tests.")
-@JsonPropertyOrder({SyntheticsDeleteTestsResponse.JSON_PROPERTY_DELETED_TESTS})
+@JsonPropertyOrder({
+  SyntheticsDeleteTestsResponse.JSON_PROPERTY_DELETED_TESTS
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SyntheticsDeleteTestsResponse {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DELETED_TESTS = "deleted_tests";
   private List<SyntheticsDeletedTest> deletedTests = null;
+
 
   public SyntheticsDeleteTestsResponse deletedTests(List<SyntheticsDeletedTest> deletedTests) {
     this.deletedTests = deletedTests;
@@ -46,27 +64,28 @@ public class SyntheticsDeleteTestsResponse {
     return this;
   }
 
-  /**
+   /**
    * Array of objects containing a deleted Synthetic test ID with the associated deletion timestamp.
-   *
    * @return deletedTests
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Array of objects containing a deleted Synthetic test ID with the associated deletion"
-              + " timestamp.")
+  @ApiModelProperty(value = "Array of objects containing a deleted Synthetic test ID with the associated deletion timestamp.")
   @JsonProperty(JSON_PROPERTY_DELETED_TESTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<SyntheticsDeletedTest> getDeletedTests() {
     return deletedTests;
   }
+
 
   public void setDeletedTests(List<SyntheticsDeletedTest> deletedTests) {
     this.deletedTests = deletedTests;
   }
 
-  /** Return true if this SyntheticsDeleteTestsResponse object is equal to o. */
+
+  /**
+   * Return true if this SyntheticsDeleteTestsResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -94,7 +113,8 @@ public class SyntheticsDeleteTestsResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -102,4 +122,6 @@ public class SyntheticsDeleteTestsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

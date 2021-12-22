@@ -1,4 +1,6 @@
 // Query timeseries points returns "OK" response
+import java.time.*;
+
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
@@ -13,11 +15,7 @@ public class Example {
     MetricsApi apiInstance = new MetricsApi(defaultClient);
 
     try {
-      MetricsQueryResponse result =
-          apiInstance.queryMetrics(
-              (Instant.now().getEpochSecond() + -1 * 86400),
-              Instant.now().getEpochSecond(),
-              "system.cpu.idle{*}");
+      MetricsQueryResponse result = apiInstance.queryMetrics((Instant.now().getEpochSecond() + -1*86400), Instant.now().getEpochSecond(), "system.cpu.idle{*}");
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DowntimesApi#updateDowntime");

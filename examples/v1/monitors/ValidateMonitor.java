@@ -16,39 +16,32 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     MonitorsApi apiInstance = new MonitorsApi(defaultClient);
 
-    Monitor body =
-        new Monitor()
-            .name("Example-Validate_a_monitor_returns_OK_response")
-            .type(MonitorType.LOG_ALERT)
-            .query(
-                """
+    Monitor body = new Monitor()
+.name("Example-Validate_a_monitor_returns_OK_response")
+.type(MonitorType.LOG_ALERT)
+.query("""
 logs("service:foo AND type:error").index("main").rollup("count").by("source").last("5m") > 2
 """)
-            .message("some message Notify: @hipchat-channel")
-            .tags(
-                new ArrayList<String>() {
-                  {
-                    add("test:examplevalidateamonitorreturnsokresponse");
-                    add("env:ci");
-                  }
-                })
-            .priority(3L)
-            .options(
-                new MonitorOptions()
-                    .enableLogsSample(true)
-                    .escalationMessage("the situation has escalated")
-                    .evaluationDelay(700L)
-                    .groupbySimpleMonitor(true)
-                    .includeTags(true)
-                    .locked(false)
-                    .newHostDelay(600L)
-                    .noDataTimeframe(null)
-                    .notifyAudit(false)
-                    .notifyNoData(false)
-                    .renotifyInterval(60L)
-                    .requireFullWindow(true)
-                    .timeoutH(24L)
-                    .thresholds(new MonitorThresholds().critical(2.0).warning(1.0)));
+.message("some message Notify: @hipchat-channel")
+.tags(new ArrayList<String>() {{add("test:examplevalidateamonitorreturnsokresponse"); add("env:ci");}})
+.priority(3L)
+.options(new MonitorOptions()
+.enableLogsSample(true)
+.escalationMessage("the situation has escalated")
+.evaluationDelay(700L)
+.groupbySimpleMonitor(true)
+.includeTags(true)
+.locked(false)
+.newHostDelay(600L)
+.noDataTimeframe(null)
+.notifyAudit(false)
+.notifyNoData(false)
+.renotifyInterval(60L)
+.requireFullWindow(true)
+.timeoutH(24L)
+.thresholds(new MonitorThresholds()
+.critical(2.0)
+.warning(1.0)));
 
     try {
       apiInstance.validateMonitor(body);

@@ -8,26 +8,39 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** The event query. */
+
+/**
+ * The event query.
+ */
 @ApiModel(description = "The event query.")
 @JsonPropertyOrder({
   EventQueryDefinition.JSON_PROPERTY_SEARCH,
   EventQueryDefinition.JSON_PROPERTY_TAGS_EXECUTION
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class EventQueryDefinition {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_SEARCH = "search";
   private String search;
 
@@ -38,10 +51,11 @@ public class EventQueryDefinition {
 
   @JsonCreator
   public EventQueryDefinition(
-      @JsonProperty(required = true, value = JSON_PROPERTY_SEARCH) String search,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TAGS_EXECUTION) String tagsExecution) {
-    this.search = search;
-    this.tagsExecution = tagsExecution;
+            @JsonProperty(required=true, value=JSON_PROPERTY_SEARCH) String search,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TAGS_EXECUTION) String tagsExecution
+            ) {
+        this.search = search;
+        this.tagsExecution = tagsExecution;
   }
 
   public EventQueryDefinition search(String search) {
@@ -49,47 +63,50 @@ public class EventQueryDefinition {
     return this;
   }
 
-  /**
+   /**
    * The query being made on the event.
-   *
    * @return search
-   */
+  **/
   @ApiModelProperty(example = "", required = true, value = "The query being made on the event.")
   @JsonProperty(JSON_PROPERTY_SEARCH)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getSearch() {
     return search;
   }
 
+
   public void setSearch(String search) {
     this.search = search;
   }
+
 
   public EventQueryDefinition tagsExecution(String tagsExecution) {
     this.tagsExecution = tagsExecution;
     return this;
   }
 
-  /**
+   /**
    * The execution method for multi-value filters. Can be either and or or.
-   *
    * @return tagsExecution
-   */
-  @ApiModelProperty(
-      example = "",
-      required = true,
-      value = "The execution method for multi-value filters. Can be either and or or.")
+  **/
+  @ApiModelProperty(example = "", required = true, value = "The execution method for multi-value filters. Can be either and or or.")
   @JsonProperty(JSON_PROPERTY_TAGS_EXECUTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getTagsExecution() {
     return tagsExecution;
   }
+
 
   public void setTagsExecution(String tagsExecution) {
     this.tagsExecution = tagsExecution;
   }
 
-  /** Return true if this EventQueryDefinition object is equal to o. */
+
+  /**
+   * Return true if this EventQueryDefinition object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -99,8 +116,8 @@ public class EventQueryDefinition {
       return false;
     }
     EventQueryDefinition eventQueryDefinition = (EventQueryDefinition) o;
-    return Objects.equals(this.search, eventQueryDefinition.search)
-        && Objects.equals(this.tagsExecution, eventQueryDefinition.tagsExecution);
+    return Objects.equals(this.search, eventQueryDefinition.search) &&
+        Objects.equals(this.tagsExecution, eventQueryDefinition.tagsExecution);
   }
 
   @Override
@@ -119,7 +136,8 @@ public class EventQueryDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -127,4 +145,6 @@ public class EventQueryDefinition {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

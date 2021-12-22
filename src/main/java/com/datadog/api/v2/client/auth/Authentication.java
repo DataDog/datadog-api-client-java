@@ -8,28 +8,24 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.auth;
 
-import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Pair;
+import com.datadog.api.v2.client.ApiException;
+
 import java.net.URI;
-import java.util.List;
 import java.util.Map;
+import java.util.List;
 
 public interface Authentication {
-  /**
-   * Apply authentication settings to header and query params.
-   *
-   * @param queryParams List of query parameters
-   * @param headerParams Map of header parameters
-   * @param cookieParams Map of cookie parameters
-   */
-  void applyToParams(
-      List<Pair> queryParams,
-      Map<String, String> headerParams,
-      Map<String, String> cookieParams,
-      String payload,
-      String method,
-      URI uri)
-      throws ApiException;
+    /**
+     * Apply authentication settings to header and query params.
+     *
+     * @param queryParams List of query parameters
+     * @param headerParams Map of header parameters
+     * @param cookieParams Map of cookie parameters
+     */
+    void applyToParams(List<Pair> queryParams, Map<String, String> headerParams, Map<String, String> cookieParams, String payload, String method, URI uri) throws ApiException;
+
 }

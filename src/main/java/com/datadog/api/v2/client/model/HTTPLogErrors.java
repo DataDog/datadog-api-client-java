@@ -8,26 +8,44 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v2.client.model.HTTPLogError;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
 
-/** Invalid query performed. */
+
+/**
+ * Invalid query performed.
+ */
 @ApiModel(description = "Invalid query performed.")
-@JsonPropertyOrder({HTTPLogErrors.JSON_PROPERTY_ERRORS})
+@JsonPropertyOrder({
+  HTTPLogErrors.JSON_PROPERTY_ERRORS
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class HTTPLogErrors {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ERRORS = "errors";
   private List<HTTPLogError> errors = null;
+
 
   public HTTPLogErrors errors(List<HTTPLogError> errors) {
     this.errors = errors;
@@ -46,24 +64,28 @@ public class HTTPLogErrors {
     return this;
   }
 
-  /**
+   /**
    * Structured errors.
-   *
    * @return errors
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Structured errors.")
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<HTTPLogError> getErrors() {
     return errors;
   }
+
 
   public void setErrors(List<HTTPLogError> errors) {
     this.errors = errors;
   }
 
-  /** Return true if this HTTPLogErrors object is equal to o. */
+
+  /**
+   * Return true if this HTTPLogErrors object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -91,7 +113,8 @@ public class HTTPLogErrors {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -99,4 +122,6 @@ public class HTTPLogErrors {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

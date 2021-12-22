@@ -8,61 +8,50 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import io.swagger.annotations.ApiModel;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
+
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
+
+
 import java.util.Set;
-
-/** APM resource stat name. */
-@JsonSerialize(
-    using =
-        FormulaAndFunctionApmResourceStatName.FormulaAndFunctionApmResourceStatNameSerializer.class)
+import java.util.HashSet;
+/**
+ * APM resource stat name.
+ */
+@JsonSerialize(using = FormulaAndFunctionApmResourceStatName.FormulaAndFunctionApmResourceStatNameSerializer.class)
 public class FormulaAndFunctionApmResourceStatName {
+  
+  public static final FormulaAndFunctionApmResourceStatName ERRORS = new FormulaAndFunctionApmResourceStatName("errors");
+  public static final FormulaAndFunctionApmResourceStatName ERROR_RATE = new FormulaAndFunctionApmResourceStatName("error_rate");
+  public static final FormulaAndFunctionApmResourceStatName HITS = new FormulaAndFunctionApmResourceStatName("hits");
+  public static final FormulaAndFunctionApmResourceStatName LATENCY_AVG = new FormulaAndFunctionApmResourceStatName("latency_avg");
+  public static final FormulaAndFunctionApmResourceStatName LATENCY_MAX = new FormulaAndFunctionApmResourceStatName("latency_max");
+  public static final FormulaAndFunctionApmResourceStatName LATENCY_P50 = new FormulaAndFunctionApmResourceStatName("latency_p50");
+  public static final FormulaAndFunctionApmResourceStatName LATENCY_P75 = new FormulaAndFunctionApmResourceStatName("latency_p75");
+  public static final FormulaAndFunctionApmResourceStatName LATENCY_P90 = new FormulaAndFunctionApmResourceStatName("latency_p90");
+  public static final FormulaAndFunctionApmResourceStatName LATENCY_P95 = new FormulaAndFunctionApmResourceStatName("latency_p95");
+  public static final FormulaAndFunctionApmResourceStatName LATENCY_P99 = new FormulaAndFunctionApmResourceStatName("latency_p99");
 
-  public static final FormulaAndFunctionApmResourceStatName ERRORS =
-      new FormulaAndFunctionApmResourceStatName("errors");
-  public static final FormulaAndFunctionApmResourceStatName ERROR_RATE =
-      new FormulaAndFunctionApmResourceStatName("error_rate");
-  public static final FormulaAndFunctionApmResourceStatName HITS =
-      new FormulaAndFunctionApmResourceStatName("hits");
-  public static final FormulaAndFunctionApmResourceStatName LATENCY_AVG =
-      new FormulaAndFunctionApmResourceStatName("latency_avg");
-  public static final FormulaAndFunctionApmResourceStatName LATENCY_MAX =
-      new FormulaAndFunctionApmResourceStatName("latency_max");
-  public static final FormulaAndFunctionApmResourceStatName LATENCY_P50 =
-      new FormulaAndFunctionApmResourceStatName("latency_p50");
-  public static final FormulaAndFunctionApmResourceStatName LATENCY_P75 =
-      new FormulaAndFunctionApmResourceStatName("latency_p75");
-  public static final FormulaAndFunctionApmResourceStatName LATENCY_P90 =
-      new FormulaAndFunctionApmResourceStatName("latency_p90");
-  public static final FormulaAndFunctionApmResourceStatName LATENCY_P95 =
-      new FormulaAndFunctionApmResourceStatName("latency_p95");
-  public static final FormulaAndFunctionApmResourceStatName LATENCY_P99 =
-      new FormulaAndFunctionApmResourceStatName("latency_p99");
-
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "errors",
-              "error_rate",
-              "hits",
-              "latency_avg",
-              "latency_max",
-              "latency_p50",
-              "latency_p75",
-              "latency_p90",
-              "latency_p95",
-              "latency_p99"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("errors","error_rate","hits","latency_avg","latency_max","latency_p50","latency_p75","latency_p90","latency_p95","latency_p99"));
 
   private String value;
 
@@ -74,25 +63,19 @@ public class FormulaAndFunctionApmResourceStatName {
     this.value = value;
   }
 
-  public static class FormulaAndFunctionApmResourceStatNameSerializer
-      extends StdSerializer<FormulaAndFunctionApmResourceStatName> {
-    public FormulaAndFunctionApmResourceStatNameSerializer(
-        Class<FormulaAndFunctionApmResourceStatName> t) {
-      super(t);
-    }
+  public static class FormulaAndFunctionApmResourceStatNameSerializer extends StdSerializer<FormulaAndFunctionApmResourceStatName> {
+      public FormulaAndFunctionApmResourceStatNameSerializer(Class<FormulaAndFunctionApmResourceStatName> t) {
+          super(t);
+      }
 
-    public FormulaAndFunctionApmResourceStatNameSerializer() {
-      this(null);
-    }
+      public FormulaAndFunctionApmResourceStatNameSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        FormulaAndFunctionApmResourceStatName value,
-        JsonGenerator jgen,
-        SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(FormulaAndFunctionApmResourceStatName value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -104,7 +87,9 @@ public class FormulaAndFunctionApmResourceStatName {
     this.value = value;
   }
 
-  /** Return true if this FormulaAndFunctionApmResourceStatName object is equal to o. */
+  /**
+   * Return true if this FormulaAndFunctionApmResourceStatName object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -118,7 +103,7 @@ public class FormulaAndFunctionApmResourceStatName {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override
@@ -131,3 +116,4 @@ public class FormulaAndFunctionApmResourceStatName {
     return new FormulaAndFunctionApmResourceStatName(value);
   }
 }
+

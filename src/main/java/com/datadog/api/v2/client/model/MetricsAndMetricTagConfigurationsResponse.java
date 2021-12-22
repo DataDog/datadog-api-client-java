@@ -8,29 +8,46 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v2.client.model.MetricsAndMetricTagConfigurations;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
 
-/** Response object that includes metrics and metric tag configurations. */
+
+/**
+ * Response object that includes metrics and metric tag configurations.
+ */
 @ApiModel(description = "Response object that includes metrics and metric tag configurations.")
-@JsonPropertyOrder({MetricsAndMetricTagConfigurationsResponse.JSON_PROPERTY_DATA})
+@JsonPropertyOrder({
+  MetricsAndMetricTagConfigurationsResponse.JSON_PROPERTY_DATA
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class MetricsAndMetricTagConfigurationsResponse {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<MetricsAndMetricTagConfigurations> data = null;
 
-  public MetricsAndMetricTagConfigurationsResponse data(
-      List<MetricsAndMetricTagConfigurations> data) {
+
+  public MetricsAndMetricTagConfigurationsResponse data(List<MetricsAndMetricTagConfigurations> data) {
     this.data = data;
     for (MetricsAndMetricTagConfigurations item : data) {
       this.unparsed |= item.unparsed;
@@ -38,8 +55,7 @@ public class MetricsAndMetricTagConfigurationsResponse {
     return this;
   }
 
-  public MetricsAndMetricTagConfigurationsResponse addDataItem(
-      MetricsAndMetricTagConfigurations dataItem) {
+  public MetricsAndMetricTagConfigurationsResponse addDataItem(MetricsAndMetricTagConfigurations dataItem) {
     if (this.data == null) {
       this.data = new ArrayList<>();
     }
@@ -48,24 +64,28 @@ public class MetricsAndMetricTagConfigurationsResponse {
     return this;
   }
 
-  /**
+   /**
    * Array of metrics and metric tag configurations.
-   *
    * @return data
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Array of metrics and metric tag configurations.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<MetricsAndMetricTagConfigurations> getData() {
     return data;
   }
+
 
   public void setData(List<MetricsAndMetricTagConfigurations> data) {
     this.data = data;
   }
 
-  /** Return true if this MetricsAndMetricTagConfigurationsResponse object is equal to o. */
+
+  /**
+   * Return true if this MetricsAndMetricTagConfigurationsResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -74,8 +94,7 @@ public class MetricsAndMetricTagConfigurationsResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MetricsAndMetricTagConfigurationsResponse metricsAndMetricTagConfigurationsResponse =
-        (MetricsAndMetricTagConfigurationsResponse) o;
+    MetricsAndMetricTagConfigurationsResponse metricsAndMetricTagConfigurationsResponse = (MetricsAndMetricTagConfigurationsResponse) o;
     return Objects.equals(this.data, metricsAndMetricTagConfigurationsResponse.data);
   }
 
@@ -94,7 +113,8 @@ public class MetricsAndMetricTagConfigurationsResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -102,4 +122,6 @@ public class MetricsAndMetricTagConfigurationsResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

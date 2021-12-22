@@ -8,25 +8,41 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.Series;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** The metrics&#39; payload. */
+
+/**
+ * The metrics&#39; payload.
+ */
 @ApiModel(description = "The metrics' payload.")
-@JsonPropertyOrder({MetricsPayload.JSON_PROPERTY_SERIES})
+@JsonPropertyOrder({
+  MetricsPayload.JSON_PROPERTY_SERIES
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class MetricsPayload {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_SERIES = "series";
   private List<Series> series = new ArrayList<>();
 
@@ -34,8 +50,9 @@ public class MetricsPayload {
 
   @JsonCreator
   public MetricsPayload(
-      @JsonProperty(required = true, value = JSON_PROPERTY_SERIES) List<Series> series) {
-    this.series = series;
+            @JsonProperty(required=true, value=JSON_PROPERTY_SERIES) List<Series> series
+            ) {
+        this.series = series;
   }
 
   public MetricsPayload series(List<Series> series) {
@@ -52,26 +69,27 @@ public class MetricsPayload {
     return this;
   }
 
-  /**
+   /**
    * A list of time series to submit to Datadog.
-   *
    * @return series
-   */
-  @ApiModelProperty(
-      example = "[{\"metric\":\"system.load.1\",\"points\":[[1.475317847E9,0.7]]}]",
-      required = true,
-      value = "A list of time series to submit to Datadog.")
+  **/
+  @ApiModelProperty(example = "[{\"metric\":\"system.load.1\",\"points\":[[1.475317847E9,0.7]]}]", required = true, value = "A list of time series to submit to Datadog.")
   @JsonProperty(JSON_PROPERTY_SERIES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<Series> getSeries() {
     return series;
   }
+
 
   public void setSeries(List<Series> series) {
     this.series = series;
   }
 
-  /** Return true if this MetricsPayload object is equal to o. */
+
+  /**
+   * Return true if this MetricsPayload object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -99,7 +117,8 @@ public class MetricsPayload {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -107,4 +126,6 @@ public class MetricsPayload {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

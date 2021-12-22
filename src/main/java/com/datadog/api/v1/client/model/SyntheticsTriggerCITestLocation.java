@@ -8,76 +8,97 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Synthetics location. */
+
+/**
+ * Synthetics location.
+ */
 @ApiModel(description = "Synthetics location.")
 @JsonPropertyOrder({
   SyntheticsTriggerCITestLocation.JSON_PROPERTY_ID,
   SyntheticsTriggerCITestLocation.JSON_PROPERTY_NAME
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SyntheticsTriggerCITestLocation {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ID = "id";
   private Long id;
 
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
+
   public SyntheticsTriggerCITestLocation id(Long id) {
     this.id = id;
     return this;
   }
 
-  /**
+   /**
    * Unique identifier of the location.
-   *
    * @return id
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Unique identifier of the location.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Long getId() {
     return id;
   }
 
+
   public void setId(Long id) {
     this.id = id;
   }
+
 
   public SyntheticsTriggerCITestLocation name(String name) {
     this.name = name;
     return this;
   }
 
-  /**
+   /**
    * Name of the location.
-   *
    * @return name
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Name of the location.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getName() {
     return name;
   }
+
 
   public void setName(String name) {
     this.name = name;
   }
 
-  /** Return true if this SyntheticsTriggerCITestLocation object is equal to o. */
+
+  /**
+   * Return true if this SyntheticsTriggerCITestLocation object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -86,10 +107,9 @@ public class SyntheticsTriggerCITestLocation {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsTriggerCITestLocation syntheticsTriggerCITestLocation =
-        (SyntheticsTriggerCITestLocation) o;
-    return Objects.equals(this.id, syntheticsTriggerCITestLocation.id)
-        && Objects.equals(this.name, syntheticsTriggerCITestLocation.name);
+    SyntheticsTriggerCITestLocation syntheticsTriggerCITestLocation = (SyntheticsTriggerCITestLocation) o;
+    return Objects.equals(this.id, syntheticsTriggerCITestLocation.id) &&
+        Objects.equals(this.name, syntheticsTriggerCITestLocation.name);
   }
 
   @Override
@@ -108,7 +128,8 @@ public class SyntheticsTriggerCITestLocation {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -116,4 +137,6 @@ public class SyntheticsTriggerCITestLocation {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

@@ -8,23 +8,39 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v2.client.model.SecurityFilterUpdateData;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
 
-/** The new security filter body. */
+
+/**
+ * The new security filter body.
+ */
 @ApiModel(description = "The new security filter body.")
-@JsonPropertyOrder({SecurityFilterUpdateRequest.JSON_PROPERTY_DATA})
+@JsonPropertyOrder({
+  SecurityFilterUpdateRequest.JSON_PROPERTY_DATA
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SecurityFilterUpdateRequest {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private SecurityFilterUpdateData data;
 
@@ -32,9 +48,10 @@ public class SecurityFilterUpdateRequest {
 
   @JsonCreator
   public SecurityFilterUpdateRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) SecurityFilterUpdateData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
+            @JsonProperty(required=true, value=JSON_PROPERTY_DATA) SecurityFilterUpdateData data
+            ) {
+        this.data = data;
+        this.unparsed |= data.unparsed;
   }
 
   public SecurityFilterUpdateRequest data(SecurityFilterUpdateData data) {
@@ -43,23 +60,27 @@ public class SecurityFilterUpdateRequest {
     return this;
   }
 
-  /**
+   /**
    * Get data
-   *
    * @return data
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public SecurityFilterUpdateData getData() {
     return data;
   }
+
 
   public void setData(SecurityFilterUpdateData data) {
     this.data = data;
   }
 
-  /** Return true if this SecurityFilterUpdateRequest object is equal to o. */
+
+  /**
+   * Return true if this SecurityFilterUpdateRequest object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -87,7 +108,8 @@ public class SecurityFilterUpdateRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -95,4 +117,6 @@ public class SecurityFilterUpdateRequest {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

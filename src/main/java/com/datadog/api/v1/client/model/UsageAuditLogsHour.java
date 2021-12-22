@@ -8,18 +8,30 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Audit logs usage for a given organization for a given hour. */
+
+/**
+ * Audit logs usage for a given organization for a given hour.
+ */
 @ApiModel(description = "Audit logs usage for a given organization for a given hour.")
 @JsonPropertyOrder({
   UsageAuditLogsHour.JSON_PROPERTY_HOUR,
@@ -28,8 +40,10 @@ import java.util.Objects;
   UsageAuditLogsHour.JSON_PROPERTY_PUBLIC_ID
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class UsageAuditLogsHour {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_HOUR = "hour";
   private OffsetDateTime hour;
 
@@ -42,95 +56,106 @@ public class UsageAuditLogsHour {
   public static final String JSON_PROPERTY_PUBLIC_ID = "public_id";
   private String publicId;
 
+
   public UsageAuditLogsHour hour(OffsetDateTime hour) {
     this.hour = hour;
     return this;
   }
 
-  /**
+   /**
    * The hour for the usage.
-   *
    * @return hour
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The hour for the usage.")
   @JsonProperty(JSON_PROPERTY_HOUR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public OffsetDateTime getHour() {
     return hour;
   }
 
+
   public void setHour(OffsetDateTime hour) {
     this.hour = hour;
   }
+
 
   public UsageAuditLogsHour linesIndexed(Long linesIndexed) {
     this.linesIndexed = linesIndexed;
     return this;
   }
 
-  /**
+   /**
    * The total number of audit logs lines indexed during a given hour.
-   *
    * @return linesIndexed
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The total number of audit logs lines indexed during a given hour.")
   @JsonProperty(JSON_PROPERTY_LINES_INDEXED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Long getLinesIndexed() {
     return linesIndexed;
   }
 
+
   public void setLinesIndexed(Long linesIndexed) {
     this.linesIndexed = linesIndexed;
   }
+
 
   public UsageAuditLogsHour orgName(String orgName) {
     this.orgName = orgName;
     return this;
   }
 
-  /**
+   /**
    * The organization name.
-   *
    * @return orgName
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The organization name.")
   @JsonProperty(JSON_PROPERTY_ORG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getOrgName() {
     return orgName;
   }
 
+
   public void setOrgName(String orgName) {
     this.orgName = orgName;
   }
+
 
   public UsageAuditLogsHour publicId(String publicId) {
     this.publicId = publicId;
     return this;
   }
 
-  /**
+   /**
    * The organization public ID.
-   *
    * @return publicId
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The organization public ID.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getPublicId() {
     return publicId;
   }
+
 
   public void setPublicId(String publicId) {
     this.publicId = publicId;
   }
 
-  /** Return true if this UsageAuditLogsHour object is equal to o. */
+
+  /**
+   * Return true if this UsageAuditLogsHour object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -140,10 +165,10 @@ public class UsageAuditLogsHour {
       return false;
     }
     UsageAuditLogsHour usageAuditLogsHour = (UsageAuditLogsHour) o;
-    return Objects.equals(this.hour, usageAuditLogsHour.hour)
-        && Objects.equals(this.linesIndexed, usageAuditLogsHour.linesIndexed)
-        && Objects.equals(this.orgName, usageAuditLogsHour.orgName)
-        && Objects.equals(this.publicId, usageAuditLogsHour.publicId);
+    return Objects.equals(this.hour, usageAuditLogsHour.hour) &&
+        Objects.equals(this.linesIndexed, usageAuditLogsHour.linesIndexed) &&
+        Objects.equals(this.orgName, usageAuditLogsHour.orgName) &&
+        Objects.equals(this.publicId, usageAuditLogsHour.publicId);
   }
 
   @Override
@@ -164,7 +189,8 @@ public class UsageAuditLogsHour {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -172,4 +198,6 @@ public class UsageAuditLogsHour {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

@@ -8,33 +8,40 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.NotebookMarkdownCellDefinitionType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
- * Text in a notebook is formatted with [Markdown](https://daringfireball.net/projects/markdown/),
- * which enables the use of headings, subheadings, links, images, lists, and code blocks.
+ * Text in a notebook is formatted with [Markdown](https://daringfireball.net/projects/markdown/), which enables the use of headings, subheadings, links, images, lists, and code blocks.
  */
-@ApiModel(
-    description =
-        "Text in a notebook is formatted with"
-            + " [Markdown](https://daringfireball.net/projects/markdown/), which enables the use"
-            + " of headings, subheadings, links, images, lists, and code blocks.")
+@ApiModel(description = "Text in a notebook is formatted with [Markdown](https://daringfireball.net/projects/markdown/), which enables the use of headings, subheadings, links, images, lists, and code blocks.")
 @JsonPropertyOrder({
   NotebookMarkdownCellDefinition.JSON_PROPERTY_TEXT,
   NotebookMarkdownCellDefinition.JSON_PROPERTY_TYPE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class NotebookMarkdownCellDefinition {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_TEXT = "text";
   private String text;
 
@@ -45,12 +52,12 @@ public class NotebookMarkdownCellDefinition {
 
   @JsonCreator
   public NotebookMarkdownCellDefinition(
-      @JsonProperty(required = true, value = JSON_PROPERTY_TEXT) String text,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          NotebookMarkdownCellDefinitionType type) {
-    this.text = text;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_TEXT) String text,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE) NotebookMarkdownCellDefinitionType type
+            ) {
+        this.text = text;
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
 
   public NotebookMarkdownCellDefinition text(String text) {
@@ -58,24 +65,23 @@ public class NotebookMarkdownCellDefinition {
     return this;
   }
 
-  /**
+   /**
    * The markdown content.
-   *
    * @return text
-   */
-  @ApiModelProperty(
-      example = "# Example Header  example content",
-      required = true,
-      value = "The markdown content.")
+  **/
+  @ApiModelProperty(example = "# Example Header  example content", required = true, value = "The markdown content.")
   @JsonProperty(JSON_PROPERTY_TEXT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getText() {
     return text;
   }
 
+
   public void setText(String text) {
     this.text = text;
   }
+
 
   public NotebookMarkdownCellDefinition type(NotebookMarkdownCellDefinitionType type) {
     this.type = type;
@@ -83,26 +89,30 @@ public class NotebookMarkdownCellDefinition {
     return this;
   }
 
-  /**
+   /**
    * Get type
-   *
    * @return type
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public NotebookMarkdownCellDefinitionType getType() {
     return type;
   }
 
+
   public void setType(NotebookMarkdownCellDefinitionType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
-  /** Return true if this NotebookMarkdownCellDefinition object is equal to o. */
+
+  /**
+   * Return true if this NotebookMarkdownCellDefinition object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -111,10 +121,9 @@ public class NotebookMarkdownCellDefinition {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    NotebookMarkdownCellDefinition notebookMarkdownCellDefinition =
-        (NotebookMarkdownCellDefinition) o;
-    return Objects.equals(this.text, notebookMarkdownCellDefinition.text)
-        && Objects.equals(this.type, notebookMarkdownCellDefinition.type);
+    NotebookMarkdownCellDefinition notebookMarkdownCellDefinition = (NotebookMarkdownCellDefinition) o;
+    return Objects.equals(this.text, notebookMarkdownCellDefinition.text) &&
+        Objects.equals(this.type, notebookMarkdownCellDefinition.type);
   }
 
   @Override
@@ -133,7 +142,8 @@ public class NotebookMarkdownCellDefinition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -141,4 +151,6 @@ public class NotebookMarkdownCellDefinition {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

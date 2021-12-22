@@ -8,25 +8,38 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import io.swagger.annotations.ApiModel;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
+
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
 
-/** Sorting options */
+
+import java.util.Set;
+import java.util.HashSet;
+/**
+ * Sorting options
+ */
 @JsonSerialize(using = APIKeysSort.APIKeysSortSerializer.class)
 public class APIKeysSort {
-
+  
   public static final APIKeysSort CREATED_AT_ASCENDING = new APIKeysSort("created_at");
   public static final APIKeysSort CREATED_AT_DESCENDING = new APIKeysSort("-created_at");
   public static final APIKeysSort LAST4_ASCENDING = new APIKeysSort("last4");
@@ -36,17 +49,7 @@ public class APIKeysSort {
   public static final APIKeysSort NAME_ASCENDING = new APIKeysSort("name");
   public static final APIKeysSort NAME_DESCENDING = new APIKeysSort("-name");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "created_at",
-              "-created_at",
-              "last4",
-              "-last4",
-              "modified_at",
-              "-modified_at",
-              "name",
-              "-name"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("created_at","-created_at","last4","-last4","modified_at","-modified_at","name","-name"));
 
   private String value;
 
@@ -59,19 +62,18 @@ public class APIKeysSort {
   }
 
   public static class APIKeysSortSerializer extends StdSerializer<APIKeysSort> {
-    public APIKeysSortSerializer(Class<APIKeysSort> t) {
-      super(t);
-    }
+      public APIKeysSortSerializer(Class<APIKeysSort> t) {
+          super(t);
+      }
 
-    public APIKeysSortSerializer() {
-      this(null);
-    }
+      public APIKeysSortSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(APIKeysSort value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(APIKeysSort value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -83,7 +85,9 @@ public class APIKeysSort {
     this.value = value;
   }
 
-  /** Return true if this APIKeysSort object is equal to o. */
+  /**
+   * Return true if this APIKeysSort object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -97,7 +101,7 @@ public class APIKeysSort {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override
@@ -110,3 +114,4 @@ public class APIKeysSort {
     return new APIKeysSort(value);
   }
 }
+

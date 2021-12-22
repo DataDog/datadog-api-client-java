@@ -8,18 +8,30 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.SyntheticsBrowserErrorType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Error response object for a browser test. */
+
+/**
+ * Error response object for a browser test.
+ */
 @ApiModel(description = "Error response object for a browser test.")
 @JsonPropertyOrder({
   SyntheticsBrowserError.JSON_PROPERTY_DESCRIPTION,
@@ -28,8 +40,10 @@ import java.util.Objects;
   SyntheticsBrowserError.JSON_PROPERTY_TYPE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SyntheticsBrowserError {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
   private String description;
 
@@ -46,13 +60,14 @@ public class SyntheticsBrowserError {
 
   @JsonCreator
   public SyntheticsBrowserError(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DESCRIPTION) String description,
-      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SyntheticsBrowserErrorType type) {
-    this.description = description;
-    this.name = name;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_DESCRIPTION) String description,
+            @JsonProperty(required=true, value=JSON_PROPERTY_NAME) String name,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE) SyntheticsBrowserErrorType type
+            ) {
+        this.description = description;
+        this.name = name;
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
 
   public SyntheticsBrowserError description(String description) {
@@ -60,67 +75,70 @@ public class SyntheticsBrowserError {
     return this;
   }
 
-  /**
+   /**
    * Description of the error.
-   *
    * @return description
-   */
-  @ApiModelProperty(
-      example = "Example error message",
-      required = true,
-      value = "Description of the error.")
+  **/
+  @ApiModelProperty(example = "Example error message", required = true, value = "Description of the error.")
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getDescription() {
     return description;
   }
 
+
   public void setDescription(String description) {
     this.description = description;
   }
+
 
   public SyntheticsBrowserError name(String name) {
     this.name = name;
     return this;
   }
 
-  /**
+   /**
    * Name of the error.
-   *
    * @return name
-   */
+  **/
   @ApiModelProperty(example = "Failed test", required = true, value = "Name of the error.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getName() {
     return name;
   }
 
+
   public void setName(String name) {
     this.name = name;
   }
+
 
   public SyntheticsBrowserError status(Long status) {
     this.status = status;
     return this;
   }
 
-  /**
+   /**
    * Status Code of the error.
-   *
    * @return status
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "500", value = "Status Code of the error.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Long getStatus() {
     return status;
   }
 
+
   public void setStatus(Long status) {
     this.status = status;
   }
+
 
   public SyntheticsBrowserError type(SyntheticsBrowserErrorType type) {
     this.type = type;
@@ -128,26 +146,30 @@ public class SyntheticsBrowserError {
     return this;
   }
 
-  /**
+   /**
    * Get type
-   *
    * @return type
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public SyntheticsBrowserErrorType getType() {
     return type;
   }
 
+
   public void setType(SyntheticsBrowserErrorType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
-  /** Return true if this SyntheticsBrowserError object is equal to o. */
+
+  /**
+   * Return true if this SyntheticsBrowserError object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -157,10 +179,10 @@ public class SyntheticsBrowserError {
       return false;
     }
     SyntheticsBrowserError syntheticsBrowserError = (SyntheticsBrowserError) o;
-    return Objects.equals(this.description, syntheticsBrowserError.description)
-        && Objects.equals(this.name, syntheticsBrowserError.name)
-        && Objects.equals(this.status, syntheticsBrowserError.status)
-        && Objects.equals(this.type, syntheticsBrowserError.type);
+    return Objects.equals(this.description, syntheticsBrowserError.description) &&
+        Objects.equals(this.name, syntheticsBrowserError.name) &&
+        Objects.equals(this.status, syntheticsBrowserError.status) &&
+        Objects.equals(this.type, syntheticsBrowserError.type);
   }
 
   @Override
@@ -181,7 +203,8 @@ public class SyntheticsBrowserError {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -189,4 +212,6 @@ public class SyntheticsBrowserError {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

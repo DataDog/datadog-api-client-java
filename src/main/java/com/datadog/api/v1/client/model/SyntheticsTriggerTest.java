@@ -8,26 +8,40 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.SyntheticsCIBatchMetadata;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Test configuration for Synthetics */
+
+/**
+ * Test configuration for Synthetics
+ */
 @ApiModel(description = "Test configuration for Synthetics")
 @JsonPropertyOrder({
   SyntheticsTriggerTest.JSON_PROPERTY_METADATA,
   SyntheticsTriggerTest.JSON_PROPERTY_PUBLIC_ID
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SyntheticsTriggerTest {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_METADATA = "metadata";
   private SyntheticsCIBatchMetadata metadata;
 
@@ -38,8 +52,9 @@ public class SyntheticsTriggerTest {
 
   @JsonCreator
   public SyntheticsTriggerTest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_PUBLIC_ID) String publicId) {
-    this.publicId = publicId;
+            @JsonProperty(required=true, value=JSON_PROPERTY_PUBLIC_ID) String publicId
+            ) {
+        this.publicId = publicId;
   }
 
   public SyntheticsTriggerTest metadata(SyntheticsCIBatchMetadata metadata) {
@@ -48,48 +63,51 @@ public class SyntheticsTriggerTest {
     return this;
   }
 
-  /**
+   /**
    * Get metadata
-   *
    * @return metadata
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_METADATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public SyntheticsCIBatchMetadata getMetadata() {
     return metadata;
   }
 
+
   public void setMetadata(SyntheticsCIBatchMetadata metadata) {
     this.metadata = metadata;
   }
+
 
   public SyntheticsTriggerTest publicId(String publicId) {
     this.publicId = publicId;
     return this;
   }
 
-  /**
+   /**
    * The public ID of the Synthetics test to trigger.
-   *
    * @return publicId
-   */
-  @ApiModelProperty(
-      example = "aaa-aaa-aaa",
-      required = true,
-      value = "The public ID of the Synthetics test to trigger.")
+  **/
+  @ApiModelProperty(example = "aaa-aaa-aaa", required = true, value = "The public ID of the Synthetics test to trigger.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getPublicId() {
     return publicId;
   }
+
 
   public void setPublicId(String publicId) {
     this.publicId = publicId;
   }
 
-  /** Return true if this SyntheticsTriggerTest object is equal to o. */
+
+  /**
+   * Return true if this SyntheticsTriggerTest object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -99,8 +117,8 @@ public class SyntheticsTriggerTest {
       return false;
     }
     SyntheticsTriggerTest syntheticsTriggerTest = (SyntheticsTriggerTest) o;
-    return Objects.equals(this.metadata, syntheticsTriggerTest.metadata)
-        && Objects.equals(this.publicId, syntheticsTriggerTest.publicId);
+    return Objects.equals(this.metadata, syntheticsTriggerTest.metadata) &&
+        Objects.equals(this.publicId, syntheticsTriggerTest.publicId);
   }
 
   @Override
@@ -119,7 +137,8 @@ public class SyntheticsTriggerTest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -127,4 +146,6 @@ public class SyntheticsTriggerTest {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

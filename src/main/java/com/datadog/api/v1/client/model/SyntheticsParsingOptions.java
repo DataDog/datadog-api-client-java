@@ -8,17 +8,31 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.SyntheticsGlobalVariableParseTestOptionsType;
+import com.datadog.api.v1.client.model.SyntheticsVariableParser;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Parsing options for variables to extract. */
+
+/**
+ * Parsing options for variables to extract.
+ */
 @ApiModel(description = "Parsing options for variables to extract.")
 @JsonPropertyOrder({
   SyntheticsParsingOptions.JSON_PROPERTY_FIELD,
@@ -27,8 +41,10 @@ import java.util.Objects;
   SyntheticsParsingOptions.JSON_PROPERTY_TYPE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SyntheticsParsingOptions {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_FIELD = "field";
   private String field;
 
@@ -41,51 +57,54 @@ public class SyntheticsParsingOptions {
   public static final String JSON_PROPERTY_TYPE = "type";
   private SyntheticsGlobalVariableParseTestOptionsType type;
 
+
   public SyntheticsParsingOptions field(String field) {
     this.field = field;
     return this;
   }
 
-  /**
+   /**
    * When type is &#x60;http_header&#x60;, name of the header to use to extract the value.
-   *
    * @return field
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "content-type",
-      value = "When type is `http_header`, name of the header to use to extract the value.")
+  @ApiModelProperty(example = "content-type", value = "When type is `http_header`, name of the header to use to extract the value.")
   @JsonProperty(JSON_PROPERTY_FIELD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getField() {
     return field;
   }
 
+
   public void setField(String field) {
     this.field = field;
   }
+
 
   public SyntheticsParsingOptions name(String name) {
     this.name = name;
     return this;
   }
 
-  /**
+   /**
    * Name of the variable to extract.
-   *
    * @return name
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Name of the variable to extract.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getName() {
     return name;
   }
 
+
   public void setName(String name) {
     this.name = name;
   }
+
 
   public SyntheticsParsingOptions parser(SyntheticsVariableParser parser) {
     this.parser = parser;
@@ -93,22 +112,24 @@ public class SyntheticsParsingOptions {
     return this;
   }
 
-  /**
+   /**
    * Get parser
-   *
    * @return parser
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PARSER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public SyntheticsVariableParser getParser() {
     return parser;
   }
 
+
   public void setParser(SyntheticsVariableParser parser) {
     this.parser = parser;
   }
+
 
   public SyntheticsParsingOptions type(SyntheticsGlobalVariableParseTestOptionsType type) {
     this.type = type;
@@ -116,27 +137,31 @@ public class SyntheticsParsingOptions {
     return this;
   }
 
-  /**
+   /**
    * Get type
-   *
    * @return type
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public SyntheticsGlobalVariableParseTestOptionsType getType() {
     return type;
   }
 
+
   public void setType(SyntheticsGlobalVariableParseTestOptionsType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
-  /** Return true if this SyntheticsParsingOptions object is equal to o. */
+
+  /**
+   * Return true if this SyntheticsParsingOptions object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -146,10 +171,10 @@ public class SyntheticsParsingOptions {
       return false;
     }
     SyntheticsParsingOptions syntheticsParsingOptions = (SyntheticsParsingOptions) o;
-    return Objects.equals(this.field, syntheticsParsingOptions.field)
-        && Objects.equals(this.name, syntheticsParsingOptions.name)
-        && Objects.equals(this.parser, syntheticsParsingOptions.parser)
-        && Objects.equals(this.type, syntheticsParsingOptions.type);
+    return Objects.equals(this.field, syntheticsParsingOptions.field) &&
+        Objects.equals(this.name, syntheticsParsingOptions.name) &&
+        Objects.equals(this.parser, syntheticsParsingOptions.parser) &&
+        Objects.equals(this.type, syntheticsParsingOptions.type);
   }
 
   @Override
@@ -170,7 +195,8 @@ public class SyntheticsParsingOptions {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -178,4 +204,6 @@ public class SyntheticsParsingOptions {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

@@ -22,12 +22,11 @@ public class Example {
     String TEAM_DATA_ATTRIBUTES_NAME = System.getenv("TEAM_DATA_ATTRIBUTES_NAME");
     String TEAM_DATA_ID = System.getenv("TEAM_DATA_ID");
 
-    IncidentTeamUpdateRequest body =
-        new IncidentTeamUpdateRequest()
-            .data(
-                new IncidentTeamUpdateData()
-                    .type(IncidentTeamType.TEAMS)
-                    .attributes(new IncidentTeamUpdateAttributes().name("team name-updated")));
+    IncidentTeamUpdateRequest body = new IncidentTeamUpdateRequest()
+.data(new IncidentTeamUpdateData()
+.type(IncidentTeamType.TEAMS)
+.attributes(new IncidentTeamUpdateAttributes()
+.name("team name-updated")));
 
     try {
       IncidentTeamResponse result = apiInstance.updateIncidentTeam(TEAM_DATA_ID, body);

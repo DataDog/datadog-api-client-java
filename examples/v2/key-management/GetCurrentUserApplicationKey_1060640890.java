@@ -17,8 +17,7 @@ public class Example {
     String APPLICATION_KEY_DATA_ID = System.getenv("APPLICATION_KEY_DATA_ID");
 
     try {
-      ApplicationKeyResponse result =
-          apiInstance.getCurrentUserApplicationKey(APPLICATION_KEY_DATA_ID);
+      ApplicationKeyResponse result = apiInstance.getCurrentUserApplicationKey(APPLICATION_KEY_DATA_ID);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DowntimesApi#updateDowntime");

@@ -8,20 +8,33 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v2.client.model.SecurityMonitoringRuleQueryAggregation;
+import com.datadog.api.v2.client.model.SecurityMonitoringRuntimeAgentRule;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
 
-/** Query for matching rule. */
+
+/**
+ * Query for matching rule.
+ */
 @ApiModel(description = "Query for matching rule.")
 @JsonPropertyOrder({
   SecurityMonitoringRuleQueryCreate.JSON_PROPERTY_AGENT_RULE,
@@ -33,8 +46,10 @@ import java.util.Objects;
   SecurityMonitoringRuleQueryCreate.JSON_PROPERTY_QUERY
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SecurityMonitoringRuleQueryCreate {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_AGENT_RULE = "agentRule";
   private SecurityMonitoringRuntimeAgentRule agentRule;
 
@@ -60,8 +75,9 @@ public class SecurityMonitoringRuleQueryCreate {
 
   @JsonCreator
   public SecurityMonitoringRuleQueryCreate(
-      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query) {
-    this.query = query;
+            @JsonProperty(required=true, value=JSON_PROPERTY_QUERY) String query
+            ) {
+        this.query = query;
   }
 
   public SecurityMonitoringRuleQueryCreate agentRule(SecurityMonitoringRuntimeAgentRule agentRule) {
@@ -70,49 +86,52 @@ public class SecurityMonitoringRuleQueryCreate {
     return this;
   }
 
-  /**
+   /**
    * Get agentRule
-   *
    * @return agentRule
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AGENT_RULE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public SecurityMonitoringRuntimeAgentRule getAgentRule() {
     return agentRule;
   }
+
 
   public void setAgentRule(SecurityMonitoringRuntimeAgentRule agentRule) {
     this.agentRule = agentRule;
   }
 
-  public SecurityMonitoringRuleQueryCreate aggregation(
-      SecurityMonitoringRuleQueryAggregation aggregation) {
+
+  public SecurityMonitoringRuleQueryCreate aggregation(SecurityMonitoringRuleQueryAggregation aggregation) {
     this.aggregation = aggregation;
     this.unparsed |= !aggregation.isValid();
     return this;
   }
 
-  /**
+   /**
    * Get aggregation
-   *
    * @return aggregation
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_AGGREGATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public SecurityMonitoringRuleQueryAggregation getAggregation() {
     return aggregation;
   }
 
+
   public void setAggregation(SecurityMonitoringRuleQueryAggregation aggregation) {
     if (!aggregation.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.aggregation = aggregation;
   }
+
 
   public SecurityMonitoringRuleQueryCreate distinctFields(List<String> distinctFields) {
     this.distinctFields = distinctFields;
@@ -127,22 +146,24 @@ public class SecurityMonitoringRuleQueryCreate {
     return this;
   }
 
-  /**
+   /**
    * Field for which the cardinality is measured. Sent as an array.
-   *
    * @return distinctFields
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Field for which the cardinality is measured. Sent as an array.")
   @JsonProperty(JSON_PROPERTY_DISTINCT_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<String> getDistinctFields() {
     return distinctFields;
   }
 
+
   public void setDistinctFields(List<String> distinctFields) {
     this.distinctFields = distinctFields;
   }
+
 
   public SecurityMonitoringRuleQueryCreate groupByFields(List<String> groupByFields) {
     this.groupByFields = groupByFields;
@@ -157,90 +178,99 @@ public class SecurityMonitoringRuleQueryCreate {
     return this;
   }
 
-  /**
+   /**
    * Fields to group by.
-   *
    * @return groupByFields
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Fields to group by.")
   @JsonProperty(JSON_PROPERTY_GROUP_BY_FIELDS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<String> getGroupByFields() {
     return groupByFields;
   }
 
+
   public void setGroupByFields(List<String> groupByFields) {
     this.groupByFields = groupByFields;
   }
+
 
   public SecurityMonitoringRuleQueryCreate metric(String metric) {
     this.metric = metric;
     return this;
   }
 
-  /**
+   /**
    * The target field to aggregate over when using the sum or max aggregations.
-   *
    * @return metric
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "The target field to aggregate over when using the sum or max aggregations.")
+  @ApiModelProperty(value = "The target field to aggregate over when using the sum or max aggregations.")
   @JsonProperty(JSON_PROPERTY_METRIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getMetric() {
     return metric;
   }
 
+
   public void setMetric(String metric) {
     this.metric = metric;
   }
+
 
   public SecurityMonitoringRuleQueryCreate name(String name) {
     this.name = name;
     return this;
   }
 
-  /**
+   /**
    * Name of the query.
-   *
    * @return name
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Name of the query.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getName() {
     return name;
   }
 
+
   public void setName(String name) {
     this.name = name;
   }
+
 
   public SecurityMonitoringRuleQueryCreate query(String query) {
     this.query = query;
     return this;
   }
 
-  /**
+   /**
    * Query to run on logs.
-   *
    * @return query
-   */
+  **/
   @ApiModelProperty(example = "a > 3", required = true, value = "Query to run on logs.")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getQuery() {
     return query;
   }
+
 
   public void setQuery(String query) {
     this.query = query;
   }
 
-  /** Return true if this SecurityMonitoringRuleQueryCreate object is equal to o. */
+
+  /**
+   * Return true if this SecurityMonitoringRuleQueryCreate object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -249,15 +279,14 @@ public class SecurityMonitoringRuleQueryCreate {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SecurityMonitoringRuleQueryCreate securityMonitoringRuleQueryCreate =
-        (SecurityMonitoringRuleQueryCreate) o;
-    return Objects.equals(this.agentRule, securityMonitoringRuleQueryCreate.agentRule)
-        && Objects.equals(this.aggregation, securityMonitoringRuleQueryCreate.aggregation)
-        && Objects.equals(this.distinctFields, securityMonitoringRuleQueryCreate.distinctFields)
-        && Objects.equals(this.groupByFields, securityMonitoringRuleQueryCreate.groupByFields)
-        && Objects.equals(this.metric, securityMonitoringRuleQueryCreate.metric)
-        && Objects.equals(this.name, securityMonitoringRuleQueryCreate.name)
-        && Objects.equals(this.query, securityMonitoringRuleQueryCreate.query);
+    SecurityMonitoringRuleQueryCreate securityMonitoringRuleQueryCreate = (SecurityMonitoringRuleQueryCreate) o;
+    return Objects.equals(this.agentRule, securityMonitoringRuleQueryCreate.agentRule) &&
+        Objects.equals(this.aggregation, securityMonitoringRuleQueryCreate.aggregation) &&
+        Objects.equals(this.distinctFields, securityMonitoringRuleQueryCreate.distinctFields) &&
+        Objects.equals(this.groupByFields, securityMonitoringRuleQueryCreate.groupByFields) &&
+        Objects.equals(this.metric, securityMonitoringRuleQueryCreate.metric) &&
+        Objects.equals(this.name, securityMonitoringRuleQueryCreate.name) &&
+        Objects.equals(this.query, securityMonitoringRuleQueryCreate.query);
   }
 
   @Override
@@ -281,7 +310,8 @@ public class SecurityMonitoringRuleQueryCreate {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -289,4 +319,6 @@ public class SecurityMonitoringRuleQueryCreate {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

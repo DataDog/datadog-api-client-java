@@ -8,18 +8,30 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
 
-/** The incident service&#39;s attributes from a response. */
+
+/**
+ * The incident service&#39;s attributes from a response.
+ */
 @ApiModel(description = "The incident service's attributes from a response.")
 @JsonPropertyOrder({
   IncidentServiceResponseAttributes.JSON_PROPERTY_CREATED,
@@ -27,8 +39,10 @@ import java.util.Objects;
   IncidentServiceResponseAttributes.JSON_PROPERTY_NAME
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class IncidentServiceResponseAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CREATED = "created";
   private OffsetDateTime created;
 
@@ -38,55 +52,66 @@ public class IncidentServiceResponseAttributes {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
 
-  /**
+
+   /**
    * Timestamp of when the incident service was created.
-   *
    * @return created
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Timestamp of when the incident service was created.")
   @JsonProperty(JSON_PROPERTY_CREATED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public OffsetDateTime getCreated() {
     return created;
   }
 
-  /**
+
+
+
+   /**
    * Timestamp of when the incident service was modified.
-   *
    * @return modified
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Timestamp of when the incident service was modified.")
   @JsonProperty(JSON_PROPERTY_MODIFIED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public OffsetDateTime getModified() {
     return modified;
   }
+
+
+
 
   public IncidentServiceResponseAttributes name(String name) {
     this.name = name;
     return this;
   }
 
-  /**
+   /**
    * Name of the incident service.
-   *
    * @return name
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "service name", value = "Name of the incident service.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getName() {
     return name;
   }
+
 
   public void setName(String name) {
     this.name = name;
   }
 
-  /** Return true if this IncidentServiceResponseAttributes object is equal to o. */
+
+  /**
+   * Return true if this IncidentServiceResponseAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -95,11 +120,10 @@ public class IncidentServiceResponseAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IncidentServiceResponseAttributes incidentServiceResponseAttributes =
-        (IncidentServiceResponseAttributes) o;
-    return Objects.equals(this.created, incidentServiceResponseAttributes.created)
-        && Objects.equals(this.modified, incidentServiceResponseAttributes.modified)
-        && Objects.equals(this.name, incidentServiceResponseAttributes.name);
+    IncidentServiceResponseAttributes incidentServiceResponseAttributes = (IncidentServiceResponseAttributes) o;
+    return Objects.equals(this.created, incidentServiceResponseAttributes.created) &&
+        Objects.equals(this.modified, incidentServiceResponseAttributes.modified) &&
+        Objects.equals(this.name, incidentServiceResponseAttributes.name);
   }
 
   @Override
@@ -119,7 +143,8 @@ public class IncidentServiceResponseAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -127,4 +152,6 @@ public class IncidentServiceResponseAttributes {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

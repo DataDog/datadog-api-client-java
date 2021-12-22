@@ -8,23 +8,40 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.ListStreamColumnWidth;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Widget column. */
+
+/**
+ * Widget column.
+ */
 @ApiModel(description = "Widget column.")
-@JsonPropertyOrder({ListStreamColumn.JSON_PROPERTY_FIELD, ListStreamColumn.JSON_PROPERTY_WIDTH})
+@JsonPropertyOrder({
+  ListStreamColumn.JSON_PROPERTY_FIELD,
+  ListStreamColumn.JSON_PROPERTY_WIDTH
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class ListStreamColumn {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_FIELD = "field";
   private String field;
 
@@ -35,11 +52,12 @@ public class ListStreamColumn {
 
   @JsonCreator
   public ListStreamColumn(
-      @JsonProperty(required = true, value = JSON_PROPERTY_FIELD) String field,
-      @JsonProperty(required = true, value = JSON_PROPERTY_WIDTH) ListStreamColumnWidth width) {
-    this.field = field;
-    this.width = width;
-    this.unparsed |= !width.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_FIELD) String field,
+            @JsonProperty(required=true, value=JSON_PROPERTY_WIDTH) ListStreamColumnWidth width
+            ) {
+        this.field = field;
+        this.width = width;
+        this.unparsed |= !width.isValid();
   }
 
   public ListStreamColumn field(String field) {
@@ -47,21 +65,23 @@ public class ListStreamColumn {
     return this;
   }
 
-  /**
+   /**
    * Widget column field.
-   *
    * @return field
-   */
+  **/
   @ApiModelProperty(example = "content", required = true, value = "Widget column field.")
   @JsonProperty(JSON_PROPERTY_FIELD)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getField() {
     return field;
   }
 
+
   public void setField(String field) {
     this.field = field;
   }
+
 
   public ListStreamColumn width(ListStreamColumnWidth width) {
     this.width = width;
@@ -69,26 +89,30 @@ public class ListStreamColumn {
     return this;
   }
 
-  /**
+   /**
    * Get width
-   *
    * @return width
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_WIDTH)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public ListStreamColumnWidth getWidth() {
     return width;
   }
 
+
   public void setWidth(ListStreamColumnWidth width) {
     if (!width.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.width = width;
   }
 
-  /** Return true if this ListStreamColumn object is equal to o. */
+
+  /**
+   * Return true if this ListStreamColumn object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -98,8 +122,8 @@ public class ListStreamColumn {
       return false;
     }
     ListStreamColumn listStreamColumn = (ListStreamColumn) o;
-    return Objects.equals(this.field, listStreamColumn.field)
-        && Objects.equals(this.width, listStreamColumn.width);
+    return Objects.equals(this.field, listStreamColumn.field) &&
+        Objects.equals(this.width, listStreamColumn.width);
   }
 
   @Override
@@ -118,7 +142,8 @@ public class ListStreamColumn {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -126,4 +151,6 @@ public class ListStreamColumn {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

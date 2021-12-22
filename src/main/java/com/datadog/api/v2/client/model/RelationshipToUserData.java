@@ -8,26 +8,40 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v2.client.model.UsersType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
 
-/** Relationship to user object. */
+
+/**
+ * Relationship to user object.
+ */
 @ApiModel(description = "Relationship to user object.")
 @JsonPropertyOrder({
   RelationshipToUserData.JSON_PROPERTY_ID,
   RelationshipToUserData.JSON_PROPERTY_TYPE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class RelationshipToUserData {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
@@ -38,11 +52,12 @@ public class RelationshipToUserData {
 
   @JsonCreator
   public RelationshipToUserData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) UsersType type) {
-    this.id = id;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_ID) String id,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE) UsersType type
+            ) {
+        this.id = id;
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
 
   public RelationshipToUserData id(String id) {
@@ -50,24 +65,23 @@ public class RelationshipToUserData {
     return this;
   }
 
-  /**
+   /**
    * A unique identifier that represents the user.
-   *
    * @return id
-   */
-  @ApiModelProperty(
-      example = "00000000-0000-0000-0000-000000000000",
-      required = true,
-      value = "A unique identifier that represents the user.")
+  **/
+  @ApiModelProperty(example = "00000000-0000-0000-0000-000000000000", required = true, value = "A unique identifier that represents the user.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getId() {
     return id;
   }
 
+
   public void setId(String id) {
     this.id = id;
   }
+
 
   public RelationshipToUserData type(UsersType type) {
     this.type = type;
@@ -75,26 +89,30 @@ public class RelationshipToUserData {
     return this;
   }
 
-  /**
+   /**
    * Get type
-   *
    * @return type
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public UsersType getType() {
     return type;
   }
 
+
   public void setType(UsersType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
-  /** Return true if this RelationshipToUserData object is equal to o. */
+
+  /**
+   * Return true if this RelationshipToUserData object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -104,8 +122,8 @@ public class RelationshipToUserData {
       return false;
     }
     RelationshipToUserData relationshipToUserData = (RelationshipToUserData) o;
-    return Objects.equals(this.id, relationshipToUserData.id)
-        && Objects.equals(this.type, relationshipToUserData.type);
+    return Objects.equals(this.id, relationshipToUserData.id) &&
+        Objects.equals(this.type, relationshipToUserData.type);
   }
 
   @Override
@@ -124,7 +142,8 @@ public class RelationshipToUserData {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -132,4 +151,6 @@ public class RelationshipToUserData {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

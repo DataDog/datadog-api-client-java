@@ -8,38 +8,47 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import io.swagger.annotations.ApiModel;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
+
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
 
-/** Error code that can be returned by a Synthetic test. */
+
+import java.util.Set;
+import java.util.HashSet;
+/**
+ * Error code that can be returned by a Synthetic test.
+ */
 @JsonSerialize(using = SyntheticsErrorCode.SyntheticsErrorCodeSerializer.class)
 public class SyntheticsErrorCode {
-
+  
   public static final SyntheticsErrorCode NO_ERROR = new SyntheticsErrorCode("NO_ERROR");
   public static final SyntheticsErrorCode UNKNOWN = new SyntheticsErrorCode("UNKNOWN");
   public static final SyntheticsErrorCode DNS = new SyntheticsErrorCode("DNS");
   public static final SyntheticsErrorCode SSL = new SyntheticsErrorCode("SSL");
   public static final SyntheticsErrorCode TIMEOUT = new SyntheticsErrorCode("TIMEOUT");
   public static final SyntheticsErrorCode DENIED = new SyntheticsErrorCode("DENIED");
-  public static final SyntheticsErrorCode INCORRECT_ASSERTION =
-      new SyntheticsErrorCode("INCORRECT_ASSERTION");
+  public static final SyntheticsErrorCode INCORRECT_ASSERTION = new SyntheticsErrorCode("INCORRECT_ASSERTION");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(
-          Arrays.asList(
-              "NO_ERROR", "UNKNOWN", "DNS", "SSL", "TIMEOUT", "DENIED", "INCORRECT_ASSERTION"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("NO_ERROR","UNKNOWN","DNS","SSL","TIMEOUT","DENIED","INCORRECT_ASSERTION"));
 
   private String value;
 
@@ -52,20 +61,18 @@ public class SyntheticsErrorCode {
   }
 
   public static class SyntheticsErrorCodeSerializer extends StdSerializer<SyntheticsErrorCode> {
-    public SyntheticsErrorCodeSerializer(Class<SyntheticsErrorCode> t) {
-      super(t);
-    }
+      public SyntheticsErrorCodeSerializer(Class<SyntheticsErrorCode> t) {
+          super(t);
+      }
 
-    public SyntheticsErrorCodeSerializer() {
-      this(null);
-    }
+      public SyntheticsErrorCodeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        SyntheticsErrorCode value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(SyntheticsErrorCode value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -77,7 +84,9 @@ public class SyntheticsErrorCode {
     this.value = value;
   }
 
-  /** Return true if this SyntheticsErrorCode object is equal to o. */
+  /**
+   * Return true if this SyntheticsErrorCode object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -91,7 +100,7 @@ public class SyntheticsErrorCode {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override
@@ -104,3 +113,4 @@ public class SyntheticsErrorCode {
     return new SyntheticsErrorCode(value);
   }
 }
+

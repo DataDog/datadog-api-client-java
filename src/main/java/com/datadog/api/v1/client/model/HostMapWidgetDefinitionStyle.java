@@ -8,17 +8,29 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** The style to apply to the widget. */
+
+/**
+ * The style to apply to the widget.
+ */
 @ApiModel(description = "The style to apply to the widget.")
 @JsonPropertyOrder({
   HostMapWidgetDefinitionStyle.JSON_PROPERTY_FILL_MAX,
@@ -27,8 +39,10 @@ import java.util.Objects;
   HostMapWidgetDefinitionStyle.JSON_PROPERTY_PALETTE_FLIP
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class HostMapWidgetDefinitionStyle {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_FILL_MAX = "fill_max";
   private String fillMax;
 
@@ -41,95 +55,106 @@ public class HostMapWidgetDefinitionStyle {
   public static final String JSON_PROPERTY_PALETTE_FLIP = "palette_flip";
   private Boolean paletteFlip;
 
+
   public HostMapWidgetDefinitionStyle fillMax(String fillMax) {
     this.fillMax = fillMax;
     return this;
   }
 
-  /**
+   /**
    * Max value to use to color the map.
-   *
    * @return fillMax
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Max value to use to color the map.")
   @JsonProperty(JSON_PROPERTY_FILL_MAX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getFillMax() {
     return fillMax;
   }
 
+
   public void setFillMax(String fillMax) {
     this.fillMax = fillMax;
   }
+
 
   public HostMapWidgetDefinitionStyle fillMin(String fillMin) {
     this.fillMin = fillMin;
     return this;
   }
 
-  /**
+   /**
    * Min value to use to color the map.
-   *
    * @return fillMin
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Min value to use to color the map.")
   @JsonProperty(JSON_PROPERTY_FILL_MIN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getFillMin() {
     return fillMin;
   }
 
+
   public void setFillMin(String fillMin) {
     this.fillMin = fillMin;
   }
+
 
   public HostMapWidgetDefinitionStyle palette(String palette) {
     this.palette = palette;
     return this;
   }
 
-  /**
+   /**
    * Color palette to apply to the widget.
-   *
    * @return palette
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Color palette to apply to the widget.")
   @JsonProperty(JSON_PROPERTY_PALETTE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getPalette() {
     return palette;
   }
 
+
   public void setPalette(String palette) {
     this.palette = palette;
   }
+
 
   public HostMapWidgetDefinitionStyle paletteFlip(Boolean paletteFlip) {
     this.paletteFlip = paletteFlip;
     return this;
   }
 
-  /**
+   /**
    * Whether to flip the palette tones.
-   *
    * @return paletteFlip
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Whether to flip the palette tones.")
   @JsonProperty(JSON_PROPERTY_PALETTE_FLIP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Boolean getPaletteFlip() {
     return paletteFlip;
   }
+
 
   public void setPaletteFlip(Boolean paletteFlip) {
     this.paletteFlip = paletteFlip;
   }
 
-  /** Return true if this HostMapWidgetDefinition_style object is equal to o. */
+
+  /**
+   * Return true if this HostMapWidgetDefinition_style object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -139,10 +164,10 @@ public class HostMapWidgetDefinitionStyle {
       return false;
     }
     HostMapWidgetDefinitionStyle hostMapWidgetDefinitionStyle = (HostMapWidgetDefinitionStyle) o;
-    return Objects.equals(this.fillMax, hostMapWidgetDefinitionStyle.fillMax)
-        && Objects.equals(this.fillMin, hostMapWidgetDefinitionStyle.fillMin)
-        && Objects.equals(this.palette, hostMapWidgetDefinitionStyle.palette)
-        && Objects.equals(this.paletteFlip, hostMapWidgetDefinitionStyle.paletteFlip);
+    return Objects.equals(this.fillMax, hostMapWidgetDefinitionStyle.fillMax) &&
+        Objects.equals(this.fillMin, hostMapWidgetDefinitionStyle.fillMin) &&
+        Objects.equals(this.palette, hostMapWidgetDefinitionStyle.palette) &&
+        Objects.equals(this.paletteFlip, hostMapWidgetDefinitionStyle.paletteFlip);
   }
 
   @Override
@@ -163,7 +188,8 @@ public class HostMapWidgetDefinitionStyle {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -171,4 +197,6 @@ public class HostMapWidgetDefinitionStyle {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

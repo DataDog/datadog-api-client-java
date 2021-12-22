@@ -5,6 +5,7 @@ import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.DashboardsApi;
 import com.datadog.api.v1.client.model.Dashboard;
+import com.datadog.api.v1.client.model.Dashboard;
 import com.datadog.api.v1.client.model.DashboardLayoutType;
 import com.datadog.api.v1.client.model.FormulaAndFunctionApmResourceStatName;
 import com.datadog.api.v1.client.model.FormulaAndFunctionApmResourceStatsDataSource;
@@ -26,66 +27,34 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     DashboardsApi apiInstance = new DashboardsApi(defaultClient);
 
-    Dashboard body =
-        new Dashboard()
-            .title("Example-Create_a_new_dashboard_with_apm_resource_stats_widget")
-            .widgets(
-                new ArrayList<Widget>() {
-                  {
-                    add(
-                        new Widget()
-                            .definition(
-                                new WidgetDefinition(
-                                    new TableWidgetDefinition()
-                                        .title("")
-                                        .titleSize("16")
-                                        .titleAlign(WidgetTextAlign.LEFT)
-                                        .type(TableWidgetDefinitionType.QUERY_TABLE)
-                                        .requests(
-                                            new ArrayList<TableWidgetRequest>() {
-                                              {
-                                                add(
-                                                    new TableWidgetRequest()
-                                                        .responseFormat(
-                                                            FormulaAndFunctionResponseFormat.SCALAR)
-                                                        .queries(
-                                                            new ArrayList<
-                                                                FormulaAndFunctionQueryDefinition>() {
-                                                              {
-                                                                add(
-                                                                    new FormulaAndFunctionQueryDefinition(
-                                                                        new FormulaAndFunctionApmResourceStatsQueryDefinition()
-                                                                            .primaryTagValue(
-                                                                                "edge-eu1.prod.dog")
-                                                                            .stat(
-                                                                                FormulaAndFunctionApmResourceStatName
-                                                                                    .HITS)
-                                                                            .name("query1")
-                                                                            .service("cassandra")
-                                                                            .dataSource(
-                                                                                FormulaAndFunctionApmResourceStatsDataSource
-                                                                                    .APM_RESOURCE_STATS)
-                                                                            .env("ci")
-                                                                            .primaryTagName(
-                                                                                "datacenter")
-                                                                            .operationName(
-                                                                                "cassandra.query")
-                                                                            .groupBy(
-                                                                                new ArrayList<
-                                                                                    String>() {
-                                                                                  {
-                                                                                    add(
-                                                                                        "resource_name");
-                                                                                  }
-                                                                                })));
-                                                              }
-                                                            }));
-                                              }
-                                            })))
-                            .layout(new WidgetLayout().x(0L).y(0L).width(4L).height(4L)));
-                  }
-                })
-            .layoutType(DashboardLayoutType.ORDERED);
+    Dashboard body = new Dashboard()
+.title("Example-Create_a_new_dashboard_with_apm_resource_stats_widget")
+.widgets(new ArrayList<Widget>() {{add(new Widget()
+.definition(new WidgetDefinition(
+new TableWidgetDefinition()
+.title("")
+.titleSize("16")
+.titleAlign(WidgetTextAlign.LEFT)
+.type(TableWidgetDefinitionType.QUERY_TABLE)
+.requests(new ArrayList<TableWidgetRequest>() {{add(new TableWidgetRequest()
+.responseFormat(FormulaAndFunctionResponseFormat.SCALAR)
+.queries(new ArrayList<FormulaAndFunctionQueryDefinition>() {{add(new FormulaAndFunctionQueryDefinition(
+new FormulaAndFunctionApmResourceStatsQueryDefinition()
+.primaryTagValue("edge-eu1.prod.dog")
+.stat(FormulaAndFunctionApmResourceStatName.HITS)
+.name("query1")
+.service("cassandra")
+.dataSource(FormulaAndFunctionApmResourceStatsDataSource.APM_RESOURCE_STATS)
+.env("ci")
+.primaryTagName("datacenter")
+.operationName("cassandra.query")
+.groupBy(new ArrayList<String>() {{add("resource_name");}})));}}));}})))
+.layout(new WidgetLayout()
+.x(0L)
+.y(0L)
+.width(4L)
+.height(4L)));}})
+.layoutType(DashboardLayoutType.ORDERED);
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

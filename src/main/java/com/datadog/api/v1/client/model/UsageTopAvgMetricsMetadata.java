@@ -8,18 +8,31 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.UsageAttributionPagination;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** The object containing document metadata. */
+
+/**
+ * The object containing document metadata.
+ */
 @ApiModel(description = "The object containing document metadata.")
 @JsonPropertyOrder({
   UsageTopAvgMetricsMetadata.JSON_PROPERTY_DAY,
@@ -27,8 +40,10 @@ import java.util.Objects;
   UsageTopAvgMetricsMetadata.JSON_PROPERTY_PAGINATION
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class UsageTopAvgMetricsMetadata {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DAY = "day";
   private OffsetDateTime day;
 
@@ -38,57 +53,54 @@ public class UsageTopAvgMetricsMetadata {
   public static final String JSON_PROPERTY_PAGINATION = "pagination";
   private UsageAttributionPagination pagination;
 
+
   public UsageTopAvgMetricsMetadata day(OffsetDateTime day) {
     this.day = day;
     return this;
   }
 
-  /**
-   * The day value from the user request that contains the returned usage data. (If day was used the
-   * request)
-   *
+   /**
+   * The day value from the user request that contains the returned usage data. (If day was used the request)
    * @return day
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "The day value from the user request that contains the returned usage data. (If day was"
-              + " used the request)")
+  @ApiModelProperty(value = "The day value from the user request that contains the returned usage data. (If day was used the request)")
   @JsonProperty(JSON_PROPERTY_DAY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public OffsetDateTime getDay() {
     return day;
   }
 
+
   public void setDay(OffsetDateTime day) {
     this.day = day;
   }
+
 
   public UsageTopAvgMetricsMetadata month(OffsetDateTime month) {
     this.month = month;
     return this;
   }
 
-  /**
-   * The month value from the user request that contains the returned usage data. (If month was used
-   * the request)
-   *
+   /**
+   * The month value from the user request that contains the returned usage data. (If month was used the request)
    * @return month
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "The month value from the user request that contains the returned usage data. (If month"
-              + " was used the request)")
+  @ApiModelProperty(value = "The month value from the user request that contains the returned usage data. (If month was used the request)")
   @JsonProperty(JSON_PROPERTY_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public OffsetDateTime getMonth() {
     return month;
   }
 
+
   public void setMonth(OffsetDateTime month) {
     this.month = month;
   }
+
 
   public UsageTopAvgMetricsMetadata pagination(UsageAttributionPagination pagination) {
     this.pagination = pagination;
@@ -96,24 +108,28 @@ public class UsageTopAvgMetricsMetadata {
     return this;
   }
 
-  /**
+   /**
    * Get pagination
-   *
    * @return pagination
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_PAGINATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public UsageAttributionPagination getPagination() {
     return pagination;
   }
+
 
   public void setPagination(UsageAttributionPagination pagination) {
     this.pagination = pagination;
   }
 
-  /** Return true if this UsageTopAvgMetricsMetadata object is equal to o. */
+
+  /**
+   * Return true if this UsageTopAvgMetricsMetadata object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -123,9 +139,9 @@ public class UsageTopAvgMetricsMetadata {
       return false;
     }
     UsageTopAvgMetricsMetadata usageTopAvgMetricsMetadata = (UsageTopAvgMetricsMetadata) o;
-    return Objects.equals(this.day, usageTopAvgMetricsMetadata.day)
-        && Objects.equals(this.month, usageTopAvgMetricsMetadata.month)
-        && Objects.equals(this.pagination, usageTopAvgMetricsMetadata.pagination);
+    return Objects.equals(this.day, usageTopAvgMetricsMetadata.day) &&
+        Objects.equals(this.month, usageTopAvgMetricsMetadata.month) &&
+        Objects.equals(this.pagination, usageTopAvgMetricsMetadata.pagination);
   }
 
   @Override
@@ -145,7 +161,8 @@ public class UsageTopAvgMetricsMetadata {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -153,4 +170,6 @@ public class UsageTopAvgMetricsMetadata {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

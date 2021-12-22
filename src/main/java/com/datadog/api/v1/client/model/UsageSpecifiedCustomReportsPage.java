@@ -8,48 +8,69 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** The object containing page total count for specified ID. */
+
+/**
+ * The object containing page total count for specified ID.
+ */
 @ApiModel(description = "The object containing page total count for specified ID.")
-@JsonPropertyOrder({UsageSpecifiedCustomReportsPage.JSON_PROPERTY_TOTAL_COUNT})
+@JsonPropertyOrder({
+  UsageSpecifiedCustomReportsPage.JSON_PROPERTY_TOTAL_COUNT
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class UsageSpecifiedCustomReportsPage {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_TOTAL_COUNT = "total_count";
   private Long totalCount;
+
 
   public UsageSpecifiedCustomReportsPage totalCount(Long totalCount) {
     this.totalCount = totalCount;
     return this;
   }
 
-  /**
+   /**
    * Total page count.
-   *
    * @return totalCount
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Total page count.")
   @JsonProperty(JSON_PROPERTY_TOTAL_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Long getTotalCount() {
     return totalCount;
   }
+
 
   public void setTotalCount(Long totalCount) {
     this.totalCount = totalCount;
   }
 
-  /** Return true if this UsageSpecifiedCustomReportsPage object is equal to o. */
+
+  /**
+   * Return true if this UsageSpecifiedCustomReportsPage object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -58,8 +79,7 @@ public class UsageSpecifiedCustomReportsPage {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UsageSpecifiedCustomReportsPage usageSpecifiedCustomReportsPage =
-        (UsageSpecifiedCustomReportsPage) o;
+    UsageSpecifiedCustomReportsPage usageSpecifiedCustomReportsPage = (UsageSpecifiedCustomReportsPage) o;
     return Objects.equals(this.totalCount, usageSpecifiedCustomReportsPage.totalCount);
   }
 
@@ -78,7 +98,8 @@ public class UsageSpecifiedCustomReportsPage {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -86,4 +107,6 @@ public class UsageSpecifiedCustomReportsPage {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

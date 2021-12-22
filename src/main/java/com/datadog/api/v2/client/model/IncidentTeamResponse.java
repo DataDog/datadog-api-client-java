@@ -8,27 +8,43 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v2.client.model.IncidentTeamIncludedItems;
+import com.datadog.api.v2.client.model.IncidentTeamResponseData;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
 
-/** Response with an incident team payload. */
+
+/**
+ * Response with an incident team payload.
+ */
 @ApiModel(description = "Response with an incident team payload.")
 @JsonPropertyOrder({
   IncidentTeamResponse.JSON_PROPERTY_DATA,
   IncidentTeamResponse.JSON_PROPERTY_INCLUDED
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class IncidentTeamResponse {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private IncidentTeamResponseData data;
 
@@ -39,9 +55,10 @@ public class IncidentTeamResponse {
 
   @JsonCreator
   public IncidentTeamResponse(
-      @JsonProperty(required = true, value = JSON_PROPERTY_DATA) IncidentTeamResponseData data) {
-    this.data = data;
-    this.unparsed |= data.unparsed;
+            @JsonProperty(required=true, value=JSON_PROPERTY_DATA) IncidentTeamResponseData data
+            ) {
+        this.data = data;
+        this.unparsed |= data.unparsed;
   }
 
   public IncidentTeamResponse data(IncidentTeamResponseData data) {
@@ -50,36 +67,43 @@ public class IncidentTeamResponse {
     return this;
   }
 
-  /**
+   /**
    * Get data
-   *
    * @return data
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public IncidentTeamResponseData getData() {
     return data;
   }
+
 
   public void setData(IncidentTeamResponseData data) {
     this.data = data;
   }
 
-  /**
+
+   /**
    * Included objects from relationships.
-   *
    * @return included
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Included objects from relationships.")
   @JsonProperty(JSON_PROPERTY_INCLUDED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<IncidentTeamIncludedItems> getIncluded() {
     return included;
   }
 
-  /** Return true if this IncidentTeamResponse object is equal to o. */
+
+
+
+  /**
+   * Return true if this IncidentTeamResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -89,8 +113,8 @@ public class IncidentTeamResponse {
       return false;
     }
     IncidentTeamResponse incidentTeamResponse = (IncidentTeamResponse) o;
-    return Objects.equals(this.data, incidentTeamResponse.data)
-        && Objects.equals(this.included, incidentTeamResponse.included);
+    return Objects.equals(this.data, incidentTeamResponse.data) &&
+        Objects.equals(this.included, incidentTeamResponse.included);
   }
 
   @Override
@@ -109,7 +133,8 @@ public class IncidentTeamResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -117,4 +142,6 @@ public class IncidentTeamResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

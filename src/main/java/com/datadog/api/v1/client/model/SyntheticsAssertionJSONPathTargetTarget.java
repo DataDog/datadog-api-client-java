@@ -8,18 +8,33 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Composed target for &#x60;validatesJSONPath&#x60; operator. */
+
+/**
+ * Composed target for &#x60;validatesJSONPath&#x60; operator.
+ */
 @ApiModel(description = "Composed target for `validatesJSONPath` operator.")
 @JsonPropertyOrder({
   SyntheticsAssertionJSONPathTargetTarget.JSON_PROPERTY_JSON_PATH,
@@ -27,8 +42,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
   SyntheticsAssertionJSONPathTargetTarget.JSON_PROPERTY_TARGET_VALUE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SyntheticsAssertionJSONPathTargetTarget {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_JSON_PATH = "jsonPath";
   private String jsonPath;
 
@@ -38,73 +55,79 @@ public class SyntheticsAssertionJSONPathTargetTarget {
   public static final String JSON_PROPERTY_TARGET_VALUE = "targetValue";
   private JsonNullable<Object> targetValue = JsonNullable.<Object>of(null);
 
+
   public SyntheticsAssertionJSONPathTargetTarget jsonPath(String jsonPath) {
     this.jsonPath = jsonPath;
     return this;
   }
 
-  /**
+   /**
    * The JSON path to assert.
-   *
    * @return jsonPath
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The JSON path to assert.")
   @JsonProperty(JSON_PROPERTY_JSON_PATH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getJsonPath() {
     return jsonPath;
   }
 
+
   public void setJsonPath(String jsonPath) {
     this.jsonPath = jsonPath;
   }
+
 
   public SyntheticsAssertionJSONPathTargetTarget operator(String operator) {
     this.operator = operator;
     return this;
   }
 
-  /**
+   /**
    * The specific operator to use on the path.
-   *
    * @return operator
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The specific operator to use on the path.")
   @JsonProperty(JSON_PROPERTY_OPERATOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getOperator() {
     return operator;
   }
 
+
   public void setOperator(String operator) {
     this.operator = operator;
   }
+
 
   public SyntheticsAssertionJSONPathTargetTarget targetValue(Object targetValue) {
     this.targetValue = JsonNullable.<Object>of(targetValue);
     return this;
   }
 
-  /**
+   /**
    * The path target value to compare to.
-   *
    * @return targetValue
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The path target value to compare to.")
   @JsonIgnore
+
   public Object getTargetValue() {
-    return targetValue.orElse(null);
+        return targetValue.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_TARGET_VALUE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public JsonNullable<Object> getTargetValue_JsonNullable() {
     return targetValue;
   }
-
+  
   @JsonProperty(JSON_PROPERTY_TARGET_VALUE)
   public void setTargetValue_JsonNullable(JsonNullable<Object> targetValue) {
     this.targetValue = targetValue;
@@ -114,7 +137,10 @@ public class SyntheticsAssertionJSONPathTargetTarget {
     this.targetValue = JsonNullable.<Object>of(targetValue);
   }
 
-  /** Return true if this SyntheticsAssertionJSONPathTarget_target object is equal to o. */
+
+  /**
+   * Return true if this SyntheticsAssertionJSONPathTarget_target object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -123,11 +149,10 @@ public class SyntheticsAssertionJSONPathTargetTarget {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SyntheticsAssertionJSONPathTargetTarget syntheticsAssertionJSONPathTargetTarget =
-        (SyntheticsAssertionJSONPathTargetTarget) o;
-    return Objects.equals(this.jsonPath, syntheticsAssertionJSONPathTargetTarget.jsonPath)
-        && Objects.equals(this.operator, syntheticsAssertionJSONPathTargetTarget.operator)
-        && Objects.equals(this.targetValue, syntheticsAssertionJSONPathTargetTarget.targetValue);
+    SyntheticsAssertionJSONPathTargetTarget syntheticsAssertionJSONPathTargetTarget = (SyntheticsAssertionJSONPathTargetTarget) o;
+    return Objects.equals(this.jsonPath, syntheticsAssertionJSONPathTargetTarget.jsonPath) &&
+        Objects.equals(this.operator, syntheticsAssertionJSONPathTargetTarget.operator) &&
+        Objects.equals(this.targetValue, syntheticsAssertionJSONPathTargetTarget.targetValue);
   }
 
   @Override
@@ -147,7 +172,8 @@ public class SyntheticsAssertionJSONPathTargetTarget {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -155,4 +181,6 @@ public class SyntheticsAssertionJSONPathTargetTarget {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

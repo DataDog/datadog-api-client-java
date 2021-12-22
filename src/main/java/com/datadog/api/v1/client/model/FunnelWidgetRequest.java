@@ -8,26 +8,41 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.FunnelQuery;
+import com.datadog.api.v1.client.model.FunnelRequestType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Updated funnel widget. */
+
+/**
+ * Updated funnel widget.
+ */
 @ApiModel(description = "Updated funnel widget.")
 @JsonPropertyOrder({
   FunnelWidgetRequest.JSON_PROPERTY_QUERY,
   FunnelWidgetRequest.JSON_PROPERTY_REQUEST_TYPE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class FunnelWidgetRequest {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_QUERY = "query";
   private FunnelQuery query;
 
@@ -38,13 +53,13 @@ public class FunnelWidgetRequest {
 
   @JsonCreator
   public FunnelWidgetRequest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) FunnelQuery query,
-      @JsonProperty(required = true, value = JSON_PROPERTY_REQUEST_TYPE)
-          FunnelRequestType requestType) {
-    this.query = query;
-    this.unparsed |= query.unparsed;
-    this.requestType = requestType;
-    this.unparsed |= !requestType.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_QUERY) FunnelQuery query,
+            @JsonProperty(required=true, value=JSON_PROPERTY_REQUEST_TYPE) FunnelRequestType requestType
+            ) {
+        this.query = query;
+        this.unparsed |= query.unparsed;
+        this.requestType = requestType;
+        this.unparsed |= !requestType.isValid();
   }
 
   public FunnelWidgetRequest query(FunnelQuery query) {
@@ -53,21 +68,23 @@ public class FunnelWidgetRequest {
     return this;
   }
 
-  /**
+   /**
    * Get query
-   *
    * @return query
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_QUERY)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public FunnelQuery getQuery() {
     return query;
   }
 
+
   public void setQuery(FunnelQuery query) {
     this.query = query;
   }
+
 
   public FunnelWidgetRequest requestType(FunnelRequestType requestType) {
     this.requestType = requestType;
@@ -75,26 +92,30 @@ public class FunnelWidgetRequest {
     return this;
   }
 
-  /**
+   /**
    * Get requestType
-   *
    * @return requestType
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_REQUEST_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public FunnelRequestType getRequestType() {
     return requestType;
   }
 
+
   public void setRequestType(FunnelRequestType requestType) {
     if (!requestType.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.requestType = requestType;
   }
 
-  /** Return true if this FunnelWidgetRequest object is equal to o. */
+
+  /**
+   * Return true if this FunnelWidgetRequest object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -104,8 +125,8 @@ public class FunnelWidgetRequest {
       return false;
     }
     FunnelWidgetRequest funnelWidgetRequest = (FunnelWidgetRequest) o;
-    return Objects.equals(this.query, funnelWidgetRequest.query)
-        && Objects.equals(this.requestType, funnelWidgetRequest.requestType);
+    return Objects.equals(this.query, funnelWidgetRequest.query) &&
+        Objects.equals(this.requestType, funnelWidgetRequest.requestType);
   }
 
   @Override
@@ -124,7 +145,8 @@ public class FunnelWidgetRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -132,4 +154,6 @@ public class FunnelWidgetRequest {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

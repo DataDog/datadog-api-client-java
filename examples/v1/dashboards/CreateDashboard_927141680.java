@@ -5,6 +5,7 @@ import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.api.DashboardsApi;
 import com.datadog.api.v1.client.model.Dashboard;
+import com.datadog.api.v1.client.model.Dashboard;
 import com.datadog.api.v1.client.model.DashboardLayoutType;
 import com.datadog.api.v1.client.model.FunnelQuery;
 import com.datadog.api.v1.client.model.FunnelRequestType;
@@ -22,39 +23,19 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     DashboardsApi apiInstance = new DashboardsApi(defaultClient);
 
-    Dashboard body =
-        new Dashboard()
-            .layoutType(DashboardLayoutType.ORDERED)
-            .title("Example-Create_a_new_dashboard_with_funnel_widget with funnel widget")
-            .widgets(
-                new ArrayList<Widget>() {
-                  {
-                    add(
-                        new Widget()
-                            .definition(
-                                new WidgetDefinition(
-                                    new FunnelWidgetDefinition()
-                                        .type(FunnelWidgetDefinitionType.FUNNEL)
-                                        .requests(
-                                            new ArrayList<FunnelWidgetRequest>() {
-                                              {
-                                                add(
-                                                    new FunnelWidgetRequest()
-                                                        .query(
-                                                            new FunnelQuery()
-                                                                .dataSource(FunnelSource.RUM)
-                                                                .queryString("")
-                                                                .steps(
-                                                                    new ArrayList<>() {
-                                                                      {
-                                                                        ;
-                                                                      }
-                                                                    }))
-                                                        .requestType(FunnelRequestType.FUNNEL));
-                                              }
-                                            }))));
-                  }
-                });
+    Dashboard body = new Dashboard()
+.layoutType(DashboardLayoutType.ORDERED)
+.title("Example-Create_a_new_dashboard_with_funnel_widget with funnel widget")
+.widgets(new ArrayList<Widget>() {{add(new Widget()
+.definition(new WidgetDefinition(
+new FunnelWidgetDefinition()
+.type(FunnelWidgetDefinitionType.FUNNEL)
+.requests(new ArrayList<FunnelWidgetRequest>() {{add(new FunnelWidgetRequest()
+.query(new FunnelQuery()
+.dataSource(FunnelSource.RUM)
+.queryString("")
+.steps(new ArrayList<>() {{;}}))
+.requestType(FunnelRequestType.FUNNEL));}}))));}});
 
     try {
       Dashboard result = apiInstance.createDashboard(body);

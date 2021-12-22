@@ -8,31 +8,49 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** A response list of all service level objective deleted. */
+
+/**
+ * A response list of all service level objective deleted.
+ */
 @ApiModel(description = "A response list of all service level objective deleted.")
-@JsonPropertyOrder({SLODeleteResponse.JSON_PROPERTY_DATA, SLODeleteResponse.JSON_PROPERTY_ERRORS})
+@JsonPropertyOrder({
+  SLODeleteResponse.JSON_PROPERTY_DATA,
+  SLODeleteResponse.JSON_PROPERTY_ERRORS
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SLODeleteResponse {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
   private List<String> data = null;
 
   public static final String JSON_PROPERTY_ERRORS = "errors";
   private Map<String, String> errors = null;
+
 
   public SLODeleteResponse data(List<String> data) {
     this.data = data;
@@ -47,23 +65,24 @@ public class SLODeleteResponse {
     return this;
   }
 
-  /**
+   /**
    * An array containing the ID of the deleted service level objective object.
-   *
    * @return data
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "An array containing the ID of the deleted service level objective object.")
+  @ApiModelProperty(value = "An array containing the ID of the deleted service level objective object.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<String> getData() {
     return data;
   }
 
+
   public void setData(List<String> data) {
     this.data = data;
   }
+
 
   public SLODeleteResponse errors(Map<String, String> errors) {
     this.errors = errors;
@@ -78,25 +97,28 @@ public class SLODeleteResponse {
     return this;
   }
 
-  /**
+   /**
    * An dictionary containing the ID of the SLO as key and a deletion error as value.
-   *
    * @return errors
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "An dictionary containing the ID of the SLO as key and a deletion error as value.")
+  @ApiModelProperty(value = "An dictionary containing the ID of the SLO as key and a deletion error as value.")
   @JsonProperty(JSON_PROPERTY_ERRORS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Map<String, String> getErrors() {
     return errors;
   }
+
 
   public void setErrors(Map<String, String> errors) {
     this.errors = errors;
   }
 
-  /** Return true if this SLODeleteResponse object is equal to o. */
+
+  /**
+   * Return true if this SLODeleteResponse object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -106,8 +128,8 @@ public class SLODeleteResponse {
       return false;
     }
     SLODeleteResponse slODeleteResponse = (SLODeleteResponse) o;
-    return Objects.equals(this.data, slODeleteResponse.data)
-        && Objects.equals(this.errors, slODeleteResponse.errors);
+    return Objects.equals(this.data, slODeleteResponse.data) &&
+        Objects.equals(this.errors, slODeleteResponse.errors);
   }
 
   @Override
@@ -126,7 +148,8 @@ public class SLODeleteResponse {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -134,4 +157,6 @@ public class SLODeleteResponse {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

@@ -8,26 +8,43 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Metadata associated with your host. */
+
+/**
+ * Metadata associated with your host.
+ */
 @ApiModel(description = "Metadata associated with your host.")
-@JsonPropertyOrder({HostMeta.JSON_PROPERTY_NIX_V})
+@JsonPropertyOrder({
+  HostMeta.JSON_PROPERTY_NIX_V
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class HostMeta {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_NIX_V = "nixV";
   private List<String> nixV = null;
+
 
   public HostMeta nixV(List<String> nixV) {
     this.nixV = nixV;
@@ -42,24 +59,28 @@ public class HostMeta {
     return this;
   }
 
-  /**
+   /**
    * Array of Unix versions.
-   *
    * @return nixV
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Array of Unix versions.")
   @JsonProperty(JSON_PROPERTY_NIX_V)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<String> getNixV() {
     return nixV;
   }
+
 
   public void setNixV(List<String> nixV) {
     this.nixV = nixV;
   }
 
-  /** Return true if this Host_meta object is equal to o. */
+
+  /**
+   * Return true if this Host_meta object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -87,7 +108,8 @@ public class HostMeta {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -95,4 +117,6 @@ public class HostMeta {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

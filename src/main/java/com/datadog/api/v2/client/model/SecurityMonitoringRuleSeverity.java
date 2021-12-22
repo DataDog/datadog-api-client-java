@@ -8,39 +8,45 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import io.swagger.annotations.ApiModel;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
+
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
+
+
 import java.util.Set;
-
-/** Severity of the Security Signal. */
-@JsonSerialize(
-    using = SecurityMonitoringRuleSeverity.SecurityMonitoringRuleSeveritySerializer.class)
+import java.util.HashSet;
+/**
+ * Severity of the Security Signal.
+ */
+@JsonSerialize(using = SecurityMonitoringRuleSeverity.SecurityMonitoringRuleSeveritySerializer.class)
 public class SecurityMonitoringRuleSeverity {
+  
+  public static final SecurityMonitoringRuleSeverity INFO = new SecurityMonitoringRuleSeverity("info");
+  public static final SecurityMonitoringRuleSeverity LOW = new SecurityMonitoringRuleSeverity("low");
+  public static final SecurityMonitoringRuleSeverity MEDIUM = new SecurityMonitoringRuleSeverity("medium");
+  public static final SecurityMonitoringRuleSeverity HIGH = new SecurityMonitoringRuleSeverity("high");
+  public static final SecurityMonitoringRuleSeverity CRITICAL = new SecurityMonitoringRuleSeverity("critical");
 
-  public static final SecurityMonitoringRuleSeverity INFO =
-      new SecurityMonitoringRuleSeverity("info");
-  public static final SecurityMonitoringRuleSeverity LOW =
-      new SecurityMonitoringRuleSeverity("low");
-  public static final SecurityMonitoringRuleSeverity MEDIUM =
-      new SecurityMonitoringRuleSeverity("medium");
-  public static final SecurityMonitoringRuleSeverity HIGH =
-      new SecurityMonitoringRuleSeverity("high");
-  public static final SecurityMonitoringRuleSeverity CRITICAL =
-      new SecurityMonitoringRuleSeverity("critical");
-
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("info", "low", "medium", "high", "critical"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("info","low","medium","high","critical"));
 
   private String value;
 
@@ -52,22 +58,19 @@ public class SecurityMonitoringRuleSeverity {
     this.value = value;
   }
 
-  public static class SecurityMonitoringRuleSeveritySerializer
-      extends StdSerializer<SecurityMonitoringRuleSeverity> {
-    public SecurityMonitoringRuleSeveritySerializer(Class<SecurityMonitoringRuleSeverity> t) {
-      super(t);
-    }
+  public static class SecurityMonitoringRuleSeveritySerializer extends StdSerializer<SecurityMonitoringRuleSeverity> {
+      public SecurityMonitoringRuleSeveritySerializer(Class<SecurityMonitoringRuleSeverity> t) {
+          super(t);
+      }
 
-    public SecurityMonitoringRuleSeveritySerializer() {
-      this(null);
-    }
+      public SecurityMonitoringRuleSeveritySerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        SecurityMonitoringRuleSeverity value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(SecurityMonitoringRuleSeverity value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -79,7 +82,9 @@ public class SecurityMonitoringRuleSeverity {
     this.value = value;
   }
 
-  /** Return true if this SecurityMonitoringRuleSeverity object is equal to o. */
+  /**
+   * Return true if this SecurityMonitoringRuleSeverity object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -93,7 +98,7 @@ public class SecurityMonitoringRuleSeverity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override
@@ -106,3 +111,4 @@ public class SecurityMonitoringRuleSeverity {
     return new SecurityMonitoringRuleSeverity(value);
   }
 }
+

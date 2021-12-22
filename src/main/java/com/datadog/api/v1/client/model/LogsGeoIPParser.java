@@ -8,27 +8,33 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.LogsGeoIPParserType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
- * The GeoIP parser takes an IP address attribute and extracts if available the Continent, Country,
- * Subdivision, and City information in the target attribute path.
+ * The GeoIP parser takes an IP address attribute and extracts if available the Continent, Country, Subdivision, and City information in the target attribute path.
  */
-@ApiModel(
-    description =
-        "The GeoIP parser takes an IP address attribute and extracts if available the Continent,"
-            + " Country, Subdivision, and City information in the target attribute path.")
+@ApiModel(description = "The GeoIP parser takes an IP address attribute and extracts if available the Continent, Country, Subdivision, and City information in the target attribute path.")
 @JsonPropertyOrder({
   LogsGeoIPParser.JSON_PROPERTY_IS_ENABLED,
   LogsGeoIPParser.JSON_PROPERTY_NAME,
@@ -37,8 +43,10 @@ import java.util.Objects;
   LogsGeoIPParser.JSON_PROPERTY_TYPE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class LogsGeoIPParser {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_IS_ENABLED = "is_enabled";
   private Boolean isEnabled = false;
 
@@ -58,13 +66,14 @@ public class LogsGeoIPParser {
 
   @JsonCreator
   public LogsGeoIPParser(
-      @JsonProperty(required = true, value = JSON_PROPERTY_SOURCES) List<String> sources,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TARGET) String target,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) LogsGeoIPParserType type) {
-    this.sources = sources;
-    this.target = target;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_SOURCES) List<String> sources,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TARGET) String target,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE) LogsGeoIPParserType type
+            ) {
+        this.sources = sources;
+        this.target = target;
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
 
   public LogsGeoIPParser isEnabled(Boolean isEnabled) {
@@ -72,44 +81,48 @@ public class LogsGeoIPParser {
     return this;
   }
 
-  /**
+   /**
    * Whether or not the processor is enabled.
-   *
    * @return isEnabled
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Whether or not the processor is enabled.")
   @JsonProperty(JSON_PROPERTY_IS_ENABLED)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Boolean getIsEnabled() {
     return isEnabled;
   }
 
+
   public void setIsEnabled(Boolean isEnabled) {
     this.isEnabled = isEnabled;
   }
+
 
   public LogsGeoIPParser name(String name) {
     this.name = name;
     return this;
   }
 
-  /**
+   /**
    * Name of the processor.
-   *
    * @return name
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Name of the processor.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getName() {
     return name;
   }
 
+
   public void setName(String name) {
     this.name = name;
   }
+
 
   public LogsGeoIPParser sources(List<String> sources) {
     this.sources = sources;
@@ -121,51 +134,46 @@ public class LogsGeoIPParser {
     return this;
   }
 
-  /**
+   /**
    * Array of source attributes.
-   *
    * @return sources
-   */
-  @ApiModelProperty(
-      example = "[\"network.client.ip\"]",
-      required = true,
-      value = "Array of source attributes.")
+  **/
+  @ApiModelProperty(example = "[\"network.client.ip\"]", required = true, value = "Array of source attributes.")
   @JsonProperty(JSON_PROPERTY_SOURCES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<String> getSources() {
     return sources;
   }
 
+
   public void setSources(List<String> sources) {
     this.sources = sources;
   }
+
 
   public LogsGeoIPParser target(String target) {
     this.target = target;
     return this;
   }
 
-  /**
-   * Name of the parent attribute that contains all the extracted details from the
-   * &#x60;sources&#x60;.
-   *
+   /**
+   * Name of the parent attribute that contains all the extracted details from the &#x60;sources&#x60;.
    * @return target
-   */
-  @ApiModelProperty(
-      example = "network.client.geoip",
-      required = true,
-      value =
-          "Name of the parent attribute that contains all the extracted details from the"
-              + " `sources`.")
+  **/
+  @ApiModelProperty(example = "network.client.geoip", required = true, value = "Name of the parent attribute that contains all the extracted details from the `sources`.")
   @JsonProperty(JSON_PROPERTY_TARGET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getTarget() {
     return target;
   }
 
+
   public void setTarget(String target) {
     this.target = target;
   }
+
 
   public LogsGeoIPParser type(LogsGeoIPParserType type) {
     this.type = type;
@@ -173,26 +181,30 @@ public class LogsGeoIPParser {
     return this;
   }
 
-  /**
+   /**
    * Get type
-   *
    * @return type
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public LogsGeoIPParserType getType() {
     return type;
   }
 
+
   public void setType(LogsGeoIPParserType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
-  /** Return true if this LogsGeoIPParser object is equal to o. */
+
+  /**
+   * Return true if this LogsGeoIPParser object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -202,11 +214,11 @@ public class LogsGeoIPParser {
       return false;
     }
     LogsGeoIPParser logsGeoIPParser = (LogsGeoIPParser) o;
-    return Objects.equals(this.isEnabled, logsGeoIPParser.isEnabled)
-        && Objects.equals(this.name, logsGeoIPParser.name)
-        && Objects.equals(this.sources, logsGeoIPParser.sources)
-        && Objects.equals(this.target, logsGeoIPParser.target)
-        && Objects.equals(this.type, logsGeoIPParser.type);
+    return Objects.equals(this.isEnabled, logsGeoIPParser.isEnabled) &&
+        Objects.equals(this.name, logsGeoIPParser.name) &&
+        Objects.equals(this.sources, logsGeoIPParser.sources) &&
+        Objects.equals(this.target, logsGeoIPParser.target) &&
+        Objects.equals(this.type, logsGeoIPParser.type);
   }
 
   @Override
@@ -228,7 +240,8 @@ public class LogsGeoIPParser {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -236,4 +249,6 @@ public class LogsGeoIPParser {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

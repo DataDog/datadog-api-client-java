@@ -8,25 +8,34 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
- * Number of RUM Units used for each hour for a given organization (data available as of November 1,
- * 2021).
+ * Number of RUM Units used for each hour for a given organization (data available as of November 1, 2021).
  */
-@ApiModel(
-    description =
-        "Number of RUM Units used for each hour for a given organization (data available as of"
-            + " November 1, 2021).")
+@ApiModel(description = "Number of RUM Units used for each hour for a given organization (data available as of November 1, 2021).")
 @JsonPropertyOrder({
   UsageRumUnitsHour.JSON_PROPERTY_BROWSER_RUM_UNITS,
   UsageRumUnitsHour.JSON_PROPERTY_MOBILE_RUM_UNITS,
@@ -35,8 +44,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
   UsageRumUnitsHour.JSON_PROPERTY_RUM_UNITS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class UsageRumUnitsHour {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_BROWSER_RUM_UNITS = "browser_rum_units";
   private Long browserRumUnits;
 
@@ -52,117 +63,127 @@ public class UsageRumUnitsHour {
   public static final String JSON_PROPERTY_RUM_UNITS = "rum_units";
   private JsonNullable<Long> rumUnits = JsonNullable.<Long>undefined();
 
+
   public UsageRumUnitsHour browserRumUnits(Long browserRumUnits) {
     this.browserRumUnits = browserRumUnits;
     return this;
   }
 
-  /**
+   /**
    * The number of browser RUM units.
-   *
    * @return browserRumUnits
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The number of browser RUM units.")
   @JsonProperty(JSON_PROPERTY_BROWSER_RUM_UNITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Long getBrowserRumUnits() {
     return browserRumUnits;
   }
 
+
   public void setBrowserRumUnits(Long browserRumUnits) {
     this.browserRumUnits = browserRumUnits;
   }
+
 
   public UsageRumUnitsHour mobileRumUnits(Long mobileRumUnits) {
     this.mobileRumUnits = mobileRumUnits;
     return this;
   }
 
-  /**
+   /**
    * The number of mobile RUM units.
-   *
    * @return mobileRumUnits
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The number of mobile RUM units.")
   @JsonProperty(JSON_PROPERTY_MOBILE_RUM_UNITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Long getMobileRumUnits() {
     return mobileRumUnits;
   }
 
+
   public void setMobileRumUnits(Long mobileRumUnits) {
     this.mobileRumUnits = mobileRumUnits;
   }
+
 
   public UsageRumUnitsHour orgName(String orgName) {
     this.orgName = orgName;
     return this;
   }
 
-  /**
+   /**
    * The organization name.
-   *
    * @return orgName
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The organization name.")
   @JsonProperty(JSON_PROPERTY_ORG_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getOrgName() {
     return orgName;
   }
 
+
   public void setOrgName(String orgName) {
     this.orgName = orgName;
   }
+
 
   public UsageRumUnitsHour publicId(String publicId) {
     this.publicId = publicId;
     return this;
   }
 
-  /**
+   /**
    * The organization public ID.
-   *
    * @return publicId
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The organization public ID.")
   @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getPublicId() {
     return publicId;
   }
 
+
   public void setPublicId(String publicId) {
     this.publicId = publicId;
   }
+
 
   public UsageRumUnitsHour rumUnits(Long rumUnits) {
     this.rumUnits = JsonNullable.<Long>of(rumUnits);
     return this;
   }
 
-  /**
+   /**
    * Total RUM units across mobile and browser RUM.
-   *
    * @return rumUnits
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Total RUM units across mobile and browser RUM.")
   @JsonIgnore
+
   public Long getRumUnits() {
-    return rumUnits.orElse(null);
+        return rumUnits.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_RUM_UNITS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public JsonNullable<Long> getRumUnits_JsonNullable() {
     return rumUnits;
   }
-
+  
   @JsonProperty(JSON_PROPERTY_RUM_UNITS)
   public void setRumUnits_JsonNullable(JsonNullable<Long> rumUnits) {
     this.rumUnits = rumUnits;
@@ -172,7 +193,10 @@ public class UsageRumUnitsHour {
     this.rumUnits = JsonNullable.<Long>of(rumUnits);
   }
 
-  /** Return true if this UsageRumUnitsHour object is equal to o. */
+
+  /**
+   * Return true if this UsageRumUnitsHour object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -182,11 +206,11 @@ public class UsageRumUnitsHour {
       return false;
     }
     UsageRumUnitsHour usageRumUnitsHour = (UsageRumUnitsHour) o;
-    return Objects.equals(this.browserRumUnits, usageRumUnitsHour.browserRumUnits)
-        && Objects.equals(this.mobileRumUnits, usageRumUnitsHour.mobileRumUnits)
-        && Objects.equals(this.orgName, usageRumUnitsHour.orgName)
-        && Objects.equals(this.publicId, usageRumUnitsHour.publicId)
-        && Objects.equals(this.rumUnits, usageRumUnitsHour.rumUnits);
+    return Objects.equals(this.browserRumUnits, usageRumUnitsHour.browserRumUnits) &&
+        Objects.equals(this.mobileRumUnits, usageRumUnitsHour.mobileRumUnits) &&
+        Objects.equals(this.orgName, usageRumUnitsHour.orgName) &&
+        Objects.equals(this.publicId, usageRumUnitsHour.publicId) &&
+        Objects.equals(this.rumUnits, usageRumUnitsHour.rumUnits);
   }
 
   @Override
@@ -208,7 +232,8 @@ public class UsageRumUnitsHour {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -216,4 +241,6 @@ public class UsageRumUnitsHour {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

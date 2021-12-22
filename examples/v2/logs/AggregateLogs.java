@@ -4,8 +4,8 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.api.LogsApi;
-import com.datadog.api.v2.client.model.LogsAggregateRequest;
 import com.datadog.api.v2.client.model.LogsAggregateResponse;
+import com.datadog.api.v2.client.model.LogsAggregateRequest;
 import com.datadog.api.v2.client.model.LogsQueryFilter;
 import java.time.*;
 import java.util.*;
@@ -15,19 +15,12 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     LogsApi apiInstance = new LogsApi(defaultClient);
 
-    LogsAggregateRequest body =
-        new LogsAggregateRequest()
-            .filter(
-                new LogsQueryFilter()
-                    .from("now-15m")
-                    .indexes(
-                        new ArrayList<String>() {
-                          {
-                            add("main");
-                          }
-                        })
-                    .query("*")
-                    .to("now"));
+    LogsAggregateRequest body = new LogsAggregateRequest()
+.filter(new LogsQueryFilter()
+.from("now-15m")
+.indexes(new ArrayList<String>() {{add("main");}})
+.query("*")
+.to("now"));
 
     try {
       LogsAggregateResponse result = apiInstance.aggregateLogs(body);

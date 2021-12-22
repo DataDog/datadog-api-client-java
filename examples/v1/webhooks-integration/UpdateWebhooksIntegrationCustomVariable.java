@@ -17,12 +17,11 @@ public class Example {
     // there is a valid "webhook_custom_variable" in the system
     String WEBHOOK_CUSTOM_VARIABLE_NAME = System.getenv("WEBHOOK_CUSTOM_VARIABLE_NAME");
 
-    WebhooksIntegrationCustomVariableUpdateRequest body =
-        new WebhooksIntegrationCustomVariableUpdateRequest().value("variable-updated");
+    WebhooksIntegrationCustomVariableUpdateRequest body = new WebhooksIntegrationCustomVariableUpdateRequest()
+.value("variable-updated");
 
     try {
-      WebhooksIntegrationCustomVariableResponse result =
-          apiInstance.updateWebhooksIntegrationCustomVariable(WEBHOOK_CUSTOM_VARIABLE_NAME, body);
+      WebhooksIntegrationCustomVariableResponse result = apiInstance.updateWebhooksIntegrationCustomVariable(WEBHOOK_CUSTOM_VARIABLE_NAME, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DowntimesApi#updateDowntime");

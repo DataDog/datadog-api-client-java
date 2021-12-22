@@ -8,48 +8,69 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** The payload accepted for intake. */
+
+/**
+ * The payload accepted for intake.
+ */
 @ApiModel(description = "The payload accepted for intake.")
-@JsonPropertyOrder({IntakePayloadAccepted.JSON_PROPERTY_STATUS})
+@JsonPropertyOrder({
+  IntakePayloadAccepted.JSON_PROPERTY_STATUS
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class IntakePayloadAccepted {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_STATUS = "status";
   private String status;
+
 
   public IntakePayloadAccepted status(String status) {
     this.status = status;
     return this;
   }
 
-  /**
+   /**
    * The status of the intake payload.
-   *
    * @return status
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "ok", value = "The status of the intake payload.")
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getStatus() {
     return status;
   }
+
 
   public void setStatus(String status) {
     this.status = status;
   }
 
-  /** Return true if this IntakePayloadAccepted object is equal to o. */
+
+  /**
+   * Return true if this IntakePayloadAccepted object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -77,7 +98,8 @@ public class IntakePayloadAccepted {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -85,4 +107,6 @@ public class IntakePayloadAccepted {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

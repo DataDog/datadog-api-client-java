@@ -12,8 +12,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setUnstableOperationEnabled("listSloCorrection", true);
-    ServiceLevelObjectiveCorrectionsApi apiInstance =
-        new ServiceLevelObjectiveCorrectionsApi(defaultClient);
+    ServiceLevelObjectiveCorrectionsApi apiInstance = new ServiceLevelObjectiveCorrectionsApi(defaultClient);
 
     try {
       SLOCorrectionListResponse result = apiInstance.listSLOCorrection();

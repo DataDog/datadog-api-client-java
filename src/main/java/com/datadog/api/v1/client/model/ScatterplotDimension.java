@@ -8,32 +8,44 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import io.swagger.annotations.ApiModel;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
+
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
 
-/** Dimension of the Scatterplot. */
+
+import java.util.Set;
+import java.util.HashSet;
+/**
+ * Dimension of the Scatterplot.
+ */
 @JsonSerialize(using = ScatterplotDimension.ScatterplotDimensionSerializer.class)
 public class ScatterplotDimension {
-
+  
   public static final ScatterplotDimension X = new ScatterplotDimension("x");
   public static final ScatterplotDimension Y = new ScatterplotDimension("y");
   public static final ScatterplotDimension RADIUS = new ScatterplotDimension("radius");
   public static final ScatterplotDimension COLOR = new ScatterplotDimension("color");
 
-  private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("x", "y", "radius", "color"));
+  private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("x","y","radius","color"));
 
   private String value;
 
@@ -46,20 +58,18 @@ public class ScatterplotDimension {
   }
 
   public static class ScatterplotDimensionSerializer extends StdSerializer<ScatterplotDimension> {
-    public ScatterplotDimensionSerializer(Class<ScatterplotDimension> t) {
-      super(t);
-    }
+      public ScatterplotDimensionSerializer(Class<ScatterplotDimension> t) {
+          super(t);
+      }
 
-    public ScatterplotDimensionSerializer() {
-      this(null);
-    }
+      public ScatterplotDimensionSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        ScatterplotDimension value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(ScatterplotDimension value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -71,7 +81,9 @@ public class ScatterplotDimension {
     this.value = value;
   }
 
-  /** Return true if this ScatterplotDimension object is equal to o. */
+  /**
+   * Return true if this ScatterplotDimension object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -85,7 +97,7 @@ public class ScatterplotDimension {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override
@@ -98,3 +110,4 @@ public class ScatterplotDimension {
     return new ScatterplotDimension(value);
   }
 }
+

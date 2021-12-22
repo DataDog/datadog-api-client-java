@@ -8,19 +8,30 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Object containing the metric unit family, scale factor, name, and short name. */
-@ApiModel(
-    description = "Object containing the metric unit family, scale factor, name, and short name.")
+
+/**
+ * Object containing the metric unit family, scale factor, name, and short name.
+ */
+@ApiModel(description = "Object containing the metric unit family, scale factor, name, and short name.")
 @JsonPropertyOrder({
   MetricsQueryUnit.JSON_PROPERTY_FAMILY,
   MetricsQueryUnit.JSON_PROPERTY_NAME,
@@ -29,8 +40,10 @@ import java.util.Objects;
   MetricsQueryUnit.JSON_PROPERTY_SHORT_NAME
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class MetricsQueryUnit {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_FAMILY = "family";
   private String family;
 
@@ -46,76 +59,90 @@ public class MetricsQueryUnit {
   public static final String JSON_PROPERTY_SHORT_NAME = "short_name";
   private String shortName;
 
-  /**
+
+   /**
    * Unit family, allows for conversion between units of the same family, for scaling.
-   *
    * @return family
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "time",
-      value = "Unit family, allows for conversion between units of the same family, for scaling.")
+  @ApiModelProperty(example = "time", value = "Unit family, allows for conversion between units of the same family, for scaling.")
   @JsonProperty(JSON_PROPERTY_FAMILY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getFamily() {
     return family;
   }
 
-  /**
+
+
+
+   /**
    * Unit name
-   *
    * @return name
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "minute", value = "Unit name")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getName() {
     return name;
   }
 
-  /**
+
+
+
+   /**
    * Plural form of the unit name.
-   *
    * @return plural
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "minutes", value = "Plural form of the unit name.")
   @JsonProperty(JSON_PROPERTY_PLURAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getPlural() {
     return plural;
   }
 
-  /**
+
+
+
+   /**
    * Factor for scaling between units of the same family.
-   *
    * @return scaleFactor
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "60.0",
-      value = "Factor for scaling between units of the same family.")
+  @ApiModelProperty(example = "60.0", value = "Factor for scaling between units of the same family.")
   @JsonProperty(JSON_PROPERTY_SCALE_FACTOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Double getScaleFactor() {
     return scaleFactor;
   }
 
-  /**
+
+
+
+   /**
    * Abbreviation of the unit.
-   *
    * @return shortName
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "min", value = "Abbreviation of the unit.")
   @JsonProperty(JSON_PROPERTY_SHORT_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getShortName() {
     return shortName;
   }
 
-  /** Return true if this MetricsQueryUnit object is equal to o. */
+
+
+
+  /**
+   * Return true if this MetricsQueryUnit object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -125,11 +152,11 @@ public class MetricsQueryUnit {
       return false;
     }
     MetricsQueryUnit metricsQueryUnit = (MetricsQueryUnit) o;
-    return Objects.equals(this.family, metricsQueryUnit.family)
-        && Objects.equals(this.name, metricsQueryUnit.name)
-        && Objects.equals(this.plural, metricsQueryUnit.plural)
-        && Objects.equals(this.scaleFactor, metricsQueryUnit.scaleFactor)
-        && Objects.equals(this.shortName, metricsQueryUnit.shortName);
+    return Objects.equals(this.family, metricsQueryUnit.family) &&
+        Objects.equals(this.name, metricsQueryUnit.name) &&
+        Objects.equals(this.plural, metricsQueryUnit.plural) &&
+        Objects.equals(this.scaleFactor, metricsQueryUnit.scaleFactor) &&
+        Objects.equals(this.shortName, metricsQueryUnit.shortName);
   }
 
   @Override
@@ -151,7 +178,8 @@ public class MetricsQueryUnit {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -159,4 +187,6 @@ public class MetricsQueryUnit {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

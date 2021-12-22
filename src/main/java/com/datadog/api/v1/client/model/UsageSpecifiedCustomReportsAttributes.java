@@ -8,19 +8,31 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** The response containing attributes for specified custom reports. */
+
+/**
+ * The response containing attributes for specified custom reports.
+ */
 @ApiModel(description = "The response containing attributes for specified custom reports.")
 @JsonPropertyOrder({
   UsageSpecifiedCustomReportsAttributes.JSON_PROPERTY_COMPUTED_ON,
@@ -31,8 +43,10 @@ import java.util.Objects;
   UsageSpecifiedCustomReportsAttributes.JSON_PROPERTY_TAGS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class UsageSpecifiedCustomReportsAttributes {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_COMPUTED_ON = "computed_on";
   private String computedOn;
 
@@ -51,117 +65,126 @@ public class UsageSpecifiedCustomReportsAttributes {
   public static final String JSON_PROPERTY_TAGS = "tags";
   private List<String> tags = null;
 
+
   public UsageSpecifiedCustomReportsAttributes computedOn(String computedOn) {
     this.computedOn = computedOn;
     return this;
   }
 
-  /**
+   /**
    * The date the specified custom report was computed.
-   *
    * @return computedOn
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The date the specified custom report was computed.")
   @JsonProperty(JSON_PROPERTY_COMPUTED_ON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getComputedOn() {
     return computedOn;
   }
 
+
   public void setComputedOn(String computedOn) {
     this.computedOn = computedOn;
   }
+
 
   public UsageSpecifiedCustomReportsAttributes endDate(String endDate) {
     this.endDate = endDate;
     return this;
   }
 
-  /**
+   /**
    * The ending date of specified custom report.
-   *
    * @return endDate
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The ending date of specified custom report.")
   @JsonProperty(JSON_PROPERTY_END_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getEndDate() {
     return endDate;
   }
 
+
   public void setEndDate(String endDate) {
     this.endDate = endDate;
   }
+
 
   public UsageSpecifiedCustomReportsAttributes location(String location) {
     this.location = location;
     return this;
   }
 
-  /**
+   /**
    * A downloadable file for the specified custom reporting file.
-   *
    * @return location
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "https://an-s3-or-gs-bucket.s3.amazonaws.com",
-      value = "A downloadable file for the specified custom reporting file.")
+  @ApiModelProperty(example = "https://an-s3-or-gs-bucket.s3.amazonaws.com", value = "A downloadable file for the specified custom reporting file.")
   @JsonProperty(JSON_PROPERTY_LOCATION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getLocation() {
     return location;
   }
 
+
   public void setLocation(String location) {
     this.location = location;
   }
+
 
   public UsageSpecifiedCustomReportsAttributes size(Long size) {
     this.size = size;
     return this;
   }
 
-  /**
+   /**
    * size
-   *
    * @return size
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "size")
   @JsonProperty(JSON_PROPERTY_SIZE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Long getSize() {
     return size;
   }
 
+
   public void setSize(Long size) {
     this.size = size;
   }
+
 
   public UsageSpecifiedCustomReportsAttributes startDate(String startDate) {
     this.startDate = startDate;
     return this;
   }
 
-  /**
+   /**
    * The starting date of specified custom report.
-   *
    * @return startDate
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The starting date of specified custom report.")
   @JsonProperty(JSON_PROPERTY_START_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getStartDate() {
     return startDate;
   }
 
+
   public void setStartDate(String startDate) {
     this.startDate = startDate;
   }
+
 
   public UsageSpecifiedCustomReportsAttributes tags(List<String> tags) {
     this.tags = tags;
@@ -176,24 +199,28 @@ public class UsageSpecifiedCustomReportsAttributes {
     return this;
   }
 
-  /**
+   /**
    * A list of tags to apply to specified custom reports.
-   *
    * @return tags
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "A list of tags to apply to specified custom reports.")
   @JsonProperty(JSON_PROPERTY_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<String> getTags() {
     return tags;
   }
+
 
   public void setTags(List<String> tags) {
     this.tags = tags;
   }
 
-  /** Return true if this UsageSpecifiedCustomReportsAttributes object is equal to o. */
+
+  /**
+   * Return true if this UsageSpecifiedCustomReportsAttributes object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -202,14 +229,13 @@ public class UsageSpecifiedCustomReportsAttributes {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UsageSpecifiedCustomReportsAttributes usageSpecifiedCustomReportsAttributes =
-        (UsageSpecifiedCustomReportsAttributes) o;
-    return Objects.equals(this.computedOn, usageSpecifiedCustomReportsAttributes.computedOn)
-        && Objects.equals(this.endDate, usageSpecifiedCustomReportsAttributes.endDate)
-        && Objects.equals(this.location, usageSpecifiedCustomReportsAttributes.location)
-        && Objects.equals(this.size, usageSpecifiedCustomReportsAttributes.size)
-        && Objects.equals(this.startDate, usageSpecifiedCustomReportsAttributes.startDate)
-        && Objects.equals(this.tags, usageSpecifiedCustomReportsAttributes.tags);
+    UsageSpecifiedCustomReportsAttributes usageSpecifiedCustomReportsAttributes = (UsageSpecifiedCustomReportsAttributes) o;
+    return Objects.equals(this.computedOn, usageSpecifiedCustomReportsAttributes.computedOn) &&
+        Objects.equals(this.endDate, usageSpecifiedCustomReportsAttributes.endDate) &&
+        Objects.equals(this.location, usageSpecifiedCustomReportsAttributes.location) &&
+        Objects.equals(this.size, usageSpecifiedCustomReportsAttributes.size) &&
+        Objects.equals(this.startDate, usageSpecifiedCustomReportsAttributes.startDate) &&
+        Objects.equals(this.tags, usageSpecifiedCustomReportsAttributes.tags);
   }
 
   @Override
@@ -232,7 +258,8 @@ public class UsageSpecifiedCustomReportsAttributes {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -240,4 +267,6 @@ public class UsageSpecifiedCustomReportsAttributes {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

@@ -8,13 +8,15 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.auth;
 
-import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Pair;
+import com.datadog.api.v1.client.ApiException;
+
 import java.net.URI;
-import java.util.List;
 import java.util.Map;
+import java.util.List;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ApiKeyAuth implements Authentication {
@@ -54,14 +56,7 @@ public class ApiKeyAuth implements Authentication {
   }
 
   @Override
-  public void applyToParams(
-      List<Pair> queryParams,
-      Map<String, String> headerParams,
-      Map<String, String> cookieParams,
-      String payload,
-      String method,
-      URI uri)
-      throws ApiException {
+  public void applyToParams(List<Pair> queryParams, Map<String, String> headerParams, Map<String, String> cookieParams, String payload, String method, URI uri) throws ApiException {
     if (apiKey == null) {
       return;
     }

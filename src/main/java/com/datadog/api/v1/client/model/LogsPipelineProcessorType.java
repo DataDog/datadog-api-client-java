@@ -8,27 +8,39 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import io.swagger.annotations.ApiModel;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
+
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
 
-/** Type of logs pipeline processor. */
+
+import java.util.Set;
+import java.util.HashSet;
+/**
+ * Type of logs pipeline processor.
+ */
 @JsonSerialize(using = LogsPipelineProcessorType.LogsPipelineProcessorTypeSerializer.class)
 public class LogsPipelineProcessorType {
-
-  public static final LogsPipelineProcessorType PIPELINE =
-      new LogsPipelineProcessorType("pipeline");
+  
+  public static final LogsPipelineProcessorType PIPELINE = new LogsPipelineProcessorType("pipeline");
 
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("pipeline"));
 
@@ -42,22 +54,19 @@ public class LogsPipelineProcessorType {
     this.value = value;
   }
 
-  public static class LogsPipelineProcessorTypeSerializer
-      extends StdSerializer<LogsPipelineProcessorType> {
-    public LogsPipelineProcessorTypeSerializer(Class<LogsPipelineProcessorType> t) {
-      super(t);
-    }
+  public static class LogsPipelineProcessorTypeSerializer extends StdSerializer<LogsPipelineProcessorType> {
+      public LogsPipelineProcessorTypeSerializer(Class<LogsPipelineProcessorType> t) {
+          super(t);
+      }
 
-    public LogsPipelineProcessorTypeSerializer() {
-      this(null);
-    }
+      public LogsPipelineProcessorTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        LogsPipelineProcessorType value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(LogsPipelineProcessorType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -69,7 +78,9 @@ public class LogsPipelineProcessorType {
     this.value = value;
   }
 
-  /** Return true if this LogsPipelineProcessorType object is equal to o. */
+  /**
+   * Return true if this LogsPipelineProcessorType object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -83,7 +94,7 @@ public class LogsPipelineProcessorType {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override
@@ -96,3 +107,4 @@ public class LogsPipelineProcessorType {
     return new LogsPipelineProcessorType(value);
   }
 }
+

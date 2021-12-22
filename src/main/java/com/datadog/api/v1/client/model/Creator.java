@@ -8,18 +8,33 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Object describing the creator of the shared element. */
+
+/**
+ * Object describing the creator of the shared element.
+ */
 @ApiModel(description = "Object describing the creator of the shared element.")
 @JsonPropertyOrder({
   Creator.JSON_PROPERTY_EMAIL,
@@ -27,8 +42,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
   Creator.JSON_PROPERTY_NAME
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class Creator {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_EMAIL = "email";
   private String email;
 
@@ -38,73 +55,79 @@ public class Creator {
   public static final String JSON_PROPERTY_NAME = "name";
   private JsonNullable<String> name = JsonNullable.<String>undefined();
 
+
   public Creator email(String email) {
     this.email = email;
     return this;
   }
 
-  /**
+   /**
    * Email of the creator.
-   *
    * @return email
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Email of the creator.")
   @JsonProperty(JSON_PROPERTY_EMAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getEmail() {
     return email;
   }
 
+
   public void setEmail(String email) {
     this.email = email;
   }
+
 
   public Creator handle(String handle) {
     this.handle = handle;
     return this;
   }
 
-  /**
+   /**
    * Handle of the creator.
-   *
    * @return handle
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Handle of the creator.")
   @JsonProperty(JSON_PROPERTY_HANDLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getHandle() {
     return handle;
   }
 
+
   public void setHandle(String handle) {
     this.handle = handle;
   }
+
 
   public Creator name(String name) {
     this.name = JsonNullable.<String>of(name);
     return this;
   }
 
-  /**
+   /**
    * Name of the creator.
-   *
    * @return name
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Name of the creator.")
   @JsonIgnore
+
   public String getName() {
-    return name.orElse(null);
+        return name.orElse(null);
   }
 
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public JsonNullable<String> getName_JsonNullable() {
     return name;
   }
-
+  
   @JsonProperty(JSON_PROPERTY_NAME)
   public void setName_JsonNullable(JsonNullable<String> name) {
     this.name = name;
@@ -114,7 +137,10 @@ public class Creator {
     this.name = JsonNullable.<String>of(name);
   }
 
-  /** Return true if this Creator object is equal to o. */
+
+  /**
+   * Return true if this Creator object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -124,9 +150,9 @@ public class Creator {
       return false;
     }
     Creator creator = (Creator) o;
-    return Objects.equals(this.email, creator.email)
-        && Objects.equals(this.handle, creator.handle)
-        && Objects.equals(this.name, creator.name);
+    return Objects.equals(this.email, creator.email) &&
+        Objects.equals(this.handle, creator.handle) &&
+        Objects.equals(this.name, creator.name);
   }
 
   @Override
@@ -146,7 +172,8 @@ public class Creator {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -154,4 +181,6 @@ public class Creator {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

@@ -8,25 +8,38 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import io.swagger.annotations.ApiModel;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
+
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
 
-/** Type of funnel widget. */
+
+import java.util.Set;
+import java.util.HashSet;
+/**
+ * Type of funnel widget.
+ */
 @JsonSerialize(using = FunnelWidgetDefinitionType.FunnelWidgetDefinitionTypeSerializer.class)
 public class FunnelWidgetDefinitionType {
-
+  
   public static final FunnelWidgetDefinitionType FUNNEL = new FunnelWidgetDefinitionType("funnel");
 
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("funnel"));
@@ -41,22 +54,19 @@ public class FunnelWidgetDefinitionType {
     this.value = value;
   }
 
-  public static class FunnelWidgetDefinitionTypeSerializer
-      extends StdSerializer<FunnelWidgetDefinitionType> {
-    public FunnelWidgetDefinitionTypeSerializer(Class<FunnelWidgetDefinitionType> t) {
-      super(t);
-    }
+  public static class FunnelWidgetDefinitionTypeSerializer extends StdSerializer<FunnelWidgetDefinitionType> {
+      public FunnelWidgetDefinitionTypeSerializer(Class<FunnelWidgetDefinitionType> t) {
+          super(t);
+      }
 
-    public FunnelWidgetDefinitionTypeSerializer() {
-      this(null);
-    }
+      public FunnelWidgetDefinitionTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(
-        FunnelWidgetDefinitionType value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(FunnelWidgetDefinitionType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -68,7 +78,9 @@ public class FunnelWidgetDefinitionType {
     this.value = value;
   }
 
-  /** Return true if this FunnelWidgetDefinitionType object is equal to o. */
+  /**
+   * Return true if this FunnelWidgetDefinitionType object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -82,7 +94,7 @@ public class FunnelWidgetDefinitionType {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override
@@ -95,3 +107,4 @@ public class FunnelWidgetDefinitionType {
     return new FunnelWidgetDefinitionType(value);
   }
 }
+

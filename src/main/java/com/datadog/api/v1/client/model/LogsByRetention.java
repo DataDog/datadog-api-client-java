@@ -8,19 +8,34 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.LogsByRetentionMonthlyUsage;
+import com.datadog.api.v1.client.model.LogsByRetentionOrgs;
+import com.datadog.api.v1.client.model.LogsRetentionAggSumUsage;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Object containing logs usage data broken down by retention period. */
+
+/**
+ * Object containing logs usage data broken down by retention period.
+ */
 @ApiModel(description = "Object containing logs usage data broken down by retention period.")
 @JsonPropertyOrder({
   LogsByRetention.JSON_PROPERTY_ORGS,
@@ -28,8 +43,10 @@ import java.util.Objects;
   LogsByRetention.JSON_PROPERTY_USAGE_BY_MONTH
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class LogsByRetention {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ORGS = "orgs";
   private LogsByRetentionOrgs orgs;
 
@@ -39,28 +56,31 @@ public class LogsByRetention {
   public static final String JSON_PROPERTY_USAGE_BY_MONTH = "usage_by_month";
   private LogsByRetentionMonthlyUsage usageByMonth;
 
+
   public LogsByRetention orgs(LogsByRetentionOrgs orgs) {
     this.orgs = orgs;
     this.unparsed |= orgs.unparsed;
     return this;
   }
 
-  /**
+   /**
    * Get orgs
-   *
    * @return orgs
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ORGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public LogsByRetentionOrgs getOrgs() {
     return orgs;
   }
 
+
   public void setOrgs(LogsByRetentionOrgs orgs) {
     this.orgs = orgs;
   }
+
 
   public LogsByRetention usage(List<LogsRetentionAggSumUsage> usage) {
     this.usage = usage;
@@ -79,22 +99,24 @@ public class LogsByRetention {
     return this;
   }
 
-  /**
+   /**
    * Aggregated index logs usage for each retention period with usage.
-   *
    * @return usage
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Aggregated index logs usage for each retention period with usage.")
   @JsonProperty(JSON_PROPERTY_USAGE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public List<LogsRetentionAggSumUsage> getUsage() {
     return usage;
   }
 
+
   public void setUsage(List<LogsRetentionAggSumUsage> usage) {
     this.usage = usage;
   }
+
 
   public LogsByRetention usageByMonth(LogsByRetentionMonthlyUsage usageByMonth) {
     this.usageByMonth = usageByMonth;
@@ -102,24 +124,28 @@ public class LogsByRetention {
     return this;
   }
 
-  /**
+   /**
    * Get usageByMonth
-   *
    * @return usageByMonth
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_USAGE_BY_MONTH)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public LogsByRetentionMonthlyUsage getUsageByMonth() {
     return usageByMonth;
   }
+
 
   public void setUsageByMonth(LogsByRetentionMonthlyUsage usageByMonth) {
     this.usageByMonth = usageByMonth;
   }
 
-  /** Return true if this LogsByRetention object is equal to o. */
+
+  /**
+   * Return true if this LogsByRetention object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -129,9 +155,9 @@ public class LogsByRetention {
       return false;
     }
     LogsByRetention logsByRetention = (LogsByRetention) o;
-    return Objects.equals(this.orgs, logsByRetention.orgs)
-        && Objects.equals(this.usage, logsByRetention.usage)
-        && Objects.equals(this.usageByMonth, logsByRetention.usageByMonth);
+    return Objects.equals(this.orgs, logsByRetention.orgs) &&
+        Objects.equals(this.usage, logsByRetention.usage) &&
+        Objects.equals(this.usageByMonth, logsByRetention.usageByMonth);
   }
 
   @Override
@@ -151,7 +177,8 @@ public class LogsByRetention {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -159,4 +186,6 @@ public class LogsByRetention {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

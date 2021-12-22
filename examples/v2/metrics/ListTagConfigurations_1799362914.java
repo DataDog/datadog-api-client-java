@@ -16,10 +16,7 @@ public class Example {
     MetricsApi apiInstance = new MetricsApi(defaultClient);
 
     try {
-      MetricsAndMetricTagConfigurationsResponse result =
-          apiInstance.listTagConfigurations(
-              new ListTagConfigurationsOptionalParameters()
-                  .filterTags("ExampleListtagconfigurationswithatagfilterreturnsSuccessresponse"));
+      MetricsAndMetricTagConfigurationsResponse result = apiInstance.listTagConfigurations(new ListTagConfigurationsOptionalParameters().filterTags("ExampleListtagconfigurationswithatagfilterreturnsSuccessresponse"));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DowntimesApi#updateDowntime");

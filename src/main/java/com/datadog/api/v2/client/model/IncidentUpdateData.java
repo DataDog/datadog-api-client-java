@@ -8,18 +8,32 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v2.client.model.IncidentType;
+import com.datadog.api.v2.client.model.IncidentUpdateAttributes;
+import com.datadog.api.v2.client.model.IncidentUpdateRelationships;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
 
-/** Incident data for an update request. */
+
+/**
+ * Incident data for an update request.
+ */
 @ApiModel(description = "Incident data for an update request.")
 @JsonPropertyOrder({
   IncidentUpdateData.JSON_PROPERTY_ATTRIBUTES,
@@ -28,8 +42,10 @@ import java.util.Objects;
   IncidentUpdateData.JSON_PROPERTY_TYPE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class IncidentUpdateData {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ATTRIBUTES = "attributes";
   private IncidentUpdateAttributes attributes;
 
@@ -46,11 +62,12 @@ public class IncidentUpdateData {
 
   @JsonCreator
   public IncidentUpdateData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) IncidentType type) {
-    this.id = id;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_ID) String id,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE) IncidentType type
+            ) {
+        this.id = id;
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
 
   public IncidentUpdateData attributes(IncidentUpdateAttributes attributes) {
@@ -59,46 +76,47 @@ public class IncidentUpdateData {
     return this;
   }
 
-  /**
+   /**
    * Get attributes
-   *
    * @return attributes
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ATTRIBUTES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public IncidentUpdateAttributes getAttributes() {
     return attributes;
   }
 
+
   public void setAttributes(IncidentUpdateAttributes attributes) {
     this.attributes = attributes;
   }
+
 
   public IncidentUpdateData id(String id) {
     this.id = id;
     return this;
   }
 
-  /**
+   /**
    * The team&#39;s ID.
-   *
    * @return id
-   */
-  @ApiModelProperty(
-      example = "00000000-0000-0000-0000-000000000000",
-      required = true,
-      value = "The team's ID.")
+  **/
+  @ApiModelProperty(example = "00000000-0000-0000-0000-000000000000", required = true, value = "The team's ID.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getId() {
     return id;
   }
 
+
   public void setId(String id) {
     this.id = id;
   }
+
 
   public IncidentUpdateData relationships(IncidentUpdateRelationships relationships) {
     this.relationships = relationships;
@@ -106,22 +124,24 @@ public class IncidentUpdateData {
     return this;
   }
 
-  /**
+   /**
    * Get relationships
-   *
    * @return relationships
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_RELATIONSHIPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public IncidentUpdateRelationships getRelationships() {
     return relationships;
   }
 
+
   public void setRelationships(IncidentUpdateRelationships relationships) {
     this.relationships = relationships;
   }
+
 
   public IncidentUpdateData type(IncidentType type) {
     this.type = type;
@@ -129,26 +149,30 @@ public class IncidentUpdateData {
     return this;
   }
 
-  /**
+   /**
    * Get type
-   *
    * @return type
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public IncidentType getType() {
     return type;
   }
 
+
   public void setType(IncidentType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
-  /** Return true if this IncidentUpdateData object is equal to o. */
+
+  /**
+   * Return true if this IncidentUpdateData object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -158,10 +182,10 @@ public class IncidentUpdateData {
       return false;
     }
     IncidentUpdateData incidentUpdateData = (IncidentUpdateData) o;
-    return Objects.equals(this.attributes, incidentUpdateData.attributes)
-        && Objects.equals(this.id, incidentUpdateData.id)
-        && Objects.equals(this.relationships, incidentUpdateData.relationships)
-        && Objects.equals(this.type, incidentUpdateData.type);
+    return Objects.equals(this.attributes, incidentUpdateData.attributes) &&
+        Objects.equals(this.id, incidentUpdateData.id) &&
+        Objects.equals(this.relationships, incidentUpdateData.relationships) &&
+        Objects.equals(this.type, incidentUpdateData.type);
   }
 
   @Override
@@ -182,7 +206,8 @@ public class IncidentUpdateData {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -190,4 +215,6 @@ public class IncidentUpdateData {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

@@ -4,11 +4,11 @@ import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
 import com.datadog.api.v2.client.api.ServiceAccountsApi;
+import com.datadog.api.v2.client.model.PartialApplicationKeyResponse;
+import com.datadog.api.v2.client.model.ApplicationKeysType;
 import com.datadog.api.v2.client.model.ApplicationKeyUpdateAttributes;
 import com.datadog.api.v2.client.model.ApplicationKeyUpdateData;
 import com.datadog.api.v2.client.model.ApplicationKeyUpdateRequest;
-import com.datadog.api.v2.client.model.ApplicationKeysType;
-import com.datadog.api.v2.client.model.PartialApplicationKeyResponse;
 import java.time.*;
 import java.util.*;
 
@@ -21,25 +21,18 @@ public class Example {
     String SERVICE_ACCOUNT_USER_DATA_ID = System.getenv("SERVICE_ACCOUNT_USER_DATA_ID");
 
     // there is a valid "service_account_application_key" for "service_account_user"
-    String SERVICE_ACCOUNT_APPLICATION_KEY_DATA_ATTRIBUTES_NAME =
-        System.getenv("SERVICE_ACCOUNT_APPLICATION_KEY_DATA_ATTRIBUTES_NAME");
-    String SERVICE_ACCOUNT_APPLICATION_KEY_DATA_ID =
-        System.getenv("SERVICE_ACCOUNT_APPLICATION_KEY_DATA_ID");
+    String SERVICE_ACCOUNT_APPLICATION_KEY_DATA_ATTRIBUTES_NAME = System.getenv("SERVICE_ACCOUNT_APPLICATION_KEY_DATA_ATTRIBUTES_NAME");
+    String SERVICE_ACCOUNT_APPLICATION_KEY_DATA_ID = System.getenv("SERVICE_ACCOUNT_APPLICATION_KEY_DATA_ID");
 
-    ApplicationKeyUpdateRequest body =
-        new ApplicationKeyUpdateRequest()
-            .data(
-                new ApplicationKeyUpdateData()
-                    .id(SERVICE_ACCOUNT_APPLICATION_KEY_DATA_ID)
-                    .type(ApplicationKeysType.APPLICATION_KEYS)
-                    .attributes(
-                        new ApplicationKeyUpdateAttributes()
-                            .name("Application Key for submitting metrics-updated")));
+    ApplicationKeyUpdateRequest body = new ApplicationKeyUpdateRequest()
+.data(new ApplicationKeyUpdateData()
+.id(SERVICE_ACCOUNT_APPLICATION_KEY_DATA_ID)
+.type(ApplicationKeysType.APPLICATION_KEYS)
+.attributes(new ApplicationKeyUpdateAttributes()
+.name("Application Key for submitting metrics-updated")));
 
     try {
-      PartialApplicationKeyResponse result =
-          apiInstance.updateServiceAccountApplicationKey(
-              SERVICE_ACCOUNT_USER_DATA_ID, SERVICE_ACCOUNT_APPLICATION_KEY_DATA_ID, body);
+      PartialApplicationKeyResponse result = apiInstance.updateServiceAccountApplicationKey(SERVICE_ACCOUNT_USER_DATA_ID, SERVICE_ACCOUNT_APPLICATION_KEY_DATA_ID, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DowntimesApi#updateDowntime");

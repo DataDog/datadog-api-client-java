@@ -8,26 +8,39 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** The style to apply to the widget. */
+
+/**
+ * The style to apply to the widget.
+ */
 @ApiModel(description = "The style to apply to the widget.")
 @JsonPropertyOrder({
   GeomapWidgetDefinitionStyle.JSON_PROPERTY_PALETTE,
   GeomapWidgetDefinitionStyle.JSON_PROPERTY_PALETTE_FLIP
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class GeomapWidgetDefinitionStyle {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_PALETTE = "palette";
   private String palette;
 
@@ -38,10 +51,11 @@ public class GeomapWidgetDefinitionStyle {
 
   @JsonCreator
   public GeomapWidgetDefinitionStyle(
-      @JsonProperty(required = true, value = JSON_PROPERTY_PALETTE) String palette,
-      @JsonProperty(required = true, value = JSON_PROPERTY_PALETTE_FLIP) Boolean paletteFlip) {
-    this.palette = palette;
-    this.paletteFlip = paletteFlip;
+            @JsonProperty(required=true, value=JSON_PROPERTY_PALETTE) String palette,
+            @JsonProperty(required=true, value=JSON_PROPERTY_PALETTE_FLIP) Boolean paletteFlip
+            ) {
+        this.palette = palette;
+        this.paletteFlip = paletteFlip;
   }
 
   public GeomapWidgetDefinitionStyle palette(String palette) {
@@ -49,50 +63,50 @@ public class GeomapWidgetDefinitionStyle {
     return this;
   }
 
-  /**
+   /**
    * The color palette to apply to the widget.
-   *
    * @return palette
-   */
-  @ApiModelProperty(
-      example = "hostmap_blues",
-      required = true,
-      value = "The color palette to apply to the widget.")
+  **/
+  @ApiModelProperty(example = "hostmap_blues", required = true, value = "The color palette to apply to the widget.")
   @JsonProperty(JSON_PROPERTY_PALETTE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getPalette() {
     return palette;
   }
 
+
   public void setPalette(String palette) {
     this.palette = palette;
   }
+
 
   public GeomapWidgetDefinitionStyle paletteFlip(Boolean paletteFlip) {
     this.paletteFlip = paletteFlip;
     return this;
   }
 
-  /**
+   /**
    * Whether to flip the palette tones.
-   *
    * @return paletteFlip
-   */
-  @ApiModelProperty(
-      example = "false",
-      required = true,
-      value = "Whether to flip the palette tones.")
+  **/
+  @ApiModelProperty(example = "false", required = true, value = "Whether to flip the palette tones.")
   @JsonProperty(JSON_PROPERTY_PALETTE_FLIP)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public Boolean getPaletteFlip() {
     return paletteFlip;
   }
+
 
   public void setPaletteFlip(Boolean paletteFlip) {
     this.paletteFlip = paletteFlip;
   }
 
-  /** Return true if this GeomapWidgetDefinition_style object is equal to o. */
+
+  /**
+   * Return true if this GeomapWidgetDefinition_style object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -102,8 +116,8 @@ public class GeomapWidgetDefinitionStyle {
       return false;
     }
     GeomapWidgetDefinitionStyle geomapWidgetDefinitionStyle = (GeomapWidgetDefinitionStyle) o;
-    return Objects.equals(this.palette, geomapWidgetDefinitionStyle.palette)
-        && Objects.equals(this.paletteFlip, geomapWidgetDefinitionStyle.paletteFlip);
+    return Objects.equals(this.palette, geomapWidgetDefinitionStyle.palette) &&
+        Objects.equals(this.paletteFlip, geomapWidgetDefinitionStyle.paletteFlip);
   }
 
   @Override
@@ -122,7 +136,8 @@ public class GeomapWidgetDefinitionStyle {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -130,4 +145,6 @@ public class GeomapWidgetDefinitionStyle {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

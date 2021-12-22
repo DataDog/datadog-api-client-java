@@ -18,17 +18,10 @@ public class Example {
     // there is a valid "dashboard" in the system
     String DASHBOARD_ID = System.getenv("DASHBOARD_ID");
 
-    DashboardBulkDeleteRequest body =
-        new DashboardBulkDeleteRequest()
-            .data(
-                new ArrayList<DashboardBulkActionData>() {
-                  {
-                    add(
-                        new DashboardBulkActionData()
-                            .id(DASHBOARD_ID)
-                            .type(DashboardResourceType.DASHBOARD));
-                  }
-                });
+    DashboardBulkDeleteRequest body = new DashboardBulkDeleteRequest()
+.data(new ArrayList<DashboardBulkActionData>() {{add(new DashboardBulkActionData()
+.id(DASHBOARD_ID)
+.type(DashboardResourceType.DASHBOARD));}});
 
     try {
       apiInstance.deleteDashboards(body);

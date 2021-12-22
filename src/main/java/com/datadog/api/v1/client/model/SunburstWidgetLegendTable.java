@@ -8,23 +8,39 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.SunburstWidgetLegendTableType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Configuration of table-based legend. */
+
+/**
+ * Configuration of table-based legend.
+ */
 @ApiModel(description = "Configuration of table-based legend.")
-@JsonPropertyOrder({SunburstWidgetLegendTable.JSON_PROPERTY_TYPE})
+@JsonPropertyOrder({
+  SunburstWidgetLegendTable.JSON_PROPERTY_TYPE
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class SunburstWidgetLegendTable {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_TYPE = "type";
   private SunburstWidgetLegendTableType type;
 
@@ -32,10 +48,10 @@ public class SunburstWidgetLegendTable {
 
   @JsonCreator
   public SunburstWidgetLegendTable(
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE)
-          SunburstWidgetLegendTableType type) {
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE) SunburstWidgetLegendTableType type
+            ) {
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
 
   public SunburstWidgetLegendTable type(SunburstWidgetLegendTableType type) {
@@ -44,26 +60,30 @@ public class SunburstWidgetLegendTable {
     return this;
   }
 
-  /**
+   /**
    * Get type
-   *
    * @return type
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public SunburstWidgetLegendTableType getType() {
     return type;
   }
 
+
   public void setType(SunburstWidgetLegendTableType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
-  /** Return true if this SunburstWidgetLegendTable object is equal to o. */
+
+  /**
+   * Return true if this SunburstWidgetLegendTable object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -91,7 +111,8 @@ public class SunburstWidgetLegendTable {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -99,4 +120,6 @@ public class SunburstWidgetLegendTable {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

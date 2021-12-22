@@ -8,17 +8,29 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Host Metrics collected. */
+
+/**
+ * Host Metrics collected.
+ */
 @ApiModel(description = "Host Metrics collected.")
 @JsonPropertyOrder({
   HostMetrics.JSON_PROPERTY_CPU,
@@ -26,8 +38,10 @@ import java.util.Objects;
   HostMetrics.JSON_PROPERTY_LOAD
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class HostMetrics {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_CPU = "cpu";
   private Double cpu;
 
@@ -37,75 +51,82 @@ public class HostMetrics {
   public static final String JSON_PROPERTY_LOAD = "load";
   private Double load;
 
+
   public HostMetrics cpu(Double cpu) {
     this.cpu = cpu;
     return this;
   }
 
-  /**
+   /**
    * The percent of CPU used (everything but idle).
-   *
    * @return cpu
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "99.0", value = "The percent of CPU used (everything but idle).")
   @JsonProperty(JSON_PROPERTY_CPU)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Double getCpu() {
     return cpu;
   }
 
+
   public void setCpu(Double cpu) {
     this.cpu = cpu;
   }
+
 
   public HostMetrics iowait(Double iowait) {
     this.iowait = iowait;
     return this;
   }
 
-  /**
+   /**
    * The percent of CPU spent waiting on the IO (not reported for all platforms).
-   *
    * @return iowait
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      example = "3.2",
-      value = "The percent of CPU spent waiting on the IO (not reported for all platforms).")
+  @ApiModelProperty(example = "3.2", value = "The percent of CPU spent waiting on the IO (not reported for all platforms).")
   @JsonProperty(JSON_PROPERTY_IOWAIT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Double getIowait() {
     return iowait;
   }
 
+
   public void setIowait(Double iowait) {
     this.iowait = iowait;
   }
+
 
   public HostMetrics load(Double load) {
     this.load = load;
     return this;
   }
 
-  /**
+   /**
    * The system load over the last 15 minutes.
-   *
    * @return load
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "0.5", value = "The system load over the last 15 minutes.")
   @JsonProperty(JSON_PROPERTY_LOAD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Double getLoad() {
     return load;
   }
+
 
   public void setLoad(Double load) {
     this.load = load;
   }
 
-  /** Return true if this Host_metrics object is equal to o. */
+
+  /**
+   * Return true if this Host_metrics object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -115,9 +136,9 @@ public class HostMetrics {
       return false;
     }
     HostMetrics hostMetrics = (HostMetrics) o;
-    return Objects.equals(this.cpu, hostMetrics.cpu)
-        && Objects.equals(this.iowait, hostMetrics.iowait)
-        && Objects.equals(this.load, hostMetrics.load);
+    return Objects.equals(this.cpu, hostMetrics.cpu) &&
+        Objects.equals(this.iowait, hostMetrics.iowait) &&
+        Objects.equals(this.load, hostMetrics.load);
   }
 
   @Override
@@ -137,7 +158,8 @@ public class HostMetrics {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -145,4 +167,6 @@ public class HostMetrics {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

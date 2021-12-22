@@ -8,25 +8,38 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v2.client.model;
+
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import io.swagger.annotations.ApiModel;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v2.client.JSON;
+
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
 
-/** Organizations resource type. */
+
+import java.util.Set;
+import java.util.HashSet;
+/**
+ * Organizations resource type.
+ */
 @JsonSerialize(using = OrganizationsType.OrganizationsTypeSerializer.class)
 public class OrganizationsType {
-
+  
   public static final OrganizationsType ORGS = new OrganizationsType("orgs");
 
   private static final Set<String> allowedValues = new HashSet<String>(Arrays.asList("orgs"));
@@ -42,19 +55,18 @@ public class OrganizationsType {
   }
 
   public static class OrganizationsTypeSerializer extends StdSerializer<OrganizationsType> {
-    public OrganizationsTypeSerializer(Class<OrganizationsType> t) {
-      super(t);
-    }
+      public OrganizationsTypeSerializer(Class<OrganizationsType> t) {
+          super(t);
+      }
 
-    public OrganizationsTypeSerializer() {
-      this(null);
-    }
+      public OrganizationsTypeSerializer() {
+          this(null);
+      }
 
-    @Override
-    public void serialize(OrganizationsType value, JsonGenerator jgen, SerializerProvider provider)
-        throws IOException, JsonProcessingException {
-      jgen.writeObject(value.value);
-    }
+      @Override
+      public void serialize(OrganizationsType value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+          jgen.writeObject(value.value);
+      }
   }
 
   @JsonValue
@@ -66,7 +78,9 @@ public class OrganizationsType {
     this.value = value;
   }
 
-  /** Return true if this OrganizationsType object is equal to o. */
+  /**
+   * Return true if this OrganizationsType object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -80,7 +94,7 @@ public class OrganizationsType {
 
   @Override
   public int hashCode() {
-    return Objects.hash(value);
+      return Objects.hash(value);
   }
 
   @Override
@@ -93,3 +107,4 @@ public class OrganizationsType {
     return new OrganizationsType(value);
   }
 }
+

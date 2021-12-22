@@ -8,31 +8,39 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
+
 
 /**
- * Event overlay control options. See the dedicated [Events JSON schema
- * documentation](https://docs.datadoghq.com/dashboards/graphing_json/widget_json/#events-schema) to
- * learn how to build the &#x60;&lt;EVENTS_SCHEMA&gt;&#x60;.
+ * Event overlay control options.  See the dedicated [Events JSON schema documentation](https://docs.datadoghq.com/dashboards/graphing_json/widget_json/#events-schema) to learn how to build the &#x60;&lt;EVENTS_SCHEMA&gt;&#x60;.
  */
-@ApiModel(
-    description =
-        "Event overlay control options.  See the dedicated [Events JSON schema"
-            + " documentation](https://docs.datadoghq.com/dashboards/graphing_json/widget_json/#events-schema)"
-            + " to learn how to build the `<EVENTS_SCHEMA>`.")
-@JsonPropertyOrder({WidgetEvent.JSON_PROPERTY_Q, WidgetEvent.JSON_PROPERTY_TAGS_EXECUTION})
+@ApiModel(description = "Event overlay control options.  See the dedicated [Events JSON schema documentation](https://docs.datadoghq.com/dashboards/graphing_json/widget_json/#events-schema) to learn how to build the `<EVENTS_SCHEMA>`.")
+@JsonPropertyOrder({
+  WidgetEvent.JSON_PROPERTY_Q,
+  WidgetEvent.JSON_PROPERTY_TAGS_EXECUTION
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class WidgetEvent {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_Q = "q";
   private String q;
 
@@ -42,8 +50,10 @@ public class WidgetEvent {
   public WidgetEvent() {}
 
   @JsonCreator
-  public WidgetEvent(@JsonProperty(required = true, value = JSON_PROPERTY_Q) String q) {
-    this.q = q;
+  public WidgetEvent(
+            @JsonProperty(required=true, value=JSON_PROPERTY_Q) String q
+            ) {
+        this.q = q;
   }
 
   public WidgetEvent q(String q) {
@@ -51,45 +61,51 @@ public class WidgetEvent {
     return this;
   }
 
-  /**
+   /**
    * Query definition.
-   *
    * @return q
-   */
+  **/
   @ApiModelProperty(example = "", required = true, value = "Query definition.")
   @JsonProperty(JSON_PROPERTY_Q)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getQ() {
     return q;
   }
 
+
   public void setQ(String q) {
     this.q = q;
   }
+
 
   public WidgetEvent tagsExecution(String tagsExecution) {
     this.tagsExecution = tagsExecution;
     return this;
   }
 
-  /**
+   /**
    * The execution method for multi-value filters.
-   *
    * @return tagsExecution
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The execution method for multi-value filters.")
   @JsonProperty(JSON_PROPERTY_TAGS_EXECUTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getTagsExecution() {
     return tagsExecution;
   }
+
 
   public void setTagsExecution(String tagsExecution) {
     this.tagsExecution = tagsExecution;
   }
 
-  /** Return true if this WidgetEvent object is equal to o. */
+
+  /**
+   * Return true if this WidgetEvent object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -99,8 +115,8 @@ public class WidgetEvent {
       return false;
     }
     WidgetEvent widgetEvent = (WidgetEvent) o;
-    return Objects.equals(this.q, widgetEvent.q)
-        && Objects.equals(this.tagsExecution, widgetEvent.tagsExecution);
+    return Objects.equals(this.q, widgetEvent.q) &&
+        Objects.equals(this.tagsExecution, widgetEvent.tagsExecution);
   }
 
   @Override
@@ -119,7 +135,8 @@ public class WidgetEvent {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -127,4 +144,6 @@ public class WidgetEvent {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

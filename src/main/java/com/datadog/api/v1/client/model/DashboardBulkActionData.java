@@ -8,26 +8,40 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import com.datadog.api.v1.client.model.DashboardResourceType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Dashboard bulk action request data. */
+
+/**
+ * Dashboard bulk action request data.
+ */
 @ApiModel(description = "Dashboard bulk action request data.")
 @JsonPropertyOrder({
   DashboardBulkActionData.JSON_PROPERTY_ID,
   DashboardBulkActionData.JSON_PROPERTY_TYPE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class DashboardBulkActionData {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_ID = "id";
   private String id;
 
@@ -38,11 +52,12 @@ public class DashboardBulkActionData {
 
   @JsonCreator
   public DashboardBulkActionData(
-      @JsonProperty(required = true, value = JSON_PROPERTY_ID) String id,
-      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) DashboardResourceType type) {
-    this.id = id;
-    this.type = type;
-    this.unparsed |= !type.isValid();
+            @JsonProperty(required=true, value=JSON_PROPERTY_ID) String id,
+            @JsonProperty(required=true, value=JSON_PROPERTY_TYPE) DashboardResourceType type
+            ) {
+        this.id = id;
+        this.type = type;
+        this.unparsed |= !type.isValid();
   }
 
   public DashboardBulkActionData id(String id) {
@@ -50,21 +65,23 @@ public class DashboardBulkActionData {
     return this;
   }
 
-  /**
+   /**
    * Dashboard resource ID.
-   *
    * @return id
-   */
+  **/
   @ApiModelProperty(example = "123-abc-456", required = true, value = "Dashboard resource ID.")
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public String getId() {
     return id;
   }
 
+
   public void setId(String id) {
     this.id = id;
   }
+
 
   public DashboardBulkActionData type(DashboardResourceType type) {
     this.type = type;
@@ -72,26 +89,30 @@ public class DashboardBulkActionData {
     return this;
   }
 
-  /**
+   /**
    * Get type
-   *
    * @return type
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public DashboardResourceType getType() {
     return type;
   }
 
+
   public void setType(DashboardResourceType type) {
     if (!type.isValid()) {
-      this.unparsed = true;
+        this.unparsed = true;
     }
     this.type = type;
   }
 
-  /** Return true if this DashboardBulkActionData object is equal to o. */
+
+  /**
+   * Return true if this DashboardBulkActionData object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -101,8 +122,8 @@ public class DashboardBulkActionData {
       return false;
     }
     DashboardBulkActionData dashboardBulkActionData = (DashboardBulkActionData) o;
-    return Objects.equals(this.id, dashboardBulkActionData.id)
-        && Objects.equals(this.type, dashboardBulkActionData.type);
+    return Objects.equals(this.id, dashboardBulkActionData.id) &&
+        Objects.equals(this.type, dashboardBulkActionData.type);
   }
 
   @Override
@@ -121,7 +142,8 @@ public class DashboardBulkActionData {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -129,4 +151,6 @@ public class DashboardBulkActionData {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

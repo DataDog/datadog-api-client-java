@@ -8,25 +8,40 @@
  * Do not edit the class manually.
  */
 
+
 package com.datadog.api.v1.client.model;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Objects;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.datadog.api.v1.client.JSON;
 
-/** Object containing the ordered list of log index names. */
+
+/**
+ * Object containing the ordered list of log index names.
+ */
 @ApiModel(description = "Object containing the ordered list of log index names.")
-@JsonPropertyOrder({LogsIndexesOrder.JSON_PROPERTY_INDEX_NAMES})
+@JsonPropertyOrder({
+  LogsIndexesOrder.JSON_PROPERTY_INDEX_NAMES
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+
 public class LogsIndexesOrder {
-  @JsonIgnore public boolean unparsed = false;
+  @JsonIgnore
+  public boolean unparsed = false;
   public static final String JSON_PROPERTY_INDEX_NAMES = "index_names";
   private List<String> indexNames = new ArrayList<>();
 
@@ -34,8 +49,9 @@ public class LogsIndexesOrder {
 
   @JsonCreator
   public LogsIndexesOrder(
-      @JsonProperty(required = true, value = JSON_PROPERTY_INDEX_NAMES) List<String> indexNames) {
-    this.indexNames = indexNames;
+            @JsonProperty(required=true, value=JSON_PROPERTY_INDEX_NAMES) List<String> indexNames
+            ) {
+        this.indexNames = indexNames;
   }
 
   public LogsIndexesOrder indexNames(List<String> indexNames) {
@@ -48,31 +64,27 @@ public class LogsIndexesOrder {
     return this;
   }
 
-  /**
-   * Array of strings identifying by their name(s) the index(es) of your organization. Logs are
-   * tested against the query filter of each index one by one, following the order of the array.
-   * Logs are eventually stored in the first matching index.
-   *
+   /**
+   * Array of strings identifying by their name(s) the index(es) of your organization. Logs are tested against the query filter of each index one by one, following the order of the array. Logs are eventually stored in the first matching index.
    * @return indexNames
-   */
-  @ApiModelProperty(
-      example = "[\"main\",\"payments\",\"web\"]",
-      required = true,
-      value =
-          "Array of strings identifying by their name(s) the index(es) of your organization. Logs"
-              + " are tested against the query filter of each index one by one, following the"
-              + " order of the array. Logs are eventually stored in the first matching index.")
+  **/
+  @ApiModelProperty(example = "[\"main\",\"payments\",\"web\"]", required = true, value = "Array of strings identifying by their name(s) the index(es) of your organization. Logs are tested against the query filter of each index one by one, following the order of the array. Logs are eventually stored in the first matching index.")
   @JsonProperty(JSON_PROPERTY_INDEX_NAMES)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
   public List<String> getIndexNames() {
     return indexNames;
   }
+
 
   public void setIndexNames(List<String> indexNames) {
     this.indexNames = indexNames;
   }
 
-  /** Return true if this LogsIndexesOrder object is equal to o. */
+
+  /**
+   * Return true if this LogsIndexesOrder object is equal to o.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -100,7 +112,8 @@ public class LogsIndexesOrder {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(Object o) {
     if (o == null) {
@@ -108,4 +121,6 @@ public class LogsIndexesOrder {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+
