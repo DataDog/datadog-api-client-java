@@ -5,6 +5,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | Method                                                                                                   | HTTP request                                       | Description                                      |
 | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------------------------------------------------ |
 | [**getDailyCustomReports**](UsageMeteringApi.md#getDailyCustomReports)                                   | **GET** /api/v1/daily_custom_reports               | Get the list of available daily custom reports   |
+| [**getHourlyUsageAttribution**](UsageMeteringApi.md#getHourlyUsageAttribution)                           | **GET** /api/v1/usage/hourly-attribution           | Get Hourly Usage Attribution                     |
 | [**getIncidentManagement**](UsageMeteringApi.md#getIncidentManagement)                                   | **GET** /api/v1/usage/incident-management          | Get hourly usage for incident management         |
 | [**getIngestedSpans**](UsageMeteringApi.md#getIngestedSpans)                                             | **GET** /api/v1/usage/ingested-spans               | Get hourly usage for ingested spans              |
 | [**getMonthlyCustomReports**](UsageMeteringApi.md#getMonthlyCustomReports)                               | **GET** /api/v1/monthly_custom_reports             | Get the list of available monthly custom reports |
@@ -98,6 +99,81 @@ public class Example {
 ### Authorization
 
 [apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json;datetime-format=rfc3339, application/json
+
+### HTTP response details
+
+| Status code | Description                        | Response headers |
+| ----------- | ---------------------------------- | ---------------- |
+| **200**     | OK                                 | -                |
+| **403**     | Forbidden - User is not authorized | -                |
+| **429**     | Too many requests                  | -                |
+
+## getHourlyUsageAttribution
+
+> HourlyUsageAttributionResponse getHourlyUsageAttribution(startHr, usageType, parameters);
+
+Get Hourly Usage Attribution.
+
+### Example
+
+```java
+import java.time.OffsetDateTime;
+import java.util.*;
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.Configuration;
+import com.datadog.api.v1.client.model.*;
+import com.datadog.api.v1.client.api.UsageMeteringApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+        UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);
+        OffsetDateTime startHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
+        HourlyUsageAttributionUsageType usageType = HourlyUsageAttributionUsageType.fromValue("api_usage"); // HourlyUsageAttributionUsageType | Usage type to retrieve.
+        OffsetDateTime endHr = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
+        String nextRecordId = "nextRecordId_example"; // String | List following results with a next_record_id provided in the previous query.
+        String tagBreakdownKeys = "tagBreakdownKeys_example"; // String | Comma separated list of tags used to group usage. If no value is provided the usage will not be broken down by tags.
+        try {
+            HourlyUsageAttributionResponse result = apiInstance.getHourlyUsageAttribution(startHr, usageType, new UsageMeteringApi.GetHourlyUsageAttributionOptionalParameters()
+                .endHr(endHr)
+                .nextRecordId(nextRecordId)
+                .tagBreakdownKeys(tagBreakdownKeys));
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UsageMeteringApi#getHourlyUsageAttribution");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+| Name                 | Type                                | Description                                                                                                           | Notes                                                                                                                                                                                                                                                          |
+| -------------------- | ----------------------------------- | --------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **startHr**          | **OffsetDateTime**                  | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.      |
+| **usageType**        | **HourlyUsageAttributionUsageType** | Usage type to retrieve.                                                                                               | [enum: api_usage, apm_host_usage, browser_usage, container_usage, custom_timeseries_usage, fargate_usage, functions_usage, indexed_logs_usage, infra_host_usage, invocations_usage, npm_host_usage, profiled_container_usage, profiled_host_usage, snmp_usage] |
+| **endHr**            | **OffsetDateTime**                  | Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour. | [optional]                                                                                                                                                                                                                                                     |
+| **nextRecordId**     | **String**                          | List following results with a next_record_id provided in the previous query.                                          | [optional]                                                                                                                                                                                                                                                     |
+| **tagBreakdownKeys** | **String**                          | Comma separated list of tags used to group usage. If no value is provided the usage will not be broken down by tags.  | [optional]                                                                                                                                                                                                                                                     |
+
+### Return type
+
+[**HourlyUsageAttributionResponse**](HourlyUsageAttributionResponse.md)
+
+### Authorization
+
+[AuthZ](README.md#AuthZ), [apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
 
 ### HTTP request headers
 

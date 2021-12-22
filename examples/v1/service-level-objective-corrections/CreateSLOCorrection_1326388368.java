@@ -32,7 +32,7 @@ public class Example {
                             .description(
                                 "Example-Create_an_SLO_correction_with_rrule_returns_OK_response")
                             .sloId(SLO_DATA_0_ID)
-                            .start(Instant.now().getEpochSecond())
+                            .start(OffsetDateTime.now().toInstant().getEpochSecond())
                             .duration(3600L)
                             .rrule("FREQ=DAILY;INTERVAL=10;COUNT=5")
                             .timezone("UTC"))

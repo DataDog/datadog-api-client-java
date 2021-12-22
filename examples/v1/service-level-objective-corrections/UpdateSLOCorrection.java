@@ -30,8 +30,8 @@ public class Example {
                         new SLOCorrectionUpdateRequestAttributes()
                             .category(SLOCorrectionCategory.DEPLOYMENT)
                             .description("Example-Update_an_SLO_correction_returns_OK_response")
-                            .end((Instant.now().getEpochSecond() + 1 * 3600))
-                            .start(Instant.now().getEpochSecond())
+                            .end(OffsetDateTime.now().plusHours(1).toInstant().getEpochSecond())
+                            .start(OffsetDateTime.now().toInstant().getEpochSecond())
                             .timezone("UTC"))
                     .type(SLOCorrectionType.CORRECTION));
 

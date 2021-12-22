@@ -1,23 +1,23 @@
-// Query timeseries points returns "OK" response
+// Get Hourly Usage Attribution returns "OK" response
 import com.datadog.api.v1.client.ApiClient;
 import com.datadog.api.v1.client.ApiException;
 import com.datadog.api.v1.client.Configuration;
-import com.datadog.api.v1.client.api.MetricsApi;
-import com.datadog.api.v1.client.model.MetricsQueryResponse;
+import com.datadog.api.v1.client.api.UsageMeteringApi;
+import com.datadog.api.v1.client.model.HourlyUsageAttributionResponse;
+import com.datadog.api.v1.client.model.HourlyUsageAttributionUsageType;
 import java.time.*;
 import java.util.*;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    MetricsApi apiInstance = new MetricsApi(defaultClient);
+    defaultClient.setUnstableOperationEnabled("getHourlyUsageAttribution", true);
+    UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);
 
     try {
-      MetricsQueryResponse result =
-          apiInstance.queryMetrics(
-              OffsetDateTime.now().plusDays(-1).toInstant().getEpochSecond(),
-              OffsetDateTime.now().toInstant().getEpochSecond(),
-              "system.cpu.idle{*}");
+      HourlyUsageAttributionResponse result =
+          apiInstance.getHourlyUsageAttribution(
+              OffsetDateTime.now().plusDays(-3), HourlyUsageAttributionUsageType.INFRA_HOST_USAGE);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DowntimesApi#updateDowntime");
