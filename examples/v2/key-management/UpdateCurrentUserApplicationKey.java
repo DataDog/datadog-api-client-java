@@ -30,7 +30,7 @@ public class Example {
                     .type(ApplicationKeysType.APPLICATION_KEYS)
                     .attributes(
                         new ApplicationKeyUpdateAttributes()
-                            .name("Application Key for submitting metrics-updated")));
+                            .name("Application Key for managing dashboards-updated")));
 
     try {
       ApplicationKeyResponse result =
