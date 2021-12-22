@@ -16,7 +16,6 @@ import com.datadog.api.v2.client.model.SecurityMonitoringRuleQueryCreate;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleResponse;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleSeverity;
 import com.datadog.api.v2.client.model.SecurityMonitoringRuleTypeCreate;
-import com.datadog.api.v2.client.model.SecurityMonitoringRuntimeAgentRule;
 import java.time.*;
 import java.util.*;
 
@@ -47,12 +46,7 @@ public class Example {
                                     ;
                                   }
                                 })
-                            .metric("")
-                            .agentRule(
-                                new SecurityMonitoringRuntimeAgentRule()
-                                    .agentRuleId("kernel_module_unlink_2")
-                                    .expression(
-                                        "(open.flags & ((O_CREAT|O_RDWR|O_WRONLY|O_TRUNC)) > 0)")));
+                            .metric(""));
                   }
                 })
             .filters(
