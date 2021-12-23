@@ -69,6 +69,7 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_OPENTELEMETRY_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_ORGS,
   UsageSummaryDate.JSON_PROPERTY_PROFILING_HOST_TOP99P,
+  UsageSummaryDate.JSON_PROPERTY_RUM_BROWSER_AND_MOBILE_SESSION_COUNT,
   UsageSummaryDate.JSON_PROPERTY_RUM_SESSION_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_RUM_TOTAL_SESSION_COUNT_SUM,
   UsageSummaryDate.JSON_PROPERTY_RUM_UNITS_SUM,
@@ -227,6 +228,10 @@ public class UsageSummaryDate {
 
   public static final String JSON_PROPERTY_PROFILING_HOST_TOP99P = "profiling_host_top99p";
   private Long profilingHostTop99p;
+
+  public static final String JSON_PROPERTY_RUM_BROWSER_AND_MOBILE_SESSION_COUNT =
+      "rum_browser_and_mobile_session_count";
+  private Long rumBrowserAndMobileSessionCount;
 
   public static final String JSON_PROPERTY_RUM_SESSION_COUNT_SUM = "rum_session_count_sum";
   private Long rumSessionCountSum;
@@ -1410,6 +1415,32 @@ public class UsageSummaryDate {
     this.profilingHostTop99p = profilingHostTop99p;
   }
 
+  public UsageSummaryDate rumBrowserAndMobileSessionCount(Long rumBrowserAndMobileSessionCount) {
+    this.rumBrowserAndMobileSessionCount = rumBrowserAndMobileSessionCount;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all mobile sessions and all browser lite and legacy sessions over all hours in
+   * the current month for all organizations.
+   *
+   * @return rumBrowserAndMobileSessionCount
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the sum of all mobile sessions and all browser lite and legacy sessions over all"
+              + " hours in the current month for all organizations.")
+  @JsonProperty(JSON_PROPERTY_RUM_BROWSER_AND_MOBILE_SESSION_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getRumBrowserAndMobileSessionCount() {
+    return rumBrowserAndMobileSessionCount;
+  }
+
+  public void setRumBrowserAndMobileSessionCount(Long rumBrowserAndMobileSessionCount) {
+    this.rumBrowserAndMobileSessionCount = rumBrowserAndMobileSessionCount;
+  }
+
   public UsageSummaryDate rumSessionCountSum(Long rumSessionCountSum) {
     this.rumSessionCountSum = rumSessionCountSum;
     return this;
@@ -1734,6 +1765,8 @@ public class UsageSummaryDate {
         && Objects.equals(this.opentelemetryHostTop99p, usageSummaryDate.opentelemetryHostTop99p)
         && Objects.equals(this.orgs, usageSummaryDate.orgs)
         && Objects.equals(this.profilingHostTop99p, usageSummaryDate.profilingHostTop99p)
+        && Objects.equals(
+            this.rumBrowserAndMobileSessionCount, usageSummaryDate.rumBrowserAndMobileSessionCount)
         && Objects.equals(this.rumSessionCountSum, usageSummaryDate.rumSessionCountSum)
         && Objects.equals(this.rumTotalSessionCountSum, usageSummaryDate.rumTotalSessionCountSum)
         && Objects.equals(this.rumUnitsSum, usageSummaryDate.rumUnitsSum)
@@ -1799,6 +1832,7 @@ public class UsageSummaryDate {
         opentelemetryHostTop99p,
         orgs,
         profilingHostTop99p,
+        rumBrowserAndMobileSessionCount,
         rumSessionCountSum,
         rumTotalSessionCountSum,
         rumUnitsSum,
@@ -1900,6 +1934,9 @@ public class UsageSummaryDate {
     sb.append("    orgs: ").append(toIndentedString(orgs)).append("\n");
     sb.append("    profilingHostTop99p: ")
         .append(toIndentedString(profilingHostTop99p))
+        .append("\n");
+    sb.append("    rumBrowserAndMobileSessionCount: ")
+        .append(toIndentedString(rumBrowserAndMobileSessionCount))
         .append("\n");
     sb.append("    rumSessionCountSum: ").append(toIndentedString(rumSessionCountSum)).append("\n");
     sb.append("    rumTotalSessionCountSum: ")

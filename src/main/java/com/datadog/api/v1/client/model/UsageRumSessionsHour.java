@@ -23,6 +23,8 @@ import java.util.Objects;
 @ApiModel(description = "Number of RUM Sessions recorded for each hour for a given organization.")
 @JsonPropertyOrder({
   UsageRumSessionsHour.JSON_PROPERTY_HOUR,
+  UsageRumSessionsHour.JSON_PROPERTY_ORG_NAME,
+  UsageRumSessionsHour.JSON_PROPERTY_PUBLIC_ID,
   UsageRumSessionsHour.JSON_PROPERTY_SESSION_COUNT,
   UsageRumSessionsHour.JSON_PROPERTY_SESSION_COUNT_ANDROID,
   UsageRumSessionsHour.JSON_PROPERTY_SESSION_COUNT_IOS
@@ -32,6 +34,12 @@ public class UsageRumSessionsHour {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_HOUR = "hour";
   private OffsetDateTime hour;
+
+  public static final String JSON_PROPERTY_ORG_NAME = "org_name";
+  private String orgName;
+
+  public static final String JSON_PROPERTY_PUBLIC_ID = "public_id";
+  private String publicId;
 
   public static final String JSON_PROPERTY_SESSION_COUNT = "session_count";
   private Long sessionCount;
@@ -62,6 +70,50 @@ public class UsageRumSessionsHour {
 
   public void setHour(OffsetDateTime hour) {
     this.hour = hour;
+  }
+
+  public UsageRumSessionsHour orgName(String orgName) {
+    this.orgName = orgName;
+    return this;
+  }
+
+  /**
+   * The organization name.
+   *
+   * @return orgName
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The organization name.")
+  @JsonProperty(JSON_PROPERTY_ORG_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getOrgName() {
+    return orgName;
+  }
+
+  public void setOrgName(String orgName) {
+    this.orgName = orgName;
+  }
+
+  public UsageRumSessionsHour publicId(String publicId) {
+    this.publicId = publicId;
+    return this;
+  }
+
+  /**
+   * The organization public ID.
+   *
+   * @return publicId
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The organization public ID.")
+  @JsonProperty(JSON_PROPERTY_PUBLIC_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPublicId() {
+    return publicId;
+  }
+
+  public void setPublicId(String publicId) {
+    this.publicId = publicId;
   }
 
   public UsageRumSessionsHour sessionCount(Long sessionCount) {
@@ -148,6 +200,8 @@ public class UsageRumSessionsHour {
     }
     UsageRumSessionsHour usageRumSessionsHour = (UsageRumSessionsHour) o;
     return Objects.equals(this.hour, usageRumSessionsHour.hour)
+        && Objects.equals(this.orgName, usageRumSessionsHour.orgName)
+        && Objects.equals(this.publicId, usageRumSessionsHour.publicId)
         && Objects.equals(this.sessionCount, usageRumSessionsHour.sessionCount)
         && Objects.equals(this.sessionCountAndroid, usageRumSessionsHour.sessionCountAndroid)
         && Objects.equals(this.sessionCountIos, usageRumSessionsHour.sessionCountIos);
@@ -155,7 +209,8 @@ public class UsageRumSessionsHour {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hour, sessionCount, sessionCountAndroid, sessionCountIos);
+    return Objects.hash(
+        hour, orgName, publicId, sessionCount, sessionCountAndroid, sessionCountIos);
   }
 
   @Override
@@ -163,6 +218,8 @@ public class UsageRumSessionsHour {
     StringBuilder sb = new StringBuilder();
     sb.append("class UsageRumSessionsHour {\n");
     sb.append("    hour: ").append(toIndentedString(hour)).append("\n");
+    sb.append("    orgName: ").append(toIndentedString(orgName)).append("\n");
+    sb.append("    publicId: ").append(toIndentedString(publicId)).append("\n");
     sb.append("    sessionCount: ").append(toIndentedString(sessionCount)).append("\n");
     sb.append("    sessionCountAndroid: ")
         .append(toIndentedString(sessionCountAndroid))

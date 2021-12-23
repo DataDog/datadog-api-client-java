@@ -81,6 +81,7 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_PROFILING_HOST_COUNT_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_REHYDRATED_INDEXED_EVENTS_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_REHYDRATED_INGESTED_BYTES_AGG_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_RUM_BROWSER_AND_MOBILE_SESSION_COUNT,
   UsageSummaryResponse.JSON_PROPERTY_RUM_SESSION_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_RUM_TOTAL_SESSION_COUNT_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_RUM_UNITS_AGG_SUM,
@@ -274,6 +275,10 @@ public class UsageSummaryResponse {
   public static final String JSON_PROPERTY_REHYDRATED_INGESTED_BYTES_AGG_SUM =
       "rehydrated_ingested_bytes_agg_sum";
   private Long rehydratedIngestedBytesAggSum;
+
+  public static final String JSON_PROPERTY_RUM_BROWSER_AND_MOBILE_SESSION_COUNT =
+      "rum_browser_and_mobile_session_count";
+  private Long rumBrowserAndMobileSessionCount;
 
   public static final String JSON_PROPERTY_RUM_SESSION_COUNT_AGG_SUM = "rum_session_count_agg_sum";
   private Long rumSessionCountAggSum;
@@ -1647,6 +1652,33 @@ public class UsageSummaryResponse {
     this.rehydratedIngestedBytesAggSum = rehydratedIngestedBytesAggSum;
   }
 
+  public UsageSummaryResponse rumBrowserAndMobileSessionCount(
+      Long rumBrowserAndMobileSessionCount) {
+    this.rumBrowserAndMobileSessionCount = rumBrowserAndMobileSessionCount;
+    return this;
+  }
+
+  /**
+   * Shows the sum of all mobile sessions and all browser lite and legacy sessions over all hours in
+   * the current month for all organizations.
+   *
+   * @return rumBrowserAndMobileSessionCount
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the sum of all mobile sessions and all browser lite and legacy sessions over all"
+              + " hours in the current month for all organizations.")
+  @JsonProperty(JSON_PROPERTY_RUM_BROWSER_AND_MOBILE_SESSION_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getRumBrowserAndMobileSessionCount() {
+    return rumBrowserAndMobileSessionCount;
+  }
+
+  public void setRumBrowserAndMobileSessionCount(Long rumBrowserAndMobileSessionCount) {
+    this.rumBrowserAndMobileSessionCount = rumBrowserAndMobileSessionCount;
+  }
+
   public UsageSummaryResponse rumSessionCountAggSum(Long rumSessionCountAggSum) {
     this.rumSessionCountAggSum = rumSessionCountAggSum;
     return this;
@@ -2063,6 +2095,9 @@ public class UsageSummaryResponse {
             this.rehydratedIndexedEventsAggSum, usageSummaryResponse.rehydratedIndexedEventsAggSum)
         && Objects.equals(
             this.rehydratedIngestedBytesAggSum, usageSummaryResponse.rehydratedIngestedBytesAggSum)
+        && Objects.equals(
+            this.rumBrowserAndMobileSessionCount,
+            usageSummaryResponse.rumBrowserAndMobileSessionCount)
         && Objects.equals(this.rumSessionCountAggSum, usageSummaryResponse.rumSessionCountAggSum)
         && Objects.equals(
             this.rumTotalSessionCountAggSum, usageSummaryResponse.rumTotalSessionCountAggSum)
@@ -2140,6 +2175,7 @@ public class UsageSummaryResponse {
         profilingHostCountTop99pSum,
         rehydratedIndexedEventsAggSum,
         rehydratedIngestedBytesAggSum,
+        rumBrowserAndMobileSessionCount,
         rumSessionCountAggSum,
         rumTotalSessionCountAggSum,
         rumUnitsAggSum,
@@ -2270,6 +2306,9 @@ public class UsageSummaryResponse {
         .append("\n");
     sb.append("    rehydratedIngestedBytesAggSum: ")
         .append(toIndentedString(rehydratedIngestedBytesAggSum))
+        .append("\n");
+    sb.append("    rumBrowserAndMobileSessionCount: ")
+        .append(toIndentedString(rumBrowserAndMobileSessionCount))
         .append("\n");
     sb.append("    rumSessionCountAggSum: ")
         .append(toIndentedString(rumSessionCountAggSum))
