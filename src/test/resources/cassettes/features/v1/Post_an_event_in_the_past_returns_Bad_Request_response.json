@@ -18,29 +18,8 @@
     "httpResponse": {
       "body": "{\"errors\": [\"Event too far in the past\"]}",
       "headers": {
-        "Date": [
-          "Sat, 27 Nov 2021 20:34:41 GMT"
-        ],
         "Content-Type": [
           "text/plain; charset=utf-8"
-        ],
-        "Content-Length": [
-          "41"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "X-Content-Type-Options": [
-          "nosniff"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=15724800;"
-        ],
-        "Content-Security-Policy": [
-          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
-        ],
-        "X-Frame-Options": [
-          "SAMEORIGIN"
         ]
       },
       "statusCode": 400,

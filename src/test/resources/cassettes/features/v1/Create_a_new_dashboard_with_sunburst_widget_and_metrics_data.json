@@ -18,38 +18,8 @@
     "httpResponse": {
       "body": "{\"notify_list\":null,\"description\":null,\"restricted_roles\":[],\"author_name\":null,\"template_variables\":null,\"is_read_only\":false,\"id\":\"mf6-iqg-ndj\",\"title\":\"Test-Create_a_new_dashboard_with_sunburst_widget_and_metrics_data-1639987466\",\"url\":\"/dashboard/mf6-iqg-ndj/test-createanewdashboardwithsunburstwidgetandmetricsdata-1639987466\",\"created_at\":\"2021-12-20T08:04:27.129533+00:00\",\"modified_at\":\"2021-12-20T08:04:27.129533+00:00\",\"author_handle\":\"frog@datadoghq.com\",\"widgets\":[{\"definition\":{\"type\":\"sunburst\",\"requests\":[{\"formulas\":[{\"formula\":\"query1\"}],\"response_format\":\"scalar\",\"queries\":[{\"query\":\"sum:system.mem.used{*} by {service}\",\"data_source\":\"metrics\",\"name\":\"query1\",\"aggregator\":\"sum\"}]}],\"title_align\":\"left\",\"title_size\":\"16\",\"title\":\"\"},\"layout\":{\"y\":0,\"x\":0,\"height\":4,\"width\":4},\"id\":7490235413759256}],\"layout_type\":\"ordered\"}",
       "headers": {
-        "Date": [
-          "Mon, 20 Dec 2021 08:04:27 GMT"
-        ],
         "Content-Type": [
           "application/json"
-        ],
-        "Content-Length": [
-          "848"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "Vary": [
-          "Accept-Encoding"
-        ],
-        "X-Content-Type-Options": [
-          "nosniff"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=15724800;"
-        ],
-        "Content-Security-Policy": [
-          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
-        ],
-        "X-Frame-Options": [
-          "SAMEORIGIN"
         ]
       },
       "statusCode": 200,
@@ -78,38 +48,8 @@
     "httpResponse": {
       "body": "{\"deleted_dashboard_id\":\"mf6-iqg-ndj\"}",
       "headers": {
-        "Date": [
-          "Mon, 20 Dec 2021 08:04:27 GMT"
-        ],
         "Content-Type": [
           "application/json"
-        ],
-        "Content-Length": [
-          "38"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "Vary": [
-          "Accept-Encoding"
-        ],
-        "X-Content-Type-Options": [
-          "nosniff"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=15724800;"
-        ],
-        "Content-Security-Policy": [
-          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
-        ],
-        "X-Frame-Options": [
-          "SAMEORIGIN"
         ]
       },
       "statusCode": 200,

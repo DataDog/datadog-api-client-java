@@ -14,56 +14,8 @@
     "httpResponse": {
       "body": "{\"meta\":{\"page\":{\"after\":\"\",\"size\":0}},\"data\":[]}",
       "headers": {
-        "Date": [
-          "Thu, 15 Apr 2021 13:02:28 GMT"
-        ],
         "Content-Type": [
           "application/json"
-        ],
-        "Content-Length": [
-          "49"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "Vary": [
-          "Accept-Encoding"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "X-Dd-Version": [
-          "35.4318655"
-        ],
-        "X-Ratelimit-Limit": [
-          "100"
-        ],
-        "X-Ratelimit-Period": [
-          "60"
-        ],
-        "X-Ratelimit-Reset": [
-          "32"
-        ],
-        "X-Ratelimit-Remaining": [
-          "99"
-        ],
-        "X-Dd-Debug": [
-          "+L3cOfomyGGuXv+NlljFgOXDhA8u+DdhktfMTq5dNwRAQOJlilnIrPxwleX76+2G"
-        ],
-        "X-Content-Type-Options": [
-          "nosniff"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=15724800;"
-        ],
-        "Content-Security-Policy": [
-          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
-        ],
-        "X-Frame-Options": [
-          "SAMEORIGIN"
         ]
       },
       "statusCode": 200,

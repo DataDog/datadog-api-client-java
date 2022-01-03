@@ -18,38 +18,8 @@
     "httpResponse": {
       "body": "{\"recurrence\":{\"until_date\":1636469862,\"until_occurrences\":null,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"],\"type\":\"weeks\",\"period\":1},\"end\":1634659062,\"monitor_tags\":[\"*\"],\"child_id\":null,\"canceled\":null,\"monitor_id\":null,\"created\":1634655462,\"org_id\":321813,\"modified\":1634655462,\"disabled\":false,\"start\":1634655462,\"creator_id\":1445416,\"parent_id\":null,\"timezone\":\"Etc/UTC\",\"active\":true,\"scope\":[\"*\"],\"message\":\"Test-Schedule_a_downtime_until_date-1634655462\",\"downtime_type\":0,\"id\":1511004128,\"updater_id\":null}",
       "headers": {
-        "Date": [
-          "Tue, 19 Oct 2021 14:57:42 GMT"
-        ],
         "Content-Type": [
           "application/json"
-        ],
-        "Content-Length": [
-          "516"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "Vary": [
-          "Accept-Encoding"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "X-Content-Type-Options": [
-          "nosniff"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=15724800;"
-        ],
-        "Content-Security-Policy": [
-          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
-        ],
-        "X-Frame-Options": [
-          "SAMEORIGIN"
         ]
       },
       "statusCode": 200,
@@ -76,35 +46,7 @@
       "secure": true
     },
     "httpResponse": {
-      "headers": {
-        "Date": [
-          "Tue, 19 Oct 2021 14:57:42 GMT"
-        ],
-        "Content-Length": [
-          "0"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "X-Content-Type-Options": [
-          "nosniff"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=15724800;"
-        ],
-        "Content-Security-Policy": [
-          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
-        ],
-        "X-Frame-Options": [
-          "SAMEORIGIN"
-        ]
-      },
+      "headers": {},
       "statusCode": 204,
       "reasonPhrase": "No Content"
     },

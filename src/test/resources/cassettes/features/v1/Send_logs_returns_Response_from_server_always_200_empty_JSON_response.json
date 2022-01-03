@@ -18,17 +18,8 @@
     "httpResponse": {
       "body": "{}",
       "headers": {
-        "Date": [
-          "Wed, 14 Apr 2021 15:12:29 GMT"
-        ],
         "Content-Type": [
           "application/json"
-        ],
-        "Content-Length": [
-          "2"
-        ],
-        "Connection": [
-          "close"
         ]
       },
       "statusCode": 200,

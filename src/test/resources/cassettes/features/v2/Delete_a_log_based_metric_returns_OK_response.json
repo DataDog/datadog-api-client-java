@@ -18,59 +18,8 @@
     "httpResponse": {
       "body": "{\"data\":{\"id\":\"Test_Delete_a_log_based_metric_returns_OK_response_1618491719\",\"attributes\":{\"filter\":{\"query\":\"source:Test-Delete_a_log_based_metric_returns_OK_response-1618491719\"},\"group_by\":[],\"compute\":{\"aggregation_type\":\"count\"}},\"type\":\"logs_metrics\"}}",
       "headers": {
-        "Date": [
-          "Thu, 15 Apr 2021 13:02:00 GMT"
-        ],
         "Content-Type": [
           "application/json;charset=utf-8"
-        ],
-        "Content-Length": [
-          "259"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "Vary": [
-          "Accept-Encoding"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "X-Dd-Version": [
-          "35.4318655"
-        ],
-        "X-Ratelimit-Limit": [
-          "100"
-        ],
-        "X-Ratelimit-Period": [
-          "3600"
-        ],
-        "X-Ratelimit-Reset": [
-          "3480"
-        ],
-        "X-Ratelimit-Remaining": [
-          "97"
-        ],
-        "Content-Disposition": [
-          "inline"
-        ],
-        "X-Dd-Debug": [
-          "nLnnBNvlCFDECRnZvzDb0z4sAO35G+IMidcAs8vrCKyjvsKWE8Yd9S3n6OjZ1qRN"
-        ],
-        "X-Content-Type-Options": [
-          "nosniff"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=15724800;"
-        ],
-        "Content-Security-Policy": [
-          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
-        ],
-        "X-Frame-Options": [
-          "SAMEORIGIN"
         ]
       },
       "statusCode": 200,
@@ -99,56 +48,8 @@
     "httpResponse": {
       "body": "{}",
       "headers": {
-        "Date": [
-          "Thu, 15 Apr 2021 13:02:00 GMT"
-        ],
         "Content-Type": [
           "application/json;charset=utf-8"
-        ],
-        "Content-Length": [
-          "2"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "X-Dd-Version": [
-          "35.4318655"
-        ],
-        "X-Ratelimit-Limit": [
-          "100"
-        ],
-        "X-Ratelimit-Period": [
-          "3600"
-        ],
-        "X-Ratelimit-Reset": [
-          "3480"
-        ],
-        "X-Ratelimit-Remaining": [
-          "96"
-        ],
-        "Content-Disposition": [
-          "inline"
-        ],
-        "X-Dd-Debug": [
-          "S1wfaMZOKGT/IoMw6fqAwAwGWo2vQ44sjF3YzuETnQfxZO2T5eJbs0aX3UKb9Dwu"
-        ],
-        "X-Content-Type-Options": [
-          "nosniff"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=15724800;"
-        ],
-        "Content-Security-Policy": [
-          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
-        ],
-        "X-Frame-Options": [
-          "SAMEORIGIN"
         ]
       },
       "statusCode": 200,
@@ -177,53 +78,8 @@
     "httpResponse": {
       "body": "{\"errors\":[\"not_found(Metric with name 'Test_Delete_a_log_based_metric_returns_OK_response_1618491719' not found)\"]}",
       "headers": {
-        "Date": [
-          "Thu, 15 Apr 2021 13:02:01 GMT"
-        ],
         "Content-Type": [
           "application/json"
-        ],
-        "Content-Length": [
-          "116"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "Vary": [
-          "Accept-Encoding"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "X-Ratelimit-Limit": [
-          "100"
-        ],
-        "X-Ratelimit-Period": [
-          "3600"
-        ],
-        "X-Ratelimit-Reset": [
-          "3479"
-        ],
-        "X-Ratelimit-Remaining": [
-          "95"
-        ],
-        "X-Dd-Version": [
-          "35.4318655"
-        ],
-        "X-Content-Type-Options": [
-          "nosniff"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=15724800;"
-        ],
-        "Content-Security-Policy": [
-          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
-        ],
-        "X-Frame-Options": [
-          "SAMEORIGIN"
         ]
       },
       "statusCode": 404,

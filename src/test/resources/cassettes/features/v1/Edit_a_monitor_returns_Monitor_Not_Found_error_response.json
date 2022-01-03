@@ -18,50 +18,8 @@
     "httpResponse": {
       "body": "{\"errors\": [\"Monitor not found\"]}",
       "headers": {
-        "Date": [
-          "Tue, 19 Oct 2021 14:57:44 GMT"
-        ],
         "Content-Type": [
           "application/json"
-        ],
-        "Content-Length": [
-          "33"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "Vary": [
-          "Accept-Encoding"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "X-Ratelimit-Limit": [
-          "500"
-        ],
-        "X-Ratelimit-Period": [
-          "10"
-        ],
-        "X-Ratelimit-Reset": [
-          "6"
-        ],
-        "X-Ratelimit-Remaining": [
-          "499"
-        ],
-        "X-Content-Type-Options": [
-          "nosniff"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=15724800;"
-        ],
-        "Content-Security-Policy": [
-          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
-        ],
-        "X-Frame-Options": [
-          "SAMEORIGIN"
         ]
       },
       "statusCode": 404,

@@ -16,42 +16,6 @@
       "headers": {
         "Content-Type": [
           "application/json"
-        ],
-        "Content-Length": [
-          "11868"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "Last-Modified": [
-          "Fri, 02 Apr 2021 15:14:33 GMT"
-        ],
-        "Accept-Ranges": [
-          "bytes"
-        ],
-        "Server": [
-          "AmazonS3"
-        ],
-        "Date": [
-          "Tue, 06 Jul 2021 10:09:48 GMT"
-        ],
-        "Etag": [
-          "\"ecb4ed42838b56fe91b86d372e2f1b0e\""
-        ],
-        "Vary": [
-          "Accept-Encoding"
-        ],
-        "X-Cache": [
-          "RefreshHit from cloudfront"
-        ],
-        "Via": [
-          "1.1 40adc3dc2f5b304254d63ab3859fedd2.cloudfront.net (CloudFront)"
-        ],
-        "X-Amz-Cf-Pop": [
-          "IAD89-C2"
-        ],
-        "X-Amz-Cf-Id": [
-          "f78CjN_czPWSTEdMgtXeukIyTg6Q-fKmZZ6cXxlUN6ddblnecFQmQg=="
         ]
       },
       "statusCode": 200,

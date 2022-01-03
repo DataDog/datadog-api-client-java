@@ -18,50 +18,8 @@
     "httpResponse": {
       "body": "{\"creationAuthorId\":1445416,\"tags\":[],\"isEnabled\":true,\"hasExtendedTitle\":false,\"message\":\"Test rule\",\"options\":{\"detectionMethod\":\"threshold\",\"evaluationWindow\":900,\"maxSignalDuration\":86400,\"keepAlive\":3600},\"version\":1,\"createdAt\":1629359425373,\"filters\":[],\"queries\":[{\"distinctFields\":[],\"name\":\"\",\"metric\":\"\",\"aggregation\":\"count\",\"groupByFields\":[],\"query\":\"@test:true\"}],\"isDeleted\":false,\"cases\":[{\"status\":\"info\",\"notifications\":[],\"name\":\"\",\"condition\":\"a > 0\"}],\"type\":\"log_detection\",\"id\":\"zpf-hj4-sl6\",\"isDefault\":false,\"name\":\"Test-Delete_an_existing_rule_returns_OK_response-1618572735\"}",
       "headers": {
-        "Date": [
-          "Thu, 19 Aug 2021 07:50:25 GMT"
-        ],
         "Content-Type": [
           "application/json;charset=utf-8"
-        ],
-        "Content-Length": [
-          "603"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "Vary": [
-          "Accept-Encoding"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "X-Ratelimit-Limit": [
-          "600"
-        ],
-        "X-Ratelimit-Period": [
-          "60"
-        ],
-        "X-Ratelimit-Reset": [
-          "35"
-        ],
-        "X-Ratelimit-Remaining": [
-          "597"
-        ],
-        "Content-Disposition": [
-          "inline"
-        ],
-        "X-Content-Type-Options": [
-          "nosniff"
-        ],
-        "Content-Security-Policy": [
-          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
-        ],
-        "X-Frame-Options": [
-          "SAMEORIGIN"
         ]
       },
       "statusCode": 200,
@@ -88,47 +46,7 @@
       "secure": true
     },
     "httpResponse": {
-      "headers": {
-        "Date": [
-          "Thu, 19 Aug 2021 07:50:25 GMT"
-        ],
-        "Content-Length": [
-          "0"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "X-Ratelimit-Limit": [
-          "600"
-        ],
-        "X-Ratelimit-Period": [
-          "60"
-        ],
-        "X-Ratelimit-Reset": [
-          "35"
-        ],
-        "X-Ratelimit-Remaining": [
-          "596"
-        ],
-        "Content-Disposition": [
-          "inline"
-        ],
-        "X-Content-Type-Options": [
-          "nosniff"
-        ],
-        "Content-Security-Policy": [
-          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
-        ],
-        "X-Frame-Options": [
-          "SAMEORIGIN"
-        ]
-      },
+      "headers": {},
       "statusCode": 204,
       "reasonPhrase": "No Content"
     },
@@ -155,47 +73,8 @@
     "httpResponse": {
       "body": "{\"errors\":[\"Threat detection rule not found: zpf-hj4-sl6\"]}",
       "headers": {
-        "Date": [
-          "Thu, 19 Aug 2021 07:50:25 GMT"
-        ],
         "Content-Type": [
           "application/json"
-        ],
-        "Content-Length": [
-          "59"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "Vary": [
-          "Accept-Encoding"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "X-Ratelimit-Limit": [
-          "600"
-        ],
-        "X-Ratelimit-Period": [
-          "60"
-        ],
-        "X-Ratelimit-Reset": [
-          "35"
-        ],
-        "X-Ratelimit-Remaining": [
-          "595"
-        ],
-        "X-Content-Type-Options": [
-          "nosniff"
-        ],
-        "Content-Security-Policy": [
-          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
-        ],
-        "X-Frame-Options": [
-          "SAMEORIGIN"
         ]
       },
       "statusCode": 404,

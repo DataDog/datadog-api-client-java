@@ -18,50 +18,8 @@
     "httpResponse": {
       "body": "{\"data\":{\"type\":\"roles\",\"id\":\"ec6a697a-30ec-11ec-925a-da7ad0900002\",\"attributes\":{\"name\":\"Test-Update_a_role_returns_Bad_Role_ID_response-1634655467\",\"created_at\":\"2021-10-19T14:57:47.844910+00:00\",\"modified_at\":\"2021-10-19T14:57:47.844910+00:00\"},\"relationships\":{\"permissions\":{\"data\":[{\"type\":\"permissions\",\"id\":\"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2\"},{\"type\":\"permissions\",\"id\":\"4441648c-d8b1-11e9-a77a-1b899a04b304\"},{\"type\":\"permissions\",\"id\":\"417ba636-2dce-11eb-84c0-6bce5b0d9de0\"},{\"type\":\"permissions\",\"id\":\"12efc20e-d36c-11eb-a9b8-da7ad0900002\"},{\"type\":\"permissions\",\"id\":\"97971c1c-e895-11eb-b13c-da7ad0900002\"},{\"type\":\"permissions\",\"id\":\"7605ef24-f376-11eb-b90b-da7ad0900002\"}]}}}}",
       "headers": {
-        "Date": [
-          "Tue, 19 Oct 2021 14:57:47 GMT"
-        ],
         "Content-Type": [
           "application/json"
-        ],
-        "Content-Length": [
-          "694"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "Vary": [
-          "Accept-Encoding"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "X-Ratelimit-Limit": [
-          "500"
-        ],
-        "X-Ratelimit-Period": [
-          "60"
-        ],
-        "X-Ratelimit-Reset": [
-          "13"
-        ],
-        "X-Ratelimit-Remaining": [
-          "495"
-        ],
-        "X-Content-Type-Options": [
-          "nosniff"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=15724800;"
-        ],
-        "Content-Security-Policy": [
-          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
-        ],
-        "X-Frame-Options": [
-          "SAMEORIGIN"
         ]
       },
       "statusCode": 200,
@@ -94,47 +52,8 @@
     "httpResponse": {
       "body": "{\"errors\": [\"The id attribute in the request body does not match the role_id in the URL\"]}",
       "headers": {
-        "Date": [
-          "Tue, 19 Oct 2021 14:57:48 GMT"
-        ],
         "Content-Type": [
           "application/json"
-        ],
-        "Content-Length": [
-          "90"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "X-Ratelimit-Limit": [
-          "500"
-        ],
-        "X-Ratelimit-Period": [
-          "60"
-        ],
-        "X-Ratelimit-Reset": [
-          "12"
-        ],
-        "X-Ratelimit-Remaining": [
-          "494"
-        ],
-        "X-Content-Type-Options": [
-          "nosniff"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=15724800;"
-        ],
-        "Content-Security-Policy": [
-          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
-        ],
-        "X-Frame-Options": [
-          "SAMEORIGIN"
         ]
       },
       "statusCode": 422,
@@ -161,47 +80,7 @@
       "secure": true
     },
     "httpResponse": {
-      "headers": {
-        "Date": [
-          "Tue, 19 Oct 2021 14:57:48 GMT"
-        ],
-        "Content-Length": [
-          "0"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "X-Ratelimit-Limit": [
-          "500"
-        ],
-        "X-Ratelimit-Period": [
-          "60"
-        ],
-        "X-Ratelimit-Reset": [
-          "12"
-        ],
-        "X-Ratelimit-Remaining": [
-          "493"
-        ],
-        "X-Content-Type-Options": [
-          "nosniff"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=15724800;"
-        ],
-        "Content-Security-Policy": [
-          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
-        ],
-        "X-Frame-Options": [
-          "SAMEORIGIN"
-        ]
-      },
+      "headers": {},
       "statusCode": 204,
       "reasonPhrase": "No Content"
     },

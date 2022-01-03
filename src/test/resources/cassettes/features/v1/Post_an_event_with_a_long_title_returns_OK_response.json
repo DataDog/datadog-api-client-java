@@ -18,29 +18,8 @@
     "httpResponse": {
       "body": "{\"status\":\"ok\",\"event\":{\"id\":6183308802141975575,\"id_str\":\"6183308802141975575\",\"title\":\"Test-Post_an_event_with_a_long_title_returns_OK_response-1632816790 very very very looooooooong looooooooooooong loooooooooooooooooooooong looooooooooooooooooooooooooong title with 100+ characters\",\"text\":\"A text message.\",\"date_happened\":1632816790,\"handle\":null,\"priority\":null,\"related_event_id\":null,\"tags\":[\"test:TestPostaneventwithalongtitlereturnsOKresponse1632816790\"],\"url\":\"https://app.datadoghq.com/event/event?id=6183308802141975575\"}}",
       "headers": {
-        "Date": [
-          "Tue, 28 Sep 2021 08:13:10 GMT"
-        ],
         "Content-Type": [
           "application/json"
-        ],
-        "Content-Length": [
-          "536"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "X-Content-Type-Options": [
-          "nosniff"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=15724800;"
-        ],
-        "Content-Security-Policy": [
-          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
-        ],
-        "X-Frame-Options": [
-          "SAMEORIGIN"
         ]
       },
       "statusCode": 202,

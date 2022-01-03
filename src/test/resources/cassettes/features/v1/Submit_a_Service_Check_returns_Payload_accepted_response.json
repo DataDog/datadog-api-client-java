@@ -18,29 +18,8 @@
     "httpResponse": {
       "body": "{\"status\": \"ok\"}",
       "headers": {
-        "Date": [
-          "Tue, 28 Sep 2021 10:25:39 GMT"
-        ],
         "Content-Type": [
           "text/json"
-        ],
-        "Content-Length": [
-          "16"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "X-Content-Type-Options": [
-          "nosniff"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=15724800;"
-        ],
-        "Content-Security-Policy": [
-          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
-        ],
-        "X-Frame-Options": [
-          "SAMEORIGIN"
         ]
       },
       "statusCode": 202,

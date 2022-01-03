@@ -14,38 +14,8 @@
     "httpResponse": {
       "body": "{\"meta\":{\"page\":{\"total_filtered_count\":3},\"max_allowed_per_user\":1000},\"data\":[{\"type\":\"application_keys\",\"id\":\"109352f1-8828-5305-8e07-f9224517a443\",\"attributes\":{\"name\":\"XXXXXXXXXXXXXXX\",\"created_at\":\"2021-04-15T14:20:28.940731+00:00\",\"last4\":\"beef\"}},{\"type\":\"application_keys\",\"id\":\"4d462b64-f64d-5e23-aed5-01f4b10fb9f2\",\"attributes\":{\"name\":\"XXXXXXXXXXXXXXXXXX\",\"created_at\":\"2021-04-29T15:54:07.404178+00:00\",\"last4\":\"beef\"}},{\"type\":\"application_keys\",\"id\":\"b35e8f9a-a94b-5b20-8ec2-4b76dd2e13e1\",\"attributes\":{\"name\":\"XXXXXX\",\"created_at\":\"2021-04-19T14:01:09.155025+00:00\",\"last4\":\"beef\"}}]}",
       "headers": {
-        "Date": [
-          "Fri, 17 Dec 2021 16:05:24 GMT"
-        ],
         "Content-Type": [
           "application/json"
-        ],
-        "Content-Length": [
-          "599"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "Vary": [
-          "Accept-Encoding"
-        ],
-        "X-Content-Type-Options": [
-          "nosniff"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=15724800;"
-        ],
-        "Content-Security-Policy": [
-          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
-        ],
-        "X-Frame-Options": [
-          "SAMEORIGIN"
         ]
       },
       "statusCode": 200,

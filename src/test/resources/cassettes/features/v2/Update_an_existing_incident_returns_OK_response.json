@@ -18,53 +18,8 @@
     "httpResponse": {
       "body": "{\"data\":{\"type\":\"incidents\",\"id\":\"f40f7641-0aa4-57d3-b20d-3d42e9dbacae\",\"attributes\":{\"public_id\":36220,\"title\":\"Test-Update_an_existing_incident_returns_OK_response-1618491713\",\"resolved\":null,\"customer_impact_scope\":null,\"customer_impact_start\":null,\"customer_impact_end\":null,\"customer_impacted\":false,\"notification_handles\":null,\"last_modified_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"attributes\":{\"uuid\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\",\"name\":null,\"icon\":\"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro\"}}},\"last_modified_by_uuid\":null,\"created\":\"2021-04-15T13:01:53.699133+00:00\",\"modified\":\"2021-04-15T13:01:53.699133+00:00\",\"commander\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"attributes\":{\"uuid\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\",\"name\":null,\"icon\":\"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro\"}}},\"detected\":\"2021-04-15T13:01:53.697515+00:00\",\"created_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"attributes\":{\"uuid\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\",\"name\":null,\"icon\":\"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro\"}}},\"created_by_uuid\":null,\"creation_idempotency_key\":null,\"customer_impact_duration\":0,\"time_to_detect\":0,\"time_to_repair\":0,\"time_to_internal_response\":0,\"time_to_resolve\":0,\"fields\":{\"severity\":{\"type\":\"dropdown\",\"value\":\"UNKNOWN\"},\"detection_method\":{\"type\":\"dropdown\",\"value\":\"unknown\"},\"root_cause\":{\"type\":\"textbox\",\"value\":null},\"teams\":{\"type\":\"autocomplete\",\"value\":null},\"state\":{\"type\":\"dropdown\",\"value\":\"active\"},\"services\":{\"type\":\"autocomplete\",\"value\":null}},\"field_analytics\":null,\"severity\":\"UNKNOWN\",\"state\":\"active\",\"non_datadog_creator\":null},\"relationships\":{\"created_by_user\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}},\"last_modified_by_user\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}},\"commander_user\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}},\"user_defined_fields\":{\"data\":[{\"type\":\"user_defined_field\",\"id\":\"4148ead2-da45-548e-b6be-8e319bafc425\"},{\"type\":\"user_defined_field\",\"id\":\"66b62f59-48f6-5fee-969a-0886b1db6dcd\"},{\"type\":\"user_defined_field\",\"id\":\"299616f7-8acd-5403-886b-991656d6b982\"},{\"type\":\"user_defined_field\",\"id\":\"ad2b9456-eaec-5bbd-9bae-e502d74e23f8\"},{\"type\":\"user_defined_field\",\"id\":\"d8a54f16-8b2a-5ab4-87b8-5f0fa575c83e\"},{\"type\":\"user_defined_field\",\"id\":\"623af0a5-f30c-577e-8146-09b8324bdb2d\"}]},\"integrations\":{\"data\":[]},\"attachments\":{\"data\":[]},\"responders\":{\"data\":[]}}}}",
       "headers": {
-        "Date": [
-          "Thu, 15 Apr 2021 13:01:53 GMT"
-        ],
         "Content-Type": [
           "application/json"
-        ],
-        "Content-Length": [
-          "2823"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "X-Dd-Version": [
-          "35.4318655"
-        ],
-        "X-Ratelimit-Limit": [
-          "400"
-        ],
-        "X-Ratelimit-Period": [
-          "3600"
-        ],
-        "X-Ratelimit-Reset": [
-          "3487"
-        ],
-        "X-Ratelimit-Remaining": [
-          "395"
-        ],
-        "X-Dd-Debug": [
-          "S1wfaMZOKGT/IoMw6fqAwAwGWo2vQ44sjF3YzuETnQfxZO2T5eJbs0aX3UKb9Dwu"
-        ],
-        "X-Content-Type-Options": [
-          "nosniff"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=15724800;"
-        ],
-        "Content-Security-Policy": [
-          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
-        ],
-        "X-Frame-Options": [
-          "SAMEORIGIN"
         ]
       },
       "statusCode": 201,
@@ -97,56 +52,8 @@
     "httpResponse": {
       "body": "{\"data\":{\"type\":\"incidents\",\"id\":\"f40f7641-0aa4-57d3-b20d-3d42e9dbacae\",\"attributes\":{\"public_id\":36220,\"title\":\"Test-Update_an_existing_incident_returns_OK_response-1618491713-updated\",\"resolved\":\"2021-04-15T13:01:54.391588+00:00\",\"customer_impact_scope\":null,\"customer_impact_start\":null,\"customer_impact_end\":null,\"customer_impacted\":false,\"notification_handles\":null,\"last_modified_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"attributes\":{\"uuid\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\",\"name\":null,\"icon\":\"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro\"}}},\"last_modified_by_uuid\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"created\":\"2021-04-15T13:01:53.699133+00:00\",\"modified\":\"2021-04-15T13:01:54.393224+00:00\",\"commander\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"attributes\":{\"uuid\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\",\"name\":null,\"icon\":\"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro\"}}},\"detected\":\"2021-04-15T13:01:53.697515+00:00\",\"created_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"attributes\":{\"uuid\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\",\"name\":null,\"icon\":\"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro\"}}},\"created_by_uuid\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"creation_idempotency_key\":null,\"customer_impact_duration\":0,\"time_to_detect\":0,\"time_to_repair\":0,\"time_to_internal_response\":0,\"time_to_resolve\":0,\"fields\":{\"severity\":{\"type\":\"dropdown\",\"value\":\"UNKNOWN\"},\"detection_method\":{\"type\":\"dropdown\",\"value\":\"unknown\"},\"root_cause\":{\"type\":\"textbox\",\"value\":null},\"teams\":{\"type\":\"autocomplete\",\"value\":null},\"state\":{\"type\":\"dropdown\",\"value\":\"resolved\"},\"services\":{\"type\":\"autocomplete\",\"value\":null}},\"field_analytics\":null,\"severity\":\"UNKNOWN\",\"state\":\"resolved\",\"non_datadog_creator\":null},\"relationships\":{\"created_by_user\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}},\"last_modified_by_user\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}},\"commander_user\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}},\"user_defined_fields\":{\"data\":[{\"type\":\"user_defined_field\",\"id\":\"4148ead2-da45-548e-b6be-8e319bafc425\"},{\"type\":\"user_defined_field\",\"id\":\"66b62f59-48f6-5fee-969a-0886b1db6dcd\"},{\"type\":\"user_defined_field\",\"id\":\"299616f7-8acd-5403-886b-991656d6b982\"},{\"type\":\"user_defined_field\",\"id\":\"ad2b9456-eaec-5bbd-9bae-e502d74e23f8\"},{\"type\":\"user_defined_field\",\"id\":\"d8a54f16-8b2a-5ab4-87b8-5f0fa575c83e\"},{\"type\":\"user_defined_field\",\"id\":\"623af0a5-f30c-577e-8146-09b8324bdb2d\"}]},\"integrations\":{\"data\":[]},\"attachments\":{\"data\":[]},\"responders\":{\"data\":[{\"type\":\"incident_responders\",\"id\":\"dfdb2aa7-2cd6-58e7-9e89-73ba618da747\"}]}}}}",
       "headers": {
-        "Date": [
-          "Thu, 15 Apr 2021 13:01:54 GMT"
-        ],
         "Content-Type": [
           "application/json"
-        ],
-        "Content-Length": [
-          "3007"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "Vary": [
-          "Accept-Encoding"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "X-Dd-Version": [
-          "35.4318655"
-        ],
-        "X-Ratelimit-Limit": [
-          "400"
-        ],
-        "X-Ratelimit-Period": [
-          "60"
-        ],
-        "X-Ratelimit-Reset": [
-          "6"
-        ],
-        "X-Ratelimit-Remaining": [
-          "399"
-        ],
-        "X-Dd-Debug": [
-          "5gfwVh/5HZ+AnGd/Di93w3NEWC6KMHT9KzmHEiRJmNdOjBtAsbOcgVFyqEChw71h"
-        ],
-        "X-Content-Type-Options": [
-          "nosniff"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=15724800;"
-        ],
-        "Content-Security-Policy": [
-          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
-        ],
-        "X-Frame-Options": [
-          "SAMEORIGIN"
         ]
       },
       "statusCode": 200,
@@ -174,53 +81,8 @@
     },
     "httpResponse": {
       "headers": {
-        "Date": [
-          "Thu, 15 Apr 2021 13:01:55 GMT"
-        ],
         "Content-Type": [
           "application/json"
-        ],
-        "Content-Length": [
-          "0"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "X-Dd-Version": [
-          "35.4318655"
-        ],
-        "X-Ratelimit-Limit": [
-          "400"
-        ],
-        "X-Ratelimit-Period": [
-          "60"
-        ],
-        "X-Ratelimit-Reset": [
-          "5"
-        ],
-        "X-Ratelimit-Remaining": [
-          "394"
-        ],
-        "X-Dd-Debug": [
-          "LcgNasIYBRkNppmD6mCKE9J6iv0eEjosuuHR5V5zw2fWbR54i39C8dhdK8zDq/40"
-        ],
-        "X-Content-Type-Options": [
-          "nosniff"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=15724800;"
-        ],
-        "Content-Security-Policy": [
-          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
-        ],
-        "X-Frame-Options": [
-          "SAMEORIGIN"
         ]
       },
       "statusCode": 204,
