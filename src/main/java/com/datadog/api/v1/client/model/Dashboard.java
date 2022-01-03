@@ -34,6 +34,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
             + " infrastructure.")
 @JsonPropertyOrder({
   Dashboard.JSON_PROPERTY_AUTHOR_HANDLE,
+  Dashboard.JSON_PROPERTY_AUTHOR_NAME,
   Dashboard.JSON_PROPERTY_CREATED_AT,
   Dashboard.JSON_PROPERTY_DESCRIPTION,
   Dashboard.JSON_PROPERTY_ID,
@@ -54,6 +55,9 @@ public class Dashboard {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_AUTHOR_HANDLE = "author_handle";
   private String authorHandle;
+
+  public static final String JSON_PROPERTY_AUTHOR_NAME = "author_name";
+  private JsonNullable<String> authorName = JsonNullable.<String>undefined();
 
   public static final String JSON_PROPERTY_CREATED_AT = "created_at";
   private OffsetDateTime createdAt;
@@ -124,6 +128,33 @@ public class Dashboard {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getAuthorHandle() {
     return authorHandle;
+  }
+
+  /**
+   * Name of the dashboard author.
+   *
+   * @return authorName
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "John Doe", value = "Name of the dashboard author.")
+  @JsonIgnore
+  public String getAuthorName() {
+
+    if (authorName == null) {
+      authorName = JsonNullable.<String>undefined();
+    }
+    return authorName.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_AUTHOR_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<String> getAuthorName_JsonNullable() {
+    return authorName;
+  }
+
+  @JsonProperty(JSON_PROPERTY_AUTHOR_NAME)
+  private void setAuthorName_JsonNullable(JsonNullable<String> authorName) {
+    this.authorName = authorName;
   }
 
   /**
@@ -534,6 +565,7 @@ public class Dashboard {
     }
     Dashboard dashboard = (Dashboard) o;
     return Objects.equals(this.authorHandle, dashboard.authorHandle)
+        && Objects.equals(this.authorName, dashboard.authorName)
         && Objects.equals(this.createdAt, dashboard.createdAt)
         && Objects.equals(this.description, dashboard.description)
         && Objects.equals(this.id, dashboard.id)
@@ -554,6 +586,7 @@ public class Dashboard {
   public int hashCode() {
     return Objects.hash(
         authorHandle,
+        authorName,
         createdAt,
         description,
         id,
@@ -575,6 +608,7 @@ public class Dashboard {
     StringBuilder sb = new StringBuilder();
     sb.append("class Dashboard {\n");
     sb.append("    authorHandle: ").append(toIndentedString(authorHandle)).append("\n");
+    sb.append("    authorName: ").append(toIndentedString(authorName)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
