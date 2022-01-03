@@ -18,41 +18,8 @@
     "httpResponse": {
       "body": "{\"data\":{\"type\":\"users\",\"id\":\"ec4632de-9dea-11eb-9df5-da7ad0900002\",\"attributes\":{\"name\":null,\"handle\":\"test-send_invitation_emails_returns_ok_response-1618491787@datadoghq.com\",\"created_at\":\"2021-04-15T13:03:07.685627+00:00\",\"modified_at\":\"2021-04-15T13:03:07.716219+00:00\",\"email\":\"test-send_invitation_emails_returns_ok_response-1618491787@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/ae127789374025e1ca3730b1e05ea0d0?s=48&d=retro\",\"title\":\"user title\",\"verified\":false,\"service_account\":false,\"disabled\":false,\"allowed_login_methods\":[],\"status\":\"Pending\"},\"relationships\":{\"roles\":{\"data\":[]},\"org\":{\"data\":{\"type\":\"orgs\",\"id\":\"4dee724d-00cc-11ea-a77b-570c9d03c6c5\"}}}}}",
       "headers": {
-        "Date": [
-          "Thu, 15 Apr 2021 13:03:07 GMT"
-        ],
         "Content-Type": [
           "application/json"
-        ],
-        "Content-Length": [
-          "688"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "X-Dd-Version": [
-          "35.4318655"
-        ],
-        "X-Dd-Debug": [
-          "F5gm0Rce1/Abr9/0Fw8HAqWfiz0FdiH8er/AXnN6lOn3L6KyGgbsLCwgPlob1No8"
-        ],
-        "X-Content-Type-Options": [
-          "nosniff"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=15724800;"
-        ],
-        "Content-Security-Policy": [
-          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
-        ],
-        "X-Frame-Options": [
-          "SAMEORIGIN"
         ]
       },
       "statusCode": 201,
@@ -85,41 +52,8 @@
     "httpResponse": {
       "body": "{\"data\":[{\"type\":\"user_invitations\",\"id\":\"ed385bb8-9dea-11eb-9df5-da7ad0900002\",\"attributes\":{\"uuid\":\"ed385bb8-9dea-11eb-9df5-da7ad0900002\",\"login_method\":null,\"invite_type\":\"openid_invite\",\"created_at\":\"2021-04-15T13:03:09.272516+00:00\",\"expires_at\":\"2021-04-17T13:03:09.204259+00:00\"},\"relationships\":{\"user\":{\"data\":{\"type\":\"users\",\"id\":\"ec4632de-9dea-11eb-9df5-da7ad0900002\"}}}}]}",
       "headers": {
-        "Date": [
-          "Thu, 15 Apr 2021 13:03:10 GMT"
-        ],
         "Content-Type": [
           "application/json"
-        ],
-        "Content-Length": [
-          "384"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "X-Dd-Version": [
-          "35.4318655"
-        ],
-        "X-Dd-Debug": [
-          "5gfwVh/5HZ+AnGd/Di93w3NEWC6KMHT9KzmHEiRJmNdOjBtAsbOcgVFyqEChw71h"
-        ],
-        "X-Content-Type-Options": [
-          "nosniff"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=15724800;"
-        ],
-        "Content-Security-Policy": [
-          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
-        ],
-        "X-Frame-Options": [
-          "SAMEORIGIN"
         ]
       },
       "statusCode": 201,
@@ -147,41 +81,8 @@
     },
     "httpResponse": {
       "headers": {
-        "Date": [
-          "Thu, 15 Apr 2021 13:03:10 GMT"
-        ],
         "Content-Type": [
           "application/json"
-        ],
-        "Content-Length": [
-          "0"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "X-Dd-Version": [
-          "35.4318655"
-        ],
-        "X-Dd-Debug": [
-          "JpIJLwIH2nFlZOC+u71rq7aAOL43MLZN3MUsL+gpYHdZz5QLUOG8Jysf8kVK6tPU"
-        ],
-        "X-Content-Type-Options": [
-          "nosniff"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=15724800;"
-        ],
-        "Content-Security-Policy": [
-          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
-        ],
-        "X-Frame-Options": [
-          "SAMEORIGIN"
         ]
       },
       "statusCode": 204,

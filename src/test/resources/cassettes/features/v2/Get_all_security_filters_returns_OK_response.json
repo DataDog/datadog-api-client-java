@@ -14,47 +14,8 @@
     "httpResponse": {
       "body": "{\"data\":[{\"attributes\":{\"is_enabled\":true,\"name\":\"all ingested logs\",\"filtered_data_type\":\"logs\",\"exclusion_filters\":[],\"version\":1,\"query\":\"*\",\"is_builtin\":true},\"type\":\"security_filters\",\"id\":\"bc0-fow-e4j\"}]}",
       "headers": {
-        "Date": [
-          "Tue, 11 May 2021 16:46:31 GMT"
-        ],
         "Content-Type": [
           "application/json;charset=utf-8"
-        ],
-        "Content-Length": [
-          "210"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "Vary": [
-          "Accept-Encoding"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "X-Dd-Version": [
-          "35.4508212"
-        ],
-        "Content-Disposition": [
-          "inline"
-        ],
-        "X-Dd-Debug": [
-          "PhosSd3Ch1B6B0DXI71steKUi7XhPDttnPiIP1NdXTw0VJNWpoUnYyBmODS5ne3q"
-        ],
-        "X-Content-Type-Options": [
-          "nosniff"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=15724800;"
-        ],
-        "Content-Security-Policy": [
-          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
-        ],
-        "X-Frame-Options": [
-          "SAMEORIGIN"
         ]
       },
       "statusCode": 200,

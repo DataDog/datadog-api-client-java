@@ -18,38 +18,8 @@
     "httpResponse": {
       "body": "{\"is_secret\":false,\"name\":\"TESTUPDATEACUSTOMVARIABLERETURNSOKRESPONSE1628785718\",\"value\":\"variable-value\"}",
       "headers": {
-        "Date": [
-          "Thu, 12 Aug 2021 16:28:38 GMT"
-        ],
         "Content-Type": [
           "application/json"
-        ],
-        "Content-Length": [
-          "106"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "Location": [
-          "https://app.datadoghq.com/api/v1/integration/webhooks/configuration/custom-variables/TESTUPDATEACUSTOMVARIABLERETURNSOKRESPONSE1628785718"
-        ],
-        "X-Content-Type-Options": [
-          "nosniff"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=15724800;"
-        ],
-        "Content-Security-Policy": [
-          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
-        ],
-        "X-Frame-Options": [
-          "SAMEORIGIN"
         ]
       },
       "statusCode": 201,
@@ -82,38 +52,8 @@
     "httpResponse": {
       "body": "{\"is_secret\":false,\"name\":\"TESTUPDATEACUSTOMVARIABLERETURNSOKRESPONSE1628785718\",\"value\":\"variable-updated\"}",
       "headers": {
-        "Date": [
-          "Thu, 12 Aug 2021 16:28:39 GMT"
-        ],
         "Content-Type": [
           "application/json"
-        ],
-        "Content-Length": [
-          "108"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "Vary": [
-          "Accept-Encoding"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "X-Content-Type-Options": [
-          "nosniff"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=15724800;"
-        ],
-        "Content-Security-Policy": [
-          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
-        ],
-        "X-Frame-Options": [
-          "SAMEORIGIN"
         ]
       },
       "statusCode": 200,
@@ -142,35 +82,8 @@
     "httpResponse": {
       "body": "{}",
       "headers": {
-        "Date": [
-          "Thu, 12 Aug 2021 16:28:39 GMT"
-        ],
         "Content-Type": [
           "application/json"
-        ],
-        "Content-Length": [
-          "2"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "X-Content-Type-Options": [
-          "nosniff"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=15724800;"
-        ],
-        "Content-Security-Policy": [
-          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
-        ],
-        "X-Frame-Options": [
-          "SAMEORIGIN"
         ]
       },
       "statusCode": 200,

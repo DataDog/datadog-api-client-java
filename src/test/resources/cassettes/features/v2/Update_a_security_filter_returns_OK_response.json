@@ -18,47 +18,8 @@
     "httpResponse": {
       "body": "{\"data\":{\"attributes\":{\"is_enabled\":true,\"name\":\"Test-Update_a_security_filter_returns_OK_response-1620751634\",\"filtered_data_type\":\"logs\",\"exclusion_filters\":[{\"query\":\"source:staging\",\"name\":\"Exclude logs from staging\"}],\"version\":1,\"query\":\"service:TestUpdateasecurityfilterreturnsOKresponse1620751634\",\"is_builtin\":false},\"type\":\"security_filters\",\"id\":\"8f3-mwd-7yk\"}}",
       "headers": {
-        "Date": [
-          "Wed, 12 May 2021 07:50:05 GMT"
-        ],
         "Content-Type": [
           "application/json;charset=utf-8"
-        ],
-        "Content-Length": [
-          "372"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "Vary": [
-          "Accept-Encoding"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "X-Dd-Version": [
-          "35.4512853"
-        ],
-        "Content-Disposition": [
-          "inline"
-        ],
-        "X-Dd-Debug": [
-          "/L+SFFO+m1pPY+hRCpk5325fvfrNl0KmiquUNJolBN/5hu3HIwflqjZSbJ6NxDFG"
-        ],
-        "X-Content-Type-Options": [
-          "nosniff"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=15724800;"
-        ],
-        "Content-Security-Policy": [
-          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
-        ],
-        "X-Frame-Options": [
-          "SAMEORIGIN"
         ]
       },
       "statusCode": 200,
@@ -91,47 +52,8 @@
     "httpResponse": {
       "body": "{\"data\":{\"attributes\":{\"is_enabled\":true,\"name\":\"Test-Update_a_security_filter_returns_OK_response-1620751634\",\"filtered_data_type\":\"logs\",\"exclusion_filters\":[],\"version\":2,\"query\":\"service:TestUpdateasecurityfilterreturnsOKresponse1620751634\",\"is_builtin\":false},\"type\":\"security_filters\",\"id\":\"8f3-mwd-7yk\"}}",
       "headers": {
-        "Date": [
-          "Wed, 12 May 2021 07:50:05 GMT"
-        ],
         "Content-Type": [
           "application/json;charset=utf-8"
-        ],
-        "Content-Length": [
-          "311"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "Vary": [
-          "Accept-Encoding"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "X-Dd-Version": [
-          "35.4512853"
-        ],
-        "Content-Disposition": [
-          "inline"
-        ],
-        "X-Dd-Debug": [
-          "nLnnBNvlCFDECRnZvzDb0z4sAO35G+IMidcAs8vrCKyjvsKWE8Yd9S3n6OjZ1qRN"
-        ],
-        "X-Content-Type-Options": [
-          "nosniff"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=15724800;"
-        ],
-        "Content-Security-Policy": [
-          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
-        ],
-        "X-Frame-Options": [
-          "SAMEORIGIN"
         ]
       },
       "statusCode": 200,
@@ -158,44 +80,7 @@
       "secure": true
     },
     "httpResponse": {
-      "headers": {
-        "Date": [
-          "Wed, 12 May 2021 07:50:05 GMT"
-        ],
-        "Content-Length": [
-          "0"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "X-Dd-Version": [
-          "35.4512853"
-        ],
-        "Content-Disposition": [
-          "inline"
-        ],
-        "X-Dd-Debug": [
-          "HbtaOKlJ6OCrx9tMXO6ivMTrEM+g0c93HDp08trmOmgdHozC5J+vn10F0H4WPjCU"
-        ],
-        "X-Content-Type-Options": [
-          "nosniff"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=15724800;"
-        ],
-        "Content-Security-Policy": [
-          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
-        ],
-        "X-Frame-Options": [
-          "SAMEORIGIN"
-        ]
-      },
+      "headers": {},
       "statusCode": 204,
       "reasonPhrase": "No Content"
     },

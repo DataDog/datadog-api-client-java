@@ -18,50 +18,8 @@
     "httpResponse": {
       "body": "{\"data\":{\"type\":\"application_keys\",\"id\":\"e3eabfec-bbd9-4438-8329-c679d64c01f5\",\"attributes\":{\"name\":\"Test-Delete_an_Application_key_returns_No_Content_response-1639757116\",\"created_at\":\"2021-12-17T16:05:16.663471+00:00\",\"last4\":\"17b2\",\"key\":\"deaddcc81a44288fbbbfb15efe1203df034abeef\"},\"relationships\":{\"owned_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}}}}}",
       "headers": {
-        "Date": [
-          "Fri, 17 Dec 2021 16:05:16 GMT"
-        ],
         "Content-Type": [
           "application/json"
-        ],
-        "Content-Length": [
-          "385"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "X-Ratelimit-Remaining": [
-          "394"
-        ],
-        "X-Ratelimit-Limit": [
-          "400"
-        ],
-        "X-Ratelimit-Period": [
-          "3600"
-        ],
-        "X-Ratelimit-Reset": [
-          "3284"
-        ],
-        "Vary": [
-          "Accept-Encoding"
-        ],
-        "X-Content-Type-Options": [
-          "nosniff"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=15724800;"
-        ],
-        "Content-Security-Policy": [
-          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
-        ],
-        "X-Frame-Options": [
-          "SAMEORIGIN"
         ]
       },
       "statusCode": 201,
@@ -88,47 +46,7 @@
       "secure": true
     },
     "httpResponse": {
-      "headers": {
-        "Date": [
-          "Fri, 17 Dec 2021 16:05:17 GMT"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "X-Ratelimit-Remaining": [
-          "393"
-        ],
-        "X-Ratelimit-Limit": [
-          "400"
-        ],
-        "X-Ratelimit-Period": [
-          "3600"
-        ],
-        "X-Ratelimit-Reset": [
-          "3283"
-        ],
-        "Vary": [
-          "Accept-Encoding"
-        ],
-        "X-Content-Type-Options": [
-          "nosniff"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=15724800;"
-        ],
-        "Content-Security-Policy": [
-          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
-        ],
-        "X-Frame-Options": [
-          "SAMEORIGIN"
-        ]
-      },
+      "headers": {},
       "statusCode": 204,
       "reasonPhrase": "No Content"
     },
@@ -155,38 +73,8 @@
     "httpResponse": {
       "body": "{\"errors\": [\"Application key not found\"]}",
       "headers": {
-        "Date": [
-          "Fri, 17 Dec 2021 16:05:17 GMT"
-        ],
         "Content-Type": [
           "application/json"
-        ],
-        "Content-Length": [
-          "41"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "Vary": [
-          "Accept-Encoding"
-        ],
-        "X-Content-Type-Options": [
-          "nosniff"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=15724800;"
-        ],
-        "Content-Security-Policy": [
-          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
-        ],
-        "X-Frame-Options": [
-          "SAMEORIGIN"
         ]
       },
       "statusCode": 404,

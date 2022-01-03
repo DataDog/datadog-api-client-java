@@ -18,38 +18,8 @@
     "httpResponse": {
       "body": "{\"encode_as\":\"json\",\"url\":\"http://example.com/webhook\",\"custom_headers\":null,\"name\":\"Test-Delete_a_webhook_returns_OK_response-1628785715\",\"payload\":\"{\\\"body\\\": \\\"$EVENT_MSG\\\", \\\"last_updated\\\": \\\"$LAST_UPDATED\\\", \\\"event_type\\\": \\\"$EVENT_TYPE\\\", \\\"title\\\": \\\"$EVENT_TITLE\\\", \\\"date\\\": \\\"$DATE\\\", \\\"org\\\": {\\\"id\\\": \\\"$ORG_ID\\\", \\\"name\\\": \\\"$ORG_NAME\\\"}, \\\"id\\\": \\\"$ID\\\"}\"}",
       "headers": {
-        "Date": [
-          "Thu, 12 Aug 2021 16:28:35 GMT"
-        ],
         "Content-Type": [
           "application/json"
-        ],
-        "Content-Length": [
-          "372"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "Location": [
-          "https://app.datadoghq.com/api/v1/integration/webhooks/configuration/webhooks/Test-Delete_a_webhook_returns_OK_response-1628785715"
-        ],
-        "X-Content-Type-Options": [
-          "nosniff"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=15724800;"
-        ],
-        "Content-Security-Policy": [
-          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
-        ],
-        "X-Frame-Options": [
-          "SAMEORIGIN"
         ]
       },
       "statusCode": 201,
@@ -78,32 +48,8 @@
     "httpResponse": {
       "body": "{}",
       "headers": {
-        "Date": [
-          "Thu, 12 Aug 2021 16:28:36 GMT"
-        ],
         "Content-Type": [
           "application/json"
-        ],
-        "Content-Length": [
-          "2"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "X-Content-Type-Options": [
-          "nosniff"
-        ],
-        "Content-Security-Policy": [
-          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
-        ],
-        "X-Frame-Options": [
-          "SAMEORIGIN"
         ]
       },
       "statusCode": 200,
@@ -132,35 +78,8 @@
     "httpResponse": {
       "body": "{\"errors\": [\"Webhook does not exist\"]}",
       "headers": {
-        "Date": [
-          "Thu, 12 Aug 2021 16:28:36 GMT"
-        ],
         "Content-Type": [
           "application/json"
-        ],
-        "Content-Length": [
-          "38"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "X-Content-Type-Options": [
-          "nosniff"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=15724800;"
-        ],
-        "Content-Security-Policy": [
-          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
-        ],
-        "X-Frame-Options": [
-          "SAMEORIGIN"
         ]
       },
       "statusCode": 400,

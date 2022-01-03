@@ -18,47 +18,8 @@
     "httpResponse": {
       "body": "{\"errors\": [\"The value provided for parameter 'query' is invalid: invalid operator specified: \"]}",
       "headers": {
-        "Date": [
-          "Tue, 19 Oct 2021 14:57:44 GMT"
-        ],
         "Content-Type": [
           "application/json"
-        ],
-        "Content-Length": [
-          "97"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "X-Ratelimit-Limit": [
-          "500"
-        ],
-        "X-Ratelimit-Period": [
-          "10"
-        ],
-        "X-Ratelimit-Reset": [
-          "6"
-        ],
-        "X-Ratelimit-Remaining": [
-          "498"
-        ],
-        "X-Content-Type-Options": [
-          "nosniff"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=15724800;"
-        ],
-        "Content-Security-Policy": [
-          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
-        ],
-        "X-Frame-Options": [
-          "SAMEORIGIN"
         ]
       },
       "statusCode": 400,

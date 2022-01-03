@@ -14,50 +14,8 @@
     "httpResponse": {
       "body": "{\"usage\":[{\"org_name\":\"DD Integration Tests (321813)\",\"public_id\":\"fasjyydbcgwwc2uc\",\"hour\":\"2021-12-19T21:00:00+00:00\",\"tag_config_source\":\"DD Integration Tests (321813):::project\",\"tags\":null,\"total_usage_sum\":17,\"updated_at\":\"2021-12-20T17\",\"usage_type\":\"infra_host_usage\"},{\"org_name\":\"DD Integration Tests (321813)\",\"public_id\":\"fasjyydbcgwwc2uc\",\"hour\":\"2021-12-19T22:00:00+00:00\",\"tag_config_source\":\"DD Integration Tests (321813):::project\",\"tags\":null,\"total_usage_sum\":17,\"updated_at\":\"2021-12-20T17\",\"usage_type\":\"infra_host_usage\"},{\"org_name\":\"DD Integration Tests (321813)\",\"public_id\":\"fasjyydbcgwwc2uc\",\"hour\":\"2021-12-19T23:00:00+00:00\",\"tag_config_source\":\"DD Integration Tests (321813):::project\",\"tags\":null,\"total_usage_sum\":17,\"updated_at\":\"2021-12-20T17\",\"usage_type\":\"infra_host_usage\"}],\"metadata\":{\"pagination\":{\"next_record_id\":null}}}",
       "headers": {
-        "Date": [
-          "Wed, 22 Dec 2021 21:22:29 GMT"
-        ],
         "Content-Type": [
           "application/json"
-        ],
-        "Content-Length": [
-          "862"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "X-Ratelimit-Remaining": [
-          "0"
-        ],
-        "X-Ratelimit-Limit": [
-          "1"
-        ],
-        "X-Ratelimit-Period": [
-          "60"
-        ],
-        "X-Ratelimit-Reset": [
-          "31"
-        ],
-        "Vary": [
-          "Accept-Encoding"
-        ],
-        "X-Content-Type-Options": [
-          "nosniff"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=15724800;"
-        ],
-        "Content-Security-Policy": [
-          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
-        ],
-        "X-Frame-Options": [
-          "SAMEORIGIN"
         ]
       },
       "statusCode": 200,

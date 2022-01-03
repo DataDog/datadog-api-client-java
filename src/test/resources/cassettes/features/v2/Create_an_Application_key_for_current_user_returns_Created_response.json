@@ -18,50 +18,8 @@
     "httpResponse": {
       "body": "{\"data\":{\"type\":\"application_keys\",\"id\":\"cc3a2cdd-7a8c-492f-a13a-3aa7c616567b\",\"attributes\":{\"name\":\"Test-Create_an_Application_key_for_current_user_returns_Created_response-1639757111\",\"created_at\":\"2021-12-17T16:05:12.186569+00:00\",\"last4\":\"beef\",\"key\":\"deaddcc81a44288fbbbfb15efe1203df034abeef\"},\"relationships\":{\"owned_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}}}}}",
       "headers": {
-        "Date": [
-          "Fri, 17 Dec 2021 16:05:12 GMT"
-        ],
         "Content-Type": [
           "application/json"
-        ],
-        "Content-Length": [
-          "399"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "X-Ratelimit-Remaining": [
-          "399"
-        ],
-        "X-Ratelimit-Limit": [
-          "400"
-        ],
-        "X-Ratelimit-Period": [
-          "3600"
-        ],
-        "X-Ratelimit-Reset": [
-          "3288"
-        ],
-        "Vary": [
-          "Accept-Encoding"
-        ],
-        "X-Content-Type-Options": [
-          "nosniff"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=15724800;"
-        ],
-        "Content-Security-Policy": [
-          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
-        ],
-        "X-Frame-Options": [
-          "SAMEORIGIN"
         ]
       },
       "statusCode": 201,
@@ -88,47 +46,7 @@
       "secure": true
     },
     "httpResponse": {
-      "headers": {
-        "Date": [
-          "Fri, 17 Dec 2021 16:05:12 GMT"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "X-Ratelimit-Remaining": [
-          "398"
-        ],
-        "X-Ratelimit-Limit": [
-          "400"
-        ],
-        "X-Ratelimit-Period": [
-          "3600"
-        ],
-        "X-Ratelimit-Reset": [
-          "3288"
-        ],
-        "Vary": [
-          "Accept-Encoding"
-        ],
-        "X-Content-Type-Options": [
-          "nosniff"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=15724800;"
-        ],
-        "Content-Security-Policy": [
-          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
-        ],
-        "X-Frame-Options": [
-          "SAMEORIGIN"
-        ]
-      },
+      "headers": {},
       "statusCode": 204,
       "reasonPhrase": "No Content"
     },

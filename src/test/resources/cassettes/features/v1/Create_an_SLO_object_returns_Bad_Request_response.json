@@ -18,50 +18,8 @@
     "httpResponse": {
       "body": "{\"errors\": [\"Invalid payload: must specify monitor_ids or monitor_search\"]}",
       "headers": {
-        "Date": [
-          "Wed, 14 Apr 2021 15:12:34 GMT"
-        ],
         "Content-Type": [
           "application/json"
-        ],
-        "Content-Length": [
-          "75"
-        ],
-        "Connection": [
-          "close"
-        ],
-        "Pragma": [
-          "no-cache"
-        ],
-        "Cache-Control": [
-          "no-cache"
-        ],
-        "X-Ratelimit-Limit": [
-          "500"
-        ],
-        "X-Ratelimit-Period": [
-          "60"
-        ],
-        "X-Ratelimit-Reset": [
-          "26"
-        ],
-        "X-Ratelimit-Remaining": [
-          "498"
-        ],
-        "X-Dd-Version": [
-          "35.4310591"
-        ],
-        "X-Content-Type-Options": [
-          "nosniff"
-        ],
-        "Strict-Transport-Security": [
-          "max-age=15724800;"
-        ],
-        "Content-Security-Policy": [
-          "frame-ancestors 'self'; report-uri https://api.datadoghq.com/csp-report"
-        ],
-        "X-Frame-Options": [
-          "SAMEORIGIN"
         ]
       },
       "statusCode": 400,
