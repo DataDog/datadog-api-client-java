@@ -29,6 +29,7 @@ import java.util.Objects;
   SyntheticsAPIStep.JSON_PROPERTY_IS_CRITICAL,
   SyntheticsAPIStep.JSON_PROPERTY_NAME,
   SyntheticsAPIStep.JSON_PROPERTY_REQUEST,
+  SyntheticsAPIStep.JSON_PROPERTY_RETRY,
   SyntheticsAPIStep.JSON_PROPERTY_SUBTYPE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -51,6 +52,9 @@ public class SyntheticsAPIStep {
 
   public static final String JSON_PROPERTY_REQUEST = "request";
   private SyntheticsTestRequest request;
+
+  public static final String JSON_PROPERTY_RETRY = "retry";
+  private SyntheticsTestOptionsRetry retry;
 
   public static final String JSON_PROPERTY_SUBTYPE = "subtype";
   private SyntheticsAPIStepSubtype subtype;
@@ -216,6 +220,29 @@ public class SyntheticsAPIStep {
     this.request = request;
   }
 
+  public SyntheticsAPIStep retry(SyntheticsTestOptionsRetry retry) {
+    this.retry = retry;
+    this.unparsed |= retry.unparsed;
+    return this;
+  }
+
+  /**
+   * Get retry
+   *
+   * @return retry
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_RETRY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsTestOptionsRetry getRetry() {
+    return retry;
+  }
+
+  public void setRetry(SyntheticsTestOptionsRetry retry) {
+    this.retry = retry;
+  }
+
   public SyntheticsAPIStep subtype(SyntheticsAPIStepSubtype subtype) {
     this.subtype = subtype;
     this.unparsed |= !subtype.isValid();
@@ -258,13 +285,14 @@ public class SyntheticsAPIStep {
         && Objects.equals(this.isCritical, syntheticsAPIStep.isCritical)
         && Objects.equals(this.name, syntheticsAPIStep.name)
         && Objects.equals(this.request, syntheticsAPIStep.request)
+        && Objects.equals(this.retry, syntheticsAPIStep.retry)
         && Objects.equals(this.subtype, syntheticsAPIStep.subtype);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        allowFailure, assertions, extractedValues, isCritical, name, request, subtype);
+        allowFailure, assertions, extractedValues, isCritical, name, request, retry, subtype);
   }
 
   @Override
@@ -277,6 +305,7 @@ public class SyntheticsAPIStep {
     sb.append("    isCritical: ").append(toIndentedString(isCritical)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    request: ").append(toIndentedString(request)).append("\n");
+    sb.append("    retry: ").append(toIndentedString(retry)).append("\n");
     sb.append("    subtype: ").append(toIndentedString(subtype)).append("\n");
     sb.append("}");
     return sb.toString();
