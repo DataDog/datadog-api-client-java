@@ -1,0 +1,66 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"description\":\"\",\"is_read_only\":false,\"layout_type\":\"free\",\"notify_list\":[],\"template_variables\":[],\"title\":\"Test-Create_a_new_dashboard_with_note_widget-1640286789\",\"widgets\":[{\"definition\":{\"content\":\"# Example Note\",\"type\":\"note\"},\"layout\":{\"height\":24,\"width\":18,\"x\":0,\"y\":0}}]}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Create_a_new_dashboard_with_note_widget"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v1/dashboard",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"notify_list\":[],\"description\":\"\",\"restricted_roles\":[],\"author_name\":null,\"template_variables\":[],\"is_read_only\":false,\"id\":\"9c2-irq-xh9\",\"title\":\"Test-Create_a_new_dashboard_with_note_widget-1640286789\",\"url\":\"/dashboard/9c2-irq-xh9/test-createanewdashboardwithnotewidget-1640286789\",\"created_at\":\"2021-12-23T19:13:09.313338+00:00\",\"modified_at\":\"2021-12-23T19:13:09.313338+00:00\",\"author_handle\":\"frog@datadoghq.com\",\"widgets\":[{\"definition\":{\"content\":\"# Example Note\",\"type\":\"note\"},\"layout\":{\"y\":0,\"width\":18,\"x\":0,\"height\":24},\"id\":1328096231719907}],\"layout_type\":\"free\"}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "464f8fc9-984b-a669-f9c0-ad7fd0455f9a"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Create_a_new_dashboard_with_note_widget"
+        ]
+      },
+      "method": "DELETE",
+      "path": "/api/v1/dashboard/9c2-irq-xh9",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"deleted_dashboard_id\":\"9c2-irq-xh9\"}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "f900c3ed-ba3b-8164-d05b-6b0d0d7e7459"
+  }
+]
