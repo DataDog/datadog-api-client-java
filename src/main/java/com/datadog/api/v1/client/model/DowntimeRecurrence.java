@@ -50,7 +50,7 @@ public class DowntimeRecurrence {
   private JsonNullable<Integer> untilOccurrences = JsonNullable.<Integer>undefined();
 
   public static final String JSON_PROPERTY_WEEK_DAYS = "week_days";
-  private List<String> weekDays = null;
+  private JsonNullable<List<String>> weekDays = JsonNullable.<List<String>>undefined();
 
   public DowntimeRecurrence period(Integer period) {
     this.period = period;
@@ -219,15 +219,19 @@ public class DowntimeRecurrence {
   }
 
   public DowntimeRecurrence weekDays(List<String> weekDays) {
-    this.weekDays = weekDays;
+    this.weekDays = JsonNullable.<List<String>>of(weekDays);
     return this;
   }
 
   public DowntimeRecurrence addWeekDaysItem(String weekDaysItem) {
-    if (this.weekDays == null) {
-      this.weekDays = new ArrayList<>();
+    if (this.weekDays == null || !this.weekDays.isPresent()) {
+      this.weekDays = JsonNullable.<List<String>>of(new ArrayList<>());
     }
-    this.weekDays.add(weekDaysItem);
+    try {
+      this.weekDays.get().add(weekDaysItem);
+    } catch (java.util.NoSuchElementException e) {
+      // this can never happen, as we make sure above that the value is present
+    }
     return this;
   }
 
@@ -244,14 +248,24 @@ public class DowntimeRecurrence {
       value =
           "A list of week days to repeat on. Choose from `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`"
               + " or `Sun`. Only applicable when type is weeks. First letter must be capitalized.")
+  @JsonIgnore
+  public List<String> getWeekDays() {
+    return weekDays.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_WEEK_DAYS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<String> getWeekDays() {
+  public JsonNullable<List<String>> getWeekDays_JsonNullable() {
     return weekDays;
   }
 
-  public void setWeekDays(List<String> weekDays) {
+  @JsonProperty(JSON_PROPERTY_WEEK_DAYS)
+  public void setWeekDays_JsonNullable(JsonNullable<List<String>> weekDays) {
     this.weekDays = weekDays;
+  }
+
+  public void setWeekDays(List<String> weekDays) {
+    this.weekDays = JsonNullable.<List<String>>of(weekDays);
   }
 
   /** Return true if this DowntimeRecurrence object is equal to o. */
