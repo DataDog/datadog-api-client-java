@@ -8,6 +8,14 @@
       },
       "method": "GET",
       "path": "/api/v1/usage/hourly-attribution",
+      "queryStringParameters": {
+        "start_hr": [
+          "2021-12-19T21:22:28.553Z"
+        ],
+        "usage_type": [
+          "infra_host_usage"
+        ]
+      },
       "keepAlive": false,
       "secure": true
     },

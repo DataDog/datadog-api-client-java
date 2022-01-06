@@ -8,6 +8,11 @@
       },
       "method": "GET",
       "path": "/api/v1/monitor/groups/search",
+      "queryStringParameters": {
+        "query": [
+          "status:notastatus"
+        ]
+      },
       "keepAlive": false,
       "secure": true
     },

@@ -488,6 +488,8 @@ public class World {
 
     try {
       response = requestBuilder.invoke(api, parametersArray.toArray());
+    } catch (java.lang.IllegalArgumentException e) {
+      throw e;
     } catch (Exception e) {
       // Return a new response object with the response code set
       // so we can make assertions on it
@@ -528,6 +530,12 @@ public class World {
 
   public static <T> T fromJSON(ObjectMapper mapper, Class<T> clazz, String data)
       throws com.fasterxml.jackson.core.JsonProcessingException {
+    if (clazz == OffsetDateTime.class) {
+      return (T)
+          OffsetDateTime.parse(
+              data.substring(1, data.length() - 1), // "2020-01-01T00:00:00+00:00" strip quotes
+              DateTimeFormatter.ISO_DATE_TIME);
+    }
     return mapper.readValue(data, clazz);
   }
 

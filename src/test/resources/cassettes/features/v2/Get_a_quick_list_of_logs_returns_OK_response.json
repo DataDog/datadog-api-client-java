@@ -8,6 +8,23 @@
       },
       "method": "GET",
       "path": "/api/v2/logs/events",
+      "queryStringParameters": {
+        "filter[query]": [
+          "datadog-agent"
+        ],
+        "filter[index]": [
+          "main"
+        ],
+        "filter[from]": [
+          "2020-09-17T11:48:36+01:00"
+        ],
+        "filter[to]": [
+          "2020-09-17T12:48:36+01:00"
+        ],
+        "page[limit]": [
+          "5"
+        ]
+      },
       "keepAlive": false,
       "secure": true
     },
