@@ -42,6 +42,11 @@
       },
       "method": "GET",
       "path": "/api/v2/roles",
+      "queryStringParameters": {
+        "filter": [
+          "Test-List_roles_returns_OK_response-1618491761"
+        ]
+      },
       "keepAlive": false,
       "secure": true
     },

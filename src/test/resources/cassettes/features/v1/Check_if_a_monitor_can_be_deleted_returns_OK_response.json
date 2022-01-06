@@ -42,6 +42,11 @@
       },
       "method": "GET",
       "path": "/api/v1/monitor/can_delete",
+      "queryStringParameters": {
+        "monitor_ids": [
+          "55498399"
+        ]
+      },
       "keepAlive": false,
       "secure": true
     },

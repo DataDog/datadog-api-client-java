@@ -42,6 +42,11 @@
       },
       "method": "GET",
       "path": "/api/v2/teams",
+      "queryStringParameters": {
+        "filter": [
+          "Test-Get_a_list_of_all_incident_teams_returns_OK_response-1618491701"
+        ]
+      },
       "keepAlive": false,
       "secure": true
     },

@@ -42,6 +42,11 @@
       },
       "method": "GET",
       "path": "/api/v1/dashboard",
+      "queryStringParameters": {
+        "filter[shared]": [
+          "false"
+        ]
+      },
       "keepAlive": false,
       "secure": true
     },

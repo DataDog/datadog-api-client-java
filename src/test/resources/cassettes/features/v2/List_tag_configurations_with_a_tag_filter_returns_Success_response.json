@@ -8,6 +8,11 @@
       },
       "method": "GET",
       "path": "/api/v2/metrics",
+      "queryStringParameters": {
+        "filter[tags]": [
+          "TestListtagconfigurationswithatagfilterreturnsSuccessresponse1618491743"
+        ]
+      },
       "keepAlive": false,
       "secure": true
     },

@@ -8,6 +8,17 @@
       },
       "method": "GET",
       "path": "/api/v1/query",
+      "queryStringParameters": {
+        "from": [
+          "1623846101"
+        ],
+        "to": [
+          "1623932501"
+        ],
+        "query": [
+          "system.cpu.idle{*}"
+        ]
+      },
       "keepAlive": false,
       "secure": true
     },
