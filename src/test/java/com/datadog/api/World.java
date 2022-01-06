@@ -486,10 +486,6 @@ public class World {
                 apiVersion,
                 requestBuilder.getName().substring(0, requestBuilder.getName().length() - 12));
 
-    System.out.printf(
-        "\n\n\n >>> api = %s (%s)\n\n\n >>> params = %s\n\n\n",
-        api, requestBuilder, parametersArray);
-
     try {
       response = requestBuilder.invoke(api, parametersArray.toArray());
     } catch (java.lang.IllegalArgumentException e) {
