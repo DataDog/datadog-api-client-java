@@ -22,12 +22,279 @@ import java.util.Objects;
 
 /** Metadata associated with your host. */
 @ApiModel(description = "Metadata associated with your host.")
-@JsonPropertyOrder({HostMeta.JSON_PROPERTY_NIX_V})
+@JsonPropertyOrder({
+  HostMeta.JSON_PROPERTY_AGENT_CHECKS,
+  HostMeta.JSON_PROPERTY_AGENT_VERSION,
+  HostMeta.JSON_PROPERTY_CPU_CORES,
+  HostMeta.JSON_PROPERTY_FBSD_V,
+  HostMeta.JSON_PROPERTY_GOHAI,
+  HostMeta.JSON_PROPERTY_INSTALL_METHOD,
+  HostMeta.JSON_PROPERTY_MAC_V,
+  HostMeta.JSON_PROPERTY_MACHINE,
+  HostMeta.JSON_PROPERTY_NIX_V,
+  HostMeta.JSON_PROPERTY_PLATFORM,
+  HostMeta.JSON_PROPERTY_PROCESSOR,
+  HostMeta.JSON_PROPERTY_PYTHON_V,
+  HostMeta.JSON_PROPERTY_SOCKET_FQDN,
+  HostMeta.JSON_PROPERTY_SOCKET_HOSTNAME,
+  HostMeta.JSON_PROPERTY_WIN_V
+})
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class HostMeta {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_AGENT_CHECKS = "agent_checks";
+  private List<List<Object>> agentChecks = null;
+
+  public static final String JSON_PROPERTY_AGENT_VERSION = "agent_version";
+  private String agentVersion;
+
+  public static final String JSON_PROPERTY_CPU_CORES = "cpuCores";
+  private Long cpuCores;
+
+  public static final String JSON_PROPERTY_FBSD_V = "fbsdV";
+  private List<String> fbsdV = null;
+
+  public static final String JSON_PROPERTY_GOHAI = "gohai";
+  private String gohai;
+
+  public static final String JSON_PROPERTY_INSTALL_METHOD = "install_method";
+  private HostMetaInstallMethod installMethod;
+
+  public static final String JSON_PROPERTY_MAC_V = "macV";
+  private List<String> macV = null;
+
+  public static final String JSON_PROPERTY_MACHINE = "machine";
+  private String machine;
+
   public static final String JSON_PROPERTY_NIX_V = "nixV";
   private List<String> nixV = null;
+
+  public static final String JSON_PROPERTY_PLATFORM = "platform";
+  private String platform;
+
+  public static final String JSON_PROPERTY_PROCESSOR = "processor";
+  private String processor;
+
+  public static final String JSON_PROPERTY_PYTHON_V = "pythonV";
+  private String pythonV;
+
+  public static final String JSON_PROPERTY_SOCKET_FQDN = "socket-fqdn";
+  private String socketFqdn;
+
+  public static final String JSON_PROPERTY_SOCKET_HOSTNAME = "socket-hostname";
+  private String socketHostname;
+
+  public static final String JSON_PROPERTY_WIN_V = "winV";
+  private List<String> winV = null;
+
+  public HostMeta agentChecks(List<List<Object>> agentChecks) {
+    this.agentChecks = agentChecks;
+    return this;
+  }
+
+  public HostMeta addAgentChecksItem(List<Object> agentChecksItem) {
+    if (this.agentChecks == null) {
+      this.agentChecks = new ArrayList<>();
+    }
+    this.agentChecks.add(agentChecksItem);
+    return this;
+  }
+
+  /**
+   * A list of Agent checks running on the host.
+   *
+   * @return agentChecks
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A list of Agent checks running on the host.")
+  @JsonProperty(JSON_PROPERTY_AGENT_CHECKS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<List<Object>> getAgentChecks() {
+    return agentChecks;
+  }
+
+  public void setAgentChecks(List<List<Object>> agentChecks) {
+    this.agentChecks = agentChecks;
+  }
+
+  public HostMeta agentVersion(String agentVersion) {
+    this.agentVersion = agentVersion;
+    return this;
+  }
+
+  /**
+   * The Datadog Agent version.
+   *
+   * @return agentVersion
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "7.32.3", value = "The Datadog Agent version.")
+  @JsonProperty(JSON_PROPERTY_AGENT_VERSION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getAgentVersion() {
+    return agentVersion;
+  }
+
+  public void setAgentVersion(String agentVersion) {
+    this.agentVersion = agentVersion;
+  }
+
+  public HostMeta cpuCores(Long cpuCores) {
+    this.cpuCores = cpuCores;
+    return this;
+  }
+
+  /**
+   * The number of cores.
+   *
+   * @return cpuCores
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "1", value = "The number of cores.")
+  @JsonProperty(JSON_PROPERTY_CPU_CORES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCpuCores() {
+    return cpuCores;
+  }
+
+  public void setCpuCores(Long cpuCores) {
+    this.cpuCores = cpuCores;
+  }
+
+  public HostMeta fbsdV(List<String> fbsdV) {
+    this.fbsdV = fbsdV;
+    return this;
+  }
+
+  public HostMeta addFbsdVItem(String fbsdVItem) {
+    if (this.fbsdV == null) {
+      this.fbsdV = new ArrayList<>();
+    }
+    this.fbsdV.add(fbsdVItem);
+    return this;
+  }
+
+  /**
+   * An array of Mac versions.
+   *
+   * @return fbsdV
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "An array of Mac versions.")
+  @JsonProperty(JSON_PROPERTY_FBSD_V)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getFbsdV() {
+    return fbsdV;
+  }
+
+  public void setFbsdV(List<String> fbsdV) {
+    this.fbsdV = fbsdV;
+  }
+
+  public HostMeta gohai(String gohai) {
+    this.gohai = gohai;
+    return this;
+  }
+
+  /**
+   * JSON string containing system information.
+   *
+   * @return gohai
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      example =
+          "{\"cpu\":{\"cache_size\":\"8192"
+              + " KB\",\"cpu_cores\":\"1\",\"cpu_logical_processors\":\"1\",\"family\":\"6\",\"mhz\":\"2712.000\",\"model\":\"142\",\"model_name\":\"Intel(R)"
+              + " Core(TM) i7-8559U CPU @"
+              + " 2.70GHz\",\"stepping\":\"10\",\"vendor_id\":\"GenuineIntel\"},\"filesystem\":[{\"kb_size\":\"3966896\",\"mounted_on\":\"/dev\",\"name\":\"udev\"},{\"kb_size\":\"797396\",\"mounted_on\":\"/run\",\"name\":\"tmpfs\"},{\"kb_size\":\"64800356\",\"mounted_on\":\"/\",\"name\":\"/dev/mapper/vagrant--vg-root\"},{\"kb_size\":\"3986972\",\"mounted_on\":\"/dev/shm\",\"name\":\"tmpfs\"},{\"kb_size\":\"5120\",\"mounted_on\":\"/run/lock\",\"name\":\"tmpfs\"},{\"kb_size\":\"3986972\",\"mounted_on\":\"/sys/fs/cgroup\",\"name\":\"tmpfs\"},{\"kb_size\":\"488245288\",\"mounted_on\":\"/vagrant\",\"name\":\"vagrant\"},{\"kb_size\":\"797392\",\"mounted_on\":\"/run/user/1000\",\"name\":\"tmpfs\"}],\"memory\":{\"swap_total\":\"1003516kB\",\"total\":\"7973944kB\"},\"network\":{\"interfaces\":[{\"ipv4\":\"10.0.2.15\",\"ipv4-network\":\"10.0.2.0/24\",\"ipv6\":\"fe80::a00:27ff:fec2:be11\",\"ipv6-network\":\"fe80::/64\",\"macaddress\":\"08:00:27:c2:be:11\",\"name\":\"eth0\"},{\"ipv4\":\"192.168.122.1\",\"ipv4-network\":\"192.168.122.0/24\",\"macaddress\":\"52:54:00:6f:1c:bf\",\"name\":\"virbr0\"}],\"ipaddress\":\"10.0.2.15\",\"ipaddressv6\":\"fe80::a00:27ff:fec2:be11\",\"macaddress\":\"08:00:27:c2:be:11\"},\"platform\":{\"GOOARCH\":\"amd64\",\"GOOS\":\"linux\",\"goV\":\"1.16.7\",\"hardware_platform\":\"x86_64\",\"hostname\":\"vagrant\",\"kernel_name\":\"Linux\",\"kernel_release\":\"4.15.0-29-generic\",\"kernel_version\":\"#31-Ubuntu"
+              + " SMP Tue Jul 17 15:39:52 UTC"
+              + " 2018\",\"machine\":\"x86_64\",\"os\":\"GNU/Linux\",\"processor\":\"x86_64\",\"pythonV\":\"2.7.15rc1\"}}",
+      value = "JSON string containing system information.")
+  @JsonProperty(JSON_PROPERTY_GOHAI)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getGohai() {
+    return gohai;
+  }
+
+  public void setGohai(String gohai) {
+    this.gohai = gohai;
+  }
+
+  public HostMeta installMethod(HostMetaInstallMethod installMethod) {
+    this.installMethod = installMethod;
+    this.unparsed |= installMethod.unparsed;
+    return this;
+  }
+
+  /**
+   * Get installMethod
+   *
+   * @return installMethod
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_INSTALL_METHOD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public HostMetaInstallMethod getInstallMethod() {
+    return installMethod;
+  }
+
+  public void setInstallMethod(HostMetaInstallMethod installMethod) {
+    this.installMethod = installMethod;
+  }
+
+  public HostMeta macV(List<String> macV) {
+    this.macV = macV;
+    return this;
+  }
+
+  public HostMeta addMacVItem(String macVItem) {
+    if (this.macV == null) {
+      this.macV = new ArrayList<>();
+    }
+    this.macV.add(macVItem);
+    return this;
+  }
+
+  /**
+   * An array of Mac versions.
+   *
+   * @return macV
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "An array of Mac versions.")
+  @JsonProperty(JSON_PROPERTY_MAC_V)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getMacV() {
+    return macV;
+  }
+
+  public void setMacV(List<String> macV) {
+    this.macV = macV;
+  }
+
+  public HostMeta machine(String machine) {
+    this.machine = machine;
+    return this;
+  }
+
+  /**
+   * The machine architecture.
+   *
+   * @return machine
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "amd64", value = "The machine architecture.")
+  @JsonProperty(JSON_PROPERTY_MACHINE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getMachine() {
+    return machine;
+  }
+
+  public void setMachine(String machine) {
+    this.machine = machine;
+  }
 
   public HostMeta nixV(List<String> nixV) {
     this.nixV = nixV;
@@ -59,6 +326,146 @@ public class HostMeta {
     this.nixV = nixV;
   }
 
+  public HostMeta platform(String platform) {
+    this.platform = platform;
+    return this;
+  }
+
+  /**
+   * The OS platform.
+   *
+   * @return platform
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "linux", value = "The OS platform.")
+  @JsonProperty(JSON_PROPERTY_PLATFORM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPlatform() {
+    return platform;
+  }
+
+  public void setPlatform(String platform) {
+    this.platform = platform;
+  }
+
+  public HostMeta processor(String processor) {
+    this.processor = processor;
+    return this;
+  }
+
+  /**
+   * The processor.
+   *
+   * @return processor
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "Intel(R) Core(TM) i7-8559U CPU @ 2.70GHz", value = "The processor.")
+  @JsonProperty(JSON_PROPERTY_PROCESSOR)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getProcessor() {
+    return processor;
+  }
+
+  public void setProcessor(String processor) {
+    this.processor = processor;
+  }
+
+  public HostMeta pythonV(String pythonV) {
+    this.pythonV = pythonV;
+    return this;
+  }
+
+  /**
+   * The Python version.
+   *
+   * @return pythonV
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "3.8.11", value = "The Python version.")
+  @JsonProperty(JSON_PROPERTY_PYTHON_V)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getPythonV() {
+    return pythonV;
+  }
+
+  public void setPythonV(String pythonV) {
+    this.pythonV = pythonV;
+  }
+
+  public HostMeta socketFqdn(String socketFqdn) {
+    this.socketFqdn = socketFqdn;
+    return this;
+  }
+
+  /**
+   * The socket fqdn.
+   *
+   * @return socketFqdn
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "vagrant.vm.", value = "The socket fqdn.")
+  @JsonProperty(JSON_PROPERTY_SOCKET_FQDN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSocketFqdn() {
+    return socketFqdn;
+  }
+
+  public void setSocketFqdn(String socketFqdn) {
+    this.socketFqdn = socketFqdn;
+  }
+
+  public HostMeta socketHostname(String socketHostname) {
+    this.socketHostname = socketHostname;
+    return this;
+  }
+
+  /**
+   * The socket hostname.
+   *
+   * @return socketHostname
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "vagrant", value = "The socket hostname.")
+  @JsonProperty(JSON_PROPERTY_SOCKET_HOSTNAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public String getSocketHostname() {
+    return socketHostname;
+  }
+
+  public void setSocketHostname(String socketHostname) {
+    this.socketHostname = socketHostname;
+  }
+
+  public HostMeta winV(List<String> winV) {
+    this.winV = winV;
+    return this;
+  }
+
+  public HostMeta addWinVItem(String winVItem) {
+    if (this.winV == null) {
+      this.winV = new ArrayList<>();
+    }
+    this.winV.add(winVItem);
+    return this;
+  }
+
+  /**
+   * An array of Windows versions.
+   *
+   * @return winV
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "An array of Windows versions.")
+  @JsonProperty(JSON_PROPERTY_WIN_V)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public List<String> getWinV() {
+    return winV;
+  }
+
+  public void setWinV(List<String> winV) {
+    this.winV = winV;
+  }
+
   /** Return true if this Host_meta object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -69,19 +476,62 @@ public class HostMeta {
       return false;
     }
     HostMeta hostMeta = (HostMeta) o;
-    return Objects.equals(this.nixV, hostMeta.nixV);
+    return Objects.equals(this.agentChecks, hostMeta.agentChecks)
+        && Objects.equals(this.agentVersion, hostMeta.agentVersion)
+        && Objects.equals(this.cpuCores, hostMeta.cpuCores)
+        && Objects.equals(this.fbsdV, hostMeta.fbsdV)
+        && Objects.equals(this.gohai, hostMeta.gohai)
+        && Objects.equals(this.installMethod, hostMeta.installMethod)
+        && Objects.equals(this.macV, hostMeta.macV)
+        && Objects.equals(this.machine, hostMeta.machine)
+        && Objects.equals(this.nixV, hostMeta.nixV)
+        && Objects.equals(this.platform, hostMeta.platform)
+        && Objects.equals(this.processor, hostMeta.processor)
+        && Objects.equals(this.pythonV, hostMeta.pythonV)
+        && Objects.equals(this.socketFqdn, hostMeta.socketFqdn)
+        && Objects.equals(this.socketHostname, hostMeta.socketHostname)
+        && Objects.equals(this.winV, hostMeta.winV);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(nixV);
+    return Objects.hash(
+        agentChecks,
+        agentVersion,
+        cpuCores,
+        fbsdV,
+        gohai,
+        installMethod,
+        macV,
+        machine,
+        nixV,
+        platform,
+        processor,
+        pythonV,
+        socketFqdn,
+        socketHostname,
+        winV);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HostMeta {\n");
+    sb.append("    agentChecks: ").append(toIndentedString(agentChecks)).append("\n");
+    sb.append("    agentVersion: ").append(toIndentedString(agentVersion)).append("\n");
+    sb.append("    cpuCores: ").append(toIndentedString(cpuCores)).append("\n");
+    sb.append("    fbsdV: ").append(toIndentedString(fbsdV)).append("\n");
+    sb.append("    gohai: ").append(toIndentedString(gohai)).append("\n");
+    sb.append("    installMethod: ").append(toIndentedString(installMethod)).append("\n");
+    sb.append("    macV: ").append(toIndentedString(macV)).append("\n");
+    sb.append("    machine: ").append(toIndentedString(machine)).append("\n");
     sb.append("    nixV: ").append(toIndentedString(nixV)).append("\n");
+    sb.append("    platform: ").append(toIndentedString(platform)).append("\n");
+    sb.append("    processor: ").append(toIndentedString(processor)).append("\n");
+    sb.append("    pythonV: ").append(toIndentedString(pythonV)).append("\n");
+    sb.append("    socketFqdn: ").append(toIndentedString(socketFqdn)).append("\n");
+    sb.append("    socketHostname: ").append(toIndentedString(socketHostname)).append("\n");
+    sb.append("    winV: ").append(toIndentedString(winV)).append("\n");
     sb.append("}");
     return sb.toString();
   }

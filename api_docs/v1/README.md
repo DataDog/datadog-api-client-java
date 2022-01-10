@@ -349,6 +349,7 @@ All URIs are relative to *https://api.datadoghq.com*
 - [HostMapWidgetDefinitionStyle](HostMapWidgetDefinitionStyle.md)
 - [HostMapWidgetDefinitionType](HostMapWidgetDefinitionType.md)
 - [HostMeta](HostMeta.md)
+- [HostMetaInstallMethod](HostMetaInstallMethod.md)
 - [HostMetrics](HostMetrics.md)
 - [HostMuteResponse](HostMuteResponse.md)
 - [HostMuteSettings](HostMuteSettings.md)
