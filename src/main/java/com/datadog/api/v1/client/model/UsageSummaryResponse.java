@@ -1685,7 +1685,7 @@ public class UsageSummaryResponse {
   }
 
   /**
-   * Shows the sum of all browser RUM Sessions over all hours in the current months for all
+   * Shows the sum of all browser RUM Lite Sessions over all hours in the current months for all
    * organizations.
    *
    * @return rumSessionCountAggSum
@@ -1693,8 +1693,8 @@ public class UsageSummaryResponse {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Shows the sum of all browser RUM Sessions over all hours in the current months for all"
-              + " organizations.")
+          "Shows the sum of all browser RUM Lite Sessions over all hours in the current months for"
+              + " all organizations.")
   @JsonProperty(JSON_PROPERTY_RUM_SESSION_COUNT_AGG_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getRumSessionCountAggSum() {

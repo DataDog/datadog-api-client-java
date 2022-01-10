@@ -25,6 +25,7 @@ import java.util.Objects;
   UsageRumSessionsHour.JSON_PROPERTY_HOUR,
   UsageRumSessionsHour.JSON_PROPERTY_ORG_NAME,
   UsageRumSessionsHour.JSON_PROPERTY_PUBLIC_ID,
+  UsageRumSessionsHour.JSON_PROPERTY_REPLAY_SESSION_COUNT,
   UsageRumSessionsHour.JSON_PROPERTY_SESSION_COUNT,
   UsageRumSessionsHour.JSON_PROPERTY_SESSION_COUNT_ANDROID,
   UsageRumSessionsHour.JSON_PROPERTY_SESSION_COUNT_IOS
@@ -40,6 +41,9 @@ public class UsageRumSessionsHour {
 
   public static final String JSON_PROPERTY_PUBLIC_ID = "public_id";
   private String publicId;
+
+  public static final String JSON_PROPERTY_REPLAY_SESSION_COUNT = "replay_session_count";
+  private Long replaySessionCount;
 
   public static final String JSON_PROPERTY_SESSION_COUNT = "session_count";
   private Long sessionCount;
@@ -116,18 +120,42 @@ public class UsageRumSessionsHour {
     this.publicId = publicId;
   }
 
+  public UsageRumSessionsHour replaySessionCount(Long replaySessionCount) {
+    this.replaySessionCount = replaySessionCount;
+    return this;
+  }
+
+  /**
+   * Contains the number of RUM Replay Sessions (data available beginning November 1, 2021).
+   *
+   * @return replaySessionCount
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Contains the number of RUM Replay Sessions (data available beginning November 1, 2021).")
+  @JsonProperty(JSON_PROPERTY_REPLAY_SESSION_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getReplaySessionCount() {
+    return replaySessionCount;
+  }
+
+  public void setReplaySessionCount(Long replaySessionCount) {
+    this.replaySessionCount = replaySessionCount;
+  }
+
   public UsageRumSessionsHour sessionCount(Long sessionCount) {
     this.sessionCount = sessionCount;
     return this;
   }
 
   /**
-   * Contains the number of RUM Sessions.
+   * Contains the number of browser RUM Lite Sessions.
    *
    * @return sessionCount
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Contains the number of RUM Sessions.")
+  @ApiModelProperty(value = "Contains the number of browser RUM Lite Sessions.")
   @JsonProperty(JSON_PROPERTY_SESSION_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getSessionCount() {
@@ -202,6 +230,7 @@ public class UsageRumSessionsHour {
     return Objects.equals(this.hour, usageRumSessionsHour.hour)
         && Objects.equals(this.orgName, usageRumSessionsHour.orgName)
         && Objects.equals(this.publicId, usageRumSessionsHour.publicId)
+        && Objects.equals(this.replaySessionCount, usageRumSessionsHour.replaySessionCount)
         && Objects.equals(this.sessionCount, usageRumSessionsHour.sessionCount)
         && Objects.equals(this.sessionCountAndroid, usageRumSessionsHour.sessionCountAndroid)
         && Objects.equals(this.sessionCountIos, usageRumSessionsHour.sessionCountIos);
@@ -210,7 +239,13 @@ public class UsageRumSessionsHour {
   @Override
   public int hashCode() {
     return Objects.hash(
-        hour, orgName, publicId, sessionCount, sessionCountAndroid, sessionCountIos);
+        hour,
+        orgName,
+        publicId,
+        replaySessionCount,
+        sessionCount,
+        sessionCountAndroid,
+        sessionCountIos);
   }
 
   @Override
@@ -220,6 +255,7 @@ public class UsageRumSessionsHour {
     sb.append("    hour: ").append(toIndentedString(hour)).append("\n");
     sb.append("    orgName: ").append(toIndentedString(orgName)).append("\n");
     sb.append("    publicId: ").append(toIndentedString(publicId)).append("\n");
+    sb.append("    replaySessionCount: ").append(toIndentedString(replaySessionCount)).append("\n");
     sb.append("    sessionCount: ").append(toIndentedString(sessionCount)).append("\n");
     sb.append("    sessionCountAndroid: ")
         .append(toIndentedString(sessionCountAndroid))

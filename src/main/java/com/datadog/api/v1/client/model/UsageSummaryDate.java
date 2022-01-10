@@ -1447,7 +1447,7 @@ public class UsageSummaryDate {
   }
 
   /**
-   * Shows the sum of all browser RUM Sessions over all hours in the current date for all
+   * Shows the sum of all browser RUM Lite Sessions over all hours in the current date for all
    * organizations
    *
    * @return rumSessionCountSum
@@ -1455,8 +1455,8 @@ public class UsageSummaryDate {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Shows the sum of all browser RUM Sessions over all hours in the current date for all"
-              + " organizations")
+          "Shows the sum of all browser RUM Lite Sessions over all hours in the current date for"
+              + " all organizations")
   @JsonProperty(JSON_PROPERTY_RUM_SESSION_COUNT_SUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Long getRumSessionCountSum() {
