@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"name\": \"Test-Update_an_SLO_returns_Bad_Request_response-1618572732\", \"query\": {\"denominator\": \"sum:httpservice.hits{!code:3xx}.as_count()\", \"numerator\": \"sum:httpservice.hits{code:2xx}.as_count()\"}, \"thresholds\": [{\"target\": 95.0, \"timeframe\": \"7d\", \"warning\": 98.0}], \"type\": \"metric\"}"
+        "json": "{\"name\": \"Test-Update_an_SLO_returns_Bad_Request_response-1641430272\", \"query\": {\"denominator\": \"sum:httpservice.hits{!code:3xx}.as_count()\", \"numerator\": \"sum:httpservice.hits{code:2xx}.as_count()\"}, \"thresholds\": [{\"target\": 95.0, \"timeframe\": \"7d\", \"warning\": 98.0}], \"type\": \"metric\"}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":[{\"description\":\"\",\"monitor_tags\":[],\"creator\":{\"handle\":\"9919ec9b-ebc7-49ee-8dc8-03626e717cca\",\"name\":\"CI Account\",\"email\":\"team-intg-tools-libs@datadoghq.com\"},\"thresholds\":[{\"warning\":98.0,\"warning_display\":\"98.\",\"target\":95.0,\"target_display\":\"95.\",\"timeframe\":\"7d\"}],\"type_id\":1,\"query\":{\"denominator\":\"sum:httpservice.hits{!code:3xx}.as_count()\",\"numerator\":\"sum:httpservice.hits{code:2xx}.as_count()\"},\"id\":\"90eaa3b4c11751b884a783c81485ed31\",\"name\":\"Test-Update_an_SLO_returns_Bad_Request_response-1618572732\",\"created_at\":1618572732,\"tags\":[],\"modified_at\":1618572732,\"type\":\"metric\"}],\"error\":null}",
+      "body": "{\"data\":[{\"description\":\"\",\"monitor_tags\":[],\"creator\":{\"handle\":\"frog@datadoghq.com\",\"name\":null,\"email\":\"frog@datadoghq.com\"},\"thresholds\":[{\"warning\":98,\"warning_display\":\"98.\",\"target\":95,\"target_display\":\"95.\",\"timeframe\":\"7d\"}],\"type_id\":1,\"query\":{\"denominator\":\"sum:httpservice.hits{!code:3xx}.as_count()\",\"numerator\":\"sum:httpservice.hits{code:2xx}.as_count()\"},\"id\":\"f21337f0ea7059f986448228aaa11f09\",\"name\":\"Test-Update_an_SLO_returns_Bad_Request_response-1641430272\",\"created_at\":1641430273,\"tags\":[],\"modified_at\":1641430273,\"type\":\"metric\"}],\"error\":null}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,13 +31,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "3e5fdac3-afdc-a001-31f9-a5d1a174803b"
+    "id": "b4ce3d4d-62ae-32e6-b3ff-713830a6be28"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"name\": \"Test-Update_an_SLO_returns_Bad_Request_response-1618572732\", \"thresholds\": [{\"target\": 95.0, \"target_display\": \"95.0\", \"timeframe\": \"7d\", \"warning\": 98.0, \"warning_display\": \"98.0\"}], \"type\": \"monitor\"}"
+        "json": "{\"name\": \"Test-Update_an_SLO_returns_Bad_Request_response-1641430272\", \"thresholds\": [{\"target\": 95.0, \"target_display\": \"95.0\", \"timeframe\": \"7d\", \"warning\": 98.0, \"warning_display\": \"98.0\"}], \"type\": \"monitor\"}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -45,12 +45,12 @@
         ]
       },
       "method": "PUT",
-      "path": "/api/v1/slo/90eaa3b4c11751b884a783c81485ed31",
+      "path": "/api/v1/slo/f21337f0ea7059f986448228aaa11f09",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\": [\"Invalid payload: must specify the query for count types\"]}",
+      "body": "{\"errors\":[\"Invalid payload: must specify the query for count types\"]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -65,7 +65,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "a36a5a4e-c433-4273-97ce-c1db5b5dd2df"
+    "id": "edd09425-f2b5-f0c7-918f-809f7de8e7b7"
   },
   {
     "httpRequest": {
@@ -75,12 +75,12 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v1/slo/90eaa3b4c11751b884a783c81485ed31",
+      "path": "/api/v1/slo/f21337f0ea7059f986448228aaa11f09",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":[\"90eaa3b4c11751b884a783c81485ed31\"],\"error\":null}",
+      "body": "{\"data\":[\"f21337f0ea7059f986448228aaa11f09\"],\"error\":null}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -95,6 +95,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "abb60d5b-196e-d229-ede6-c28f061f6a1e"
+    "id": "38160cc5-0c91-dcca-e258-96ebb3d3d22d"
   }
 ]

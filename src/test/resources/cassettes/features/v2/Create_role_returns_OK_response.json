@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Create_role_returns_OK_response-1618491750\"},\"type\":\"roles\"}}"
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Create_role_returns_OK_response-1641829864\"},\"type\":\"roles\"}}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"roles\",\"id\":\"d62beff2-9dea-11eb-9df5-da7ad0900002\",\"attributes\":{\"name\":\"Test-Create_role_returns_OK_response-1618491750\",\"created_at\":\"2021-04-15T13:02:30.603471+00:00\",\"modified_at\":\"2021-04-15T13:02:30.603471+00:00\"},\"relationships\":{\"permissions\":{\"data\":[{\"type\":\"permissions\",\"id\":\"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2\"},{\"type\":\"permissions\",\"id\":\"4441648c-d8b1-11e9-a77a-1b899a04b304\"},{\"type\":\"permissions\",\"id\":\"417ba636-2dce-11eb-84c0-6bce5b0d9de0\"}]}}}}",
+      "body": "{\"data\":{\"type\":\"roles\",\"id\":\"1e005d9c-722d-11ec-b5d7-da7ad0900002\",\"attributes\":{\"name\":\"Test-Create_role_returns_OK_response-1641829864\",\"created_at\":\"2022-01-10T15:51:04.406994+00:00\",\"modified_at\":\"2022-01-10T15:51:04.454157+00:00\"},\"relationships\":{\"permissions\":{\"data\":[{\"type\":\"permissions\",\"id\":\"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2\"},{\"type\":\"permissions\",\"id\":\"4441648c-d8b1-11e9-a77a-1b899a04b304\"},{\"type\":\"permissions\",\"id\":\"417ba636-2dce-11eb-84c0-6bce5b0d9de0\"},{\"type\":\"permissions\",\"id\":\"12efc20e-d36c-11eb-a9b8-da7ad0900002\"},{\"type\":\"permissions\",\"id\":\"97971c1c-e895-11eb-b13c-da7ad0900002\"},{\"type\":\"permissions\",\"id\":\"7605ef24-f376-11eb-b90b-da7ad0900002\"}]}}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,7 +31,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "70b85877-e872-0b82-2f36-3d26c2ace24a"
+    "id": "186b3e81-9516-6f56-013c-129983343c09"
   },
   {
     "httpRequest": {
@@ -41,16 +41,12 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v2/roles/d62beff2-9dea-11eb-9df5-da7ad0900002",
+      "path": "/api/v2/roles/1e005d9c-722d-11ec-b5d7-da7ad0900002",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "headers": {
-        "Content-Type": [
-          "application/json"
-        ]
-      },
+      "headers": {},
       "statusCode": 204,
       "reasonPhrase": "No Content"
     },
@@ -60,6 +56,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "54f73934-6933-d869-4d2f-0620c2a31551"
+    "id": "dc2ddab1-a402-cb21-f131-1fe752e3cee8"
   }
 ]

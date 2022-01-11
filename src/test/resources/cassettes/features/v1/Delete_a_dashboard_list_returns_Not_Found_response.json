@@ -12,7 +12,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\": [\"Manual Dashboard List with id 0 not found\"]}",
+      "body": "{\"errors\":[\"Manual Dashboard List with id 0 not found\"]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -27,6 +27,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "0e0a08f0-f869-2a06-f2a4-f7419015af43"
+    "id": "b182037e-3422-e2bd-cea2-872f44839c00"
   }
 ]

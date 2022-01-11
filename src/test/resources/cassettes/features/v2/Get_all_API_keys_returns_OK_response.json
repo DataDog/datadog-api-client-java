@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Get_all_API_keys_returns_OK_response-1639757122\"},\"type\":\"api_keys\"}}"
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Get_all_API_keys_returns_OK_response-1641829852\"},\"type\":\"api_keys\"}}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"api_keys\",\"attributes\":{\"created_at\":\"2021-12-17T16:05:23.095699+00:00\",\"key\":\"3b2f914da1feb5a9e12fc51683dd7479\",\"last4\":\"beef\",\"modified_at\":\"2021-12-17T16:05:23.095699+00:00\",\"name\":\"Test-Get_all_API_keys_returns_OK_response-1639757122\"},\"relationships\":{\"created_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}},\"modified_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}}},\"id\":\"427970f0-27c3-5692-8429-f44151d40394\"}}",
+      "body": "{\"data\":{\"type\":\"api_keys\",\"attributes\":{\"created_at\":\"2022-01-10T15:50:52.732301+00:00\",\"key\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"last4\":\"xxxx\",\"modified_at\":\"2022-01-10T15:50:52.732301+00:00\",\"name\":\"Test-Get_all_API_keys_returns_OK_response-1641829852\"},\"relationships\":{\"created_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}},\"modified_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}}},\"id\":\"263f68dd-7d83-4f8f-8034-18402fb68c2b\"}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,7 +31,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "ab41fb1c-4b35-0b67-1818-d98c2cf9d42b"
+    "id": "b4a691d7-201a-8c8e-cba9-21de748042f3"
   },
   {
     "httpRequest": {
@@ -44,14 +44,14 @@
       "path": "/api/v2/api_keys",
       "queryStringParameters": {
         "filter": [
-          "Test-Get_all_API_keys_returns_OK_response-1639757122"
+          "Test-Get_all_API_keys_returns_OK_response-1641829852"
         ]
       },
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"meta\":{\"max_allowed\":200,\"page\":{\"total_filtered_count\":1}},\"data\":[{\"type\":\"api_keys\",\"attributes\":{\"created_at\":\"2021-12-17T16:05:23.095699+00:00\",\"last4\":\"beef\",\"modified_at\":\"2021-12-17T16:05:23.095699+00:00\",\"name\":\"Test-Get_all_API_keys_returns_OK_response-1639757122\"},\"relationships\":{\"created_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}},\"modified_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}}},\"id\":\"427970f0-27c3-5692-8429-f44151d40394\"}]}",
+      "body": "{\"meta\":{\"max_allowed\":200,\"page\":{\"total_filtered_count\":1}},\"data\":[{\"type\":\"api_keys\",\"attributes\":{\"created_at\":\"2022-01-10T15:50:52.732301+00:00\",\"last4\":\"xxxx\",\"modified_at\":\"2022-01-10T15:50:52.732301+00:00\",\"name\":\"Test-Get_all_API_keys_returns_OK_response-1641829852\"},\"relationships\":{\"created_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}},\"modified_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}}},\"id\":\"263f68dd-7d83-4f8f-8034-18402fb68c2b\"}]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -66,7 +66,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "ce084ff5-7e8a-fe2a-8cb1-79e2195dd4f6"
+    "id": "7c04fbd9-5940-1aae-15c1-5d8421272ed2"
   },
   {
     "httpRequest": {
@@ -76,7 +76,7 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v2/api_keys/427970f0-27c3-5692-8429-f44151d40394",
+      "path": "/api/v2/api_keys/263f68dd-7d83-4f8f-8034-18402fb68c2b",
       "keepAlive": false,
       "secure": true
     },
@@ -91,6 +91,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e5adab1e-0adb-1b12-626a-330f4cc4e275"
+    "id": "0dde931f-685f-a05f-8e7b-e74e93edc861"
   }
 ]

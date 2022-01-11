@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"end\":1634659061,\"message\":\"Test-Schedule_a_downtime_once_a_year-1634655461\",\"recurrence\":{\"period\":1,\"type\":\"years\"},\"scope\":[\"*\"],\"start\":1634655461,\"timezone\":\"Etc/UTC\"}"
+        "json": "{\"end\":1641833412,\"message\":\"Test-Schedule_a_downtime_once_a_year-1641829812\",\"recurrence\":{\"period\":1,\"type\":\"years\"},\"scope\":[\"*\"],\"start\":1641829812,\"timezone\":\"Etc/UTC\"}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"recurrence\":{\"until_date\":null,\"until_occurrences\":null,\"week_days\":null,\"type\":\"years\",\"period\":1},\"end\":1634659061,\"monitor_tags\":[\"*\"],\"child_id\":null,\"canceled\":null,\"monitor_id\":null,\"created\":1634655461,\"org_id\":321813,\"modified\":1634655461,\"disabled\":false,\"start\":1634655461,\"creator_id\":1445416,\"parent_id\":null,\"timezone\":\"Etc/UTC\",\"active\":true,\"scope\":[\"*\"],\"message\":\"Test-Schedule_a_downtime_once_a_year-1634655461\",\"downtime_type\":0,\"id\":1511004125,\"updater_id\":null}",
+      "body": "{\"recurrence\":{\"until_date\":null,\"until_occurrences\":null,\"week_days\":null,\"type\":\"years\",\"period\":1},\"end\":1641833412,\"monitor_tags\":[\"*\"],\"child_id\":null,\"canceled\":null,\"monitor_id\":null,\"created\":1641829812,\"org_id\":321813,\"modified\":1641829812,\"disabled\":false,\"start\":1641829812,\"creator_id\":1445416,\"parent_id\":null,\"timezone\":\"Etc/UTC\",\"active\":true,\"scope\":[\"*\"],\"message\":\"Test-Schedule_a_downtime_once_a_year-1641829812\",\"downtime_type\":0,\"id\":1672791231,\"updater_id\":null}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,7 +31,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "33fd9a83-b2f1-7bcb-ec05-ec2d33a20fc5"
+    "id": "ec5c31b5-3b62-02ee-051b-e1aa9b29ab08"
   },
   {
     "httpRequest": {
@@ -41,7 +41,7 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v1/downtime/1511004125",
+      "path": "/api/v1/downtime/1672791231",
       "keepAlive": false,
       "secure": true
     },
@@ -56,6 +56,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "fd0db807-fc50-eeba-feb6-9382bc74205a"
+    "id": "b8175403-4f64-7164-a8ab-f94364828288"
   }
 ]

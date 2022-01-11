@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\": [\"The value provided for parameter 'query' is invalid: invalid operator specified: \"]}",
+      "body": "{\"errors\":[\"The value provided for parameter 'query' is invalid: invalid operator specified: \"]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,6 +31,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "62eeb10e-6d8e-0844-7142-4621592dacd2"
+    "id": "be262215-3e01-a112-f13e-043c981d4288"
   }
 ]

@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"exclusion_filters\":[{\"name\":\"Exclude staging\",\"query\":\"source:staging\"}],\"filtered_data_type\":\"logs\",\"is_enabled\":true,\"name\":\"Test-Create_a_security_filter_returns_OK_response-1620751589\",\"query\":\"service:TestCreateasecurityfilterreturnsOKresponse1620751589\"},\"type\":\"security_filters\"}}"
+        "json": "{\"data\":{\"attributes\":{\"exclusion_filters\":[{\"name\":\"Exclude staging\",\"query\":\"source:staging\"}],\"filtered_data_type\":\"logs\",\"is_enabled\":true,\"name\":\"Test-Create_a_security_filter_returns_OK_response-1641829886\",\"query\":\"service:TestCreateasecurityfilterreturnsOKresponse1641829886\"},\"type\":\"security_filters\"}}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"attributes\":{\"is_enabled\":true,\"name\":\"Test-Create_a_security_filter_returns_OK_response-1620751589\",\"filtered_data_type\":\"logs\",\"exclusion_filters\":[{\"query\":\"source:staging\",\"name\":\"Exclude staging\"}],\"version\":1,\"query\":\"service:TestCreateasecurityfilterreturnsOKresponse1620751589\",\"is_builtin\":false},\"type\":\"security_filters\",\"id\":\"tuz-sj9-ft0\"}}",
+      "body": "{\"data\":{\"attributes\":{\"is_enabled\":true,\"name\":\"Test-Create_a_security_filter_returns_OK_response-1641829886\",\"filtered_data_type\":\"logs\",\"exclusion_filters\":[{\"query\":\"source:staging\",\"name\":\"Exclude staging\"}],\"version\":1,\"query\":\"service:TestCreateasecurityfilterreturnsOKresponse1641829886\",\"is_builtin\":false},\"type\":\"security_filters\",\"id\":\"l4b-4zi-o7l\"}}",
       "headers": {
         "Content-Type": [
           "application/json;charset=utf-8"
@@ -31,7 +31,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "88eeb38c-f60d-63fc-ee7b-be5a8bf80cda"
+    "id": "3d559fa9-87ae-923c-9d7d-ff4970ca7104"
   },
   {
     "httpRequest": {
@@ -41,7 +41,7 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/configuration/security_filters/tuz-sj9-ft0",
+      "path": "/api/v2/security_monitoring/configuration/security_filters/l4b-4zi-o7l",
       "keepAlive": false,
       "secure": true
     },
@@ -56,6 +56,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "1ffb91ea-97a9-36a5-2d80-c7f3f7b9f2cc"
+    "id": "eed5a065-3be9-6153-956f-9cf35a9ec18e"
   }
 ]

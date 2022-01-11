@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"description\":\"\",\"is_read_only\":false,\"layout_type\":\"free\",\"notify_list\":[],\"template_variables\":[],\"title\":\"Test-Create_a_new_dashboard_with_scatterplot_widget-1640210588\",\"widgets\":[{\"definition\":{\"color_by_groups\":[],\"requests\":{\"table\":{\"formulas\":[{\"alias\":\"\",\"dimension\":\"x\",\"formula\":\"query1\"},{\"alias\":\"\",\"dimension\":\"y\",\"formula\":\"query2\"}],\"queries\":[{\"aggregator\":\"avg\",\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"avg:system.cpu.user{*} by {service}\"},{\"aggregator\":\"avg\",\"data_source\":\"metrics\",\"name\":\"query2\",\"query\":\"avg:system.mem.used{*} by {service}\"}],\"response_format\":\"scalar\"}},\"time\":{},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"scatterplot\",\"xaxis\":{\"include_zero\":true,\"max\":\"auto\",\"min\":\"auto\",\"scale\":\"linear\"},\"yaxis\":{\"include_zero\":true,\"max\":\"auto\",\"min\":\"auto\",\"scale\":\"linear\"}},\"layout\":{\"height\":15,\"width\":47,\"x\":0,\"y\":0}}]}"
+        "json": "{\"description\":\"\",\"is_read_only\":false,\"layout_type\":\"free\",\"notify_list\":[],\"template_variables\":[],\"title\":\"Test-Create_a_new_dashboard_with_scatterplot_widget-1641430239\",\"widgets\":[{\"definition\":{\"color_by_groups\":[],\"requests\":{\"table\":{\"formulas\":[{\"alias\":\"\",\"dimension\":\"x\",\"formula\":\"query1\"},{\"alias\":\"\",\"dimension\":\"y\",\"formula\":\"query2\"}],\"queries\":[{\"aggregator\":\"avg\",\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"avg:system.cpu.user{*} by {service}\"},{\"aggregator\":\"avg\",\"data_source\":\"metrics\",\"name\":\"query2\",\"query\":\"avg:system.mem.used{*} by {service}\"}],\"response_format\":\"scalar\"}},\"time\":{},\"title\":\"\",\"title_align\":\"left\",\"title_size\":\"16\",\"type\":\"scatterplot\",\"xaxis\":{\"include_zero\":true,\"max\":\"auto\",\"min\":\"auto\",\"scale\":\"linear\"},\"yaxis\":{\"include_zero\":true,\"max\":\"auto\",\"min\":\"auto\",\"scale\":\"linear\"}},\"layout\":{\"height\":15,\"width\":47,\"x\":0,\"y\":0}}]}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"notify_list\":[],\"description\":\"\",\"restricted_roles\":[],\"author_name\":null,\"template_variables\":[],\"is_read_only\":false,\"id\":\"ghq-yyu-mg3\",\"title\":\"Test-Create_a_new_dashboard_with_scatterplot_widget-1640210588\",\"url\":\"/dashboard/ghq-yyu-mg3/test-createanewdashboardwithscatterplotwidget-1640210588\",\"created_at\":\"2021-12-22T22:03:09.096093+00:00\",\"modified_at\":\"2021-12-22T22:03:09.096093+00:00\",\"author_handle\":\"frog@datadoghq.com\",\"widgets\":[{\"definition\":{\"title_size\":\"16\",\"yaxis\":{\"include_zero\":true,\"scale\":\"linear\",\"min\":\"auto\",\"max\":\"auto\"},\"title_align\":\"left\",\"color_by_groups\":[],\"xaxis\":{\"include_zero\":true,\"scale\":\"linear\",\"min\":\"auto\",\"max\":\"auto\"},\"time\":{},\"title\":\"\",\"requests\":{\"table\":{\"formulas\":[{\"alias\":\"\",\"dimension\":\"x\",\"formula\":\"query1\"},{\"alias\":\"\",\"dimension\":\"y\",\"formula\":\"query2\"}],\"response_format\":\"scalar\",\"queries\":[{\"aggregator\":\"avg\",\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"avg:system.cpu.user{*} by {service}\"},{\"aggregator\":\"avg\",\"data_source\":\"metrics\",\"name\":\"query2\",\"query\":\"avg:system.mem.used{*} by {service}\"}]}},\"type\":\"scatterplot\"},\"layout\":{\"y\":0,\"width\":47,\"x\":0,\"height\":15},\"id\":7197981376043092}],\"layout_type\":\"free\"}",
+      "body": "{\"notify_list\":[],\"description\":\"\",\"restricted_roles\":[],\"author_name\":null,\"template_variables\":[],\"is_read_only\":false,\"id\":\"kif-ema-sua\",\"title\":\"Test-Create_a_new_dashboard_with_scatterplot_widget-1641430239\",\"url\":\"/dashboard/kif-ema-sua/test-createanewdashboardwithscatterplotwidget-1641430239\",\"created_at\":\"2022-01-06T00:50:39.358282+00:00\",\"modified_at\":\"2022-01-06T00:50:39.358282+00:00\",\"author_handle\":\"frog@datadoghq.com\",\"widgets\":[{\"definition\":{\"title_size\":\"16\",\"yaxis\":{\"include_zero\":true,\"scale\":\"linear\",\"min\":\"auto\",\"max\":\"auto\"},\"title_align\":\"left\",\"color_by_groups\":[],\"xaxis\":{\"include_zero\":true,\"scale\":\"linear\",\"min\":\"auto\",\"max\":\"auto\"},\"time\":{},\"title\":\"\",\"requests\":{\"table\":{\"formulas\":[{\"alias\":\"\",\"dimension\":\"x\",\"formula\":\"query1\"},{\"alias\":\"\",\"dimension\":\"y\",\"formula\":\"query2\"}],\"response_format\":\"scalar\",\"queries\":[{\"aggregator\":\"avg\",\"data_source\":\"metrics\",\"name\":\"query1\",\"query\":\"avg:system.cpu.user{*} by {service}\"},{\"aggregator\":\"avg\",\"data_source\":\"metrics\",\"name\":\"query2\",\"query\":\"avg:system.mem.used{*} by {service}\"}]}},\"type\":\"scatterplot\"},\"layout\":{\"y\":0,\"width\":47,\"x\":0,\"height\":15},\"id\":1267307721120974}],\"layout_type\":\"free\"}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,7 +31,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "35398fe7-9bdc-a762-697a-9349335a6290"
+    "id": "d9482507-5818-7dc4-01b9-470ea915e898"
   },
   {
     "httpRequest": {
@@ -41,12 +41,12 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v1/dashboard/ghq-yyu-mg3",
+      "path": "/api/v1/dashboard/kif-ema-sua",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_dashboard_id\":\"ghq-yyu-mg3\"}",
+      "body": "{\"deleted_dashboard_id\":\"kif-ema-sua\"}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -61,6 +61,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "4aa419fd-5549-7862-e746-c79d6ead2c81"
+    "id": "e3efdaa9-ab64-11e3-d478-57dbdd022d7f"
   }
 ]

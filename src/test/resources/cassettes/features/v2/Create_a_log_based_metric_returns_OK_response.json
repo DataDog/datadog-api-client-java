@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"count\"}},\"id\":\"Test-Create_a_log_based_metric_returns_OK_response-1618491718\",\"type\":\"logs_metrics\"}}"
+        "json": "{\"data\":{\"attributes\":{\"compute\":{\"aggregation_type\":\"count\"}},\"id\":\"Test-Create_a_log_based_metric_returns_OK_response-1641430306\",\"type\":\"logs_metrics\"}}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,10 +16,10 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"id\":\"Test_Create_a_log_based_metric_returns_OK_response_1618491718\",\"attributes\":{\"filter\":{\"query\":\"*\"},\"group_by\":[],\"compute\":{\"aggregation_type\":\"count\"}},\"type\":\"logs_metrics\"}}",
+      "body": "{\"data\":{\"attributes\":{\"filter\":{\"query\":\"*\"},\"group_by\":[],\"compute\":{\"aggregation_type\":\"count\"}},\"type\":\"logs_metrics\",\"id\":\"Test_Create_a_log_based_metric_returns_OK_response_1641430306\"}}",
       "headers": {
         "Content-Type": [
-          "application/json;charset=utf-8"
+          "application/json"
         ]
       },
       "statusCode": 200,
@@ -31,7 +31,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "1f95a4db-9c16-facf-1829-8f4bf56df2cc"
+    "id": "990a4bf0-41f5-2147-af6b-15bef9ec7d82"
   },
   {
     "httpRequest": {
@@ -41,7 +41,7 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v2/logs/config/metrics/Test_Create_a_log_based_metric_returns_OK_response_1618491718",
+      "path": "/api/v2/logs/config/metrics/Test_Create_a_log_based_metric_returns_OK_response_1641430306",
       "keepAlive": false,
       "secure": true
     },
@@ -49,7 +49,7 @@
       "body": "{}",
       "headers": {
         "Content-Type": [
-          "application/json;charset=utf-8"
+          "application/json"
         ]
       },
       "statusCode": 200,
@@ -61,6 +61,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "37a85e7e-d706-8ced-4341-b96003e7fc8b"
+    "id": "28575686-b877-77c2-fce4-debbf55d9ed8"
   }
 ]

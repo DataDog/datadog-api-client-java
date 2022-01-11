@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"scope\":\"test:testcanceldowntimesbyscopereturnsdowntimesnotfoundresponse1633076912_invalid\"}"
+        "json": "{\"scope\":\"test:testcanceldowntimesbyscopereturnsdowntimesnotfoundresponse1641430245_invalid\"}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\": [\"No downtimes found\"]}",
+      "body": "{\"errors\":[\"No downtimes found\"]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,6 +31,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "ae6093c6-26ed-b1fa-4171-ecfddbfc29eb"
+    "id": "dde9a7d1-6114-3efb-dcd3-5c285ed4e918"
   }
 ]

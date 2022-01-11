@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"name\":\"Test-Delete_a_dashboard_list_returns_OK_response-1633076910\"}"
+        "json": "{\"name\":\"Test-Delete_a_dashboard_list_returns_OK_response-1641430221\"}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"is_favorite\":false,\"name\":\"Test-Delete_a_dashboard_list_returns_OK_response-1633076910\",\"dashboard_count\":0,\"author\":{\"handle\":\"frog@datadoghq.com\",\"name\":null},\"created\":\"2021-10-01T08:28:30.884570+00:00\",\"type\":\"manual_dashboard_list\",\"dashboards\":null,\"modified\":\"2021-10-01T08:28:30.884612+00:00\",\"id\":240515}",
+      "body": "{\"is_favorite\":false,\"name\":\"Test-Delete_a_dashboard_list_returns_OK_response-1641430221\",\"dashboard_count\":0,\"author\":{\"handle\":\"frog@datadoghq.com\",\"name\":null},\"created\":\"2022-01-06T00:50:22.024122+00:00\",\"type\":\"manual_dashboard_list\",\"dashboards\":null,\"modified\":\"2022-01-06T00:50:22.024147+00:00\",\"id\":269880}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,7 +31,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "a3f5b414-fbbe-15cb-9623-0fe8e8e372f3"
+    "id": "8168a2f5-d6bb-19cf-dec7-955e7f846474"
   },
   {
     "httpRequest": {
@@ -41,12 +41,12 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v1/dashboard/lists/manual/240515",
+      "path": "/api/v1/dashboard/lists/manual/269880",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_dashboard_list_id\":240515}",
+      "body": "{\"deleted_dashboard_list_id\":269880}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -61,7 +61,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "5a4b3cb5-742f-e96f-7008-fd36f5e8fa20"
+    "id": "8db6503a-0012-bc33-a013-92d3a8ff44c5"
   },
   {
     "httpRequest": {
@@ -71,12 +71,12 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v1/dashboard/lists/manual/240515",
+      "path": "/api/v1/dashboard/lists/manual/269880",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\": [\"Manual Dashboard List with id 240515 not found\"]}",
+      "body": "{\"errors\":[\"Manual Dashboard List with id 269880 not found\"]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -91,6 +91,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "5a4b3cb5-742f-e96f-7008-fd36f5e8fa21"
+    "id": "8db6503a-0012-bc33-a013-92d3a8ff44c6"
   }
 ]

@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"end\":1634659063,\"message\":\"Test-Schedule_a_downtime_with_mutually_exclusive_until_occurrences_and_until_date_properties-1634655463\",\"recurrence\":{\"period\":1,\"type\":\"weeks\",\"until_date\":1636469863,\"until_occurrences\":3,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"]},\"scope\":[\"*\"],\"start\":1634655463,\"timezone\":\"Etc/UTC\"}"
+        "json": "{\"end\":1641433849,\"message\":\"Test-Schedule_a_downtime_with_mutually_exclusive_until_occurrences_and_until_date_properties-1641430249\",\"recurrence\":{\"period\":1,\"type\":\"weeks\",\"until_date\":1643244649,\"until_occurrences\":3,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"]},\"scope\":[\"*\"],\"start\":1641430249,\"timezone\":\"Etc/UTC\"}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\": [\"You must provide only provide one of (until_occurrences, until_date)\"]}",
+      "body": "{\"errors\":[\"You must provide only provide one of (until_occurrences, until_date)\"]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,6 +31,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "d5252f34-5ae6-5c10-97de-7c54ee74f851"
+    "id": "6394104c-9df7-6f52-ce4e-e1aa8a3612be"
   }
 ]

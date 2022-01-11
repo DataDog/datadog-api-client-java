@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"message\":\"Test-Get_a_downtime_returns_OK_response-1633076912\",\"recurrence\":{\"period\":1,\"type\":\"weeks\",\"until_date\":1634891312,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"]},\"scope\":[\"test:testgetadowntimereturnsokresponse1633076912\"],\"start\":1633076912,\"timezone\":\"Etc/UTC\"}"
+        "json": "{\"message\":\"Test-Get_a_downtime_returns_OK_response-1641829811\",\"recurrence\":{\"period\":1,\"type\":\"weeks\",\"until_date\":1643644211,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"]},\"scope\":[\"test:testgetadowntimereturnsokresponse1641829811\"],\"start\":1641829811,\"timezone\":\"Etc/UTC\"}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"recurrence\":{\"until_date\":1634891312,\"until_occurrences\":null,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"],\"type\":\"weeks\",\"period\":1},\"end\":null,\"monitor_tags\":[\"*\"],\"child_id\":null,\"canceled\":null,\"monitor_id\":null,\"created\":1633076912,\"org_id\":321813,\"modified\":1633076912,\"disabled\":false,\"start\":1633076912,\"creator_id\":1445416,\"parent_id\":null,\"timezone\":\"Etc/UTC\",\"active\":true,\"scope\":[\"test:testgetadowntimereturnsokresponse1633076912\"],\"message\":\"Test-Get_a_downtime_returns_OK_response-1633076912\",\"downtime_type\":2,\"id\":1477730821,\"updater_id\":null}",
+      "body": "{\"recurrence\":{\"until_date\":1643644211,\"until_occurrences\":null,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"],\"type\":\"weeks\",\"period\":1},\"end\":null,\"monitor_tags\":[\"*\"],\"child_id\":null,\"canceled\":null,\"monitor_id\":null,\"created\":1641829811,\"org_id\":321813,\"modified\":1641829811,\"disabled\":false,\"start\":1641829811,\"creator_id\":1445416,\"parent_id\":null,\"timezone\":\"Etc/UTC\",\"active\":true,\"scope\":[\"test:testgetadowntimereturnsokresponse1641829811\"],\"message\":\"Test-Get_a_downtime_returns_OK_response-1641829811\",\"downtime_type\":2,\"id\":1672791219,\"updater_id\":null}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,7 +31,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "cead2b7f-2844-8a66-2c88-ac311e0a5110"
+    "id": "32f329cb-dd00-3367-0c29-e65039149944"
   },
   {
     "httpRequest": {
@@ -41,12 +41,12 @@
         ]
       },
       "method": "GET",
-      "path": "/api/v1/downtime/1477730821",
+      "path": "/api/v1/downtime/1672791219",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"recurrence\":{\"until_date\":1634891312,\"until_occurrences\":null,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"],\"type\":\"weeks\",\"period\":1},\"end\":null,\"monitor_tags\":[\"*\"],\"child_id\":null,\"canceled\":null,\"monitor_id\":null,\"created\":1633076912,\"org_id\":321813,\"modified\":1633076912,\"disabled\":false,\"start\":1633076912,\"creator_id\":1445416,\"parent_id\":null,\"timezone\":\"Etc/UTC\",\"active\":true,\"scope\":[\"test:testgetadowntimereturnsokresponse1633076912\"],\"message\":\"Test-Get_a_downtime_returns_OK_response-1633076912\",\"downtime_type\":2,\"id\":1477730821,\"updater_id\":null}",
+      "body": "{\"recurrence\":{\"until_date\":1643644211,\"until_occurrences\":null,\"week_days\":[\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\"],\"type\":\"weeks\",\"period\":1},\"end\":null,\"monitor_tags\":[\"*\"],\"child_id\":null,\"canceled\":null,\"monitor_id\":null,\"created\":1641829811,\"org_id\":321813,\"modified\":1641829811,\"disabled\":false,\"start\":1641829811,\"creator_id\":1445416,\"parent_id\":null,\"timezone\":\"Etc/UTC\",\"active\":true,\"scope\":[\"test:testgetadowntimereturnsokresponse1641829811\"],\"message\":\"Test-Get_a_downtime_returns_OK_response-1641829811\",\"downtime_type\":2,\"id\":1672791219,\"updater_id\":null}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -61,7 +61,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "011001ff-a15c-01ba-8c52-c33d8fb7ece5"
+    "id": "7c12a874-87d4-1976-c8fa-273a00b720b0"
   },
   {
     "httpRequest": {
@@ -71,7 +71,7 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v1/downtime/1477730821",
+      "path": "/api/v1/downtime/1672791219",
       "keepAlive": false,
       "secure": true
     },
@@ -86,6 +86,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "f1c16a99-c90e-599f-3588-36f6f93a4883"
+    "id": "142b207a-38ee-8457-9e84-8a3f3bccc500"
   }
 ]
