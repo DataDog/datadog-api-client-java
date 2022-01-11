@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Delete_an_existing_incident_service_returns_OK_response-1618491693\"},\"type\":\"services\"}}"
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Delete_an_existing_incident_service_returns_OK_response-1641826579\"},\"type\":\"services\"}}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"included\":[{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"attributes\":{\"name\":null,\"handle\":\"frog@datadoghq.com\",\"created_at\":\"2019-10-02T08:15:39.795051+00:00\",\"modified_at\":\"2020-06-15T12:33:12.884459+00:00\",\"email\":\"frog@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro\",\"title\":null,\"verified\":true,\"service_account\":false,\"disabled\":false,\"allowed_login_methods\":[],\"status\":\"Active\"},\"relationships\":{\"org\":{\"data\":{\"type\":\"orgs\",\"id\":\"4dee724d-00cc-11ea-a77b-570c9d03c6c5\"}}}}],\"data\":{\"type\":\"services\",\"id\":\"e3f1ed39-b495-5eaf-a0af-3923c1649fa1\",\"attributes\":{\"name\":\"Test-Delete_an_existing_incident_service_returns_OK_response-1618491693\",\"created\":\"2021-04-15T13:01:34.046861+00:00\",\"modified\":\"2021-04-15T13:01:34.046861+00:00\"},\"relationships\":{\"last_modified_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}},\"created_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}}}}}",
+      "body": "{\"included\":[{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"attributes\":{\"name\":null,\"handle\":\"frog@datadoghq.com\",\"created_at\":\"2019-10-02T08:15:39.795051+00:00\",\"modified_at\":\"2020-06-15T12:33:12.884459+00:00\",\"email\":\"frog@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro\",\"title\":null,\"verified\":true,\"service_account\":false,\"disabled\":false,\"allowed_login_methods\":[],\"status\":\"Active\"},\"relationships\":{\"org\":{\"data\":{\"type\":\"orgs\",\"id\":\"4dee724d-00cc-11ea-a77b-570c9d03c6c5\"}}}}],\"data\":{\"type\":\"services\",\"id\":\"d55b6608-e64a-51c4-9488-56b1927527df\",\"attributes\":{\"name\":\"Test-Delete_an_existing_incident_service_returns_OK_response-1641826579\",\"created\":\"2022-01-10T14:56:20.106916+00:00\",\"modified\":\"2022-01-10T14:56:20.106916+00:00\"},\"relationships\":{\"last_modified_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}},\"created_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}}}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,7 +31,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "2b92ab69-5236-7115-20f1-3dc4850739ec"
+    "id": "44278f6b-addd-b91c-9763-9434f207ea30"
   },
   {
     "httpRequest": {
@@ -41,16 +41,12 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v2/services/e3f1ed39-b495-5eaf-a0af-3923c1649fa1",
+      "path": "/api/v2/services/d55b6608-e64a-51c4-9488-56b1927527df",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "headers": {
-        "Content-Type": [
-          "application/json"
-        ]
-      },
+      "headers": {},
       "statusCode": 204,
       "reasonPhrase": "No Content"
     },
@@ -60,7 +56,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "110be43d-6d5f-981b-0738-2b36e783d9d6"
+    "id": "492cc15c-486e-b2fa-92c5-fe8d292a07f0"
   },
   {
     "httpRequest": {
@@ -70,16 +66,12 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v2/services/e3f1ed39-b495-5eaf-a0af-3923c1649fa1",
+      "path": "/api/v2/services/d55b6608-e64a-51c4-9488-56b1927527df",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "headers": {
-        "Content-Type": [
-          "application/json"
-        ]
-      },
+      "headers": {},
       "statusCode": 204,
       "reasonPhrase": "No Content"
     },
@@ -89,6 +81,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "110be43d-6d5f-981b-0738-2b36e783d9d7"
+    "id": "492cc15c-486e-b2fa-92c5-fe8d292a07f1"
   }
 ]

@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"cells\":[{\"attributes\":{\"definition\":{\"text\":\"# Test-Get_a_notebook_returns_OK_response-1620726175 notebook text\",\"type\":\"markdown\"}},\"type\":\"notebook_cells\"}],\"name\":\"Test-Get_a_notebook_returns_OK_response-1620726175\",\"time\":{\"live_span\":\"1h\"}},\"type\":\"notebooks\"}}"
+        "json": "{\"data\":{\"attributes\":{\"cells\":[{\"attributes\":{\"definition\":{\"text\":\"# Test-Get_a_notebook_returns_OK_response-1641829821 notebook text\",\"type\":\"markdown\"}},\"type\":\"notebook_cells\"}],\"name\":\"Test-Get_a_notebook_returns_OK_response-1641829821\",\"time\":{\"live_span\":\"1h\"}},\"type\":\"notebooks\"}}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"notebooks\",\"id\":774056,\"attributes\":{\"name\":\"Test-Get_a_notebook_returns_OK_response-1620726175\",\"cells\":[{\"attributes\":{\"definition\":{\"text\":\"# Test-Get_a_notebook_returns_OK_response-1620726175 notebook text\",\"type\":\"markdown\"}},\"type\":\"notebook_cells\",\"id\":\"avx0umk1\"}],\"time\":{\"live_span\":\"1h\"},\"status\":\"published\",\"modified\":\"2021-05-11T09:42:55.675039+00:00\",\"created\":\"2021-05-11T09:42:55.675039+00:00\",\"author\":{\"name\":null,\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro\",\"title\":null,\"verified\":true,\"disabled\":false,\"status\":\"Active\"}}}}",
+      "body": "{\"data\":{\"type\":\"notebooks\",\"id\":1779977,\"attributes\":{\"name\":\"Test-Get_a_notebook_returns_OK_response-1641829821\",\"cells\":[{\"attributes\":{\"definition\":{\"text\":\"# Test-Get_a_notebook_returns_OK_response-1641829821 notebook text\",\"type\":\"markdown\"}},\"type\":\"notebook_cells\",\"id\":\"jv3xmpp3\"}],\"time\":{\"live_span\":\"1h\"},\"metadata\":{\"is_favorite\":false,\"is_template\":false,\"type\":null,\"take_snapshots\":false},\"template_variables\":[],\"status\":\"published\",\"modified\":\"2022-01-10T15:50:22.101502+00:00\",\"created\":\"2022-01-10T15:50:22.101502+00:00\",\"author\":{\"name\":null,\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro\",\"title\":null,\"verified\":true,\"disabled\":false,\"status\":\"Active\"}}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,7 +31,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "f79d7b56-e3ea-5f84-923b-4c44a9867a94"
+    "id": "2d9c5a74-a29a-bff2-69da-51c955e5e6a8"
   },
   {
     "httpRequest": {
@@ -41,12 +41,12 @@
         ]
       },
       "method": "GET",
-      "path": "/api/v1/notebooks/774056",
+      "path": "/api/v1/notebooks/1779977",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"notebooks\",\"id\":774056,\"attributes\":{\"name\":\"Test-Get_a_notebook_returns_OK_response-1620726175\",\"cells\":[{\"attributes\":{\"definition\":{\"text\":\"# Test-Get_a_notebook_returns_OK_response-1620726175 notebook text\",\"type\":\"markdown\"}},\"type\":\"notebook_cells\",\"id\":\"avx0umk1\"}],\"time\":{\"live_span\":\"1h\"},\"status\":\"published\",\"modified\":\"2021-05-11T09:42:55.675039+00:00\",\"created\":\"2021-05-11T09:42:55.675039+00:00\",\"author\":{\"name\":null,\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro\",\"title\":null,\"verified\":true,\"disabled\":false,\"status\":\"Active\"}}}}",
+      "body": "{\"data\":{\"type\":\"notebooks\",\"id\":1779977,\"attributes\":{\"name\":\"Test-Get_a_notebook_returns_OK_response-1641829821\",\"cells\":[{\"attributes\":{\"definition\":{\"text\":\"# Test-Get_a_notebook_returns_OK_response-1641829821 notebook text\",\"type\":\"markdown\"}},\"type\":\"notebook_cells\",\"id\":\"jv3xmpp3\"}],\"time\":{\"live_span\":\"1h\"},\"metadata\":{\"is_favorite\":false,\"is_template\":false,\"type\":null,\"take_snapshots\":false},\"template_variables\":[],\"status\":\"published\",\"modified\":\"2022-01-10T15:50:22.101502+00:00\",\"created\":\"2022-01-10T15:50:22.101502+00:00\",\"author\":{\"name\":null,\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\",\"icon\":\"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro\",\"title\":null,\"verified\":true,\"disabled\":false,\"status\":\"Active\"}}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -61,7 +61,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "1b9dcb8d-e1fe-9e19-a7e9-ed33d24b3d9f"
+    "id": "e654aa3a-3144-3b9d-9b89-1e58f8cd2ab0"
   },
   {
     "httpRequest": {
@@ -71,16 +71,12 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v1/notebooks/774056",
+      "path": "/api/v1/notebooks/1779977",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "headers": {
-        "Content-Type": [
-          "application/json"
-        ]
-      },
+      "headers": {},
       "statusCode": 204,
       "reasonPhrase": "No Content"
     },
@@ -90,6 +86,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "34a397ec-6c61-2465-bbf8-d375a6f7108a"
+    "id": "c123f8db-2fbe-c19f-e7be-c4a88ca1bd1b"
   }
 ]

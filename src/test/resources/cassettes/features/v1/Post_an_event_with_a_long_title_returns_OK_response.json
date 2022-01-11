@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"tags\":[\"test:TestPostaneventwithalongtitlereturnsOKresponse1632816790\"],\"text\":\"A text message.\",\"title\":\"Test-Post_an_event_with_a_long_title_returns_OK_response-1632816790 very very very looooooooong looooooooooooong loooooooooooooooooooooong looooooooooooooooooooooooooong title with 100+ characters\"}"
+        "json": "{\"tags\":[\"test:TestPostaneventwithalongtitlereturnsOKresponse1641430251\"],\"text\":\"A text message.\",\"title\":\"Test-Post_an_event_with_a_long_title_returns_OK_response-1641430251 very very very looooooooong looooooooooooong loooooooooooooooooooooong looooooooooooooooooooooooooong title with 100+ characters\"}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"status\":\"ok\",\"event\":{\"id\":6183308802141975575,\"id_str\":\"6183308802141975575\",\"title\":\"Test-Post_an_event_with_a_long_title_returns_OK_response-1632816790 very very very looooooooong looooooooooooong loooooooooooooooooooooong looooooooooooooooooooooooooong title with 100+ characters\",\"text\":\"A text message.\",\"date_happened\":1632816790,\"handle\":null,\"priority\":null,\"related_event_id\":null,\"tags\":[\"test:TestPostaneventwithalongtitlereturnsOKresponse1632816790\"],\"url\":\"https://app.datadoghq.com/event/event?id=6183308802141975575\"}}",
+      "body": "{\"status\":\"ok\",\"event\":{\"id\":6327818704671040000,\"id_str\":\"6327818704671039975\",\"title\":\"Test-Post_an_event_with_a_long_title_returns_OK_response-1641430251 very very very looooooooong looooooooooooong loooooooooooooooooooooong looooooooooooooooooooooooooong title with 100+ characters\",\"text\":\"A text message.\",\"date_happened\":1641430252,\"handle\":null,\"priority\":null,\"related_event_id\":null,\"tags\":[\"test:TestPostaneventwithalongtitlereturnsOKresponse1641430251\"],\"url\":\"https://app.datadoghq.com/event/event?id=6327818704671039975\"}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,6 +31,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "e5770f96-3a31-9038-5692-cd3e9d64f334"
+    "id": "0594c588-91dd-6441-a2be-fc4e4a90074b"
   }
 ]

@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "[{\"ddtags\":\"host:TestSendlogsreturnsResponsefromserveralways200emptyJSONresponse1618413148\",\"message\":\"Test-Send_logs_returns_Response_from_server_always_200_empty_JSON_response-1618413148\"}]"
+        "json": "[{\"ddtags\":\"host:TestSendlogsreturnsResponsefromserveralways200emptyJSONresponse1641430252\",\"message\":\"Test-Send_logs_returns_Response_from_server_always_200_empty_JSON_response-1641430252\"}]"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -31,6 +31,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "f1ebe395-b542-0b96-50af-cda6bb8799fb"
+    "id": "3aed40fb-42b4-1741-980b-41b9c561d139"
   }
 ]

@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"message\": \"some message Notify: @hipchat-channel\", \"name\": \"Test-Create_a_ci_pipelines_monitor_returns_OK_response-1640121456\", \"options\": {\"thresholds\": {\"critical\": 1}}, \"priority\": 3, \"query\": \"ci-pipelines(\\\"ci_level:pipeline @git.branch:staging* @ci.status:error\\\").rollup(\\\"count\\\").by(\\\"@git.branch,@ci.pipeline.name\\\").last(\\\"5m\\\") >= 1\", \"tags\": [\"test:testcreateacipipelinesmonitorreturnsokresponse1640121456\", \"env:ci\"], \"type\": \"ci-pipelines alert\"}"
+        "json": "{\"message\": \"some message Notify: @hipchat-channel\", \"name\": \"Test-Create_a_ci_pipelines_monitor_returns_OK_response-1641430253\", \"options\": {\"thresholds\": {\"critical\": 1}}, \"priority\": 3, \"query\": \"ci-pipelines(\\\"ci_level:pipeline @git.branch:staging* @ci.status:error\\\").rollup(\\\"count\\\").by(\\\"@git.branch,@ci.pipeline.name\\\").last(\\\"5m\\\") >= 1\", \"tags\": [\"test:testcreateacipipelinesmonitorreturnsokresponse1641430253\", \"env:ci\"], \"type\": \"ci-pipelines alert\"}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"restricted_roles\":null,\"tags\":[\"test:testcreateacipipelinesmonitorreturnsokresponse1640121456\",\"env:ci\"],\"deleted\":null,\"query\":\"ci-pipelines(\\\"ci_level:pipeline @git.branch:staging* @ci.status:error\\\").rollup(\\\"count\\\").by(\\\"@git.branch,@ci.pipeline.name\\\").last(\\\"5m\\\") >= 1\",\"message\":\"some message Notify: @hipchat-channel\",\"id\":58636377,\"multi\":true,\"name\":\"Test-Create_a_ci_pipelines_monitor_returns_OK_response-1640121456\",\"created\":\"2021-12-21T21:17:36.335165+00:00\",\"created_at\":1640121456000,\"creator\":{\"id\":1445416,\"handle\":\"frog@datadoghq.com\",\"name\":null,\"email\":\"frog@datadoghq.com\"},\"org_id\":321813,\"modified\":\"2021-12-21T21:17:36.335165+00:00\",\"priority\":3,\"overall_state_modified\":null,\"overall_state\":\"No Data\",\"type\":\"ci-pipelines alert\",\"options\":{\"notify_audit\":false,\"locked\":false,\"silenced\":{},\"include_tags\":true,\"thresholds\":{\"critical\":1.0},\"new_host_delay\":300,\"notify_no_data\":false,\"groupby_simple_monitor\":false}}",
+      "body": "{\"restricted_roles\":null,\"tags\":[\"test:testcreateacipipelinesmonitorreturnsokresponse1641430253\",\"env:ci\"],\"deleted\":null,\"query\":\"ci-pipelines(\\\"ci_level:pipeline @git.branch:staging* @ci.status:error\\\").rollup(\\\"count\\\").by(\\\"@git.branch,@ci.pipeline.name\\\").last(\\\"5m\\\") >= 1\",\"message\":\"some message Notify: @hipchat-channel\",\"id\":59800609,\"multi\":true,\"name\":\"Test-Create_a_ci_pipelines_monitor_returns_OK_response-1641430253\",\"created\":\"2022-01-06T00:50:54.050585+00:00\",\"created_at\":1641430254000,\"creator\":{\"id\":1445416,\"handle\":\"frog@datadoghq.com\",\"name\":null,\"email\":\"frog@datadoghq.com\"},\"org_id\":321813,\"modified\":\"2022-01-06T00:50:54.050585+00:00\",\"priority\":3,\"overall_state_modified\":null,\"overall_state\":\"No Data\",\"type\":\"ci-pipelines alert\",\"options\":{\"notify_audit\":false,\"locked\":false,\"silenced\":{},\"include_tags\":true,\"thresholds\":{\"critical\":1},\"new_host_delay\":300,\"notify_no_data\":false,\"groupby_simple_monitor\":false}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,7 +31,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "40d3a83b-c9aa-99c4-ab46-fe657a22b133"
+    "id": "8d1c3827-3a7c-6e51-dbfb-db0d485c6cbd"
   },
   {
     "httpRequest": {
@@ -41,12 +41,12 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v1/monitor/58636377",
+      "path": "/api/v1/monitor/59800609",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_monitor_id\":58636377}",
+      "body": "{\"deleted_monitor_id\":59800609}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -61,6 +61,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "3786549f-3f30-3e8a-ed8e-b11f4c034585"
+    "id": "5154af6c-4dad-d7be-0a99-50ba851ecacd"
   }
 ]

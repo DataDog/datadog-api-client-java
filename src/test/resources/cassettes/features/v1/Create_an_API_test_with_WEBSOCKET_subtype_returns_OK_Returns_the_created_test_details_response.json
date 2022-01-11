@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"config\":{\"assertions\":[{\"operator\":\"is\",\"target\":\"message\",\"type\":\"receivedMessage\"},{\"operator\":\"lessThan\",\"target\":2000,\"type\":\"responseTime\"}],\"configVariables\":[],\"request\":{\"message\":\"message\",\"url\":\"ws://datadoghq.com\"}},\"locations\":[\"aws:us-east-2\"],\"message\":\"BDD test payload: synthetics_api_test_websocket_payload.json\",\"name\":\"Test-Create_an_API_test_with_WEBSOCKET_subtype_returns_OK_Returns_the_created_test_details_response-1636999665\",\"options\":{\"accept_self_signed\":false,\"allow_insecure\":true,\"follow_redirects\":true,\"min_failure_duration\":10,\"min_location_failed\":1,\"monitor_name\":\"Test-Create_an_API_test_with_WEBSOCKET_subtype_returns_OK_Returns_the_created_test_details_response-1636999665\",\"monitor_priority\":5,\"retry\":{\"count\":3,\"interval\":10},\"tick_every\":60},\"subtype\":\"websocket\",\"tags\":[\"testing:api\"],\"type\":\"api\"}"
+        "json": "{\"config\":{\"assertions\":[{\"operator\":\"is\",\"target\":\"message\",\"type\":\"receivedMessage\"},{\"operator\":\"lessThan\",\"target\":2000,\"type\":\"responseTime\"}],\"configVariables\":[],\"request\":{\"message\":\"message\",\"url\":\"ws://datadoghq.com\"}},\"locations\":[\"aws:us-east-2\"],\"message\":\"BDD test payload: synthetics_api_test_websocket_payload.json\",\"name\":\"Test-Create_an_API_test_with_WEBSOCKET_subtype_returns_OK_Returns_the_created_test_details_response-1641430275\",\"options\":{\"accept_self_signed\":false,\"allow_insecure\":true,\"follow_redirects\":true,\"min_failure_duration\":10,\"min_location_failed\":1,\"monitor_name\":\"Test-Create_an_API_test_with_WEBSOCKET_subtype_returns_OK_Returns_the_created_test_details_response-1641430275\",\"monitor_priority\":5,\"retry\":{\"count\":3,\"interval\":10},\"tick_every\":60},\"subtype\":\"websocket\",\"tags\":[\"testing:api\"],\"type\":\"api\"}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"status\":\"live\",\"public_id\":\"7f2-txy-a7p\",\"tags\":[\"testing:api\"],\"org_id\":321813,\"locations\":[\"aws:us-east-2\"],\"message\":\"BDD test payload: synthetics_api_test_websocket_payload.json\",\"deleted_at\":null,\"name\":\"Test-Create_an_API_test_with_WEBSOCKET_subtype_returns_OK_Returns_the_created_test_details_response-1636999665\",\"monitor_id\":54531314,\"type\":\"api\",\"created_at\":\"2021-11-15T18:07:46.215484+00:00\",\"modified_at\":\"2021-11-15T18:07:46.215484+00:00\",\"subtype\":\"websocket\",\"config\":{\"request\":{\"url\":\"ws://datadoghq.com\",\"message\":\"message\"},\"assertions\":[{\"operator\":\"is\",\"type\":\"receivedMessage\",\"target\":\"message\"},{\"operator\":\"lessThan\",\"type\":\"responseTime\",\"target\":2000}],\"configVariables\":[]},\"options\":{\"accept_self_signed\":false,\"retry\":{\"count\":3,\"interval\":10},\"min_location_failed\":1,\"allow_insecure\":true,\"follow_redirects\":true,\"min_failure_duration\":10,\"monitor_priority\":5,\"monitor_name\":\"Test-Create_an_API_test_with_WEBSOCKET_subtype_returns_OK_Returns_the_created_test_details_response-1636999665\",\"tick_every\":60}}",
+      "body": "{\"status\":\"live\",\"public_id\":\"hyf-x3m-tie\",\"tags\":[\"testing:api\"],\"org_id\":321813,\"locations\":[\"aws:us-east-2\"],\"message\":\"BDD test payload: synthetics_api_test_websocket_payload.json\",\"deleted_at\":null,\"name\":\"Test-Create_an_API_test_with_WEBSOCKET_subtype_returns_OK_Returns_the_created_test_details_response-1641430275\",\"monitor_id\":59800848,\"type\":\"api\",\"created_at\":\"2022-01-06T00:51:16.204340+00:00\",\"modified_at\":\"2022-01-06T00:51:16.204340+00:00\",\"subtype\":\"websocket\",\"config\":{\"request\":{\"url\":\"ws://datadoghq.com\",\"message\":\"message\"},\"assertions\":[{\"operator\":\"is\",\"type\":\"receivedMessage\",\"target\":\"message\"},{\"operator\":\"lessThan\",\"type\":\"responseTime\",\"target\":2000}],\"configVariables\":[]},\"options\":{\"accept_self_signed\":false,\"retry\":{\"count\":3,\"interval\":10},\"min_location_failed\":1,\"allow_insecure\":true,\"follow_redirects\":true,\"min_failure_duration\":10,\"monitor_priority\":5,\"monitor_name\":\"Test-Create_an_API_test_with_WEBSOCKET_subtype_returns_OK_Returns_the_created_test_details_response-1641430275\",\"tick_every\":60}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,13 +31,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "2a448c37-dd40-44dd-1c0e-aacf771bb7e1"
+    "id": "965ed048-605e-9d91-53cf-3eb136c6e0cd"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"public_ids\":[\"7f2-txy-a7p\"]}"
+        "json": "{\"public_ids\":[\"hyf-x3m-tie\"]}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -50,7 +50,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"deleted_tests\":[{\"deleted_at\":\"2021-11-15T18:07:46.397039+00:00\",\"public_id\":\"7f2-txy-a7p\"}]}",
+      "body": "{\"deleted_tests\":[{\"deleted_at\":\"2022-01-06T00:51:16.473017+00:00\",\"public_id\":\"hyf-x3m-tie\"}]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -65,6 +65,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "139366de-8ae2-1315-8bd7-0ca04c990462"
+    "id": "bd8bb316-ece4-2f62-cfec-388f81d711c0"
   }
 ]

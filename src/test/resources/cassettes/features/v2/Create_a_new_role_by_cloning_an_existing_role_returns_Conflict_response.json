@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Create_a_new_role_by_cloning_an_existing_role_returns_Conflict_response-1640118938\"},\"type\":\"roles\"}}"
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Create_a_new_role_by_cloning_an_existing_role_returns_Conflict_response-1641829861\"},\"type\":\"roles\"}}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"roles\",\"id\":\"8ef5c3ba-629d-11ec-af3f-da7ad0900002\",\"attributes\":{\"name\":\"Test-Create_a_new_role_by_cloning_an_existing_role_returns_Conflict_response-1640118938\",\"created_at\":\"2021-12-21T20:35:38.949398+00:00\",\"modified_at\":\"2021-12-21T20:35:39.017421+00:00\"},\"relationships\":{\"permissions\":{\"data\":[{\"type\":\"permissions\",\"id\":\"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2\"},{\"type\":\"permissions\",\"id\":\"4441648c-d8b1-11e9-a77a-1b899a04b304\"},{\"type\":\"permissions\",\"id\":\"417ba636-2dce-11eb-84c0-6bce5b0d9de0\"},{\"type\":\"permissions\",\"id\":\"12efc20e-d36c-11eb-a9b8-da7ad0900002\"},{\"type\":\"permissions\",\"id\":\"97971c1c-e895-11eb-b13c-da7ad0900002\"},{\"type\":\"permissions\",\"id\":\"7605ef24-f376-11eb-b90b-da7ad0900002\"}]}}}}",
+      "body": "{\"data\":{\"type\":\"roles\",\"id\":\"1c46f3b2-722d-11ec-b5d7-da7ad0900002\",\"attributes\":{\"name\":\"Test-Create_a_new_role_by_cloning_an_existing_role_returns_Conflict_response-1641829861\",\"created_at\":\"2022-01-10T15:51:01.513852+00:00\",\"modified_at\":\"2022-01-10T15:51:01.567286+00:00\"},\"relationships\":{\"permissions\":{\"data\":[{\"type\":\"permissions\",\"id\":\"d90f6830-d3d8-11e9-a77a-b3404e5e9ee2\"},{\"type\":\"permissions\",\"id\":\"4441648c-d8b1-11e9-a77a-1b899a04b304\"},{\"type\":\"permissions\",\"id\":\"417ba636-2dce-11eb-84c0-6bce5b0d9de0\"},{\"type\":\"permissions\",\"id\":\"12efc20e-d36c-11eb-a9b8-da7ad0900002\"},{\"type\":\"permissions\",\"id\":\"97971c1c-e895-11eb-b13c-da7ad0900002\"},{\"type\":\"permissions\",\"id\":\"7605ef24-f376-11eb-b90b-da7ad0900002\"}]}}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,13 +31,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "d8e4bdf6-6581-90ac-1da7-7214e5d3c3f1"
+    "id": "21d736ae-725b-bdf7-2887-b84bc165de85"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Create_a_new_role_by_cloning_an_existing_role_returns_Conflict_response-1640118938\"},\"type\":\"roles\"}}"
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Create_a_new_role_by_cloning_an_existing_role_returns_Conflict_response-1641829861\"},\"type\":\"roles\"}}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -45,7 +45,7 @@
         ]
       },
       "method": "POST",
-      "path": "/api/v2/roles/8ef5c3ba-629d-11ec-af3f-da7ad0900002/clone",
+      "path": "/api/v2/roles/1c46f3b2-722d-11ec-b5d7-da7ad0900002/clone",
       "keepAlive": false,
       "secure": true
     },
@@ -65,7 +65,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "654368c8-ea4f-926f-2619-b58394ec5931"
+    "id": "f3621213-ee68-41a0-79a3-f03a8468883e"
   },
   {
     "httpRequest": {
@@ -75,7 +75,7 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v2/roles/8ef5c3ba-629d-11ec-af3f-da7ad0900002",
+      "path": "/api/v2/roles/1c46f3b2-722d-11ec-b5d7-da7ad0900002",
       "keepAlive": false,
       "secure": true
     },
@@ -90,6 +90,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "be6fb365-7b84-bfbe-458e-55951a789416"
+    "id": "2f87b223-c69f-9171-dd7e-e3dc935e89b7"
   }
 ]

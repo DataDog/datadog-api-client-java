@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"cases\":[{\"condition\":\"a > 0\",\"name\":\"\",\"notifications\":[],\"status\":\"info\"}],\"filters\":[],\"isEnabled\":true,\"message\":\"Test rule\",\"name\":\"Test-Create_a_detection_rule_returns_OK_response-1618491768\",\"options\":{\"evaluationWindow\":900,\"keepAlive\":3600,\"maxSignalDuration\":86400},\"queries\":[{\"aggregation\":\"count\",\"distinctFields\":[],\"groupByFields\":[],\"metric\":\"\",\"query\":\"@test:true\"}],\"tags\":[]}"
+        "json": "{\"cases\":[{\"condition\":\"a > 0\",\"name\":\"\",\"notifications\":[],\"status\":\"info\"}],\"filters\":[],\"isEnabled\":true,\"message\":\"Test rule\",\"name\":\"Test-Create_a_detection_rule_returns_OK_response-1641829885\",\"options\":{\"evaluationWindow\":900,\"keepAlive\":3600,\"maxSignalDuration\":86400},\"queries\":[{\"aggregation\":\"count\",\"distinctFields\":[],\"groupByFields\":[],\"metric\":\"\",\"query\":\"@test:true\"}],\"tags\":[]}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"creationAuthorId\":1445416,\"tags\":[],\"isEnabled\":true,\"hasExtendedTitle\":false,\"message\":\"Test rule\",\"options\":{\"detectionMethod\":\"threshold\",\"evaluationWindow\":900,\"maxSignalDuration\":86400,\"keepAlive\":3600},\"version\":1,\"createdAt\":1618491769225,\"filters\":[],\"queries\":[{\"distinctFields\":[],\"name\":\"\",\"metric\":\"\",\"aggregation\":\"count\",\"groupByFields\":[],\"query\":\"@test:true\",\"trackType\":\"logs\"}],\"isDeleted\":false,\"cases\":[{\"status\":\"info\",\"notifications\":[],\"name\":\"\",\"condition\":\"a > 0\"}],\"type\":\"log_detection\",\"id\":\"ihw-tnw-ivf\",\"isDefault\":false,\"name\":\"Test-Create_a_detection_rule_returns_OK_response-1618491768\"}",
+      "body": "{\"creationAuthorId\":1445416,\"tags\":[],\"isEnabled\":true,\"hasExtendedTitle\":false,\"message\":\"Test rule\",\"options\":{\"detectionMethod\":\"threshold\",\"evaluationWindow\":900,\"maxSignalDuration\":86400,\"keepAlive\":3600},\"version\":1,\"createdAt\":1641829885620,\"filters\":[],\"queries\":[{\"distinctFields\":[],\"name\":\"\",\"metric\":\"\",\"aggregation\":\"count\",\"groupByFields\":[],\"query\":\"@test:true\"}],\"isDeleted\":false,\"cases\":[{\"status\":\"info\",\"notifications\":[],\"name\":\"\",\"condition\":\"a > 0\"}],\"type\":\"log_detection\",\"id\":\"mn1-f0b-u6w\",\"isDefault\":false,\"name\":\"Test-Create_a_detection_rule_returns_OK_response-1641829885\"}",
       "headers": {
         "Content-Type": [
           "application/json;charset=utf-8"
@@ -31,7 +31,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "d2bbae85-d4bb-73d2-5aea-b0f8ccda6ad3"
+    "id": "558613d1-c245-05bc-3554-7d58242d22ab"
   },
   {
     "httpRequest": {
@@ -41,7 +41,7 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/rules/ihw-tnw-ivf",
+      "path": "/api/v2/security_monitoring/rules/mn1-f0b-u6w",
       "keepAlive": false,
       "secure": true
     },
@@ -56,6 +56,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "13258fba-3356-cdd6-560f-de0fa063a723"
+    "id": "3dd46ecb-6d17-13d6-0ce5-12674fb1e2ff"
   }
 ]

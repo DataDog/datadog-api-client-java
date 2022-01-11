@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Edit_an_application_key_returns_OK_response-1639757120\"},\"type\":\"application_keys\"}}"
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Edit_an_application_key_returns_OK_response-1641829849\"},\"type\":\"application_keys\"}}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"application_keys\",\"id\":\"82a1a46d-7acc-4fcd-a448-c5993752640a\",\"attributes\":{\"name\":\"Test-Edit_an_application_key_returns_OK_response-1639757120\",\"created_at\":\"2021-12-17T16:05:20.518462+00:00\",\"last4\":\"beef\",\"key\":\"deaddcc81a44288fbbbfb15efe1203df034abeef\"},\"relationships\":{\"owned_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}}}}}",
+      "body": "{\"data\":{\"type\":\"application_keys\",\"id\":\"ec7cc04a-a69f-4af5-a13e-9d10661a52ca\",\"attributes\":{\"name\":\"Test-Edit_an_application_key_returns_OK_response-1641829849\",\"created_at\":\"2022-01-10T15:50:50.276406+00:00\",\"last4\":\"xxxx\",\"key\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\"scopes\":null},\"relationships\":{\"owned_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}}}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,13 +31,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "45c0d802-b9e9-79f8-5d54-103e77942f96"
+    "id": "eff97b1f-92cc-ff01-f215-bce3c6d4a079"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"id\":\"82a1a46d-7acc-4fcd-a448-c5993752640a\",\"type\":\"application_keys\",\"attributes\":{\"name\":\"Test-Edit_an_application_key_returns_OK_response-1639757120-updated\"}}}"
+        "json": "{\"data\":{\"attributes\":{\"name\":\"Test-Edit_an_application_key_returns_OK_response-1641829849-updated\"},\"id\":\"ec7cc04a-a69f-4af5-a13e-9d10661a52ca\",\"type\":\"application_keys\"}}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -45,12 +45,12 @@
         ]
       },
       "method": "PATCH",
-      "path": "/api/v2/application_keys/82a1a46d-7acc-4fcd-a448-c5993752640a",
+      "path": "/api/v2/application_keys/ec7cc04a-a69f-4af5-a13e-9d10661a52ca",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"application_keys\",\"id\":\"82a1a46d-7acc-4fcd-a448-c5993752640a\",\"attributes\":{\"name\":\"Test-Edit_an_application_key_returns_OK_response-1639757120-updated\",\"created_at\":\"2021-12-17T16:05:20.518462+00:00\",\"last4\":\"beef\"},\"relationships\":{\"owned_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}}}}}",
+      "body": "{\"data\":{\"type\":\"application_keys\",\"id\":\"ec7cc04a-a69f-4af5-a13e-9d10661a52ca\",\"attributes\":{\"name\":\"Test-Edit_an_application_key_returns_OK_response-1641829849-updated\",\"created_at\":\"2022-01-10T15:50:50.276406+00:00\",\"last4\":\"xxxx\",\"scopes\":null},\"relationships\":{\"owned_by\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\"}}}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -65,7 +65,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "efa4608a-092e-3f5d-23ec-b1456a7121fc"
+    "id": "98802d21-22a0-bc48-e70b-19153326625a"
   },
   {
     "httpRequest": {
@@ -75,7 +75,7 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v2/current_user/application_keys/82a1a46d-7acc-4fcd-a448-c5993752640a",
+      "path": "/api/v2/current_user/application_keys/ec7cc04a-a69f-4af5-a13e-9d10661a52ca",
       "keepAlive": false,
       "secure": true
     },
@@ -90,6 +90,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "61979038-03a4-7483-d0bc-b3e1e5e9a222"
+    "id": "7a19371c-ecf0-6697-dfe7-90eb32d35490"
   }
 ]

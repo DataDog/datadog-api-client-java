@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"exclusion_filters\":[{\"name\":\"Exclude logs from staging\",\"query\":\"source:staging\"}],\"filtered_data_type\":\"logs\",\"is_enabled\":true,\"name\":\"Test-Get_a_security_filter_returns_OK_response-1620751633\",\"query\":\"service:TestGetasecurityfilterreturnsOKresponse1620751633\"},\"type\":\"security_filters\"}}"
+        "json": "{\"data\":{\"attributes\":{\"exclusion_filters\":[{\"name\":\"Exclude logs from staging\",\"query\":\"source:staging\"}],\"filtered_data_type\":\"logs\",\"is_enabled\":true,\"name\":\"Test-Get_a_security_filter_returns_OK_response-1641829887\",\"query\":\"service:TestGetasecurityfilterreturnsOKresponse1641829887\"},\"type\":\"security_filters\"}}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"attributes\":{\"is_enabled\":true,\"name\":\"Test-Get_a_security_filter_returns_OK_response-1620751633\",\"filtered_data_type\":\"logs\",\"exclusion_filters\":[{\"query\":\"source:staging\",\"name\":\"Exclude logs from staging\"}],\"version\":1,\"query\":\"service:TestGetasecurityfilterreturnsOKresponse1620751633\",\"is_builtin\":false},\"type\":\"security_filters\",\"id\":\"8ez-cdr-dy8\"}}",
+      "body": "{\"data\":{\"attributes\":{\"is_enabled\":true,\"name\":\"Test-Get_a_security_filter_returns_OK_response-1641829887\",\"filtered_data_type\":\"logs\",\"exclusion_filters\":[{\"query\":\"source:staging\",\"name\":\"Exclude logs from staging\"}],\"version\":1,\"query\":\"service:TestGetasecurityfilterreturnsOKresponse1641829887\",\"is_builtin\":false},\"type\":\"security_filters\",\"id\":\"ixg-a5r-3st\"}}",
       "headers": {
         "Content-Type": [
           "application/json;charset=utf-8"
@@ -31,7 +31,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "31d45b6d-8c68-9b6a-5bf6-1838eb8ccda2"
+    "id": "718538f4-dff2-d3a6-3bde-534fc8c14d45"
   },
   {
     "httpRequest": {
@@ -41,12 +41,12 @@
         ]
       },
       "method": "GET",
-      "path": "/api/v2/security_monitoring/configuration/security_filters/8ez-cdr-dy8",
+      "path": "/api/v2/security_monitoring/configuration/security_filters/ixg-a5r-3st",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"attributes\":{\"is_enabled\":true,\"name\":\"Test-Get_a_security_filter_returns_OK_response-1620751633\",\"filtered_data_type\":\"logs\",\"exclusion_filters\":[{\"query\":\"source:staging\",\"name\":\"Exclude logs from staging\"}],\"version\":1,\"query\":\"service:TestGetasecurityfilterreturnsOKresponse1620751633\",\"is_builtin\":false},\"type\":\"security_filters\",\"id\":\"8ez-cdr-dy8\"}}",
+      "body": "{\"data\":{\"attributes\":{\"is_enabled\":true,\"name\":\"Test-Get_a_security_filter_returns_OK_response-1641829887\",\"filtered_data_type\":\"logs\",\"exclusion_filters\":[{\"query\":\"source:staging\",\"name\":\"Exclude logs from staging\"}],\"version\":1,\"query\":\"service:TestGetasecurityfilterreturnsOKresponse1641829887\",\"is_builtin\":false},\"type\":\"security_filters\",\"id\":\"ixg-a5r-3st\"}}",
       "headers": {
         "Content-Type": [
           "application/json;charset=utf-8"
@@ -61,7 +61,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "ebffec63-7ea6-2848-8d72-3e1d128288e2"
+    "id": "2bccd6cb-b4af-11d0-18bb-3a45c565483d"
   },
   {
     "httpRequest": {
@@ -71,7 +71,7 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v2/security_monitoring/configuration/security_filters/8ez-cdr-dy8",
+      "path": "/api/v2/security_monitoring/configuration/security_filters/ixg-a5r-3st",
       "keepAlive": false,
       "secure": true
     },
@@ -86,6 +86,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "a82c427c-9340-115b-7aba-8ea3572a9b22"
+    "id": "728f2134-be2b-f17c-7660-6ce3d30a3094"
   }
 ]

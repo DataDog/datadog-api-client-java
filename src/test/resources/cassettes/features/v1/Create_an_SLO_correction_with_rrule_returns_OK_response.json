@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"type\": \"metric\", \"name\": \"Test-Create_an_SLO_correction_with_rrule_returns_OK_response-1639743385\", \"thresholds\": [{\"timeframe\": \"7d\", \"target\": 95.0, \"warning\": 98.0}], \"query\": {\"numerator\": \"sum:httpservice.hits{code:2xx}.as_count()\", \"denominator\": \"sum:httpservice.hits{!code:3xx}.as_count()\"}}"
+        "json": "{\"name\": \"Test-Create_an_SLO_correction_with_rrule_returns_OK_response-1641829825\", \"query\": {\"denominator\": \"sum:httpservice.hits{!code:3xx}.as_count()\", \"numerator\": \"sum:httpservice.hits{code:2xx}.as_count()\"}, \"thresholds\": [{\"target\": 95.0, \"timeframe\": \"7d\", \"warning\": 98.0}], \"type\": \"metric\"}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":[{\"description\":\"\",\"monitor_tags\":[],\"creator\":{\"handle\":\"frog@datadoghq.com\",\"name\":null,\"email\":\"frog@datadoghq.com\"},\"thresholds\":[{\"warning\":98.0,\"warning_display\":\"98.\",\"target\":95.0,\"target_display\":\"95.\",\"timeframe\":\"7d\"}],\"type_id\":1,\"query\":{\"denominator\":\"sum:httpservice.hits{!code:3xx}.as_count()\",\"numerator\":\"sum:httpservice.hits{code:2xx}.as_count()\"},\"id\":\"46be908d1c20577181e3813c64b21f8b\",\"name\":\"Test-Create_an_SLO_correction_with_rrule_returns_OK_response-1639743385\",\"created_at\":1639743385,\"tags\":[],\"modified_at\":1639743385,\"type\":\"metric\"}],\"error\":null}",
+      "body": "{\"data\":[{\"description\":\"\",\"monitor_tags\":[],\"creator\":{\"handle\":\"frog@datadoghq.com\",\"name\":null,\"email\":\"frog@datadoghq.com\"},\"thresholds\":[{\"warning\":98.0,\"warning_display\":\"98.\",\"target\":95.0,\"target_display\":\"95.\",\"timeframe\":\"7d\"}],\"type_id\":1,\"query\":{\"denominator\":\"sum:httpservice.hits{!code:3xx}.as_count()\",\"numerator\":\"sum:httpservice.hits{code:2xx}.as_count()\"},\"id\":\"5c5220a5a01e5e5eb15edb3034de34bc\",\"name\":\"Test-Create_an_SLO_correction_with_rrule_returns_OK_response-1641829825\",\"created_at\":1641829826,\"tags\":[],\"modified_at\":1641829826,\"type\":\"metric\"}],\"error\":null}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,13 +31,13 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "4578a30b-4d04-f4f6-c141-2460606b518b"
+    "id": "c95c4295-fc55-e8eb-8596-de6e8119e44d"
   },
   {
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"data\":{\"attributes\":{\"category\":\"Scheduled Maintenance\",\"description\":\"Test-Create_an_SLO_correction_with_rrule_returns_OK_response-1639743385\",\"slo_id\":\"46be908d1c20577181e3813c64b21f8b\",\"start\":1639743385,\"duration\":3600,\"rrule\":\"FREQ=DAILY;INTERVAL=10;COUNT=5\",\"timezone\":\"UTC\"},\"type\":\"correction\"}}"
+        "json": "{\"data\":{\"attributes\":{\"category\":\"Scheduled Maintenance\",\"description\":\"Test-Create_an_SLO_correction_with_rrule_returns_OK_response-1641829825\",\"duration\":3600,\"rrule\":\"FREQ=DAILY;INTERVAL=10;COUNT=5\",\"slo_id\":\"5c5220a5a01e5e5eb15edb3034de34bc\",\"start\":1641829825,\"timezone\":\"UTC\"},\"type\":\"correction\"}}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -50,7 +50,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":{\"type\":\"correction\",\"id\":\"27b98c58-5f33-11ec-ae1f-da7ad0900002\",\"attributes\":{\"slo_id\":\"46be908d1c20577181e3813c64b21f8b\",\"start\":1639743385,\"end\":null,\"description\":\"Test-Create_an_SLO_correction_with_rrule_returns_OK_response-1639743385\",\"category\":\"Scheduled Maintenance\",\"timezone\":\"UTC\",\"created_at\":null,\"modified_at\":null,\"rrule\":\"FREQ=DAILY;INTERVAL=10;COUNT=5\",\"duration\":3600,\"creator\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"attributes\":{\"uuid\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\",\"name\":null,\"icon\":\"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro\"}}},\"modifier\":null}}}",
+      "body": "{\"data\":{\"type\":\"correction\",\"id\":\"07962672-722d-11ec-b5d6-da7ad0900002\",\"attributes\":{\"slo_id\":\"5c5220a5a01e5e5eb15edb3034de34bc\",\"start\":1641829825,\"end\":null,\"description\":\"Test-Create_an_SLO_correction_with_rrule_returns_OK_response-1641829825\",\"category\":\"Scheduled Maintenance\",\"timezone\":\"UTC\",\"created_at\":null,\"modified_at\":null,\"rrule\":\"FREQ=DAILY;INTERVAL=10;COUNT=5\",\"duration\":3600,\"creator\":{\"data\":{\"type\":\"users\",\"id\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"attributes\":{\"uuid\":\"3ad549bf-eba0-11e9-a77a-0705486660d0\",\"handle\":\"frog@datadoghq.com\",\"email\":\"frog@datadoghq.com\",\"name\":null,\"icon\":\"https://secure.gravatar.com/avatar/28a16dfe36e73b60c1d55872cb0f1172?s=48&d=retro\"}}},\"modifier\":null}}}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -65,7 +65,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "bbff1f1a-1f9d-2a2c-baec-ad516b7e34b8"
+    "id": "a6ac7d07-2caf-f6e3-7e53-96a81fbd3e1b"
   },
   {
     "httpRequest": {
@@ -75,7 +75,7 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v1/slo/correction/27b98c58-5f33-11ec-ae1f-da7ad0900002",
+      "path": "/api/v1/slo/correction/07962672-722d-11ec-b5d6-da7ad0900002",
       "keepAlive": false,
       "secure": true
     },
@@ -90,7 +90,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "2588ead3-f97d-9695-a88a-9b192abfc591"
+    "id": "fb78594e-0356-22bf-cf1c-7d58f33bfec8"
   },
   {
     "httpRequest": {
@@ -100,12 +100,12 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v1/slo/46be908d1c20577181e3813c64b21f8b",
+      "path": "/api/v1/slo/5c5220a5a01e5e5eb15edb3034de34bc",
       "keepAlive": false,
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"data\":[\"46be908d1c20577181e3813c64b21f8b\"],\"error\":null}",
+      "body": "{\"data\":[\"5c5220a5a01e5e5eb15edb3034de34bc\"],\"error\":null}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -120,6 +120,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "a6415812-b16c-41c1-e7b7-430a7c71c709"
+    "id": "8c2b357d-5433-fa19-c624-d230640ded29"
   }
 ]

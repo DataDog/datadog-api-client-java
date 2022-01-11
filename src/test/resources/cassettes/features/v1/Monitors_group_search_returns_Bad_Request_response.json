@@ -17,7 +17,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\": [\"Query parsing error: 'notastatus' is not a valid monitor status\"]}",
+      "body": "{\"errors\":[\"Query parsing error: 'notastatus' is not a valid monitor status\"]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -32,6 +32,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "d41afe9f-069d-3703-56ec-08bdc1301136"
+    "id": "cfe26bba-ffcc-d61b-0417-d0b890cc00d7"
   }
 ]

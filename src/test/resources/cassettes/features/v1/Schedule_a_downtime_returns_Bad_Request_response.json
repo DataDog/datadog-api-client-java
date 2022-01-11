@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"errors\": [\"Invalid scope parameter\"]}",
+      "body": "{\"errors\":[\"Invalid scope parameter\"]}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,6 +31,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "c1104208-9a31-728a-6555-269066a49a99"
+    "id": "204337ed-863d-a45a-aac7-df9f45faf3eb"
   }
 ]

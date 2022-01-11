@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"is_secret\":false,\"name\":\"TESTDELETEACUSTOMVARIABLERETURNSOKRESPONSE1628785713\",\"value\":\"variable-value\"}"
+        "json": "{\"is_secret\":false,\"name\":\"TESTDELETEACUSTOMVARIABLERETURNSOKRESPONSE1641833861\",\"value\":\"variable-value\"}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -16,7 +16,7 @@
       "secure": true
     },
     "httpResponse": {
-      "body": "{\"is_secret\":false,\"name\":\"TESTDELETEACUSTOMVARIABLERETURNSOKRESPONSE1628785713\",\"value\":\"variable-value\"}",
+      "body": "{\"is_secret\":false,\"name\":\"TESTDELETEACUSTOMVARIABLERETURNSOKRESPONSE1641833861\",\"value\":\"variable-value\"}",
       "headers": {
         "Content-Type": [
           "application/json"
@@ -31,7 +31,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "1d7deb2a-dda2-2b71-5df8-155f41f0959c"
+    "id": "044923c4-fca0-00ba-29a9-59b7d7b5ef68"
   },
   {
     "httpRequest": {
@@ -41,7 +41,7 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v1/integration/webhooks/configuration/custom-variables/TESTDELETEACUSTOMVARIABLERETURNSOKRESPONSE1628785713",
+      "path": "/api/v1/integration/webhooks/configuration/custom-variables/TESTDELETEACUSTOMVARIABLERETURNSOKRESPONSE1641833861",
       "keepAlive": false,
       "secure": true
     },
@@ -61,7 +61,7 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "78d10db2-813d-c886-32aa-c0c148c67424"
+    "id": "77561b00-4be7-f54d-51e0-5d9ee1855b4d"
   },
   {
     "httpRequest": {
@@ -71,7 +71,7 @@
         ]
       },
       "method": "DELETE",
-      "path": "/api/v1/integration/webhooks/configuration/custom-variables/TESTDELETEACUSTOMVARIABLERETURNSOKRESPONSE1628785713",
+      "path": "/api/v1/integration/webhooks/configuration/custom-variables/TESTDELETEACUSTOMVARIABLERETURNSOKRESPONSE1641833861",
       "keepAlive": false,
       "secure": true
     },
@@ -82,8 +82,8 @@
           "application/json"
         ]
       },
-      "statusCode": 400,
-      "reasonPhrase": "Bad Request"
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
     },
     "times": {
       "remainingTimes": 1
@@ -91,6 +91,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "78d10db2-813d-c886-32aa-c0c148c67425"
+    "id": "77561b00-4be7-f54d-51e0-5d9ee1855b4e"
   }
 ]

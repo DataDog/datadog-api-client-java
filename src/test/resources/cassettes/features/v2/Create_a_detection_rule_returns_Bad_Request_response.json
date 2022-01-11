@@ -3,7 +3,7 @@
     "httpRequest": {
       "body": {
         "type": "JSON",
-        "json": "{\"cases\":[{\"status\":\"info\"}],\"isEnabled\":true,\"message\":\"Test rule\",\"name\":\"Test-Create_a_detection_rule_returns_Bad_Request_response-1618473262\",\"options\":{},\"queries\":[{\"query\":\"\"}],\"tags\":[]}"
+        "json": "{\"cases\":[{\"status\":\"info\"}],\"isEnabled\":true,\"message\":\"Test rule\",\"name\":\"Test-Create_a_detection_rule_returns_Bad_Request_response-1641430328\",\"options\":{},\"queries\":[{\"query\":\"\"}],\"tags\":[]}"
       },
       "headers": {
         "JAVA-TEST-NAME": [
@@ -31,6 +31,6 @@
     "timeToLive": {
       "unlimited": true
     },
-    "id": "c38ac2df-1f7c-f28a-89bf-d923636911b9"
+    "id": "4d53ca34-7108-5c10-1af2-0b2ff993dc32"
   }
 ]
