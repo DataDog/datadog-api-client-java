@@ -294,6 +294,7 @@ public class ApiClient extends JavaTimeFormatter {
           put("getDailyCustomReports", false);
           put("getHourlyUsageAttribution", false);
           put("getMonthlyCustomReports", false);
+          put("getMonthlyUsageAttribution", false);
           put("getSpecifiedDailyCustomReports", false);
           put("getSpecifiedMonthlyCustomReports", false);
           put("getUsageAttribution", false);

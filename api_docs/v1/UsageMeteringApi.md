@@ -9,6 +9,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | [**getIncidentManagement**](UsageMeteringApi.md#getIncidentManagement)                                   | **GET** /api/v1/usage/incident-management          | Get hourly usage for incident management         |
 | [**getIngestedSpans**](UsageMeteringApi.md#getIngestedSpans)                                             | **GET** /api/v1/usage/ingested-spans               | Get hourly usage for ingested spans              |
 | [**getMonthlyCustomReports**](UsageMeteringApi.md#getMonthlyCustomReports)                               | **GET** /api/v1/monthly_custom_reports             | Get the list of available monthly custom reports |
+| [**getMonthlyUsageAttribution**](UsageMeteringApi.md#getMonthlyUsageAttribution)                         | **GET** /api/v1/usage/monthly-attribution          | Get Monthly Usage Attribution                    |
 | [**getSpecifiedDailyCustomReports**](UsageMeteringApi.md#getSpecifiedDailyCustomReports)                 | **GET** /api/v1/daily_custom_reports/{report_id}   | Get specified daily custom reports               |
 | [**getSpecifiedMonthlyCustomReports**](UsageMeteringApi.md#getSpecifiedMonthlyCustomReports)             | **GET** /api/v1/monthly_custom_reports/{report_id} | Get specified monthly custom reports             |
 | [**getUsageAnalyzedLogs**](UsageMeteringApi.md#getUsageAnalyzedLogs)                                     | **GET** /api/v1/usage/analyzed_logs                | Get hourly usage for analyzed logs               |
@@ -103,7 +104,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -178,7 +179,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -245,7 +246,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -313,7 +314,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -387,7 +388,88 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
+
+### HTTP response details
+
+| Status code | Description                        | Response headers |
+| ----------- | ---------------------------------- | ---------------- |
+| **200**     | OK                                 | -                |
+| **403**     | Forbidden - User is not authorized | -                |
+| **429**     | Too many requests                  | -                |
+
+## getMonthlyUsageAttribution
+
+> MonthlyUsageAttributionResponse getMonthlyUsageAttribution(startMonth, fields, parameters);
+
+Get Monthly Usage Attribution.
+
+### Example
+
+```java
+import java.time.OffsetDateTime;
+import java.util.*;
+import com.datadog.api.v1.client.ApiClient;
+import com.datadog.api.v1.client.ApiException;
+import com.datadog.api.v1.client.Configuration;
+import com.datadog.api.v1.client.model.*;
+import com.datadog.api.v1.client.api.UsageMeteringApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+        UsageMeteringApi apiInstance = new UsageMeteringApi(defaultClient);
+        OffsetDateTime startMonth = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage beginning in this month. Maximum of 15 months ago.
+        MonthlyUsageAttributionSupportedMetrics fields = MonthlyUsageAttributionSupportedMetrics.fromValue("api_usage"); // MonthlyUsageAttributionSupportedMetrics | Comma-separated list of usage types to return, or `*` for all usage types.
+        OffsetDateTime endMonth = OffsetDateTime.now(); // OffsetDateTime | Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage ending this month.
+        UsageSortDirection sortDirection = UsageSortDirection.fromValue("desc"); // UsageSortDirection | The direction to sort by: `[desc, asc]`.
+        MonthlyUsageAttributionSupportedMetrics sortName = MonthlyUsageAttributionSupportedMetrics.fromValue("api_usage"); // MonthlyUsageAttributionSupportedMetrics | The field to sort by.
+        String tagBreakdownKeys = "tagBreakdownKeys_example"; // String | Comma separated list of tags used to group usage. If no value is provided the usage will not be broken down by tags.
+        String nextRecordId = "nextRecordId_example"; // String | List following results with a next_record_id provided in the previous query.
+        try {
+            MonthlyUsageAttributionResponse result = apiInstance.getMonthlyUsageAttribution(startMonth, fields, new UsageMeteringApi.GetMonthlyUsageAttributionOptionalParameters()
+                .endMonth(endMonth)
+                .sortDirection(sortDirection)
+                .sortName(sortName)
+                .tagBreakdownKeys(tagBreakdownKeys)
+                .nextRecordId(nextRecordId));
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling UsageMeteringApi#getMonthlyUsageAttribution");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+| Name                 | Type                                        | Description                                                                                                                            | Notes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| -------------------- | ------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **startMonth**       | **OffsetDateTime**                          | Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago. |
+| **fields**           | **MonthlyUsageAttributionSupportedMetrics** | Comma-separated list of usage types to return, or &#x60;\*&#x60; for all usage types.                                                  | [enum: api_usage, api_percentage, apm_host_usage, apm_host_percentage, browser_usage, browser_percentage, container_usage, container_percentage, custom_timeseries_usage, custom_timeseries_percentage, fargate_usage, fargate_percentage, functions_usage, functions_percentage, indexed_logs_usage, indexed_logs_percentage, infra_host_usage, infra_host_percentage, invocations_usage, invocations_percentage, npm_host_usage, npm_host_percentage, profiled_container_usage, profiled_container_percentage, profiled_host_usage, profiled_host_percentage, snmp_usage, snmp_percentage, *]            |
+| **endMonth**         | **OffsetDateTime**                          | Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.                                 | [optional]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| **sortDirection**    | **UsageSortDirection**                      | The direction to sort by: &#x60;[desc, asc]&#x60;.                                                                                     | [optional] [default to desc] [enum: desc, asc]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| **sortName**         | **MonthlyUsageAttributionSupportedMetrics** | The field to sort by.                                                                                                                  | [optional] [enum: api_usage, api_percentage, apm_host_usage, apm_host_percentage, browser_usage, browser_percentage, container_usage, container_percentage, custom_timeseries_usage, custom_timeseries_percentage, fargate_usage, fargate_percentage, functions_usage, functions_percentage, indexed_logs_usage, indexed_logs_percentage, infra_host_usage, infra_host_percentage, invocations_usage, invocations_percentage, npm_host_usage, npm_host_percentage, profiled_container_usage, profiled_container_percentage, profiled_host_usage, profiled_host_percentage, snmp_usage, snmp_percentage, *] |
+| **tagBreakdownKeys** | **String**                                  | Comma separated list of tags used to group usage. If no value is provided the usage will not be broken down by tags.                   | [optional]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| **nextRecordId**     | **String**                                  | List following results with a next_record_id provided in the previous query.                                                           | [optional]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+
+### Return type
+
+[**MonthlyUsageAttributionResponse**](MonthlyUsageAttributionResponse.md)
+
+### Authorization
+
+[AuthZ](README.md#AuthZ), [apiKeyAuth](README.md#apiKeyAuth), [appKeyAuth](README.md#appKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -450,7 +532,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -514,7 +596,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -583,7 +665,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -662,7 +744,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -729,7 +811,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -795,7 +877,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -863,7 +945,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -931,7 +1013,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -999,7 +1081,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -1067,7 +1149,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -1135,7 +1217,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -1203,7 +1285,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -1271,7 +1353,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -1339,7 +1421,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -1407,7 +1489,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -1478,7 +1560,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -1546,7 +1628,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -1614,7 +1696,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -1682,7 +1764,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -1750,7 +1832,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -1821,7 +1903,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -1889,7 +1971,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -1957,7 +2039,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -2025,7 +2107,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -2096,7 +2178,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -2164,7 +2246,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -2232,7 +2314,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -2300,7 +2382,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -2368,7 +2450,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
@@ -2446,7 +2528,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json;datetime-format=rfc3339, application/json
+- **Accept**: application/json;datetime-format=rfc3339
 
 ### HTTP response details
 
