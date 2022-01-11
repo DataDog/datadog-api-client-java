@@ -26,6 +26,7 @@ repos:
     language_version: 14.12.0
     entry: prettier --write --list-different --ignore-unknown api_docs
     "types": [text]
+    files: '^api_docs/'
     pass_filenames: false
     additional_dependencies:
       # When updating the version of prettier, make sure to check the  pre-commit file
