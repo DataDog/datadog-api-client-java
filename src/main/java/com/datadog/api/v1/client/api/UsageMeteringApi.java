@@ -1365,6 +1365,8 @@ public class UsageMeteringApi {
     private UsageSortDirection sortDirection;
     private UsageAttributionSort sortName;
     private Boolean includeDescendants;
+    private Long offset;
+    private Long limit;
 
     /**
      * Set endMonth
@@ -1410,6 +1412,28 @@ public class UsageMeteringApi {
      */
     public GetUsageAttributionOptionalParameters includeDescendants(Boolean includeDescendants) {
       this.includeDescendants = includeDescendants;
+      return this;
+    }
+
+    /**
+     * Set offset
+     *
+     * @param offset Number of records to skip before beginning to return. (optional, default to 0)
+     * @return GetUsageAttributionOptionalParameters
+     */
+    public GetUsageAttributionOptionalParameters offset(Long offset) {
+      this.offset = offset;
+      return this;
+    }
+
+    /**
+     * Set limit
+     *
+     * @param limit Maximum number of records to be returned. (optional, default to 5000)
+     * @return GetUsageAttributionOptionalParameters
+     */
+    public GetUsageAttributionOptionalParameters limit(Long limit) {
+      this.limit = limit;
       return this;
     }
   }
@@ -1504,6 +1528,8 @@ public class UsageMeteringApi {
     UsageSortDirection sortDirection = parameters.sortDirection;
     UsageAttributionSort sortName = parameters.sortName;
     Boolean includeDescendants = parameters.includeDescendants;
+    Long offset = parameters.offset;
+    Long limit = parameters.limit;
     // create path and map variables
     String localVarPath = "/api/v1/usage/attribution";
 
@@ -1520,6 +1546,8 @@ public class UsageMeteringApi {
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_name", sortName));
     localVarQueryParams.addAll(
         apiClient.parameterToPairs("", "include_descendants", includeDescendants));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageAttribution");
