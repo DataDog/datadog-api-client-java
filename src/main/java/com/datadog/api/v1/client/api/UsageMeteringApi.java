@@ -7,6 +7,8 @@ import com.datadog.api.v1.client.Configuration;
 import com.datadog.api.v1.client.Pair;
 import com.datadog.api.v1.client.model.HourlyUsageAttributionResponse;
 import com.datadog.api.v1.client.model.HourlyUsageAttributionUsageType;
+import com.datadog.api.v1.client.model.MonthlyUsageAttributionResponse;
+import com.datadog.api.v1.client.model.MonthlyUsageAttributionSupportedMetrics;
 import com.datadog.api.v1.client.model.UsageAnalyzedLogsResponse;
 import com.datadog.api.v1.client.model.UsageAttributionResponse;
 import com.datadog.api.v1.client.model.UsageAttributionSort;
@@ -210,9 +212,7 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getDailyCustomReports");
 
-    final String[] localVarAccepts = {
-      "application/json;datetime-format=rfc3339", "application/json"
-    };
+    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -388,9 +388,7 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getHourlyUsageAttribution");
 
-    final String[] localVarAccepts = {
-      "application/json;datetime-format=rfc3339", "application/json"
-    };
+    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -523,9 +521,7 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getIncidentManagement");
 
-    final String[] localVarAccepts = {
-      "application/json;datetime-format=rfc3339", "application/json"
-    };
+    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -655,9 +651,7 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getIngestedSpans");
 
-    final String[] localVarAccepts = {
-      "application/json;datetime-format=rfc3339", "application/json"
-    };
+    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -815,9 +809,7 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getMonthlyCustomReports");
 
-    final String[] localVarAccepts = {
-      "application/json;datetime-format=rfc3339", "application/json"
-    };
+    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -831,6 +823,218 @@ public class UsageMeteringApi {
 
     return apiClient.invokeAPI(
         "UsageMeteringApi.getMonthlyCustomReports",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /** Manage optional parameters to getMonthlyUsageAttribution. */
+  public static class GetMonthlyUsageAttributionOptionalParameters {
+    private OffsetDateTime endMonth;
+    private UsageSortDirection sortDirection;
+    private MonthlyUsageAttributionSupportedMetrics sortName;
+    private String tagBreakdownKeys;
+    private String nextRecordId;
+
+    /**
+     * Set endMonth
+     *
+     * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
+     *     usage ending this month. (optional)
+     * @return GetMonthlyUsageAttributionOptionalParameters
+     */
+    public GetMonthlyUsageAttributionOptionalParameters endMonth(OffsetDateTime endMonth) {
+      this.endMonth = endMonth;
+      return this;
+    }
+
+    /**
+     * Set sortDirection
+     *
+     * @param sortDirection The direction to sort by: &#x60;[desc, asc]&#x60;. (optional, default to
+     *     desc)
+     * @return GetMonthlyUsageAttributionOptionalParameters
+     */
+    public GetMonthlyUsageAttributionOptionalParameters sortDirection(
+        UsageSortDirection sortDirection) {
+      this.sortDirection = sortDirection;
+      return this;
+    }
+
+    /**
+     * Set sortName
+     *
+     * @param sortName The field to sort by. (optional)
+     * @return GetMonthlyUsageAttributionOptionalParameters
+     */
+    public GetMonthlyUsageAttributionOptionalParameters sortName(
+        MonthlyUsageAttributionSupportedMetrics sortName) {
+      this.sortName = sortName;
+      return this;
+    }
+
+    /**
+     * Set tagBreakdownKeys
+     *
+     * @param tagBreakdownKeys Comma separated list of tags used to group usage. If no value is
+     *     provided the usage will not be broken down by tags. (optional)
+     * @return GetMonthlyUsageAttributionOptionalParameters
+     */
+    public GetMonthlyUsageAttributionOptionalParameters tagBreakdownKeys(String tagBreakdownKeys) {
+      this.tagBreakdownKeys = tagBreakdownKeys;
+      return this;
+    }
+
+    /**
+     * Set nextRecordId
+     *
+     * @param nextRecordId List following results with a next_record_id provided in the previous
+     *     query. (optional)
+     * @return GetMonthlyUsageAttributionOptionalParameters
+     */
+    public GetMonthlyUsageAttributionOptionalParameters nextRecordId(String nextRecordId) {
+      this.nextRecordId = nextRecordId;
+      return this;
+    }
+  }
+
+  /**
+   * Get Monthly Usage Attribution Get Monthly Usage Attribution.
+   *
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
+   *     usage beginning in this month. Maximum of 15 months ago. (required)
+   * @param fields Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage
+   *     types. (required)
+   * @return MonthlyUsageAttributionResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public MonthlyUsageAttributionResponse getMonthlyUsageAttribution(
+      OffsetDateTime startMonth, MonthlyUsageAttributionSupportedMetrics fields)
+      throws ApiException {
+    return getMonthlyUsageAttributionWithHttpInfo(
+            startMonth, fields, new GetMonthlyUsageAttributionOptionalParameters())
+        .getData();
+  }
+
+  /**
+   * Get Monthly Usage Attribution Get Monthly Usage Attribution.
+   *
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
+   *     usage beginning in this month. Maximum of 15 months ago. (required)
+   * @param fields Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage
+   *     types. (required)
+   * @param parameters Optional parameters for the request.
+   * @return MonthlyUsageAttributionResponse
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public MonthlyUsageAttributionResponse getMonthlyUsageAttribution(
+      OffsetDateTime startMonth,
+      MonthlyUsageAttributionSupportedMetrics fields,
+      GetMonthlyUsageAttributionOptionalParameters parameters)
+      throws ApiException {
+    return getMonthlyUsageAttributionWithHttpInfo(startMonth, fields, parameters).getData();
+  }
+
+  /**
+   * Get Monthly Usage Attribution Get Monthly Usage Attribution.
+   *
+   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for
+   *     usage beginning in this month. Maximum of 15 months ago. (required)
+   * @param fields Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage
+   *     types. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;MonthlyUsageAttributionResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden - User is not authorized </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public ApiResponse<MonthlyUsageAttributionResponse> getMonthlyUsageAttributionWithHttpInfo(
+      OffsetDateTime startMonth,
+      MonthlyUsageAttributionSupportedMetrics fields,
+      GetMonthlyUsageAttributionOptionalParameters parameters)
+      throws ApiException {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'startMonth' is set
+    if (startMonth == null) {
+      throw new ApiException(
+          400,
+          "Missing the required parameter 'startMonth' when calling getMonthlyUsageAttribution");
+    }
+
+    // verify the required parameter 'fields' is set
+    if (fields == null) {
+      throw new ApiException(
+          400, "Missing the required parameter 'fields' when calling getMonthlyUsageAttribution");
+    }
+    OffsetDateTime endMonth = parameters.endMonth;
+    UsageSortDirection sortDirection = parameters.sortDirection;
+    MonthlyUsageAttributionSupportedMetrics sortName = parameters.sortName;
+    String tagBreakdownKeys = parameters.tagBreakdownKeys;
+    String nextRecordId = parameters.nextRecordId;
+    // create path and map variables
+    String localVarPath = "/api/v1/usage/monthly-attribution";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start_month", startMonth));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "end_month", endMonth));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fields", fields));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_direction", sortDirection));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_name", sortName));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "tag_breakdown_keys", tagBreakdownKeys));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "next_record_id", nextRecordId));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getMonthlyUsageAttribution");
+
+    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
+
+    GenericType<MonthlyUsageAttributionResponse> localVarReturnType =
+        new GenericType<MonthlyUsageAttributionResponse>() {};
+
+    return apiClient.invokeAPI(
+        "UsageMeteringApi.getMonthlyUsageAttribution",
         localVarPath,
         "GET",
         localVarQueryParams,
@@ -904,9 +1108,7 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getSpecifiedDailyCustomReports");
 
-    final String[] localVarAccepts = {
-      "application/json;datetime-format=rfc3339", "application/json"
-    };
+    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -996,9 +1198,7 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getSpecifiedMonthlyCustomReports");
 
-    final String[] localVarAccepts = {
-      "application/json;datetime-format=rfc3339", "application/json"
-    };
+    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -1131,9 +1331,7 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageAnalyzedLogs");
 
-    final String[] localVarAccepts = {
-      "application/json;datetime-format=rfc3339", "application/json"
-    };
+    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -1326,9 +1524,7 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageAttribution");
 
-    final String[] localVarAccepts = {
-      "application/json;datetime-format=rfc3339", "application/json"
-    };
+    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -1458,9 +1654,7 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageAuditLogs");
 
-    final String[] localVarAccepts = {
-      "application/json;datetime-format=rfc3339", "application/json"
-    };
+    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -1577,9 +1771,7 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageBillableSummary");
 
-    final String[] localVarAccepts = {
-      "application/json;datetime-format=rfc3339", "application/json"
-    };
+    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -1708,9 +1900,7 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageCWS");
 
-    final String[] localVarAccepts = {
-      "application/json;datetime-format=rfc3339", "application/json"
-    };
+    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -1847,9 +2037,7 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageCloudSecurityPostureManagement");
 
-    final String[] localVarAccepts = {
-      "application/json;datetime-format=rfc3339", "application/json"
-    };
+    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -1978,9 +2166,7 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageDBM");
 
-    final String[] localVarAccepts = {
-      "application/json;datetime-format=rfc3339", "application/json"
-    };
+    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -2111,9 +2297,7 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageFargate");
 
-    final String[] localVarAccepts = {
-      "application/json;datetime-format=rfc3339", "application/json"
-    };
+    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -2242,9 +2426,7 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageHosts");
 
-    final String[] localVarAccepts = {
-      "application/json;datetime-format=rfc3339", "application/json"
-    };
+    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -2376,9 +2558,7 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageIndexedSpans");
 
-    final String[] localVarAccepts = {
-      "application/json;datetime-format=rfc3339", "application/json"
-    };
+    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -2511,9 +2691,7 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageInternetOfThings");
 
-    final String[] localVarAccepts = {
-      "application/json;datetime-format=rfc3339", "application/json"
-    };
+    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -2641,9 +2819,7 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageLambda");
 
-    final String[] localVarAccepts = {
-      "application/json;datetime-format=rfc3339", "application/json"
-    };
+    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -2771,9 +2947,7 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageLogs");
 
-    final String[] localVarAccepts = {
-      "application/json;datetime-format=rfc3339", "application/json"
-    };
+    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -2918,9 +3092,7 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageLogsByIndex");
 
-    final String[] localVarAccepts = {
-      "application/json;datetime-format=rfc3339", "application/json"
-    };
+    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -3054,9 +3226,7 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageLogsByRetention");
 
-    final String[] localVarAccepts = {
-      "application/json;datetime-format=rfc3339", "application/json"
-    };
+    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -3189,9 +3359,7 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageNetworkFlows");
 
-    final String[] localVarAccepts = {
-      "application/json;datetime-format=rfc3339", "application/json"
-    };
+    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -3324,9 +3492,7 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageNetworkHosts");
 
-    final String[] localVarAccepts = {
-      "application/json;datetime-format=rfc3339", "application/json"
-    };
+    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -3456,9 +3622,7 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageProfiling");
 
-    final String[] localVarAccepts = {
-      "application/json;datetime-format=rfc3339", "application/json"
-    };
+    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -3608,9 +3772,7 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageRumSessions");
 
-    final String[] localVarAccepts = {
-      "application/json;datetime-format=rfc3339", "application/json"
-    };
+    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -3743,9 +3905,7 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageRumUnits");
 
-    final String[] localVarAccepts = {
-      "application/json;datetime-format=rfc3339", "application/json"
-    };
+    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -3874,9 +4034,7 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageSDS");
 
-    final String[] localVarAccepts = {
-      "application/json;datetime-format=rfc3339", "application/json"
-    };
+    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -4004,9 +4162,7 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageSNMP");
 
-    final String[] localVarAccepts = {
-      "application/json;datetime-format=rfc3339", "application/json"
-    };
+    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -4153,9 +4309,7 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageSummary");
 
-    final String[] localVarAccepts = {
-      "application/json;datetime-format=rfc3339", "application/json"
-    };
+    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -4297,9 +4451,7 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageSynthetics");
 
-    final String[] localVarAccepts = {
-      "application/json;datetime-format=rfc3339", "application/json"
-    };
+    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -4435,9 +4587,7 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageSyntheticsAPI");
 
-    final String[] localVarAccepts = {
-      "application/json;datetime-format=rfc3339", "application/json"
-    };
+    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -4571,9 +4721,7 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageSyntheticsBrowser");
 
-    final String[] localVarAccepts = {
-      "application/json;datetime-format=rfc3339", "application/json"
-    };
+    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -4706,9 +4854,7 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageTimeseries");
 
-    final String[] localVarAccepts = {
-      "application/json;datetime-format=rfc3339", "application/json"
-    };
+    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};
@@ -4894,9 +5040,7 @@ public class UsageMeteringApi {
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "getUsageTopAvgMetrics");
 
-    final String[] localVarAccepts = {
-      "application/json;datetime-format=rfc3339", "application/json"
-    };
+    final String[] localVarAccepts = {"application/json;datetime-format=rfc3339"};
     final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
 
     final String[] localVarContentTypes = {};

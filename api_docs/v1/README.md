@@ -169,6 +169,7 @@ All URIs are relative to *https://api.datadoghq.com*
 | _UsageMeteringApi_                    | [**getIncidentManagement**](UsageMeteringApi.md#getIncidentManagement)                                           | **GET** /api/v1/usage/incident-management                                                          | Get hourly usage for incident management          |
 | _UsageMeteringApi_                    | [**getIngestedSpans**](UsageMeteringApi.md#getIngestedSpans)                                                     | **GET** /api/v1/usage/ingested-spans                                                               | Get hourly usage for ingested spans               |
 | _UsageMeteringApi_                    | [**getMonthlyCustomReports**](UsageMeteringApi.md#getMonthlyCustomReports)                                       | **GET** /api/v1/monthly_custom_reports                                                             | Get the list of available monthly custom reports  |
+| _UsageMeteringApi_                    | [**getMonthlyUsageAttribution**](UsageMeteringApi.md#getMonthlyUsageAttribution)                                 | **GET** /api/v1/usage/monthly-attribution                                                          | Get Monthly Usage Attribution                     |
 | _UsageMeteringApi_                    | [**getSpecifiedDailyCustomReports**](UsageMeteringApi.md#getSpecifiedDailyCustomReports)                         | **GET** /api/v1/daily_custom_reports/{report_id}                                                   | Get specified daily custom reports                |
 | _UsageMeteringApi_                    | [**getSpecifiedMonthlyCustomReports**](UsageMeteringApi.md#getSpecifiedMonthlyCustomReports)                     | **GET** /api/v1/monthly_custom_reports/{report_id}                                                 | Get specified monthly custom reports              |
 | _UsageMeteringApi_                    | [**getUsageAnalyzedLogs**](UsageMeteringApi.md#getUsageAnalyzedLogs)                                             | **GET** /api/v1/usage/analyzed_logs                                                                | Get hourly usage for analyzed logs                |
@@ -477,6 +478,12 @@ All URIs are relative to *https://api.datadoghq.com*
 - [MonitorThresholds](MonitorThresholds.md)
 - [MonitorType](MonitorType.md)
 - [MonitorUpdateRequest](MonitorUpdateRequest.md)
+- [MonthlyUsageAttributionBody](MonthlyUsageAttributionBody.md)
+- [MonthlyUsageAttributionMetadata](MonthlyUsageAttributionMetadata.md)
+- [MonthlyUsageAttributionPagination](MonthlyUsageAttributionPagination.md)
+- [MonthlyUsageAttributionResponse](MonthlyUsageAttributionResponse.md)
+- [MonthlyUsageAttributionSupportedMetrics](MonthlyUsageAttributionSupportedMetrics.md)
+- [MonthlyUsageAttributionValues](MonthlyUsageAttributionValues.md)
 - [NoteWidgetDefinition](NoteWidgetDefinition.md)
 - [NoteWidgetDefinitionType](NoteWidgetDefinitionType.md)
 - [NotebookAbsoluteTime](NotebookAbsoluteTime.md)
