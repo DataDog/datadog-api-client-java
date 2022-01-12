@@ -1,0 +1,95 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"My Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"name\":\"testupdateacloudworkloadsecurityagentrulereturnsbadrequestresponse1641924701\"},\"type\":\"agent_rule\"}}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Update_a_Cloud_Workload_Security_Agent_rule_returns_Bad_Request_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"attributes\":{\"category\":\"Process Activity\",\"name\":\"testupdateacloudworkloadsecurityagentrulereturnsbadrequestresponse1641924701\",\"creator\":{\"handle\":\"frog@datadoghq.com\",\"name\":null},\"description\":\"My Agent rule\",\"enabled\":true,\"defaultRule\":false,\"version\":1,\"updater\":{\"handle\":\"frog@datadoghq.com\",\"name\":null},\"updateDate\":1641924701807,\"creationDate\":1641924701807,\"expression\":\"exec.file.name == \\\"sh\\\"\"},\"type\":\"agent_rule\",\"id\":\"dhc-tmb-os1\"}}",
+      "headers": {
+        "Content-Type": [
+          "application/json;charset=utf-8"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "ad09f4ed-7e28-abee-29c3-f9deca8a392f"
+  },
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"Test Agent rule\",\"enabled\":true,\"expression\":\"open.file.path = sh\"},\"type\":\"agent_rule\"}}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Update_a_Cloud_Workload_Security_Agent_rule_returns_Bad_Request_response"
+        ]
+      },
+      "method": "PATCH",
+      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/dhc-tmb-os1",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\":[\"input_validation_error(Field 'expression' is invalid: rule `testupdateacloudworkloadsecurityagentrulereturnsbadrequestresponse1641924701` definition error: syntax error: 1:18: unexpected token \\\"sh\\\" (expected \\\"~\\\"))\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "26737585-7c0c-81da-2410-4f3a12c02650"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Update_a_Cloud_Workload_Security_Agent_rule_returns_Bad_Request_response"
+        ]
+      },
+      "method": "DELETE",
+      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/dhc-tmb-os1",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b287d020-9744-3bad-0f4a-c3fce8823478"
+  }
+]
