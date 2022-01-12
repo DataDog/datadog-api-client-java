@@ -134,7 +134,7 @@ public class IncidentsApi {
   /**
    * Delete an existing incident Deletes an existing incident from the users organization.
    *
-   * @param incidentId The UUID the incident. (required)
+   * @param incidentId The UUID of the incident. (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
    *     <table summary="Response Details" border="1">
@@ -154,7 +154,7 @@ public class IncidentsApi {
   /**
    * Delete an existing incident Deletes an existing incident from the users organization.
    *
-   * @param incidentId The UUID the incident. (required)
+   * @param incidentId The UUID of the incident. (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -236,7 +236,7 @@ public class IncidentsApi {
   /**
    * Get the details of an incident Get the details of an incident by &#x60;incident_id&#x60;.
    *
-   * @param incidentId The UUID the incident. (required)
+   * @param incidentId The UUID of the incident. (required)
    * @return IncidentResponse
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -257,7 +257,7 @@ public class IncidentsApi {
   /**
    * Get the details of an incident Get the details of an incident by &#x60;incident_id&#x60;.
    *
-   * @param incidentId The UUID the incident. (required)
+   * @param incidentId The UUID of the incident. (required)
    * @param parameters Optional parameters for the request.
    * @return IncidentResponse
    * @throws ApiException if fails to make API call
@@ -280,7 +280,7 @@ public class IncidentsApi {
   /**
    * Get the details of an incident Get the details of an incident by &#x60;incident_id&#x60;.
    *
-   * @param incidentId The UUID the incident. (required)
+   * @param incidentId The UUID of the incident. (required)
    * @param parameters Optional parameters for the request.
    * @return ApiResponse&lt;IncidentResponse&gt;
    * @throws ApiException if fails to make API call
@@ -503,7 +503,7 @@ public class IncidentsApi {
    * Update an existing incident Updates an incident. Provide only the attributes that should be
    * updated as this request is a partial update.
    *
-   * @param incidentId The UUID the incident. (required)
+   * @param incidentId The UUID of the incident. (required)
    * @param body Incident Payload. (required)
    * @return IncidentResponse
    * @throws ApiException if fails to make API call
@@ -527,7 +527,7 @@ public class IncidentsApi {
    * Update an existing incident Updates an incident. Provide only the attributes that should be
    * updated as this request is a partial update.
    *
-   * @param incidentId The UUID the incident. (required)
+   * @param incidentId The UUID of the incident. (required)
    * @param body Incident Payload. (required)
    * @return ApiResponse&lt;IncidentResponse&gt;
    * @throws ApiException if fails to make API call

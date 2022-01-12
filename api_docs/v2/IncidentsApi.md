@@ -97,7 +97,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         IncidentsApi apiInstance = new IncidentsApi(defaultClient);
-        String incidentId = "incidentId_example"; // String | The UUID the incident.
+        String incidentId = "incidentId_example"; // String | The UUID of the incident.
         try {
             apiInstance.deleteIncident(incidentId);
         } catch (ApiException e) {
@@ -113,9 +113,9 @@ public class Example {
 
 ### Parameters
 
-| Name           | Type       | Description            | Notes |
-| -------------- | ---------- | ---------------------- | ----- |
-| **incidentId** | **String** | The UUID the incident. |
+| Name           | Type       | Description               | Notes |
+| -------------- | ---------- | ------------------------- | ----- |
+| **incidentId** | **String** | The UUID of the incident. |
 
 ### Return type
 
@@ -162,7 +162,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         IncidentsApi apiInstance = new IncidentsApi(defaultClient);
-        String incidentId = "incidentId_example"; // String | The UUID the incident.
+        String incidentId = "incidentId_example"; // String | The UUID of the incident.
         List<IncidentRelatedObject> include = Arrays.asList(); // List<IncidentRelatedObject> | Specifies which types of related objects should be included in the response.
         try {
             IncidentResponse result = apiInstance.getIncident(incidentId, new IncidentsApi.GetIncidentOptionalParameters()
@@ -183,7 +183,7 @@ public class Example {
 
 | Name           | Type                                  | Description                                                                  | Notes      |
 | -------------- | ------------------------------------- | ---------------------------------------------------------------------------- | ---------- |
-| **incidentId** | **String**                            | The UUID the incident.                                                       |
+| **incidentId** | **String**                            | The UUID of the incident.                                                    |
 | **include**    | **List&lt;IncidentRelatedObject&gt;** | Specifies which types of related objects should be included in the response. | [optional] |
 
 ### Return type
@@ -304,7 +304,7 @@ public class Example {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
 
         IncidentsApi apiInstance = new IncidentsApi(defaultClient);
-        String incidentId = "incidentId_example"; // String | The UUID the incident.
+        String incidentId = "incidentId_example"; // String | The UUID of the incident.
         IncidentUpdateRequest body = new IncidentUpdateRequest(); // IncidentUpdateRequest | Incident Payload.
         try {
             IncidentResponse result = apiInstance.updateIncident(incidentId, body);
@@ -322,10 +322,10 @@ public class Example {
 
 ### Parameters
 
-| Name           | Type                                                  | Description            | Notes |
-| -------------- | ----------------------------------------------------- | ---------------------- | ----- |
-| **incidentId** | **String**                                            | The UUID the incident. |
-| **body**       | [**IncidentUpdateRequest**](IncidentUpdateRequest.md) | Incident Payload.      |
+| Name           | Type                                                  | Description               | Notes |
+| -------------- | ----------------------------------------------------- | ------------------------- | ----- |
+| **incidentId** | **String**                                            | The UUID of the incident. |
+| **body**       | [**IncidentUpdateRequest**](IncidentUpdateRequest.md) | Incident Payload.         |
 
 ### Return type
 
