@@ -142,14 +142,14 @@ public class SyntheticsGlobalVariable {
   }
 
   /**
-   * Name of the global variable.
+   * Name of the global variable. Unique across Synthetics global variables.
    *
    * @return name
    */
   @ApiModelProperty(
       example = "MY_VARIABLE",
       required = true,
-      value = "Name of the global variable.")
+      value = "Name of the global variable. Unique across Synthetics global variables.")
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {
