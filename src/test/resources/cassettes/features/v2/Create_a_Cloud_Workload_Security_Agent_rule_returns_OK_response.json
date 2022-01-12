@@ -1,0 +1,61 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"data\":{\"attributes\":{\"description\":\"Test Agent rule\",\"enabled\":true,\"expression\":\"exec.file.name == \\\"sh\\\"\",\"name\":\"testcreateacloudworkloadsecurityagentrulereturnsokresponse1641924695\"},\"type\":\"agent_rule\"}}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Create_a_Cloud_Workload_Security_Agent_rule_returns_OK_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"data\":{\"attributes\":{\"category\":\"Process Activity\",\"name\":\"testcreateacloudworkloadsecurityagentrulereturnsokresponse1641924695\",\"creator\":{\"handle\":\"frog@datadoghq.com\",\"name\":null},\"description\":\"Test Agent rule\",\"enabled\":true,\"defaultRule\":false,\"version\":1,\"updater\":{\"handle\":\"frog@datadoghq.com\",\"name\":null},\"updateDate\":1641924696117,\"creationDate\":1641924696117,\"expression\":\"exec.file.name == \\\"sh\\\"\"},\"type\":\"agent_rule\",\"id\":\"neo-you-kxc\"}}",
+      "headers": {
+        "Content-Type": [
+          "application/json;charset=utf-8"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "33f1b143-8761-2c4e-a02c-c779bd73174e"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Create_a_Cloud_Workload_Security_Agent_rule_returns_OK_response"
+        ]
+      },
+      "method": "DELETE",
+      "path": "/api/v2/security_monitoring/cloud_workload_security/agent_rules/neo-you-kxc",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "b1067c57-b430-2bca-ac58-ab5f561018b2"
+  }
+]
