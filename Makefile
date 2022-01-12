@@ -4,14 +4,14 @@ all: generate
 
 .PHONY: generate
 generate: .generator .env
-	@docker-compose -f docker-compose.generator.yaml up
+	@pre-commit run --all-files --hook-stage=manual openapi-generator || true
 	@mkdir -p api_docs/v1 api_docs/v2
-	@cp -r v1/src/main ./src/
-	@cp -r v2/src/main ./src/
-	@cp -nr v1/src/test ./src/
-	@cp -nr v2/src/test ./src/
-	@cp -r v1/docs/* ./api_docs/v1/
-	@cp -r v2/docs/* ./api_docs/v2/
+	@cp -R v1/src/main ./src/
+	@cp -R v2/src/main ./src/
+	@cp -nR v1/src/test ./src/ || true
+	@cp -nR v2/src/test ./src/ || true
+	@cp -R v1/docs/* ./api_docs/v1/
+	@cp -R v2/docs/* ./api_docs/v2/
 	@cp v1/README.md ./api_docs/v1/
 	@cp v2/README.md ./api_docs/v2/
 	@rm -rf v1 v2
