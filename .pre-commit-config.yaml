@@ -1,23 +1,11 @@
 repos:
 - repo: local
   hooks:
-  - id: generated
-    name: Do not commit generated files
-    language: fail
-    entry: Unstage generated files with 'git reset --' command
-    files: '^(src/main|api_docs/v)'
-    verbose: true
-  - id: java-format
-    name: Format non-generated code
-    language: script
-    entry: ./format.sh
-    files: '^src/test/'
-    types: [file, java]
   - id: generate
     name: Generate
     language: node
     entry: make
-    files: "^(.generator|.pre-commit-config.yaml|.prettierrc.yml|docker-compose.generator.yaml|Makefile)"
+    files: "^(.generator|.pre-commit-config.yaml|.prettierrc.yml|Makefile)"
     pass_filenames: false
   - id: docs
     name: Format documentation
@@ -59,3 +47,9 @@ repos:
     types: [file, java]
     pass_filenames: false
     args: ['examples/']
+  - id: java-format
+    name: Format non-generated code
+    language: script
+    entry: ./format.sh
+    files: '^src/test/'
+    types: [file, java]
