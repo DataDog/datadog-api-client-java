@@ -44,6 +44,7 @@ gradlew
 gradlew.bat
 settings.gradle
 src/main/AndroidManifest.xml
+.generator/lib
 
 # Ignored cassettes
 src/test/resources/cassettes/v1/getAllUsersTest.*
