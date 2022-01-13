@@ -29,15 +29,12 @@ import java.util.Objects;
   EventCreateRequest.JSON_PROPERTY_DATE_HAPPENED,
   EventCreateRequest.JSON_PROPERTY_DEVICE_NAME,
   EventCreateRequest.JSON_PROPERTY_HOST,
-  EventCreateRequest.JSON_PROPERTY_ID,
-  EventCreateRequest.JSON_PROPERTY_PAYLOAD,
   EventCreateRequest.JSON_PROPERTY_PRIORITY,
   EventCreateRequest.JSON_PROPERTY_RELATED_EVENT_ID,
   EventCreateRequest.JSON_PROPERTY_SOURCE_TYPE_NAME,
   EventCreateRequest.JSON_PROPERTY_TAGS,
   EventCreateRequest.JSON_PROPERTY_TEXT,
-  EventCreateRequest.JSON_PROPERTY_TITLE,
-  EventCreateRequest.JSON_PROPERTY_URL
+  EventCreateRequest.JSON_PROPERTY_TITLE
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class EventCreateRequest {
@@ -57,12 +54,6 @@ public class EventCreateRequest {
   public static final String JSON_PROPERTY_HOST = "host";
   private String host;
 
-  public static final String JSON_PROPERTY_ID = "id";
-  private Long id;
-
-  public static final String JSON_PROPERTY_PAYLOAD = "payload";
-  private String payload;
-
   public static final String JSON_PROPERTY_PRIORITY = "priority";
   private EventPriority priority;
 
@@ -80,9 +71,6 @@ public class EventCreateRequest {
 
   public static final String JSON_PROPERTY_TITLE = "title";
   private String title;
-
-  public static final String JSON_PROPERTY_URL = "url";
-  private String url;
 
   public EventCreateRequest() {}
 
@@ -218,32 +206,6 @@ public class EventCreateRequest {
 
   public void setHost(String host) {
     this.host = host;
-  }
-
-  /**
-   * Integer ID of the event.
-   *
-   * @return id
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Integer ID of the event.")
-  @JsonProperty(JSON_PROPERTY_ID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getId() {
-    return id;
-  }
-
-  /**
-   * Payload of the event.
-   *
-   * @return payload
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "{}", value = "Payload of the event.")
-  @JsonProperty(JSON_PROPERTY_PAYLOAD)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getPayload() {
-    return payload;
   }
 
   public EventCreateRequest priority(EventPriority priority) {
@@ -410,19 +372,6 @@ public class EventCreateRequest {
     this.title = title;
   }
 
-  /**
-   * URL of the event.
-   *
-   * @return url
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "URL of the event.")
-  @JsonProperty(JSON_PROPERTY_URL)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public String getUrl() {
-    return url;
-  }
-
   /** Return true if this EventCreateRequest object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -438,15 +387,12 @@ public class EventCreateRequest {
         && Objects.equals(this.dateHappened, eventCreateRequest.dateHappened)
         && Objects.equals(this.deviceName, eventCreateRequest.deviceName)
         && Objects.equals(this.host, eventCreateRequest.host)
-        && Objects.equals(this.id, eventCreateRequest.id)
-        && Objects.equals(this.payload, eventCreateRequest.payload)
         && Objects.equals(this.priority, eventCreateRequest.priority)
         && Objects.equals(this.relatedEventId, eventCreateRequest.relatedEventId)
         && Objects.equals(this.sourceTypeName, eventCreateRequest.sourceTypeName)
         && Objects.equals(this.tags, eventCreateRequest.tags)
         && Objects.equals(this.text, eventCreateRequest.text)
-        && Objects.equals(this.title, eventCreateRequest.title)
-        && Objects.equals(this.url, eventCreateRequest.url);
+        && Objects.equals(this.title, eventCreateRequest.title);
   }
 
   @Override
@@ -457,15 +403,12 @@ public class EventCreateRequest {
         dateHappened,
         deviceName,
         host,
-        id,
-        payload,
         priority,
         relatedEventId,
         sourceTypeName,
         tags,
         text,
-        title,
-        url);
+        title);
   }
 
   @Override
@@ -477,15 +420,12 @@ public class EventCreateRequest {
     sb.append("    dateHappened: ").append(toIndentedString(dateHappened)).append("\n");
     sb.append("    deviceName: ").append(toIndentedString(deviceName)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    payload: ").append(toIndentedString(payload)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    relatedEventId: ").append(toIndentedString(relatedEventId)).append("\n");
     sb.append("    sourceTypeName: ").append(toIndentedString(sourceTypeName)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
-    sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");
     return sb.toString();
   }
