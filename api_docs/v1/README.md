@@ -892,7 +892,7 @@ Authentication schemes defined for the API:
   - dashboards_public_share: The ability to share dashboards externally.
   - dashboards_read: The ability to view dashboards.
   - dashboards_write: The ability to create and change dashboards.
-  - events_read: The ability to read events data.
+  - events_read: The ability to read Events data.
   - metrics_read: The ability to view custom metrics.
   - monitors_downtime: The ability to set downtimes to suppress alerts from any monitor in an organization. The ability to write monitors is not required to set downtimes.
   - monitors_read: The ability to view monitors.
@@ -902,7 +902,7 @@ Authentication schemes defined for the API:
   - synthetics_private_location_read: The ability to view, search and use in tests the list of private locations available.
   - synthetics_read: The ability to list and view configured Synthetic tests.
   - synthetics_write: The ability to create, edit, and delete Synthetic tests.
-  - timeseries_query: The ability to query timeseries data.
+  - timeseries_query: The ability to query Timeseries data.
   - usage_read: The ability to view your organization&#39;s usage and usage attribution.
   - user_access_invite: The ability to invite other users to your organization.
   - user_access_manage: The ability to disable users, manage user roles, and manage SAML-to-role mappings.
