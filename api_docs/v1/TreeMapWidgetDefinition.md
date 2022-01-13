@@ -6,9 +6,9 @@ The treemap visualization found on the Host Dashboards comes from the output of 
 
 | Name         | Type                                                            | Description                       | Notes      |
 | ------------ | --------------------------------------------------------------- | --------------------------------- | ---------- |
-| **colorBy**  | **TreeMapColorBy**                                              |                                   |
-| **groupBy**  | **TreeMapGroupBy**                                              |                                   |
+| **colorBy**  | **TreeMapColorBy**                                              |                                   | [optional] |
+| **groupBy**  | **TreeMapGroupBy**                                              |                                   | [optional] |
 | **requests** | [**List&lt;TreeMapWidgetRequest&gt;**](TreeMapWidgetRequest.md) | List of top list widget requests. |
-| **sizeBy**   | **TreeMapSizeBy**                                               |                                   |
+| **sizeBy**   | **TreeMapSizeBy**                                               |                                   | [optional] |
 | **title**    | **String**                                                      | Title of your widget.             | [optional] |
 | **type**     | **TreeMapWidgetDefinitionType**                                 |                                   |

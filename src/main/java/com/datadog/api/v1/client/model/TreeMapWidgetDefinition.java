@@ -66,19 +66,10 @@ public class TreeMapWidgetDefinition {
 
   @JsonCreator
   public TreeMapWidgetDefinition(
-      @JsonProperty(required = true, value = JSON_PROPERTY_COLOR_BY) TreeMapColorBy colorBy,
-      @JsonProperty(required = true, value = JSON_PROPERTY_GROUP_BY) TreeMapGroupBy groupBy,
       @JsonProperty(required = true, value = JSON_PROPERTY_REQUESTS)
           List<TreeMapWidgetRequest> requests,
-      @JsonProperty(required = true, value = JSON_PROPERTY_SIZE_BY) TreeMapSizeBy sizeBy,
       @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) TreeMapWidgetDefinitionType type) {
-    this.colorBy = colorBy;
-    this.unparsed |= !colorBy.isValid();
-    this.groupBy = groupBy;
-    this.unparsed |= !groupBy.isValid();
     this.requests = requests;
-    this.sizeBy = sizeBy;
-    this.unparsed |= !sizeBy.isValid();
     this.type = type;
     this.unparsed |= !type.isValid();
   }
@@ -94,9 +85,10 @@ public class TreeMapWidgetDefinition {
    *
    * @return colorBy
    */
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_COLOR_BY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TreeMapColorBy getColorBy() {
     return colorBy;
   }
@@ -119,9 +111,10 @@ public class TreeMapWidgetDefinition {
    *
    * @return groupBy
    */
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_GROUP_BY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TreeMapGroupBy getGroupBy() {
     return groupBy;
   }
@@ -177,9 +170,10 @@ public class TreeMapWidgetDefinition {
    *
    * @return sizeBy
    */
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_SIZE_BY)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public TreeMapSizeBy getSizeBy() {
     return sizeBy;
   }
