@@ -23,6 +23,7 @@ import com.datadog.api.v1.client.model.SyntheticsTestOptionsRetry;
 import com.datadog.api.v1.client.model.SyntheticsTestRequest;
 import com.datadog.api.v1.client.model.SyntheticsTestRequestCertificate;
 import com.datadog.api.v1.client.model.SyntheticsTestRequestCertificateItem;
+import com.datadog.api.v1.client.model.SyntheticsTestRequestProxy;
 import java.time.*;
 import java.util.*;
 
@@ -96,7 +97,11 @@ public class Example {
                                         "examplecreateanapitestreturnsokreturnsthecreatedtestdetailsresponse")))
                             .method(HTTPMethod.GET)
                             .timeout(10.0)
-                            .url("https://datadoghq.com")))
+                            .url("https://datadoghq.com")
+                            .proxy(
+                                new SyntheticsTestRequestProxy()
+                                    .url("https://datadoghq.com")
+                                    .headers(Map.ofEntries()))))
             .locations(
                 new ArrayList<String>() {
                   {

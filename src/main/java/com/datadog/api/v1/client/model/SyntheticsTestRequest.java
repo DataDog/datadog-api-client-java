@@ -37,6 +37,7 @@ import java.util.Objects;
   SyntheticsTestRequest.JSON_PROPERTY_NO_SAVING_RESPONSE_BODY,
   SyntheticsTestRequest.JSON_PROPERTY_NUMBER_OF_PACKETS,
   SyntheticsTestRequest.JSON_PROPERTY_PORT,
+  SyntheticsTestRequest.JSON_PROPERTY_PROXY,
   SyntheticsTestRequest.JSON_PROPERTY_QUERY,
   SyntheticsTestRequest.JSON_PROPERTY_SERVERNAME,
   SyntheticsTestRequest.JSON_PROPERTY_SHOULD_TRACK_HOPS,
@@ -87,6 +88,9 @@ public class SyntheticsTestRequest {
 
   public static final String JSON_PROPERTY_PORT = "port";
   private Long port;
+
+  public static final String JSON_PROPERTY_PROXY = "proxy";
+  private SyntheticsTestRequestProxy proxy;
 
   public static final String JSON_PROPERTY_QUERY = "query";
   private Object query;
@@ -426,6 +430,29 @@ public class SyntheticsTestRequest {
     this.port = port;
   }
 
+  public SyntheticsTestRequest proxy(SyntheticsTestRequestProxy proxy) {
+    this.proxy = proxy;
+    this.unparsed |= proxy.unparsed;
+    return this;
+  }
+
+  /**
+   * Get proxy
+   *
+   * @return proxy
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_PROXY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SyntheticsTestRequestProxy getProxy() {
+    return proxy;
+  }
+
+  public void setProxy(SyntheticsTestRequestProxy proxy) {
+    this.proxy = proxy;
+  }
+
   public SyntheticsTestRequest query(Object query) {
     this.query = query;
     return this;
@@ -569,6 +596,7 @@ public class SyntheticsTestRequest {
         && Objects.equals(this.noSavingResponseBody, syntheticsTestRequest.noSavingResponseBody)
         && Objects.equals(this.numberOfPackets, syntheticsTestRequest.numberOfPackets)
         && Objects.equals(this.port, syntheticsTestRequest.port)
+        && Objects.equals(this.proxy, syntheticsTestRequest.proxy)
         && Objects.equals(this.query, syntheticsTestRequest.query)
         && Objects.equals(this.servername, syntheticsTestRequest.servername)
         && Objects.equals(this.shouldTrackHops, syntheticsTestRequest.shouldTrackHops)
@@ -593,6 +621,7 @@ public class SyntheticsTestRequest {
         noSavingResponseBody,
         numberOfPackets,
         port,
+        proxy,
         query,
         servername,
         shouldTrackHops,
@@ -620,6 +649,7 @@ public class SyntheticsTestRequest {
         .append("\n");
     sb.append("    numberOfPackets: ").append(toIndentedString(numberOfPackets)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
+    sb.append("    proxy: ").append(toIndentedString(proxy)).append("\n");
     sb.append("    query: ").append(toIndentedString(query)).append("\n");
     sb.append("    servername: ").append(toIndentedString(servername)).append("\n");
     sb.append("    shouldTrackHops: ").append(toIndentedString(shouldTrackHops)).append("\n");
