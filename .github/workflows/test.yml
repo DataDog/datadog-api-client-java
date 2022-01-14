@@ -1,5 +1,9 @@
 name: Run Tests
 
+env:
+  GIT_AUTHOR_EMAIL: "packages@datadoghq.com"
+  GIT_AUTHOR_NAME: "ci.datadog-api-spec"
+
 on:
   pull_request:
     branches:
