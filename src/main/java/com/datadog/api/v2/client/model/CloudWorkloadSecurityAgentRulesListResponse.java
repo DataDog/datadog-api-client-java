@@ -27,19 +27,19 @@ import java.util.Objects;
 public class CloudWorkloadSecurityAgentRulesListResponse {
   @JsonIgnore public boolean unparsed = false;
   public static final String JSON_PROPERTY_DATA = "data";
-  private List<CloudWorkloadSecurityAgentRuleAttributes> data = null;
+  private List<CloudWorkloadSecurityAgentRuleData> data = null;
 
   public CloudWorkloadSecurityAgentRulesListResponse data(
-      List<CloudWorkloadSecurityAgentRuleAttributes> data) {
+      List<CloudWorkloadSecurityAgentRuleData> data) {
     this.data = data;
-    for (CloudWorkloadSecurityAgentRuleAttributes item : data) {
+    for (CloudWorkloadSecurityAgentRuleData item : data) {
       this.unparsed |= item.unparsed;
     }
     return this;
   }
 
   public CloudWorkloadSecurityAgentRulesListResponse addDataItem(
-      CloudWorkloadSecurityAgentRuleAttributes dataItem) {
+      CloudWorkloadSecurityAgentRuleData dataItem) {
     if (this.data == null) {
       this.data = new ArrayList<>();
     }
@@ -57,11 +57,11 @@ public class CloudWorkloadSecurityAgentRulesListResponse {
   @ApiModelProperty(value = "A list of Agent rules objects.")
   @JsonProperty(JSON_PROPERTY_DATA)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public List<CloudWorkloadSecurityAgentRuleAttributes> getData() {
+  public List<CloudWorkloadSecurityAgentRuleData> getData() {
     return data;
   }
 
-  public void setData(List<CloudWorkloadSecurityAgentRuleAttributes> data) {
+  public void setData(List<CloudWorkloadSecurityAgentRuleData> data) {
     this.data = data;
   }
 
