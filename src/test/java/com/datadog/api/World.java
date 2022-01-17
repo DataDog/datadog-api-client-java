@@ -328,7 +328,12 @@ public class World {
   public void given(String apiVersion, Given step) throws Exception {
     // find API service based on step tag value
     Class<?> givenAPIClass =
-        Class.forName("com.datadog.api." + apiVersion + ".client.api." + step.getAPIName() + "Api");
+        Class.forName(
+            "com.datadog.api."
+                + apiVersion
+                + ".client.api."
+                + toClassName(step.getAPIName())
+                + "Api");
     // import com.datadog.api.{{ apiVersion }}.client.ApiClient
     Class<?> apiClientClass = Class.forName("com.datadog.api." + apiVersion + ".client.ApiClient");
     Object clientAPI = apiClientClass.getConstructor().newInstance();
@@ -421,7 +426,11 @@ public class World {
     // find API service based on undo tag value
     Class<?> undoAPIClass =
         Class.forName(
-            "com.datadog.api." + apiVersion + ".client.api." + undoSettings.getAPIName() + "Api");
+            "com.datadog.api."
+                + apiVersion
+                + ".client.api."
+                + toClassName(undoSettings.getAPIName())
+                + "Api");
     Class<?> apiClientClass = Class.forName("com.datadog.api." + apiVersion + ".client.ApiClient");
     Object clientAPI = apiClientClass.getConstructor().newInstance();
     configureClient(apiClientClass, clientAPI);
@@ -683,10 +692,15 @@ public class World {
    * Convert an identifier to class name.
    */
   public static String toClassName(String identifier) {
-    return replace(
-        identifier,
-        Pattern.compile("([A-Z])([A-Z]+)([A-Z][a-z])?"),
-        m -> m.group(1) + m.group(2).toLowerCase() + m.group(3));
+    String name =
+        replace(
+            identifier,
+            Pattern.compile("([A-Z])([A-Z]+)([A-Z][a-z])"),
+            m -> m.group(1) + m.group(2).toLowerCase() + m.group(3));
+    name =
+        replace(
+            name, Pattern.compile("([A-Z])([A-Z]+)"), m -> m.group(1) + m.group(2).toLowerCase());
+    return name;
   }
 
   /*
