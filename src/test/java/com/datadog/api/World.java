@@ -685,7 +685,7 @@ public class World {
   public static String toClassName(String identifier) {
     return replace(
         identifier,
-        Pattern.compile("([A-Z])([A-Z]+)([A-Z][a-z])"),
+        Pattern.compile("([A-Z])([A-Z]+)([A-Z][a-z])?"),
         m -> m.group(1) + m.group(2).toLowerCase() + m.group(3));
   }
 
