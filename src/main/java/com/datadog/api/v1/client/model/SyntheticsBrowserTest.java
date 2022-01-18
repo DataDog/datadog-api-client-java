@@ -43,7 +43,7 @@ public class SyntheticsBrowserTest {
   private SyntheticsBrowserTestConfig config;
 
   public static final String JSON_PROPERTY_LOCATIONS = "locations";
-  private List<String> locations = null;
+  private List<String> locations = new ArrayList<>();
 
   public static final String JSON_PROPERTY_MESSAGE = "message";
   private String message;
@@ -76,8 +76,20 @@ public class SyntheticsBrowserTest {
 
   @JsonCreator
   public SyntheticsBrowserTest(
-      @JsonProperty(required = true, value = JSON_PROPERTY_MESSAGE) String message) {
-    this.message = message;
+      @JsonProperty(required = true, value = JSON_PROPERTY_CONFIG)
+          SyntheticsBrowserTestConfig config,
+      @JsonProperty(required = true, value = JSON_PROPERTY_LOCATIONS) List<String> locations,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_OPTIONS) SyntheticsTestOptions options,
+      @JsonProperty(required = true, value = JSON_PROPERTY_TYPE) SyntheticsBrowserTestType type) {
+    this.config = config;
+    this.unparsed |= config.unparsed;
+    this.locations = locations;
+    this.name = name;
+    this.options = options;
+    this.unparsed |= options.unparsed;
+    this.type = type;
+    this.unparsed |= !type.isValid();
   }
 
   public SyntheticsBrowserTest config(SyntheticsBrowserTestConfig config) {
@@ -91,10 +103,9 @@ public class SyntheticsBrowserTest {
    *
    * @return config
    */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_CONFIG)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SyntheticsBrowserTestConfig getConfig() {
     return config;
   }
@@ -109,9 +120,6 @@ public class SyntheticsBrowserTest {
   }
 
   public SyntheticsBrowserTest addLocationsItem(String locationsItem) {
-    if (this.locations == null) {
-      this.locations = new ArrayList<>();
-    }
     this.locations.add(locationsItem);
     return this;
   }
@@ -121,10 +129,12 @@ public class SyntheticsBrowserTest {
    *
    * @return locations
    */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array of locations used to run the test.")
+  @ApiModelProperty(
+      example = "[\"example-location\"]",
+      required = true,
+      value = "Array of locations used to run the test.")
   @JsonProperty(JSON_PROPERTY_LOCATIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<String> getLocations() {
     return locations;
   }
@@ -143,14 +153,14 @@ public class SyntheticsBrowserTest {
    *
    * @return message
    */
+  @javax.annotation.Nullable
   @ApiModelProperty(
       example = "",
-      required = true,
       value =
           "Notification message associated with the test. Message can either be text or an empty"
               + " string.")
   @JsonProperty(JSON_PROPERTY_MESSAGE)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public String getMessage() {
     return message;
   }
@@ -182,10 +192,9 @@ public class SyntheticsBrowserTest {
    *
    * @return name
    */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name of the test.")
+  @ApiModelProperty(example = "Example test name", required = true, value = "Name of the test.")
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {
     return name;
   }
@@ -205,10 +214,9 @@ public class SyntheticsBrowserTest {
    *
    * @return options
    */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_OPTIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SyntheticsTestOptions getOptions() {
     return options;
   }
@@ -331,10 +339,9 @@ public class SyntheticsBrowserTest {
    *
    * @return type
    */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_TYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SyntheticsBrowserTestType getType() {
     return type;
   }

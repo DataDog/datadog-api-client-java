@@ -10,6 +10,7 @@
 
 package com.datadog.api.v1.client.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -39,7 +40,7 @@ public class SyntheticsAPIStep {
   private Boolean allowFailure;
 
   public static final String JSON_PROPERTY_ASSERTIONS = "assertions";
-  private List<SyntheticsAssertion> assertions = null;
+  private List<SyntheticsAssertion> assertions = new ArrayList<>();
 
   public static final String JSON_PROPERTY_EXTRACTED_VALUES = "extractedValues";
   private List<SyntheticsParsingOptions> extractedValues = null;
@@ -58,6 +59,24 @@ public class SyntheticsAPIStep {
 
   public static final String JSON_PROPERTY_SUBTYPE = "subtype";
   private SyntheticsAPIStepSubtype subtype;
+
+  public SyntheticsAPIStep() {}
+
+  @JsonCreator
+  public SyntheticsAPIStep(
+      @JsonProperty(required = true, value = JSON_PROPERTY_ASSERTIONS)
+          List<SyntheticsAssertion> assertions,
+      @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
+      @JsonProperty(required = true, value = JSON_PROPERTY_REQUEST) SyntheticsTestRequest request,
+      @JsonProperty(required = true, value = JSON_PROPERTY_SUBTYPE)
+          SyntheticsAPIStepSubtype subtype) {
+    this.assertions = assertions;
+    this.name = name;
+    this.request = request;
+    this.unparsed |= request.unparsed;
+    this.subtype = subtype;
+    this.unparsed |= !subtype.isValid();
+  }
 
   public SyntheticsAPIStep allowFailure(Boolean allowFailure) {
     this.allowFailure = allowFailure;
@@ -90,9 +109,6 @@ public class SyntheticsAPIStep {
   }
 
   public SyntheticsAPIStep addAssertionsItem(SyntheticsAssertion assertionsItem) {
-    if (this.assertions == null) {
-      this.assertions = new ArrayList<>();
-    }
     this.assertions.add(assertionsItem);
     this.unparsed |= assertionsItem.unparsed;
     return this;
@@ -103,10 +119,12 @@ public class SyntheticsAPIStep {
    *
    * @return assertions
    */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Array of assertions used for the test.")
+  @ApiModelProperty(
+      example = "[{\"operator\":\"lessThan\",\"target\":1000,\"type\":\"responseTime\"}]",
+      required = true,
+      value = "Array of assertions used for the test.")
   @JsonProperty(JSON_PROPERTY_ASSERTIONS)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public List<SyntheticsAssertion> getAssertions() {
     return assertions;
   }
@@ -185,10 +203,9 @@ public class SyntheticsAPIStep {
    *
    * @return name
    */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The name of the step.")
+  @ApiModelProperty(example = "Example step name", required = true, value = "The name of the step.")
   @JsonProperty(JSON_PROPERTY_NAME)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getName() {
     return name;
   }
@@ -208,10 +225,9 @@ public class SyntheticsAPIStep {
    *
    * @return request
    */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_REQUEST)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SyntheticsTestRequest getRequest() {
     return request;
   }
@@ -254,10 +270,9 @@ public class SyntheticsAPIStep {
    *
    * @return subtype
    */
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_SUBTYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public SyntheticsAPIStepSubtype getSubtype() {
     return subtype;
   }

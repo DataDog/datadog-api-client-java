@@ -389,6 +389,7 @@ public class DashboardsApi {
   /** Manage optional parameters to listDashboards. */
   public static class ListDashboardsOptionalParameters {
     private Boolean filterShared;
+    private Boolean filterDeleted;
 
     /**
      * Set filterShared
@@ -399,6 +400,19 @@ public class DashboardsApi {
      */
     public ListDashboardsOptionalParameters filterShared(Boolean filterShared) {
       this.filterShared = filterShared;
+      return this;
+    }
+
+    /**
+     * Set filterDeleted
+     *
+     * @param filterDeleted When &#x60;true&#x60;, this query returns only deleted custom-created or
+     *     cloned dashboards. This parameter is incompatible with &#x60;filter[shared]&#x60;.
+     *     (optional)
+     * @return ListDashboardsOptionalParameters
+     */
+    public ListDashboardsOptionalParameters filterDeleted(Boolean filterDeleted) {
+      this.filterDeleted = filterDeleted;
       return this;
     }
   }
@@ -460,6 +474,7 @@ public class DashboardsApi {
       ListDashboardsOptionalParameters parameters) throws ApiException {
     Object localVarPostBody = null;
     Boolean filterShared = parameters.filterShared;
+    Boolean filterDeleted = parameters.filterDeleted;
     // create path and map variables
     String localVarPath = "/api/v1/dashboard";
 
@@ -470,6 +485,7 @@ public class DashboardsApi {
     Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
     localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[shared]", filterShared));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter[deleted]", filterDeleted));
 
     // Set Operation-ID header for telemetry
     localVarHeaderParams.put("DD-OPERATION-ID", "listDashboards");

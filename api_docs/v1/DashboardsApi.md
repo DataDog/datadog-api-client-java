@@ -294,9 +294,11 @@ public class Example {
 
         DashboardsApi apiInstance = new DashboardsApi(defaultClient);
         Boolean filterShared = true; // Boolean | When `true`, this query only returns shared custom created or cloned dashboards.
+        Boolean filterDeleted = true; // Boolean | When `true`, this query returns only deleted custom-created or cloned dashboards. This parameter is incompatible with `filter[shared]`.
         try {
             DashboardSummary result = apiInstance.listDashboards(new DashboardsApi.ListDashboardsOptionalParameters()
-                .filterShared(filterShared));
+                .filterShared(filterShared)
+                .filterDeleted(filterDeleted));
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DashboardsApi#listDashboards");
@@ -311,9 +313,10 @@ public class Example {
 
 ### Parameters
 
-| Name             | Type        | Description                                                                                | Notes      |
-| ---------------- | ----------- | ------------------------------------------------------------------------------------------ | ---------- |
-| **filterShared** | **Boolean** | When &#x60;true&#x60;, this query only returns shared custom created or cloned dashboards. | [optional] |
+| Name              | Type        | Description                                                                                                                                                 | Notes      |
+| ----------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **filterShared**  | **Boolean** | When &#x60;true&#x60;, this query only returns shared custom created or cloned dashboards.                                                                  | [optional] |
+| **filterDeleted** | **Boolean** | When &#x60;true&#x60;, this query returns only deleted custom-created or cloned dashboards. This parameter is incompatible with &#x60;filter[shared]&#x60;. | [optional] |
 
 ### Return type
 
