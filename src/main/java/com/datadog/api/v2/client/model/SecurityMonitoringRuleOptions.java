@@ -25,7 +25,8 @@ import java.util.Objects;
   SecurityMonitoringRuleOptions.JSON_PROPERTY_EVALUATION_WINDOW,
   SecurityMonitoringRuleOptions.JSON_PROPERTY_KEEP_ALIVE,
   SecurityMonitoringRuleOptions.JSON_PROPERTY_MAX_SIGNAL_DURATION,
-  SecurityMonitoringRuleOptions.JSON_PROPERTY_NEW_VALUE_OPTIONS
+  SecurityMonitoringRuleOptions.JSON_PROPERTY_NEW_VALUE_OPTIONS,
+  SecurityMonitoringRuleOptions.JSON_PROPERTY_THIRD_PARTY_RULE_OPTIONS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SecurityMonitoringRuleOptions {
@@ -44,6 +45,9 @@ public class SecurityMonitoringRuleOptions {
 
   public static final String JSON_PROPERTY_NEW_VALUE_OPTIONS = "newValueOptions";
   private SecurityMonitoringRuleNewValueOptions newValueOptions;
+
+  public static final String JSON_PROPERTY_THIRD_PARTY_RULE_OPTIONS = "thirdPartyRuleOptions";
+  private SecurityMonitoringRuleThirdPartyOptions thirdPartyRuleOptions;
 
   public SecurityMonitoringRuleOptions detectionMethod(
       SecurityMonitoringRuleDetectionMethod detectionMethod) {
@@ -176,6 +180,31 @@ public class SecurityMonitoringRuleOptions {
     this.newValueOptions = newValueOptions;
   }
 
+  public SecurityMonitoringRuleOptions thirdPartyRuleOptions(
+      SecurityMonitoringRuleThirdPartyOptions thirdPartyRuleOptions) {
+    this.thirdPartyRuleOptions = thirdPartyRuleOptions;
+    this.unparsed |= thirdPartyRuleOptions.unparsed;
+    return this;
+  }
+
+  /**
+   * Get thirdPartyRuleOptions
+   *
+   * @return thirdPartyRuleOptions
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  @JsonProperty(JSON_PROPERTY_THIRD_PARTY_RULE_OPTIONS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public SecurityMonitoringRuleThirdPartyOptions getThirdPartyRuleOptions() {
+    return thirdPartyRuleOptions;
+  }
+
+  public void setThirdPartyRuleOptions(
+      SecurityMonitoringRuleThirdPartyOptions thirdPartyRuleOptions) {
+    this.thirdPartyRuleOptions = thirdPartyRuleOptions;
+  }
+
   /** Return true if this SecurityMonitoringRuleOptions object is equal to o. */
   @Override
   public boolean equals(Object o) {
@@ -190,13 +219,20 @@ public class SecurityMonitoringRuleOptions {
         && Objects.equals(this.evaluationWindow, securityMonitoringRuleOptions.evaluationWindow)
         && Objects.equals(this.keepAlive, securityMonitoringRuleOptions.keepAlive)
         && Objects.equals(this.maxSignalDuration, securityMonitoringRuleOptions.maxSignalDuration)
-        && Objects.equals(this.newValueOptions, securityMonitoringRuleOptions.newValueOptions);
+        && Objects.equals(this.newValueOptions, securityMonitoringRuleOptions.newValueOptions)
+        && Objects.equals(
+            this.thirdPartyRuleOptions, securityMonitoringRuleOptions.thirdPartyRuleOptions);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
-        detectionMethod, evaluationWindow, keepAlive, maxSignalDuration, newValueOptions);
+        detectionMethod,
+        evaluationWindow,
+        keepAlive,
+        maxSignalDuration,
+        newValueOptions,
+        thirdPartyRuleOptions);
   }
 
   @Override
@@ -208,6 +244,9 @@ public class SecurityMonitoringRuleOptions {
     sb.append("    keepAlive: ").append(toIndentedString(keepAlive)).append("\n");
     sb.append("    maxSignalDuration: ").append(toIndentedString(maxSignalDuration)).append("\n");
     sb.append("    newValueOptions: ").append(toIndentedString(newValueOptions)).append("\n");
+    sb.append("    thirdPartyRuleOptions: ")
+        .append(toIndentedString(thirdPartyRuleOptions))
+        .append("\n");
     sb.append("}");
     return sb.toString();
   }

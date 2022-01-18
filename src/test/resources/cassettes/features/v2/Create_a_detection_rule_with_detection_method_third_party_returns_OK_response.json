@@ -1,0 +1,61 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"cases\":[{\"name\":\"\",\"notifications\":[],\"status\":\"info\"}],\"filters\":[],\"isEnabled\":true,\"message\":\"Test-Create_a_detection_rule_with_detection_method_third_party_returns_OK_response-1642512967 message\",\"name\":\"Test-Create_a_detection_rule_with_detection_method_third_party_returns_OK_response-1642512967\",\"options\":{\"detectionMethod\":\"third_party\",\"evaluationWindow\":0,\"keepAlive\":3600,\"maxSignalDuration\":86400,\"thirdPartyRuleOptions\":{\"defaultStatus\":\"low\",\"rootQuery\":\"@pop\"}},\"queries\":[{\"aggregation\":\"none\",\"distinctFields\":[],\"groupByFields\":[],\"query\":\"@test:true\"}],\"tags\":[]}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Create_a_detection_rule_with_detection_method_third_party_returns_OK_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v2/security_monitoring/rules",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"creationAuthorId\":1445416,\"tags\":[],\"isEnabled\":true,\"hasExtendedTitle\":false,\"message\":\"Test-Create_a_detection_rule_with_detection_method_third_party_returns_OK_response-1642512967 message\",\"options\":{\"detectionMethod\":\"third_party\",\"evaluationWindow\":0,\"maxSignalDuration\":86400,\"thirdPartyRuleOptions\":{\"defaultStatus\":\"low\",\"defaultNotifications\":[],\"rootQuery\":\"@pop\"},\"keepAlive\":3600},\"version\":1,\"createdAt\":1642512967974,\"filters\":[],\"queries\":[{\"query\":\"@test:true\",\"groupByFields\":[],\"aggregation\":\"none\",\"name\":\"\",\"distinctFields\":[]}],\"isDeleted\":false,\"cases\":[{\"status\":\"info\",\"notifications\":[],\"name\":\"\"}],\"type\":\"log_detection\",\"id\":\"4fd-sl4-onv\",\"isDefault\":false,\"name\":\"Test-Create_a_detection_rule_with_detection_method_third_party_returns_OK_response-1642512967\"}",
+      "headers": {
+        "Content-Type": [
+          "application/json;charset=utf-8"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "4b4c1efe-c186-d9ca-0c5d-3b7b88a18452"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Create_a_detection_rule_with_detection_method_third_party_returns_OK_response"
+        ]
+      },
+      "method": "DELETE",
+      "path": "/api/v2/security_monitoring/rules/4fd-sl4-onv",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "headers": {},
+      "statusCode": 204,
+      "reasonPhrase": "No Content"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "006035ce-ffd1-d188-15af-f96c0b7006d5"
+  }
+]
