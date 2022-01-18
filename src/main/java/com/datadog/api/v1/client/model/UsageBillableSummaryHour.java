@@ -16,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.time.OffsetDateTime;
+import java.time.LocalDate;
 import java.util.Objects;
 
 /** Response with monthly summary of data billed by Datadog. */
@@ -38,7 +38,7 @@ public class UsageBillableSummaryHour {
   private String billingPlan;
 
   public static final String JSON_PROPERTY_END_DATE = "end_date";
-  private OffsetDateTime endDate;
+  private LocalDate endDate;
 
   public static final String JSON_PROPERTY_NUM_ORGS = "num_orgs";
   private Long numOrgs;
@@ -53,7 +53,7 @@ public class UsageBillableSummaryHour {
   private Double ratioInMonth;
 
   public static final String JSON_PROPERTY_START_DATE = "start_date";
-  private OffsetDateTime startDate;
+  private LocalDate startDate;
 
   public static final String JSON_PROPERTY_USAGE = "usage";
   private UsageBillableSummaryKeys usage;
@@ -80,7 +80,7 @@ public class UsageBillableSummaryHour {
     this.billingPlan = billingPlan;
   }
 
-  public UsageBillableSummaryHour endDate(OffsetDateTime endDate) {
+  public UsageBillableSummaryHour endDate(LocalDate endDate) {
     this.endDate = endDate;
     return this;
   }
@@ -94,11 +94,11 @@ public class UsageBillableSummaryHour {
   @ApiModelProperty(value = "Shows the last date of usage.")
   @JsonProperty(JSON_PROPERTY_END_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getEndDate() {
+  public LocalDate getEndDate() {
     return endDate;
   }
 
-  public void setEndDate(OffsetDateTime endDate) {
+  public void setEndDate(LocalDate endDate) {
     this.endDate = endDate;
   }
 
@@ -190,7 +190,7 @@ public class UsageBillableSummaryHour {
     this.ratioInMonth = ratioInMonth;
   }
 
-  public UsageBillableSummaryHour startDate(OffsetDateTime startDate) {
+  public UsageBillableSummaryHour startDate(LocalDate startDate) {
     this.startDate = startDate;
     return this;
   }
@@ -204,11 +204,11 @@ public class UsageBillableSummaryHour {
   @ApiModelProperty(value = "Shows the first date of usage.")
   @JsonProperty(JSON_PROPERTY_START_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public OffsetDateTime getStartDate() {
+  public LocalDate getStartDate() {
     return startDate;
   }
 
-  public void setStartDate(OffsetDateTime startDate) {
+  public void setStartDate(LocalDate startDate) {
     this.startDate = startDate;
   }
 
