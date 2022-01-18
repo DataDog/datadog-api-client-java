@@ -35,9 +35,11 @@ public class SecurityMonitoringRuleDetectionMethod {
       new SecurityMonitoringRuleDetectionMethod("new_value");
   public static final SecurityMonitoringRuleDetectionMethod ANOMALY_DETECTION =
       new SecurityMonitoringRuleDetectionMethod("anomaly_detection");
+  public static final SecurityMonitoringRuleDetectionMethod NO_DATA =
+      new SecurityMonitoringRuleDetectionMethod("no_data");
 
   private static final Set<String> allowedValues =
-      new HashSet<String>(Arrays.asList("threshold", "new_value", "anomaly_detection"));
+      new HashSet<String>(Arrays.asList("threshold", "new_value", "anomaly_detection", "no_data"));
 
   private String value;
 
