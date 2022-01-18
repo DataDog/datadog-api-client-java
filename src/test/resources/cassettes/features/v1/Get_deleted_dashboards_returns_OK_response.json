@@ -1,0 +1,131 @@
+[
+  {
+    "httpRequest": {
+      "body": {
+        "type": "JSON",
+        "json": "{\"layout_type\":\"ordered\",\"title\":\"Test-Get_deleted_dashboards_returns_OK_response-1642441413 with Profile Metrics Query\",\"widgets\":[{\"definition\":{\"requests\":[{\"profile_metrics_query\":{\"compute\":{\"aggregation\":\"sum\",\"facet\":\"@prof_core_cpu_cores\"},\"group_by\":[{\"facet\":\"service\",\"limit\":10,\"sort\":{\"aggregation\":\"sum\",\"facet\":\"@prof_core_cpu_cores\",\"order\":\"desc\"}}],\"search\":{\"query\":\"runtime:jvm\"}}}],\"type\":\"timeseries\"}}]}"
+      },
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Get_deleted_dashboards_returns_OK_response"
+        ]
+      },
+      "method": "POST",
+      "path": "/api/v1/dashboard",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"notify_list\":null,\"description\":null,\"restricted_roles\":[],\"author_name\":null,\"template_variables\":null,\"is_read_only\":false,\"id\":\"ssn-gb2-k7k\",\"title\":\"Test-Get_deleted_dashboards_returns_OK_response-1642441413 with Profile Metrics Query\",\"url\":\"/dashboard/ssn-gb2-k7k/test-getdeleteddashboardsreturnsokresponse-1642441413-with-profile-metrics-query\",\"created_at\":\"2022-01-17T17:43:33.361797+00:00\",\"modified_at\":\"2022-01-17T17:43:33.361797+00:00\",\"author_handle\":\"frog@datadoghq.com\",\"widgets\":[{\"definition\":{\"requests\":[{\"profile_metrics_query\":{\"search\":{\"query\":\"runtime:jvm\"},\"group_by\":[{\"facet\":\"service\",\"sort\":{\"facet\":\"@prof_core_cpu_cores\",\"aggregation\":\"sum\",\"order\":\"desc\"},\"limit\":10}],\"compute\":{\"facet\":\"@prof_core_cpu_cores\",\"aggregation\":\"sum\"}}}],\"type\":\"timeseries\"},\"id\":748946470803570}],\"layout_type\":\"ordered\"}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "253147e5-6300-a888-ced4-d4b2877120c9"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Get_deleted_dashboards_returns_OK_response"
+        ]
+      },
+      "method": "DELETE",
+      "path": "/api/v1/dashboard/ssn-gb2-k7k",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"deleted_dashboard_id\":\"ssn-gb2-k7k\"}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "e1aa817a-f130-6b2d-eec2-238e3e5d22b8"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Get_deleted_dashboards_returns_OK_response"
+        ]
+      },
+      "method": "GET",
+      "path": "/api/v1/dashboard",
+      "queryStringParameters": {
+        "filter[deleted]": [
+          "true"
+        ]
+      },
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"dashboards\":[{\"created_at\":\"2022-01-17T17:43:33.361797+00:00\",\"author_handle\":\"frog@datadoghq.com\",\"is_read_only\":false,\"description\":null,\"title\":\"Test-Get_deleted_dashboards_returns_OK_response-1642441413 with Profile Metrics Query\",\"url\":\"/dashboard/ssn-gb2-k7k/test-getdeleteddashboardsreturnsokresponse-1642441413-with-profile-metrics-query\",\"layout_type\":\"ordered\",\"deleted_at\":\"2022-01-17T17:43:33.502200+00:00\",\"modified_at\":\"2022-01-17T17:43:33.361797+00:00\",\"id\":\"ssn-gb2-k7k\"}]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 200,
+      "reasonPhrase": "OK"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "f1eb1d0a-b565-2811-1b33-1a44b285ba99"
+  },
+  {
+    "httpRequest": {
+      "headers": {
+        "JAVA-TEST-NAME": [
+          "Get_deleted_dashboards_returns_OK_response"
+        ]
+      },
+      "method": "DELETE",
+      "path": "/api/v1/dashboard/ssn-gb2-k7k",
+      "keepAlive": false,
+      "secure": true
+    },
+    "httpResponse": {
+      "body": "{\"errors\": [\"Dashboard with ID ssn-gb2-k7k not found\"]}",
+      "headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "statusCode": 404,
+      "reasonPhrase": "Not Found"
+    },
+    "times": {
+      "remainingTimes": 1
+    },
+    "timeToLive": {
+      "unlimited": true
+    },
+    "id": "e1aa817a-f130-6b2d-eec2-238e3e5d22b9"
+  }
+]
