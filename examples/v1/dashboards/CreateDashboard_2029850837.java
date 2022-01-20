@@ -26,7 +26,7 @@ public class Example {
 
     Dashboard body =
         new Dashboard()
-            .title("Example-Create_a_new_dashboard_with_log_stream_widget")
+            .title("Test-Example-Create_a_new_dashboard_with_log_stream_widget")
             .description("")
             .widgets(
                 new ArrayList<Widget>() {

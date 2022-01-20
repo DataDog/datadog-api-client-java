@@ -80,7 +80,7 @@ public class Example {
                 })
             .message("BDD test payload: synthetics_api_test_multi_step_payload.json")
             .name(
-                "Example-Create_an_API_test_with_multi_subtype_returns_OK_Returns_the_created_test_details_response")
+                "Test-Example-Create_an_API_test_with_multi_subtype_returns_OK_Returns_the_created_test_details_response")
             .options(
                 new SyntheticsTestOptions()
                     .acceptSelfSigned(false)
@@ -89,7 +89,7 @@ public class Example {
                     .minFailureDuration(10L)
                     .minLocationFailed(1L)
                     .monitorName(
-                        "Example-Create_an_API_test_with_multi_subtype_returns_OK_Returns_the_created_test_details_response")
+                        "Test-Example-Create_an_API_test_with_multi_subtype_returns_OK_Returns_the_created_test_details_response")
                     .monitorPriority(5)
                     .retry(new SyntheticsTestOptionsRetry().count(3L).interval(1000.0))
                     .tickEvery(60L))

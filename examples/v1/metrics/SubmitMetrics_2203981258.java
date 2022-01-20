@@ -46,7 +46,7 @@ public class Example {
                                 new ArrayList<String>() {
                                   {
                                     add(
-                                        "test:ExampleSubmitdeflatemetricsreturnsPayloadacceptedresponse");
+                                        "test:TestExampleSubmitdeflatemetricsreturnsPayloadacceptedresponse");
                                   }
                                 }));
                   }

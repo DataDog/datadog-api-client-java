@@ -25,7 +25,7 @@ public class Example {
                     .attributes(
                         new ApplicationKeyCreateAttributes()
                             .name(
-                                "Example-Create_an_Application_key_with_scopes_for_current_user_returns_Created_response")
+                                "Test-Example-Create_an_Application_key_with_scopes_for_current_user_returns_Created_response")
                             .scopes(
                                 new ArrayList<String>() {
                                   {

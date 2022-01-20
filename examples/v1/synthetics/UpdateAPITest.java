@@ -93,7 +93,8 @@ public class Example {
                                             .updatedAt("2020-10-16T09:23:24.857Z")))
                             .headers(
                                 Map.ofEntries(
-                                    Map.entry("unique", "exampleeditanapitestreturnsokresponse")))
+                                    Map.entry(
+                                        "unique", "testexampleeditanapitestreturnsokresponse")))
                             .method(HTTPMethod.GET)
                             .timeout(10.0)
                             .url("https://datadoghq.com")))
@@ -104,7 +105,7 @@ public class Example {
                   }
                 })
             .message("BDD test payload: synthetics_api_test_payload.json")
-            .name("Example-Edit_an_API_test_returns_OK_response-updated")
+            .name("Test-Example-Edit_an_API_test_returns_OK_response-updated")
             .options(
                 new SyntheticsTestOptions()
                     .acceptSelfSigned(false)

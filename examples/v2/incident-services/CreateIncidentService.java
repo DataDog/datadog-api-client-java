@@ -26,7 +26,7 @@ public class Example {
                     .attributes(
                         new IncidentServiceCreateAttributes()
                             .name(
-                                "Example-Create_a_new_incident_service_returns_CREATED_response")));
+                                "Test-Example-Create_a_new_incident_service_returns_CREATED_response")));
 
     try {
       IncidentServiceResponse result = apiInstance.createIncidentService(body);

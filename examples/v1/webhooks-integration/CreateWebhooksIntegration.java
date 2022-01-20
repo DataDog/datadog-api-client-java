@@ -15,7 +15,7 @@ public class Example {
 
     WebhooksIntegration body =
         new WebhooksIntegration()
-            .name("Example-Create_a_webhooks_integration_returns_OK_response")
+            .name("Test-Example-Create_a_webhooks_integration_returns_OK_response")
             .url("https://example.com/webhook");
 
     try {

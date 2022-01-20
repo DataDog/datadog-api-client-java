@@ -30,7 +30,7 @@ public class Example {
                         new SLOCorrectionCreateRequestAttributes()
                             .category(SLOCorrectionCategory.SCHEDULED_MAINTENANCE)
                             .description(
-                                "Example-Create_an_SLO_correction_with_rrule_returns_OK_response")
+                                "Test-Example-Create_an_SLO_correction_with_rrule_returns_OK_response")
                             .sloId(SLO_DATA_0_ID)
                             .start(OffsetDateTime.now().toInstant().getEpochSecond())
                             .duration(3600L)

@@ -18,7 +18,7 @@ public class Example {
 
     Monitor body =
         new Monitor()
-            .name("Example-Create_a_ci_pipelines_monitor_returns_OK_response")
+            .name("Test-Example-Create_a_ci_pipelines_monitor_returns_OK_response")
             .type(MonitorType.CI_PIPELINES_ALERT)
             .query(
                 """
@@ -28,7 +28,7 @@ ci-pipelines("ci_level:pipeline @git.branch:staging* @ci.status:error").rollup("
             .tags(
                 new ArrayList<String>() {
                   {
-                    add("test:examplecreateacipipelinesmonitorreturnsokresponse");
+                    add("test:testexamplecreateacipipelinesmonitorreturnsokresponse");
                     add("env:ci");
                   }
                 })

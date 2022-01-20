@@ -16,7 +16,8 @@ public class Example {
     // there is a valid "downtime" in the system
     Long DOWNTIME_ID = Long.parseLong(System.getenv("DOWNTIME_ID"));
 
-    Downtime body = new Downtime().message("Example-Update_a_downtime_returns_OK_response-updated");
+    Downtime body =
+        new Downtime().message("Test-Example-Update_a_downtime_returns_OK_response-updated");
 
     try {
       Downtime result = apiInstance.updateDowntime(DOWNTIME_ID, body);

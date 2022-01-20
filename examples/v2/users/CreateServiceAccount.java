@@ -33,7 +33,7 @@ public class Example {
                         new ServiceAccountCreateAttributes()
                             .name("Test API Client")
                             .email(
-                                "Example-Create_a_service_account_returns_OK_response@datadoghq.com")
+                                "Test-Example-Create_a_service_account_returns_OK_response@datadoghq.com")
                             .serviceAccount(true))
                     .relationships(
                         new UserRelationships()

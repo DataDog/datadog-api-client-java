@@ -19,7 +19,8 @@ public class Example {
       MetricsAndMetricTagConfigurationsResponse result =
           apiInstance.listTagConfigurations(
               new ListTagConfigurationsOptionalParameters()
-                  .filterTags("ExampleListtagconfigurationswithatagfilterreturnsSuccessresponse"));
+                  .filterTags(
+                      "TestExampleListtagconfigurationswithatagfilterreturnsSuccessresponse"));
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MetricsApi#listTagConfigurations");

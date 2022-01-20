@@ -36,8 +36,8 @@ public class Example {
                                 })
                             .filteredDataType(SecurityFilterFilteredDataType.LOGS)
                             .isEnabled(true)
-                            .name("Example-Create_a_security_filter_returns_OK_response")
-                            .query("service:ExampleCreateasecurityfilterreturnsOKresponse"))
+                            .name("Test-Example-Create_a_security_filter_returns_OK_response")
+                            .query("service:TestExampleCreateasecurityfilterreturnsOKresponse"))
                     .type(SecurityFilterType.SECURITY_FILTERS));
 
     try {

@@ -26,7 +26,8 @@ public class Example {
                     .tags(
                         new ArrayList<String>() {
                           {
-                            add("test:ExampleSubmitaServiceCheckreturnsPayloadacceptedresponse");
+                            add(
+                                "test:TestExampleSubmitaServiceCheckreturnsPayloadacceptedresponse");
                           }
                         }));
           }

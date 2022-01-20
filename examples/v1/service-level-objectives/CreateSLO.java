@@ -35,7 +35,7 @@ public class Example {
                     ;
                   }
                 })
-            .name("Example-Create_an_SLO_object_returns_OK_response")
+            .name("Test-Example-Create_an_SLO_object_returns_OK_response")
             .query(
                 new ServiceLevelObjectiveQuery()
                     .denominator("sum:httpservice.hits{!code:3xx}.as_count()")

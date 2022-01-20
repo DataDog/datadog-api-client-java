@@ -29,7 +29,8 @@ public class Example {
                     .attributes(
                         new SLOCorrectionUpdateRequestAttributes()
                             .category(SLOCorrectionCategory.DEPLOYMENT)
-                            .description("Example-Update_an_SLO_correction_returns_OK_response")
+                            .description(
+                                "Test-Example-Update_an_SLO_correction_returns_OK_response")
                             .end(OffsetDateTime.now().plusHours(1).toInstant().getEpochSecond())
                             .start(OffsetDateTime.now().toInstant().getEpochSecond())
                             .timezone("UTC"))

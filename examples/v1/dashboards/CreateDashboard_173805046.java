@@ -28,7 +28,7 @@ public class Example {
 
     Dashboard body =
         new Dashboard()
-            .title("Example-Create_a_new_dashboard_with_slo_widget")
+            .title("Test-Example-Create_a_new_dashboard_with_slo_widget")
             .description("")
             .widgets(
                 new ArrayList<Widget>() {

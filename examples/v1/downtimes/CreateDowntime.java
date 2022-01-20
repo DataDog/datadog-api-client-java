@@ -15,13 +15,13 @@ public class Example {
 
     Downtime body =
         new Downtime()
-            .message("Example-Schedule_a_downtime_returns_OK_response")
+            .message("Test-Example-Schedule_a_downtime_returns_OK_response")
             .start(OffsetDateTime.now().toInstant().getEpochSecond())
             .timezone("Etc/UTC")
             .scope(
                 new ArrayList<String>() {
                   {
-                    add("test:examplescheduleadowntimereturnsokresponse");
+                    add("test:testexamplescheduleadowntimereturnsokresponse");
                   }
                 })
             .recurrence(

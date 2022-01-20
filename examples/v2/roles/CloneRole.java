@@ -27,7 +27,7 @@ public class Example {
                     .attributes(
                         new RoleCloneAttributes()
                             .name(
-                                "Example-Create_a_new_role_by_cloning_an_existing_role_returns_OK_response"
+                                "Test-Example-Create_a_new_role_by_cloning_an_existing_role_returns_OK_response"
                                     + " clone"))
                     .type(RolesType.ROLES));
 

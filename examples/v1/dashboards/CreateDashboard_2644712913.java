@@ -32,7 +32,7 @@ public class Example {
         new Dashboard()
             .layoutType(DashboardLayoutType.ORDERED)
             .title(
-                "Example-Create_a_new_dashboard_with_a_query_value_widget_using_the_percentile_aggregator"
+                "Test-Example-Create_a_new_dashboard_with_a_query_value_widget_using_the_percentile_aggregator"
                     + " with QVW Percentile Aggregator")
             .widgets(
                 new ArrayList<Widget>() {

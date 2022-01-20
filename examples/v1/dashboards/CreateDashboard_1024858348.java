@@ -31,7 +31,8 @@ public class Example {
 
     Dashboard body =
         new Dashboard()
-            .title("Example-Create_a_new_dashboard_with_a_formulas_and_functions_treemap_widget")
+            .title(
+                "Test-Example-Create_a_new_dashboard_with_a_formulas_and_functions_treemap_widget")
             .widgets(
                 new ArrayList<Widget>() {
                   {

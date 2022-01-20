@@ -26,7 +26,8 @@ public class Example {
 
     SecurityMonitoringRuleCreatePayload body =
         new SecurityMonitoringRuleCreatePayload()
-            .name("Example-Create_a_detection_rule_with_type_workload_security_returns_OK_response")
+            .name(
+                "Test-Example-Create_a_detection_rule_with_type_workload_security_returns_OK_response")
             .queries(
                 new ArrayList<SecurityMonitoringRuleQueryCreate>() {
                   {

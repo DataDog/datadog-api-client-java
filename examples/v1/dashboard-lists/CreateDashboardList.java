@@ -14,7 +14,7 @@ public class Example {
     DashboardListsApi apiInstance = new DashboardListsApi(defaultClient);
 
     DashboardList body =
-        new DashboardList().name("Example-Create_a_dashboard_list_returns_OK_response");
+        new DashboardList().name("Test-Example-Create_a_dashboard_list_returns_OK_response");
 
     try {
       DashboardList result = apiInstance.createDashboardList(body);

@@ -18,7 +18,7 @@ public class Example {
 
     Monitor body =
         new Monitor()
-            .name("Example-Validate_a_monitor_returns_OK_response")
+            .name("Test-Example-Validate_a_monitor_returns_OK_response")
             .type(MonitorType.LOG_ALERT)
             .query(
                 """
@@ -28,7 +28,7 @@ logs("service:foo AND type:error").index("main").rollup("count").by("source").la
             .tags(
                 new ArrayList<String>() {
                   {
-                    add("test:examplevalidateamonitorreturnsokresponse");
+                    add("test:testexamplevalidateamonitorreturnsokresponse");
                     add("env:ci");
                   }
                 })

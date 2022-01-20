@@ -17,7 +17,8 @@ public class Example {
     Long DASHBOARD_LIST_ID = Long.parseLong(System.getenv("DASHBOARD_LIST_ID"));
 
     DashboardList body =
-        new DashboardList().name("updated Example-Update_a_dashboard_list_returns_OK_response");
+        new DashboardList()
+            .name("updated Test-Example-Update_a_dashboard_list_returns_OK_response");
 
     try {
       DashboardList result = apiInstance.updateDashboardList(DASHBOARD_LIST_ID, body);

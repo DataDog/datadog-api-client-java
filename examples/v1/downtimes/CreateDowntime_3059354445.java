@@ -15,7 +15,7 @@ public class Example {
 
     Downtime body =
         new Downtime()
-            .message("Example-Schedule_a_downtime_once_a_year")
+            .message("Test-Example-Schedule_a_downtime_once_a_year")
             .recurrence(new DowntimeRecurrence().period(1).type("years"))
             .scope(
                 new ArrayList<String>() {

@@ -21,9 +21,9 @@ public class Example {
             add(
                 new HTTPLogItem()
                     .message(
-                        "Example-Send_deflate_logs_returns_Response_from_server_always_200_empty_JSON_response")
+                        "Test-Example-Send_deflate_logs_returns_Response_from_server_always_200_empty_JSON_response")
                     .ddtags(
-                        "host:ExampleSenddeflatelogsreturnsResponsefromserveralways200emptyJSONresponse"));
+                        "host:TestExampleSenddeflatelogsreturnsResponsefromserveralways200emptyJSONresponse"));
           }
         };
 

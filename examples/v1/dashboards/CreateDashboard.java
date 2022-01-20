@@ -28,7 +28,9 @@ public class Example {
     Dashboard body =
         new Dashboard()
             .layoutType(DashboardLayoutType.ORDERED)
-            .title("Example-Create_a_new_dashboard_returns_OK_response with Profile Metrics Query")
+            .title(
+                "Test-Example-Create_a_new_dashboard_returns_OK_response with Profile Metrics"
+                    + " Query")
             .widgets(
                 new ArrayList<Widget>() {
                   {

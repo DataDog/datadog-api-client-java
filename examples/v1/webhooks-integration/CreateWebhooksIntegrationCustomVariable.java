@@ -17,7 +17,7 @@ public class Example {
     WebhooksIntegrationCustomVariable body =
         new WebhooksIntegrationCustomVariable()
             .isSecret(true)
-            .name("EXAMPLECREATEACUSTOMVARIABLERETURNSOKRESPONSE")
+            .name("TESTEXAMPLECREATEACUSTOMVARIABLERETURNSOKRESPONSE")
             .value("CUSTOM_VARIABLE_VALUE");
 
     try {

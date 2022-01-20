@@ -43,7 +43,8 @@ public class Example {
                             .tags(
                                 new ArrayList<String>() {
                                   {
-                                    add("test:ExampleSubmitmetricsreturnsPayloadacceptedresponse");
+                                    add(
+                                        "test:TestExampleSubmitmetricsreturnsPayloadacceptedresponse");
                                   }
                                 }));
                   }

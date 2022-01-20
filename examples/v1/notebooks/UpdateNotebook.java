@@ -130,7 +130,7 @@ y = 6;
                                                 .type(NotebookCellResourceType.NOTEBOOK_CELLS)));
                                   }
                                 })
-                            .name("Example-Update_a_notebook_returns_OK_response-updated")
+                            .name("Test-Example-Update_a_notebook_returns_OK_response-updated")
                             .status(NotebookStatus.PUBLISHED)
                             .time(
                                 new NotebookGlobalTime(
