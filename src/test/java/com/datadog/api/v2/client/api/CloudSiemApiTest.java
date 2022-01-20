@@ -14,10 +14,10 @@ import com.datadog.api.v2.client.*;
 import com.datadog.api.v2.client.auth.*;
 import org.junit.Test;
 
-/** API tests for SecurityMonitoringApi */
-public class SecurityMonitoringApiTest {
+/** API tests for CloudSiemApi */
+public class CloudSiemApiTest {
 
-  private final SecurityMonitoringApi api = new SecurityMonitoringApi();
+  private final CloudSiemApi api = new CloudSiemApi();
 
   /**
    * Create a security filter

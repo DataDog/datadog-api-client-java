@@ -3,7 +3,7 @@
 import com.datadog.api.v2.client.ApiClient;
 import com.datadog.api.v2.client.ApiException;
 import com.datadog.api.v2.client.Configuration;
-import com.datadog.api.v2.client.api.SecurityMonitoringApi;
+import com.datadog.api.v2.client.api.CloudSiemApi;
 import com.datadog.api.v2.client.model.SecurityFilterExclusionFilter;
 import com.datadog.api.v2.client.model.SecurityFilterFilteredDataType;
 import com.datadog.api.v2.client.model.SecurityFilterResponse;
@@ -17,7 +17,7 @@ import java.util.*;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    SecurityMonitoringApi apiInstance = new SecurityMonitoringApi(defaultClient);
+    CloudSiemApi apiInstance = new CloudSiemApi(defaultClient);
 
     // there is a valid "security_filter" in the system
     String SECURITY_FILTER_DATA_ID = System.getenv("SECURITY_FILTER_DATA_ID");
@@ -46,7 +46,7 @@ public class Example {
           apiInstance.updateSecurityFilter(SECURITY_FILTER_DATA_ID, body);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling SecurityMonitoringApi#updateSecurityFilter");
+      System.err.println("Exception when calling CloudSiemApi#updateSecurityFilter");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

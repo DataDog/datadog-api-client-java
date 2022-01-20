@@ -24,14 +24,14 @@ import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class SecurityMonitoringApi {
+public class CloudSiemApi {
   private ApiClient apiClient;
 
-  public SecurityMonitoringApi() {
+  public CloudSiemApi() {
     this(Configuration.getDefaultApiClient());
   }
 
-  public SecurityMonitoringApi(ApiClient apiClient) {
+  public CloudSiemApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
 
@@ -127,7 +127,7 @@ public class SecurityMonitoringApi {
         new GenericType<SecurityFilterResponse>() {};
 
     return apiClient.invokeAPI(
-        "SecurityMonitoringApi.createSecurityFilter",
+        "CloudSiemApi.createSecurityFilter",
         localVarPath,
         "POST",
         localVarQueryParams,
@@ -210,7 +210,7 @@ public class SecurityMonitoringApi {
         new GenericType<SecurityMonitoringRuleResponse>() {};
 
     return apiClient.invokeAPI(
-        "SecurityMonitoringApi.createSecurityMonitoringRule",
+        "CloudSiemApi.createSecurityMonitoringRule",
         localVarPath,
         "POST",
         localVarQueryParams,
@@ -294,7 +294,7 @@ public class SecurityMonitoringApi {
     String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     return apiClient.invokeAPI(
-        "SecurityMonitoringApi.deleteSecurityFilter",
+        "CloudSiemApi.deleteSecurityFilter",
         localVarPath,
         "DELETE",
         localVarQueryParams,
@@ -375,7 +375,7 @@ public class SecurityMonitoringApi {
     String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     return apiClient.invokeAPI(
-        "SecurityMonitoringApi.deleteSecurityMonitoringRule",
+        "CloudSiemApi.deleteSecurityMonitoringRule",
         localVarPath,
         "DELETE",
         localVarQueryParams,
@@ -466,7 +466,7 @@ public class SecurityMonitoringApi {
         new GenericType<SecurityFilterResponse>() {};
 
     return apiClient.invokeAPI(
-        "SecurityMonitoringApi.getSecurityFilter",
+        "CloudSiemApi.getSecurityFilter",
         localVarPath,
         "GET",
         localVarQueryParams,
@@ -550,7 +550,7 @@ public class SecurityMonitoringApi {
         new GenericType<SecurityMonitoringRuleResponse>() {};
 
     return apiClient.invokeAPI(
-        "SecurityMonitoringApi.getSecurityMonitoringRule",
+        "CloudSiemApi.getSecurityMonitoringRule",
         localVarPath,
         "GET",
         localVarQueryParams,
@@ -623,7 +623,7 @@ public class SecurityMonitoringApi {
         new GenericType<SecurityFiltersResponse>() {};
 
     return apiClient.invokeAPI(
-        "SecurityMonitoringApi.listSecurityFilters",
+        "CloudSiemApi.listSecurityFilters",
         localVarPath,
         "GET",
         localVarQueryParams,
@@ -751,7 +751,7 @@ public class SecurityMonitoringApi {
         new GenericType<SecurityMonitoringListRulesResponse>() {};
 
     return apiClient.invokeAPI(
-        "SecurityMonitoringApi.listSecurityMonitoringRules",
+        "CloudSiemApi.listSecurityMonitoringRules",
         localVarPath,
         "GET",
         localVarQueryParams,
@@ -948,7 +948,7 @@ public class SecurityMonitoringApi {
         new GenericType<SecurityMonitoringSignalsListResponse>() {};
 
     return apiClient.invokeAPI(
-        "SecurityMonitoringApi.listSecurityMonitoringSignals",
+        "CloudSiemApi.listSecurityMonitoringSignals",
         localVarPath,
         "GET",
         localVarQueryParams,
@@ -1067,7 +1067,7 @@ public class SecurityMonitoringApi {
         new GenericType<SecurityMonitoringSignalsListResponse>() {};
 
     return apiClient.invokeAPI(
-        "SecurityMonitoringApi.searchSecurityMonitoringSignals",
+        "CloudSiemApi.searchSecurityMonitoringSignals",
         localVarPath,
         "POST",
         localVarQueryParams,
@@ -1169,7 +1169,7 @@ public class SecurityMonitoringApi {
         new GenericType<SecurityFilterResponse>() {};
 
     return apiClient.invokeAPI(
-        "SecurityMonitoringApi.updateSecurityFilter",
+        "CloudSiemApi.updateSecurityFilter",
         localVarPath,
         "PATCH",
         localVarQueryParams,
@@ -1272,7 +1272,7 @@ public class SecurityMonitoringApi {
         new GenericType<SecurityMonitoringRuleResponse>() {};
 
     return apiClient.invokeAPI(
-        "SecurityMonitoringApi.updateSecurityMonitoringRule",
+        "CloudSiemApi.updateSecurityMonitoringRule",
         localVarPath,
         "PUT",
         localVarQueryParams,

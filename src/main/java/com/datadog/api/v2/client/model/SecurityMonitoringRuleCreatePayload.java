@@ -233,7 +233,7 @@ public class SecurityMonitoringRuleCreatePayload {
    * @return name
    */
   @ApiModelProperty(
-      example = "My security monitoring rule.",
+      example = "My Cloud SIEM rule.",
       required = true,
       value = "The name of the rule.")
   @JsonProperty(JSON_PROPERTY_NAME)
