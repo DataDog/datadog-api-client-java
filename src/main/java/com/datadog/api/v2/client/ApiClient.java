@@ -223,6 +223,8 @@ public class ApiClient extends JavaTimeFormatter {
   protected final Map<String, Boolean> unstableOperations =
       new HashMap<String, Boolean>() {
         {
+          put("listSecurityMonitoringSignals", false);
+          put("searchSecurityMonitoringSignals", false);
           put("createIncidentService", false);
           put("deleteIncidentService", false);
           put("getIncidentService", false);
@@ -243,8 +245,6 @@ public class ApiClient extends JavaTimeFormatter {
           put("listTagConfigurationByName", false);
           put("listTagConfigurations", false);
           put("updateTagConfiguration", false);
-          put("listSecurityMonitoringSignals", false);
-          put("searchSecurityMonitoringSignals", false);
         }
       };
   protected static final java.util.logging.Logger logger =
