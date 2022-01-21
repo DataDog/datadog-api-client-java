@@ -40,6 +40,8 @@ import java.util.Objects;
   UsageSummaryDate.JSON_PROPERTY_BROWSER_RUM_UNITS_SUM,
   UsageSummaryDate.JSON_PROPERTY_CONTAINER_AVG,
   UsageSummaryDate.JSON_PROPERTY_CONTAINER_HWM,
+  UsageSummaryDate.JSON_PROPERTY_CSPM_AAS_HOST_TOP99P,
+  UsageSummaryDate.JSON_PROPERTY_CSPM_AZURE_HOST_TOP99P,
   UsageSummaryDate.JSON_PROPERTY_CSPM_CONTAINER_AVG,
   UsageSummaryDate.JSON_PROPERTY_CSPM_CONTAINER_HWM,
   UsageSummaryDate.JSON_PROPERTY_CSPM_HOST_TOP99P,
@@ -135,6 +137,12 @@ public class UsageSummaryDate {
 
   public static final String JSON_PROPERTY_CONTAINER_HWM = "container_hwm";
   private Long containerHwm;
+
+  public static final String JSON_PROPERTY_CSPM_AAS_HOST_TOP99P = "cspm_aas_host_top99p";
+  private Long cspmAasHostTop99p;
+
+  public static final String JSON_PROPERTY_CSPM_AZURE_HOST_TOP99P = "cspm_azure_host_top99p";
+  private Long cspmAzureHostTop99p;
 
   public static final String JSON_PROPERTY_CSPM_CONTAINER_AVG = "cspm_container_avg";
   private Long cspmContainerAvg;
@@ -654,6 +662,58 @@ public class UsageSummaryDate {
 
   public void setContainerHwm(Long containerHwm) {
     this.containerHwm = containerHwm;
+  }
+
+  public UsageSummaryDate cspmAasHostTop99p(Long cspmAasHostTop99p) {
+    this.cspmAasHostTop99p = cspmAasHostTop99p;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all Cloud Security Posture Management Azure app services hosts
+   * over all hours in the current date for all organizations.
+   *
+   * @return cspmAasHostTop99p
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the 99th percentile of all Cloud Security Posture Management Azure app services"
+              + " hosts over all hours in the current date for all organizations.")
+  @JsonProperty(JSON_PROPERTY_CSPM_AAS_HOST_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCspmAasHostTop99p() {
+    return cspmAasHostTop99p;
+  }
+
+  public void setCspmAasHostTop99p(Long cspmAasHostTop99p) {
+    this.cspmAasHostTop99p = cspmAasHostTop99p;
+  }
+
+  public UsageSummaryDate cspmAzureHostTop99p(Long cspmAzureHostTop99p) {
+    this.cspmAzureHostTop99p = cspmAzureHostTop99p;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all Cloud Security Posture Management Azure hosts over all hours
+   * in the current date for all organizations.
+   *
+   * @return cspmAzureHostTop99p
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the 99th percentile of all Cloud Security Posture Management Azure hosts over all"
+              + " hours in the current date for all organizations.")
+  @JsonProperty(JSON_PROPERTY_CSPM_AZURE_HOST_TOP99P)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCspmAzureHostTop99p() {
+    return cspmAzureHostTop99p;
+  }
+
+  public void setCspmAzureHostTop99p(Long cspmAzureHostTop99p) {
+    this.cspmAzureHostTop99p = cspmAzureHostTop99p;
   }
 
   public UsageSummaryDate cspmContainerAvg(Long cspmContainerAvg) {
@@ -1730,6 +1790,8 @@ public class UsageSummaryDate {
         && Objects.equals(this.browserRumUnitsSum, usageSummaryDate.browserRumUnitsSum)
         && Objects.equals(this.containerAvg, usageSummaryDate.containerAvg)
         && Objects.equals(this.containerHwm, usageSummaryDate.containerHwm)
+        && Objects.equals(this.cspmAasHostTop99p, usageSummaryDate.cspmAasHostTop99p)
+        && Objects.equals(this.cspmAzureHostTop99p, usageSummaryDate.cspmAzureHostTop99p)
         && Objects.equals(this.cspmContainerAvg, usageSummaryDate.cspmContainerAvg)
         && Objects.equals(this.cspmContainerHwm, usageSummaryDate.cspmContainerHwm)
         && Objects.equals(this.cspmHostTop99p, usageSummaryDate.cspmHostTop99p)
@@ -1803,6 +1865,8 @@ public class UsageSummaryDate {
         browserRumUnitsSum,
         containerAvg,
         containerHwm,
+        cspmAasHostTop99p,
+        cspmAzureHostTop99p,
         cspmContainerAvg,
         cspmContainerHwm,
         cspmHostTop99p,
@@ -1880,6 +1944,10 @@ public class UsageSummaryDate {
     sb.append("    browserRumUnitsSum: ").append(toIndentedString(browserRumUnitsSum)).append("\n");
     sb.append("    containerAvg: ").append(toIndentedString(containerAvg)).append("\n");
     sb.append("    containerHwm: ").append(toIndentedString(containerHwm)).append("\n");
+    sb.append("    cspmAasHostTop99p: ").append(toIndentedString(cspmAasHostTop99p)).append("\n");
+    sb.append("    cspmAzureHostTop99p: ")
+        .append(toIndentedString(cspmAzureHostTop99p))
+        .append("\n");
     sb.append("    cspmContainerAvg: ").append(toIndentedString(cspmContainerAvg)).append("\n");
     sb.append("    cspmContainerHwm: ").append(toIndentedString(cspmContainerHwm)).append("\n");
     sb.append("    cspmHostTop99p: ").append(toIndentedString(cspmHostTop99p)).append("\n");

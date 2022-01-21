@@ -46,6 +46,8 @@ import java.util.Objects;
   UsageSummaryResponse.JSON_PROPERTY_BROWSER_RUM_UNITS_AGG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CONTAINER_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CONTAINER_HWM_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_CSPM_AAS_HOST_TOP99P_SUM,
+  UsageSummaryResponse.JSON_PROPERTY_CSPM_AZURE_HOST_TOP99P_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CSPM_CONTAINER_AVG_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CSPM_CONTAINER_HWM_SUM,
   UsageSummaryResponse.JSON_PROPERTY_CSPM_HOST_TOP99P_SUM,
@@ -153,6 +155,13 @@ public class UsageSummaryResponse {
 
   public static final String JSON_PROPERTY_CONTAINER_HWM_SUM = "container_hwm_sum";
   private Long containerHwmSum;
+
+  public static final String JSON_PROPERTY_CSPM_AAS_HOST_TOP99P_SUM = "cspm_aas_host_top99p_sum";
+  private Long cspmAasHostTop99pSum;
+
+  public static final String JSON_PROPERTY_CSPM_AZURE_HOST_TOP99P_SUM =
+      "cspm_azure_host_top99p_sum";
+  private Long cspmAzureHostTop99pSum;
 
   public static final String JSON_PROPERTY_CSPM_CONTAINER_AVG_SUM = "cspm_container_avg_sum";
   private Long cspmContainerAvgSum;
@@ -740,6 +749,58 @@ public class UsageSummaryResponse {
 
   public void setContainerHwmSum(Long containerHwmSum) {
     this.containerHwmSum = containerHwmSum;
+  }
+
+  public UsageSummaryResponse cspmAasHostTop99pSum(Long cspmAasHostTop99pSum) {
+    this.cspmAasHostTop99pSum = cspmAasHostTop99pSum;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all Cloud Security Posture Management Azure app services hosts
+   * over all hours in the current months for all organizations.
+   *
+   * @return cspmAasHostTop99pSum
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the 99th percentile of all Cloud Security Posture Management Azure app services"
+              + " hosts over all hours in the current months for all organizations.")
+  @JsonProperty(JSON_PROPERTY_CSPM_AAS_HOST_TOP99P_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCspmAasHostTop99pSum() {
+    return cspmAasHostTop99pSum;
+  }
+
+  public void setCspmAasHostTop99pSum(Long cspmAasHostTop99pSum) {
+    this.cspmAasHostTop99pSum = cspmAasHostTop99pSum;
+  }
+
+  public UsageSummaryResponse cspmAzureHostTop99pSum(Long cspmAzureHostTop99pSum) {
+    this.cspmAzureHostTop99pSum = cspmAzureHostTop99pSum;
+    return this;
+  }
+
+  /**
+   * Shows the 99th percentile of all Cloud Security Posture Management Azure hosts over all hours
+   * in the current months for all organizations.
+   *
+   * @return cspmAzureHostTop99pSum
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Shows the 99th percentile of all Cloud Security Posture Management Azure hosts over all"
+              + " hours in the current months for all organizations.")
+  @JsonProperty(JSON_PROPERTY_CSPM_AZURE_HOST_TOP99P_SUM)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public Long getCspmAzureHostTop99pSum() {
+    return cspmAzureHostTop99pSum;
+  }
+
+  public void setCspmAzureHostTop99pSum(Long cspmAzureHostTop99pSum) {
+    this.cspmAzureHostTop99pSum = cspmAzureHostTop99pSum;
   }
 
   public UsageSummaryResponse cspmContainerAvgSum(Long cspmContainerAvgSum) {
@@ -2037,6 +2098,8 @@ public class UsageSummaryResponse {
         && Objects.equals(this.browserRumUnitsAggSum, usageSummaryResponse.browserRumUnitsAggSum)
         && Objects.equals(this.containerAvgSum, usageSummaryResponse.containerAvgSum)
         && Objects.equals(this.containerHwmSum, usageSummaryResponse.containerHwmSum)
+        && Objects.equals(this.cspmAasHostTop99pSum, usageSummaryResponse.cspmAasHostTop99pSum)
+        && Objects.equals(this.cspmAzureHostTop99pSum, usageSummaryResponse.cspmAzureHostTop99pSum)
         && Objects.equals(this.cspmContainerAvgSum, usageSummaryResponse.cspmContainerAvgSum)
         && Objects.equals(this.cspmContainerHwmSum, usageSummaryResponse.cspmContainerHwmSum)
         && Objects.equals(this.cspmHostTop99pSum, usageSummaryResponse.cspmHostTop99pSum)
@@ -2140,6 +2203,8 @@ public class UsageSummaryResponse {
         browserRumUnitsAggSum,
         containerAvgSum,
         containerHwmSum,
+        cspmAasHostTop99pSum,
+        cspmAzureHostTop99pSum,
         cspmContainerAvgSum,
         cspmContainerHwmSum,
         cspmHostTop99pSum,
@@ -2228,6 +2293,12 @@ public class UsageSummaryResponse {
         .append("\n");
     sb.append("    containerAvgSum: ").append(toIndentedString(containerAvgSum)).append("\n");
     sb.append("    containerHwmSum: ").append(toIndentedString(containerHwmSum)).append("\n");
+    sb.append("    cspmAasHostTop99pSum: ")
+        .append(toIndentedString(cspmAasHostTop99pSum))
+        .append("\n");
+    sb.append("    cspmAzureHostTop99pSum: ")
+        .append(toIndentedString(cspmAzureHostTop99pSum))
+        .append("\n");
     sb.append("    cspmContainerAvgSum: ")
         .append(toIndentedString(cspmContainerAvgSum))
         .append("\n");

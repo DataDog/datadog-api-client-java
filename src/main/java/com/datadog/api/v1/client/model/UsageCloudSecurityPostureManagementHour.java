@@ -18,12 +18,16 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Cloud Security Posture Management usage for a given organization for a given hour. */
 @ApiModel(
     description =
         "Cloud Security Posture Management usage for a given organization for a given hour.")
 @JsonPropertyOrder({
+  UsageCloudSecurityPostureManagementHour.JSON_PROPERTY_AAS_HOST_COUNT,
+  UsageCloudSecurityPostureManagementHour.JSON_PROPERTY_AZURE_HOST_COUNT,
+  UsageCloudSecurityPostureManagementHour.JSON_PROPERTY_COMPLIANCE_HOST_COUNT,
   UsageCloudSecurityPostureManagementHour.JSON_PROPERTY_CONTAINER_COUNT,
   UsageCloudSecurityPostureManagementHour.JSON_PROPERTY_HOST_COUNT,
   UsageCloudSecurityPostureManagementHour.JSON_PROPERTY_HOUR,
@@ -33,11 +37,20 @@ import java.util.Objects;
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class UsageCloudSecurityPostureManagementHour {
   @JsonIgnore public boolean unparsed = false;
+  public static final String JSON_PROPERTY_AAS_HOST_COUNT = "aas_host_count";
+  private JsonNullable<Double> aasHostCount = JsonNullable.<Double>undefined();
+
+  public static final String JSON_PROPERTY_AZURE_HOST_COUNT = "azure_host_count";
+  private JsonNullable<Double> azureHostCount = JsonNullable.<Double>undefined();
+
+  public static final String JSON_PROPERTY_COMPLIANCE_HOST_COUNT = "compliance_host_count";
+  private JsonNullable<Double> complianceHostCount = JsonNullable.<Double>undefined();
+
   public static final String JSON_PROPERTY_CONTAINER_COUNT = "container_count";
-  private Long containerCount;
+  private JsonNullable<Double> containerCount = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_HOST_COUNT = "host_count";
-  private Long hostCount;
+  private JsonNullable<Double> hostCount = JsonNullable.<Double>undefined();
 
   public static final String JSON_PROPERTY_HOUR = "hour";
   private OffsetDateTime hour;
@@ -48,8 +61,109 @@ public class UsageCloudSecurityPostureManagementHour {
   public static final String JSON_PROPERTY_PUBLIC_ID = "public_id";
   private String publicId;
 
-  public UsageCloudSecurityPostureManagementHour containerCount(Long containerCount) {
-    this.containerCount = containerCount;
+  public UsageCloudSecurityPostureManagementHour aasHostCount(Double aasHostCount) {
+    this.aasHostCount = JsonNullable.<Double>of(aasHostCount);
+    return this;
+  }
+
+  /**
+   * The number of Cloud Security Posture Management Azure app services hosts during a given hour.
+   *
+   * @return aasHostCount
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "The number of Cloud Security Posture Management Azure app services hosts during a given"
+              + " hour.")
+  @JsonIgnore
+  public Double getAasHostCount() {
+    return aasHostCount.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_AAS_HOST_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Double> getAasHostCount_JsonNullable() {
+    return aasHostCount;
+  }
+
+  @JsonProperty(JSON_PROPERTY_AAS_HOST_COUNT)
+  public void setAasHostCount_JsonNullable(JsonNullable<Double> aasHostCount) {
+    this.aasHostCount = aasHostCount;
+  }
+
+  public void setAasHostCount(Double aasHostCount) {
+    this.aasHostCount = JsonNullable.<Double>of(aasHostCount);
+  }
+
+  public UsageCloudSecurityPostureManagementHour azureHostCount(Double azureHostCount) {
+    this.azureHostCount = JsonNullable.<Double>of(azureHostCount);
+    return this;
+  }
+
+  /**
+   * The number of Cloud Security Posture Management Azure hosts during a given hour.
+   *
+   * @return azureHostCount
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value = "The number of Cloud Security Posture Management Azure hosts during a given hour.")
+  @JsonIgnore
+  public Double getAzureHostCount() {
+    return azureHostCount.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_AZURE_HOST_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Double> getAzureHostCount_JsonNullable() {
+    return azureHostCount;
+  }
+
+  @JsonProperty(JSON_PROPERTY_AZURE_HOST_COUNT)
+  public void setAzureHostCount_JsonNullable(JsonNullable<Double> azureHostCount) {
+    this.azureHostCount = azureHostCount;
+  }
+
+  public void setAzureHostCount(Double azureHostCount) {
+    this.azureHostCount = JsonNullable.<Double>of(azureHostCount);
+  }
+
+  public UsageCloudSecurityPostureManagementHour complianceHostCount(Double complianceHostCount) {
+    this.complianceHostCount = JsonNullable.<Double>of(complianceHostCount);
+    return this;
+  }
+
+  /**
+   * The number of Cloud Security Posture Management hosts during a given hour.
+   *
+   * @return complianceHostCount
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value = "The number of Cloud Security Posture Management hosts during a given hour.")
+  @JsonIgnore
+  public Double getComplianceHostCount() {
+    return complianceHostCount.orElse(null);
+  }
+
+  @JsonProperty(JSON_PROPERTY_COMPLIANCE_HOST_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public JsonNullable<Double> getComplianceHostCount_JsonNullable() {
+    return complianceHostCount;
+  }
+
+  @JsonProperty(JSON_PROPERTY_COMPLIANCE_HOST_COUNT)
+  public void setComplianceHostCount_JsonNullable(JsonNullable<Double> complianceHostCount) {
+    this.complianceHostCount = complianceHostCount;
+  }
+
+  public void setComplianceHostCount(Double complianceHostCount) {
+    this.complianceHostCount = JsonNullable.<Double>of(complianceHostCount);
+  }
+
+  public UsageCloudSecurityPostureManagementHour containerCount(Double containerCount) {
+    this.containerCount = JsonNullable.<Double>of(containerCount);
     return this;
   }
 
@@ -62,18 +176,28 @@ public class UsageCloudSecurityPostureManagementHour {
   @ApiModelProperty(
       value =
           "The total number of Cloud Security Posture Management containers during a given hour.")
+  @JsonIgnore
+  public Double getContainerCount() {
+    return containerCount.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_CONTAINER_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getContainerCount() {
+  public JsonNullable<Double> getContainerCount_JsonNullable() {
     return containerCount;
   }
 
-  public void setContainerCount(Long containerCount) {
+  @JsonProperty(JSON_PROPERTY_CONTAINER_COUNT)
+  public void setContainerCount_JsonNullable(JsonNullable<Double> containerCount) {
     this.containerCount = containerCount;
   }
 
-  public UsageCloudSecurityPostureManagementHour hostCount(Long hostCount) {
-    this.hostCount = hostCount;
+  public void setContainerCount(Double containerCount) {
+    this.containerCount = JsonNullable.<Double>of(containerCount);
+  }
+
+  public UsageCloudSecurityPostureManagementHour hostCount(Double hostCount) {
+    this.hostCount = JsonNullable.<Double>of(hostCount);
     return this;
   }
 
@@ -85,14 +209,24 @@ public class UsageCloudSecurityPostureManagementHour {
   @javax.annotation.Nullable
   @ApiModelProperty(
       value = "The total number of Cloud Security Posture Management hosts during a given hour.")
+  @JsonIgnore
+  public Double getHostCount() {
+    return hostCount.orElse(null);
+  }
+
   @JsonProperty(JSON_PROPERTY_HOST_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public Long getHostCount() {
+  public JsonNullable<Double> getHostCount_JsonNullable() {
     return hostCount;
   }
 
-  public void setHostCount(Long hostCount) {
+  @JsonProperty(JSON_PROPERTY_HOST_COUNT)
+  public void setHostCount_JsonNullable(JsonNullable<Double> hostCount) {
     this.hostCount = hostCount;
+  }
+
+  public void setHostCount(Double hostCount) {
+    this.hostCount = JsonNullable.<Double>of(hostCount);
   }
 
   public UsageCloudSecurityPostureManagementHour hour(OffsetDateTime hour) {
@@ -172,7 +306,12 @@ public class UsageCloudSecurityPostureManagementHour {
     }
     UsageCloudSecurityPostureManagementHour usageCloudSecurityPostureManagementHour =
         (UsageCloudSecurityPostureManagementHour) o;
-    return Objects.equals(
+    return Objects.equals(this.aasHostCount, usageCloudSecurityPostureManagementHour.aasHostCount)
+        && Objects.equals(
+            this.azureHostCount, usageCloudSecurityPostureManagementHour.azureHostCount)
+        && Objects.equals(
+            this.complianceHostCount, usageCloudSecurityPostureManagementHour.complianceHostCount)
+        && Objects.equals(
             this.containerCount, usageCloudSecurityPostureManagementHour.containerCount)
         && Objects.equals(this.hostCount, usageCloudSecurityPostureManagementHour.hostCount)
         && Objects.equals(this.hour, usageCloudSecurityPostureManagementHour.hour)
@@ -182,13 +321,26 @@ public class UsageCloudSecurityPostureManagementHour {
 
   @Override
   public int hashCode() {
-    return Objects.hash(containerCount, hostCount, hour, orgName, publicId);
+    return Objects.hash(
+        aasHostCount,
+        azureHostCount,
+        complianceHostCount,
+        containerCount,
+        hostCount,
+        hour,
+        orgName,
+        publicId);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UsageCloudSecurityPostureManagementHour {\n");
+    sb.append("    aasHostCount: ").append(toIndentedString(aasHostCount)).append("\n");
+    sb.append("    azureHostCount: ").append(toIndentedString(azureHostCount)).append("\n");
+    sb.append("    complianceHostCount: ")
+        .append(toIndentedString(complianceHostCount))
+        .append("\n");
     sb.append("    containerCount: ").append(toIndentedString(containerCount)).append("\n");
     sb.append("    hostCount: ").append(toIndentedString(hostCount)).append("\n");
     sb.append("    hour: ").append(toIndentedString(hour)).append("\n");
