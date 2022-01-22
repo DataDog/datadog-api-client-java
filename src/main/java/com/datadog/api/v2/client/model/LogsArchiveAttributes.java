@@ -61,14 +61,19 @@ public class LogsArchiveAttributes {
       @JsonProperty(required = true, value = JSON_PROPERTY_NAME) String name,
       @JsonProperty(required = true, value = JSON_PROPERTY_QUERY) String query) {
     this.destination = destination;
-    this.unparsed |= destination.unparsed;
+    if (destination != null) {
+
+      this.unparsed |= destination.unparsed;
+    }
     this.name = name;
     this.query = query;
   }
 
   public LogsArchiveAttributes destination(LogsArchiveDestination destination) {
     this.destination = destination;
-    this.unparsed |= destination.unparsed;
+    if (destination != null) {
+      this.unparsed |= destination.unparsed;
+    }
     return this;
   }
 

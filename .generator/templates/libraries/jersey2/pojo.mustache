@@ -111,9 +111,14 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
             {{/requiredVars}}
             ) {
         {{#requiredVars}}
-        this.{{name}} = {{name}};{{#allowableValues}}
+        this.{{name}} = {{name}};{{#isNullable}}
+        if ({{name}} != null) {
+{{/isNullable}}{{#allowableValues}}
         this.unparsed |= !{{name}}.isValid();{{/allowableValues}}{{#isModel}}{{^isPrimitiveType}}
         this.unparsed |= {{name}}.unparsed;{{/isPrimitiveType}}{{/isModel}}
+{{#isNullable}}
+        }
+{{/isNullable}}
         {{/requiredVars}}
   }
   {{/hasRequired}}
@@ -139,6 +144,9 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
     {{^vendorExtensions.x-is-jackson-optional-nullable}}
     this.{{name}} = {{name}};
     {{^isArray}}
+{{#isNullable}}
+        if ({{name}} != null) {
+{{/isNullable}}
     {{#allowableValues}}
     {{^isPrimitiveType}}
     this.unparsed |= !{{name}}.isValid();
@@ -149,6 +157,9 @@ public class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{{#vendorExtens
     this.unparsed |= {{name}}.unparsed;
     {{/isPrimitiveType}}
     {{/isModel}}
+{{#isNullable}}
+    }
+{{/isNullable}}
     {{/isArray}}
     {{#isArray}}
     {{#items.isModel}}
