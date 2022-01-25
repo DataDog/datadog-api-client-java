@@ -1,5 +1,32 @@
 # CHANGELOG
 
+## 1.4.0 / 2022-01-25
+
+* [Added] Add `filter[deleted]` parameter for searching recently deleted dashboards. See [#1152](https://github.com/DataDog/datadog-api-client-java/pull/1152).
+* [Added] Add support for authentication and proxy options in Synthetics. See [#1118](https://github.com/DataDog/datadog-api-client-java/pull/1118).
+* [Added] Support formulas and functions in Treemap Widget. See [#1147](https://github.com/DataDog/datadog-api-client-java/pull/1147).
+* [Added] Add Cloud Workload Security Agent Rules API. See [#1137](https://github.com/DataDog/datadog-api-client-java/pull/1137).
+* [Added] Add `offset` and `limit` parameters to usage listing endpoint. See [#1140](https://github.com/DataDog/datadog-api-client-java/pull/1140).
+* [Added] Add monthly usage attribution API spec. See [#1129](https://github.com/DataDog/datadog-api-client-java/pull/1129).
+* [Added] Add missing hosts metadata fields. See [#1123](https://github.com/DataDog/datadog-api-client-java/pull/1123).
+* [Added] Add `replay_session_count ` and update documentation for `rum_session_count`. See [#1139](https://github.com/DataDog/datadog-api-client-java/pull/1139).
+* [Added] Add retry options for a step in Synthetics multistep test. See [#1132](https://github.com/DataDog/datadog-api-client-java/pull/1132).
+* [Added] Document `author_name` in dashboard response. See [#1130](https://github.com/DataDog/datadog-api-client-java/pull/1130).
+* [Added] Add organization metadata for RUM sessions usage and expose `rum_browser_and_mobile_session_count`. See [#1124](https://github.com/DataDog/datadog-api-client-java/pull/1124).
+* [Added] Add endpoint to retrieve hourly usage attribution. See [#1098](https://github.com/DataDog/datadog-api-client-java/pull/1098).
+* [Added] Add support for scoped application keys. See [#1081](https://github.com/DataDog/datadog-api-client-java/pull/1081).
+* [Added] Add endpoint for cloning roles. See [#1107](https://github.com/DataDog/datadog-api-client-java/pull/1107).
+* [Added] Add organization metadata for audit logs, CWS, CSPM, DBM. See [#1116](https://github.com/DataDog/datadog-api-client-java/pull/1116).
+* [Added] Add `ci-pipelines alert` to monitors enum. See [#1104](https://github.com/DataDog/datadog-api-client-java/pull/1104).
+* [Added] Add support for sunburst widget in dashboard. See [#1110](https://github.com/DataDog/datadog-api-client-java/pull/1110).
+* [Fixed] Clarify required fields for `SyntheticsAPIStep`, `SyntheticsAPITest`, and `SyntheticsBrowserTest`. See [#1045](https://github.com/DataDog/datadog-api-client-java/pull/1045).
+* [Fixed] Fixes to Cloud Workload Security API. See [#1150](https://github.com/DataDog/datadog-api-client-java/pull/1150).
+* [Fixed] Make downtime weekdays nullable. See [#1134](https://github.com/DataDog/datadog-api-client-java/pull/1134).
+* [Changed] Add CSPM usage fields and change properties to nullable doubles. See [#1159](https://github.com/DataDog/datadog-api-client-java/pull/1159).
+* [Changed] Remove read only fields in `EventCreateRequest`. See [#1148](https://github.com/DataDog/datadog-api-client-java/pull/1148).
+* [Changed] Change pagination arguments for querying usage attribution. See [#1128](https://github.com/DataDog/datadog-api-client-java/pull/1128).
+* [Removed] Remove deprecated AgentRule field in Security Rules API for CWS. See [#1122](https://github.com/DataDog/datadog-api-client-java/pull/1122).
+
 ## 1.3.0 / 2021-12-21
 
 * [Added] Provide an all-in-one jar. See [#1088](https://github.com/DataDog/datadog-api-client-java/pull/1088).
