@@ -367,7 +367,7 @@ public class LogsArchivesApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<LogsArchive> localVarReturnType = new GenericType<LogsArchive>() {};
 
@@ -440,7 +440,7 @@ public class LogsArchivesApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<LogsArchiveOrder> localVarReturnType = new GenericType<LogsArchiveOrder>() {};
 
@@ -526,7 +526,7 @@ public class LogsArchivesApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<RolesResponse> localVarReturnType = new GenericType<RolesResponse>() {};
 
@@ -597,7 +597,7 @@ public class LogsArchivesApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<LogsArchives> localVarReturnType = new GenericType<LogsArchives>() {};
 

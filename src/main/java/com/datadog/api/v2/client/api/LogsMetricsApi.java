@@ -274,7 +274,7 @@ public class LogsMetricsApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<LogsMetricResponse> localVarReturnType = new GenericType<LogsMetricResponse>() {};
 
@@ -345,7 +345,7 @@ public class LogsMetricsApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<LogsMetricsResponse> localVarReturnType = new GenericType<LogsMetricsResponse>() {};
 

@@ -263,7 +263,7 @@ public class LogsIndexesApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<LogsIndexesOrder> localVarReturnType = new GenericType<LogsIndexesOrder>() {};
 
@@ -336,7 +336,7 @@ public class LogsIndexesApi {
 
     final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
 
-    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
 
     GenericType<LogsIndexListResponse> localVarReturnType =
         new GenericType<LogsIndexListResponse>() {};
