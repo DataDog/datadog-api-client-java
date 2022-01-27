@@ -1,5 +1,6 @@
 package com.datadog.api;
 
+import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.cucumber.java.Scenario;
 import java.lang.reflect.Constructor;
@@ -497,7 +498,12 @@ public class World {
       for (Constructor<?> c : responseClass.getConstructors()) {
         if (c.getParameterCount() == 3) {
           String body = (String) exceptionClass.getMethod("getResponseBody").invoke(e.getCause());
-          Object data = fromJSON(getObjectMapper(), HashMap.class, body);
+          Object data;
+          try {
+            data = fromJSON(getObjectMapper(), HashMap.class, body);
+          } catch (JsonParseException v) {
+            data = body;
+          }
           response =
               c.newInstance(
                   responseCode,
