@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
 import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -73,6 +74,15 @@ public class RolesApi {
   public PermissionsResponse addPermissionToRole(String roleId, RelationshipToPermission body)
       throws ApiException {
     return addPermissionToRoleWithHttpInfo(roleId, body).getData();
+  }
+
+  public CompletableFuture<PermissionsResponse> addPermissionToRoleAsync(
+      String roleId, RelationshipToPermission body) {
+    return addPermissionToRoleWithHttpInfoAsync(roleId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -148,6 +158,84 @@ public class RolesApi {
   }
 
   /**
+   * Grant permission to a role Adds a permission to a role.
+   *
+   * @param roleId The ID of the role. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;PermissionsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<PermissionsResponse>> addPermissionToRoleWithHttpInfoAsync(
+      String roleId, RelationshipToPermission body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'roleId' is set
+    if (roleId == null) {
+      CompletableFuture<ApiResponse<PermissionsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'roleId' when calling addPermissionToRole"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<PermissionsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling addPermissionToRole"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/roles/{role_id}/permissions"
+            .replaceAll("\\{" + "role_id" + "\\}", apiClient.escapeString(roleId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "addPermissionToRole");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {"application/json"};
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
+
+    GenericType<PermissionsResponse> localVarReturnType = new GenericType<PermissionsResponse>() {};
+
+    return apiClient.invokeAPIAsync(
+        "RolesApi.addPermissionToRole",
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
    * Add a user to a role Adds a user to a role.
    *
    * @param roleId The ID of the role. (required)
@@ -166,6 +254,15 @@ public class RolesApi {
    */
   public UsersResponse addUserToRole(String roleId, RelationshipToUser body) throws ApiException {
     return addUserToRoleWithHttpInfo(roleId, body).getData();
+  }
+
+  public CompletableFuture<UsersResponse> addUserToRoleAsync(
+      String roleId, RelationshipToUser body) {
+    return addUserToRoleWithHttpInfoAsync(roleId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -241,6 +338,84 @@ public class RolesApi {
   }
 
   /**
+   * Add a user to a role Adds a user to a role.
+   *
+   * @param roleId The ID of the role. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;UsersResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<UsersResponse>> addUserToRoleWithHttpInfoAsync(
+      String roleId, RelationshipToUser body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'roleId' is set
+    if (roleId == null) {
+      CompletableFuture<ApiResponse<UsersResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'roleId' when calling addUserToRole"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<UsersResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling addUserToRole"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/roles/{role_id}/users"
+            .replaceAll("\\{" + "role_id" + "\\}", apiClient.escapeString(roleId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "addUserToRole");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {"application/json"};
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
+
+    GenericType<UsersResponse> localVarReturnType = new GenericType<UsersResponse>() {};
+
+    return apiClient.invokeAPIAsync(
+        "RolesApi.addUserToRole",
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
    * Create a new role by cloning an existing role Clone an existing role
    *
    * @param roleId The ID of the role. (required)
@@ -260,6 +435,14 @@ public class RolesApi {
    */
   public RoleResponse cloneRole(String roleId, RoleCloneRequest body) throws ApiException {
     return cloneRoleWithHttpInfo(roleId, body).getData();
+  }
+
+  public CompletableFuture<RoleResponse> cloneRoleAsync(String roleId, RoleCloneRequest body) {
+    return cloneRoleWithHttpInfoAsync(roleId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -334,6 +517,83 @@ public class RolesApi {
   }
 
   /**
+   * Create a new role by cloning an existing role Clone an existing role
+   *
+   * @param roleId The ID of the role. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;RoleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<RoleResponse>> cloneRoleWithHttpInfoAsync(
+      String roleId, RoleCloneRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'roleId' is set
+    if (roleId == null) {
+      CompletableFuture<ApiResponse<RoleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'roleId' when calling cloneRole"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<RoleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'body' when calling cloneRole"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/roles/{role_id}/clone"
+            .replaceAll("\\{" + "role_id" + "\\}", apiClient.escapeString(roleId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "cloneRole");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {"application/json"};
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
+
+    GenericType<RoleResponse> localVarReturnType = new GenericType<RoleResponse>() {};
+
+    return apiClient.invokeAPIAsync(
+        "RolesApi.cloneRole",
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
    * Create role Create a new role for your organization.
    *
    * @param body (required)
@@ -350,6 +610,14 @@ public class RolesApi {
    */
   public RoleCreateResponse createRole(RoleCreateRequest body) throws ApiException {
     return createRoleWithHttpInfo(body).getData();
+  }
+
+  public CompletableFuture<RoleCreateResponse> createRoleAsync(RoleCreateRequest body) {
+    return createRoleWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -414,6 +682,70 @@ public class RolesApi {
   }
 
   /**
+   * Create role Create a new role for your organization.
+   *
+   * @param body (required)
+   * @return ApiResponse&lt;RoleCreateResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<RoleCreateResponse>> createRoleWithHttpInfoAsync(
+      RoleCreateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<RoleCreateResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'body' when calling createRole"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/roles";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "createRole");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {"application/json"};
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
+
+    GenericType<RoleCreateResponse> localVarReturnType = new GenericType<RoleCreateResponse>() {};
+
+    return apiClient.invokeAPIAsync(
+        "RolesApi.createRole",
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
    * Delete role Disables a role.
    *
    * @param roleId The ID of the role. (required)
@@ -429,6 +761,14 @@ public class RolesApi {
    */
   public void deleteRole(String roleId) throws ApiException {
     deleteRoleWithHttpInfo(roleId);
+  }
+
+  public CompletableFuture<Void> deleteRoleAsync(String roleId) {
+    return deleteRoleWithHttpInfoAsync(roleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -494,6 +834,70 @@ public class RolesApi {
   }
 
   /**
+   * Delete role Disables a role.
+   *
+   * @param roleId The ID of the role. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteRoleWithHttpInfoAsync(String roleId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'roleId' is set
+    if (roleId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'roleId' when calling deleteRole"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/roles/{role_id}"
+            .replaceAll("\\{" + "role_id" + "\\}", apiClient.escapeString(roleId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "deleteRole");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
+
+    return apiClient.invokeAPIAsync(
+        "RolesApi.deleteRole",
+        localVarPath,
+        "DELETE",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        null,
+        false);
+  }
+
+  /**
    * Get a role Get a role in the organization specified by the role’s &#x60;role_id&#x60;.
    *
    * @param roleId The ID of the role. (required)
@@ -510,6 +914,14 @@ public class RolesApi {
    */
   public RoleResponse getRole(String roleId) throws ApiException {
     return getRoleWithHttpInfo(roleId).getData();
+  }
+
+  public CompletableFuture<RoleResponse> getRoleAsync(String roleId) {
+    return getRoleWithHttpInfoAsync(roleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -576,6 +988,72 @@ public class RolesApi {
   }
 
   /**
+   * Get a role Get a role in the organization specified by the role’s &#x60;role_id&#x60;.
+   *
+   * @param roleId The ID of the role. (required)
+   * @return ApiResponse&lt;RoleResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<RoleResponse>> getRoleWithHttpInfoAsync(String roleId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'roleId' is set
+    if (roleId == null) {
+      CompletableFuture<ApiResponse<RoleResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'roleId' when calling getRole"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/roles/{role_id}"
+            .replaceAll("\\{" + "role_id" + "\\}", apiClient.escapeString(roleId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getRole");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
+
+    GenericType<RoleResponse> localVarReturnType = new GenericType<RoleResponse>() {};
+
+    return apiClient.invokeAPIAsync(
+        "RolesApi.getRole",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
    * List permissions Returns a list of all permissions, including name, description, and ID.
    *
    * @return PermissionsResponse
@@ -591,6 +1069,14 @@ public class RolesApi {
    */
   public PermissionsResponse listPermissions() throws ApiException {
     return listPermissionsWithHttpInfo().getData();
+  }
+
+  public CompletableFuture<PermissionsResponse> listPermissionsAsync() {
+    return listPermissionsWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -649,6 +1135,61 @@ public class RolesApi {
   }
 
   /**
+   * List permissions Returns a list of all permissions, including name, description, and ID.
+   *
+   * @return ApiResponse&lt;PermissionsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<PermissionsResponse>> listPermissionsWithHttpInfoAsync() {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/permissions";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listPermissions");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
+
+    GenericType<PermissionsResponse> localVarReturnType = new GenericType<PermissionsResponse>() {};
+
+    return apiClient.invokeAPIAsync(
+        "RolesApi.listPermissions",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
    * List permissions for a role Returns a list of all permissions for a single role.
    *
    * @param roleId The ID of the role. (required)
@@ -665,6 +1206,14 @@ public class RolesApi {
    */
   public PermissionsResponse listRolePermissions(String roleId) throws ApiException {
     return listRolePermissionsWithHttpInfo(roleId).getData();
+  }
+
+  public CompletableFuture<PermissionsResponse> listRolePermissionsAsync(String roleId) {
+    return listRolePermissionsWithHttpInfoAsync(roleId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -717,6 +1266,74 @@ public class RolesApi {
     GenericType<PermissionsResponse> localVarReturnType = new GenericType<PermissionsResponse>() {};
 
     return apiClient.invokeAPI(
+        "RolesApi.listRolePermissions",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
+   * List permissions for a role Returns a list of all permissions for a single role.
+   *
+   * @param roleId The ID of the role. (required)
+   * @return ApiResponse&lt;PermissionsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<PermissionsResponse>> listRolePermissionsWithHttpInfoAsync(
+      String roleId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'roleId' is set
+    if (roleId == null) {
+      CompletableFuture<ApiResponse<PermissionsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'roleId' when calling listRolePermissions"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/roles/{role_id}/permissions"
+            .replaceAll("\\{" + "role_id" + "\\}", apiClient.escapeString(roleId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listRolePermissions");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
+
+    GenericType<PermissionsResponse> localVarReturnType = new GenericType<PermissionsResponse>() {};
+
+    return apiClient.invokeAPIAsync(
         "RolesApi.listRolePermissions",
         localVarPath,
         "GET",
@@ -810,6 +1427,28 @@ public class RolesApi {
    * Get all users of a role Gets all users of a role.
    *
    * @param roleId The ID of the role. (required)
+   * @return CompletableFuture<UsersResponse>
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<UsersResponse> listRoleUsersAsync(String roleId) {
+    return listRoleUsersWithHttpInfoAsync(roleId, new ListRoleUsersOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all users of a role Gets all users of a role.
+   *
+   * @param roleId The ID of the role. (required)
    * @param parameters Optional parameters for the request.
    * @return UsersResponse
    * @throws ApiException if fails to make API call
@@ -825,6 +1464,30 @@ public class RolesApi {
   public UsersResponse listRoleUsers(String roleId, ListRoleUsersOptionalParameters parameters)
       throws ApiException {
     return listRoleUsersWithHttpInfo(roleId, parameters).getData();
+  }
+
+  /**
+   * Get all users of a role Gets all users of a role.
+   *
+   * @param roleId The ID of the role. (required)
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture<UsersResponse>
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<UsersResponse> listRoleUsersAsync(
+      String roleId, ListRoleUsersOptionalParameters parameters) {
+    return listRoleUsersWithHttpInfoAsync(roleId, parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -887,6 +1550,84 @@ public class RolesApi {
     GenericType<UsersResponse> localVarReturnType = new GenericType<UsersResponse>() {};
 
     return apiClient.invokeAPI(
+        "RolesApi.listRoleUsers",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
+   * Get all users of a role Gets all users of a role.
+   *
+   * @param roleId The ID of the role. (required)
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;UsersResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<UsersResponse>> listRoleUsersWithHttpInfoAsync(
+      String roleId, ListRoleUsersOptionalParameters parameters) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'roleId' is set
+    if (roleId == null) {
+      CompletableFuture<ApiResponse<UsersResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'roleId' when calling listRoleUsers"));
+      return result;
+    }
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    String sort = parameters.sort;
+    String filter = parameters.filter;
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/roles/{role_id}/users"
+            .replaceAll("\\{" + "role_id" + "\\}", apiClient.escapeString(roleId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listRoleUsers");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
+
+    GenericType<UsersResponse> localVarReturnType = new GenericType<UsersResponse>() {};
+
+    return apiClient.invokeAPIAsync(
         "RolesApi.listRoleUsers",
         localVarPath,
         "GET",
@@ -976,6 +1717,26 @@ public class RolesApi {
   /**
    * List roles Returns all roles, including their names and IDs.
    *
+   * @return CompletableFuture<RolesResponse>
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<RolesResponse> listRolesAsync() {
+    return listRolesWithHttpInfoAsync(new ListRolesOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * List roles Returns all roles, including their names and IDs.
+   *
    * @param parameters Optional parameters for the request.
    * @return RolesResponse
    * @throws ApiException if fails to make API call
@@ -989,6 +1750,27 @@ public class RolesApi {
    */
   public RolesResponse listRoles(ListRolesOptionalParameters parameters) throws ApiException {
     return listRolesWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * List roles Returns all roles, including their names and IDs.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture<RolesResponse>
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<RolesResponse> listRolesAsync(ListRolesOptionalParameters parameters) {
+    return listRolesWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -1057,6 +1839,71 @@ public class RolesApi {
   }
 
   /**
+   * List roles Returns all roles, including their names and IDs.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;RolesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<RolesResponse>> listRolesWithHttpInfoAsync(
+      ListRolesOptionalParameters parameters) {
+    Object localVarPostBody = null;
+    Long pageSize = parameters.pageSize;
+    Long pageNumber = parameters.pageNumber;
+    RolesSort sort = parameters.sort;
+    String filter = parameters.filter;
+    // create path and map variables
+    String localVarPath = "/api/v2/roles";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[size]", pageSize));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[number]", pageNumber));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "filter", filter));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listRoles");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
+
+    GenericType<RolesResponse> localVarReturnType = new GenericType<RolesResponse>() {};
+
+    return apiClient.invokeAPIAsync(
+        "RolesApi.listRoles",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
    * Revoke permission Removes a permission from a role.
    *
    * @param roleId The ID of the role. (required)
@@ -1076,6 +1923,15 @@ public class RolesApi {
   public PermissionsResponse removePermissionFromRole(String roleId, RelationshipToPermission body)
       throws ApiException {
     return removePermissionFromRoleWithHttpInfo(roleId, body).getData();
+  }
+
+  public CompletableFuture<PermissionsResponse> removePermissionFromRoleAsync(
+      String roleId, RelationshipToPermission body) {
+    return removePermissionFromRoleWithHttpInfoAsync(roleId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -1151,6 +2007,85 @@ public class RolesApi {
   }
 
   /**
+   * Revoke permission Removes a permission from a role.
+   *
+   * @param roleId The ID of the role. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;PermissionsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<PermissionsResponse>>
+      removePermissionFromRoleWithHttpInfoAsync(String roleId, RelationshipToPermission body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'roleId' is set
+    if (roleId == null) {
+      CompletableFuture<ApiResponse<PermissionsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'roleId' when calling removePermissionFromRole"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<PermissionsResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling removePermissionFromRole"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/roles/{role_id}/permissions"
+            .replaceAll("\\{" + "role_id" + "\\}", apiClient.escapeString(roleId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "removePermissionFromRole");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {"application/json"};
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
+
+    GenericType<PermissionsResponse> localVarReturnType = new GenericType<PermissionsResponse>() {};
+
+    return apiClient.invokeAPIAsync(
+        "RolesApi.removePermissionFromRole",
+        localVarPath,
+        "DELETE",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
    * Remove a user from a role Removes a user from a role.
    *
    * @param roleId The ID of the role. (required)
@@ -1170,6 +2105,15 @@ public class RolesApi {
   public UsersResponse removeUserFromRole(String roleId, RelationshipToUser body)
       throws ApiException {
     return removeUserFromRoleWithHttpInfo(roleId, body).getData();
+  }
+
+  public CompletableFuture<UsersResponse> removeUserFromRoleAsync(
+      String roleId, RelationshipToUser body) {
+    return removeUserFromRoleWithHttpInfoAsync(roleId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -1245,6 +2189,84 @@ public class RolesApi {
   }
 
   /**
+   * Remove a user from a role Removes a user from a role.
+   *
+   * @param roleId The ID of the role. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;UsersResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<UsersResponse>> removeUserFromRoleWithHttpInfoAsync(
+      String roleId, RelationshipToUser body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'roleId' is set
+    if (roleId == null) {
+      CompletableFuture<ApiResponse<UsersResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'roleId' when calling removeUserFromRole"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<UsersResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling removeUserFromRole"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/roles/{role_id}/users"
+            .replaceAll("\\{" + "role_id" + "\\}", apiClient.escapeString(roleId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "removeUserFromRole");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {"application/json"};
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
+
+    GenericType<UsersResponse> localVarReturnType = new GenericType<UsersResponse>() {};
+
+    return apiClient.invokeAPIAsync(
+        "RolesApi.removeUserFromRole",
+        localVarPath,
+        "DELETE",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
    * Update a role Edit a role. Can only be used with application keys belonging to administrators.
    *
    * @param roleId The ID of the role. (required)
@@ -1264,6 +2286,15 @@ public class RolesApi {
    */
   public RoleUpdateResponse updateRole(String roleId, RoleUpdateRequest body) throws ApiException {
     return updateRoleWithHttpInfo(roleId, body).getData();
+  }
+
+  public CompletableFuture<RoleUpdateResponse> updateRoleAsync(
+      String roleId, RoleUpdateRequest body) {
+    return updateRoleWithHttpInfoAsync(roleId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -1323,6 +2354,83 @@ public class RolesApi {
     GenericType<RoleUpdateResponse> localVarReturnType = new GenericType<RoleUpdateResponse>() {};
 
     return apiClient.invokeAPI(
+        "RolesApi.updateRole",
+        localVarPath,
+        "PATCH",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
+   * Update a role Edit a role. Can only be used with application keys belonging to administrators.
+   *
+   * @param roleId The ID of the role. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;RoleUpdateResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<RoleUpdateResponse>> updateRoleWithHttpInfoAsync(
+      String roleId, RoleUpdateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'roleId' is set
+    if (roleId == null) {
+      CompletableFuture<ApiResponse<RoleUpdateResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'roleId' when calling updateRole"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<RoleUpdateResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'body' when calling updateRole"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/roles/{role_id}"
+            .replaceAll("\\{" + "role_id" + "\\}", apiClient.escapeString(roleId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "updateRole");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {"application/json"};
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
+
+    GenericType<RoleUpdateResponse> localVarReturnType = new GenericType<RoleUpdateResponse>() {};
+
+    return apiClient.invokeAPIAsync(
         "RolesApi.updateRole",
         localVarPath,
         "PATCH",

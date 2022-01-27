@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
 import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -60,6 +61,14 @@ public class AuthenticationApi {
     return validateWithHttpInfo().getData();
   }
 
+  public CompletableFuture<AuthenticationValidationResponse> validateAsync() {
+    return validateWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
   /**
    * Validate API key Check if the API key (not the APP key) is valid. If invalid, a 403 is
    * returned.
@@ -101,6 +110,63 @@ public class AuthenticationApi {
         new GenericType<AuthenticationValidationResponse>() {};
 
     return apiClient.invokeAPI(
+        "AuthenticationApi.validate",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
+   * Validate API key Check if the API key (not the APP key) is valid. If invalid, a 403 is
+   * returned.
+   *
+   * @return ApiResponse&lt;AuthenticationValidationResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<AuthenticationValidationResponse>>
+      validateWithHttpInfoAsync() {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v1/validate";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "validate");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth"};
+
+    GenericType<AuthenticationValidationResponse> localVarReturnType =
+        new GenericType<AuthenticationValidationResponse>() {};
+
+    return apiClient.invokeAPIAsync(
         "AuthenticationApi.validate",
         localVarPath,
         "GET",

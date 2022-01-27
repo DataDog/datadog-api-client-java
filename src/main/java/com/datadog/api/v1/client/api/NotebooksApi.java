@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
 import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -62,6 +63,14 @@ public class NotebooksApi {
    */
   public NotebookResponse createNotebook(NotebookCreateRequest body) throws ApiException {
     return createNotebookWithHttpInfo(body).getData();
+  }
+
+  public CompletableFuture<NotebookResponse> createNotebookAsync(NotebookCreateRequest body) {
+    return createNotebookWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -127,6 +136,71 @@ public class NotebooksApi {
   }
 
   /**
+   * Create a notebook Create a notebook using the specified options.
+   *
+   * @param body The JSON description of the notebook you want to create. (required)
+   * @return ApiResponse&lt;NotebookResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<NotebookResponse>> createNotebookWithHttpInfoAsync(
+      NotebookCreateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<NotebookResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createNotebook"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v1/notebooks";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "createNotebook");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {"application/json"};
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    GenericType<NotebookResponse> localVarReturnType = new GenericType<NotebookResponse>() {};
+
+    return apiClient.invokeAPIAsync(
+        "NotebooksApi.createNotebook",
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
    * Delete a notebook Delete a notebook using the specified ID.
    *
    * @param notebookId Unique ID, assigned when you create the notebook. (required)
@@ -143,6 +217,14 @@ public class NotebooksApi {
    */
   public void deleteNotebook(Long notebookId) throws ApiException {
     deleteNotebookWithHttpInfo(notebookId);
+  }
+
+  public CompletableFuture<Void> deleteNotebookAsync(Long notebookId) {
+    return deleteNotebookWithHttpInfoAsync(notebookId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -210,6 +292,73 @@ public class NotebooksApi {
   }
 
   /**
+   * Delete a notebook Delete a notebook using the specified ID.
+   *
+   * @param notebookId Unique ID, assigned when you create the notebook. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteNotebookWithHttpInfoAsync(Long notebookId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'notebookId' is set
+    if (notebookId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'notebookId' when calling deleteNotebook"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/notebooks/{notebook_id}"
+            .replaceAll(
+                "\\{" + "notebook_id" + "\\}", apiClient.escapeString(notebookId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "deleteNotebook");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    return apiClient.invokeAPIAsync(
+        "NotebooksApi.deleteNotebook",
+        localVarPath,
+        "DELETE",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        null,
+        false);
+  }
+
+  /**
    * Get a notebook Get a notebook using the specified notebook ID.
    *
    * @param notebookId Unique ID, assigned when you create the notebook. (required)
@@ -227,6 +376,14 @@ public class NotebooksApi {
    */
   public NotebookResponse getNotebook(Long notebookId) throws ApiException {
     return getNotebookWithHttpInfo(notebookId).getData();
+  }
+
+  public CompletableFuture<NotebookResponse> getNotebookAsync(Long notebookId) {
+    return getNotebookWithHttpInfoAsync(notebookId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -281,6 +438,76 @@ public class NotebooksApi {
     GenericType<NotebookResponse> localVarReturnType = new GenericType<NotebookResponse>() {};
 
     return apiClient.invokeAPI(
+        "NotebooksApi.getNotebook",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
+   * Get a notebook Get a notebook using the specified notebook ID.
+   *
+   * @param notebookId Unique ID, assigned when you create the notebook. (required)
+   * @return ApiResponse&lt;NotebookResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<NotebookResponse>> getNotebookWithHttpInfoAsync(
+      Long notebookId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'notebookId' is set
+    if (notebookId == null) {
+      CompletableFuture<ApiResponse<NotebookResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'notebookId' when calling getNotebook"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/notebooks/{notebook_id}"
+            .replaceAll(
+                "\\{" + "notebook_id" + "\\}", apiClient.escapeString(notebookId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getNotebook");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    GenericType<NotebookResponse> localVarReturnType = new GenericType<NotebookResponse>() {};
+
+    return apiClient.invokeAPIAsync(
         "NotebooksApi.getNotebook",
         localVarPath,
         "GET",
@@ -451,6 +678,28 @@ public class NotebooksApi {
    * Get all notebooks Get all notebooks. This can also be used to search for notebooks with a
    * particular &#x60;query&#x60; in the notebook &#x60;name&#x60; or author &#x60;handle&#x60;.
    *
+   * @return CompletableFuture<NotebooksResponse>
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<NotebooksResponse> listNotebooksAsync() {
+    return listNotebooksWithHttpInfoAsync(new ListNotebooksOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all notebooks Get all notebooks. This can also be used to search for notebooks with a
+   * particular &#x60;query&#x60; in the notebook &#x60;name&#x60; or author &#x60;handle&#x60;.
+   *
    * @param parameters Optional parameters for the request.
    * @return NotebooksResponse
    * @throws ApiException if fails to make API call
@@ -466,6 +715,30 @@ public class NotebooksApi {
   public NotebooksResponse listNotebooks(ListNotebooksOptionalParameters parameters)
       throws ApiException {
     return listNotebooksWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * Get all notebooks Get all notebooks. This can also be used to search for notebooks with a
+   * particular &#x60;query&#x60; in the notebook &#x60;name&#x60; or author &#x60;handle&#x60;.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture<NotebooksResponse>
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<NotebooksResponse> listNotebooksAsync(
+      ListNotebooksOptionalParameters parameters) {
+    return listNotebooksWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -549,6 +822,86 @@ public class NotebooksApi {
   }
 
   /**
+   * Get all notebooks Get all notebooks. This can also be used to search for notebooks with a
+   * particular &#x60;query&#x60; in the notebook &#x60;name&#x60; or author &#x60;handle&#x60;.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;NotebooksResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<NotebooksResponse>> listNotebooksWithHttpInfoAsync(
+      ListNotebooksOptionalParameters parameters) {
+    Object localVarPostBody = null;
+    String authorHandle = parameters.authorHandle;
+    String excludeAuthorHandle = parameters.excludeAuthorHandle;
+    Long start = parameters.start;
+    Long count = parameters.count;
+    String sortField = parameters.sortField;
+    String sortDir = parameters.sortDir;
+    String query = parameters.query;
+    Boolean includeCells = parameters.includeCells;
+    Boolean isTemplate = parameters.isTemplate;
+    String type = parameters.type;
+    // create path and map variables
+    String localVarPath = "/api/v1/notebooks";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "author_handle", authorHandle));
+    localVarQueryParams.addAll(
+        apiClient.parameterToPairs("", "exclude_author_handle", excludeAuthorHandle));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "start", start));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "count", count));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_field", sortField));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort_dir", sortDir));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "query", query));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "include_cells", includeCells));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "is_template", isTemplate));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "type", type));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listNotebooks");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    GenericType<NotebooksResponse> localVarReturnType = new GenericType<NotebooksResponse>() {};
+
+    return apiClient.invokeAPIAsync(
+        "NotebooksApi.listNotebooks",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
    * Update a notebook Update a notebook using the specified ID.
    *
    * @param notebookId Unique ID, assigned when you create the notebook. (required)
@@ -569,6 +922,15 @@ public class NotebooksApi {
   public NotebookResponse updateNotebook(Long notebookId, NotebookUpdateRequest body)
       throws ApiException {
     return updateNotebookWithHttpInfo(notebookId, body).getData();
+  }
+
+  public CompletableFuture<NotebookResponse> updateNotebookAsync(
+      Long notebookId, NotebookUpdateRequest body) {
+    return updateNotebookWithHttpInfoAsync(notebookId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -630,6 +992,86 @@ public class NotebooksApi {
     GenericType<NotebookResponse> localVarReturnType = new GenericType<NotebookResponse>() {};
 
     return apiClient.invokeAPI(
+        "NotebooksApi.updateNotebook",
+        localVarPath,
+        "PUT",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
+   * Update a notebook Update a notebook using the specified ID.
+   *
+   * @param notebookId Unique ID, assigned when you create the notebook. (required)
+   * @param body Update notebook request body. (required)
+   * @return ApiResponse&lt;NotebookResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<NotebookResponse>> updateNotebookWithHttpInfoAsync(
+      Long notebookId, NotebookUpdateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'notebookId' is set
+    if (notebookId == null) {
+      CompletableFuture<ApiResponse<NotebookResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'notebookId' when calling updateNotebook"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<NotebookResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateNotebook"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/notebooks/{notebook_id}"
+            .replaceAll(
+                "\\{" + "notebook_id" + "\\}", apiClient.escapeString(notebookId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "updateNotebook");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {"application/json"};
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    GenericType<NotebookResponse> localVarReturnType = new GenericType<NotebookResponse>() {};
+
+    return apiClient.invokeAPIAsync(
         "NotebooksApi.updateNotebook",
         localVarPath,
         "PUT",

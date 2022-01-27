@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
 import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -68,6 +69,15 @@ public class DashboardListsApi {
   public DashboardListAddItemsResponse createDashboardListItems(
       Long dashboardListId, DashboardListAddItemsRequest body) throws ApiException {
     return createDashboardListItemsWithHttpInfo(dashboardListId, body).getData();
+  }
+
+  public CompletableFuture<DashboardListAddItemsResponse> createDashboardListItemsAsync(
+      Long dashboardListId, DashboardListAddItemsRequest body) {
+    return createDashboardListItemsWithHttpInfoAsync(dashboardListId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -147,6 +157,92 @@ public class DashboardListsApi {
   }
 
   /**
+   * Add Items to a Dashboard List Add dashboards to an existing dashboard list.
+   *
+   * @param dashboardListId ID of the dashboard list to add items to. (required)
+   * @param body Dashboards to add to the dashboard list. (required)
+   * @return ApiResponse&lt;DashboardListAddItemsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<DashboardListAddItemsResponse>>
+      createDashboardListItemsWithHttpInfoAsync(
+          Long dashboardListId, DashboardListAddItemsRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'dashboardListId' is set
+    if (dashboardListId == null) {
+      CompletableFuture<ApiResponse<DashboardListAddItemsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'dashboardListId' when calling"
+                  + " createDashboardListItems"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<DashboardListAddItemsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createDashboardListItems"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards"
+            .replaceAll(
+                "\\{" + "dashboard_list_id" + "\\}",
+                apiClient.escapeString(dashboardListId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "createDashboardListItems");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {"application/json"};
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    GenericType<DashboardListAddItemsResponse> localVarReturnType =
+        new GenericType<DashboardListAddItemsResponse>() {};
+
+    return apiClient.invokeAPIAsync(
+        "DashboardListsApi.createDashboardListItems",
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
    * Delete items from a dashboard list Delete dashboards from an existing dashboard list.
    *
    * @param dashboardListId ID of the dashboard list to delete items from. (required)
@@ -166,6 +262,15 @@ public class DashboardListsApi {
   public DashboardListDeleteItemsResponse deleteDashboardListItems(
       Long dashboardListId, DashboardListDeleteItemsRequest body) throws ApiException {
     return deleteDashboardListItemsWithHttpInfo(dashboardListId, body).getData();
+  }
+
+  public CompletableFuture<DashboardListDeleteItemsResponse> deleteDashboardListItemsAsync(
+      Long dashboardListId, DashboardListDeleteItemsRequest body) {
+    return deleteDashboardListItemsWithHttpInfoAsync(dashboardListId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -245,6 +350,92 @@ public class DashboardListsApi {
   }
 
   /**
+   * Delete items from a dashboard list Delete dashboards from an existing dashboard list.
+   *
+   * @param dashboardListId ID of the dashboard list to delete items from. (required)
+   * @param body Dashboards to delete from the dashboard list. (required)
+   * @return ApiResponse&lt;DashboardListDeleteItemsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<DashboardListDeleteItemsResponse>>
+      deleteDashboardListItemsWithHttpInfoAsync(
+          Long dashboardListId, DashboardListDeleteItemsRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'dashboardListId' is set
+    if (dashboardListId == null) {
+      CompletableFuture<ApiResponse<DashboardListDeleteItemsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'dashboardListId' when calling"
+                  + " deleteDashboardListItems"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<DashboardListDeleteItemsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling deleteDashboardListItems"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards"
+            .replaceAll(
+                "\\{" + "dashboard_list_id" + "\\}",
+                apiClient.escapeString(dashboardListId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "deleteDashboardListItems");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {"application/json"};
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    GenericType<DashboardListDeleteItemsResponse> localVarReturnType =
+        new GenericType<DashboardListDeleteItemsResponse>() {};
+
+    return apiClient.invokeAPIAsync(
+        "DashboardListsApi.deleteDashboardListItems",
+        localVarPath,
+        "DELETE",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
    * Get items of a Dashboard List Fetch the dashboard list’s dashboard definitions.
    *
    * @param dashboardListId ID of the dashboard list to get items from. (required)
@@ -261,6 +452,14 @@ public class DashboardListsApi {
    */
   public DashboardListItems getDashboardListItems(Long dashboardListId) throws ApiException {
     return getDashboardListItemsWithHttpInfo(dashboardListId).getData();
+  }
+
+  public CompletableFuture<DashboardListItems> getDashboardListItemsAsync(Long dashboardListId) {
+    return getDashboardListItemsWithHttpInfoAsync(dashboardListId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -332,6 +531,78 @@ public class DashboardListsApi {
   }
 
   /**
+   * Get items of a Dashboard List Fetch the dashboard list’s dashboard definitions.
+   *
+   * @param dashboardListId ID of the dashboard list to get items from. (required)
+   * @return ApiResponse&lt;DashboardListItems&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<DashboardListItems>> getDashboardListItemsWithHttpInfoAsync(
+      Long dashboardListId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'dashboardListId' is set
+    if (dashboardListId == null) {
+      CompletableFuture<ApiResponse<DashboardListItems>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'dashboardListId' when calling"
+                  + " getDashboardListItems"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards"
+            .replaceAll(
+                "\\{" + "dashboard_list_id" + "\\}",
+                apiClient.escapeString(dashboardListId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getDashboardListItems");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
+
+    GenericType<DashboardListItems> localVarReturnType = new GenericType<DashboardListItems>() {};
+
+    return apiClient.invokeAPIAsync(
+        "DashboardListsApi.getDashboardListItems",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
    * Update items of a dashboard list Update dashboards of an existing dashboard list.
    *
    * @param dashboardListId ID of the dashboard list to update items from. (required)
@@ -351,6 +622,15 @@ public class DashboardListsApi {
   public DashboardListUpdateItemsResponse updateDashboardListItems(
       Long dashboardListId, DashboardListUpdateItemsRequest body) throws ApiException {
     return updateDashboardListItemsWithHttpInfo(dashboardListId, body).getData();
+  }
+
+  public CompletableFuture<DashboardListUpdateItemsResponse> updateDashboardListItemsAsync(
+      Long dashboardListId, DashboardListUpdateItemsRequest body) {
+    return updateDashboardListItemsWithHttpInfoAsync(dashboardListId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -414,6 +694,92 @@ public class DashboardListsApi {
         new GenericType<DashboardListUpdateItemsResponse>() {};
 
     return apiClient.invokeAPI(
+        "DashboardListsApi.updateDashboardListItems",
+        localVarPath,
+        "PUT",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
+   * Update items of a dashboard list Update dashboards of an existing dashboard list.
+   *
+   * @param dashboardListId ID of the dashboard list to update items from. (required)
+   * @param body New dashboards of the dashboard list. (required)
+   * @return ApiResponse&lt;DashboardListUpdateItemsResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<DashboardListUpdateItemsResponse>>
+      updateDashboardListItemsWithHttpInfoAsync(
+          Long dashboardListId, DashboardListUpdateItemsRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'dashboardListId' is set
+    if (dashboardListId == null) {
+      CompletableFuture<ApiResponse<DashboardListUpdateItemsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'dashboardListId' when calling"
+                  + " updateDashboardListItems"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<DashboardListUpdateItemsResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateDashboardListItems"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards"
+            .replaceAll(
+                "\\{" + "dashboard_list_id" + "\\}",
+                apiClient.escapeString(dashboardListId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "updateDashboardListItems");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {"application/json"};
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    GenericType<DashboardListUpdateItemsResponse> localVarReturnType =
+        new GenericType<DashboardListUpdateItemsResponse>() {};
+
+    return apiClient.invokeAPIAsync(
         "DashboardListsApi.updateDashboardListItems",
         localVarPath,
         "PUT",

@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
 import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -62,6 +63,15 @@ public class PagerDutyIntegrationApi {
   public PagerDutyServiceName createPagerDutyIntegrationService(PagerDutyService body)
       throws ApiException {
     return createPagerDutyIntegrationServiceWithHttpInfo(body).getData();
+  }
+
+  public CompletableFuture<PagerDutyServiceName> createPagerDutyIntegrationServiceAsync(
+      PagerDutyService body) {
+    return createPagerDutyIntegrationServiceWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -129,6 +139,74 @@ public class PagerDutyIntegrationApi {
   }
 
   /**
+   * Create a new service object Create a new service object in the PagerDuty integration.
+   *
+   * @param body Create a new service object request body. (required)
+   * @return ApiResponse&lt;PagerDutyServiceName&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<PagerDutyServiceName>>
+      createPagerDutyIntegrationServiceWithHttpInfoAsync(PagerDutyService body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<PagerDutyServiceName>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " createPagerDutyIntegrationService"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v1/integration/pagerduty/configuration/services";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "createPagerDutyIntegrationService");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {"application/json"};
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    GenericType<PagerDutyServiceName> localVarReturnType =
+        new GenericType<PagerDutyServiceName>() {};
+
+    return apiClient.invokeAPIAsync(
+        "PagerDutyIntegrationApi.createPagerDutyIntegrationService",
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
    * Delete a single service object Delete a single service object in the Datadog-PagerDuty
    * integration.
    *
@@ -145,6 +223,14 @@ public class PagerDutyIntegrationApi {
    */
   public void deletePagerDutyIntegrationService(String serviceName) throws ApiException {
     deletePagerDutyIntegrationServiceWithHttpInfo(serviceName);
+  }
+
+  public CompletableFuture<Void> deletePagerDutyIntegrationServiceAsync(String serviceName) {
+    return deletePagerDutyIntegrationServiceWithHttpInfoAsync(serviceName)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -215,6 +301,76 @@ public class PagerDutyIntegrationApi {
   }
 
   /**
+   * Delete a single service object Delete a single service object in the Datadog-PagerDuty
+   * integration.
+   *
+   * @param serviceName The service name (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<Void>> deletePagerDutyIntegrationServiceWithHttpInfoAsync(
+      String serviceName) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'serviceName' is set
+    if (serviceName == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'serviceName' when calling"
+                  + " deletePagerDutyIntegrationService"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/integration/pagerduty/configuration/services/{service_name}"
+            .replaceAll(
+                "\\{" + "service_name" + "\\}", apiClient.escapeString(serviceName.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "deletePagerDutyIntegrationService");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    return apiClient.invokeAPIAsync(
+        "PagerDutyIntegrationApi.deletePagerDutyIntegrationService",
+        localVarPath,
+        "DELETE",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        null,
+        false);
+  }
+
+  /**
    * Get a single service object Get service name in the Datadog-PagerDuty integration.
    *
    * @param serviceName The service name. (required)
@@ -232,6 +388,15 @@ public class PagerDutyIntegrationApi {
   public PagerDutyServiceName getPagerDutyIntegrationService(String serviceName)
       throws ApiException {
     return getPagerDutyIntegrationServiceWithHttpInfo(serviceName).getData();
+  }
+
+  public CompletableFuture<PagerDutyServiceName> getPagerDutyIntegrationServiceAsync(
+      String serviceName) {
+    return getPagerDutyIntegrationServiceWithHttpInfoAsync(serviceName)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -304,6 +469,78 @@ public class PagerDutyIntegrationApi {
   }
 
   /**
+   * Get a single service object Get service name in the Datadog-PagerDuty integration.
+   *
+   * @param serviceName The service name. (required)
+   * @return ApiResponse&lt;PagerDutyServiceName&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<PagerDutyServiceName>>
+      getPagerDutyIntegrationServiceWithHttpInfoAsync(String serviceName) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'serviceName' is set
+    if (serviceName == null) {
+      CompletableFuture<ApiResponse<PagerDutyServiceName>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'serviceName' when calling"
+                  + " getPagerDutyIntegrationService"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/integration/pagerduty/configuration/services/{service_name}"
+            .replaceAll(
+                "\\{" + "service_name" + "\\}", apiClient.escapeString(serviceName.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getPagerDutyIntegrationService");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    GenericType<PagerDutyServiceName> localVarReturnType =
+        new GenericType<PagerDutyServiceName>() {};
+
+    return apiClient.invokeAPIAsync(
+        "PagerDutyIntegrationApi.getPagerDutyIntegrationService",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
    * Update a single service object Update a single service object in the Datadog-PagerDuty
    * integration.
    *
@@ -323,6 +560,15 @@ public class PagerDutyIntegrationApi {
   public void updatePagerDutyIntegrationService(String serviceName, PagerDutyServiceKey body)
       throws ApiException {
     updatePagerDutyIntegrationServiceWithHttpInfo(serviceName, body);
+  }
+
+  public CompletableFuture<Void> updatePagerDutyIntegrationServiceAsync(
+      String serviceName, PagerDutyServiceKey body) {
+    return updatePagerDutyIntegrationServiceWithHttpInfoAsync(serviceName, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -385,6 +631,88 @@ public class PagerDutyIntegrationApi {
     String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
 
     return apiClient.invokeAPI(
+        "PagerDutyIntegrationApi.updatePagerDutyIntegrationService",
+        localVarPath,
+        "PUT",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        null,
+        false);
+  }
+
+  /**
+   * Update a single service object Update a single service object in the Datadog-PagerDuty
+   * integration.
+   *
+   * @param serviceName The service name (required)
+   * @param body Update an existing service object request body. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<Void>> updatePagerDutyIntegrationServiceWithHttpInfoAsync(
+      String serviceName, PagerDutyServiceKey body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'serviceName' is set
+    if (serviceName == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'serviceName' when calling"
+                  + " updatePagerDutyIntegrationService"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " updatePagerDutyIntegrationService"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/integration/pagerduty/configuration/services/{service_name}"
+            .replaceAll(
+                "\\{" + "service_name" + "\\}", apiClient.escapeString(serviceName.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "updatePagerDutyIntegrationService");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {"application/json"};
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    return apiClient.invokeAPIAsync(
         "PagerDutyIntegrationApi.updatePagerDutyIntegrationService",
         localVarPath,
         "PUT",

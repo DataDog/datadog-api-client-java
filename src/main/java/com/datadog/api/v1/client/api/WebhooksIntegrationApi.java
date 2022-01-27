@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
 import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -65,6 +66,15 @@ public class WebhooksIntegrationApi {
   public WebhooksIntegration createWebhooksIntegration(WebhooksIntegration body)
       throws ApiException {
     return createWebhooksIntegrationWithHttpInfo(body).getData();
+  }
+
+  public CompletableFuture<WebhooksIntegration> createWebhooksIntegrationAsync(
+      WebhooksIntegration body) {
+    return createWebhooksIntegrationWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -131,6 +141,72 @@ public class WebhooksIntegrationApi {
   }
 
   /**
+   * Create a webhooks integration Creates an endpoint with the name
+   * &#x60;&lt;WEBHOOK_NAME&gt;&#x60;.
+   *
+   * @param body Create a webhooks integration request body. (required)
+   * @return ApiResponse&lt;WebhooksIntegration&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<WebhooksIntegration>>
+      createWebhooksIntegrationWithHttpInfoAsync(WebhooksIntegration body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<WebhooksIntegration>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createWebhooksIntegration"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v1/integration/webhooks/configuration/webhooks";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "createWebhooksIntegration");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {"application/json"};
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    GenericType<WebhooksIntegration> localVarReturnType = new GenericType<WebhooksIntegration>() {};
+
+    return apiClient.invokeAPIAsync(
+        "WebhooksIntegrationApi.createWebhooksIntegration",
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
    * Create a custom variable Creates an endpoint with the name
    * &#x60;&lt;CUSTOM_VARIABLE_NAME&gt;&#x60;.
    *
@@ -149,6 +225,15 @@ public class WebhooksIntegrationApi {
   public WebhooksIntegrationCustomVariableResponse createWebhooksIntegrationCustomVariable(
       WebhooksIntegrationCustomVariable body) throws ApiException {
     return createWebhooksIntegrationCustomVariableWithHttpInfo(body).getData();
+  }
+
+  public CompletableFuture<WebhooksIntegrationCustomVariableResponse>
+      createWebhooksIntegrationCustomVariableAsync(WebhooksIntegrationCustomVariable body) {
+    return createWebhooksIntegrationCustomVariableWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -219,6 +304,77 @@ public class WebhooksIntegrationApi {
   }
 
   /**
+   * Create a custom variable Creates an endpoint with the name
+   * &#x60;&lt;CUSTOM_VARIABLE_NAME&gt;&#x60;.
+   *
+   * @param body Define a custom variable request body. (required)
+   * @return ApiResponse&lt;WebhooksIntegrationCustomVariableResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 201 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<WebhooksIntegrationCustomVariableResponse>>
+      createWebhooksIntegrationCustomVariableWithHttpInfoAsync(
+          WebhooksIntegrationCustomVariable body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<WebhooksIntegrationCustomVariableResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " createWebhooksIntegrationCustomVariable"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v1/integration/webhooks/configuration/custom-variables";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "createWebhooksIntegrationCustomVariable");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {"application/json"};
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    GenericType<WebhooksIntegrationCustomVariableResponse> localVarReturnType =
+        new GenericType<WebhooksIntegrationCustomVariableResponse>() {};
+
+    return apiClient.invokeAPIAsync(
+        "WebhooksIntegrationApi.createWebhooksIntegrationCustomVariable",
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
    * Delete a webhook Deletes the endpoint with the name &#x60;&lt;WEBHOOK NAME&gt;&#x60;.
    *
    * @param webhookName The name of the webhook. (required)
@@ -234,6 +390,14 @@ public class WebhooksIntegrationApi {
    */
   public void deleteWebhooksIntegration(String webhookName) throws ApiException {
     deleteWebhooksIntegrationWithHttpInfo(webhookName);
+  }
+
+  public CompletableFuture<Void> deleteWebhooksIntegrationAsync(String webhookName) {
+    return deleteWebhooksIntegrationWithHttpInfoAsync(webhookName)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -302,6 +466,75 @@ public class WebhooksIntegrationApi {
   }
 
   /**
+   * Delete a webhook Deletes the endpoint with the name &#x60;&lt;WEBHOOK NAME&gt;&#x60;.
+   *
+   * @param webhookName The name of the webhook. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteWebhooksIntegrationWithHttpInfoAsync(
+      String webhookName) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'webhookName' is set
+    if (webhookName == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'webhookName' when calling"
+                  + " deleteWebhooksIntegration"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/integration/webhooks/configuration/webhooks/{webhook_name}"
+            .replaceAll(
+                "\\{" + "webhook_name" + "\\}", apiClient.escapeString(webhookName.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "deleteWebhooksIntegration");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    return apiClient.invokeAPIAsync(
+        "WebhooksIntegrationApi.deleteWebhooksIntegration",
+        localVarPath,
+        "DELETE",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        null,
+        false);
+  }
+
+  /**
    * Delete a custom variable Deletes the endpoint with the name
    * &#x60;&lt;CUSTOM_VARIABLE_NAME&gt;&#x60;.
    *
@@ -319,6 +552,15 @@ public class WebhooksIntegrationApi {
   public void deleteWebhooksIntegrationCustomVariable(String customVariableName)
       throws ApiException {
     deleteWebhooksIntegrationCustomVariableWithHttpInfo(customVariableName);
+  }
+
+  public CompletableFuture<Void> deleteWebhooksIntegrationCustomVariableAsync(
+      String customVariableName) {
+    return deleteWebhooksIntegrationCustomVariableWithHttpInfoAsync(customVariableName)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -390,6 +632,77 @@ public class WebhooksIntegrationApi {
   }
 
   /**
+   * Delete a custom variable Deletes the endpoint with the name
+   * &#x60;&lt;CUSTOM_VARIABLE_NAME&gt;&#x60;.
+   *
+   * @param customVariableName The name of the custom variable. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<Void>>
+      deleteWebhooksIntegrationCustomVariableWithHttpInfoAsync(String customVariableName) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'customVariableName' is set
+    if (customVariableName == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'customVariableName' when calling"
+                  + " deleteWebhooksIntegrationCustomVariable"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/integration/webhooks/configuration/custom-variables/{custom_variable_name}"
+            .replaceAll(
+                "\\{" + "custom_variable_name" + "\\}",
+                apiClient.escapeString(customVariableName.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "deleteWebhooksIntegrationCustomVariable");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    return apiClient.invokeAPIAsync(
+        "WebhooksIntegrationApi.deleteWebhooksIntegrationCustomVariable",
+        localVarPath,
+        "DELETE",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        null,
+        false);
+  }
+
+  /**
    * Get a webhook integration Gets the content of the webhook with the name
    * &#x60;&lt;WEBHOOK_NAME&gt;&#x60;.
    *
@@ -408,6 +721,14 @@ public class WebhooksIntegrationApi {
    */
   public WebhooksIntegration getWebhooksIntegration(String webhookName) throws ApiException {
     return getWebhooksIntegrationWithHttpInfo(webhookName).getData();
+  }
+
+  public CompletableFuture<WebhooksIntegration> getWebhooksIntegrationAsync(String webhookName) {
+    return getWebhooksIntegrationWithHttpInfoAsync(webhookName)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -479,6 +800,78 @@ public class WebhooksIntegrationApi {
   }
 
   /**
+   * Get a webhook integration Gets the content of the webhook with the name
+   * &#x60;&lt;WEBHOOK_NAME&gt;&#x60;.
+   *
+   * @param webhookName The name of the webhook. (required)
+   * @return ApiResponse&lt;WebhooksIntegration&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<WebhooksIntegration>>
+      getWebhooksIntegrationWithHttpInfoAsync(String webhookName) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'webhookName' is set
+    if (webhookName == null) {
+      CompletableFuture<ApiResponse<WebhooksIntegration>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'webhookName' when calling getWebhooksIntegration"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/integration/webhooks/configuration/webhooks/{webhook_name}"
+            .replaceAll(
+                "\\{" + "webhook_name" + "\\}", apiClient.escapeString(webhookName.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getWebhooksIntegration");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    GenericType<WebhooksIntegration> localVarReturnType = new GenericType<WebhooksIntegration>() {};
+
+    return apiClient.invokeAPIAsync(
+        "WebhooksIntegrationApi.getWebhooksIntegration",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
    * Get a custom variable Shows the content of the custom variable with the name
    * &#x60;&lt;CUSTOM_VARIABLE_NAME&gt;&#x60;. If the custom variable is secret, the value does not
    * return in the response payload.
@@ -499,6 +892,15 @@ public class WebhooksIntegrationApi {
   public WebhooksIntegrationCustomVariableResponse getWebhooksIntegrationCustomVariable(
       String customVariableName) throws ApiException {
     return getWebhooksIntegrationCustomVariableWithHttpInfo(customVariableName).getData();
+  }
+
+  public CompletableFuture<WebhooksIntegrationCustomVariableResponse>
+      getWebhooksIntegrationCustomVariableAsync(String customVariableName) {
+    return getWebhooksIntegrationCustomVariableWithHttpInfoAsync(customVariableName)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -576,6 +978,83 @@ public class WebhooksIntegrationApi {
   }
 
   /**
+   * Get a custom variable Shows the content of the custom variable with the name
+   * &#x60;&lt;CUSTOM_VARIABLE_NAME&gt;&#x60;. If the custom variable is secret, the value does not
+   * return in the response payload.
+   *
+   * @param customVariableName The name of the custom variable. (required)
+   * @return ApiResponse&lt;WebhooksIntegrationCustomVariableResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<WebhooksIntegrationCustomVariableResponse>>
+      getWebhooksIntegrationCustomVariableWithHttpInfoAsync(String customVariableName) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'customVariableName' is set
+    if (customVariableName == null) {
+      CompletableFuture<ApiResponse<WebhooksIntegrationCustomVariableResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'customVariableName' when calling"
+                  + " getWebhooksIntegrationCustomVariable"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/integration/webhooks/configuration/custom-variables/{custom_variable_name}"
+            .replaceAll(
+                "\\{" + "custom_variable_name" + "\\}",
+                apiClient.escapeString(customVariableName.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getWebhooksIntegrationCustomVariable");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    GenericType<WebhooksIntegrationCustomVariableResponse> localVarReturnType =
+        new GenericType<WebhooksIntegrationCustomVariableResponse>() {};
+
+    return apiClient.invokeAPIAsync(
+        "WebhooksIntegrationApi.getWebhooksIntegrationCustomVariable",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
    * Update a webhook Updates the endpoint with the name &#x60;&lt;WEBHOOK_NAME&gt;&#x60;.
    *
    * @param webhookName The name of the webhook. (required)
@@ -595,6 +1074,15 @@ public class WebhooksIntegrationApi {
   public WebhooksIntegration updateWebhooksIntegration(
       String webhookName, WebhooksIntegrationUpdateRequest body) throws ApiException {
     return updateWebhooksIntegrationWithHttpInfo(webhookName, body).getData();
+  }
+
+  public CompletableFuture<WebhooksIntegration> updateWebhooksIntegrationAsync(
+      String webhookName, WebhooksIntegrationUpdateRequest body) {
+    return updateWebhooksIntegrationWithHttpInfoAsync(webhookName, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -672,6 +1160,88 @@ public class WebhooksIntegrationApi {
   }
 
   /**
+   * Update a webhook Updates the endpoint with the name &#x60;&lt;WEBHOOK_NAME&gt;&#x60;.
+   *
+   * @param webhookName The name of the webhook. (required)
+   * @param body Update an existing Datadog-Webhooks integration. (required)
+   * @return ApiResponse&lt;WebhooksIntegration&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<WebhooksIntegration>>
+      updateWebhooksIntegrationWithHttpInfoAsync(
+          String webhookName, WebhooksIntegrationUpdateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'webhookName' is set
+    if (webhookName == null) {
+      CompletableFuture<ApiResponse<WebhooksIntegration>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'webhookName' when calling"
+                  + " updateWebhooksIntegration"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<WebhooksIntegration>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateWebhooksIntegration"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/integration/webhooks/configuration/webhooks/{webhook_name}"
+            .replaceAll(
+                "\\{" + "webhook_name" + "\\}", apiClient.escapeString(webhookName.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "updateWebhooksIntegration");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {"application/json"};
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    GenericType<WebhooksIntegration> localVarReturnType = new GenericType<WebhooksIntegration>() {};
+
+    return apiClient.invokeAPIAsync(
+        "WebhooksIntegrationApi.updateWebhooksIntegration",
+        localVarPath,
+        "PUT",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
    * Update a custom variable Updates the endpoint with the name
    * &#x60;&lt;CUSTOM_VARIABLE_NAME&gt;&#x60;.
    *
@@ -693,6 +1263,16 @@ public class WebhooksIntegrationApi {
       String customVariableName, WebhooksIntegrationCustomVariableUpdateRequest body)
       throws ApiException {
     return updateWebhooksIntegrationCustomVariableWithHttpInfo(customVariableName, body).getData();
+  }
+
+  public CompletableFuture<WebhooksIntegrationCustomVariableResponse>
+      updateWebhooksIntegrationCustomVariableAsync(
+          String customVariableName, WebhooksIntegrationCustomVariableUpdateRequest body) {
+    return updateWebhooksIntegrationCustomVariableWithHttpInfoAsync(customVariableName, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -762,6 +1342,95 @@ public class WebhooksIntegrationApi {
         new GenericType<WebhooksIntegrationCustomVariableResponse>() {};
 
     return apiClient.invokeAPI(
+        "WebhooksIntegrationApi.updateWebhooksIntegrationCustomVariable",
+        localVarPath,
+        "PUT",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
+   * Update a custom variable Updates the endpoint with the name
+   * &#x60;&lt;CUSTOM_VARIABLE_NAME&gt;&#x60;.
+   *
+   * @param customVariableName The name of the custom variable. (required)
+   * @param body Update an existing custom variable request body. (required)
+   * @return ApiResponse&lt;WebhooksIntegrationCustomVariableResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Item Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<WebhooksIntegrationCustomVariableResponse>>
+      updateWebhooksIntegrationCustomVariableWithHttpInfoAsync(
+          String customVariableName, WebhooksIntegrationCustomVariableUpdateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'customVariableName' is set
+    if (customVariableName == null) {
+      CompletableFuture<ApiResponse<WebhooksIntegrationCustomVariableResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'customVariableName' when calling"
+                  + " updateWebhooksIntegrationCustomVariable"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<WebhooksIntegrationCustomVariableResponse>> result =
+          new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'body' when calling"
+                  + " updateWebhooksIntegrationCustomVariable"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/integration/webhooks/configuration/custom-variables/{custom_variable_name}"
+            .replaceAll(
+                "\\{" + "custom_variable_name" + "\\}",
+                apiClient.escapeString(customVariableName.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "updateWebhooksIntegrationCustomVariable");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {"application/json"};
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    GenericType<WebhooksIntegrationCustomVariableResponse> localVarReturnType =
+        new GenericType<WebhooksIntegrationCustomVariableResponse>() {};
+
+    return apiClient.invokeAPIAsync(
         "WebhooksIntegrationApi.updateWebhooksIntegrationCustomVariable",
         localVarPath,
         "PUT",

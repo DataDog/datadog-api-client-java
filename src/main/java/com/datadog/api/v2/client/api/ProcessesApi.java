@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
 import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -146,6 +147,27 @@ public class ProcessesApi {
   /**
    * Get all processes Get all processes for your organization.
    *
+   * @return CompletableFuture<ProcessSummariesResponse>
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ProcessSummariesResponse> listProcessesAsync() {
+    return listProcessesWithHttpInfoAsync(new ListProcessesOptionalParameters())
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
+  }
+
+  /**
+   * Get all processes Get all processes for your organization.
+   *
    * @param parameters Optional parameters for the request.
    * @return ProcessSummariesResponse
    * @throws ApiException if fails to make API call
@@ -161,6 +183,29 @@ public class ProcessesApi {
   public ProcessSummariesResponse listProcesses(ListProcessesOptionalParameters parameters)
       throws ApiException {
     return listProcessesWithHttpInfo(parameters).getData();
+  }
+
+  /**
+   * Get all processes Get all processes for your organization.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return CompletableFuture<ProcessSummariesResponse>
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><th> Status Code </th><th> Description </th><th> Response Headers </th></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ProcessSummariesResponse> listProcessesAsync(
+      ListProcessesOptionalParameters parameters) {
+    return listProcessesWithHttpInfoAsync(parameters)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -219,6 +264,77 @@ public class ProcessesApi {
         new GenericType<ProcessSummariesResponse>() {};
 
     return apiClient.invokeAPI(
+        "ProcessesApi.listProcesses",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
+   * Get all processes Get all processes for your organization.
+   *
+   * @param parameters Optional parameters for the request.
+   * @return ApiResponse&lt;ProcessSummariesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication Error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<ProcessSummariesResponse>> listProcessesWithHttpInfoAsync(
+      ListProcessesOptionalParameters parameters) {
+    Object localVarPostBody = null;
+    String search = parameters.search;
+    String tags = parameters.tags;
+    Long from = parameters.from;
+    Long to = parameters.to;
+    Integer pageLimit = parameters.pageLimit;
+    String pageCursor = parameters.pageCursor;
+    // create path and map variables
+    String localVarPath = "/api/v2/processes";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "search", search));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "tags", tags));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "from", from));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "to", to));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[limit]", pageLimit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "page[cursor]", pageCursor));
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listProcesses");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
+
+    GenericType<ProcessSummariesResponse> localVarReturnType =
+        new GenericType<ProcessSummariesResponse>() {};
+
+    return apiClient.invokeAPIAsync(
         "ProcessesApi.listProcesses",
         localVarPath,
         "GET",

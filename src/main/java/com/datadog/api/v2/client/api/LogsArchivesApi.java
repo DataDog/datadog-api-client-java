@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
 import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -66,6 +67,15 @@ public class LogsArchivesApi {
    */
   public void addReadRoleToArchive(String archiveId, RelationshipToRole body) throws ApiException {
     addReadRoleToArchiveWithHttpInfo(archiveId, body);
+  }
+
+  public CompletableFuture<Void> addReadRoleToArchiveAsync(
+      String archiveId, RelationshipToRole body) {
+    return addReadRoleToArchiveWithHttpInfoAsync(archiveId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -140,6 +150,83 @@ public class LogsArchivesApi {
   }
 
   /**
+   * Grant role to an archive Adds a read role to an archive. ([Roles
+   * API](https://docs.datadoghq.com/api/v2/roles/))
+   *
+   * @param archiveId The ID of the archive. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<Void>> addReadRoleToArchiveWithHttpInfoAsync(
+      String archiveId, RelationshipToRole body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'archiveId' is set
+    if (archiveId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'archiveId' when calling addReadRoleToArchive"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling addReadRoleToArchive"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/logs/config/archives/{archive_id}/readers"
+            .replaceAll("\\{" + "archive_id" + "\\}", apiClient.escapeString(archiveId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "addReadRoleToArchive");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {"application/json"};
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    return apiClient.invokeAPIAsync(
+        "LogsArchivesApi.addReadRoleToArchive",
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        null,
+        false);
+  }
+
+  /**
    * Create an archive Create an archive in your organization.
    *
    * @param body The definition of the new archive. (required)
@@ -156,6 +243,14 @@ public class LogsArchivesApi {
    */
   public LogsArchive createLogsArchive(LogsArchiveCreateRequest body) throws ApiException {
     return createLogsArchiveWithHttpInfo(body).getData();
+  }
+
+  public CompletableFuture<LogsArchive> createLogsArchiveAsync(LogsArchiveCreateRequest body) {
+    return createLogsArchiveWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -221,6 +316,71 @@ public class LogsArchivesApi {
   }
 
   /**
+   * Create an archive Create an archive in your organization.
+   *
+   * @param body The definition of the new archive. (required)
+   * @return ApiResponse&lt;LogsArchive&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<LogsArchive>> createLogsArchiveWithHttpInfoAsync(
+      LogsArchiveCreateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<LogsArchive>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling createLogsArchive"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/logs/config/archives";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "createLogsArchive");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {"application/json"};
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    GenericType<LogsArchive> localVarReturnType = new GenericType<LogsArchive>() {};
+
+    return apiClient.invokeAPIAsync(
+        "LogsArchivesApi.createLogsArchive",
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
    * Delete an archive Delete a given archive from your organization.
    *
    * @param archiveId The ID of the archive. (required)
@@ -237,6 +397,14 @@ public class LogsArchivesApi {
    */
   public void deleteLogsArchive(String archiveId) throws ApiException {
     deleteLogsArchiveWithHttpInfo(archiveId);
+  }
+
+  public CompletableFuture<Void> deleteLogsArchiveAsync(String archiveId) {
+    return deleteLogsArchiveWithHttpInfoAsync(archiveId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -303,6 +471,72 @@ public class LogsArchivesApi {
   }
 
   /**
+   * Delete an archive Delete a given archive from your organization.
+   *
+   * @param archiveId The ID of the archive. (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<Void>> deleteLogsArchiveWithHttpInfoAsync(String archiveId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'archiveId' is set
+    if (archiveId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'archiveId' when calling deleteLogsArchive"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/logs/config/archives/{archive_id}"
+            .replaceAll("\\{" + "archive_id" + "\\}", apiClient.escapeString(archiveId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "deleteLogsArchive");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    return apiClient.invokeAPIAsync(
+        "LogsArchivesApi.deleteLogsArchive",
+        localVarPath,
+        "DELETE",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        null,
+        false);
+  }
+
+  /**
    * Get an archive Get a specific archive from your organization.
    *
    * @param archiveId The ID of the archive. (required)
@@ -320,6 +554,14 @@ public class LogsArchivesApi {
    */
   public LogsArchive getLogsArchive(String archiveId) throws ApiException {
     return getLogsArchiveWithHttpInfo(archiveId).getData();
+  }
+
+  public CompletableFuture<LogsArchive> getLogsArchiveAsync(String archiveId) {
+    return getLogsArchiveWithHttpInfoAsync(archiveId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -388,6 +630,75 @@ public class LogsArchivesApi {
   }
 
   /**
+   * Get an archive Get a specific archive from your organization.
+   *
+   * @param archiveId The ID of the archive. (required)
+   * @return ApiResponse&lt;LogsArchive&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<LogsArchive>> getLogsArchiveWithHttpInfoAsync(
+      String archiveId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'archiveId' is set
+    if (archiveId == null) {
+      CompletableFuture<ApiResponse<LogsArchive>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'archiveId' when calling getLogsArchive"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/logs/config/archives/{archive_id}"
+            .replaceAll("\\{" + "archive_id" + "\\}", apiClient.escapeString(archiveId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getLogsArchive");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
+
+    GenericType<LogsArchive> localVarReturnType = new GenericType<LogsArchive>() {};
+
+    return apiClient.invokeAPIAsync(
+        "LogsArchivesApi.getLogsArchive",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
    * Get archive order Get the current order of your archives. This endpoint takes no JSON
    * arguments.
    *
@@ -403,6 +714,14 @@ public class LogsArchivesApi {
    */
   public LogsArchiveOrder getLogsArchiveOrder() throws ApiException {
     return getLogsArchiveOrderWithHttpInfo().getData();
+  }
+
+  public CompletableFuture<LogsArchiveOrder> getLogsArchiveOrderAsync() {
+    return getLogsArchiveOrderWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -461,6 +780,61 @@ public class LogsArchivesApi {
   }
 
   /**
+   * Get archive order Get the current order of your archives. This endpoint takes no JSON
+   * arguments.
+   *
+   * @return ApiResponse&lt;LogsArchiveOrder&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<LogsArchiveOrder>> getLogsArchiveOrderWithHttpInfoAsync() {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/logs/config/archive-order";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getLogsArchiveOrder");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
+
+    GenericType<LogsArchiveOrder> localVarReturnType = new GenericType<LogsArchiveOrder>() {};
+
+    return apiClient.invokeAPIAsync(
+        "LogsArchivesApi.getLogsArchiveOrder",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
    * List read roles for an archive Returns all read roles a given archive is restricted to.
    *
    * @param archiveId The ID of the archive. (required)
@@ -478,6 +852,14 @@ public class LogsArchivesApi {
    */
   public RolesResponse listArchiveReadRoles(String archiveId) throws ApiException {
     return listArchiveReadRolesWithHttpInfo(archiveId).getData();
+  }
+
+  public CompletableFuture<RolesResponse> listArchiveReadRolesAsync(String archiveId) {
+    return listArchiveReadRolesWithHttpInfoAsync(archiveId)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -547,6 +929,75 @@ public class LogsArchivesApi {
   }
 
   /**
+   * List read roles for an archive Returns all read roles a given archive is restricted to.
+   *
+   * @param archiveId The ID of the archive. (required)
+   * @return ApiResponse&lt;RolesResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<RolesResponse>> listArchiveReadRolesWithHttpInfoAsync(
+      String archiveId) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'archiveId' is set
+    if (archiveId == null) {
+      CompletableFuture<ApiResponse<RolesResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'archiveId' when calling listArchiveReadRoles"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/logs/config/archives/{archive_id}/readers"
+            .replaceAll("\\{" + "archive_id" + "\\}", apiClient.escapeString(archiveId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listArchiveReadRoles");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
+
+    GenericType<RolesResponse> localVarReturnType = new GenericType<RolesResponse>() {};
+
+    return apiClient.invokeAPIAsync(
+        "LogsArchivesApi.listArchiveReadRoles",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
    * Get all archives Get the list of configured logs archives with their definitions.
    *
    * @return LogsArchives
@@ -561,6 +1012,14 @@ public class LogsArchivesApi {
    */
   public LogsArchives listLogsArchives() throws ApiException {
     return listLogsArchivesWithHttpInfo().getData();
+  }
+
+  public CompletableFuture<LogsArchives> listLogsArchivesAsync() {
+    return listLogsArchivesWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -618,6 +1077,60 @@ public class LogsArchivesApi {
   }
 
   /**
+   * Get all archives Get the list of configured logs archives with their definitions.
+   *
+   * @return ApiResponse&lt;LogsArchives&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<LogsArchives>> listLogsArchivesWithHttpInfoAsync() {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v2/logs/config/archives";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listLogsArchives");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
+
+    GenericType<LogsArchives> localVarReturnType = new GenericType<LogsArchives>() {};
+
+    return apiClient.invokeAPIAsync(
+        "LogsArchivesApi.listLogsArchives",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
    * Revoke role from an archive Removes a role from an archive. ([Roles
    * API](https://docs.datadoghq.com/api/v2/roles/))
    *
@@ -636,6 +1149,15 @@ public class LogsArchivesApi {
    */
   public void removeRoleFromArchive(String archiveId, RelationshipToRole body) throws ApiException {
     removeRoleFromArchiveWithHttpInfo(archiveId, body);
+  }
+
+  public CompletableFuture<Void> removeRoleFromArchiveAsync(
+      String archiveId, RelationshipToRole body) {
+    return removeRoleFromArchiveWithHttpInfoAsync(archiveId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -710,6 +1232,84 @@ public class LogsArchivesApi {
   }
 
   /**
+   * Revoke role from an archive Removes a role from an archive. ([Roles
+   * API](https://docs.datadoghq.com/api/v2/roles/))
+   *
+   * @param archiveId The ID of the archive. (required)
+   * @param body (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 204 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<Void>> removeRoleFromArchiveWithHttpInfoAsync(
+      String archiveId, RelationshipToRole body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'archiveId' is set
+    if (archiveId == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400,
+              "Missing the required parameter 'archiveId' when calling removeRoleFromArchive"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<Void>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling removeRoleFromArchive"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/logs/config/archives/{archive_id}/readers"
+            .replaceAll("\\{" + "archive_id" + "\\}", apiClient.escapeString(archiveId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "removeRoleFromArchive");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {"application/json"};
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    return apiClient.invokeAPIAsync(
+        "LogsArchivesApi.removeRoleFromArchive",
+        localVarPath,
+        "DELETE",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        null,
+        false);
+  }
+
+  /**
    * Update an archive Update a given archive configuration. **Note**: Using this method updates
    * your archive configuration by **replacing** your current configuration with the new one sent to
    * your Datadog organization.
@@ -731,6 +1331,15 @@ public class LogsArchivesApi {
   public LogsArchive updateLogsArchive(String archiveId, LogsArchiveCreateRequest body)
       throws ApiException {
     return updateLogsArchiveWithHttpInfo(archiveId, body).getData();
+  }
+
+  public CompletableFuture<LogsArchive> updateLogsArchiveAsync(
+      String archiveId, LogsArchiveCreateRequest body) {
+    return updateLogsArchiveWithHttpInfoAsync(archiveId, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -808,6 +1417,86 @@ public class LogsArchivesApi {
   }
 
   /**
+   * Update an archive Update a given archive configuration. **Note**: Using this method updates
+   * your archive configuration by **replacing** your current configuration with the new one sent to
+   * your Datadog organization.
+   *
+   * @param archiveId The ID of the archive. (required)
+   * @param body New definition of the archive. (required)
+   * @return ApiResponse&lt;LogsArchive&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<LogsArchive>> updateLogsArchiveWithHttpInfoAsync(
+      String archiveId, LogsArchiveCreateRequest body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'archiveId' is set
+    if (archiveId == null) {
+      CompletableFuture<ApiResponse<LogsArchive>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'archiveId' when calling updateLogsArchive"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<LogsArchive>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateLogsArchive"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v2/logs/config/archives/{archive_id}"
+            .replaceAll("\\{" + "archive_id" + "\\}", apiClient.escapeString(archiveId.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "updateLogsArchive");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {"application/json"};
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    GenericType<LogsArchive> localVarReturnType = new GenericType<LogsArchive>() {};
+
+    return apiClient.invokeAPIAsync(
+        "LogsArchivesApi.updateLogsArchive",
+        localVarPath,
+        "PUT",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
    * Update archive order Update the order of your archives. Since logs are processed sequentially,
    * reordering an archive may change the structure and content of the data processed by other
    * archives. **Note**: Using the &#x60;PUT&#x60; method updates your archive&#39;s order by
@@ -828,6 +1517,14 @@ public class LogsArchivesApi {
    */
   public LogsArchiveOrder updateLogsArchiveOrder(LogsArchiveOrder body) throws ApiException {
     return updateLogsArchiveOrderWithHttpInfo(body).getData();
+  }
+
+  public CompletableFuture<LogsArchiveOrder> updateLogsArchiveOrderAsync(LogsArchiveOrder body) {
+    return updateLogsArchiveOrderWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -881,6 +1578,75 @@ public class LogsArchivesApi {
     GenericType<LogsArchiveOrder> localVarReturnType = new GenericType<LogsArchiveOrder>() {};
 
     return apiClient.invokeAPI(
+        "LogsArchivesApi.updateLogsArchiveOrder",
+        localVarPath,
+        "PUT",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
+   * Update archive order Update the order of your archives. Since logs are processed sequentially,
+   * reordering an archive may change the structure and content of the data processed by other
+   * archives. **Note**: Using the &#x60;PUT&#x60; method updates your archive&#39;s order by
+   * replacing the current order with the new one.
+   *
+   * @param body An object containing the new ordered list of archive IDs. (required)
+   * @return ApiResponse&lt;LogsArchiveOrder&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+   *       <tr><td> 422 </td><td> Unprocessable Entity </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<LogsArchiveOrder>> updateLogsArchiveOrderWithHttpInfoAsync(
+      LogsArchiveOrder body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<LogsArchiveOrder>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'body' when calling updateLogsArchiveOrder"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v2/logs/config/archive-order";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "updateLogsArchiveOrder");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {"application/json"};
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    GenericType<LogsArchiveOrder> localVarReturnType = new GenericType<LogsArchiveOrder>() {};
+
+    return apiClient.invokeAPIAsync(
         "LogsArchivesApi.updateLogsArchiveOrder",
         localVarPath,
         "PUT",

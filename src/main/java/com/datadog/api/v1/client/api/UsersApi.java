@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
 import javax.ws.rs.core.GenericType;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
@@ -64,6 +65,14 @@ public class UsersApi {
    */
   public UserResponse createUser(User body) throws ApiException {
     return createUserWithHttpInfo(body).getData();
+  }
+
+  public CompletableFuture<UserResponse> createUserAsync(User body) {
+    return createUserWithHttpInfoAsync(body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -129,6 +138,71 @@ public class UsersApi {
   }
 
   /**
+   * Create a user Create a user for your organization. **Note**: Users can only be created with the
+   * admin access role if application keys belong to administrators.
+   *
+   * @param body User object that needs to be created. (required)
+   * @return ApiResponse&lt;UserResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> User created </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 409 </td><td> Conflict </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<UserResponse>> createUserWithHttpInfoAsync(User body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<UserResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'body' when calling createUser"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath = "/api/v1/user";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "createUser");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {"application/json"};
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
+
+    GenericType<UserResponse> localVarReturnType = new GenericType<UserResponse>() {};
+
+    return apiClient.invokeAPIAsync(
+        "UsersApi.createUser",
+        localVarPath,
+        "POST",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
    * Disable a user Delete a user from an organization. **Note**: This endpoint can only be used
    * with application keys belonging to administrators.
    *
@@ -147,6 +221,14 @@ public class UsersApi {
    */
   public UserDisableResponse disableUser(String userHandle) throws ApiException {
     return disableUserWithHttpInfo(userHandle).getData();
+  }
+
+  public CompletableFuture<UserDisableResponse> disableUserAsync(String userHandle) {
+    return disableUserWithHttpInfoAsync(userHandle)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -218,6 +300,77 @@ public class UsersApi {
   }
 
   /**
+   * Disable a user Delete a user from an organization. **Note**: This endpoint can only be used
+   * with application keys belonging to administrators.
+   *
+   * @param userHandle The handle of the user. (required)
+   * @return ApiResponse&lt;UserDisableResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> User disabled </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<UserDisableResponse>> disableUserWithHttpInfoAsync(
+      String userHandle) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'userHandle' is set
+    if (userHandle == null) {
+      CompletableFuture<ApiResponse<UserDisableResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'userHandle' when calling disableUser"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/user/{user_handle}"
+            .replaceAll(
+                "\\{" + "user_handle" + "\\}", apiClient.escapeString(userHandle.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "disableUser");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    GenericType<UserDisableResponse> localVarReturnType = new GenericType<UserDisableResponse>() {};
+
+    return apiClient.invokeAPIAsync(
+        "UsersApi.disableUser",
+        localVarPath,
+        "DELETE",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
    * Get user details Get a user&#39;s details.
    *
    * @param userHandle The ID of the user. (required)
@@ -234,6 +387,14 @@ public class UsersApi {
    */
   public UserResponse getUser(String userHandle) throws ApiException {
     return getUserWithHttpInfo(userHandle).getData();
+  }
+
+  public CompletableFuture<UserResponse> getUserAsync(String userHandle) {
+    return getUserWithHttpInfoAsync(userHandle)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -302,6 +463,74 @@ public class UsersApi {
   }
 
   /**
+   * Get user details Get a user&#39;s details.
+   *
+   * @param userHandle The ID of the user. (required)
+   * @return ApiResponse&lt;UserResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK for get user </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<UserResponse>> getUserWithHttpInfoAsync(String userHandle) {
+    Object localVarPostBody = null;
+
+    // verify the required parameter 'userHandle' is set
+    if (userHandle == null) {
+      CompletableFuture<ApiResponse<UserResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'userHandle' when calling getUser"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/user/{user_handle}"
+            .replaceAll(
+                "\\{" + "user_handle" + "\\}", apiClient.escapeString(userHandle.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "getUser");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    GenericType<UserResponse> localVarReturnType = new GenericType<UserResponse>() {};
+
+    return apiClient.invokeAPIAsync(
+        "UsersApi.getUser",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
    * List all users List all users for your organization.
    *
    * @return UserListResponse
@@ -316,6 +545,14 @@ public class UsersApi {
    */
   public UserListResponse listUsers() throws ApiException {
     return listUsersWithHttpInfo().getData();
+  }
+
+  public CompletableFuture<UserListResponse> listUsersAsync() {
+    return listUsersWithHttpInfoAsync()
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -373,6 +610,60 @@ public class UsersApi {
   }
 
   /**
+   * List all users List all users for your organization.
+   *
+   * @return ApiResponse&lt;UserListResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<UserListResponse>> listUsersWithHttpInfoAsync() {
+    Object localVarPostBody = null;
+    // create path and map variables
+    String localVarPath = "/api/v1/user";
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "listUsers");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {};
+
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"AuthZ", "apiKeyAuth", "appKeyAuth"};
+
+    GenericType<UserListResponse> localVarReturnType = new GenericType<UserListResponse>() {};
+
+    return apiClient.invokeAPIAsync(
+        "UsersApi.listUsers",
+        localVarPath,
+        "GET",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
    * Update a user Update a user information. **Note**: It can only be used with application keys
    * belonging to administrators.
    *
@@ -392,6 +683,14 @@ public class UsersApi {
    */
   public UserResponse updateUser(String userHandle, User body) throws ApiException {
     return updateUserWithHttpInfo(userHandle, body).getData();
+  }
+
+  public CompletableFuture<UserResponse> updateUserAsync(String userHandle, User body) {
+    return updateUserWithHttpInfoAsync(userHandle, body)
+        .thenApply(
+            response -> {
+              return response.getData();
+            });
   }
 
   /**
@@ -452,6 +751,85 @@ public class UsersApi {
     GenericType<UserResponse> localVarReturnType = new GenericType<UserResponse>() {};
 
     return apiClient.invokeAPI(
+        "UsersApi.updateUser",
+        localVarPath,
+        "PUT",
+        localVarQueryParams,
+        localVarPostBody,
+        localVarHeaderParams,
+        localVarCookieParams,
+        localVarFormParams,
+        localVarAccept,
+        localVarContentType,
+        localVarAuthNames,
+        localVarReturnType,
+        false);
+  }
+
+  /**
+   * Update a user Update a user information. **Note**: It can only be used with application keys
+   * belonging to administrators.
+   *
+   * @param userHandle The ID of the user. (required)
+   * @param body Description of the update. (required)
+   * @return ApiResponse&lt;UserResponse&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+   *     <table summary="Response Details" border="1">
+   *       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+   *       <tr><td> 200 </td><td> User updated </td><td>  -  </td></tr>
+   *       <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+   *       <tr><td> 403 </td><td> Authentication error </td><td>  -  </td></tr>
+   *       <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+   *       <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+   *     </table>
+   */
+  public CompletableFuture<ApiResponse<UserResponse>> updateUserWithHttpInfoAsync(
+      String userHandle, User body) {
+    Object localVarPostBody = body;
+
+    // verify the required parameter 'userHandle' is set
+    if (userHandle == null) {
+      CompletableFuture<ApiResponse<UserResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(
+              400, "Missing the required parameter 'userHandle' when calling updateUser"));
+      return result;
+    }
+
+    // verify the required parameter 'body' is set
+    if (body == null) {
+      CompletableFuture<ApiResponse<UserResponse>> result = new CompletableFuture<>();
+      result.completeExceptionally(
+          new ApiException(400, "Missing the required parameter 'body' when calling updateUser"));
+      return result;
+    }
+    // create path and map variables
+    String localVarPath =
+        "/api/v1/user/{user_handle}"
+            .replaceAll(
+                "\\{" + "user_handle" + "\\}", apiClient.escapeString(userHandle.toString()));
+
+    // query params
+    List<Pair> localVarQueryParams = new ArrayList<Pair>();
+    Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+    Map<String, String> localVarCookieParams = new HashMap<String, String>();
+    Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+    // Set Operation-ID header for telemetry
+    localVarHeaderParams.put("DD-OPERATION-ID", "updateUser");
+
+    final String[] localVarAccepts = {"application/json"};
+    final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+
+    final String[] localVarContentTypes = {"application/json"};
+    final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+    String[] localVarAuthNames = new String[] {"apiKeyAuth", "appKeyAuth"};
+
+    GenericType<UserResponse> localVarReturnType = new GenericType<UserResponse>() {};
+
+    return apiClient.invokeAPIAsync(
         "UsersApi.updateUser",
         localVarPath,
         "PUT",
